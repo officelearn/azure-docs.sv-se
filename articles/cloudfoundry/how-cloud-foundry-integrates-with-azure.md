@@ -1,6 +1,6 @@
 ---
 title: Hur Cloud Foundry är integrerat med Azure | Microsoft Docs
-description: Beskriver hur Cloud Foundry kan utlize Azure-tjänster för att förbättra upplevelsen Enterprice
+description: Beskriver hur Cloud Foundry kan utnyttja Azure-tjänster för att förbättra upplevelsen Enterprice
 services: virtual-machines-linux
 documentationcenter: ''
 author: ningk
@@ -15,22 +15,22 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 908b7e40c0509d7034b86985ac0775635726a6b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406151"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329811"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
 [Cloud Foundry](https://docs.cloudfoundry.org/) är en PaaS-plattform som körs ovanpå molnleverantörer IaaS-plattformen. Den erbjuder enhetlig tillämpning distributionsupplevelse över molnleverantörer. Dessutom kan den också integreras med olika Azure-tjänster, med företagsklass hög tillgänglighet, skalbarhet och kostnadsbesparingar.
-Det finns [6 delsystem i Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), som kan vara ett flexibelt sätt skala online, inklusive: routning, autentisering, livscykelhantering för program, servicehantering, meddelanden och övervakning. För varje delsystem kan du konfigurera Cloud Foundry för att använda motsvarande Azure-tjänsten. 
+Det finns [6 delsystem i Cloud Foundry](https://docs.cloudfoundry.org/concepts/architecture/), som kan vara ett flexibelt sätt skala online, inklusive: Routning, autentisering, livscykelhantering för program, servicehantering, meddelanden och övervakning. För varje delsystem kan du konfigurera Cloud Foundry för att använda motsvarande Azure-tjänsten. 
 
 ![Cloud Foundry på Azure-Integreringsarkitektur](media/CFOnAzureEcosystem-colored.png)
 
 ## <a name="1-high-availability-and-scalability"></a>1. Hög tillgänglighet och skalbarhet
-### <a name="managed-disk"></a>Hanterad Disk
+### <a name="managed-disk"></a>Managed Disk
 Bosh använder Azure CPI (Cloud Provider Interface) för att skapa för disken och ta bort rutiner. Som standard används ohanterade diskar. Det kräver att kunden att manuellt skapa storage-konton och sedan konfigurerar konton i CF manifestfiler. Detta beror på begränsningen av antalet diskar per lagringskonto.
 Nu [Managed Disk](https://azure.microsoft.com/services/managed-disks/) är tillgänglig, erbjuder hanterade diskar för säker och tillförlitlig lagring för virtuella datorer. Kunden behöver inte längre behöver bry dig om storage-konto för skalbarhet och hög tillgänglighet. Azure ordnar diskar automatiskt. Om det är en ny eller en befintlig distribution kan hanterar Azure-CPI generering och migrering av den hantera disken under en CF-distribution. Det går med PCF 1.11. Du kan även utforska öppen källkod Cloud Foundry [Managed Disk vägledning](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) referens. 
 ### <a name="availability-zone-"></a>Tillgänglighetszon *

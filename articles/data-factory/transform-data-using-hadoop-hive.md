@@ -8,18 +8,19 @@ manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
+ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/16/2018
+ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: 6dc702b4bcffc0d1dec299093aa05ba480e9bbf8
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019987"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321344"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformera data med Hadoop Hive-aktivitet i Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-hive-activity.md)
 > * [Aktuell version](transform-data-using-hadoop-hive.md)
 
@@ -55,17 +56,18 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
-| Egenskap             | Beskrivning                              | Krävs |
-| ------------------- | ---------------------------------------- | -------- |
-| namn                | Namn på aktiviteten                     | Ja      |
-| beskrivning         | Text som beskriver vad aktiviteten används till | Nej       |
-| typ                | Aktivitetstypen är HDinsightHive för Hive-aktivitet | Ja      |
+| Egenskap             | Beskrivning                                                  | Krävs |
+| ------------------- | ------------------------------------------------------------ | -------- |
+| namn                | Namn på aktiviteten                                         | Ja      |
+| beskrivning         | Text som beskriver vad aktiviteten används till                | Nej       |
+| typ                | Aktivitetstypen är HDinsightHive för Hive-aktivitet        | Ja      |
 | linkedServiceName   | Referens till HDInsight-kluster som är registrerad som en länkad tjänst i Datafabriken. Mer information om den här länkade tjänsten, se [länkade tjänster för Compute](compute-linked-services.md) artikeln. | Ja      |
 | scriptLinkedService | Referens till en Azure Storage-länkade tjänst som används för att lagra Hive-skriptet som ska köras. Om du inte anger den här länkade tjänsten, används den Azure Storage länkade tjänsten definieras i den länkade tjänsten HDInsight. | Nej       |
 | scriptPath          | Ange sökvägen till skriptfilen som lagras i Azure Storage som anges med scriptLinkedService. Filnamnet är skiftlägeskänsligt. | Ja      |
 | getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges med scriptLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
 | argument           | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
 | definierar             | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
+| queryTimeout        | Fråga efter värdet för tidsgränsen (i minuter).  Gäller när HDInsight-klustret är med Enterprise Security Package aktiverat. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 

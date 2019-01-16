@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 2aa0b152a4fd50e8023df00ec5dd59d1b2a6e6b0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 275c954ac54aab5ab4b41f4d6f6610a01573483f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262242"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319077"
 ---
 # <a name="get-started-with-auto-scale-by-custom-metric-in-azure"></a>Komma igång med automatisk skalning med anpassat mått i Azure
 Den här artikeln beskriver hur du skalar din resurs genom ett anpassat mått i Azure-portalen.
@@ -39,7 +39,7 @@ Den här artikeln förutsätter att du har en webbapp med application insights h
 > Obs! Om det finns ett problem med att läsa mätvärden för resurs och den aktuella kapaciteten är under standardkapacitet, sedan skalas för att säkerställa tillgängligheten för resursen, automatisk skalning ut till standardvärdet. Om den aktuella kapaciteten är högre än standardkapacitet, kommer autoskalning inte att skala in.
 - Klicka på ”Spara”
 
-Grattis! Du nu har skapat din skalinställning för att automatiskt skala din webbapp baserat på ett anpassat mått.
+Grattis! Du nu skapat har din skalningsuppsättning att ställa in automatisk skalning webbappen baserat på ett anpassat mått.
 
 > Obs! Samma steg kan användas för att komma igång med en VMSS eller cloud service-roll.
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: adb4b57ce304a3c6e369d6cc68dbb7c5857fb9fe
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a481f5b073b7e8db9135d7b10cf602168290738a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243287"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331375"
 ---
 # <a name="manage-users-in-azure-blockchain-workbench"></a>Hantera användare i Azure Blockchain Workbench
 
@@ -49,7 +49,7 @@ När användare har lagts till katalogen, är nästa steg att välja vilka anvä
 Lägga till användare till den **administratör** i Azure AD-katalog:
 
 1.  Logga in på [Azure Portal](https://portal.azure.com).
-2.  Kontrollera att du är i Azure AD-klient som är kopplad till Blockchain Workbench genom att välja ditt konto i det övre högra hörnet.
+2.  Kontrollera att du är i Azure AD-klient som är kopplad till Blockchain Workbench genom att välja kontot i det övre högra hörnet.
 3.  Välj **Azure Active Directory > företagsprogram**.
 4.  Välj Azure AD-klientprogram för Blockchain Workbench
     

@@ -1,10 +1,10 @@
 ---
-title: På ett säkert sätt Migrera användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory | Microsoft Docs
+title: Så här migrerar du användare mellan produktlicenser med grupper – Azure Active Directory | Microsoft Docs
 description: Beskriver rekommenderade processen för att migrera användare mellan olika produktlicenser (Office 365 Enterprise E1 och E3) med hjälp av gruppbaserad licensiering
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/29/2018
-ms.author: piotrci
-ms.openlocfilehash: 643339545dac6ec35ab44f2a05fbe417dea2bb71
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 68d4cdf3c7ba08f7cf37132936c6769c99c177cc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211799"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319426"
 ---
 # <a name="how-to-safely-migrate-users-between-product-licenses-by-using-group-based-licensing"></a>På ett säkert sätt Migrera användare mellan produktlicenser med gruppbaserad licensiering
 
@@ -66,15 +67,15 @@ Migrering målet är att använda gruppbaserad licensiering för att ändra anv�
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrera en enskild användare med hjälp av Azure-portalen
 Det här är en enkel genomgång för hur du migrerar en enskild användare.
 
-**STEG 1**: användaren har en *källkodslicens* som ärvs från gruppen. Det finns inga direkta tilldelningar för licensen för:
+**STEG 1**: Användaren har en *källkodslicens* som ärvs från gruppen. Det finns inga direkta tilldelningar för licensen för:
 
 ![Användare med en källkodslicens som ärvs från gruppen](./media/licensing-groups-change-licenses/UserWithSourceLicenseInherited.png)
 
-**STEG 2**: användaren har lagts till i målgruppen och gruppbaserad licensiering bearbetar ändringen. Användaren har nu både den *källkodslicens* och *target licens* som ärvs från grupper:
+**STEG 2**: Användaren har lagts till i målgruppen och gruppbaserad licensiering bearbetar ändringen. Användaren har nu både den *källkodslicens* och *target licens* som ärvs från grupper:
 
 ![Användare med en källa och mål-licens har ärvts från grupper](./media/licensing-groups-change-licenses/UserWithBothSourceAndTargetLicense.png)
 
-**STEG 3**: användaren tas bort från gruppen och gruppbaserad licensiering bearbetar ändringen. Användaren har nu endast den *target licens*:
+**STEG 3**: Användaren tas bort från gruppen och gruppbaserad licensiering bearbetar ändringen. Användaren har nu endast den *target licens*:
 
 ![Användare med en mål-licens som ärvs från gruppen](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssigned.png)
 
@@ -176,7 +177,7 @@ Check passed for all users. Exiting check loop.
 ```
 
 ## <a name="migrate-users-between-products-that-have-conflicting-service-plans"></a>Migrera användare mellan produkter som har tjänstplanerna
-Migrering målet är att använda gruppbaserad licensiering för att ändra användarlicenser från en *källkodslicens* (i det här exemplet: Office 365 Enterprise E1) till en *target licens* (i det här exemplet: Office 365 Enterprise E3). De här två produkterna i det här scenariot innehåller tjänstplanerna, så du kan lösa konflikten sömlöst migrera användarna. Mer information om dessa konflikter finns i [Active Directory licensiering grupp problemlösning: tjänstplanerna](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Någon gång under migreringen bör användare förlora åtkomsten till tjänster eller data. Migreringen utförs batchvis små ””. Du kan verifiera resultatet för varje batch och minimera omfånget för eventuella problem som kan uppstå under processen. Övergripande är processen följande:
+Migrering målet är att använda gruppbaserad licensiering för att ändra användarlicenser från en *källkodslicens* (i det här exemplet: Office 365 Enterprise E1) till en *target licens* (i det här exemplet: Office 365 Enterprise E3). De här två produkterna i det här scenariot innehåller tjänstplanerna, så du kan lösa konflikten sömlöst migrera användarna. Läs mer om dessa konflikter [Active Directory licensiering problemlösning för gruppen: Tjänstplanerna](https://docs.microsoft.com/azure/active-directory/active-directory-licensing-group-problem-resolution-azure-portal#conflicting-service-plans). Någon gång under migreringen bör användare förlora åtkomsten till tjänster eller data. Migreringen utförs batchvis små ””. Du kan verifiera resultatet för varje batch och minimera omfånget för eventuella problem som kan uppstå under processen. Övergripande är processen följande:
 
 1.  Användarna är medlemmar i gruppen för en datakälla och ärver de den *källkodslicens* från gruppen.
 
@@ -195,15 +196,15 @@ Migrering målet är att använda gruppbaserad licensiering för att ändra anv�
 ### <a name="migrate-a-single-user-by-using-the-azure-portal"></a>Migrera en enskild användare med hjälp av Azure-portalen
 Det här är en enkel genomgång för hur du migrerar en enskild användare.
 
-**STEG 1**: användaren har en *källkodslicens* som ärvs från gruppen. Det finns inga direkta tilldelningar för licensen för:
+**STEG 1**: Användaren har en *källkodslicens* som ärvs från gruppen. Det finns inga direkta tilldelningar för licensen för:
 
 ![Användare med en källkodslicens som ärvs från gruppen](./media/licensing-groups-change-licenses/UserWithSourceLicenseInheritedConflictScenario.png)
 
-**STEG 2**: användaren har lagts till i målgruppen och gruppbaserad licensiering bearbetar ändringen. Eftersom användaren fortfarande har den *källkodslicens*, *target licens* är i ett feltillstånd på grund av konflikten:
+**STEG 2**: Användaren har lagts till i målgruppen och gruppbaserad licensiering bearbetar ändringen. Eftersom användaren fortfarande har den *källkodslicens*, *target licens* är i ett feltillstånd på grund av konflikten:
 
 ![Användare med en källkodslicens som ärvs från gruppen och mål-licens i ett feltillstånd](./media/licensing-groups-change-licenses/UserWithSourceLicenseAndTargetLicenseInConflict.png)
 
-**STEG 3**: användaren tas bort från gruppen och gruppbaserad licensiering bearbetar ändringen. Den *target licens* tillämpas för användaren:
+**STEG 3**: Användaren tas bort från gruppen och gruppbaserad licensiering bearbetar ändringen. Den *target licens* tillämpas för användaren:
 
 ![Användare med en mål-licens som ärvs från gruppen](./media/licensing-groups-change-licenses/UserWithTargetLicenseAssignedConflictScenario.png)
 

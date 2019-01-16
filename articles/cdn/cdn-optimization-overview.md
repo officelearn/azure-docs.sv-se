@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: magattus
-ms.openlocfilehash: 54979bdaab3d3d49ab3d3a08868dd28e27423e7e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 526f3522bff05618189ad4f8205fbb61afc47fdc
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091750"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320329"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Optimera Azure CDN för typ av leverans av innehåll
 
@@ -83,7 +83,7 @@ Allmän webbleverans är det vanligaste alternativet för optimering. Den är ut
 En typisk webbplats innehåller statiskt och dynamiskt innehåll. Statiskt innehåll innehåller bilder, JavaScript-bibliotek och formatmallar som kan cachelagras och levereras till olika användare. Dynamiskt innehåll anpassas för en enskild användare, till exempel news-objekt som är anpassade efter en användarprofil. Dynamiskt innehåll, till exempel i kundvagnen innehåll, cachelagras inte på grund av att det är unikt för varje användare. Allmän webbleverans kan optimera hela webbplatsen. 
 
 > [!NOTE]
-> Om du använder en **Azure CDN Standard från Akamai** profilen, Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är mindre än 10 MB. Välj Othewise om genomsnittliga filstorleken är större än 10 MB **nedladdning av stora filer** från den **optimerade för** listrutan.
+> Om du använder en **Azure CDN Standard från Akamai** profilen, Välj den här typen av slutpunktsoptimering om genomsnittliga filstorleken är mindre än 10 MB. Annars, om genomsnittliga filstorleken är större än 10 MB väljer **nedladdning av stora filer** från den **optimerade för** listrutan.
 
 ### <a name="general-media-streaming"></a>Allmän mediedirektuppspelning
 

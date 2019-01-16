@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: e1fe5af1769a0a1a83a3ce849a7eb1874369ce9a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fb0448e5ad5bd91c63c2fcde9887ec23544bed3f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023380"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331358"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines och aktiviteter i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,15 +28,15 @@ ms.locfileid: "54023380"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Pipelines i V2](../concepts-pipelines-activities.md).
 
-I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.  
+I den här artikeln beskriver vi pipelines och aktiviteter i Azure Data Factory och hur du kan använda dem för att konstruera datadrivna arbetsflöden från slutpunkt till slutpunkt för dina dataförflyttnings- och databearbetningsscenarier.
 
 > [!NOTE]
-> Den här artikeln förutsätter att du har gått igenom [introduktion till Azure Data Factory](data-factory-introduction.md). Om du inte har praktiska-på-upplevelse med att skapa datafabriker, gå igenom [självstudien för omvandling av data](data-factory-build-your-first-pipeline.md) och/eller [data movement självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) skulle hjälpa dig att bättre förstå den här artikeln.  
+> Den här artikeln förutsätter att du har gått igenom [introduktion till Azure Data Factory](data-factory-introduction.md). Om du inte har praktiska-på-upplevelse med att skapa datafabriker, gå igenom [självstudien för omvandling av data](data-factory-build-your-first-pipeline.md) och/eller [data movement självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) skulle hjälpa dig att bättre förstå den här artikeln.
 
 ## <a name="overview"></a>Översikt
-En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta/transformera data från Blob Storage för att producera utdata. Till sist använder du en andra kopieringsaktivitet för att kopiera utdata till ett Azure SQL Data Warehouse som Business Intelligence-rapporteringslösningar har skapats på. 
+En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering aktiviteter som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en kopieringsaktivitet för att kopiera data från en lokal SQL Server till Azure Blob Storage. Använd sedan en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster för att bearbeta/transformera data från Blob Storage för att producera utdata. Till sist använder du en andra kopieringsaktivitet för att kopiera utdata till ett Azure SQL Data Warehouse som Business Intelligence-rapporteringslösningar har skapats på.
 
-En aktivitet kan ha noll eller flera [indatauppsättningar](data-factory-create-datasets.md) och kan producera en eller flera [utdatauppsättningar](data-factory-create-datasets.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory: 
+En aktivitet kan ha noll eller flera [indatauppsättningar](data-factory-create-datasets.md) och kan producera en eller flera [utdatauppsättningar](data-factory-create-datasets.md). I följande diagram visas förhållandet mellan pipeline, aktivitet och datauppsättning i Data Factory:
 
 ![Förhållandet mellan pipeline, aktivitet och datauppsättning](media/data-factory-create-pipelines/relationship-pipeline-activity-dataset.png)
 
@@ -61,7 +61,7 @@ Mer information finns i artikeln [Dataförflyttningsaktiviteter](data-factory-da
 
 Mer information finns i artikeln [Datatransformeringsaktiviteter](data-factory-data-transformation-activities.md).
 
-### <a name="custom-net-activities"></a>Anpassa .NET-aktiviteter 
+### <a name="custom-net-activities"></a>Anpassa .NET-aktiviteter
 Om du behöver flytta data till/från ett datalager som Kopieringsaktivitet inte stöder, eller Transformera data med egen logik kan du skapa en **anpassad .NET-aktivitet**. Mer information om att skapa och använda en anpassad aktivitet finns i [Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)](data-factory-use-custom-activities.md).
 
 ## <a name="schedule-pipelines"></a>Schema-pipelines
@@ -73,7 +73,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 ```json
 {
     "name": "PipelineName",
-    "properties": 
+    "properties":
     {
         "description" : "pipeline description",
         "activities":
@@ -85,7 +85,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
         "isPaused": true/false,
         "pipelineMode": "scheduled/onetime",
         "expirationTime": "15.00:00:00",
-        "datasets": 
+        "datasets":
         [
         ]
     }
@@ -96,7 +96,7 @@ Nu tar vi en närmare titt på hur en pipeline definieras i JSON-format. Den all
 | --- | --- | --- |
 | namn |Namnet på pipeline. Ange ett namn som representerar åtgärden som pipeline utför. <br/><ul><li>Maximalt antal tecken: 260</li><li>Måste börja med en bokstav siffra eller ett understreck (\_)</li><li>Följande tecken är inte tillåtna ”:”., ”+” ”,”?, ”/”, ”<” ”, >” ”, *”, ”%”, ”&” ”,:” ”,\\”</li></ul> |Ja |
 | beskrivning | Ange texten som beskriver vad pipeline används till. |Ja |
-| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om aktiviteter JSON-element. | Ja |  
+| activities | Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Se nästa avsnitt för information om aktiviteter JSON-element. | Ja |
 | start | Starta datum / tid för pipelinen. Måste vara i [ISO-format](http://en.wikipedia.org/wiki/ISO_8601). Till exempel: `2016-10-14T16:32:41Z`. <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`”, vilket är 6 AM uppskattad<br/><br/>Egenskaper för start- och ange tillsammans aktiva perioden för pipelinen. Utdatasegment produceras bara med i den här aktiva period. |Nej<br/><br/>Om du anger ett värde för end-egenskapen, måste du ange värdet för egenskapen start.<br/><br/>Start- och sluttider kan vara tom för att skapa en pipeline. Du måste ange båda värdena för att ställa in en aktiva perioden för pipelinen att köra. Om du inte anger start- och sluttider när du skapar en pipeline kan du ange dem med hjälp av cmdleten Set-AzureRmDataFactoryPipelineActivePeriod senare. |
 | slut | Slutdatum /-tid för pipelinen. Om anges måste vara i ISO-format. Exempel: `2016-10-14T17:32:41Z` <br/><br/>Det är möjligt att ange en lokal tid, till exempel en EST tid. Här är ett exempel: `2016-02-27T06:00:00-05:00`, vilket är 6 AM EST.<br/><br/>Om du vill köra pipelinen på obestämd tid, ange 9999-09-09 som värde för end-egenskapen. <br/><br/> En pipeline är aktiv endast mellan dess start- och sluttid. Då utförs inte före starttiden eller efter sluttiden. Om pipelinen pausas körs den inte oavsett dess start- och tid. För en pipeline kan köras, bör det inte pausas. Se [schemaläggning och körning](data-factory-scheduling-and-execution.md) förstår hur schemaläggning och körning fungerar i Azure Data Factory. |Nej <br/><br/>Om du anger ett värde för egenskapen start, måste du ange värdet för egenskapen slutet.<br/><br/>Se information om den **starta** egenskapen. |
 | isPaused | Om värdet är true, pipelinen inte körs. Det är i pausläge. Standardvärde = false. Du kan använda den här egenskapen för att aktivera eller inaktivera en pipeline. |Nej |
@@ -110,10 +110,10 @@ Avsnittet **activities** kan ha en eller flera definierade aktiviteter. Varje ak
 ```json
 {
     "name": "ActivityName",
-    "description": "description", 
+    "description": "description",
     "type": "<ActivityType>",
-    "inputs":  "[]",
-    "outputs":  "[]",
+    "inputs": "[]",
+    "outputs": "[]",
     "linkedServiceName": "MyLinkedService",
     "typeProperties":
     {
@@ -140,13 +140,12 @@ I följande tabell beskrivs egenskaperna i definitionen för aktivitets-JSON:
 | linkedServiceName |Namnet på den länkade tjänst som används av aktiviteten. <br/><br/>En aktivitet kan kräva att du anger den länkade tjänst som länkar till den nödvändiga beräkningsmiljön. |Ja för HDInsight-aktivitet och Azure Machine Learning-Batchbedömningsaktivitet <br/><br/>Nej för alla andra |
 | typeProperties |Egenskaper i den **typeProperties** avsnittet beror på typ av aktivitet. Om du vill visa typegenskaper för en aktivitet klickar du på länkarna till aktiviteten i föregående avsnitt. | Nej |
 | policy |Principer som påverkar körningsbeteende för aktiviteten. Om det inte anges används standardprinciper. |Nej |
-| Scheduler | ”schemaegenskapen” används för att definiera önskade schemaläggning för aktiviteten. Dess subegenskaper är samma som de i den [tillgänglighet-egenskapen i en datauppsättning](data-factory-create-datasets.md#dataset-availability). |Nej |
-
+| scheduler | ”schemaegenskapen” används för att definiera önskade schemaläggning för aktiviteten. Dess subegenskaper är samma som de i den [tillgänglighet-egenskapen i en datauppsättning](data-factory-create-datasets.md#dataset-availability). |Nej |
 
 ### <a name="policies"></a>Principer
 Principer påverkar körningsbeteende för en aktivitet, särskilt när sektorn i en tabell har bearbetats. I följande tabell innehåller information.
 
-| Egenskap | Tillåtna värden | Standardvärde | Beskrivning |
+| Egenskap  | Tillåtna värden | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
 | samtidighet |Integer <br/><br/>Maxvärde: 10 |1 |Antal samtidiga körningar av aktiviteten.<br/><br/>Den avgör antalet körningar för parallell aktivitet som kan inträffa på olika segment. Till exempel om en aktivitet behöver genomgå påskyndar en stor mängd tillgängliga data, med ett större värde för samtidighet databearbetningen. |
 | executionPriorityOrder |NewestFirst<br/><br/>OldestFirst |OldestFirst |Anger sorteringen av datasektorer som bearbetas.<br/><br/>Till exempel om du har 2 skär (en händer klockan 4 och en ny 17: 00) och båda är väntar på att köras. Om du ställer in executionPriorityOrder vara NewestFirst bearbetas sektor 17: 00 först. På samma sätt om du ställer in executionPriorityORder vara OldestFIrst bearbetas sedan sektorn klockan 4. |
@@ -157,7 +156,7 @@ Principer påverkar körningsbeteende för en aktivitet, särskilt när sektorn 
 | longRetryInterval |Tidsintervall |00:00:00 |Fördröjningen mellan långt återförsök |
 
 ## <a name="sample-copy-pipeline"></a>Exempel på kopieringspipeline
-I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exempel kopierar [kopieringsaktiviteten](data-factory-data-movement-activities.md) data från Azure Blob Storage till en Azure SQL-databas. 
+I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopiera) i avsnittet **activities**. I det här exempel kopierar [kopieringsaktiviteten](data-factory-data-movement-activities.md) data från Azure Blob Storage till en Azure SQL-databas.
 
 ```json
 {
@@ -199,19 +198,19 @@ I följande exempel på pipeline finns det en aktivitet av typen **Copy** (Kopie
     "start": "2016-07-12T00:00:00Z",
     "end": "2016-07-13T00:00:00Z"
   }
-} 
+}
 ```
 
 Observera följande punkter:
 
 * I avsnittet Aktiviteter finns det bara en aktivitet vars **typ** anges till **Kopia**.
-* Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**. I artikeln [Datauppsättningar](data-factory-create-datasets.md) finns information om hur du definierar datauppsättningar i JSON. 
-* I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. I den [dataförflyttningsaktiviteter](#data-movement-activities) klickar du på de datalager som du vill använda som källa eller mottagare att lära dig mer om att flytta data till/från det datalagringen. 
+* Indata för aktiviteten är inställd på **InputDataset** och utdata för aktiviteten är inställd på **OutputDataset**. I artikeln [Datauppsättningar](data-factory-create-datasets.md) finns information om hur du definierar datauppsättningar i JSON.
+* I avsnittet för **typeProperties** har **BlobSource** angetts som källtyp och **SqlSink** har angetts som mottagartyp. I den [dataförflyttningsaktiviteter](#data-movement-activities) klickar du på de datalager som du vill använda som källa eller mottagare att lära dig mer om att flytta data till/från det datalagringen.
 
-En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Kopiera data från Blob Storage till SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="sample-transformation-pipeline"></a>Exempel på transfomeringspipeline
-I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive** i avsnittet **activities**. I det här exemplet transformerar [HDInsight Hive-aktiviteten](data-factory-hive-activity.md) data från Azure Blob Storage genom att köra en Hive-skriptfil på ett Azure HDInsight Hadoop-kluster. 
+I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive** i avsnittet **activities**. I det här exemplet transformerar [HDInsight Hive-aktiviteten](data-factory-hive-activity.md) data från Azure Blob Storage genom att köra en Hive-skriptfil på ett Azure HDInsight Hadoop-kluster.
 
 ```json
 {
@@ -258,39 +257,38 @@ I följande exempel på pipeline finns det en aktivitet av typen **HDInsightHive
 }
 ```
 
-Observera följande punkter: 
+Observera följande punkter:
 
 * I activities-avsnittet finns det bara en aktivitet vars **typ** anges till **HDInsightHive**.
 * Hive-skriptfilen **partitionweblogs.hql** lagras i Azure-lagringskontot (anges med scriptLinkedService, kallas **AzureStorageLinkedService**), och i mappen **skript** i containern **adfgetstarted**.
 * Den `defines` används för att ange körningsinställningar som skickas till hive-skriptet som Hive-konfigurationsvärden (t.ex `${hiveconf:inputtable}`, `${hiveconf:partitionedtable}`).
 
-Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Mer information om egenskaper som stöds för en transformeringsaktivitet, klickar du på transformeringsaktivitet i den [datatransformeringsaktiviteter](#data-transformation-activities) tabell. 
+Avsnittet **typeProperties** är olika för varje transformeringsaktivitet. Mer information om egenskaper som stöds för en transformeringsaktivitet, klickar du på transformeringsaktivitet i den [datatransformeringsaktiviteter](#data-transformation-activities) tabell.
 
-En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md). 
+En fullständig genomgång för att skapa denna pipeline finns i [självstudien: Skapa din första pipeline för att bearbeta data med Hadoop-kluster](data-factory-build-your-first-pipeline.md).
 
 ## <a name="multiple-activities-in-a-pipeline"></a>Flera aktiviteter i en pipeline
-De två föregående exemplen innehåller bara en aktivitet. Du kan fler än en aktivitet i en pipeline.  
+De två föregående exemplen innehåller bara en aktivitet. Du kan fler än en aktivitet i en pipeline.
 
-Om du har flera aktiviteter i en pipeline och utdata för en aktivitet är inte en indata för en annan aktivitet, kan aktiviteterna köras parallellt om indata segmenten för aktiviteterna är redo. 
+Om du har flera aktiviteter i en pipeline och utdata för en aktivitet är inte en indata för en annan aktivitet, kan aktiviteterna köras parallellt om indata segmenten för aktiviteterna är redo.
 
 Du kan länka två aktiviteter genom att låta datauppsättningen för utdata för en aktivitet som den inkommande datauppsättningen för den andra aktiviteten. Den andra aktiviteten körs bara när den första som är helt klar.
 
 ![Länkning av aktiviteter i samma pipelinen](./media/data-factory-create-pipelines/chaining-one-pipeline.png)
 
-I det här exemplet har pipelinen två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och producerar utdata Dataset2. Aktiviteten tar Dataset2 som indata och producerar utdata Dataset3. Sedan utdata från Activity1 (Dataset2) är inmatning av Activity2, Activity2 körs endast när aktiviteten har slutförts och producerade sektorn Dataset2. Om Activity1 av någon anledning misslyckas och genererar inte Dataset2 sektorn, aktivitet 2 fungerar inte för den sektorn (till exempel: 9 är till 10 AM). 
+I det här exemplet har pipelinen två aktiviteter: Activity1 och Activity2. Activity1 tar Dataset1 som indata och producerar utdata Dataset2. Aktiviteten tar Dataset2 som indata och producerar utdata Dataset3. Sedan utdata från Activity1 (Dataset2) är inmatning av Activity2, Activity2 körs endast när aktiviteten har slutförts och producerade sektorn Dataset2. Om Activity1 av någon anledning misslyckas och genererar inte Dataset2 sektorn, aktivitet 2 fungerar inte för den sektorn (till exempel: 9 är till 10 AM).
 
 Du kan också länka aktiviteter som finns i olika pipelines.
 
 ![Kedjesammansättning av aktiviteter i två pipelines](./media/data-factory-create-pipelines/chaining-two-pipelines.png)
 
-I det här exemplet har Pipeline1 bara en aktivitet som tar Dataset1 som indata och producerar Dataset2 som utdata. Pipeline2 har också bara en aktivitet som tar Dataset2 som indata och Dataset3 som utdata. 
+I det här exemplet har Pipeline1 bara en aktivitet som tar Dataset1 som indata och producerar Dataset2 som utdata. Pipeline2 har också bara en aktivitet som tar Dataset2 som indata och Dataset3 som utdata.
 
-Mer information finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline). 
-
+Mer information finns i [schemaläggning och körning](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 ## <a name="create-and-monitor-pipelines"></a>Skapa och övervaka pipelines
-Du kan skapa pipelines med någon av dessa verktyg och SDK: er. 
+Du kan skapa pipelines med någon av dessa verktyg och SDK: er.
 
-- Guiden Kopiera. 
+- Guiden Kopiera.
 - Azure Portal
 - Visual Studio
 - Azure PowerShell
@@ -299,15 +297,14 @@ Du kan skapa pipelines med någon av dessa verktyg och SDK: er.
 - .NET-API
 
 Se följande självstudiekurser för stegvisa instruktioner för att skapa pipelines med någon av dessa verktyg och SDK: er.
- 
+
 - [Skapa en pipeline med en datatransformeringsaktivitet](data-factory-build-your-first-pipeline.md)
 - [Skapa en pipeline med en aktivitet för flytt av data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-När en pipeline är skapat/distribueras kan du hantera och övervaka dina pipelines med hjälp av bladen på Azure portal eller övervaka och Hanteringsappen. Se följande avsnitt hittar du stegvisa instruktioner. 
+När en pipeline är skapat/distribueras kan du hantera och övervaka dina pipelines med hjälp av bladen på Azure portal eller övervaka och Hanteringsappen. Se följande avsnitt hittar du stegvisa instruktioner.
 
 - [Övervaka och hantera pipelines med hjälp av Azure-portalblad](data-factory-monitor-manage-pipelines.md).
 - [Övervaka och hantera pipelines med hjälp av appen övervaka och hantera](data-factory-monitor-manage-app.md)
-
 
 ## <a name="onetime-pipeline"></a>Onetime pipeline
 Du kan skapa och schemalägga en pipeline kan köras med jämna mellanrum (till exempel: per timme eller per dag) i start- och sluttider som du anger i pipeline-definition. Se [schemalägga aktiviteter](#scheduling-and-execution) mer information. Du kan också skapa en pipeline som körs bara en gång. Om du vill göra det anger du den **pipelineMode** -egenskapen i pipeline-definition till **genomfört** enligt följande JSON-exempel. Standardvärdet för den här egenskapen är **schemalagda**.
@@ -339,10 +336,10 @@ Du kan skapa och schemalägga en pipeline kan köras med jämna mellanrum (till 
                     {
                         "name": "OutputDataset"
                     }
-                ]
+                ],
                 "name": "CopyActivity-0"
             }
-        ]
+        ],
         "pipelineMode": "OneTime"
     }
 }
@@ -351,13 +348,10 @@ Du kan skapa och schemalägga en pipeline kan köras med jämna mellanrum (till 
 Observera följande:
 
 * **Starta** och **slutet** sluttider för pipelinen har inte angetts.
-* **Tillgänglighet** för indata och utdata datauppsättningar har angetts (**frekvens** och **intervall**), även om Data Factory inte använder värdena.  
+* **Tillgänglighet** för indata och utdata datauppsättningar har angetts (**frekvens** och **intervall**), även om Data Factory inte använder värdena.
 * Diagramvyn visas inte enstaka pipelines. Det här beteendet är avsiktligt.
 * Enstaka pipelines kan inte uppdateras. Du kan klona en enstaka pipeline, Byt namn på den, uppdatera egenskaper och distribuerar den för att skapa en ny.
 
-
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om datauppsättningar, [skapa datauppsättningar](data-factory-create-datasets.md) artikeln. 
-- Läs mer om hur pipelines schemaläggs och körs, [schemaläggning och körning i Azure Data Factory](data-factory-scheduling-and-execution.md) artikeln. 
-  
-
+- Läs mer om datauppsättningar, [skapa datauppsättningar](data-factory-create-datasets.md) artikeln.
+- Läs mer om hur pipelines schemaläggs och körs, [schemaläggning och körning i Azure Data Factory](data-factory-scheduling-and-execution.md) artikeln.

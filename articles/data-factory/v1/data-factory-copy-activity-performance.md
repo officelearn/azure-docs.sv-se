@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 632e605a6f7c9885f3854ca1f7b69ed337a1eacc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 572f4535044e077ed245b0a231ccc9fa973a8a9b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025886"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331663"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 
@@ -108,7 +108,7 @@ En **cloud data movement enhet (dmu här)** är ett mått som representerar (en 
 Om du vill åsidosätta denna standardinställning, ange ett värde för den **cloudDataMovementUnits** egenskapen på följande sätt. Den **tillåtna värden** för den **cloudDataMovementUnits** egenskapen är 2, 4, 8, 16, 32. Den **faktiska antalet molntjänster DMUs** att kopieringen använder vid körning är lika med eller mindre än det konfigurerade värdet, beroende på din datamönster. Information om nivå av prestanda som du kan få när du konfigurerar fler enheter för en specifik kopieringskälla och mottagare finns i den [Prestandareferens](#performance-reference).
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -135,7 +135,7 @@ Om du vill åsidosätta denna standardinställning, ange ett värde för den **c
 ### <a name="parallelcopies"></a>parallelCopies
 Du kan använda den **parallelCopies** egenskap som anger parallellitet som du vill Kopieringsaktivitet att använda. Du kan tänka på den här egenskapen som det maximala antalet trådar i Kopieringsaktiviteten som kan läsa från källan eller skriva till dina datalager för mottagare parallellt.
 
-För varje körningen av Kopieringsaktiviteten, avgör hur många parallella kopior som ska använda för att kopiera data från källan datalagring och att sidan måldatalager lagra i Data Factory. Standardvärdet för antal parallella kopior som används beror på vilken typ av källa och mottagare som du använder.  
+För varje körningen av Kopieringsaktiviteten, avgör hur många parallella kopior som ska använda för att kopiera data från källan datalagring och att sidan måldatalager lagra i Data Factory. Standardvärdet för antal parallella kopior som används beror på vilken typ av källa och mottagare som du använder.
 
 | Källa och mottagare | Parallell kopia Standardantal bestäms av tjänsten |
 | --- | --- |
@@ -146,7 +146,7 @@ För varje körningen av Kopieringsaktiviteten, avgör hur många parallella kop
 Vanligtvis är standardbeteendet bör du få det bästa dataflödet. Men att styra belastningen på datorer som är värdar för dina data lagras eller om du vill justera prestanda för kopia som du kan välja att åsidosätta standardvärdet och ange ett värde för den **parallelCopies** egenskapen. Värdet måste vara mellan 1 och 32 (båda inkluderande). Vid körning använder för bästa prestanda Kopieringsaktiviteten ett värde som är mindre än eller lika med värdet som du anger.
 
 ```json
-"activities":[  
+"activities":[
     {
         "name": "Sample copy activity",
         "description": "",
@@ -176,7 +176,7 @@ Saker att Observera:
 >
 >
 
-Att använda dessa två egenskaper för bättre och förbättra din dataflyttflödet, finns i den [exempel på användningsområden](#case-study-use-parallel-copy). Du behöver inte konfigurera **parallelCopies** att dra nytta av standardbeteendet. Om du konfigurerar och **parallelCopies** är för liten flera moln DMUs inte kan användas fullt ut.  
+Att använda dessa två egenskaper för bättre och förbättra din dataflyttflödet, finns i den [exempel på användningsområden](#case-study-use-parallel-copy). Du behöver inte konfigurera **parallelCopies** att dra nytta av standardbeteendet. Om du konfigurerar och **parallelCopies** är för liten flera moln DMUs inte kan användas fullt ut.
 
 ### <a name="billing-impact"></a>Fakturering påverkan
 Den har **viktiga** att komma ihåg att du debiteras utifrån den totala tiden för kopieringsåtgärden. Om ett kopieringsjobb brukade ta en timme med en cloud enhet och så tar det nu 15 minuter med fyra molnenheter, förblir övergripande fakturan nästan samma. Exempelvis kan använda du fyra molnenheter för. Den första molnenheten tar 10 minuter, den andra mallen, 10: e minut, det tredje 5 minuter, och det fjärde 5 minuter, alla i en Kopieringsaktivitet körs. Du debiteras för totalt antal kopia (dataflytt)-tiden, vilket är 10 + 10 + 5 + 5 = 30 minuter. Med hjälp av **parallelCopies** påverkar inte fakturering.
@@ -216,7 +216,7 @@ Konfigurera den **enableStaging** inställningen i Kopieringsaktiviteten till at
 Här är en exempeldefinition av Kopieringsaktiviteten med egenskaper som beskrivs i tabellen ovan:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity",
     "type": "Copy",
@@ -273,9 +273,9 @@ Vi rekommenderar att du gör följande för att finjustera prestanda för Data F
 3. **Expandera konfigurationen till hela din datauppsättning**. När du är nöjd med resultat från instruktionskörningar och prestanda kan expandera du definitions- och pipelinens aktiva period för att täcka hela din datauppsättning.
 
 ## <a name="considerations-for-data-management-gateway"></a>Överväganden för Data Management Gateway
-**Installationsprogram för gateway**: Vi rekommenderar att du använder en dedikerad dator till värd Data Management Gateway. Se [att tänka på när Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).  
+**Installationsprogram för gateway**: Vi rekommenderar att du använder en dedikerad dator till värd Data Management Gateway. Se [att tänka på när Data Management Gateway](data-factory-data-management-gateway.md#considerations-for-using-gateway).
 
-**Gateway-övervakning och skala in/ut**: En enskild logisk gateway med en eller flera gateway-noder kan hantera flera Kopieringsaktivitet körs på samma gång samtidigt. Du kan visa nästan i realtid ögonblicksbild av Resursanvändning (processor, minne, network(in/out) osv) på en gateway-dator samt hur många samtidiga jobb som körs jämfört med gränsen i Azure-portalen finns i [övervakaren gateway i portalen](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Om du har behov av tunga på hybriddataförflyttning med stort antal samtidiga kopia aktivitetskörningar eller med stora mängder data som ska kopieras, Överväg att [skala upp eller skala ut gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) för att bättre utnyttja din resurs eller för att etablera Mer resursen möjligheter för kopia. 
+**Gateway-övervakning och skala in/ut**: En enskild logisk gateway med en eller flera gateway-noder kan hantera flera Kopieringsaktivitet körs på samma gång samtidigt. Du kan visa nästan i realtid ögonblicksbild av Resursanvändning (processor, minne, network(in/out) osv) på en gateway-dator samt hur många samtidiga jobb som körs jämfört med gränsen i Azure-portalen finns i [övervakaren gateway i portalen](data-factory-data-management-gateway.md#monitor-gateway-in-the-portal). Om du har behov av tunga på hybriddataförflyttning med stort antal samtidiga kopia aktivitetskörningar eller med stora mängder data som ska kopieras, Överväg att [skala upp eller skala ut gateway](data-factory-data-management-gateway-high-availability-scalability.md#scale-considerations) för att bättre utnyttja din resurs eller för att etablera Mer resursen möjligheter för kopia.
 
 ## <a name="considerations-for-the-source"></a>Överväganden för källan
 ### <a name="general"></a>Allmänt
@@ -368,7 +368,7 @@ Om storleken på data som du vill kopiera är stor, kan du justera affärslogike
 Var försiktig antalet datauppsättningar och kopieringsaktiviteter som kräver Data Factory till koppling till samma datalager samtidigt. Många samtidiga kopia jobb kan begränsa ett datalager och leda till försämrade prestanda, kopiera jobbet interna återförsök, och i vissa fall, fel vid körning.
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempelscenario: Kopiera från en lokal SQL Server till Blob storage
-**Scenariot**: En pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
+**Scenario**: En pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
 
 **Testning och analys**: Dataflödet för Kopieringsaktivitet är mindre än 2 Mbit/s, vilket är mycket långsammare än benchmark för prestanda.
 
@@ -396,19 +396,19 @@ En eller flera av följande faktorer kan orsaka flaskhals för prestanda:
 I det här fallet kan bzip2 datakomprimering långsammare hela pipelinen. Växla till en gzip komprimerings-codec kan underlätta den här begränsningen.
 
 ## <a name="sample-scenarios-use-parallel-copy"></a>Exempelscenarier: Använda parallella kopia
-**Scenariot I:** Kopiera 1 000 1 MB-filer från det lokala filsystemet till Blob storage.
+**Scenario I:** Kopiera 1 000 1 MB-filer från det lokala filsystemet till Blob storage.
 
 **Analys och prestandajustering**: Exempel: Om du har installerat gatewayen på en dator med fyra kärnor, Data Factory använder 16 parallella kopior flytta filer från filsystemet till blobblagringen samtidigt. Den här parallell körning resulterar i högt dataflöde. Du kan också uttryckligen ange antalet parallella kopior. När du kopierar många små filer att parallella kopior dramatiskt dataflöde med hjälp av resurser effektivare.
 
 ![Scenario 1](./media/data-factory-copy-activity-performance/scenario-1.png)
 
-**Scenariot II**: Kopiera 20 blobar på 500 MB från Blob storage till Data Lake Store Analytics och sedan justera prestanda.
+**Scenario II**: Kopiera 20 blobar på 500 MB från Blob storage till Data Lake Store Analytics och sedan justera prestanda.
 
-**Analys och prestandajustering**: I det här scenariot Data Factory kopierar data från Blob storage till Data Lake Store med hjälp av enstaka kopia (**parallelCopies** inställt på 1) och dataflyttenheter som enda moln. Dataflödet som du ser nära som beskrivs i den [prestanda referensavsnittet](#performance-reference).   
+**Analys och prestandajustering**: I det här scenariot Data Factory kopierar data från Blob storage till Data Lake Store med hjälp av enstaka kopia (**parallelCopies** inställt på 1) och dataflyttenheter som enda moln. Dataflödet som du ser nära som beskrivs i den [prestanda referensavsnittet](#performance-reference).
 
 ![Scenario 2](./media/data-factory-copy-activity-performance/scenario-2.png)
 
-**Scenariot III**: Enskild fil är större än dussintals MB och total volym är stor.
+**Scenario III**: Enskild fil är större än dussintals MB och total volym är stor.
 
 **Analys och aktivera prestanda**: Öka **parallelCopies** resulterar inte i ger kopieringen bättre prestanda på grund av resursbegränsningar av ett enda moln dmu här. I stället bör du ange mer molnet DMUs att få mer resurser för att utföra dataförflyttning. Ange ett värde för den **parallelCopies** egenskapen. Data Factory hanterar parallellitet för dig. I det här fallet, om du ställer in **cloudDataMovementUnits** till 4, ett dataflöde på ungefär fyra gånger inträffar.
 

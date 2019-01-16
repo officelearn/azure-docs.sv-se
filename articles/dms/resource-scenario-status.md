@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/08/2019
-ms.openlocfilehash: 9e153cca321e94233cfda2a03cf52ba85a0f6b02
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.date: 01/15/2019
+ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102813"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320063"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
 Azure Database Migration Service är utformad för att stödja olika Migreringsscenarier (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som stöds av Azure Database Migration Service och status för närvarande (privat [eller begränsad] förhandsversioner, offentlig förhandsversion eller allmänt tillgänglig) eller varje scenario.
@@ -45,10 +45,10 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | RDS-SQL  | ✔ |
 |   | Oracle  | ✔  |
-| **Azure SQL-VM**  | SQL Server  | ✔ |
+| **Azure SQL VM**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB för MySQL**  | MySLQ  |  |
+| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure DB för MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Azure DB för PostgresSQL**  | PostgreSQL |  |
 |  | RDS-PostgreSQL  |  |
@@ -64,10 +64,10 @@ I följande tabell visas Azure Database Migration Service stöd för online migr
 | **Azure SQL DB MI**  | SQL Server  | ✔ |
 |   | RDS-SQL  |  |
 |   | Oracle  | ✔  |
-| **Azure SQL-VM**  | SQL Server  |   |
+| **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
 | **Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB för MySQL**  | MySLQ  | ✔ |
+| **Azure DB för MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Azure DB för PostgresSQL**  | PostgreSQL | ✔ |
 |  | RDS-PostgreSQL  | ✔ |

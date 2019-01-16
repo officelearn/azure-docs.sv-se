@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1ffd1b96e721707f69c47a7cbf11d60f17f3a7d2
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 86dcd39ad7b9f1e207e9254ec72698db3998bbd6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105431"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320488"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Kopiera data från MongoDB med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-on-premises-mongodb-connector.md)
 > * [Aktuell version](connector-mongodb.md)
 
@@ -104,7 +104,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 
 ```json
 {
-     "name":  "MongoDbDataset",
+    "name": "MongoDbDataset",
     "properties": {
         "type": "MongoDbCollection",
         "linkedServiceName": {
@@ -207,8 +207,8 @@ Till exempel är ExampleTable här en MongoDB-tabell som har en kolumn med en ma
 
 | _id | Kundens namn | Fakturor | Servicenivå | Klassificeringar |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id: ”123” objekt: ”toaster”, price: ”456” rabatt: ”0.2”}, {invoice_id: ”124” objekt: ”vara”, price: ”1235” rabatt: ”0.2”}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id: ”135” objekt: ”kylskåp”, price: ”12543” rabatt: ”0,0”}] |Guld |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: ”12543” rabatt: "0.0"}] |Guld |[1,2] |
 
 Drivrutinen skulle generera flera virtuella tabeller som representerar en enda tabell. Den första virtuella tabellen är bastabellen med namnet ”ExampleTable” visas i exemplet. Bastabellen innehåller alla data för den ursprungliga tabellen, men data från matriser har utelämnats och utökas i virtuella tabeller.
 
@@ -239,7 +239,6 @@ Följande tabeller visar virtuella tabeller som representerar de ursprungliga ma
 | 1111 |1 |6 |
 | 2222 |0 |1 |
 | 2222 |1 |2 |
-
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

@@ -1,7 +1,7 @@
 ---
-title: Tillgängliga support och utbildning
+title: Få support och utbildning
 titleSuffix: Azure Machine Learning service
-description: Den här artikeln visar hur du kan få support och utbildning för Azure Machine Learning-tjänsten
+description: Få support och utbildning och ge feedback för Azure Machine Learning-tjänsten
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 09/24/2018
+ms.date: 01/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: cbf245b27bc6df9933a4786def42d85f848e09d7
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: bfde26bd455d24a3f38f225de30496953d7b4ead
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192098"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329913"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-service"></a>Få support och utbildning för Azure Machine Learning-tjänsten
 
@@ -24,23 +24,25 @@ Den här artikeln innehåller information om hur du lär dig mer om Azure Machin
 
 ## <a name="learn-more-about-azure-machine-learning"></a>Läs mer om Azure Machine Learning
 
-Förutom i dokumentationen på denna webbplats hittar du:
-+ [Självstudier och instruktionsartiklar](../service/index.yml)
+Se våra inlärningsresurser:
++ [Självstudier, viktig information och instruktionsartiklar](../service/index.yml)
+
 + [Översikt över arkitekturen](../service/concept-azure-machine-learning-architecture.md)
+
 + [Videoklipp](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
 
 ## <a name="submit-doc-feedback"></a>Skicka dokumentationsfeedback 
 
-Du kan **skicka förfrågningar** för ytterligare material med hjälp av feedback-länken längst ned i artikeln.
+Du kan **skicka förfrågningar** för ytterligare material med hjälp av den **innehåll feedback** knappen i slutet av varje artikel.
 
-## <a name="get-support-for-azure-machine-learning-service"></a>Få support för Azure Machine Learning-tjänsten
+## <a name="get-service-support"></a>Få support för tjänsten 
 
 Kolla in dessa Supportresurser:
 
-+ **Teknisk support**: Besök [teknisk support för Azure](https://azure.microsoft.com/support/options/) och välj Machine Learning. 
++ **Teknisk support för Azure-kunder**: [Skicka in och hantera supportförfrågningar](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) via Azure portal.
 
 + **Användarforum**: Ställ frågor, besvara frågor, och ansluter till andra användare i den [Azure Machine Learning-tjänsten Supportforum på MSDN](https://aka.ms/aml-forum-service).
 
-+ **Stackspill**: Besök Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
++ **Stack Overflow**: Besök Azure Machine Learning-communityn på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-machine-learning) märkta med ”Azure-Machine Learning”.
 
-+ **Dela produktförslag** och funktioner begäranden i vår [Feedbackkanal för Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning), vilket är också tillgänglig via länken längst ned i varje artikel. 
++ **Dela produktförslag** och funktioner begäranden i vår [Feedbackkanal för Azure Machine Learning](https://feedback.azure.com/forums/257792-machine-learning). Välj den **produktfeedback** knappen i slutet av varje artikel kan dela själv. 

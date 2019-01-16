@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: bae4c0dccb0ce336c319fe94936be72ab6fc9a8e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b7f5d4683f0042b95399b86cd4f53c93518c3c56
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230381"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330683"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -469,7 +469,10 @@ Detta är en lista över de format som ljud som skickas i varje begäran som den
 
 ### <a name="request-body"></a>Begärandetext
 
-Meddelandet skickas som en del av en HTTP `POST` begäran. Det kan vara oformaterad text (ASCII- eller UTF-8) eller [tal syntes Markup Language](speech-synthesis-markup.md) (SSML)-format (UTF-8). Oformaterad text begäranden använda Speech-tjänsten standard röst- och språk. Du kan ange röst- och språk med SSML.
+Brödtexten i var och en `POST` begäran skickas som [tal syntes Markup Language (SSML)](speech-synthesis-markup.md). SSML kan du välja rösten och språket för syntetiskt tal returneras av text till tal-tjänsten. En fullständig lista över stöds röster Se [språkstöd](language-support.md#text-to-speech).
+
+> [!NOTE]
+> Om du använder en anpassad röst kan brödtexten i en begäran skickas som oformaterad text (ASCII- eller UTF-8).
 
 ### <a name="sample-request"></a>Exempelbegäran
 

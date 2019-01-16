@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: f2a1cd79a99e16460c96d28ebeb0a2bd68975361
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794251"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322103"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
@@ -45,7 +45,7 @@ En princip för säkerhetskopiering består av följande konfigurationer:
 
 * **Schema för säkerhetskopiering**: Den tidpunkt eller frekvens som du vill göra regelbundna säkerhetskopior. En kan schemalägga säkerhetskopieringar så att återkomma med angivna intervall eller på en fast tidpunkt varje dag / vecka.
 
-    1. **Frekvensbaserad Säkerhetskopieringsschemat**: Den här schematypen bör användas om behovet av att säkerhetskopiera data med jämna tidsintervall. Önskat tidsintervall mellan två på varandra följande säkerhetskopior har definierats använder ISO8601-format. Frekvensbaserad schema för säkerhetskopiering har stöd för intervall lösning till och minut.
+    1. **Frekvensbaserad Säkerhetskopieringsschemat**: Den här schematypen bör användas om behovet av att säkerhetskopiera data med jämna tidsintervall. Önskat tidsintervall mellan två på varandra följande säkerhetskopior har definierats använder ISO8601-format. Frekvensbaserad Säkerhetskopieringsschemat stöder intervall skärmupplösning till minut.
         ```json
         {
             "ScheduleKind": "FrequencyBased",

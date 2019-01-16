@@ -9,12 +9,12 @@ ms.author: estfan
 ms.assetid: 3e177e49-fd69-43e9-9b9b-218abb250c31
 ms.topic: article
 ms.date: 08/25/2018
-ms.openlocfilehash: 8a6925d79b225a34d980472d4fb3241ab9eb1017
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: bf27739bd42106550c18e3bbc27a1ff8b3770747
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127419"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321134"
 ---
 # <a name="migrate-logic-apps-to-latest-schema-version"></a>Så här migrerar du logikappar till senaste schemaversionen
 
@@ -25,7 +25,7 @@ Följ dessa steg om du vill flytta dina befintliga logikappar till det senaste s
 2. På menyn för din logikapp, Välj **översikt**. I verktygsfältet, välja **uppdatera Schema**.
 
    > [!NOTE]
-   > När du välja **uppdatera Schema**, Azure Logic Apps som automatiskt kör migreringsstegen och ger dig kodens utdata för. Du kan använda dessa utdata för att uppdatera sina logikapp-definitioner. Se dock till att du följer bästa praxis som beskrivs i följande **bästa praxis** avsnittet.
+   > När du väljer **uppdatera Schema**, Azure Logic Apps som automatiskt kör migreringsstegen och ger dig kodens utdata för. Du kan använda dessa utdata för att uppdatera sina logikapp-definitioner. Se dock till att du följer bästa praxis som beskrivs i följande **bästa praxis** avsnittet.
 
    ![Uppdatera schema](./media/connectors-schema-migration/update-schema.png)
 

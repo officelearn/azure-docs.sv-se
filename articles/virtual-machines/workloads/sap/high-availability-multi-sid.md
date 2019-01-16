@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/09/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9d7fb03cf5dbcd7455f0d4e8f4a69bb1c6d23a83
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 0440d1b0c3045feb6d670dae2645590febfa5bc6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497081"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320165"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>Skapa en konfiguration för SAP NetWeaver multi-SID
 
@@ -471,7 +471,7 @@ Målet är att installera flera SAP ABAP ASCS eller SAP Java SCS grupperade inst
 >Det maximala antalet SAP ASCS/SCS-instanser i ett WSFC-klustret är lika med det maximala antalet privata frontend IP-adresser för varje Azure intern belastningsutjämnare.
 >
 
-Mer information om belastningsutjämnare begränsningar finns i ”privat IP klient per belastningsutjämnare” i [nätverksgränser: Azure Resource Manager][networking-limits-azure-resource-manager].
+Mer information om belastningsutjämnare begränsningar finns i ”privat IP klient per belastningsutjämnare” i [begränsningar för nätverk: Azure Resource Manager][networking-limits-azure-resource-manager].
 
 Fullständig liggande med två SAP-system med hög tillgänglighet skulle se ut så här:
 
@@ -489,7 +489,7 @@ För att förbereda din infrastruktur, kan du installera en ytterligare SAP ASCS
 
 | Parameternamn | Värde |
 | --- | --- |
-| SAP ASCS/SCS SID |PR1-lb-ascs |
+| SAP ASCS/SCS SID |pr1-lb-ascs |
 | SAP DBMS intern belastningsutjämnare | PR5 |
 | SAP virtuellt värdnamn | pr5-sap-cl |
 | SAP ASCS/SCS virtuell värd IP-adress (ytterligare Azure load balancer IP-adress) | 10.0.0.50 |
@@ -505,8 +505,8 @@ Du kan installera ytterligare SAP ASCS/SCS-instanser i det befintliga WSFC-klust
 
 | Virtuell datorroll | Värdnamn för virtuell dator | Statisk IP-adress |
 | --- | --- | --- |
-| 1 nod för ASCS/SCS-instans |PR1-ascs-0 |10.0.0.10 |
-| 2 klusternod för ASCS/SCS-instans |PR1-ascs-1 |10.0.0.9 |
+| 1 nod för ASCS/SCS-instans |pr1-ascs-0 |10.0.0.10 |
+| 2 klusternod för ASCS/SCS-instans |pr1-ascs-1 |10.0.0.9 |
 
 ### <a name="create-a-virtual-host-name-for-the-clustered-sap-ascsscs-instance-on-the-dns-server"></a>Skapa ett virtuellt värdnamn för den klustrade SAP ASCS/SCS-instansen på DNS-servern
 
@@ -607,7 +607,7 @@ foreach ($Port in $Ports) {
 
 $ILB | Set-AzureRmLoadBalancer
 
-Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
+Write-Host "Successfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
 ```
 När skriptet har körts visas resultaten i Azure-portalen, enligt följande skärmbild:

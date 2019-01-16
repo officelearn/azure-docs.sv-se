@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/31/2018
-ms.openlocfilehash: 336288aaf3817fe267d58a225249bf54cca691bc
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.date: 01/15/2019
+ms.openlocfilehash: e0f0230241bdffa97b94c88eb4b2d76fd44bcdea
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979105"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320794"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av SSH- och Azure Logic Apps
 
@@ -27,7 +27,7 @@ Att automatisera uppgifter som att övervaka, skapa, skicka och ta emot filer p�
 * Hämta filinnehåll och metadata.
 * Extrahera Arkiv till mappar.
 
-Jämfört med den [SFTP-anslutningsappen](../connectors/connectors-create-api-sftp.md), den SFTP-SSH-anslutningen kan läsa eller skriva filer upp till *1 GB* i storlek. För filer som är större än 1 GB, kan du använda den SFTP-SSH connector plus [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). Mer skillnader, granska [jämför SFTP-SSH jämfört med SFTP](#comparison) senare i den här artikeln.
+Jämfört med den [SFTP-anslutningsappen](../connectors/connectors-create-api-sftp.md), den SFTP-SSH-anslutningen kan läsa eller skriva filer upp till *1 GB* i storlek. Mer skillnader, granska [jämför SFTP-SSH jämfört med SFTP](#comparison) senare i den här artikeln.
 
 Du kan använda utlösare som övervakar händelser på din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför olika uppgifter på din SFTP-server. Du kan också ha andra åtgärder i din logikapp använda utdata från SFTP-åtgärder. Om du regelbundet hämta filer från din SFTP-server, kan du exempelvis skicka e-postaviseringar om filerna och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -44,11 +44,11 @@ Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-
   >
   > SFTP-SSH anslutningen-stöder *endast* dessa privata nycklar, format, algoritmer och fingeravtryck:
   > 
-  > * **Privat nyckel format**: RSA (Rivest Shamir-Adleman) och DSA (Digital Signature Algorithm) som nycklar i både OpenSSH och ssh.com format
+  > * **Privat nyckel format**: RSA (Rivest Shamir-Adleman) och DSA (Digital Signature Algorithm) nycklar i både OpenSSH och ssh.com format
   > * **Krypteringsalgoritmer**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC, CBC-AES-192 och AES-256-CBC
   > * **Fingeravtryck**: MD5
 
-* Läser eller skriver filer upp till *1 GB* i storlek jämfört med SFTP-anslutningsappen. För filer som är större än 1 GB, använda [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). 
+* Läser eller skriver filer upp till *1 GB* i storlek jämfört med SFTP-anslutningsappen, men hanterar data i 50 MB delar, inte 1 GB delar.
 
 * Innehåller den **skapa mapp** som skapar en mapp på den angivna sökvägen på SFTP-server.
 
@@ -66,7 +66,7 @@ Här följer andra viktiga skillnader mellan den SFTP-SSH-anslutningen och SFTP-
   >
   > SFTP-SSH anslutningen-stöder *endast* dessa privata nyckel format, algoritmer och fingeravtryck:
   > 
-  > * **Privat nyckel format**: RSA (Rivest Shamir-Adleman) och DSA (Digital Signature Algorithm) som nycklar i både OpenSSH och ssh.com format
+  > * **Privat nyckel format**: RSA (Rivest Shamir-Adleman) och DSA (Digital Signature Algorithm) nycklar i både OpenSSH och ssh.com format
   > * **Krypteringsalgoritmer**: DES-EDE3-CBC, DES-EDE3-CFB DES-CBC, AES-128-CBC, CBC-AES-192 och AES-256-CBC
   > * **Fingeravtryck**: MD5
   >
@@ -137,13 +137,13 @@ När du begär filinnehåll utlösaren inte att hämta filer som är större än
 
 ## <a name="examples"></a>Exempel
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH utlösa: när en fil läggs till eller ändras
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>SFTP - SSH utlösa: När en fil läggs till eller ändras
 
 Den här utlösaren startar en logikappens arbetsflöde när en fil läggs till eller ändras på en SFTP-server. Du kan till exempel lägga till ett villkor som kontrollerar dess innehåll och hur du hämtar innehållet baserat på om innehållet uppfyller ett angivet villkor. Du kan sedan lägga till en åtgärd som hämtar filens innehåll och placerar innehållet i en mapp på SFTP-server. 
 
-**Enterprise exempel**: du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll** så att du hämta orderns innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
+**Enterprise exempel**: Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll** så att du hämta orderns innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
 
-### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH åtgärd: hämta innehåll
+### <a name="sftp---ssh-action-get-content"></a>SFTP - SSH åtgärd: Hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Till exempel kan du lägga till utlösaren från föregående exempel och ett villkor som måste uppfylla dess innehåll. Om villkoret är sant, köra den åtgärd som hämtar innehållet. 
 

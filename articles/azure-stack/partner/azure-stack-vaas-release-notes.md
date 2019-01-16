@@ -13,18 +13,35 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 687e47eff000679f24088a59297a258a1469f3fd
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 735f1d7cce8621a29e5a582917d3eea8ee399b8f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106281"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319657"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Viktig information för verifiering som en tjänst
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Den här artikeln innehåller viktig information för Azure Stack-verifiering som en tjänst.
+
+## <a name="version-402"></a>Version 4.0.2
+
+2019 januari 7
+
+Om du kör Azure Stack månatliga uppdatera verifiering arbetsflödet och versionen för din OEM-uppdateringspaketet är inte 1810 eller högre, får du ett fel när du kommer till steg för OEM-uppdatering. Detta är ett fel. En korrigering utvecklas. Åtgärderna är följande:
+
+1.  Kör OEM-uppdateringen som vanligt.
+2.  Kör Test-AzureStack efter lyckade tillämpning av paketet och spara utdata.
+3.  Avbryta testet.
+4.  Skicka sparade utdata till VaaSHelp@microsoft.com att ta emot skicka resultaten för körningen.
+
+## <a name="version-402"></a>Version 4.0.2
+
+2018 November 30
+
+- Intern felkorrigeringar
 
 ## <a name="version-401"></a>Version 4.0.1
 

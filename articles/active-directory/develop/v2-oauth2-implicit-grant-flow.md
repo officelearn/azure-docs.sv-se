@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e9de2c9b7f79dd6cba3050d84ccfa0795bc2d09a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ce54ad77893557b595f9777dfc82939aacf41608
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962587"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321525"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>v2.0 protokoll – SPA med det implicita flödet
 
@@ -54,7 +54,7 @@ Följande diagram visar hur det hela implicita inloggning flödet ser ut och avs
 Om du vill logga först in användaren i din app, kan du skicka en [OpenID Connect](v2-protocols-oidc.md) auktoriseringsbegäran och få en `id_token` från v2.0-slutpunkten.
 
 > [!IMPORTANT]
-> Be appregistreringen i en ID-token har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **Tillåt Implicit flöde** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` fel returneras: **det angivna värdet för Indataparametern 'response_type ”tillåts inte för den här klienten. Förväntat värde är ”code”**
+> Att begära appregistreringen i en ID-token har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **Tillåt Implicit flöde** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` fel returneras: **Det angivna värdet för Indataparametern 'response_type ”är inte tillåtet för den här klienten. Förväntat värde är ”code”**
 
 ```
 // Line breaks for legibility only
@@ -83,7 +83,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | valfri |Anger den metod som ska användas för att skicka den resulterande token tillbaka till din app. Standardinställningen är att fråga efter ett åtkomsttoken, men fragment om förfrågningen innehåller en id_token. |
 | `state` | Rekommenderas |Ett värde som ingår i den begäran som också kommer att returneras i token-svaret. Det kan vara en sträng med innehåll som du önskar. Ett slumpmässigt genererat unikt värde som normalt används för [att förhindra attacker med förfalskning av begäran](https://tools.ietf.org/html/rfc6749#section-10.12). Tillstånd används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat, till exempel sidan eller vyn som de befann sig i. |
 | `nonce` | obligatorisk |Ett värde som ingår i den begäran som skapats av appen, som ska tas med i den resulterande id_token som ett anspråk. Appen kan sedan att verifiera det här värdet om du vill lösa token repetitionsattacker. Värdet är vanligtvis en slumpmässig, unik sträng som kan användas för att fastställa ursprunget för begäran. Krävs endast när en id_token har begärts. |
-| `prompt` | valfri |Anger vilken typ av interaktion från användaren som krävs. De enda giltiga värdena just nu är ”inloggning”, ”ingen”, ”select_account” och ”godkänna”. `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen – det säkerställer att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar v2.0-slutpunkten ett fel. `prompt=select_account` skickar användaren till en kontoväljare där alla konton som sparas i sessionen visas. `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
+| `prompt` | valfri |Anger vilken typ av interaktion från användaren som krävs. The only valid values at this time are 'login', 'none', 'select_account', and 'consent'. `prompt=login` kommer att tvinga användaren att ange sina autentiseringsuppgifter på begäran, vilket eliminerar enkel inloggning. `prompt=none` är motsatsen – det säkerställer att användaren inte visas med den interaktiva prompten alls. Om begäran inte kan slutföras tyst via enkel inloggning, returnerar v2.0-slutpunkten ett fel. `prompt=select_account` skickar användaren till en kontoväljare där alla konton som sparas i sessionen visas. `prompt=consent` utlöser OAuth godkännande i dialogrutan när användaren loggar in, ber användaren att bevilja behörigheter till appen. |
 | `login_hint`  |valfri |Kan användas till att fylla förväg adressfältet användarnamn/e-post i inloggningssidan för användaren, om du känner till sina användarnamn i tid. Ofta appar kommer att använda den här parametern under återautentiseringen redan har extraherats användarnamnet från en tidigare logga in med den `preferred_username` anspråk.|
 | `domain_hint` | valfri |Kan vara något av `consumers` eller `organizations`. Om inkluderat, den hoppar över e-postbaserad identifieringsprocessen som användaren som passerar på v2.0 inloggningssida, vilket leder till en något mer effektiv användarupplevelse. Ofta appar kommer att använda den här parametern under återautentiseringen genom att extrahera den `tid` anspråk från id_token. Om den `tid` anspråk värdet är `9188040d-6c67-4c5b-b112-36a304b66dad` (Account konsument klienten), bör du använda `domain_hint=consumers`. Annars kan du använda `domain_hint=organizations` under autentiseras igen. |
 
@@ -111,7 +111,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` |Inkluderade om `response_type` innehåller `token`. Kommer alltid att `Bearer`. |
 | `expires_in`|Inkluderade om `response_type` innehåller `token`. Anger antalet sekunder som token är giltig för cachelagring. |
 | `scope` |Inkluderade om `response_type` innehåller `token`. Anger område(n) som access_token ska gälla. Får inte innehålla alla omfattningar som begärts, om de inte gäller för användaren (när det gäller endast AAD-scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
+| `id_token` | En signerad JSON Web Token (JWT). Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token reference` ](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
 | `state` |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 #### <a name="error-response"></a>Felsvar
@@ -192,7 +192,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | `token_type` | Kommer alltid att `Bearer`. |
 | `expires_in` | Anger antalet sekunder som token är giltig för cachelagring. |
 | `scope` | Anger område(n) som access_token ska gälla. Får inte innehålla alla omfattningar som begärts, om de inte gäller för användaren (när det gäller endast AAD-scope som begärs när ett personligt konto används för att logga in). |
-| `id_token` | En signerad JSON Web Token (JWT). Inkluderade om `response_type` innehåller `id_token`. Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token` referens](id-tokens.md). <br> **Obs:** endast angivna om `openid` omfång begärdes. |
+| `id_token` | En signerad JSON Web Token (JWT). Inkluderade om `response_type` innehåller `id_token`. Appen kan avkoda segmenten i den här token för att begäraninformation om den användare som loggat in. Appen kan cachelagra värdena och visa dem, men det bör inte förlita dig på dem för auktorisering eller säkerhetsgränser. Mer information om id_tokens finns i den [ `id_token` referens](id-tokens.md). <br> **Obs!** Endast angivna om `openid` omfång begärdes. |
 | `state` |Om en parametern state ingår i begäran, samma värde som ska visas i svaret. Appen bör kontrollera att värdena i begäran och svar är identiska. |
 
 

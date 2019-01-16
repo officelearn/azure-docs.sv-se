@@ -3,7 +3,7 @@ title: Prestandariktlinjer för för SQL Server i Azure | Microsoft Docs
 description: Innehåller riktlinjer för att optimera prestanda för SQL Server i virtuella Microsoft Azure-datorer.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
-ms.author: jroth
-ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 120f88e6bb8b2c6a1408ef98eadfcbb520b5cdb3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258137"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332667"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestandavägledning för SQL Server i Azure Virtual Machines
 
@@ -69,9 +70,9 @@ Vi rekommenderar dessutom att du skapar din Azure-lagringskonto i samma datacent
 
 Det finns tre huvudsakliga disktyper på en Azure-dator:
 
-* **OS-disken**: när du skapar en Azure virtuell dator plattformen ska kopplas till minst en disk (märkta som den **C** enhet) till den virtuella datorn för operativsystemets disk. Den här disken är en virtuell Hårddisk som lagras som en sidblobb i lagring.
+* **OS-disken**: När du skapar en Azure virtuell dator plattformen ska kopplas till minst en disk (märkta som den **C** enhet) till den virtuella datorn för operativsystemets disk. Den här disken är en virtuell Hårddisk som lagras som en sidblobb i lagring.
 * **Temporär disk**: Azure-datorer innehåller en annan disk kallas den temporära disken (märkta som den **D**: enhet). Det här är en disk på den nod som kan användas för tillfälliga utrymmet.
-* **Datadiskar**: du kan också koppla ytterligare diskar till din virtuella dator som datadiskar och dessa kommer att lagras i storage som sidblobar.
+* **Datadiskar**: Du kan också koppla ytterligare diskar till din virtuella dator som datadiskar och dessa kommer att lagras i storage som sidblobar.
 
 I följande avsnitt beskrivs rekommendationer för att använda dessa olika diskar.
 
@@ -85,7 +86,7 @@ Standard Cachelagringsprincip på operativsystemdisken är **Läs/Skriv**. För 
 
 Temporär lagring-enhet, märkta som den **D**: enhet, sparas inte till Azure blob storage. Spara inte din användardatabasfiler eller användaren transaktionsloggfiler på den **D**: enhet.
 
-För D-serien, Dv2-serien och virtuella datorer i G-serien är den temporära enheten på dessa virtuella datorer SSD-baserad. Om din arbetsbelastning gör väldigt mycket för TempDB (till exempel temporära objekt eller komplexa kopplingar), lagring av TempDB på den **D** enhet kan leda till högre TempDB dataflöde och lägre latens TempDB. Ett exempelscenario finns i TempDB-avsnittet i följande blogginlägg: [riktlinjer för Storage-konfiguration för SQL Server på Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+För D-serien, Dv2-serien och virtuella datorer i G-serien är den temporära enheten på dessa virtuella datorer SSD-baserad. Om din arbetsbelastning gör väldigt mycket för TempDB (till exempel temporära objekt eller komplexa kopplingar), lagring av TempDB på den **D** enhet kan leda till högre TempDB dataflöde och lägre latens TempDB. Ett exempelscenario finns i TempDB-diskussion i följande blogginlägg: [Riktlinjer för Storage-konfiguration för SQLServer på Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
 För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serien och GS-serien), rekommenderar vi att du lagrar TempDB på en disk som har stöd för Premium Storage med läscachelagring aktiverat. Det finns ett undantag till den här rekommendationen; Om din användning av TempDB är skrivningsintensiva, kan du få bättre prestanda genom att lagra TempDB på lokalt **D** enhet, som också är SSD-baserade på dessa datorstorlekar.
 
@@ -94,12 +95,12 @@ För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serie
 * **Använda datadiskar för data och loggfiler**: Om du inte använder disk striping, använder du två Premiumlagring [P30 diskar](../premium-storage.md#scalability-and-performance-targets) där en disk innehåller i loggfilerna och den andra innehåller data och TempDB-filerna. Varje disk i Premium Storage tillhandahåller ett antal IOPs och bandbredd (MBIT/s) beroende på dess storlek, enligt beskrivningen i artikeln [med Premiumlagring för diskar](../premium-storage.md). Om du använder en disk striping teknik, till exempel lagringsutrymmen, uppnå optimala prestanda genom att ha två pooler, en för loggfilerna och den andra för datafiler. Om du planerar att använda SQL Server Failover Cluster instanser (FCI), måste du konfigurera en pool.
 
    > [!TIP]
-   > Testresultaten på olika konfigurationer för disk- och arbetsbelastning, finns i följande blogginlägg: [riktlinjer för Storage-konfiguration för SQL Server på Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
+   > Testresultaten på olika konfigurationer för disk- och arbetsbelastning, finns i följande blogginlägg: [Riktlinjer för Storage-konfiguration för SQLServer på Azure VM](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/).
 
    > [!NOTE]
    > När du etablerar en SQL Server-VM i portalen kan har du möjlighet att redigera din konfiguration för lagring. Beroende på din konfiguration konfigurerar en eller flera diskar i Azure. Flera diskar kombineras till en enskild lagringspool med striping. Både data och loggfiler filerna finnas tillsammans i den här konfigurationen. Mer information finns i [lagringskonfiguration för SQL Server-datorer](virtual-machines-windows-sql-server-storage-configuration.md).
 
-* **Disk-Striping**: mer dataflöde kan du lägga till ytterligare datadiskar och använda Disk Striping. Du behöver analysera antalet IOPS och bandbredd som krävs för din loggfilerna och för dina data och TempDB-filerna för att fastställa antalet datadiskar. Observera att olika storlekar har olika begränsningar för hur många IOPs och bandbredd som stöds, finns i tabellerna om IOPS per [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Använd följande riktlinjer:
+* **Disk-Striping**: Du kan lägga till ytterligare datadiskar och använda Disk Striping mer dataflöde. Du behöver analysera antalet IOPS och bandbredd som krävs för din loggfilerna och för dina data och TempDB-filerna för att fastställa antalet datadiskar. Observera att olika storlekar har olika begränsningar för hur många IOPs och bandbredd som stöds, finns i tabellerna om IOPS per [VM-storlek](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Använd följande riktlinjer:
 
   * Windows 8 och Windows Server 2012 eller senare, Använd [lagringsutrymmen](https://technet.microsoft.com/library/hh831739.aspx) med följande riktlinjer:
 
@@ -131,14 +132,14 @@ För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serie
 
   * Rekommendationerna ovan gäller för Premium Storage-diskar. Om du inte använder Premium Storage kan du inte aktivera någon cachelagring på eventuella datadiskar.
 
-  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Läs den klassiska distributionsmodellen (ASM): [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager-distributionsmodellen finns: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) och [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
+  * Mer information om hur du konfigurerar diskcachelagring finns i följande artiklar. Klassiskt (ASM) distributionsmodell finns: [Set-AzureOSDisk](https://msdn.microsoft.com/library/azure/jj152847) och [Set-AzureDataDisk](https://msdn.microsoft.com/library/azure/jj152851.aspx). Azure Resource Manager deployment model finns i: [Set-AzureRMOSDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmosdisk?view=azurermps-4.4.1) och [Set-AzureRMVMDataDisk](https://docs.microsoft.com/powershell/module/azurerm.compute/set-azurermvmdatadisk?view=azurermps-4.4.1).
 
      > [!WARNING]
      > Stoppa SQL Server-tjänsten när du ändrar cache-inställningen för Virtuella Azure-diskar för att undvika risken att databasen är skadad.
 
-* **Storlek på NTFS-allokeringsenhet**: formaterar datadisken och vi rekommenderar att du använder en storlek på allokeringsenhet 64 KB för data och loggfiler samt TempDB.
+* **Storlek på NTFS-allokeringsenhet**: Formaterar datadisken och rekommenderas det att du använder en storlek på allokeringsenhet 64 KB för data och loggfiler samt TempDB.
 
-* **Disk rekommenderade metoder**: när ta bort en datadisk eller ändra dess cachetyp stoppa SQL Server-tjänsten vid ändringen. När cachelagringsinställningarna har ändrats på OS-disken, Azure stoppar den virtuella datorn, ändras cachetyp och startar om den virtuella datorn. När cacheinställningarna för en datadisk ändras kan den virtuella datorn stoppas inte, men datadisken är frånkopplat från den virtuella datorn under ändringen och sedan återansluta.
+* **Disk rekommenderade metoder**: När ta bort en datadisk eller ändra dess cachetyp stoppa SQL Server-tjänsten under tiden. När cachelagringsinställningarna har ändrats på OS-disken, Azure stoppar den virtuella datorn, ändras cachetyp och startar om den virtuella datorn. När cacheinställningarna för en datadisk ändras kan den virtuella datorn stoppas inte, men datadisken är frånkopplat från den virtuella datorn under ändringen och sedan återansluta.
 
   > [!WARNING]
   > Det gick inte att stoppa tjänsten SQL Server vid de här åtgärderna kan orsaka databasfel.
@@ -174,11 +175,11 @@ För virtuella datorer som har stöd för Premium Storage (DS-serien, DSv2-serie
 
 Vissa distributioner kan uppnå ytterligare prestandafördelarna med hjälp av mer avancerade tekniker i konfigurationen. I följande lista beskrivs några SQL Server-funktioner som kan hjälpa dig att få bättre prestanda:
 
-* **Säkerhetskopiering till Azure storage**: när du utför säkerhetskopiering för SQL Server som körs i Azure virtual machines, du kan använda [SQL Server-säkerhetskopiering till URL: en](https://msdn.microsoft.com/library/dn435916.aspx). Den här funktionen är tillgänglig från och med SQL Server 2012 SP1 CU2 och rekommenderas för säkerhetskopiering till de anslutna datadiskarna. När du säkerhetskopiering/återställning till och från Azure storage, Följ rekommendationerna som anges på [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning och återställa från säkerhetskopior som lagras i Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Du kan även automatisera dessa säkerhetskopior med hjälp av [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
+* **Säkerhetskopiering till Azure storage**: När du utför säkerhetskopiering för SQL Server som körs i Azure virtual machines, du kan använda [SQL Server-säkerhetskopiering till URL: en](https://msdn.microsoft.com/library/dn435916.aspx). Den här funktionen är tillgänglig från och med SQL Server 2012 SP1 CU2 och rekommenderas för säkerhetskopiering till de anslutna datadiskarna. När du säkerhetskopiering/återställning till och från Azure storage, Följ rekommendationerna som anges på [SQL Server-säkerhetskopiering till URL: en metodtips och felsökning och återställa från säkerhetskopior som lagras i Azure Storage](https://msdn.microsoft.com/library/jj919149.aspx). Du kan även automatisera dessa säkerhetskopior med hjälp av [automatisk säkerhetskopiering för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-automated-backup.md).
 
     Du kan använda innan SQL Server 2012, [SQL Server-säkerhetskopiering till Azure-verktyget](https://www.microsoft.com/download/details.aspx?id=40740). Det här verktyget kan bidra till att öka säkerhetskopiering dataflöde med hjälp av flera säkerhetskopiering stripe-mål.
 
-* **SQL Server-datafiler i Azure**: den här nya funktionen [SQL Server-datafiler i Azure](https://msdn.microsoft.com/library/dn385720.aspx), är tillgängliga från och med SQL Server 2014. Kör SQL Server med datafiler i Azure visar jämförbara prestandaegenskaper som med hjälp av Azure-datadiskar.
+* **SQL Server-datafiler i Azure**: Den här nya funktionen [SQL Server-datafiler i Azure](https://msdn.microsoft.com/library/dn385720.aspx), är tillgängliga från och med SQL Server 2014. Kör SQL Server med datafiler i Azure visar jämförbara prestandaegenskaper som med hjälp av Azure-datadiskar.
 
 ## <a name="next-steps"></a>Nästa steg
 

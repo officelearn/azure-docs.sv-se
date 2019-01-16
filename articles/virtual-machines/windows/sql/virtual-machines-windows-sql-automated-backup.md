@@ -3,7 +3,7 @@ title: Automatisk säkerhetskopiering för SQL Server 2014 Azure Virtual Machine
 description: Beskriver funktionen automatisk säkerhetskopiering för SQL Server 2014-datorer som körs i Azure. Den här artikeln är specifik för virtuella datorer med Resource Manager.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: bdc63fd1-db49-4e76-87d5-b5c6a890e53c
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
-ms.author: jroth
-ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: ca9c7611197de001265f70fd1b34314d90ee83b2
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256620"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329850"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Automatiserad säkerhetskopiering för SQL Server 2014-datorer (Resource Manager)
 
@@ -191,7 +192,7 @@ Set-AzureRmVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 Det kan ta flera minuter att installera och konfigurera SQL Server IaaS Agent.
 
 > [!NOTE]
-> Det finns andra inställningar för **New AzureRmVMSqlServerAutoBackupConfig** som gäller endast för SQL Server 2016 och automatisk säkerhetskopiering v2. SQL Server 2014 stöder inte följande inställningar: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**,  **FullBackupStartHour**, **FullBackupWindowInHours**, och **LogBackupFrequencyInMinutes**. Om du försöker konfigurera dessa inställningar på en virtuell dator för SQL Server 2014, det finns inget fel, men inställningarna gäller inte. Om du vill använda de här inställningarna på en virtuell dator för SQL Server 2016 finns i [v2 för automatisk säkerhetskopiering för SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
+> Det finns andra inställningar för **New AzureRmVMSqlServerAutoBackupConfig** som gäller endast för SQL Server 2016 och automatisk säkerhetskopiering v2. SQL Server 2014 stöder inte följande inställningar: **BackupSystemDbs**, **BackupScheduleType**, **FullBackupFrequency**, **FullBackupStartHour**, **FullBackupWindowInHours**, och **LogBackupFrequencyInMinutes**. Om du försöker konfigurera dessa inställningar på en virtuell dator för SQL Server 2014, det finns inget fel, men inställningarna gäller inte. Om du vill använda de här inställningarna på en virtuell dator för SQL Server 2016 finns i [v2 för automatisk säkerhetskopiering för SQL Server 2016 Azure Virtual Machines](virtual-machines-windows-sql-automated-backup-v2.md).
 
 Om du vill aktivera kryptering, ändrar du föregående skript för att skicka den **EnableEncryption** parametern tillsammans med ett lösenord (säker sträng) för den **CertificatePassword** parametern. Följande skript gör att inställningarna för automatisk säkerhetskopiering i exemplet ovan och lägger till kryptering.
 
@@ -280,7 +281,7 @@ Ett annat alternativ är att dra nytta av den inbyggda funktionen för Database 
 
 Automatisk säkerhetskopiering konfigurerar hanterad säkerhetskopiering på virtuella Azure-datorer. Så det är viktigt att [Läs dokumentationen för hanterad säkerhetskopiering på SQL Server 2014](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx).
 
-Du kan hitta ytterligare säkerhetskopia och återställa hos SQL Server på virtuella Azure-datorer i följande artikel: [säkerhetskopiering och återställning av SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
+Du kan hitta ytterligare säkerhetskopia och återställa hos SQL Server på virtuella Azure-datorer i följande artikel: [Säkerhetskopiering och återställning för SQLServer i Azure Virtual Machines](virtual-machines-windows-sql-backup-recovery.md).
 
 Information om andra tillgängliga automation-aktiviteter finns i [SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md).
 

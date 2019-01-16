@@ -11,24 +11,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/16/2019
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: e4e1b3cb823d08948c31aa6486c08a930a377dfa
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 147242e7d5d62204198360f580848cd997850d09
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161964"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332531"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera användningsdata för Azure Stack till Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Rapportera användningsdata för Azure Stack till Azure
 
-Användningsdata, även kallat förbrukningsdata, representerar mängden resurser som används. 
+Användningsdata, även kallat förbrukningsdata, representerar mängden resurser som används.
 
 Azure Stack med flera noder system som använder förbrukningsbaserad faktureringsmodellen ska rapportera användningsdata till Azure för fakturering. Azure Stack-operatörer konfigurera deras Azure Stack-instans rapportera användningsdata till Azure.
 
-> [!NOTE]
-> Rapportering av användning krävs för de Azure Stack med flera noder användare med licens under betalning som du-användning-modell. Det är valfritt för kunder som licensierar under modellen kapacitet (se den [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). För Azure Stack Development Kit användare, Azure Stack-operatörer rapportera användningsdata och testa funktionen. Användare debiteras dock inte för eventuell användning som leder de. 
+> [!IMPORTANT]
+> Alla arbetsbelastningar [måste distribueras under klient prenumerationerna](#are-users-charged-for-the-infrastructure-vms) att följa licensvillkoren för Azure Stack.
+
+Rapportering av användning krävs för de Azure Stack med flera noder användare med licens under betalning som du-användning-modell. Det är valfritt för kunder som licensierar under modellen kapacitet (se den [köpa sidan](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). För Azure Stack Development Kit användare, Azure Stack-operatörer rapportera användningsdata och testa funktionen. Användare debiteras dock inte för eventuell användning som leder de.
 
 ![fakturering flöde](media/azure-stack-usage-reporting/billing-flow.png)
 

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 3a0b4db77e6dfb8be3a2f943052925001e5f7715
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 32606f988152b061fa1923c409207b2a650e64ba
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259791"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332463"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>Använda Azure Blockchain Workbench Data med SQL Server Management Studio
 
@@ -43,7 +43,7 @@ Microsoft SQL Server Management Studio ger möjlighet att snabbt skriva och test
     ![Lista över databaser](./media/data-sql-management-studio/db-list.png)
 
 5. Om du vill visa data som associeras med någon av databasvyerna kan du automatiskt generera en select-instruktion genom att följa stegen nedan.
-6. Högerklicka någon av databasvyerna i Object Explorer.
+6. Högerklicka på någon av vyerna databas i Object Explorer.
 7. Välj **Skriptvy som**.
 8. Välj **SELECT to** (SELECT till).
 9. Välj **Nytt frågeredigeringsfönster**.

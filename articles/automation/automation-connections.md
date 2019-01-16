@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2a28c8056e6dc25148299415a63a32993e874e01
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284548"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331800"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -23,7 +23,7 @@ En Automation-anslutningstillgång innehåller den information som krävs för a
 När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningstypen är en mall som definierar en uppsättning egenskaper. Anslutningen definierar värden för varje egenskap som definierats i dess anslutningstyp. Anslutningstyper som läggs till Azure Automation i integreringsmoduler eller skapats med den [Azure Automation API](https://msdn.microsoft.com/library/azure/mt163818.aspx) om integration-modulen innehåller en anslutningstyp och importeras till ditt Automation-konto. I annat fall behöver du skapa en metadatafil om du vill ange en Automation-anslutningstyp.  Ytterligare information om detta finns i [integreringsmoduler](automation-integration-modules.md).  
 
 >[!NOTE]
->Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången.
+>Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault hanteras av en datorn. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången. Den här processen hanteras av Azure Automation.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 

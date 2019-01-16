@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: mcollier
 ms.component: ''
-ms.openlocfilehash: c11bd2cc5f660ec72aa35ea21a378e6afb7d604a
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 0f08101c7948d7f3e211f8764458c2eaeacb0859
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440669"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330627"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure Monitoring REST API-genomgång
 Den här artikeln visar hur du utför autentisering så att din kod kan använda den [Microsoft Azure Monitor REST API-referens](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -389,7 +389,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
                   -Headers $authHeader `
                   -Method Get `
-                  -OutFile ".\contostweets-metricdef-results.json" `
+                  -OutFile ".\contosotweets-metricdef-results.json" `
                   -Verbose
 ```
 > [!NOTE]
@@ -459,7 +459,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-results.json" `
+    -OutFile ".\contosotweets-metrics-results.json" `
     -Verbose
 ```
 
@@ -507,7 +507,7 @@ $request = "https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-x
 Invoke-RestMethod -Uri $request `
     -Headers $authHeader `
     -Method Get `
-    -OutFile ".\contostweets-metrics-multiple-results.json" `
+    -OutFile ".\contosotweets-metrics-multiple-results.json" `
     -Verbose
 ```
 Resulterande JSON svarstexten skulle vara liknar följande exempel:
@@ -566,8 +566,8 @@ En ytterligare metod är att använda [ARMClient](https://github.com/projectkudu
 
 1. Installera [Chocolatey](https://chocolatey.org/) och [ARMClient](https://github.com/projectkudu/armclient).
 2. Skriv i ett terminalfönster *armclient.exe inloggning*. Då uppmanas du att logga in på Azure.
-3. Typ *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
-4. Typ *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
+3. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metricdefinitions?api-version=2016-03-01*
+4. Type *armclient GET [your_resource_id]/providers/microsoft.insights/metrics?api-version=2016-09-01*
 
 Till exempel för att hämta måttdefinitioner för en specifik Logikapp, kör du följande kommando:
 ```

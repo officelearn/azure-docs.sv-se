@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: bbe957d4327770daee51f8a46d90978373fed53a
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317023"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330396"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -46,11 +46,11 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för lämpliga klienten. Du kan bara hämta token från den klient som ditt konto tillhör. | |
 | InvalidContentLink | Du har troligen försökt att länka till en kapslad mall som inte är tillgänglig. Kontrollera URI som du angav för den kapslade mallen. Om mallen finns i ett storage-konto, kontrollera att URI: N är tillgänglig. Du kan behöva skicka en SAS-token. | [Länkade mallar](resource-group-linked-templates.md) |
 | InvalidParameter | En av de värden som du angav för en resurs matchar inte det förväntade värdet. Det här felet kan bero på många olika villkor. Till exempel ett lösenord kan vara otillräckligt eller en blobnamnet kan vara felaktigt. Kontrollera felmeddelandet för att avgöra vilket värde måste åtgärdas. | |
-| InvalidRequestContent | Dina värden för distribution som innehåller värden som inte är förväntade eller saknas nödvändiga värden. Kontrollera värdena för din resurstyp av. | [Mallreferensen](/azure/templates/) |
+| InvalidRequestContent | Dina värden för distribution som innehåller värden som inte är förväntade eller saknas nödvändiga värden. Kontrollera värdena för din resurstyp av. | [Mallreferens](/azure/templates/) |
 | InvalidRequestFormat | Aktivera felsökningsloggning när du genomför distributionen och kontrollera innehållet i begäran. | [Felsökningsloggning](#enable-debug-logging) |
-| InvalidResourceNamespace | Kontrollera resursnamnområdet som du angav i den **typ** egenskapen. | [Mallreferensen](/azure/templates/) |
+| InvalidResourceNamespace | Kontrollera resursnamnområdet som du angav i den **typ** egenskapen. | [Mallreferens](/azure/templates/) |
 | InvalidResourceReference | Resursen finns inte ännu eller felaktigt refererar till. Kontrollera om du behöver lägga till ett beroende. Kontrollera att din användning av den **referens** funktion innehåller de obligatoriska parametrarna för ditt scenario. | [Lös beroenden](resource-manager-not-found-errors.md) |
-| InvalidResourceType | Kontrollera resursen skriver du angav i den **typ** egenskapen. | [Mallreferensen](/azure/templates/) |
+| InvalidResourceType | Kontrollera resursen skriver du angav i den **typ** egenskapen. | [Mallreferens](/azure/templates/) |
 | InvalidSubscriptionRegistrationState | Registrera din prenumeration med resursprovidern. | [Lösa registrering](resource-manager-register-provider-errors.md) |
 | InvalidTemplate | Kontrollera din mallens syntax för fel. | [Lösa ogiltig mall](resource-manager-invalid-template-errors.md) |
 | InvalidTemplateCircularDependency | Ta bort onödiga beroenden. | [Lösa cirkulärt tjänstberoende](resource-manager-invalid-template-errors.md#circular-dependency) |
@@ -250,5 +250,7 @@ Eller så kan du anta att det uppstår distributionsfel som du tycker är relate
 
 
 ## <a name="next-steps"></a>Nästa steg
+
+* Om du vill gå igenom en självstudiekurs om felsökning finns i [självstudien: Felsöka malldistributioner för Resource Manager](./resource-manager-tutorial-troubleshoot.md)
 * Läs om granskning åtgärder i [granskningsåtgärder med Resource Manager](resource-group-audit.md).
 * Mer information om åtgärder för att avgöra felen under distributionen, se [visa distributionsåtgärder](resource-manager-deployment-operations.md).

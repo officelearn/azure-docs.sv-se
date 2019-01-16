@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: d2db9d426da58b3783b07210165a55cc6ec27658
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185961"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321899"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
 Data i [Log Analytics](../log-query/log-query-overview.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
@@ -51,7 +51,7 @@ search *
 | summarize count() by Type 
 ```
 
-## <a name="resourceid"></a>\_Resurs-ID
+## <a name="resourceid"></a>\_ResourceId
 Den  **\_ResourceId** egenskapen innehåller en unik identifierare för den resurs som posten är associerad med. Detta ger dig en egenskap som är standard ska använda för att begränsa frågan till endast poster från en viss resurs eller att ansluta till relaterade data från flera tabeller.
 
 För Azure-resurser, värdet för **_ResourceId** är den [Azure-resurs-ID-URL: en](../../azure-resource-manager/resource-group-template-functions-resource.md). Egenskapen är för närvarande begränsat till Azure-resurser, men det kommer att gälla till resurser utanför Azure, t.ex lokala datorer.
@@ -84,6 +84,70 @@ AzureActivity
    | summarize LoggedOnAccounts = makeset(Account) by _ResourceId 
 ) on _ResourceId  
 ```
+
+## <a name="isbillable"></a>\_IsBillable
+Den  **\_IsBillable** egenskapen anger om insamlade data är fakturerbara. Data med  **\_IsBillable** lika _FALSKT_ samlas in kostnadsfritt och debiteras inte för ditt Azure-konto.
+
+### <a name="examples"></a>Exempel
+Om du vill hämta en lista över datorer som skickar faktureras datatyper, använder du följande fråga:
+
+> [!NOTE]
+> Använda frågor med `union withsource = tt *` sparsamt sökningar över data datatyper är dyrt att köra. 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize TotalVolumeBytes=sum(_BilledSize) by computerName
+```
+
+Detta kan utökas för att returnera antalet datorer per timme som skickar faktureras datatyper:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
+
+## <a name="billedsize"></a>\_BilledSize
+Den  **\_BilledSize** egenskapen anger storleken i byte för data som kommer att debiteras för ditt Azure-konto om  **\_IsBillable** är sant.
+
+### <a name="examples"></a>Exempel
+Visa storleken på faktureringsbara händelser matas in per dator att använda den `_BilledSize` egenskapen som tillhandahåller storlek i byte:
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last 
+```
+
+Om du vill se antalet händelser som matas in per dator, använder du följande fråga:
+
+```Kusto
+union withsource = tt *
+| summarize count() by Computer | sort by count_ nulls last
+```
+
+Om du vill se antalet faktureringsbara händelser matas in per dator, använder du följande fråga: 
+
+```Kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| summarize count() by Computer  | sort by count_ nulls last
+```
+
+Om du vill se antalet för fakturerbar datatyper skickar data till en specifik dator använder du följande fråga:
+
+```Kusto
+union withsource = tt *
+| where Computer == "computer name"
+| where _IsBillable == true 
+| summarize count() by tt | sort by count_ nulls last 
+```
+
 
 ## <a name="next-steps"></a>Nästa steg
 

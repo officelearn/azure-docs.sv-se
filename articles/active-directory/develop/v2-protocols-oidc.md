@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 756d00786005fb6de26ff363d4e233fc28b48687
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 01d73d9c42f99dde02a801af9967430c9735932d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426850"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320964"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 och OpenID Connect-protokoll
 
@@ -33,11 +33,11 @@ OpenID Connect är ett autentiseringsprotokoll som bygger på OAuth 2.0 som du k
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) utökar OAuth 2.0 *auktorisering* protokoll som ska användas som en *autentisering* protokoll, så att du kan göra med enkel inloggning med OAuth. OpenID Connect introducerar konceptet för en *ID-token*, vilket är en säkerhetstoken som gör att klienten att verifiera användarens identitet. ID-token får du också grundläggande profilinformation om användaren. Eftersom OpenID Connect utökar OAuth 2.0, appar på ett säkert sätt kan hämta *åtkomsttoken*, som kan användas för att komma åt resurser som skyddas av en [auktoriseringsservern](active-directory-v2-protocols.md#the-basics). V2.0-slutpunkten kan också appar från tredje part som är registrerade i Azure AD för att utfärda åtkomsttoken för skyddade resurser, till exempel webb-API: er. Läs mer om hur du konfigurerar ett program att utfärda åtkomsttoken [hur du registrerar en app med v2.0-slutpunkten](quickstart-v2-register-an-app.md). Vi rekommenderar att du använder att OpenID Connect om du skapar en [webbprogram](v2-app-types.md#web-apps) som är finns på en server och kan nås via en webbläsare.
 
-## <a name="protocol-diagram-sign-in"></a>Diagram över protokollet: inloggning
+## <a name="protocol-diagram-sign-in"></a>Protokollet diagram: logga in
 
 Mest grundläggande inloggning flödet har de steg som visas i nästa diagram. Varje steg beskrivs i detalj i den här artikeln.
 
-![OpenID Connect-protokollet: inloggning](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
+![OpenID Connect-protokoll: logga in](./media/v2-protocols-oidc/convergence_scenarios_webapp.png)
 
 ## <a name="fetch-the-openid-connect-metadata-document"></a>Hämta metadatadokument OpenID Connect
 
@@ -86,7 +86,7 @@ När webbappen behöver autentisera användaren, den kan dirigera användare til
 * Begäran måste innehålla den `nonce` parametern.
 
 > [!IMPORTANT]
-> Begär appregistreringen i en ID-token ska har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **[Implicit beviljande](v2-oauth2-implicit-grant-flow.md)** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` -felmeddelande: ”det angivna värdet för Indataparametern 'response_type” tillåts inte för den här klienten. Förväntat värde är ”code” ”
+> För att begära appregistreringen i en ID-token har den [registreringsportalen](https://apps.dev.microsoft.com) måste ha den **[Implicit beviljande](v2-oauth2-implicit-grant-flow.md)** aktiverad för webbklienten. Om den inte är aktiverad, en `unsupported_response` fel returneras: ”Det angivna värdet för Indataparametern 'response_type” tillåts inte för den här klienten. Förväntat värde är ”code” ”
 
 Exempel:
 
@@ -167,7 +167,7 @@ I följande tabell beskrivs felkoder som kan returneras i de `error` -parametern
 | --- | --- | --- |
 | invalid_request |Protokollfel, till exempel en saknad obligatoriska parametern. |Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som normalt påträffades under första testningen. |
 | unauthorized_client |Klientprogrammet kan inte begära en auktoriseringskod. |Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktioner för att installera programmet och lägga till den till Azure AD. |
-| ACCESS_DENIED |Resursägaren nekas godkännande. |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
+| access_denied |Resursägaren nekas godkännande. |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
 | unsupported_response_type |Auktoriseringsservern stöder inte svarstypen i begäran. |Åtgärda och skicka begäran igen. Det här är en utvecklingsfel som normalt påträffades under första testningen. |
 | server_error |Ett oväntat fel inträffade på servern. |Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt fel. |
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |
@@ -207,13 +207,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 När du omdirigerar användaren till den `end_session_endpoint`, v2.0-slutpunkten tar bort användarens session i webbläsaren. Men kan användaren fortfarande vara inloggad till andra program som använder Microsoft-konton för autentisering. Aktivera programmen för att logga in användaren ut samtidigt, v2.0 slutpunkt skickar en HTTP GET-begäran till det registrerade `LogoutUrl` över alla program som användaren för närvarande är inloggad på. Program måste svara på den här begäran genom att avmarkera alla sessioner som identifierar användaren och returnera en `200` svar. Om du vill stödja enkel utloggning i ditt program måste du implementera, till exempel en `LogoutUrl` i programkoden. Du kan ange den `LogoutUrl` från portalen för registrering av appen.
 
-## <a name="protocol-diagram-access-token-acquisition"></a>Protokollet diagram: komma åt tokenförvärv
+## <a name="protocol-diagram-access-token-acquisition"></a>Protokollet diagram: Åtkomst tokenförvärv
 
 Många webbprogram måste du inte bara registrera användaren i, men också att få åtkomst till en webbtjänst för användarens räkning genom att använda OAuth. Det här scenariot kombinerar OpenID Connect för autentisering av användare vid hämtning av en auktoriseringskod som du kan använda för att få åtkomst-token om du använder OAuth-auktoriseringskodflöde samtidigt.
 
 Fullständig OpenID Connect-inloggningen och token förvärv flödet ser ut ungefär så i nästa diagram. Vi beskriver varje steg i detalj i nästa avsnitt av artikeln.
 
-![OpenID Connect-protokoll: Token förvärv](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
+![OpenID Connect-protokoll: Tokenförvärv](./media/v2-protocols-oidc/convergence_scenarios_webapp_webapi.png)
 
 ## <a name="get-access-tokens"></a>Få åtkomst-token
 Ändra inloggning-begäran för att hämta åtkomsttoken:

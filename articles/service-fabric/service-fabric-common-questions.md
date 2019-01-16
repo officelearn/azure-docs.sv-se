@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 54ce1d9ab6216f1d757d7076cb95362d55ea9d9c
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537638"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320607"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -56,7 +56,7 @@ För kluster som inte körs i Azure, har vi [tillhandahålls ett program](servic
 
 **Kort svar** – Nej 
 
-**Svara på länge** – även om stora VM-skalningsuppsättningar kan du skala en virtuell dator för att skala upp till 1000 VM-instanser har detta sker genom användning av Placeringsgrupper (PGs). Feldomäner (fd) och uppgraderingsdomäner (ud) är endast konsekventa i placering grupp Service fabric använder sig FD och ud för att fatta beslut om placering av dina service repliker/Service-instanser. Eftersom FD och ud är jämförbara endast i en placeringsgrupp är kan inte SF använda den. Exempelvis kan VM1 i SG1 har en topologi av FD = 0 och VM9 i SG2 har en topologi av FD = 4, det innebär inte att VM1 och VM2 finns på två olika maskinvara rack, därför SF kan inte använda FD-värden i det här fallet att fatta beslut om placeringen.
+**Svara på länge** – även om stora VM-skalningsuppsättningar kan du skala en VM scale Sets upp till 1 000 instanser av virtuella datorer, sker detta med hjälp av Placeringsgrupper (PGs). Feldomäner (fd) och uppgraderingsdomäner (ud) är endast konsekventa i placering grupp Service fabric använder sig FD och ud för att fatta beslut om placering av dina service repliker/Service-instanser. Eftersom FD och ud är jämförbara endast i en placeringsgrupp är kan inte SF använda den. Exempelvis kan VM1 i SG1 har en topologi av FD = 0 och VM9 i SG2 har en topologi av FD = 4, det innebär inte att VM1 och VM2 finns på två olika maskinvara rack, därför SF kan inte använda FD-värden i det här fallet att fatta beslut om placeringen.
 
 Det finns andra problem med stor VM-skalningsuppsättningar, som om bristen på nivå 4-ladda stöd för belastningsutjämning. Det finns [information om stora skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 

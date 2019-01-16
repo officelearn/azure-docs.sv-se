@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 11/29/2018
+ms.date: 1/15/2019
 ms.author: moderakh
-ms.openlocfilehash: e64820377421a3eae80d77d464e48979a3bb30a5
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 760a54a09dd612cef93de0de1e8ac2fd59b04b26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198634"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329386"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Async Java SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ SQL API Async Java SDK skiljer sig från SQL API Java-SDK: N genom att tillhanda
 </table></br>
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="a-name231231"></a><a name="2.3.1"/>2.3.1
+* Korrigeringar hantera mycket stora frågesvar.
+* Åtgärdar token resurshantering när instanser skapades av klienten ([github #78](https://github.com/Azure/azure-cosmosdb-java/issues/78)).
+* Uppgraderas sårbara beroende jackson-databind ([github #77](https://github.com/Azure/azure-cosmosdb-java/pull/77)).
 
 ### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
 * En bugg resource dataläckor.
@@ -125,6 +130,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.3.1](#2.3.1) |15 jan 2019|--- |
 | [2.3.0](#2.3.0) |Den 29 november 2018|--- |
 | [2.2.2](#2.2.2) |8 november 2018|--- |
 | [2.2.1](#2.2.1) |Den 2 november 2018|--- |

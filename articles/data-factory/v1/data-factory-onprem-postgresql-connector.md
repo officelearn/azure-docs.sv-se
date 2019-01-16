@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2f964ac77ade69f14692a337f17011e93f85f68c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0e86180a643b27056edc9901d590760cedcbf259
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025716"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331885"
 ---
 # <a name="move-data-from-postgresql-using-azure-data-factory"></a>Flytta data från PostgreSQL med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-postgresql-connector.md)
 > * [Version 2 (aktuell version)](../connector-postgresql.md)
 
@@ -31,7 +31,7 @@ ms.locfileid: "54025716"
 
 Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data från en lokal PostgreSQL-databas. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från ett datalager för lokal PostgreSQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory stöder för närvarande flyttar data från en PostgreSQL-databas till datalager, men inte för att flytta data från andra datalager till en PostgreSQL-databas. 
+Du kan kopiera data från ett datalager för lokal PostgreSQL till alla datalager för mottagare som stöds. En lista över datalager som stöds som mottagare av Kopieringsaktivitet finns i [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Data factory stöder för närvarande flyttar data från en PostgreSQL-databas till datalager, men inte för att flytta data från andra datalager till en PostgreSQL-databas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -46,10 +46,10 @@ Gateway krävs även om PostgreSQL-databasen finns i en Azure IaaS-VM. Du kan in
 Data Management Gateway att ansluta till PostgreSQL-databasen, installera den [Ngpsql dataprovider för PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) med version mellan 2.0.12 och 3.1.9 på samma system som Data Management Gateway. PostgreSQL version 7.4 och senare stöds.
 
 ## <a name="getting-started"></a>Komma igång
-Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för den lokala PostgreSQL med hjälp av olika verktyg/API: er. 
+Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett datalager för den lokala PostgreSQL med hjälp av olika verktyg/API: er.
 
-- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data. 
-- Du kan också använda följande verktyg för att skapa en pipeline: 
+- Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
+- Du kan också använda följande verktyg för att skapa en pipeline:
     - Azure Portal
     - Visual Studio
     - Azure PowerShell
@@ -57,15 +57,15 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett d
     - .NET-API
     - REST-API
 
-     Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+    Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
 1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal PostgreSQL finns [JSON-exempel: Kopiera data från PostgreSQL till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data från ett datalager för lokal PostgreSQL finns [JSON-exempel: Kopiera data från PostgreSQL till Azure Blob](#json-example-copy-data-from-postgresql-to-azure-blob) i den här artikeln.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för ett datalager för PostgreSQL:
 
@@ -104,14 +104,14 @@ När källan är av typen **RelationalSource** (som innehåller PostgreSQL), fö
 | DocumentDB |Använd anpassad fråga för att läsa data. |SQL-sträng. Till exempel: `"query": "select * from \"MySchema\".\"MyTable\""`. |Nej (om **tableName** av **datauppsättning** har angetts) |
 
 > [!NOTE]
-> Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.  
+> Schema och tabellnamn är skiftlägeskänsliga. Sätter dem inom `""` (dubbla citattecken) i frågan.
 
 **Exempel:**
 
  `"query": "select * from \"MySchema\".\"MyTable\""`
 
 ## <a name="json-example-copy-data-from-postgresql-to-azure-blob"></a>JSON-exempel: Kopiera data från PostgreSQL till Azure Blob
-Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från PostgreSQL-databas till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.   
+Det här exemplet innehåller exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md) eller [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). De visar hur du kopierar data från PostgreSQL-databas till Azure Blob Storage. Dock datan kan kopieras till någon av de mottagare som anges [här](data-factory-data-movement-activities.md#supported-data-stores-and-formats) använda Kopieringsaktivitet i Azure Data Factory.
 
 > [!IMPORTANT]
 > Det här exemplet innehåller JSON-kodfragment. Stegvisa instruktioner för att skapa data factory omfattas inte. Se [flytta data mellan lokala platser och molnet](data-factory-move-data-between-onprem-and-cloud.md) artikeln stegvisa instruktioner.
@@ -153,10 +153,10 @@ Som ett första steg att konfigurera data management gateway. Anvisningarna finn
 {
     "name": "AzureStorageLinkedService",
     "properties": {
-    "type": "AzureStorage",
-    "typeProperties": {
-        "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
-    }
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": "DefaultEndpointsProtocol=https;AccountName=<AccountName>;AccountKey=<AccountKey>"
+        }
     }
 }
 ```
@@ -307,22 +307,22 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | Typ av PostgreSQL-databas | PostgresSQL alias | .NET framework-typ |
 | --- | --- | --- |
 | abstime | |DateTime | &nbsp;
-| bigint |Int8 |Int64 |
+| bigint |int8 |Int64 |
 | bigserial |serial8 |Int64 |
-| bitars [(n)] | |Byte [], sträng | &nbsp;
-| bit varierande [(n)] |varbit |Byte [], sträng |
+| bitars [(n)] | |Byte[], String | &nbsp;
+| bit varierande [(n)] |varbit |Byte[], String |
 | boolesk |Bool |Boolesk |
-| Box | |Byte [], sträng |&nbsp;
-| bytea | |Byte [], sträng |&nbsp;
+| Box | |Byte[], String |&nbsp;
+| bytea | |Byte[], String |&nbsp;
 | tecknet [(n)] |char [(n)] |Sträng |
 | tecknet varierande [(n)] |varchar [(n)] |Sträng |
 | CID | |Sträng |&nbsp;
 | CIDR | |Sträng |&nbsp;
-| Cirkel | |Byte [], sträng |&nbsp;
+| Cirkel | |Byte[], String |&nbsp;
 | datum | |DateTime |&nbsp;
 | DateRange | |Sträng |&nbsp;
 | dubbel precision |FLOAT8 |Double-värde |
-| inet | |Byte [], sträng |&nbsp;
+| inet | |Byte[], String |&nbsp;
 | intarry | |Sträng |&nbsp;
 | int4range | |Sträng |&nbsp;
 | int8range | |Sträng |&nbsp;
@@ -330,17 +330,17 @@ När data flyttas till PostgreSQL, används följande mappningar från PostgreSQ
 | intervallet [fält] [(p)] | |Tidsintervall |&nbsp;
 | JSON | |Sträng |&nbsp;
 | jsonb | |Byte] |&nbsp;
-| Rad | |Byte [], sträng |&nbsp;
-| lseg | |Byte [], sträng |&nbsp;
-| macaddr | |Byte [], sträng |&nbsp;
+| Rad | |Byte[], String |&nbsp;
+| lseg | |Byte[], String |&nbsp;
+| macaddr | |Byte[], String |&nbsp;
 | pengar | |Decimal |&nbsp;
 | numeriska [(p, s)] |decimal [(p, s)] |Decimal |
 | numrange | |Sträng |&nbsp;
-| OID | |Int32 |&nbsp;
-| sökväg | |Byte [], sträng |&nbsp;
+| oid | |Int32 |&nbsp;
+| sökväg | |Byte[], String |&nbsp;
 | pg_lsn | |Int64 |&nbsp;
-| Återställningspunkt | |Byte [], sträng |&nbsp;
-| Polygon | |Byte [], sträng |&nbsp;
+| Återställningspunkt | |Byte[], String |&nbsp;
+| polygon | |Byte[], String |&nbsp;
 | verkliga |FLOAT4 |Enkel |
 | smallint |int2 |Int16 |
 | smallserial |serial2 |Int16 |

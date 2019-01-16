@@ -3,7 +3,7 @@ title: Etablering guide för Windows SQL Server-datorer i Azure portal | Microso
 description: Den här guiden beskriver dina alternativ för att skapa Windows SQL Server 2017-datorer i Azure-portalen.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.assetid: 1aff691f-a40a-4de2-b6a0-def1384e086e
@@ -13,13 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 05/04/2018
-ms.author: jroth
-ms.openlocfilehash: d2bcabf845a2178abbebe8f2998d58b462e37c78
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fd01fdd3f7f8803dc7221bd0bd6c993120a83d44
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38704546"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330899"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en Windows SQL Server-dator i Azure portal
 
@@ -54,7 +55,7 @@ När du skapar en SQL Server-dator kan välja du en av flera förkonfigurerade a
 
 1. Granska de tillgängliga SQL Server-avbildningarna. Varje avbildning identifierar en version av SQL Server och ett operativsystem.
 
-1. Välj avbildningen med namnet **Kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server 2016**.
+1. Välj avbildningen med namnet **kostnadsfri SQL Server-licens: SQL Server 2017 Developer på Windows Server 2016**.
 
    > [!TIP]
    > Utvecklarversionen används i den här genomgången eftersom det är en komplett, kostnadsfri version av SQL Server för Utvecklartestning. Du betalar endast för kostnaden för den VM som körs. Men kan du välja vilken avbildning du vill använda i den här genomgången. En beskrivning av tillgängliga avbildningar finns i den [översikt över SQL Server Windows-datorer](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
@@ -249,7 +250,7 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 | **Key Vault-URL** |Platsen för nyckelvalvet. |https://contosokeyvault.vault.azure.net/ |
 | **Huvudnamn** |Azure Active Directory-tjänstens huvudnamn. Det här namnet kallas också för klient-ID:t. |fde2b411-33d5-4e11-af04eb07b669ccf2 |
 | **Huvudhemlighet** |Azure Active Directory-tjänstens huvudhemlighet. Den här hemligheten kallas även för klienthemligheten. |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
-| **Namn på autentiseringsuppgifter** |**Namn på autentiseringsuppgifter**: AKV-integreringen skapar autentiseringsuppgifter på SQL-servern som gör att den virtuella datorn kan komma åt nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |mycred1 |
+| **Namn på autentiseringsuppgifter** |**Namn på autentiseringsuppgift**: AKV-integreringen skapar autentiseringsuppgifter på SQL Server så att den virtuella datorn ska ha åtkomst till nyckelvalvet. Välj ett namn för autentiseringsuppgifterna. |mycred1 |
 
 Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-ps-sql-keyvault.md).
 

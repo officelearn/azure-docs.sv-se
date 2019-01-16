@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: 9a3e061902de53859ea98791048453db8cf00085
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021126"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331817"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -86,7 +86,7 @@ Du kan installera den lokala integreringskörningen genom att ladda ned en MSI-i
 ## <a name="install-and-register-self-hosted-ir-from-the-download-center"></a>Installera och registrera lokal IR från Download Center
 
 1. Gå till den [hämtningssidan för Microsoft integration runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-2. Välj **hämta**, Välj lämplig version (**32-bitars** eller **64-bitars**), och välj **nästa**.
+2. Välj **hämta**, Välj 64-bitarsversionen (32-bitars inte stöds), och välj **nästa**.
 3. Kör MSI-filen direkt, eller spara det på hårddisken och kör den.
 4. På den **Välkommen** , Välj ett språk och välj **nästa**.
 5. Acceptera licensvillkoren för programvara från Microsoft och välj **nästa**.

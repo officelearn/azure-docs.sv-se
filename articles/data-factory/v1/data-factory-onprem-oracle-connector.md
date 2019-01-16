@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1ccf66da14bbbd4993f29da2e40d996cb564864e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: aa6f891cc68d19e638bb2b7281f4b332de26bd26
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024917"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332650"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Kopiera data till eller från Oracle på plats med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-oracle-connector.md)
 > * [Version 2 (aktuell version)](../connector-oracle.md)
 
@@ -73,7 +73,7 @@ Den här Oracle-anslutningsappen stöder två versioner av drivrutiner:
 
     Om du väljer **XCopy Installation**, Slutför stegen som beskrivs i filen readme.htm. Vi rekommenderar att du väljer det installationsprogram som inte har användargränssnitt (inte XCopy installer).
 
-    När du har installerat providern kan du starta om tjänsten Data Management Gateway på din dator med hjälp av tjänster-appleten eller Data Management Gateway Configuration Manager.  
+    När du har installerat providern kan du starta om tjänsten Data Management Gateway på din dator med hjälp av tjänster-appleten eller Data Management Gateway Configuration Manager.
 
 Om du använder guiden Kopiera för att skapa kopieringspipelinen, är Drivrutinstyp autodetermined. Microsoft-drivrutinen används som standard, om inte din gateway-version är äldre än version 2.7 eller du väljer Oracle som mottagare.
 
@@ -87,12 +87,12 @@ Du kan också använda en av följande verktyg för att skapa en pipeline: den *
 
 Om du använder verktyg eller API: er, utför du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines. 
+1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
 2. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik. Till exempel om du kopierar data från en Oracle-databas till Azure Blob storage, skapa två länkade tjänster för att länka din Oracle database och Azure storage-konto till datafabriken. Länkade tjänstegenskaper som är specifika för Oracle, se [länkade tjänstegenskaper](#linked-service-properties).
 3. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det här exemplet i föregående steg skapar du en datauppsättning för att ange tabellen i Oracle-databasen som innehåller indata. Skapar du en annan datauppsättning för att ange blob-behållaren och mappen som innehåller de data som kopieras från Oracle-databas. Egenskaper för datamängd som är specifika för Oracle, se [egenskaper för datamängd](#dataset-properties).
-4. Skapa en **pipeline** som har en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I föregående exempel använder **OracleSource** som källa och **BlobSink** som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure Blob storage till en Oracle-databas måste du använda **BlobSource** och **OracleSink** i kopieringsaktiviteten. Kopieringsaktivitet egenskaper som är specifika för en Oracle-databas, se [Kopieringsaktiviteten egenskaper](#copy-activity-properties). Mer information om hur du använder ett datalager som källa eller mottagare väljer du länken till ditt datalager i föregående avsnitt. 
+4. Skapa en **pipeline** som har en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I föregående exempel använder **OracleSource** som källa och **BlobSink** som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure Blob storage till en Oracle-databas måste du använda **BlobSource** och **OracleSink** i kopieringsaktiviteten. Kopieringsaktivitet egenskaper som är specifika för en Oracle-databas, se [Kopieringsaktiviteten egenskaper](#copy-activity-properties). Mer information om hur du använder ett datalager som källa eller mottagare väljer du länken till ditt datalager i föregående avsnitt.
 
-När du använder guiden JSON-definitioner för dessa Data Factory-entiteter skapas automatiskt åt dig: länkade tjänster, datauppsättningar och pipeline. När du använder verktyg eller API: er (förutom för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Exempel som har JSON-definitioner för Data Factory-entiteter som används för att kopiera data till eller från en lokal Oracle-databas finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-oracle-database).
+När du använder guiden JSON-definitioner för dessa Data Factory-entiteter skapas automatiskt åt dig: länkade tjänster, datauppsättningar och pipeline. När du använder verktyg eller API: er (förutom för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel som har JSON-definitioner för Data Factory-entiteter som används för att kopiera data till eller från en lokal Oracle-databas finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-oracle-database).
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter.
 
@@ -136,8 +136,7 @@ Läs mer om tillåtna format, i [Oracle dataprovider för .NET ODP](https://www.
     "properties": {
         "type": "OnPremisesOracle",
         "typeProperties": {
-            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>)));
-User Id=<user name>;Password=<password>;",
+            "connectionString": "Data Source=(DESCRIPTION=(ADDRESS=(PROTOCOL=TCP)(HOST=<host name>)(PORT=<port number>))(CONNECT_DATA=(SERVICE_NAME=<service ID>))); User Id=<user name>;Password=<password>;",
             "gatewayName": "<gateway name>"
         }
     }
@@ -146,7 +145,7 @@ User Id=<user name>;Password=<password>;",
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [skapar datauppsättningar](data-factory-create-datasets.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i [skapar datauppsättningar](data-factory-create-datasets.md).
 
 Avsnitt i en datauppsättning JSON-fil som struktur, tillgänglighet och princip, är liknande för alla datauppsättningstyper av (till exempel för Oracle, Azure Blob storage och Azure Table storage).
 
@@ -158,7 +157,7 @@ Den **typeProperties** avsnittet är olika för varje typ av datauppsättning oc
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md). 
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i [skapa pipelines](data-factory-create-pipelines.md).
 
 Egenskaper som namn, beskrivning, indata och utdata tabeller och principen är tillgängliga för alla typer av aktiviteter.
 
@@ -181,14 +180,14 @@ I Kopieringsaktiviteten när källan är den **OracleSource** typ, följande ege
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| writeBatchTimeout |Väntetid för batch Infoga åtgärden har slutförts innan tidsgränsen uppnås. |**Tidsintervall**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
+| writeBatchTimeout |Väntetid för batch Infoga åtgärden har slutförts innan tidsgränsen uppnås. |**timespan**<br/><br/> Exempel: 00:30:00 (30 minuter) |Nej |
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når värdet för **writeBatchSize**. |Heltal (antal rader) |Nej (standard: 100) |
 | sqlWriterCleanupScript |Anger en fråga för Kopieringsaktiviteten till att köra så att data för en viss sektor rensas. |Ett frågeuttryck. |Nej |
 | sliceIdentifierColumnName |Anger kolumnens namn för Kopieringsaktiviteten att fylla med en identifierare som genererats automatiskt sektorn.  Värdet för **sliceIdentifierColumnName** används för att rensa data för en viss sektor när köras på nytt. |Kolumnnamnet för en kolumn med datatypen för **binary(32)**. |Nej |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>JSON-exempel för att kopiera data till och från Oracle-databasen
 
-I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob storage. Dock datan kan kopieras till någon av de mottagare som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.   
+I följande exempel får exempel JSON-definitioner som du kan använda för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data från eller till en Oracle-databas och till eller från Azure Blob storage. Dock datan kan kopieras till någon av de mottagare som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
 
 **Exempel: Kopiera data från Oracle till Azure Blob storage**
 
@@ -254,12 +253,12 @@ Ange **externa**: **SANT** informerar Data Factory-tjänsten att datauppsättnin
             "anchorDateTime": "2014-02-27T12:00:00",
             "frequency": "Hour"
         },
-        "policy": {     
-            "externalData": {        
-                "retryInterval": "00:01:00",    
-                "retryTimeout": "00:10:00",       
-                "maximumRetry": 3       
-            }     
+        "policy": {
+            "externalData": {
+                "retryInterval": "00:01:00",
+                "retryTimeout": "00:10:00",
+                "maximumRetry": 3
+            }
         }
     }
 }
@@ -327,16 +326,16 @@ Data skrivs till en ny blob varje timme (**frekvens**: **timme**, **intervall**:
 
 **Pipeline med en Kopieringsaktivitet**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att använda uppsättningar för indata och utdata och schemalagd för att köras varje timme. I pipeline-JSON-definitionen i **källa** är **OracleSource** och **mottagare** är **BlobSink**.  SQL-fråga som du anger med hjälp av den **oracleReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
+Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att använda uppsättningar för indata och utdata och schemalagd för att köras varje timme. I pipeline-JSON-definitionen i **källa** är **OracleSource** och **mottagare** är **BlobSink**. SQL-fråga som du anger med hjälp av den **oracleReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "OracletoBlob",
                 "description": "copy activity",
@@ -378,7 +377,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 **Exempel: Kopiera data från Azure Blob storage till Oracle**
 
-Detta exempel visar hur du kopierar data från ett Azure Blob storage-konto till en lokal Oracle-databas. Men du kan kopiera data *direkt* från någon av de källor som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.  
+Detta exempel visar hur du kopierar data från ett Azure Blob storage-konto till en lokal Oracle-databas. Men du kan kopiera data *direkt* från någon av de källor som anges i [datalager och format som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) med hjälp av Kopieringsaktivitet i Azure Data Factory.
 
 Exemplet har följande Data Factory-entiteter:
 
@@ -503,16 +502,16 @@ Exemplet förutsätter att du har skapat en tabell med namnet **MyTable** i Orac
 
 **Pipeline med en Kopieringsaktivitet**
 
-Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att använda uppsättningar för indata och utdata och schemalagd för att köras varje timme. I pipeline-JSON-definitionen i **källa** är **BlobSource** och **mottagare** är **OracleSink**.  
+Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att använda uppsättningar för indata och utdata och schemalagd för att köras varje timme. I pipeline-JSON-definitionen i **källa** är **BlobSource** och **mottagare** är **OracleSink**.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-05T19:00:00",
         "description":"pipeline with a copy activity",
-        "activities":[  
+        "activities":[
             {
                 "name": "AzureBlobtoOracle",
                 "description": "Copy Activity",
@@ -558,7 +557,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 **Felmeddelande**
 
-    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.  
+    Copy activity met invalid parameters: 'UnknownParameterName', Detailed message: Unable to find the requested .Net Framework Data Provider. It may not be installed.
 
 **Möjliga orsaker**
 
@@ -584,7 +583,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för att anv�
 
 Du kan behöva justera frågesträngen i din kopieringsaktiviteten baserat på hur datum är konfigurerade i Oracle-databas. Här är ett exempel (med hjälp av den **to_date** funktionen):
 
-    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\')  AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
+    "oracleReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= to_date(\\'{0:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') AND timestampcolumn < to_date(\\'{1:MM-dd-yyyy HH:mm}\\',\\'MM/DD/YYYY HH24:MI\\') ', WindowStart, WindowEnd)"
 
 
 ## <a name="type-mapping-for-oracle"></a>Mappning för Oracle
@@ -607,15 +606,15 @@ När du flyttar data från Oracle, används följande mappningar från Oracle-da
 | HELTAL |Decimal, sträng (om precision > 28) |
 | INTERVALL ÅRETS MÅNAD |Int32 |
 | INTERVALL DAG TILL ANDRA |Tidsintervall |
-| LÅNG |Sträng |
+| LONG |Sträng |
 | LÄNGE RÅDATA |Byte] |
 | NCHAR |Sträng |
 | NCLOB |Sträng |
-| ANTAL |Decimal, sträng (om precision > 28) |
+| NUMBER |Decimal, sträng (om precision > 28) |
 | NVARCHAR2 |Sträng |
 | RÅDATA |Byte] |
 | RAD-ID |Sträng |
-| TIDSSTÄMPEL |DateTime |
+| TIMESTAMP |DateTime |
 | TIDSSTÄMPEL MED LOKALA TIDSZON |DateTime |
 | TIDSSTÄMPEL MED TIDSZON |DateTime |
 | HELTALET |Tal |

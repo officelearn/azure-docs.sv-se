@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 01/15/2019
 ms.author: magoedte
-ms.openlocfilehash: a791ac5424a0c0e70ba5480e51f5e21fe3c061ea
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 7152582a73dbaf07eca4aae066c9ac3ab82c3135
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104751"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319060"
 ---
 # <a name="log-analytics-data-security"></a>Logga Analytics-datasäkerhet
 Det här dokumentet är avsedd att ge specifik information till Log Analytics, som är en funktion i Azure Monitor för att komplettera informationen på [Azure Trust Center](../../security/security-microsoft-trust-center.md).  
@@ -174,7 +174,13 @@ Enligt beskrivningen ovan, skickas data från den hanteringsserver eller direkta
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. Log Analytics-tjänsten tar emot och bearbetar data
 Log Analytics-tjänsten garanterar att inkommande data är från en betrodd källa genom att verifiera certifikat och dataintegritet med Azure-autentisering. Obearbetade rådata lagras sedan i en Azure-Händelsehubb i regionen kommer så småningom att lagras data i vila. Vilken typ av data som lagras beror på vilka typer av lösningar som har importerats och används för att samla in data. Log Analytics service processer rådata och matar in den i databasen.
 
-Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna data lagras också i SSD-baserad cacheminnet och det här cacheminnet är för närvarande inte krypterat.  Vi arbetar för att stödja kryptering av SSD-baserad cache.      
+Kvarhållningsperioden för insamlade data som lagras i databasen är beroende av den valda prisplanen. För den *kostnadsfri* nivå, insamlade data är tillgängliga i sju dagar. För den *betald* nivå, insamlade data är tillgängliga i 31 dagar som standard, men kan utökas till 730 dagar. Data lagras krypterat i vila i Azure storage, för att säkerställa datasekretess, och data replikeras inom lokala region med hjälp av lokalt redundant lagring (LRS). De senaste två veckorna data lagras också i SSD-baserad cacheminnet och det här cacheminnet är krypterad, utom i följande regioner:
+
+* Västra centrala USA
+* Västra USA 2
+* Storbritannien, södra 
+
+Vi arbetar för att inkludera stöd för dessa regioner.     
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Använd Log Analytics för att få åtkomst till data
 För att få åtkomst till Log Analytics-arbetsytan måste du logga in på Azure-portalen med organisationens konto eller Microsoft-konto som du tidigare har konfigurerat. All trafik mellan portalen och Log Analytics-tjänsten skickas via en säker HTTPS-kanal. När du använder portalen, genereras ett sessions-ID på klienten för användare (webbläsare) och data lagras i ett lokalt cacheminne tills sessionen avslutas. När avslutas, tas cachen bort. Klientsidan cookies, som inte innehåller personligt identifierbar information tas inte bort automatiskt. Sessionscookies är markerad HTTPOnly och skyddas. Efter en förutbestämd inaktiv tid, har Azure portal sessionen avslutats.

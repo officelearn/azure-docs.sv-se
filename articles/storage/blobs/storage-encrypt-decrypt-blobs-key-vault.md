@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 092ffa5ed34a8e0a05b69c3fae86ab7299760ac2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 213190863702ec5a7f2ae764c8e2d892764740f9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233107"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332208"
 ---
 # <a name="tutorial-encrypt-and-decrypt-blobs-in-microsoft-azure-storage-using-azure-key-vault"></a>Självstudier: Kryptera och dekryptera blobbar i Microsoft Azure Storage med Azure Key Vault
 ## <a name="introduction"></a>Introduktion
@@ -136,7 +136,7 @@ KeyVaultKeyResolver cloudResolver = new KeyVaultKeyResolver(GetToken);
 > 
 > Key Vault-klienten interagerar med REST API och förstår JSON Web nycklar och hemligheter för de två typerna av saker som finns i Key Vault.
 > 
-> Key Vault tillägg är klasser som verkar skapats enbart för client side encryption i Azure Storage. De innehåller ett gränssnitt för nycklar (IKey) och klasser som baseras på konceptet med en nyckel-matchare. Det finns två implementeringar av IKey som du behöver veta: RSAKey och SymmetricKey. Nu de råkar sammanträffar med de saker som finns i ett Nyckelvalv, men då de är oberoende klasser (så IKey inte implementerar en nyckel och hemlighet som hämtas av Key Vault-klienten).
+> Key Vault tillägg är klasser som verkar skapats enbart för client side encryption i Azure Storage. De innehåller ett gränssnitt för nycklar (IKey) och klasser som baseras på konceptet med en nyckel-matchare. Det finns två implementeringar av IKey som du behöver känna till: RSAKey och SymmetricKey. Nu de råkar sammanträffar med de saker som finns i ett Nyckelvalv, men då de är oberoende klasser (så IKey inte implementerar en nyckel och hemlighet som hämtas av Key Vault-klienten).
 > 
 > 
 
@@ -208,7 +208,7 @@ $enc = [System.Convert]::ToBase64String($b)
 $secretvalue = ConvertTo-SecureString $enc -AsPlainText -Force
 
 // Substitute the VaultName and Name in this command.
-$secret = Set-AzureKeyVaultSecret -VaultName 'ContoseKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
+$secret = Set-AzureKeyVaultSecret -VaultName 'ContosoKeyVault' -Name 'TestSecret2' -SecretValue $secretvalue -ContentType "application/octet-stream"
 ```
 
 Du kan använda samma anropet som innan i konsolprogrammet, för att hämta den här hemligheten som en SymmetricKey.

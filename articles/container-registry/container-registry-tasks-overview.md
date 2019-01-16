@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: danlep
-ms.openlocfilehash: 63affd4ad22d5246274ddfa3160d5675f702003f
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cd2b14dc29f865a162cb1ced605e740a96f7a46a
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855773"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329981"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatisera framework uppdatering med ACR uppgifter av operativsystem och
 
@@ -24,10 +24,10 @@ Behållare för nya nivåer av virtualisering, isolera program- och developer-be
 
 Skapa och testa behållaravbildningar med ACR uppgifter på fyra sätt:
 
-* [Snabb uppgift](#quick-task): skapa och skicka container-avbildningar på begäran, i Azure, utan en lokal Docker-motorn-installation. Tror `docker build`, `docker push` i molnet. Skapa från lokala källkoden eller en Git-lagringsplats.
-* [Skapa på källan kodgenomförande](#automatic-build-on-source-code-commit): Utlös en behållare bild version automatiskt när koden är för en Git-lagringsplats.
-* [Bygg på grundläggande uppdateringar](#automate-os-and-framework-patching): utlösa en behållare bild build när den avbildningen basavbildning har uppdaterats.
-* [Uppgifter i flera steg](#multi-step-tasks-preview) (förhandsversion): definiera flera steg uppgifter som att skapa avbildningar kör behållare som kommandon och push-överför avbildningar till ett register. Den här funktionen för förhandsgranskning av ACR uppgifter stöder körning av aktiviteten på begäran och parallella bild för att skapa, testa och push-åtgärder.
+* [Snabb uppgift](#quick-task): Skapa och skicka container-avbildningar på begäran, i Azure, utan en lokal Docker-motorn-installation. Tror `docker build`, `docker push` i molnet. Skapa från lokala källkoden eller en Git-lagringsplats.
+* [Skapa på källan kodgenomförande](#automatic-build-on-source-code-commit): Utlös en behållare bild version automatiskt när koden strävar efter att en Git-lagringsplats.
+* [Bygg på grundläggande uppdateringar](#automate-os-and-framework-patching): Utlös en behållare bild version när den avbildningen basavbildning har uppdaterats.
+* [Uppgifter i flera steg](#multi-step-tasks-preview) (förhandsversion): Definiera flera steg uppgifter som att skapa avbildningar kör behållare som kommandon och push-överför avbildningar till ett register. Den här funktionen för förhandsgranskning av ACR uppgifter stöder körning av aktiviteten på begäran och parallella bild för att skapa, testa och push-åtgärder.
 
 ## <a name="quick-task"></a>Snabb uppgift
 
@@ -44,7 +44,7 @@ I följande tabell visas några exempel på platser som stöds kontext för ACR 
 | Lokala filsystem | Filer i en katalog i det lokala filsystemet. | `/home/user/projects/myapp` |
 | GitHub huvudgrenen | Filer i huvudservern (eller andra standard)-grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub-gren | Viss förgrening av en GitHub-lagringsplatsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
-| GitHub pull-begäran | Pull-begäran i en GitHub-lagringsplats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
+| GitHub PR | Pull-begäran i en GitHub-lagringsplats. | `https://github.com/gituser/myapp-repo.git#pull/23/head` |
 | GitHub-undermapp | Filer i en undermapp i en GitHub-lagringsplatsen. Exemplet visar en kombination av pull-begäran och undermappen-specifikationen. | `https://github.com/gituser/myapp-repo.git#pull/24/head:myfolder` |
 | Remote tarball | Filer i en komprimerad fil på en fjärransluten webbserver. | `http://remoteserver/myapp.tar.gz` |
 
@@ -57,7 +57,7 @@ Lär dig hur du använder Snabbuppgifter i den första kursen i ACR uppgifter [s
 Använd ACR uppgifter att automatiskt utlösa en behållaravbildning build när koden strävar efter att en Git-lagringsplats. Build-uppgifter, kan konfigureras med Azure CLI-kommando [az acr uppgift][az-acr-task], kan du ange en Git-lagringsplats och du kan också en gren och Dockerfile. När ditt team incheckningar kod till lagringsplatsen, utlöser en ACR-uppgifter som skapats webhook en version av den behållaravbildning som definierats i lagringsplatsen.
 
 > [!IMPORTANT]
-> Om du tidigare skapat uppgifter i förhandsversionen med de `az acr build-task` kommandot dessa aktiviteter måste skapas på nytt med hjälp av den [az acr uppgift] [ az-acr-task] kommando.
+> Om du tidigare skapade uppgifter i förhandsversionen med kommandot `az acr build-task` behöver de uppgifterna skapas på nytt med hjälp av kommandot [az acr task][az-acr-task].
 
 Lär dig hur du utlöser versioner på källan kodgenomförande i den andra självstudien i ACR uppgifter [automatisera behållaravbildning bygger med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
 
@@ -65,7 +65,7 @@ Lär dig hur du utlöser versioner på källan kodgenomförande i den andra sjä
 
 Kraften i ACR uppgifter att verkligen förbättra container build arbetsflödet kommer från dess förmåga att identifiera en uppdatering av en basavbildning. När uppdaterade basavbildningen skickas till registret, skapa ACR uppgifter automatiskt alla programavbildningar som baseras på den.
 
-Behållaravbildningar i stora drag kan kategoriseras i *grundläggande* avbildningar och *program* bilder. Din Källavbildningen inkluderar vanligtvis operativsystem och programramverk som ditt program har skapats, tillsammans med andra anpassningar. Dessa Källavbildningen är vanligtvis baserade på offentliga överordnade avbildningar, till exempel: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], eller [Node.js][base-node]. Flera av dina programavbildningar kan dela en gemensam basavbildning.
+Behållaravbildningar i stora drag kan kategoriseras i *grundläggande* avbildningar och *program* bilder. Din Källavbildningen inkluderar vanligtvis operativsystem och programramverk som ditt program har skapats, tillsammans med andra anpassningar. Dessa Källavbildningen är vanligtvis baserade på offentliga överordnade avbildningar, till exempel: [Alpine Linux][base-alpine], [Windows][base-windows], [.NET][base-dotnet], eller [Node.js ][base-node]. Flera av dina programavbildningar kan dela en gemensam basavbildning.
 
 När en OS- eller app framework avbildning uppdateras av den överordnade Underhållaren, måste till exempel med en kritisk OS-säkerhetskorrigering du även uppdatera din grundläggande avbildningar för att inkludera kritiska korrigeringen. Varje programavbildningen måste sedan också byggas om så för att inkludera dessa överordnade korrigeringar ingår nu i din basavbildningen.
 
@@ -78,7 +78,7 @@ Lär dig mer om framework uppdatering i den tredje självstudien i ACR uppgifter
 
 ## <a name="multi-step-tasks-preview"></a>Uppgifter i flera steg (förhandsversion)
 
-Flera steg aktiviteter, en funktion för förhandsgranskning i ACR uppgifter innehåller steg-baserade aktivitetsdefinition och körning för att skapa, testa och korrigeringar behållaravbildningar i molnet. Uppgift definierar enskilda behållare bild build och push-åtgärder. De kan också definiera körningen av en eller flera behållare med varje steg med behållaren som dess körningsmiljö.
+Flera steg aktiviteter, en funktion för förhandsgranskning i ACR uppgifter innehåller steg-baserade aktivitetsdefinition och körning för att skapa, testa och korrigeringar behållaravbildningar i molnet. Uppgiftsstegen definierar enskilda behållaravbildningars bygg- och push-åtgärder. De kan också definiera körningen av en eller flera behållare så varje steg använder behållaren som sin körningsmiljö.
 
 Du kan till exempel skapa en uppgift i flera steg som automatiserar följande:
 
@@ -101,7 +101,7 @@ Lär dig om uppgifter i flera steg i [köra flera steg skapa, testa och patch up
 När du är redo att automatisera OS och framework uppdatering genom att skapa dina behållaravbildningar i molnet, ta en titt självstudieserien i tre delar ACR uppgifter.
 
 > [!div class="nextstepaction"]
-> [Skapa behållaravbildningar i molnet med Azure Container Registry uppgifter](container-registry-tutorial-quick-task.md)
+> [Skapa containeravbildningar i molnet med Azure Container Registry-uppgifter](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

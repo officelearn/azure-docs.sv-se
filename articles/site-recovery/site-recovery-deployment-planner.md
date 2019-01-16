@@ -1,18 +1,18 @@
 ---
 title: Om Azure Site Recovery Deployment Planner för haveriberedskap för virtuella VMware-datorer till Azure | Microsoft Docs
 description: Läs mer om Azure Site Recovery Deployment Planner för haveriberedskap för virtuella VMware-datorer till Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 58dc344cc7ab40218a122e34a9032276107a944c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.author: mayg
+ms.openlocfilehash: 9a9129d376c0a39c54f297fcae883f8d90016970
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52964466"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320573"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Om Azure Site Recovery Deployment Planner för VMware till Azure
 Den här artikeln utgör användarhandboken för Distributionshanteraren för Azure Site Recovery vid produktionsdistribution av VMware till Azure.
@@ -77,7 +77,7 @@ Verktyget har två huvudfaser: profilering och rapportgenerering. Det finns ocks
 
 | Serverkrav | Beskrivning|
 |---|---|
-|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM-minne, 300 GB hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Nivåinställningarna för VMware vCenter-statistik kan vara 1 eller högre nivå</li><li>Tillåt vCenter-porten (standard 443): Site Recovery Deployment Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
+|Profilering och mätning av dataflöde| <ul><li>Operativsystem: Windows Server 2016 eller Windows Server 2012 R2<br>(matchar helst åtminstone [storleksrekommendationerna för konfigurationsservern](https://aka.ms/asr-v2a-on-prem-components))</li><li>Datorkonfiguration: 8 virtuella processorer, 16 GB RAM, 300 GB Hårddisk</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Internetåtkomst till Azure från den här servern</li><li>Azure Storage-konto</li><li>Administratörsbehörighet till servern</li><li>Minst 100 GB ledigt diskutrymme (förutsätter 1 000 virtuella datorer med ett medeltal av tre diskar vardera, profilerade för 30 dagar)</li><li>Nivåinställningarna för VMware vCenter-statistik kan vara 1 eller högre nivå</li><li>Tillåt vCenter-porten (standard 443): Site Recovery Deployment Planner använder den här porten för att ansluta till vCenter-servern/ESXi-värden</ul></ul>|
 | Rapportgenerering | En Windows-dator eller Windows Server med Excel 2013 eller senare.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable for Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) krävs bara när du skickar - alternativet för användare i rapporten-kommandot för projektgenerering att hämta den senaste VM-konfigurationsinformationen för de virtuella datorerna. Depolyment Planner ansluter till vCenter-servern. Tillåt vCenter-porten (standard 443) port att ansluta till vCenter-servern.</li>|
 | Användarbehörigheter | Läsbehörighet för det användarkonto som ska användas för åtkomst till VMware vCenter-servern/VMware vSphere ESXi-värden under profilering |
 
@@ -98,10 +98,10 @@ Du kan köra verktyget från Windows Server 2012 R2 om servern har nätverksåtk
 3. Extrahera .zip-filen.
 Mappen innehåller flera filer och undermappar. Den körbara filen är ASRDeploymentPlanner.exe i den överordnade mappen.
 
-    Exempel: Kopiera .zip-filen till enheten E:\ och packa upp den.
-    E:\ASR distribution Planner_v2.3.zip
+    Exempel: Kopiera .zip-filen till enhet E:\ och packa upp den.
+    E:\ASR Deployment Planner_v2.3.zip
 
-    E:\ASR distribution Planner_v2.3\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### <a name="update-to-the-latest-version-of-deployment-planner"></a>Uppdatera till den senaste versionen av distributionshanteraren
 Om du har en tidigare version av distributionshanteraren gör du något av följande:

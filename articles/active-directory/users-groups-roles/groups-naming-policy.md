@@ -1,6 +1,6 @@
 ---
-title: Namn på grupprincipinställningar för Office 365-grupper i Azure Active Directory (förhandsversion) | Microsoft Docs
-description: Hur du ställer in förfallodatum för Office 365-grupper i Azure Active Directory (förhandsversion)
+title: Grupprincip namn (förhandsversion), Office 365 - grupper i Azure Active Directory | Microsoft Docs
+description: Hur du ställer in namngivningspolicy för Office 365-grupper i Azure Active Directory (förhandsversion)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3368133dec82d946318a755dc98b068a048b9e83
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275116"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321729"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory (förhandsversion)
 
@@ -121,7 +121,7 @@ Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger d
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namnprincip och anpassade spärrad ord
 
-1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt, [GroupName] måste inkluderas i inställningen.
+1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt måste [GroupName] inkluderas i inställningen.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
@@ -170,13 +170,13 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 
 ## <a name="remove-the-naming-policy"></a>Ta bort namnprincip
 
-1. Tom grupp namnet prefix och suffix i Azure AD PowerShell.
+1. Ta bort gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
   ````
   $Setting["PrefixSuffixNamingRequirement"] =""
   ````
   
-2. Tom anpassade spärrad orden. 
+2. Ta bort de anpassade spärrade orden. 
   
   ````
   $Setting["CustomBlockedWordsList"]=""

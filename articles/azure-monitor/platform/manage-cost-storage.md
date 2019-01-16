@@ -10,17 +10,16 @@ ms.assetid: ''
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: ed720b0db68a11c573a763c4269349db97977eff
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 262c81dbf2c094b6a823a8320a0657f2767bc20c
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231078"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332327"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Hantera användning och kostnader för Log Analytics
 
@@ -67,7 +66,7 @@ Följande steg beskriver hur du konfigurerar en gräns för att hantera mängden
 
 1. Välj **Användning och beräknade kostnader** i det vänstra fönstret på arbetsytan.
 2. På den **användning och uppskattade kostnader** för den valda arbetsytan och klicka på **Datavolymhantering** högst upp på sidan. 
-5. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.<br><br> ![Log Analytics konfigurera datagräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Dagligt tak är **OFF** som standard – klickar du på **på** att aktivera den och ange sedan datavolymen i GB/dag.<br><br> ![Log Analytics konfigurera datagräns](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Avisera när dagliga gränsen har nåtts
 Medan Vi presenterar en visuell ledtråd i Azure-portalen när tröskeln för ditt data gränsen är uppfyllt, justera det här beteendet inte nödvändigtvis som du hanterar operativa problem som kräver omedelbar uppmärksamhet.  För att få en avisering, kan du skapa en ny aviseringsregel i Azure Monitor.  Mer information finns i [hur du skapar, visa och hantera aviseringar](alerts-metric.md).      
@@ -161,7 +160,7 @@ För att förstå hur många datorer (noder) och rapporterar data varje dag unde
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den `_IsBilled` egenskapen:
+Hämta en lista över datorer som skickar **faktureras datatyper** (vissa datatyper är kostnadsfria), utnyttja den [_IsBillable](log-standard-properties.md#isbillable) egenskapen:
 
 `union withsource = tt * 
 | where _IsBillable == true 

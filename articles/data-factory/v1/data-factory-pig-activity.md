@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 48cbd33d4cbaff5d362731d67bbd3d4041e26f89
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fe1ef8c141c4a4daa443f800181f8e6e3199d0cc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025658"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331307"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformera data med Pig-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -46,40 +46,41 @@ HDInsight-piggningsåtgärd i en Datafabrik [pipeline](data-factory-create-pipel
 
 ```JSON
 {
-    "name": "HiveActivitySamplePipeline",
-      "properties": {
+  "name": "HiveActivitySamplePipeline",
+  "properties": {
     "activities": [
-        {
-            "name": "Pig Activity",
-            "description": "description",
-            "type": "HDInsightPig",
-            "inputs": [
-                  {
-                    "name": "input tables"
-                  }
-            ],
-            "outputs": [
-                  {
-                    "name": "output tables"
-                  }
-            ],
-            "linkedServiceName": "MyHDInsightLinkedService",
-            "typeProperties": {
-                  "script": "Pig script",
-                  "scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
-                  "defines": {
-                    "param1": "param1Value"
-                  }
-            },
-               "scheduler": {
-                  "frequency": "Day",
-                  "interval": 1
-            }
+      {
+        "name": "Pig Activity",
+        "description": "description",
+        "type": "HDInsightPig",
+        "inputs": [
+          {
+            "name": "input tables"
           }
+        ],
+        "outputs": [
+          {
+            "name": "output tables"
+          }
+        ],
+        "linkedServiceName": "MyHDInsightLinkedService",
+        "typeProperties": {
+          "script": "Pig script",
+          "scriptPath": "<pathtothePigscriptfileinAzureblobstorage>",
+          "defines": {
+            "param1": "param1Value"
+          }
+        },
+        "scheduler": {
+          "frequency": "Day",
+          "interval": 1
+        }
+      }
     ]
   }
 }
 ```
+
 ## <a name="syntax-details"></a>Information om syntax
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
@@ -127,11 +128,11 @@ Om du vill köra det här Pig-skriptet i en Data Factory-pipeline, gör du följ
    
    > [!NOTE]
    > Du kan också ange Pig-skript direkt i aktivitetsdefinitionen med hjälp av den **skriptet** egenskapen. Men vi rekommenderar inte den här metoden som alla specialtecken i skriptet behov understrykningen och kan orsaka problem för felsökning. Det bästa sättet är att följa steg #4.
-   > 
-   > 
+   >
+   >
 5. Skapar du pipelinen med aktiviteten HDInsightPig. Den här aktiviteten bearbetar indata genom att köra Pig-skriptet i HDInsight-kluster.
 
-    ```JSON   
+    ```JSON
     {
       "name": "PigActivitySamplePipeline",
       "properties": {
@@ -154,14 +155,14 @@ Om du vill köra det här Pig-skriptet i en Data Factory-pipeline, gör du följ
               "scriptPath": "adfwalkthrough\\scripts\\enrichlogs.pig",
               "scriptLinkedService": "StorageLinkedService"
             },
-               "scheduler": {
-                  "frequency": "Day",
-                  "interval": 1
+            "scheduler": {
+              "frequency": "Day",
+              "interval": 1
             }
           }
         ]
       }
-    } 
+    }
     ```
 6. Distribuera pipelinen. Se [skapa pipelines](data-factory-create-pipelines.md) nedan för information. 
 7. Övervaka pipeline med hjälp av data factory övervakning och hantering av vyer. Se [övervakning och hantera Data Factory-pipelines](data-factory-monitor-manage-pipelines.md) nedan för information.
@@ -173,54 +174,54 @@ För att använda parametriserade Pig-skriptet, gör du följande:
 
 * Definiera parametrar i **definierar**.
 
-    ```JSON  
+    ```JSON
     {
-        "name": "PigActivitySamplePipeline",
-          "properties": {
+      "name": "PigActivitySamplePipeline",
+      "properties": {
         "activities": [
-            {
-                "name": "PigActivitySample",
-                "type": "HDInsightPig",
-                "inputs": [
-                      {
-                        "name": "PigSampleIn"
-                      }
-                ],
-                "outputs": [
-                      {
-                        "name": "PigSampleOut"
-                      }
-                ],
-                "linkedServiceName": "HDInsightLinkedService",
-                "typeproperties": {
-                      "scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
-                      "scriptLinkedService": "StorageLinkedService",
-                      "defines": {
-                        "Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0:MM}/dayno={0: dd}/',SliceStart)",
-                        "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
-                      }
-                },
-                   "scheduler": {
-                      "frequency": "Day",
-                      "interval": 1
-                }
+          {
+            "name": "PigActivitySample",
+            "type": "HDInsightPig",
+            "inputs": [
+              {
+                "name": "PigSampleIn"
               }
+            ],
+            "outputs": [
+              {
+                "name": "PigSampleOut"
+              }
+            ],
+            "linkedServiceName": "HDInsightLinkedService",
+            "typeproperties": {
+              "scriptPath": "adfwalkthrough\\scripts\\samplepig.hql",
+              "scriptLinkedService": "StorageLinkedService",
+              "defines": {
+                "Input": "$$Text.Format('wasb: //adfwalkthrough@<storageaccountname>.blob.core.windows.net/samplein/yearno={0: yyyy}/monthno={0:MM}/dayno={0: dd}/',SliceStart)",
+                "Output": "$$Text.Format('wasb://adfwalkthrough@<storageaccountname>.blob.core.windows.net/sampleout/yearno={0:yyyy}/monthno={0:MM}/dayno={0:dd}/', SliceStart)"
+              }
+            },
+            "scheduler": {
+              "frequency": "Day",
+              "interval": 1
+            }
+          }
         ]
       }
     }
-    ```  
+    ```
 * Pig-skriptet referera till parametrarna med hjälp av ”**$parameterName**” som visas i följande exempel:
 
-    ```  
-    PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);    
-    GroupProfile = Group PigSampleIn all;        
-    PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);        
+    ```
+    PigSampleIn = LOAD '$Input' USING PigStorage(',') AS (ProfileID:chararray, SessionStart:chararray, Duration:int, SrcIPAddress:chararray, GameType:chararray);
+    GroupProfile = Group PigSampleIn all;
+    PigSampleOut = Foreach GroupProfile Generate PigSampleIn.ProfileID, SUM(PigSampleIn.Duration);
     Store PigSampleOut into '$Output' USING PigStorage (','); 
     ```
+
 ## <a name="see-also"></a>Se även
 * [Hive-aktivitet](data-factory-hive-activity.md)
 * [MapReduce-aktivitet](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)
 * [Anropa Spark-program](data-factory-spark.md)
 * [Anropa R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample)
-

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: dd8e0950de6aae71dd123d21b59c6de591bd7f29
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107726"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319468"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -117,11 +117,11 @@ Windows 8 64-bitars | Enterprise, Pro | Datorer ska köra den senaste services P
 Windows 7 64-bitars | Ultimate, Enterprise, Professional, Home Premium, Home Basic, Starter | Datorer ska köra den senaste services Pack och uppdateringar.
 Server | |
 Windows Server 2016 64-bitars | Standard, Datacenter, Essentials | Med den senaste servicen Pack/uppdateringar.
-Windows Server 2012 R2 64-bitars | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
-Windows Server 2012 64-bitars | Datacenter, Foundation, Standard | Med de senaste service Pack/uppdateringarna.
-Windows Storage Server 2016 64-bitars | Standard, Workgroup | Med de senaste service Pack/uppdateringarna.
-Windows Storage Server 2012 R2 64-bitars | Standard, arbetsgrupp, Essential | Med de senaste service Pack/uppdateringarna.
-Windows Storage Server 2012 64-bitars | Standard, Workgroup | Med de senaste service Pack/uppdateringarna.
+Windows Server 2012 R2 64 bit | Standard, Datacenter, Foundation | Med de senaste service Pack/uppdateringarna.
+Windows Server 2012 64 bit | Datacenter, Foundation, Standard | Med de senaste service Pack/uppdateringarna.
+Windows Storage Server 2016 64 bit | Standard, Workgroup | Med de senaste service Pack/uppdateringarna.
+Windows Storage Server 2012 R2 64 bit | Standard, Workgroup, Essential | Med de senaste service Pack/uppdateringarna.
+Windows Storage Server 2012 64 bit | Standard, Workgroup | Med de senaste service Pack/uppdateringarna.
 Windows Server 2008 R2 SP1 64-bitars | Standard, Enterprise, Datacenter, Foundation | Med de senaste uppdateringarna.
 Windows Server 2008 64-bitars | Standard, Enterprise, Datacenter | Med de senaste uppdateringarna.
 

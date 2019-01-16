@@ -3,21 +3,22 @@ title: SQLServer på Linux Azure Virtual Machines vanliga frågor och svar | Mic
 description: Den här artikeln innehåller svar på vanliga frågor om SQL Server körs på virtuella Linux Azure-datorer.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: troubleshooting
 ms.workload: iaas-sql-server
 ms.date: 12/13/2017
-ms.author: jroth
-ms.openlocfilehash: e8297892c533f3b0126f925f81d3e9bc429828ef
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: fb1cafcf9405576749ea91aeea033c6ee783a026
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039963"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330440"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-azure-virtual-machines"></a>Vanliga frågor om SQL Server på Linux Azure Virtual Machines
 
@@ -104,7 +105,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 * [Etablera en SQL Server Linux VM](provision-sql-server-linux-virtual-machine.md)
 * [Dokumentation om SQL Server på Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
 
-**Windows-datorer**:
+**Virtuella Windows-datorer**:
 
 * [Översikt över SQLServer på en Windows VM](../../windows/sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Etablera en virtuell dator med SQL Server Windows](../../windows/sql/virtual-machines-windows-portal-sql-server-provision.md)

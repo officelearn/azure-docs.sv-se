@@ -3,7 +3,7 @@ title: Etablering guide för SQL Server-datorer med Azure PowerShell | Microsoft
 description: Innehåller steg och PowerShell-kommandon för att skapa en Azure-dator med SQL Server VM-avbildningar i galleriet.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/21/2018
-ms.author: jroth
-ms.openlocfilehash: 770272372c77421ef994f3adc9d36f47a235093c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 8282901dfcacb7ca0330274d114cd4c2990fdec1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261816"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330458"
 ---
 # <a name="how-to-provision-sql-server-virtual-machines-with-azure-powershell"></a>Så här etablerar du SQL Server-datorer med Azure PowerShell
 

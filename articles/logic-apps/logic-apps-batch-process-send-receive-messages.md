@@ -9,12 +9,12 @@ ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: bd31de8f60fff5630141f708714083fe76220d11
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410161"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330729"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och bearbetar meddelanden i Azure Logic Apps för batch
 
@@ -48,22 +48,22 @@ Om du vill följa det här exemplet behöver du följande objekt:
 
 Innan du kan skicka meddelanden till en batch, måste den batch först finnas som målet dit du skickar dessa meddelanden. Så först måste du skapa logikapp ”batch mottagare”, som börjar med den **Batch** utlösaren. På så sätt kan när du skapar logikapp ”batch avsändare” du kan välja logikapp för batch-mottagare. Batch-mottagaren fortsätter att samla in meddelanden tills villkor uppfylls för att lansera och bearbetar dessa meddelanden. Även om batch-mottagare inte behöver veta något om batch avsändare, måste batch avsändare veta mål där de kan skicka meddelanden. 
 
-1. I den [Azure-portalen](https://portal.azure.com) eller Visual Studio, skapa en logikapp med detta namn: ”BatchReceiver” 
+1. I den [Azure-portalen](https://portal.azure.com) eller Visual Studio, skapa en logikapp med det här namnet: "BatchReceiver" 
 
-2. I Logic Apps Designer, lägger du till den **Batch** utlösaren som startar logikappens arbetsflöde. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batch-meddelanden**
+2. I Logic Apps Designer, lägger du till den **Batch** utlösaren som startar logikappens arbetsflöde. I sökrutan anger du ”batch” som filter. Välj den här utlösaren: **Batcha meddelanden**
 
    ![Lägg till ”Batch-meddelanden” utlösare](./media/logic-apps-batch-process-send-receive-messages/add-batch-receiver-trigger.png)
 
-3. Ställ in batchen mottagare egenskaper: 
+3. Ange dessa egenskaper för batch-mottagare: 
 
    | Egenskap  | Beskrivning | 
    |----------|-------------|
-   | **Batch-läge** | - **Infogad**: för att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: för att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
+   | **Batch-läge** | - **Infogad**: För att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: För att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
    | **Batch-namn** | Namn för ditt batch, som är ”TestBatch” i det här exemplet och gäller endast **infogade** batch-läge |  
-   | **Versionsvillkor** | Gäller endast **infogade** batch-läge och väljer kriterier för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: max batchstorlek i byte, till exempel 100 MB <br>- **Schemabaserat**: intervall och frekvens mellan batch versioner, till exempel 10 minuter. Minimivärdet för upprepning är 60 sekunder eller 1 minut. Minut Bråkvärden avrundas effektivt uppåt till 1 minut. Om du vill ange ett startdatum och starttid, Välj **visa avancerade alternativ**. <br>- **Markera alla**: använda de angivna kriterierna. | 
+   | **Versionsvillkor** | Gäller endast **infogade** batch-läge och väljer kriterier för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: Antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: Den maximala batchstorleken i byte, till exempel 10 MB <br>- **Schemabaserat**: Intervall och frekvens mellan batch-versioner, till exempel 10 minuter. Minimivärdet för upprepning är 60 sekunder eller 1 minut. Minut Bråkvärden avrundas effektivt uppåt till 1 minut. Om du vill ange ett startdatum och starttid, Välj **visa avancerade alternativ**. <br>- **Markera alla**: Använd de angivna kriterierna. | 
    ||| 
-   
-   Det här exemplet väljer alla villkor:
+
+   Det här exemplet visar alla villkor, men för dina egna tester, väljer du bara ett kriterium:
 
    ![Ange information för utlösare av Batch](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 
@@ -76,12 +76,12 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
 
    2. I sökrutan anger du "send email" (skicka e-post) som filter.
    Beroende på din e-postleverantör kan välja en e-post-koppling.
-      
+
       Om du har ett personligt konto, som till exempel @outlook.com eller @hotmail.com, väljer du anslutningsappen Outlook.com. 
       Om du har en Gmail-konto väljer du Gmail-anslutningsappen. 
       Det här exemplet används Office 365 Outlook. 
 
-   3. Välj den här åtgärden: **skicka ett e-postmeddelande - <*e-postleverantör*>**
+   3. Välj den här åtgärden: **Skicka ett e-postmeddelande - <*e-postleverantör*>**
 
       Exempel:
 
@@ -98,7 +98,7 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
 
      ![Från den dynamiska innehållslistan, väljer du ”partitionsnamnet”](./media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png)
 
-     Du kan ange en unik partitionsnyckel som delar batch mål i logiska undergrupper där du kan skicka meddelanden i ett senare avsnitt. 
+     Senare, kan du ange en unik partitionsnyckel som delar batch mål i logiska undergrupper där du kan skicka meddelanden i batch-avsändaren. 
      Varje uppsättning har ett unikt nummer som genereras av batch avsändaren logikappen. 
      Den här funktionen kan du använda en enskild batch med flera delmängder och definiera varje undergrupp med det namn som du anger.
 
@@ -127,10 +127,10 @@ Nu ska du skapa en eller flera batch avsändaren logikappar som skickar meddelan
 
 * Kontrollera att din batch-mottagare och avsändare för batch delar samma Azure-region *och* Azure-prenumeration. Om inte, kan inte du välja batch-mottagare när du skapar batch-avsändaren eftersom de inte är synliga för varandra.
 
-1. Skapa en annan logikapp med detta namn: ”BatchSender”
+1. Skapa en annan logic app med det här namnet: "BatchSender"
 
    1. I sökrutan anger du ”återkommande” som filter. 
-   Välj den här utlösaren: **upprepning - schema**
+   Välj den här utlösaren: **Upprepning - schema**
 
       ![Lägg till ”--upprepningsschemat”-utlösare](./media/logic-apps-batch-process-send-receive-messages/add-schedule-trigger-batch-sender.png)
 
@@ -156,15 +156,15 @@ Nu ska du skapa en eller flera batch avsändaren logikappar som skickar meddelan
       > 
       > Om du använder Visual Studio, och du inte ser alla batch-mottagare du vill välja, kontrollerar du att du har distribuerat mottagaren som batch till Azure. Om du inte gjort det, lär du dig hur du [distribuera logikappen batch mottagare till Azure](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-logic-app-to-azure). 
 
-   4. Välj den här åtgärden: **Batch_messages - <*your-batch-mottagare*>**
+   4. Välj den här åtgärden: **Batch_messages - <*your-batch-receiver*>**
 
-      ![Välj den här åtgärden ”: Batch_messages - < your-logic-app >”](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
+      ![Välj den här åtgärden: "Batch_messages - <your-logic-app>"](./media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch.png)
 
 3. Ställ in batchen avsändarens egenskaper:
 
    | Egenskap  | Beskrivning | 
    |----------|-------------| 
-   | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
+   | **Batch-namn** | Batchnamn som definierats av logikappen mottagare som är ”TestBatch” i det här exemplet <p>**Viktiga**: Batch-namn hämtar verifieras vid körning och måste matcha namnet som angetts av logikappen mottagare. Ändrar namnet på batch gör att avsändaren batch misslyckas. | 
    | **Meddelandeinnehåll** | Innehållet för det meddelande du vill skicka | 
    ||| 
 

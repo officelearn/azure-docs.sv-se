@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: jeffgo
-ms.openlocfilehash: 397f07c23d1c272e540741a339b57a8e1bcce198
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: b9b8c44cd0afa7e156cfa7a20ff47316fa5242d7
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104020"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320624"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure-stack"></a>Förbered en Red Hat-baserad virtuell dator för Azure Stack
 
@@ -670,6 +670,6 @@ Mer information finns i [återskapa initramfs](https://access.redhat.com/solutio
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du är nu redo att använda dina Red Hat Enterprise Linux-virtuell hårddisk för att skapa nya virtuella datorer i Azure Stack. Om det här är första gången som du laddar upp VHD-filen till Azure Stack finns i [Använd Marketplace toolkit för att skapa och publicera marketplace-objekt](azure-stack-marketplace-publisher.md).
+Du är nu redo att använda dina Red Hat Enterprise Linux-virtuell hårddisk för att skapa nya virtuella datorer i Azure Stack. Om det här är första gången som du laddar upp VHD-filen till Azure Stack finns i [skapa och publicera ett Marketplace-objekt](azure-stack-create-and-publish-marketplace-item.md).
 
 Läs mer om hypervisor-program som är certifierade för att köra Red Hat Enterprise Linux, [Red Hat-webbplatsen](https://access.redhat.com/certified-hypervisors).

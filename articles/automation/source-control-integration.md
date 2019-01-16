@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/26/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 95355a6d1a0aff9829d75789df86f37768d25e22
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 94d948267286ad716aa200cb5aa858acf2eb2624
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53342246"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330780"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Källkontrollintegrering i Azure Automation
 
@@ -52,13 +52,16 @@ På den **källa kontroll sammanfattning** sidan, Fyll i informationen och klick
 |Namn på datakälla kontroll     | Ett eget namn för källkontrollen        |
 |Källkontrolltyp     | Typ av kontroll av källa. De tillgängliga alternativen är:</br> GitHub</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Lagringsplats     | Namnet på databasen eller projekt. Det här värdet hämtas från källkontroll. Exempel: $/ ContosoFinanceTFVCExample         |
-|Gren     | Den gren som ska hämta källfiler från. Gren mål är inte tillgänglig för TFVC-källkontrollstypen.          |
+|Branch     | Den gren som ska hämta källfiler från. Gren mål är inte tillgänglig för TFVC-källkontrollstypen.          |
 |Mappsökväg     | Den mapp som innehåller runbooks för att synkronisera. Exempel: /Runbooks         |
 |Automatisk synkronisering     | Aktiverar eller inaktivera automatisk synkronisering när ett genomförande görs i källkontroll         |
 |Publicera Runbook     | Om inställd **på**, när runbooks har synkroniserats från källkontroll som de kommer att publiceras automatiskt.         |
 |Beskrivning     | Ett textfält för att ge mer information        |
 
 ![Sammanfattning för kontroll av källa](./media/source-control-integration/source-control-summary.png)
+
+> [!NOTE]
+> Kontrollera att du har loggat in med rätt konto när du konfigurerar källkontroll. Om det finns en osäkra, öppna en ny flik i webbläsaren och logga ut från visualstudio.com eller github.com och försök ansluta källkontroll igen.
 
 ## <a name="syncing"></a>Synkroniserar
 
@@ -112,12 +115,12 @@ Källkontroll kräver vissa minsta möjliga behörigheter för personliga åtkom
 |Scope  |Beskrivning  |
 |---------|---------|
 |**lagringsplats**     |         |
-|lagringsplats: status     | Åtkomststatus för genomförande         |
+|repo:status     | Åtkomststatus för genomförande         |
 |repo_deployment      | Distributionsstatus för åtkomst         |
 |public_repo     | Offentliga lagringsplatserna för åtkomst         |
-|**Admin: repo_hook**     |         |
-|Skriv: repo_hook     | Skriva lagringsplats hookar         |
-|Läs: repo_hook|Läs lagringsplats hookar|
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Skriva lagringsplats hookar         |
+|read:repo_hook|Läs lagringsplats hookar|
 
 ### <a name="azure-devops"></a>Azure DevOps
 

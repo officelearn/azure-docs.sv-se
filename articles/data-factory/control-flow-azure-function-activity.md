@@ -12,16 +12,20 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: douglasl
-ms.openlocfilehash: 0fd9b679411dd06336fd65bcb400b152316146fa
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: ee99733440d74424f98a2ed16de83c88bae53ff1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188648"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321797"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Azure Function-aktivitet i Azure Data Factory
 
 Azure Function-aktiviteten kan du köra [Azure Functions](../azure-functions/functions-overview.md) i Data Factory-pipeline. Om du vill köra en Azure-funktion, måste du skapa en länkad tjänst-anslutning och en aktivitet som anger den Azure-funktion som du planerar att köra.
+
+Titta på följande videoklipp för ett 8-minuters introduktion och demonstration av den här funktionen:
+
+> [!VIDEO https://channel9.msdn.com/shows/azure-friday/Run-Azure-Functions-from-Azure-Data-Factory-pipelines/player]
 
 ## <a name="azure-function-linked-service"></a>Azure funktion länkad tjänst
 

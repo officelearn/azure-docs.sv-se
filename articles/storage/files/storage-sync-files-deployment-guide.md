@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 737cb31fd4e33229e0317e6a0610fb098beed6f4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191912"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322018"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
 
 Vi rekommenderar starkt att du läser [planera för distribution av Azure Files](storage-files-planning.md) och [planera för distribution av Azure File Sync](storage-sync-files-planning.md) innan du slutför stegen som beskrivs i den här artikeln.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Ett Azure storage-konto och ett Azure filresurs i samma region som du vill distribuera Azure File Sync. Mer information finns i:
@@ -402,10 +400,10 @@ Att migrera en DFS-R-distribution till Azure File Sync:
 3. Registrera servern och skapa en serverslutpunkt för den första servern som ska migreras. Aktivera inte cloud lagringsnivåer.
 4. Låt alla datasynkronisering till din Azure-filresurs (molnslutpunkt).
 5. Installera och registrera Azure File Sync-agenten på var och en av de återstående DFS-R-servrarna.
-6. Inaktivera DFS-R. 
+6. Disable DFS-R. 
 7. Skapa en serverslutpunkt på var och en av DFS-R-servrar. Aktivera inte cloud lagringsnivåer.
 8. Se till att synkroniseringen är klar och testa din topologi som du vill.
-9. Ta bort DFS-R.
+9. Retire DFS-R.
 10. Molnet lagringsnivåer kan nu aktiveras på valfri serverslutpunkt som du vill.
 
 Mer information finns i [Azure File Sync interop med distribuerade System (DFS)](storage-sync-files-planning.md#distributed-file-system-dfs).

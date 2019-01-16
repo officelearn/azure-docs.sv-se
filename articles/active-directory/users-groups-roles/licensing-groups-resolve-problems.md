@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 54e562cca800a19829b985e3fd529368350104a1
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211544"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329488"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licensproblem för tilldelning för en grupp i Azure Active Directory
 
@@ -53,7 +53,7 @@ I följande avsnitt ger en beskrivning av varje potentiella problem och sätt at
 
 ## <a name="not-enough-licenses"></a>Det finn inte tillräckligt med licenser
 
-**Problem:** det inte finns tillräckligt med tillgängliga licenser för en av de produkter som har angetts i gruppen. Du måste antingen köpa flera licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
+**Problem:** Det finns inte tillräckligt med tillgängliga licenser för en av de produkter som har angetts i gruppen. Du måste antingen köpa flera licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
 
 Om du vill se hur många licenser som är tillgängliga går du till **Azure Active Directory** > **licenser** > **alla produkter**.
 
@@ -63,7 +63,7 @@ Välj en produkt om du vill se vilka användare och grupper förbrukar licenser.
 
 ## <a name="conflicting-service-plans"></a>Tjänstplanerna är i konflikt
 
-**Problem:** en av de produkter som anges i gruppen som innehåller en serviceplan som är i konflikt med en annan service-plan som redan har tilldelats till användaren via en annan produkt. Vissa service-planer är konfigurerade på ett sätt att de inte kan tilldelas samma användare som en annan, relaterade service-plan.
+**Problem:** En av de produkter som har angetts i gruppen innehåller en serviceplan som står i konflikt med en annan service-plan som redan har tilldelats till användaren via en annan produkt. Vissa service-planer är konfigurerade på ett sätt att de inte kan tilldelas samma användare som en annan, relaterade service-plan.
 
 Se följande exempel. En användare har en licens för Office 365 Enterprise *E1* tilldelas direkt, med alla prenumerationer som är aktiverad. Användaren har lagts till en grupp som har Office 365 Enterprise *E3* produkten som är tilldelade till den. E3-produkt innehåller service-planer som inte överlappar med planer som ingår i E1, så licenstilldelning gruppen misslyckas med felmeddelandet ”pågår service-planer”. I det här exemplet är i konflikt service-planer
 
@@ -78,7 +78,7 @@ Beslut om hur du löser motstridiga produktlicenser alltid tillhör administrat�
 
 ## <a name="other-products-depend-on-this-license"></a>Andra produkter är beroende av den här licensen
 
-**Problem:** en av de produkter som har angetts i gruppen innehåller en tjänstplan som måste aktiveras för en annan service-plan i en annan produkt ska fungera. Det här felet uppstår när Azure AD försöker ta bort den underliggande service-planen. Detta kan till exempel hända när du tar bort användaren från gruppen.
+**Problem:** En av de produkter som har angetts i gruppen innehåller en tjänstplan som måste aktiveras för en annan service-plan i en annan produkt ska fungera. Det här felet uppstår när Azure AD försöker ta bort den underliggande service-planen. Detta kan till exempel hända när du tar bort användaren från gruppen.
 
 Det här problemet måste du kontrollera att nödvändiga planen fortfarande är tilldelad till användare via någon annan metod eller att de beroende tjänsterna är inaktiverat för dessa användare. När du gör det kan du korrekt ta bort grupplicens från dessa användare.
 
@@ -86,7 +86,7 @@ Det här problemet måste du kontrollera att nödvändiga planen fortfarande är
 
 ## <a name="usage-location-isnt-allowed"></a>Användningsplats är inte tillåten
 
-**Problem:** vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare, måste du ange den **användningsplats** -egenskapen för användaren. Du kan ange plats under den **användaren** > **profil** > **inställningar** avsnitt i Azure-portalen.
+**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare, måste du ange den **användningsplats** -egenskapen för användaren. Du kan ange plats under den **användaren** > **profil** > **inställningar** avsnitt i Azure-portalen.
 
 När Azure AD försöker tilldela en grupplicens till en användare vars användningsplats inte stöds, misslyckas och registrerar ett fel på användaren.
 
@@ -118,6 +118,12 @@ Azure AD försöker tilldela alla licenser som anges i gruppen att varje använd
 
 Du kan se vilka användare som inte kunde tilldelas och kontrollera vilka produkter som påverkas av problemet.
 
+## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Vad händer när en grupp med tilldelade licenser har tagits bort?
+
+Du måste ta bort alla licenser som tilldelats en grupp innan du kan ta bort gruppen. Ta bort licenser från alla användare i gruppen kan dock ta tid. Ta bort licenstilldelningar från en grupp, kan det vara fel om användaren har en beroende tilldelad licens eller om det finns en proxy-adress konflikt förhindrar borttagningen licens. Om en användare har en licens som är beroende av en licens som tas bort på grund av borttagning av, konverteras licenstilldelning för användaren från ärvt för att dirigera.
+
+Anta exempelvis att en grupp som har Office 365 E3/E5 tilldelas med en Skype för företag-serviceplan som är aktiverad. Anta också att några medlemmar i gruppen har ljud konferenser licenser direkt. När gruppen tas bort, försöker gruppbaserad licensiering att ta bort Office 365 E3/E5 från alla användare. Eftersom ljud konferenser är beroende av Skype för företag, för alla användare med ljud konferenser konverterar tilldelade, gruppbaserad licensiering Office 365 E3/E5-licenser för att dirigera licenstilldelning.
+
 ## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Hur hanterar du licenser för produkter med krav?
 
 Vissa Microsoft Online-produkter som du kanske äger *tillägg*. Tillägg kräver en nödvändig service-plan som ska aktiveras för en användare eller grupp innan de kan tilldelas en licens. Med gruppbaserad licensiering kräver systemet att både nödvändiga och tillägg service-planer finns i samma grupp. Detta görs för att säkerställa att alla användare som läggs till i gruppen kan ta emot fullt fungerande produkten. Anta att du i följande exempel:
@@ -146,8 +152,6 @@ Hädanefter kan använder alla användare som läggs till i den här gruppen en 
 
 > [!TIP]
 > Du kan skapa flera grupper för varje nödvändig service-plan. Om du använder både Office 365 Enterprise E1 och Office 365 Enterprise E3 för dina användare kan du till exempel skapa två grupper till licens Microsoft Workplace Analytics: en som använder E1 som ett krav och andra som använder E3. På så sätt kan du distribuera tillägg till E1 och E3-användare utan att förbruka ytterligare licenser.
-
-
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hur gör du för att tvinga licens bearbetning i en grupp för att åtgärda fel?
 

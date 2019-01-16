@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 01/11/2019
-ms.openlocfilehash: 5db9e1f348fed9592d33e9240180db7f2667bb56
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244553"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329476"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Replikering med SQL Database Managed Instance
 
@@ -29,13 +29,13 @@ I allmänhet måste utgivaren och distributören båda vara antingen i molnet el
 
 - **Utgivaren med lokala distributören på hanterad instans**
 
-   ![Replication-with-Azure-SQL-DB-Single-Managed-instance-Publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
    Utgivaren och distributören databaser kan konfigureras på en hanterad instans.
 
 - **Utgivaren med fjärrdistributören på hanterad instans**
 
-   ![Replication-with-Azure-SQL-DB-separate-Managed-instances-Publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
+   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
    Utgivaren och distributören konfigureras på två hanterade instanser. I den här konfigurationen:
 
@@ -45,7 +45,7 @@ I allmänhet måste utgivaren och distributören båda vara antingen i molnet el
 
 - **Utgivaren och distributören lokalt med prenumerant på hanterad instans**
 
-   ![Replication-from-on-premises-to-Azure-SQL-DB-Subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
+   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
 
    I den här konfigurationen är en Azure SQL database en prenumerant. Den här konfigurationen stöder migrering från en lokal plats till Azure. I rollen prenumerant kräver SQL database inte hanterad instans, men du kan använda en SQL Database Managed Instance som ett steg i migreringen från en lokal plats till Azure. Läs mer om Azure SQL Database-prenumeranter, [replikering till SQL Database](replication-to-sql-database.md).
 
@@ -199,4 +199,5 @@ Följande funktioner stöds inte:
 
 ## <a name="see-also"></a>Se även
 
+- [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md)
 - [Vad är en hanterad instans?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

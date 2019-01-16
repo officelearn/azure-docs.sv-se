@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d95534cceb11f7bf20f6966e0205694fc1db021d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: af528f210f4464c973d88fab7eeb1572effc87bc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017607"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330406"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Flytta data till och från Azure Cosmos DB med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,9 +28,9 @@ ms.locfileid: "54017607"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Azure Cosmos DB-anslutningsapp i V2](../connector-azure-cosmos-db.md).
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data till och från Azure Cosmos DB (SQL-API). Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten. 
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data till och från Azure Cosmos DB (SQL-API). Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
-Du kan kopiera data från alla dataarkiv till Azure Cosmos DB eller från Azure Cosmos DB till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell. 
+Du kan kopiera data från alla dataarkiv till Azure Cosmos DB eller från Azure Cosmos DB till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet finns i den [datalager som stöds](data-factory-data-movement-activities.md#supported-data-stores-and-formats) tabell.
 
 > [!IMPORTANT]
 > Azure Cosmos DB-anslutningsapp stöder endast SQL-API.
@@ -42,17 +42,17 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data till och fr
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
 1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från Cosmos DB finns [JSON-exempel](#json-examples) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från Cosmos DB finns [JSON-exempel](#json-examples) i den här artikeln.
 
-Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Cosmos DB: 
+Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Cosmos DB:
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 Följande tabell innehåller en beskrivning för JSON-element som är specifika för Azure Cosmos DB-länkad tjänst.
@@ -105,7 +105,7 @@ Exempel:
 }
 ```
 ### <a name="schema-by-data-factory"></a>Schemat av Data Factory
-För schemafria datalager som Azure Cosmos DB härleder scheman i Data Factory-tjänsten på något av följande sätt:  
+För schemafria datalager som Azure Cosmos DB härleder scheman i Data Factory-tjänsten på något av följande sätt:
 
 1. Om du anger strukturen för data med hjälp av den **struktur** -egenskapen i definitionen för datauppsättningen, Data Factory-tjänsten godkänner den här strukturen som schema. I det här fallet ges en rad inte innehåller ett värde för en kolumn, ett null-värde för den.
 2. Om du inte anger strukturen för data med hjälp av den **struktur** -egenskapen i definitionen för datauppsättningen, Data Factory-tjänsten härleder scheman med hjälp av den första raden i data. I det här fallet om den första raden inte innehåller fullständig schemat, blir vissa kolumner saknas i resultatet för kopieringsåtgärden.
@@ -131,7 +131,7 @@ Vid Kopieringsaktivitet när källan är av typen **DocumentDbCollectionSource**
 
 | **Egenskap** | **Beskrivning** | **Tillåtna värden** | **Krävs** |
 | --- | --- | --- | --- |
-| nestingSeparator |Specialtecken i källkolumnsnamnet som visar det kapslade dokumentet krävs. <br/><br/>Till exempel ovan: `Name.First` i utdata tabell ger följande JSON-strukturen i Cosmos DB-dokument:<br/><br/>”Name”: {<br/>    ”Första”: ”John”<br/>}, |Tecken som används för att avgränsa kapslingsnivåer.<br/><br/>Standardvärdet är `.` (punkt). |Tecken som används för att avgränsa kapslingsnivåer. <br/><br/>Standardvärdet är `.` (punkt). |
+| nestingSeparator |Specialtecken i källkolumnsnamnet som visar det kapslade dokumentet krävs. <br/><br/>Till exempel ovan: `Name.First` i utdata tabell ger följande JSON-strukturen i Cosmos DB-dokument:<br/><br/>”Name”: {<br/>    ”Första”: "John"<br/>}, |Tecken som används för att avgränsa kapslingsnivåer.<br/><br/>Standardvärdet är `.` (punkt). |Tecken som används för att avgränsa kapslingsnivåer. <br/><br/>Standardvärdet är `.` (punkt). |
 | WriteBatchSize |Antalet parallella begäranden till Azure Cosmos DB-tjänsten för att skapa dokument.<br/><br/>Du kan finjustera prestanda när du kopierar data till/från Cosmos DB med hjälp av den här egenskapen. Du kan förvänta dig en bättre prestanda om du ökar writeBatchSize eftersom flera parallella förfrågningar till Cosmos DB skickas. Men genererar du måste undvika begränsning som ett felmeddelande: ”Förfrågan är stor”.<br/><br/>Begränsning avgörs av ett antal faktorer, bland annat dokument, antalet villkoren i dokument storlek, indexeringspolicy målsamlingen osv. För kopieringsåtgärder, du kan använda en bättre samling (t.ex. S3) ha de dataflöden som är tillgängliga (2 500 begäran begärandeenheter/sekund). |Integer |Nej (standard: 5) |
 | writeBatchTimeout |Vänta tills åtgärden har slutförts innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
 
@@ -142,7 +142,7 @@ Den här Cosmos DB-anslutningen kan du enkelt
 * Exportera JSON-dokument från Cosmos DB collecton till olika filbaserade lager.
 * Migrera data mellan två Cosmos DB-samlingar som – är.
 
-Få kopian schemaoberoende 
+Få kopian schemaoberoende
 * När du använder Kopieringsguiden, kontrollera den **”exportera som – är att JSON-filer eller Cosmos DB-samling”** alternativet.
 * När med hjälp av JSON-redigering, inte anger ”struktur”-avsnittet i Cosmos DB-datauppsättningar och inte heller ”nestingSeparator”-egenskapen i Cosmos DB källa/mottagare i kopieringsaktiviteten. Om du vill importera från / exportera till JSON-filer, i filen store datauppsättningen anger formattyp av som ”JsonFormat”, config ”filePattern” och hoppa över inställningarna för rest-format, se [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format) avsnittet med information.
 
@@ -249,13 +249,13 @@ Exemplet JSON-dokument i samlingen Person i en Cosmos DB-databas:
 ```
 Cosmos DB stöder förfrågningar till dokument med hjälp av SQL-liknande syntax via hierarkisk JSON-dokument.
 
-Exempel: 
+Exempel:
 
 ```sql
 SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
 ```
 
-Följande pipeline kopierar data från mängden Person i Azure Cosmos DB-databasen till en Azure-blob. Som en del av kopieringsaktiviteten indata och utdata har datauppsättningar angetts.  
+Följande pipeline kopierar data från mängden Person i Azure Cosmos DB-databasen till en Azure-blob. Som en del av kopieringsaktiviteten indata och utdata har datauppsättningar angetts.
 
 ```JSON
 {
@@ -298,7 +298,7 @@ Följande pipeline kopierar data från mängden Person i Azure Cosmos DB-databas
   }
 }
 ```
-## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exempel: Kopiera data från Azure-Blob till Azure Cosmos DB 
+## <a name="example-copy-data-from-azure-blob-to-azure-cosmos-db"></a>Exempel: Kopiera data från Azure-Blob till Azure Cosmos DB
 Exemplet nedan visar:
 
 1. En länkad tjänst av typen [DocumentDb](#azure-documentdb-linked-service-properties).
@@ -434,7 +434,7 @@ Följande pipeline kopierar data från Azure Blob till samlingen Person i Cosmos
             "nestingSeparator": ".",
             "writeBatchSize": 2,
             "writeBatchTimeout": "00:00:00"
-          }
+          },
           "translator": {
               "type": "TabularTranslator",
               "ColumnMappings": "FirstName: Name.First, MiddleName: Name.Middle, LastName: Name.Last, BusinessEntityID: BusinessEntityID, PersonType: PersonType, NameStyle: NameStyle, Title: Title, Suffix: Suffix, EmailPromotion: EmailPromotion, rowguid: rowguid, ModifiedDate: ModifiedDate"
@@ -487,7 +487,7 @@ Azure Cosmos DB är en NoSQL-lagring av JSON-dokument, där kapslade strukturer 
     **Svar:** Nej.
 2. **Fråga:** Hur ett nytt försök med en kopia till Azure Cosmos DB behandlar redan kopierade posterna?
 
-    **Svar:** Om poster har ett ”ID”-fält och kopieringen försöker infoga en post med samma ID, genererar ett fel i kopieringsåtgärden.  
+    **Svar:** Om poster har ett ”ID”-fält och kopieringen försöker infoga en post med samma ID, genererar ett fel i kopieringsåtgärden.
 3. **Fråga:** Har stöd för Data Factory [intervall eller hash-baserade Datapartitionering](../../cosmos-db/sql-api-partition-data.md)?
 
     **Svar:** Nej.

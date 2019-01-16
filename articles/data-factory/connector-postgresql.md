@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/23/2018
 ms.author: jingwang
-ms.openlocfilehash: 43e7425890d8799272aa782ceef3d3b89fd6ce78
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: fc222d2524a709ee8b0f3fc8283d7ffb27575772
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025495"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321984"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Kopiera data från PostgreSQL med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Aktuell version](connector-postgresql.md)
 
@@ -48,7 +48,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för PostgreSQL länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **PostgreSql** | Ja |
 | connectionString | En ODBC-anslutningssträng att ansluta till Azure Database för PostgreSQL. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
@@ -70,8 +70,8 @@ En typisk anslutningssträng är `Server=<server>;Database=<database>;Port=<port
         "type": "PostgreSql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>"
             }
         },
         "connectVia": {

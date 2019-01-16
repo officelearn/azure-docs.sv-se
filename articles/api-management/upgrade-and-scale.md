@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b681b4344512f26f1edc4a5264e718deac569ae
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: ac8babf3a00c73b942ae64ac4cca00c7be7cfcfa
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441697"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319870"
 ---
 # <a name="upgrade-and-scale-an-azure-api-management-instance"></a>Uppgradera och skala en Azure API Management-instans  
 
@@ -47,7 +47,7 @@ Om du vill följa stegen från den här artikeln, måste du:
 
 Du kan välja mellan fyra nivåer: **Developer**, **grundläggande**, **Standard** och **Premium**. Den **Developer** nivå som ska användas för att utvärdera tjänsten; ska inte användas för produktion. Den **Developer** nivån saknar serviceavtal och du inte skala den här nivån (Lägg till/ta bort enheter). 
 
-**Grundläggande**, **Standard** och **Premium** är produktion nivåer som har SLA och kan skalas. Den **grundläggande** nivån är den billigaste nivån som har SLA och det kan vara skalats upp till 2 enheter **Standard** nivå kan skalas till upp till fyra enheter. Du kan lägga till valfritt antal enheter för att den **Premium** nivå.
+**Grundläggande**, **Standard** och **Premium** är produktion nivåer som har SLA och kan skalas. Den **grundläggande** nivån är den billigaste nivån som har SLA och det kan skalas upp till 2 enheter **Standard** nivå kan skalas till upp till fyra enheter. Du kan lägga till valfritt antal enheter för att den **Premium** nivå.
 
 Den **Premium** nivå kan du distribuera en enda Azure API Management-instans över valfritt antal önskade Azure-regioner. När du först skapa en Azure API Management-tjänsten instansen innehåller endast en enhet och finns i en enda Azure-region. Den första regionen är utsedd till den **primära** region. Enkelt du kan lägga ytterligare regioner. När du lägger till en region, kan du ange hur många enheter som ska tilldelas. Du kan till exempel ha en enhet den **primära** region och fem enheter i några andra regioner. Du kan anpassa antalet enheter på trafik som du har i varje region. Mer information finns i [hur du distribuerar en Azure API Management-tjänstinstans till flera Azure-regioner](api-management-howto-deploy-multi-region.md).
 

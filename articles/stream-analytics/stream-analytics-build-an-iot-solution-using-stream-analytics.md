@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 820a918b9ab5dd7a399dc43bcfed29fb3b94e99b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: f372c2a85a9a03c7ead779bd4db64722891c9a4c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53971111"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321576"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Skapa en IoT-lösning med Stream Analytics
 
@@ -36,7 +36,7 @@ Du behöver följande förutsättningar för att kunna slutföra den här lösni
 ## <a name="scenario-introduction-hello-toll"></a>Introduktion för scenariot: ”Hello, avgift”!
 En avgift station är ett vanligt fenomen. Du får dem på många motorvägar, bryggor och tunnlar över hela världen. Varje station avgift har flera avgift kabiner. Vid manuell kabiner stop om du vill betala avgift för att en attendant. Vid automatisk kabiner genomsöker en sensor ovanpå varje visade ett RFID-kort som fästs på vindrutan din fordonets som du skickar avgift monter. Det är enkelt att visualisera passage genom dessa avgift stationer som en händelseström som intressanta åtgärder kan utföras.
 
-! [Bild av bilar på avgift kabiner] (media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth .jpg)
+![Bild av bilar på avgift kabiner](media/stream-analytics-build-an-iot-solution-using-stream-analytics/cars-in-toll-booth.jpg)
 
 ## <a name="incoming-data"></a>Inkommande data
 Den här lösningen fungerar med två dataströmmar. Sensorer som installerats i ingångs- och avsluta avgift stationer producerar första dataströmmen. Den andra är en statisk lookup-datauppsättning som innehåller vehicle registreringsdata.

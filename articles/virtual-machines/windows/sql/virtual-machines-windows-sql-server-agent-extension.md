@@ -3,7 +3,7 @@ title: Automatisera hanteringsuppgifter på SQL-datorer (Resource Manager) | Mic
 description: Den här artikeln beskriver hur du hanterar SQL Server agent-tillägget som automatiserar specifika uppgifter för administration av SQL Server. Dessa inkluderar automatisk säkerhetskopiering, automatisk uppdatering och Azure Key Vault-integrering.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: jroth
-ms.openlocfilehash: 3d2873d83274e4f9bfd8aee7668162237083f452
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 1b5c32d79e3664caf18cfc81fca563b295574cf4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303062"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329325"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-with-the-sql-server-agent-extension-resource-manager"></a>Automatisera hanteringsuppgifter på Azure virtuella datorer med SQL Server Agent-tillägget (Resource Manager)
 > [!div class="op_single_selector"]

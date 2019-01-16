@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 77e81dce7857433481f501410419f1067a51c3fc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 25e47ecc9d9915ab618bc45f2e95f12bae68c7f0
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020344"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332616"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Datauppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -31,18 +31,18 @@ ms.locfileid: "54020344"
 Den här artikeln beskriver vilka datauppsättningar är, hur de definieras i JSON-format och hur de används i Azure Data Factory-pipelines. Den innehåller information om varje avsnitt (till exempel struktur, tillgänglighet och princip) i JSON-definitionen för datauppsättningen. Artikeln innehåller även exempel för att använda den **offset**, **anchorDateTime**, och **style** egenskaper i en datauppsättning JSON-definition.
 
 > [!NOTE]
-> Om du är nybörjare till Data Factory finns i [introduktion till Azure Data Factory](data-factory-introduction.md) en översikt. Om du inte har praktisk erfarenhet med att skapa datafabriker kan du få en bättre förståelse genom att läsa den [självstudien för omvandling av data](data-factory-build-your-first-pipeline.md) och [data movement självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md). 
+> Om du är nybörjare till Data Factory finns i [introduktion till Azure Data Factory](data-factory-introduction.md) en översikt. Om du inte har praktisk erfarenhet med att skapa datafabriker kan du få en bättre förståelse genom att läsa den [självstudien för omvandling av data](data-factory-build-your-first-pipeline.md) och [data movement självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="overview"></a>Översikt
 En datafabrik kan ha en eller flera pipelines. En **pipeline** är en logisk gruppering av **aktiviteter** som tillsammans utför en uppgift. Aktiviteterna i en pipeline definierar åtgärder som ska utföras för dina data. Du kan till exempel använda en Kopieringsaktivitet som kopierar data från en lokal SQL Server till Azure Blob storage. Du kan sedan använda en Hive-aktivitet som kör ett Hive-skript på ett Azure HDInsight-kluster att bearbeta data från Blob storage för att producera utdata. Slutligen kan du använda en andra Kopieringsaktivitet för att kopiera utdata till Azure SQL Data Warehouse ovanpå som business intelligence (BI) reporting-lösningarna. Läs mer om pipelines och aktiviteter, [Pipelines och aktiviteter i Azure Data Factory](data-factory-create-pipelines.md).
 
-En aktivitet kan ha noll eller flera **datauppsättningar**, och framställer en eller flera datauppsättningar som utdata. En indatauppsättning representerar indata för en aktivitet i pipelinen och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobbehållaren och mappen i Blob storage som pipelinen ska läsa data. 
+En aktivitet kan ha noll eller flera **datauppsättningar**, och framställer en eller flera datauppsättningar som utdata. En indatauppsättning representerar indata för en aktivitet i pipelinen och en utdatauppsättning representerar utdata för aktiviteten. Datauppsättningar identifierar data inom olika datalager, till exempel tabeller, filer, mappar och dokument. En Azure Blob-datauppsättning anger till exempel blobbehållaren och mappen i Blob storage som pipelinen ska läsa data.
 
-Innan du skapar en datauppsättning, skapar du en **länkad tjänst** att länka ditt datalager till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Datauppsättningar identifierar data i länkade datalager, till exempel SQL-tabeller, filer, mappar och dokument. Till exempel länkad en Azure Storage-tjänsten länkar ett storage-konto till datafabriken. En Azure Blob-datauppsättning representerar blobbehållaren och mappen som innehåller indatablobbar som ska bearbetas. 
+Innan du skapar en datauppsättning, skapar du en **länkad tjänst** att länka ditt datalager till datafabriken. Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Datauppsättningar identifierar data i länkade datalager, till exempel SQL-tabeller, filer, mappar och dokument. Till exempel länkad en Azure Storage-tjänsten länkar ett storage-konto till datafabriken. En Azure Blob-datauppsättning representerar blobbehållaren och mappen som innehåller indatablobbar som ska bearbetas.
 
 Här är ett exempelscenario. Om du vill kopiera data från Blob storage till en SQL-databas, skapar du två länkade tjänster: Azure Storage och Azure SQL-databas. Skapa sedan två datauppsättningar: Azure Blob-datauppsättning (som refererar till den länkade Azure Storage-tjänsten) och Azure SQL-tabelldatauppsättning (som refererar till länkad Azure SQL Database-tjänsten). Innehåller anslutningssträngar som Datafabriken använder vid körning för att ansluta till ditt Azure Storage och Azure SQL Database, respektive Azure Storage och länkad Azure SQL Database-tjänster. Azure Blob-datauppsättning anger blobbehållaren och blobbmapp som innehåller indatablobbar i Blob storage. Azure SQL-tabelldatauppsättning ange den SQL-tabellen i SQL-databasen som data ska kopieras.
 
-Följande diagram visar relationerna mellan pipeline, aktivitet, datauppsättning och den länkade tjänsten i Data Factory: 
+Följande diagram visar relationerna mellan pipeline, aktivitet, datauppsättning och den länkade tjänsten i Data Factory:
 
 ![Förhållandet mellan pipeline, aktivitet, datauppsättning, länkade tjänster](media/data-factory-create-datasets/relationship-between-data-factory-entities.png)
 
@@ -70,14 +70,14 @@ En datauppsättning i Data Factory har definierats i JSON-format på följande s
             "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
             "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
         },
-       "policy":
-        {      
+        "policy":
+        {
         }
     }
 }
 ```
 
-I följande tabell beskrivs egenskaperna i ovanstående JSON:   
+I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
 | Egenskap  | Beskrivning | Krävs | Standard |
 | --- | --- | --- | --- |
@@ -115,8 +115,8 @@ Observera följande punkter:
 
 * **typ** är inställd på AzureSqlTable.
 * **tableName** typegenskapen (specifikt för AzureSqlTable typ) har angetts till MyTable.
-* **linkedServiceName** refererar till en länkad tjänst av typen AzureSqlDatabase som definieras i nästa JSON-kodfragmentet. 
-* **tillgänglighet frekvens** är inställd på dagen, och **intervall** har angetts till 1. Det innebär att datamängdssektor skapas varje dag.  
+* **linkedServiceName** refererar till en länkad tjänst av typen AzureSqlDatabase som definieras i nästa JSON-kodfragmentet.
+* **tillgänglighet frekvens** är inställd på dagen, och **intervall** har angetts till 1. Det innebär att datamängdssektor skapas varje dag.
 
 **AzureSqlLinkedService** definieras så här:
 
@@ -136,13 +136,12 @@ Observera följande punkter:
 I föregående JSON-kodfragmentet:
 
 * **typ** är inställd på AzureSqlDatabase.
-* **connectionString** typegenskapen anger information för att ansluta till en SQL-databas.  
+* **connectionString** typegenskapen anger information för att ansluta till en SQL-databas.
 
-Som du ser definierar den länkade tjänsten hur du ansluter till en SQL-databas. Datauppsättningen definierar vilken tabell som används som indata och utdata för aktiviteten i en pipeline.   
+Som du ser definierar den länkade tjänsten hur du ansluter till en SQL-databas. Datauppsättningen definierar vilken tabell som används som indata och utdata för aktiviteten i en pipeline.
 
 > [!IMPORTANT]
-> Om inte en datauppsättningen produceras av pipelinen, bör det markeras som **externa**. Den här inställningen gäller vanligtvis indata för den första aktiviteten i en pipeline.   
-
+> Om inte en datauppsättningen produceras av pipelinen, bör det markeras som **externa**. Den här inställningen gäller vanligtvis indata för den första aktiviteten i en pipeline.
 
 ## <a name="Type"></a> Typ av datauppsättning
 Vilken typ av datauppsättningen beror på det datalager som du använder. Se tabellen nedan för en lista över datalager som stöds av Data Factory. Klicka på ett datalager om du vill veta hur du skapar en länkad tjänst och en datauppsättning för det datalagringen.
@@ -182,7 +181,7 @@ I exemplet i föregående avsnitt, vilken typ av datauppsättningen är inställ
 Den **struktur** avsnittet är valfritt. Den definierar schemat för datauppsättningen genom som innehåller en uppsättning namn och datatyperna för kolumnerna. Du kan använda avsnittet struktur för att ange av typinformation som används för att konvertera typer och mappa kolumner från källan till målet. I följande exempel har tre kolumner i datauppsättningen: `slicetimestamp`, `projectname`, och `pageviews`. De är av typen String, String och Decimal, respektive.
 
 ```json
-structure:  
+structure:
 [
     { "name": "slicetimestamp", "type": "String"},
     { "name": "projectname", "type": "String"},
@@ -201,15 +200,14 @@ Varje kolumn i strukturen innehåller följande egenskaper:
 
 Följande riktlinjer hjälper dig att avgöra när du ska inkludera strukturinformation och vad som ska ingå i den **struktur** avsnittet.
 
-* **För strukturerade datakällor**, ange avsnittet struktur endast om du vill mappa källkolumner för att mottagare kolumner och deras namn inte är desamma. Den här typen av datakälla för strukturerade lagrar data schema och ange information tillsammans med själva informationen. Exempel på strukturerade datakällor är SQL Server, Oracle och Azure-tabell. 
+* **För strukturerade datakällor**, ange avsnittet struktur endast om du vill mappa källkolumner för att mottagare kolumner och deras namn inte är desamma. Den här typen av datakälla för strukturerade lagrar data schema och ange information tillsammans med själva informationen. Exempel på strukturerade datakällor är SQL Server, Oracle och Azure-tabell.
   
     Så anger du följande information är redan tillgänglig för strukturerade datakällor måste ta du inte anger du följande information när du inkluderar avsnittet struktur.
-* **För schema vid läsning datakällor (särskilt Blob storage)**, kan du lagra data utan att behöva lagra någon schema eller typ information med data. Inkludera struktur för dessa typer av datakällor när du vill mappa källkolumner för att kolumner för mottagare. Inkludera även struktur när datauppsättningen utgör indata för en Kopieringsaktivitet och datatyperna för datauppsättningen för källan ska konverteras till inbyggda typer för mottagaren. 
+* **För schema vid läsning datakällor (särskilt Blob storage)**, kan du lagra data utan att behöva lagra någon schema eller typ information med data. Inkludera struktur för dessa typer av datakällor när du vill mappa källkolumner för att kolumner för mottagare. Inkludera även struktur när datauppsättningen utgör indata för en Kopieringsaktivitet och datatyperna för datauppsättningen för källan ska konverteras till inbyggda typer för mottagaren.
     
     Data Factory stöder följande värden för att tillhandahålla anger du följande information i struktur: **Int16, Int32, Int64, Single, Double, Decimal, Byte [], booleskt, sträng, Guid, Datetime, Datetimeoffset och Timespan**. Dessa värden är Common Language Specification (CLS)-kompatibla. Av NET-baserade typvärden.
 
-Data Factory utför typkonverteringar automatiskt när du flyttar data från källans datalager till mottagarens datalager. 
-  
+Data Factory utför typkonverteringar automatiskt när du flyttar data från källans datalager till mottagarens datalager.
 
 ## <a name="dataset-availability"></a>Tillgänglighet för datauppsättningar
 Den **tillgänglighet** avsnitt i en datauppsättning definierar fönstret bearbetning (till exempel varje timme, varje dag eller varje vecka) för datauppsättningen. Läs mer om aktivitetsfönster [schemaläggning och körning](data-factory-scheduling-and-execution.md).
@@ -217,21 +215,21 @@ Den **tillgänglighet** avsnitt i en datauppsättning definierar fönstret bearb
 Tillgänglighet nedan anger att utdatauppsättningen skapas antingen per timme eller indatauppsättningen är tillgänglig per timme:
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 1    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 1
 }
 ```
 
-Om pipelinen har följande starttid och Sluttid:  
+Om pipelinen har följande starttid och Sluttid:
 
 ```json
     "start": "2016-08-25T00:00:00Z",
     "end": "2016-08-25T05:00:00Z",
 ```
 
-Datauppsättningen för utdata skapas varje timme i pipeline start- och sluttider. Det finns därför fem datauppsättning sektorer som genereras av denna pipeline, en för varje aktivitetsfönstret (12: 00 - 1 AM, 1 AM - 2 AM, 02: 00 - 3 AM, 3 AM - 4 AM, 4 AM - 05: 00). 
+Datauppsättningen för utdata skapas varje timme i pipeline start- och sluttider. Det finns därför fem datauppsättning sektorer som genereras av denna pipeline, en för varje aktivitetsfönstret (12: 00 - 1 AM, 1 AM - 2 AM, 02: 00 - 3 AM, 3 AM - 4 AM, 4 AM - 05: 00).
 
 I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgänglighet:
 
@@ -241,10 +239,10 @@ I följande tabell beskrivs egenskaperna som du kan använda i avsnittet tillgä
 | interval |Anger en multiplikator för frekvensen.<br/><br/>”X frekvensintervall” avgör hur ofta sektorn skapas. Till exempel om du behöver datauppsättningen att delas timme kan du ange <b>frekvens</b> till <b>timme</b>, och <b>intervall</b> till <b>1</b>.<br/><br/>Observera att om du anger **frekvens** som **minut**, bör du ange intervallet till mindre än 15. |Ja |Ej tillämpligt |
 | stil |Anger om sektorn ska produceras i början eller slutet av intervallet.<ul><li>StartOfInterval</li><li>EndOfInterval</li></ul>Om **frekvens** är inställd på **månad**, och **style** är inställd på **EndOfInterval**, sektorn skapas på den sista dagen i månaden. Om **style** är inställd på **StartOfInterval**, sektorn skapas på den första dagen i månaden.<br/><br/>Om **frekvens** är inställd på **dag**, och **style** är inställd på **EndOfInterval**, sektorn skapas under den senaste timmen på dagen.<br/><br/>Om **frekvens** är inställd på **timme**, och **style** är inställd på **EndOfInterval**, sektorn skapas i slutet av timmen. För en sektor under 1 PM - 14: 00, till exempel produceras sektorn klockan 2. |Nej |EndOfInterval |
 | anchorDateTime |Definierar absolut position i tid som används av scheduler för att beräkna datauppsättning sektorn gränser. <br/><br/>Observera att de mer detaljerade delarna ignoreras om den här propoerty har datumdelar som är större än den angivna frekvensen. Till exempel om den **intervall** är **per timme** (frequency: hour och interval: 1), och **anchorDateTime** innehåller **minuter och sekunder**, och sedan minuter och sekunder delar av **anchorDateTime** ignoreras. |Nej |01/01/0001 |
-| förskjutning |TimeSpan som början och slutet av alla datauppsättningen sektorer beräkningsarbete. <br/><br/>Observera att om båda **anchorDateTime** och **offset** anges, resultatet är kombinerade SKIFT. |Nej |Ej tillämpligt |
+| offset |TimeSpan som början och slutet av alla datauppsättningen sektorer beräkningsarbete. <br/><br/>Observera att om båda **anchorDateTime** och **offset** anges, resultatet är kombinerade SKIFT. |Nej |Ej tillämpligt |
 
 ### <a name="offset-example"></a>förskjutningen exempel
-Som standard varje dag (`"frequency": "Day", "interval": 1`) sektorer som börjar vid 12: 00 (midnatt) Coordinated Universal Time (UTC). Om du vill att starttiden vara 06: 00 UTC-tid i stället ange förskjutningen som visas i följande kodavsnitt: 
+Som standard varje dag (`"frequency": "Day", "interval": 1`) sektorer som börjar vid 12: 00 (midnatt) Coordinated Universal Time (UTC). Om du vill att starttiden vara 06: 00 UTC-tid i stället ange förskjutningen som visas i följande kodavsnitt:
 
 ```json
 "availability":
@@ -258,11 +256,11 @@ Som standard varje dag (`"frequency": "Day", "interval": 1`) sektorer som börja
 I följande exempel produceras datauppsättningen var 23: e timme. Första sektorn som börjar vid den tid som anges av **anchorDateTime**, som har angetts till `2017-04-19T08:00:00` (UTC).
 
 ```json
-"availability":    
-{    
-    "frequency": "Hour",        
-    "interval": 23,    
-    "anchorDateTime":"2017-04-19T08:00:00"    
+"availability":
+{
+    "frequency": "Hour",
+    "interval": 23,
+    "anchorDateTime":"2017-04-19T08:00:00"
 }
 ```
 
@@ -320,16 +318,16 @@ Om inte en datauppsättningen produceras av Data Factory, bör det markeras som 
 
 | Namn | Beskrivning | Krävs | Standardvärde |
 | --- | --- | --- | --- |
-| dataDelay |Tiden att fördröja kontrollera tillgängligheten för externa data för givna sektorn. Du kan till exempel fördröja en kontroll av per timme med den här inställningen.<br/><br/>Inställningen gäller endast för den aktuella tiden.  Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startar verifieringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Skär med **sluttid för sektor** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar ska anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). För 1 dag och fyra timmar, anger du 1:04:00:00. |Nej |0 |
-| retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för aktuell tid. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra första valideringskontrollen är 1 minut och åtgärden misslyckades, nästa återförsök var 1:00 + 1 minut (varaktighet) + 1min (återförsöksintervallet) = 1:02 PM. <br/><br/>Det finns ingen fördröjning för segment i förflutna. Återförsök sker omedelbart. |Nej |00:01:00 (1 minut) |
+| dataDelay |Tiden att fördröja kontrollera tillgängligheten för externa data för givna sektorn. Du kan till exempel fördröja en kontroll av per timme med den här inställningen.<br/><br/>Inställningen gäller endast för den aktuella tiden. Om det är 1:00 PM just nu och det här värdet är 10 minuter, till exempel startar verifieringen klockan 13:10.<br/><br/>Observera att den här inställningen inte påverkar segment i förflutna. Skär med **sluttid för sektor** + **dataDelay** < **nu** bearbetas utan fördröjning.<br/><br/>Gånger större än 23:59 timmar ska anges med hjälp av den `day.hours:minutes:seconds` format. Till exempel vill ange 24 timmar, Använd inte 24:00:00. Använd i stället 1.00:00:00. Om du använder 24:00:00, behandlas den som 24 dagar (24.00:00:00). För 1 dag och fyra timmar, anger du 1:04:00:00. |Nej |0 |
+| retryInterval |Väntetiden mellan ett fel och nästa försök. Den här inställningen gäller för aktuell tid. Om den tidigare misslyckade, nästa försök är efter den **retryInterval** period. <br/><br/>Om den är 1:00 PM just nu kan börja vi första försöket. Om tid att slutföra första valideringskontrollen är 1 minut och åtgärden misslyckades, nästa återförsök var 1:00 + 1 minut (varaktighet) + 1min (återförsöksintervallet) = 1:02 PM. <br/><br/>Det finns ingen fördröjning för segment i förflutna. Återförsök sker omedelbart. |Nej |00:01:00 (1 minute) |
 | retryTimeout |Tidsgränsen för varje nytt försök.<br/><br/>Om den här egenskapen anges till 10 minuter, ska verifieringen ha slutförts inom 10 minuter. Om det tar längre tid än 10 minuter att utföra valideringen tidsgränsen återförsök.<br/><br/>Om alla försök för timeout för verifiering sektorn markeras som **nådde sin tidsgräns**. |Nej |00:10:00 (10 minuter) |
 | maximumRetry |Hur många gånger för att kontrollera tillgänglighet för externa data. Det högsta tillåtna värdet är 10. |Nej |3 |
 
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-Du kan skapa datauppsättningar med någon av dessa verktyg och SDK: er: 
+Du kan skapa datauppsättningar med någon av dessa verktyg och SDK: er:
 
-- Guiden Kopiera 
+- Guiden Kopiera
 - Azure Portal
 - Visual Studio
 - PowerShell
@@ -338,18 +336,17 @@ Du kan skapa datauppsättningar med någon av dessa verktyg och SDK: er:
 - .NET-API
 
 Se följande självstudiekurser för stegvisa instruktioner för att skapa pipelines och datauppsättningar med någon av dessa verktyg och SDK: er:
- 
+
 - [Skapa en pipeline med en datatransformeringsaktivitet](data-factory-build-your-first-pipeline.md)
 - [Skapa en pipeline med en aktivitet för flytt av data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 
-När en pipeline skapas och distribueras, kan du hantera och övervaka dina pipelines med hjälp av Azure-portalblad eller appen övervakning och hantering. Se följande avsnitt hittar du stegvisa instruktioner: 
+När en pipeline skapas och distribueras, kan du hantera och övervaka dina pipelines med hjälp av Azure-portalblad eller appen övervakning och hantering. Se följande avsnitt hittar du stegvisa instruktioner:
 
 - [Övervaka och hantera pipelines med hjälp av Azure-portalblad](data-factory-monitor-manage-pipelines.md)
 - [Övervaka och hantera pipelines med hjälp av övervakning och hantering av appen](data-factory-monitor-manage-app.md)
 
-
 ## <a name="scoped-datasets"></a>Begränsade datauppsättningar
-Du kan skapa datauppsättningar som är begränsade till en pipeline med hjälp av den **datauppsättningar** egenskapen. Dessa datauppsättningar kan bara användas av aktiviteter i denna pipeline, inte av aktiviteter i andra pipeliner. I följande exempel definierar en pipeline med två datauppsättningar (rdc av InputDataset och OutputDataset rdc) som ska användas i pipeline.  
+Du kan skapa datauppsättningar som är begränsade till en pipeline med hjälp av den **datauppsättningar** egenskapen. Dessa datauppsättningar kan bara användas av aktiviteter i denna pipeline, inte av aktiviteter i andra pipeliner. I följande exempel definierar en pipeline med två datauppsättningar (rdc av InputDataset och OutputDataset rdc) som ska användas i pipeline.
 
 > [!IMPORTANT]
 > Begränsade datauppsättningar stöds endast med enstaka pipelines (där **pipelineMode** är inställd på **OneTime**). Se [Onetime pipeline](data-factory-create-pipelines.md#onetime-pipeline) mer information.
@@ -448,5 +445,5 @@ Du kan skapa datauppsättningar som är begränsade till en pipeline med hjälp 
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om pipelines [skapa pipelines](data-factory-create-pipelines.md). 
-- Läs mer om hur pipelines schemaläggs och körs, [schemaläggning och körning i Azure Data Factory](data-factory-scheduling-and-execution.md). 
+- Läs mer om pipelines [skapa pipelines](data-factory-create-pipelines.md).
+- Läs mer om hur pipelines schemaläggs och körs, [schemaläggning och körning i Azure Data Factory](data-factory-scheduling-and-execution.md).

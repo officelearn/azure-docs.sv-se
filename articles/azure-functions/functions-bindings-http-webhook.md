@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 8d2bd74609447463b7ff857aa1037eaf5b6e3abb
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: dc9c3b6740533ae26cf395e436908a359cadf8d9
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727011"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321321"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -53,7 +53,7 @@ Se exempel språkspecifika:
 * [C#](#trigger---c-example)
 * [C#-skript (.csx)](#trigger---c-script-example)
 * [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
+* [Java](#trigger---java-examples)
 * [JavaScript](#trigger---javascript-example)
 * [Python](#trigger---python-example)
 
@@ -332,10 +332,14 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
+### <a name="trigger---java-examples"></a>Utlösare - Java-exempel
 
-I följande exempel visas en utlösare-bindning i en *function.json* fil och en [Java funktionen](functions-reference-java.md) som använder bindningen. Funktionen returnerar ett HTTP-status-kod 200-svar med en begärantext som prefix utlösande begärandetexten med en ”Hello” hälsning.
+* [Läsa parametern från frågesträngen](#read-parameter-from-the-query-string-java)
+* [Läsa innehållet från en POST-begäran](#read-body-from-a-post-request-java)
+* [Läsa parameter från en väg](#read-parameter-from-a-route-java)
+* [Läs POJO text från en POST-begäran](#read-pojo-body-from-a-post-request-java)
 
+I följande exempel visas HTTP-utlösaren bindning i en *function.json* filen och motsvarande [Java-funktioner](functions-reference-java.md) som använder bindningen. 
 
 Här är den *function.json* fil:
 
@@ -358,17 +362,181 @@ Här är den *function.json* fil:
 }
 ```
 
-Här är den Java-kod:
+#### <a name="read-parameter-from-the-query-string-java"></a>Läsa parametern från frågesträngen (Java)  
+
+Det här exemplet läser en parameter med namnet ```id```, från frågesträngen och använder den för att skapa en JSON-dokument som returneras till klienten, med innehåll av typen ```application/json```. 
 
 ```java
-@FunctionName("hello")
-public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"post"}, authLevel = AuthorizationLevel.ANONYMOUS), Optional<String> request,
-                        final ExecutionContext context)
-    {
-        // default HTTP 200 response code
-        return String.format("Hello, %s!", request);
+    @FunctionName("TriggerStringGet")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+
+        // Get named parameter
+        String id = request.getQueryParameters().getOrDefault("id", "");
+
+        // Convert and display
+        if (id.isEmpty()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String name = "fake_name";
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
     }
+```
+
+#### <a name="read-body-from-a-post-request-java"></a>Läsa innehållet från en POST-begäran (Java)  
+
+Det här exemplet läser brödtexten i en POST-begäran som en ```String```, och används för att skapa en JSON-dokument som returneras till klienten med innehållstyp ```application/json```.
+
+```java
+    @FunctionName("TriggerStringPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(""));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String body = request.getBody().get();
+            final String jsonDocument = "{\"id\":\"123456\", " + 
+                                         "\"description\": \"" + body + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-parameter-from-a-route-java"></a>Läsa parameter från en väg (Java)  
+
+Det här exemplet läser en obligatorisk parameter som heter ```id```, och en valfri parameter ```name``` från väg sökväg och använder dem för att skapa en JSON-dokument returneras till klienten, med innehåll av typen ```application/json```. T
+
+```java
+    @FunctionName("TriggerStringRoute")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.GET}, 
+              authLevel = AuthorizationLevel.ANONYMOUS,
+              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+            HttpRequestMessage<Optional<String>> request,
+            @BindingName("id") String id,
+            @BindingName("name") String name,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Route parameters are: " + id);
+
+        // Convert and display
+        if (id == null) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                         "\"description\": \"" + name + "\"}";
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(jsonDocument)
+                          .build();
+        }
+    }
+```
+
+#### <a name="read-pojo-body-from-a-post-request-java"></a>Läs POJO text från en POST-begäran (Java)  
+
+Här är koden för den ```ToDoItem``` klass, som refereras till i det här exemplet:
+
+```java
+
+public class ToDoItem {
+
+  private String id;
+  private String description;  
+
+  public ToDoItem(String id, String description) {
+    this.id = id;
+    this.description = description;
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public String getDescription() {
+    return description;
+  }
+  
+  @Override
+  public String toString() {
+    return "ToDoItem={id=" + id + ",description=" + description + "}";
+  }
 }
+
+```
+
+Det här exemplet läser brödtexten i en POST-begäran. Begärandetexten hämtar automatiskt ta bort serialiserade i en ```ToDoItem``` objekt och returneras till klienten med innehållstyp ```application/json```. Den ```ToDoItem``` parametern serialiseras av funktionskörningen när den är tilldelad till den ```body``` egenskapen för den ```HttpMessageResponse.Builder``` klass.
+
+```java
+    @FunctionName("TriggerPojoPost")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", 
+              methods = {HttpMethod.POST}, 
+              authLevel = AuthorizationLevel.ANONYMOUS)
+            HttpRequestMessage<Optional<ToDoItem>> request,
+            final ExecutionContext context) {
+        
+        // Item list
+        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+
+        // Check request body
+        if (!request.getBody().isPresent()) {
+            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                          .body("Document not found.")
+                          .build();
+        } 
+        else {
+            // return JSON from to the client
+            // Generate document
+            final ToDoItem body = request.getBody().get();
+            return request.createResponseBuilder(HttpStatus.OK)
+                          .header("Content-Type", "application/json")
+                          .body(body)
+                          .build();
+        }
+    }
 ```
 
 ## <a name="trigger---attributes"></a>Utlösare - attribut

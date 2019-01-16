@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/23/2018
+ms.date: 01/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 1f3d6434c7226465f9e054d5e5bf35fbb228b311
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c14bf7c108251a4ec00f5e2f0b1254f83121866e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014495"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321117"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Kopiera data från MySQL med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Aktuell version](connector-mysql.md)
 
@@ -30,7 +30,7 @@ Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Fac
 
 Du kan kopiera data från MySQL-databas till alla datalager för mottagare som stöds. En lista över datalager som stöds som källor/mottagare av Kopieringsaktivitet finns i den [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats) tabell.
 
-Mer specifikt den här anslutningen för MySQL stöder MySQL **version 5.1 och senare**.
+Mer specifikt den här anslutningen för MySQL stöder MySQL **version 5.6 och 5.7**.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -59,7 +59,7 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
 | Egenskap  | Beskrivning | Alternativ | Krävs |
 |:--- |:--- |:--- |:--- |:--- |
 | SSLMode | Det här alternativet anger om drivrutinen använder SSL-kryptering och kontroll när du ansluter till MySQL. T.ex. `SSLMode=<0/1/2/3/4>`| INAKTIVERAD (0) / prioriterade (1) **(standard)** / krävs (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | Nej |
-| useSystemTrustStore | Det här alternativet anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverad (1) / inaktiveras (0) **(standard)** | Nej |
+| UseSystemTrustStore | Det här alternativet anger om du vill använda ett CA-certifikat från arkivet med betrodda system eller från en angiven PEM-fil. T.ex. `UseSystemTrustStore=<0/1>;`| Aktiverad (1) / inaktiveras (0) **(standard)** | Nej |
 
 **Exempel:**
 
@@ -70,8 +70,8 @@ En typisk anslutningssträng är `Server=<server>;Port=<port>;Database=<database
         "type": "MySql",
         "typeProperties": {
             "connectionString": {
-                 "type": "SecureString",
-                 "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
+                "type": "SecureString",
+                "value": "Server=<server>;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -227,7 +227,6 @@ När du kopierar data från MySQL används följande mappningar från MySQL-data
 | `tinytext` |`String` |
 | `varchar` |`String` |
 | `year` |`Int` |
-
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

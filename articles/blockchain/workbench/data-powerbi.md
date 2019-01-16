@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: b1020389ef28c18c03536d686cd47ef0c65b9204
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e50a82f0f141fec266a8348c0a1a8b5fbdb38b45
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48242807"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329862"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-microsoft-power-bi"></a>Använda Azure Blockchain Workbench-data med Microsoft Power BI
 
@@ -25,9 +25,9 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Ladda ned [PowerBI Desktop](https://aka.ms/pbidesktopstore).
+* Ladda ned [Power BI Desktop](https://aka.ms/pbidesktopstore).
 
-## <a name="connecting-powerbi-to-data-in-azure-blockchain-workbench"></a>Ansluta PowerBI till data i Azure Blockchain Workbench
+## <a name="connecting-power-bi-to-data-in-azure-blockchain-workbench"></a>Ansluta Power BI till data i Azure Blockchain Workbench
 
 1.  Öppna Power BI Desktop.
 2.  Välj **Hämta data**.
@@ -49,7 +49,7 @@ Den här artikeln beskriver steg för steg hur du ansluter till SQL-databasen i 
 
     ![Navigatör](./media/data-powerbi/navigator.png)
 
-7.  Välj de vyer som du vill ta med. I demonstrationssyfte tar vi med **vwContractAction**, som innehåller information om alla åtgärder som har vidtagits i anslutning till ett kontrakt.
+7.  Välj de vyer som du vill ta med. I demonstrationssyfte, inkluderar vi **vwContractAction**, som innehåller information om de åtgärder som har ägt rum på ett kontrakt.
 
     ![Välja vyer](./media/data-powerbi/select-views.png)
 

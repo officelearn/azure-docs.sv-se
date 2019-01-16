@@ -1,10 +1,10 @@
 ---
-title: Produktnamn och tjänsten planera identifierare för licensiering i Azure Active Directory | Microsoft Docs
-description: Identifieraren kartan för att hantera Azure AD-licensiering i Azure-portalen, Office 365-portalen, PowerShell eller Microsoft Graph
+title: Produktnamn och tjänsten planera identifierare för licensiering – Azure AD | Microsoft Docs
+description: Identifieraren kartan för att hantera Azure Active Directory-licensiering i Azure-portalen, Office 365-portalen, PowerShell eller Microsoft Graph
 services: active-directory
 keywords: Azure Active Directory licensing service-planer
 documentationcenter: ''
-author: piotrci
+author: curtand
 manager: mtillman
 editor: ''
 ms.assetid: ''
@@ -13,23 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 8/17/2018
-ms.author: piotrci
-ms.openlocfilehash: 7ebf0149af9e012d3b0135c7ee9b8167c4cf76c9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.date: 01/14/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.openlocfilehash: 9d229dfa11a317c1f3b3121cdc7c1cdfa7df9c5e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056983"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321644"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamn och service-plan identifierare för licensiering
 
-När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) eller Office 365-portalen visas produktnamn som ser ut ungefär så *Office 365 Enterprise E3*. När du använder PowerShell v1.0-cmdletar, samma produkt identifieras med hjälp av en specifik men mindre användarvänligt namn: *ENTERPRISEPACK*. När du använder PowerShell v2.0-cmdlets eller Microsoft Graph, samma produkt identifieras med hjälp av ett GUID-värde: *6fd2c87f-b296-42f0-b197-1e91e994b900*. I följande tabell listar de vanligaste Microsoft onlinetjänst produkterna och ger sina olika ID-värden. Dessa tabeller är i referenssyfte och korrekt endast vid det datum då den här artikeln senast uppdaterades. Microsoft inte planerar att uppdatera dem för nya tjänster regelbundet.
+När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) eller Office 365-portalen visas produktnamn som ser ut ungefär så *Office 365 Enterprise E3*. När du använder PowerShell v1.0-cmdletar, identifieras samma produkt med ett specifikt men mindre användarvänligt namn: *ENTERPRISEPACK*. När du använder PowerShell v2.0-cmdlets eller Microsoft Graph, identifieras samma produkt med hjälp av ett GUID-värde: *6fd2c87f-b296-42f0-b197-1e91e994b900*. I följande tabell listar de vanligaste Microsoft onlinetjänst produkterna och ger sina olika ID-värden. Dessa tabeller är i referenssyfte och korrekt endast vid det datum då den här artikeln senast uppdaterades. Microsoft inte planerar att uppdatera dem för nya tjänster regelbundet.
 
-- **Produktnamn**: används i hanteringsportalen
-- **Sträng-ID**: används av PowerShell v1.0-cmdletar när du utför åtgärder på licenser
+- **Produktnamn**: Används i hanteringsportalen
+- **Sträng-ID**: Används av PowerShell v1.0-cmdletar när du utför åtgärder på licenser
 - **GUID-ID**: GUID som används av Azure AD Graph och Microsoft Graph
-- **Service-planer ingår**: en lista över service-planer i produkten som motsvarar sträng-ID och GUID
+- **Tjänsten planer som ingår**: En lista över service-planer i produkten som motsvarar sträng-ID och GUID
 
 >[!NOTE]
 >Den här informationen är korrekt vid 17 augusti 2018.
@@ -37,15 +38,15 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 | Produktnamn | Sträng-ID | GUID | Service-planer som ingår |
 | --- | --- | --- |--- |
 | VOKALER | MCOMEETADV | 0c266dff-15dd-4b49-8397-2bb16070ed52 |MCOMEETADV (3e26ee1f-8a5f-4d52-aee2-b81ce45c8f40) |
-| AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43A2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
+| AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe) |
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) |
-| AZURE ACTIVE DIRECTORY PREMIUM P2 | AAD_PREMIUM_P2    | 84a661c4-e949-4BD2-a560-ed7766fcaf2b  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AAD_PREMIUM_P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) |
+| AZURE ACTIVE DIRECTORY PREMIUM P2 | AAD_PREMIUM_P2    | 84a661c4-e949-4bd2-a560-ed7766fcaf2b  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>AAD_PREMIUM_P2 (eec0eb4f-6444-4f95-aba0-50c24d67f998)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0) |
 | AZURE INFORMATION PROTECTION-ABONNEMANG 1   | RIGHTSMANAGEMENT  | c52ea49f-fe5d-4e95-93ba-1de91d380f89  | RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3) |
 | DYNAMICS 365 CUSTOMER ENGAGEMENT-PLAN ENTERPRISE EDITION  | DYN365_ENTERPRISE_PLAN1   | ea126fc5-a19e-42e2-a731-da9d437bffcf  | DYN365_ENTERPRISE_P1 (d56f3deb-50d8-465a-bedb-f079817ccac1)<br/>FLOW_DYN_P2 (b650d915-9886-424b-a08d-633cede56f57)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_P2 (0b03f40b-c404-40c3-8651-2aceb74365fa)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
 | DYNAMICS 365 FÖR CUSTOMER SERVICE, ENTERPRISE EDITION  | DYN365_ENTERPRISE_CUSTOMER_SERVICE    | 749742bf-0d37-4158-a120-33567104deeb  | DYN365_ENTERPRISE_CUSTOMER_SERVICE (99340b49-fb81-4b1e-976b-8f2ae8e9394f)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
 | DYNAMICS 365 FOR FINANCIALS, BUSINESS EDITION  | DYN365_FINANCIALS_BUSINESS_SKU    | cc13a803-544e-4464-b4e4-6d6169a138fa  | DYN365_FINANCIALS_BUSINESS (920656a2-7dd8-4c83-97b6-a356414dbd36)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b) |
-| DYNAMICS 365 FÖR SALES OCH CUSTOMER SERVICE, ENTERPRISE EDITION    | DYN365_ENTERPRISE_SALES_CUSTOMERSERVICE   | 8edc2cf8-6438-4FA9-b6e3-aa1660c640cc  | DYN365_ENTERPRISE_P1 (d56f3deb-50d8-465a-bedb-f079817ccac1)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
-| DYNAMICS 365 FÖR SALES ENTERPRISE EDITION | DYN365_ENTERPRISE_SALES   | 1e1a282c-9c54-43A2-9310-98ef728faace  | DYN365_ENTERPRISE_SALES (2da8e897-7791-486b-b08f-cc63c8129df7)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
+| DYNAMICS 365 FÖR SALES OCH CUSTOMER SERVICE, ENTERPRISE EDITION    | DYN365_ENTERPRISE_SALES_CUSTOMERSERVICE   | 8edc2cf8-6438-4fa9-b6e3-aa1660c640cc  | DYN365_ENTERPRISE_P1 (d56f3deb-50d8-465a-bedb-f079817ccac1)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
+| DYNAMICS 365 FÖR SALES ENTERPRISE EDITION | DYN365_ENTERPRISE_SALES   | 1e1a282c-9c54-43a2-9310-98ef728faace  | DYN365_ENTERPRISE_SALES (2da8e897-7791-486b-b08f-cc63c8129df7)<br/>FLOW_DYN_APPS (7e6d7d78-73de-46ba-83b1-6d25117334ba)<br/>NBENTERPRISE (03acaee3-9492-4f40-aed4-bcb6b32981b6)<br/>POWERAPPS_DYN_APPS (874fc546-6efe-4d22-90b8-5c4e7aa59f4b)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
 | DYNAMICS 365 FOR TEAM MEDLEMMAR ENTERPRISE EDITION  | DYN365_ENTERPRISE_TEAM_MEMBERS    | 8e7a3d30-d97d-43ab-837c-d7701cef83dc  | DYN365_Enterprise_Talent_Attract_TeamMember (643d201a-9884-45be-962a-06ba97062e5e)<br/>DYN365_Enterprise_Talent_Onboard_TeamMember (f2f49eef-4b3f-4853-809a-a055c6103fe0)<br/>DYN365_ENTERPRISE_TEAM_MEMBERS (6a54b05e-4fab-40e7-9828-428db3b336fa)<br/>Dynamics_365_for_Operations_Team_members (f5aa7b45-8a36-4cd1-bc37-5d06dea98645)<br/>Dynamics_365_for_Retail_Team_members (c0454a3d-32b5-4740-b090-78c32f48f0ad)<br/>Dynamics_365_for_Talent_Team_members (d5156635-0704-4f66-8803-93258f8b2678)<br/>FLOW_DYN_TEAM (1ec58c70-f69c-486a-8109-4b87ce86e449)<br/>POWERAPPS_DYN_TEAM (52e619e2-2730-439a-b0d3-d09ab7e8b705)<br/>PROJECT_ESSENTIALS (1259157c-8581-4875-bca7-2ffb18c51bda)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
 | DYNAMICS 365 UNF OPS PLAN ENT EDITION | Dynamics_365_for_Operations   | ccba3cfe-71ef-423a-bd87-b6df3dce59a9  | DDYN365_CDS_DYN_P2 (d1142cfd-872e-4e77-b6ff-d98ec5a51f66)<br/>DYN365_TALENT_ENTERPRISE (65a1ebf4-6732-4f00-9dcb-3d115ffdeecd)<br/>Dynamics_365_for_Operations (95d2cd7b-1007-484b-8595-5e97e63fe189)<br/>Dynamics_365_for_Retail (a9e39199-8369-444b-89c1-5fe65ec45665)<br/>Dynamics_365_Hiring_Free_PLAN (f815ac79-c5dd-4bcc-9b78-d97f7b817d0d)<br/>Dynamics_365_Onboarding_Free_PLAN (300b8114-8555-4313-b861-0c115d820f50)<br/>FLOW_DYN_P2 (b650d915-9886-424b-a08d-633cede56f57)<br/>POWERAPPS_DYN_P2 (0b03f40b-c404-40c3-8651-2aceb74365fa) |
 | ENTERPRISE MOBILITY + SECURITY E3 | EMS   | efccb6f7-5641-4e0e-bd10-b4976e1bf68e  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>ADALLOM_S_DISCOVERY (932ad362-64a8-4783-9106-97849a1a30b9)<br/>INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)<br/>RMS_S_ENTERPRISE (bea4c11e-220a-4e6d-8eb8-8ea15d019f90)<br/>RMS_S_PREMIUM (6c57d4b6-3b23-47a5-9bc9-69f17b4947b3) |
@@ -55,7 +56,7 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 | EXCHANGE ONLINE ARKIVERING FÖR EXCHANGE ONLINE | EXCHANGEARCHIVE_ADDON | ee02fd1b-340e-4a4b-b355-4a514e4c8943  | EXCHANGE_S_ARCHIVE_ADDON (176a09a6-7ec5-4039-ac02-b2791c6ba793) |
 | EXCHANGE ONLINE ARKIVERING FÖR EXCHANGE SERVER | EXCHANGEARCHIVE   | 90b5e015-709a-4b8b-b08e-3200f994494c  | EXCHANGE_S_ARCHIVE (da040e0a-b393-4bea-bb76-928b3fa1cf5a) |
 | EXCHANGE ONLINE ESSENTIALS    | EXCHANGEESSENTIALS    | 7fc0182e-d107-4556-8329-7caaa511197b  | EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c) |
-| EXCHANGE ONLINE ESSENTIALS    | EXCHANGE_S_ESSENTIALS | e8f81a67-bd96-4074-B108-cf193eb9433b  | EXCHANGE_S_ESSENTIALS (1126bef5-da20-4f07-b45e-ad25d2581aa8) |
+| EXCHANGE ONLINE ESSENTIALS    | EXCHANGE_S_ESSENTIALS | e8f81a67-bd96-4074-b108-cf193eb9433b  | EXCHANGE_S_ESSENTIALS (1126bef5-da20-4f07-b45e-ad25d2581aa8) |
 | HELSKÄRMSLÄGE FÖR EXCHANGE ONLINE | EXCHANGEDESKLESS  | 80b2d799-d2ba-4d2a-8842-fb0d0f3a4b82  | EXCHANGE_S_DESKLESS (4a82b400-a79f-41a4-b4e2-e94f5787b113) |
 | EXCHANGE ONLINE POP   | EXCHANGETELCO | cb0a98a8-11bc-494c-83d9-c1b1ac65327e  | EXCHANGE_B_STANDARD (90927877-dcff-4af6-b346-2332c0b15bb7) |
 | INTUNE    | INTUNE_A  | 061f9ace-7d42-4136-88ac-31dc755f143f  | INTUNE_A (c1ec4a95-1f05-45b3-a911-aa3fa01094f5) |
@@ -69,7 +70,7 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 | OFFICE 365 BUSINESS   | SMB_BUSINESS  | b214fe43-f5a3-4703-beeb-fa97188220fc  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>ONEDRIVESTANDARD (13696edf-5a08-49f6-8134-03083ed8ba30)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | OFFICE 365 BUSINESS ESSENTIALS    | O365_BUSINESS_ESSENTIALS  | 3b555118-da6a-4418-894f-7df1e2096870  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>OFFICEMOBILE_SUBSCRIPTION (c63d4d19-e8cb-460e-b37c-4d6c34603745)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
 | OFFICE 365 BUSINESS ESSENTIALS    | SMB_BUSINESS_ESSENTIALS   | dab7782a-93b1-4074-8bb1-0e61318bea0b  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>OFFICEMOBILE_SUBSCRIPTION (c63d4d19-e8cb-460e-b37c-4d6c34603745)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_MIDSIZE (41bf139a-4e60-409f-9346-a1361efc6dfb) |
-| OFFICE 365 BUSINESS PREMIUM   | O365_BUSINESS_PREMIUM | f245ecc8-75af-4F8E-b61f-27d8114de5f3  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MICROSOFTBOOKINGS (199a5c09-e0ca-4e37-8f7c-b05d533e1ea2)<br/>O365_SB_Relationship_Management (5bfe124c-bbdc-4494-8835-f1297d457d79)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
+| OFFICE 365 BUSINESS PREMIUM   | O365_BUSINESS_PREMIUM | f245ecc8-75af-4f8e-b61f-27d8114de5f3  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MICROSOFTBOOKINGS (199a5c09-e0ca-4e37-8f7c-b05d533e1ea2)<br/>O365_SB_Relationship_Management (5bfe124c-bbdc-4494-8835-f1297d457d79)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
 | OFFICE 365 BUSINESS PREMIUM   | SMB_BUSINESS_PREMIUM  | ac5cef5d-921b-4f97-9ef3-c99076e5470f  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>MICROSOFTBOOKINGS (199a5c09-e0ca-4e37-8f7c-b05d533e1ea2)<br/>O365_SB_Relationship_Management (5bfe124c-bbdc-4494-8835-f1297d457d79)<br/>OFFICE_BUSINESS (094e7854-93fc-4d55-b2c0-3ab5369ebdc1)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_MIDSIZE (41bf139a-4e60-409f-9346-a1361efc6dfb) |
 | OFFICE 365 ENTERPRISE E1  | STANDARDPACK  | 18181a46-0d4e-45cd-891e-60aabd171b4e  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>OFFICEMOBILE_SUBSCRIPTION (c63d4d19-e8cb-460e-b37c-4d6c34603745)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>STREAM_O365_E1 (743dd19e-1ce3-4c62-a3ad-49ba8f63a2f6)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653)) |
 | OFFICE 365 ENTERPRISE E2  | STANDARDWOFFPACK  | 6634e0ce-1a9f-428c-a498-f84ec7b8aa2e  | BPOS_S_TODO_1 (5e62787c-c316-451f-b873-1d05acd4d12c)<br/>Deskless (8c7d2df8-86f0-4902-b2ed-a0458298f3b3)<br/>EXCHANGE_S_STANDARD (9aaf7827-d63c-4b61-89c3-182f06f82e5c)<br/>FLOW_O365_P1 (0f9b09cb-62d1-4ff4-9129-43f4996f83f4)<br/>FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>MCOSTANDARD (0feaeb32-d00e-4d66-bd5a-43b5b83db82c)<br/>POWERAPPS_O365_P1 (92f7a6f3-b89b-4bbd-8c30-809e6da5ad1c)<br/>PROJECTWORKMANAGEMENT (b737dad2-2f6c-4c65-90e3-ca563267e8b9)<br/>SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>STREAM_O365_E1 (743dd19e-1ce3-4c62-a3ad-49ba8f63a2f6)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97)<br/>TEAMS1 (57ff2da0-773e-42df-b2af-ffb7a2317929)<br/>YAMMER_ENTERPRISE (7547a3fe-08ee-4ccb-b430-5077c5041653) |
@@ -92,7 +93,7 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 | PROJECT ONLINE PREMIUM    | PROJECTPREMIUM    | 09015f9f-377f-4538-bbb5-f75ceb09358a  | PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
 | PROJECT ONLINE PREMIUM UTAN PROJECT-KLIENTEN | PROJECTONLINE_PLAN_1  | 2db84718-652c-47a7-860c-f10d8abbdae3  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | PROJECT ONLINE PROFESSIONAL   | PROJECTPROFESSIONAL   | 53818b1b-4a27-454b-8896-0dba576410e6  | PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014) |
-| PROJECT ONLINE MED PROJEKT FÖR OFFICE 365    | PROJECTONLINE_PLAN_2  | f82a60b8-1ee3-4CFB-a4fe-1c6a53c2656c  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
+| PROJECT ONLINE MED PROJEKT FÖR OFFICE 365    | PROJECTONLINE_PLAN_2  | f82a60b8-1ee3-4cfb-a4fe-1c6a53c2656c  | FORMS_PLAN_E1 (159f4cd6-e380-449f-a816-af1a9ef76344)<br/>PROJECT_CLIENT_SUBSCRIPTION (fafd7243-e5c1-4a3a-9e40-495efcb1d3c3)<br/>SHAREPOINT_PROJECT (fe71d6c3-a2ea-4499-9778-da042bf08063)<br/>SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72)<br/>SHAREPOINTWAC (e95bec33-7c88-4a70-8e19-b10bd9d0c014)<br/>SWAY (a23b959c-7ce8-4e57-9140-b90eb88a9e97) |
 | SHAREPOINT ONLINE (PLAN 1)    | SHAREPOINTSTANDARD    | 1fc08a02-8b3d-43b9-831e-f76859e04e1a  | SHAREPOINTSTANDARD (c7699d2e-19aa-44de-8edf-1736da088ca1) |
 | SHAREPOINT ONLINE (PLAN 2)    | SHAREPOINTENTERPRISE  | a9732ec9-17d9-494c-a51c-d6b45b384dcb  | SHAREPOINTENTERPRISE (5dbe027f-2339-4123-9542-606e4d348a72) |
 | SKYPE FÖR FÖRETAG CLOUD PBX  | MCOEV | e43b5b99-8dfb-405f-9987-dc307f34bcbd  | MCOEV (4828c8ec-dc2e-4779-b502-87ac9ce28ab7) |
@@ -116,12 +117,12 @@ När du använder gruppbaserad licensiering kan du uppleva [det här feltillstå
 
 Det här avsnittet innehåller de vanligaste service-planer som är ömsesidigt uteslutande, grupperade efter typ av tjänst. Du kan använda den här informationen för att planera distributionen av licens och undvika Tilldelningsfel. Dessa tabeller är i referenssyfte och korrekt endast vid det datum då den här artikeln senast uppdaterades. Microsoft inte planerar att uppdatera dem för nya tjänster regelbundet.
 
-### <a name="service-azure-active-directory"></a>Tjänsten: *Azure Active Directory*
+### <a name="service-azure-active-directory"></a>Tjänst: *Azure Active Directory*
 
 >[!NOTE]
 >Alla service-planer som rör Azure Active Directory kan nu tilldelas tillsammans till samma användare. Detta gör det enklare för vissa scenarier för licens, till exempel flyttar användare från Azure AD Basic till Azure AD Premium P1.
 
-### <a name="service-dynamics-crm"></a>Tjänsten: *Dynamics CRM*
+### <a name="service-dynamics-crm"></a>Tjänst: *Dynamics CRM*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
@@ -130,14 +131,14 @@ Följande tjänsteplaner kan inte tilldelas tillsammans:
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
 | CRMPLAN2  | bf36ca64-95c6-4918-9275-eb9f4ce2c04f |
 | CRMSTANDARD   | f9646fb2-e3b2-4309-95de-dc4833737456 |
-| DYN365_ENTERPRISE_CUSTOMER_SERVICE | 99340b49-fb81-4b1e-976B-8f2ae8e9394f |
+| DYN365_ENTERPRISE_CUSTOMER_SERVICE | 99340b49-fb81-4b1e-976b-8f2ae8e9394f |
 | DYN365_ENTERPRISE_P1  | d56f3deb-50d8-465a-bedb-f079817ccac1 |
 | DYN365_ENTERPRISE_P1_IW   | 056a5f80-b4e0-4983-a8be-7ad254a113c9 |
-| DYN365_ENTERPRISE_SALES   | 2da8e897-7791-486B-b08f-cc63c8129df7 |
+| DYN365_ENTERPRISE_SALES   | 2da8e897-7791-486b-b08f-cc63c8129df7 |
 | DYN365_ENTERPRISE_TEAM_MEMBERS    | 6a54b05e-4fab-40e7-9828-428db3b336fa |
 | EMPLOYEE_SELF_SERVICE | ba5f0cfa-d54a-4ea0-8cf4-a7e1dc4423d8 |
 
-### <a name="service-exchange-online"></a>Tjänsten: *Exchange Online*
+### <a name="service-exchange-online"></a>Tjänst: *Exchange Online*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
@@ -152,7 +153,7 @@ Följande tjänsteplaner kan inte tilldelas tillsammans:
 | EXCHANGE_S_STANDARD   | 9aaf7827-d63c-4b61-89c3-182f06f82e5c |
 | EXCHANGE_S_STANDARD_MIDMARKET | fc52cc4b-ed7d-472d-bbe7-b081c23ecc56 |
 
-### <a name="service-intune"></a>Tjänsten: *Intune*
+### <a name="service-intune"></a>Tjänst: *Intune*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
@@ -162,31 +163,31 @@ Följande tjänsteplaner kan inte tilldelas tillsammans:
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
 | INTUNE_B  | 2dc63b8a-df3d-448f-b683-8655877c9360 |
 
-### <a name="service-sharepoint-online"></a>Tjänsten: *SharePoint Online*
+### <a name="service-sharepoint-online"></a>Tjänst: *SharePoint Online*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
 | Service-planens namn | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
-| SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4E25-a8ad-950060064ef4 |
+| SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
 | SHAREPOINTDESKLESS    | 902b47e5-dcb2-4fdc-858b-c63a90a2bdb9 |
 | SHAREPOINTENTERPRISE  | 5dbe027f-2339-4123-9542-606e4d348a72 |
 | SHAREPOINTENTERPRISE_EDU  | 63038b2c-28d0-45f6-bc36-33062963b498 |
-| SHAREPOINTENTERPRISE_MIDMARKET    | 6b5b6a67-fc72-4A1F-a2b5-beecf05de761 |
+| SHAREPOINTENTERPRISE_MIDMARKET    | 6b5b6a67-fc72-4a1f-a2b5-beecf05de761 |
 | SHAREPOINTLITE    | a1f3d0a8-84c0-4ae0-bae4-685917b8ab48 |
 | SHAREPOINTSTANDARD    | c7699d2e-19aa-44de-8edf-1736da088ca1 |
 | SHAREPOINTSTANDARD_EDU    | 0a4983bb-d3e5-4a09-95d8-b2d0127b3df5 |
 | SHAREPOINTSTANDARD_YAMMERSHADOW | 4c9efd0c-8de7-4c71-8295-9f5fdb0dd048 |
 
-### <a name="service-skype-for-business"></a>Tjänsten: *Skype för företag*
+### <a name="service-skype-for-business"></a>Tjänst: *Skype för företag*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
 | Service-planens namn | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
-| MCOSTANDARD_MIDMARKET | b2669e95-76ef-4E7E-a367-002f60a39f3e |
+| MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
 | MCOSTANDARD   | 0feaeb32-d00e-4d66-bd5a-43b5b83db82c |
 | MCOLITE   | 70710b6b-3ab4-4a38-9f6d-9f169461650a |
 
@@ -198,7 +199,7 @@ Följande tjänsteplaner kan inte tilldelas tillsammans:
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
 | MCOPSTN5  | 54a152dc-90de-4996-93d2-bc47e670fc06 |
 
-### <a name="service-yammer"></a>Tjänsten: *Yammer*
+### <a name="service-yammer"></a>Tjänst: *Yammer*
 
 Följande tjänsteplaner kan inte tilldelas tillsammans:
 
@@ -206,7 +207,7 @@ Följande tjänsteplaner kan inte tilldelas tillsammans:
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |
-| YAMMER_MIDSIZE    | 41bf139a-4e60-409F-9346-a1361efc6dfb |
+| YAMMER_MIDSIZE    | 41bf139a-4e60-409f-9346-a1361efc6dfb |
 
 ## <a name="next-steps"></a>Nästa steg
 

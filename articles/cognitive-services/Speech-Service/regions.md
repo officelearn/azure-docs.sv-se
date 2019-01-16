@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: d41213d72d40555d8dc5aeab76040fc556dae774
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d302fc67225213ad55687797c97c7a2a8a17cc6d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091653"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54329515"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -46,11 +46,24 @@ Tal-SDK är tillgänglig i dessa regioner för **taligenkänning** och **transla
 
 ### <a name="intent-recognition"></a>Avsiktsigenkänning
 
-**Taligenkänning** för tal SDK filresurser regioner har stöd för med LUIS. En fullständig lista över tillgängliga regioner finns i [publicering regioner och slutpunkter – LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions)
+Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
 
-Tillgängliga regioner för **avsiktsigenkänning** via tal SDK listas på den [Language Understanding Tjänstesida region](/azure/cognitive-services/luis/luis-reference-regions).
+ Global region | Region | Parametern för tal-SDK
+ ------|-------|--------
+ Asien | Östasien | `eastasia`
+ Asien | Sydostasien | `southeastasia`
+ Australien | Östra Australien | `australiaeast`
+ Europa | Norra Europa | `northeurope`
+ Europa | Västra Europa | `westeurope`
+ Nordamerika | Östra USA | `eastus`
+ Nordamerika | USA, östra 2 | `eastus2`
+ Nordamerika | Södra centrala USA | `southcentralus`
+ Nordamerika | Västra centrala USA | `westcentralus`
+ Nordamerika | Västra USA | `westus`
+ Nordamerika | Västra USA 2 | `westus2`
+ Sydamerika | Södra Brasilien | `brazilsouth`
 
-För varje publishing-region som visas, använder de angivna **API Regionsnamn**. Till exempel använda `westus` för USA, västra.
+Det här är en delmängd av publishing regioner som stöds av den [tjänst för Språkförståelse (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
 ## <a name="rest-apis"></a>REST API:er
 

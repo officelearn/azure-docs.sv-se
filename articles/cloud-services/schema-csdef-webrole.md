@@ -1,5 +1,5 @@
 ---
-title: Azure Cloud Services def WebRole-Schema | Microsoft Docs
+title: Azure Cloud Services Def. WebRole-Schema | Microsoft Docs
 ms.custom: ''
 ms.date: 04/14/2015
 services: cloud-services
@@ -13,14 +13,14 @@ caps.latest.revision: 60
 author: jpconnock
 ms.author: jeconnoc
 manager: timlt
-ms.openlocfilehash: e548841f334705aa71ada92c43ccde207a1f6318
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0bb0946ea48a4c206d6bfe683da0835aca9b198b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002321"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331953"
 ---
-# <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services, Definition WebRole-Schema
+# <a name="azure-cloud-services-definition-webrole-schema"></a>Azure Cloud Services Definition WebRole Schema
 Azure web-roll är en roll som är anpassade för web application programming som stöds av IIS 7, till exempel ASP.NET, PHP, Windows Communication Foundation och FastCGI.
 
 Standardfilnamnstillägget för tjänstdefinitionsfilen är .csdef.
@@ -44,11 +44,11 @@ Det grundläggande formatet för en tjänstdefinitionsfilen som innehåller en w
       <InputEndpoint certificate="<certificate-name>" ignoreRoleInstanceStatus="[true|false]" name="<input-endpoint-name>" protocol="[http|https|tcp|udp]" localPort="<port-number>" port="<port-number>" loadBalancerProbe="<load-balancer-probe-name>" />  
       <InternalEndpoint name="<internal-endpoint-name>" protocol="[http|tcp|udp|any]" port="<port-number>">  
          <FixedPort port="<port-number>"/>  
-         <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+         <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
       </InternalEndpoint>  
      <InstanceInputEndpoint name="<instance-input-endpoint-name>" localPort="<port-number>" protocol="[udp|tcp]">  
          <AllocatePublicPortFrom>  
-            <FixedPortRange min="<minium-port-number>" max="<maximum-port-number>"/>  
+            <FixedPortRange min="<minimum-port-number>" max="<maximum-port-number>"/>  
          </AllocatePublicPortFrom>  
       </InstanceInputEndpoint>  
     </Endpoints>  
@@ -144,7 +144,7 @@ Tjänstdefinitionsfilen innehåller de här elementen beskrivs detaljerat i föl
 
 [VirtualApplication](#VirtualApplication)
 
-[Bindningar](#Bindings)
+[Bindings](#Bindings)
 
 [Bindningen](#Binding)
 
@@ -223,8 +223,8 @@ I följande tabell beskrivs attributen för den `InputEndpoint` element.
 |protokoll|sträng|Krävs. Transportprotokoll för den externa slutpunkten. För en webbroll möjliga värden är `HTTP`, `HTTPS`, `UDP`, eller `TCP`.|  
 |port|int|Krävs. Porten för den externa slutpunkten. Du kan ange ett portnummer som du väljer, men de portnummer som anges för varje roll i tjänsten måste vara unikt.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).|  
 |certifikat|sträng|Krävs för en HTTPS-slutpunkt. Namnet på ett certifikat som definieras av en `Certificate` element.|  
-|lokal port|int|Valfri. Anger en port som används för interna anslutningar på slutpunkten. Den `localPort` attribut mappar den externa porten på slutpunkten till en intern port för en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en port att skiljer sig från det som är tillgänglig externt.<br /><br /> Om inte anges värdet för `localPort` är samma som den `port` attribut. Ange värdet för `localPort` till ”*” att automatiskt tilldela en oallokerad port som är synliga med runtime API.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `localPort` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|  
-|ignoreRoleInstanceStatus|boolesk|Valfri. När värdet för det här attributet anges till `true`, status för en tjänst ignoreras och slutpunkten tas inte bort av belastningsutjämnaren. Värdet `true` användbart för felsökning av upptagen instanser av en tjänst. Standardvärdet är `false`. **Obs:** en slutpunkt kan fortfarande ta emot trafik även om rollen inte är i tillståndet redo.|  
+|localPort|int|Valfri. Anger en port som används för interna anslutningar på slutpunkten. Den `localPort` attribut mappar den externa porten på slutpunkten till en intern port för en roll. Detta är användbart i scenarier där en roll måste kommunicera med en intern komponent på en port att skiljer sig från det som är tillgänglig externt.<br /><br /> Om inte anges värdet för `localPort` är samma som den `port` attribut. Ange värdet för `localPort` till ”*” att automatiskt tilldela en oallokerad port som är synliga med runtime API.<br /><br /> Möjliga värden intervallet mellan 1 och med 65535 (Azure SDK version 1.7 eller senare).<br /><br /> Den `localPort` attributet är endast tillgängligt med hjälp av Azure SDK-version 1.3 eller högre.|  
+|ignoreRoleInstanceStatus|boolesk|Valfri. När värdet för det här attributet anges till `true`, status för en tjänst ignoreras och slutpunkten tas inte bort av belastningsutjämnaren. Värdet `true` användbart för felsökning av upptagen instanser av en tjänst. Standardvärdet är `false`. **Obs!**  En slutpunkt kan fortfarande ta emot trafik även om rollen inte är i tillståndet redo.|  
 |loadBalancerProbe|sträng|Valfri. Namnet på belastningsutjämnaravsökningen som är associerade med slutpunkten för indata. Mer information finns i [LoadBalancerProbe-Schema](schema-csdef-loadbalancerprobe.md).|  
 
 ##  <a name="InternalEndpoint"></a> InternalEndpoint  
@@ -248,7 +248,7 @@ I följande tabell beskrivs attributen för den `InstanceInputEndpoint` element.
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
 |namn|sträng|Krävs. Ett unikt namn för slutpunkten.|  
-|lokal port|int|Krävs. Anger den interna porten som alla rollinstanser ska lyssna på för att kunna ta emot inkommande trafik vidarebefordras från belastningsutjämnaren. Möjliga värden intervallet mellan 1 och 65535, inklusive.|  
+|localPort|int|Krävs. Anger den interna porten som alla rollinstanser ska lyssna på för att kunna ta emot inkommande trafik vidarebefordras från belastningsutjämnaren. Möjliga värden intervallet mellan 1 och 65535, inklusive.|  
 |protokoll|sträng|Krävs. Transportprotokoll för den interna slutpunkten. Möjliga värden är `udp` eller `tcp`. Använd `tcp` för http/https-baserad trafik.|  
   
 ##  <a name="AllocatePublicPortFrom"></a> AllocatePublicPortFrom  
@@ -311,7 +311,7 @@ I följande tabell beskrivs attributen för den `Import` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|Modulnamn|sträng|Krävs. Namnet på modulen att importera. Giltigt importera moduler är:<br /><br /> -RemoteAccess<br />-RemoteForwarder<br />-Diagnostik<br /><br /> RemoteAccess- och RemoteForwarder-moduler kan du konfigurera din rollinstans för anslutningar till fjärrskrivbord. Mer information finns i [aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Modulen diagnostik kan du samla in diagnostikdata för en rollinstans.|  
+|moduleName|sträng|Krävs. Namnet på modulen att importera. Giltigt importera moduler är:<br /><br /> -RemoteAccess<br />-   RemoteForwarder<br />-Diagnostik<br /><br /> RemoteAccess- och RemoteForwarder-moduler kan du konfigurera din rollinstans för anslutningar till fjärrskrivbord. Mer information finns i [aktivera anslutning till fjärrskrivbord](cloud-services-role-enable-remote-desktop-new-portal.md).<br /><br /> Modulen diagnostik kan du samla in diagnostikdata för en rollinstans.|  
 
 ##  <a name="Runtime"></a> Runtime  
 Den `Runtime` element beskriver en uppsättning miljövariabelinställningar för en webbroll som styr körningsmiljö processens Azure-värd. Det här elementet har överordnat den `Environment` element. Det här elementet är valfritt och en roll kan ha endast en runtime-block.
@@ -363,7 +363,7 @@ I följande tabell beskrivs attributen för den `NetFxEntryPoint` element.
 
 | Attribut | Typ | Beskrivning |  
 | --------- | ---- | ----------- |  
-|AssemblyName|sträng|Krävs. Sökvägen och namnet på den sammansättning som innehåller startpunkten. Sökvägen är i förhållande till mappen  **\\%ROLEROOT%\Approot** (ange  **\\%ROLEROOT%\Approot** i `commandLine`, förutsätts). **% ROLEROOT %** är en miljövariabel som underhålls av Azure och rollen representerar roten mappens plats för din roll. Den  **\\%ROLEROOT%\Approot** mappen representerar programmappen för din roll.<br /><br /> För programtillägget för hysningsbar Webbinstans roller är alltid förhållande till den  **\\%ROLEROOT%\Approot\bin** mapp.<br /><br /> För fullständiga IIS och IIS Express webbroller, om det inte går att hitta sammansättningen relativt till  **\\%ROLEROOT%\Approot** mappen den  **\\%ROLEROOT%\Approot\bin** söks igenom.<br /><br /> Den här faller tillbaka beteende för fullständig IIS är inte bästa praxis rekommenderar och kanske bort i framtida versioner.|  
+|assemblyName|sträng|Krävs. Sökvägen och namnet på den sammansättning som innehåller startpunkten. Sökvägen är i förhållande till mappen  **\\%ROLEROOT%\Approot** (ange  **\\%ROLEROOT%\Approot** i `commandLine`, förutsätts). **% ROLEROOT %** är en miljövariabel som underhålls av Azure och rollen representerar roten mappens plats för din roll. Den  **\\%ROLEROOT%\Approot** mappen representerar programmappen för din roll.<br /><br /> För programtillägget för hysningsbar Webbinstans roller är alltid förhållande till den  **\\%ROLEROOT%\Approot\bin** mapp.<br /><br /> För fullständiga IIS och IIS Express webbroller, om det inte går att hitta sammansättningen relativt till  **\\%ROLEROOT%\Approot** mappen den  **\\%ROLEROOT%\Approot\bin** söks igenom.<br /><br /> Den här faller tillbaka beteende för fullständig IIS är inte bästa praxis rekommenderar och kanske bort i framtida versioner.|  
 |targetFrameworkVersion|sträng|Krävs. Version av .NET framework som sammansättningen har skapats. Till exempel `targetFrameworkVersion="v4.0"`.|  
 
 ##  <a name="Sites"></a> Platser  
@@ -421,7 +421,7 @@ Den `Binding` element är bara tillgängliga med hjälp av Azure SDK-version 1.3
 | --------- | ---- | ----------- |  
 |namn|sträng|Krävs. Anger ett namn som identifierar bindningen.|  
 |EndpointName|sträng|Krävs. Anger namnet på slutpunkten ska bindas till.|  
-|Värdhuvud|sträng|Valfri. Anger ett värdnamn som gör det möjligt att vara värd för flera platser med olika värdnamn, på en enda antalet IP-adress/Port-kombination.|  
+|hostHeader|sträng|Valfri. Anger ett värdnamn som gör det möjligt att vara värd för flera platser med olika värdnamn, på en enda antalet IP-adress/Port-kombination.|  
 
 ##  <a name="Startup"></a> Start  
 Den `Startup` element beskriver en uppsättning aktiviteter som körs när rollen har startats. Det här elementet kan vara överordnad till den `Variable` element. Läs mer om hur du använder startåtgärder rollen [så här konfigurerar du startåtgärder](cloud-services-startup-tasks.md). Det här elementet är valfritt och en roll kan ha endast en start-block.

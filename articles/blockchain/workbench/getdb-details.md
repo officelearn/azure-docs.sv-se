@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/1/2018
+ms.date: 01/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
 manager: femila
-ms.openlocfilehash: 4020500e20973e8818320424833815c1b5224f6c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0d806491c58c4b1881adc2fd830de7c7b9f0859d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48243468"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331936"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Hämta information om din Azure Blockchain Workbench-databas
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver hur du kan hämta detaljerad information om din Azur
 
 ## <a name="overview"></a>Översikt
 
-Information om program, arbetsflöden och smart kontraktskörning kan hämtas med databasvyer i Blockchain Workbench SQL DB. Utvecklare kan använda den här informationen när du använder verktyg som Microsoft Excel, PowerBI, Visual Studio och SQL Server Management Studio.
+Information om program, arbetsflöden och smart kontraktskörning kan hämtas med databasvyer i Blockchain Workbench SQL DB. Utvecklare kan använda den här informationen när du använder Verktyg, till exempel Microsoft Excel, Power BI, Visual Studio och SQL Server Management Studio.
 
 Innan en utvecklare kan ansluta till databasen, måste de:
 
@@ -34,7 +34,7 @@ Innan en utvecklare kan ansluta till databasen, måste de:
 
 Så här ansluter du till databasen:
 
-1. Logga in på Azure Portal med ett konto som har **ägarbehörigheter** för Azure Blockchain Workbench-resurser.
+1. Logga in på Azure portal med ett konto som har **ägare** behörigheter för Azure Blockchain Workbench-resurser.
 2. Välj **Resursgrupper** i det vänstra navigeringsfönstret.
 3. Välj namnet på resursgruppen för din Blockchain Workbench-distribution.
 4. Sortera listan med resurser genom att välja **Typ** och välj sedan din **SQL-server**. Den sorterade listan i nästa skärmdump visar två SQL-databaser, ”master” och en som använder ”lhgn” som **resursprefix**.

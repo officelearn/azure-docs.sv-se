@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 46ae8cd9775432d126cbde856c1fb06ea319297e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70bae1558860b763d17d04e10d5d926b39300101
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38301573"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321253"
 ---
 # <a name="get-started-with-azure-cdn-development"></a>Kom igång med Azure CDN-utveckling
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
-> * [.NET](cdn-app-dev-net.md)
+> * [NET](cdn-app-dev-net.md)
 > 
 > 
 
@@ -340,7 +340,7 @@ function cdnDelete() {
 Vi kan nu köra vår Node.js-program med vår favorit felsökare eller på konsolen.
 
 > [!TIP]
-> Om du använder Visual Studio Code som din debugger, behöver du konfigurera din miljö för att skicka in kommandoradsparametrar.  Visual Studio Code sker på den **lanuch.json** fil.  Leta efter en egenskap med namnet **argument** och lägga till en matris med strängvärden för parametrarna, så att det ser ut ungefär så här: `"args": ["list", "profiles"]`.
+> Om du använder Visual Studio Code som din debugger, behöver du konfigurera din miljö för att skicka in kommandoradsparametrar.  Visual Studio Code sker på den **launch.json** fil.  Leta efter en egenskap med namnet **argument** och lägga till en matris med strängvärden för parametrarna, så att det ser ut ungefär så här: `"args": ["list", "profiles"]`.
 > 
 > 
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3fec0952f4b164327942d5dee108f89b17613042
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b5425bd9f86bce289cc1f60c088febfd8f05ee3
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015547"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332633"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Kopiera data till och från Data Lake Storage Gen1 med Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Du kan kopiera data från följande datalager **till Azure Data Lake Store**:
 ## <a name="supported-authentication-types"></a>Typer av autentisering stöds
 Data Lake Store-anslutningen har stöd för dessa typer av autentisering:
 * Autentisering av tjänstens huvudnamn
-* Användarautentisering för autentiseringsuppgifter (OAuth) 
+* Användarautentisering för autentiseringsuppgifter (OAuth)
 
 Vi rekommenderar att du använder autentisering av tjänstens huvudnamn, särskilt för en schemalagd kopia. Giltighetstid för token kan inträffa med användarautentisering för autentiseringsuppgifter. Konfigurationsinformation finns i den [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
 
@@ -58,12 +58,12 @@ Du kan också använda följande verktyg för att skapa en pipeline: **Azure-por
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines. 
-2. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik. Till exempel om du kopierar data från Azure blob storage till en Azure Data Lake Store skapa du två länkade tjänster för att länka ditt Azure storage-konto och Azure Data Lake store till din datafabrik. Länkade tjänstegenskaper som är specifika för Azure Data Lake Store, se [länkade tjänstegenskaper](#linked-service-properties) avsnittet. 
+1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
+2. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik. Till exempel om du kopierar data från Azure blob storage till en Azure Data Lake Store skapa du två länkade tjänster för att länka ditt Azure storage-konto och Azure Data Lake store till din datafabrik. Länkade tjänstegenskaper som är specifika för Azure Data Lake Store, se [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
 2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det tidigare exemplet i det sista steget, skapar du en datauppsättning för att ange blobbehållare och mapp som innehåller indata. Och du skapar en annan datauppsättning för att ange mappen och filsökvägen i Data Lake store som innehåller de data som kopieras från blob storage. Egenskaper för datamängd som är specifika för Azure Data Lake Store, se [egenskaper för datamängd](#dataset-properties) avsnittet.
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I exemplet som tidigare nämnts, använder du BlobSource som en källa och AzureDataLakeStoreSink som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure Data Lake Store till Azure Blob Storage, använder du AzureDataLakeStoreSource och BlobSink i kopieringsaktiviteten. Kopiera Aktivitetsegenskaper som är specifika för Azure Data Lake Store, se [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet. Mer information om hur du använder ett datalager som en källa eller mottagare klickar du på länken i föregående avsnitt för ditt datalager.  
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I exemplet som tidigare nämnts, använder du BlobSource som en källa och AzureDataLakeStoreSink som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure Data Lake Store till Azure Blob Storage, använder du AzureDataLakeStoreSource och BlobSink i kopieringsaktiviteten. Kopiera Aktivitetsegenskaper som är specifika för Azure Data Lake Store, se [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet. Mer information om hur du använder ett datalager som en källa eller mottagare klickar du på länken i föregående avsnitt för ditt datalager.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från ett Azure Data Lake Store finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-data-lake-store) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från ett Azure Data Lake Store finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-data-lake-store) i den här artikeln.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Data Lake Store.
 
@@ -80,7 +80,7 @@ En länkad tjänst länkar ett datalager till en data factory. Du skapar en län
 ### <a name="service-principal-authentication-recommended"></a>Autentisering av tjänstens huvudnamn (rekommenderas)
 Registrera en entitet för program i Azure Active Directory (Azure AD) för att använda autentisering av tjänstens huvudnamn, och ge det åtkomst till Data Lake Store. Detaljerade anvisningar finns i [tjänst-till-tjänst-autentisering](../../data-lake-store/data-lake-store-authenticate-using-active-directory.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 * Program-ID:t
-* Programnyckel 
+* Programnyckel
 * Klient-ID:t
 
 > [!IMPORTANT]
@@ -121,7 +121,7 @@ Du kan också använda användarautentisering för autentiseringsuppgifter för 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | **Auktorisering** | Klicka på den **auktorisera** i Data Factory-redigeraren och ange dina autentiseringsuppgifter som tilldelar automatiskt genererade auktorisering URL: en till den här egenskapen. | Ja |
-| **sessions-ID** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
+| **sessionId** | OAuth sessions-ID från OAuth-auktorisering sessionen. Varje sessions-ID är unik och kan bara användas en gång. Den här inställningen genereras automatiskt när du använder Data Factory-redigeraren. | Ja |
 
 > [!IMPORTANT]
 > Kontrollera att du bevilja användaren rätt behörighet i Azure Data Lake Store:
@@ -233,7 +233,7 @@ Mer information om Data Factory-klasser som används i koden, finns det [AzureDa
     ```
 
 ## <a name="dataset-properties"></a>Egenskaper för datamängd
-Om du vill ange en datauppsättning som representerar indata i ett Data Lake Store som du anger den **typ** egenskapen på datauppsättningen till **AzureDataLakeStore**. Ange den **linkedServiceName** egenskap med namnet på Data Lake Store-länkade tjänst. En fullständig lista över JSON-avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt i en datauppsättning i JSON, till exempel **struktur**, **tillgänglighet**, och **princip**, är liknande för alla datauppsättningstyper av (Azure SQL database, Azure-blob och Azure-tabell för exempel). Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information som plats och formatet för data i datalagret. 
+Om du vill ange en datauppsättning som representerar indata i ett Data Lake Store som du anger den **typ** egenskapen på datauppsättningen till **AzureDataLakeStore**. Ange den **linkedServiceName** egenskap med namnet på Data Lake Store-länkade tjänst. En fullständig lista över JSON-avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [skapar datauppsättningar](data-factory-create-datasets.md) artikeln. Avsnitt i en datauppsättning i JSON, till exempel **struktur**, **tillgänglighet**, och **princip**, är liknande för alla datauppsättningstyper av (Azure SQL database, Azure-blob och Azure-tabell för exempel). Den **typeProperties** avsnittet är olika för varje typ av datauppsättning och tillhandahåller information som plats och formatet för data i datalagret.
 
 Den **typeProperties** avsnittet för en datauppsättning av typen **AzureDataLakeStore** innehåller följande egenskaper:
 
@@ -243,7 +243,7 @@ Den **typeProperties** avsnittet för en datauppsättning av typen **AzureDataLa
 | **fileName** |Namnet på filen i Azure Data Lake Store. Den **fileName** egenskapen är valfri och skiftlägeskänsliga. <br/><br/>Om du anger **fileName**, aktiviteten (inklusive kopia) fungerar på den specifika filen.<br/><br/>När **fileName** inte har angetts, kopiera innehåller alla filer i **folderPath** i datauppsättningen för indata.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i formatet Data. _GUID_.txt'. Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |Nej |
 | **partitionedBy** |Den **partitionedBy** egenskapen är valfri. Du kan använda den för att ange en dynamisk sökväg och filnamn för time series-data. Till exempel **folderPath** kan parameteriseras för varje timme som data. Mer information och exempel, i [egenskapen partitionedBy](#using-partitionedby-property). |Nej |
 | **Format** | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, och **ParquetFormat**. Ange den **typ** egenskapen under **format** till någon av dessa värden. Mer information finns i den [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [JSON-format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC-format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format ](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitten i den [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln. <br><br> Om du vill kopiera filer ”som – är” mellan filbaserade (binär kopia), hoppar du över den `format` avsnittet i både inkommande och utgående datamängd definitioner. |Nej |
-| **Komprimering** | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer **Optimal** och **snabbast**. Mer information finns i [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
+| **compression** | Ange typ och komprimeringsnivå för data. Typer som stöds är **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Stöds nivåer **Optimal** och **snabbast**. Mer information finns i [format och komprimering stöds av Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
 
 ### <a name="the-partitionedby-property"></a>Egenskapen partitionedBy
 Du kan ange dynamiska **folderPath** och **fileName** egenskaper för time series-data med den **partitionedBy** egenskap, Data Factory-funktioner och systemvariabler. Mer information finns i [Azure Data Factory - funktioner och systemvariabler](data-factory-functions-variables.md) artikeln.
@@ -264,14 +264,14 @@ I följande exempel, år, månad, dag och tid för `SliceStart` extraheras till 
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
     { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } }
 ],
 ```
-Mer information om time series-datauppsättningar, schemaläggning och sektorer finns i den [datauppsättningar i Azure Data Factory](data-factory-create-datasets.md) och [Data Factory schemaläggning och körning](data-factory-scheduling-and-execution.md) artiklar. 
+Mer information om time series-datauppsättningar, schemaläggning och sektorer finns i den [datauppsättningar i Azure Data Factory](data-factory-create-datasets.md) och [Data Factory schemaläggning och körning](data-factory-scheduling-and-execution.md) artiklar.
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -283,8 +283,7 @@ Egenskaperna som är tillgängliga i den **typeProperties** avsnittet för en ak
 
 | Egenskap  | Beskrivning | Tillåtna värden | Krävs |
 | --- | --- | --- | --- |
-| **rekursiv** |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT (standard), FALSKT |Nej |
-
+| **recursive** |Anger om data läses rekursivt från undermapparna eller endast från den angivna mappen. |SANT (standard), FALSKT |Nej |
 
 **AzureDataLakeStoreSink** har stöd för följande egenskaper i den **typeProperties** avsnittet:
 
@@ -308,7 +307,7 @@ Det här avsnittet beskrivs kopieringsåtgärden för olika kombinationer av vä
 Mer information finns i [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md) artikeln.
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>JSON-exempel för att kopiera data till och från Data Lake Store
-I följande exempel får exempel JSON-definitioner. Du kan använda dessa exempel definitioner för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data till och från Data Lake Store och Azure Blob storage. Men du kan kopiera data _direkt_ från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i den [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md) artikeln.  
+I följande exempel får exempel JSON-definitioner. Du kan använda dessa exempel definitioner för att skapa en pipeline med hjälp av den [Azure-portalen](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), eller [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Exemplen visar hur du kopierar data till och från Data Lake Store och Azure Blob storage. Men du kan kopiera data _direkt_ från källor till någon av de angivna egenskaperna. Mer information finns i avsnittet ”datalager som stöds och format” i den [flytta data med hjälp av Kopieringsaktiviteten](data-factory-data-movement-activities.md) artikeln.
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>Exempel: Kopiera data från Azure Blob Storage till Azure Data Lake Store
 Exempelkoden i det här avsnittet visar:
@@ -319,7 +318,7 @@ Exempelkoden i det här avsnittet visar:
 * Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureDataLakeStore](#dataset-properties).
 * En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) och [AzureDataLakeStoreSink](#copy-activity-properties).
 
-Exemplen visar hur time series-data från Azure Blob Storage är kopieras till Data Lake Store varje timme. 
+Exemplen visar hur time series-data från Azure Blob Storage är kopieras till Data Lake Store varje timme.
 
 **Länkad Azure Storage-tjänst**
 
@@ -428,68 +427,67 @@ I följande exempel kopierar data till Data Lake Store. Nya data kopieras till D
 ```JSON
 {
     "name": "AzureDataLakeStoreOutput",
-      "properties": {
+    "properties": {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
         "typeProperties": {
             "folderPath": "datalake/output/"
         },
         "availability": {
-              "frequency": "Hour",
-              "interval": 1
+            "frequency": "Hour",
+            "interval": 1
         }
-      }
+    }
 }
 ```
-
 
 **Kopiera aktivitet i en pipeline med en blobbkällan och en Data Lake Store-mottagare**
 
 I följande exempel innehåller pipelinen en Kopieringsaktivitet som är konfigurerad för användning av indata och utdata datauppsättningar. Kopieringsaktivitet är schemalagd att köras varje timme. I pipeline-JSON-definitionen i `source` är `BlobSource`, och `sink` är `AzureDataLakeStoreSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
     "properties":
-    {  
+    {
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline with copy activity",
         "activities":
-        [  
-              {
+        [
+            {
                 "name": "AzureBlobtoDataLake",
                 "description": "Copy Activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureBlobInput"
-                  }
+                    {
+                        "name": "AzureBlobInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureDataLakeStoreOutput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "BlobSource"
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "AzureDataLakeStoreSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
+            }
         ]
     }
 }
@@ -504,7 +502,7 @@ Exempelkoden i det här avsnittet visar:
 * Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties).
 * En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [AzureDataLakeStoreSource](#copy-activity-properties) och [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties).
 
-Koden kopierar time series-data från Data Lake Store till en Azure-blob varje timme. 
+Koden kopierar time series-data från Data Lake Store till en Azure-blob varje timme.
 
 **Azure Data Lake Store-länkade tjänst**
 
@@ -547,7 +545,7 @@ I det här exemplet, ställa in `"external"` till `true` informerar Data Factory
 ```json
 {
     "name": "AzureDataLakeStoreInput",
-      "properties":
+    "properties":
     {
         "type": "AzureDataLakeStore",
         "linkedServiceName": "AzureDataLakeStoreLinkedService",
@@ -563,16 +561,16 @@ I det här exemplet, ställa in `"external"` till `true` informerar Data Factory
         "external": true,
         "availability": {
             "frequency": "Hour",
-              "interval": 1
+            "interval": 1
         },
         "policy": {
-              "externalData": {
+            "externalData": {
                 "retryInterval": "00:01:00",
                 "retryTimeout": "00:10:00",
                 "maximumRetry": 3
-              }
+            }
         }
-      }
+    }
 }
 ```
 **Utdatauppsättning för Azure-blobb**
@@ -640,47 +638,47 @@ I följande exempel data skrivs till en ny blob varje timme (`"frequency": "Hour
 I följande exempel innehåller pipelinen en Kopieringsaktivitet som är konfigurerad för användning av indata och utdata datauppsättningar. Kopieringsaktivitet är schemalagd att köras varje timme. I pipeline-JSON-definitionen i `source` är `AzureDataLakeStoreSource`, och `sink` är `BlobSink`.
 
 ```json
-{  
+{
     "name":"SamplePipeline",
-    "properties":{  
+    "properties":{
         "start":"2014-06-01T18:00:00",
         "end":"2014-06-01T19:00:00",
         "description":"pipeline for copy activity",
-        "activities":[  
-              {
+        "activities":[
+            {
                 "name": "AzureDakeLaketoBlob",
                 "description": "copy activity",
                 "type": "Copy",
                 "inputs": [
-                  {
-                    "name": "AzureDataLakeStoreInput"
-                  }
+                    {
+                        "name": "AzureDataLakeStoreInput"
+                    }
                 ],
                 "outputs": [
-                  {
-                    "name": "AzureBlobOutput"
-                  }
+                    {
+                        "name": "AzureBlobOutput"
+                    }
                 ],
                 "typeProperties": {
                     "source": {
                         "type": "AzureDataLakeStoreSource",
-                      },
-                      "sink": {
+                    },
+                    "sink": {
                         "type": "BlobSink"
-                      }
+                    }
                 },
-                   "scheduler": {
-                      "frequency": "Hour",
-                      "interval": 1
+                "scheduler": {
+                    "frequency": "Hour",
+                    "interval": 1
                 },
                 "policy": {
-                      "concurrency": 1,
-                      "executionPriorityOrder": "OldestFirst",
-                      "retry": 0,
-                      "timeout": "01:00:00"
+                    "concurrency": 1,
+                    "executionPriorityOrder": "OldestFirst",
+                    "retry": 0,
+                    "timeout": "01:00:00"
                 }
-              }
-         ]
+            }
+        ]
     }
 }
 ```

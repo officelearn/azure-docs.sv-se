@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: 9e589c582e52aafb9bdd93f80a702b581b883a59
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d238e5e7c129241fc599e3b656d785d750b330c7
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044390"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332055"
 ---
 # <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL-Språkreferens 
 
@@ -1051,7 +1051,7 @@ EXP (<numeric_expression>)
   
  E upphöjt till ett tal är konstanten **e** upphöjt till för talet. Till exempel EXP(1.0) = e ^ 1.0 = 2.71828182845905 och EXP(10) = e ^ 10 = 22026.4657948067.  
   
- Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOGG (EXP (n)) = n.  
+ Exponenten för den naturliga logaritmen för ett tal är antalet själva: EXP (loggning (n)) = n. Och den naturliga logaritmen för e upphöjt till ett tal är antalet själva: LOG (EXP (n)) = n.  
   
  **Exempel**  
   
@@ -2331,7 +2331,7 @@ SELECT STARTSWITH("abc", "b"), STARTSWITH("abc", "a")
  **Syntax**  
   
 ```  
-SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])  
+SUBSTRING(<str_expr>, <num_expr>, <num_expr>)  
 ```  
   
  **Argument**  
@@ -2342,7 +2342,7 @@ SUBSTRING(<str_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Är ett numeriskt uttryck.  
+     Är ett numeriskt uttryck för att ange start- och tecken.    
   
  **Returnera typer**  
   

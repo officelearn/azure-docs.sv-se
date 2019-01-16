@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 1/14/2019
 ms.author: victorh
-ms.openlocfilehash: 9d10383b84cbd1b85216cb9ae4582db4c7a10743
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54268086"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321780"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integrera Azure-brandväggen med Azure Standard Load Balancer
 
@@ -26,7 +26,7 @@ Belastningsutjämnaren har distribuerats med en offentlig klientdels-IP-adress m
 
 ### <a name="asymmetric-routing"></a>Asymmetrisk routning
 
-Asymmetrisk routning är där ett paket tar en väg till målet och tar en annan sökväg när tillbaka till källan. Ett problem kan inträffa när ett undernät har en standardväg i brandväggen privat IP-adress och en offentlig belastningsutjämnare. I det här fallet den inkommande trafiken för load balancer tas emot via dess offentliga IP-adress, men den returnera sökvägen går igenom i brandväggen privat IP-adress. Eftersom brandväggen inte är tillståndskänsliga utelämnar det returnerade paketet eftersom brandväggen inte är medveten om en upprättad session.
+Asymmetrisk routning är där ett paket tar en väg till målet och tar en annan sökväg när tillbaka till källan. Det här problemet inträffar när ett undernät har en standardväg ska i brandväggen privata IP-adressen och du använder en offentlig belastningsutjämnare. I det här fallet den inkommande trafiken för load balancer tas emot via dess offentliga IP-adress, men den returnera sökvägen går igenom i brandväggen privat IP-adress. Eftersom brandväggen inte är tillståndskänsliga utelämnar det returnerade paketet eftersom brandväggen inte är medveten om en upprättad session.
 
 ### <a name="fix-the-routing-issue"></a>Åtgärda problemet Routning
 

@@ -1,17 +1,19 @@
 ---
 title: Undanta diskar från replikering när du konfigurerar haveriberedskap med Azure Site Recovery-tjänsten | Microsoft Docs
 description: Beskriver hur du undantar VM-diskar från replikering under haveriberedskap till Azure.
-author: nsoneji
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
+services: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 7de9dc497b1c9ee29b46aa0d645b7b28676cb22d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.date: 01/19/2019
+ms.author: mayg
+ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849028"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321236"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.
@@ -194,7 +196,7 @@ Här följer inställningarna för växlingsfiler på den virtuella Azure-källd
 
 ![Inställningar för växlingsfiler på den virtuella Azure-datorn](./media/hyper-v-exclude-disk/pagefile-on-Azure-vm-after-failover.png)
 
-### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än D:)
+### <a name="case-2-the-paging-file-is-configured-on-another-drive-other-than-d-drive"></a>Fall 2: Växlingsfilen är konfigurerad på en annan enhet (än d:)
 
 Här är diskkonfigurationen av den virtuella källdatorn:
 

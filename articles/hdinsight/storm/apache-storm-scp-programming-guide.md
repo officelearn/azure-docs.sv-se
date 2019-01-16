@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2016
-ms.openlocfilehash: 9b3fc80d129a42e68e877f4d1210e3ab10e0664a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: d017a2758ccd1530c4558f3dc92559f807df36b9
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631829"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332106"
 ---
 # <a name="scp-programming-guide"></a>Programmeringsguide för SCP
 SCP är en plattform för att skapa realtid, tillförlitliga och konsekventa, och bearbetning av högpresterande program. Det är byggt ovanpå [Apache Storm](https://storm.incubator.apache.org/) – ett system som utformats av OSS-communities för strömbearbetning. Storm är utformad av Nathan Marz och har öppen källkod med Twitter. Den använder [Apache ZooKeeper](https://zookeeper.apache.org/), en annan Apache-projektet för att möjliggöra tillförlitliga distribuerade samordning och tillstånd. 
@@ -228,7 +228,7 @@ Den `StateStore` objekt främst med dessa metoder:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -249,7 +249,7 @@ Den `StateStore` objekt främst med dessa metoder:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
@@ -354,13 +354,13 @@ SCP.NET har lagt till följande funktioner för att definiera transaktionella to
 
 | **Nya funktioner** | **Parametrar** | **Beskrivning** |
 | --- | --- | --- |
-| **TX topolopy** |topologi-name<br />kanal-karta<br />bult karta |Definiera en transaktionell topologi med namnet topologi &nbsp;spouts definition kartan och kartan bultar definition |
-| **SCP-tx-kanal** |Exec-name<br />args<br />fält |Definiera en transaktionell kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal |
-| **SCP-tx-batch-bult** |Exec-name<br />args<br />fält |Definiera en transaktionell Batch bult. Den körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är de fält som utdata för bulten. |
-| **SCP-tx-commit-bult** |Exec-name<br />args<br />fält |Definiera en transaktionell commit bult. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult |
-| **nontx topolopy** |topologi-name<br />kanal-karta<br />bult karta |Definiera en icke-transaktionell topologi med namnet topologi&nbsp; spouts definition kartan och kartan bultar definition |
-| **SCP-kanal** |Exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell-kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
-| **SCP-bult** |Exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell bulten. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **tx-topolopy** |topology-name<br />kanal-karta<br />bult karta |Definiera en transaktionell topologi med namnet topologi &nbsp;spouts definition kartan och kartan bultar definition |
+| **scp-tx-spout** |exec-name<br />args<br />fält |Definiera en transaktionell kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal |
+| **scp-tx-batch-bolt** |exec-name<br />args<br />fält |Definiera en transaktionell Batch bult. Den körs programmet med ***exec-name*** med ***argument.***<br /><br />Fälten är de fält som utdata för bulten. |
+| **scp-tx-commit-bolt** |exec-name<br />args<br />fält |Definiera en transaktionell commit bult. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult |
+| **nontx-topolopy** |topology-name<br />kanal-karta<br />bult karta |Definiera en icke-transaktionell topologi med namnet topologi&nbsp; spouts definition kartan och kartan bultar definition |
+| **scp-spout** |exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell-kanal. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för kanal<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
+| **scp-bolt** |exec-name<br />args<br />fält<br />parameters |Definiera en icke-transaktionell bulten. Den körs programmet med ***exec-name*** med ***argument***.<br /><br />Den ***fält*** är de fält som utdata för bult<br /><br />Den ***parametrar*** är valfria, använder det för att ange vissa parametrar, till exempel ”nontransactional.ack.enabled”. |
 
 SCP.NET har följande nyckelord definierats:
 
@@ -368,18 +368,18 @@ SCP.NET har följande nyckelord definierats:
 | --- | --- |
 | **: namn** |Definiera namnet topologi |
 | **: topologi** |Definiera topologin med hjälp av föregående funktioner och bygga in sådana. |
-| **: p** |Definiera parallellitet-tipset för varje kanal eller en bult. |
-| **: config** |Definiera konfigurera parameter eller uppdatera befintliga |
+| **:p** |Definiera parallellitet-tipset för varje kanal eller en bult. |
+| **:config** |Definiera konfigurera parameter eller uppdatera befintliga |
 | **: schema** |Definiera schemat för Stream. |
 
 Och vanliga parametrar:
 
 | **Parametern** | **Beskrivning** |
 | --- | --- |
-| **”plugin.name”** |namnet på EXE-filen i C# plugin-programmet |
-| **”plugin.args”** |plugin-argument |
-| **”output.schema”** |Utdata-schemat |
-| **”nontransactional.ack.enabled”** |Om ack är aktiverat för icke-transaktionell topologi |
+| **"plugin.name"** |namnet på EXE-filen i C# plugin-programmet |
+| **"plugin.args"** |plugin-argument |
+| **"output.schema"** |Utdata-schemat |
+| **"nontransactional.ack.enabled"** |Om ack är aktiverat för icke-transaktionell topologi |
 
 Kommandot runspec distribueras tillsammans med bits, användningen är t.ex.:
 
@@ -517,7 +517,7 @@ SCP-komponenten innehåller Java-sida och C\# sida. För att interagera med inte
    
    Deserialisering-metod i Java-sida måste anges i KLIENTFILSSPECIFIK fil:
    
-     (scp-kanal
+     (scp-spout
    
        {
          "plugin.name" "HybridTopology.exe"

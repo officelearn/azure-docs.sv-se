@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1cd7e504a614203218cb06b337becf36b992cf1d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d586f28b426732433c027c950f8193e7503c72b
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018236"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330814"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Kopieringsdata till och från ett lokalt filsystem med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](data-factory-onprem-file-system-connector.md)
 > * [Version 2 (aktuell version)](../connector-file-system.md)
 
@@ -41,7 +41,7 @@ Du kan kopiera data från följande datalager **till ett lokalt filsystem**:
 [!INCLUDE [data-factory-supported-sources](../../../includes/data-factory-supported-sources.md)]
 
 > [!NOTE]
-> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen. 
+> Kopieringsaktivitet tar inte bort källfilen efter att den har kopierats till målet. Om du vill ta bort källfilen efter en lyckad kopiering kan du skapa en anpassad aktivitet för att ta bort filen och använda aktiviteten i pipelinen.
 
 ## <a name="enabling-connectivity"></a>Aktivera anslutning
 Data Factory stöder anslutning till och från ett lokalt filsystem via **Data Management Gateway**. Du måste installera Data Management Gateway i din lokala miljö för Data Factory-tjänsten att ansluta till ingen lokal datalagring inklusive filsystem. Läs om Data Management Gateway och stegvisa instruktioner om hur du konfigurerar gatewayen i [flytta data mellan lokala källor och molnet med Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md). Förutom de Data Management Gateway inga binära filer som måste installeras för att kommunicera till och från ett lokalt filsystem. Du måste installera och använda Data Management Gateway, även om filsystemet är i Azure IaaS VM. Detaljerad information om gatewayen finns i [Data Management Gateway](data-factory-data-management-gateway.md).
@@ -57,7 +57,7 @@ Du kan också använda följande verktyg för att skapa en pipeline: **Azure-por
 
 Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
-1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines. 
+1. Skapa en **datafabrik**. En datafabrik kan innehålla en eller flera pipelines.
 2. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik. Till exempel om du kopierar data från Azure blob storage till ett lokalt filsystem skapa du två länkade tjänster för att länka ditt lokala filsystem och Azure storage-konto till datafabriken. Länkade tjänstegenskaper som är specifika för ett lokalt filsystem, se [länkade tjänstegenskaper](#linked-service-properties) avsnittet.
 3. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det tidigare exemplet i det sista steget, skapar du en datauppsättning för att ange blobbehållare och mapp som innehåller indata. Och du skapar en annan datauppsättning för att ange mappen och filnamnet (valfritt) i det lokala filsystemet. Egenskaper för datamängd som är specifika för den lokala filsystem, se [egenskaper för datamängd](#dataset-properties) avsnittet.
 4. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I exemplet som tidigare nämnts, använder du BlobSource som en källa och FileSystemSink som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från en lokal filsystemet till Azure Blob Storage, använder du FileSystemSource och BlobSink i kopieringsaktiviteten. Kopiera Aktivitetsegenskaper som är specifika för den lokala filsystem, se [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet. Mer information om hur du använder ett datalager som en källa eller mottagare klickar du på länken i föregående avsnitt för ditt datalager.
@@ -129,8 +129,8 @@ Avsnittet typeProperties är olika för varje typ av datauppsättning. Den inneh
 | Egenskap  | Beskrivning | Krävs |
 | --- | --- | --- |
 | folderPath |Anger underordnad sökväg innehavaradministratörens till mappen. Använd escape-tecknet '\' för specialtecken i strängen. Jokerteckenfilter stöds inte. Se [exempel länkad tjänst-och datauppsättningen](#sample-linked-service-and-dataset-definitions) exempel.<br/><br/>Du kan kombinera den här egenskapen med **partitionBy** ha mappen sökvägarna baserat på sektorn start/slut datum / tid. |Ja |
-| fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i följande format: <br/><br/>`Data.<Guid>.txt` (Exempel: Data.0a405f8a-93ff-4C6F-B3BE-f69616f1df7a.txt) |Nej |
-| fileFilter |Ange ett filter som används för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: ”fileFilter” ”: * .log”<br/>Exempel 2: ”fileFilter”: 2014 - 1-?. txt ”<br/><br/>Observera att fileFilter gäller för en indatauppsättning filresursen. |Nej |
+| fileName |Ange namnet på filen i den **folderPath** om du vill att tabellen för att referera till en viss fil i mappen. Om du inte anger något värde för den här egenskapen, tabellen pekar på alla filer i mappen.<br/><br/>När **fileName** har inte angetts för en utdatauppsättning och **preserveHierarchy** har inte angetts i aktiviteten mottagare, namnet på den genererade filen är i följande format: <br/><br/>`Data.<Guid>.txt` (Exempel: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Nej |
+| fileFilter |Ange ett filter som används för att välja en delmängd av filer i folderPath i stället för alla filer. <br/><br/>Tillåtna värden är: `*` (flera tecken) och `?` (tecken).<br/><br/>Exempel 1: ”fileFilter” ”: * .log”<br/>Exempel 2: ”fileFilter”: 2014-1-?.txt"<br/><br/>Observera att fileFilter gäller för en indatauppsättning filresursen. |Nej |
 | partitionedBy |Du kan använda partitionedBy för att ange en dynamisk folderPath/fileName för time series-data. Ett exempel är folderPath som innehåller parametrar för varje timme som data. |Nej |
 | Format | Följande formattyper av stöds: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](data-factory-supported-file-and-compression-formats.md#text-format), [Json-Format](data-factory-supported-file-and-compression-formats.md#json-format), [Avro-formatet](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc-Format](data-factory-supported-file-and-compression-formats.md#orc-format), och [Parquet-Format](data-factory-supported-file-and-compression-formats.md#parquet-format) avsnitt. <br><br> Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia). |Nej |
 | Komprimering | Ange typ och komprimeringsnivå för data. Typer som stöds är: **GZip**, **Deflate**, **BZip2**, och **ZipDeflate**. Nivåer som stöds är: **Optimal** och **snabbaste**. Se [format och komprimering i Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Nej |
@@ -161,7 +161,7 @@ I det här exemplet {sektorn} ersätts med värdet för Data Factory systemvaria
 "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
 "fileName": "{Hour}.csv",
 "partitionedBy":
- [
+[
     { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
     { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } },
     { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } },
@@ -254,7 +254,7 @@ Vi rekommenderar att du använder den **encryptedCredential** egenskap i ställe
 
 **Den lokala filen system datauppsättningen för indata:**
 
-Data hämtas från en ny fil varje timme. Egenskaperna folderPath och fileName bestäms baserat på starttiden för sektorn.  
+Data hämtas från en ny fil varje timme. Egenskaperna folderPath och fileName bestäms baserat på starttiden för sektorn.
 
 Ange `"external": "true"` informerar Data Factory att datauppsättningen är extern till datafabriken och inte kommer från en aktivitet i data factory.
 
@@ -383,13 +383,13 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **FileSystemSource**, och **mottagare** är **BlobSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T19:00:00",
     "description":"Pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "OnpremisesFileSystemtoBlob",
         "description": "copy activity",
@@ -423,8 +423,8 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -572,13 +572,13 @@ Data kopieras till en ny fil varje timme. FolderPath och filnamnet för bloben b
 Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **SqlSource**, och **mottagare** är **FileSystemSink**. SQL-frågan som har angetts för den **SqlReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2015-06-01T18:00:00",
     "end":"2015-06-01T20:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLtoOnPremisesFile",
         "description": "copy activity",
@@ -613,11 +613,10 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
-
 
 Du kan också mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare i aktivitetsdefinitionen kopia. Mer information finns i [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 07cacc4a127c333e4c19c4979b7520226919c14b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 064a9fc48ae60e530a11633b0823764a2f862811
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722404"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320029"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Distribuera Kubernetes till Azure Stack
 
@@ -139,7 +139,7 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 1. Ange den **offentlig SSH-nyckel** används för alla Linux-datorer som skapats som en del av Kubernetes-kluster och DVM godkännande.
 
-1. Ange den **Master profil DNS-Prefix** som är unikt för regionen. Detta måste vara en region – unikt namn, till exempel `k8s-12345`. Försök att välja det samma som resursgruppen namn som bästa praxis.
+1. Ange den **Master profil DNS-Prefix** som är unikt för regionen. Detta måste vara en region – unikt namn, till exempel `k8s-12345`. Försök att göra det samma som resursgruppens namn som bästa praxis.
 
     > [!Note]  
     > Använda en DNS-prefix för nya och unika master profil för varje kluster.
@@ -150,9 +150,9 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 1. Välj den **Kubernetes Nodantal Pool profil**. Antalet innehåller antalet agenter i klustret. 
 
-1. Välj den **Lagringsprofilen**. Du kan välja **Blob Disk** eller **Managed Disk**. Detta anger att noden VM-storlek för Kubernetes virtuella datorer. 
+1. Välj den **Lagringsprofilen**. Du kan välja **Blob Disk** eller **Managed Disk**. 
 
-1. Ange den **tjänstens huvudnamn ClientId** används av providern för Kubernetes Azure-molnet. Klient-ID som identifieras som program-ID när den skapade tjänstens huvudnamn.
+1. Ange den **tjänstens huvudnamn ClientId** används av providern för Kubernetes Azure-molnet. Klient-ID har identifierats som program-ID när den skapade tjänstens huvudnamn.
 
 1. Ange den **Klienthemlighet för tjänstens huvudnamn** som du skapade när du skapar tjänstens huvudnamn.
 
@@ -160,7 +160,7 @@ Ge tjänstens huvudnamn åtkomst till din prenumeration så att huvudkontot kan 
 
 ### <a name="3-summary"></a>3. Sammanfattning
 
-1. Välj Sammanfattning. Bladet visar ett verifieringsmeddelande om för dina inställningar för konfigurationer av Kubernetes-kluster.
+1. Välj Sammanfattning. Bladet visar ett verifieringsmeddelande om för dina inställningar för Kubernetes-kluster.
 
     ![Distribuera lösningsmall](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 

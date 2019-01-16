@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: def99a1b98970c09f28e7bfc7f44084c0f5b3c6e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 72a666db6157300942b966b88d9c3369495b9fd4
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018406"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331242"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Data Warehouse med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -28,7 +28,7 @@ ms.locfileid: "54018406"
 > [!NOTE]
 > Den här artikeln gäller för version 1 av Data Factory. Om du använder den aktuella versionen av Data Factory-tjänsten finns i [Azure SQL Data Warehouse-anslutning i V2](../connector-azure-sql-data-warehouse.md).
 
-Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data till och från Azure SQL Data Warehouse. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.  
+Den här artikeln förklarar hur du använder Kopieringsaktivitet i Azure Data Factory för att flytta data till och från Azure SQL Data Warehouse. Den bygger på den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikel som anger en allmän översikt över dataförflyttning med kopieringsaktiviteten.
 
 > [!TIP]
 > För att uppnå bästa prestanda kan du använda PolyBase för att läsa in data i Azure SQL Data Warehouse. Den [använda PolyBase för att läsa in data i Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) -avsnittet innehåller information om. En genomgång med ett användningsfall finns i [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md).
@@ -62,7 +62,7 @@ Om du använder verktyg eller API: er kan utföra du följande steg för att ska
 3. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. I det tidigare exemplet i det sista steget, skapar du en datauppsättning för att ange blobbehållare och mapp som innehåller indata. Och skapar du en annan datauppsättning för att ange tabellen i Azure SQL data warehouse som innehåller de data som kopieras från blob storage. Egenskaper för datamängd som är specifika för Azure SQL Data Warehouse, se [egenskaper för datamängd](#dataset-properties) avsnittet.
 4. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. I exemplet som tidigare nämnts, använder du BlobSource som en källa och SqlDWSink som mottagare för kopieringsaktiviteten. På samma sätt, om du kopierar från Azure SQL Data Warehouse till Azure Blob Storage, använder du SqlDWSource och BlobSink i kopieringsaktiviteten. Kopiera Aktivitetsegenskaper som är specifika för Azure SQL Data Warehouse, se [kopiera Aktivitetsegenskaper](#copy-activity-properties) avsnittet. Mer information om hur du använder ett datalager som en källa eller mottagare klickar du på länken i föregående avsnitt för ditt datalager.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från en Azure SQL Data Warehouse finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) i den här artikeln.
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format. Exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till/från en Azure SQL Data Warehouse finns [JSON-exempel](#json-examples-for-copying-data-to-and-from-sql-data-warehouse) i den här artikeln.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure SQL Data Warehouse:
 
@@ -132,9 +132,9 @@ CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 AS
 SET NOCOUNT ON;
 BEGIN
-     select *
-     from dbo.UnitTestSrcTable
-     where dbo.UnitTestSrcTable.stringData != stringData
+    select *
+    from dbo.UnitTestSrcTable
+    where dbo.UnitTestSrcTable.stringData != stringData
     and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
@@ -155,7 +155,7 @@ GO
 | WriteBatchSize |Infogar data i SQL-tabell när buffertstorleken når writeBatchSize |Heltal (antal rader) |Nej (standard: 10000) |
 | writeBatchTimeout |Väntetid för batch insert-åtgärden ska slutföras innan tidsgränsen uppnås. |Tidsintervall<br/><br/> Exempel: ”00: 30:00” (30 minuter). |Nej |
 
-#### <a name="sqldwsink-example"></a>SqlDWSink exempel
+#### <a name="sqldwsink-example"></a>SqlDWSink example
 
 ```JSON
 "sink": {
@@ -194,29 +194,29 @@ SQL Data Warehouse PolyBase stöd direkt för Azure Blob- och Azure Data Lake St
 
 Om kraven inte uppfylls, Azure Data Factory kontrollerar du inställningarna och faller automatiskt tillbaka till BULKINSERT mekanism för dataförflyttning.
 
-1. **Käll-länkade tjänst** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvudnamn**.  
+1. **Käll-länkade tjänst** är av typen: **AzureStorage** eller **AzureDataLakeStore med autentisering av tjänstens huvudnamn**.
 2. Den **indatauppsättningen** är av typen: **AzureBlob** eller **AzureDataLakeStore**, och formatet skriver `type` egenskaper är **OrcFormat**, **ParquetFormat**, eller **TextFormat** med följande konfigurationer:
 
-   1. `rowDelimiter` måste vara **\n**.
-   2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
-   3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
-   4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
-   5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
+    1. `rowDelimiter` måste vara **\n**.
+    2. `nullValue` anges till **tom sträng** (””), eller `treatEmptyAsNull` är inställd på **SANT**.
+    3. `encodingName` anges till **utf-8**, vilket är **standard** värde.
+    4. `escapeChar`, `quoteChar`, `firstRowAsHeader`, och `skipLineCount` har inte angetts.
+    5. `compression` kan vara **ingen komprimering**, **GZip**, eller **Deflate**.
 
     ```JSON
     "typeProperties": {
-       "folderPath": "<blobpath>",
-       "format": {
-           "type": "TextFormat",     
-           "columnDelimiter": "<any delimiter>",
-           "rowDelimiter": "\n",       
-           "nullValue": "",           
-           "encodingName": "utf-8"    
-       },
-       "compression": {  
-           "type": "GZip",  
-           "level": "Optimal"  
-       }  
+        "folderPath": "<blobpath>",
+        "format": {
+            "type": "TextFormat",
+            "columnDelimiter": "<any delimiter>",
+            "rowDelimiter": "\n",
+            "nullValue": "",
+            "encodingName": "utf-8"
+        },
+        "compression": {
+            "type": "GZip",
+            "level": "Optimal"
+        }
     },
     ```
 
@@ -234,7 +234,7 @@ När dina källdata inte uppfyller de kriterier som presenteras i föregående a
 Om du vill använda denna funktion kan du skapa en [länkad Azure Storage-tjänst](data-factory-azure-blob-connector.md#azure-storage-linked-service) som refererar till Azure Storage-konto som har tillfälliga blob-lagringen, ange sedan den `enableStaging` och `stagingSettings` egenskaperna för aktiviteten kopiera enligt följande kod:
 
 ```json
-"activities":[  
+"activities":[
 {
     "name": "Sample copy activity from SQL Server to SQL Data Warehouse via PolyBase",
     "type": "Copy",
@@ -281,7 +281,7 @@ I följande tabell innehåller exempel på hur du anger den **tableName** egensk
 | dbo |My.Table |[My.Table] eller [dbo]. [My.Table] |
 | dbo1 |My.Table |[dbo1]. [My.Table] |
 
-Om du ser följande fel kan bero det på ett problem med det värde du angav för egenskapen tableName. Se tabellen för det korrekta sättet att ange värden för egenskapen tableName JSON.  
+Om du ser följande fel kan bero det på ett problem med det värde du angav för egenskapen tableName. Se tabellen för det korrekta sättet att ange värden för egenskapen tableName JSON.
 
 ```
 Type=System.Data.SqlClient.SqlException,Message=Invalid object name 'stg.Account_test'.,Source=.Net SqlClient Data Provider
@@ -293,7 +293,7 @@ PolyBase-funktionen i Data Factory accepterar för närvarande endast samma anta
 ```
 All columns of the table must be specified in the INSERT BULK statement.
 ```
-NULL-värde är en särskild form av standardvärdet. Om kolumnen är nullbar indata (i blob) för kolumnen vara tom (kan inte vara saknas från den inkommande datauppsättningen). PolyBase infogar NULL för dem i Azure SQL Data Warehouse.  
+NULL-värde är en särskild form av standardvärdet. Om kolumnen är nullbar indata (i blob) för kolumnen vara tom (kan inte vara saknas från den inkommande datauppsättningen). PolyBase infogar NULL för dem i Azure SQL Data Warehouse.
 
 ## <a name="auto-table-creation"></a>Skapa en automatisk tabell
 Om du använder guiden Kopiera för att kopiera data från SQL Server eller Azure SQL Database till Azure SQL Data Warehouse och tabellen som motsvarar källtabellen inte finns i målarkiv, kan Data Factory automatiskt skapa tabellen i informationslagret genom u registrerar källan tabellschemat.
@@ -306,7 +306,7 @@ Data Factory skapar tabellen i målarkiv med samma tabellnamnet på källdatalag
 | BigInt | BigInt |
 | SmallInt | SmallInt |
 | TinyInt | TinyInt |
-| bitars | bitars |
+| Bit | Bit |
 | Decimal | Decimal |
 | Numerisk | Decimal |
 | Flyttal | Flyttal |
@@ -515,13 +515,13 @@ Data skrivs till en ny blob varje timme (frequency: timme, intervall: 1). Sökv�
 Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **SqlDWSource** och **mottagare** är **BlobSink**. SQL-frågan som angetts för den **SqlReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureSQLDWtoBlob",
         "description": "copy activity",
@@ -545,7 +545,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
             "type": "BlobSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -556,8 +556,8 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 > [!NOTE]
@@ -699,13 +699,13 @@ Exemplet kopierar data till en tabell med namnet ”MyTable” i Azure SQL Data 
 Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **BlobSource** och **mottagare** är **SqlDWSink**.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline with copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "AzureBlobtoSQLDW",
         "description": "Copy Activity",
@@ -730,7 +730,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
             "allowPolyBase": true
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -741,8 +741,8 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
           "timeout": "01:00:00"
         }
       }
-      ]
-   }
+    ]
+  }
 }
 ```
 En genomgång finns i [läsa in 1 TB i Azure SQL Data Warehouse under 15 minuter med Azure Data Factory](data-factory-load-sql-data-warehouse.md) och [Läs in data med Azure Data Factory](../../sql-data-warehouse/sql-data-warehouse-get-started-load-with-azure-data-factory.md) artikeln i Azure SQL Data Warehouse-dokumentationen.

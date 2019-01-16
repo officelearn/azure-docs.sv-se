@@ -10,16 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 4da64f01f3b4f39bd10fd3cb1b67910ffca886b8
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413276"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331225"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host.JSON-referens för Azure Functions 2.x  
 
-> [!div class="op_single_selector" title1="Välj den version av Azure Functions körning du använder: "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
 > * [Version 2](functions-host-json.md)
 
@@ -108,6 +108,9 @@ Kontroller i [sampling funktion i Application Insights](./functions-monitoring.m
     }
 }
 ```
+
+> [!NOTE]
+> Log sampling kan orsaka vissa körningar inte visas i Application Insights monitor-bladet.
 
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
@@ -200,7 +203,7 @@ Styr loggning beteenden för funktionsappen, inklusive Application Insights.
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av filen loggning är aktiverat.  Alternativen är `never`, `always`, `debugOnly`. |
-|LogLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
+|logLevel|Saknas|Objekt som definierar loggkategori filtrering för funktionerna i appen. Version 2.x följer ASP.NET Core-layouten för log kategorifiltrering. På så sätt kan du filtrera loggning för specifika funktioner. Mer information finns i [Log filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.NET Core-dokumentationen. |
 |konsol|Saknas| Den [konsolen](#console) inställning för aktivitetsloggning. |
 |applicationInsights|Saknas| Den [applicationInsights](#applicationinsights) inställningen. |
 
@@ -228,7 +231,7 @@ Den här inställningen är underordnad [loggning](#logging). Den kontrollerar k
 
 Konfigurationsinställningar finns i [Storage-kö-utlösare och bindningar](functions-bindings-storage-queue.md#host-json).  
 
-## <a name="sendgrid"></a>SendGrid
+## <a name="sendgrid"></a>sendGrid
 
 Konfigurationsinställningen kan hittas i [SendGrid utlösare och bindningar](functions-bindings-sendgrid.md#host-json).
 

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 4d3c67974bc1dd0e52d3de457071d550a6379e36
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7ad328eec7e16b5368b78a0dfccbf5c09adb5c13
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023111"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330016"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Skicka data till ett Azure Search-index med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,15 +40,15 @@ Du kan skapa en pipeline med en Kopieringsaktivitet som flyttar data från ett k
 
 Det enklaste sättet att skapa en pipeline är att använda den **Kopieringsguiden**. Se [självstudien: Skapa en pipeline med Copy Wizard](data-factory-copy-data-wizard-tutorial.md) en snabb genomgång om hur du skapar en pipeline med hjälp av guiden Kopiera data.
 
-Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet. 
+Du kan också använda följande verktyg för att skapa en pipeline: **Azure-portalen**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager-mall**, **.NET API**, och  **REST-API**. Se [kopiera aktivitet självstudien](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) för stegvisa instruktioner för att skapa en pipeline med en Kopieringsaktivitet.
 
-Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager: 
+Om du använder verktyg eller API: er kan utföra du följande steg för att skapa en pipeline som flyttar data från källans datalager till mottagarens datalager:
 
 1. Skapa **länkade tjänster** länka inkommande och utgående data du lagrar till din datafabrik.
-2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen. 
-3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata. 
+2. Skapa **datauppsättningar** som representerar inkommande och utgående data för kopieringen.
+3. Skapa en **pipeline** med en Kopieringsaktivitet som tar en datauppsättning som indata och en datauppsättning som utdata.
 
-När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till Azure Search-index, se [JSON-exempel: Kopiera data från en lokal SQL Server till Azure Search-index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) i den här artikeln. 
+När du använder guiden skapas JSON-definitioner för dessa Data Factory-entiteter (länkade tjänster, datauppsättningar och pipeline) automatiskt åt dig. När du använder Verktyg/API: er (med undantag för .NET-API) kan definiera du dessa Data Factory-entiteter med hjälp av JSON-format.  Ett exempel med JSON-definitioner för Data Factory-entiteter som används för att kopiera data till Azure Search-index, se [JSON-exempel: Kopiera data från en lokal SQL Server till Azure Search-index](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) i den här artikeln.
 
 Följande avsnitt innehåller information om JSON-egenskaper som används för att definiera Data Factory-entiteter som är specifika för Azure Search-Index:
 
@@ -69,7 +69,7 @@ En fullständig lista över avsnitt och egenskaper som är tillgängliga för at
 | Egenskap  | Beskrivning | Krävs |
 | -------- | ----------- | -------- |
 | typ | Type-egenskapen måste anges till **AzureSearchIndex**.| Ja |
-| Indexnamn | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
+| indexName | Namnet på Azure Search-index. Data Factory skapar inte indexet. Indexet måste finnas i Azure Search. | Ja |
 
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
@@ -113,11 +113,11 @@ I följande tabell anger om en Azure Search-datatyp stöds eller inte.
 
 I följande exempel visas:
 
-1.  En länkad tjänst av typen [AzureSearch](#linked-service-properties).
-2.  En länkad tjänst av typen [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
-3.  Indata [datauppsättning](data-factory-create-datasets.md) av typen [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
-4.  Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureSearchIndex](#dataset-properties).
-4.  En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) och [AzureSearchIndexSink](#copy-activity-properties).
+1. En länkad tjänst av typen [AzureSearch](#linked-service-properties).
+2. En länkad tjänst av typen [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties).
+3. Indata [datauppsättning](data-factory-create-datasets.md) av typen [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties).
+4. Utdata [datauppsättning](data-factory-create-datasets.md) av typen [AzureSearchIndex](#dataset-properties).
+4. En [pipeline](data-factory-create-pipelines.md) med en Kopieringsaktivitet som använder [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) och [AzureSearchIndexSink](#copy-activity-properties).
 
 Exemplet kopierar time series-data från en lokal SQL Server-databas till ett Azure Search-index per timme. JSON-egenskaper som används i det här exemplet beskrivs i exemplen i följande avsnitt.
 
@@ -201,7 +201,7 @@ Exemplet kopierar data till ett Azure Search-index med namnet **produkter**. Dat
             "frequency": "Minute",
             "interval": 15
         }
-   }
+    }
 }
 ```
 
@@ -210,13 +210,13 @@ Exemplet kopierar data till ett Azure Search-index med namnet **produkter**. Dat
 Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användning av in- och utdatauppsättningar och är schemalagd att köras varje timme. I pipeline-JSON-definitionen i **källa** är **SqlSource** och **mottagare** är **AzureSearchIndexSink**. SQL-frågan som angetts för den **SqlReaderQuery** egenskapen väljer vilka data under den senaste timmen att kopiera.
 
 ```JSON
-{  
-    "name":"SamplePipeline",
-    "properties":{  
+{
+  "name":"SamplePipeline",
+  "properties":{
     "start":"2014-06-01T18:00:00",
     "end":"2014-06-01T19:00:00",
     "description":"pipeline for copy activity",
-    "activities":[  
+    "activities":[
       {
         "name": "SqlServertoAzureSearchIndex",
         "description": "copy activity",
@@ -240,7 +240,7 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
             "type": "AzureSearchIndexSink"
           }
         },
-       "scheduler": {
+        "scheduler": {
           "frequency": "Hour",
           "interval": 1
         },
@@ -251,8 +251,8 @@ Pipelinen innehåller en Kopieringsaktivitet som har konfigurerats för användn
           "timeout": "01:00:00"
         }
       }
-     ]
-   }
+    ]
+  }
 }
 ```
 
@@ -288,7 +288,7 @@ Om du kopierar data från ett datalager i molnet till Azure Search `executionLoc
 
 Du kan också mappa kolumner från datauppsättningen för källan till kolumner från en datauppsättning för mottagare i aktivitetsdefinitionen kopia. Mer information finns i [mappning av kolumner för datauppsättningar i Azure Data Factory](data-factory-map-columns.md).
 
-## <a name="performance-and-tuning"></a>Prestanda- och justering  
+## <a name="performance-and-tuning"></a>Prestanda- och justering
 Se den [Kopieringsaktiviteten prestanda- och Justeringsguiden](data-factory-copy-activity-performance.md) att lära dig om viktiga faktorer att påverka prestandan för dataflytt (Kopieringsaktivitet) och olika sätt att optimera den.
 
 ## <a name="next-steps"></a>Nästa steg

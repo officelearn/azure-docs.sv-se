@@ -15,12 +15,12 @@ ms.component: compliance
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
-ms.openlocfilehash: 5af1d91a51b090821b5bbb314834db0d5cbe6a26
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 9ada31066b905ca4335acf78ae87534e4c359651
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607754"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331868"
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Hantera användare med Azure AD-åtkomstgranskningar
 
@@ -44,11 +44,11 @@ Du kan ha en eller flera användare som granskare i en åtkomstgranskning.
 
 2. Bestäm om varje användare ska granska sin egen åtkomst eller om en eller flera användare ska granska allas åtkomst.
 
-3. Aktivera att åtkomstgranskningar ska visas på granskarnas åtkomstpaneler. Som global administratör eller användarkonto-administratör går du till [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+3. Som global administratör eller användarkonto-administratör går du till [sidan med åtkomstgranskningar](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-4. Starta åtkomstgranskningen. Mer information finns i [Skapa en åtkomstgranskning](create-access-review.md).
+4. Skapa åtkomstgranskningen. Mer information finns i [Skapa en åtkomstgranskning](create-access-review.md).
 
-5. Be granskarna att komma med reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](perform-access-review.md).
+5. När åtkomstgranskningen startar be granskarna till reflektioner. Som standard får alla ett e-postmeddelande från Azure AD med en länk till åtkomstpanelen där de ska [genomföra sin åtkomstgranskning](perform-access-review.md).
 
 6. Om granskarna inte har framfört några åsikter kan du be att Azure AD skickar en påminnelse. Som standard skickar Azure AD automatiskt en påminnelse när halva tiden före slutdatumet har gått till granskarna som ännu inte har svarat.
 

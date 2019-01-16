@@ -1,19 +1,19 @@
 ---
 title: Använd InSpec för efterlevnad automatisering av Azure-infrastrukturen
 description: Lär dig hur du använder InSpec för att identifiera problem i dina Azure-distributioner
-keywords: Azure, chef, devops, virtuella datorer, översikt, automatisera, inspce
+keywords: Azure, chef, devops, virtuella datorer, översikt, automatisera, inspec
 ms.service: virtual-machines-linux
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 9256a4daf6564761553b495e559805a46e4eae32
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: e854b140c32773fc5d64e828e7dd40fab1f6ca8d
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050735"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332378"
 ---
 # <a name="use-inspec-for-compliance-automation-of-your-azure-infrastructure"></a>Använd InSpec för efterlevnad automatisering av Azure-infrastrukturen
 [InSpec](https://www.chef.io/inspec/) är ett ramverk för kostnadsfria och öppen källkod för att testa och granska dina program och infrastruktur. InSpec fungerar genom att jämföra det aktuella läget i systemet av önskat tillstånd som du express i enkelt att läsa och lätt att skriva InSpec kod. InSpec identifierar överträdelser och visar resultat i form av en rapport, men ger dig kontroll för reparation. Du kan använda InSpec för att verifiera tillståndet för dina virtuella datorer som körs i Azure. Du kan också använda InSpec för att söka igenom och kontrollera tillståndet för resurser och resursgrupper i en prenumeration.

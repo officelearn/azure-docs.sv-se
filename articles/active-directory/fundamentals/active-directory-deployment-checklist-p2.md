@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: ''
-ms.openlocfilehash: 1bfc97eb850cf81ff638f92bc628c856fa75681e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9ec183c55a74a2ab12c8accb8b3578ea530f1da2
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230670"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322086"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Distributionsguide för Azure Active Directory-funktionen
 
@@ -36,9 +36,9 @@ Mer information om licensiering finns på följande sidor:
 * [Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 * [Azure AD B2B-licensiering vägledning](../b2b/licensing-guidance.md)
 
-## <a name="phase-1-foundation-of-security"></a>Fas 1: Grunden för säkerhet
+## <a name="phase-1-build-a-foundation-of-security"></a>Fas 1: Skapa en grund för säkerhet
 
-I fas 1-administratörer aktivera grundläggande säkerhetsfunktioner att skapa en säkrare och mer lättanvända grund i Azure AD innan vi importera eller skapa vanliga användarkonton. Den här grundläggande fasen säkerställer att du är i tillståndet säkrare från början och att slutanvändarna bara behöver introduceras nya en gång.
+I den här fasen kan aktivera administratörer grundläggande säkerhetsfunktioner att skapa en säkrare och mer lättanvända grund i Azure AD innan vi importera eller skapa vanliga användarkonton. Den här grundläggande fasen säkerställer att du är i tillståndet säkrare från början och att slutanvändarna bara behöver introduceras nya en gång.
 
 | Aktivitet | Information | Licens som krävs |
 | ---- | ------ | ---------------- |
@@ -57,9 +57,9 @@ I fas 1-administratörer aktivera grundläggande säkerhetsfunktioner att skapa 
 | [Använd riskhändelser för att utlösa Multi-Factor authentication och ändring av lösenord](../authentication/tutorial-risk-based-sspr-mfa.md) | Aktivera automatisering som kan utlösa händelser som multifaktorautentisering, lösenordsåterställning och blockerar över inloggningar baserat på risk. | Azure AD Premium P2 |
 | [Aktivera konvergerade registrering för lösenordsåterställning via självbetjäning och Azure AD Multi-Factor Authentication (förhandsversion)](../authentication/concept-registration-mfa-sspr-converged.md) | Tillåt användarna att registrera från en gemensam upplevelsen för både Azure Multi-Factor Authentication och lösenordsåterställning via självbetjäning. | Azure AD Premium P1 |
 
-## <a name="phase-2-users-synchronization-and-devices"></a>Fas 2: Användare, synkronisering och enheter
+## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fas 2: Importera användare, aktivera synkronisering och hantera enheter
 
-I fas 2, vi lägga till i grunden som i fas 1 genom att importera våra användare och aktiverar synkronisering, planera för gäståtkomst och förbereda för ytterligare funktioner.
+Nu ska vi lägga till i grunden som i fas 1 genom att importera våra användare och aktivera synkronisering, planera för gäståtkomst och förbereda för ytterligare funktioner.
 
 | Aktivitet | Information | Licens som krävs |
 | ---- | ------ | ---------------- |
@@ -72,9 +72,9 @@ I fas 2, vi lägga till i grunden som i fas 1 genom att importera våra använda
 | [Besluta om enhetshanteringsstrategi](../devices/overview.md) | Bestäm vad din organisation tillåter inte om enheter. Registrera vs koppla, Bring Your Own Device vs företagets tillhandahålls. | |
 | [Distribuera Windows Hello för företag i din organisation](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) | Förbereda för lösenord utan autentisering med hjälp av Windows Hello | |
 
-## <a name="phase-3-applications"></a>Fas 3: Appar
+## <a name="phase-3-manage-applications"></a>Fas 3: Hantera program
 
-I fas 3 börjar administratörer den pågående processen att lägga till i program.
+När vi fortsätter att bygga vidare på föregående steg, vi identifiera kandidat program för migrering och integrering med Azure AD och slutföra installationen av programmen.
 
 | Aktivitet | Information | Licens som krävs |
 | ---- | ------ | ---------------- |
@@ -82,15 +82,15 @@ I fas 3 börjar administratörer den pågående processen att lägga till i prog
 | [Integrera SaaS-program som stöds i galleriet](../manage-apps/add-application-portal.md) | Azure AD har ett galleri som innehåller tusentals redan integrerade program. Några av de program som din organisation använder är förmodligen i galleriet tillgänglig direkt från Azure-portalen. | Azure AD Kostnadsfri |
 | [Använda programproxy för att integrera dina lokala program](../manage-apps/application-proxy-add-on-premises-application.md) | Programproxy kan användare komma åt lokala program genom att logga in med sitt Azure AD. | Azure AD Basic |
 
-## <a name="phase-4-privileged-identities-access-reviews-and-user-lifecycle"></a>Steg 4: Privilegierade identiteter och åtkomstgranskningar användaren livscykel
+## <a name="phase-4-audit-privileged-identities-complete-an-access-review-and-manage-user-lifecycle"></a>Steg 4: Granska Privilegierade identiteter, Slutför en åtkomstgranskning och hantera livscykeln för användare
 
 Fas 4 ser administratörer tillämpa minsta privilegium principer för administration, du har slutfört sin första åtkomstgranskningar och aktivera automatisering av vanliga aktiviteter för livscykelhantering av användare.
 
 | Aktivitet | Information | Licens som krävs |
 | ---- | ------ | ---------------- |
-| [Framtvinga användningen av Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Ta bort administrativa roller från normala dagliga användarkonton. Berättiga administrativa användare att använda deras roll efter lyckas en kontroll för multifaktorautentisering, vilket ger en motivering eller begära godkännande från utnämnda godkännare. | Azure AD Premium P2 |
+| [Framtvinga användningen av Privileged Identity Management](../privileged-identity-management/pim-security-wizard.md) | Ta bort administrativa roller från normala dagliga användarkonton. Berättiga administrativa användare att använda deras roll efter lyckas en kontroll för multifaktorautentisering, vilket ger en motivering eller begära godkännande från utnämnda godkännare. | Azure AD Premium P2 |
 | [Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM](../privileged-identity-management/pim-how-to-start-security-review.md) | Arbeta med dina säkerhets- och ledarskap team att skapa en princip för granskning av åtkomst om du vill granska administrativ åtkomst baserat på organisationens principer. | Azure AD Premium P2 |
-| [Implementera dynamiskt medlemskap grupprinciper](../users-groups-roles/groups-dynamic-membership.md) | Använda dynamiska grupper för att automatiskt tilldela användare i grupper baserat på deras attribut från HR (eller din källa till sanningen), till exempel avdelning, rubrik, region, och andra attribut. |  |
+| [Implementera principer för dynamiskt medlemskap](../users-groups-roles/groups-dynamic-membership.md) | Använda dynamiska grupper för att automatiskt tilldela användare i grupper baserat på deras attribut från HR (eller din källa till sanningen), till exempel avdelning, rubrik, region, och andra attribut. |  |
 | [Implementera gruppbaserade programetablering](../manage-apps/what-is-access-management.md) | Använd gruppbaserad åtkomsthantering driftsättning till automatiskt etablera användare för SaaS-program. |  |
 | [Automatisera användaretablering och avetablering](../manage-apps/user-provisioning.md) | Ta bort manuella steg från anställdas konto livscykeln att förhindra obehörig åtkomst. Synkronisera identiteter från din källa till sanningen (HR-systemet) till Azure AD. |  |
 

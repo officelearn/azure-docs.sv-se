@@ -1,18 +1,18 @@
 ---
 title: Analysera rapporten för Distributionshanteraren för Azure Site Recovery för haveriberedskap för VMware till Azure | Microsoft Docs
 description: Den här artikeln beskriver hur du analyserar rapporten som genereras av Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: nisoneji
-ms.openlocfilehash: 995c4bbbde87315e92c182fbc91b58ee34cda04e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.author: mayg
+ms.openlocfilehash: ecb1d4cca5ebc8a699988c6556b080ffa810eca8
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839559"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319868"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analysera rapporten för Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 
@@ -22,23 +22,23 @@ På sidan Lokal sammanfattning visas en översikt över den profilerade VMware-m
 
 ![Lokal sammanfattning av VMware-miljön](media/site-recovery-vmware-deployment-planner-analyze-report/on-premises-summary-v2a.png)
 
-**Startdatum** och **Slutdatum**: Start- och slutdatum för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades. Om du angav parametrarna -StartDate och -EndDate när du genererade rapporten visas dessa värden.
+**Startdatum** och **slutdatum**: Start- och slutdatumen för de profileringsdata som ingår i rapportgenereringen. Som standard är startdatumet det datum då profileringen startades och slutdatumet är det datum när profileringen avslutades. Om du angav parametrarna -StartDate och -EndDate när du genererade rapporten visas dessa värden.
 
-**Total number of profiling days** (Totalt antal dagar för profilering): Det totala antalet profileringsdagar mellan start- och slutdatumen som rapporten genererats för.
+**Totalt antal profilering dagar**: Det totala antalet dagar för profilering mellan start- och slutdatumen som rapporten genererats.
 
-**Number of compatible virtual machines** (Antal kompatibla virtuella datorer): Det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, nödvändigt antal lagringskonton, antal Microsoft Azure-kärnor, konfigurationsservrar och ytterligare processervrar beräknas för.
+**Antal kompatibla virtuella datorer**: Det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, nödvändigt antal lagringskonton, Microsoft Azure-kärnor, konfigurationsservrar och ytterligare processervrar beräknas.
 
-**Total number of disks across all compatible virtual machines** (Totalt antal diskar för alla kompatibla virtuella datorer): Det här värdet används som en av indatauppgifterna för att bestämma antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
+**Totala antalet diskar för samtliga kompatibla virtuella datorer**: Det tal som används som en av indata för att bestämma antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
-**Average number of disks per compatible virtual machine** (Genomsnittligt antal diskar per kompatibel virtuell dator): Det genomsnittliga antalet diskar beräknat för samtliga kompatibla virtuella datorer.
+**Genomsnittligt antal diskar per kompatibel virtuell dator**: Det genomsnittliga antalet diskar för samtliga kompatibla virtuella datorer.
 
-**Average disk size (GB)** (Genomsnittlig diskstorlek (GB)): Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
+**Genomsnittlig diskstorlek (GB)**: Den genomsnittliga diskstorleken beräknad för samtliga kompatibla virtuella datorer.
 
-**Desired RPO (minutes)** (Önskat RPO-mål (minuter)): Antingen standardvärdet för RPO-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
+**Desired RPO (minuter)**: Antingen standard rpo-mål eller det värde som angavs för parametern ”DesiredRPO” när rapporten genererades för att uppskatta nödvändig bandbredd.
 
-**Desired bandwidth (Mbps)** (Önskad bandbredd (Mbit/s)): Det värde du angav för parametern ”Bandwidth” när du genererade rapporten för att uppskatta vilket RPO-mål som kan uppnås.
+**Önskad bandbredd (Mbit/s)**: Det värde som du angav för parametern ”Bandwidth” när rapporten genererades för att beräkna möjligt Återställningspunktmål.
 
-**Observed typical data churn per day (GB)** (Observerad normal dataomsättning per dag (GB)) är den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
+**Observerad vanliga dataomsättning per dag (GB)**: Den genomsnittliga dataomsättning som observerats under alla profileringsdagar. Det här värdet används som ett av invärdena i rekommendationen för att fastställa antalet konfigurationsservrar och ytterligare processervrar som ska användas i distributionen.
 
 ## <a name="recommendations"></a>Rekommendationer
 
@@ -49,33 +49,33 @@ Rekommendationsbladet för VMware till Azure-rapporten innehåller följande inf
 ### <a name="profiled-data"></a>Profileringsdata
 ![Den profilerade datavyn i kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**Profiled data period** (Profileringsdataperiod): Den period då profileringen kördes. Som standard innehåller verktyget alla profileringsdata i beräkningen, om inte rapporten genereras för en viss tidsperiod med hjälp av parametrarna StartDate och EndDate.
+**Profileringsdata period**: Den period då Profileringen kördes. Som standard innehåller verktyget alla profileringsdata i beräkningen, om inte rapporten genereras för en viss tidsperiod med hjälp av parametrarna StartDate och EndDate.
 
-**Server Name** (Servernamn): Är namnet eller IP-adressen för den VMware vCenter-server eller ESXi-värd vars virtuella datorer rapporten genereras för.
+**Servernamn**: Namn eller IP-adressen för den VMware vCenter- eller ESXi-värd vars virtuella datorer rapporten genereras.
 
-**Desired RPO** (Önskat återställningspunktmål): Återställningspunktmålet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 respektive 60 minuter. De aktuella värdena på bladet uppdateras baserat på vad du väljer. Om du använde parametern *DesiredRPOinMin* när du genererade rapporten så visas det här värdet i resultatet Desired RPO (Önskat RPO-mål).
+**Desired RPO**: Återställningspunktmålet för din distribution. Som standard beräknas vilken nätverksbandbredd som krävs för RPO-värden på 15, 30 respektive 60 minuter. De aktuella värdena på bladet uppdateras baserat på vad du väljer. Om du använde parametern *DesiredRPOinMin* när du genererade rapporten så visas det här värdet i resultatet Desired RPO (Önskat RPO-mål).
 
 ### <a name="profiling-overview"></a>Profileringsöversikt
 
 ![Profilering av resultat i kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/profiling-overview-v2a.png)
 
-**Total Profiled Virtual Machines** (Totalt antal profilerade virtuella datorer): Det totala antalet virtuella datorer som det finns profileringsdata för. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så beaktas inte dessa virtuella datorer i rapporten och de ingår inte i värdet för antalet virtuella datorer som har profilerats.
+**Totalt antal profilerade virtuella datorer**: Det totala antalet virtuella datorer vars profilerade data är tillgängliga. Om VMListFile innehåller namn på virtuella datorer som inte har profilerats så beaktas inte dessa virtuella datorer i rapporten och de ingår inte i värdet för antalet virtuella datorer som har profilerats.
 
-**Compatible Virtual Machines** (Kompatibla virtuella datorer): Det antal virtuella datorer som kan skyddas i Azure med Site Recovery. Det här är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal lagringskonton, antal Azure-kärnor samt antal konfigurationsservrar och ytterligare processervrar beräknas för. Information om varje kompatibel virtuell dator finns i avsnittet ”Kompatibla virtuella datorer”.
+**Kompatibla virtuella datorer**: Hur många virtuella datorer som kan skyddas till Azure med Site Recovery. Det här är det totala antalet kompatibla virtuella datorer som nödvändig nätverksbandbredd, antal lagringskonton, antal Azure-kärnor samt antal konfigurationsservrar och ytterligare processervrar beräknas för. Information om varje kompatibel virtuell dator finns i avsnittet ”Kompatibla virtuella datorer”.
 
-**Incompatible Virtual Machines** (Inkompatibla virtuella datorer): Antalet profilerade virtuella datorer som inte kan skyddas med Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer. Om VMListFile innehåller namnen på virtuella datorer som inte har profilerats undantas dessa virtuella datorer från antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av avsnittet Incompatible VMs (Inkompatibla virtuella datorer).
+**Inkompatibla virtuella datorer**: Antalet profilerade virtuella datorer som inte kan skyddas med Site Recovery. Orsaken till inkompatibiliteten beskrivs i avsnittet Inkompatibla virtuella datorer. Om VMListFile innehåller namnen på virtuella datorer som inte har profilerats undantas dessa virtuella datorer från antalet inkompatibla virtuella datorer. Dessa virtuella datorer visas under Data not found (Inga data hittades) i slutet av avsnittet Incompatible VMs (Inkompatibla virtuella datorer).
 
-**Desired RPO** (Önskat återställningspunktmål): Önskat mål för återställningspunkten (RPO) i minuter. Rapporten genereras för tre värden för återställningspunktmål: 15 (standard), 30 respektive 60 minuter. Rekommendationen angående bandbredd i rapporten förändras baserat på vilket alternativ du väljer i listrutan Desired RPO (Önskat RPO-mål) uppe till höger på bladet. Om du har genererat rapporten med ett anpassat värde för parametern *-DesiredRPO* visas det här anpassade värdet som standardvärde i listrutan Desired RPO (Önskat återställningspunktmål).
+**Desired RPO**: Din önskade återställningspunkt mål i minuter. Rapporten genereras för tre RPO-värden: 15 (standard), 30 och 60 minuter. Rekommendationen angående bandbredd i rapporten förändras baserat på vilket alternativ du väljer i listrutan Desired RPO (Önskat RPO-mål) uppe till höger på bladet. Om du har genererat rapporten med ett anpassat värde för parametern *-DesiredRPO* visas det här anpassade värdet som standardvärde i listrutan Desired RPO (Önskat återställningspunktmål).
 
 ### <a name="required-network-bandwidth-mbps"></a>Required Network Bandwidth (Mbps) (Nödvändig nätverksbandbredd (Mbit/s))
 
 ![Nödvändig nätverksbandbredd i kapacitetsplaneraren](media/site-recovery-vmware-deployment-planner-analyze-report/required-network-bandwidth-v2a.png)
 
-**To meet RPO 100 percent of the time** (För att nå RPO-målet 100 procent av gångerna): Det här är den rekommenderade bandbredd i mbit/s som du bör allokera om RPO-målet ska nås 100 procent av tiden. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
+**Att uppfylla Återställningspunktmålet 100 procent av tiden:** Den rekommenderade bandbredden i Mbit/s som du bör allokera om rpo-MÅLET 100 procent av tiden. Den här mängden bandbredd måste vara reserverad för stabil deltareplikering av samtliga kompatibla virtuella datorer om du helt ska undvika överträdelser av RPO-målet.
 
-**To meet RPO 90 percent of the time** (För att nå RPO-målet 90 procent av gångerna): Om bandbreddspriserna är för höga eller om du av någon annan anledning inte kan tilldela den bandbredd som krävs för att uppnå RPO-målet 100 procent av tiden kan du välja en lägre bandbreddsinställning som gör att du uppnår önskat RPO 90 procent av tiden. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
+**Att uppfylla RPO 90 procent av tiden**: Bandbreddspriserna eller av någon annan anledning, om du inte kan ange den bandbredd som krävs för att uppnå rpo-MÅLET 100 procent av tiden kan du gå med en lägre bandbreddsinställning som uppnår önskat RPO 90 procent av tiden. I rapporten ges även en ”tänk om”-analys av hur många RPO-överträdelser du kan förvänta dig och deras varaktighet, så att du bättre ska förstå vad som kan hända om du tilldelar den här lägre bandbredden.
 
-**Achieved Throughput** (Uppnått dataflöde): Dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där lagringskontot finns. Dataflödesvärdet är en uppskattning av den nivå du kan uppnå när du skyddar de kompatibla virtuella datorerna med Site Recovery, förutsatt att lagrings- och nätverksegenskaperna för konfigurationsservern/processervern förblir desamma som för den server där du körde verktyget.
+**Dataflöde:** Dataflödet från servern där du körde kommandot GetThroughput till den Microsoft Azure-region där lagringskontot finns. Dataflödesvärdet är en uppskattning av den nivå du kan uppnå när du skyddar de kompatibla virtuella datorerna med Site Recovery, förutsatt att lagrings- och nätverksegenskaperna för konfigurationsservern/processervern förblir desamma som för den server där du körde verktyget.
 
 Du bör ange den rekommenderade bandbredden för att uppfylla återställningspunktmålet 100 procent av tiden för replikering. Om inte verktyget rapporterar ökade dataflöden trots att du har ställt in bandbredden gör du följande:
 
@@ -130,13 +130,13 @@ Sammanfattningen hjälper dig att förstå den kostnad som du behöver betala f�
 
 Du kan visa kostnaden per månad eller per år. Läs mer om [målregioner som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) och [valutor som stöds](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).
 
-**Cost by components** (Kostnad per komponenter) Den totala DR-kostnaden delas upp i fyra komponenter: beräkning, lagring, nätverk och Azure Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
+**Komponentkostnader** den totala DR-kostnaden delas upp i fyra komponenter: Beräkning, lagring, nätverk och Azure Site Recovery-licenskostnad. Kostnaden beräknas baserat på förbrukningen som tillkommer under replikering och DR-testtiden för beräkning, lagring (premium och standard), ExpressRoute/VPN som har konfigurerats mellan den lokala platsen och Azure och Azure Site Recovery-licens.
 
 **Cost by states** (Kostnad per tillstånd) Den totala kostnaden för haveriberedskap (DR) är kategorier baserat på två olika tillstånd – replikering och DR-test.
 
-**Replication cost** (Replikeringskostnad): Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen.
+**Replikeringskostnad**:  Kostnaden som tillkommer under replikering. Det här täcker kostnaden för lagring, nätverk och Azure Site Recovery-licensen.
 
-**DR-Drill cost** (DR-testkostnad): Kostnaden som tillkommer under redundanstext. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs.
+**DR-test**: Kostnaden som tillkommer under redundansväxlingstest. Azure Site Recovery startar virtuella datorer under redundanstest. DR-testkostnaden täcker beräkning och lagring för de virtuella datorer som körs.
 
 **Azure storage cost per Month/Year** (Azure Storage-kostnad per månad/år) Det visar den totala lagringskostnad som tillkommer för premium- och standardlagring för replikering och DR-test.
 Du kan visa en detaljerad kostnadsanalys per VM på arket [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Kostnadsuppskattning).
@@ -158,26 +158,26 @@ Du kan ha en situation där du vet att du inte kan ange en bandbredd på mer än
 
 ![Placering av VM-lagring](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Disk Storage Type** (Typ av disklagring): Är antingen Standard eller Premium och avser det lagringskonto som ska användas för replikering av motsvarande virtuella datorer i kolumnen **VMs to Place** (Virtuella datorer att placera ut).
+**Storage-disktyp**: Antingen ett standard- eller premium storage-konto som används för att replikera alla av motsvarande virtuella datorer i den **virtuella datorer på plats som är** kolumn.
 
-**Suggested Prefix** (Föreslaget prefix): Det föreslagna prefixet på tre tecken som du kan använda för att namnge lagringskontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
+**Suggested Prefix**: Det föreslagna prefixet på tre tecken som kan användas för att namnge lagringskontot. Du kan använda ditt eget prefix, men verktygets förslag följer [namngivningskonventionen för partitioner av lagringskonton](https://aka.ms/storage-performance-checklist).
 
-**Suggested Account Name** (Föreslaget kontonamn): Namnet på lagringskontot när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
+**Föreslaget kontonamn**: Lagringskontots namn när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-**Log Storage Account** (Lagringskonto för loggar): alla replikeringsloggar lagras på ett lagringskonto av standardtyp. För virtuella datorer som replikerar till ett Premium Storage-konto konfigurerar du ytterligare ett Standard Storage-konto för logglagringsutrymme. Flera lagringskonton för premiumreplikering kan använda samma standardkonto för logglagring. Virtuella datorer som replikeras till lagringskonton av standardtyp använder samma lagringskonto för loggarna.
+**Log Storage Account**: Alla replikeringsloggar lagras i ett standardlagringskonto. För virtuella datorer som replikerar till ett Premium Storage-konto konfigurerar du ytterligare ett Standard Storage-konto för logglagringsutrymme. Flera lagringskonton för premiumreplikering kan använda samma standardkonto för logglagring. Virtuella datorer som replikeras till lagringskonton av standardtyp använder samma lagringskonto för loggarna.
 
-**Suggested Log Account Name** (Föreslaget loggkontonamn): Namnet på lagringsloggkontot när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
+**Suggested Log Account Name**: Loggen namnet på ditt lagringskonto när du inkluderar det föreslagna prefixet. Ersätt namnet inom hakparenteser (< och >) med egna indata.
 
-**Placement Summary** (Placeringsöversikt): En översikt över den totala virtuella datorbelastningen på lagringskontot vid replikeringen samt vid redundanstest/redundansväxling. I översikten ingår det totala antalet virtuella datorer som har mappats till lagringskontot, totalt antal läs- och skrivåtgärder (IOPS) för de virtuella datorer som placerats på lagringskontot, totalt antal skrivoperationer (replikering), total etablerad storlek sett till alla diskar och det totala antalet diskar.
+**Placement Summary**: En sammanfattning av den totala virtuella belastningen på lagringskontot vid tidpunkten för replikering och vid redundanstest / redundansväxling. I översikten ingår det totala antalet virtuella datorer som har mappats till lagringskontot, totalt antal läs- och skrivåtgärder (IOPS) för de virtuella datorer som placerats på lagringskontot, totalt antal skrivoperationer (replikering), total etablerad storlek sett till alla diskar och det totala antalet diskar.
 
-**Virtual Machines to Place** (Virtuella datorer att placera ut): En lista över de virtuella datorer som ska placeras på det angivna lagringskontot för att prestanda och användningsgrad ska vara optimala.
+**Virtuella datorer på plats som är**: En lista över alla virtuella datorer som ska placeras på det angivna lagringskontot för optimala prestanda och användning.
 
 ## <a name="compatible-vms"></a>Compatible VMs (Kompatibla virtuella datorer)
 ![Excel-kalkylblad med kompatibla virtuella datorer](media/site-recovery-vmware-deployment-planner-analyze-report/compatible-vms-v2a.png)
 
-**VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
+**Namn på virtuell dator**: Den virtuella datorns namn eller IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM-kompatibilitet**: Värdena är **Ja** och **Ja**\*. **Ja**\* för instanser där den virtuella datorn är en anpassning för [Azure Premium Storage](https://aka.ms/premium-storage-workload). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
+**VM-kompatibilitet**: Värden är **Ja** och **Ja**\*. **Ja**\* för instanser där den virtuella datorn är en anpassning för [Azure Premium Storage](https://aka.ms/premium-storage-workload). Här passar den profilerade högomsättnings- eller IOPS-disken i kategorin P20 eller P30, men storleken på disken gör att den mappas ned till en P10 eller P20. Lagringskontot avgör vilken Premium Storage-disktyp som en disk ska mappas till, baserat på dess storlek. Exempel:
 * < 128 GB är en P10.
 * 128 GB till 256 GB är en P15
 * 256 till 512 GB är en P20.
@@ -189,38 +189,38 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 
 **Lagringstyp**: Standard eller premium.
 
-**Suggested Prefix** (Föreslaget prefix): Ett prefix på tre tecken för lagringskontot.
+**Suggested Prefix**: Prefixet tre tecken för lagringskontot.
 
-**Lagringskontot**: Namnet med prefixet till det föreslagna lagringskontot.
+**Storage-konto**: Namnet som använder det föreslagna lagringskonto prefixet.
 
-**Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen för läsning/skrivning på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen läsning/skrivningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för en virtuell dator inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Peak Data Churn in Mbps (with Growth Factor)** (Högsta dataomsättning i Mbit/s (med tillväxtfaktor)): Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
-**Azure VM Size** (Storlek för virtuell Azure-dator): Lämplig mappad storlek på den virtuella Azure Cloud Services-datorn för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder, IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
+**Azure VM-storlek**: Lämplig mappad Azure Cloud Services VM-storlek för den här lokala virtuella datorn. Mappningen baseras på det lokala virtuella datorminnet, antalet diskar/kärnor/nätverkskort och läs- och skrivåtgärder, IOPS. Rekommendationen är alltid den lägsta virtuella Azure-datorstorlek som matchar alla lokala virtuella datoregenskaper.
 
-**Number of Disks** (Antal diskar): Det totala antalet virtuella datordiskar (VMDK:er) på den virtuella datorn.
+**Antalet diskar**: Det totala antalet virtuella datordiskar (vmdk: er) på den virtuella datorn.
 
-**Disk size (GB)** (Diskstorlek (GB)): Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
-**Kärnor**: Antalet processorkärnor i den virtuella datorn.
+**Kärnor**: Antal processorkärnor på den virtuella datorn.
 
-**Minne (MB)**: Den virtuella datorns RAM-minne.
+**Minne (MB)**: RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.  
+**Starttyp**: Starttyp för den virtuella datorn. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.  
 
-**OS-typ**: Den virtuella datorns typ av operativsystem. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.  
+**OS-typ**: Det är OS-typ för den virtuella datorn. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.  
 
 ## <a name="incompatible-vms"></a>Incompatible VMs (Inkompatibla virtuella datorer)
 
 ![Excel-ark med inkompatibla virtuella datorer
 ](media/site-recovery-vmware-deployment-planner-analyze-report/incompatible-vms-v2a.png)
 
-**VM Name** (Namn på virtuell dator): Den virtuella datorns namn eller den IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
+**Namn på virtuell dator**: Den virtuella datorns namn eller IP-adress som används i VMListFile när en rapport skapas. I den här kolumnen visas även de diskar (VMDK:er) som är kopplade till de virtuella datorerna. För att skilja virtuella vCenter-datorer med samma namn eller IP-adresser åt innefattar namnen ESXi-värdnamnet. Den angivna ESXi-värden är den värd där den virtuella datorn har placerats när verktyget identifierades under profileringsperioden.
 
-**VM Compatibility** (VM-kompatibilitet): Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
+**VM-kompatibilitet**: Anger varför den här virtuella datorn inte kan skyddas med Site Recovery. Anledningarna beskrivs för varje inkompatibel disk av den virtuella datorn och kan, baserat på publicerade [lagringsgränser](https://aka.ms/azure-storage-scalbility-performance), vara något av följande:
 
 * Diskstorleken är > 4 095 GB. Azure Storage har för närvarande inte stöd för diskar som är större än 4 095 GB.
 
@@ -245,23 +245,23 @@ Om exempelvis arbetsbelastningsegenskaperna för en disk placerar den i kategori
 * Total dataomsättning per dag överskrider gränsen för omsättning som stöds per dag med 2 TB av en by a processerver.
 
 
-**Peak R/W IOPS (with Growth Factor)** (Högsta R/W IOPS (med tillväxtfaktor)): Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är den 95:e percentilen), inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
+**Högsta R/W IOPS (med tillväxtfaktor)**: Den högsta IOPS-arbetsbelastningen på disken (standardvärdet är 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att det totala antalet läs/skriv-IOPS för den virtuella datorn inte alltid är summan av de enskilda diskarnas läs/skriv-IOPS, eftersom den virtuella datorns högsta läs/skriv-IOPS är den högsta summan av de enskilda diskarnas läs/skriv-IOPS under varje minut av profileringsperioden.
 
-**Peak Data Churn in Mbps (with Growth Factor)** (Högsta dataomsättning i Mbit/s (med tillväxtfaktor)) Den högsta dataomsättningsfrekvensen på disken (standardvärdet är den 95:e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
+**Högsta Dataomsättning i Mbit/s (med tillväxtfaktor)**: Högsta dataomsättningsfrekvensen på disken (standardvärdet den 95: e percentilen) inklusive faktorn för framtida tillväxt (standardvärdet är 30 procent). Observera att den totala dataomsättningen för den virtuella datorn inte alltid är summan av de enskilda diskarnas dataomsättning, eftersom den virtuella datorns högsta dataomsättning är den högsta summan av de enskilda diskarnas dataomsättning under varje minut av profileringsperioden.
 
-**Number of Disks** (Antal diskar): Det totala antalet VMDK:er på den virtuella datorn.
+**Antalet diskar**: Det totala antalet vmdk: er på den virtuella datorn.
 
-**Disk size (GB)** (Diskstorlek (GB)): Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
+**Diskstorlek (GB)**: Total installationsstorlek för alla diskar på den virtuella datorn. Storleken för de enskilda diskarna i den virtuella datorn visas också i verktyget.
 
-**Kärnor**: Antalet processorkärnor i den virtuella datorn.
+**Kärnor**: Antal processorkärnor på den virtuella datorn.
 
 **Minne (MB)**: Mängden RAM-minne på den virtuella datorn.
 
 **Nätverkskort**: Antalet nätverkskort på den virtuella datorn.
 
-**Starttyp**: Den virtuella datorns starttyp. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.
+**Starttyp**: Starttyp för den virtuella datorn. Den kan vara BIOS eller EFI.  För närvarande stöder Azure Site Recovery virtuella Windows Server EFI-datorer (Windows Server 2012, 2012 R2 och 2016) förutsatt att antalet partitioner i startdisken är under 4 och startsektorstorleken är 512 byte. För att skydda virtuella EFI-datorer måste mobilitetstjänstversionen för Azure Site Recovery vara 9.13 eller högre. Endast redundans stöds av virtuella EFI-datorer. Återställning efter fel stöds inte.
 
-**OS-typ**: Den virtuella datorns typ av operativsystem. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.
+**OS-typ**:  Det är OS-typ för den virtuella datorn. Det kan vara antingen Windows eller Linux eller något annat som är baserat på den valda mallen från VMware vSphere när du skapar den virtuella datorn.
 
 ## <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
 Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser är baserade på våra tester, men de täcker inte alla möjliga kombinationer av program-I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. För bästa resultat även efter distributionsplaneringen rekommenderar vi alltid att du kör omfattande programtester med redundanstest för att få en bild av verklig prestanda för programmet.

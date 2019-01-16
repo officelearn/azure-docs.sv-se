@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ec7de756a5b3c8e713fa8e73c18cebee32b83e28
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 31a708f3a0da76ab13e789b099f312cca1f86e08
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201320"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332259"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Vanliga frågor – Azure Backup
 
@@ -76,12 +76,12 @@ Vi har en privat förhandsgranskning för en SAP HANA-säkerhetskopia med ett Å
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>Hur avgör jag om du vill återställa endast diskar eller en fullständig virtuell dator?
 Tänk på en återställning av virtuella datorer som ett alternativ för Snabbregistrering för en Azure virtuell dator. Det här alternativet ändras disk namn, behållare som används av diskar, offentliga IP-adresser och namn för nätverksgränssnitt. Ändringen har unika resurser när en virtuell dator skapas. Den virtuella datorn inte har lagts till i en tillgänglighetsuppsättning.
 
-Återställ disk alternativ om du vill:
+Du kan använda alternativet Återställ disk om du vill:
   * Anpassa den virtuella datorn som skapas. Till exempel ändra storlek.
   * Lägg till konfigurationsinställningar som inte var det vid tidpunkten för säkerhetskopiering
   * Kontrollen Namngivningskonventionen för resurser som skapas.
   * Lägg till den virtuella datorn i en tillgänglighetsuppsättning.
-  * Lägga till någon annan inställning som måste konfigureras med PowerShell eller en mall.  W
+  * Lägga till någon annan inställning som måste konfigureras med PowerShell eller en mall.  w
 
 ### <a name="can-i-restore-backups-of-unmanaged-vm-disks-after-i-upgrade-to-managed-disks"></a>Kan jag återställa säkerhetskopior av ohanterade Virtuella datordiskar efter uppgraderingen till managed disks?
 Ja, du kan använda säkerhetskopior som har gjorts innan diskar har migrerats från ohanterade till hanterade.

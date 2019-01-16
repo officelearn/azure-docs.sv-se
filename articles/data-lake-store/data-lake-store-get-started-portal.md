@@ -10,17 +10,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: fba62a7838ad4b8f349e233eef5e8d82450f1453
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 91c069f845ef6291f867099e59e79fd059d8caf1
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949027"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320233"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Kom igång med Azure Data Lake Storage Gen1 med Azure portal
 
 > [!div class="op_single_selector"]
-> * [Portalen](data-lake-store-get-started-portal.md)
+> * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
 > * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
@@ -76,9 +76,9 @@ Om du använder nycklar från ett Azure Key Vault för att konfigurera krypterin
 
 > [!NOTE]
 > Du kan också skapa ett Data Lake Storage Gen1-konto med Azure Resource Manager-mallar. Mallarna är tillgängliga från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/?term=data+lake+store):
-    - Utan datakryptering: [distribuera Azure Data Lake Storage Gen1 konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
-    - Med datakryptering med hjälp av Data Lake Storage Gen1: [distribuera Gen1 för Data Lake Storage-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
-    - Med datakryptering med hjälp av Azure Key Vault: [distribuera Gen1 för Data Lake Storage-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
+    - Utan datakryptering: [Distribuera Azure Data Lake Storage Gen1 konto utan datakryptering](https://azure.microsoft.com/resources/templates/101-data-lake-store-no-encryption/).
+    - Med datakryptering med hjälp av Data Lake Storage Gen1: [Distribuera Data Lake Storage Gen1-konto med kryptering (Data Lake)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-adls/).
+    - Med datakryptering med hjälp av Azure Key Vault: [Distribuera Data Lake Storage Gen1-konto med kryptering (Key Vault)](https://azure.microsoft.com/resources/templates/101-data-lake-store-encryption-key-vault/).
 > 
 > 
 
@@ -95,7 +95,7 @@ Du kan skapa mappar under Data Lake Storage Gen1 kontot för att hantera och lag
    
     ![Skapa mappar i ett Data Lake Storage Gen1 konto](./media/data-lake-store-get-started-portal/ADL.Folder.Name.png "skapa mappar i ett Data Lake Storage Gen1-konto")
    
-    Den nya mappen visas i bladet **Datautforskaren**. Du kan skapa kapslade mappar upp till valfri nivå.
+    Den nya mappen visas i bladet **Datautforskaren**. Du kan skapa kapslade mappar upp till en nivå.
    
     ![Skapa mappar i ett Data Lake-konto](./media/data-lake-store-get-started-portal/ADL.New.Directory.png "skapa mappar i ett Data Lake-konto")
 

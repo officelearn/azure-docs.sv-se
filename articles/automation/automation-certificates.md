@@ -6,22 +6,22 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7aeb9a9557694f8773af4fe67f47950bf82afe87
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d91a7ba8d2c05e2d24738764438ce91325743699
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621419"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330865"
 ---
 # <a name="certificate-assets-in-azure-automation"></a>Certifikattillgångar i Azure Automation
 
 Certifikat kan lagras på ett säkert sätt i Azure Automation så att de kan användas av runbooks eller DSC-konfigurationer med hjälp av den **Get-AzureRmAutomationCertificate** aktivitet för Azure Resource Manager-resurser. Den här funktionen kan du skapa runbooks och DSC-konfigurationer som använder certifikat för autentisering eller lägger till dem i Azure eller resurser från tredje part.
 
 >[!NOTE]
->Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången.
+>Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault hanteras av en datorn. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången. Den här processen hanteras av Azure Automation.
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdletar
 För AzureRM används cmdletar i följande tabell för att skapa och hantera inloggningstillgångar i automation med Windows PowerShell. De levereras som en del av den [AzureRM.Automation modulen](/powershell/azure/overview) som är tillgängligt för användning i Automation-runbooks och DSC-konfigurationer.
@@ -57,7 +57,7 @@ Funktionen i följande tabell används för att få åtkomst till certifikat i e
 
 ## <a name="creating-a-new-certificate"></a>Skapa ett nytt certifikat
 
-När du skapar ett nytt certifikat kan överföra du en CER- eller PFX-fil till Azure Automation. Om du markerar certifikatet som kan exporteras, kan du överföra den utanför Azure Automation-certifikatarkivet. Om den inte kan exporteras, kan sedan den endast användas för signering i runbook eller DSC-konfiguration. Azure Automation måste certifikatet ha providern: **Microsoft Enhanced RSA och AES kryptografiprovider**.
+När du skapar ett nytt certifikat kan överföra du en CER- eller PFX-fil till Azure Automation. Om du markerar certifikatet som kan exporteras, kan du överföra den utanför Azure Automation-certifikatarkivet. Om den inte kan exporteras, kan sedan den endast användas för signering i runbook eller DSC-konfiguration. Azure Automation kräver certifikatet ha providern: **Microsoft Enhanced RSA och AES kryptografiprovider**.
 
 ### <a name="to-create-a-new-certificate-with-the-azure-portal"></a>Skapa ett nytt certifikat med Azure portal
 

@@ -12,30 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 01/14/2019
 ms.author: terrylan
-ms.openlocfilehash: 8ca9f0b75627e7ad366b3c02ec3126713a283ed2
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 4945978fdc27a298daf4de0604b894c53ba51dbe
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233743"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321438"
 ---
 # <a name="application-architecture-on-azure"></a>Programarkitektur på Azure
 Om du vill att skydda din molnbaserade lösningar på Microsoft Azure, utgör arkitektoniska grundläggande är viktigt. Arkitekter, designers och implementerare dra nytta av stora kunskaper om arkitektur för program och tjänster. Den här grundläggande kunskapen hjälper dig att förstå alla komponenter i dina molnbaserade lösningar och gör det lättare att integrera säkerhet i alla aspekter av din design och implementering.
 
 Vi har följande för att hjälpa dig med dina arkitektoniska undersökningar och konstruktioner:
 
-* Se informationsgrafik
 * Arkitektoniska ritningar
 * Molnet och företagets symbol set
 * 3D-skissen Visio-mall
-
-## <a name="architectural-infographics"></a>Se informationsgrafik
-Microsoft publicerar flera arkitektoniska relaterad affischer/informationsgrafik. Dessa är:
-
-* [Skapa verkliga molnprogram](https://azure.microsoft.com/documentation/infographics/building-real-world-cloud-apps/)
-* [Skala med molntjänster](https://azure.microsoft.com/documentation/infographics/cloud-services/)
 
 ## <a name="architectural-blueprints"></a>Arkitektoniska ritningar
 Microsoft publicerar en uppsättning avancerade [arkitektoniska ritningar](https://aka.ms/azblueprints) som visar hur du skapar vissa typer av system med hjälp av Microsoft-produkter.

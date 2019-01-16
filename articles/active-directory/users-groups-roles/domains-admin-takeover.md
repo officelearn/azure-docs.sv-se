@@ -1,5 +1,5 @@
 ---
-title: Administratören övertagande av en ohanterad katalog eller shadow-klient i Azure Active Directory | Microsoft Docs
+title: Gäller för en ohanterad katalog - administratör - Azure Active Directory | Microsoft Docs
 description: Så här att ta över en DNS-domännamnet i en ohanterad katalog (shadow klient) i Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/08/2019
+ms.date: 01/14/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 8e11d370f58028ee4c1665d84d0e48541e7d3344
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121200"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320250"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](directory-self-service-signup.md)
@@ -118,7 +118,7 @@ När du utför en extern gäller, Power BI-innehåll som har skapats innan över
 Du kan se dessa cmdletar som används i [PowerShell-exempel](#powershell-example).
 
 
-Cmdlet: | Användning 
+cmdlet | Användning 
 ------- | -------
 `connect-msolservice` | När du uppmanas logga in på din hanterad klient.
 `get-msoldomain` | Visar dina domännamn som är associerade med den aktuella klienten.

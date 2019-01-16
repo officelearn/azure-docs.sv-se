@@ -3,7 +3,7 @@ title: Hantera kostnader effektivt för SQL Server på Azure virtual machines | 
 description: Ta del av metodtips för att välja rätt SQL Server-dator-prismodell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
@@ -14,13 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/09/2018
-ms.author: jroth
-ms.openlocfilehash: b19cf9cd4b67479d811a590cb80a618680f3b3d5
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 19ba6896d9186cae32249fc8eb51319f9b37a6ff
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496479"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330801"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Priser för SQL Server Azure-datorer
 
@@ -91,7 +92,7 @@ Om du vill skapa en SQL Server 2017 Azure VM med en av avbildningarna betala per
 >Det inkluderar inte ytterligare SQL Server-licenskostnaden för Web, Standard eller Enterprise Edition. För att få den mest korrekta priser uppfattning, Välj ditt operativsystem och version av SQL Server på sidan med priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md). 
+> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
 
 ## <a id="byol"></a> Använd din egen licens (BYOL)
 
@@ -126,7 +127,7 @@ Se de virtuella datorerna som föregås av prefixet ”{BYOL}” för att skapa 
 > Berätta för oss inom 10 dagar hur många SQL Server-licenser som du använder i Azure. Länkar till de föregående bilderna har anvisningar om hur du gör detta.
 
 > [!NOTE]
-> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i [ändra så att licensieringsmodellen för en SQL-VM](virtual-machines-windows-sql-ahb.md). 
+> Nu är det möjligt att ändra så att licensieringsmodellen från betala per användning att använda din egen licens (BYOL) och sedan igen. Mer information finns i avsnittet om att [ändra licensieringsmodellen för en virtuell SQL-dator](virtual-machines-windows-sql-ahb.md). 
 
 
 

@@ -5,17 +5,17 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.openlocfilehash: 805f7844b144da1feb141a46080912790008f32e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/15/2019
+ms.openlocfilehash: 145273d48060955005f1d93f30e79014244cf4ba
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538779"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321389"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database för MySQL prisnivåer
 
-Du kan skapa en Azure Database for MySQL-servern på något av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för MySQL. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for MySQL-servern på något av tre olika tjänstnivåer: Grundläggande, generell användning och minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå för MySQL. En server kan ha en eller flera databaser.
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
@@ -52,14 +52,14 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 | Södra centrala USA | X | X |
 | Västra USA | X | X |
 | Västra USA 2 |  | X |
+| Södra Brasilien | X | X |
 | Centrala Kanada | X | X |
 | Östra Kanada | X | X |
-| Södra Brasilien | X | X |
 | Norra Europa | X | X |
 | Västra Europa |  | X |
 | Frankrike, centrala |  | X |
-| Storbritannien, västra |  | X |
 | Storbritannien, södra |  | X |
+| Storbritannien, västra |  | X |
 | Östasien | X | X |
 | Sydostasien | X | X |
 | Östra Australien |  | X |
@@ -67,17 +67,22 @@ Compute-resurser som tillhandahålls som vCores, som representerar en logisk CPU
 | Australien, centrala 2 |  | X |
 | Sydöstra Australien |  | X |
 | Indien, centrala | X | X |
-| Indien, västra | X | X |
 | Södra Indien |  | X |
+| Indien, västra | X | X |
 | Östra Japan | X | X |
 | Västra Japan | X | X |
 | Sydkorea, centrala |  | X |
 | Sydkorea, södra |  | X |
+| Östra Kina 1 | X |  |
+| Kina, östra 2 |  | X |
+| Norra Kina 1 | X |  |
+| Kina, norra 2 |  | X |
 | Centrala Tyskland |  | X |
 | US DoD, centrala  | X |  |
 | US DoD, östra  | X |  |
 | Arizona (USA-förvaltad region) |  | X |
 | Texas (USA-förvaltad region) |  | X |
+| Virginia (USA-förvaltad region) |  | X |
 
 ## <a name="storage"></a>Storage
 

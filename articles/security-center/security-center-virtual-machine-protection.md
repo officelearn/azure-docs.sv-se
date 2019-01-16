@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2018
+ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9c1eff58be52b0b4bd9561db51986c9f509d64ee
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723237"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321608"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -44,7 +44,6 @@ Under **Compute och appar**, finns följande flikar:
 - **Molntjänster**: Listar alla dina webb- och arbetarroller som övervakas av Security Center.
 - **App services (förhandsversion)**: lista över dina App service-miljöer och aktuella säkerhetstillståndet för var och en.
 - **Behållare (förhandsgranskning)**: lista över dina behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
-- **VM-skalningsuppsättningar (förhandsversion)**: lista över dina skalningsuppsättningar och lösningar för dessa.
 - **Beräkningsresurser (förhandsversion)**: lista över rekommendationer för dina beräkningsresurser, till exempel Service Fabric-kluster och Event hubs.
 
 Om du vill fortsätta, Välj **Compute och appar** under **Resource security hygeine**.
@@ -162,24 +161,6 @@ Det finns tre typer av ikoner i den här listan:
 
     ![App Service-reparation](./media/security-center-virtual-machine-recommendations/app-service-remediation.png)
 
-## <a name="virtual-machine-scale-sets-preview"></a>Skalningsuppsättningar för virtuella datorer (förhandsversion)
-Security Center identifierar automatiskt om du har skalor uppsättningar och rekommenderar att du installerar Microsoft Monitoring Agent på de här skalningsuppsättningar. 
-
-Installera Microsoft Monitoring Agent: 
-
-1. Välj rekommendationen **installera övervakningsagenten på virtual machine scale Sets**. Du får en lista över oövervakade skalningsuppsättningar.
-2. Välj en defekt skalningsuppsättning. Följ anvisningarna för att installera övervakningsagenten med hjälp av en befintlig fylls i automatiskt arbetsyta eller skapa en ny. Se till att ange arbetsytan [prisnivån](security-center-pricing.md) om den inte har angetts.
-
- ![Installera MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
-
-Om du vill ange skalningsuppsättningar nya för att automatiskt installera Microsoft Monitoring Agent:
-1. Gå till Azure Policy och klicka **definitioner**.
-2. Sök efter principen **distribuerar Log Analytics-agenten för Windows VM scale sets** och klicka på den.
-3. Klicka på **Tilldela**.
-4. Ange den **omfång** och **Log Analytics-arbetsyta** och klicka på **tilldela**.
-
-Om du vill ange alla befintliga skalningsuppsättningar för att installera Microsoft Monitoring Agent i Azure Policy, går du till **reparation** och tillämpa den befintliga principen på befintliga skalningsuppsättningar.
-
 
 ## <a name="compute-and-app-recommendations"></a>Rekommendationer för beräknings- och app
 |Resurstyp|Säkerhetspoäng|Rekommendation|Beskrivning|
@@ -238,11 +219,7 @@ Om du vill ange alla befintliga skalningsuppsättningar för att installera Micr
 |Dator|30|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|Installera en sårbarhetsbedömningslösning på dina virtuella datorer|
 |Dator|1|Migrera virtuella datorer till nya Azure Resource Manager-resurser|Använda Azure Resource Manager för dina virtuella datorer för att ange säkerhetsförbättringar t.ex: starkare åtkomstkontroll (RBAC), bättre granskning, Resource Manager-baserade distributionen och styrning åtkomst till hanterade identiteter, åtkomst till nyckelvalvet för hemligheter, Azure AD-baserad autentisering och stöd för taggar och resursgrupper för enklare säkerhetshantering. |
 |Dator|30|Åtgärda sårbarheter med hjälp av en lösning för sårbarhetsbedömning|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.|
-|Skaluppsättning för virtuella datorer |4|Aktivera diagnostikloggar i Virtual Machine Scale Sets|Aktivera loggar och behålla för upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning. Detta är användbart när en säkerhetsincident inträffar eller nätverket komprometteras.|
-|Skaluppsättning för virtuella datorer|35|Åtgärda sårbarheter i Säkerhetskonfiguration på VM-skalningsuppsättningar|Åtgärda sårbarheter i säkerhetskonfigurationen för din virtuella dators skalningsuppsättningar för att skydda dem från angrepp. |
-|Skaluppsättning för virtuella datorer|5|Åtgärda fel med slutpunktsskydd hälsotillstånd på VM-skalningsuppsättningar|Åtgärda Endpoint Protection-hälsofel på skalningsuppsättningar för virtuella datorer för att skydda mot hot och sårbarheter. |
-|Skaluppsättning för virtuella datorer|10|Installera endpoint protection-lösning på VM-skalningsuppsättningar|Installera en endpoint protection-lösning på dina VM-skalningsuppsättningar, att skydda dem mot hot och sårbarheter. |
-|Skaluppsättning för virtuella datorer|40|Installera uppdateringar på VM-skalningsuppsättningar|Installera saknade systemsäkerhetsuppdateringar och viktiga uppdateringar för att skydda dina skalningsuppsättningar för virtuella Windows och Linux-dator. |
+
  
 
 

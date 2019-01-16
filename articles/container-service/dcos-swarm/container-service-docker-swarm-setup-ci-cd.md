@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: db0a16fa44dd23cbc32159889fe8b8ec28c77a5f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 93046fa8225d8c85172d113d3c7f9e979c336770
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992550"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331443"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(INAKTUELL) Fullständig CI/CD-pipeline för att distribuera program med flera behållare på Azure Container Service med Docker Swarm med Azure DevOps-tjänster
 
@@ -85,11 +85,11 @@ Konfigurera en anslutning mellan ditt Azure DevOps-Services-projekt och ditt Git
 
 1. Till vänster, klicka på **nya tjänstslutpunkt** > **GitHub**.
 
-    ![Azure DevOps-tjänster – GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
+    ![Azure DevOps Services - GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
 1. För att auktorisera Azure DevOps-tjänsterna för att arbeta med ditt GitHub-konto, klickar du på **auktorisera** och följer du anvisningarna i fönstret som öppnas.
 
-    ![Azure DevOps-tjänster – auktorisera GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
+    ![Azure DevOps Services - Authorize GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-authorize.png)
 
 ### <a name="connect-azure-devops-services-to-your-azure-container-registry-and-azure-container-service-cluster"></a>Ansluta Azure DevOps-tjänsterna till ditt Azure-behållarregister och Azure Container Service-kluster
 
@@ -137,14 +137,14 @@ Nästa steg definierar build-arbetsflödet. Det finns fem behållaravbildningar 
 * ProductsApi
 * Proxy
 * RatingsApi
-* RecommandationsApi
+* RecommendationsApi
 * ShopFront
 
 Du måste lägga till två Docker steg för varje bild, en för att skapa avbildningen och en att överföra avbildningen i Azure container registry. 
 
 1. Om du vill lägga till ett steg i build-arbetsflöde, klickar du på **+ Lägg till byggsteg** och välj **Docker**.
 
-    ![Azure DevOps-tjänster – Lägg till Byggsteg](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
+    ![Azure DevOps Services - Add Build Steps](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
 
 1. Konfigurera ett steg som används för varje bild i `docker build` kommando.
 
@@ -196,7 +196,7 @@ Versionen arbetsflödet består av två saker som du lägger till.
 
 1. Konfigurera en uppgift för att på ett säkert sätt kopiera compose-filen till en *distribuera* mapp på Docker Swarm huvudnoden, med hjälp av SSH-anslutningen som du tidigare konfigurerat. Se följande skärm för information.
 
-    ![Azure DevOps-tjänsterna - versionen SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
+    ![Azure DevOps Services - Release SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
 
 1. Konfigurera en till aktivitet för att köra ett bash-kommando för att köra `docker` och `docker-compose` kommandon på huvudnoden. Se följande skärm för information.
 

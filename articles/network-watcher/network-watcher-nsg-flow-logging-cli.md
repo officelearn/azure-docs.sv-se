@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 3540d68491d6f2c8282aa1ef0b385300aaa190cf
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 3e7a03f1235dab7eefd63b6611890897285d86ea
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822491"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332344"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Konfigurera Network Security Group Flow loggar med Azure CLI
 
@@ -34,7 +34,7 @@ Flödesloggar för Nätverkssäkerhetsgruppen är en funktion i Network Watcher 
 Om du vill utföra stegen i den här artikeln, måste du [installera Azures kommandoradsgränssnitt för Mac, Linux och Windows (CLI)](/cli/azure/install-azure-cli).
 
 > [!NOTE] 
-> Flödet loggar Version 2 är bara tillgängliga i den centrala regionen USA, västra. Konfigurationen är tillgänglig via Azure Portal och REST API. Aktivera Version 2 resulterar-loggar i en region som stöds inte i Version 1-loggarna för utdata till ditt lagringskonto.
+> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Aktivera Version 2 resulterar-loggar i en region som stöds inte i Version 1-loggarna för utdata till ditt lagringskonto.
 
 ## <a name="register-insights-provider"></a>Registrera Insights-providern
 
@@ -50,6 +50,8 @@ Kommando för att aktivera flödesloggar visas i följande exempel:
 
 ```azurecli
 az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName
+# Configure 
+az network watcher flow-log configure --resource-group resourceGroupName --enabled true --nsg nsgName --storage-account storageAccountName  --format JSON --log-version 2
 ```
 
 Det lagringskonto som du anger inte får ha konfigurerat för den Nätverksregler som begränsar nätverksåtkomst till endast Microsoft-tjänster eller specifika virtuella nätverk. Lagringskontot kan vara i samma eller en annan Azure-prenumeration, än NSG: N som du aktiverar det flöde du vill ha. Om du använder olika prenumerationer kan vara de båda kopplade till samma Azure Active Directory-klient. Det konto som används för varje prenumeration måste ha den [behörighet](required-rbac-permissions.md). 
@@ -68,7 +70,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 Lagringsplatsen för en flow-log definieras när du skapar. Ett praktiskt verktyg för att komma åt dessa flödesloggar som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  http://storageexplorer.com/
 
-Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
+Om ett lagringskonto anges sparas flow loggfiler till ett lagringskonto på följande plats:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json

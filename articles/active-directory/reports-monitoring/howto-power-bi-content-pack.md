@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 16026adc2eb0179cd2b42f449494cbbc6547b946
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: c2d121106218c0965cd8f4e07776cf8d2578543f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651460"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354169"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Hur du använder Azure Active Directory Power BI-innehållspaket
 
@@ -32,7 +32,7 @@ Power BI content pack för Azure Active Directory (Azure AD) innehåller fördef
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet. Se [komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) att uppgradera din Azure Active Directory-version.
+Du behöver en Azure AD premium (P1/P2) licens att använda Innehållspaketet. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
 
 ## <a name="install-the-content-pack"></a>Installera Innehållspaketet
 
@@ -101,13 +101,45 @@ Om du vill uppdatera ditt innehållspaket till en nyare version:
 
 När du har kontrollerat att den nya versionen av Innehållspaketet fungerar som förväntat kan du ta bort den gamla versionen vid behov genom att ta bort den underliggande rapporter och datauppsättningar som är associerade med Innehållspaketet.
 
-## <a name="still-having-issues"></a>Har du fortfarande problem? 
+## <a name="troubleshoot-content-pack-errors"></a>Felsöka fel i innehållspaket
 
-Läs vår [felsökningsguide](troubleshoot-content-pack.md). Läs de här [hjälpartiklarna](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) för allmän hjälp med Power BI.
+När du arbetar med Innehållspaketet, är det möjligt att du får följande fel: 
+
+- [Uppdateringen misslyckades](#refresh-failed) 
+- [Det gick inte att uppdatera datakällans autentiseringsuppgifter](#failed-to-update-data-source-credentials) 
+- [Import av data tar lång tid](#data-import-is-too-slow) 
+
+Läs de här [hjälpartiklarna](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) för allmän hjälp med Power BI.
+
+### <a name="refresh-failed"></a>Det gick inte att uppdatera 
+ 
+**Hur det här felet visas**: E-post från Power BI- eller felstatus i historiken för uppdatering. 
+
+
+| Orsak | Hur du åtgärdar |
+| ---   | ---        |
+| Uppdatera fel kan inträffa fel när autentiseringsuppgifterna för de användare som ansluter till Innehållspaketet har återställa men inte uppdateras i anslutningsinställningarna för Innehållspaketet. | Leta upp datauppsättningen för instrumentpanelen för aktivitetsloggar i Azure AD i Power BI (**Azure Active Directory-aktivitetsloggar**), välj Uppdatera schema och ange dina autentiseringsuppgifter för Azure AD. |
+| En uppdatering kan misslyckas på grund av problem med i det underliggande Innehållspaketet. | [Öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+ 
+### <a name="failed-to-update-data-source-credentials"></a>Det gick inte att uppdatera datakällans autentiseringsuppgifter 
+ 
+**Hur det här felet visas**: I Power BI, när du ansluter till Azure AD-aktivitet loggar Innehållspaketet. 
+
+| Orsak | Hur du åtgärdar |
+| ---   | ---        |
+| Den anslutande användaren är inte en global administratör eller en säkerhetsläsare eller en säkerhetsadministratör. | Använd ett konto som är antingen en global administratör eller en säkerhetsläsare eller en administratör för att få åtkomst till innehållspaket. |
+| Din klient är inte en Premium-klient eller har inte minst en användare med Premium-licens fil. | [Öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md).|
  
+### <a name="data-import-is-too-slow"></a>Importera data är för långsam 
+ 
+**Hur det här felet visas**: I Power BI när du har anslutit ditt innehållspaket dataimporten börjar att förbereda din instrumentpanel för Azure AD activity logs. Det här meddelandet visas: **Importerar data...**  utan någon ytterligare pågår.  
+
+| Orsak | Hur du åtgärdar |
+| ---   | ---        |
+| Beroende på storleken på din klient kan kan det här steget ta allt från några minuter och 30 minuter. | Om meddelandet inte ändras till som visar instrumentpanelen inom en timme [öppna ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md).|
+  
 ## <a name="next-steps"></a>Nästa steg
 
 * [Installera Power BI-Innehållspaketet](quickstart-install-power-bi-content-pack.md).
-* [Felsöka fel i innehållspaket](troubleshoot-content-pack.md).
 * [Vad är Azure AD-rapporter? ](overview-reports.md).

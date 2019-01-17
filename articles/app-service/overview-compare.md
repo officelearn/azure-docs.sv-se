@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cf73607f0cb286f06a5aa043fd8b30816e6a80f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53729703"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54322035"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Jämförelse mellan Azure App Service, Virtual Machines, Service Fabric och Cloud Services
 
@@ -53,7 +53,7 @@ I följande tabell jämförs funktionerna i App Service, Cloud Services, Virtual
 | Skala ut till flera instanser utan omdistribution |X |X |X |X |Virtual Machines kan skala ut till flera instanser, men tjänsterna som körs på dem måste skrivas om för att hantera utskalningen. Du måste konfigurera en lastbalanserare för att dirigera begäranden mellan datorerna och kontrollera att du har fler än en VM-instans i [tillgänglighetsuppsättningen](../virtual-machines/windows/manage-availability.md). |
 | Stöd för SSL |X |X |X |X |När det gäller App Service-webbappar stöds SSL för anpassade domännamn endast för lägena Basic och Standard. Information om hur du använder SSL med webbappar finns i [Configuring an SSL certificate for an Azure Website](app-service-web-tutorial-custom-ssl.md) (Konfigurera ett SSL-certifikat för en Azure-webbplats). |
 | Integrering med Visual Studio |X |X |X |X | |
-| Fjärrfelsökning |X |X |X | | |
+| Fjärrfelsökning |X |X |X |X | |
 | Distribuera kod med TFS |X |X |X |X | |
 | Nätverksisolering med [Azure Virtual Network](/azure/virtual-network/) |X |X |X |X |Se även [Virtuell nätverksintegrering med Azure Websites](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Stöd för [Azure Traffic Manager](/azure/traffic-manager/) |X |X |X |X | |

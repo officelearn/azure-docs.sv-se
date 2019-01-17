@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/14/2018
 ms.custom: seodec18
-ms.openlocfilehash: db853be456dbf893163f53bbc797cf12172d38b7
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261102"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353234"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -264,15 +264,15 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
 1. Installera och bifoga Azure Machine Learning SDK-paketet i ditt kluster.  
 
-    * [Skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) med någon av de här inställningarna (Välj endast en av dessa alternativ):
+    * [Skapa ett bibliotek](https://docs.databricks.com/user-guide/libraries.html#create-a-library) med någon av de här inställningarna (_Välj endast en av dessa alternativ_):
     
-        * Installera Azure Machine Learning SDK utan automatisk machine learning-funktionen:
+        * Installera Azure Machine Learning SDK _utan_ automatiserad machine learning-funktionen:
             | Inställning | Värde |
             |----|---|
             |Källa | Ladda upp Python ägg eller PyPI
             |Namn på PyPi | azureml-sdk[databricks]
     
-        * Installera Azure Machine Learning-SDK med automatiserade machine learning:
+        * Installera Azure Machine Learning SDK _med_ automatiserad maskininlärning:
             | Inställning | Värde |
             |----|---|
             |Källa | Ladda upp Python ägg eller PyPI
@@ -286,9 +286,11 @@ Förbereda din Databricks-klustret och får exempelanteckningsböcker:
 
     Om du har en äldre version av SDK, avmarkera den från klustrets installerade libs och flytta till Papperskorgen. Installera den nya versionen av SDK och starta om klustret. Om det finns ett problem efter det, frånkoppla eller återansluta ditt kluster.
 
-    När du är klar bifogas i biblioteket som du ser i följande bild. Tänk på dessa [vanliga problem med Databricks](resource-known-issues.md#databricks).
+    När du är klar bifogas i biblioteket enligt följande bilder. Tänk på dessa [vanliga problem med Databricks](resource-known-issues.md#databricks).
 
-   ![SDK är installerat på Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+    * Om du har installerat Azure Machine Learning SDK _utan_ automatiserad maskininlärning ![SDK utan automatisk maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/amlsdk-withoutautoml.jpg)
+
+    * Om du har installerat Azure Machine Learning SDK _med_ automatiserad maskininlärning ![SDK med automatiserade maskininlärning som installerats på Databricks ](./media/how-to-configure-environment/automlonadb.jpg)
 
    Om det här steget misslyckas, startar du om ditt kluster genom att göra följande:
 

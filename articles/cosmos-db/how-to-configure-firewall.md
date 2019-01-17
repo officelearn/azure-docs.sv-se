@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 7d451f7eae16426c85ed5540b35993cd9b218b83
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d209e1f6924e5c7d6bba7512606504b7165f0ed3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033170"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359433"
 ---
 # <a name="configure-an-ip-firewall-for-your-azure-cosmos-db-account"></a>Konfigurera en IP-Brandvägg för Azure Cosmos DB-kontot
 
@@ -145,10 +145,10 @@ Du kan felsöka problem med en IP-principer för åtkomstkontroll med hjälp av 
 Genom att aktivera en IP-principer för åtkomstkontroll för ditt Azure Cosmos DB-konto kan blockera du alla begäranden till ditt konto från datorer som inte listan över tillåtna för IP-adressintervall. Om du vill aktivera dataplanet åtgärder som surfning behållare och Frågedokument, du måste uttryckligen tillåta åtkomst i Azure portal med hjälp av den **brandväggen** rutan i portalen.
 
 ### <a name="sdks"></a>SDK:er 
-När du får åtkomst till Azure Cosmos DB-resurser med hjälp av SDK: er från datorer som inte ingår i listan över tillåtna, en allmän **404 hittades inte** svar returneras utan ytterligare information. Kontrollera listan över tillåtna IP för ditt konto och se till att rätt principkonfigurationen tillämpas på ditt Azure Cosmos DB-konto. 
+När du får åtkomst till Azure Cosmos DB-resurser med hjälp av SDK: er från datorer som inte ingår i listan över tillåtna, en allmän **403 Åtkomst nekas** svar returneras utan ytterligare information. Kontrollera listan över tillåtna IP för ditt konto och se till att rätt principkonfigurationen tillämpas på ditt Azure Cosmos DB-konto. 
 
 ### <a name="source-ips-in-blocked-requests"></a>Käll-IP-adresser i blockerade begäranden
-Aktivera Diagnostisk loggning på ditt Azure Cosmos DB-konto. De här loggarna visar varje begäran och svar. -Brandväggen-meddelanden loggas internt 403 koden. Du kan se källan IP-adresser för blockerade begäranden genom att filtrera dessa meddelanden. Se [Diagnostisk loggning för Azure Cosmos DB](logging.md).
+Aktivera Diagnostisk loggning på ditt Azure Cosmos DB-konto. De här loggarna visar varje begäran och svar. -Brandväggen-meddelanden loggas 403 koden. Du kan se källan IP-adresser för blockerade begäranden genom att filtrera dessa meddelanden. Se [Diagnostisk loggning för Azure Cosmos DB](logging.md).
 
 ### <a name="requests-from-a-subnet-with-a-service-endpoint-for-azure-cosmos-db-enabled"></a>Begäranden från ett undernät med en tjänstslutpunkt för Azure Cosmos DB-aktiverad
 Begäranden från ett undernät i ett virtuellt nätverk som har en tjänstslutpunkt för Azure Cosmos DB är aktiverat skickar virtuella nätverk och undernät identiteten till Azure Cosmos DB-konton. Dessa begäranden har inte den offentliga IP-Adressen för källan, så att IP-filter avvisa dem. Lägg till en åtkomstkontrollista för att tillåta åtkomst från specifika undernät i virtuella nätverk, som beskrivs i [så här konfigurerar du virtuellt nätverk och undernät-baserad åtkomst för Azure Cosmos DB-kontot](how-to-configure-vnet-service-endpoint.md). Det kan ta upp till 15 minuter för brandväggsregler för att tillämpa.

@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 12/4/2018
+ms.date: 1/16/2019
 ms.author: victorh
-ms.openlocfilehash: 663ba97ce96244aa890bef45d1229c12ca170802
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 1d4182f491dae9597add4b688b89faa9dd291429
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880156"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352938"
 ---
 # <a name="azure-dns-faq"></a>Vanliga frågor och svar med Azure DNS
 
@@ -94,7 +94,7 @@ Funktionen omdirigerings-URL spåras i Azure DNS-eftersläpning. Använda webbpl
 
 Ja. Azure DNS stöder utökad ASCII kodning set TXT postuppsättningar. Men du måste använda den senaste versionen av Azure REST API: er, SDK: er, PowerShell och CLI. Versioner som är äldre än den 1 oktober 2017 eller SDK 2.1 stöder inte utökade ASCII-uppsättningen. 
 
-En användare kan till exempel ange en sträng som värde för en TXT-post som har utökade ASCII-tecken \128. Ett exempel är ”abcd\128efgh”. Azure DNS använder byte-värde för det här tecknet som är 128, i intern representation. Vid tidpunkten för DNS-matchning returneras bytevärdet i svaret. Observera också att ”abc” och ”\097\098\099” är utbytbara upplösning fråga. 
+Du kan till exempel ange en sträng som värde för en TXT-post som har utökade ASCII-tecken \128. Ett exempel är ”abcd\128efgh”. Azure DNS använder byte-värde för det här tecknet som är 128, i intern representation. Vid tidpunkten för DNS-matchning returneras bytevärdet i svaret. Observera också att ”abc” och ”\097\098\099” är utbytbara upplösning fråga. 
 
 Vi följer [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) zon filen master format escape-regler för TXT-poster. Till exempel `\` nu faktiskt Undertrycker allt per RFC. Om du anger `A\B` som poster värde TXT det representeras och löst som bara `AB`. Om du verkligen TXT-posten har `A\B` med upplösning som är du behöver att undvika den `\` igen. Till exempel ange `A\\B`.
 
@@ -133,7 +133,7 @@ Ja. För att peka mot en Traffic Manager-profil som ett alias från ett A eller 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>Finns det en extra avgift för att använda alias poster?
 Alias poster är en kvalifikation på en giltig DNS-postuppsättning. Det finns inga ytterligare faktureringen för alias poster.
 
-## <a name="use-azure-dns"></a>Använda Azure DNS
+## <a name="use-azure-dns"></a>Use Azure DNS
 
 ### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Kan jag cohost en domän med hjälp av Azure DNS och en annan DNS-provider?
 
@@ -195,7 +195,7 @@ Konvertera zonnamn eller postuppsättningsnamnet till punycode om du vill konfig
 
 Stöd för privata domäner implementeras med hjälp av funktionen privata zoner. Den här funktionen är för närvarande tillgängligt som offentlig förhandsversion. Privata zoner hanteras genom att använda samma verktyg som internet-ansluten Azure DNS-zoner. De är matchas från i de angivna virtuella nätverken. Mer information finns i den [översikt](private-dns-overview.md).
 
-För närvarande stöds inte privata zoner på Azure portal. 
+Privata zoner stöds för närvarande inte på Azure portal.
 
 Information om andra interna DNS-alternativ i Azure finns i [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
@@ -217,7 +217,7 @@ Ja. Kunder kan associera upp till 10 virtuella matchningsnätverk med en privat 
 
 ### <a name="can-a-virtual-network-that-belongs-to-a-different-subscription-be-added-as-a-resolution-virtual-network-to-a-private-zone"></a>Kan ett virtuellt nätverk som hör till en annan prenumeration läggas till som ett virtuellt nätverk för lösning till en privat zon?
 
-Ja. Användaren måste ha skrivbehörighet för åtgärden på de virtuella nätverken och privata DNS-zonen. Skrivbehörighet kan beviljas till flera RBAC-roller. Till exempel har klassiska nätverk deltagare RBAC-roller skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
+Ja. Du måste ha skrivbehörighet för åtgärden på de virtuella nätverken och privata DNS-zonen. Skrivbehörighet kan beviljas till flera RBAC-roller. Till exempel har klassiska nätverk deltagare RBAC-roller skrivbehörighet till virtuella nätverk. Mer information om RBAC-roller finns i [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
 
 ### <a name="will-the-automatically-registered-virtual-machine-dns-records-in-a-private-zone-be-automatically-deleted-when-the-virtual-machines-are-deleted-by-the-customer"></a>Automatiskt registrerade VM DNS-poster i en privat zon raderas automatiskt när de virtuella datorerna har tagits bort av kunden?
 
@@ -257,7 +257,7 @@ Ja. Den offentliga förhandsversionen finns följande begränsningar.
 * Om ett virtuellt nätverk för registrering har angetts, kan DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte visas eller hämtas från PowerShell, CLI eller API: er. VM-poster har registrerats och lösa har.
 * Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
 * Omvänd DNS för en privat IP-adress som inte är registrerat i den privata zonen returnerar ”internal.cloudapp.net” som DNS-suffix. Detta suffix får inte vara löst. Ett exempel är en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk lösning till en privat zon.
-* Ett virtuellt nätverk kan inte ha några virtuella datorer med ett nätverkskort anslutna när den länkar för första gången för att en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket måste alltså vara tom. Det virtuella nätverket sedan kan inte vara tom för att framtida länka som ett registrering eller matchning virtuellt nätverk till andra privata zoner. 
+* Ett virtuellt nätverk måste anges när den länkar för första gången för att en privat zon som ett virtuellt nätverk för registrering eller matchning. Det virtuella nätverket sedan kan inte vara tom för att framtida länka som ett registrering eller matchning virtuellt nätverk till andra privata zoner.
 * Villkorlig vidarebefordran stöds inte, till exempel om du vill aktivera matchning mellan Azure och lokala nätverk. Lär dig hur kunderna kan få det här scenariot via andra mekanismer. Se [namnmatchning för virtuella datorer och rollinstanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Finns det någon kvoter eller gränser för zoner eller poster för privata zoner?

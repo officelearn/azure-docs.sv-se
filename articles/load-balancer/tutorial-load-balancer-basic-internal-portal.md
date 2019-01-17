@@ -5,6 +5,7 @@ description: Den här självstudien beskriver hur du skapar en grundläggande in
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internal traffic to virtual machines within a specific zone in a region.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 1ed77e8573479665d0caac15941d6b6c6ab790cb
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 16c9eea61391511f7515308131b3541e186cd7ae
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262358"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232625"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Självstudie: Balansera intern trafikbelastning med en grundläggande lastbalanserare på Azure-portalen
 
@@ -43,7 +44,7 @@ Först skapar du ett virtuellt nätverk (VNet). I det virtuella nätverket skapa
    
    - **Namn**: Skriv *MyVNet*.
    - **ResourceGroup**: Välj **Skapa ny**, ange *MyResourceGroupLB* och välj **OK**. 
-   - **Undernät** > **Namn**: Skriv *myBackendSubnet*.
+   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 

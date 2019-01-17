@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: diberry
-ms.openlocfilehash: 18c9eace306522f9ac9f04e19b9571db67561ae0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725071"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359450"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -116,7 +116,7 @@ Ansikts-behållaren lagrar blob, cache, metadata och data i kön, beroende på v
   Ansikts-behållare använder Azure Storage och Azure Cosmos DB för att distribuera dessa fyra typer av data till beständig lagring. BLOB-och kön hanteras av Azure Storage. Metadata och cache hanteras av Azure Cosmos DB. Om Ansikts-behållaren stoppas eller tas bort, förblir alla data i lagring för den behållaren lagras i Azure Storage och Azure Cosmos DB.  
   De resurser som används av Azure storage-scenariot har följande ytterligare krav
   * Azure Storage-resursen måste använda StorageV2-kontotyp
-  * Azure Cosmos DB-resursen måste använda Azure Cosmos DB för MongoDB-API
+  * Azure Cosmos DB-resursen måste använda Azure Cosmos DB: s API för MongoDB
 
 Storage-scenarier och tillhörande konfigurationsinställningar som hanteras av den `Storage` objekt under den `CloudAI` konfigurationsavsnittet. Följande inställningar är tillgängliga i den `Storage` objekt:
 

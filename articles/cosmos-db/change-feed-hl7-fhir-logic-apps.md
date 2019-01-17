@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 02/08/2017
 ms.author: sngun
-ms.openlocfilehash: 0ff92ad58cc8b7206b7061c88f8aadbb701870f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 765596500e3ac294dc79f0785b12b03370fa652a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044526"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354492"
 ---
 # <a name="notifying-patients-of-hl7-fhir-health-care-record-changes-using-logic-apps-and-azure-cosmos-db"></a>Meddela patienter av HL7 FHIR hälsovård poständringar med Logic Apps och Azure Cosmos DB
 
@@ -91,7 +91,7 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
 - Int: Antal dokument som returneras
 
 **Utdata**
-- Klart: Statuskod: 200 svaret: Lista över dokument (JSON-matris)
+- Klart: Statuskod: 200, Response: Lista över dokument (JSON-matris)
 - Fel: Statuskod: 404 svaret: ”Inga dokument hittades för”*resursnamn '* resurstyp ”
 
 <a id="api-app-source"></a>
@@ -130,11 +130,11 @@ Vi använder den [ `CreateDocumentChangeFeedQuery` ](https://msdn.microsoft.com/
             /// <param name="maximumItemCount">-1 returns all (default)</param>
             /// <returns></returns>
             [Metadata("Get New or Modified FHIR Documents",
-                "Query for new or modifed FHIR Documents By Resource Type " +
+                "Query for new or modified FHIR Documents By Resource Type " +
                 "from Last Run Date or Beginning of Collection creation"
             )]
             [SwaggerResponse(HttpStatusCode.OK, type: typeof(Task<dynamic>))]
-            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modifed Documents found")]
+            [SwaggerResponse(HttpStatusCode.NotFound, "No New or Modified Documents found")]
             [SwaggerOperation("GetNewOrModifiedFHIRDocuments")]
             public async Task<dynamic> GetNewOrModifiedFhirDocuments(
                 [Metadata("Database Id", "Database Id")] string databaseId,
@@ -217,11 +217,11 @@ Följande bild visar alla Azure-tjänster för den här lösningen körs i Azure
 
 ## <a name="summary"></a>Sammanfattning
 
-- Du har lärt dig att Azure Cosmos DB har inbyggd stöd för meddelanden om nya eller ändras dokument och hur enkelt det är att använda. 
+- Du har lärt dig att Azure Cosmos DB har inbyggt stöd för meddelanden för nya eller ändrade dokument och hur enkelt det är att använda. 
 - Genom att använda Logic Apps kan du skapa arbetsflöden utan att behöva skriva någon kod.
 - Med Azure Service Bus-köer för att hantera fördelningen för HL7 FHIR-dokument.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Cosmos DB finns i den [startsidan för Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Mer information om Logic Apps finns i [Logikappar](https://azure.microsoft.com/services/logic-apps/).
+Mer information om Azure Cosmos DB finns i den [startsidan för Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Läs mer om Logic Apps, [Logikappar](https://azure.microsoft.com/services/logic-apps/).
 
 

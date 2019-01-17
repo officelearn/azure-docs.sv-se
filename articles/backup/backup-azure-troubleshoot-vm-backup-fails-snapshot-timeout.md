@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 2c4c2982febf1d81aaaa81bb9c894785b860503b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200094"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353971"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -54,7 +54,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 Rekommenderad åtgärd:<br>
 Häv spärren för resursgruppen för den virtuella datorn för att lösa problemet och försök igen för att utlösa rensningen.
 > [!NOTE]
-    > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` t.ex.: AzureBackupRG_northeurope_1
+    > Backup-tjänsten skapar en separat resursgrupp än resursgruppen för den virtuella datorn att lagra samling med återställningspunkter. Kunder bör inte låsa resursgruppen som skapades för användning av Backup-tjänsten. Namnformatet för resursgruppen som skapades av Backup-tjänsten är: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 **Steg 1: [Ta bort låset från resursgruppen återställningspunkt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
@@ -122,33 +122,8 @@ Per distributionskrav har inte den virtuella datorn Internetåtkomst. Eller så 
 
 För att fungera korrekt, kräver att säkerhetskopieringstillägget anslutning till Azure offentliga IP-adresser. Tillägget skickar kommandon till Azure storage-slutpunkt (HTTPs-URL) för hantering av ögonblicksbilder av den virtuella datorn. Om tillägget inte har åtkomst till det offentliga internet, misslyckas säkerhetskopieringen så småningom.
 
-Det är möjligt att distribuera en proxyserver för att dirigera trafik för virtuella datorer.
-##### <a name="create-a-path-for-https-traffic"></a>Skapa en sökväg för HTTPs-trafik
-
-1. Om du har nätverksbegränsningar på plats (till exempel en nätverkssäkerhetsgrupp) kan du distribuera en proxyserver används HTTPs för att dirigera trafiken.
-2. För att tillåta åtkomst till internet från proxyservern HTTPs, att lägga till regler för nätverkssäkerhetsgruppen, om du har en.
-
-Läs hur du ställer in en HTTPs-proxy för VM-säkerhetskopieringar i [förbereda din miljö för att säkerhetskopiera virtuella Azure-datorer](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-
-Den säkerhetskopierade virtuella datorn eller proxyservern som trafiken dirigeras kräver åtkomst till Azures offentliga IP-adresser
-
 ####  <a name="solution"></a>Lösning
-Lös problemet genom att prova någon av följande metoder:
-
-##### <a name="allow-access-to-azure-storage-that-corresponds-to-the-region"></a>Tillåt åtkomst till Azure storage som motsvarar regionen
-
-Du kan använda [tjänsttaggar](../virtual-network/security-overview.md#service-tags) att tillåta anslutningar till lagring för den specifika regionen. Kontrollera att den regel som tillåter åtkomst till storage-kontot har högre prioritet än regeln som blockerar Internetåtkomst.
-
-![Nätverkssäkerhetsgruppen med storage-taggar för en region](./media/backup-azure-arm-vms-prepare/storage-tags-with-nsg.png)
-
-För att förstå de steg för steg hur du konfigurerar tjänsttaggar, se [videon](https://youtu.be/1EjLQtbKm1M).
-
-> [!WARNING]
-> Tjänsttaggar för lagring finns i förhandsversion. De är tillgängliga i specifika regioner. En lista över regioner finns i [Tjänsttaggar för lagring](../virtual-network/security-overview.md#service-tags).
-
-Om du använder Azure Managed Disks kan behöva du ett inledande ytterligare porten (port 8443) i brandväggar.
-
-Om undernätet inte har en väg för utgående Internettrafik, måste du dessutom lägga till en slutpunkt med tjänsttagg ”Microsoft.Storage” i undernätet används.
+Lös nätverksproblemet, se [nätverksanslutningen](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agenten är installerad på den virtuella datorn, men det är inte svarar (för Windows virtuella datorer)
 

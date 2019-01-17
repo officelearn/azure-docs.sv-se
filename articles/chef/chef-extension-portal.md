@@ -8,26 +8,27 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: e5de21e8e493871150d302f1d2c0e31d067affde
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 336ac6b81a56797ad1c1254322dbeec3e36914f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051336"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358158"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Installera klienten Chef i Azure Portal
-När du skapar eller ändrar en Linux eller Windows-dator från Azure-portalen kan du lägga till tillägget Chef till den virtuella datorn. Den här artikeln vägleder dig igenom processen med hjälp av en ny virtuell Linux-dator.
+Du kan lägga till tillägget Chef klienten direkt på en Linux- eller Windows-dator från Azure-portalen. Den här artikeln vägleder dig genom processen med hjälp av en ny virtuell Linux-dator.
 
 ## <a name="prerequisites"></a>Förutsättningar
+
 - **Azure-prenumeration**: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-- **Chef**: Om du inte har ett aktivt konto Chef kan registrera dig för en [kostnadsfri utvärderingsversion av värdbaserade Chef](https://manage.chef.io/signup). Om du vill följa anvisningarna i den här artikeln behöver du följande värden från din Chef-konto: 
-    - organization_validation nyckel
-    - RB
-    - run_list
+- **Chef**: Om du inte har ett aktivt konto Chef kan registrera dig för en [kostnadsfri utvärderingsversion av värdbaserade Chef](https://manage.chef.io/signup). Om du vill följa anvisningarna i den här artikeln behöver du följande värden från din Chef-konto:
+  - organization_validation nyckel
+  - rb
+  - run_list
 
 ## <a name="install-the-chef-extension-on-a-new-linux-virtual-machine"></a>Installera tillägget Chef på en ny virtuell Linux-dator
-I det här avsnittet använder du först Azure portal för att skapa en Linux-dator. Under processen kan se du också hur du installerar tillägget Chef på den nya virtuella datorn.
+I det här avsnittet ska du först använda Azure-portalen för att skapa en Linux-dator. Under processen visas också hur du installerar tillägget Chef på den nya virtuella datorn.
 
 1. Bläddra till [Azure-portalen](http://portal.azure.com).
 
@@ -81,13 +82,13 @@ I det här avsnittet använder du först Azure portal för att skapa en Linux-da
 
 1. På den **installera tillägget** fliken, ange följande värden och därefter **OK**.
 
-    - **Chef-Serveradress** – ange Webbadressen för Chef-Server som innehåller organisationsnamnet på, till exempel *https://api.chef.io/organization/hessco*.
+    - **Chef-Serveradress** – ange Webbadressen för Chef-Server som innehåller organisationsnamnet på, till exempel *https://api.chef.io/organization/mycompany*.
     - **Chef nodnamnet** – ange namnet på Chef noden. Detta kan vara vilket värde som helst.
     - **Kör listan** -ange Chef kör-lista som har lagts till datorn. Detta kan vara tomt.
     - **Verifiering klientnamn** -ange namn för Chef verifiering klient. till exempel *tarcher verifieraren*.
-    - **Valideringsnyckel** -Välj en fil som innehåller valideringsnyckel som används vid start av dina datorer. 
+    - **Valideringsnyckel** -Välj en fil som innehåller valideringsnyckel som används vid start av dina datorer.
     - **Klientkonfigurationsfilen** -Välj en konfigurationsfil för chef-klient. Detta kan vara tomt.
-    - **Chef-klientversionen** – ange vilken version av klienten chef att installera. Detta kan vara tomt. Ett tomt värde leder till den senaste versionen som installeras. 
+    - **Chef-klientversionen** – ange vilken version av klienten chef att installera. Detta kan vara tomt. Ett tomt värde installerar den senaste versionen.
     - **SSL-verifieringsläge** – Välj antingen **ingen** eller **Peer**. *Ingen* har valts för demon.
     - **Chef miljö** – ange den här noden ska vara medlem i Chef miljön. Detta kan vara tomt.
     - **Krypterad Databag hemlighet** -Välj en fil som innehåller hemligheten för den krypterade Databag den här datorn ska ha åtkomst till. Detta kan vara tomt.
@@ -106,4 +107,5 @@ När processen för att skapa och distribuera den virtuella datorn med Chef-till
 ![Installera Chef-servern på en Linux-dator](./media/chef-extension-portal/resource-created.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Skapa en virtuell Windows-dator på Azure med Chef](/azure/virtual-machines/windows/chef-automation)
+
+- [Skapa en virtuell Windows-dator på Azure med Chef](/azure/virtual-machines/windows/chef-automation)

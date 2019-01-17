@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1c8af3e0d3d5d29531a2ba81abc745fcdca5fb08
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 065695f9ce0f0d8dfbb9a43877131c8ab7fada5e
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231911"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354327"
 ---
 # <a name="understand-role-definitions"></a>Förstå rolldefinitioner
 
@@ -173,7 +173,11 @@ Om du vill visa och arbeta med dataåtgärder, måste du ha rätt versioner av v
 | [Azure för Python](/python/azure) | 0.40.0 eller senare |
 | [Azure SDK för Ruby](https://rubygems.org/gems/azure_sdk) | 0.17.1 eller senare |
 
-Azure-portalen tillåter även användare att söka efter och hantera innehållet i köer och Blob förhandsgranskningsupplevelsen för behållare via Azure AD. Klicka på länken ”utforska data med hjälp av Azure AD-preview” för lagringskontot översikt om du vill se och hantera innehållet i en kö eller Blob-behållare.
+Om du vill visa och använda dataåtgärderna i REST-API, måste du ställa in den **api-versionen** parametern till följande version eller senare:
+
+- 2018-01-01-preview
+
+Azure-portalen tillåter även användare att söka efter och hantera innehållet i köer och Blob förhandsgranskningsupplevelsen för behållare via Azure AD. Att visa och hantera innehållet i en kö eller Blob-behållare klickar du på den **utforska data med hjälp av Azure AD-preview** för lagringskontot Översikt.
 
 ![Utforska köer och Blob-behållare med hjälp av Azure AD-förhandsversion](./media/role-definitions/rbac-dataactions-browsing.png)
 

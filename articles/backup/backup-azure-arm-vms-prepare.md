@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: raynew
-ms.openlocfilehash: a7a2d8729e1abdafa89eff912faf84d8f247b442
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 65e4c6d66e410e8cd761128028b7a47e21db86eb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215447"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354509"
 ---
 # <a name="prepare-to-back-up-azure-vms"></a>Förbereda säkerhetskopiering av virtuella Azure-datorer
 
@@ -61,8 +61,6 @@ Den här artikeln beskriver hur du förbereder för att säkerhetskopiera en vir
     - Du behöver inte ange lagringskonton för att lagra säkerhetskopierade data. Valvet och tjänsten Azure Backup hanterar du som automatiskt.
 - Kontrollera att den Virtuella datoragenten är installerad på Azure virtuella datorer som du vill säkerhetskopiera.
 
-
-
 ### <a name="install-the-vm-agent"></a>Installera VM-agenten
 
 Om du vill aktivera säkerhetskopiering av installerar Azure Backup säkerhetskopieringstillägget (ögonblicksbild för virtuell dator eller virtuell dator ögonblicksbild Linux) till VM-agenten som körs på Azure VM.
@@ -71,7 +69,7 @@ Om du vill aktivera säkerhetskopiering av installerar Azure Backup säkerhetsko
 
 Om det behövs installerar du agenten på följande sätt.
 
-**VIRTUELL DATOR** | **Detaljer**
+**VM** | **Detaljer**
 --- | ---
 **Virtuella Windows-datorer** | [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agenten med administratörsbehörighet på datorn.<br/><br/> Verifiera installationen, i *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på WaAppAgent.exe > **egenskaper**, > **information** fliken. **Produktversion** ska vara 2.6.1198.718 eller högre.
 **Virtuella Linux-datorer** | Installationen med hjälp av en RPM- eller DEB-paketet från paketdatabasen för din distribution är den bästa metoden för att installera och uppgradera Azure Linux Agent. Alla de [godkända distribution providers](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrera Azure Linux-agenten i sina avbildningar och databaser. Agenten är tillgängligt på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att installera därifrån.
@@ -79,12 +77,14 @@ Om du har problem med säkerhetskopiering av Virtuella Azure kan du använda fö
 
 ### <a name="establish-network-connectivity"></a>Etablera nätverksanslutning
 
-Säkerhetskopieringstillägget som körs på den virtuella datorn måste ha utgående åtkomst till Azure offentliga IP-adresser. För att tillåta åtkomst kan du:
+Säkerhetskopieringstillägget som körs på den virtuella datorn måste ha utgående åtkomst till Azure offentliga IP-adresser.
 
+> [!NOTE]
+> Ingen åtkomst explicit utgående nätverkstrafik måste anges för virtuella Azure-datorn att kommunicera med Azure Backup-tjänsten. Men vissa äldre virtuella datorer kan få problem med att och misslyckas med fel **ExtensionSnapshotFailedNoNetwork**, för att lösa det här felet, väljer du något av följande alternativ för att tillåta säkerhetskopieringstillägget att kommunicera med Azure offentliga IP-adresser för att tillhandahålla ett tydligt sätt för säkerhetskopieringen.
 
-- **NSG-regler**: Tillåt den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Du kan lägga till en regel som tillåter åtkomst till Azure Backup-tjänsten med en [servicetagg](../virtual-network/security-overview.md#service-tags), i stället för enskilt så att varje adressintervall och hantera dem över tid.
+- **NSG-regler**: Tillåt den [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Du kan lägga till en regel som tillåter åtkomst till Azure Backup-tjänsten med en [servicetagg](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure), i stället för enskilt så att varje adressintervall och hantera dem över tid. Mer information om tjänsttagg finns i den här [artikeln](../virtual-network/security-overview.md#service-tags).
 - **Proxy**: Distribuera en HTTP-proxyserver dirigeras trafiken.
-- **Azure-brandväggen**: Tillåta trafik via Azure-brandväggen på den virtuella datorn med ett FQDN-taggen för Azure Backup-tjänsten.
+- **Azure-brandväggen**: Tillåta trafik via Azure-brandväggen på den virtuella datorn med ett FQDN-taggen för Azure Backup-tjänsten
 
 Tänk på kompromisser när du bestämmer mellan alternativen.
 
@@ -94,22 +94,17 @@ Tänk på kompromisser när du bestämmer mellan alternativen.
 **HTTP-proxy** | Detaljerad kontroll över storage-URL: er tillåts.<br/><br/> Enskild punkt för Internetåtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.
 **FQDN-taggar** | Enkelt att använda om du har Azure brandväggen ställts in i ett undernät för virtuellt nätverk | Det går inte att skapa dina egna FQDN-taggar eller ändra FQDN: er i en tagg.
 
-
-
 Om du använder Azure Managed Disks kan behöva du ett inledande ytterligare porten (port 8443) i brandväggar.
-
-
 
 ### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Konfigurera en NSG-regel för att tillåta utgående åtkomst till Azure
 
 Om din virtuella Azure-datorn har åtkomst som hanteras av en NSG, Tillåt utgående åtkomst för säkerhetskopieringslagring till nödvändiga intervall och portar.
 
-
-
 1. I den virtuella datorn > **nätverk**, klickar du på **Lägg till regel för utgående port**.
-- Om du har en regel som nekar åtkomst kan kan de nya regeln måste vara högre. Exempel: Om du har en **Deny_All** regeluppsättning med prioritet 1000, din nya regel måste anges till mindre än 1 000.
+
+  - Om du har en regel som nekar åtkomst kan kan de nya regeln måste vara högre. Exempel: Om du har en **Deny_All** regeluppsättning med prioritet 1000, din nya regel måste anges till mindre än 1 000.
 2. I **Lägg till utgående säkerhetsregel**, klickar du på **Avancerat**.
-3. I källan, Välj **VirtualNetwork**.
+3. I **källa**väljer **VirtualNetwork**.
 4. I **Source portintervall**, en asterisk (*) anger att tillåta utgående åtkomst från alla portar.
 5. I **mål**väljer **Tjänsttagg**. Välj lagring i listan. <region>. Regionen är den region som valvet och de virtuella datorerna som du vill säkerhetskopiera finns.
 6. I **målportsintervall**, markera porten.
@@ -117,9 +112,9 @@ Om din virtuella Azure-datorn har åtkomst som hanteras av en NSG, Tillåt utgå
     - Virtuell dator med ohanterade diskar och okrypterat lagringskonto: 80
     - Virtuell dator med ohanterade diskar och krypterade storage-konto: 443 (standardinställning)
     - Den hanterade virtuella datorn: 8443.
-1. I **protokollet**väljer **TCP**.
-2. I **prioritet**, ge den ett prioritetsvärde mindre än högre neka regler.
-3. Ange ett namn och beskrivning för regeln och klickar på **OK**.
+7. I **protokollet**väljer **TCP**.
+8. I **prioritet**, ge den ett prioritetsvärde mindre än högre neka regler.
+9. Ange ett namn och beskrivning för regeln och klickar på **OK**.
 
 Du kan använda NSG-regel för att tillåta utgående åtkomst till Azure för Azure Backup på flera virtuella datorer.
 
@@ -127,12 +122,12 @@ Den här videon går igenom processen.
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-
+> [!WARNING]
+> Tjänsttaggar för lagring finns i förhandsversion. De är tillgängliga i specifika regioner. En lista över regioner finns i [Tjänsttaggar för lagring](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="route-backup-traffic-through-a-proxy"></a>Backup-trafik via en proxy
 
 Du kan dirigera säkerhetskopiering trafik via en proxyserver och sedan ge proxy-åtkomst till de nödvändiga Azure intervall.
-
 Du bör konfigurera proxyn VM att tillåta följande:
 
 - Azure VM ska vidarebefordra alla HTTP-trafik som är bunden till det offentliga internet via proxy.
@@ -154,7 +149,7 @@ Om du inte har en proxy för system-konto, konfigurera en enligt följande:
         - Lägg till följande rader till den **/etc/waagent.conf** fil:
             - **HttpProxy.Host=proxy IP-adress**
             - **HttpProxy.Port=proxy port**
-    - Ange att en proxyserver ska användas på Windows-datorer i inställningarna för webbläsaren. Om du använder en proxyserver för ett användarkonto, kan du använda det här skriptet för att använda inställningen på systemnivå-konto.
+    - Ange att en proxyserver ska användas på Windows-datorer i inställningarna för webbläsaren. Om du använder en proxyserver för ett användarkonto, kan du använda det här skriptet för att använda inställningen på kontonivå system.
         ```
        $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
        Set-ItemProperty -Path Registry::”HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
@@ -167,8 +162,9 @@ Om du inte har en proxy för system-konto, konfigurera en enligt följande:
 
 #### <a name="allow-incoming-connections-on-the-proxy"></a>Tillåt inkommande anslutningar på proxyn
 
-1. Tillåt inkommande anslutningar i proxyinställningarna.
-2. Till exempel öppna **Windows-brandväggen med avancerad säkerhet**.
+Tillåt inkommande anslutningar i proxyinställningarna.
+
+- Till exempel öppna **Windows-brandväggen med avancerad säkerhet**.
     - Högerklicka på **regler för inkommande** > **ny regel**.
     - I **regeltyp** Välj **anpassade** > **nästa**.
     - I **programmet**väljer **alla program** > **nästa**.
@@ -186,13 +182,13 @@ På NSG: N **NSF låsning**, tillåta trafik från alla portar på 10.0.0.5 till
     Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
     Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
     ```
+
 ### <a name="allow-firewall-access-with-fqdn-tag"></a>Tillåt brandväggsåtkomst med FQDN-tagg
 
 Du kan ställa in Azure-brandväggen att tillåta utgående åtkomst för trafik till Azure Backup.
 
 - [Lär dig mer om](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) distribuera Azure-brandvägg.
 - [Läs mer om](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN-taggar.
-
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
@@ -227,7 +223,7 @@ När valvet har skapats visas den i listan över Recovery Services-valv. Om du i
 
 ## <a name="set-up-storage-replication"></a>Konfigurera lagringsreplikering
 
-Valvet har som standard [geo-redundant lagring (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Vi rekommenderar GRS för din primära säkerhetskopia, men du kan använda[lokalt redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för ett billigare alternativ. 
+Valvet har som standard [geo-redundant lagring (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs). Vi rekommenderar GRS för din primära säkerhetskopia, men du kan använda[lokalt redundant lagring](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för ett billigare alternativ.
 
 Ändra storage-replikering på följande sätt:
 

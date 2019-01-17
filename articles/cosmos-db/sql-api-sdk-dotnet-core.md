@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 5eb04f30fd6766b8df65998b8a4d53797b8341ba
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 95ebdd74fa8be433c7a31f79ad36d4645bc57318
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053559"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354526"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -68,7 +68,7 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 
 * Lagt till TransportException, en typ av interna undantag av SDK direkt/TCP-transport diagnostik. När det finns i undantag meddelanden, skriver den här typen ytterligare information för felsökning av anslutningsproblem för klienten.
 
-* Har lagts till nya constuctor överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
+* Har lagts till nya konstruktorn överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
 
 * Åtgärda fel där huvud med null-värden har inte hanteras korrekt.
 
@@ -121,7 +121,7 @@ Azure Cosmos DB .NET Core SDK har funktionsparitet med den senaste versionen av 
 ### <a name="a-name191191"></a><a name="1.9.1"/>1.9.1
 
 * Fast KeyNotFoundException för mellan partition sortering av frågor i specialfall.
-* En bugg har åtgärdats där JsonPropery attribut i select-satsen för LINQ-frågor inte som lösts in.
+* En bugg har åtgärdats där JsonProperty attribut i select-satsen för LINQ-frågor inte som lösts in.
 
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a882ad2bbb700c7d1a1c812d7a05aa14b8038f9a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237972"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359943"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL serverinstansen för Failover-kluster på Azure Virtual Machines
 
@@ -71,10 +71,12 @@ Det finns några saker du behöver veta och några saker som du behöver på pla
 ### <a name="what-to-know"></a>Vad du behöver veta
 Du bör ha en operativ tolkning av följande tekniker:
 
-- [Windows-klusterteknik](https://technet.microsoft.com/library/hh831579.aspx)
-- [Redundanskluster för SQL Server-instanser](https://msdn.microsoft.com/library/ms189134.aspx).
+- [Windows-klusterteknik](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
+- [Redundanskluster för SQL Server-instanser](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-Du bör också ha en förståelse av följande tekniker:
+En viktig skillnad är på en virtuell Azure IaaS-dator gästredundanskluster, rekommenderar vi att ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azure-nätverk har fysiska redundans, vilket gör ytterligare nätverkskort och undernät onödiga på ett gästkluster för virtuella Azure IaaS-datorer. Även om verifieringsrapporten utfärdar en varning att noderna är endast kan nås i ett enda nätverk, kan den här varningen ignoreras på Azure IaaS VM-gästredundanskluster. 
+
+Dessutom bör du ha en förståelse av följande tekniker:
 
 - [Hyperkonvergerad lösning med Lagringsdirigering i Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Azure-resursgrupper](../../../azure-resource-manager/resource-group-portal.md)
@@ -111,12 +113,12 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
    - Klicka på **tillgänglighetsuppsättning**.
    - Klicka på **Skapa**.
    - På den **skapa tillgänglighetsuppsättning** , anger du följande värden:
-      - **Namn på**: ett namn för tillgänglighetsuppsättningen.
-      - **Prenumeration**: din Azure-prenumeration.
+      - **Namn**: Ett namn för tillgänglighetsuppsättningen.
+      - **Prenumeration**: Din Azure-prenumeration.
       - **Resursgrupp**: Om du vill använda en befintlig grupp klickar du på **Använd befintlig** och väljer du gruppen från den nedrullningsbara listan. Annars väljer **Skapa ny** och Skriv ett namn för gruppen.
       - **Plats**: Ange platsen där du tänker skapa virtuella datorer.
-      - **Feldomäner**: Använd förvalet (3).
-      - **Uppdateringsdomäner**: Använd förvalet (5).
+      - **Feldomäner**: Använd standard (3).
+      - **Uppdateringsdomäner**: Använd standard (5).
    - Klicka på **skapa** att skapa tillgängligheten.
 
 1. Skapa de virtuella datorerna i tillgänglighetsuppsättningen.
@@ -139,7 +141,7 @@ Dessa krav är uppfyllda, kan du gå vidare med att skapa redundansklustret. Det
 
    Välj vilken avbildning enligt hur vill du betala för SQL Server-licens:
 
-   - **Betala per användning licensiering**: kostnaden per sekund för dessa avbildningar innehåller SQL Server-licensiering:
+   - **Betala per användning licensiering**: Kostnaden per sekund för dessa avbildningar innehåller SQL Server-licensiering:
       - **SQL Server 2016 Enterprise på Windows Server Datacenter 2016**
       - **SQL Server 2016 Standard på Windows Server Datacenter 2016**
       - **SQL Server 2016 Developer på Windows Server Datacenter 2016**
@@ -345,7 +347,7 @@ När du har konfigurerat failover-kluster och alla komponenter i serverkluster i
    >[!NOTE]
    >Om du använde ett galleri Azure Marketplace-avbildning med SQL Server, ingick SQL Server-verktyg i avbildningen. Om du inte använde den här bilden, installera SQL Server tools separat. Se [ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Steg 5: Skapa en Azure load balancer
+## <a name="step-5-create-azure-load-balancer"></a>Steg 5: Skapa en Azure Load Balancer
 
 På Azure-datorer använder kluster en belastningsutjämnare för en IP-adress som måste finnas på en klusternod åt gången. I den här lösningen innehåller belastningsutjämnaren IP-adressen för SQL Server-Redundansklusterinstanser.
 
@@ -363,12 +365,12 @@ Skapa belastningsutjämnaren:
 
 1. Konfigurera belastningsutjämnaren med:
 
-   - **Namn på**: ett namn som identifierar belastningsutjämnaren.
-   - **Typ**: belastningsutjämnaren kan vara antingen offentliga eller privata. En privat belastningsutjämnare kan nås från inom samma virtuella nätverk. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet, använder du en offentlig belastningsutjämnare.
-   - **Virtuellt nätverk**: samma nätverk som de virtuella datorerna.
-   - **Undernät**: samma undernät som de virtuella datorerna.
-   - **Privat IP-adress**: samma IP-adress som tilldelats nätverksresurs för FCI för SQL Server-kluster.
-   - **Prenumeration**: din Azure-prenumeration.
+   - **Namn**: Ett namn som identifierar belastningsutjämnaren.
+   - **Typ**: Belastningsutjämnaren kan vara antingen offentliga eller privata. En privat belastningsutjämnare kan nås från inom samma virtuella nätverk. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet, använder du en offentlig belastningsutjämnare.
+   - **Virtual Network**: Samma nätverk som de virtuella datorerna.
+   - **Undernät**: Samma undernät som de virtuella datorerna.
+   - **Privat IP-adress**: Samma IP-adress som tilldelats nätverksresurs för FCI för SQL Server-kluster.
+   - **Prenumeration**: Din Azure-prenumeration.
    - **Resursgrupp**: Använd samma resursgrupp som dina virtuella datorer.
    - **Plats**: Använd samma Azure-plats som dina virtuella datorer.
    Se följande bild:
@@ -395,11 +397,11 @@ Skapa belastningsutjämnaren:
 
 1. På den **Lägg till hälsoavsökning** bladet <a name="probe"> </a>ställer in hälsotillståndet avsökningen parametrarna:
 
-   - **Namn på**: ett namn för hälsoavsökningen.
-   - **Protokollet**: TCP.
-   - **Port**: inställt på en tillgänglig TCP-port. Den här porten kräver en öppen brandväggsport. Använd den [samma port](#ports) du angett för hälsoavsökningen i brandväggen.
+   - **Namn**: Ett namn för hälsoavsökningen.
+   - **Protokoll**: TCP.
+   - **Port**: Ange till en tillgänglig TCP-port. Den här porten kräver en öppen brandväggsport. Använd den [samma port](#ports) du angett för hälsoavsökningen i brandväggen.
    - **Intervall**: 5 sekunder.
-   - **Tröskelvärde för ej felfri**: 2 upprepade fel.
+   - **Tröskelvärde för Ej felfri**: 2 upprepade fel.
 
 1. Klicka på OK.
 
@@ -411,15 +413,15 @@ Skapa belastningsutjämnaren:
 
 1. Ange parametrar för regler för belastningsutjämning:
 
-   - **Namn på**: ett namn för regler för belastningsutjämning.
-   - **Frontend-IP-adress**: använda IP-adressen för SQL Server FCI-klusterresursen för nätverket.
-   - **Port**: för SQL Server FCI TCP-port. Instans-standardporten är 1433.
-   - **Serverdelsport**: det här värdet använder samma port som den **Port** värdet när du aktiverar **flytande IP (direkt serverreturnering)**.
+   - **Namn**: Ett namn för regler för belastningsutjämning.
+   - **Frontend-IP-adress**: Använd IP-adressen för SQL Server FCI-klusterresursen för nätverket.
+   - **Port**: Ange för SQL Server FCI TCP-port. Instans-standardporten är 1433.
+   - **Serverdelsport**: Det här värdet använder samma port som den **Port** värdet när du aktiverar **flytande IP (direkt serverreturnering)**.
    - **Serverdelspool**: Använd det namn på serverdelspool som du konfigurerade tidigare.
-   - **Hälsoavsökning**: använda hälsoavsökning som du konfigurerade tidigare.
+   - **Hälsoavsökning**: Använda hälsoavsökning som du konfigurerade tidigare.
    - **Sessionspermanens**: Ingen.
    - **Inaktivitetstid (minuter)**: 4.
-   - **Flytande IP (direkt serverreturnering)**: aktiverat
+   - **Flytande IP (direkt serverreturnering)**: Enabled
 
 1. Klicka på **OK**.
 
@@ -446,7 +448,7 @@ Ange värden för din miljö i föregående skript. I följande lista beskrivs v
 
    - `<SQL Server FCI IP Address Resource Name>`: Resursnamnet för SQL Server FCI-IP-adress. I **Klusterhanteraren** > **roller**, under rollen FCI för SQL Server under **servernamn**, högerklicka på IP-adressresursen och på **Egenskaper**. Det korrekta värdet är under **namn** på den **Allmänt** fliken. 
 
-   - `<ILBIP>`: ILB IP-adressen. Den här adressen konfigureras i Azure-portalen som frontend ILB-adressen. Detta är också SQL Server FCI IP-adress. Du hittar den i **Klusterhanteraren** på samma egenskapssidan där du letade upp i `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: ILB-IP-adressen. Den här adressen konfigureras i Azure-portalen som frontend ILB-adressen. Detta är också SQL Server FCI IP-adress. Du hittar den i **Klusterhanteraren** på samma egenskapssidan där du letade upp i `<SQL Server FCI IP Address Resource Name>`.  
 
    - `<nnnnn>`: Är avsökningsporten som du konfigurerade i hälsoavsökningen för belastningsutjämnaren. Alla TCP-port som inte används är giltig. 
 
@@ -459,7 +461,7 @@ När du ställer in avsökningen kluster kan du se alla Klusterparametrar i Powe
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Steg 7: Testa redundans för FCI
+## <a name="step-7-test-fci-failover"></a>Steg 7: FCI redundanstest
 
 Testa redundans för FCI att validera klusterfunktionaliteten. Utför följande steg:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 2c0c8b49d3f7122b71a08bc57ac615ba9e0c0108
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5f8ae6d9138a7413b0cca4cca7bcc47c13212674
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239448"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358059"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduktion till SQL Server Always On-Tillgänglighetsgrupper på virtuella Azure-datorer #
 
@@ -33,6 +33,8 @@ Diagrammet visar delarna av en fullständig SQL Server-tillgänglighetsgrupp i A
 ![Tillgänglighetsgrupp](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
 Den viktigaste skillnaden för en tillgänglighetsgrupp i Azure Virtual Machines är att Azure-datorer, kräver en [belastningsutjämnare](../../../load-balancer/load-balancer-overview.md). Belastningsutjämnaren innehåller IP-adresser för tillgänglighetsgruppens lyssnare. Om du har mer än en tillgänglighetsgrupp måste varje grupp en lyssnare. En belastningsutjämnare har stöd för flera lyssnare.
+
+Dessutom på en virtuell Azure IaaS-dator gästredundanskluster rekommenderar vi ett enda nätverkskort per server (klusternoden) och ett enda undernät. Azure-nätverk har fysiska redundans, vilket gör ytterligare nätverkskort och undernät onödiga på ett gästkluster för virtuella Azure IaaS-datorer. Även om verifieringsrapporten utfärdar en varning att noderna är endast kan nås i ett enda nätverk, kan den här varningen ignoreras på Azure IaaS VM-gästredundanskluster. 
 
 När du är redo att skapa en tillgänglighetsgrupp för SQL Server på Azure Virtual Machines, referera till de här självstudierna.
 

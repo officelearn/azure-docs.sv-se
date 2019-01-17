@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 1d4760eb6490ce458e699ad9bc59a57cb473ef6d
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 8ccd2bfe78ca7b0fabac2b8c9bfd6ba002782a41
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104130"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352826"
 ---
 # <a name="connect-windows-computers-to-the-log-analytics-service-in-azure"></a>Ansluta Windows-datorer till Log Analytics-tjänsten i Azure
 
@@ -57,9 +57,9 @@ Konfigurera användning av den [TLS 1.2](https://docs.microsoft.com/windows-serv
 
 Konfigurera .NET Framework 4.6 eller senare för att stödja säker kryptering, som standard den är inaktiverad. Den [stark kryptografi](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) använder säkrare nätverksprotokoll som TLS 1.2 och blockerar protokoll som inte är säker. 
 
-1. Leta upp följande registerundernyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\. NETFramework\v4.0.30319**.  
+1. Leta upp följande registerundernyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\\.NETFramework\v4.0.30319**.  
 2. Skapa DWORD-värde **SchUseStrongCrypto** under den här undernyckeln med värdet **1**.  
-3. Leta upp följande registerundernyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\. NETFramework\v4.0.30319**.  
+3. Leta upp följande registerundernyckel: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\\.NETFramework\v4.0.30319**.  
 4. Skapa DWORD-värde **SchUseStrongCrypto** under den här undernyckeln med värdet **1**. 
 5. Starta om systemet så att inställningarna ska börja gälla. 
 
@@ -91,7 +91,7 @@ Följande tabell visar de specifika Log Analytics-parametrar som stöds av insta
 
 |MMA-specifika alternativ                   |Anteckningar         |
 |---------------------------------------|--------------|
-| NOAPM = 1                               | Valfri parameter. Installerar agent utan .NET Application Performance Monitoring.|   
+| NOAPM=1                               | Valfri parameter. Installerar agent utan .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = konfigurera att agenten ska rapportera till en arbetsyta                |
 |OPINSIGHTS_WORKSPACE_ID                | Arbetsyte-ID (guid) för arbetsytan att lägga till                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Arbetsytenyckel som används för att autentisera från början med arbetsytan |
@@ -100,7 +100,7 @@ Följande tabell visar de specifika Log Analytics-parametrar som stöds av insta
 |OPINSIGHTS_PROXY_USERNAME               | Användarnamnet för att få åtkomst till en autentiserad proxyserver |
 |OPINSIGHTS_PROXY_PASSWORD               | Lösenord för åtkomst till en autentiserad proxyserver |
 
-1. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `MMASetup-<platform>.exe /c` och du blir ombedd du sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argument `MMASetup-<platform>.exe /c /t:<Path>`.  
+1. Extrahera installationsfilerna för agent från en upphöjd kommandotolk kör `MMASetup-<platform>.exe /c` och du blir ombedd du sökvägen till filerna ska extraheras.  Du kan också ange sökvägen genom att skicka argument `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. Om du vill utföra tyst installation av agenten och konfigurera den för att rapportera till en arbetsyta i kommersiella Azure-molnet, från mappen extraherade du filer för installationsprogrammet för att skriva: 
    
      ```dos

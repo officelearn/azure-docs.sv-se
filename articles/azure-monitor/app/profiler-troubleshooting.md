@@ -1,6 +1,6 @@
 ---
 title: Felsöka problem med Azure Application Insights Profiler | Microsoft Docs
-description: Den här sidan innehåller felsökning steg och information som hjälper utvecklare som har problem med att aktivera eller med hjälp av Application Insights profiler.
+description: Den här artikeln beskriver vi felsökning steg och information som hjälper utvecklare som har problem med att aktivera eller med hjälp av Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -12,95 +12,105 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: d424316cb8287dcf2a9ff04cf8e6889d5bada2cd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 404fe07b5e3c1f4322ec683f37b08942abfd6fcc
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083238"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358855"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera och visa Application Insights Profiler
 
 ## <a id="troubleshooting"></a>Allmän felsökning
 
-### <a name="profiles-are-only-uploaded-if-there-are-requests-to-your-application-while-the-profiler-is-running"></a>Profiler överförs endast om det finns begäranden till ditt program när profiler körs
-Application Insights Profiler profiler samlas data in för varje timme, minut eller när den [ **profil nu** ](profiler-settings.md ?toc=/azure/azure-monitor/toc.json) knappen trycks den **konfigurera Application Insights Profiler**sidan. Men profileringsdata laddas bara när den kan kopplas till en begäran som inträffade när profiler kördes. 
+### <a name="profiles-are-uploaded-only-if-there-are-requests-to-your-application-while-profiler-is-running"></a>Profiler laddas bara om det finns begäranden till ditt program när Profiler körs
 
-Profiler skriver spårningsmeddelanden och anpassade händelser till application insights-resurs. Du kan använda dessa händelser för att se hur profiler körs. Om du tror att profileraren bör köra och samla in spårningar men inte ser dem på sidan prestanda, kan du kontrollera hur profiler körs:
+Azure Application Insights Profiler samlar in profildata för två minuter varje timme. De samlar även in data när du väljer den **profil nu** knappen i den **konfigurera Application Insights Profiler** fönstret. Men profileringsdata laddas bara när den kan kopplas till en begäran som inträffade när Profiler kördes. 
 
-1. Sök efter spårningsmeddelanden och anpassade händelser som skickas av profiler till Application Insights-resursen. Du kan använda den här söksträng för att hitta relevanta data:
+Profiler skriver spårningsmeddelanden och anpassade händelser till Application Insights-resursen. Du kan använda dessa händelser för att se hur Profiler körs. Om du tror att Profiler ska köra och samla in spårningar, men de visas inte i den **prestanda** fönstret som du kan kontrollera om du vill se hur Profiler körs:
+
+1. Sök efter spårningsmeddelanden och anpassade händelser som skickas av Profiler till Application Insights-resursen. Du kan använda den här söksträng för att hitta relevanta data:
 
     ```
     stopprofiler OR startprofiler OR upload OR ServiceProfilerSample
     ```
-    Här är ett exempel från två sökningar från två olika AI-resurser på skärmbilden nedan. 
+    Följande bild visas två exempel på sökningar från två AI-resurser: 
     
-    * Det till vänster är från ett program som inte få begäranden när profiler körs. Du kan se meddelandet att överföringen avbröts på grund av någon aktivitet. 
+    * Längst till vänster är inte programmet tar emot begäranden när Profiler körs. Meddelandet förklarar att överföringen avbröts på grund av någon aktivitet. 
 
-    * I det här exemplet till höger ser du att profileraren igång och anpassade händelser när det har upptäckts begäranden som inträffade när profiler kördes. Om du ser den anpassade händelsen ServiceProfilerSample innebär profiler bifogas en begäran om en spårning och du kan visa spårningen från sidan för Application Insights-prestanda.
+    * Till höger, Profiler igång och anpassade händelser när det har upptäckts begäranden som inträffade när Profiler kördes som skickas. Om ServiceProfilerSample anpassad händelse visas, betyder det att Profiler bifogas en begäran om en spårning och du kan visa spår i den **Insights programprestanda** fönstret.
 
-    * Om du inte ser någon telemetri alls, körs inte profiler. Du kan behöva läsa felsökningsavsnitt innehåller information för specifika apptyper på det här dokumentet som nedan.  
+    Om ingen telemetri visas är Profiler inte igång. Felsökning av beskrivs felsökningsavsnitt för specifika apptyper senare i den här artikeln.  
 
-     ![Profiler Telemetrisökning][profiler-search-telemetry]
+     ![Profiler telemetrisökning][profiler-search-telemetry]
 
-1. Om det finns begäranden under tidsperioden profiler kördes, se till att begäranden hanteras av en del av ditt program som har aktiverat profiler. Program består ibland av flera komponenter men Profiler är endast aktiverad i vissa fall inte alla, komponenter. Konfigurera Application Insights Profiler-sidan visas de komponenter som har överfört spårningar.
+1. Om det finns begäranden medan Profiler kördes, se till att begäranden hanteras av en del av ditt program som har aktiverat Profiler. Även om program ibland består av flera komponenter, har Profiler aktiverats för endast några av komponenterna. Den **konfigurera Application Insights Profiler** fönstret visar de komponenter som har överfört spårningar.
 
-### <a name="other-things-to-check"></a>Annat att kontrollera:
-* Din app körs på .NET Framework 4.6.
+### <a name="other-things-to-check"></a>Annat att kontrollera
+* Se till att din app körs på .NET Framework 4.6.
 * Om din webbapp är ett ASP.NET Core-program, måste den köra minst ASP.NET Core 2.0.
-* Om de data som du vill visa är äldre än ett par veckor, försök att begränsa din tidsfiltret och försök igen. Spårningar tas bort efter sju dagar.
+* Om de data som du försöker visa är äldre än ett par veckor, försök att begränsa din tidsfiltret och försök igen. Spårningar tas bort efter sju dagar.
 * Se till att proxyservrar eller en brandvägg inte har blockerat åtkomsten till https://gateway.azureserviceprofiler.net.
 
 ### <a id="double-counting"></a>Dubbel inventering i parallella trådar
 
 I vissa fall kan är stack visningsprogrammet måttet total tid större än varaktigheten för begäran.
 
-Den här situationen kan uppstå när två eller flera trådar som är associerade med en begäran och de fungerar parallellt. I så fall kan är den totala tråd-tid större än den förflutna tiden. En tråd kan vänta på den andra ska slutföras. Visningsprogrammet försöker identifiera denna situation och utesluter ointressanta vänta, men den Överför vid sidan av för mycket informationen i stället utelämna vad kan vara viktig information.
+Den här situationen kan uppstå när två eller flera trådar som är associerade med en begäran och de fungerar parallellt. I så fall kan är den totala tråd-tid större än den förflutna tiden. En tråd kan vänta på den andra ska slutföras. Visningsprogrammet försöker identifiera denna situation och utesluter ointressanta vänta. På så sätt kan den Överför vid sidan av för mycket informationen i stället utelämna vad kan vara viktig information.
 
-När du ser parallella trådar i dina spårningar avgör vilka trådar som väntar på, så du kan fastställa den kritiska vägen för begäran. I de flesta fall tråden som snabbt försätts i vänteläge helt enkelt att vänta på de andra trådarna. Koncentrera dig på de andra trådarna och ignorera tiden att vänta på trådar.
+När du ser parallella trådar i dina spårningar avgör vilka trådar som väntar på, så att du kan fastställa den kritiska vägen för begäran. Tråden som snabbt försätts i vänteläge är vanligtvis bara väntar på andra trådar. Koncentrera dig på de andra trådarna och ignorera tiden att vänta på trådar.
 
 ### <a name="error-report-in-the-profile-viewer"></a>Felrapport i visningsprogrammet för profil
 Skicka in ett supportärende i portalen. Glöm inte att ta Korrelations-ID från felmeddelandet.
 
-## <a name="troubleshooting-profiler-on-app-services"></a>Felsökning av Profiler på App Services
-### <a name="for-the-profiler-to-work-properly"></a>För profiler ska fungera korrekt:
+## <a name="troubleshoot-profiler-on-azure-app-service"></a>Felsökning av Profiler på Azure App Service
+För Profiler ska fungera korrekt:
 * Web app service-planen måste vara Basic-nivån eller högre.
 * Din webbapp måste ha Application Insights som aktiveras.
 * Din webbapp måste ha den **APPINSIGHTS_INSTRUMENTATIONKEY** appinställningen som konfigurerats med samma instrumenteringsnyckeln som används av Application Insights SDK.
 * Din webbapp måste ha den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen definieras och inställd på 1.0.0.
-* Din webbapp måste ha den **DiagnosticServices_EXTENSION_VERSION** appinställningen definieras och ange värdet till ~ 3.
-* Den **ApplicationInsightsProfiler3** webbjobb måste köras. Du kan kontrollera web-jobbet genom att gå till [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/), och öppna den **WebJobs-instrumentpanelen** under Verktyg-menyn. Som du ser i skärmbilderna nedan, genom att klicka på länken ApplicationInsightsProfiler2 kan se du information av webbjobbet, inklusive loggen.
+* Din webbapp måste ha den **DiagnosticServices_EXTENSION_VERSION** appinställningen och värdet ~ 3.
+* Den **ApplicationInsightsProfiler3** webbjobb måste köras. Så här kontrollerar webbjobbet:
+   1. Gå till [Kudu](https://blogs.msdn.microsoft.com/cdndevs/2015/04/01/the-kudu-debug-console-azure-websites-best-kept-secret/).
+   1. I den **verktyg** menyn och välj **WebJobs-instrumentpanelen**.  
+      Den **WebJobs** öppnas fönstret. 
+   
+      ![profiler-webjob]   
+   
+   1. Om du vill visa information om webbjobbet, inklusive loggen, Välj den **ApplicationInsightsProfiler2** länk.  
+     Den **kontinuerlig WebJob information** öppnas fönstret.
 
-    Här är en länk som du måste klicka för att se webjob-information: 
+      ![profiler-webjob-log]
 
-    ![profiler-webbjobb]
-
-    Här är den sida som visar information. Du kan hämta loggen och skicka den till vårt team om du förstår inte varför profiler inte fungerar för dig.
+Om du förstår inte varför Profiler inte fungerar för dig, kan du hämta loggen och skicka den till vårt team för att få hjälp. 
     
-    ![profiler-webjob-log]
-
 ### <a name="manual-installation"></a>Manuell installation
 
-När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Du kan aktivera uppdateringar manuellt om miljön kräver den. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps.
+När du konfigurerar Profiler görs uppdateringar till webbappens inställningar. Om din miljö kräver det, kan du aktivera uppdateringar manuellt. Ett exempel kan vara att ditt program körs i en miljö med Web Apps för PowerApps. Om du vill installera uppdateringar manuellt gör du följande:
 
 1. I den **Web App Control** rutan Öppna **inställningar**.
+
 1. Ange **.Net Framework-version** till **v4.6**.
+
 1. Ange **Always On** till **på**.
+
 1. Lägg till den **APPINSIGHTS_INSTRUMENTATIONKEY** app inställning och ange värdet till samma instrumenteringsnyckeln som används av SDK: N.
+
 1. Lägg till den **APPINSIGHTS_PROFILERFEATURE_VERSION** appinställningen och ange 1.0.0.
+
 1. Lägg till den **DiagnosticServices_EXTENSION_VERSION** appinställningen och ange värdet till ~ 3.
 
 ### <a name="too-many-active-profiling-sessions"></a>För många aktiva sessioner för profilering
 
-För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om du har fler web apps än som körs i en app service-plan kan du se en Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException som utlöses av profiler. Profiler körs separat för varje webbapp och försöker starta en ETW-session för varje app. Men det finns ett begränsat antal ETW-sessioner som kan vara aktiv i taget. Om Profiler webbjobb rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-planen.
+För närvarande kan du aktivera Profiler på upp till fyra Azure web apps och distributionsplatser som körs i samma service-abonnemang. Om du har fler än fyra web apps som körs i en app service-plan Profiler kan generera en *Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException*. Profiler körs separat för varje webbapp och försöker starta en session för varje app som gäller för Windows ETW (Event Tracing). Men ett begränsat antal ETW-sessioner kan vara aktiv i taget. Om Profiler webbjobbet rapporterar för många aktiva profilering sessioner, flytta webbappar till en annan service-plan.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Distributionsfel: Katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens
 
-Om du omdistribuerar din webbapp till en resurs för Web Apps med Profiler som är aktiverad, visas följande meddelande:
+Om du omdistribuera din webbapp till en resurs för Web Apps med Profiler som är aktiverad, visas följande meddelande:
 
 *Katalogen är inte tom ”D:\\home\\plats\\wwwroot\\App_Data\\Jobbens*
 
-Det här felet uppstår om du kör Web Deploy från skript eller från Azure DevOps pipelinen. Lösningen är att lägga till följande parametrar för ytterligare distribution till Web Deploy-uppgift:
+Det här felet uppstår om du kör Web Deploy från skript eller från Azure DevOps-distributionspipeline. Lösningen är att lägga till följande parametrar för ytterligare distribution till Web Deploy-uppgift:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
@@ -112,27 +122,42 @@ Dessa parametrar ta bort mappen som används av Application Insights Profiler oc
 
 Profiler körs som ett kontinuerligt webbjobb i webbapp. Du kan öppna webbappresursen som i den [Azure-portalen](https://portal.azure.com). I den **WebJobs** fönstret Kontrollera status för **ApplicationInsightsProfiler**. Om den inte körs öppnar **loggar** vill ha mer information.
 
-## <a name="troubleshooting-problems-with-profiler-and-wad"></a>Felsökning av problem med Profiler och WAD
+## <a name="troubleshoot-problems-with-profiler-and-azure-diagnostics"></a>Felsöka problem med Profiler och Azure Diagnostics
 
-Det finns tre saker att kontrollera att profileraren har konfigurerats korrekt med WAD. Du måste först kontrollera att innehållet i WAD konfigurationen som har distribuerats är det du förväntar dig. Dessutom måste du kontrollera WAD skickar rätt iKey på profiler från kommandoraden. Det tredje kan du kontrollera loggfilen profiler för att se om profiler kördes, men får ett fel. 
+Om du vill se om Profiler är korrekt konfigurerad genom Azure Diagnostics-data, gör du följande tre saker: 
+1. Kontrollera först om du vill se om innehållet i Azure Diagnostics-konfiguration som distribueras är vad du förväntar dig. 
 
-Om du vill kontrollera de inställningar som har använts för att konfigurera WAD, måste du logga in på den virtuella datorn och öppna loggfilen på den här platsen: 
-```
-c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
-```
-Du kan söka efter strängen ”WadCfg” i filen, och du hittar de inställningar som skickades till den virtuella datorn för att konfigurera WAD. Du kan kontrollera den iKey som används av profiler-mottagare är korrekt.
+1. Därefter kontrollerar du att Azure Diagnostics klarar rätt iKey Profiler från kommandoraden. 
 
-Dessutom kan du kontrollera den kommandorad som används för att starta profiler. Följande fil innehåller de argument som används för att starta profiler.
-```
-D:\ProgramData\ApplicationInsightsProfiler\config.json
-```
-Kontrollera att nyckeln på kommandoraden profiler är korrekt. 
+1. Det tredje Kontrollera loggfilen Profiler för att se om Profiler kördes, men returnerade ett fel. 
 
-Det tredje med hjälp av sökvägen i filen config.json, kontrollera loggfilen profiler. Den visas som anger inställningar med hjälp av profiler och status och felmeddelanden från profiler felsökningsinformation. Om profiler körs medan programmet tar emot begäranden, visas det här meddelandet: Aktivitet identifierad från iKey. När spårningen laddas, visas det här meddelandet: Starta överföring av spårningen. 
+Så här kontrollerar du de inställningar som har använts för att konfigurera Azure Diagnostics:
+
+1. Logga in på den virtuella datorn (VM) och sedan öppna loggfilen på den här platsen: 
+
+    ```
+    c:\logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\1.11.3.12\DiagnosticsPlugin.logs  
+    ```
+
+1. I filen som du kan söka efter strängen **WadCfg** du hittar de inställningar som skickades till den virtuella datorn att konfigurera Azure Diagnostics. Du kan kontrollera om iKey som används av Profiler-mottagare är korrekt.
+
+1. Kontrollera den kommandorad som används för att starta Profiler. Argument som används för att starta Profiler finns i följande fil:
+
+    ```
+    D:\ProgramData\ApplicationInsightsProfiler\config.json
+    ```
+
+1. Se till att iKey på kommandoraden Profiler är korrekt. 
+
+1. Med hjälp av sökvägen hittades i det föregående *config.json* fil, finns i loggfilen för Profiler. Den visar felsökningsinformation som anger de inställningar som med hjälp av Profiler. Den visar även status och felmeddelanden från Profiler.  
+
+    Om Profiler körs medan programmet tar emot begäranden, visas följande meddelande: *Aktivitet identifierad från iKey*. 
+
+    När spårningen laddas, visas följande meddelande: *Starta överföring av spårning*. 
 
 
 [profiler-search-telemetry]:./media/profiler-troubleshooting/Profiler-Search-Telemetry.png
-[profiler-webbjobb]:./media/profiler-troubleshooting/Profiler-webjob.png
+[profiler-webjob]:./media/profiler-troubleshooting/Profiler-webjob.png
 [profiler-webjob-log]:./media/profiler-troubleshooting/Profiler-webjob-log.png
 
 

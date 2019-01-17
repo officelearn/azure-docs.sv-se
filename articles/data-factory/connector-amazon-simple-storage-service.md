@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 8a0808c0e82ee31a5fd684d449fa30cd331d3dba
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: ab7c0558720ae47357d2aca04b934b8176c82cc2
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063884"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352843"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Kopiera data från Amazon Simple Storage Service med Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -38,7 +38,7 @@ Mer specifikt den här Amazon S3-anslutningsappen stöder kopiera filer som-är 
 För att kopiera data från Amazon S3, kontrollera att du har beviljats följande behörigheter:
 
 - **För körning av kopiera aktivitet:**: `s3:GetObject` och `s3:GetObjectVersion` för Amazon S3-objektet.
-- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter kan du hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och speicify sökvägen direkt i inställningarna för datauppsättningen.
+- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Amazon S3-Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter, hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och anger du sökvägen direkt i inställningarna för datauppsättningen.
 
 Mer information om en fullständig lista över Amazon S3-behörigheter finns i [att ange behörigheter i en princip](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 
@@ -57,7 +57,7 @@ Följande egenskaper har stöd för Amazon S3 länkade tjänsten:
 | typ | Type-egenskapen måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. |Ja |
 | secretAccessKey | Den hemliga åtkomstnyckeln själva. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| ServiceUrl | Ange anpassade S3 slutpunkten om du kopierar data från en S3-kompatibla lagringsprovider än den officiella Amazon S3-tjänsten. Till exempel till [kopiera data från Google Cloud Storage](#copy-from-google-cloud-storage), ange `https://storage.googleapis.com`. | Nej |
+| serviceUrl | Ange anpassade S3 slutpunkten om du kopierar data från en S3-kompatibla lagringsprovider än den officiella Amazon S3-tjänsten. Till exempel till [kopiera data från Google Cloud Storage](#copy-from-google-cloud-storage), ange `https://storage.googleapis.com`. | Nej |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 >[!TIP]

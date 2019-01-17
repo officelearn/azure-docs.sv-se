@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 17c0213d63879687e9c6d5f8dca06b9113c44af8
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742200"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54355911"
 ---
 Om du vill aktivera endast registrera dig för ditt program kan du använda en **registrering** användarflödet. Det här användarflödet beskriver hur kunder registreringen går till och innehållet i de token som programmet tar emot på genomförda registreringar.
 

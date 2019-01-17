@@ -8,12 +8,12 @@ ms.assetid: 1201f8d4-6f26-4182-af3f-91e758a12303
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 86c8e8c10811b1478ae2c853f1efef5b6b5caa83
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 782f68c52285e787b9dfc6d21352ab2d53876085
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406336"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353149"
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>Vad är nytt i Azure Data Catalog
 Uppdaterar till **Azure Data Catalog** släpps regelbundet. Inte alla versionen innehåller nya funktioner för användarinriktade, eftersom vissa utgåvor av fokuserar på funktioner för backend-tjänst. Den här sidan visar nya användarinriktade funktioner som lagts till i Azure Data Catalog-tjänsten.
@@ -45,7 +45,7 @@ Från och med augusti 2017 har följande funktioner lagts till Azure Data Catalo
 
 ## <a name="whats-new-for-july-2017"></a>Vad är nytt för juli 2017 
 Från och med juli 2017, har följande funktioner lagts till Azure Data Catalog:
-*   Stöd för mer detaljerad kontroll över tillåts metadataåtgärder, inklusive:
+*   Stöd för mer detaljerad kontroll över tillåtna metadataåtgärder, inklusive:
     - Katalogadministratörer kan begränsa användarnas möjlighet att bidra med taggar och tillhörande metadata till katalogen att aktivera skrivskyddad åtkomst till katalogen.
     - Katalogadministratörer kan begränsa användarnas möjlighet att registrera nya datakällor i katalogen.
     - Katalogadministratörer kan begränsa användarnas möjlighet att överta ägarskapet för data tillgångens metadata i katalogen.
@@ -138,7 +138,7 @@ Följande funktioner har lagts till Azure Data Catalog maj 2016:
 * En Företagsordlista som hjälper katalogadministratörer att definiera företagstermer och hierarkier för att skapa en gemensam företagsterminologi. Användare kan tagga registrerade datatillgångar med termer från ordlistan för att göra det lättare att identifiera och förstå innehållet i katalogen. Mer information finns i [Så här konfigurerar du en företagsordlista för hanterade taggar](data-catalog-how-to-business-glossary.md)  
 * Förbättringar i Data Catalog Företagsordlista som hjälper användarna att uppdatera flera termer i ordlistan i en enda åtgärd. Användarna kan välja flera villkor för att redigera följande fält:
   * Överordnad Term: Användaren kan välja en ny överordnad term och alla valda villkor har uppdaterats för att vara underordnade platser till den valda överordnade termen. Om den valda villkor alla har samma överordnade och det överordnat visas i textrutan, annars den överordnade termen anges till tom.   
-  * Taggar och intressenter: användare kan lägga till och ta bort taggar och intressenter för flera termer i ordlistan med samma upplevelse som taggning flera datatillgångar.
+  * Taggar och intressenter: Användare kan lägga till och ta bort taggar och intressenter för flera termer i ordlistan med samma upplevelse som taggning flera datatillgångar.
 
 > [!NOTE]
 > En företagsordlista är endast tillgängliga i Standard Edition av Azure Data Catalog. Den kostnadsfria versionen ger inte funktioner för styrda märkning eller en företagsordlista.
@@ -153,7 +153,7 @@ Från och med februari 2016 kommer har följande funktioner lagts till Azure Dat
 
 * Källa för topprekommendationer dataurval användarupplevelsen i Azure Data Catalog registreringsverktyget. Registreringsverktyget har uppdaterats för att göra det enklare att leta upp och välj från datakällor som stöds av Azure Data Catalog.
 * Stöd för 10 ytterligare språk i Azure Data Catalog-portalen och registreringsverktyget. Utöver engelska finns nu Azure Data Catalog-upplevelse på tyska, spanska, franska, italienska, japanska, koreanska, portugisiska (Brasilien), ryska, kinesiska (förenklad) och traditionell kinesiska. Azure Data Catalog användarupplevelsen lokaliseras baserat på datorns språkinställningar i Windows eller i användarens webbläsare.
-* Stöd för geo-replikering av data i Azure Data Catalog för affärskontinuitet och haveriberedskap. Allt innehåll i Azure Data Catalog, inklusive data käll-metadata och crowdsourcade anteckningar, replikeras nu mellan två Azure-regioner utan extra kostnad för kunder. Azure-regioner har redan parats ihop, minst 500 miles från varandra, och följ mappningen enligt beskrivningen i [företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner](../best-practices-availability-paired-regions.md).
+* Stöd för geo-replikering av data i Azure Data Catalog för affärskontinuitet och haveriberedskap. Allt innehåll i Azure Data Catalog, inklusive data käll-metadata och crowdsourcade anteckningar, replikeras nu mellan två Azure-regioner utan extra kostnad för kunder. Azure-regioner har redan parats ihop, minst 500 miles från varandra, och följ mappningen enligt beskrivningen i [företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner](../best-practices-availability-paired-regions.md).
 * Stöd för att ändra den Azure-prenumeration används av Azure Data Catalog. Azure Data Catalog-administratörer kan använda sidan Inställningar i Azure Data Catalog-portalen för att välja en annan Azure-prenumeration för fakturering.
 
 ## <a name="whats-new-for-january-2016"></a>Vad är nytt för januari 2016
@@ -163,9 +163,9 @@ Från och med januari 2016, har följande funktioner lagts till Azure Data Catal
   * OData - funktionen och Entitetsuppsättning Entitetsbehållare
   * HTTP - filen, slutpunkt, rapporten och plats
   * Filsystem - fil
-  * SharePoint - lista
+  * SharePoint - List
   * FTP - fil och katalog
-  * Salesforce.com - objekt
+  * Salesforce.com - Object
   * DB2 - tabell, vy och databas
   * PostgreSQL - tabell, vy och databas
 * Stöd för ”öppna i SQL Server Data Tools” för SQL Server (inklusive Azure SQL DB och Azure SQL Data Warehouse)-datakällor.  
@@ -263,6 +263,6 @@ Från och med augusti 2015 kommer har följande funktioner lagts till Azure Data
 * Stöd för att tillhandahålla information om åtkomstbegäran för registrerade datakällor. För registrerade datatillgångar, kan användarna nu ge instruktioner man begär åtkomst, inklusive via e-post eller URL: er, lätt kan integrera med befintliga verktyg och processer.
 * Knappbeskrivning för taggar och experter för att göra det enklare att identifiera vilka användare har lagt till vilka metadata för registrerade datatillgångar.
 * Vi har lagt till en ny ”användare”-knappen och menyn vår övre navigeringsfältet. Den här menyn användaren kan se det konto som används för att logga in på Azure Data Catalog och för att logga ut om du vill. Den här menyn visar även katalognamnet är värdefullt för utvecklare som använder Azure Data Catalog REST-API.
-* Standard Edition: När du lägger till ägare till datatillgångar, Azure Data Catalog stöder nu både användarkonton och säkerhetsgrupper som ägare. Om du vill lägga till en säkerhetsgrupp som ägare för valda datatillgångar, kan du ange gruppens visningsnamn eller gruppens UPN-e-postadress, om det finns en.
+* Standard Edition: När du lägger till ägare till datatillgångar, Azure Data Catalog nu stöder både användarkonton och säkerhetsgrupper som ägare. Om du vill lägga till en säkerhetsgrupp som ägare för valda datatillgångar, kan du ange gruppens visningsnamn eller gruppens UPN-e-postadress, om det finns en.
 * Stöd för Azure Blob Storage-datakällor. Användare kan nu registrera och identifiera Azure Storage-blobbar och kataloger.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: aaae119ec72a713adc2faa311dbcb6bd204035fd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a6e25bdbcec2a99e323ac7f426307dd49e50d76c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52835105"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352435"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -78,7 +78,7 @@ Den valfria **RelyingParty** elementet innehåller följande element:
 | ------- | ----------- | ----------- |
 | DefaultUserJourney | 1:1 | Standardanvändarresa för RP-programmet. |
 | UserJourneyBehaviors | 0:1 | Omfattning resa användarbeteenden. |
-| Tekniska | 1:1 | En tekniska profilen som stöds av RP-programmet. Den tekniska profilen innehåller ett kontrakt för RP-programmet att kontakta Azure AD B2C. |
+| TechnicalProfile | 1:1 | En tekniska profilen som stöds av RP-programmet. Den tekniska profilen innehåller ett kontrakt för RP-programmet att kontakta Azure AD B2C. |
 
 ## <a name="defaultuserjourney"></a>DefaultUserJourney
 
@@ -163,7 +163,7 @@ Den **ContentDefinitionParameter** elementet innehåller följande attribut:
 
 Mer information finns i [konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer](active-directory-b2c-ui-customization-custom-dynamic.md)
 
-## <a name="technicalprofile"></a>Tekniska
+## <a name="technicalprofile"></a>TechnicalProfile
 
 Den **TechnicalProfile** elementet innehåller följande attribut:
 
@@ -194,7 +194,7 @@ Den **OutputClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| outputClaim | 0: n | Namnet på en förväntade Anspråkstyp i listan stöds för principen som den förlitande parten prenumererar. Det här anspråket fungerar som utdata för den tekniska profilen. |
+| OutputClaim | 0: n | Namnet på en förväntade Anspråkstyp i listan stöds för principen som den förlitande parten prenumererar. Det här anspråket fungerar som utdata för den tekniska profilen. |
 
 Den **OutputClaim** elementet innehåller följande attribut:
 

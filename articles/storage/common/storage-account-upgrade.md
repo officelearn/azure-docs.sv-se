@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: tamram
-ms.openlocfilehash: 7f97b72dc7b3456488d97009bde590b0e29918e6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 500d5217a35cdc569964195558b6e4a2c023c614
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631447"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352146"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Uppgradera till ett gpv2-konto
 
@@ -21,7 +21,8 @@ Generell användning v2-konton stöder de senaste funktionerna i Azure Storage o
 Det är enkelt att uppgradera till ett gpv2-konto från dina allmänna v1- eller Blob storage-konton. Du kan uppgradera med Azure-portalen, PowerShell eller Azure CLI. 
 
 > [!NOTE]
-> Ändringar av lagringsnivån kan medför ytterligare avgifter. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
+> Uppgradera ditt storage-konto till ett gpv2-konto är kostnadsfri.
+> Ändringar av lagringsnivån för åtkomst kan resultera i ändringar till din faktura. Mer information finns i avsnittet [Priser och fakturering](#pricing-and-billing).
 
 ## <a name="upgrade-using-the-azure-portal"></a>Uppgradera med Azure portal
 
@@ -62,8 +63,8 @@ Gpv2-konton stöder alla Azure-lagringstjänster och dataobjekt, men åtkomstniv
 
 Som standard skapas ett nytt lagringskonto i frekvent åtkomstnivå och ett lagringskonto i allmänna v1 uppgraderas till frekvent åtkomstnivå. Överväg att ditt scenario om du utforskar vilken åtkomstnivå som ska användas för efter datauppgraderingen. Det finns två vanliga scenarier för att migrera till ett gpv2-konto:
 
-* Du har ett befintligt general-purpose v1-lagringskonto och vill utvärdera en övergång till ett gpv2-lagringskonto med rätt lagringsnivå för blob-data.
-* Du har valt att använda ett gpv2-lagringskonto eller redan har ett och vill utvärdera om du ska använda frekvent eller lågfrekvent lagringsnivå för blob-data.
+* Du har ett befintligt general-purpose v1-lagringskonto och vill utvärdera en uppgradering till ett gpv2-lagringskonto med rätt lagringsnivå åtkomst för blob-data.
+* Du har valt att använda ett gpv2-lagringskonto eller redan har ett och vill utvärdera om du ska använda frekvent eller lågfrekvent åtkomstnivå för blob-data.
 
 I båda fallen är högsta prioritet att beräkna kostnaden för lagring, åtkomst och körs på dina data som lagras i ett gpv2-lagringskonto och jämföra det med dina nuvarande kostnader.
 
@@ -71,9 +72,9 @@ I båda fallen är högsta prioritet att beräkna kostnaden för lagring, åtkom
 ## <a name="pricing-and-billing"></a>Priser och fakturering
 För alla lagringskonton används en prissättningsmodell för bloblagring som baseras på nivån för varje blob. När du använder ett lagringskonto gäller följande för debitering:
 
-* **Lagringskostnader**: Utöver mängden data som lagras, kostnaden för att lagra data som varierar beroende på lagringsnivå. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
+* **Lagringskostnader**: Utöver mängden data som lagras, varierar för att lagra data beroende på åtkomstnivå för lagring. Kostnaden per gigabyte minskas när nivån blir mer lågfrekvent.
 
-* **Kostnader för dataåtkomst**: Öka kostnaderna för dataåtkomst när nivån blir mer lågfrekvent. För data på den lågfrekventa- och arkivlagringsnivån debiteras du en åtkomstavgift per gigabyte för läsningar.
+* **Kostnader för dataåtkomst**: Öka kostnaderna för dataåtkomst när nivån blir mer lågfrekvent. För data i lågfrekvent lagring och arkivlagring åtkomstnivå debiteras du en per-åtkomst gigabyte för läsningar.
 
 * **Transaktionskostnader**: Det finns en kostnad för alla nivåer per transaktion som ökar när nivån blir mer lågfrekvent.
 
@@ -81,7 +82,7 @@ För alla lagringskonton används en prissättningsmodell för bloblagring som b
 
 * **Kostnaderna för utgående dataöverföring**: Utgående dataöverföringar (data som överförs från en Azure-region) debiteras för bandbreddsanvändning regelbundet per gigabyte, konsekvent med allmänna lagringskonton.
 
-* **Ändringar av lagringsnivån**: Byter lagringskontonivå från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Om du byter lagringskontonivå från frekvent till lågfrekvent utgår dock en avgift som motsvarar skrivningen av alla data till den lågfrekventa nivån (gäller endast GPv2-konton).
+* **Ändringar av lagringsnivån åtkomst**: Ändra åtkomstnivå för kontot från lågfrekvent till frekvent utgår en avgift motsvarande läsningen av alla data i lagringskontot. Men utgår ändrar åtkomstnivå kontot från frekvent till lågfrekvent en avgift motsvarande Skrivningen av alla data till den lågfrekventa nivån (endast GPv2-konton).
 
 > [!NOTE]
 > Mer information om prissättningen för lagringskonton finns på sidan [Pris för Azure Storage](https://azure.microsoft.com/pricing/details/storage/). Mer information om kostnaderna för utgående dataöverföring finns på sidan [Prisinformation om Dataöverföringar](https://azure.microsoft.com/pricing/details/data-transfers/).
@@ -156,7 +157,7 @@ För att kunna beräkna kostnaderna för dataåtkomst för Blob Storage-konton m
 När du använder ett GRS- eller RA-GRS-lagringskonto kan kostnaden för dataöverföring med geo-replikering för Blob Storage-konton också beräknas baserat på uppskattningen av mängden data som skrivits.
 
 > [!NOTE]
-> Ett mer detaljerat exempel på hur du beräknar kostnaderna för den frekventa eller lågfrekventa lagringsnivån finns i frågeavsnittet *”Vad är lågfrekvent och frekvent lagringsnivå och hur vet jag vilken jag ska använda?”* på [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/).
+> Ta en titt på Frågeavsnittet för ett mer detaljerat exempel hur du beräknar kostnaderna för frekvent eller lågfrekvent åtkomstnivå *”vad är lågfrekvent och frekvent lagringsnivå och hur avgör jag vilken jag ska använda”?* på [Azure Storage-prissidan](https://azure.microsoft.com/pricing/details/storage/).
 
 ## <a name="next-steps"></a>Nästa steg
 

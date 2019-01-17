@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: f7c8313e6216f10dccdfbb298bbf02036e21c138
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043013"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351654"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ ms.locfileid: "54043013"
 * Har stöd för Microsoft Azure documentdb SDK 2.0. Kräver Microsoft.Azure.DocumentDB 2.0 eller senare.
 
 ### <a name="a-name206206"></a><a name="2.0.6"/>2.0.6
-* Har lagts till ChangeFeedEventHost.HostName offentlig egenskap för compativility med v1.
+* Har lagts till ChangeFeedEventHost.HostName offentlig egenskap för kompatibilitet med v1.
 
 ### <a name="a-name205205"></a><a name="2.0.5"/>2.0.5
 * Fasta ett konkurrenstillstånd som uppstår under partition split. Konkurrenstillstånd kan leda till hämtar lånet och omedelbart att förlora den under partition split och orsakar konkurrens. RAS villkor problemet är löst med den här versionen.

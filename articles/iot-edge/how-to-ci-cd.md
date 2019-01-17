@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c4f5d6888d581cb44702a8d76e1ebbb13845091
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582923"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359161"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -68,8 +68,8 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
 1. I pipeline-redigeringsprogrammet väljer du agentpoolen. 
     
     * Om du vill bygga dina moduler i plattformen amd64 för Linux-behållare kan du välja **finns Ubuntu 1604**
-    * Om du vill bygga dina moduler i plattformen amd64 för Windows-behållare kan du välja **finns VS2017** 
-    * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare måste du ange upp dina egna skapandeagent genom att besöka den **hantera** knappen.
+    * Om du vill bygga dina moduler i plattformen amd64 för Windows 1809 behållare kan du behöva [ställer in lokal agent på Windows](https://docs.microsoft.com/azure/devops/pipelines/agents/v2-windows?view=vsts).
+    * Om du vill bygga dina moduler i plattformen arm32v7 för Linux-behållare kan du behöva [ställer in lokal agent på Linux](https://blogs.msdn.microsoft.com/iotdev/2018/11/13/setup-azure-iot-edge-ci-cd-pipeline-with-arm-agent/).
     
     ![Konfigurera build-agentpoolen](./media/how-to-ci-cd/configure-env.png)
 

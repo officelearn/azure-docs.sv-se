@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 0e7d624c77447f537e6d47ea19d9054c1117d742
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: aafeeab50a60116ac93cbfa8acb0375224453b03
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263685"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353999"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Använd API-versionsprofiler med Ruby i Azure Stack
 
@@ -33,7 +33,7 @@ Ruby SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig 
 En API-profil är en kombination av resursprovidrar och tjänstversioner. Du kan använda en API-profil för att kombinera olika resurstyper.
 
 - Om du vill använda de senaste versionerna av alla tjänster, använda den **senaste** profilen för Azure SDK samlad gem.
-- Om du vill använda tjänsterna som är kompatibla med Azure Stack, använda den **V2017_03_09** profilen för Azure SDK samlad gem.
+- Om du vill använda tjänsterna som är kompatibla med Azure Stack, använda den **V2018_03_01** profilen för Azure SDK samlad gem.
 - Du använder senast **api-versionen** av en tjänst som använder den **senaste** profilen för den specifika gem. Exempel: Om du vill använda senast **api-versionen** av beräkningstjänst enbart använda de **senaste** profilen för den **Compute** gem.
 - Du använder en viss **api-versionen** för en tjänst, använder du de specifika API-versioner som definierats i symbolen.
 
@@ -72,12 +72,12 @@ Azure Resource Manager Ruby SDK är en förhandsversion och kommer troligen att 
 
 ## <a name="use-the-azuresdk-gem"></a>Använd azure_sdk gem
 
-Symbolen, **azure_sdk**, är en sammanslagning av alla stöds gems i Ruby SDK. Den här symbolen består av en **senaste** -profil som har stöd för den senaste versionen av alla tjänster. Det inför en profil för en ny version **V2017_03_09** -profil som har skapats för Azure Stack.
+Symbolen, **azure_sdk**, är en sammanslagning av alla stöds gems i Ruby SDK. Den här symbolen består av en **senaste** -profil som har stöd för den senaste versionen av alla tjänster. Det introducerar två versioner profil **V2017_03_09** och **V2018_03_01** profiler som är byggda med Azure Stack.
 
 Du kan installera azure_sdk samlad symbolen med följande kommando:  
 
 ```Ruby  
-gem install 'azure_sdk
+gem install 'azure_sdk'
 ```
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -127,11 +127,12 @@ Ange miljövariabler, i en Windows-kommandotolk och använder du följande forma
 
 ## <a name="existing-api-profiles"></a>Befintliga API-profiler
 
-Azure_sdk samlad gem har följande två profiler:
+Azure_sdk samlad gem har följande tre profiler:
 
-1. **V2017_03_09**  
+1. **V2018_03_01** profil som skapats för Azure Stack. Använd den här profilen för att använda de senaste versionerna av tjänster som är tillgängliga i Azure Stack.
+2. **V2017_03_09**  
   Profil som skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack.
-2. **senaste**  
+3. **senaste**  
   Profil består av senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
 
 Mer information om Azure Stack och API-profiler finns i den [sammanfattning av API-profiler](azure-stack-version-profiles.md#summary-of-api-profiles).
@@ -158,7 +159,7 @@ options = {
 }
 
 # Target profile built for Azure Stack
-client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
 ```
 
 Profil-klienten kan användas för åtkomst till enskilda resource-leverantörer, till exempel beräkning, lagring och nätverk:
@@ -172,7 +173,7 @@ purchase_plan_obj = profile_client.compute.model_classes.purchase_plan.new
 
 # Option 2: To access the models associated with Compute
 # Notice Namespace: Azure::Profiles::<Profile Name>::<Service Name>::Mgmt::Models::<Model Name>
-purchase_plan_obj = Azure::Profiles::V2017_03_09::Compute::Mgmt::Models::PurchasePlan.new
+purchase_plan_obj = Azure::Profiles::V2018_03_01::Compute::Mgmt::Models::PurchasePlan.new
 ```
 
 ## <a name="define-azure-stack-environment-setting-functions"></a>Definiera Azure Stack-miljön inställningen funktioner
@@ -201,27 +202,27 @@ end
 
 Du kan använda följande exempel finns på GitHub som referens för att skapa lösningar med Ruby- och API: T för Azure Stack-profiler:
 
-- [Hantera Azure-resurser och -resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)
-- [Hantera virtuella datorer med hjälp av Ruby](https://github.com/Azure-Samples/compute-ruby-manage-vm/tree/master/Hybrid)
-- [Distribuera en SSH aktiverad virtuell dator med en mall i Ruby](https://github.com/Azure-Samples/resource-manager-ruby-template-deployment/tree/master/Hybrid)
+- [Hantera Azure-resurser och -resursgrupper med Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)
+- [Hantera virtuella datorer med hjälp av Ruby](https://github.com/Azure-Samples/Hybrid-Compute-Ruby-Manage-VM)
+- [Distribuera en SSH aktiverad virtuell dator med en mall i Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Template-Deployment)
 
 ### <a name="sample-resource-manager-and-groups"></a>Exemplet Resource Manager och grupper
 
 Se till att du har installerat Ruby för att köra exemplet. Om du använder Visual Studio Code kan du ladda ned tillägget Ruby SDK.
 
 > [!NOTE]  
-> Du kan hämta lagringsplatsen för exemplet på ”[hantera Azure-resurser och resursgrupper med Ruby](https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups/tree/master/Hybrid)”.
+> Du kan hämta lagringsplatsen för exemplet på ”[hantera Azure-resurser och resursgrupper med Ruby](https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups)”.
 
 1. Klona databasen:
 
    ```bash
-   git clone https://github.com/Azure-Samples/resource-manager-ruby-resources-and-groups.git
+   git clone https://github.com/Azure-Samples/Hybrid-Resource-Manager-Ruby-Resources-And-Groups.git
    ```
 
 2. Installera beroenden med hjälp av paket:
 
    ```Bash
-   cd resource-manager-ruby-resources-and-groups\Hybrid\
+   cd Hybrid-Resource-Manager-Ruby-Resources-And-Groups
    bundle install
    ```
 
@@ -269,7 +270,7 @@ Se till att du har installerat Ruby för att köra exemplet. Om du använder Vis
 7. Skapa en profil-klient som riktar sig mot Azure Stack-profil:
 
    ```ruby  
-   client = Azure::Resources::Profiles::V2017_03_09::Mgmt::Client.new(options)
+   client = Azure::Resources::Profiles::V2018_03_01::Mgmt::Client.new(options)
    ```
 
 8. För att autentisera tjänstens huvudnamn med Azure Stack slutpunkterna ska definieras med hjälp av **get_active_directory_settings()**. Den här metoden använder den **ARM_Endpoint** miljövariabeln som du anger när din miljövariabler:

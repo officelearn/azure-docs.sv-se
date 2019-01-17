@@ -7,20 +7,19 @@ author: Juliako
 writer: juliako
 manager: femila
 editor: ''
-ms.assetid: 097ab5e5-24e1-4e8e-b112-be74172c2701
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: 06f219b9cf7d17e80699aebc1082b14e2de45c8b
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 6b4acf2a8effaef6d9572a4ca36b29af19f2970d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240230"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359995"
 ---
 # <a name="streaming-endpoints-overview"></a>Översikt över slutpunkter för direktuppspelning 
 
@@ -28,20 +27,26 @@ ms.locfileid: "50240230"
 
 I Microsoft Azure Media Services (AMS), en **Strömningsslutpunkt** representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för vidare distribution. Media Services tillhandahåller också en smidig integrering med Azure CDN. Den utgående dataströmmen från en StreamingEndpoint-tjänst kan vara en direktsänd dataström, en video på begäran eller progressiv nedladdning av din tillgång i Media Services-kontot. Varje Azure Media Services-konto innehåller en standard StreamingEndpoint. Du kan skapa ytterligare Strömningsslutpunkter under kontot. Det finns två versioner av Strömningsslutpunkter, 1.0 och 2.0. Från och med januari, 10 2017, eventuella nyligen skapade AMS-konton innehåller version 2.0 **standard** StreamingEndpoint. Ytterligare slutpunkter för direktuppspelning som du lägger till det här kontot kommer också att version 2.0. Den här ändringen påverkar inte befintliga konton; befintliga Strömningsslutpunkter blir version 1.0 och kan uppgraderas till version 2.0. Med den här ändringen finns beteende, fakturering och funktionen ändringar (Mer information finns i den **Streaming typer och versioner** avsnitt beskrivs nedan).
 
-Dessutom från och med den 2.15 versionen (släpptes i januari 2017), Azure Media Services har lagts till följande egenskaper till entiteten slutpunkt för direktuppspelning: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Detaljerad översikt över de här egenskaperna finns i [detta](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
+Azure Media Services har lagts till följande egenskaper till entiteten slutpunkt för direktuppspelning: **CdnProvider**, **CdnProfile**, **FreeTrialEndTime**, **StreamingEndpointVersion**. Detaljerad översikt över de här egenskaperna finns i [detta](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint). 
 
 När du skapar ett Azure Media Services-konto en standard som standard-slutpunkt för direktuppspelning skapas åt dig i den **stoppad** tillstånd. Du kan inte ta bort standardslutpunkten för direktuppspelning. Beroende på tillgänglighet för Azure CDN i målregionen, som standard som du skapade nyss standard slutpunkt för direktuppspelning innehåller också ”StandardVerizon” CDN provider-integrering. 
-
->[!NOTE]
->Azure CDN-integreringen kan inaktiveras innan du startar slutpunkten för direktuppspelning.
+                
+> [!NOTE]
+> Azure CDN-integreringen kan inaktiveras innan du startar slutpunkten för direktuppspelning. Den `hostname` och strömnings-URL är densamma, oavsett om du aktiverar CDN.
 
 Det här avsnittet ger en översikt över de viktigaste funktioner som tillhandahålls av slutpunkter för direktuppspelning.
+
+## <a name="naming-conventions"></a>Namngivningskonventioner
+
+För standardslutpunkt: `{AccountName}.streaming.mediaservices.windows.net`
+
+För alla ytterligare slutpunkter: `{EndpointName}-{AccountName}.streaming.mediaservices.windows.net`
 
 ## <a name="streaming-types-and-versions"></a>Strömmande typer och versioner
 
 ### <a name="standardpremium-types-version-20"></a>Standard/Premium-typer (version 2.0)
 
-Från och med januari 2017-versionen av Media Services kan du ha två strömmande typer: **Standard** och **Premium**. Typerna är en del av strömning endpoint version ”2.0”.
+Från och med januari 2017-versionen av Media Services kan ha du två strömmande typer: **Standard** och **Premium**. Typerna är en del av strömning endpoint version ”2.0”.
 
 Typ|Beskrivning
 ---|---

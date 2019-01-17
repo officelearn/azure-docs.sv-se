@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 15c86d1d5af3ba4d373f8dfb199d9ea56edb60b4
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002492"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359552"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -52,9 +52,9 @@ Innan du registrerar Azure Stack med Azure, måste du ha:
 
 - Användarnamn och lösenord för ett konto som är ägare till prenumerationen.
 
-- Användarkontot måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen.
+- Användarkontot måste ha åtkomst till Azure-prenumerationen och har behörighet att skapa program med identiteter och tjänstens huvudnamn i katalogen som är associerade med den aktuella prenumerationen. Vi rekommenderar att du registrerar Azure Stack med Azure med lägsta behörighet administration av [skapar ett tjänstkonto som ska användas för registrering](azure-stack-registration-role.md) i stället för autentiseringsuppgifterna för global administratör.
 
-- Registrerad resursprovider för Azure Stack (se registrera Resursprovidern för Azure Stack-avsnittet nedan för information).
+- Registrerad resursprovider för Azure Stack (se avsnittet nedan registrera Azure Stack Resource Provider för mer information).
 
 Efter registreringen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
 
@@ -72,7 +72,7 @@ Kontrollera utdata returnerar **FullLanguageMode**. Om något annat språkläge 
 
 ### <a name="install-powershell-for-azure-stack"></a>Installera PowerShell för Azure Stack
 
-Du måste använda den senaste versionen av PowerShell för Azure Stack för att registrera med Azure.
+Använd den senaste versionen av PowerShell för Azure Stack för att registrera med Azure.
 
 Om inte den senaste versionen inte redan är installerat, se [installera PowerShell för Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
@@ -101,7 +101,7 @@ När du registrerar Azure Stack med Azure måste du ange ett unika registrerings
 > [!NOTE]
 > Azure Stack-registreringar med kapacitetsbaserad faktureringsmodellen måste du ändra det unika namnet när omregistrering när dessa årliga prenumerationer upphör att gälla, såvida inte du [ta bort utgångna registreringen](azure-stack-registration.md#change-the-subscription-you-use) och registrera med Azure.
 
-För att fastställa moln-ID för Azure Stack-distribution, öppnar du PowerShell som administratör på en dator än vad som kan komma åt den privilegierade slutpunkten kör du följande kommandon och registrera den **CloudID** värde: 
+Öppna PowerShell som administratör på en dator som kan komma åt den privilegierade slutpunkten, kör du följande kommandon för att fastställa moln-ID för Azure Stack-distribution och registrera den **CloudID** värde: 
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
@@ -147,7 +147,7 @@ Anslutna miljöer kan komma åt internet och Azure. För dessa miljöer måste d
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-6. Kontrollera sedan du är inloggad rätt kontext i Azure PowerShell i samma PowerShell-session. Det här är den Azure-konto som används för att registrera resursprovidern Azure Stack ovan. PowerShell för att köra:
+6. Kontrollera sedan du är inloggad rätt kontext i Azure PowerShell i samma PowerShell-session. Det här är den Azure-konto som används för att registrera resursprovidern Azure Stack tidigare. PowerShell för att köra:
 
    ```PowerShell  
       Add-AzureRmAccount -EnvironmentName "<environment name>"
@@ -306,9 +306,21 @@ Du kan använda den **regionshantering** panelen för att kontrollera att Azure 
 
 2. Från instrumentpanelen väljer **regionshantering**.
 
+3. Välj **egenskaper**. Det här bladet visar status och information om din miljö. Statusen kan vara **registrerad** eller **inte registrerad**.
+
     [ ![Panelen för hantering av region](media/azure-stack-registration/admin1sm.png "panelen för hantering av Region") ](media/azure-stack-registration/admin1.png#lightbox)
 
-3. Välj **egenskaper**. Det här bladet visar status och information om din miljö. Statusen kan vara **registrerad** eller **inte registrerad**. Om registrerat, visar den även Azure prenumerations-ID som användes för att registrera din Azure Stack, tillsammans med resursgruppen för registrering och namn.
+    Om är registrerad ingår i egenskaperna:
+    
+    - **Prenumerations-ID för registrering**: Azure-prenumerations-ID som har registrerats och som är kopplad till Azure Stack
+    - **Resursgrupp för registrering**: Den Azure-resursgruppen i samma prenumeration som innehåller Azure Stack-resurser.
+
+4. Använda Azure-portalen för att visa Azure Stack-app-registreringar. Logga in på Azure-portalen med ett konto som är kopplad till prenumerationen du använde för att registrera Azure Stack. Växla till innehavaren som associeras med Azure Stack.
+5. Gå till **Azure Active Directory > appregistreringar > Visa alla program**.
+
+    ![Appregistreringar](media/azure-stack-registration/app-registrations.png)
+
+    Azure Stack-app-registreringar har prefixet **Azure Stack**.
 
 Du kan också kontrollera om din registreringen har lyckats genom att använda funktionen för hantering av Marketplace. Om du ser en lista med marketplace-objekt i bladet Marketplace hantering har registreringen slutförts. Men i frånkopplade miljöer kommer du inte att kunna se marketplace-objekt i Marketplace-hantering. Du kan dock använda verktyget offline för att verifiera registrering.
 
@@ -441,9 +453,9 @@ Om du vill köra cmdleten, behöver du:
 | ResourceGroupLocation | Sträng |  |
 | BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT | Anger huruvida hanteringsfunktionen marketplace är tillgängligt i portalen. Ange som SANT om registrering med Internetanslutning. Inställt på falskt om registrering i frånkopplade miljöer. För frånkopplade registreringar den [offline syndikering verktyget](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) kan användas för att ladda ned marketplace-objekt. |
-| UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: SANT, FALSKT. |
+| UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: True, False. |
 | AgreementNumber | Sträng |  |
-| registrationName | Sträng | Ange ett unikt namn för registrering om du kör skriptet registrering på fler än en instans av Azure Stack med hjälp av den samma Azure prenumerations-ID. Parametern har ett standardvärde på **AzureStackRegistration**. Om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet. |
+| RegistrationName | Sträng | Ange ett unikt namn för registrering om du kör skriptet registrering på fler än en instans av Azure Stack med hjälp av den samma Azure prenumerations-ID. Parametern har ett standardvärde på **AzureStackRegistration**. Men om du använder samma namn på fler än en instans av Azure Stack kan misslyckas skriptet. |
 
 ### <a name="get-azsregistrationtoken"></a>Get-AzsRegistrationToken
 
@@ -463,7 +475,7 @@ Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarn
 | ResourceGroupLocation | Sträng |  |
 | BillingModel | Sträng | Faktureringsmodellen som använder din prenumeration. Tillåtna värden för den här parametern är: Kapacitet, PayAsYouUse och utveckling. |
 | MarketplaceSyndicationEnabled | SANT/FALSKT |  |
-| UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: SANT, FALSKT. |
+| UsageReportingEnabled | SANT/FALSKT | Azure Stack rapporterar användningsstatistik som standard. Operatörer med kapacitet använder eller stöd för en frånkopplad miljö måste du inaktivera användningsrapportering. Tillåtna värden för den här parametern är: True, False. |
 | AgreementNumber | Sträng |  |
 
 

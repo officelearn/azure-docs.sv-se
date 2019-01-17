@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 6bc8966113fd1d5ac855ed8c12aa5ad4b387b211
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 2828330a0b00bb0695dcf91a84d0099d30c43183
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247274"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360130"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Omvandla text till tal med hjälp av Python
 
@@ -162,9 +162,10 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+> [Utforska Python-exempel på GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>Se också
 
+* [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
 * [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
 * [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

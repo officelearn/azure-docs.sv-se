@@ -6,14 +6,14 @@ author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 01/15/2019
 ms.author: jamesbak
-ms.openlocfilehash: 95aff0bb37a91c1e2ac117f2f3b90c726e9f88d8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 791598da593c25a135c05d72b6846053af3ff344
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792898"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353863"
 ---
 # <a name="quickstart-set-up-clusters-in-hdinsight"></a>Snabbstart: Konfigurera kluster i HDInsight
 
@@ -25,6 +25,10 @@ Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för 
 >Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Lär dig hur du [ta bort ett kluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
 Ett lagringskonto med Data Lake Storage Gen2 funktioner används som datalager i den här snabbstarten. Med sin tjänst för hierarkiskt namnområde och [Hadoop-drivrutinen](data-lake-storage-abfs-driver.md), Data Lake Storage Gen2 är optimerad för distribuerad bearbetning och analys. Data som lagras i ett lagringskonto som har Data Lake Storage Gen2 aktiverat kvarstår även efter ett HDInsight-klustret tas bort.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+- Du måste skapa en hanterad Användartilldelad identitet och tilldela sedan den **deltagarrollen för Blob Storage** till identiteten. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="cluster-setup-methods"></a>Metoder för installation av kluster
 
@@ -104,8 +108,7 @@ Under konfigurationen för lagringsslutpunkten standard anger du Data Lake Stora
 
 ![Inställningarna för klustret: HDFS-kompatibla lagringsutrymmet slutpunkter](media/data-lake-storage-quickstart-create-connect-hdi-cluster/hdinsight-cluster-creation-storage2.png)
 
-> [!IMPORTANT]
-> Se till att **inaktivera Data Lake Store-åtkomst**. Den här inställningen refererar till gammalt *Data Lake Store* funktioner och behöver inaktiveras för *Data Lake Storage* funktioner ska fungera korrekt.
+I den **användaren tilldelats hanterad identitet**, se till att välja den användarhanterade användartilldelade hanterade identitet som du skapade som ett krav i den här artikeln.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -212,14 +215,14 @@ Vissa interna Java-komponenter som Mahout och kaskad, kan köras på klustret so
 Ibland vill du konfigurera följande konfigurationsfilerna under skapandeprocessen:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-plats
+* mapred-site
 * oozie-site.xml
 * oozie-env.xml
 * storm-site.xml

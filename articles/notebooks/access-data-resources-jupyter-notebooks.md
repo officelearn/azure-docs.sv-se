@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: a034e41f5b12ffb8f043f14d90284617316f18d2
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e3022296dd1a3e1221bb44c94df787660df2a70
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723050"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359892"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Åtkomst till molndata på en bärbar dator
 
@@ -69,7 +69,7 @@ Exemplet anteckningsboken visar arbetar med både tabeller och blobbar, inklusiv
 Azure Cosmos DB tillhandahåller en helt indexerade NoSQL-lager för JSON-dokument). Följande artiklar innehåller ett antal olika sätt att arbeta med Cosmos DB från Python:
 
 - [Skapa en SQL API-app med Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Skapa en Flask-app med Azure Cosmos DB för MongoDB API](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Skapa en Flask-app med Azure Cosmos DB: s API för MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Skapa en grafdatabas med Python och Gremlin-API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Skapa en Cassandra-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Skapa en tabell-API-app med Python och Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)
@@ -88,4 +88,4 @@ Azure tillhandahåller ett antal andra typer av databaser som du kan använda. A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Hur: Arbeta med data projektfiler](work-with-project-data-files.md)
+- [Anvisningar: Arbeta med data projektfiler](work-with-project-data-files.md)

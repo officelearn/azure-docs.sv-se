@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 680bf282c2ab269bad19654c6602e4543a6e92ca
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: b4de9efbe85d5ab497bccd1742df23ddc1b3af43
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53748456"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354667"
 ---
 Lagring optimerad VM-storlekar ger högt diskgenomflöde och I/O och är perfekt för Stordata, SQL, NoSQL-databaser, informationslagerhantering och stora transaktionsdatabaser.  Exempel är Cassandra, MongoDB, Cloudera och Redis. Den här artikeln innehåller information om hur många virtuella processorer, diskar och nätverkskort samt lokal lagring dataflöde och nätverket bandbredden för varje optimerad storlek.
 
-Den Lsv2-serien funktioner med stora dataflöden och låg latens, direkt mappade lokala NVMe-lagring som körs på den [AMD EPYC<sup>TM</sup> 7551 processor](https://www.amd.com/en/products/epyc-7000-series) med en alla kärnor förstärkningen på 2.55 GHz och en max förstärkningen på 3.0 GHz. De virtuella datorerna Lsv2-serien kommer storlekar från 8 till 80 virtuella processorer i en samtidig flertrådsteknik konfiguration.  Det finns 8 GiB minne per virtuell processor och en 1.92TB NVMe SSD M.2 enhet per 8 virtuella processorer, med upp till 19,2 TB (10x1.92TB) på L80s v2.
+Den Lsv2-serien funktioner med stora dataflöden och låg latens, direkt mappade lokala NVMe-lagring som körs på den [AMD EPYC &trade; 7551 processor](https://www.amd.com/en/products/epyc-7000-series) med en alla kärnor förstärkningen på 2.55 GHz och en max förstärkningen på 3.0 GHz. Virtuella datorer i Lsv2-serien finns i storlekar mellan 8 och 80 vCPU:er i en konfiguration med simultan flertrådskörning.  Det finns 8 GiB minne per vCPU och en NVMe SSD M.2-enhet på 1,92 TB per 8 vCPU:er, med upp till 19,2 TB (10 x 1,92 TB) tillgängligt på L80s v2.
 
 Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel® Xeon®-processorn](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). Ls-serien uppnår samma processorprestanda som G/GS-serien och levereras med 8 GiB minne per virtuell processor.
 
@@ -25,19 +25,19 @@ Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel�
 > De virtuella datorerna Lsv2-serien är optimerade för att använda den lokala disken på den nod som är direkt ansluten till den virtuella datorn i stället för att använda beständiga datadiskar.  Detta möjliggör större IOPs / dataflöde för dina arbetsbelastningar.  Lsv2 och Ls-serien stöder inte skapandet av en lokal cache för att öka IOPS kan uppnås genom beständiga datadiskar. Högt dataflöde och IOPS för den lokala disken gör Lsv2 och virtuella datorer i Ls-serien perfekt för NoSQL, till exempel Apache Cassandra och MongoDB som replikerar data mellan flera virtuella datorer att uppnå beständighet i händelse av fel på en enskild virtuell dator. 
 
 ## <a name="lsv2-series"></a>Lsv2-serien
-ACU: 150 175
+ACU: 150-175
 
 Premium-lagring: Stöds
 
-Preminu lagring cachelagring: Stöds inte
+Premium Storage Caching: Stöds inte
 
 | Storlek          | Virtuell processor | Minne (GiB) | Temporär disk<sup>1</sup> (GiB) | NVMe-diskar | NVMe diskdataflöde<sup>2</sup> (Läs IOPS / Mbit/s) | Vara värd för cachestorlek<sup>3</sup> | Maximalt antal Datadiskar | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2 000 | Gäller inte | 16 | 2 / 3,200  | 
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4 500 | Gäller inte | 32 | 4 / 6 400  | 
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9 000 DISKBASERADE    | Gäller inte | 32 | 8 / 12 800 | 
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 340,000 / 2,000 | Gäller inte | 16 | 2 / 3,200  | 
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 680,000 / 4,500 | Gäller inte | 32 | 4 / 6,400  | 
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.4 M / 9 000 DISKBASERADE    | Gäller inte | 32 | 8 / 12,800 | 
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.7 M / 18 000   | Gäller inte | 32 | 8 / 25,600 |
-| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | Gäller inte | 32 | 8 / 32 000 |
+| Standard_L80s_v2  | 80 | 640 | 800 | 10x1.92TB   | 3.4 M / 22,000   | Gäller inte | 32 | 8 / 32,000 |
  
 <sup>1</sup> Lsv2-serien virtuella datorer har standard SCSI-baserat temp resursdisk för OS sidindelning/swap-fil (D: på Windows, /dev/sdb på Linux). Den här disken innehåller 80 GiB lagringsutrymme, 4 000 IOPS och 80 Mbit/s överföringshastighet för varje 8 virtuella processorer (t.ex. Standard_L80s_v2 ger 800 GiB på 40 000 IOPS och 800 Mbit/s). Detta säkerställer att NVMe-enheter kan vara helt reserverad för användningen av.
 
@@ -52,7 +52,7 @@ ACU: 180-240
 
 Premium-lagring:  Stöds
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage Caching:  Stöds inte
  
 | Storlek          | Virtuell processor | Minne (GiB) | Temporär lagring (GiB) | Maximalt antal datadiskar | Maximalt genomflöde för temporär lagring (IOPS / Mbit/s) | Maximalt icke cachelagrat diskgenomflöde (IOPS / Mbit/s) | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 

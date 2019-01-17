@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 12/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: bf84ec16d5d13439796b386a8ab4f40840ca4eaa
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 682d1d123d3381a52c9d356cd1bf226d2a847df4
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438429"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352877"
 ---
 # <a name="about-point-to-site-vpn"></a>Om punkt-till-plats-VPN
 
@@ -22,7 +22,7 @@ Med en VPN-gatewayanslutning för punkt-till-plats (P2S) kan du skapa en säker 
 
 Punkt-till-plats-VPN kan använda något av följande protokoll:
 
-* OpenVPN, en SSL/TLS baserat VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS-, Linux och Mac-enheter (OSX-versionerna 10.11 och senare).
+* OpenVPN, en SSL/TLS baserat VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. OpenVPN kan användas för att ansluta från Android, iOS (versioner 11.0 och senare), Linux och Mac-enheter (OSX-versionerna 10.13 och senare).
 
 * Secure Socket Tunneling Protocol (SSTP), en SSL-baserad VPN-protokoll. En SSL VPN-lösning kan ta sig förbi brandväggar, eftersom de flesta brandväggar öppnar TCP-port 443, som använder SSL. SSTP stöds endast på Windows-enheter. Azure stöder alla versioner av Windows som har SSTP (Windows 7 och senare).
 

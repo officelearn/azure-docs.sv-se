@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: b829528daeeb49be9b46206d8ae0add88c4441bd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 0ad54a32620a47927707fa3367b3408dbfd31eef
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54068993"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352197"
 ---
 # <a name="copy-data-from-google-cloud-storage-using-azure-data-factory"></a>Kopiera data från Google Cloud Storage med Azure Data Factory
 
@@ -35,7 +35,7 @@ Mer specifikt den här anslutningen för Google Cloud Storage stöder kopiera fi
 Kopiera data från Google Cloud Storage genom att kontrollera att du har beviljats följande behörigheter:
 
 - **För körning av kopiera aktivitet:**: `s3:GetObject` och `s3:GetObjectVersion` för objektet.
-- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter kan du hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och speicify sökvägen direkt i inställningarna för datauppsättningen.
+- **För redigering av Data Factory GUI**: `s3:ListAllMyBuckets` och `s3:ListBucket` / `s3:GetBucketLocation` för Bucket åtgärder behörigheter krävs dessutom för, till exempel Testa anslutning och bläddra/navigera filsökvägar. Om du inte vill att bevilja dessa behörigheter, hoppa över Testa anslutning i sidan för att skapa den länkade tjänsten och anger du sökvägen direkt i inställningarna för datauppsättningen.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -52,7 +52,7 @@ Följande egenskaper har stöd för Google Cloud Storage-länkad tjänst:
 | typ | Type-egenskapen måste anges till **AmazonS3**. | Ja |
 | accessKeyId | ID för den hemliga åtkomstnyckeln. Du hittar åtkomstnyckeln och hemligheten genom att gå till **Google Cloud Storage** > **inställningar** > **samverkan**. |Ja |
 | secretAccessKey | Den hemliga åtkomstnyckeln själva. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| ServiceUrl | Anger den anpassade S3-slutpunkten som **`https://storage.googleapis.com`**. | Ja |
+| serviceUrl | Anger den anpassade S3-slutpunkten som **`https://storage.googleapis.com`**. | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej |
 
 Här är ett exempel:
@@ -133,7 +133,7 @@ Kopiera data från Google Cloud Storage genom att ange typegenskapen på dataupp
 
 En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av Google Cloud Storage källa.
 
-### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage som källa
+### <a name="google-cloud-storage-as-source"></a>Google Cloud Storage as source
 
 För att kopiera data från Google Cloud Storage, ange typ av datakälla i kopieringsaktiviteten till **FileSystemSource**. Följande egenskaper stöds i kopieringsaktiviteten **källa** avsnittet:
 

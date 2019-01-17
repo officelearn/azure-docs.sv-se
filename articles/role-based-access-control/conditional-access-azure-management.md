@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
-ms.openlocfilehash: 4cfd3c38631778373e99872fd305d8316cdadb75
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: b824d122a5d26c17c41a0e2ea1c595c9e2dd7206
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52274746"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354356"
 ---
 # <a name="manage-access-to-azure-management-with-conditional-access"></a>Hantera åtkomst till Azure-hantering med villkorlig åtkomst
 
@@ -32,7 +32,7 @@ Om du vill skapa en princip för hantering av Azure kan du välja **Microsoft Az
 
 ![Villkorlig åtkomst för hantering av Azure](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-Du skapar principen gäller för alla Azure-hanteringsslutpunkter, inklusive klassiska Azure-portalen, Azure-portalen, Azure Resource Manager-providern, klassiska Service Management API: er och Azure PowerShell. Observera att principen gäller för Azure PowerShell, som anropar API: et för Azure Resource Manager. Den gäller inte för [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
+Du skapar principen gäller för alla Azure-hanteringsslutpunkter, inklusive Azure-portalen, Azure Resource Manager-providern, klassiska Service Management API: er, Azure PowerShell och Visual Studio-prenumerationer administratörsportalen. Observera att principen gäller för Azure PowerShell, som anropar API: et för Azure Resource Manager. Den gäller inte för [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), som anropar Microsoft Graph.
 
 > [!CAUTION]
 > Kontrollera att du förstår hur villkorlig åtkomst fungerar innan du konfigurerar en princip för att hantera åtkomst till Azure-hantering. Kontrollera att du inte skapa villkor som kan blockera egna åtkomst till portalen.

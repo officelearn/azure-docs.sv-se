@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/22/2018
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: abb77f59e49a98c1195dcd2e7b622b2b8e3fd7b8
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087295"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351857"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
@@ -118,7 +118,7 @@ Använd följande skript för att skapa Nyckelvalvet och lägga till den *kluste
    ``` 
 
 
-Mer information finns i [hantera KeyVault på Azure Stack med PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-kv-manage-powershell).
+Mer information finns i [hantera KeyVault på Azure Stack med PowerShell](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-key-vault-manage-powershell).
 
 ## <a name="deploy-the-marketplace-item"></a>Distribuera Marketplace-objekt
 
@@ -138,9 +138,9 @@ Mer information finns i [hantera KeyVault på Azure Stack med PowerShell](https:
 
    För den *Admin Klientcertifikatets tumavtryck*, ange certifikatets tumavtryck i den *Admin klientcertifikat*. (Se den [krav](#prerequisites).)
    
-   - Key Vault källa: Ange hela *keyVault-id* sträng från Skriptresultat. 
+   - Source Key Vault:  Ange hela *keyVault-id* sträng från Skriptresultat. 
    - Kluster-URL för certifikat: Ange hela URL: en från den *hemlighet Id* från skript-resultaten. 
-   - Kluster-tumavtryck för certifikat: Ange den *kluster certifikatets tumavtryck* från skript-resultaten.
+   - Tumavtryck för certifikatet för klustret: Ange den *kluster certifikatets tumavtryck* från skript-resultaten.
    - Administratörsklient Certifikattumavtryck: Ange den *Admin Klientcertifikatets tumavtryck* skapas i förutsättningarna. 
 
    ![Skriptutdata](media/azure-stack-solution-template-service-fabric-cluster/image5.png)

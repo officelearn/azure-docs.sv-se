@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
 ms.author: mikeray
-ms.openlocfilehash: 2d8a98e6ab38f4156b6e2f5bda81b44e1789a6ed
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 11e255c8cc32f17efa9fc9e8f39e869fba032d75
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253082"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359841"
 ---
 # <a name="complete-the-prerequisites-for-creating-always-on-availability-groups-on-azure-virtual-machines"></a>Slutför stegen för att skapa Always On-Tillgänglighetsgrupper på virtuella Azure-datorer
 
@@ -108,7 +108,7 @@ Det nya virtuella nätverket har ett undernät som heter **Admin**. Domänkontro
 
     Om **SQL-HA-RG** inte visas, hitta den genom att klicka på **resursgrupper** och filtrering av resursgruppens namn.
 2. Klicka på **autoHAVNET** på listan över resurser. 
-3. På den **autoHAVNET** virtuella nätverk, under **inställningar** , klickar du på **undernät**.
+3. På den **autoHAVNET** virtuella nätverk, under **inställningar** Välj **undernät**.
 
     Observera det undernät som du redan har skapat.
 
@@ -125,7 +125,7 @@ I följande tabell sammanfattas inställningarna för nätverk:
 | --- | --- |
 | **Namn** |**autoHAVNET** |
 | **Adressutrymme** |Det här värdet är beroende av de tillgängliga adressutrymmena i din prenumeration. Ett typiskt värde är 10.0.0.0/16. |
-| **Namn på undernät** |**Admin** |
+| **Namn på undernät** |**admin** |
 | **Adressintervall för undernätet** |Det här värdet beror på tillgängliga adressintervallen i din prenumeration. Ett typiskt värde är 10.0.0.0/24. |
 | **Namn på undernät** |**sqlsubnet** |
 | **Adressintervall för undernätet** |Det här värdet beror på tillgängliga adressintervallen i din prenumeration. Ett typiskt värde är 10.0.1.0/24. |
@@ -164,8 +164,8 @@ Om du vill skapa och konfigurera domänkontrollanterna kan återgå till den **S
 
 Upprepa föregående steg för att skapa två virtuella datorer. Namnge två virtuella datorer:
 
-* AD-primary-dc
-* AD-sekundär-dc
+* ad-primary-dc
+* ad-secondary-dc
 
   > [!NOTE]
   > Den **ad-sekundär-dc** virtuell dator är valfritt, att tillhandahålla hög tillgänglighet för Active Directory Domain Services.
@@ -179,17 +179,17 @@ I följande tabell visas inställningarna för dessa två datorer:
 | **Namn** |Första domänkontrollant: *ad-primary-dc*.</br>Andra domänkontrollanten *ad-sekundär-dc*. |
 | **Typ av virtuell datordisk** |SSD |
 | **Användarnamn** |DomainAdmin |
-| **Lösenord** |Contoso! 0000 |
+| **Lösenord** |Contoso!0000 |
 | **Prenumeration** |*Din prenumeration* |
 | **Resursgrupp** |SQL-HA-RG |
 | **Plats** |*Din plats* |
 | **Storlek** |DS1_V2 |
 | **Storage** | **Använda hanterade diskar** - **Ja** |
 | **Virtuellt nätverk** |autoHAVNET |
-| **Undernät** |Admin |
+| **Undernät** |admin |
 | **Offentlig IP-adress** |*Samma namn som den virtuella datorn* |
 | **Nätverkssäkerhetsgrupp** |*Samma namn som den virtuella datorn* |
-| **Tillgänglighetsuppsättning** |adavailabilityset </br>**Feldomäner**: 2</br>**Uppdateringsdomäner**: 2|
+| **Tillgänglighetsuppsättning** |adavailabilityset </br>**Feldomäner**: 2 </br>**Uppdateringsdomäner**: 2|
 | **Diagnostik** |Enabled |
 | **Diagnostiklagringskonto** |*Skapas automatiskt* |
 
@@ -234,7 +234,7 @@ I följande steg, konfigurerar den **ad-primary-dc** datorer som en domänkontro
     | --- | --- |
     | **Distributionskonfiguration** |**Lägg till en ny skog**<br/> **Rotdomännamn** = corp.contoso.com |
     | **Alternativ för domänkontrollant** |**DSRM-lösenordet** = Contoso! 0000<br/>**Bekräfta lösenord** = Contoso! 0000 |
-14. Klicka på **nästa** gå igenom de övriga sidorna i guiden. På den **Kravkontroll** kontrollerar du att du ser följande meddelande: **alla kravkontroller har lyckats**. Du kan granska alla meddelanden, men det är möjligt att fortsätta med installationen.
+14. Klicka på **nästa** gå igenom de övriga sidorna i guiden. På den **Kravkontroll** kontrollerar du att du ser följande meddelande: **Alla kravkontroller har lyckats**. Du kan granska alla meddelanden, men det är möjligt att fortsätta med installationen.
 15. Klicka på **Installera**. Den **ad-primary-dc** virtuella datorn startas om automatiskt.
 
 ### <a name="note-the-ip-address-of-the-primary-domain-controller"></a>Obs IP-adressen för den primära domänkontrollanten
@@ -323,7 +323,7 @@ Använd följande steg för att skapa varje konto.
 2. I **Serverhanteraren**väljer **verktyg**, och klicka sedan på **Active Directory Administrationscenter**.   
 3. Välj **corp (lokal)** i den vänstra rutan.
 4. Till höger **uppgifter** väljer **New**, och klicka sedan på **användaren**.
-   ![Active Directory Administrationscenter](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
+   ![Active Directory Administrative Center](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/29-addcnewuser.png)
 
    >[!TIP]
    >Ange ett komplext lösenord för varje konto.<br/> För icke-produktionsmiljöer, ange användarkontot aldrig upphör att gälla.
@@ -365,12 +365,12 @@ Skapa tre ytterligare virtuella datorer. Lösningen kräver två virtuella dator
 Sedan skapar du tre virtuella datorer – två SQL Server-datorer och en virtuell dator för en ny klusternod. Om du vill skapa var och en av de virtuella datorerna går du tillbaka till den **SQL-HA-RG** resursgruppen, klickar du på **Lägg till**, Sök efter lämplig galleri-objekt, klickar du på **VM**, och klicka sedan på  **Från galleriet**. Använd informationen i följande tabell för att skapa de virtuella datorerna:
 
 
-| Sida | VM1 | VM2 | VM3 |
+| Sidan | VM1 | VM2 | VM3 |
 | --- | --- | --- | --- |
 | Välj lämplig galleri-objekt |**Windows Server 2016 Datacenter** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |**SQL Server 2016 SP1 Enterprise på Windows Server 2016** |
 | Konfiguration av virtuell dator **grunderna** |**Namn på** = kluster fsw<br/>**Användarnamn** = DomainAdmin<br/>**Lösenord** = Contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resursgrupp** = SQL-HA-RG<br/>**Plats** = din azure-plats |**Namn på** = sqlserver-0<br/>**Användarnamn** = DomainAdmin<br/>**Lösenord** = Contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resursgrupp** = SQL-HA-RG<br/>**Plats** = din azure-plats |**Namn på** = sqlserver-1<br/>**Användarnamn** = DomainAdmin<br/>**Lösenord** = Contoso! 0000<br/>**Prenumeration** = din prenumeration<br/>**Resursgrupp** = SQL-HA-RG<br/>**Plats** = din azure-plats |
 | Konfiguration av virtuell dator **storlek** |**STORLEK** = DS1\_V2 (1 vCPU, 3,5 GB) |**STORLEK** = DS2\_V2 (2 virtuella processorer, 7 GB)</br>Storleken måste ha stöd för SSD-lagring (Premium-diskstöd. )) |**STORLEK** = DS2\_V2 (2 virtuella processorer, 7 GB) |
-| Konfiguration av virtuell dator **inställningar** |**Storage**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |**Storage**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |**Storage**: Använd hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |
+| Konfiguration av virtuell dator **inställningar** |**Storage**: Använda hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |**Storage**: Använda hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |**Storage**: Använda hanterade diskar.<br/>**Virtuellt nätverk** = autoHAVNET<br/>**Undernät** = sqlsubnet(10.1.1.0/24)<br/>**Offentlig IP-adress** skapas automatiskt.<br/>**Nätverkssäkerhetsgrupp** = None<br/>**Övervakning diagnostik** = aktiverat<br/>**Diagnostiklagringskonto** = Använd en automatiskt genererad storage-konto<br/>**Tillgänglighetsuppsättning** = sqlAvailabilitySet<br/> |
 | Konfiguration av virtuell dator **SQL Server-inställningar** |Inte tillämpligt |**SQL-anslutning** = privat (inom virtuellt nätverk)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfiguration** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |**SQL-anslutning** = privat (inom virtuellt nätverk)<br/>**Port** = 1433<br/>**SQL-autentisering** = inaktivera<br/>**Lagringskonfiguration** = Allmänt<br/>**Automatisk uppdatering** = söndag 2:00<br/>**Automatisk säkerhetskopiering** = inaktiverad</br>**Azure Key Vault-integrering** = inaktiverad |
 
 <br/>
@@ -462,6 +462,10 @@ Om du vill lägga till funktioner för redundanskluster, gör du följande steg 
 6. Klicka på **installera** att lägga till funktionerna.
 
 Upprepa stegen på den andra SQL Server-VM.
+
+  >[!NOTE]
+  > Det här steget, tillsammans med faktiskt ansluter till SQL Server-datorer i failover-kluster kan nu automatiseras med en Azure-Snabbstartsmall. Mer information finns i [skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-snabbstartsmall](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+
 
 ## <a name="a-nameendpoint-firewall-configure-the-firewall-on-each-sql-server-vm"></a><a name="endpoint-firewall"> Konfigurera brandväggen på varje SQL Server VM
 

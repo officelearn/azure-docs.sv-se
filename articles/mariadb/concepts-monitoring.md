@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/10/2018
-ms.openlocfilehash: 476e74a4d167fb3e9158f07cc5c073f129a74daa
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2ad641ae054f9542ec1ef42f5ebbe724ba4ecf87
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53545900"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354033"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Övervakning i Azure-databas för MariaDB
 Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database for MariaDB tillhandahåller olika mått som ger inblick i beteendet för din server.
@@ -19,7 +19,7 @@ ms.locfileid: "53545900"
 ## <a name="metrics"></a>Mått
 Alla Azure-mått har en frekvens på en minut. varje mått ger 30 dagars historik. Du kan konfigurera aviseringar om måtten. Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i [Azure mått översikt] (.. /Monitoring-and-Diagnostics/Monitoring-Overview-Metrics.MD).
 
-<!--For step by step guidance, see [How to set up alerts](howto-alert-on-metric.md). -->
+Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Lista över mått
 De här måtten är tillgängliga för Azure Database for MariaDB:
@@ -45,5 +45,4 @@ Du kan aktivera långsamma fråga loggning på servern. Mer information om loggn
 
 ## <a name="next-steps"></a>Nästa steg
 - Mer information om hur du komma åt och exportera mått med hjälp av Azure portal, REST API eller CLI finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
-
-<!-- - See [How to set up alerts](howto-alert-on-metric.md) for guidance on creating an alert on a metric.-->
+ - Se [hur du konfigurerar aviseringar](howto-alert-metric.md) anvisningar om hur du skapar en avisering på ett mått.

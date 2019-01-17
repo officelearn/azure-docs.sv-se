@@ -1,11 +1,11 @@
 ---
-title: Åtgärder – Microsoft Threat modellering verktyget - Azure | Microsoft Docs
-description: Åtgärder sidan för Microsoft Threat Modeling verktyget syntaxmarkering möjliga lösningar på det mest exponerade genereras hot.
+title: Åtgärder – Microsoft Hotmodelleringsverktyg – Azure | Microsoft Docs
+description: Åtgärder-sidan för den Microsoft Threat Modeling Tool markering möjliga lösningar på de mest exponerade genereras hot.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,43 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 07ef1fd3d81d795c9164741d22b5a689f86bd720
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24aa49fd4ccccda372d2632ef4aee22bd5cb2bf6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867985"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359144"
 ---
-# <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling verktyget åtgärder
+# <a name="microsoft-threat-modeling-tool-mitigations"></a>Microsoft Threat Modeling Tool åtgärder
 
-Verktyget Modeling hot utgör kärnan i Microsoft Security Development Lifecycle (SDL). Det gör programvaruarkitekter att identifiera och åtgärda eventuella säkerhetsfrågor tidigt, när de är relativt enkel och kostnadseffektiv att lösa. Därför kan minskar det den totala kostnaden för utveckling. Dessutom utformat vi verktyget med ej säkerhet experter ihåg förenklar hotmodellering för alla utvecklare genom att ge klara riktlinjer för att skapa och analysera hot modeller.
+Threat Modeling Tool utgör kärnan av Microsoft Security Development Lifecycle (SDL). Det gör att programvaruarkitekter identifiera och minimera potentiella säkerhetsproblem tidigt, när de är relativt enkelt och kostnadseffektivt att lösa. Därför kan minskar det den totala kostnaden för utveckling. Dessutom kan vi utformade verktyget med icke-säkerhetsexperter i åtanke, vilket gör hotmodellering enklare för alla utvecklare genom att ange tydliga instruktioner om att skapa och analysera hotmodeller.
 
-Finns det  **[hot Modeling verktyget](./azure-security-threat-modeling-tool.md)**  och börja redan idag!
+Gå till den **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** och kom igång idag!
 
 ## <a name="mitigation-categories"></a>Minskning kategorier
 
-Hot Modeling verktyget åtgärder kategoriseras enligt Web Application säkerhet ram, som består av följande:
+Threat Modeling Tool åtgärder kategoriseras enligt Web Application Security tidsperiod, som består av följande:
 
 | Kategori | Beskrivning |
 | -------- | ----------- |
-| **[Granskning och loggning](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Vem som gjorde vad och när? Granskning och loggning refererar till hur säkerhetshändelser poster i ditt program |
-| **[Autentisering](./azure-security-threat-modeling-tool-authentication.md)** | Vem är du? Autentisering är den process där en entitet bevisar identiteten för en annan entitet vanligtvis via autentiseringsuppgifter, till exempel användarnamn och lösenord |
-| **[Auktorisering](./azure-security-threat-modeling-tool-authorization.md)** | Vad kan du göra? Auktorisering är hur programmet ger åtkomstkontroll för resurser och åtgärder |
-| **[KOMMUNIKATIONSSÄKERHET](./azure-security-threat-modeling-tool-communication-security.md)** | Som du talar till? KOMMUNIKATIONSSÄKERHET garanterar all kommunikation klar är så säkert som möjligt |
-| **[Konfigurationshantering](./azure-security-threat-modeling-tool-configuration-management.md)** | Som körs programmet som? Vilka databaser ansluter den till? Hur styrs ditt program? Hur skyddas de här inställningarna? Konfigurationshantering refererar till hur programmet hanterar dessa operativa problem |
-| **[Kryptografi](./azure-security-threat-modeling-tool-cryptography.md)** | Hur behåller du hemligheter (sekretess)? Hur ska du nyckellagring språkverktyg data eller bibliotek (integritet)? Hur tillhandahåller du frö för slumpmässiga värden som måste vara kryptografiskt starka? Kryptografi refererar till hur programmet tillämpar sekretess och integritet |
-| **[Hantering av undantag](./azure-security-threat-modeling-tool-exception-management.md)** | När ett metodanrop i ditt program inte vad är ditt program? Hur mycket du avslöja? Du returnera eget felinformation till slutanvändare? Du skickar värdefulla undantagsinformation tillbaka till anroparen? Misslyckas programmet avslutas? |
-| **[Verifiering av indata](./azure-security-threat-modeling-tool-input-validation.md)** | Hur vet du att ditt program tar emot indata är giltigt och säkert? Verifiering av indata syftar på hur programmet filtrerar buskmarker eller avvisar indata innan ytterligare bearbetning. Överväg att begränsa indata via startpunkter och kodning utdata via avsluta punkter. Litar du data från källor som databaser och filresurser? |
-| **[Känsliga Data](./azure-security-threat-modeling-tool-sensitive-data.md)** | Hur hanterar programmet känsliga data? Känsliga data refererar till hur programmet hanterar alla data som måste skyddas i minnet, över nätverket, eller i beständiga lagrar |
-| **[Sessionshantering](./azure-security-threat-modeling-tool-session-management.md)** | Hur ditt program hantera och skydda användarsessioner? En session som refererar till en uppsättning relaterade samverkan mellan användare och ditt webbprogram |
+| **[Granskning och loggning](./azure-security-threat-modeling-tool-auditing-and-logging.md)** | Vem gjorde vad och när? Granskning och loggning refererar till hur ditt program registrerar säkerhetsrelaterade händelser |
+| **[Autentisering](./azure-security-threat-modeling-tool-authentication.md)** | Vem är du? Autentisering är en process där en entitet bevisar identiteten för en annan entitet, vanligtvis via autentiseringsuppgifter, till exempel ett användarnamn och lösenord |
+| **[Auktorisering](./azure-security-threat-modeling-tool-authorization.md)** | Vad kan du göra? Auktoriseringen är hur ditt program får åtkomstkontroller för resurser och åtgärder |
+| **[KOMMUNIKATIONSSÄKERHET](./azure-security-threat-modeling-tool-communication-security.md)** | Vem som pratar med? KOMMUNIKATIONSSÄKERHET säkerställer all kommunikation som är klar är så skyddat som möjligt |
+| **[Configuration Management](./azure-security-threat-modeling-tool-configuration-management.md)** | Som körs programmet som? Vilka databaser ansluter den till? Hur styrs ditt program? Hur skyddas de här inställningarna? Konfigurationshantering avser hur programmet hanterar dessa operativa problem |
+| **[Kryptografi](./azure-security-threat-modeling-tool-cryptography.md)** | Hur behåller du hemligheter (sekretess)? Hur är det förvanskningstålig språkverktyg data eller bibliotek (integritet)? Hur tillhandahåller du frö för slumpmässiga värden som måste vara kryptografiskt starkt? Kryptografi avser hur programmet tillämpar sekretess och integritet |
+| **[Hantering av undantag](./azure-security-threat-modeling-tool-exception-management.md)** | När ett metodanrop i ditt program inte vad gör ditt program? Hur mycket du avslöja? Du returnera ett information till slutanvändare? Du skickar värdefulla undantagsinformation tillbaka till anroparen? Misslyckas ditt program utan problem? |
+| **[Verifiering av indata](./azure-security-threat-modeling-tool-input-validation.md)** | Hur vet du att de indata som programmet tar emot är giltig och säkra? Verifiering av indata syftar på hur ditt program filtrerar buskmarker eller avvisar indata innan ytterligare bearbetning. Överväg att begränsa indata via startpunkter och kodning utdata via avsluta punkter. Litar du data från källor som databaser och filresurser? |
+| **[Känsliga Data](./azure-security-threat-modeling-tool-sensitive-data.md)** | Hur hanterar känsliga data i ditt program? Känsliga data avser hur programmet hanterar alla data som måste skyddas i minnet, över nätverket, eller i beständiga butiker |
+| **[Sessionshantering](./azure-security-threat-modeling-tool-session-management.md)** | Hur gör ditt program hantera och skydda användarsessioner? En session som refererar till ett antal relaterade interaktioner mellan en användare och ditt webbprogram |
 
-Det hjälper dig att identifiera:
+Detta hjälper dig att identifiera:
 
-* Där görs de vanligaste fel
-* Var finns de mest tillämplig förbättringarna
+* Där är de vanligaste ibland blanda
+* Var finns de mest användbara förbättringarna
 
-Därför kan du använder dessa kategorier för fokus och prioritera ditt arbete för säkerhet, så att om du vet att de vanligaste säkerhetsproblem uppstå i inkommande verifiering, autentisering och auktorisering kategorier, kan du starta det. Mer information finns  **[patent länken](https://www.google.com/patents/US7818788)**
+Därför kan du med dessa kategorier att fokusera och prioritera ditt arbete med säkerhet, så att om du vet vanligaste säkerhetsproblem uppstå i indata-verifiering, autentisering och auktorisering kategorier, du kan starta det. Mer information finns  **[patent länken](https://www.google.com/patents/US7818788)**
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök  **[hot Modeling verktyget hot](./azure-security-threat-modeling-tool-threats.md)**  för mer information om hot kategorier verktyget används för att generera möjliga design hot.
+Besök **[Threat Modeling Tool hot](./azure-security-threat-modeling-tool-threats.md)** mer information om hotet kategorierna verktyget använder för att generera möjliga design hot.

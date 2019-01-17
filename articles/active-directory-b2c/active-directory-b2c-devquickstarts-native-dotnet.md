@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 43da5b32fe3ad8891f89544d0f9bdbd1d4d127d0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606190"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354390"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
 Med hjälp av Azure Active Directory (Azure AD) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering till din skrivbordsapp i några korta steg. Den här artikeln visar hur du skapar en app för .NET Windows Presentation Foundation (WPF) ”uppgiftslista” som innehåller användarens registrering och inloggning och profilhantering. Appen innehåller stöd för registrering och inloggning med ett användarnamn eller e-post. Det omfattar även stöd för registrering och inloggning med konton i sociala medier, till exempel Facebook och Google.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](active-directory-b2c-get-started.md) innan du fortsätter den här guiden.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en B2C-katalog [skapar du en](tutorial-create-tenant.md) innan du fortsätter den här guiden.
 
 ## <a name="create-an-application"></a>Skapa ett program
 Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som tjänsten behöver för att kommunicera säkert med din app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md). Se till att:
@@ -31,16 +31,14 @@ Nu måste du skapa en app i B2C-katalogen. Det ger Azure AD den information som 
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver den senare.
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: registrering, inloggning och profilredigering. Du behöver skapa en princip för varje typ. Mer information finns i den [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). Tänk på följande när du skapar de tre principerna:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här kodexemplet innehåller tre identitetsupplevelser: registrering, inloggning och profilredigering. När du skapar principer måste du kontrollera att:
 
 * Välj antingen **Registrering med användar-ID** eller **Registrering med e-postadress** i bladet för identitetsproviders.
 * Välj **Visningsnamn** och andra registreringsattribut i registreringsprincipen.
 * Välj **Visningsnamn** och **Objekt-ID** som programanspråk för varje princip. Du kan också välja andra anspråk.
 * Kopiera **namnet** på varje princip när du har skapat den. Det bör ha prefixet `b2c_1_`. Du behöver principnamnen senare.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-När du har skapat de tre principerna är du redo att bygga din app.
+När du har skapat principerna är redo du att skapa din app.
 
 ## <a name="download-the-code"></a>Ladda ned koden
 Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet). Om du vill bygga exemplet allteftersom kan du [ladda ned stommen av ett projekt som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/skeleton.zip). Du kan också klona stommen:

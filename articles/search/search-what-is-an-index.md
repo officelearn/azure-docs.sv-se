@@ -9,25 +9,18 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 11/08/2017
 ms.custom: seodec2018
-ms.openlocfilehash: 40291b105eb39b44da0b0697f5808d819291e457
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 5a39021367c2f51125876081e9174eb372d7b9c9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630221"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353166"
 ---
-# <a name="indexes-in-azure-search"></a>Index i Azure Search
-> [!div class="op_single_selector"]
-> * [Översikt](search-what-is-an-index.md)
-> * [Portalen](search-create-index-portal.md)
-> * [NET](search-create-index-dotnet.md)
-> * [REST](search-create-index-rest-api.md)
-> 
-> 
+# <a name="indexes-and-indexing-overview-in-azure-search"></a>Index och indexering, översikt i Azure Search
 
-I Azure Search är ett *index* ett beständigt arkiv med *dokument* och andra konstruktioner som används av en Azure Search-tjänst. Ett dokument är en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
+I Azure Search, en *index* är ett beständigt Arkiv med *dokument* och andra konstruktioner som används för filtrerad och Fullständig textsökning på en Azure Search-tjänst. Ett dokument är en enskild enhet med sökbara data i ditt index. En återförsäljare som sysslar med e-handel kan till exempel ha ett dokument för varje artikel som företaget säljer, och en nyhetsorganisation kan ha ett dokument för varje nyhetsartikel osv. Om vi matchar dessa koncept till vanliga motsvarigheter i databasvärlden så kan ett *index* begreppsmässigt liknas vid en *tabell* och *dokument* kan grovt jämföras med *rader* i en tabell.
 
-När du lägger till/laddar upp dokument och skickar sökfrågor till Azure Search skickar du dina förfrågningar till ett specifikt index i din söktjänst.
+När du lägger till eller ladda upp dokument eller skickar sökfrågor till Azure Search skickar du begäranden till ett specifikt index i din söktjänst. Processen att lägga till dokument i ett index kallas *indexering*.
 
 ## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Fälttyper och fältattribut i ett Azure Search-index
 När du definierar ett schema måste du ange namnet, typen och attributet för varje fält i ditt index. Fälttypen klassificerar de data som lagras i fältet. Attribut anges för enskilda fält och definierar hur fältet används. Följande tabeller innehåller de typer och attribut som du kan ange.

@@ -10,12 +10,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.workload: identity
 ms.topic: conceptual
-ms.openlocfilehash: 1d53fc6cef022f627bb1cd1f832ebf65698207a9
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 2c035b7c6bbd687ca2922d5f52e2ddaa0c96e50c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002439"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351433"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Tjänstslutpunkter i virtuella nätverk för Azure Key Vault
 
@@ -74,6 +74,7 @@ Här är en lista över betrodda tjänster som får åtkomst till key vault om d
 |Azure SQL Database|[Transparent datakryptering med Bring Your Own Key-stöd för Azure SQL Database och Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Kryptering av lagringstjänst med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|[Kryptering av data i Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) med en kundhanterad nyckel.|
+|Azure databricks|[Snabba, enkla och samarbetsfunktioner Apache Spark-baserad analytics-tjänsten](../azure-databricks/what-is-azure-databricks.md)|
 
 
 

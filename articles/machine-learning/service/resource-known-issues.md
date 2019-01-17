@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 25131fdbc7a3633bf4ba9af05fdff9163f41f26b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e143c0c8ef09af49aed656d479bcad4dd35e2211
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265115"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351806"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
  
@@ -44,12 +44,8 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 ## <a name="databricks"></a>Databricks
 
 Databricks och Azure Machine Learning-problem.
-
-1. Rekommendation för Databricks-klustret:
-   
-   Skapa ditt Azure Databricks-kluster som v4.x med Python 3. Vi rekommenderar ett kluster med hög samtidighet.
  
-2. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
+1. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
 
    Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte rör Azure ML SDK – du kan stöta på det med andra libs för. Exempel:
    ```python
@@ -57,9 +53,10 @@ Databricks och Azure Machine Learning-problem.
    ```
    Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-3. När du använder automatisk Machine Learning på Databricks, om du ser `Import error: numpy.core.multiarray failed to import`
+2. När du använder automatisk Machine Learning på Databricks, om du vill avbryta en körning och starta ett nytt experiment, köra, starta om ditt Azure Databricks-kluster.
 
-   Lösning: importera Python-bibliotek `numpy==1.14.5` till din Databricks-kluster med skapa ett bibliotek för [installera och bifoga](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+3. I inställningarna för automatisk ml, när du har > 10 iterationer Ställ in show_output som False när du skickar in din körning.
+
 
 ## <a name="azure-portal"></a>Azure Portal
 Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du vill visa en annan arbetsyta lösningen är att gå direkt till den [Azure-portalen](https://portal.azure.com) och Sök efter namnet på arbetsytan.

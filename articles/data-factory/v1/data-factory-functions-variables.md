@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 48a0bf2a7209812af23c3dd9eec9703ec5826fa9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: a82d871ea232b31b31cfc24585af672141617d88
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019579"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353023"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory - funktioner och systemvariabler
 > [!NOTE]
@@ -31,8 +31,8 @@ Den här artikeln innehåller information om funktioner och variabler som stöds
 | --- | --- | --- | --- |
 | WindowStart |Början av tidsintervall för aktuell aktivitet som kör Windows |aktivitet |<ol><li>Ange datamarkeringsfrågor. Se connector artiklar som refereras till i den [Dataförflyttningsaktiviteter](data-factory-data-movement-activities.md) artikeln.</li> |
 | WindowEnd |Slutet av tidsintervallet för aktuell aktivitet som kör Windows |aktivitet |samma som WindowStart. |
-| SliceStart |Början av tidsintervall för datasektor som genereras |aktivitet<br/>Datauppsättning |<ol><li>Ange dynamiska mappsökvägar och filnamn när du arbetar med [Azure Blob](data-factory-azure-blob-connector.md) och [filsystem datauppsättningar](data-factory-onprem-file-system-connector.md).</li><li>Ange beroenden för indata med data factory-funktioner i aktiviteten indatasamling.</li></ol> |
-| SliceEnd |Slutet av tidsintervallet för den aktuella datasektor. |aktivitet<br/>Datauppsättning |samma som SliceStart. |
+| SliceStart |Början av tidsintervall för datasektor som genereras |aktivitet<br/>dataset |<ol><li>Ange dynamiska mappsökvägar och filnamn när du arbetar med [Azure Blob](data-factory-azure-blob-connector.md) och [filsystem datauppsättningar](data-factory-onprem-file-system-connector.md).</li><li>Ange beroenden för indata med data factory-funktioner i aktiviteten indatasamling.</li></ol> |
+| SliceEnd |Slutet av tidsintervallet för den aktuella datasektor. |aktivitet<br/>dataset |samma som SliceStart. |
 
 > [!NOTE]
 > Data factory kräver för närvarande att schemat som anges i aktiviteten exakt matchar det schema som angetts i tillgängligheten för datauppsättningen för utdata. WindowStart, WindowEnd, och SliceStart och SliceEnd mappas därför alltid till samma tidsperiod och ett enda segment.
@@ -153,7 +153,7 @@ I följande exempel bestäms DateTime-parametern för den lagrade Proceduraktivi
             {
                 "type": "SqlServerStoredProcedure",
                 "typeProperties": {
-                    "storedProcedureName": "sp_sample",
+                    "storedProcedureName": "usp_sample",
                     "storedProcedureParameters": {
                         "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)"
                     }

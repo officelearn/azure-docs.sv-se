@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 1605fdc5e49d2b8e95a2876dea8dff378ee33e2e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232285"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359722"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Konfigurera Always On Availability Group i virtuella Azure-datorer manuellt
 
@@ -51,6 +51,9 @@ I följande tabell visas de krav som du måste utföra innan du påbörjar den h
 
 
 Innan du påbörjar självstudiekursen måste du [Slutför stegen för att skapa ständigt aktiverade Tillgänglighetsgrupper i Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md). Om dessa krav har redan slutförts, kan du hoppa till [Skapa kluster](#CreateCluster).
+
+  >[!NOTE]
+  > Många av stegen i den här självstudien kan automatiseras med hjälp av en Azure-Snabbstartsmall. Mer information finns i [skapa WSFC, lyssnaren och och konfigurera ILB för en Always On-tillgänglighetsgrupp på en SQL Server-dator med Azure-Snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->

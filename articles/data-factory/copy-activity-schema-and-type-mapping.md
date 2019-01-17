@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 1a3855b7b95224e0f872764f6710f9fa907780a7
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025461"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358719"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Schemamappning i kopieringsaktiviteten
 Den här artikeln beskriver hur Azure Data Factory Kopieringsaktivitet utför schemamappning och datatypmappningen från källdata till mottagare data när kör Datakopieringen.
@@ -142,9 +142,9 @@ Om du använder syntaxen för `"columnMappings": "UserId: MyUserId, Group: MyGro
 
 ## <a name="schema-mapping"></a>Schemamappning
 
-Schemamappning gäller när kopiering av data mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfilen och kopiera från SQL till Azure Cosmos DB MongoDB API. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
+Schemamappning gäller när du kopierar data mellan hierarkisk formade data och tabular-formade data, t.ex. kopiera från MongoDB/REST till textfil och kopiera från SQL till Azure Cosmos DB-API för MongoDB. Följande egenskaper stöds i kopieringsaktiviteten `translator` avsnittet:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen för kopiera aktivitet translator måste anges till: **TabularTranslator** | Ja |
 | schemaMapping | En samling nyckel / värde-par som representerar mappning relationen från tabular sida till hierarkiska sida.<br/>- **Nyckel:** kolumnnamnet för tabelldata som definierats i datauppsättningsstrukturen.<br/>- **Värde:** JSON-sökvägsuttrycket för varje fält för att extrahera och mappa. För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `collectionReference` börjar du från matriselementet.  | Ja |

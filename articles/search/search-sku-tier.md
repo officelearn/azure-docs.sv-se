@@ -7,32 +7,32 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c5e4d568e7118d50ce8779402526fca77ccdda7
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 664e31590f578b65da09f1e0fe8f57d579ed3cfc
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315562"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354560"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
-I Azure Search, en [tjänsten har etablerats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
+I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
 
 Nivåerna avgöra kapaciteten, inte funktioner och hjälp av:
 
 + Antal index som du kan skapa
 + Storlek och hastighet partitioner (fysisk lagring)
 
-Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara mycket liten.
+Även om alla nivåer, inklusive den **kostnadsfri** nivå, ger ofta funktionsparitet, större arbetsbelastningar kan bestämmer krav för högre nivåer. Till exempel [kognitiv sökning](cognitive-search-concept-intro.md) indexering har långvariga kunskaper tiden på en kostnadsfri tjänst om inte datauppsättningen råkar vara små.
 
 > [!NOTE] 
 > Undantaget till funktionsparitet är [indexerare](search-indexer-overview.md), som inte är tillgängliga på S3HD.
 >
 
-Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Medan du kan börja med två eller tre för var och en, kan du tillfälligt öka din dataresurser för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
+Inom en nivå kan du [justera replik-och partition](search-capacity-planning.md) för prestandajustering. Du kan börja med två eller tre för var och tillfälligt öka din dataresurser för en tung indexeringsarbetsbelastningen. Du kan finjustera resursnivåer inom en nivå ökar flexibiliteten, men även lite komplicerar dina analyser. Du kan behöva experimentera om du vill se om en lägre nivå med högre resurser/repliker erbjuder bättre värde och prestanda än en högre nivå med lägre resurser. Mer information om när och varför skulle du justera kapacitet finns [prestanda och optimering överväganden](search-performance-optimization.md).
 
 <!---
 The purpose of this article is to help you choose a tier. It supplements the [pricing page](https://azure.microsoft.com/pricing/details/search/) and [Service Limits](search-limits-quotas-capacity.md) page with a digest of billing concepts and consumption patterns associated with various tiers. It also recommends an iterative approach for understanding which tier best meets your needs. 
@@ -40,23 +40,46 @@ The purpose of this article is to help you choose a tier. It supplements the [pr
 
 ## <a name="how-billing-works"></a>Så fungerar debiteringen
 
-I Azure Search, de viktigaste fakturering konceptet att förstå är en *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner ska fungera, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda. 
+Det finns fyra sätt som du kan medföra kostnader när du skapar en resurs för nyhetssökning i portalen i Azure Search:
+
+* Att lägga till repliker och partitioner som används för vanliga indexering och fråga uppgifter. Du börjar med en av varje, men du kan öka kapaciteten för en eller båda för att lägga till, välja och betala för extra kontrollnivåer resurser. 
+* Kostnaderna för utgående datatrafik under indexering. När du hämtar data från en Azure SQL Database eller Cosmos DB-datakälla visas debiteringar för transaktionen på fakturan för dessa resurser.
+* För [kognitiv sökning](cognitive-search-concept-intro.md) , extrahering av avbildningen under dokumentknäckning faktureras baserat på antalet avbildningar som extraheras från dina dokument. Textextrahering är för närvarande kostnadsfritt.
+* För [kognitiv sökning](cognitive-search-concept-intro.md) , enrichments baserat på [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) debiteras mot en resurs för Cognitive Services. Enrichments faktureras enligt samma taxa som om du har utfört uppgiften med Cognitive Services direkt.
+
+Om du inte använder [kognitiv sökning](cognitive-search-concept-intro.md) eller [Azure Search-indexerare](search-indexer-overview.md), endast kostnaderna är relaterade till repliker och partitioner som används för vanliga indexerings- och arbetsbelastningar.
+
+### <a name="billing-for-general-purpose-indexing-and-queries"></a>För allmänna indexering och frågor
+
+För Azure Search, de viktigaste fakturering konceptet att förstå är en *sökenheten* (SU). Eftersom Azure Search är beroende av både repliker och partitioner för indexering och frågor, vara inte det klokt att debiterar per bara någondera. I stället baseras fakturering på en kombination av båda. 
 
 SU är produkten av *repliken* och *partitioner* används av en tjänst: **`(R X P = SU)`**
 
-Varje tjänst börjar med 1 SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er, vilket kan ske på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, att nämna några. 
-
-Det är vanligt att använda mindre än total kapacitet. Till exempel en 3-replik 3-partition tjänst, som 9 su: er. 
+Varje tjänst börjar med en SU (en replik multiplicerat med en partition) som minst. Den maximala storleken för alla tjänster är 36 su: er, vilket kan ske på flera olika sätt: 6 partitioner x 6 repliker eller 3 partitioner x 12 repliker, att nämna några. Det är vanligt att använda mindre än total kapacitet. Till exempel en 3-replik 3-partition tjänst, som 9 su: er. 
 
 Debiteringen är **per timme per SU**, där varje nivå har en progressivt högre kostnad. På högre nivå har större och snabbare partitioner, bidrar till ett högre övergripande timpris för den nivån. Gällande priser för varje nivå finns på [prisinformation om](https://azure.microsoft.com/pricing/details/search/). 
 
 De flesta kunder använda bara en del av den totala kapaciteten online, hålla resten reserv. När det gäller fakturering är det antalet partitioner och -repliker som du infogar online, beräknade med hjälp av SU-formeln som anger vad du betalar per timme.
 
-### <a name="tips-for-reducing-costs"></a>Tips för att minska kostnaderna
+### <a name="billing-for-image-extraction-in-cognitive-search"></a>Faktureringen för extrahering av avbildningen i kognitiv sökning
+
+Om du extraherar bilder från filer i en kognitiv sökning indexering pipeline, debiteras du för den åtgärden i din Azure Search-faktura. Parametern som utlöser extrahering av avbildningen är **imageAction** i en [indexerarkonfiguration](https://docs.microsoft.com/erest/api/searchservice/create-indexer#indexer-parameters). Om **imageAction** har angetts till none (standard), det finns inga avgifter för extrahering av avbildningen.
+
+Priser kan ändras, men dokumenteras alltid på den [prisinformation om](https://azure.microsoft.com/pricing/details/search/) för Azure Search. 
+
+### <a name="billing-for-built-in-skills-in-cognitive-search"></a>Faktureringen för inbyggda kunskaper i kognitiv sökning
+
+När du ställer in en berikande pipeline alla [inbyggda kunskaper](cognitive-search-predefined-skills.md) används i pipelinen baseras på machine learning-modeller. Dessa modeller tillhandahålls av Cognitive Services. Användning av dessa modeller under indexering debiteras enligt samma taxa som om du hade begärt resursen direkt.
+
+Anta exempelvis att en pipeline som består av optisk teckenläsning (OCR) mot skannad bild JPEG-filer, där den resulterande texten skickas till ett Azure Search-index för fritt format sökfrågor. Din pipeline för fulltextindexering omfattar en indexerare med den [OCR färdighet](cognitive-search-skill-ocr.md), och att färdighet skulle vara [kopplade till en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md). När du kör indexeraren visas avgifter på fakturan kognitiva resurser för OCR-körning.
+
+## <a name="tips-for-reducing-costs"></a>Tips för att minska kostnaderna
 
 Du kan inte stänga av tjänsten för att sänka kostnader. Dedikerade resurser är operativa 24-7, tilldelat för din exklusiv användning för livslängden för din tjänst. Det enda sättet att sänka en faktura är genom att minska repliker och partitioner till en låg nivå som ger acceptabel prestanda fortfarande och [SLA efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
-En Spak för att minska kostnaderna är att välja en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3-priser. Du kan etablera en tjänst som syftar till att den nedre delen av load-projektioner. Om företaget har växt ur tjänsten, skapa en andra tjänst för större nivåer, återskapar dina index på den andra tjänsten och ta sedan bort förstnämnda. Om du har gjort kapacitetsplanering på lokala servrar, vet du att det är vanligt att ”köpa dig” så att du kan hantera planerade tillväxt. Men med en molnbaserad tjänst att försöka göra kostnadsbesparingar mer aggressivt eftersom du inte låst att en särskild försäljningsorder. Du kan alltid växla till en högre nivåer tjänst om den inte är tillräckligt.
+En Spak för att minska kostnaderna är att välja en nivå med ett lägre pris per timme. S1 timpris är lägre än S2 eller S3-priser. Om vi antar att du tillhandahåller en tjänst som riktar sig till lägre slutet av din belastningen projektioner om företaget har växt ur tjänsten kan du skapa en andra tjänst för större nivåer, återskapar dina index på den andra tjänsten och ta sedan bort den första mallen för. 
+
+Om du har gjort kapacitetsplanering på lokala servrar, vet du att det är vanligt att ”köpa dig” så att du kan hantera planerade tillväxt. Men med en molnbaserad tjänst att försöka göra kostnadsbesparingar mer aggressivt eftersom du inte låst att en särskild försäljningsorder. Du kan alltid växla till en högre nivåer tjänst om den inte är tillräckligt.
 
 ### <a name="capacity-drill-down"></a>Kapacitet nedåt
 
@@ -143,9 +166,9 @@ Index antal och storlek är lika relevant för din analys eftersom maximala har 
 
 **Query volume överväganden**
 
-Frågor per sekund (QPS) är ett mått som får tydlighet under inställning av prestanda, men vanligtvis inte är en nivå faktor, såvida inte du förväntar dig mycket hög fråga volymen från början.
+Frågor per sekund (QPS) är ett mått som får tydlighet under inställning av prestanda, men vanligtvis inte är en nivå faktor, såvida inte du förväntar dig hög fråga volymen från början.
 
-Alla standard-nivåerna kan leverera en balans mellan repliker till partitioner, stöd för frågan ha via ytterligare repliker för att läsa in belastningsutjämning och ytterligare partitioner för parallell bearbetning. Du kan finjustera prestanda när tjänsten har etablerats.
+Standard-nivåerna kan leverera en balans mellan repliker till partitioner, stöd för frågan ha via ytterligare repliker för att läsa in belastningsutjämning och ytterligare partitioner för parallell bearbetning. Du kan finjustera prestanda när tjänsten har etablerats.
 
 Kunder som förväntar sig att strong varaktigt fråga volymer från början bör tänka på högre nivåer, med mer kraftfulla maskinvara. Du kan sedan koppla partitioner och -repliker eller växla till en lägre nivå-tjänst, om det gick inte att Materialisera volymerna fråga. Läs mer om hur du beräknar frågedataflöde [Azure Search-prestanda och optimering](search-performance-optimization.md).
 
@@ -158,7 +181,7 @@ Den **kostnadsfri** nivå och preview funktioner levereras inte med [serviceavta
 
 + Lär dig hur du skapar effektiva index och vilka metoder för uppdatering är den minsta impactful. Vi rekommenderar att [söktrafikanalys](search-traffic-analytics.md) för kunskap på frågeaktivitet.
 
-+ Tillåt mätvärden och skapa runt frågor som du kan samla in data om användningsmönster (frågor under kontorstid, indexering vid låg belastning) och använda dessa data för att informera framtida service etablering beslut. När det inte praktiskt på nivå per timme eller dag, kan du dynamiskt justera partitioner och resurser för att tillgodose planerade ändringar i frågan volymer, eller oplanerade men varaktigt ändringar om nivåer håller tillräckligt lång för att garanterar att vidta åtgärder.
++ Tillåt mätvärden och skapa runt frågor som du kan samla in data om användningsmönster (frågor under kontorstid, indexering vid låg belastning) och använda dessa data för att informera framtida service etablering beslut. När det inte praktiskt vid en per timme eller dag takt, kan du dynamiskt justera partitioner och resurser för att tillgodose planerade ändringar i frågan volymer, eller oplanerade men varaktigt ändringar om nivåer håller tillräckligt lång för att garanterar att vidta åtgärder.
 
 + Kom ihåg att endast nackdelen under etableringen är att du kan behöva plocka ner en tjänst om de faktiska kraven är större än du beräknad. För att undvika avbrott i tjänsten kan du skapa en ny tjänst i samma prenumeration på en högre nivå och köras sida vid sida förrän alla appar och begäranden rikta den nya slutpunkten.
 

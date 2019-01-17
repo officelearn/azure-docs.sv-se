@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 84e56610cb0f9090d8cacc461a73bf41d05f2251
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 2bb3665f0d0ab15f212741a6ce032fcd7ac2620d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033493"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358121"
 ---
 # <a name="ip-firewall-for-azure-cosmos-accounts"></a>IP-Brandvägg för Azure Cosmos-konton
 
@@ -19,7 +19,7 @@ Om du vill skydda data som lagras i ditt konto, stöder Azure Cosmos DB en hemli
 
 ## <a id="ip-access-control-overview"></a>IP-åtkomstkontroll: översikt
 
-Som standard kan Azure Cosmos-kontot kan nås från internet, så länge begäran åtföljs av en giltig auktoriseringstoken. Om du vill konfigurera IP-policy-baserad åtkomstkontroll, måste användaren ange en uppsättning IP-adresser eller IP-adressintervall i CIDR (Classless Inter-Domain Routing) form som ska tas med som listan över tillåtna för klientens IP-adresser för åtkomst till en viss Azure Cosmos-kontot. När den här konfigurationen tillämpas, får alla begäranden från datorer utanför den här listan 404 (hittades inte)-svar. När du använder IP-brandvägg, rekommenderas det att Azure-portalen för att komma åt ditt konto. Åtkomst krävs för att tillåta användning av data explorer samt att hämta mått för ditt konto som visas på Azure portal.
+Som standard kan Azure Cosmos-kontot kan nås från internet, så länge begäran åtföljs av en giltig auktoriseringstoken. Om du vill konfigurera IP-policy-baserad åtkomstkontroll, måste användaren ange en uppsättning IP-adresser eller IP-adressintervall i CIDR (Classless Inter-Domain Routing) form som ska tas med som listan över tillåtna för klientens IP-adresser för åtkomst till en viss Azure Cosmos-kontot. När den här konfigurationen tillämpas, får alla begäranden från datorer utanför den här listan över tillåtna 403 (förbjudet)-svar. När du använder IP-brandvägg, rekommenderas det att Azure-portalen för att komma åt ditt konto. Åtkomst krävs för att tillåta användning av data explorer samt att hämta mått för ditt konto som visas på Azure portal.
 
 Du kan kombinera IP-baserad brandvägg med undernät och VNET-åtkomstkontroll. Genom att kombinera dem kan begränsa du åtkomsten till vilken källa som har en offentlig IP-adress och/eller från ett specifikt undernät i VNET. Mer information om hur du använder undernät och VNET-baserad åtkomstkontroll finns [åtkomst till Azure Cosmos DB-resurser från virtuella nätverk](vnet-service-endpoint.md).
 

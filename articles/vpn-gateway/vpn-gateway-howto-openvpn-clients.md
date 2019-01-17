@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4de4a5a659f38577c1261b169a43df560bf05495
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: cd84948b5895a628fc94cc2946156d9fa2284369
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971274"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352333"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Konfigurera OpenVPN klienter för Azure VPN Gateway (förhandsversion)
 
@@ -72,6 +72,10 @@ Kontrollera att du har slutfört stegen för att konfigurera OpenVPN för din VP
 7. Dubbelklicka på profilfilen för att skapa profilen i tunnelblik.
 8. Starta Tunnelblik från mappen program.
 9. Klicka på ikonen Tunnelblik i systemfältet och Välj Anslut.
+
+> [!IMPORTANT]
+>Endast iOS 11.0 och senare och MacOS 10.13 och senare stöds med OpenVPN-protokollet.
+>
 
 ## <a name="linux"></a>Linux-klienter
 

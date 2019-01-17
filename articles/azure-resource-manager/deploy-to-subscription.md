@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/14/2018
+ms.date: 01/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5b8247533a8bf51017767aac3a04e47ce6348a60
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 542993d803282bbf62e2e401cab1968a656a8971
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435301"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352282"
 ---
 # <a name="create-resource-groups-and-resources-for-an-azure-subscription"></a>Skapa resursgrupper och resurser för en Azure-prenumeration
 
@@ -289,7 +289,7 @@ I följande exempel tilldelar en befintlig principdefinitionen till prenumeratio
 }
 ```
 
-Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon. I det här exemplet saknar principen parametrar
+Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon:
 
 ```azurecli-interactive
 # Built-in policy that does not accept parameters
@@ -315,7 +315,7 @@ New-AzureRmDeployment `
   -policyName auditRGLocation
 ```
 
-Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon. I det här exemplet har principen parametrar.
+Om du vill använda en inbyggd princip på Azure-prenumerationen, använder du följande Azure CLI-kommandon:
 
 ```azurecli-interactive
 # Built-in policy that accepts parameters
@@ -390,7 +390,7 @@ Du kan [definiera](../azure-policy/policy-definition.md) och tilldela en princip
 }
 ```
 
-För att skapa principdefinitionen i din prenumeration och tillämpa den på prenumerationen, använder du följande CLI-kommando.
+För att skapa principdefinitionen i din prenumeration och tillämpa den på prenumerationen, använder du följande CLI-kommando:
 
 ```azurecli-interactive
 az deployment create \
@@ -408,9 +408,9 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
 ```
 
-## <a name="assign-role"></a>Tilldela roll
+## <a name="assign-role-at-subscription"></a>Tilldela rollen på prenumerationen
 
-I följande exempel tilldelar en roll till en användare eller grupp.
+I följande exempel tilldelar en roll till en användare eller grupp för prenumerationen. I det här exemplet kan anger du inte en omfattning för tilldelningen eftersom omfånget ställs automatiskt in prenumerationen.
 
 ```json
 {
@@ -439,7 +439,7 @@ I följande exempel tilldelar en roll till en användare eller grupp.
 }
 ```
 
-Om du vill tilldela en Active Directory-grupp till en roll för din prenumeration, använder du följande Azure CLI-kommandon.
+Om du vill tilldela en Active Directory-grupp till en roll för din prenumeration, använder du följande Azure CLI-kommandon:
 
 ```azurecli-interactive
 # Get ID of the role you want to assign
@@ -468,6 +468,94 @@ New-AzureRmDeployment `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/roleassign.json `
   -roleDefinitionId $role.Id `
   -principalId $adgroup.Id
+```
+
+## <a name="assign-role-at-scope"></a>Tilldela roll i omfånget
+
+Följande prenumerationsnivå mall tilldelar en roll till en användare eller grupp som är begränsad till en resursgrupp i prenumerationen. Omfattningen måste vara på eller under nivån för distribution. Du kan distribuera till en prenumeration och ange en rolltilldelning för en resursgrupp i den prenumerationen. Du kan dock distribuera till en resursgrupp och ange en rolltilldelningsomfattning till prenumerationen.
+
+Om du vill tilldela rollen på ett scope, använda en kapslad distribution. Observera att resursgruppens namn har angetts både i egenskaperna för distribution av resursen och i egenskapen scope rolltilldelningen.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.1",
+    "parameters": {
+        "principalId": {
+            "type": "string"
+        },
+        "roleDefinitionId": {
+            "type": "string"
+        },
+        "rgName": {
+            "type": "string"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2018-05-01",
+            "name": "assignRole",
+            "resourceGroup": "[parameters('rgName')]",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                    "contentVersion": "1.0.0.0",
+                    "parameters": {},
+                    "variables": {},
+                    "resources": [
+                        {
+                            "type": "Microsoft.Authorization/roleAssignments",
+                            "name": "[guid(parameters('principalId'), deployment().name)]",
+                            "apiVersion": "2017-09-01",
+                            "properties": {
+                                "roleDefinitionId": "[resourceId('Microsoft.Authorization/roleDefinitions', parameters('roleDefinitionId'))]",
+                                "principalId": "[parameters('principalId')]",
+                                "scope": "[concat(subscription().id, '/resourceGroups/', parameters('rgName'))]"
+                            }
+                        }
+                    ],
+                    "outputs": {}
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Om du vill tilldela en Active Directory-grupp till en roll för din prenumeration, använder du följande Azure CLI-kommandon:
+
+```azurecli-interactive
+# Get ID of the role you want to assign
+role=$(az role definition list --name Contributor --query [].name --output tsv)
+
+# Get ID of the AD group to assign the role to
+principalid=$(az ad group show --group demogroup --query objectId --output tsv)
+
+az deployment create \
+  -n demoRole \
+  -l southcentralus \
+  --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json \
+  --parameters principalId=$principalid roleDefinitionId=$role rgName demoRg
+```
+
+Om du vill distribuera den här mallen med PowerShell använder du:
+
+```azurepowershell-interactive
+$role = Get-AzureRmRoleDefinition -Name Contributor
+
+$adgroup = Get-AzureRmADGroup -DisplayName demogroup
+
+New-AzureRmDeployment `
+  -Name demoRole `
+  -Location southcentralus `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/scopedRoleAssign.json `
+  -roleDefinitionId $role.Id `
+  -principalId $adgroup.Id `
+  -rgName demoRg
 ```
 
 ## <a name="next-steps"></a>Nästa steg

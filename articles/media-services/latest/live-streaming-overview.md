@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/26/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: 3a2b3752926a3a4391ae9479ba636694533c97a8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 91e24fb274c1f9895046e8e2e7d760d02d196ccd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788216"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354186"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -29,6 +29,22 @@ Azure Media Services kan du leverera händelser till dina kunder på Azure-molne
 - Komponenterna i Media Services, som gör det möjligt att mata in, förhandsgranska, paket, registrera, kryptera och sända live-händelse till dina kunder eller till ett nätverk för Innehållsleverans för vidare distribution.
 
 Den här artikeln ger en detaljerad översikt vägledning, tillsammans med diagram över huvudkomponenterna som ingår i direktsänd strömning med Media Services.
+
+## <a name="live-streaming-workflow"></a>Live-arbetsflöde
+
+Här följer stegen för en live arbetsflöde:
+
+1. Skapa en **direktsändning**.
+2. Skapa en ny **tillgången** objekt.
+3. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.
+4. Skapa en **Streaming princip** och **innehåll nyckeln** om du vill kryptera ditt innehåll med DRM.
+5. Om du inte använder DRM, skapar du en **Strömningspositionerare** med inbyggt **Streaming princip** typer.
+6. Sökvägarna i listan i **Streaming princip** att få tillbaka de URL: er för att använda (dessa är deterministisk).
+7. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från (Kontrollera att slutpunkten för direktuppspelning körs). 
+8. Kombinera URL: en från steg 6 med värdnamnet i steg 7 för att hämta den fullständiga URL: en.
+9. Om du vill stoppa att göra din **direktsänd händelse** kan visas, måste du stoppa strömning händelsen genom att ta bort den **Strömningspositionerare**.
+
+Mer information finns i en [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md) som baseras på den [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplet.
 
 ## <a name="overview-of-main-components"></a>Översikt över huvudkomponenterna
 
@@ -89,9 +105,10 @@ I följande artikel innehåller en tabell som jämför funktionerna i de två ty
 
 En [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) låter dig kontrollera egenskaperna för den utgående direktsända dataströmmen, till exempel hur mycket av strömmen registreras (t.ex, kapaciteten för moln-DVR) och om huruvida användarna kan börjar titta på live stream. Förhållandet mellan en **LiveEvent** och dess **LiveOutput**s relation liknar traditionella TV-sändning, där en kanal (**LiveEvent**) representerar en konstant ström av video och en inspelning (**LiveOutput**) är begränsad till en viss tidpunkt-segment (till exempel kvällar nyheter från 18:30:00 till 19:00:00). Du kan spela TV med hjälp av en Digital Video Recorder (DVR) – den motsvarande funktionen i LiveEvents hanteras via egenskapen ArchiveWindowLength. Det är en ISO 8601-timespan varaktighet (till exempel PTHH:MM:SS) som anger kapaciteten för DVR och kan anges från minst 3 minuter till högst 25 timmar.
 
-
 > [!NOTE]
-> **LiveOutput**s börjar vid skapandet och avbryts när tas bort. När du tar bort den **LiveOutput**, du inte tar bort den underliggande **tillgången** och innehåll i tillgången.  
+> **LiveOutput**s börjar vid skapandet och avbryts när tas bort. När du tar bort den **LiveOutput**, du inte tar bort den underliggande **tillgången** och innehåll i tillgången. 
+>
+> Om du har publicerat **Strömningspositionerare**s på tillgången för den **LiveOutput**, händelse (upp till DVR fönstret längd) fortsätter att vara synliga till sluttiden för den **Strömningspositionerare**  eller till när du tar bort lokaliseraren, beroende på vilket som inträffar först.   
 
 Mer information finns i [med molnbaserade DVR](live-event-cloud-dvr.md).
 
@@ -110,21 +127,6 @@ Detaljerad information finns i [tillstånd och fakturering](live-event-states-bi
 ## <a name="latency"></a>Svarstid
 
 Detaljerad information om LiveEvents svarstid finns i [svarstid](live-event-latency.md).
-
-## <a name="live-streaming-workflow"></a>Live-arbetsflöde
-
-Här följer stegen för en live arbetsflöde:
-
-1. Skapa en LiveEvent.
-2. Skapa ett nytt objekt i tillgången.
-3. Skapa en LiveOutput och certifikattillgångens namn som du skapade.
-4. Skapa en princip för direktuppspelning och innehåll nyckel om du vill kryptera ditt innehåll med DRM.
-5. Om inte med DRM, skapar en positionerare för direktuppspelning med de inbyggda Streaming principtyperna.
-6. Ange sökvägar på Streaming-principen för att få tillbaka de URL: er för att använda (dessa är deterministisk).
-7. Hämta värdnamnet för den slutpunkt för direktuppspelning som du vill strömma från. 
-8. Kombinera URL: en från steg 6 med värdnamnet i steg 7 för att hämta den fullständiga URL: en.
-
-Mer information finns i en [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md) som baseras på den [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplet.
 
 ## <a name="next-steps"></a>Nästa steg
 

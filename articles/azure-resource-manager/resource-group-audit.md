@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 09f7fba2b8ae3b3ccc8710ffe9302d02d311c74c
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 636e4d5216f87440463fbaecd7f6c7a5a25c7502
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514340"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359399"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Visa aktivitetsloggar för att granska åtgärder på resurser
 
@@ -53,7 +53,7 @@ Du kan hämta information från aktivitetsloggar via portalen, PowerShell, Azure
 
     ![Anger filteralternativ](./media/resource-group-audit/set-filter.png)
 
-4. Om du vill köra frågan igen senare, Välj **spara** och ge ett namn för frågan.
+4. Om du vill köra frågan igen senare, Välj **PIN-kod aktuella filtren** och ge den ett namn.
 
     ![Spara fråga](./media/resource-group-audit/save-query.png)
 5. För att snabbt köra en fråga, kan du välja något av de inbyggda frågorna, till exempel inte kunde distribueras.

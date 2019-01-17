@@ -1,11 +1,11 @@
 ---
-title: Hot - Microsoft Threat Modeling verktyget - Azure | Microsoft Docs
-description: Hot kategorisidan för Microsoft Threat Modeling verktyget som innehåller kategorier för alla exponeras genereras hot.
+title: Hot - Microsoft Threat Modeling Tool – Azure | Microsoft Docs
+description: Threat kategori-sidan för Microsoft Threat Modeling Tool, som innehåller kategorier för alla exponeras genereras hot.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -14,38 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 704f9995828866d4d2e4969e3aa922ed1e23c4ea
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd7c5fd929163dc7fcd22fbb045dee0fe3070394
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867901"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359042"
 ---
-# <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling verktyget hot
+# <a name="microsoft-threat-modeling-tool-threats"></a>Microsoft Threat Modeling Tool hot
 
-Verktyget Modeling hot utgör kärnan i Microsoft Security Development Lifecycle (SDL). Det gör programvaruarkitekter att identifiera och åtgärda eventuella säkerhetsfrågor tidigt, när de är relativt enkel och kostnadseffektiv att lösa. Därför kan minskar det den totala kostnaden för utveckling. Dessutom utformat vi verktyget med ej säkerhet experter ihåg förenklar hotmodellering för alla utvecklare genom att ge klara riktlinjer för att skapa och analysera hot modeller.
+Threat Modeling Tool utgör kärnan av Microsoft Security Development Lifecycle (SDL). Det gör att programvaruarkitekter identifiera och minimera potentiella säkerhetsproblem tidigt, när de är relativt enkelt och kostnadseffektivt att lösa. Därför kan minskar det den totala kostnaden för utveckling. Dessutom kan vi utformade verktyget med icke-säkerhetsexperter i åtanke, vilket gör hotmodellering enklare för alla utvecklare genom att ange tydliga instruktioner om att skapa och analysera hotmodeller.
 
-> Finns det  **[hot Modeling verktyget](./azure-security-threat-modeling-tool.md)**  och börja redan idag!
+> Gå till den **[Threat Modeling Tool](./azure-security-threat-modeling-tool.md)** och kom igång idag!
 
-Verktyget Modeling hot hjälper dig att besvara vissa frågor, till exempel som nedan:
+Threat Modeling Tool får du svar på vissa frågor, såsom nedan:
 
 * Hur kan en angripare ändra autentiseringsdata?
 * Hur påverkas om en angripare kan läsa data för användarprofiler?
-* Vad händer om åtkomst nekas till databasen?
+* Vad händer om åtkomst nekas till databasen med användarprofiler?
 
-## <a name="stride-model"></a>STRIDE modellen
+## <a name="stride-model"></a>STRIDE modell
 
-Bättre hjälpen du formulerar dessa typer av pekar frågor, Microsoft använder STRIDE-modell, som kategoriserar olika typer av hot och förenklar de övergripande säkerheten konversationerna.
+För bättre hjälp du formulera dessa typer av frågor som pekar, Microsoft använder STRIDE-modell som kategoriserar olika typer av hot och förenklar de övergripande säkerheten konversationerna.
 
 | Kategori | Beskrivning |
 | -------- | ----------- |
-| **Förfalskning** | Omfattar sätt att komma åt och sedan använda en annan användares autentiseringsinformation, till exempel användarnamn och lösenord |
-| **Manipulation** | Innebär att ändringar av data. Exempel obehöriga ändringar som gjorts beständiga data som lagras i en databas och ändring av data när den förs vidare mellan två datorer över öppna nätverk, till exempel Internet |
-| **Repudiation** | Som är kopplade till användare och neka utför en åtgärd utan andra parter med något sätt att bevisa annars – till exempel en användare utför en otillåten åtgärd i ett system som saknar möjlighet att spåra otillåtna åtgärder. Icke-Repudiation refererar till möjligheten för ett system för räknaren repudiation hot. Till exempel behöva en användare som köper en artikel registrera för objektet har tagits emot. Leverantören kan sedan använda signerade inleveransen som bevis på att användaren tog emot paketet |
-| **Avslöjande av information** | Innebär att information till personer som inte ska ha åtkomst till den exponeras, till exempel möjligheten för användare att läsa en fil som de inte har beviljats åtkomst till eller en inkräktare förmåga att läsa data som överförs mellan två datorer |
-| **Denial of Service** | Denial of service (DoS) attacker neka tjänsten till giltiga användare – till exempel genom att göra en webbserver tillfälligt otillgänglig eller inte kan användas. Du måste skydda dig mot vissa typer av DoS hot bara för att förbättra systemets tillgänglighet och tillförlitlighet |
-| **Rättighetsökning** | En icke-privilegierade användare får privilegierad åtkomst och har därmed behörighet att kompromettera eller förstöra hela systemet. Höjning av privilegier hot inkludera dessa situationer där en angripare effektivt har genombryts försvar för alla system och blir en del av betrodda systemet, farliga situationer verkligen |
+| **Spoofing** | Omfattar åtkomst till mjukvara och sedan använda en annan användares autentiseringsinformation, till exempel användarnamn och lösenord |
+| **Tampering** | Innebär att ändringar av data. Exempel obehöriga ändringar som gjorts beständiga data som lagras i en databas och ändring av data när den förs vidare mellan två datorer öppna nätverk, till exempel Internet |
+| **Repudiation** | Som är associerade med användare som neka en åtgärd utan andra parter som behöver något sätt att bevisa annars – till exempel en användare utför en otillåten åtgärd i ett system som saknar möjlighet att spåra de förbjudna åtgärderna. Non-Repudiation refererar till möjligheten för ett system för räknaren repudiation hot. När en användare köper en artikel kan till exempel behöva registrera för objektet vid mottagning. Leverantören kan sedan använda det signerade kvittot som bevis på att användaren tog emot paketet |
+| **Avslöjande av information** | Omfattar exponering av information till personer som inte ska ha åtkomst till den, till exempel möjligheten för användare att läsa en fil som de inte har beviljats åtkomst till eller en inkräktare förmåga att läsa data i rörelse mellan två datorer |
+| **Denial of Service** | Attacker denial of service (DoS) neka service till giltiga användare – till exempel genom att göra en server tillfälligt otillgänglig eller inte kan användas. Du måste skydda mot vissa typer av DoS-hot bara för att förbättra systemets tillgänglighet och tillförlitlighet |
+| **Rättighetsökning** | En icke-privilegierade användare får privilegierad åtkomst och har därmed tillräcklig åtkomst till kompromettera eller förstöra hela systemet. Höjning av privilegier hot inkludera dessa situationer där en angripare effektivt har genombryts försvar för alla system och bli en del av betrodda själva systemet, farliga situationer verkligen |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till  **[hot Modeling verktyget åtgärder](./azure-security-threat-modeling-tool-mitigations.md)**  att lära dig hur man kan minimera dessa hot med Azure.
+Gå vidare till **[Threat Modeling Tool åtgärder](./azure-security-threat-modeling-tool-mitigations.md)** att lära dig hur du kan identifiera dessa hot med Azure.

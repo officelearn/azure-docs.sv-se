@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 06719f3a92dae805081ea85c346df97ebed0e0dc
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078078"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351517"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -84,14 +84,14 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-För att använda Resource Manager-mall: se [självstudie: integrera Azure Key Vault i Resource Manager-mall distribution](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+För att använda Resource Manager-mall: Se [självstudien: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
 
 > [!NOTE]
 > Varje Azure-tjänst har specifika lösenordskrav. Till exempel krav för Azure virtuella datorer finns på [vilka är lösenordskraven för när du skapar en virtuell dator?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
 ## <a name="enable-access-to-the-secret"></a>Aktivera åtkomst till hemligheten
 
-Annat än inställningen `enabledForTemplateDeployment` till `true`, användaren distribuerar mallen måste ha den `Microsoft.KeyVault/vaults/deploy/action` behörighet för scope som innehåller Nyckelvalvet inklusive resursgrupp och Key Vault. Den [ägare](../role-based-access-control/built-in-roles.md#owner) och [deltagare](../role-based-access-control/built-in-roles.md#contributor) båda bevilja åtkomst. Om du skapar Key Vault kan är du ägare så att du har behörighet. Om Key Vault hanteras av en annan prenumeration måste ägaren av Key Vault grand åtkomst.
+Annat än inställningen `enabledForTemplateDeployment` till `true`, användaren distribuerar mallen måste ha den `Microsoft.KeyVault/vaults/deploy/action` behörighet för scope som innehåller Nyckelvalvet inklusive resursgrupp och Key Vault. Den [ägare](../role-based-access-control/built-in-roles.md#owner) och [deltagare](../role-based-access-control/built-in-roles.md#contributor) båda bevilja åtkomst. Om du skapar Key Vault kan är du ägare så att du har behörighet. Om Key Vault hanteras av en annan prenumeration kan ägaren av Key Vault måste ge åtkomst.
 
 Följande procedur visar hur du skapar en roll med den minsta permssion och tilldela användaren
 1. Skapa en anpassad roll definition JSON-fil:
@@ -233,7 +233,7 @@ Du kan inte dynamiskt generera resurs-ID i parameterfilen eftersom malluttryck i
 
 I den överordnade mallen, du lägger till länkad mall och skicka in en parameter som innehåller dynamiskt skapade resurs-ID. Följande bild visar hur en parameter i mallen länkade refererar till hemligheten.
 
-![Dynamisk ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
+![Dynamic ID](./media/resource-manager-keyvault-parameter/dynamickeyvault.png)
 
 Den [följande mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-key-vault-use-dynamic-id) dynamiskt skapar nyckelvalvs-ID och skickar det som en parameter.
 

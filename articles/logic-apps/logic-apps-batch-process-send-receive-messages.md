@@ -8,13 +8,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
-ms.date: 08/19/2018
-ms.openlocfilehash: f60cb79324cad194877402203dbd1706727468d0
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: c33b1d46ecf710f050fc998ce27f6448337c6b78
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330729"
+ms.locfileid: "54352520"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>Skicka, ta emot och bearbetar meddelanden i Azure Logic Apps för batch
 
@@ -60,10 +60,17 @@ Innan du kan skicka meddelanden till en batch, måste den batch först finnas so
    |----------|-------------|
    | **Batch-läge** | - **Infogad**: För att definiera versionskriterierna i batchutlösare <br>- **Integrationskontot**: För att definiera flera versionen kriterier konfigurationer via en [integrationskontot](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Du kan underhålla konfigurationerna alla på samma plats i stället för i separata logic apps med ett integrationskonto. | 
    | **Batch-namn** | Namn för ditt batch, som är ”TestBatch” i det här exemplet och gäller endast **infogade** batch-läge |  
-   | **Versionsvillkor** | Gäller endast **infogade** batch-läge och väljer kriterier för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: Antalet meddelanden att samla in i batchen, till exempel 10 meddelanden <br>- **Storleksbaserad**: Den maximala batchstorleken i byte, till exempel 10 MB <br>- **Schemabaserat**: Intervall och frekvens mellan batch-versioner, till exempel 10 minuter. Minimivärdet för upprepning är 60 sekunder eller 1 minut. Minut Bråkvärden avrundas effektivt uppåt till 1 minut. Om du vill ange ett startdatum och starttid, Välj **visa avancerade alternativ**. <br>- **Markera alla**: Använd de angivna kriterierna. | 
+   | **Versionsvillkor** | Gäller endast **infogade** batch-läge och väljer kriterier för att uppfylla innan bearbetning av varje batch: <p>- **Meddelande baserat på antal**: Släpp batch baserat på hur många meddelanden som samlas in av batch. <br>- **Storleksbaserad**: Släpp batch utifrån den totala storleken i byte för alla meddelanden som samlas in av det batch. <br>- **Schema**: Versionen batch baserat på ett upprepningsschema som anger ett intervall och frekvens. I avancerade alternativ klickar du också Välj en tidszon och ange ett startdatum och starttid. <br>- **Markera alla**: Använd de angivna kriterierna. | 
+   | **Antal meddelanden** | Antal meddelanden att samla in i batchen, till exempel 10 meddelanden. En batch-gränsen är 8 000 meddelanden. | 
+   | **Batch Size** | Den totala storleken i byte för att samla in i batchen, till exempel 10 MB. Gränsen för en batch är 80 MB. | 
+   | **Schema** | Intervall och frekvens mellan batch-versioner, till exempel 10 minuter. Minimivärdet för upprepning är 60 sekunder eller 1 minut. Bråkdelar av minuter avrundas effektivt uppåt till 1 minut. Om du vill ange en tidszon eller ett startdatum och starttid, Välj **visa avancerade alternativ**. | 
    ||| 
 
-   Det här exemplet visar alla villkor, men för dina egna tester, väljer du bara ett kriterium:
+   > [!NOTE]
+   > 
+   > Om du ändrar versionskriterierna när utlösaren fortfarande har batchar men meddelanden använder utlösaren uppdaterade versionsvillkor för hantering av meddelanden som inte skickats. 
+
+   Det här exemplet visar alla villkor, men försök bara ett kriterium för dina egna tester:
 
    ![Ange information för utlösare av Batch](./media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png)
 

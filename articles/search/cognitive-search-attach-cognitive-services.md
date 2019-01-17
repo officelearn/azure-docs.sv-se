@@ -1,5 +1,5 @@
 ---
-title: Associera en Cognitive Services-resurs med en kompetens – Azure Search
+title: Bifoga en Cognitive Services-resurs med en kompetens – Azure Search
 description: Anvisningar för att bifoga en allt-i-ett Cognitive Services-prenumeration för en pipeline med kognitiva funktioner i Azure Search.
 manager: cgronlun
 author: LuisCabrer
@@ -7,36 +7,36 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/07/2018
+ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 315e050f9ff8768cfeb8ff5417834e8e163ce334
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231435"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351466"
 ---
-# <a name="associate-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Associera en Cognitive Services-resurs med en kompetens i Azure Search 
+# <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
 AI-algoritmer som driver [kognitiv sökning pipelines](cognitive-search-concept-intro.md) för bearbetning av Ostrukturerade data baserat på [ **Cognitive Services-resurser**](https://azure.microsoft.com/services/cognitive-services/). Resurser som [ **visuellt** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ger bildanalys och optisk teckenläsning (OCR) för att extrahera text och struktur utanför bildfiler, medan [ **Text Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ger naturlig språkbearbetning, till exempel entitet erkännande och nyckeln diskussionsämne, att nämna några.
 
-Du kan utöka ett begränsat antal dokument kostnadsfritt eller bifoga en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln får du lära dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under indexering.
+Du kan utöka ett begränsat antal dokument kostnadsfritt eller bifoga en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln lär du dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under [Azure sökindexering](search-what-is-an-index.md).
 
 Om din pipeline består uteslutande av [anpassade funktioner](cognitive-search-create-custom-skill-example.md), du behöver inte att koppla en resurs för Cognitive Services.
 
 > [!NOTE]
 > Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. På så sätt kan vi ta betalt för körning av kompetens. På det här datumet måste också började vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
 >
-> Körningen av [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) som ingår debiteras enligt de [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/), på samma pris som om du har utfört uppgiften oberoende av Azure Search. Bild extrahering priser som ingår debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400).
+> Körningen av [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) som ingår debiteras enligt de [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services), på samma pris som om du har utfört uppgiften direkt. Extrahering av avbildningen är en fakturerbar händelse Azure Search, för närvarande på priset för förhandsversionen. Mer information finns i [Azure Search prissättningssidan](https://go.microsoft.com/fwlink/?linkid=2042400) eller [hur debiteringen fungerar](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Använd kostnadsfria resurser
 
-Du kan använda en begränsad, kostnadsfri Bearbetningsalternativ som ger dig den 20 dokumentet enrichments per dag, räcker för att slutföra självstudien och quickstart övningarna för kognitiv sökning. 
+Du kan använda en begränsad, kostnadsfri bearbetningsalternativ för att slutföra självstudien och quickstart övningarna kognitiv sökning. 
 
 > [!Important]
-> Startar den 1 februari 2019 den **kostnadsfri (begränsad Enrichments)** är begränsad till 20 dokument per dag. 
+> Från och med 1 februari 2019 den **kostnadsfri (begränsad Enrichments)** begränsas till 20 dokument per dag. 
 
 1. Öppna den **dataimport** guiden.
 

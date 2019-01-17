@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a5bf15289e91cc568524e8110702b5608118bc2d
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 413a69f31125c6c8f18401bb997a490c0f99f948
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833932"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352095"
 ---
-# <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: Logga in med ett Android-program
+# <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Logga in med ett Android-program i Azure Active Directory B2C
 
 Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Dessa standarder kan du utnyttja alla bibliotek som du vill integrera med Azure Active Directory B2C. För att använda andra bibliotek ska använda du en genomgång som den här för att demonstrera hur du konfigurerar bibliotek med 3 part att ansluta till Microsoft identity-plattformen. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity-plattformen.
 
@@ -30,7 +30,7 @@ Om du inte har erfarenhet av OAuth2 eller OpenID Connect kanske du inte får ut 
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
 
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en [skapar du en B2C-katalog](active-directory-b2c-get-started.md) innan du fortsätter.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en container för alla användare, appar, grupper och mer. Om du inte redan har en [skapar du en B2C-katalog](tutorial-create-tenant.md) innan du fortsätter.
 
 ## <a name="create-an-application"></a>Skapa ett program
 
@@ -42,13 +42,11 @@ Därefter måste du skapa en app i B2C-katalogen. Det ger Azure AD den informati
 
 ## <a name="create-your-user-flows"></a>Skapa dina användarflöden
 
-I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md), vilket är en uppsättning principer som styr beteendet för Azure AD. Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering användarflödet. Du måste skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). När du skapar användarflödet, måste du kontrollera att:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md), vilket är en uppsättning principer som styr beteendet för Azure AD. Det här programmet kräver en inloggning och registrering användarflödet. När du skapar användarflödet, måste du kontrollera att:
 
 * Välj den **visningsnamn** som ett registrerings attribut i ditt användarflöde.
 * Välj den **visningsnamn** och **objekt-ID** programanspråken i varje användarflödet. Du kan också välja andra anspråk.
 * Kopiera den **namn** av varje användarflöde när du har skapat. Det bör ha prefixet `b2c_1_`.  Du behöver userjourney-namnet senare.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 När du har skapat din användarflöden, är du redo att skapa din app.
 
@@ -134,6 +132,4 @@ AuthorizationRequest req = new AuthorizationRequest.Builder(
 ```
 
 Finns det [AppAuth guide](https://openid.github.io/AppAuth-Android/) om hur du Slutför resten av processen. Om du behöver snabbt komma igång med en fungerande app kan du kolla [vårt exempel](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-android-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
-
-Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
 

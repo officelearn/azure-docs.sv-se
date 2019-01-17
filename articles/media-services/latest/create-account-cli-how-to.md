@@ -10,19 +10,22 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 01/15/2019
 ms.author: juliako
-ms.openlocfilehash: fc80e2c540279c0a0c8acb575c9e5b1478a46cf8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c026eb9a74cbba2ff188a3f08be625043ede474
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133374"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352061"
 ---
 # <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
-Om du vill starta kryptering, kodning, analysera, hantera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto. Vid tidpunkt du skapar ett Media Services-konto, du också skapa en tillhörande storage-konto (eller Använd en befintlig) i samma geografiska område som Media Services-kontot.
-Azure i den här artikeln beskriver steg för att skapa ett nytt Azure Media Services-konto med Azure CLI.  
+Om du vill starta kryptering, kodning, analysera, hantera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto. Vid tidpunkt du skapar ett Media Services-konto, du också skapa en tillhörande storage-konto (eller Använd en befintlig).  
+
+Media Services-kontot och lagringskontot som associerats med den måste vara en del av samma datacenter och samma resursgrupp.
+
+Den här artikeln beskriver steg för att skapa ett nytt Azure Media Services-konto med Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 

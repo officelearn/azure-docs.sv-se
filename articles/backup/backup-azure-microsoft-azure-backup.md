@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: adigan
-ms.openlocfilehash: f6a6a1deb55bf16c65982c0d58cd6d92559596af
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: a57161fd379269f69ce4e83730a29588d9028b7a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52728284"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351619"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Den här artikeln beskriver hur du förbereder din miljö för att säkerhetskop
 >
 >
 
-Du kan även skydda infrastruktur som en tjänst (IaaS)-arbetsbelastningar som till exempel virtuella datorer i Azure.
+MABS som distribueras i en Azure-dator kan säkerhetskopiera Virtuella datorer i Azure men de måste vara i samma domän att säkerhetskopiera igen. Processen för att säkerhetskopiera en Azure VM är samma som att säkerhetskopiera virtuella datorer på lokal, men distribuerar MABS i Azure har vissa begränsningar. Läs mer på begränsning [DPM som en Azure virtuell dator](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure har två distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln innehåller information och procedurer för att återställa virtuella datorer som distribueras med hjälp av Resource Manager-modellen.
@@ -43,7 +43,7 @@ Azure Backup Server ärver programmering av mycket av den arbetsbelastning säke
 Det första steget mot Azure Backup Server konfigurera och komma igång är att ställa in en Windows-Server. Servern kan vara i Azure eller lokalt.
 
 ### <a name="using-a-server-in-azure"></a>Med en server i Azure
-När du väljer en server för att köra Azure Backup Server, bör du börja med en galleri-bild av Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter eller Windows Server 2019 Datacenter. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den server-datorn (VM) ska vara: Standard A2 med två kärnor och 3,5 GB RAM-minne.
+När du väljer en server för att köra Azure Backup Server, bör du börja med en galleri-bild av Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter eller Windows Server 2019 Datacenter. I artikeln [skapa din första Windows-dator i Azure-portalen](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), innehåller en vägledning för att komma igång med den rekommendera virtuella datorn i Azure, även om du aldrig har använt Azure förut. Rekommenderade minimikraven för den server-datorn (VM) ska se ut: Standard a2 med två kärnor och 3,5 GB RAM-minne.
 
 Skydda arbetsbelastningar med Azure Backup Server har många nyanser. I artikeln [Install DPM as Azure-datorer](https://technet.microsoft.com/library/jj852163.aspx), bidrar till att klargöra dessa olika delarna. Läs den här artikeln helt innan du distribuerar datorn.
 
@@ -112,7 +112,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
     I den **Kom igång med säkerhetskopiering** bladet som öppnas, **säkerhetskopieringsmål** blir automatiskt markerade.
 
-    ![Backup-mål-standard-öppnas](./media/backup-azure-microsoft-azure-backup/getting-started.png)
+    ![Backup-goals-default-opened](./media/backup-azure-microsoft-azure-backup/getting-started.png)
 
 5. I den **säkerhetskopieringsmål** bladet från den **var körs din arbetsbelastning** menyn och välj **lokala**.
 
@@ -263,7 +263,7 @@ Här följer stegen om du behöver flytta MABS till en ny server, samtidigt som 
 9. Återställ DPMDB från SQL
 10. Från kommandoraden för administratör på den nya servern cd till Microsoft Azure Backup installerar du platsen och bin-mappen
 
-Sökväg till exempel: C:\windows\system32 > cd ”c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
+Sökväg till exempel: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\
 Säkerhetskopiera till Azure kör DPMSYNC-SYNC
 
 10) Kör DPMSYNC-SYNC Obs Om du har lagt till nya diskar i DPM lagringspoolen i stället för att flytta gamla kör DPMSYNC - Reallocatereplica

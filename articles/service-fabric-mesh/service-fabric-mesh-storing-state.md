@@ -9,16 +9,16 @@ ms.date: 11/27/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: ecdb36af786d96a5b343d11cd689642d59528445
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 81d9fc7babef7c1d14a0acc420d0c16c05b83215
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888544"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354339"
 ---
 # <a name="state-management-with-service-fabric"></a>Tillståndshantering med Service Fabric
 
-Service Fabric stöder många olika alternativ för lagring av användartillstånd. En översikt över mönster för hantering av tillstånd och Service Fabric Se [Service Fabric-koncept: tillstånd](/azure/service-fabric/service-fabric-concepts-state). Dessa samma koncept gäller oavsett om dina tjänster körs i eller utanför Service Fabric-nät. 
+Service Fabric stöder många olika alternativ för lagring av användartillstånd. En översikt över mönster för hantering av tillstånd och Service Fabric Se [Service Fabric-koncept: Tillstånd](/azure/service-fabric/service-fabric-concepts-state). Dessa samma koncept gäller oavsett om dina tjänster körs i eller utanför Service Fabric-nät. 
 
 Med Service Fabric nät, kan du enkelt distribuera ett nytt program och ansluter den till ett befintligt dataarkiv i Azure. Förutom att använda någon fjärrdatabas, finns det flera alternativ för att lagra data, beroende på om tjänsten vill lokal eller fjärransluten lagring. 
 
@@ -28,9 +28,9 @@ Behållare är ofta använda temporära diskar. Temporära diskar är dock tillf
 
 ![Volymer][image3]
 
-### <a name="service-fabric-reliable-volume"></a>Service Fabric tillförlitliga volym
+### <a name="service-fabric-reliable-volume"></a>Service Fabric Reliable Volume
 
-Service Fabric tillförlitliga volym är en drivrutin för Docker-volym som används för att montera en lokal volym till en behållare. Läsningar och skrivningar finns lokala åtgärder och fast. Data replikeras ut till sekundära noder, vilket gör det med hög tillgänglighet. Redundans är också snabbt. När en behållare kraschar växlar den över till en nod som redan har en kopia av dina data. Ett exempel finns i [hur du distribuerar en app med Service Fabric tillförlitliga volym.](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/counter)
+Service Fabric tillförlitliga volym är en drivrutin för Docker-volym som används för att montera en lokal volym till en behållare. Läsningar och skrivningar finns lokala åtgärder och fast. Data replikeras ut till sekundära noder, vilket gör det med hög tillgänglighet. Redundans är också snabbt. När en behållare kraschar växlar den över till en nod som redan har en kopia av dina data. Ett exempel finns i [hur du distribuerar en app med Service Fabric tillförlitliga volym](service-fabric-mesh-howto-deploy-app-sfreliable-disk-volume.md).
 
 ### <a name="azure-files-volume"></a>Azure Files-volym
 

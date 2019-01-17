@@ -9,18 +9,18 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 34ec22550106f03bc90c95b407af088327b7837f
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 6cdfa7492a9916cc3e2300ad71e21acfb68e3d30
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036179"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352248"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Ansluta en Node.js Mongoose-program till Azure Cosmos DB
 
 Den här självstudien visar hur du använder den [Mongoose-ramverket](https://mongoosejs.com/) när du lagrar data i Cosmos DB. Vi använder Azure Cosmos DB: s API för MongoDB i den här genomgången. För dem som inte vet är Mongoose ett ramverk för modellering av objekt för MongoDB i Node.js och tillhandahåller en enkel och schemabaserad lösning för att modellera dina programdata.
 
-Cosmos DB är Microsofts globalt distribuerade databas för flera modeller tjänst. Du kan snabbt skapa och fråga efter dokument, nyckel/värde- och grafdatabaser fördelar av den globala distributionen och den horisontella skalningsförmågan kärnan i Cosmos DB.
+Cosmos DB är Microsofts globalt distribuerade databas för flera modeller tjänst. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -183,7 +183,7 @@ Standardbeteendet i Mongoose är att skapa en MongoDB-samling varje gång du ska
 
 1. Nu ser går in på Azure portal, du två samlingar som skapats i Cosmos DB.
 
-    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto, med flera samlingsnamn markerade – Node-databas][mutiple-coll]
+    ![Node.js-självstudie – Skärmbild av Azure-portalen som visar ett Azure Cosmos DB-konto, med flera samlingsnamn markerade – Node-databas][multiple-coll]
 
 1. Slutligen ska vi läsa data från Cosmos DB. Eftersom vi använder standarddriftmodellen i Mongoose är läsningarna desamma som alla andra läsningar med Mongoose.
 
@@ -308,9 +308,9 @@ Som du ser är det enkelt att arbeta med diskriminatorer i Mongoose. Så om du h
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [använda Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB-API för MongoDB.
-- Lär dig hur du [använda Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB-API för MongoDB.
-- Utforska MongoDB [exempel](mongodb-samples.md) med Azure Cosmos DB-API för MongoDB.
+- Lär dig hur du [använder Studio 3T](mongodb-mongochef.md) med Azure Cosmos DB:s API för MongoDB.
+- Lär dig hur du [använder Robo 3T](mongodb-robomongo.md) med Azure Cosmos DB:s API för MongoDB.
+- Utforska MongoDB-[exempel](mongodb-samples.md) med Azure Cosmos DB:s API för MongoDB.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png
-[mutiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png
+[multiple-coll]: ./media/mongodb-mongoose/mongo-mutliple-collections.png

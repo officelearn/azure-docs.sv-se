@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 2a469864a7b4a693ecc908fda360da1b82e8c5f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: de472cd25997b0c48f258927b2617c2399b2bb21
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200453"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353370"
 ---
 # <a name="copy-data-from-salesforce-marketing-cloud-using-azure-data-factory-preview"></a>Kopiera data från Salesforce Marketing Cloud med Azure Data Factory (förhandsversion)
 
@@ -49,7 +49,7 @@ Följande egenskaper har stöd för Salesforce Marketing Cloud länkade tjänste
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **SalesforceMarketingCloud** | Ja |
 | ClientId | Klient-ID som är associerade med Salesforce Marketing Cloud-programmet.  | Ja |
-| ClientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera acitivty pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
+| ClientSecret | Klienthemlighet som är kopplade till Salesforce Marketing Cloud-programmet. Du kan välja att markera det här fältet som en SecureString att lagra den på ett säkert sätt i ADF eller lagra lösenord i Azure Key Vault och låt ADF kopiera aktivitet pull därifrån när du utför kopiering av data – Lär dig mer från [Store autentiseringsuppgifter i Key Vault](store-credentials-in-key-vault.md). | Ja |
 | useEncryptedEndpoints | Anger om käll-slutpunkter data krypteras med HTTPS. Standardvärdet är sant.  | Nej |
 | useHostVerification | Anger om värdnamnet i servercertifikatet så att de matchar värdnamnet för servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |
 | usePeerVerification | Anger om du vill kontrollera identiteten på servern när du ansluter via SSL. Standardvärdet är sant.  | Nej |

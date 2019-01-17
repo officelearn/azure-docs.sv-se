@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/12/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: d47a90851777b3256474a88e5881afd8f52547f2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: f4a1bf9e2fee9278713315c98f25dbc820a553a1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263330"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352418"
 ---
 # <a name="azure-stack-1809-update"></a>Uppdatering av Azure Stack 1809
 
@@ -134,7 +134,7 @@ Klicka på föregående länkarna för mer information om dessa säkerhetsrisker
 
 ### <a name="prerequisites"></a>Förutsättningar
 
-- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4481066 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.9.117](https://support.microsoft.com/help/4481066/).
+- Installera den senaste Azure Stack snabbkorrigering för 1808 innan du tillämpar 1809. Mer information finns i [KB 4481066 – Azure Stack snabbkorrigering Azure Stack snabbkorrigering 1.1808.9.117](https://support.microsoft.com/help/4481066/). Microsoft rekommenderar att den senaste snabbkorrigeringen tillgänglig, är den minimun-versionen som krävs för att installera 1809 1.1808.5.110.
 
   > [!TIP]  
   > Prenumerera på följande *RRS* eller *Atom* flöden, hålla jämna steg med Azure Stack snabbkorrigeringar:

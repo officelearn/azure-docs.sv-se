@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: e733b82e1b5870d98de5d65771bd621d9bffdf44
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 4188fb413cc1001b6e4813fe69518a016c8c0656
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024900"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354271"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Hämta metadataaktivitet i Azure Data Factory
 GetMetadata-aktiviteten kan användas för att hämta **metadata** för alla data i Azure Data Factory. Den här aktiviteten kan användas i följande scenarier:
@@ -33,7 +33,7 @@ Följande funktioner är tillgängliga i kontrollflödet:
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 
-GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och utdata metadatainformation som är tillgängliga som utdata. För närvarande stöds följande kopplingar med motsvarande hämtningsbar meatadata och högsta stöds metadata är upp till **1MB**.
+GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och utdata metadatainformation som är tillgängliga som utdata. För närvarande stöds följande kopplingar med motsvarande hämtningsbar metadata och högsta stöds metadata är upp till **1MB**.
 
 >[!NOTE]
 >Om du kör GetMetadata-aktiviteten på en lokal Integration Runtime stöds den senaste kapaciteten på version 3.6 eller senare. 
@@ -42,10 +42,10 @@ GetMetadata-aktiviteten tar en datauppsättning som en obligatorisk indata och u
 
 **Fillagring:**
 
-| Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | storlek<br>(fil) | skapad<br>(fil/mapp) | senast ändrad<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
+| Anslutning/Metadata | itemName<br>(fil/mapp) | ItemType<br>(fil/mapp) | storlek<br>(fil) | skapad<br>(fil/mapp) | lastModified<br>(fil/mapp) |childItems<br>(mapp) |contentMD5<br>(fil) | struktur<br/>(fil) | Antal kolumner<br>(fil) | Det finns<br>(fil/mapp) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √ / √ * | √ | x | √ | √ | √ / √ * |
-| Azure-blobb | √/√ | √/√ | √ | x/x | √ / √ * | √ | √ | √ | √ | √/√ |
+| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| Azure-blobb | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
 | Azure Data Lake Store | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | Filsystem | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
@@ -74,7 +74,7 @@ Följande typer av metadata kan anges i fältlistan GetMetadata-aktivitet att h�
 | ItemType | Typ av filen eller mappen. Utdatavärdet `File` eller `Folder`. |
 | storlek | Storleken på filen i byte. Gäller för bara fil. |
 | skapad | Skapad datum/tid för filen eller mappen. |
-| senast ändrad | Senast ändrad datum/tid för filen eller mappen. |
+| lastModified | Senast ändrad datum/tid för filen eller mappen. |
 | childItems | Lista över undermappar och filer i den angivna mappen. Gäller endast på mappen. Utdatavärdet är en lista med namn och typ för varje underordnade objekt. |
 | contentMD5 | MD5 för filen. Gäller för bara fil. |
 | struktur | Datastruktur i filen eller relationsdatabas tabell. Utdatavärdet är en lista med kolumnnamn och Kolumntyp. |
@@ -130,8 +130,8 @@ GetMetadata-aktiviteten kan för närvarande hämta följande typer av metadatai
 
 Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
-Fältlista | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnittet om metadata som stöds. | Ja 
-Datauppsättning | Referens-datauppsättning vars GetMetaData-aktivitet är kan hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till avsnitt om anslutningsprogram på datauppsättningen syntax information. | Ja
+fieldList | Visar typerna av metadatainformation som krävs. Mer information finns i [Metadata alternativ](#metadata-options) avsnittet om metadata som stöds. | Ja 
+dataset | Referens-datauppsättning vars GetMetaData-aktivitet är kan hämtas av GetMetadata-aktiviteten. Se [funktioner som stöds](#supported-capabilities) avsnittet på kopplingar som stöds och referera till avsnitt om anslutningsprogram på datauppsättningen syntax information. | Ja
 
 ## <a name="sample-output"></a>Exempel på utdata
 

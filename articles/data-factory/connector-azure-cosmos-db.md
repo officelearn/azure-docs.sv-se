@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 0d66c7d714aeac28a46adb31fdb73b4781ac81f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6dd7707c489bbbad7a97a0ec0a76e7c631bd1465
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024730"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359263"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Kopiera data till och från Azure Cosmos DB (SQL-API) med hjälp av Azure Data Factory
 
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-azure-documentdb-connector.md)
 > * [Aktuell version](connector-azure-cosmos-db.md)
 
 Den här artikeln beskrivs hur du använder Kopieringsaktivitet i Azure Data Factory för att kopiera data från och till Azure Cosmos DB (SQL-API). Artikeln bygger vidare på [Kopieringsaktivitet i Azure Data Factory](copy-activity-overview.md), som anger en allmän översikt över Kopieringsaktivitet.
 
 >[!NOTE]
->Den här anslutningen endast stöder kopiera data till/från Cosmos DB SQL API. MongoDB API finns i [Cosmos DB MongoDB API-kopplingen](connector-azure-cosmos-db-mongodb-api.md). Andra API-typer stöds inte nu.
+>Den här anslutningen endast stöder kopiera data till/från Cosmos DB SQL API. MongoDB, finns i [connector för Azure Cosmos DB-API för MongoDB](connector-azure-cosmos-db-mongodb-api.md). Andra API-typer stöds inte nu.
 
 ## <a name="supported-capabilities"></a>Funktioner som stöds
 

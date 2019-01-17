@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/15/2019
+ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0bdf2d4e9c5ee659666eeb1a6e92c34c181ba805
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 9687276323598d8600aa6930df8ef18bcc171cc1
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331800"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358838"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Anslutningstillgångar i Azure Automation
 
@@ -24,6 +24,16 @@ När du skapar en anslutning måste du ange en *anslutningstypen*. Anslutningsty
 
 >[!NOTE]
 >Säkra tillgångar i Azure Automation omfattar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa tillgångar krypteras och lagras i Azure Automation med en unik nyckel som skapas för varje automation-konto. Den här nyckeln lagras i Key Vault hanteras av en datorn. Innan du lagrar en säker resurs som lästs in från Key Vault nyckeln och sedan används för att kryptera tillgången. Den här processen hanteras av Azure Automation.
+
+## <a name="connection-types"></a>Anslutningstyper
+
+Det finns tre typer av inbyggda anslutningar i Azure Automation:
+
+* **Azure** – den här anslutningen kan användas för att hantera klassiska resurser.
+* **AzureClassicCertificate** -den här anslutningen används av den **AzureClassicRunAs** konto.
+* **AzureServicePrincipal** -den här anslutningen används av den **AzureRunAs** konto.
+
+I de flesta fall behöver du inte skapa en anslutningsresurs när den skapas när du skapar en [RunAs-kontot](manage-runas-account.md).
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 

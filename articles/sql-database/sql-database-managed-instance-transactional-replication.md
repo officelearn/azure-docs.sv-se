@@ -12,16 +12,23 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/08/2019
-ms.openlocfilehash: 1839ca0d2495a07f6fc734501540cddcdcb28e18
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: d94173f9b1940613c26451658b90c956c71876fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332903"
+ms.locfileid: "54353251"
 ---
 # <a name="transactional-replication-with-azure-sql-logical-server-and-azure-sql-managed-instance"></a>Transaktionsreplikering med logiska Azure SQL-servern och Azure SQL Managed Instance
 
 Transaktionsreplikering är en funktion i Azure SQL Database Managed Instance och SQL Server som gör det möjligt att replikera data från en tabell i Azure SQL Database eller SQL Server till de tabeller som placeras på fjärr-databaser. Den här funktionen kan du synkronisera flera tabeller i olika databaser.
+
+## <a name="when-to-use-transactional-replication"></a>När du ska använda Transaktionsreplikering
+
+Transaktionsreplikering är användbart i följande scenarier:
+- Publicera ändringar som gjorts i en eller flera tabeller i en databas och distribuera dem till en eller flera SQL Server eller Azure SQL-databaser som prenumererar på för att ändringarna.
+- Ha flera distribuerade databaser i synkroniserat tillstånd.
+- Migrera databaser från en SQL Server eller hanterad instans till en annan databas genom att kontinuerligt publicera ändringarna.
 
 ## <a name="overview"></a>Översikt 
 De viktigaste komponenterna i Transaktionsreplikering visas i följande bild:  
@@ -81,16 +88,19 @@ I allmänhet måste utgivaren och distributören vara antingen i molnet eller lo
 
 ![Enskild instans som utgivaren och distributören ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
-Utgivaren och distributören är konfigurerade i en enda hanterad instans. 
+Utgivaren och distributören är konfigurerade i en enda hanterad instans och distribuera ändringarna till andra hanterad instans, enkel databas eller SQL Server lokalt. I den här konfigurationen utgivare/distributören hanterad instans kan inte konfigureras med [Geo-replikering och automatisk redundansgrupper](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-with-remote-distributor-on-a-managed-instance"></a>Utgivaren med fjärrdistributören på en hanterad instans
+
+I den här konfigurationen publicerar en hanterad instans ändringar till distributören placeras på en annan hanterad instans som kan hantera många källa hanterade instanser och distribuera ändringarna till en eller flera mål på hanterad instans, enkel databas eller SQL Server.
 
 ![Separata instanser för utgivaren och distributören](media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
 
 Utgivaren och distributören konfigureras på två hanterade instanser. I den här konfigurationen
 
 - Både hanterade instanser är på samma virtuella nätverk.
-- Både hanterade instanser är på samma plats. 
+- Både hanterade instanser är på samma plats.
+- Hanterade instanser som är värdar för publiceras och distributören databaser kan inte [georeplikerad med automatisk redundans-groups](sql-database-auto-failover-group.md).
 
 ### <a name="publisher-and-distributor-on-premises-with-a-subscriber-on-a-managed-instance-or-logical-server"></a>Utgivaren och distributören lokalt med en prenumerant på en hanterad instans eller en logisk Server 
 

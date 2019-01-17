@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: d57a7baafc533aee52ec8012d410d5f25b510b60
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585382"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359960"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisera distribution av virtuella Azure-datorer med Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,44 +29,50 @@ Chef är ett bra verktyg för att leverera automation och önskad tillstånd kon
 
 Med den senaste Molnets API-versionen tillhandahåller Chef sömlös integrering med Azure, vilket ger dig möjlighet att etablera och distribuera konfigureringstillstånd via ett enda kommando.
 
-I den här artikeln kan du ställa in din Chef-miljö för att etablera Azure-datorer och beskriver hur du skapar en princip eller ”CookBook” och sedan distribuera den här cookbook till en Azure virtuell dator.
-
-Vi börjar!
+I den här artikeln kan du ställa in din Chef-miljö för att etablera Azure-datorer och beskriver hur du skapar en princip eller ”Cookbook” och sedan distribuera den här cookbook till en Azure virtuell dator.
 
 ## <a name="chef-basics"></a>Chef-grunderna
-Innan du börjar [gå igenom de grundläggande principerna för Chef](http://www.chef.io/chef). 
+Innan du börjar [gå igenom de grundläggande principerna för Chef](http://www.chef.io/chef).
 
 Följande diagram visar den övergripande Chef-arkitekturen.
 
 ![][2]
 
-Chef har tre huvudsakliga Arkitekturkomponenter: Chef-Server, Chef-klienten (nod) och Chef-arbetsstation.
+Chef har tre huvudsakliga strukturella komponenter: Chef-Server, Chef klienten (nod) och Chef-arbetsstation.
 
-Chef-Server är hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning. Vi kommer att använda en värdlösning för den här självstudiekursen.
+Chef-Server är hanteringsplatsen och det finns två alternativ för Chef-Server: en värdbaserad lösning eller en lokal lösning.
 
 Chef-klienten (node) är den agent som är placerad på de servrar som du hanterar.
 
-Chef-arbetsstation är administratörsarbetsstation där vi skapa principer och köra kommandon för hantering. Vi kör den **kniv** från Chef-arbetsstationen för att hantera infrastrukturen.
+Chef-arbetsstation, som namnet för båda administratören arbetsstation där du skapar principer och köra kommandon för hantering och programpaket Chef verktyg.
 
-Det finns också begreppet ”Kokböcker” och ”recept”. Det här är ett effektivt sätt principerna som vi definiera och tillämpa på servrarna.
+I allmänhet bör du ser _arbetsstationen_ som den plats där du utföra åtgärder och _Chef arbetsstation_ för programpaketet.
+Till exempel laddar du ned kommandot kniv som en del av _Chef arbetsstation_, men du kan köra kniv kommandon från _arbetsstationen_ att hantera infrastrukturen.
 
-## <a name="preparing-the-workstation"></a>Förbereda arbetsstationen
-Först kan Förbered arbetsstationen. Jag använder en standard Windows-arbetsstation. Vi måste du skapa en katalog för att lagra konfigurationsfiler och kokböcker.
+Chef använder också begreppet ”Kokböcker” och ”recept”, som är i själva verket principerna som vi definiera och tillämpa på servrarna.
 
-Först skapa en katalog med namnet C:\chef.
+## <a name="preparing-your-workstation"></a>Förbereda din arbetsstation
 
-Skapa sedan en andra katalog med namnet c:\chef\cookbooks.
+Förbered först arbetsstationen genom att skapa en katalog för att lagra konfigurationsfiler för Chef och kokböcker.
 
-Vi behöver nu att ladda ned filen med Azure så Chef kan kommunicera med Azure-prenumeration.
+Skapa en katalog med namnet C:\chef.
 
-Hämta dina publiceringsinställningar med PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0) kommando. 
+Hämta Azure PowerShell [Publiceringsinställningar](https://docs.microsoft.com/en-us/dynamics-nav/how-to--download-and-import-publish-settings-and-subscription-information).
 
-Spara filen med publicera i C:\chef.
+## <a name="setup-chef-server"></a>Konfigurera Chef-Server
 
-## <a name="creating-a-managed-chef-account"></a>Skapa ett hanterat konto Chef
-Registrera dig för en värdbaserad Chef konto [här](https://manage.chef.io/signup).
+Den här handboken förutsätts att du ska registrera sig för värdbaserade Chef.
 
-Vid registreringen, blir du ombedd att skapa en ny organisation.
+Om du inte redan använder en Chef-Server, kan du:
+
+* Registrera dig för [finns Chef](https://manage.chef.io/signup), vilket är det snabbaste sättet att komma igång med Chef.
+* Installera en fristående Chef-Server på linux-baserade datorn, och följa den [Installationsinstruktioner](https://docs.chef.io/install_server.html) från [Chef Docs](https://docs.chef.io/).
+
+### <a name="creating-a-hosted-chef-account"></a>Skapa en värdbaserad Chef-konto
+
+Registrera dig för en värd Chef konto [här](https://manage.chef.io/signup).
+
+När du registrerade dig blir du ombedd att skapa en ny organisation.
 
 ![][3]
 
@@ -76,56 +82,124 @@ När din organisation har skapats kan du hämta starter kit.
 
 > [!NOTE]
 > Om du får ett meddelande som varnar dig om att dina nycklar kommer att återställas är det bra att slutföra eftersom vi har ingen befintlig infrastruktur som konfigurerats ännu.
-> 
-> 
+>
 
-Den här starter kit zip-filen innehåller din organisation konfigurationsfiler och nycklar.
+Den här starter kit zip-filen innehåller din organisation konfigurationsfiler och nyckeln i den `.chef` directory.
 
-## <a name="configuring-the-chef-workstation"></a>Konfigurera Chef-arbetsstation
-Extrahera innehållet i chef-starter.zip till C:\chef.
+Den `organization-validator.pem` måste laddas ned separat, eftersom det är en privat nyckel och privata nycklar bör inte lagras på Chef-Server. Från [Chef hantera](https://manage.chef.io/) och välj ”återställa valideringsnyckel”, vilket ger en fil som du kan ladda ned separat. Spara filen på c:\chef.
+
+### <a name="configuring-your-chef-workstation"></a>Konfigurera din Chef-arbetsstation
+
+Extrahera innehållet i chef-starter.zip till c:\chef.
 
 Kopiera alla filer under chef-starter\chef-lagringsplatsen\.chef till c:\chef-katalogen.
 
+Kopiera den `organization-validator.pem` filen till c:\chef, om den sparas i c:\Downloads
+
 Din katalog bör nu se ut ungefär som i följande exempel.
 
-![][5]
+```powershell
+    Directory: C:\Users\username\chef
 
-Du bör nu ha fyra filer, inklusive Azure publishing filen i roten av c:\chef.
+Mode           LastWriteTime    Length Name
+----           -------------    ------ ----
+d-----    12/6/2018   6:41 PM           .chef
+d-----    12/6/2018   5:40 PM           chef-repo
+d-----    12/6/2018   5:38 PM           cookbooks
+d-----    12/6/2018   5:38 PM           roles
+-a----    12/6/2018   5:38 PM       495 .gitignore
+-a----    12/6/2018   5:37 PM      1678 azuredocs-validator.pem
+-a----    12/6/2018   5:38 PM      1674 user.pem
+-a----    12/6/2018   5:53 PM       414 knife.rb
+-a----    12/6/2018   5:38 PM      2341 README.md
+```
 
-PEM-filer innehåller din organisation och administratören privata nycklar för kommunikation medan knife.rb-filen innehåller kniv konfigurationen. Vi behöver du redigera filen knife.rb.
+Du bör nu ha fem filer och fyra kataloger (inklusive katalogen tom chef-lagringsplats) i roten av c:\chef.
 
-Öppna filen i redigeringsprogrammet väljer och ändra ”cookbook_path” genom att ta bort den /... och från sökvägen så att den visas som:
+### <a name="edit-kniferb"></a>Redigera knife.rb
 
-    cookbook_path  ["#{current_dir}/cookbooks"]
+PEM-filer som innehåller din organisation och administrativa privata nycklar för kommunikation och knife.rb-filen innehåller kniv konfigurationen. Vi behöver du redigera filen knife.rb.
+
+Öppna filen knife.rb i valfri redigerare. Oförändrat filen bör se ut ungefär som:
+
+```rb
+current_dir = File.dirname(__FILE__)
+log_level           :info
+log_location        STDOUT
+node_name           "mynode"
+client_key          "#{current_dir}/user.pem"
+chef_server_url     "https://api.chef.io/organizations/myorg"
+cookbook_path       ["#{current_dir}/cookbooks"]
+```
+
+Lägg till följande information i din knife.rb:
+
+validation_client_name   "myorg-validator" validation_key           ""#{current_dir}/myorg.pem"
 
 Lägg även till följande rad återger namnet på din Azure inställningsfilen för publicering.
 
     knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
 
-Filen knife.rb bör nu se ut ungefär som i följande exempel.
+Ändra ”cookbook_path” genom att ta bort den /... och från sökvägen så att den visas som:
 
-![][6]
+    cookbook_path  ["#{current_dir}/cookbooks"]
 
 Dessa rader säkerställer att kniv refererar till kokböcker-katalogen under c:\chef\cookbooks och använder även våra Azure-publiceringsinställningsfilen under Azure-åtgärder.
 
-## <a name="installing-the-chef-development-kit"></a>Installera Chef Development Kit
-Nästa [ladda ned och installera](http://downloads.getchef.com/chef-dk/windows) ChefDK (Chef Development Kit) att ställa in din Chef-arbetsstation.
+Filen knife.rb bör nu se ut ungefär så här:
 
-![][7]
+![][6]
 
-Installera på standardplatsen för c:\opscode. Den här installationen tar cirka 10 minuter.
+<!--- Giant problem with this section: Chef 12 uses a config.rb instead of knife.rb
+// However, the starter kit hasn't been updated
+// So, I don't think this will even work on the modern Chef -->
 
-Bekräfta PATH-variabeln innehåller poster för C:\opscode\chefdk\bin; C:\opscode\chefdk\embedded\bin;c:\users\yourusername\.chefdk\gem\ruby\2.0.0\bin
+<!--- update image [6] knife.rb -->
 
-Om de inte är det, kontrollera att du lägger till sökvägarna!
+```rb
+knife.rb
+current_dir = File.dirname(__FILE__)
+log_level                :info
+log_location             STDOUT
+node_name                "mynode"
+client_key               "#{current_dir}/user.pem"
+chef_server_url          "https://api.chef.io/organizations/myorg"
+validation_client_name   "myorg-validator"
+validation_key           ""#{current_dir}/myorg.pem"
+cookbook_path            ["#{current_dir}/cookbooks"]
+knife[:azure_publish_settings_file] = "yourfilename.publishsettings"
+```
+
+## <a name="install-chef-workstation"></a>Installera Chef arbetsstation
+
+Nästa [ladda ned och installera](https://downloads.chef.io/chef-workstation/) Chef arbetsstation.
+Installera Chef arbetsstation standardplatsen. Den här installationen kan ta några minuter.
+
+På skrivbordet ser du en ”CW PowerShell”, vilket är en miljö med verktyget du behöver för att interagera med Chef-produkter. PowerShell-CW tillgängliggör nya ad hoc-kommandon, till exempel `chef-run` samt som för traditionella Chef CLI-kommandon, till exempel `chef`. Se den installerade versionen av Chef arbetsstation och Chef-verktyg med `chef -v`. Du kan också kontrollera din arbetsstation version genom att välja ”om Chef arbetsstation” från appen Chef arbetsstation.
+
+`chef --version` ska returnera något som liknar:
+
+```
+Chef Workstation: 0.2.29
+  chef-run: 0.2.2
+  Chef Client: 14.6.47x
+  delivery-cli: master (6862f27aba89109a9630f0b6c6798efec56b4efe)
+  berks: 7.0.6
+  test-kitchen: 1.23.2
+  inspec: 3.0.12
+```
 
 > [!NOTE]
-> Ordningen på sökvägen är viktigt! Om din opscode sökvägar inte kan i rätt ordning får du problem. 
-> 
+> Ordningen på sökvägen är viktigt! Om din opscode sökvägar inte kan i rätt ordning får du problem.
+>
 
 Starta om arbetsstationen innan du fortsätter.
 
-Sedan installerar vi kniv Azure-tillägget. Detta ger kniv med ”Azure plugin-programmet”.
+### <a name="install-knife-azure"></a>Installera kniv Azure
+
+Den här självstudien förutsätter att du använder Azure Resource Manager för att interagera med den virtuella datorn.
+
+Installera tillägget kniv Azure. Detta ger kniv med ”Azure plugin-programmet”.
 
 Kör följande kommando.
 
@@ -133,8 +207,8 @@ Kör följande kommando.
 
 > [!NOTE]
 > Argumentet – pre säkerställer du får den senaste RC-versionen av kniv Azure plugin-programmet som ger åtkomst till den senaste uppsättningen API: er.
-> 
-> 
+>
+>
 
 Det är troligt att ett antal beroenden också kommer att installeras på samma gång.
 
@@ -149,15 +223,16 @@ Om allt är korrekt konfigurerad, visas en lista över tillgängliga Azure-avbil
 Grattis! Arbetsstationen har ställts in!
 
 ## <a name="creating-a-cookbook"></a>Skapa en Cookbook
-En Kokbok används av Chef för att definiera en uppsättning kommandon som du vill köra på dina hanterad klient. Det är enkelt att skapa en Kokbok och vi använder den **chef generera cookbook** kommando för att generera Cookbook mallen. Jag kommer att kontakta dig webbservern Cookbook som jag vill ha en princip som automatiskt distribuerar IIS.
+
+En Kokbok används av Chef för att definiera en uppsättning kommandon som du vill köra på dina hanterad klient. Det är enkelt att skapa en Cookbook, Använd bara den **chef generera cookbook** kommando för att generera Cookbook mallen. Den här cookbook är för en webbserver som automatiskt distribuerar IIS.
 
 Kör följande kommando under katalogen C:\Chef.
 
     chef generate cookbook webserver
 
-Detta genererar en uppsättning filer i katalogen C:\Chef\cookbooks\webserver. Vi behöver nu att definiera uppsättningen kommandon som vi vill Chef-klienten att köra på den hantera virtuella datorn.
+Det här kommandot genererar en uppsättning filer i katalogen C:\Chef\cookbooks\webserver. Definiera uppsättningen kommandon för Chef-klienten att köra på den hantera virtuella datorn.
 
-Kommandona lagras i filen default.rb. I den här filen kommer jag definierar en uppsättning kommandon som installerar IIS, som startar IIS och kopierar en mallfil till Wwwroot-mappen.
+Kommandona lagras i filen default.rb. Definiera en uppsättning kommandon som installerar IIS, som startar IIS och kopierar en mallfil till Wwwroot-mappen i den här filen.
 
 Ändra filen C:\chef\cookbooks\webserver\recipes\default.rb och Lägg till följande rader.
 
@@ -178,27 +253,27 @@ Kommandona lagras i filen default.rb. I den här filen kommer jag definierar en 
 Spara filen när du är klar.
 
 ## <a name="creating-a-template"></a>Skapa en mall
-Som vi nämnde tidigare måste vi skapa en mallfil som ska användas som default.html-sida.
+I det här steget ska du generera en mallfil som användas som default.html-sidan.
 
-Kör följande kommando för att skapa mallen.
+Kör följande kommando för att skapa mallen:
 
     chef generate template webserver Default.htm
 
-Navigera till filen C:\chef\cookbooks\webserver\templates\default\Default.htm.erb. Redigera filen genom att lägga till vissa enkel ”Hello World” HTML-kod och spara filen.
+Navigera till den `C:\chef\cookbooks\webserver\templates\default\Default.htm.erb` filen. Redigera filen genom att lägga till vissa enkel ”Hello World” HTML-kod och spara filen.
 
 ## <a name="upload-the-cookbook-to-the-chef-server"></a>Ladda upp Cookbook till Chef-Server
-I det här steget ska vi tar en kopia av Cookbook som vi har skapat på den lokala datorn och överföra den till den servern för värdbaserad Chef. När du har överfört Cookbook visas under den **princip** fliken.
+I det här steget ska göra du en kopia av Cookbook som du har skapat på den lokala datorn och överför den till den servern för värdbaserad Chef. När du har överfört Cookbook visas under den **princip** fliken.
 
     knife cookbook upload webserver
 
 ![][9]
 
 ## <a name="deploy-a-virtual-machine-with-knife-azure"></a>Distribuera en virtuell dator med kniv Azure
-Vi kommer nu distribuera en Azure-dator och tillämpar ”webbserver”-Cookbook som installerar IIS-tjänsten och standard web webbsidan.
+Distribuera en Azure-dator och tillämpa ”webbserver”-Cookbook som installerar IIS-tjänsten och standard web webbsidan.
 
 Om du vill göra detta måste använda den **kniv azure-servern skapa** kommando.
 
-Är exempel på kommandot visas.
+Ett exempel på kommandot visas.
 
     knife azure server create --azure-dns-name 'diegotest01' --azure-vm-name 'testserver01' --azure-vm-size 'Small' --azure-storage-account 'portalvhdsxxxx' --bootstrap-protocol 'cloud-api' --azure-source-image 'a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-Datacenter-201411.01-en.us-127GB.vhd' --azure-service-location 'Southeast Asia' --winrm-user azureuser --winrm-password 'myPassword123' --tcp-endpoints 80,3389 --r 'recipe[webserver]'
 
@@ -206,10 +281,10 @@ Parametrarna är självförklarande. Ersätt dina specifika variabler och köra.
 
 > [!NOTE]
 > Via kommandoraden jag också automatisera min filterregler för slutpunkt-nätverk med hjälp av parametern – tcp-slutpunkter. Jag har öppnat portarna 80 och 3389 att ge åtkomst till min webbsida och RDP-session.
-> 
-> 
+>
+>
 
-När du har kört kommandot kan gå till Azure-portalen och ser du din dator börja etablera.
+När du har kört kommandot kan du gå till Azure portal för att se din dator börja etablera.
 
 ![][13]
 
@@ -217,15 +292,15 @@ Kommandoprompten visas nästa.
 
 ![][10]
 
-När distributionen är klar kan ska vi kunna ansluta till webbtjänsten via port 80 som vi hade öppnat porten när vi etableras den virtuella datorn med kommandot kniv Azure. Eftersom den här virtuella datorn är den enda virtuella datorn i min molntjänst, kommer den ansluts med cloud service-url.
+När distributionen är klar kan ska du kunna ansluta till webbtjänsten via port 80, eftersom du har öppnat porten när du har etablerat den virtuella datorn med kommandot kniv Azure. Eftersom den här virtuella datorn är den enda virtuella datorn i den här Molntjänsten, kan du ansluta till den med tjänst-url för molnet.
 
 ![][11]
 
-Som du ser jag kreativ med min HTML-kod.
+Det här exemplet används kreativa HTML-kod.
 
-Glöm inte vi kan också ansluta via en RDP-session från Azure-portalen via port 3389.
+Glöm inte du kan också ansluta via en RDP-session från Azure-portalen via port 3389.
 
-Jag hoppas att detta har varit bra! Gå och starta din infrastruktur som kod Azure-resa idag!
+Tack! Gå och starta din infrastruktur som kod Azure-resa idag!
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

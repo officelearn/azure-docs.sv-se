@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 01/16/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 66f33dd0edc44a490c3ccaf989d6d9308e615bb0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 06a3ac4520a40369c095e57f8e92978fdb280b51
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246117"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359602"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösenord?
 
@@ -42,7 +42,7 @@ Tillbakaskrivning av lösenord innehåller:
 * **Kräver inte några ingående brandväggsreglerna**: Tillbakaskrivning av lösenord använder ett Azure Service Bus-relä som en underliggande kommunikationskanalen. All kommunikation är utgående via port 443.
 
 > [!Note]
-> Användarkonton som finns i skyddade grupper i den lokala Active Directory kan inte användas med tillbakaskrivning av lösenord. Mer information om skyddade grupper finns i [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+> Användarkonton som finns i skyddade grupper i den lokala Active Directory kan inte användas med tillbakaskrivning av lösenord. Administratörskonton som finns i skyddade grupper i den lokala AD kan användas med tillbakaskrivning av lösenord. Mer information om skyddade grupper finns i [skyddade konton och grupper i Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
 >
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Licensieringskrav för tillbakaskrivning av lösenord
@@ -54,7 +54,7 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 * Azure AD Premium P1
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3 eller A3
-* Enterprise Mobility + Security E5 eller A5
+* Enterprise Mobility + Security E5 or A5
 * Microsoft 365 E3 eller A3
 * Microsoft 365 E5 eller A5
 * Microsoft 365 F1

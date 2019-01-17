@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: jegeib
-ms.openlocfilehash: 8b0700e76bbcc0913b376e607f706f540b1df2bb
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4e08491ae898fef16af1e199a76a4c07a6c226b9
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307083"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358668"
 ---
 # <a name="microsoft-threat-modeling-tool"></a>Microsoft Hotmodelleringsverktyg
 
@@ -33,12 +33,12 @@ Verktyget gör det möjligt för vem som helst:
 
 Här följer några verktygsfunktionerna och innovationer, utan bara för att nämna några få:
 
-* **Automation:** vägledning och feedback i Rita en modell
-* **STRIDE per-Element:** interaktiva analyser av hot och åtgärder
-* **Rapportering:** säkerhetsaktiviteter och testning under verifieringen
-* **Unikt metod:** kan du visualisera och förstå hot bättre
+* **Automation:** Vägledning och feedback i Rita en modell
+* **STRIDE per-Element:** Interaktiv analys av hot och åtgärder
+* **Rapportering:** Säkerhetsaktiviteter och testning under verifieringen
+* **Unikt metoder:** Gör att användarna kan visualisera och förstå hot bättre
 * **Utformat för utvecklare och centrerad på programvara:** på många sätt är inriktade på tillgångar eller angripare. Vi är inriktade på programvara. Vi bygger på aktiviteter som alla utvecklare och arkitekter är bekant med – till exempel rita bilder för deras programvaruarkitektur
-* **Fokus på analys av Design:** termen ”hotmodellering” kan referera till ett krav eller en design analysis-teknik. Ibland kan refererar den till en komplexa blandning av båda. Microsoft SDL-metod för hotmodellering är en teknik för analys av fokuserade design
+* **Fokus på analys av Design:** Termen ”hotmodellering” kan referera till ett krav eller en design analysis-teknik. Ibland kan refererar den till en komplexa blandning av båda. Microsoft SDL-metod för hotmodellering är en teknik för analys av fokuserade design
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -46,7 +46,7 @@ Tabellen nedan innehåller viktiga länkar för att komma igång med Threat Mode
 
 | Steg  | Beskrivning                                                                                   |
 | ----- | --------------------------------------------------------------------------------------------- |
-| **1** | [Ladda ned Threat Modeling Tool](https://aka.ms/tmtpreview)                                |
+| **1** | [Ladda ned Threat Modeling Tool](https://aka.ms/threatmodelingtool)                                |
 | **2** | [Läs vår Kom igång-guide](./azure-security-threat-modeling-tool-getting-started.md)    |
 | **3** | [Bekanta dig med funktionerna](./azure-security-threat-modeling-tool-feature-overview.md)   |
 | **4** | [Lär dig mer om genererade threat kategorier](./azure-security-threat-modeling-tool-threats.md)   |

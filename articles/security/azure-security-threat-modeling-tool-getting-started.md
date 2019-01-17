@@ -3,9 +3,9 @@ title: Komma igång - Microsoft Threat Modeling Tool – Azure | Microsoft Docs
 description: Det här är en bättre överblick markering Threat Modeling Tool fungerar i praktiken.
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.author: jegeib
+ms.openlocfilehash: 6315e6d39a3b68854beb6563d075e3c79ca93a69
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096782"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359484"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Komma igång med Threat Modeling Tool
 
-Moln- och Enterprise-säkerhetsverktyg-teamet släppte Threat Modeling Tool förhandsversion tidigare i år som en kostnadsfri  **[klickar du på att hämta](https://aka.ms/tmtpreview)**. Ändringen av leveransmekanismen gör att vi kan skicka de senaste förbättringar och felkorrigeringar till kunder varje gång de öppnar verktyget, vilket gör det enklare att underhålla och använda.
+Microsoft Threat Modeling Tool 2018 gavs ut som allmänt tillgänglig i September 2018 som en kostnadsfri  **[klickar du på att hämta](https://aka.ms/threatmodelingtool)**. Ändringen av leveransmekanismen gör att vi kan skicka de senaste förbättringar och felkorrigeringar till kunder varje gång de öppnar verktyget, vilket gör det enklare att underhålla och använda.
 Den här artikeln tar dig igenom processen med att komma igång med Microsoft SDL hotet modellering metoden och visar hur du använder för att utveckla fantastiska hotmodeller som en ryggraden för din säkerhetsprocess.
 
 Den här artikeln bygger vidare på befintliga kunskaper i SDL hotet modellering metod. En snabb genomgång finns i **[Threat Modeling webbprogram](https://msdn.microsoft.com/library/ms978516.aspx)** och en arkiverad version av **[avslöja säkerhetsfel med hjälp av STRIDE-metoden](https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxzZWN1cmVwcm9ncmFtbWluZ3xneDo0MTY1MmM0ZDI0ZjQ4ZDMy)** MSDN-artikeln publiceras i 2006.
@@ -67,21 +67,21 @@ I det här avsnittet så vi:
 
 De går igenom processen för att utveckla sina första hotmodell.
 
-> Ricardo: Hej Cristina, jag har arbetat med modelldiagram för hot och ville se till att vi information rätt. Kan du hjälpa mig att titta igenom?
-> Cristina: absolut. Låt oss ta en titt.
+> Ricardo: Hej Cristina, jag arbetat med modelldiagram för hot och ville se till att vi fick att informationen är rätt. Kan du hjälpa mig att titta igenom?
+> Cristina: Absolut. Låt oss ta en titt.
 > Ricardo öppnas verktyget och delar sin skärmen med Cristina.
 
 ![Grundläggande Hotmodell](./media/azure-security-threat-modeling-tool-feature-overview/basictmt.png)
 
-> Cristina: Ok, det ser ut enkelt, men kan du prova jag det?
-> Ricardo: att! Här är en analys på detaljnivå:
+> Cristina: OK, verkar enkelt, men kan du prova jag det?
+> Ricardo: Att! Här är en analys på detaljnivå:
 > - Vår mänskliga användaren ritas som en extern enhet – en ruta
 > - De skickar kommandon till vår webbserver – cirkeln
 > - Webbservern är consulting en databas (två parallella linjer)
 
 Vad Ricardo just visade Cristina är en DFD kort för  **[dataflödesdiagram](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool kan du ange förtroendegränser, som anges med röd kantlinjerna, så att var olika entiteter är i kontrollen. IT-administratörer kräver en Active Directory-system i autentiseringssyfte, så att Active Directory är utanför deras kontroll.
 
-> Cristina: Är korrekt till mig. Vad gäller hoten?
+> Cristina: Det verkar rätt för mig. Vad gäller hoten?
 > Ricardo: Låt mig visar.
 
 ## <a name="analyzing-threats"></a>Analysera hot
@@ -111,7 +111,7 @@ Beskrivningen gjort honom inser hur viktigt för att lägga till en autentiserin
 Eftersom Ricardo försattes i hot under avslöjande av Information, realiserade han planen för åtkomstkontroll krävs vissa skrivskyddad konton för granskning och rapportgenerering. Han funderat över om det ska vara ett nya hot, men åtgärder har samma, så han anges hotet detta.
 Han tror lite mer om avslöjande av information och insåg att de båda banden kommer att behöva kryptering, ett jobb för driftsteamet.
 
-Ej tillämpligt för designen på grund av befintliga åtgärder eller säkerhet hot garanterar kan ändras till ”ej tillämpligt” Status listrutan. Det finns tre alternativ: inte startat – standardvalet måste undersökning – används för att följa upp objekt och Mitigated – när den helt har arbetat med.
+Ej tillämpligt för designen på grund av befintliga åtgärder eller säkerhet hot garanterar kan ändras till ”ej tillämpligt” Status listrutan. Det finns tre alternativ: Inte startad – används standardvalet måste undersökning – för att följa upp objekt och Mitigated – när den helt har arbetat med.
 
 ## <a name="reports--sharing"></a>Rapporter och dela
 
@@ -143,4 +143,4 @@ Metod för insamling av modellering som vi har visas här är betydligt enklare 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Skicka frågor, kommentarer och frågor till tmtextsupport@microsoft.com. **[Ladda ned](https://aka.ms/tmtpreview)**  Threat Modeling Tool att komma igång.
+Skicka frågor, kommentarer och frågor till tmtextsupport@microsoft.com. **[Ladda ned](https://aka.ms/threatmodelingtool)**  Threat Modeling Tool att komma igång.

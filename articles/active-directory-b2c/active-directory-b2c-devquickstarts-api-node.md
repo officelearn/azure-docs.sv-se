@@ -10,15 +10,14 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 47b501fef8d6e0e3fecf944e3b67d563b8cce5eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c89673f6154c77a40fb71ae483151998596e7fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117919"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354424"
 ---
-# <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: Säkra ett webb-API med Node.js
-<!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
+# <a name="secure-a-web-api-by-using-nodejs-in-azure-active-directory-b2c"></a>Säkra ett webb-API med Node.js i Azure Active Directory B2C
 
 Med Azure Active Directory (Active AD) B2C kan du skydda ett webb-API med hjälp av OAuth 2.0-åtkomsttoken. Med hjälp av dessa token kan dina klientappar som använder Azure AD B2C autentisera mot API:et. Den här artikeln visar hur du skapar en "uppgiftslista" för API som tillåter användare att lägga till och göra en lista med aktiviteter. Webb-API:t skyddas med hjälp av Azure AD B2C och tillåter endast autentiserade användare att hantera sina att göra-listor.
 
@@ -36,7 +35,7 @@ Om du vill göra det här exemplet måste du:
 3. Konfigurera ett klientprogram att anropa ett webb-API för ”uppgiftslistan”.
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en container för alla användare, appar, grupper och mer.  Om du inte redan har en [skapar du en B2C-katalog](active-directory-b2c-get-started.md) innan du fortsätter.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient.  En katalog är en container för alla användare, appar, grupper och mer.  Om du inte redan har en [skapar du en B2C-katalog](tutorial-create-tenant.md) innan du fortsätter.
 
 ## <a name="create-an-application"></a>Skapa ett program
 Därefter måste du skapa en app i B2C-katalogen som ger Azure AD information som krävs för säker kommunikation med din app. I det här fallet representeras både klientappen och webb-API av ett enda **Program-ID** eftersom de omfattar en logisk app. Du skapar en app genom att följa [dessa anvisningar](active-directory-b2c-app-registration.md). Se till att:
@@ -47,17 +46,13 @@ Därefter måste du skapa en app i B2C-katalogen som ger Azure AD information so
 * Kopiera **program-ID:t** som har tilldelats din app. Du behöver dessa data senare.
 
 ## <a name="create-your-policies"></a>Skapa principer
-I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera sig och logga in. Du måste skapa en princip av varje typ. Mer information finns i [referensartikeln om principer](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow).  Tänk på följande när du skapar dina tre principer:
+I Azure AD B2C definieras varje användarupplevelse av en [princip](active-directory-b2c-reference-policies.md). Det här programmet innehåller två identitetsupplevelser: registrera dig och logga in. Du måste skapa en princip av varje typ av.  När du skapar dina principer måste du kontrollera att:
 
 * Välj **visningsnamnet** och andra registreringsattribut i registreringsprincipen.
 * Välj det **visningsnamn** och **objekt-ID** som programmet gör anspråk på i varje princip.  Du kan också välja andra anspråk.
 * Kopiera ned **namnet** för varje princip när du har skapat den. Det bör ha prefixet `b2c_1_`.  Du behöver dem senare.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
-
-När du har skapat dina tre principer, är du redo att bygga din app.
-
-Börja med [självstudierna för att komma igång med .NET-webbappar](active-directory-b2c-devquickstarts-web-dotnet.md) om du vill veta mer om hur principer fungerar i Azure AD B2C.
+När du har skapat dina principer är det dags att bygga appen.
 
 ## <a name="download-the-code"></a>Ladda ned koden
 Koden för den här självstudiekursen [finns på GitHub](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS). Om du vill bygga exemplet allteftersom kan du [ladda ned stommen av ett projekt som en ZIP-fil](https://github.com/AzureADQuickStarts/B2C-WebAPI-NodeJS/archive/skeleton.zip). Du kan också klona stommen:

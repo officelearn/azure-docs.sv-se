@@ -6,16 +6,16 @@ ms.author: janeng
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b85737adb8f1c9481fb4b7b2005d2856d2bce9f5
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: bb6e27f92f60712cce71ba6fca53b40af00ee714
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544591"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354459"
 ---
 # <a name="azure-database-for-mariadb-pricing-tiers"></a>Azure Database for MariaDB prisnivåer
 
-Du kan skapa en Azure Database for MariaDB-servern på något av tre olika tjänstnivåer: Basic, generell användning och Minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå MariaDB. En server kan ha en eller flera databaser.
+Du kan skapa en Azure Database for MariaDB-servern på något av tre olika tjänstnivåer: Grundläggande, generell användning och minnesoptimerad. Prisnivåerna åtskiljs av mängden beräkning i vCores som kan etableras och minne per vCore lagringsteknik som används för att lagra data. Alla resurser etableras på servernivå MariaDB. En server kan ha en eller flera databaser.
 
 |    | **Basic** | **Generell användning** | **Optimerat minne** |
 |:---|:----------|:--------------------|:---------------------|
@@ -53,8 +53,7 @@ Lagring som du etablerar är mängden lagringskapacitet som är tillgängliga f�
 
 Du kan lägga till ytterligare lagringskapacitet under och efter skapandet av servern. Basic-nivån ger inte en garanti för IOPS. I generell användning och Minnesoptimerad prisnivåer, skala IOPS med den allokerade lagringsstorleken i ett 3:1-förhållande.
 
-Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure CLI-kommandon. De mått som är relevanta för att övervaka är gränsen för lagring, lagringsprocent, lagringsutrymme och IO-procent.
-<!--[storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md)-->
+Du kan övervaka dina i/o-användningen i Azure portal eller med hjälp av Azure CLI-kommandon. De mått som är relevanta för att övervaka är [gränsen för lagring, lagringsprocent, lagringsutrymme och IO-procent](concepts-monitoring.md).
 
 ### <a name="reaching-the-storage-limit"></a>Når gränsen för lagring
 
@@ -64,7 +63,7 @@ När tjänsten försöker göra så att servern blir skrivskyddad blockeras alla
 
 Vi rekommenderar att du ställer in en avisering som meddelar dig när tröskelvärdet närmar sig din serverlagring för att undvika hämta till skrivskyddat läge. 
 
-<!--For more information, see the documentation on [how to set up an alert](howto-alert-on-metric.md).-->
+Mer information finns i dokumentationen på [hur du ställer in en avisering](howto-alert-metric.md).
 
 ## <a name="backup"></a>Backup
 

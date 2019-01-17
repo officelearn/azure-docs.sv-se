@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9dbe88e1e179df4560d5094cf3f58ca770541323
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e6e0904efdb86376688710a94920cdb44c2804ec
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842280"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353132"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
@@ -29,7 +29,7 @@ Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID
 Om du inte har använt OAuth2 eller OpenID Connect eventuellt mycket av den här exempelkonfigurationen ingen vits mycket till dig. Vi rekommenderar att du läser en kort [översikt över protokollet som vi har dokumenterat här](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
-Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en [skapar du en B2C-katalog](active-directory-b2c-get-started.md) innan du fortsätter.
+Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en [skapar du en B2C-katalog](tutorial-create-tenant.md) innan du fortsätter.
 
 ## <a name="create-an-application"></a>Skapa ett program
 Därefter måste du skapa en app i B2C-katalogen. Registreringen ger Azure AD den information som krävs för att kommunicera säkert med din app. Så här skapar du en mobil app [instruktionerna](active-directory-b2c-app-registration.md). Se till att:
@@ -39,13 +39,11 @@ Därefter måste du skapa en app i B2C-katalogen. Registreringen ger Azure AD de
 * Konfigurera en **omdirigerings-URI** med ett anpassat schema (till exempel com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Du behöver den här URI: N senare.
 
 ## <a name="create-your-user-flows"></a>Skapa dina användarflöden
-I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Den här appen innehåller en identitetslösning: en kombinerad inloggning och registrering. Skapa det här användarflödet enligt beskrivningen i den [användaren flow referensartikeln](active-directory-b2c-reference-policies.md#create-a-sign-up-user-flow). När du skapar användarflödet, måste du kontrollera att:
+I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Det här programmet innehåller en identitetslösning: en kombinerad inloggning och registrering. När du skapar användarflödet, måste du kontrollera att:
 
 * Under **registreringsattribut**, väljer du attributet **visningsnamn**.  Du kan välja samt andra attribut.
 * Under **Programanspråk**, Välj anspråk **visningsnamn** och **användarobjekt-ID**. Du kan välja andra anspråk också.
 * Kopiera den **namn** av varje användarflöde när du har skapat. Ditt flödesnamn har prefixet `b2c_1_` när du sparar användarflödet.  Userjourney-namnet som du behöver senare.
-
-[!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
 När du har skapat din användarflöden, är du redo att skapa din app.
 

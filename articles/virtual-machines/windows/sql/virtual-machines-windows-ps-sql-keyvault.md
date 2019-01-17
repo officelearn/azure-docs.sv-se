@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 04/30/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1d977631b9975f717d60afff6f1b303fdd4039ff
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 6ad8eea21c10726b2c3eaf1e10bfd5efba4d1e48
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54328825"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358702"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-resource-manager"></a>Konfigurera Azure Key Vault-integrering för SQLServer på Azure Virtual Machines (Resource Manager)
 
@@ -37,6 +37,10 @@ Om du kör SQL Server med lokala datorer, finns [steg som du kan följa för att
 När den här funktionen aktiveras den automatiskt installerar SQL Server-anslutningen, konfigurerar EKM-providern för att komma åt Azure Key Vault och autentiseringsuppgifter så att du kan komma åt ditt valv. Du kan se att den här funktionen automatiserar steg 2 och 3 om du har tittat på stegen i den tidigare nämnda lokala-dokumentationen. Det enda du behöver fortfarande göra manuellt är att skapa nyckelvalvet och nycklar. Därifrån kan är hela konfigurationen av din SQL-VM automatisk. När den här funktionen har slutfört den här konfigurationen, kan du köra T-SQL-uttryck för att börja kryptera dina databaser eller säkerhetskopior som vanligt.
 
 [!INCLUDE [AKV Integration Prepare](../../../../includes/virtual-machines-sql-server-akv-prepare.md)]
+
+  >[!NOTE]
+  > Version 1.0.4.0 i EKM-providern är installerad på SQL Server-dator via den [SQL IaaS-tillägget](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension). Providerversionen uppdateras inte om du uppgraderar SQL IaaS-tillägget. Funderar du manuellt uppgradera EKM-providerversion om det behövs (till exempel när du migrerar till en SQL-hanterad instans).
+
 
 ## <a name="enabling-and-configuring-akv-integration"></a>Aktivera och konfigurera AKV-integreringen
 Du kan aktivera AKV-integreringen under etableringen eller konfigurera den för befintliga virtuella datorer.

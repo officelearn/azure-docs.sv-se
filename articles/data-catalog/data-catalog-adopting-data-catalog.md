@@ -8,12 +8,12 @@ ms.assetid: 0c771e7a-6fcd-417f-9247-897177719567
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 07323f1b0541555ef71919e026ecaf2494056dad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: ec646ad1e9e1330a7e0b3f3f0576cee9d58c08e1
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406506"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54353268"
 ---
 # <a name="approach-and-process-for-adopting-azure-data-catalog"></a>Metod och process för att börja använda Azure Data Catalog
 Den här artikeln hjälper dig att komma igång med **Azure Data Catalog** i din organisation. Fokusera på följande tre huvudpunkter för att komma igång med **Azure Data Catalog** på ett smidigt sätt: fastställ din vision, identifiera viktiga användningsområden inom organisationen och välj ett pilotprojekt.
@@ -66,7 +66,7 @@ Här följer några tips på hur du identifierar användningsområden:
 * **Definiera teamets mål** – Hur uppnår teamet sina mål? Fokusera inte på Data Catalog ännu, eftersom du vill vara objektiv i det här skedet. Kom ihåg att det handlar om verksamhetsresultat, inte om tekniken.
 * **Definiera problem i verksamheten** – Vilka problem har teamet med att hitta och få information om datatillgångar? Till exempel finns kanske informationen om viktiga datakällor i Excel-arbetsböcker i en nätverksmapp, och teamet tillbringar mycket tid med att hitta arbetsböckerna.
 * **Förstå hur förändringskulturen ser ut i teamet** – Många problem i samband med förändring gäller motstånd mot förändring snarare än motstånd mot att använda ett nytt verktyg. Hur ett team reagerar på förändringar är viktigt när du identifierar användningsområden. Befintliga processer kanske finns ”för att vi alltid har gjort så” eller på grund av tanken ”varför ändra på något som fungerar”? Det är alltid lättast att implementera nya verktyg eller processer när de medarbetare som påverkas förstår värdet av förändringen liksom vikten av problemen som behöver lösas.
-* **Behåll fokus på datatillgångar** – När du ska diskutera verksamhetsproblem som ett team står inför måste du fokusera på vad som är relevant för att utnyttja företagets datatillgångar på ett effektivare sätt och lämna allt övrigt åt sidan.
+* **Behåll fokus på datatillgångar** -när diskutera verksamhetsproblem som ett team står, måste du ”klipp ut via inför”, och fokusera på vad som är relevant för att utnyttja företagets datatillgångar på ett mer effektivt.
 
 Här är några exempel på användningsområden för Data Catalog:
 

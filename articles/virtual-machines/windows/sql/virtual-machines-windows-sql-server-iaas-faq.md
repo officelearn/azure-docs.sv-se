@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
-ms.openlocfilehash: 0956d9bdbf6390f2d64f15ca267545ca15289a46
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 837c9d2b4b7dc0ce2c5ee3b25106eb5fea4ed7ea
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339407"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358991"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor om SQL Server som körs på Windows-datorer i Azure
 
@@ -49,13 +49,19 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Ja. Azure underhåller en avbildning per större version och utgåva. Till exempel när ett nytt SQL Server servicepack släpps, lägger Azure till en ny avbildning i galleriet för detta servicepack. SQL Server-avbildning för tidigare servicepack tas omedelbart bort från Azure-portalen. Det är dock fortfarande tillgängligt för etablering från PowerShell för de kommande tre månaderna. Föregående bild av service pack är inte längre tillgänglig efter tre månader. Den här principen för borttagning av skulle gäller även om en SQL Server-version blir stöds inte när den når slutet av sin livscykel.
 
+
+1. **Är det möjligt att distribuera en äldre bild av SQL Server som inte är synliga i Azure Portal?**
+
+   Ja, med hjälp av PowerShell. Mer information om hur du distribuerar SQL Server-datorer med hjälp av PowerShell finns i [hur du etablerar SQL Server-datorer med Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Kan jag skapa en VHD-avbildning från en SQL Server VM?**
 
    Ja, men det finns några saker. Om du distribuerar den här virtuella Hårddisken till en ny virtuell dator i Azure kan göra du inte ge konfiguration av SQL Server-avsnittet i portalen. Du måste sedan hantera SQL Server-konfigurationsalternativ via PowerShell. Dessutom debiteras du för frekvensen för SQL-VM din avbildning ursprungligen baserades på. Detta gäller även om du tar bort SQL Server från den virtuella Hårddisken innan du distribuerar. 
 
 1. **Är det möjligt att ställa in konfigurationer som inte visas i galleriet för virtuella datorer (till exempel Windows 2008 R2 + SQL Server 2012)?**
 
-   Nej. För galleriavbildningar för virtuella datorer med SQL Server, måste du välja något av de angivna avbildningarna.
+   Nej. För avbildningar av virtuella datorer galleri som innehåller SQL Server, måste du välja en av de angivna avbildningarna via Azure portal eller via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## <a name="creation"></a>Skapa
 
@@ -102,11 +108,11 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
  
    Ja. Alla kunder kan registrera med den nya SQL-VM-resursprovidern. Dock bara kunder med Software Assurance-förmån kan aktivera den [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (eller BYOL) på en SQL Server VM. 
 
-1. **Vad händer med _\*Microsoft.SqlVirtualMachine_\* resursen om den Virtuella datorresursen flyttats eller tagits bort?** 
+1. **Vad händer med _* Microsoft.SqlVirtualMachine_* resursen om den Virtuella datorresursen flyttats eller tagits bort?** 
 
    När Microsoft.Compute/VirtualMachine resursen tas bort eller flyttas, och sedan den associerade resursen Microsoft.SqlVirtualMachine meddelas att asynkront replikeras igen.
 
-1. **Vad händer med den virtuella datorn om _\*Microsoft.SqlVirtualMachine_\* resursen tas bort?**
+1. **Vad händer med den virtuella datorn om _* Microsoft.SqlVirtualMachine_* resursen tas bort?**
 
    Resursen Microsoft.Compute/VirtualMachine påverkas inte när Microsoft.SqlVirtualMachine resursen tas bort. Som standard men licensiering ändringarna tillbaka till den ursprungliga källan för avbildningen. 
 
@@ -161,7 +167,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 ## <a name="resources"></a>Resurser
 
-**Windows-datorer**:
+**Virtuella Windows-datorer**:
 
 * [Översikt över SQLServer på en Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
 * [Etablera en virtuell dator med SQL Server Windows](virtual-machines-windows-portal-sql-server-provision.md)

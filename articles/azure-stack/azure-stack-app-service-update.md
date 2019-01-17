@@ -11,23 +11,21 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 01/16/2019
 ms.author: anwestg
-ms.openlocfilehash: e8a75afe2c7dbe91c7c98d0d35c319088f40748f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: cfbf71d4cfbd01eb8544d4b577292c5d7f8faf66
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51612686"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359110"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Uppdatera Azure App Service i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 > [!IMPORTANT]  
-> Uppdateringen är 1809 integrerade Azure Stack-system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4.
->
->
+> Aktivera 1809 uppdateringen eller senare till Azure Stack-integrerat system eller distribuera den senaste Azure Stack development kit innan du distribuerar Azure App Service 1.4. Innan du uppdaterar resursprovidern, granska viktig information att lära dig om nya funktioner och korrigeringar kända problem som kan påverka din distribution.
 
 Genom att följa anvisningarna i den här artikeln kan du uppgradera den [App Service-resursprovider](azure-stack-app-service-overview.md) distribueras i en Azure Stack-miljö som är ansluten till Internet.
 

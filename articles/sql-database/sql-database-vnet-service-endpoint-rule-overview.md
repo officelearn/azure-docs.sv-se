@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 12/20/2018
-ms.openlocfilehash: 33e0b66541e5ead5f3c05d2310ecc07e8a62324c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 1/16/2019
+ms.openlocfilehash: 2c022bd002700426eea2c6b38a667cd5a1381c02
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728133"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359858"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL
 
@@ -118,8 +118,9 @@ Funktionen för regler för virtuellt nätverk har följande begränsningar för
 
 - Virtual network-regler gäller endast för Azure Resource Manager-nätverk; och inte till [klassiska distributionsmodellen] [ arm-deployment-model-568f] nätverk.
 
-- Tjänstslutpunkter för att aktivera på virtuella nätverk till Azure SQL Database kan också slutpunkter för MySQL och PostgreSQL-Azure-tjänster. Men med slutpunkter på försöker ansluta från slutpunkterna till din MySQL- eller PostgreSQL-instanser kommer att misslyckas.
-  - Den underliggande orsaken är att MySQL och PostgreSQL för närvarande inte stöder ACLing.
+- Tjänstslutpunkter för att aktivera på virtuella nätverk till Azure SQL Database kan också slutpunkter för MySQL och PostgreSQL-Azure-tjänster. Men med slutpunkter på kan försöker ansluta från slutpunkterna till din MySQL- eller PostgreSQL-instanser misslyckas.
+  - Den underliggande orsaken är att MySQL och PostgreSQL som sannolikt inte har en regel för virtuella nätverk som konfigurerats. Du måste konfigurera en virtuell nätverksregel för Azure Database för MySQL och PostgreSQL och anslutningen lyckas.
+
 - IP-adressintervall gäller följande nätverk i brandväggen, men inte av virtuella Nätverksregler:
   - [Plats-till-plats (S2S) virtuellt privat nätverk (VPN)][vpn-gateway-indexmd-608y]
   - Lokalt via [ExpressRoute][expressroute-indexmd-744v]
@@ -240,7 +241,7 @@ Du kan ange den **IgnoreMissingVNetServiceEndpoint** flaggan med hjälp av Power
 
 Anslutningsfel 40914 relaterar till *virtuella Nätverksregler*, som anges på fönstret brandväggen i Azure-portalen. Fel 40615 är liknande, förutom den relaterar till *regler för IP-address* i brandväggen.
 
-### <a name="error-40914"></a>Fel 40914
+### <a name="error-40914"></a>Error 40914
 
 *Meddelandetext:* Det går inte att öppna servern '*[servernamn]*' begärdes vid inloggningen. Klienten är inte tillåtet att ansluta till servern.
 

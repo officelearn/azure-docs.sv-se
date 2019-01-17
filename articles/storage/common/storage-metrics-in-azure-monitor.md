@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 51c0fefc0d18127da1f5fc513b493407510a071b
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 4bae38b7596504d8de452e445c05e1c973aba78a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994444"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354611"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -341,6 +341,7 @@ Azure Storage tillhandahåller följande kapacitet i Azure Monitor.
 | BlobCapacity | Summan av Blob-lagring som används i lagringskontot. <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
 | BlobCount    | Antal blob-objekt som lagras i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 <br/> Dimensioner: BlobType ([Definition](#metrics-dimensions)) |
 | ContainerCount    | Antalet behållare i lagringskontot. <br/><br/> Enhet: Antal <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
+| IndexCapacity     | Mängden lagringsutrymme som används av ADLS Gen2 hierarkiska Index <br/><br/> Enhet: Byte <br/> Mängdtyp: Medel <br/> Värdeexempel: 1024 |
 
 ### <a name="table-storage"></a>Table Storage
 
@@ -368,7 +369,7 @@ Azure Storage tillhandahåller följande kapacitet i Azure Monitor.
 
 ## <a name="transaction-metrics"></a>Transaktionsmått
 
-Transaktionsmått skickas från Azure Storage till Azure Monitor varje minut. Alla transaktionsmått är tillgängliga på konto- och service (Blob storage, Table storage, Azure Files och Queue storage). Tidskornet definierar tidsintervallet som måttvärden visas. Stöds tid kärnor för alla transaktionsmått är PT1H och PT1M.
+Transaktionsmått genereras för varje begäran till ett lagringskonto från Azure Storage och Azure Monitor. Om det finns ingen aktivitet på ditt lagringskonto, det inte finns några data på transaktionsmått i perioden. Alla transaktionsmått är tillgängliga på konto- och service (Blob storage, Table storage, Azure Files och Queue storage). Tidskornet definierar tidsintervallet som måttvärden visas. Stöds tid kärnor för alla transaktionsmått är PT1H och PT1M.
 
 Azure Storage tillhandahåller följande transaktionsmått i Azure Monitor.
 
@@ -379,7 +380,7 @@ Azure Storage tillhandahåller följande transaktionsmått i Azure Monitor.
 | Egress | Mängden utgående data. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data. <br/><br/> Enhet: Byte <br/> Mängdtyp: Totalt <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessServerLatency | Den genomsnittliga tiden det tar för Azure Storage att bearbeta en lyckad begäran. Det här värdet innefattar inte nätverksfördröjningen som anges i SuccessE2ELatency. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
 | SuccessE2ELatency | Den genomsnittliga svarstiden från slutpunkt till slutpunkt för lyckade begäranden som gjorts till en lagringstjänst eller för en angiven API-åtgärd. Värdet innefattar bearbetningstiden som krävs i Azure Storage för att läsa begäran, skicka svaret och ta emot en bekräftelse av svaret. <br/><br/> Enhet: Millisekunder <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 1024 |
-| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99,99 |
+| Tillgänglighet | Procentandel tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. Tillgängligheten beräknas genom att använda värdet för totalt antal debiterbara begäranden och dividera det med antalet tillämpliga förfrågningar, inklusive de begäranden som genererat ett oväntat fel. Alla oväntade fel leda till minskad tillgänglighet för lagringstjänsten eller den angivna API-åtgärden. <br/><br/> Enhet: Procent <br/> Mängdtyp: Medel <br/> Tillämpliga mått: GeoType, ApiName och autentisering ([Definition](#metrics-dimensions)) <br/> Värdeexempel: 99.99 |
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

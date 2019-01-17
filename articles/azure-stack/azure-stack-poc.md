@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
 ms.custom: mvc
-ms.openlocfilehash: 89552bc568ce38c6153683e9c3b0f3f26f569083
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 530bb7b164ec7d7b31e6d4a58bca97aa17dc62fa
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959554"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357886"
 ---
 # <a name="what-is-azure-stack"></a>Vad är Azure Stack?
 
@@ -29,8 +29,6 @@ Microsoft Azure Stack är en hybridmolnplattform som gör det möjligt att lever
 
 Azure Stack erbjuds i två distributionsalternativ, utifrån dina behov.
 
-## <a name="azure-stack-integrated-systems"></a>Azure Stack-integrerade system
-Azure Stack-integrerade system erbjuds via ett partnerskap mellan Microsoft och [maskinvarupartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), och ger en lösning som innebär såväl innovation i molnet som enkel och smidig databehandling. Eftersom Azure Stack erbjuds som ett integrerat maskinvaru- och programvarusystem får du den flexibilitet och kontroll du behöver och även möjligheten att förnya från molnet. Azure Stack-integrerat system i intervallet från 4 – 16 noder och stöds gemensamt av maskinvara partner och Microsoft.  Med Azure Stack-integrerade system kan du skapa nya scenarier och distribuera nya lösningar för dina produktionsarbetsbelastningar.
 
 ## <a name="azure-stack-development-kit"></a>Azure Stack Development Kit
 
@@ -45,8 +43,11 @@ ASDK har följande begränsningar:
 * Eftersom Azure Stack-komponenter distribueras på en värddator är de fysiska resurser som finns tillgängliga för klientresurser begränsade. Den här konfigurationen är inte avsedd för utvärdering av skalbarhet eller prestanda.
 * Scenarier för nätverk är begränsade på grund av värddator och NIC-distributionskrav.
 
+## <a name="azure-stack-integrated-systems"></a>Azure Stack-integrerade system
+Azure Stack-integrerade system erbjuds via ett partnerskap mellan Microsoft och [maskinvarupartners](https://azure.microsoft.com/overview/azure-stack/integrated-systems/), och ger en lösning som innebär såväl innovation i molnet som enkel och smidig databehandling. Eftersom Azure Stack erbjuds som ett integrerat maskinvaru- och programvarusystem får du den flexibilitet och kontroll du behöver och även möjligheten att förnya från molnet. Azure Stack-integrerat system i intervallet från 4 – 16 noder och stöds gemensamt av maskinvara partner och Microsoft.  Med Azure Stack-integrerade system kan du skapa nya scenarier och distribuera nya lösningar för dina produktionsarbetsbelastningar.
+
 ## <a name="next-steps"></a>Nästa steg
 
 [Huvudfunktioner och koncept](azure-stack-key-features.md)
 
-[Azure Stack: ett Azure-tillägg (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)
+[Azure Stack: En utökning av Azure (pdf)](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/)

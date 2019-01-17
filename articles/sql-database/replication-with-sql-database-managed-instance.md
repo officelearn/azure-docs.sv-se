@@ -1,59 +1,33 @@
 ---
-title: Replikering med Azure SQL Database Managed Instance | Microsoft Docs
-description: Läs om hur du använder SQL Server-replikering med Azure SQL Database Managed Instance
+title: Konfigurera replikering i Azure SQL Database Managed Instance | Microsoft Docs
+description: Läs om hur du konfigurerar Transaktionsreplikering i Azure SQL Database Managed Instance
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
 ms.custom: ''
 ms.devlang: ''
-ms.topic: conceptual
+ms.topic: howto
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/11/2019
-ms.openlocfilehash: e658eba29368530c4c221496de98823c002985fe
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/16/2019
+ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329476"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360096"
 ---
-# <a name="replication-with-sql-database-managed-instance"></a>Replikering med SQL Database Managed Instance
+# <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Konfigurera replikering i Azure SQL Database Managed Instance
 
-Replikering är tillgänglig i offentlig förhandsversion på [Azure SQL Database Managed Instance](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser.
-
-## <a name="common-configurations"></a>Vanliga konfigurationer
-
-I allmänhet måste utgivaren och distributören båda vara antingen i molnet eller lokalt. Följande konfigurationer stöds:
-
-- **Utgivaren med lokala distributören på hanterad instans**
-
-   ![Replication-with-azure-sql-db-single-managed-instance-publisher-distributor](./media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
-
-   Utgivaren och distributören databaser kan konfigureras på en hanterad instans.
-
-- **Utgivaren med fjärrdistributören på hanterad instans**
-
-   ![Replication-with-azure-sql-db-separate-managed-instances-publisher-distributor](./media/replication-with-sql-database-managed-instance/02-separate-instances-asdbmi-pubdist.png)
-
-   Utgivaren och distributören konfigureras på två hanterade instanser. I den här konfigurationen:
-
-  - Både hanterade instanser är i samma virtuella nätverk.
-
-  - Både hanterade instanser är på samma plats.
-
-- **Utgivaren och distributören lokalt med prenumerant på hanterad instans**
-
-   ![Replication-from-on-premises-to-azure-sql-db-subscriber](./media/replication-with-sql-database-managed-instance/03-azure-sql-db-subscriber.png)
-
-   I den här konfigurationen är en Azure SQL database en prenumerant. Den här konfigurationen stöder migrering från en lokal plats till Azure. I rollen prenumerant kräver SQL database inte hanterad instans, men du kan använda en SQL Database Managed Instance som ett steg i migreringen från en lokal plats till Azure. Läs mer om Azure SQL Database-prenumeranter, [replikering till SQL Database](replication-to-sql-database.md).
+Transaktionsreplikering kan du replikera data från SQL Server eller Azure SQL Database Managed Instance databaserna till den hanterade instansen eller att push-ändringar som gjorts i dina databaser i Managed Instance till andra SQL Server, enskild Azure-databas eller annan Hanterad instans. Replikeringen är i offentlig förhandsversion på [Azure SQL Database Managed Instance](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Se [Transaktionsreplikering konfigurationer](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
 
 ## <a name="requirements"></a>Krav
 
 Utgivaren och distributören på Azure SQL Database kräver:
 
-- Azure SQL Database Managed Instance.
+- Azure SQL Database Managed Instance som inte är i Geo-DR-konfiguration.
 
    >[!NOTE]
    >Azure SQL-databaser som inte är konfigurerade med Managed Instance kan bara vara prenumeranter.
@@ -74,7 +48,13 @@ Stöder:
 
 - Prenumeranter kan vara en lokal, enskilda databaser i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
 
-- Enkelriktade eller dubbelriktade replikering
+- Enkelriktade eller dubbelriktade replikering.
+
+Följande funktioner stöds inte:
+
+- Uppdateringsbara prenumerationer.
+
+- Aktiv geo-replikering.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Konfigurera publicering och distribution av exempel
 
@@ -188,15 +168,7 @@ Stöder:
                 @job_password = N'<PASSWORD>'
    GO
    ```
-
-## <a name="limitations"></a>Begränsningar
-
-Följande funktioner stöds inte:
-
-- Uppdateringsbara prenumerationer
-
-- Aktiv geo-replikering
-
+   
 ## <a name="see-also"></a>Se även
 
 - [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md)

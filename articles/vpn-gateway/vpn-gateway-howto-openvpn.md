@@ -1,18 +1,18 @@
 ---
-title: 'Hur du konfigurerar OpenVPN på Azure VPN Gateway: PowerShell | Microsoft Docs'
+title: 'Hur du konfigurerar OpenVPN på Azure VPN Gateway: PowerShell| Microsoft Docs'
 description: Steg för att konfigurera OpenVPN för Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 01/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 958f4f46ec6ba407df7c739b7c62aa1489458485
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 1dad960b0877cddf3be9afc01e3e687ebe4702c0
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408284"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357835"
 ---
 # <a name="configure-openvpn-for-azure-point-to-site-vpn-gateway-preview"></a>Konfigurera OpenVPN för Azure punkt-till-plats VPN-Gateway (förhandsversion)
 
@@ -21,7 +21,7 @@ Den här artikeln kan du ställa in OpenVPN på Azure VPN Gateway. Artikeln för
 > [!IMPORTANT]
 > Den allmänt tillgängliga förhandsversionen tillhandahålls utan serviceavtal och bör inte användas för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="register"></a>Registrera den här funktionen
+## <a name="register"></a>Registrera funktionen
 
 Klicka på den **TryIt** i dessa steg för att registrera den här funktionen enkelt med Azure Cloud Shell.
 
@@ -29,7 +29,7 @@ Klicka på den **TryIt** i dessa steg för att registrera den här funktionen en
 >Om du inte registrerar den här funktionen kan att du inte kunna använda den.
 >
 
-När du klickar på **TryIt** för att öppna Azure Cloud Shell, kopiera och klistra in följande kommandon:
+När du har klickat på **TryIt** för att öppna Azure Cloud Shell kopierar du och klistrar in följande kommandon:
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
@@ -39,7 +39,7 @@ Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureNam
 Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
-När funktionen visas som registrerad, registrera prenumerationen till Microsoft.Network-namnområde.
+När funktionen visas som registrerad registrerar du prenumerationen på nytt i Microsoft.Network-namnrymden.
 
 ```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -47,7 +47,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="vnet"></a>1. Skapa en punkt-till-plats-VPN
 
-Om du inte redan har en fungerande punkt-till-plats-miljö, följer du anvisningarna för att skapa en. Se [skapa en punkt-till-plats-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) att skapa och konfigurera en punkt-till-plats VPN-gateway med Azures interna certifikatautentisering.
+Om du inte redan har en fungerande punkt-till-plats-miljö, följer du anvisningarna för att skapa en. Se [skapa en punkt-till-plats-VPN](vpn-gateway-howto-point-to-site-resource-manager-portal.md) att skapa och konfigurera en punkt-till-plats VPN-gateway med Azures interna certifikatautentisering. Observera att en grundläggande SKU inte stöds för IKEv2 punkt-till-plats.
 
 ## <a name="cmdlets"></a>2. Installera PowerShell-cmdletar
 

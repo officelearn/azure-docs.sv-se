@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 148a83cb57675e2e8bda8147041987180df998f0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037403"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358736"
 ---
 # <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Få åtkomst till Azure Cosmos DB-resurser från virtuella nätverk
 
 Du kan konfigurera Azure Cosmos-konto för att tillåta åtkomst från ett specifikt undernät för virtuellt nätverk (VNET). Genom att aktivera [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) för att komma åt Azure Cosmos DB i undernät inom ett virtuellt nätverk, trafik från undernätet är skickas till Azure Cosmos DB med identiteten för undernät och virtuellt nätverk. När Azure Cosmos DB-tjänstslutpunkt har aktiverats kan du begränsa åtkomsten till undernätet genom att lägga till ditt Azure Cosmos-konto.
 
-Som standard är ett Azure Cosmos-konto kan nås från valfri källa om begäran åtföljs av en giltig auktoriseringstoken. När du lägger till en eller flera undernät i virtuella nätverk får ett giltigt svar med endast de förfrågningar som kommer från dessa undernät. Förfrågningar som kommer från någon annan källa får ett 404 (hittades inte) svar. 
+Som standard är ett Azure Cosmos-konto kan nås från valfri källa om begäran åtföljs av en giltig auktoriseringstoken. När du lägger till en eller flera undernät i virtuella nätverk får ett giltigt svar med endast de förfrågningar som kommer från dessa undernät. Förfrågningar som kommer från någon annan källa får ett 403 (förbjudet)-svar. 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -34,7 +34,7 @@ Det finns två steg som krävs för att begränsa åtkomsten till Azure Cosmos-k
 
 ### <a name="will-virtual-network-acls-and-ip-firewall-reject-requests-or-connections"></a>ACL: er för virtuellt nätverk och IP-brandvägg avvisar begäranden eller anslutningar? 
 
-När IP-brandvägg eller virtuella nätverk har åtkomst till regler har lagts till, bara begäranden från tillåtna källor get giltiga svar. Andra begäranden avvisas med 404 (hittades inte). Det är viktigt att skilja Brandvägg för Azure Cosmos-konto från en brandvägg för nivån. Källan kan fortfarande ansluta till tjänsten och anslutningarna själva avvisades inte.
+När IP-brandvägg eller virtuella nätverk har åtkomst till regler har lagts till, bara begäranden från tillåtna källor get giltiga svar. Andra begäranden avvisas med 403 (förbjudet). Det är viktigt att skilja Brandvägg för Azure Cosmos-konto från en brandvägg för nivån. Källan kan fortfarande ansluta till tjänsten och anslutningarna själva avvisades inte.
 
 ### <a name="my-requests-started-getting-blocked-when-i-enabled-service-endpoint-to-azure-cosmos-db-on-the-subnet-what-happened"></a>Mina begäranden igång komma blockeras när jag aktiverad tjänstslutpunkt till Azure Cosmos DB på undernätet. Vad hände?
 

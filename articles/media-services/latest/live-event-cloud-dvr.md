@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 01/14/2019
 ms.author: juliako
-ms.openlocfilehash: 8df43a9b2c518e77d14dd5cb392b042b0b4846e2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 8543f00ccaecd8fd3f46132b05c2af925e6de10a
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53407974"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352367"
 ---
 # <a name="using-a-cloud-dvr"></a>Använda en moln-DVR
 
@@ -35,7 +35,10 @@ Varje **LiveOutput** är associerad med en **tillgången**, som används för at
 En **LiveEvent** har stöd för upp till tre som körs samtidigt **LiveOutput**s så att du kan skapa högst 3 inspelningar/Arkiv från en direktsänd dataström. På så sätt kan du publicera och arkivera olika delar av en händelse efter behov. Anta att du behöver att sända en 24 x 7 live linjär feed och skapa ”inspelningar” olika program per dag för att erbjuda kunder som innehåll på begäran för catch-up visning. Det här scenariot kan du först skapa en primär LiveOutput med en kort arkivfönster 1 timme eller mindre – det här är den primära direktsända dataströmmen som användarna skulle lyssna på. Du skapar en **StreamingLocator** för den här **LiveOutput** och publicera den till ditt program eller en webbplats som ”Live”-feed. Medan den **LiveEvent** är kör kan du programmässigt kan skapa en andra samtidiga **LiveOutput** i början av ett program (eller 5 minuter för tidigt att tillhandahålla vissa handtag för att trimma senare). Den här sekunden **LiveOutput** kan tas bort 5 minuter när programmet har avslutats. Med den här sekunden **tillgången**, du kan skapa en ny **StreamingLocator** att publicera det här programmet som en på begäran-tillgång i katalogen för ditt program. Du kan upprepa den här processen flera gånger för andra programgränser eller viktiga funktioner som du vill dela som videor på begäran när ”Live” flödet från först **LiveOutput** fortsätter att sända linjär feeden. 
 
 > [!NOTE]
-> **LiveOutput**s börjar vid skapandet och avbryts när tas bort. När du tar bort den **LiveOutput**, du inte tar bort den underliggande **tillgången** och innehåll i tillgången.  
+> **LiveOutput**s börjar vid skapandet och avbryts när tas bort. När du tar bort den **LiveOutput**, du inte tar bort den underliggande **tillgången** och innehåll i tillgången. 
+>
+> Om du har publicerat **Strömningspositionerare**s på tillgången för den **LiveOutput**, händelse (upp till DVR fönstret längd) fortsätter att vara synliga till sluttiden för den **Strömningspositionerare**  eller till när du tar bort lokaliseraren, beroende på vilket som inträffar först.   
+  
 
 ## <a name="next-steps"></a>Nästa steg
 

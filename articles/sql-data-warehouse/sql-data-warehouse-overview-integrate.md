@@ -10,12 +10,12 @@ ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 5b302be582bd22a7b38601c90f5fe475062afb26
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 0d9d10214f8bc61a914de3f72ddae13679f2811e
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239679"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358517"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrera andra tjänster med SQL Data Warehouse
 Utöver dess huvudfunktioner kan SQL Data Warehouse du integrera med många av de andra tjänsterna i Azure. Några av de här tjänsterna är:
@@ -30,8 +30,8 @@ SQL Data Warehouse fortsätter att integrera med fler tjänster i Azure och myck
 ## <a name="power-bi"></a>Power BI
 Power BI-integrering kan du kombinera beräkningskraft i SQL Data Warehouse med dynamiska rapportering och visualisering av Power BI. Power BI-integrering omfattar för närvarande:
 
-* **Direct Connect**: en mer avancerade med logiska pushdown mot SQL Data Warehouse. Pushdown ger snabbare analys i större skala.
-* **Öppna i Power BI**: knappen ”Öppna i Power BI-skickar information om processinstans till Power BI för ett simplifed sätt att ansluta.
+* **Direktanslut**: En mer avancerad anslutning med logiska pushdown mot SQL Data Warehouse. Pushdown ger snabbare analys i större skala.
+* **Öppna i Powerbi**: Knappen ”Öppna i Power BI-skickar information om processinstans till Power BI för ett simplifed sätt att ansluta.
 
 Mer information finns i [integrera med Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md), eller [Power BI-dokumentationen](https://blogs.msdn.com/b/powerbi/archive/2015/06/24/exploring-azure-sql-data-warehouse-with-power-bi.aspx).
 
@@ -39,22 +39,22 @@ Mer information finns i [integrera med Power BI](sql-data-warehouse-get-started-
 Azure Data Factory ger användare en hanterad plattform för att skapa komplexa extrahera och läsa in pipelines. SQL Data Warehouse-integrering med Azure Data Factory omfattar:
 
 * **Lagrade procedurer**: Dirigera körningen av lagrade procedurer i SQL Data Warehouse.
-* **Kopiera**: Använd ADF om att flytta data till SQL Data Warehouse. Den här åtgärden kan använda mekanismen för ADF: s standard data movement eller PolyBase under försättsbladen. 
+* **Kopiera**: Använd ADF för att flytta data till SQL Data Warehouse. Den här åtgärden kan använda mekanismen för ADF: s standard data movement eller PolyBase under försättsbladen. 
 
-Mer information finns i [integrera med Azure Data Factory](sql-data-warehouse-get-started-visualize-with-power-bi.md).
+Mer information finns i [integrera med Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json).
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 Azure Machine Learning är en fullständigt hanterad analystjänst som gör att du kan skapa komplicerade modeller med hjälp av en stor uppsättning förutsägande verktyg. SQL Data Warehouse kan användas som både käll- och mål för dessa modeller med följande funktioner:
 
-* **Läs Data:** enhet modeller i hög skala med T-SQL mot SQL Data Warehouse.
-* **Skrivdata:** Commit ändras från någon modell tillbaka till SQL Data Warehouse.
+* **Läsa Data:** Hantera modeller i hög skala med T-SQL mot SQL Data Warehouse.
+* **Skriva Data:** Genomför ändringar från någon modell tillbaka till SQL Data Warehouse.
 
 Mer information finns i [integrera med Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md).
 
 ## <a name="azure-stream-analytics"></a>Azure Stream Analytics
 Azure Stream Analytics är en komplex, fullständigt hanterad infrastruktur för bearbetning och förbrukar händelsedata som genereras från Azure Event Hub.  Integrering med SQL Data Warehouse kan strömmande data för att effektivt ska bearbetas och lagras tillsammans med relationsdata som aktiverar djupare, mer avancerade analys.  
 
-* **Jobbutdata:** skicka utdata från Stream Analytics-jobb direkt till SQL Data Warehouse.
+* **Jobbutdata:** Skicka utdata från Stream Analytics-jobb direkt till SQL Data Warehouse.
 
 Mer information finns i [integrera med Azure Stream Analytics](sql-data-warehouse-integrate-azure-stream-analytics.md).
 

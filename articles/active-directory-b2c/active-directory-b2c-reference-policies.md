@@ -1,6 +1,6 @@
 ---
 title: Användarflöden i Azure Active Directory B2C | Microsoft Docs
-description: Ett ämne på utökningsbart principramverk för Azure Active Directory B2C och om hur du skapar olika typer av användarflöden.
+description: Läs mer om utökningsbart principramverk för Azure Active Directory B2C och hur du skapar olika användarflöden.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -10,30 +10,32 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d4a93b04b8ad86a6a6d36a5bdaf3209b49e7a9dc
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bcbd26c8e78e29daa78a7e50f2f49b095103f696
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877090"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351789"
 ---
-# <a name="azure-active-directory-b2c-user-flows"></a>Azure Active Directory B2C: Användarflöden
+# <a name="user-flows-in-azure-active-directory-b2c"></a>Användarflöden i Azure Active Directory B2C
 
+Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver identitetsupplevelser som registrering, inloggning och profilredigering. Som hjälper dig att konfigurera de vanligaste uppgifterna för identitet, Azure AD B2C-portalen innehåller fördefinierade, konfigureras principer som kallas **användarflöden**. 
 
-Utökningsbart principramverk för Azure Active Directory (Azure AD) B2C är core styrkan hos tjänsten. Principer helt beskriver konsument identitetsupplevelser som registrering, inloggning och profilredigering. Som hjälper dig att konfigurera de vanligaste uppgifterna för identitet, Azure AD B2C-portalen innehåller fördefinierade, konfigureras principer som kallas **användarflöden**. Exempelvis kan låter en registrering användarflödet dig styra beteenden genom att konfigurera följande inställningar:
+## <a name="what-are-user-flows"></a>Vad är användarflöden?
 
-* Kontotyper (konton i sociala medier, till exempel Facebook) eller lokala konton, till exempel e-postadresser som användare kan använda för att registrera dig för programmet
-* Attribut (till exempel förnamn, postnummer och sko storlek) ska samlas in från konsumenten under registreringen
-* Användning av Azure Multi-Factor Authentication
-* Utseendet på alla sidor i registrera dig
-* Information (som manifest som anspråk i en token) som programmet tar emot när användarflödet kör har slutförts
+Ett användarflöde kan du styra beteenden i dina program genom att konfigurera följande inställningar:
 
-Du kan skapa flera användarflöden av olika typer i din klient och använda dem i dina program, vid behov. Användarflöden kan återanvändas i program. Den här flexibiliteten gör att utvecklare kan definiera och ändra konsument identitetsupplevelser med minimala kodändringar eller inga ändringar i koden.
+- Kontot som typer används för inloggning, till exempel konton i sociala medier som ett Facebook eller lokala konton
+- Attribut som ska samlas in från konsumenten, till exempel förnamn, postnummer och redskap storlek
+- Azure Multi-Factor Authentication
+- Anpassning av användargränssnittet
+- Information som programmet tar emot som anspråk i en token 
 
-Användarflöden kan användas via en enkel developer-gränssnittet. Programmets utlöser ett användarflöde med hjälp av en standard HTTP-autentiseringsbegäran (skicka en parameter för flödet av användaren i begäran) och får en anpassad token som svar. Till exempel är den enda skillnaden mellan begäranden som anropar en registrering användarflödet och begäranden som anropar en inloggning användarflödet userjourney-namnet som används i ”p” för frågesträngparametern:
+Du kan skapa flera användarflöden av olika typer i din klient och använda dem i dina program, vid behov. Användarflöden kan återanvändas i program. Den här flexibiliteten gör att du kan definiera och ändra identitetsupplevelser med minimala kodändringar eller inga ändringar i koden. Programmets utlöser ett användarflöde med hjälp av en standard HTTP-autentisering-begäran som innehåller en parameter för flödet av användaren. En anpassad [token](active-directory-b2c-reference-tokens.md) tas emot som ett svar. 
+
+I följande exempel visas ”p” för frågesträngparametern som anger användarflödet som ska användas:
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -43,11 +45,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siup                                       // Your sign-up user flow
-
 ```
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -57,50 +57,34 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siin                                       // Your sign-in user flow
-
 ```
 
-## <a name="create-a-sign-up-or-sign-in-user-flow"></a>Skapa ett användarflöde för registrerings- eller logga in
+## <a name="user-flow-versions"></a>Användarflödesversioner
 
-Det här användarflödet hanterar upplevelser för registrering och inloggning i både konsument med en enda konfiguration. Konsumenter leds av rätt väg (registrera dig eller logga in) beroende på kontext. Här beskrivs också innehållet i de token som programmet tar emot vid genomförda registreringar eller inloggningar.  Ett kodexempel för den **registrering eller inloggning** användarflöde är [tillgänglig här](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  Vi rekommenderar att du använder det här användarflödet över en **registrering** användarflödet eller en **inloggning** användarflödet.  
+I Azure portal, ny [versioner av användarflöden](user-flow-versions.md) läggs hela tiden. När du komma igång med Azure AD B2C, testas användaren flöden rekommenderas som du kan använda. När du skapar ett nytt användarflöde, väljer du det användarflöde som du behöver från de **rekommenderas** fliken.
 
-[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+För närvarande rekommenderas följande användarflöden:
 
-## <a name="create-a-sign-up-user-flow"></a>Skapa en registrering användarflödet
+- **Registrera dig och logga in** -hanterar båda upplevelser för registrering och inloggning med en enda konfiguration. Användare leds av rätt väg beroende på kontext. Vi rekommenderar att du använder det här användarflödet över en **registrering** användarflödet eller en **inloggning** användarflödet.
+- **Profilredigering** – gör det möjligt för användare att redigera deras profilinformation.
+- **Återställning av lösenord** – kan du konfigurera om och hur användare kan återställa sina lösenord.
 
-[!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
+## <a name="linking-user-flows"></a>Länkramverk användarflöden
 
-## <a name="create-a-sign-in-user-flow"></a>Skapa en inloggning användarflödet
+En **registrering eller inloggning** användarflödet med lokala konton omfattar en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösa ett lösenord automatiskt användarflödet. 
 
-[!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
+I stället felkoden `AADB2C90118` returneras till programmet. Programmet behöver för att hantera felet genom att köra en specifik användare-flöde som återställer lösenordet. Om du vill se ett exempel kan ta en titt på en [enkel ASP.NET-exemplet](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) som visar länkning av användarflöden.
 
-## <a name="create-a-profile-editing-user-flow"></a>Skapa en profil som redigera användarflödet
+## <a name="email-address-storage"></a>E-postadress lagring
 
-[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
-
-## <a name="create-a-password-reset-user-flow"></a>Skapa ett användarflöde för återställning av lösenord
-
-[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
-
-## <a name="preview-user-flows"></a>Förhandsgranskning – användarflöden
-
-Allteftersom vi släpper nya funktioner, kanske vissa av dessa inte tillgänglig på befintliga principer eller användarflöden.  Vi planerar att ersätta äldre versioner med senast av samma typ när dessa användarflöden ange GA.  Din befintliga principer eller användarflöden ändras inte och du behöver skapa nya användarflöden för att kunna dra nytta av de här nya funktionerna.
-
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
-
-### <a name="how-do-i-link-a-sign-up-or-sign-in-user-flow-with-a-password-reset-user-flow"></a>Hur länkar jag en registrering eller inloggning användarflödet med ett användarflöde för återställning av lösenord?
-När du skapar en **registrering eller inloggning** användaren flöde (med lokala konton), visas en **har du glömt lösenordet?** länk på första sidan i miljön. Klicka på den här länken återställs inte utlösa ett lösenord automatiskt användarflödet. 
-
-I stället felkoden **`AADB2C90118`** returneras till din app. Din app behöver hantera felet genom att aktivera ett särskilt lösenordsåterställning användarflöde. Mer information finns i en [exempel som visar metoden för länkning användarflöden](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
-
-### <a name="should-i-use-a-sign-up-or-sign-in-user-flow-or-a-sign-up-user-flow-and-a-sign-in-user-flow"></a>Ska jag använda en registrering eller inloggning användarflödet eller en registrering användarflödet och logga in användarflödet?
-Vi rekommenderar att du använder en **registrering eller inloggning** användarflödet över en **registrering** användarflödet och en **inloggning** användarflödet.  
-
-Den **registrering eller inloggning** användarflödet har fler funktioner än den **inloggning** användarflödet. Dessutom kan du använda sidan anpassningar och har bättre stöd för lokalisering. 
-
-Den **inloggning** användarflödet rekommenderas om du inte behöver du kanske lokalisera din användarflöden endast måste mindre anpassningsmöjligheter för anpassning och vill lösenord återställning som är inbyggda i den.
+En e-postadress kan krävas som en del av ett användarflöde. Om användaren autentiseras med en social identitetsprovider, e-postadressen lagras i den **otherMails** egenskapen. Om ett lokalt konto är baserat på ett användarnamn, lagras e-postadressen i en egenskap med stark autentisering-information. Om ett lokalt konto är baserat på en e-postadress och e-postadressen lagras i den **signInNames** egenskapen.
+ 
+E-postadressen är inte säkert att verifieras i båda fallen. En Innehavaradministratör kan inaktivera e-Postverifiering i de grundläggande principerna för lokala konton. Även om e-postadress verifiering är aktiverad, adresser inte verifiera om de kommer från en social identitetsprovider och de inte har ändrats.
+ 
+Endast den **otherMails** och **signInNames** egenskaper exponeras via Active Directory Graph API. E-postadress i egenskapen stark autentisering-information är inte tillgänglig.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Token-, sessions- och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md)
-* [Inaktivera e-Postverifiering under konsument registrering](active-directory-b2c-reference-disable-ev.md)
+
+Om du vill skapa de rekommenderade användarflöden, följer du anvisningarna i [självstudien: Skapa ett användarflöde](tutorial-create-tenant.md).
+
 

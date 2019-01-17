@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: f135281ad8bfe8222fd799e3d18c4022c627d23c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 470813b1a51db183476dd046dc102eb89d73debd
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051959"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354596"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL-API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -66,7 +66,7 @@ ms.locfileid: "54051959"
 
 * Lagt till TransportException, en typ av interna undantag av SDK direkt/TCP-transport diagnostik. När det finns i undantag meddelanden, skriver den här typen ytterligare information för felsökning av anslutningsproblem för klienten.
 
-* Har lagts till nya constuctor överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
+* Har lagts till nya konstruktorn överlagring som tar en HttpMessageHandler, en HTTP-hanteraren stack ska användas för att skicka HttpClient-förfrågningar (t.ex. HttpClientHandler).
 
 * Åtgärda fel där huvud med null-värden har inte hanteras korrekt.
 
@@ -265,7 +265,7 @@ ms.locfileid: "54051959"
 ### <a name="a-name180180"></a><a name="1.8.0"/>1.8.0
 * Lagt till stöd för flera regioner.
 * Stöd har lagts till för nytt försök för begränsade begäranden.  Användare kan anpassa antalet nya försök och Maximal väntetid genom att konfigurera ConnectionPolicy.RetryOptions-egenskapen.
-* Lägga till ett nytt IDocumentClient gränssnitt som definierar signaturer för alla DocumenClient egenskaper och metoder.  Som en del av den här ändringen kan också ändra tilläggsmetoder som skapar IQueryable och IOrderedQueryable till metoder i DocumentClient-klassen.
+* Lägga till ett nytt IDocumentClient gränssnitt som definierar signaturer för alla DocumentClient egenskaper och metoder.  Som en del av den här ändringen kan också ändra tilläggsmetoder som skapar IQueryable och IOrderedQueryable till metoder i DocumentClient-klassen.
 * Har lagts till med konfigurationsalternativ för att ange ServicePoint.ConnectionLimit för en viss Azure Cosmos DB-slutpunkt Uri.  Använd ConnectionPolicy.MaxConnectionLimit om du vill ändra standardvärdet, vilket anges till 50.
 * Föråldrad IPartitionResolver och dess implementering.  Stöd för IPartitionResolver är nu föråldrad. Du rekommenderas att du använder partitionerade samlingar för högre lagring och dataflöde.
 
@@ -282,7 +282,7 @@ ms.locfileid: "54051959"
 * Implementerat [partitionerade samlingar](partition-data.md) och [användardefinierade prestandanivåer](performance-levels.md). 
 
 ### <a name="a-name153153"></a><a name="1.5.3"/>1.5.3
-* **[Fast]**  Genererar fråga Azure Cosmos DB-slutpunkt: ”System.Net.Http.HttpRequestException: Fel vid kopiering av innehåll till en dataström '.
+* **[Fast]**  Genererar fråga Azure Cosmos DB-slutpunkt: 'System.Net.Http.HttpRequestException: Fel vid kopiering av innehåll till en dataström '.
 
 ### <a name="a-name152152"></a><a name="1.5.2"/>1.5.2
 * Utökade LINQ stöd, inklusive nya operatorer för växling, villkorlig uttryck och intervall jämförelse.
@@ -408,7 +408,7 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 | [1.4.0](#1.4.0) |13 augusti 2015 |--- |
 | [1.3.0](#1.3.0) |05 augusti 2015 |--- |
 | [1.2.0](#1.2.0) |06 juli 2015 |--- |
-| [1.1.0](#1.1.0) |Den 30 april 2015 |--- |
+| [1.1.0](#1.1.0) |April 30, 2015 |--- |
 | [1.0.0](#1.0.0) |08 april 2015 |--- |
 
 

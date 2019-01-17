@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/16/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8c0575472a4fa480117aaab6904a417746616b7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 50fbafdf714e6071ffac6f9f18d0802ecc1e574d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322137"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54360062"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Behörigheter för administratör i Azure Active Directory
 
@@ -49,7 +49,8 @@ Följande administratörsroller är tillgängliga:
 
 * **[Molnenhetsadministratör](#cloud-device-administrator)**: Användare i den här rollen kan aktivera, inaktivera, och ta bort enheter i Azure AD och Läs Windows 10 BitLocker-nycklar (om sådan finns) i Azure-portalen. Rollen ger inte behörighet att hantera andra egenskaper på enheten.
 
-* **[Efterlevnadsadministratör](#compliance-administrator)**: Användare med rollen har hanteringsbehörigheter inom Säkerhets- och efterlevnadscenter för Office 365 och administrationscenter för Exchange. Mer information på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Efterlevnadsadministratör](#compliance-administrator)**: Användare med den här rollen har behörighet att hantera efterlevnad-relaterade funktioner i efterlevnadscentret för Microsoft 365, Microsoft 365 Säkerhetscenter, Microsoft 365 Administrationscenter och Azure. Användare kan också hantera alla funktioner i administrationscentret för Exchange, Compliance Manager, Teams och Skype för företag-administrationscentret och skapa supportbegäranden för Azure och Microsoft 365. Mer information finns på [om Office 365-administratörsroller](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). 
+
 
 * **[Administratör för villkorsstyrd åtkomst](#conditional-access-administrator)**: Användare med den här rollen kan hantera Azure Active Directory-villkorsstyrda åtkomstinställningar.
   > [!NOTE]

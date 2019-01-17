@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: trinadhk
-ms.openlocfilehash: 64e012b84f863196592133da52b35736e486c9ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: a0cbb8650a818c3ae6c839d69bbc9b94f8d080ca
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266934"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351404"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
@@ -55,14 +55,19 @@ Inkrementella ögonblicksbilder lagras i Virtuella datorns lagringskonto som anv
 
 
 ## <a name="upgrading-to-instant-restore"></a>Uppgradera till omedelbar återställning
-Om du använder Azure-portalen, visas ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet. Du kan också gå till egenskapssidan för valvet för att hämta uppgraderingsalternativet.
 
+Om du använder Azure-portalen, visas ett meddelande på instrumentpanelen för valvet. Det här meddelandet relaterar till stöd för stora diskar och förbättringar för säkerhetskopiering och återställning hastighet.
 
 ![Säkerhetskopieringsjobbet på VM säkerhetskopieringsstack Resource Manager-modellen – stöd för meddelande](./media/backup-azure-vms/instant-rp-banner.png)
 
 Välj banderollen för att öppna en skärm för att uppgradera till omedelbar återställning.
 
 ![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator distributionsmodellen för Resource Manager – uppgradera](./media/backup-azure-vms/instant-rp.png)
+
+Alternativt kan du gå till **egenskaper** sidan i valvet för att hämta den **uppgradera** alternativet **säkerhetskopieringsstack för virtuell dator**.
+
+![Säkerhetskopieringsjobbet på säkerhetskopieringsstack för virtuell dator – sidan Egenskaper](./media/backup-azure-vms/instant-restore-capability-properties.png)
+
 
 ## <a name="upgrade-to-instant-restore-using-powershell"></a>Uppgradera till omedelbar återställning med hjälp av PowerShell
 

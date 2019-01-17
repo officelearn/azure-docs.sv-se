@@ -11,12 +11,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 robot: noindex
 ms.custom: seodec2018
-ms.openlocfilehash: 99f19f6595f2e3105c4b30a7c2e7ef1e296fad6e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a55652c8d19866b717cbafec4629030a7708bb50
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724883"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359501"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Ansluta Cosmos DB med Azure Search med indexerare
 
@@ -38,7 +38,7 @@ I följande video visar Azure Cosmos DB-Programhanteraren Andrew Liu hur du läg
 <a name="supportedAPIs"></a>
 ## <a name="supported-api-types"></a>API-typer som stöds
 
-Även om Azure Cosmos DB stöder en mängd olika datamodeller och API: er, utökar produktionssupport för Azure Search-indexerare till SQL-API. Stöd för Azure Cosmos DB för MongoDB API är för närvarande i offentlig förhandsversion.  
+Även om Azure Cosmos DB stöder en mängd olika datamodeller och API: er, utökar produktionssupport för Azure Search-indexerare till SQL-API. Stöd för Azure Cosmos DB: s API för MongoDB är för närvarande i offentlig förhandsversion.  
 
 Stöd för ytterligare API: er är kommande. För att hjälpa oss att prioritera vilka som ska stödja först konvertera din röst på User Voice-webbplatsen:
 
@@ -182,13 +182,13 @@ Kontrollera att schemat för din målindex är kompatibel med schemat för käll
 ### <a name="mapping-between-json-data-types-and-azure-search-data-types"></a>Mappningen mellan JSON-datatyper och Azure Search-datatyper
 | JSON-datatypen | Kompatibla target index fälttyper |
 | --- | --- |
-| Bool |Edm.Boolean Edm.String |
+| Bool |Edm.Boolean, Edm.String |
 | Siffror som ser ut som heltal |Edm.Int32, Edm.Int64, Edm.String |
-| Nummer att ut flytande punkter |Edm.Double Edm.String |
+| Nummer att ut flytande punkter |Edm.Double, Edm.String |
 | Sträng |Edm.String |
 | Matriser av primitiva typer, till exempel [”a”, ”b”, ”c”] |Collection(Edm.String) |
-| Strängar som ser ut som datum |Edm.DateTimeOffset Edm.String |
-| GeoJSON-objekt, till exempel {”type”: ”Plats”, ”coordinates”: [long, lat]} |Edm.GeographyPoint |
+| Strängar som ser ut som datum |Edm.DateTimeOffset, Edm.String |
+| GeoJSON-objekt, till exempel {”type”: "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
 | Andra JSON-objekt |Gäller inte |
 
 <a name="CreateIndexer"></a>

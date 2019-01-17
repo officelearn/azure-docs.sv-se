@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/30/2018
 ms.author: patricka
 ms.openlocfilehash: 78abb190dccd27c5bf70dfe12f978e1118601815
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742472"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54355752"
 ---
 Om du vill aktivera detaljerad lösenordsåterställning i ditt program måste du använda en **lösenordsåterställning** användarflödet. Observera att alternativet för återställning av lösenord klienttäckande anges [här](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Det här användarflödet beskriver hur kunderna går till för återställning av lösenord och innehållet i de token som programmet tar emot vid genomförda inloggningar.
 

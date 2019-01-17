@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: igorstan
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ba1cb75b7e7c5a93438ea4f17bb563477837099
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d9fdbb1a13c2184809c1d6548e5d878ed7080b13
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301941"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318610"
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>Vad är Azure SQL Data Warehouse?
 
@@ -68,9 +68,9 @@ Nu när du vet lite om SQL Data Warehouse kan du gå vidare och se hur du snabbt
 [Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN-forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow-forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videoklipp]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [SLA for SQL Data Warehouse]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
+[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
 [Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/

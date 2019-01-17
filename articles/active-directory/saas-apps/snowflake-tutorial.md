@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 72d557ec2fa0e23dafb498d94c86296a3a534f88
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: cc72cd3139a17017a645f749d906fad64603401e
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064023"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54304320"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudier: Azure Active Directory-integrering med Snowflake
 
@@ -115,7 +115,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta värdena genom att kontakta [supportteamet för Snowflake-klienten](https://support.snowflake.net/s/snowflake-support). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta värdena genom att kontakta [supportteamet för Snowflake-klienten](https://support.snowflake.net/s/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 

@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 42cca961d58b9fd58e8a9c1b2fc2ddc369deb6d0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c3392c3fd169ceed84368ed9e8b8d81cab7baea4
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017206"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212947"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure PowerShell
 
@@ -95,7 +95,7 @@ Följande Azure CLI-kodblock utför många kommandon som förbereder de indata s
    az iot hub device-identity create --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice"
    ```
 
-4. Hämta enhetsanslutningssträngen med hjälp av kommandot [az iot hub device-identity show-connection-string](). Kopiera hela anslutningssträngen och spara den för användning när du skapar Raspberry Pi-simulatorn.
+4. Hämta enhetsanslutningssträngen med hjälp av kommandot [az iot hub device-identity show-connection-string](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity#ext-azure-cli-iot-ext-az-iot-hub-device-identity-show-connection-string). Kopiera hela anslutningssträngen och spara den för användning när du skapar Raspberry Pi-simulatorn.
 
    ```azurecli
    az iot hub device-identity show-connection-string --hub-name "MyASAIoTHub" --device-id "MyASAIoTDevice" --output table

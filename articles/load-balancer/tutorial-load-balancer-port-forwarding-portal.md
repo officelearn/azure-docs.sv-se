@@ -5,6 +5,7 @@ description: Den här kursen visar hur du konfigurerar vidarebefordrade portar m
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to configure port forwarding in Azure Load Balancer to remotely connect to VMs in an Azure virtual network.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/18
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e3431ff7ee6991e5af3ecab0e734cc587009dcde
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: da41b33f3e5d24c0391c8486d9c0b372877eff21
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273535"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232200"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med portalen
 
@@ -74,7 +75,7 @@ Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen f�
    
    - **Namn**: Skriv *MyVNet*.
    - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   - **Undernät** > **namn**: Skriv *myBackendSubnet*.
+   - **Undernät** > **namn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -92,7 +93,7 @@ Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen f�
    - **Lösenord**: Skriv *Azure1234567*. 
      Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
    
-1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **nästa: Nätverk**. 
+1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVNet**

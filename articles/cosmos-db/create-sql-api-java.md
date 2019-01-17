@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: sngun
-ms.openlocfilehash: 70aa5c62afb6706fa9084d1ed081f70517d8d89e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8fd99b1c68be08ca7c2f4b7cdeaaa8b5b64859e4
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039443"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54197428"
 ---
 # <a name="create-and-manage-resources-of-an-azure-cosmos-db-sql-api-account-using-a-java-application"></a>Skapa och hantera resurser för ett Azure Cosmos DB SQL API-konto med hjälp av ett Java-program
 
@@ -75,7 +75,7 @@ Nu ska vi övergå till att arbeta med kod. Vi ska klona en SQL API-app från Gi
 
 Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas i koden kan du granska följande kodavsnitt. Annars kan du gå vidare till [Köra appen](#run-the-app). 
 
-* `AsyncDocumentClient`-initiering. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client) ger logisk representation på klientsidan för Azure Cosmos DB-databastjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
+* `AsyncDocumentClient`-initiering. [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) ger logisk representation på klientsidan för Azure Cosmos DB-databastjänsten. Den här klienten används för att konfigurera och köra förfrågningar till tjänsten.
 
     ```java
     client = new AsyncDocumentClient.Builder()
@@ -86,7 +86,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
              .build();
     ```
 
-* Skapa [databas](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._database).
+* Skapa [databas](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database).
 
     ```java
     Database databaseDefinition = new Database();
@@ -97,7 +97,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
             .await();
     ```
 
-* Skapa [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document_collection).
+* Skapa [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection).
 
     ```java
     DocumentCollection collectionDefinition = new DocumentCollection();
@@ -110,7 +110,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
             .await();
     ```
 
-* Skapa dokument med metoden [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb._document).
+* Skapa dokument med metoden [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document).
 
     ```java
     // Any Java object within your code
@@ -127,7 +127,7 @@ Det här steget är valfritt. Om du vill lära dig hur databasresurserna skapas 
 
     ```
 
-* SQL-frågor via JSON utförs med hjälp av metoden [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx._async_document_client.querydocuments?view=azure-java-stable).
+* SQL-frågor via JSON utförs med hjälp av metoden [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable).
 
     ```java
     FeedOptions queryOptions = new FeedOptions();

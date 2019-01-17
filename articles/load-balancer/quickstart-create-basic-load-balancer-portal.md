@@ -5,6 +5,7 @@ description: Den här snabbstarten visar hur du skapar en offentlig grundläggan
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: e7055e016abd06d20206d25cb1d7b9eac35142f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 64c0a42ac3cc074e5fd9e2824180009431b11e1e
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260233"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231979"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Snabbstart: Skapa en offentlig grundläggande lastbalanserare med hjälp av Azure-portalen
 
@@ -78,7 +79,7 @@ Sedan skapar du ett virtuellt nätverk och två virtuella datorer för serverdel
      1. I listrutan väljer du **Tillgänglighetsuppsättning**. 
      2. Välj **Skapa ny**, skriv *MyAvailabilitySet* och välj **OK**.
   
-1. Välj fliken **Nätverk** fliken eller välj **Nästa: Diskar** och sedan **nästa: Nätverk**. 
+1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVnet**

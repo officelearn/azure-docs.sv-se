@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 65dae64a43fb145f34c6933f0b74f8e798f5e373
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 686e008a83924460b1f85212b5c06796b6bc8217
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016332"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354220"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -159,7 +159,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Kör följande kommando för att skapa en lagrad procedur i din SQL-databas. Den här lagrade proceduren uppdaterar vattenmärkets värde efter varje pipelinekörning. 
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -184,7 +184,7 @@ CREATE TYPE DataTypeforCustomerTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
+CREATE PROCEDURE usp_upsert_customer_table @customer_table DataTypeforCustomerTable READONLY
 AS
 
 BEGIN
@@ -207,7 +207,7 @@ CREATE TYPE DataTypeforProjectTable AS TABLE(
 
 GO
 
-CREATE PROCEDURE sp_upsert_project_table @project_table DataTypeforProjectTable READONLY
+CREATE PROCEDURE usp_upsert_project_table @project_table DataTypeforProjectTable READONLY
 AS
 
 BEGIN
@@ -287,7 +287,7 @@ När du flyttar data från ett datalager i ett privat nätverk (lokalt) till ett
    ![Installationen av Integration Runtime slutförs](./media/tutorial-incremental-copy-multiple-tables-portal/click-finish-integration-runtime-setup.png)
 1. Bekräfta att du ser **MySelfHostedIR** i listan över Integration Runtimes.
 
-       ![Integration runtimes - list](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
+    ![Integration Runtime – lista](./media/tutorial-incremental-copy-multiple-tables-portal/integration-runtimes-list.png)
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
 Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet får du skapa länkade tjänster till din lokala SQL Server-databas och din SQL-databas. 
@@ -504,7 +504,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Växla till fliken **Lagrad procedur** och gör följande:
 
-    1. Som **Namn på lagrad procedur** väljer du `sp_write_watermark`. 
+    1. Som **Namn på lagrad procedur** väljer du `usp_write_watermark`. 
     1. Välj **Importera parameter**. 
     1. Ange följande värden för parametrarna: 
 
@@ -535,13 +535,13 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```
@@ -639,13 +639,13 @@ VALUES
             "TABLE_NAME": "customer_table",
             "WaterMark_Column": "LastModifytime",
             "TableType": "DataTypeforCustomerTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_customer_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_customer_table"
         },
         {
             "TABLE_NAME": "project_table",
             "WaterMark_Column": "Creationtime",
             "TableType": "DataTypeforProjectTable",
-            "StoredProcedureNameForMergeOperation": "sp_upsert_project_table"
+            "StoredProcedureNameForMergeOperation": "usp_upsert_project_table"
         }
     ]
     ```

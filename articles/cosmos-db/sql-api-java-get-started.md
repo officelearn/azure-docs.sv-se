@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 4b03fc3721d7a2be1e2099bf4878f6abb50e6b76
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7b59ab5da89d7ab99560a777f5a685f8b33e31dc
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044050"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54201184"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Självstudie om NoSQL: Skapa ett Java-konsolprogram med SQL API
 
@@ -90,7 +90,7 @@ Gå till ditt Azure Cosmos DB-konto på Azure Portal och klicka på **Nycklar**.
 ![Skärmdump av Azure Portal som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram. Visar ett Azure Cosmos DB-konto där den AKTIVA hubben är markerad, där knappen NYCKLAR är markerad på bladet för Azure Cosmos DB-kontot och där värdena för URI, PRIMÄR NYCKEL och SEKUNDÄR NYCKEL är markerade på bladet Nycklar][keys]
 
 ## <a name="step-4-create-a-database"></a>Steg 4: Skapa en databas
-Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
+Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases) kan skapas med metoden [createDatabase](/java/api/com.microsoft.azure.documentdb.documentclient.createdatabase) i **DocumentClient**-klassen. En databas är en logisk container för JSON-dokumentlagring, partitionerad över samlingarna.
 
     Database database = new Database();
     database.setId("familydb");
@@ -102,7 +102,7 @@ Azure Cosmos DB-[databasen](databases-containers-items.md#azure-cosmos-databases
 > 
 > 
 
-En samling kan skapas med metoden [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) för klassen **DocumentClient**. En samling är en container för JSON-dokument och associerad JavaScript-applogik.
+En samling kan skapas med metoden [createCollection](/java/api/com.microsoft.azure.documentdb.documentclient.createcollection) för klassen **DocumentClient**. En samling är en container för JSON-dokument och associerad JavaScript-applogik.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -116,7 +116,7 @@ En samling kan skapas med metoden [createCollection](/java/api/com.microsoft.azu
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Steg 6: Skapa JSON-dokument
-Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
+Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.microsoft.azure.documentdb.documentclient.createdocument) för klassen **DocumentClient**. Dokument är användardefinierat (godtyckligt) JSON-innehåll. Vi kan nu infoga ett eller flera dokument. Om du redan har data som du vill lagra i databasen kan du använda [datamigreringsverktyget](import-data.md) för Azure Cosmos DB för att importera dina data till en databas.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -139,7 +139,7 @@ Ett dokument kan skapas med hjälp av metoden [createDocument](/java/api/com.mic
 ![Diagram som illustrerar den hierarkiska relationen mellan kontot, onlinedatabasen, samlingen och dokumenten som används i NoSQL-självstudiekursen för att skapa ett Java-konsolprogram](./media/sql-api-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Steg 7: Köra frågor mot Azure Cosmos DB-resurser
-Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb._document_client.querydocuments)-metoden.
+Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokument som lagras i varje samling.  Följande exempelkod visar hur du frågar dokument i Azure Cosmos DB med hjälp av SQL-syntaxen med [queryDocuments](/java/api/com.microsoft.azure.documentdb.documentclient.querydocuments)-metoden.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -152,7 +152,7 @@ Azure Cosmos DB stöder [komplexa frågor](how-to-sql-query.md) mot JSON-dokumen
     }
 
 ## <a id="ReplaceDocument"></a>Steg 8: Ersätta JSON-dokument
-Azure Cosmos DB stöder uppdatering av JSON-dokument med hjälp av [replaceDocument](/java/api/com.microsoft.azure.documentdb._document_client.replacedocument)-metoden.
+Azure Cosmos DB stöder uppdatering av JSON-dokument med hjälp av [replaceDocument](/java/api/com.microsoft.azure.documentdb.documentclient.replacedocument)-metoden.
 
     // Update a property
     andersenFamily.Children[0].Grade = 6;
@@ -163,7 +163,7 @@ Azure Cosmos DB stöder uppdatering av JSON-dokument med hjälp av [replaceDocum
         null);
 
 ## <a id="DeleteDocument"></a>Steg 9: Ta bort JSON-dokument
-På motsvarande sätt stöder Azure Cosmos DB borttagning av JSON-dokument med hjälp av [deleteDocument](/java/api/com.microsoft.azure.documentdb._document_client.deletedocument)-metoden.  
+På motsvarande sätt stöder Azure Cosmos DB borttagning av JSON-dokument med hjälp av [deleteDocument](/java/api/com.microsoft.azure.documentdb.documentclient.deletedocument)-metoden.  
 
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management
 manager: benshy
-ms.openlocfilehash: b5975f3d11a76d7713928ab008dbd9ec19b85738
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 54bb66d79979e68c55a671035fa2bc11d8220b17
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082587"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54351602"
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrera en enskild Azure-prenumeration och visa kostnadsdata
 
@@ -29,7 +29,7 @@ Du registrerar dig för Cloudyn med din Azure-prenumeration. Registreringen ger 
 
 1. Klicka på **Kostnadshantering + fakturering** i listan med tjänster i Azure Portal.
 2. Klicka på **Cloudyn** under **Översikt**  
-    ![Cloudyn-sida som visas i Azure Portal](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
+    ![Cloudyn-sida som visas på Azure Portal](./media/quick-register-azure-sub/cost-mgt-billing-service.png)
 3. På sidan **Kostnadshantering** klickar du på **Go to Cloudyn** (Gå till Cloudyn) för att öppna Cloudyn-registreringssidan i ett nytt fönster.
 4. På utvärderingsregistreringssidan på Cloudyn-portalen anger du namnet på ditt företag och väljer sedan **Azure Individual Subscription Owner** och klickar sedan på **Nästa**. Ditt kontonamn och klient-ID läggs automatiskt till i formuläret.  
     ![Registreringssida för den kostnadsfria utvärderingsversionen där du anger din registreringsinformation](./media/quick-register-azure-sub/trial-reg-ind.png)

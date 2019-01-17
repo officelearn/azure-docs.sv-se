@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/20/2018
 ms.author: sharadag
-ms.openlocfilehash: c4032f7c33cec7b7a7864ccff07a05b87c945949
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 68da9a0255cde6cbad5c675901c80193888bf255
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988609"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54214886"
 ---
 # <a name="how-to-set-up-a-geo-filtering-policy-for-your-front-door"></a>Så konfigurerar du en princip för geofiltrering för Front Door
 Den här självstudiekursen visar hur du använder Azure PowerShell till att skapa ett exempel på en princip för geofiltrering och associerar principen med din befintliga Front Door-klientdelsvärd. Exempelprincipen för geofiltrering blockerar begäranden från alla andra länder utom USA.
@@ -47,7 +47,7 @@ Install-Module -Name AzureRM.FrontDoor -AllowPrerelease
 ```
 
 ## <a name="2-define-geo-filtering-match-conditions"></a>2. Definiera matchningsvillkor för geofiltrering
-Skapa först ett exempel på matchningsvillkor som väljer begäranden som inte kommer från ”US” (USA). Se [PowerShell-guiden](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) för parametrar när du skapar ett matchningsvillkor. [Här](/Protection/GeoFiltering) anges mappning till länder med landskoder på två bokstäver.
+Skapa först ett exempel på matchningsvillkor som väljer begäranden som inte kommer från ”US” (USA). Se [PowerShell-guiden](https://docs.microsoft.com/azure/frontdoor/new-azurermfrontdoormatchconditionobject) för parametrar när du skapar ett matchningsvillkor. [Här](front-door-geo-filtering.md) anges mappning till länder med landskoder på två bokstäver.
 
 ```
 $nonUSGeoMatchCondition = New-AzureRmFrontDoorMatchConditionObject -MatchVariable RemoteAddr -OperatorProperty GeoMatch -NegateCondition $true -MatchValue "US"

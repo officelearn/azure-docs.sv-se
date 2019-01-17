@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 01/15/2019
 ms.author: dobett
-ms.openlocfilehash: 1ae0be44be524e4cb4e8d446e2279a1bfd800a04
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 3725117b90ec2574737686881e47967f3d9a9e39
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231622"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320098"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub-ordlista
 Den här artikeln innehåller några av de vanliga termer som används i IoT Hub-artiklar.
@@ -114,9 +114,6 @@ Den [enhetsutforskare](https://github.com/Azure/azure-iot-sdk-csharp/tree/master
 ## <a name="device-identity"></a>Enhetsidentitet
 Enhetens identitet är den unika identifieraren som tilldelats varje enhet har registrerats i den [identitetsregistret](#identity-registry).
 
-## <a name="module-identity"></a>Modulen identitet
-Modulen identiteten är den unika identifieraren som tilldelats varje modul som hör till en enhet. Modulen identitet även är registrerat i den [identitetsregistret](#identity-registry).
-
 ## <a name="device-management"></a>Enhetshantering
 Enhetshantering omfattar hela livscykeln som är associerade med hantering av enheter i din IoT-lösning, inklusive planering, etablera, konfigurera, övervakning och tas ur bruk.
 
@@ -131,15 +128,6 @@ Enhetsetablering är processen att lägga till första [enhetsdata](#device-data
 
 ## <a name="device-twin"></a>Enhetstvilling
 En [enhetstvillingen](iot-hub-devguide-device-twins.md) är JSON-dokument som lagrar information om enhetstillstånd, till exempel metadata, konfigurationer och villkor. [IoT Hub](#iot-hub) lagrar en enhetstvilling för varje enhet som du etablerar i IoT hub. Enhetstvillingar gör det möjligt att synkronisera [enheten villkor](#device-condition) och serverdelen för konfigurationer mellan enheten och lösningen. Du kan fråga efter enhetstvillingar för att hitta specifika enheter och fråga efter statusen för långvariga åtgärder.
-
-## <a name="module-twin"></a>Modultvilling
-Liknar enhetstvillingen, en modultvilling är JSON-dokument som lagrar information om modulen tillstånd som metadata, konfigurationer och villkor. IoT Hub lagrar en modultvillingen för varje modul-identitet som du etablerar under en enhetsidentitet i IoT hub. Modultvillingar kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens backend-server. Du kan fråga modultvillingar för att hitta specifika moduler och fråga efter statusen för långvariga åtgärder.
-
-## <a name="twin-queries"></a>Twin frågor
-[Enheten och modulen twin frågor](iot-hub-devguide-query-language.md) använder SQL-liknande IoT Hub-frågespråk för att hämta information från din enhetstvillingar eller modultvillingar. Du kan använda samma IoT Hub-frågespråk för att hämta information om [](#job) som körs i din IoT-hubb.
-
-## <a name="twin-synchronization"></a>Twin synkronisering
-Twin synkronisering använder den [önskade egenskaper](#desired-properties) i enhetstvillingar eller modultvillingar för att konfigurera dina enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från att lagra i läsningen.
 
 ## <a name="direct-method"></a>Direktmetod
 En [direktmetod](iot-hub-devguide-direct-methods.md) är ett sätt som du kan utlösa en metod för att köra på en enhet genom att aktivera en API på IoT hub.
@@ -173,7 +161,7 @@ En interaktiv meddelandet är ett [moln till enhet](#cloud-to-device) meddelande
 ## <a name="iot-hub"></a>IoT Hub
 IoT Hub är en fullständigt hanterad Azure-tjänst som möjliggör tillförlitlig och säker dubbelriktad kommunikation mellan miljontals enheter och tillhandahåller serverdelen. Mer information finns i [vad är Azure IoT Hub?](about-iot-hub.md) Med hjälp av din [Azure-prenumeration](#subscription), du kan skapa IoT-hubbar för att hantera dina IoT-meddelanden arbetsbelastningar.
 
-## <a name="iot-hub-metrics"></a>IoT Hub-mått
+## <a name="iot-hub-metrics"></a>IoT Hub metrics
 [IoT Hub mått](iot-hub-metrics.md) ger dig information om tillstånd för IoT-hubbar i din [Azure-prenumeration](#subscription). IoT Hub mått kan du utvärdera den övergripande hälsan för tjänsten och de enheter som är anslutna till den. IoT Hub mått kan du se vad som händer med din IoT-hubb och undersöka grundorsaken problem utan att behöva kontakta Azure-supporten.
 
 ## <a name="iot-hub-query-language"></a>IoT Hub-frågespråk
@@ -190,6 +178,17 @@ Azure IoT-Lösningsacceleratorer paketera samman flera Azure-tjänster till lös
 
 ## <a name="job"></a>Jobb
 Lösningens serverdel kan använda [jobb](iot-hub-devguide-jobs.md) att schemalägga och spåra aktiviteter i en uppsättning enheter som registrerats med IoT-hubben. Aktiviteter är till exempel uppdatera enhetstvillingen [önskade egenskaper](#desired-properties), uppdatera enhetstvillingen [taggar](#tags), och anropa [direkta metoder](#direct-method). [IoT Hub](#iot-hub) använder också att [att importera och exportera](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) från den [identitetsregistret](#identity-registry).
+
+## <a name="modules"></a>Moduler
+På enheten, SDK: er för IoT Hub-enheter kan du skapa [moduler](iot-hub-devguide-module-twins.md) där var och en öppnar en oberoende anslutning till IoT Hub. Den här funktionen kan du använda separata namnområden för olika komponenter på din enhet.
+
+Modulen identitets- och modultvilling innehåller samma funktioner som [enhetsidentitet](#device-identity) och [enhetstvillingen](#device-twin) men med en bättre precision. Den här finare granularitet gör det möjligt för kompatibla enheter, till exempel operativsystem-baserade enheter eller firmware-enheter som hanterar flera komponenter, om du vill isolera konfiguration och villkor för var och en av dessa komponenter.
+
+## <a name="module-identity"></a>Modulen identitet
+Modulen identiteten är den unika identifieraren som tilldelats varje modul som hör till en enhet. Modulen identitet även är registrerat i den [identitetsregistret](#identity-registry).
+
+## <a name="module-twin"></a>Modultvilling
+Liknar enhetstvillingen, en modultvilling är JSON-dokument som lagrar information om modulen tillstånd som metadata, konfigurationer och villkor. IoT Hub lagrar en modultvillingen för varje modul-identitet som du etablerar under en enhetsidentitet i IoT hub. Modultvillingar kan du synkronisera modulen villkor och konfigurationer mellan modulen och lösningens backend-server. Du kan fråga modultvillingar för att hitta specifika moduler och fråga efter statusen för långvariga åtgärder.
 
 ## <a name="mqtt"></a>MQTT
 [MQTT](http://mqtt.org/) är en av meddelandetjänsterna protokoll som [IoT Hub](#iot-hub) har stöd för att kommunicera med enheter. Mer information om meddelandeprotokoll som stöds av IoT Hub finns i [skicka och ta emot meddelanden med IoT Hub](iot-hub-devguide-messaging.md).
@@ -256,6 +255,12 @@ Enheter som samlar in telemetridata, till exempel vindhastighet eller temperatur
 
 ## <a name="token-service"></a>Token-tjänsten
 Du kan använda en token tjänst för att implementera en autentiseringsmekanism för dina enheter. Den använder en IoT-hubb [delad åtkomstprincip](#shared-access-policy) med **DeviceConnect** behörighet att skapa *enhet-omfattande* token. Dessa token kan en enhet ansluter till IoT hub. En enhet använder en anpassad autentiseringsmetod för att autentisera med tjänsten token. Om enheten autentiserar har, utfärdar tokentjänsten som en SAS-token för enheten du använder för att få åtkomst till din IoT-hubb.
+
+## <a name="twin-queries"></a>Twin frågor
+[Enheten och modulen twin frågor](iot-hub-devguide-query-language.md) använder SQL-liknande IoT Hub-frågespråk för att hämta information från din enhetstvillingar eller modultvillingar. Du kan använda samma IoT Hub-frågespråk för att hämta information om [](#job) som körs i din IoT-hubb.
+
+## <a name="twin-synchronization"></a>Twin synkronisering
+Twin synkronisering använder den [önskade egenskaper](#desired-properties) i enhetstvillingar eller modultvillingar för att konfigurera dina enheter eller moduler och hämta [rapporterade egenskaper](#reported-properties) från att lagra i läsningen.
 
 ## <a name="x509-client-certificate"></a>X.509-klientcertifikatet
 En enhet kan använda ett X.509-certifikat för att autentisera med [IoT Hub](#iot-hub). Med hjälp av ett X.509-certifikat är ett alternativ till att använda en [SAS-token](#shared-access-signature).

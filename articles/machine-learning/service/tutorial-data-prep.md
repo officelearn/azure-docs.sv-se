@@ -11,18 +11,18 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 8f7e414d2aa4962534a90a295e104f8e8ebabbd9
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079246"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321882"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
 I den här självstudien lär du dig hur du förbereder data för regressionsmodellering med Azure Machine Learning Data Prep SDK. Du kör olika transformeringar för att filtrera och kombinera två olika datauppsättningar för taxiresor i New York.  
 
-Den här självstudien är del ett i en självstudieserie i två delar. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
+Den här självstudien är **del ett i en självstudieserie i två delar**. När du har slutfört den här självstudieserien kan du förutsäga kostnaden för en taxiresa genom att träna en modell med datafunktioner. Exempel på dessa funktioner är dag och tidpunkt för upphämtning, antalet passagerare och upphämtningsplats.
 
 I den här kursen för du göra följande:
 

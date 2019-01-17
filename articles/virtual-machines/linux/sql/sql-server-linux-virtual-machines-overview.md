@@ -3,21 +3,22 @@ title: Översikt över SQL Server på Azure Linux Virtual Machines | Microsoft D
 description: Läs mer om hur du kör fullständiga SQL Server-utgåvor på virtuella datorer med Azure Linux. Hämta direktlänkar till alla Linux SQL Server VM-avbildningar och tillhörande innehåll.
 services: virtual-machines-linux
 documentationcenter: ''
-author: rothja
-manager: jhubbard
+author: MashaMSFT
+manager: craigg
 tags: azure-service-management
 ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: get-started-article
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
-ms.author: jroth
-ms.openlocfilehash: 9c24536d8d5647e4a2c19afa17c35050e1f11c20
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 18f9dd5318c6aecff8819178168469d9334e5e29
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424133"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332412"
 ---
 # <a name="overview-of-sql-server-on-azure-virtual-machines-linux"></a>Översikt över SQL Server i Azure Virtual Machines (Linux)
 
@@ -61,7 +62,7 @@ När du konfigurerar SQL Server på Linux installerar du databasmotorns paket oc
 
 * [Översikt över virtuella datorer](../overview.md)
 
-### <a name="storage"></a>Lagring
+### <a name="storage"></a>Storage
 
 * [Introduktion till Microsoft Azure Storage](../../../storage/common/storage-introduction.md)
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/27/2018
+ms.date: 01/16/2019
 ms.author: jingwang
-ms.openlocfilehash: a5df9d4d323158ee52c872b0122fdd28d9f74979
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 161683b48ae66edc621981142c538f8bce44a2b6
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019868"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352180"
 ---
 # <a name="copy-data-from-hdfs-using-azure-data-factory"></a>Kopiera data från HDFS med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-hdfs-connector.md)
 > * [Aktuell version](connector-hdfs.md)
 
@@ -39,6 +39,9 @@ Mer specifikt stöder den här HDFS-anslutningen:
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att kopiera data från ett HDFS som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](concepts-integration-runtime.md) artikeln om du vill få mer detaljerad information.
+
+> [!NOTE]
+> Se till att Integration Runtime har åtkomst till **alla** [nod namnservern]: [name noden port] och [data nodservrar]: [nod dataporten] av Hadoop-kluster. Standard [namn noden port] är 50070 och standardvärdet [data noden port] är 50075.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -111,7 +114,7 @@ För att kopiera data från HDFS, ange typegenskapen på datauppsättningen till
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
-| typ | Type-egenskapen för datauppsättningen måste anges till: **Filresurs** |Ja |
+| typ | Type-egenskapen för datauppsättningen måste anges till: **FileShare** |Ja |
 | folderPath | Sökvägen till mappen. Jokerteckenfilter stöds inte. Till exempel: mappen/undermappen / |Ja |
 | fileName |  **Namn eller jokertecken-filtret** för den eller filerna under den angivna ”folderPath”. Om du inte anger ett värde för den här egenskapen datauppsättningen pekar på alla filer i mappen. <br/><br/>För filter tillåtna jokertecken är: `*` (matchar noll eller flera tecken) och `?` (matchar noll eller valfritt tecken).<br/>– Exempel 1: `"fileName": "*.csv"`<br/>– Exempel 2: `"fileName": "???20180427.txt"`<br/>Använd `^` att undvika om din faktiska filnamnet har jokertecken eller den här escape-tecken i. |Nej |
 | Format | Om du vill **kopiera filer som – är** hoppa över avsnittet format i både inkommande och utgående datamängd definitioner mellan filbaserade (binär kopia).<br/><br/>Om du vill parsa filer med ett visst format stöds format för följande filtyper: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Ange den **typ** egenskapen under format till ett av dessa värden. Mer information finns i [textformat](supported-file-formats-and-compression-codecs.md#text-format), [Json-Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro-formatet](supported-file-formats-and-compression-codecs.md#avro-format), [Orc-Format](supported-file-formats-and-compression-codecs.md#orc-format), och [Parquet-Format](supported-file-formats-and-compression-codecs.md#parquet-format) avsnitt. |Nej (endast för binär kopia scenario) |

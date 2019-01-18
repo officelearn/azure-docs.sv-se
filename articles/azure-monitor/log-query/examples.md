@@ -28,7 +28,7 @@ Se den [Kusto-Språkreferens](https://docs.microsoft.com/azure/kusto/query/) mer
 ## <a name="events"></a>Händelser
 
 ### <a name="search-application-level-events-described-as-cryptographic"></a>Sök på programnivå händelser som kallas ”kryptografiska”
-Det här exemplet söker den **händelser** tabell för poster där **EventLog** är _programmet_ och **RenderedDescription** innehåller _kryptografiska_. Innehåller poster från de senaste 24 timmarna.
+Det här exemplet söker den **händelser** tabell för poster där **EventLog** är _Application_ och **RenderedDescription** innehåller _cryptographic_. Innehåller poster från de senaste 24 timmarna.
 
 ```Kusto
 Event
@@ -208,7 +208,7 @@ Perf
 ## <a name="protection-status"></a>Skyddsstatus
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Datorer med icke-rapporterande varaktighet för status för skydd
-Det här exemplet visar en lista över datorer där en status för _inte rapporterar_ varaktigheten de befann sig i den här statusen.
+Det här exemplet visar en lista över datorer där en status för _Not Reporting_ varaktigheten de befann sig i den här statusen.
 
 ```Kusto
 ProtectionStatus
@@ -249,7 +249,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>Antal säkerhetshändelser som rör behörigheter
-Det här exemplet visar hur många **securityEvent** poster, där den **aktivitet** kolumnen innehåller hela termen _behörigheter_. Frågan gäller för poster som skapats under de senaste 30 minuterna.
+Det här exemplet visar hur många **securityEvent** poster, där den **aktivitet** kolumnen innehåller hela termen _Permissions_. Frågan gäller för poster som skapats under de senaste 30 minuterna.
 
 ```Kusto
 SecurityEvent

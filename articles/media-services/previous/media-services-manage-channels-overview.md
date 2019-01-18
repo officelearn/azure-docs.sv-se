@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: juliako
-ms.openlocfilehash: 9e8dc926fd796e82ea531aba6cb3a682649dff41
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3814041359884fc2862b0e90a58aabd1ad26c4cb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060342"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382128"
 ---
 # <a name="overview-of-live-streaming-using-azure-media-services"></a>Översikt över liveuppspelning med Azure Media Services
 
@@ -27,6 +27,7 @@ ms.locfileid: "42060342"
 > Startar den 12 maj 2018 livekanaler kommer inte längre stöd för RTP/MPEG-2-transportström infogningsprotokollet. Migrera från RTP/MPEG-2 till RTMP eller fragmenterad MP4 (Smooth Streaming) inmatningsprotokollen.
 
 ## <a name="overview"></a>Översikt
+
 När du ska leverera liveuppspelningshändelser med Azure Media Services ingår oftast följande komponenter:
 
 * En kamera som används för att sända en händelse.
@@ -43,7 +44,7 @@ När du ska leverera liveuppspelningshändelser med Azure Media Services ingår 
 
 **Microsoft Azure Media Services** (AMS) ger möjligheten att infoga, koda, förhandsgranska, lagra och leverera liveuppspelningsinnehåll.
 
-Målet är att tillhandahålla en video av hög kvalitet till olika enheter under olika nätverksförhållanden när du levererar ditt innehåll till kunder. Om du vill uppnå genom att använda livekodare för att koda strömmen till en video dataström med flera bithastigheter (anpassningsbar bithastighet).  Använd Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) för att ta hand om strömning på olika enheter och dynamiskt ompaketera din ström till olika protokoll. Media Services har stöd för leverans av följande tekniker för direktuppspelning med anpassningsbar bithastighet: HTTP Live Streaming(HLS), Smooth Streaming, MPEG DASH.
+Målet är att tillhandahålla en video av hög kvalitet till olika enheter under olika nätverksförhållanden när du levererar ditt innehåll till kunder. Om du vill uppnå genom att använda livekodare för att koda strömmen till en video dataström med flera bithastigheter (anpassningsbar bithastighet).  Använd Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) för att ta hand om strömning på olika enheter och dynamiskt ompaketera din ström till olika protokoll. Media Services har stöd för leverans av de följande strömningstekniker med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 
 I Azure Media Services hanterar **kanaler**, **program** och **strömningsslutpunkter** alla funktioner för liveuppspelning, inklusive infogande, formatering, DVR, säkerhet, skalbarhet och redundans.
 
@@ -63,6 +64,7 @@ Från och med Media Services 2.10, när du skapar en kanal, kan du ange i vilken
 * **Standard** – Välj det här värdet om du planerar att använda Media Services för att koda din direktsänd dataström med enkel bithastighet till en dataström med multibithastighet. Den här metoden är mer ekonomiskt för att skala upp snabbt efter ovanliga händelser. Tänk på att det finns en fakturering inverkan för live encoding och du bör komma ihåg att lämna en livekanal med kodning i tillståndet ”körs” debiteras debiterade avgifterna.  Vi rekommenderar att du omedelbart stoppa dina kanaler som körs när din liveströmmat evenemang är klar att undvika extra debitering.
 
 ## <a name="comparison-of-channel-types"></a>Jämförelse av kanaltyper
+
 Följande tabell innehåller en guide för att jämföra de två kanal-typer som stöds i Media Services
 
 | Funktion | Direkt-kanal | Standard-kanal |
@@ -80,6 +82,7 @@ Följande tabell innehåller en guide för att jämföra de två kanal-typer som
 | Automatisk-avslutning av kanaler när indata-flöde går förlorad |Nej |Efter 12 timmar, om det finns inget Program körs |
 
 ## <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
+
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
 ![Live-arbetsflöde](./media/media-services-live-streaming-workflow/media-services-live-streaming-current.png)
@@ -87,6 +90,7 @@ I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i
 Mer information finns i [Arbeta med kanaler som tar emot liveström i flera bithastigheter från lokala kodare](media-services-live-streaming-with-onprem-encoders.md).
 
 ## <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services
+
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet för liveuppspelning där en kanal är aktiverad för att utföra Live Encoding med Media Services.
 
 ![Live-arbetsflöde](./media/media-services-live-streaming-workflow/media-services-live-streaming-new.png)
@@ -94,12 +98,16 @@ I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i
 Mer information finns i [Arbeta med kanaler som är aktiverade för att utföra Live Encoding med Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="description-of-a-channel-and-its-related-components"></a>Beskrivning av en kanal och dess relaterade komponenter
+
 ### <a name="channel"></a>Kanal
+
 I Media Services [kanal](https://docs.microsoft.com/rest/api/media/operations/channel)s ansvarar för bearbetning av liveuppspelningsinnehåll. En kanal som innehåller en slutpunkt för indata (infognings-URL) som du sedan vidarebefordra till en levande transkodare. Kanalen tar emot inkommande direktsändningar från live transkodare och gör den tillgänglig för direktuppspelning via en eller flera Strömningsslutpunkter. Kanaler tillhandahåller även en slutpunkt för förhandsversionen (förhandsgransknings-URL) som används för att förhandsgranska och validera dataströmmen inför vidare behandling och leverans.
 
 Du kan hämta URL: en för inmatning och förhandsgransknings-URL när du skapar kanalen. För att få dessa URL: er, behöver inte kanalen vara tillståndet startad. När du är redo att börja skicka data från en levande transkodare till kanalen startas kanalen. När live transkodare startar mata in data, kan du förhandsgranska dataströmmen.
 
 Varje Media Services-konto kan innehålla flera kanaler, flera program och flera Strömningsslutpunkter. Beroende på behov bandbredds- och kan StreamingEndpoint-tjänster vara dedikerad till en eller flera kanaler. Alla StreamingEndpoint kan hämta från alla kanaler.
+
+När du skapar en kanal kan ange du tillåtna IP-adresser på något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
 
 ### <a name="program"></a>Program
 En [programmet](https://docs.microsoft.com/rest/api/media/operations/program) gör att du kan styra publicering och lagring av segment i en direktsänd dataström. Kanaler hanterar program. Relationen mellan kanal och program liknar den för traditionella media där en kanal har en konstant ström av innehåll och ett program är begränsat till en viss tidsinställd händelse på kanalen.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 120b97f69c8fad2daf3090441e8d0326e80115c3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: d339908b9347843da891dd1c7fa038c45cee1dcb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338591"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382835"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -99,22 +99,19 @@ Ditt konto måste vara medlem i någon av följande Azure [inbyggda roller](../r
 |                   | Deltagare            |
 |                   | Läsare                 |
 |                   | Nätverksdeltagare    |
-|Klassisk            | Kontoadministratör  |
-|                   | Tjänstadministratör  |
-|                   | Medadministratör       |
 
 Om ditt konto inte har tilldelats till en av de inbyggda rollerna, så måste de tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som har tilldelats följande åtgärder på prenumerationsnivå:
 
-- ”Microsoft.Network/applicationGateways/read”
-- ”Microsoft.Network/connections/read”
-- ”Microsoft.Network/loadBalancers/read”
-- ”Microsoft.Network/localNetworkGateways/read”
-- ”Microsoft.Network/networkInterfaces/read”
-- ”Microsoft.Network/networkSecurityGroups/read”
-- ”Microsoft.Network/publicIPAddresses/read”
-- ”Microsoft.Network/routeTables/read”
-- ”Microsoft.Network/virtualNetworkGateways/read”
-- ”Microsoft.Network/virtualNetworks/read”
+- "Microsoft.Network/applicationGateways/read"
+- "Microsoft.Network/connections/read"
+- "Microsoft.Network/loadBalancers/read"
+- "Microsoft.Network/localNetworkGateways/read"
+- "Microsoft.Network/networkInterfaces/read"
+- "Microsoft.Network/networkSecurityGroups/read"
+- "Microsoft.Network/publicIPAddresses/read"
+- "Microsoft.Network/routeTables/read"
+- "Microsoft.Network/virtualNetworkGateways/read"
+- "Microsoft.Network/virtualNetworks/read"
 
 Information om hur du kontrollerar användarbehörigheter finns i [Traffic analytics vanliga frågor och svar](traffic-analytics-faq.md).
 
@@ -317,7 +314,7 @@ Fördelning av trafik per Programgateway och belastningsutjämnare, topologi, fr
  - Att veta vilka undernät konversation som Application gateway eller belastningsutjämnare. Om du upptäcker ett oväntat konversationer, kan du korrigera din konfiguration.
  - Om falskt nätverk konversation med ett Application gateway, belastningsutjämnare, kan du åtgärda det genom att konfigurera NSG-regler för att blockera obehörig-nätverk. 
 
-    ![Subnet-topology-showcasing-Traffic-distribution-to-a-Application-Gateway-Subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer tar emot trafik från internet
 

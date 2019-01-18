@@ -8,19 +8,22 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 376a5a2214c5f1d77439923d6a11aaad5e011e73
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 05134ff59f87aaac71588057f1ac50015a769672
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313861"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389842"
 ---
 #   <a name="text-split-cognitive-skill"></a>Text dela kognitiva kunskaper
 
 Den **Text dela** färdighet delar upp text i segment med text. Du kan ange om du vill dela texten i meningar eller sidor i en viss längd. Kompetensen är särskilt användbart om det finns maximala text längdkraven i andra färdigheter nedströms. 
+
+> [!NOTE]
+> Kompetensen är inte bunden till en Cognitive Services-API och det finns inga avgifter som är associerade med denna kunskap. Dock måste du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) ändå för att åsidosätta alternativet kostnadsfri resurs som begränsar du till ett litet antal dagliga enrichments.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -32,7 +35,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | textSplitMode      | ”Sidor” eller ”meningar” | 
-| maximumPageLength | Om textSplitMode anges till ”sidor”, avser den maximala sidlängden enligt `String.Length`. Det lägsta värdet är 100.  Om textSplitMode har angetts till ”sidor” försöker algoritmen att dela upp texten i segment som innehåller högst ”maximumPageLenth” i storlek. I det här fallet fungerar algoritmen som bra att bryta meningen på en mening gräns så att storleken på segmentet kan vara något mindre än ”maximumPageLength”. | 
+| maximumPageLength | Om textSplitMode anges till ”sidor”, avser den maximala sidlängden enligt `String.Length`. Det lägsta värdet är 100.  Om textSplitMode har angetts till ”sidor” försöker algoritmen att dela upp texten i segment som innehåller högst ”maximumPageLength” i storlek. I det här fallet fungerar algoritmen som bra att bryta meningen på en mening gräns så att storleken på segmentet kan vara något mindre än ”maximumPageLength”. | 
 | defaultLanguageCode   | (valfritt) En av följande språkkoder: `da, de, en, es, fi, fr, it, ko, pt`. Standardvärdet är engelska (en). Några saker att tänka på:<ul><li>Om du skickar ett languagecode countrycode format används bara den languagecode delen av formatet.</li><li>Om språket inte är i listan ovan, delar dela färdighet texten med tecknet-gränser.</li><li>Att tillhandahålla en språkkod är användbar för att undvika att klippa ut ett ord i hälften för språk som inte är blanksteg, till exempel kinesiska, japanska och koreanska.</li></ul>  |
 
 

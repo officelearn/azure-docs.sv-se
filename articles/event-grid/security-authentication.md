@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: db6db54d362e7ef6373271e238fdb1cf543a142e
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: 23e1de98fff891d199d1f33fcb714b2b284e8edb
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413497"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382926"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -29,9 +29,9 @@ Webhooks är en av de många sätt att ta emot händelser från Azure Event Grid
 
 Liksom många andra tjänster som stöder webhooks måste Event Grid du bevisa ägarskapet för Webhook-slutpunkt innan den startar leverera händelser till denna slutpunkt. Det här kravet förhindrar att en obehörig användare överbelasta slutpunkten med händelser. När du använder någon av de tre Azure-tjänster som anges nedan, hanterar den här verifieringen automatiskt i Azure-infrastrukturen:
 
-* Azure Logic Apps
-* Azure Automation
-* Azure Functions för Event Grid-utlösare.
+* Azure Logic Apps med [Event Grid-koppling](https://docs.microsoft.com/en-us/connectors/azureeventgrid/)
+* Azure Automation via [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
+* Azure Functions med [Event Grid-utlösare](../azure-functions/functions-bindings-event-grid.md)
 
 Om du använder någon annan typ av slutpunkt, t.ex. en HTTP-utlösare baserade Azure-funktion, måste din slutpunkt kod att delta i en verifiering handskakning med Event Grid. Event Grid stöder två olika sätt att verifiera prenumerationen.
 

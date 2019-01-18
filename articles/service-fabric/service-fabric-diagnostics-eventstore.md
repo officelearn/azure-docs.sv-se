@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/21/2018
+ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b66373b6847b96a4fcbc1a0c9da42d285d089a9d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4a23d8c1e72ec453724514e4d1638c5a223d1644
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727893"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389216"
 ---
 # <a name="eventstore-service-overview"></a>Översikt över EventStore-tjänsten
 
@@ -34,6 +34,7 @@ Tjänsten EventStore är introduceras i version 6.2, ett alternativ för överva
 * Bekräfta att hanteringsåtgärder som du vidtar i ditt kluster bearbetas korrekt
 * En ”ögonblicksbild” av hur Service Fabric interagerar med en viss enhet
 
+![EventStore](media/service-fabric-diagnostics-eventstore/eventstore.png)
 
 Om du vill se en fullständig lista över händelser som är tillgängliga i EventStore Se [Service Fabric händelser](service-fabric-diagnostics-event-generation-operational.md).
 
@@ -53,7 +54,7 @@ Tjänsten EventStore kan frågas för händelser som är tillgängliga för varj
 * Partitionsrepliker: händelser från alla repliker / instanser på en specifik partition som identifieras av `partitionId`
 * Repliken för partition: händelser från en specifik replik / instans identifieras av `replicaId` och `partitionId`
 
-Läs mer om API Kolla in [EventStore API-referens] ((https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
+Läs mer om API Kolla in den [EventStore-API-referens](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-eventsstore).
 
 Tjänsten EventStore har också möjlighet att korrelera händelser i klustret. Genom att titta på händelser som har skrivits på samma gång från olika entiteter som kan påverka varandra, kan tjänsten EventStore att länka dessa händelser för att identifiera orsaker till aktiviteter i ditt kluster. Till exempel sker något av dina program blivit defekt utan framkallat ändringar i EventStore ska också titta på andra händelser som exponeras av plattformen och kan kombinera detta med en `Error` eller `Warning` händelse. Detta underlättar snabbare felsökning och analys av rotorsaker.
 

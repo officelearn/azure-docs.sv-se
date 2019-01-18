@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/28/2017
 ms.author: juliako
-ms.openlocfilehash: ae0ff36c7e83120a9571e0f87788c25193027616
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3e968c71b87f7227dc4bd2e3f4ee486719b65e40
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240145"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388156"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
 När du levererar ditt streaming eller video-on-demand-innehåll till kunder, är målet att leverera video med hög kvalitet till olika enheter under olika nätverksförhållanden.
@@ -61,7 +61,7 @@ Om du vill förse din användare med en URL som kan användas för att strömma 
 * OnDemandOrigin-positionerare. Dessa används för att strömma media (till exempel MPEG-DASH, HLS eller Smooth Streaming) eller hämta progressivt filer.
 * Delad åtkomst (signatur) URL: en positionerare. De används för att hämta mediefiler till din lokala dator.
 
-En *princip* används för att definiera behörigheter (till exempel läsa, skriva och lista) och varaktighet som en klient har åtkomst för en viss resurs. Observera att listan behörighet (AccessPermissions.List) inte ska användas när man skapar en positionerare för OrDemandOrigin.
+En *princip* används för att definiera behörigheter (till exempel läsa, skriva och lista) och varaktighet som en klient har åtkomst för en viss resurs. Observera att listan behörighet (AccessPermissions.List) inte ska användas när man skapar en OnDemandOrigin-positionerare.
 
 Lokaliserare har förfallodatum. Azure-portalen anger ett utgångsdatum 100 år i framtiden för lokaliserare.
 

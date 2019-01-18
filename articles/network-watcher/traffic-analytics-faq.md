@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 451480f5046d5ed8a1bd7262fd8f6a800e66dfc7
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e2b08dbbeb078a4e139400112e9cdd9416878214
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582504"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383007"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga och frågor svar om trafikanalys
 
@@ -35,7 +35,6 @@ Trafikanalys kräver följande förutsättningar:
 
 Ditt konto måste uppfylla ett av följande för att aktivera trafikanalys:
 
-- Ditt konto måste tilldelas till någon av följande roller på prenumerationsnivå: kontoadministratör, tjänstadministratör eller delad administratör.
 - Kontot måste ha någon av följande roller för rollbaserad åtkomstkontroll (RBAC) prenumerationsområde: ägare, deltagare, läsare eller nätverksdeltagare.
 - Om ditt konto inte har tilldelats någon av ovanstående roller, måste det tilldelas till en anpassad roll som tilldelats följande åtgärder på prenumerationsnivån.
             
@@ -61,7 +60,7 @@ Så här kontrollerar roller som är tilldelade till en användare för en prenu
 Om du inte ser några utdata, kontakta administratören för respektive prenumeration för att få åtkomst till kommandon. Mer information finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>Där Azure är regioner trafikanalys som är tillgängliga?
+## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner finns trafikanalys?
 
 Du kan använda trafikanalys för NSG: er i någon av de följande regionerna som stöds:
 - Centrala Kanada
@@ -142,7 +141,7 @@ Prova följande alternativ:
     
 Om problemet kvarstår kan du ställa frågor i den [User voice-forumet](https://feedback.azure.com/forums/217313-networking?category_id=195844).
 
-## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: ”analyserar flödesloggarna för Nätverkssäkerhetsgrupper flow loggar för första gången. Den här processen kan ta 20 – 30 minuter att slutföra. Komma tillbaka efter en stund. 2) om ovanstående steg inte fungerar och din arbetsytan tillhör kostnadsfritt SKU: N, kontrollera din arbetsyta användningsdata här för att verifiera över kvot, eller Läs vanliga frågor och svar för ytterligare information ”.?
+## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>Vad händer om jag får det här meddelandet: ”Analysera NSG-flödesloggar för första gången. Den här processen kan ta 20 – 30 minuter att slutföra. Komma tillbaka efter en stund. 2) om ovanstående steg inte fungerar och din arbetsytan tillhör kostnadsfritt SKU: N, kontrollera din arbetsyta användningsdata här för att verifiera över kvot, eller Läs vanliga frågor och svar för ytterligare information ”.?
 
 Du kanske ser det här meddelandet eftersom:
 - Trafikanalys nyligen har aktiverats och kan inte ännu har sammanställd tillräckligt med data att dra användbara slutsatser.
@@ -233,8 +232,8 @@ Till exempel enligt den [prisavtal](https://azure.microsoft.com/pricing/details/
 
 Sidan geo kartan innehåller två huvudavsnitt:
     
-- **Banderoll**: banderoll överst på geo-mappning innehåller knappar för att välja trafikfilter distribution (till exempel distribution, trafik från länder och skadliga). När du väljer en knapp, tillämpas respektive filtret på kartan. Om du väljer knappen Active visar kartan active datacenter i distributionen.
-- **Kartan**: nedan på banderollen avsnittet kartan visar fördelning av trafik mellan Azure-datacenter och länder/regioner.
+- **Banner**: Banderoll överst på geo-mappning innehåller knappar för att välja distribution trafikfilter (till exempel distribution, trafik från länder och skadliga). När du väljer en knapp, tillämpas respektive filtret på kartan. Om du väljer knappen Active visar kartan active datacenter i distributionen.
+- **Kartan**: Avsnittet kartan visar under banderollen, fördelning av trafik mellan Azure-datacenter och länder/regioner.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
     
@@ -263,8 +262,8 @@ Sidan geo kartan innehåller två huvudavsnitt:
 
 Sidan virtuellt nätverk topologin innehåller två avsnitt:
     
-- **Banderoll**: banderoll överst på den virtuella nätverk-topologin innehåller knappar för att välja distribution trafikfilter (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin de aktiva virtuella nätverken i distributionen.
-- **Topologi**: nedan banderoll, i avsnittet om topologi visar fördelning av trafik mellan virtuella nätverk.
+- **Banner**: Banderoll överst på den virtuella nätverk-topologin innehåller knappar för att välja distribution trafikfilter (till exempel anslutna virtuella nätverk, frånkopplade virtuella nätverk och offentliga IP-adresser). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin de aktiva virtuella nätverken i distributionen.
+- **Topologi**: Nedan på banderollen visar i avsnittet om topologi fördelning av trafik mellan virtuella nätverk.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
     
@@ -285,8 +284,8 @@ Sidan virtuellt nätverk topologin innehåller två avsnitt:
 
 Sidan virtuella undernätverk topologin innehåller två huvudavsnitt:
     
-- **Banderoll**: banderoll överst på den virtuella undernätverk topologin innehåller knappar för att välja trafikfilter distribution (till exempel aktiv, medel och Gateway-undernät). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin active virtuellt undernätverk i distributionen.
-- **Topologi**: nedan banderoll, i avsnittet om topologi visar fördelning av trafik mellan virtuella undernätverk.
+- **Banner**: Banderoll överst på den virtuella undernätverk topologin innehåller knappar för att välja trafikfilter distribution (till exempel aktiv, medel och Gateway-undernät). När du väljer en knapp, tillämpas respektive filtret på topologin. Om du väljer knappen Active visar topologin active virtuellt undernätverk i distributionen.
+- **Topologi**: Nedan på banderollen visar i avsnittet om topologi fördelning av trafik mellan virtuella undernätverk.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>Tangentbordsnavigering i popup-meddelandet
     

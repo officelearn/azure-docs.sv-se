@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 489eccf1b73e7f5df76a3ce681b4479893a9e0ac
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52843214"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390015"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -235,7 +235,7 @@ Varken MSDTC eller [elastiska transaktioner](https://docs.microsoft.com/azure/sq
 Vissa Windows-specifika mål för XEvents stöds inte:
 
 - `etw_classic_sync target` stöds inte. Store `.xel` filer på Azure blob-lagring. Se [etw_classic_sync target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etwclassicsynctarget-target).
-- `event_file target`stöds inte. Store `.xel` filer på Azure blob-lagring. Se [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#eventfile-target).
+- `event_file target`stöds inte. Store `.xel` filer på Azure blob-lagring. Se [event_file target](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externa bibliotek
 
@@ -264,13 +264,13 @@ Mer information finns i [FILESTREAM](https://docs.microsoft.com/sql/relational-d
 
 Länkade servrar i Managed Instance stöder ett begränsat antal mål:
 
-- Mål som stöds: SQLServer och SQL-databas
+- Stöds mål: SQLServer och SQL-databas
 - Stöds inte mål: filer, Analysis Services och andra RDBMS.
 
 Åtgärder
 
 - Cross-instans skrivtransaktioner stöds inte.
-- `sp_dropserver` har stöd för att släppa en länkad server. Se [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
+- `sp_dropserver` har stöd för att släppa en länkad server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - `OPENROWSET` funktionen kan användas för att köra frågor endast på SQL Server-instanser (antingen hanteras lokalt eller i virtuella datorer). Se [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - `OPENDATASOURCE` funktionen kan användas för att köra frågor endast på SQL Server-instanser (antingen hanteras lokalt eller i virtuella datorer). Endast `SQLNCLI`, `SQLNCLI11`, och `SQLOLEDB` värden som stöds som provider. Till exempel: `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Se [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
 
@@ -465,7 +465,7 @@ Felloggarna som är tillgängliga i hanterade instansen har inte sparats och der
 
 Hanterad instans placerar utförlig information i felloggarna och många av dem är inte relevanta. Att kommer minska mängden information i felloggarna i framtiden.
 
-**Lösning**: använda en anpassad procedur för att läsa felloggar som filter ut vissa icke-relevanta poster. Mer information finns i [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
+**Lösning**: Använd en anpassad procedur för att läsa felloggar som filter ut vissa icke-relevanta poster. Mer information finns i [Azure SQL DB Managed Instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-is-not-supported"></a>Transaktions-Scope på två databaser inom samma instans stöds inte
 
@@ -496,13 +496,13 @@ using (var scope = new TransactionScope())
 
 Även om den här koden fungerar med data i samma instans krävs MSDTC.
 
-**Lösning**: använda [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) använda andra database i kontext och anslutning istället för att använda två anslutningar.
+**Lösning**: Använd [SqlConnection.ChangeDatabase(String)](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnection.changedatabase) använda andra database i kontext och anslutning istället för att använda två anslutningar.
 
 ### <a name="clr-modules-and-linked-servers-sometime-cannot-reference-local-ip-address"></a>CLR-moduler och en stund länkade servrar kan inte referera till lokal IP-adress
 
 CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här felet är ett övergående problem.
 
-**Lösning**: Använd kontext anslutningar i CLR-modulen om möjligt.
+**Lösning**: Använd om möjligt kontext anslutningar i CLR-modulen.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: 32b1788d73e1c323d93b40b778bc64a1ba45c4ad
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 8a2d19a09233e510055e147fa1cf95dd4471768b
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855841"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390667"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
 
@@ -24,7 +24,7 @@ I den här artikeln får du lära dig att skapa och konfigurera en Azure AD-tjä
 
 Du bör använda ett huvudnamn för tjänsten för autentisering från ACI i **fjärradministrerad scenarier**, till exempel program eller tjänster som skapar behållarinstanser i automatiserade eller på annat sätt oövervakat.
 
-Exempel: Om du har ett automatiserat skript som körs varje natt och skapar en [uppgiftsbaserade behållarinstans](../container-instances/container-instances-restart-policy.md) för att bearbeta vissa data kan användas för ett huvudnamn för tjänsten med envägsreplikering (läsare) behörighet för att autentisera till registret. Du kan rotera autentiseringsuppgifter för tjänstens huvudnamn eller återkalla åtkomsten helt utan att påverka andra tjänster och program.
+Exempel: Om du har ett automatiserat skript som körs varje natt och skapar en [uppgiftsbaserade behållarinstans](../container-instances/container-instances-restart-policy.md) för att bearbeta vissa data kan användas för ett huvudnamn för tjänsten med envägsreplikering behörighet för att autentisera till registret. Du kan rotera autentiseringsuppgifter för tjänstens huvudnamn eller återkalla åtkomsten helt utan att påverka andra tjänster och program.
 
 Tjänstens huvudnamn bör också vara används när registret [administratörsanvändare](container-registry-authentication.md#admin-account) är inaktiverad.
 

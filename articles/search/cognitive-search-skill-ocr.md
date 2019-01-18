@@ -9,33 +9,35 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b07c71a9365fca3a2e5d7c837acf689af980afdd
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 88f7135cea00b3e8c6cf30a1abd2b94297681c4c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075829"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391120"
 ---
 # <a name="ocr-cognitive-skill"></a>OCR kognitiva kunskaper
 
+Optisk teckenläsning (OCR) färdighet känner igen utskrivna och handskriven text i bildfiler. Kompetensen använder maskininlärningsmodeller som tillhandahålls av [visuellt](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) i Cognitive Services. Den **OCR** färdighet mappar till följande funktioner:
+
++ När textExtractionAlgorithm anges till ”handskriven”, den [”RecognizeText”](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funktioner används.
++ När textExtractionAlgorithm anges till ”skriva ut”, den [”OCR”](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funktion används för andra språk än engelska. För engelska, den nya [”identifiera Text”](../cognitive-services/computer-vision/concept-recognizing-text.md) funktioner för tryckt text används.
+
 Den **OCR** färdighet extraherar text från bildfiler. Filformat som stöds är:
 
-+ . JPEG
-+ . JPG
-+ . PNG
-+ . BMP
-+ . GIF
++ .JPEG
++ .JPG
++ .PNG
++ .BMP
++ .GIF
 
 > [!NOTE]
-> Från och med 21 december 2018 kan du koppla en Cognitive Services-resurs med en färdighet i Azure Search. Detta gör det möjligt för oss att börja debitera för körning av färdigheter. Samma datum börjar vi också debitera bildextrahering som en del av dokumentknäckningsfasen. Textextrahering från dokument kommer fortfarande att kunna användas utan kostnad.
+> Från och med den 21 December 2018 kan du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) med en Azure Search-kompetens. På så sätt kan vi börjar debitera för körning av kompetens. På det här datumet måste också började vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
 >
-> Körningen av inbyggda funktioner faktureras till det befintliga [betala per användning-priset för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättningen för bildextrahering följer prissättningen för förhandsversionen. Mer information finns på [prissättningssidan för Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
->
->  OCR färdighet mappar till följande cognitive services-funktioner: När textExtractionAlgorithm anges till ”handskriven”, den [”RecognizeText”](../cognitive-services/computer-vision/quickstarts-sdk/csharp-hand-text-sdk.md) funktioner används.
->  När textExtractionAlgorithm anges till ”skriva ut”, den [”OCR”](../cognitive-services/computer-vision/concept-extracting-text-ocr.md) funktion används för andra språk än engelska. För engelska, den nya [”identifiera Text”](../cognitive-services/computer-vision/concept-recognizing-text.md) funktioner för tryckt text används.
+> Körningen av inbyggda färdigheter är en avgift för Cognitive Services, enligt den befintliga [betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser är en Azure Search-avgift kan för närvarande faktureras enligt priset för förhandsversionen enligt beskrivningen på den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). 
 
 ## <a name="skill-parameters"></a>Färdighet parametrar
 
@@ -44,7 +46,7 @@ Parametrar är skiftlägeskänsliga.
 | Parameternamn     | Beskrivning |
 |--------------------|-------------|
 | detectOrientation | Aktiverar automatisk igenkänning av bildorientering. <br/> Giltiga värden: true / false.|
-|defaultLanguageCode | <p>  Språkkod för den inmatade texten. Språk som stöds: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tjeckiska) <br/>da (danska) <br/>NL (nederländska) <br/>en (på engelska) <br/>Fi (finska)  <br/>fr (franska) <br/>  Tyskland (tyska) <br/>el (grekiska) <br/> HU (ungerska) <br/> den (italienska) <br/>  Ja (japanska) <br/> Ko (koreanska) <br/> NB (norska) <br/>   PL (polska) <br/> PT (brasiliansk) <br/>  RU (ryska) <br/>  ES (spanska) <br/>  SA (svenska) <br/>  TR (turkiska) <br/> Kundreskontra (arabiska) <br/> ro (rumänska) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  Sk (slovakiska). <br/>  UNK (okänd) <br/><br/> Om språkkoden är Ospecificerad eller null, ställs språket till engelska. Om språket är explicit inställd på ”unk”, blir språket upptäcks automatiskt. </p> |
+|defaultLanguageCode | <p>  Språkkod för den inmatade texten. Språk som stöds: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tjeckiska) <br/>da (danska) <br/>NL (nederländska) <br/>en (på engelska) <br/>Fi (finska)  <br/>fr (franska) <br/>  Tyskland (tyska) <br/>el (grekiska) <br/> HU (ungerska) <br/> den (italienska) <br/>  Ja (japanska) <br/> ko (Korean) <br/> NB (norska) <br/>   PL (polska) <br/> PT (brasiliansk) <br/>  RU (ryska) <br/>  ES (spanska) <br/>  SA (svenska) <br/>  TR (turkiska) <br/> Kundreskontra (arabiska) <br/> ro (rumänska) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  Sk (slovakiska). <br/>  UNK (okänd) <br/><br/> Om språkkoden är Ospecificerad eller null, ställs språket till engelska. Om språket är explicit inställd på ”unk”, blir språket upptäcks automatiskt. </p> |
 | textExtractionAlgorithm | ”ut” eller ”handskriven”. Algoritmen ”handskriven” text igenkänning av OCR förhandsvisas just nu och stöds endast på engelska. |
 
 ## <a name="skill-inputs"></a>Färdighet indata
@@ -58,7 +60,7 @@ Parametrar är skiftlägeskänsliga.
 | Namn på utdata     | Beskrivning                   |
 |---------------|-------------------------------|
 | text          | Oformaterad text som extraherats från avbildningen.   |
-| layoutText    | Komplex typ som beskriver den extrahera texten samt den plats där texten hittades.|
+| layoutText    | Komplex typ som beskriver extrahera texten och den plats där texten hittades.|
 
 
 ## <a name="sample-definition"></a>Exempeldefinition
@@ -136,7 +138,7 @@ Parametrar är skiftlägeskänsliga.
 
 Ett vanligt användningsfall för Text fusion är möjligheten att slå samman textrepresentation av bilder (text från en OCR-kunskaper eller rubriken på en avbildning) i fältet content för ett dokument. 
 
-Följande exempel kompetens skapar en *merged_text* fält som innehåller det faktiska innehållet i dokumentet, samt OCRed texten från var och en av avbildningarna som är inbäddad i detta dokument. 
+Följande exempel kompetens skapar en *merged_text* fält. Det här fältet innehåller det faktiska innehållet i dokumentet och texten OCRed från var och en av de bilder som är inbäddade i detta dokument. 
 
 #### <a name="request-body-syntax"></a>Begärandetextsyntax
 ```json

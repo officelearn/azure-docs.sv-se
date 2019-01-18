@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5266959e3c08721b79af8c11eb50b7a659e70ffc
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158864"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382905"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
-Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser.
+Den här artikeln visar hur du flyttar Azure-resurser till en annan Azure-prenumeration eller en annan resursgrupp i samma prenumeration. Du kan använda Azure-portalen, Azure PowerShell, Azure CLI eller REST API för att flytta resurser. Om du vill gå igenom en självstudiekurs, se [självstudien: Flytta Azure-resurser till en annan resursgrupp eller prenumeration](./resource-manager-tutorial-move-resources.md).
 
 Både källgruppen och målgruppen är låsta vid flytt. Skriv- och borttagningsåtgärder blockeras för resursgrupperna tills flytten är klar. Låset innebär att du inte kan lägga till, uppdatera eller ta bort resurser i resursgrupper, men det innebär inte att resurserna är låsta. Om du till exempel flyttar en SQL Server och dess databas till en ny resursgrupp sker inga avbrott för programmet som använder databasen. Det kan fortfarande läsa och skriva till databasen.
 

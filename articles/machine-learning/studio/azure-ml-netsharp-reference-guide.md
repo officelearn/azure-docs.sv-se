@@ -1,17 +1,17 @@
 ---
-Rubrik: Net# Neural Networks titleSuffix: Beskrivning av Azure Machine Learning Studio: Syntaxen för den Net # neural networks-språket, tillsammans med exempel på hur du skapar en modell för anpassade neurala nätverk med hjälp av Net # med Azure Machine Learning Studio.
+Rubrik: Skapa anpassade neurala nätverk med Net # titleSuffix: Beskrivning av Azure Machine Learning Studio: Syntax guide för det Net # språket för neurala nätverk. Lär dig hur du skapar anpassade neurala nätverk modeller i Azure Machine Learning Studio.
 tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: referens
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 
-NET # är ett språk som utvecklats av Microsoft och som används för att definiera nätverksarkitekturer för neurala. Med Net # för att definiera strukturen för ett neural network gör det möjligt att definiera komplexa strukturer som djupa neurala nätverk eller faltningar av godtycklig dimensioner, som är kända för att förbättra learning på data, till exempel bild, ljud eller video.
+NET # är ett språk som utvecklats av Microsoft och som används för att definiera arkitekturer för komplexa neuralt nätverk, till exempel djupa neurala nätverk eller faltningar av godtycklig dimensioner. Du kan använda komplexa strukturer för att förbättra learning på data, till exempel bild, video eller ljud.
 
 Du kan använda en Net # arkitektur specifikation dessa när det gäller:
 
 + Alla neurala nätverksmoduler i Microsoft Azure Machine Learning Studio: [Inom Neuralt nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [Tvåklassförhöjt Neuralt nätverk](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network), och [Neuralt nätverk Regression](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Neuralt nätverksfunktioner i MicrosoftML: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) och [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)för R-språket och [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) för Python.
++ Neuralt nätverksfunktioner i Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) och [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)för R-språket och [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) för Python.
 
 
 Den här artikeln beskriver grundläggande begrepp och syntax som krävs för att utveckla ett anpassat neurala nätverk med hjälp av Net #: 
@@ -26,7 +26,7 @@ Den här artikeln beskriver grundläggande begrepp och syntax som krävs för at
 
 Ett neuralt nätverk som består av noder som är ordnade i lager, och viktad anslutningar (eller kanter) mellan noderna. Anslutningarna är riktad och varje anslutning har en Källnoden och en målnoden.  
 
-Varje trainable lager (en dold eller ett lager för utdata) har ett eller flera **anslutning paket**. Ett paket med anslutning består av ett lager för källa och en specifikation av anslutningarna från en källa skiktet. Alla anslutningar i ett visst paket delar samma lager för källa och samma mållagret. I Net # är ett paket med anslutning anses tillhöra i bunten mållagret.
+Varje trainable lager (en dold eller ett lager för utdata) har ett eller flera **anslutning paket**. Ett paket med anslutning består av ett lager för källa och en specifikation av anslutningarna från en källa skiktet. Alla anslutningar i ett visst paket dela käll- och lager. I Net # är ett paket med anslutning anses tillhöra i bunten mållagret.
 
 NET # stöder olika typer av paket, som kan du anpassa sätt indata är mappad till dolda lager och mappas till utdata.
 

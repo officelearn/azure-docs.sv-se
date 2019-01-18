@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: a5619db18ef326b160bf9f4a1fbacbd6b3e9f012
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 4e3a79c28fc0e67fbf22e4d0fde3de9528d3edf4
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319468"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382623"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup – vanliga frågor och svar
 Den här artikeln innehåller vanliga frågor och svar om Azure Backup-tjänsten.
@@ -230,7 +230,7 @@ När en ny princip tillämpas följs schemat för och kvarhållningen av den nya
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>Krypteras informationen som skickas till Azure?
 
-Ja. Data krypteras på den lokala datorn med hjälp av AES256. Data skickas via en säker HTTPS-anslutning.
+Ja. Data krypteras på den lokala datorn med hjälp av AES256. Data skickas via en säker HTTPS-anslutning. Data överförs i molnet är skyddat av HTTPS-anslutning endast mellan tjänsten för lagring och återställning. iSCSI-protokollet skyddar de data som överförs mellan dator för återställning i tjänsten och användare. Säkra tunnlar används för att skydda iSCSI-kanalen.
 
 ### <a name="is-the-backup-data-on-azure-encrypted-as-well"></a>Är säkerhetskopierade data i Azure också krypterade?
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 8bbc13aa77c50c6ae02ecc67869035e7ec85effa
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 601f3bf05388406c8f96a7351f7fb3aa4de2650a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359348"
+ms.locfileid: "54389324"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Funktionsöversikt för Threat Modeling Tool
 
@@ -207,5 +207,5 @@ När du har ändrat prioritet och uppdaterar statusen för varje genererad hot, 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* För att bidra en mall för communityn, gå till vår [GitHub](https://github.com/Microsoft/threat-modeling-templates) sidan. 
-* Kom igång med verktyget genom att gå till den [hämta](https://aka.ms/tmtpreview) sidan.
+- Skicka frågor, kommentarer och frågor till tmtextsupport@microsoft.com. **[Ladda ned](https://aka.ms/threatmodelingtool)**  Threat Modeling Tool att komma igång.
+- För att bidra en mall för communityn, gå till vår [GitHub](https://github.com/Microsoft/threat-modeling-templates) sidan.

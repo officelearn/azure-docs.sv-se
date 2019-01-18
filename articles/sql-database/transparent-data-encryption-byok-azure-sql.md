@@ -11,15 +11,15 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: 0c819e4efb158baa2150b00368c618c5467a01e0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/17/2019
+ms.openlocfilehash: 60c7483e698a07fcf86438798f6bb5013a7417ce
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52966789"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391142"
 ---
-# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering: Bring Your Own Key-stöd
+# <a name="azure-sql-transparent-data-encryption-bring-your-own-key-support"></a>Azure SQL Transparent datakryptering: Stöd för Bring Your Own Key
 
 Stöd för Bring Your Own Key (BYOK) för [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) kan du kryptera den databasen Datakrypteringsnyckeln (DEK) med en asymmetrisk nyckel som heter TDE-skydd.  TDE-skyddet lagras under din kontroll i [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), Azures molnbaserade externa nyckelhanteringssystem. Azure Key Vault är den första nyckelhanteringstjänst som TDE har inbyggt stöd för BYOK. TDE DEK, som är lagrad på startsidan av en databas krypteras och dekrypteras av TDE-skyddet. TDE-skyddet lagras i Azure Key Vault och lämnar aldrig nyckelvalvet. Serverns åtkomst till nyckelvalvet har återkallats, en databas dekrypteras och läsa in i minnet. För Azure SQL Database, TDE-skyddet är inställd på logiska servernivå och ärvs av alla databaser som är associerade med den här servern. För Azure SQL Managed Instance TDE-skyddet är inställd på instansnivå och den ärvs av alla *krypterade* databaser på instansen. Termen *server* refererar både till servern och instansen i hela dokumentet, om inte anges på olika sätt.
 
@@ -71,7 +71,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
  > [!NOTE]
  > Om TDE krypterad SQL-databaser förlorar åtkomst till nyckelvalvet eftersom de inte kan kringgå brandväggen, databaserna hamnar inom 24 timmar.
 
-- Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhet och händelsehantering (SIEM) hanteringsverktyg. Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
+- Aktivera granskning och rapportera alla krypteringsnycklar: Key Vault ger loggar som är lätt att mata in i andra säkerhetsinformation och händelse-hanteringsverktyg (SIEM). Operations Management Suite (OMS) [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-key-vault) är ett exempel på en tjänst som redan har integrerat.
 - För att säkerställa hög tillgänglighet med krypterade databaser, att konfigurera varje logisk server med två Azure-Nyckelvalv som finns i olika regioner.
 
 ### <a name="guidelines-for-configuring-the-tde-protector-asymmetric-key"></a>Riktlinjer för att konfigurera TDE-skydd (asymmetrisk nyckel)
@@ -116,7 +116,7 @@ I följande avsnitt får du gå igenom stegen för installation och konfiguratio
 
 ### <a name="azure-key-vault-configuration-steps"></a>Konfigurationsstegen för Azure Key Vault
 
-- Installera [PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0)
+- Installera [PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azurermps-5.6.0)
 - Skapa två Azure-Nyckelvalv i två olika regioner med hjälp av [PowerShell för att aktivera egenskapen ”mjuk borttagning”](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) på nyckelvalven (det här alternativet inte är tillgängliga från AKV-Portal ännu – men krävs av SQL).
 - Både Azure-Nyckelvalv måste befinna sig i två regioner som är tillgängliga på samma Azure-geoplats för säkerhetskopiering och återställning av nycklar för att fungera.  Om du behöver två nyckelvalven finnas i olika geografiska områden till uppfyller kraven för SQL-Geohaveriberedskap, följer du de [BYOK processen](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) som gör det möjligt för nycklar som ska importeras från en lokal HSM.
 - Skapa en ny nyckel i det första nyckelvalvet:  
@@ -169,7 +169,7 @@ När en databas är krypterad med transparent Datakryptering med hjälp av en ny
 
 Om du vill återställa en säkerhetskopia som krypterats med ett TDE-skydd från Key Vault, se till att nyckelmaterial är fortfarande i ursprungliga valvet som hör till den ursprungliga nyckelnamnen. När TDE-skyddet ändras för en databas, gamla säkerhetskopior av databasen **inte** uppdaterats så att den senaste TDE-skydd. Därför rekommenderar vi att du behåller alla äldre versioner av TDE-skydd i Key Vault, så att säkerhetskopior av databasen kan återställas.
 
-Om en nyckel som kan behövas för att återställa en säkerhetskopia är inte längre i dess ursprungliga nyckelvalv, returneras följande felmeddelande ”: målservern `<Servername>` har inte åtkomst till alla AKV-URI: er som skapats mellan < tidsstämpel #1 > och < tidsstämpel #2 >. Försök igen när du återställer alla AKV-URI: er ”.
+Om en nyckel som kan behövas för att återställa en säkerhetskopia är inte längre i dess ursprungliga nyckelvalv, returneras följande felmeddelande visas: ”Målservern `<Servername>` har inte åtkomst till alla AKV URI: er skapas mellan < tidsstämpel nr 1 > och < tidsstämpel #2 >. Försök igen när du återställer alla AKV-URI: er ”.
 
 Åtgärda detta genom att köra den [Get-AzureRmSqlServerKeyVaultKey](/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) cmdleten returnerade listan med nycklar från Key Vault som har lagts till servern (om de har tagits bort av en användare). För att säkerställa att alla säkerhetskopieringar kan återställas, kontrollera att målservern för säkerhetskopiering har åtkomst till alla de här nycklarna.
 
@@ -181,4 +181,4 @@ Get-AzureRmSqlServerKeyVaultKey `
 
 Läs mer om säkerhetskopiering och återställning för SQL-databas i [återställa en Azure SQL database](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups). Läs mer om säkerhetskopiering och återställning för SQL Data Warehouse i [återställa en Azure SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-overview).
 
-Ytterligare överväganden för säkerhetskopierade loggfiler: säkerhetskopieras log filer förblir krypterade med den ursprungliga TDE-Krypterare, även om TDE-skyddet har roterats och databasen är med hjälp av en ny TDE-skydd.  Vid en återställning krävs båda nycklarna för att återställa databasen.  Om loggfilen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid en återställning, även om databasen har ändrats för att använda tjänsthanterad TDE under tiden.
+Ytterligare överväganden för säkerhetskopierade loggfiler: Säkerhetskopiera loggen filer förblir krypterade med den ursprungliga TDE-Krypterare, även om TDE-skyddet har roterats och databasen är med hjälp av en ny TDE-skydd.  Vid en återställning krävs båda nycklarna för att återställa databasen.  Om loggfilen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid en återställning, även om databasen har ändrats för att använda tjänsthanterad TDE under tiden.

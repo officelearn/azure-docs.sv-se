@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 01/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 60078845c98f2e241b00e184303dce0c860629e9
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f01fb88bf0ea726b421111a262bdfdd68cd3d38c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49164441"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388427"
 ---
 # <a name="azure-data-box-gateway-limits-preview"></a>Azure Data Box Gateway-begränsningar (förhandsgranskning)
 
@@ -57,9 +57,9 @@ Gå till den senaste informationen på tjänstbegränsningar för Azure storage 
 Följande villkor gäller för data som flyttas till Azure.
 
 - Vi rekommenderar att mer än en enhet inte bör skriva till samma behållare.
-- Om du har ett befintligt Azure objekt (till exempel en blob eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs enhet till filen i molnet. 
+- Om du har ett befintligt Azure objekt (till exempel en blob eller en fil) i molnet med samma namn som det objekt som ska kopieras skrivs enhet till filen i molnet.
 - En tom katalog-hierarki (utan några filer) som skapats under dela mappar inte laddas upp till blob-behållare.
-
+- Om du kopierar filer som är större än storleken som enheten, rekommenderar vi för att använda *Robocopy* eller *rsync* så det inte finns några fel.
 
 ## <a name="azure-storage-account-size-and-object-size-limits"></a>Azure-konto storlek och objektet storleksgränser för storage
 

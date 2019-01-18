@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 597b8f59ef6991f7868d3de481e98ed9a459077b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050803"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381800"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -58,9 +58,20 @@ Källdatorn registreras med konfigurationsservern när du installerar mobilitets
 
 Det här felet uppstår när tjänsten inte kan läsa data från transportanslutningen när det installera mobilitetsagenten och registrera med konfigurationsservern. Lös problemet genom att se till att TLS 1.0 är aktiverad på källdatorn.
 
+## <a name="vcenter-discovery-failures"></a>vCenter-identifiering av fel
+
+Se till att den vCenter-servern har lagts till proxyinställningar för kringgå listan för att lösa vCenter Identifieringsfel. Att utföra den här aktiviteten
+
+- Ladda ned PsExec-verktyg från [här](https://aka.ms/PsExec) åtkomst till innehåll för användare av systemet.
+- Öppna Internet Explorer i systemet användarinnehåll genom att köra följande kommandorad psexec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”
+- Lägg till proxyinställningarna i Internet Explorer och starta om tmanssvc-tjänsten.
+- Om du vill konfigurera proxyinställningar för DRA kör cd C:\Program Files\Microsoft Azure Site Recovery-providern
+- Kör därefter DRCONFIGURATOR. EXE / konfigurera /AddBypassUrls [Lägg till IP-adressen/FQDN av vCenter Server som angavs under **konfigurera vCenter Server/vSphere ESXi-server** steg i [konfigurationsservern distribution](vmware-azure-deploy-configuration-server.md#configure-settings)]
+
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Ändra IP-adressen för konfigurationsservern
 
 Vi rekommenderar starkt att du inte ändrar IP-adressen för en konfigurationsserver. Kontrollera att alla IP-adresser som är kopplade till konfigurationsservern är statiska IP-adresser. Använd inte DHCP IP-adresser.
+>>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML-token är ogiltig
 

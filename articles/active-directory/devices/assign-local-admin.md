@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: a4671d383c46bf0b932ce528f4eacb7255bad5e7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: dd555d5406988d1c87859ec697a0f84be0db6cc5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105414"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382663"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Hantera den lokala administratörsgruppen på Azure AD-anslutna enheter
 
@@ -106,7 +106,7 @@ Du inte kan tilldela grupper till enhetsadministratörens roll, tillåts bara en
 
 Enhetsadministratörer har tilldelats till alla enheter i Azure AD har anslutits. De kan inte begränsas till en specifik uppsättning enheter.
 
-När du tar bort användare från administratörsrollen enhet ha de fortfarande lokal administratörsbehörighet på en enhet så länge som de har loggat in till den. Behörigheten har återkallats under nästa rör-modulen eller efter 4 timmar när en ny primär uppdateringstoken utfärdas.
+När du tar bort användare från administratörsrollen enhet ha de fortfarande lokal administratörsbehörighet på en enhet så länge som de har loggat in till den. Behörigheten har återkallats under nästa inloggningen eller efter 4 timmar när en ny primär uppdateringstoken utfärdas.
 
 
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: c2afd1c5a85ec393acfb0f754dd4ca9d77162061
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 292a9ecd012be030df8cf792f9991591d43c8db9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065502"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383071"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -31,7 +31,7 @@ Artikel 3: Utvärdera lokala resurser för migrering till Azure | Contoso kör e
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel360-app med Site Recovery migrera app-datorer och Database Migration Service för att migrera app-databasen till en SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
 [Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess osTicket app i Linux på Azure virtuella datorer med Site Recovery-tjänsten. | Tillgängligt
 [Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till Azure virtuella datorer med Site Recovery. Den har migrerats app-databas till Azure Database for MySQL med MySQL Workbench. | Tillgängligt
-[Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel360-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans med Databse Migration Assistant. | Tillgängligt
+[Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel360-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans med Database Migration Assistant. | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app i en Azure-webbapp och en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera Azure-regioner med Azure Traffic Manager, integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera Team Foundation Server på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar dess lokal Team Foundation Server-distribution till Azure DevOps-tjänsterna i Azure. | Tillgängligt
 [Artikel 12: Omforma en app i Azure-behållare och Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrerar dess SmartHotel-app till Azure. Sedan rearchitects den webbnivån appen som en Windows-behållare som körs i Azure Service Fabric och databasen med Azure SQL Database. | Tillgängligt
@@ -186,11 +186,11 @@ Resultatet visas så fort de är tillgängliga. Om Contoso åtgärdar problem, d
 
 1. I den **kompatibilitetsproblem** rapportera, Contoso söker efter eventuella problem på respektive kompatibilitetsnivå. Kompatibilitetsnivåerna mappar till SQL Server-versioner på följande sätt:
 
-    - 100: SQL Server 2008/Azure SQL-databas
-    - 110: SQL Server 2012/Azure SQL-databas
-    - 120: SQL Server 2014/Azure SQL-databas
-    - 130: SQL Server 2016/Azure SQL-databas
-    - 140: SQL Server 2017/Azure SQL-databas
+    - 100: SQL Server 2008/Azure SQL Database
+    - 110: SQL Server 2012/Azure SQL Database
+    - 120: SQL Server 2014/Azure SQL Database
+    - 130: SQL Server 2016/Azure SQL Database
+    - 140: SQL Server 2017/Azure SQL Database
 
     ![Data Migration Assistant – kompatibilitetsproblem rapport](./media/contoso-migration-assessment/dma-assessment-5.png)
 

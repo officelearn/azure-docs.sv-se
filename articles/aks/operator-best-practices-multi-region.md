@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: lastcoolnameleft
-ms.openlocfilehash: 622cdd36a1ecf582c4cdb883b12753ee2a75d50e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 36e87550c90c1a5d4b05aa62f2fbe79b04b25445
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52856821"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382434"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Metodtips för företag affärskontinuitet och haveriberedskap i Azure Kubernetes Service (AKS)
 
@@ -38,7 +38,7 @@ Ett AKS-kluster distribueras till en enda region. Distribuera programmet till fl
 * [Azure länkade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)
   * För din region, väljer du två regioner som är länkat till varandra. Dessa regioner samordna plattformsuppdateringar och prioritera recovery åtgärder där det behövs.
 * Tillgänglighet servicenivå (frekvent/Hot, frekvent/varmt, varma/kalla)
-  * Vill du köra båda regionerna samtidigt med en region *redo* för att starta betjänar trafik eller en region som behöver tid gör dig redo att hantera trafik.
+  * Vill du köra båda regionerna samtidigt med en region *redo* att börja leverera trafik eller en region som behöver tid att hämta redo att hantera trafik.
 
 AKS regiontillgänglighet och länkade regioner är gemensamma beräkningen. Distribuera dina AKS-kluster i hopparade regioner som är utformade för att hantera haveriberedskap för regionen tillsammans. Till exempel AKS är tillgängliga i *USA, östra* och *västra USA*. Dessa regioner är också kopplad. De här två regionerna skulle rekommenderas när du skapar en AKS BC/DR-strategi.
 
@@ -94,7 +94,7 @@ Behållare och mikrotjänster är mest flexibla när de processer som körs i de
 
 Mer information om att skapa program som är mer portabel, finns följande riktlinjer:
 
-* [App-metod tolv-Factor](https://12factor.net/).
+* [The Twelve-Factor App Methodology](https://12factor.net/).
 * [Kör ett webbprogram i flera Azure-regioner](https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## <a name="create-a-storage-migration-plan"></a>Skapa en migreringsplan för lagring

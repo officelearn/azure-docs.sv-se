@@ -14,16 +14,16 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: 68665cc588f8a6340de393330c7a248503b07125
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: fa2e834b142d5df4751b46f6dac2db9b3a10a463
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244995"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391315"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Underhåll-åtgärder för SQL-resursprovider
 
-SQL-resursprovider körs på en låst virtuell dator. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Om du vill göra detta med hjälp av principen om lägsta behörighet, kan du använda [PowerShell tillräckligt Administration JEA ()](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet resource provider innehåller ett skript för den här åtgärden.
+SQL-resursprovider körs på en låst virtuell dator. Om du vill aktivera underhållsåtgärder som du behöver uppdatera den virtuella datorns säkerhet. Du kan använda för att göra detta med huvudnamn om lägsta behörighet [PowerShell tillräckligt Administration JEA ()](https://docs.microsoft.com/powershell/jea/overview) endpoint *DBAdapterMaintenance*. Installationspaketet resource provider innehåller ett skript för den här åtgärden.
 
 ## <a name="patching-and-updating"></a>Uppdatering
 
@@ -97,7 +97,7 @@ När du använder resursprovidrar SQL- och MySQL med Azure Stack integrerade sys
     -DefaultSSLCertificatePassword $certPasswd
 ```
 
-### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parametrar
+### <a name="secretrotationsqlproviderps1-parameters"></a>SecretRotationSQLProvider.ps1 parameters
 
 |Parameter|Beskrivning|
 |-----|-----|
@@ -182,7 +182,7 @@ $session | Remove-PSSession
 Du kan använda PowerShell tillräckligt Administration JEA ()-slutpunkten för att samla in loggar från den virtuella datorn som låst *DBAdapterDiagnostics*. Den här slutpunkten tillhandahåller följande kommandon:
 
 - **Get-AzsDBAdapterLog**. Det här kommandot skapar ett zip-paket med resource provider-diagnostikloggar och sparar filen på den sessionen enheten. Du kan köra det här kommandot utan några parametrar och de sista fyra timmarna loggar samlas in.
-- **Ta bort AzsDBAdapterLog**. Det här kommandot tar bort den befintliga log paket på resursprovidern VM.
+- **Remove-AzsDBAdapterLog**. Det här kommandot tar bort den befintliga log paket på resursprovidern VM.
 
 ### <a name="endpoint-requirements-and-process"></a>Slutpunkten kraven och processen
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: cbd09f141128f9103af88b695baf717eaa3c99d5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038844"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389103"
 ---
 # <a name="database-transactions-and-optimistic-concurrency-control"></a>Databastransaktioner och optimistisk samtidighetskontroll
 
@@ -49,7 +49,7 @@ Möjligheten att köra JavaScript direkt i databasmotorn ger prestanda och trans
 
 ## <a name="optimistic-concurrency-control"></a>Optimistisk samtidighetskontroll 
 
-Optimistisk samtidighetskontroll kan du förhindra att förlorade uppdateringar och tar bort. Samtidiga, motstridiga operationer genomgår regelbundna pessimistisk låsning av databasmotorn som värd för logisk partition som äger objektet. När två samtidiga åtgärder som försöker uppdatera den senaste versionen av ett objekt i en logisk partition, en av dem ska ha och den andra misslyckas. Men om en eller två åtgärder försöker uppdatera samma objekt samtidigt hade tidigare läst en äldre värdet för objektet, databasen inte vet om det tidigare läsa värdet av ett eller båda motstridiga åtgärder var verkligen det senaste värdet för objektet. Som tur är kan kan den här situationen identifieras med Optimistisk samtidighet kontroll (OCC) innan du ger de två åtgärderna ange transaktionen gränsen i databasmotorn. OCC skyddar dina data oavsiktligt skriver över ändringar som gjorts av andra. Det förhindrar också andra skrivs över dina egna ändringar av misstag.
+Optimistisk samtidighetskontroll kan du förhindra att förlorade uppdateringar och tar bort. Samtidiga, motstridiga operationer genomgår regelbundna pessimistisk låsning av databasmotorn som värd för logisk partition som äger objektet. När två samtidiga åtgärder försöker uppdatera den senaste versionen av ett objekt i en logisk partition, en av dem ska ha och den andra misslyckas. Men om en eller två åtgärder försöker uppdatera samma objekt samtidigt hade tidigare läst en äldre värdet för objektet, databasen inte vet om det tidigare läsa värdet av ett eller båda motstridiga åtgärder var verkligen det senaste värdet för objektet. Som tur är kan kan den här situationen identifieras med Optimistisk samtidighet kontroll (OCC) innan du ger de två åtgärderna ange transaktionen gränsen i databasmotorn. OCC skyddar dina data oavsiktligt skriver över ändringar som gjorts av andra. Det förhindrar också andra skrivs över dina egna ändringar av misstag.
 
 Samtidiga uppdateringar av ett objekt har utsatts för OCC av Azure Cosmos DB-protokollet kommunikationslagret. Azure Cosmos-databasen garanterar att klientsidan-versionen av objektet som du uppdaterar (eller tar bort) är samma som versionen av objektet i Azure Cosmos-behållaren. Detta garanterar att dina skrivåtgärder skyddas från att av misstag skrivas över av skrivningar andra och vice versa. I en miljö med flera användare skyddar dig mot råkar ta bort eller uppdatera fel version av ett objekt i kontrollen Optimistisk samtidighet. Därför är objekt skyddade mot ökända ”förlorad update” eller ”förlorad delete” problem.
 

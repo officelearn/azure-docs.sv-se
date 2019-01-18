@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: e11db0cacb14ab94c40ebbf6cac356a08cc016f1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 81a47a730978a9ecdda7a09bbad0707d436fb116
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352690"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388478"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Lägg till Kubernetes i Azure Stack Marketplace
 
@@ -60,11 +60,11 @@ Skapa en plan, ett erbjudande och en prenumeration för Kubernetes Marketplace-o
 
     e. Välj **erbjuder**. Välj namnet på erbjudandet som du skapade. Anteckna prenumerations-ID.
 
-## <a name="create-a-service-principle-and-credentials-in-ad-fs"></a>Skapa tjänstens huvudnamn och autentiseringsuppgifter i AD FS
+## <a name="create-a-service-principal-and-credentials-in-ad-fs"></a>Skapa ett huvudnamn för tjänsten och autentiseringsuppgifter i AD FS
 
-Om du använder Active Directory Federation Services (AD FS) för identity management-tjänsten, behöver du skapa ett tjänstens huvudnamn för användare som distribuerar ett Kubernetes-kluster.
+Om du använder Active Directory Federation Services (AD FS) för identity management-tjänsten, behöver du skapa ett tjänstobjekt för användare som distribuerar ett Kubernetes-kluster.
 
-1. Skapa och exportera ett certifikat som ska användas för att skapa tjänstens huvudnamn. Följande kodfragmentet nedan visar hur du skapar ett självsignerat certifikat. 
+1. Skapa och exportera ett certifikat som ska användas för att skapa tjänsten huvudnamn. Följande kodfragmentet nedan visar hur du skapar ett självsignerat certifikat. 
 
     - Du behöver följande typer av information:
 
@@ -111,13 +111,13 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
        | Värde | Beskrivning                     |
        | ---   | ---                             |
        | ERCS IP | I ASDK Privilegierade slutpunkten är normalt `AzS-ERCS01`. |
-       | Programnamn | Ett kort namn för tjänstens huvudnamn som programmet. |
+       | Programnamn | Ett kort namn för tjänstobjektet program. |
        | Plats för certifikatarkiv | Sökvägen på datorn där du har sparat certifikatet. Exempel: `Cert:\LocalMachine\My\<someuid>` |
 
     - Öppna PowerShell med en upphöjd kommandotolk. Kör följande skript med parametrar uppdateras till dina värden:
 
         ```PowerShell  
-        #Create service principle using the certificate
+        #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
         #certificate store location. Eg. Cert:\LocalMachine\My
@@ -132,7 +132,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
         # Creating a PSSession to the ERCS PrivilegedEndpoint
         $session = New-PSSession -ComputerName $privilegedendpoint -ConfigurationName PrivilegedEndpoint -Credential $creds
 
-        # Get Service Principle Information
+        # Get Service principal Information
         $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name "$using:applicationName" -ClientCertificates $using:cert}
 
         # Get Stamp information
@@ -167,7 +167,7 @@ Om du använder Active Directory Federation Services (AD FS) för identity manag
         $ServicePrincipal
         ```
 
-    - Tjänstinformation för principen ut kodavsnittet nedan
+    - Huvudnamn tjänstinformation ut kodavsnittet nedan
 
         ```Text  
         ApplicationIdentifier : S-1-5-21-1512385356-3796245103-1243299919-1356

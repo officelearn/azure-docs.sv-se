@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: b04a31ec46194d68dbbc5e5a4eb2b600968d7be5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 3f42e149b88c2405a37366c3c7b886c7a8613e00
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037114"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382536"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -45,13 +45,13 @@ Följande diagram representerar dataflöde och komponenter som ingår i lösning
 
 3. **Ändringsfeed:** Ändringsflöde att lyssna efter ändringar i Azure Cosmos DB-samlingen. Varje gång ett nytt dokument har lagts till i samlingen (som när en händelse inträffar, till exempel en användare som visar ett objekt när en artikel läggs till i sina kundvagn eller köpa ett objekt), kommer ändringsfeed utlösa en [Azure Function](../azure-functions/functions-overview.md).  
 
-4. **Azure-funktion:** Azure Function bearbetar nya data och skickar den till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
+4. **Azure Function:** Azure Function bearbetar nya data och skickar den till en [Azure Event Hub](../event-hubs/event-hubs-about.md).  
 
 5. **Händelsehubb:** Azure Event Hub lagrar dessa händelser och skickar dem till [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md) att utföra ytterligare analyser.  
 
 6. **Azure Stream Analytics:** Azure Stream Analytics definierar frågor för att bearbeta händelserna och utföra dataanalys i realtid. Dessa data skickas sedan till [Microsoft Power BI](https://docs.microsoft.com/power-bi/desktop-what-is-desktop).  
 
-7. **Powerbi:** Powerbi används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
+7. **Power BI:** Powerbi används för att visualisera data som skickas av Azure Stream Analytics. Du kan skapa en instrumentpanel om du vill se hur mått som ändras i realtid.  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -382,7 +382,7 @@ Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta
 
 8. Navigera till och öppna den **checka ut mappen** inom **EcommerceWebApp.sln.** Öppna sedan den **Web.config** fil i mappen.  
 
-9. I den `<appSettings>` blockera, lägga till den **URI** och **PRIMÄRNYCKEL** som du sparade tidigare där det anges. Lägg sedan till i din **databse namn** och **samlingsnamn** som anges. (Dessa namn bör vara **changefeedlabdatabase** och **changefeedlabcollection** om du har angett att namnge din på olika sätt.)  
+9. I den `<appSettings>` blockera, lägga till den **URI** och **PRIMÄRNYCKEL** som du sparade tidigare där det anges. Lägg sedan till i din **databasnamn** och **samlingsnamn** som anges. (Dessa namn bör vara **changefeedlabdatabase** och **changefeedlabcollection** om du har angett att namnge din på olika sätt.)  
 
 10. Tryck på **starta** överst på sidan för att köra programmet.  
 

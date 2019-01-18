@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 85f02acf05e89db3e22dd24ecd0e100a9ec4af6f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c35e4253858d6820d86d7d3e0763a3dcc577d09d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311736"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54387941"
 ---
-#    <a name="deprecated-cognitive-search-skills"></a>Föråldrad kognitiv sökning kunskaper
+# <a name="deprecated-cognitive-search-skills"></a>Föråldrad kognitiv sökning kunskaper
 
 Det här dokumentet beskriver kognitiva kunskaper som betraktas som inaktuella. Använd följande guide för innehållet:
 
@@ -31,7 +31,7 @@ Det här dokumentet beskriver kognitiva kunskaper som betraktas som inaktuella. 
 
 ### <a name="last-available-api-version"></a>Senaste tillgängliga api-version
 
-2017-11-11-förhandsversion
+2017-11-11-preview
 
 ### <a name="end-of-support"></a>Support upphör
 
@@ -43,7 +43,7 @@ Använd [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-en
 
 Att migrera till den [entitet erkännande färdighet](cognitive-search-skill-entity-recognition.md), måste du utföra en eller flera av följande ändringar till din kompetens-definition. Du kan uppdatera en färdighet definition med hjälp av den [uppdatera kompetens API](https://docs.microsoft.com/rest/api/searchservice/update-skillset).
 
-_Obs_: Förtroendepoäng som ett begrepp som stöds för närvarande inte. Det kommer att stödjas inom en snar framtid. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
+_Obs!_ Förtroendepoäng som ett begrepp som stöds för närvarande inte. Det kommer att stödjas inom en snar framtid. Den `minimumPrecision` parametern finns på den `EntityRecognitionSkill` för framtida användning och för bakåtkompatibilitet kompatibilitet.
 
 1. *(Krävs)*  Ändra den `@odata.type` från `"#Microsoft.Skills.Text.NamedEntityRecognitionSkill"` till `"#Microsoft.Skills.Text.EntityRecognitionSkill"`.
 

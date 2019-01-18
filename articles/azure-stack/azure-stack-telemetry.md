@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: comartin
-ms.openlocfilehash: 190a80d5807dcc8ad9666d3ba450691bc6453b41
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 471232fee5245426afce89993d9faebccc6a8ea8
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265625"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389385"
 ---
 # <a name="azure-stack-telemetry"></a>Azure Stack-telemetri
 
@@ -40,7 +40,7 @@ Azure Stack-telemetri baseras på den anslutna användarupplevelsen för Windows
 
 ## <a name="privacy-considerations"></a>Överväganden för sekretess
 
-ETW-tjänsten skickar telemetridata tillbaka till skyddade molnlagring. Principen om lägsta behörighet får åtkomst till dessa data. Endast Microsoft-personal med ett giltigt affärsbehov får åtkomst till dessa data. Microsoft inte dela personliga kundinformation till tredje part, förutom kundens eget godtycke eller för de begränsa syften som beskrivs i den [Microsoft Privacy Statement](https://privacy.microsoft.com/PrivacyStatement). Företag rapporter som delas med OEM-tillverkare och partners omfatta aggregerade, avidentifierade data. Datadelning beslut görs av en intern Microsoft-teamet, inklusive sekretess, juridik och hantering av intressenter.
+ETW-tjänsten skickar telemetridata tillbaka till skyddade molnlagring. Huvudnamn om lägsta behörighet får åtkomst till dessa data. Endast Microsoft-personal med ett giltigt affärsbehov får åtkomst till dessa data. Microsoft inte dela personliga kundinformation till tredje part, förutom kundens eget godtycke eller för de begränsa syften som beskrivs i den [Microsoft Privacy Statement](https://privacy.microsoft.com/PrivacyStatement). Företag rapporter som delas med OEM-tillverkare och partners omfatta aggregerade, avidentifierade data. Datadelning beslut görs av en intern Microsoft-teamet, inklusive sekretess, juridik och hantering av intressenter.
 
 Microsoft arbetar för och praxis minimering av information. Vi strävar efter att samla in den information som behövs och lagra den för endast så länge som behövs för att tillhandahålla en tjänst eller för analys. Information om hur Azure Stack-system och Azure-tjänster fungerar tas bort inom sex månader. Sammanfattas eller sammanställda data sparas för en längre period.
 

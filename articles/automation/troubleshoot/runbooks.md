@@ -4,16 +4,16 @@ description: Lär dig att felsöka problem med Azure Automation-runbooks
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/17/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 3968b05f119227552f88a50e96d3acbce6a19143
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 231dd3789a20b649efd99a6b88f6e429e2626bd3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199127"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391331"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med runbooks
 
@@ -128,6 +128,46 @@ Om du har multifaktorautentisering på din Azure-konto kan använda du inte en A
 Om du vill använda ett certifikat med cmdlet: ar för klassiska Azure-modellen måste referera till [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvudnamn för tjänsten med Azure Resource Manager-cmdletar, som avser [skapar tjänstens huvudnamn med hjälp av Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera tjänstens huvudnamn med Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Vanliga fel när du arbetar med runbooks
+
+###<a name="child-runbook-object"></a>Underordnad runbook returnerar fel när utdataströmmen innehåller objekt i stället för enkla datatyper
+
+#### <a name="issue"></a>Problem
+
+Du får följande felmeddelande vid en childrunbook med den `-Wait` växel och utdataströmmen innehåller och objekt:
+
+```
+Object reference not set to an instance of an object
+```
+
+#### <a name="cause"></a>Orsak
+
+Det finns ett känt problem där den [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) hanterar inte utdataströmmen korrekt om det innehåller objekt.
+
+#### <a name="resolution"></a>Lösning
+
+Att lösa problemet rekommenderar vi att du i stället implementera logik som en avsökning och använder den [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet för att hämta utdata. Ett exempel på den här logiken definieras i följande exempel.
+
+```powershell
+$automationAccountName = "ContosoAutomationAccount"
+$runbookName = "ChildRunbookExample"
+$resourceGroupName = "ContosoRG"
+
+function IsJobTerminalState([string] $status) {
+    return $status -eq "Completed" -or $status -eq "Failed" -or $status -eq "Stopped" -or $status -eq "Suspended"
+}
+
+$job = Start-AzureRmAutomationRunbook -AutomationAccountName $automationAccountName -Name $runbookName -ResourceGroupName $resourceGroupName
+$pollingSeconds = 5
+$maxTimeout = 10800
+$waitTime = 0
+while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+   Start-Sleep -Seconds $pollingSeconds
+   $waitTime += $pollingSeconds
+   $job = $job | Get-AzureRmAutomationJob
+}
+
+$jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+```
 
 ### <a name="task-was-cancelled"></a>Scenario: Runbook misslyckas med fel: En uppgift avbröts
 

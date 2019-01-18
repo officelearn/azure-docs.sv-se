@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: d80e1394d4c4159c17eabff93ff44fdefbaf21b7
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247511"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382412"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -213,22 +213,6 @@ Det finns inget avbrott. Instanser distribueras bland uppgraderingsdomäner och 
 ### <a name="does-application-gateway-support-connection-draining"></a>Stöder Application Gateway Anslutningstömning?
 
 Ja. Du kan konfigurera Anslutningstömning om du vill ändra medlemmar i en backend-pool utan avbrott. På så sätt kan befintliga anslutningar fortsätter som ska skickas till sina tidigare målvolymen tills anslutningen är stängd eller en konfigurerbar tidsgränsen har nåtts. Anslutningstömning endast väntar aktuella pågående anslutningar att slutföra. Application Gateway är inte medveten om sessionstillstånd för programmet.
-
-### <a name="what-are-application-gateway-sizes"></a>Vad är application gateway-storlekar?
-
-Application Gateway finns för närvarande i tre storlekar: **Små**, **medel**, och **stora**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
-
-En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
-
-Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Application Gateway-instans som har SSL-avlastning aktiverat:
-
-| Genomsnittlig backend-svar sidstorlek | Liten | Medel | Stor |
-| --- | --- | --- | --- |
-| 6 KB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
-| 100 KB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
-
-> [!NOTE]
-> De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>Kan jag ändra instansstorleken från medel till stora utan avbrott?
 

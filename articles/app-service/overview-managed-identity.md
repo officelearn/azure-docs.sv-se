@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: mahender
-ms.openlocfilehash: 5e09401c37d40c99d3f8bbb643d104c0105812f4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 413473b856d76f9ebeff9669eb1facc54d89b509
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731449"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382529"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Hur du använder hanterade identiteter för App Service och Azure Functions
 
@@ -260,7 +260,7 @@ För .NET-program och funktioner är det enklaste sättet att arbeta med en hant
 
 1. Lägg till referenser till den [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) och eventuella andra nödvändiga NuGet-paket till ditt program. I exemplet nedan även använder [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
-2.  Lägg till följande kod i ditt program, ändra för att rikta in rätt resurs. Det här exemplet visar två sätt att arbeta med Azure Key Vault:
+2. Lägg till följande kod i ditt program, ändra för att rikta in rätt resurs. Det här exemplet visar två sätt att arbeta med Azure Key Vault:
 
 ```csharp
 using Microsoft.Azure.Services.AppAuthentication;
@@ -277,12 +277,12 @@ Läs mer om Microsoft.Azure.Services.AppAuthentication och vilka åtgärder som 
 ### <a name="using-the-rest-protocol"></a>Med hjälp av REST-protokoll
 
 En app med en hanterad identitet har två miljövariabler som definieras:
+
 - MSI_ENDPOINT
 - MSI_SECRET
 
 Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att få en token för en resurs kan du göra en HTTP GET-begäran i den här slutpunkten, inklusive följande parametrar:
 
-> [!div class="mx-tdBreakAll"]
 > |Parameternamn|I|Beskrivning|
 > |-----|-----|-----|
 > |resurs|Söka i data|AAD resurs-URI för resursen för som en token ska hämtas. Detta kan vara någon av de [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) eller någon annan resurs URI.|
@@ -290,10 +290,8 @@ Den **MSI_ENDPOINT** är en lokal URL som din app kan begära token. För att f�
 > |hemlighet|Huvud|Värdet för miljövariabeln MSI_SECRET.|
 > |clientid|Söka i data|(Valfritt) ID för Användartilldelad identitet som ska användas. Om det utelämnas används systemtilldelad identitet.|
 
-
 En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
 
-> [!div class="mx-tdBreakAll"]
 > |Egenskapsnamn|Beskrivning|
 > |-------------|----------|
 > |access_token|Den begärda åtkomst-token. Anropa webbtjänsten kan använda denna token för att autentisera till mottagande webbtjänsten.|
@@ -301,24 +299,27 @@ En lyckad svar med 200 OK innehåller en JSON-texten med följande egenskaper:
 > |resurs|App-ID URI för den mottagande webbtjänsten.|
 > |token_type|Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är ägar. Läs mer om ägar-token, [The OAuth 2.0 auktorisering Framework: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt).|
 
-
 Svaret är samma som den [svar för AAD tjänst-till-tjänst begäran om åtkomsttoken](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
 
-> [!NOTE] 
+> [!NOTE]
 > Miljövariabler som ställs in när processen startas första gången, så när du har aktiverat en hanterad identitet för ditt program, du kan behöva starta om ditt program eller distribuera om koden, innan `MSI_ENDPOINT` och `MSI_SECRET` är tillgängliga för din kod.
 
 ### <a name="rest-protocol-examples"></a>REST-protokollet exempel
+
 En exempelbegäran kan se ut så här:
+
 ```
 GET /MSI/token?resource=https://vault.azure.net&api-version=2017-09-01 HTTP/1.1
 Host: localhost:4141
 Secret: 853b9a84-5bfa-4b22-a3f3-0b9a43d9ad8a
 ```
+
 Och en exempelsvaret kan se ut så här:
+
 ```
 HTTP/1.1 200 OK
 Content-Type: application/json
- 
+
 {
     "access_token": "eyJ0eXAi…",
     "expires_on": "09/14/2017 00:00:00 PM +00:00",
@@ -328,7 +329,9 @@ Content-Type: application/json
 ```
 
 ### <a name="code-examples"></a>Kodexempel
+
 <a name="token-csharp"></a>Att göra denna begäran i C#:
+
 ```csharp
 public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
     HttpClient client = new HttpClient();
@@ -336,10 +339,12 @@ public static async Task<HttpResponseMessage> GetToken(string resource, string a
     return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
 }
 ```
+
 > [!TIP]
 > För .NET-språk, kan du också använda [Microsoft.Azure.Services.AppAuthentication](#asal) i stället för att utforma det begär du själv.
 
 <a name="token-js"></a>I Node.JS:
+
 ```javascript
 const rp = require('request-promise');
 const getToken = function(resource, apiver, cb) {
@@ -355,6 +360,7 @@ const getToken = function(resource, apiver, cb) {
 ```
 
 <a name="token-powershell"></a>I PowerShell:
+
 ```powershell
 $apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
@@ -370,13 +376,13 @@ En systemtilldelad identitet kan tas bort genom att inaktivera funktionen med hj
 ```json
 "identity": {
     "type": "None"
-}    
+}
 ```
 
 Ta bort en automatiskt genererad identitet i det här sättet kommer också ta bort den från AAD. Systemtilldelade identiteter tas automatiskt bort från AAD när appresursen tas bort.
 
-> [!NOTE] 
-> Det finns också en programinställningen som kan ställas in WEBSITE_DISABLE_MSI, vilket bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats och verktyg fortfarande visas den hanterade identitet som ”on” eller ”aktiverad”. Användning av den här inställningen är därför inte rekommenderas.
+> [!NOTE]
+> Det finns också en programinställningen som kan ställas in WEBSITE_DISABLE_MSI, vilket bara inaktiverar den lokala token-tjänsten. Men den lämnar identiteten på plats och verktyg fortfarande visas den hanterade identitet som ”on” eller ”aktiverad”. Därför rekommenderas inte användning av den här inställningen.
 
 ## <a name="next-steps"></a>Nästa steg
 

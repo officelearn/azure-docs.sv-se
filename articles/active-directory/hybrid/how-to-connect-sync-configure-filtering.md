@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9ec136b418e78f82486d9d38f361e411c3d00c31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: b4cb5975eb5be3236558d0b0b19551c6726f64de
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312286"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391049"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med hjälp av filtrering, kan du kontrollera vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de Konfigurera skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, dra nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som skulle uppstå med en lokal implementering av Exchange- eller Lync.
@@ -77,10 +77,10 @@ När du har slutfört dina ändringar som filtrerande Glöm inte att komma tillb
 ## <a name="filtering-options"></a>Alternativ för filtrering
 Du kan använda följande konfigurationstyper av filtrering för verktyget för directory-synkronisering:
 
-* [**Gruppbaserad**](#group-based-filtering): filtrering baserat på en grupp kan bara konfigureras på den första installationen med hjälp av installationsguiden.
-* [**Domänbaserade**](#domain-based-filtering): med det här alternativet kan du välja vilka domäner som synkroniseras med Azure AD. Du kan också lägga till och ta bort domäner från synkroniseringskonfiguration för motorn när du gör ändringar i din lokala infrastruktur när du har installerat Azure AD Connect-synkronisering.
-* [**Organisationsenhet (OU) – baserade**](#organizational-unitbased-filtering): med det här alternativet kan du välja vilka organisationsenheter synkronisera till Azure AD. Det här alternativet är för alla typer av objekt i valda organisationsenheter.
-* [**Attributbaserad**](#attribute-based-filtering): med det här alternativet kan du filtrera objekt baserat på attributvärden för objekt. Du kan också ha olika filter för olika objekttyper.
+* [**Gruppbaserad**](#group-based-filtering): Filtrering baserat på en grupp kan bara konfigureras på den första installationen med hjälp av installationsguiden.
+* [**Domänbaserade**](#domain-based-filtering): Genom att använda det här alternativet kan välja du vilka domäner som synkroniseras med Azure AD. Du kan också lägga till och ta bort domäner från synkroniseringskonfiguration för motorn när du gör ändringar i din lokala infrastruktur när du har installerat Azure AD Connect-synkronisering.
+* [**Organisationsenhet (OU) – baserade**](#organizational-unitbased-filtering): Genom att använda det här alternativet kan välja du vilka organisationsenheter synkroniseras till Azure AD. Det här alternativet är för alla typer av objekt i valda organisationsenheter.
+* [**Attributbaserad**](#attribute-based-filtering): Genom att använda det här alternativet kan filtrera du objekt baserat på attributvärden för objekt. Du kan också ha olika filter för olika objekttyper.
 
 Du kan använda flera alternativ för filtrering på samma gång. Exempel: du kan använda OU-baserad filtrering som bara inkluderar objekt i en Organisationsenhet. På samma gång, kan du använda attribut-baserad filtrering för att filtrera objekt längre. När du använder flera filtreringsmetoder Använd filtren en logisk ”AND” mellan filtren.
 
@@ -185,6 +185,9 @@ En ny Organisationsenhet som skapades under ManagedObjects är inte synkronisera
 
 ## <a name="attribute-based-filtering"></a>Attributet-baserad filtrering
 Se till att du använder November 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) eller senare versionen för dessa åtgärder ska fungera.
+
+> [!IMPORTANT]
+>Microsoft rekommenderar att du inte ändra de standardregler som skapats av **Azure AD Connect**. Om du vill ändra regeln klona den och inaktivera den ursprungliga regeln. Göra ändringar i den klonade regeln. Tänk på att på så sätt (inaktiverar ursprungliga regeln) du missar eventuella felkorrigeringar eller funktioner som aktiveras via regeln.
 
 Attributet-baserad filtrering är det mest flexibla sättet att filtreringsobjekt. Du kan använda kraften i [deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md) att styra nästan alla aspekter av när ett objekt har synkroniserats till Azure AD.
 

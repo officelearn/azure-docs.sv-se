@@ -6,14 +6,14 @@ manager: hegate
 ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/25/2018
+ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: a30311f8b171d80e036b4e554b2f1026b43c8a67
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e4a48312dc516010b7a7fe1471ba7e555a2f92f2
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604779"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382256"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Distribuera lösningsacceleratorn för fjärrövervakning lokalt – Visual Studio
 
@@ -48,16 +48,9 @@ För att slutföra lokal distribution, behöver du följande verktygen som insta
 
 I det här avsnittet ska köra du mikrotjänster för fjärrövervakning. Du kör webbgränssnittet internt, tjänsten Enhetssimulering i Docker och mikrotjänster i Visual Studio.
 
-### <a name="run-the-web-ui"></a>Kör webbgränssnittet
-
-I det här steget ska starta du webbgränssnittet. Navigera till den **webbgränssnittet** mappen i din lokala kopia av databasen och kör följande kommandon:
-
-```cmd
-npm install
-npm start
-```
-
 ### <a name="run-the-device-simulation-service"></a>Köra tjänsten enheten simulering
+
+Öppna ett nytt kommandofönster för att se till att du har åtkomst till miljövariabler som anges av den **start.cmd** skriptet i föregående avsnitt.
 
 Kör följande kommando för att starta Docker-behållare för device simulering-tjänsten. Tjänsten simulerar enheter för lösningen för fjärrövervakning.
 
@@ -94,11 +87,22 @@ Följ stegen nedan för att starta Stream Analytics-jobbet:
 1. Klicka på den **Stream Analytics-jobbet** i listan över resurser.
 1. På Stream Analytics-jobbet **översikt** klickar du på den **starta** knappen. Klicka sedan på **starta** att starta jobbet nu.
 
+### <a name="run-the-web-ui"></a>Kör webbgränssnittet
+
+I det här steget ska starta du webbgränssnittet. Öppna ett nytt kommandofönster för att se till att du har åtkomst till miljövariabler som anges av den **start.cmd** skript. Navigera till den **webbgränssnittet** mappen i din lokala kopia av databasen och kör följande kommandon:
+
+```cmd
+npm install
+npm start
+```
+
+När början är klar visas sidan i webbläsaren **http://localhost:3000/dashboard**. Fel på den här sidan förväntas. Följ anvisningarna nedan om du vill visa programmet utan fel.
+
 ### <a name="configure-and-run-nginx"></a>Konfigurera och köra NGINX
 
 Ställa in en omvänd proxy-server för att länka webbprogram och mikrotjänster som körs på den lokala datorn:
 
-* Kopiera den **nginx.conf** fil från den **webui\scripts\localhost** mappen till den **nginx\conf** installationskatalog.
+* Kopiera den **nginx.conf** fil från den **webui\scripts\localhost** mapp i din lokala kopia av lagringsplatsen till den **nginx\conf** installationskatalog.
 * Kör **nginx**.
 
 Mer information om att köra **nginx**, se [nginx för Windows](https://nginx.org/en/docs/windows.html).

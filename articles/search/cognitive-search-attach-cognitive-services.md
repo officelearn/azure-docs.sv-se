@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5bffeacaa07f90a11c374061eb6c0d36fc8f86a9
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351466"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389567"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
@@ -23,7 +23,7 @@ AI-algoritmer som driver [kognitiv sökning pipelines](cognitive-search-concept-
 
 Du kan utöka ett begränsat antal dokument kostnadsfritt eller bifoga en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln lär du dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under [Azure sökindexering](search-what-is-an-index.md).
 
-Om din pipeline består uteslutande av [anpassade funktioner](cognitive-search-create-custom-skill-example.md), du behöver inte att koppla en resurs för Cognitive Services.
+Om din pipeline består av kunskaper som inte är relaterade till Cognitive Services API: er, bör du fortfarande använda en resurs för Cognitive Services, men du kommer inte att debiteras för dessa kunskaper. Orelaterade kunskaper omfattar: [anpassade funktioner](cognitive-search-create-custom-skill-example.md), [text fusion](cognitive-search-skill-textmerger.md), [text delare](cognitive-search-skill-textsplit.md), och [formaren](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. På så sätt kan vi ta betalt för körning av kompetens. På det här datumet måste också började vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
@@ -52,7 +52,9 @@ Fortsätt till nästa steg **lägga till enrichments**. En beskrivning av färdi
 
 ## <a name="use-billable-resources"></a>Använd fakturerbara resurser
 
-För arbetsbelastningar numrering av fler än 20 dokument dagligen, behöver du en fakturerbar resurs för Cognitive Services.
+För arbetsbelastningar numrering fler än 20 enrichments varje dag, måste du bifoga en fakturerbar resurs för Cognitive Services. 
+
+Du debiteras endast för färdigheter som anropar API: er för Cognitive Services. Icke-API-baserade färdigheter som [anpassade funktioner](cognitive-search-create-custom-skill-example.md), [text fusion](cognitive-search-skill-textmerger.md), [text delare](cognitive-search-skill-textsplit.md), och [formaren](cognitive-search-skill-shaper.md) kunskaper faktureras inte.
 
 1. I den **dataimport** guiden i **bifoga Cognitive Services**, Välj en befintlig resurs eller klicka på **Skapa ny resurs för Cognitive Services**.
 

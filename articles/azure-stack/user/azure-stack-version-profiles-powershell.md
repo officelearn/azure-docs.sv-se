@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 890ca3abf08e280dcf0a48355ab1dea87331805b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: f6fd560d6ecb9feaa3df14b288cee5d98ce55aee
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063473"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391084"
 ---
 # <a name="use-api-version-profiles-for-powershell-in-azure-stack"></a>Använd API-versionsprofiler för PowerShell i Azure Stack
 
@@ -40,8 +40,9 @@ Install-Module -Name AzureRm.BootStrapper
 
 I följande tabell visas profil på API version och PowerShell administratör modulen moniker används för nya versioner av Azure Stack. Om du använder den här artikeln med en version före 1808 uppdatera versionsprofilen och moniker med rätt värde.
 
-| Version Nej. | Profil för API-version | PS admin modulen moniker |
+| Version No. | Profil för API-version | PS admin modulen moniker |
 | --- | --- | --- |
+| 1811 eller senare | 2018-03-01-hybrid | 1.6.0 |
 | 1808 eller senare | 2018-03-01-hybrid | 1.5.0 |
 | 1804 eller senare | 2017-03-09-profile | 1.4.0 |
 | Versioner före 1804 | 2017-03-09-profile | 1.2.11 |

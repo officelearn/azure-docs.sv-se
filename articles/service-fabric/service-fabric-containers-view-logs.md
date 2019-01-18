@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: twhitney
-ms.openlocfilehash: c4add1034e4b149cbe9d3c76c03987d45ca587c4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: d66e27d860d18a37ffd9c6355b8d769116f26d73
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993812"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391239"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Visa loggar för en tjänst för Service Fabric-behållare
 Azure Service Fabric är en orkestrerare för behållare och stöder både [Linux och Windows-behållare](service-fabric-containers-overview.md).  Den här artikeln beskriver hur du visar behållarloggarna av en pågående container-tjänst eller en döda behållare så att du kan diagnostisera och felsöka problem.
@@ -43,6 +43,8 @@ Service Fabric (version 6.1 eller senare) har stöd för bevarande av containrar
  ```
 
 Inställningen **ContainersRetentionCount** anger antalet behållare som ska bevaras när de får fel. Om ett negativt värde anges kommer alla containrar med fel att bevaras. När den **ContainersRetentionCount** attributet inte anges, inga behållare att bevaras. Attributet **ContainersRetentionCount** har även stöd för programparametrar, så att användarna kan ange olika värden för test- och produktionskluster. Använd placeringsbegränsningar för att rikta in containertjänsten på en viss nod när den här funktionen används för att förhindra att containertjänsten flyttas till andra noder. Alla containrar som bevaras med den här funktionen måste tas bort manuellt.
+
+Inställningen **RunInteractive** motsvarar Dockers `--interactive` och `tty` [flaggor](https://docs.docker.com/engine/reference/commandline/run/#options). När den här inställningen anges till true i manifestfilen, dessa flaggor används för att starta behållaren.  
 
 ### <a name="rest"></a>REST
 Använd den [hämta behållare distribueras på noden för](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) åtgärd för att hämta loggarna för en krasch behållare. Ange namnet på den nod som behållaren körs på, programnamn, manifest tjänstnamn och paketnamnet kod.  Ange `&Previous=true`. Svaret innehåller behållarloggarna för obeställbara kod paketet instans-behållaren.

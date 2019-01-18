@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: bwren
-ms.openlocfilehash: abcf3100dc5252db9e3a5e7b446417333a9b37ca
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 27c732a2ddd21401ffbefa727cbb8001ec288293
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321899"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381957"
 ---
 # <a name="standard-properties-in-log-analytics-records"></a>Standardegenskaper i Log Analytics-poster
 Data i [Log Analytics](../log-query/log-query-overview.md) lagras som en uppsättning poster, var och en med en viss datatyp som har en unik uppsättning egenskaper. Många datatyper har standardegenskaper som är gemensamma för flera typer. Den här artikeln beskriver de här egenskaperna och innehåller exempel på hur du kan använda dem i frågor.
@@ -92,7 +92,7 @@ Den  **\_IsBillable** egenskapen anger om insamlade data är fakturerbara. Data 
 Om du vill hämta en lista över datorer som skickar faktureras datatyper, använder du följande fråga:
 
 > [!NOTE]
-> Använda frågor med `union withsource = tt *` sparsamt sökningar över data datatyper är dyrt att köra. 
+> Använda frågor med `union withsource = tt *` sparsamt sökningar över datatyper är dyrt att köra. 
 
 ```Kusto
 union withsource = tt * 

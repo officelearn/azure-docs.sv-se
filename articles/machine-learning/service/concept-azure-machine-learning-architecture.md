@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 4d201669bf627cf9b591958f3372760c0c990db9
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: e5f569d5561050c9993ec48b096f60595d44b1b1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808102"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391181"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -28,7 +28,7 @@ Arbetsflödet följer vanligtvis den här sekvensen:
 
 1. Utveckla maskininlärning utbildning skript i **Python**.
 1. Skapa och konfigurera en **beräkningsmålet**.
-1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, lagrar beräkningsmål kör poster till en **datalager**. Det poster sparas i en **experimentera**.
+1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Och poster för körningen är Spara som **körs** i den **arbetsytan**, som är partitionerad över **experimentera**.
 1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
 1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
 1. Utveckla ett bedömningsskript.
@@ -56,7 +56,7 @@ Du kan skapa flera arbetsytor och varje arbetsyta kan delas av flera personer. N
 När du skapar en ny arbetsyta skapas automatiskt flera Azure-resurser som används av arbetsytan:
 
 * [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): Registrerar docker-behållare som du använder vid träning och när du distribuerar en modell.
-* [Azure storage-konto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.
+* [Azure-lagringskonto](https://azure.microsoft.com/services/storage/): Används som standard-datalager för arbetsytan.
 * [Azure Application Insights](https://azure.microsoft.com/services/application-insights/): Butiker övervakningsinformation om dina modeller.
 * [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): Butiker hemligheter som används av compute mål och annan känslig information som behövs av arbetsytan.
 
@@ -227,6 +227,6 @@ Aktiviteter kan ge meddelanden via SDK eller webbläsaren så att du enkelt kan 
 
 Kom igång med Azure Machine Learning-tjänsten, se:
 
-* [Vad är Azure Machine Learning-tjänsten?](overview-what-is-azure-ml.md)
+* [Vad är Azure Machine Learning Service?](overview-what-is-azure-ml.md)
 * [Snabbstart: Skapa en arbetsyta med Python](quickstart-get-started.md)
 * [Självstudie: Träna en modell](tutorial-train-models-with-aml.md)

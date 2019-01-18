@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 01/17/2019
 ms.author: diberry
-ms.openlocfilehash: 513067f09d8cac64ca747ff217c84667c5469d82
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 9f9ae8bb3aa1da51d2a9b81cf7d50d75c5229c11
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248239"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382033"
 ---
 # <a name="deploy-the-language-detection-container-to-azure-kubernetes-service"></a>Distribuera språk identifiering av behållare till Azure Kubernetes Service
 
@@ -38,7 +38,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 Den här proceduren läser in och kör exemplet Cognitive Services-behållare för språkidentifiering. Exemplet har två behållare, en för klientprogrammet och en för Cognitive Services-behållare. Du måste skicka båda dessa avbildningar till din egen Azure Container Registry. Skapa ett Azure Kubernetes Service för att komma åt dessa avbildningar och köra behållarna när de är på din egen registret. När behållarna som körs, använda den **kubectl** CLI för att titta på hur behållare. Få åtkomst till klientprogrammet med en HTTP-begäran och se resultaten. 
 
-
+![Konceptuell uppfattning om exemplet behållare som körs](../media/how-tos/container-instance-sample/containers.png)
 
 ## <a name="the-sample-containers"></a>Exempelbehållare
 

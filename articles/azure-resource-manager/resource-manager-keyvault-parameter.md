@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: a885fda23bb76091705ebe388f40a6eae7b56416
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351517"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381525"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -93,7 +93,7 @@ För att använda Resource Manager-mall: Se [självstudien: Integrera Azure Key 
 
 Annat än inställningen `enabledForTemplateDeployment` till `true`, användaren distribuerar mallen måste ha den `Microsoft.KeyVault/vaults/deploy/action` behörighet för scope som innehåller Nyckelvalvet inklusive resursgrupp och Key Vault. Den [ägare](../role-based-access-control/built-in-roles.md#owner) och [deltagare](../role-based-access-control/built-in-roles.md#contributor) båda bevilja åtkomst. Om du skapar Key Vault kan är du ägare så att du har behörighet. Om Key Vault hanteras av en annan prenumeration kan ägaren av Key Vault måste ge åtkomst.
 
-Följande procedur visar hur du skapar en roll med den minsta permssion och tilldela användaren
+Följande procedur visar hur du skapar en roll med den minsta behörigheten och tilldela användaren
 1. Skapa en anpassad roll definition JSON-fil:
 
     ```json

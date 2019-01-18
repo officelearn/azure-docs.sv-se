@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: danlep
-ms.openlocfilehash: 70ca1b88c653601e077c55a847c13f67efc3e300
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 3aa986efd4986eb1d96c0f013d997486e6e8ae2c
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754211"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390928"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>Azure Container Registry-autentisering med tjänstens huvudnamn
 
@@ -47,9 +47,7 @@ Du hittar de föregående exempelskript för Azure CLI på GitHub som och versio
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har ett huvudnamn för tjänsten att du har beviljats åtkomst till behållarregistret kan använda du dess autentiseringsuppgifter i dina program och tjänster för registret interaktion.
-
-Konfigurera enskilda program att använda autentiseringsuppgifter för tjänstens huvudnamn är utanför omfånget för den här artikeln, hittar du anvisningar för vissa specifika tjänster och plattformar här:
+När du har ett huvudnamn för tjänsten att du har beviljats åtkomst till behållarregistret kan använda du dess autentiseringsuppgifter i dina program och tjänster för fjärradministrerad registret interaktion. Du kan använda autentiseringsuppgifter för tjänstens huvudnamn från valfri Azure-tjänst som kan autentisera med ett Azure container registry. Exempel:
 
 * [Autentisera med Azure Container Registry från Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Autentisera med Azure Container Registry från Azure Container Instances (ACI)](container-registry-auth-aci.md)

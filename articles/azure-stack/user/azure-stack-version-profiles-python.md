@@ -14,12 +14,12 @@ ms.date: 01/05/2019
 ms.author: sethm
 ms.reviewer: sijuman
 <!-- dev: viananth -->
-ms.openlocfilehash: cafae6d71401bc44813b2e366f8e72f7b806236b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 8049db848e34b0aa9bc23f08169a8c63f765791a
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062783"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389753"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>Använd API-versionsprofiler med Python i Azure Stack
 
@@ -29,11 +29,12 @@ ms.locfileid: "54062783"
 
 Python SDK har stöd för API-versionsprofiler för att rikta olika plattformar, till exempel Azure Stack och globala Azure. Du kan använda API-profiler i att skapa lösningar för ett hybridmoln. Python SDK har stöd för följande API-profiler:
 
-1. **senaste**  
-    Profilen som riktar sig mot den aktuella API-versionen för alla leverantörer i Azure-plattformen.
-2. **2017-03-09-profile**  
-   **2017-03-09-profile**  
-   Profilen som riktar sig mot de API-versionerna som stöds av Azure Stack resource provider.
+- **latest**  
+    Den här profilen riktar sig mot den aktuella API-versionen för alla leverantörer i Azure-plattformen.
+- **2018-03-01-hybrid**     
+    Den här profilen riktar sig mot de senaste API-versionerna för alla providrar i Azure Stack-plattformen.
+- **2017-03-09-profile**  
+    Den här profilen riktar sig mot de mest kompatibla API-versionerna som stöds av Azure Stack resource provider.
 
    Mer information om API-profiler och Azure Stack finns i [hantera API-versionsprofiler i Azure Stack](azure-stack-version-profiles.md).
 
@@ -56,10 +57,19 @@ För att kunna använda Azure-SDK för Python med Azure Stack, måste du ange f�
 | Prenumerations-ID:t | AZURE_SUBSCRIPTION_ID | Den [prenumerations-ID](../azure-stack-plan-offer-quota-overview.md#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
 | Klienthemlighet | AZURE_CLIENT_SECRET | Tjänstens huvudnamn programhemlighet sparas när tjänstens huvudnamn har skapats. |
 | Resource Manager-slutpunkten | ARM_ENDPOINT | Se den [Azure Stack resource manager-slutpunkten](azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Resursplats | AZURE_RESOURCE_LOCATION | Resursplatsen för din Azure Stack-miljön.
 
 ## <a name="python-samples-for-azure-stack"></a>Python-exempel för Azure Stack
 
-Du kan använda följande kodexempel för att utföra vanliga administrationsuppgifter för virtuella datorer i Azure Stack. Kodexempel visar att:
+Några av kodexempel för Azure Stack med hjälp av Python SDK är:
+
+- [Hantera resurser och resursgrupper](https://azure.microsoft.com/resources/samples/hybrid-resourcemanager-python-manage-resources/).
+- [Hantera Storage-konto](https://azure.microsoft.com/resources/samples/hybrid-storage-python-manage-storage-account/).
+- [Hantera virtuella datorer](https://azure.microsoft.com/resources/samples/hybrid-compute-python-manage-vm/).
+
+## <a name="python-manage-virtual-machine-sample"></a>Python hantera VM-exempel
+
+Du kan använda följande kodexempel för att utföra vanliga administrationsuppgifter för virtuella datorer i Azure Stack. Kodexemplet visar att:
 
 - Skapa virtuella datorer:
   - Skapa en virtuell Linux-dator
@@ -76,7 +86,7 @@ Du kan använda följande kodexempel för att utföra vanliga administrationsupp
 - Lista över virtuella datorer
 - Ta bort en virtuell dator
 
-Den kod som utför de här åtgärderna finns i den **run_example()** funktionen i Python-skriptet **Hybrid/unmanaged-disks/example.py** i GitHub-lagringsplatsen [ virtuella datorer – python-hantera](https://github.com/Azure-Samples/virtual-machines-python-manage).
+Den kod som utför de här åtgärderna finns i den **run_example()** funktionen i Python-skriptet **example.py** i GitHub-lagringsplatsen [Hybrid-beräkning-Python-hantera-VM](https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM).
 
 Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen. Exemplen är inte nödvändigtvis i den ordning som visas i den här listan.
 
@@ -99,13 +109,13 @@ Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen. E
 4. Klona databasen:
 
     ```bash
-    git clone https://github.com/Azure-Samples/virtual-machines-python-manage.git
+    git clone https://github.com/Azure-Samples/Hybrid-Compute-Python-Manage-VM.git
     ```
 
 5. Installera beroenden med pip:
 
     ```bash
-    cd virtual-machines-python-manage\Hybrid
+    cd Hybrid-Compute-Python-Manage-VM
     pip install -r requirements.txt
     ```
 
@@ -119,6 +129,7 @@ Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen. E
     export AZURE_CLIENT_SECRET={your client secret}
     export AZURE_SUBSCRIPTION_ID={your subscription id}
     export ARM_ENDPOINT={your AzureStack Resource Manager Endpoint}
+    export AZURE_RESOURCE_LOCATION={your AzureStack Resource location}
     ```
 
 8. För att kunna köra det här exemplet, måste Ubuntu 16.04-LTS och Windows Server 2012 R2 Datacenter-avbildningar finnas i Azure Stack marketplace. Det kan vara antingen [ned från Azure](../azure-stack-download-azure-marketplace-item.md), eller lagts till i den [plattformens Avbildningslagringsplats](../azure-stack-add-vm-image.md).
@@ -126,21 +137,13 @@ Varje åtgärd är tydligt märkt med en kommentar och en utskriftsfunktionen. E
 9. Kör exemplet:
 
     ```python
-    python unmanaged-disks\example.py
+    python example.py
     ```
 
-## <a name="notes"></a>Anteckningar
-
-Du kanske tro att försöka hämta en virtuell dators OS-disk med hjälp av `virtual_machine.storage_profile.os_disk`. I vissa fall kan detta göra vad du vill ha, men tänk på att den ger dig en **OSDisk** objekt. Om du vill uppdatera OS-diskstorlekar på som `example.py` gör du en **Disk** objektet, är inte en **OSDisk** objekt. `example.py` hämtar den **Disk** objekt med följande egenskaper:
-
-```python
-os_disk_name = virtual_machine.storage_profile.os_disk.name
-os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
-```
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Azure Python-Utvecklingscenter](https://azure.microsoft.com/develop/python/)
+- [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
 - [Dokumentation om Azure virtuella datorer](https://azure.microsoft.com/services/virtual-machines/)
 - [Utbildningsväg för virtuella datorer](/learn/paths/deploy-a-website-with-azure-virtual-machines/)
 - Om du inte har en Microsoft Azure-prenumeration kan du få ett kostnadsfritt utvärderingskonto [här](https://go.microsoft.com/fwlink/?LinkId=330212).

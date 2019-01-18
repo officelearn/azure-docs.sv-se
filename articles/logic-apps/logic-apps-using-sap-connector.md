@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 09/14/2018
 tags: connectors
-ms.openlocfilehash: 1738f02d28a4eb9ff5cbb51c73bc50ddf3c9a68b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 27da87c11ca35be72690965a2359ff6ff6b9f999
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231346"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391284"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ansluta till SAP-system från Azure Logic Apps
 
@@ -23,8 +23,8 @@ Den här artikeln visar hur du kan komma åt dina lokala SAP-resurser från i en
 
 SAP ECC-anslutningsappen använder den <a href="https://support.sap.com/en/product/connectors/msnet.html">SAP .net Connector (NCo)-biblioteket</a> och ger dessa åtgärder eller åtgärder:
 
-- **Skicka till SAP**: skicka IDoc eller genom att anropa BAPI funktioner över tRFC i SAP-system.
-- **Ta emot från SAP**: ta emot IDoc eller BAPI fungerar anrop över tRFC från SAP-system.
+- **Skicka till SAP**: Skicka IDoc eller anropa BAPI funktioner över tRFC i SAP-system.
+- **Ta emot från SAP**: Ta emot IDoc eller BAPI funktionsanrop över tRFC från SAP-system.
 - **Generera scheman**: Generera scheman för SAP-artefakter för IDoc, BAPI eller RFC.
 
 SAP-anslutningsappen kan integreras med en lokal SAP-system via den [lokal datagateway](https://www.microsoft.com/download/details.aspx?id=53127). I Skicka scenarier, till exempel när du skickar ett meddelande från Logikappar till ett SAP-system datagateway fungerar som en RFC-klient och vidarebefordrar begäranden som tas emot från Logikappar till SAP.
@@ -38,7 +38,7 @@ Om du vill följa den här artikeln behöver du följande objekt:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration än, <a href="https://azure.microsoft.com/free/" target="_blank">registrera dig för ett kostnadsfritt konto</a>.
 
-* Logikapp från där du vill komma åt dina SAP-system och en utlösare som startar logikappens arbetsflöde. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Snabbstart: skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Logikapp från där du vill komma åt dina SAP-system och en utlösare som startar logikappens arbetsflöde. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabbstarten: Skapa din första logikapp](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Din <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">SAP-programservern</a> eller <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">SAP Message Server</a>
 
@@ -71,7 +71,7 @@ I det här exemplet skapar du en logikapp med en slutpunkt i Azure så att du ka
 
 1. I den [Azure-portalen](https://portal.azure.com), skapa en tom logikapp som öppnas Logic App Designer. 
 
-2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **begäran – när en HTTP-begäran tas emot**
+2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **Begäran - när en HTTP-begäran tas emot**
 
    ![Lägg till HTTP-begäran-utlösare](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -92,7 +92,7 @@ I Azure Logic Apps, en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app
 
    ![Lägga till en åtgärd](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. I sökrutan anger du ”sap” som filter. Välj den här åtgärden från åtgärdslistan över: **skickar ett meddelande till SAP**
+2. I sökrutan anger du ”sap” som filter. Välj den här åtgärden från åtgärdslistan över: **Skicka meddelande till SAP**
   
    ![Välj åtgärden Skicka för SAP](media/logic-apps-using-sap-connector/select-sap-send-action.png)
 
@@ -159,7 +159,7 @@ Lägg till en svarsåtgärd logikappens arbetsflöde och innehåller utdata frå
 
 1. I Logic App Designer, SAP-åtgärd väljer **nytt steg** > **Lägg till en åtgärd**.
 
-2. I sökrutan anger du ”svar” som filter. Välj den här åtgärden från åtgärdslistan över: **begäran – svar**
+2. I sökrutan anger du ”svar” som filter. Välj den här åtgärden från åtgärdslistan över: **Begäran - svar**
 
 3. Klicka i den **brödtext** så att den dynamiska innehållslistan visas. Från listan under **skicka till SAP**väljer den **brödtext** fält. 
 
@@ -201,7 +201,7 @@ Det här exemplet används en logikapp som utlöser när du tar emot ett meddela
 
 1. Skapa en tom logikapp som öppnas Logic App Designer i Azure-portalen. 
 
-2. I sökrutan anger du ”sap” som filter. Välj den här utlösaren från listan över utlösare: **när ett meddelande tas emot från SAP**
+2. I sökrutan anger du ”sap” som filter. Välj den här utlösaren från listan över utlösare: **När ett meddelande tas emot från SAP**
 
    ![Lägg till SAP-utlösare](./media/logic-apps-using-sap-connector/add-sap-trigger.png)
 
@@ -269,7 +269,7 @@ Det här exemplet används en logikapp som du kan utlösa med en HTTP-begäran. 
 
 1. Skapa en tom logikapp som öppnas Logic App Designer i Azure-portalen. 
 
-2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **begäran – när en HTTP-begäran tas emot**
+2. Ange ”http-begäran” i sökrutan som filter. Välj den här utlösaren från listan över utlösare: **Begäran - när en HTTP-begäran tas emot**
 
    ![Lägg till HTTP-begäran-utlösare](./media/logic-apps-using-sap-connector/add-trigger.png)
 
@@ -286,7 +286,7 @@ Välj **Spara** i designerverktygsfältet.
 
    ![Lägga till en åtgärd](./media/logic-apps-using-sap-connector/add-action.png) 
 
-2. I sökrutan anger du ”sap” som filter. Välj den här åtgärden från åtgärdslistan över: **generera scheman**
+2. I sökrutan anger du ”sap” som filter. Välj den här åtgärden från åtgärdslistan över: **Generera scheman**
   
    ![Välj åtgärden Skicka för SAP](media/logic-apps-using-sap-connector/select-sap-schema-generator-action.png)
 
@@ -343,7 +343,7 @@ Välj **Spara** i designerverktygsfältet.
 
 Du kan också ladda ned eller lagra de genererade scheman i lagringsplatser, såsom en blob, lagring eller integrationskontot. Integrationskonton tillhandahålla en förstklassig upplevelse med andra XML-åtgärder, så det här exemplet visar hur du överför scheman till ett integrationkonto för samma logikapp med hjälp av Azure Resource Manager-anslutningen.
 
-1. I Logic App Designer under utlösaren väljer **nytt steg** > **Lägg till en åtgärd**. Ange ”resource manager” i sökrutan som filter. Välj den här åtgärden: **skapa eller uppdatera en resurs**
+1. I Logic App Designer under utlösaren väljer **nytt steg** > **Lägg till en åtgärd**. Ange ”resource manager” i sökrutan som filter. Välj den här åtgärden: **Skapa eller uppdatera en resurs**
 
    ![Välj Azure Resource Manager-åtgärd](media/logic-apps-using-sap-connector/select-arm-action.png) 
 
@@ -379,7 +379,7 @@ Du kan också ladda ned eller lagra de genererade scheman i lagringsplatser, så
 
 Här följer kända problem och begränsningar för SAP-anslutningen:
 
-* SAP utlösaren does't stöder tar emot batch idoc: er från SAP. Den här åtgärden kan resultera i RFC anslutningsfel mellan din SAP-system och datagateway.
+* SAP-utlösaren stöder inte tar emot batch idoc: er från SAP. Den här åtgärden kan resultera i RFC anslutningsfel mellan din SAP-system och datagateway.
 
 * SAP-utlösaren stöder inte data gateway-kluster. Ibland redundans data gateway-noden som kommunicerar med SAP-system kan skilja sig från den aktiva noden, vilket resulterar i oväntade resultat. Scenarier med skicka stöds data gateway-kluster.
 

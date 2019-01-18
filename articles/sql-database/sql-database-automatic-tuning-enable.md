@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 10/05/2018
-ms.openlocfilehash: e5f1f2fe3745ae2817b73b2500ee90a59fc283e1
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53607089"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382774"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk inställning att övervaka frågor och förbättra prestanda för arbetsbelastning
 
@@ -87,6 +87,10 @@ Om du vill konfigurera enskilda alternativen för automatisk justering via T-SQL
    ```
    
 Ställa in ett justeringsalternativ för enskilda på, åsidosätter inställningar som databasen ärvt och aktivera ett justeringsalternativ. Ange värdet till OFF, kommer också åsidosätter inställningar som databasen ärvt och inaktiverar alternativet justering. Alternativ för automatisk justering, som standard anges ärver konfigurationen från automatisk justering inställningen databasnivå.  
+
+> [!IMPORTANT]
+> I följande fall [aktiv geo-replikering](sql-database-auto-failover-group.md), automatisk justering måste konfigureras på den primära databasen. Tillämpas automatiskt justera åtgärder, är till exempel för exempel index skapa eller ta bort replikeras automatiskt till sekundärt skrivskyddade. Försök att aktivera automatisk justering via T-SQL på den skrivskyddade sekundärt resulterar i ett fel som har en annan justering konfiguration på den skrivskyddade sekundärt inte stöds.
+>
 
 Hitta mer om datorns T-SQL-alternativ för att konfigurera automatisk justering, se [ALTER DATABASE SET-alternativ (Transact-SQL) för SQL Database-logisk server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 

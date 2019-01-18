@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/5/2018
 ms.author: raynew
-ms.openlocfilehash: ff1aaadd77df9cb7678ad71141d15c96f2f12dc0
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 73074898c29a240e31b181025f8cc92f25de5061
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788403"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382750"
 ---
 # <a name="back-up-a-windows-server-or-client-to-azure-using-the-resource-manager-deployment-model"></a>Säkerhetskopiera en Windows-server eller -klient till Azure med hjälp av Resource Manager-distributionsmodellen
 Den här artikeln förklarar hur du säkerhetskopierar Windows Server (eller Windows-klienten) filer och mappar till Azure med Azure Backup med hjälp av Resource Manager-distributionsmodellen.
@@ -48,9 +48,9 @@ Ett Recovery Services-valv är en entitet som lagrar alla säkerhetskopior och �
 
 6. Gör följande i avsnittet **Resursgrupp**:
 
-    * Välj **Skapa nytt** om du vill skapa en ny resursgrupp.
+    * Klicka på den **Välj befintlig...**  nedrullningsbara menyn för att visa listan över resursgrupper.
     Eller
-    * Välj **Använd befintlig** och klicka på listrutan om du vill se listan över tillgängliga resursgrupper.
+    * Välj **Skapa nytt** om du vill skapa en ny resursgrupp.
 
   Fullständig information om resursgrupper finns i [Översikt över Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
@@ -70,21 +70,21 @@ Första gången du skapar ett Recovery Services-valv bestämmer du hur lagringen
 
 1. På bladet **Recovery Services-valv** klickar du på det nya valvet.
 
-    ![Välj det nya valvet i listan över Recovery Services-valv](./media/backup-try-azure-backup-in-10-mins/rs-vault-list.png)
+    ![Välj det nya valvet i listan över Recovery Services-valv](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault.png)
 
-    Om du väljer valvet minimeras bladet **Recovery Services-valv** och bladet Inställningar (*som har namnet på valvet överst*) och bladet med valvinformation öppnas.
+    När du väljer valvet, Recovery Services-valv bladet valvinformation och **översikt** bladet (*som har namnet på valvet överst*) valvet information bladet öppet.
 
-    ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-2.png)
+    ![Visa lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-overview.png)
 
-2. På det nya valvets inställningsblad använder du det lodräta reglaget och bläddrar ned till avsnittet Hantera. Där klickar du på **Infrastruktur för säkerhetskopiering**.
+2. I det nya valvet under den **inställningar** går du till avsnittet **egenskaper**.
 
-  Bladet Infrastruktur för säkerhetskopiering öppnas.
+  Den **egenskaper** blad öppnas.
 
-3. På bladet Infrastruktur för säkerhetskopiering klickar du på **Konfiguration av säkerhetskopiering** för att öppna bladet **Konfiguration av säkerhetskopiering**.
+3. I den **egenskaper** bladet klickar du på **uppdatering** under **Säkerhetskopieringskonfigurationen** bladet. Den **Säkerhetskopieringskonfigurationen** blad öppnas.
 
-  ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration.png)
+  ![Ange lagringskonfigurationen för det nya valvet](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-4. Välj lämpligt alternativ för lagringsreplikering för valvet.
+4. Välj lämplig med alternativet för lagringsreplikering för ditt valv och klicka på **spara**.
 
   ![alternativ för lagringskonfiguration](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
@@ -183,7 +183,7 @@ Säkerhetskopieringspolicyn är schemat när återställningspunkter skapas och 
 
 ### <a name="to-create-a-backup-schedule"></a>Skapa ett schema för säkerhetskopiering
 
-Ange schemat för säkerhetskopiering på den dator du vill säkerhetskopiera. Observera att den tid som angetts för säkerhetskopiering kan skilja sig från den lokala datortid, eftersom Azure Backup inte ta sommartid (DST) till konto. 
+Ange schemat för säkerhetskopiering på den dator du vill säkerhetskopiera. Observera att den tid som angetts för säkerhetskopiering kan skilja sig från den lokala datortid, eftersom Azure Backup inte ta sommartid (DST) till konto.
 1. Öppna Microsoft Azure Backup-agenten. Du hittar den genom att söka efter **Microsoft Azure Backup** på datorn.
 
     ![Starta Azure Backup-agenten](./media/backup-configure-vault/snap-in-search.png)

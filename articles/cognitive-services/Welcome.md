@@ -7,14 +7,14 @@ manager: cgronlund
 ms.service: cognitive-services
 ms.component: ''
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/17/2018
 ms.author: nitinme
-ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 4a398342382d21d9261c8f693b78f184876bfed3
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025403"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381938"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Vad är Azure Cognitive Services?
 
@@ -38,7 +38,7 @@ Azure Cognitive Services är API: er, SDK: er och tjänster som är tillgänglig
 |[Med Taltjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/ "Taltjänst") (förhandsversion)|Med Taltjänsten lägger till stöd för tal funktioner till program.|
 |[Custom Speech Service](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home "Custom Speech Service") (förhandsversion)|Med Custom Speech Service kan du skapa anpassade språkmodeller och akustiska modeller skräddarsydda för din app och dina användare.|
 |[Bing-taligenkänning](https://docs.microsoft.com/azure/cognitive-services/speech/home "Bing-taligenkänning")|API för Bing-taligenkänning ger dig ett enkelt sätt att skapa talbaserade funktioner i dina program.|
-|[Talöversättning](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Talöversättning")|Translator för Talöversättning är en tjänst för maskinöversättning.|
+|[Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/ "Translator Speech")|Translator för Talöversättning är en tjänst för maskinöversättning.|
 |[API för Talarigenkänning](https://docs.microsoft.com/azure/cognitive-services/speaker-recognition/home "API för Talarigenkänning") (förhandsversion)|API för Talarigenkänning innehåller algoritmer för talaridentifiering och verifiering.|
 
 ## <a name="language-apis"></a>Språk-API: er
@@ -89,6 +89,14 @@ Alla API: er har en kostnadsfri utvärderingsversion plan.  När avgiftsbelagda 
 API: er i Cognitive Services finns på ett växande nätverk av Microsoft-administrerade datacenter. Du kan hitta regional tillgänglighet för varje API i [Azure-regionlista](https://azure.microsoft.com/regions).
 
 Letar du efter en region vi stöder inte ännu? Berätta för oss genom att skicka in en funktionsbegäran på vår [UserVoice-forum](https://cognitive.uservoice.com/).
+
+## <a name="supported-cultural-languages"></a>Kulturella språk som stöds
+
+ Cognitive Services stöder en mängd olika kulturella språk på tjänstnivå. Du kan hitta tillgängliga språk för varje API i den [stöds Språklista](language-support.md).
+
+ ## <a name="container-support"></a>Stöd för containrar
+
+ Cognitive Services är behållare för distribution i Azure-molnet eller lokalt. Läs mer om [Cognitive Service-behållare](cognitive-services-container-support.md).
 
 ## <a name="support"></a>Support
 

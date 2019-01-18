@@ -11,20 +11,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 7b8c0e2a4df59baecc3aac7e56789cef8f8985d3
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 5c1207b1b21e2d2ee229f5bea068b99f3b3218b1
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705828"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389127"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klassrumslabb. Den också visar hur du visar alla klassrum-labb i ett labbkonto. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägaren kan lägga till andra användare till rollen Lab Creator genom att använda stegen i följande artikel: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) (Lägg till en användare till rollen Lab Creator).
+Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i rollen **Lab Creator** i labbkontot. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i den här rollen. Labbägare kan lägga till andra användare till rollen Labbskaparen med hjälp av stegen i följande artikel: [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
 ## <a name="create-a-classroom-lab"></a>Skapa ett klassrumslabb
 
@@ -112,7 +112,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:
 
-- [Som labbägare kan du konfigurera och publicera mallar](how-to-create-manage-template.md)
-- [Som labbägare kan du konfigurera och styra användningen av ett labb](how-to-configure-student-usage.md)
+- [Konfigurera och publicera mallar som labbägare](how-to-create-manage-template.md)
+- [Konfigurera och kontroller användning av ett labb som labbägare](how-to-configure-student-usage.md)
 - [Som en lab-användare åtkomst till labb för klassrum](how-to-use-classroom-lab.md)
 

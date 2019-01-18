@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 366bdf73c6b62ffa98ce44076374df8be8b3de3c
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/17/2019
+ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865887"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54388579"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
 Du avgör mängden resurser som den elastiska poolen som krävs för att hantera arbetsbelastningen av dess databaser och mängden resurser för varje databas i pool med en elastisk pool.
 
-## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure-portalen: hantera elastiska pooler och databaser i en pool
+## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Azure-portalen: Hantera elastiska pooler och databaser i en pool
 
 Alla poolinställningar finns i ett och samma ställe: den **konfigurera pool** bladet. Om du vill ha här hittar du en elastisk pool i portalen och klicka på **konfigurera pool** antingen högst upp på bladet eller från resurs-menyn till vänster.
 
@@ -39,7 +39,7 @@ Härifrån kan du valfri kombination av följande ändringar och spara dem alla 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Hantera elastiska pooler och databaser i en pool
 
-Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Om du vill skapa och hantera logiska servrar för en elastisk pool, se [skapa och hanterade logiska servrar](sql-database-logical-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera logiska servrar för en elastisk pool, se [skapa och hanterade logiska servrar](sql-database-logical-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Exempelskript för PowerShell, se [skapa elastiska pooler och flytta databaser mellan pooler och från en pool med PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) och [använda PowerShell för att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -93,7 +93,7 @@ Skapa och flytta databaser i befintliga elastiska pooler, eller för att returne
 |[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar resource användningsstatistik för elastic database-pooler i en logisk server. För varje elastisk databaspool finns det en rad för varje 15 sekund reporting fönstret (fyra rader per minut). Detta inkluderar CPU, IO, Log, lagringsanvändningen och samtidig begäran/sessionen utnyttjande av alla databaser i poolen.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivå), tjänstmålet (prisnivå) och namn på elastisk pool, om sådant finns, för en Azure SQL database eller en Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. Du måste vara ansluten till huvuddatabasen för för Azure SQL Data Warehouse.|
 
-## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST API: Hantera elastiska pooler och databaser i en pool
+## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST-API: Hantera elastiska pooler och databaser i en pool
 
 Använd dessa REST API-begäranden för att skapa och hantera SQL Database elastiska pooler och databaser i en pool.
 

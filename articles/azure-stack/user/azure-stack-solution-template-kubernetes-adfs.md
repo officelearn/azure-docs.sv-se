@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: a161d2223dacb618f1e2eeb6443fffae18cc7259
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355749"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389068"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Distribuera Kubernetes i Azure Stack med hjälp av Active Directory Federation Services
 
@@ -59,7 +59,7 @@ Du måste arbeta med Azure Stack-administratör för att konfigurera tjänstens 
         RunspaceId            : a78c76bb-8cae-4db4-a45a-c1420613e01b
     ```
 
-2. Tilldela din nya tjänstprincipen rollen som deltagare till din prenumeration. Anvisningar finns i [tilldela en roll](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
+2. Tilldela din nya tjänsthuvudnamnet rollen som deltagare för prenumerationen. Anvisningar finns i [tilldela en roll](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-service-principals#assign-role-to-service-principal#assign-role-to-service-principal).
 
 3. Skapa ett nyckelvalv för att lagra certifikatet för distribution.
 

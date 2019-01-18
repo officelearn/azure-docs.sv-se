@@ -8,32 +8,35 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 627c53f7339dbc35d822a0bf6038ca0f1ea5e653
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53313844"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391009"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
 Den **formaren** färdighet skapar en komplex typ för att stödja sammansatta fält (även kallat multipart fält). En komplex typ-fältet har flera delar men behandlas som ett enskilt objekt i ett Azure Search-index. Exempel på konsoliderade fält som är användbart i sökscenarier är att kombinera ett första och sista namn till ett fält, stad och tillstånd till ett enda fält eller namn och födelsedatum till ett fält att upprätta en unik identitet.
 
-Formaren färdighet kan du skapa en struktur, ange namnet på medlemmarna i denna struktur och tilldela värden till varje medlem i stort sett.
+Den **formaren** färdighet kan du skapa en struktur, ange namnet på medlemmarna i denna struktur och tilldela värden till varje medlem i stort sett.
 
-Som standard stöder den här tekniken objekt som är en nivå. Du kan länka flera formaren steg för mer komplexa objekt.
+Som standard stöder den här tekniken objekt som är en nivå. För mer komplexa objekt, kan du länka flera **formaren** steg.
 
-I svaret, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” i exemplen nedan till ”utdata”, men formaren färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
+I svaret, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” i exemplen nedan till ”utdata”, men **formaren** färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
+
+> [!NOTE]
+> Kompetensen är inte bunden till en Cognitive Services-API och det finns inga avgifter som är associerade med denna kunskap. Dock måste du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) ändå för att åsidosätta alternativet kostnadsfri resurs som begränsar du till ett litet antal dagliga enrichments.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill
 
 ## <a name="sample-1-complex-types"></a>Exempel 1: komplexa typer
 
-Tänk dig ett scenario där du vill skapa en struktur som kallas *analyzedText* som har två medlemmar: *text* och *sentiment*respektive. I Azure Search, en flerdelad sökbart fält kallas en *komplex typ*, och stöds ännu inte direkt. I den här förhandsversionen kan kan en formaren färdighet användas för att generera fält i en komplex typ i ditt index. 
+Tänk dig ett scenario där du vill skapa en struktur som kallas *analyzedText* som har två medlemmar: *text* och *sentiment*respektive. I Azure Search, en flerdelad sökbart fält kallas en *komplex typ*, och stöds ännu inte direkt. I den här förhandsversionen kan en **formaren** färdighet kan användas för att generera fält i en komplex typ i ditt index. 
 
 I följande exempel tillhandahåller medlemmen namn som indata. Utdata-struktur (dina komplexa fält i Azure Search) har angetts via *targetName*. 
 
@@ -62,7 +65,7 @@ I följande exempel tillhandahåller medlemmen namn som indata. Utdata-struktur 
 ```
 
 ### <a name="sample-input"></a>Exempelindata
-Ett JSON-dokument som tillhandahåller användbar indata för formaren kompetensen kan vara följande:
+Ett JSON-dokument som tillhandahåller användbar indata för den här **formaren** färdighet kan vara:
 
 ```json
 {
@@ -80,7 +83,7 @@ Ett JSON-dokument som tillhandahåller användbar indata för formaren kompetens
 
 
 ### <a name="sample-output"></a>Exempel på utdata
-Formaren färdighet genererar ett nytt element som kallas *analyzedText* med de kombinerade delarna av *text* och *sentiment*. 
+Den **formaren** färdighet genererar ett nytt element som kallas *analyzedText* med de kombinerade delarna av *text* och *sentiment*. 
 
 ```json
 {

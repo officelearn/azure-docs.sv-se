@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 38b630b14a7425b4f8854ea88d6ba7e7a4335bea
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 48b9408a092b0e3a0fa6eb1b29822085ad8f8302
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54069881"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54363931"
 ---
 | Kategori | Datalager |
 |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |
 | &nbsp; |[Azure Cosmos DB (SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |
-| &nbsp; |[Azure Cosmos DB (MongoDB API)](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
+| &nbsp; |[Azure Cosmos DB: s API för MongoDB](../articles/data-factory/connector-azure-cosmos-db-mongodb-api.md) |
 | &nbsp; |[Azure Data Lake Storage Gen1](../articles/data-factory/connector-azure-data-lake-store.md) |
 | &nbsp; |[Azure Data Lake Storage Gen2](../articles/data-factory/connector-azure-data-lake-storage.md) |
 | &nbsp; |[Azure Database for MariaDB](../articles/data-factory/connector-azure-database-for-mariadb.md) |
@@ -66,7 +66,7 @@ ms.locfileid: "54069881"
 | **Generiskt protokoll** |[Generisk HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[OData (allmän)](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[ODBC (allmän)](../articles/data-factory/connector-odbc.md) |
-| &nbsp; |[Allmän REST](../articles/data-factory/connector-rest.md) |
+| &nbsp; |[Generic REST](../articles/data-factory/connector-rest.md) |
 | **Tjänster och appar** |[Amazon Marketplace Web Service (förhandsversion)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Common Data Service för appar](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓
 | &nbsp; |[Concur (förhandsversion)](../articles/data-factory/connector-concur.md) |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/27/2018
 ms.author: sethm
-ms.openlocfilehash: 05f198aa869bbff121d438688aaee89a292516c1
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: d5538ce94428f189fc83cfa1107c52b9d57a3d13
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807983"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381562"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>Konfigurationsinställningar för VPN-gateway för Azure Stack
 
@@ -51,9 +51,9 @@ Azure Stack har en VPN-gateway SKU: er som visas i följande tabell.
 
 |   | VPN-gateway, genomflöde |Maximal IPsec-tunnlar för VPN-gateway |
 |-------|-------|-------|
-|**Grundläggande SKU**  | 100 Mbit/s  | 10    |
-|**Standard-SKU**           | 100 Mbit/s  | 10    |
-|**Högpresterande SKU** | 200 Mbit/s    | 5 |
+|**Basic SKU**  | 100 Mbit/s  | 20    |
+|**Standard-SKU**           | 100 Mbit/s  | 20    |
+|**Högpresterande SKU** | 200 Mbit/s    | 10    |
 
 ### <a name="resizing-gateway-skus"></a>Ändra storlek på gateway-SKU: er
 
@@ -123,7 +123,7 @@ I följande tabell visas kraven för VPN-gatewayer.
 |--|--|--|--|--|
 | **Plats-till-plats-anslutning (S2S-anslutning)** | Stöds inte | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration | RouteBased VPN-konfiguration |
 | **Autentiseringsmetod**  | Stöds inte | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  | I förväg delad nyckel för S2S-anslutning  |   
-| **Maximalt antal S2S-anslutningar**  | Stöds inte | 10 | 10| 5|
+| **Maximalt antal S2S-anslutningar**  | Stöds inte | 20 | 20| 10|
 |**Stöd för aktiv routning (BGP)** | Stöds inte | Stöds inte | Stöds | Stöds |
 
 ### <a name="gateway-subnet"></a>Gateway-undernät 

@@ -13,16 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: 1dee53f633d8b5edf893e2f6c83430d7c1a69022
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 06532369efb802606eb13a4b38a8579a3528f999
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341600"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382957"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
 ![Varningsikon för hantering](media/alert-management-solution/icon.png)
+
+> [!NOTE]
+>  Azure Monitor nu stöder förbättrade funktioner för [hantera dina aviseringar i stor skala](https://aka.ms/azure-alerts-overview), inklusive de som genererats av [övervakningsverktyg som SCOM, Zabbix eller Nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  
+
 
 Aviseringshantering-lösningen hjälper dig att analysera alla aviseringar i Log Analytics-lagringsplatsen.  Dessa aviseringar kan härröra från olika källor, inklusive de källorna [skapats av Log Analytics](../../azure-monitor/platform/alerts-overview.md) eller [importeras från Nagios och Zabbix](../../azure-monitor/learn/quick-collect-linux-computer.md). Lösningen också importerar aviseringar från någon [anslutna System Center Operations Manager-hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
 

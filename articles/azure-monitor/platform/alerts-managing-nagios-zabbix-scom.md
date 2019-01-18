@@ -1,6 +1,6 @@
 ---
-title: Hantera aviseringar från andra övervakningstjänster i Azure Monitor
-description: Hantera Nagios och Zabbix SCOM-aviseringar i Azure Monitor
+title: Hantera aviseringar från SCOM, Zabbix och Nagios i Azure Monitor
+description: Hantera aviseringar från SCOM, Zabbix och Nagios i Azure Monitor
 author: anantr
 services: monitoring
 ms.service: azure-monitor
@@ -8,24 +8,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f45774d8afc8760d0a02cb0c863c9ef100ef1365
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346543"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381872"
 ---
-# <a name="manage-alerts-from-other-monitoring-services"></a>Hantera aviseringar från andra övervakningstjänster
+# <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Hantera aviseringar från SCOM, Zabbix och Nagios i Azure Monitor
 
-Nu kan du visa din varningar från Nagios och Zabbix System Center Operations Manager i den [unified aviseringsgränssnittet](https://aka.ms/azure-alerts-overview). Dessa aviseringar kommer från integreringar med Nagios/Zabbix-servrar eller System Center Operations Manager till Log Analytics. 
+Nu kan du visa din varningar från Nagios och Zabbix System Center Operations Manager i [Azure Monitor](https://aka.ms/azure-alerts-overview). Dessa aviseringar kommer från integreringar med Nagios/Zabbix-servrar eller System Center Operations Manager till Log Analytics. 
 
 ## <a name="prerequisites"></a>Förutsättningar
-Alla poster i Log Analytics-databasen med en typ av avisering kommer få importeras till den enhetliga aviseringsgränssnittet så måste du utföra de konfigurationssteg som krävs för att samla in dessa poster.
-1. För **Nagios** och **Zabbix** aviseringar, [Konfigurera servrarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) att skicka aviseringar till Log Analytics.
-1. För **System Center Operations Manager** aviseringar, [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Alla varningar som skapats i System Center Operations Manager importeras till Log Analytics.
+Alla poster i Log Analytics-databasen med en typ av avisering kommer få importeras till Azure Monitor, så måste du utföra de konfigurationssteg som krävs för att samla in dessa poster.
+1. För **Nagios** och **Zabbix** aviseringar, [Konfigurera servrarna](https://docs.microsoft.com/azure/log-analytics/log-analytics-linux-agents) till [Skicka aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-alerts-nagios-zabbix?toc=%2Fazure%2Fazure-monitor%2Ftoc.json) till Log Analytics.
+1. För **System Center Operations Manager** aviseringar, [ansluta din Operations Manager-hanteringsgrupp till Log Analytics-arbetsytan](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents). Genom att följa dessa, distribuera den [aviseringshantering](https://docs.microsoft.com/azure/azure-monitor/platform/alert-management-solution) lösning från marketplace för Azure-lösningar. När du har gjort, importeras alla varningar som skapats i System Center Operations Manager till Log Analytics.
 
 ## <a name="view-your-alert-instances"></a>Visa avisering instanser
-När du har konfigurerat import till Log Analytics kan du börja visa aviseringsinstanser från dessa övervakningstjänster i den [unified aviseringsgränssnittet](https://aka.ms/azure-alerts-overview). När de befinner sig i enhetlig aviseringarna, kan du [hantera din aviseringsinstanser](https://aka.ms/managing-alert-instances), [hantera smarta grupper som skapats på dessa aviseringar](https://aka.ms/managing-smart-groups) och [ändrar status för dina aviseringar och smart grupper](https://aka.ms/managing-alert-smart-group-states).
+När du har konfigurerat import till Log Analytics kan du börja visa aviseringsinstanser från dessa övervakningstjänster i [Azure Monitor](https://aka.ms/azure-alerts-overview). När de befinner sig i Azure Monitor kan du [hantera din aviseringsinstanser](https://aka.ms/managing-alert-instances), [hantera smarta grupper som skapats på dessa aviseringar](https://aka.ms/managing-smart-groups) och [ändrar status för dina aviseringar och smart grupper](https://aka.ms/managing-alert-smart-group-states).
 
 > [!NOTE]
->  Nagios-aviseringar i enhetlig aviseringarna är inte tillståndskänsliga – till exempel den [övervaka villkor](https://aka.ms/azure-alerts-overview) varning kommer inte att gå från ”Fired” till ”löst”. I stället visas både ”Fired” och ”löst” som separata aviseringsinstanser. 
+>  1. Den här lösningen kan du bara vill visa SCOM/Zabbix/Nagios utlösta aviseringsinstanser i Azure Monitor. Varningsregelskonfiguration kan endast vara visas/redigeras i respektive övervakningsverktyg. 
+>  1. Alla aktiverade aviseringsinstanser blir tillgänglig både i Azure Monitor och Azure Log Analytics. Det finns för närvarande inget sätt att välja mellan de två mata in endast specifika utlöst aviseringar.
+>  1. Alla aviseringar från SCOM, Zabbix och Nagios har signaltyp ”okänt” eftersom den underliggande telemetri-typen inte är tillgänglig.
+>  1. Nagios-aviseringar är inte tillståndskänsliga – till exempel den [övervaka villkor](https://aka.ms/azure-alerts-overview) varning kommer inte att gå från ”Fired” till ”löst”. I stället visas både ”Fired” och ”löst” som separata aviseringsinstanser. 

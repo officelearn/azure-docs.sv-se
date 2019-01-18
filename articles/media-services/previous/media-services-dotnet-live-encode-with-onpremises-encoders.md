@@ -1,6 +1,6 @@
 ---
 title: Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET | Microsoft Docs
-description: Det här avsnittet visar hur du använder .NET för att utföra live encoding med lokala kodare.
+description: Det här avsnittet visar hur du utför direktsänd kodning med lokala kodare med .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,32 +14,32 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: cenkdin;juliako
-ms.openlocfilehash: 32d456aee83c6f7c6d5d242a1ce039e7e370c0fd
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 493383583513f94689b30b5eca615005137da4a9
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788657"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382691"
 ---
 # <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-net"></a>Så här utför du direktsänd strömning med lokala kodare med hjälp av .NET
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
-> * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
+> * [NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 > * [REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > 
 
-Den här självstudiekursen vägleder dig genom stegen för att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
+Den här självstudien vägleder dig genom stegen för att använda Azure Media Services .NET SDK för att skapa en **kanal** som är konfigurerad för en genomströmningsleverans. 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs för att kunna genomföra vägledningen:
 
 * Ett Azure-konto.
 * Ett Media Services-konto.    Information om hur du skapar ett Media Services-konto finns i [Så här skapar du ett Media Services-konto](media-services-portal-create-account.md).
-* Ställ in din utvecklingsmiljö. Mer information finns i [konfigurera din miljö](media-services-set-up-computer.md).
+* Ställ in din utvecklingsmiljö. Mer information finns i [ställer in din miljö](media-services-set-up-computer.md).
 * En webbkamera. Till exempel [Telestream Wirecast-kodaren](http://www.telestream.net/wirecast/overview.htm).
 
-Du bör granska följande artiklar:
+Rekommenderar att du i följande artiklar:
 
 * [Azure Media Services RTMP-support och live-kodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/)
 * [Liveuppspelning med lokala kodare som skapar strömmar med flera bithastigheter](media-services-live-streaming-with-onprem-encoders.md)
@@ -49,17 +49,17 @@ Du bör granska följande artiklar:
 Konfigurera utvecklingsmiljön och fyll i filen app.config med anslutningsinformation, enligt beskrivningen i [Media Services-utveckling med .NET](media-services-dotnet-how-to-use.md). 
 
 ## <a name="example"></a>Exempel
-Följande kodexempel visar hur du utför följande uppgifter:
+I följande kodexempel visar hur du utför följande uppgifter:
 
 * Ansluta till Media Services
 * Skapa en kanal
 * Uppdatera kanalen
-* Hämta kanalens slutpunkten för indata. Slutpunkten för indata ska tillhandahållas till livekodaren lokalt. Livekodaren konverterar signaler från kameran till dataströmmar som skickas till den kanal-indata infognings () slutpunkt.
+* Hämta kanalens slutpunkt för indata. Slutpunkt för indata ska tillhandahållas till en lokal livekodare. Live-kodare konverterar signaler från kameran till dataströmmar som skickas till den kanal indata (mata in) slutpunkt.
 * Hämta kanalens förhandsgranskningsslutpunkten
 * Skapa och starta ett program
-* Skapa en positionerare som behövs för att få åtkomst till programmet
+* Skapa en positionerare som behövs för att komma åt programmet
 * Skapa och starta en StreamingEndpoint
-* Uppdatera den strömmande slutpunkten
+* Uppdatera slutpunkten för direktuppspelning
 * Stäng av resurser
 
 >[!IMPORTANT]
@@ -68,7 +68,7 @@ Följande kodexempel visar hur du utför följande uppgifter:
 >[!NOTE]
 >Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Du bör använda samma princip-ID om du alltid använder samma dagar/åtkomstbehörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (icke-överföringsprinciper). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
 
-Information om hur du konfigurerar en livekodare finns [Azure Media Services RTMP Support och direktsända kodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
+Information om hur du konfigurerar en live-kodare finns i [Azure Media Services RTMP-Support och Livekodare](https://azure.microsoft.com/blog/2014/09/18/azure-media-services-rtmp-support-and-live-encoders/).
 
 ```csharp
 using System;
@@ -149,6 +149,7 @@ namespace AMSLiveTest
 
         private static ChannelInput CreateChannelInput()
         {
+        // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelInput
             {
                 StreamingProtocol = StreamingProtocol.RTMP,
@@ -171,6 +172,7 @@ namespace AMSLiveTest
 
         private static ChannelPreview CreateChannelPreview()
         {
+         // When creating a Channel, you can specify allowed IP addresses in one of the following formats: IpV4 address with 4 numbers, CIDR address range.
             return new ChannelPreview
             {
                 AccessControl = new ChannelAccessControl

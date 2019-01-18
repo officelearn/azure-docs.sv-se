@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: d68215359d50ac153d6df3bbcce5a9b6171698bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: bf34d7e85632999056388eb74816140ce667ce10
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085447"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382352"
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
 
@@ -35,12 +35,12 @@ OpenShift innehåller Kubernetes för orkestrering av behållare och hantering. 
 Det finns flera versioner av OpenShift:
 
 - OpenShift Container Platform
-- OpenShift på Azure (fullständigt hanterad OpenShift i tidiga CY2019)
+- OpenShift på Azure (fullständigt hanterad OpenShift kommer runt slutet av Q1 CY2019)
 - OKD (tidigare OpenShift Origin)
 - OpenShift Dedicated
 - OpenShift Online
 
-Av de fem versionerna som beskrivs i den här artikeln bara två tillgängliga idag för kunder att distribuera i Azure: OpenShift Container Platform och OKD.
+Av fem versioner som beskrivs i den här artikeln är bara två tillgängliga idag för kunder att distribuera i Azure: OpenShift Container Platform och OKD.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 
@@ -50,7 +50,7 @@ Eftersom kunder ”äger” hela plattformen, kan de installera den i sina lokal
 
 ## <a name="openshift-on-azure"></a>OpenShift på Azure
 
-OpenShift på Azure är en fullständigt hanterad tjänst för OpenShift som körs i Azure. Den här tjänsten är gemensamt hanteras och stöds av Microsoft och Red Hat. Klustret kommer att distribuera till kundens Azure-prenumeration. Tjänsten är för tillfället i privat förhandsversion och kommer att vara allmänt tillgänglig i tidig CY 2019. Mer information kommer att finnas när erbjudandet blir närmare till GA.
+OpenShift på Azure är en fullständigt hanterad tjänst för OpenShift som körs i Azure. Den här tjänsten är gemensamt hanteras och stöds av Microsoft och Red Hat. Klustret kommer att distribuera till kundens Azure-prenumeration. Tjänsten är för tillfället i privat förhandsversion och kommer att vara GA runt Q1 CY2019 är slut. För kunder som vill delta i den privata förhandsgranskningen, Fyll i [Nomineringsformuläret](http://aka.ms/openshiftazureinterest).  Mer information kommer att finnas när erbjudandet blir närmare till GA.
 
 ## <a name="okd-formerly-openshift-origin"></a>OKD (tidigare OpenShift Origin)
 

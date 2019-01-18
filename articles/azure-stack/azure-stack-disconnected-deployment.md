@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 33512b47eff75421ce07b02f9c17ae3028152568
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 3262720f52bc75ba5d430e941da25568a105fe0d
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276262"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54391269"
 ---
 # <a name="azure-disconnected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-frånkopplade distribution planeringsbeslut för Azure Stack-system
 När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
@@ -49,12 +49,12 @@ Azure Stack har utformats för att fungerar bäst när du är ansluten till Azur
 |Marketplace – möjlighet att välja och lägga till Gallery-paket direkt från Azure Marketplace|Skadade – när du distribuerar Azure Stack i frånkopplat läge (utan någon Internetanslutning) kan du kan inte hämta marketplace-objekt med hjälp av Azure Stack-portalen. Men du kan använda den [marketplace syndikering verktyget](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item#download-marketplace-items-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity) hämta marketplace-objekt till en dator som är ansluten till internet och överföra dem till Azure Stack-miljön.|
 |Använda Azure Active Directory federation-konton för att hantera en Azure Stack-distribution|Ej tillgängligt – den här funktionen kräver anslutning till Azure. AD FS med en lokal Active Directory-instans måste användas i stället.|
 |App Services|Skadade - kan WebApps kräver Internetåtkomst för uppdaterat innehåll.|
-|Kommandoradsgränssnitt (CLI)|Skadade – minskat CLI funktioner när det gäller autentisering och etablering av Service Principles.|
+|Kommandoradsgränssnitt (CLI)|Skadade – minskat CLI funktioner när det gäller autentisering och etablering av tjänstens huvudnamn.|
 |Visual Studio – Cloud discovery|Skadade – Cloud Discovery identifierar antingen olika moln eller fungerar inte alls.|
 |Visual Studio – AD FS|Skadade – endast Visual Studio Enterprise stöder AD FS.
 Telemetri|Ej tillgänglig telemetridata för Azure Stack som tillsammans med eventuella från tredje part gallery-paket som beror på telemetridata.|
 |Certifikat|Är inte tillgänglig – Internetanslutning krävs för certifikat listan över Återkallade och Online Certificate Status Protocol (OSCP) i samband med HTTPS.|
-|Key Vault|Skadade – är ett vanligt användningsfall för Key Vault att ha ett program läsa hemligheter vid körning. För det här måste programmet ett huvudnamn för tjänsten i katalogen. I Azure Active Directory är vanliga användare (icke-administratörer) som standard tillåts att lägga till tjänstens huvudnamn. I AD (med AD FS) är de inte. Detta placerar en överskrida i slutpunkt till slutpunkt-upplevelse eftersom en alltid måste gå igenom en directory-administratör att lägga till alla program.| 
+|Key-Vault|Skadade – är ett vanligt användningsfall för Key Vault att ha ett program läsa hemligheter vid körning. För det här måste programmet ett huvudnamn för tjänsten i katalogen. I Azure Active Directory är vanliga användare (icke-administratörer) som standard tillåts att lägga till tjänstens huvudnamn. I AD (med AD FS) är de inte. Detta placerar en överskrida i slutpunkt till slutpunkt-upplevelse eftersom en alltid måste gå igenom en directory-administratör att lägga till alla program.| 
 
 ## <a name="learn-more"></a>Läs mer
 - Information om användningsfall, inköp, partner och OEM maskinvaruleverantörer finns i den [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.

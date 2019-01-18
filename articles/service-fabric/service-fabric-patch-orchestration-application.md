@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 58e853a3e9df0c3ba78b41f0c62e37bbcc3cdb5a
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 6bd71b7cecfb8a5decd3049152a2293dc7867bde
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754041"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382737"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -141,7 +141,7 @@ Automatiska uppdateringar för Windows kan leda till förlust av tillgänglighet
 
 Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA_v1.2.2.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
+Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
 
 ## <a name="configure-the-app"></a>Konfigurera appen
 
@@ -150,14 +150,14 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 |**Parametern**        |**Typ**                          | **Detaljer**|
 |:-|-|-|
 |MaxResultsToCache    |Lång                              | Maximalt antal Windows Update-resultat, som ska cachelagras. <br>Standardvärdet är 3000 förutsatt att den: <br> -Antalet noder är 20. <br> -Antalet uppdateringar som sker på en nod per månad är fem. <br> – Antal resultat per åtgärd kan vara 10. <br> -Resultat för de senaste tre månaderna ska lagras. |
-|TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)<br> Referera till [vanliga frågor och svar](#frequently-asked-questions) avsnittet om hur du avgör vilket är bäst lämpade princip för klustret.
+|TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)<br> Referera till [vanliga frågor och svar](#frequently-asked-questions) avsnittet om hur du avgör vilket är bäst lämpade princip för klustret.
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för patch orchestration app loggar i MB, vilket kan vara kvar lokalt på noderna.
 | WUQuery               | sträng<br>(Standard: ”IsInstalled = 0”)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: SANT)                 | Den här flaggan kan uppdateringarna för Windows-operativsystemet installeras.            |
+| InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: SANT)                 | Använd den här flaggan för att styra vilka uppdateringar som ska hämtas och installeras. Följande värden tillåts <br>True - installerar endast uppdateringar i Windows operativsystem.<br>FALSKT: installerar alla tillgängliga uppdateringar på datorn.          |
 | WUOperationTimeOutInMinutes | Int <br>(Standard: 90)                   | Anger tidsgränsen för alla Windows Update-åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte har slutförts inom den angivna tidsgränsen, avbryts.       |
 | WURescheduleCount     | Int <br> (Standard: 5)                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om i Windows.          |
 | WURescheduleTimeInMinutes | Int <br>(Standard: 30) | Intervallet då tjänsten schemalägger om Windows-uppdateringen om felet kvarstår. |
-| WUFrequency           | Kommaseparerad sträng (standard: ”Vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows-uppdatering. Format och möjliga värden är: <br>-: Som mm: ss månads-, DD, till exempel varje månad, 5, 12: 22:32. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att Windows Update inte bör göras.  <br><br> Observera att tiderna är i UTC.|
+| WUFrequency           | Kommaseparerad sträng (standard: ”Vecka, Onsdag 7:00:00”)     | Frekvensen för att installera Windows-uppdatering. Format och möjliga värden är: <br>-: Som mm: ss månads-, DD, till exempel varje månad, 5, 12: 22:32.<br>Tillåtna värden för fält är DD (dag) värden mellan intervallet 1-28 och ”efternamn”. <br> -Varje vecka, dag,: mm: ss, för exempelvis varje vecka, tisdag, 12:22:32.  <br> -Varje dag,: mm: ss, till exempel varje dag, 12:22:32.  <br> -Ingen indikerar att Windows Update inte bör göras.  <br><br> Observera att tiderna är i UTC.|
 | AcceptWindowsUpdateEula | Boolesk <br>(Standard: SANT) | Genom att ange den här flaggan accepterar programmet slutanvändarens licens för Windows Update för ägare för datorn.              |
 
 > [!TIP]
@@ -229,7 +229,7 @@ Fält | Värden | Information
 -- | -- | --
 OperationResult | 0 – lyckades<br> 1 – slutfördes med fel<br> 2 – misslyckades<br> 3 – avbröts<br> 4 – avbröts med tidsgräns | Visar resultatet av övergripande åtgärden (vanligtvis som rör installation av en eller flera uppdateringar).
 Resultatkod | Samma som OperationResult | Det här fältet visar resultatet av installationen igen för en enskild uppdatering.
-Åtgärdstyp | 1 – installation<br> 0 – Sök efter och ladda ned.| Installationen är den enda OperationType som visas i resultaten som standard.
+OperationType | 1 – installation<br> 0 – Sök efter och ladda ned.| Installationen är den enda OperationType som visas i resultaten som standard.
 WindowsUpdateQuery | Standardvärdet är ”IsInstalled = 0” |Windows uppdaterar fråga som används för att söka efter uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
 RebootRequired | True - krävdes omstart<br> FALSE - omstart behövs inte | Anger om omstart krävdes för att slutföra installationen av uppdateringar.
 
@@ -397,8 +397,14 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 
 - Felkorrigering i klustret skala ned arbetsflöde. Introducerade skräpinsamling samling logik för POA reparera uppgifter som hör till icke-existerande noder.
 
-### <a name="version-122-latest"></a>Version 1.2.2 (senaste)
+### <a name="version-122"></a>Version 1.2.2
 
 - Diverse felkorrigeringar.
 - Binärfiler är nu inloggad.
-- länk för hämtning av sfpkg pekar nu på en specifik version.
+- Lagt till sfpkg för programmet.
+
+### <a name="version-130"></a>Version 1.3.0
+
+- Ange InstallWindowsOSOnlyUpdates till false nu installerar alla tillgängliga uppdateringar.
+- Ändra logiken för att inaktivera automatiska uppdateringar. Det löser en bugg där automatiska uppdateringar har inte ska inaktiveras på Server 2016 och senare.
+- Parametriserade placering begränsningen för båda mikrotjänster av POA för avancerade usecases.

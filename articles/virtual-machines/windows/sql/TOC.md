@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: 050eb5e51ec4f589d160ac20322ffc02f77efc61
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358617"
+---
 # Översikt
 ## [Om virtuella Windows SQL Server-datorer](virtual-machines-windows-sql-server-iaas-overview.md) 
 ## [Viktig information](virtual-machines-windows-sql-server-iaas-release-notes.md) 
@@ -11,6 +19,12 @@
 ### [Metodtips för prestanda](virtual-machines-windows-sql-performance.md)
 ### [Säkerhetsöverväganden](virtual-machines-windows-sql-security.md)
 ### [Programmönster](virtual-machines-windows-sql-server-app-patterns-dev-strategies.md)
+## Verksamhetskontinuitet
+### [Alternativ för hög tillgänglighet](virtual-machines-windows-sql-high-availability-dr.md) 
+### [Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-overview.md)
+### [Säkerhetskopiering och återställning](virtual-machines-windows-sql-backup-recovery.md)
+### [Automatiserad säkerhetskopiering för SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
+### [Automatiserad säkerhetskopiering för SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
 ## Hantering
 ### [Anslut till en VM](virtual-machines-windows-sql-connect.md)
 ### [Konfigurera lagring](virtual-machines-windows-sql-server-storage-configuration.md)
@@ -18,22 +32,19 @@
 #### [Använd SQL Server IaaS Agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md)
 #### [Automatisk uppdatering](virtual-machines-windows-sql-automated-patching.md)
 #### [Konfigurera Azure Key Vault-integrering](virtual-machines-windows-ps-sql-keyvault.md)
-## Säkerhetskopiering och återställning
-### [Säkerhetskopiering och återställning](virtual-machines-windows-sql-backup-recovery.md)
-### [Automatiserad säkerhetskopiering för SQL Server 2014](virtual-machines-windows-sql-automated-backup.md)
-### [Automatiserad säkerhetskopiering för SQL Server 2016+](virtual-machines-windows-sql-automated-backup-v2.md)
-### [Använda Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
 
 # Instruktionsguider
 ## Skapa en virtuell SQL-dator
 ### [Använda portalen](virtual-machines-windows-portal-sql-server-provision.md)
 ### [Använda Azure PowerShell](virtual-machines-windows-ps-sql-create.md)
+## [Ändra licensieringsmodell för SQL VM](virtual-machines-windows-sql-ahb.md)
 ## Migrera
 ### [Migrera en SQL Server-databas](virtual-machines-windows-migrate-sql.md)
 ## Konfigurera hög tillgänglighet
-### [Alternativ för hög tillgänglighet](virtual-machines-windows-sql-high-availability-dr.md) 
-### [Always On-tillgänglighetsgrupp](virtual-machines-windows-portal-sql-availability-group-overview.md)
-#### [Automatisk – med mall](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+### [Använda Azure Storage för säkerhetskopiering och återställning](virtual-machines-windows-use-storage-sql-server-backup-restore.md)
+### Always On-tillgänglighetsgrupp
+#### [Använda en mall för Azure-portalen](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
+#### [Använda snabbstartsmallar](virtual-machines-windows-sql-availability-group-quickstart-template.md)
 #### [Manuellt – krav](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 #### [Manuellt – självstudie](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 #### [Lastbalanserare – Azure Portal](virtual-machines-windows-portal-sql-alwayson-int-listener.md)
@@ -41,7 +52,7 @@
 #### [Flera regioner](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Redundansklusterinstans
 #### [Konfigurera](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [Ändra licensieringsmodell för SQL VM](virtual-machines-windows-sql-ahb.md)
+
 
 # Referens
 ## [Azure PowerShell](/powershell/azure/overview)

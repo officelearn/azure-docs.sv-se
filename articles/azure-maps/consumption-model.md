@@ -18,8 +18,8 @@ ms.locfileid: "34600637"
 # <a name="consumption-model"></a>Förbrukningsmodell
 
 Online Routning tillhandahåller en uppsättning parametrar för en detaljerad beskrivning av vehicle-specifika förbrukning av modellen.
-Beroende på värdet för **vehicleEngineType**, två huvudsakliga förbrukning modeller stöds: _förbränning_ och _elektriska_. Ange parametrar som hör till olika modeller i samma begäran uppstår ett fel.
-Förbrukning modellen kan inte användas med **travelMode** värden _cykel_ och _fotgängare_.
+Beroende på värdet för **vehicleEngineType**, två huvudsakliga förbrukning modeller stöds: _Combustion_ och _Electric_. Ange parametrar som hör till olika modeller i samma begäran uppstår ett fel.
+Förbrukning modellen kan inte användas med **travelMode** värden _bicycle_ och _pedestrian_.
 
 ## <a name="parameter-constraints-for-consumption-model"></a>Begränsningarna för typparametrar för förbrukning modellen
 
@@ -38,7 +38,7 @@ I båda förbrukning modeller måste explicit ange vissa parametrar vissa andra 
 
 ## <a name="combustion-consumption-model"></a>Förbränning förbrukning modellen
 
-Förbränning förbrukning modellen används när **vehicleEngineType** är inställd på _förbränning_.
+Förbränning förbrukning modellen används när **vehicleEngineType** är inställd på _combustion_.
 Listan över parametrar som hör till den här modellen är lägre än. Se avsnittet Parametrar detaljerad beskrivning.
 
 * constantSpeedConsumptionInLitersPerHundredkm
@@ -53,7 +53,7 @@ Listan över parametrar som hör till den här modellen är lägre än. Se avsni
 
 ## <a name="electric-consumption-model"></a>Elektriska förbrukning modellen
 
-Elektriska förbrukning modellen används när **vehicleEngineType** är inställd på _elektriska_.
+Elektriska förbrukning modellen används när **vehicleEngineType** är inställd på _electric_.
 Listan över parametrar som hör till den här modellen är lägre än. Se avsnittet Parametrar detaljerad beskrivning.
 
 * constantSpeedConsumptionInkWhPerHundredkm

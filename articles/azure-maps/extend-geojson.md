@@ -47,7 +47,7 @@ En `Circle` geometri representeras med hjälp av den `GeoJSON Feature` objekt __
    >Cirkelns `radius` visas med `GeoJSON Feature`'s egenskaper. Radius-värdet är i _taxor_ och måste vara av typen `double`.
 
 3. Undertyp
-   >Cirkel geometri måste också innehålla den `subType` egenskapen. Den här egenskapen måste vara en del av den `GeoJSON Feature`'s egenskaper och dess värde bör vara _cirkel_
+   >Cirkel geometri måste också innehålla den `subType` egenskapen. Den här egenskapen måste vara en del av den `GeoJSON Feature`'s egenskaper och dess värde bör vara _Circle_
 
 
 #### <a name="example"></a>Exempel

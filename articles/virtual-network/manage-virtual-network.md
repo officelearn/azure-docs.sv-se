@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: jdial
-ms.openlocfilehash: a43988f8d4d6ae318f409cf1e79d8ad2ff8c8af1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 82e574663cec1bc3f97cbdb967f701faa57d7820
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247834"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413115"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -84,7 +84,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
     - **DNS-servrar**: Du kan ange om Azure intern DNS-server eller en anpassad DNS-server ger namnmatchning för enheter som är anslutna till det virtuella nätverket. När du skapar ett virtuellt nätverk med hjälp av Azure-portalen används Azure DNS-servrar för namnmatchning i ett virtuellt nätverk som standard. Om du vill ändra DNS-servrar måste du slutföra stegen i [ändra DNS-servrar](#change-dns-servers) i den här artikeln.
     - **Peerkopplingar**: Om det finns befintliga peerings i prenumeration, visas de här. Du kan visa inställningarna för befintliga peerings, eller skapa, ändra eller ta bort peerings. Läs mer om peer-kopplingar i [peerkoppling av virtuella nätverk](virtual-network-peering-overview.md).
     - **Egenskaper för**: Visar inställningar för det virtuella nätverket, inklusive resurs-ID för det virtuella nätverket och den är i den Azure-prenumeration.
-    - **Diagram över**: Diagrammet innehåller en visuell representation av alla enheter som är anslutna till det virtuella nätverket. Diagrammet har vissa viktig information om enheterna. Välj enheten för att hantera en enhet i den här vyn i diagram.
+    - **Diagram**: Diagrammet innehåller en visuell representation av alla enheter som är anslutna till det virtuella nätverket. Diagrammet har vissa viktig information om enheterna. Välj enheten för att hantera en enhet i den här vyn i diagram.
     - **Gemensamma inställningar för Azure**: Mer information om gemensamma inställningar för Azure finns följande information:
         *   [Aktivitetslogg](../azure-monitor/platform/activity-logs-overview.md)
         *   [Åtkomstkontroll (IAM)](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#access-control)
@@ -125,7 +125,7 @@ Lägga till eller ta bort ett adressintervall:
 
 **Kommandon**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="change-dns-servers"></a>Ändra DNS-servrar
@@ -147,7 +147,7 @@ Alla virtuella datorer som är anslutna till virtuella nätverk registrera med D
 
 **Kommandon**
 
-- Azure CLI: [az network vnet update](/cli/azure/network/vnet#az_network_vnet_update)
+- Azure CLI: [az network vnet update](/cli/azure/network/vnet)
 - PowerShell: [Set-AzureRmVirtualNetwork](/powershell/module/azurerm.network/set-azurermvirtualnetwork)
 
 ## <a name="delete-a-virtual-network"></a>Ta bort ett virtuellt nätverk

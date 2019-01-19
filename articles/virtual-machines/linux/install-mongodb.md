@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: zarhoads
-ms.openlocfilehash: f1f8db985917b8eae6a5f301379af3c1bf09021f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 138435664222ff268069465aa98a53f0902a9f99
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465431"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412707"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Hur du installerar och konfigurerar MongoDB på en Linux VM
 
@@ -31,9 +31,9 @@ ms.locfileid: "49465431"
 
 
 ## <a name="manually-install-and-configure-mongodb-on-a-vm"></a>Installera och konfigurera MongoDB på en virtuell dator manuellt
-MongoDB [ger installationsanvisningar](https://docs.mongodb.com/manual/administration/install-on-linux/) för Linux-distributioner, inklusive Red Hat / CentOS, SUSE, Ubuntu eller Debian. I följande exempel skapas en *CentOS* VM. Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+MongoDB [ger installationsanvisningar](https://docs.mongodb.com/manual/administration/install-on-linux/) för Linux-distributioner, inklusive Red Hat / CentOS, SUSE, Ubuntu eller Debian. I följande exempel skapas en *CentOS* VM. Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
-Skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -121,7 +121,7 @@ Du kan skapa en grundläggande MongoDB-instans på en enda virtuell CentOS-dator
 
 * [Grundläggande MongoDB-instans på CentOS](https://github.com/Azure/azure-quickstart-templates/tree/master/mongodb-on-centos) - https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 
-Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login). Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index). Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -134,7 +134,7 @@ az group deployment create --resource-group myResourceGroup \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/mongodb-on-centos/azuredeploy.json
 ```
 
-Logga in på den virtuella datorn med den offentliga DNS-adressen för den virtuella datorn. Du kan visa den offentliga DNS-adressen med [az vm show](/cli/azure/vm#az_vm_show):
+Logga in på den virtuella datorn med den offentliga DNS-adressen för den virtuella datorn. Du kan visa den offentliga DNS-adressen med [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show -g myResourceGroup -n myLinuxVM -d --query [fqdns] -o tsv
@@ -172,7 +172,7 @@ Du kan skapa komplexa shardade MongoDB-kluster med hjälp av följande Azure qui
 > [!WARNING]
 > Distribuera den här komplexa shardade MongoDB-kluster kräver fler än 20 kärnor, vilket vanligtvis är standardvärdet för antal kärnor per region för en prenumeration. Öppna en supportförfrågan för Azure att öka din antal kärnor.
 
-Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login). Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Om du vill skapa den här miljön, du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index). Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus

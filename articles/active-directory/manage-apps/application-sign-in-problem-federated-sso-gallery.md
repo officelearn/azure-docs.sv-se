@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 8d910ffcf966e98def33a42a6452baea9f4b3998
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2794f45bf9d9d8d60f9be286fdf0e4d288a969fa
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357805"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412299"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -133,7 +133,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -228,7 +228,7 @@ Om alternativ 1 ovan inte fungerar för dig tar du bort programmet från katalog
 
 ## <a name="certificate-or-key-not-configured"></a>Certifikat eller nyckel har inte angetts
 
-*Fel AADSTS50003: Inga signeringsnyckeln konfigurerats.*
+*Fel AADSTS50003: Inga signeringsnyckel som konfigurerats.*
 
 **Möjlig orsak**
 
@@ -261,6 +261,19 @@ Ta bort och skapa ett nytt certifikat genom att följa stegen nedan:
 10. Kontrollera **gör nytt certifikat aktivt** att åsidosätta det aktiva certifikatet. Klicka sedan på **spara** överst i fönstret och acceptera för att aktivera förnyelsecertifikatet.
 
 11. Under den **SAML-signeringscertifikat** klickar du på **ta bort** att ta bort den **används inte** certifikat.
+
+## <a name="saml-request-not-present-in-the-request"></a>SAML-begäran finns inte i begäran
+
+*Fel AADSTS750054: SAMLRequest eller SAMLResponse måste vara närvarande enligt fråga strängparametrar i HTTP-begäran för SAML omdirigera bindning.*
+
+**Möjlig orsak**
+
+Azure AD inte kan identifiera SAML-begäran i URL-parametrar i HTTP-begäran. Detta kan inträffa om programmet inte använder HTTP omdirigera bindning för att skicka SAML-begäran till Azure AD.
+
+**Lösning**
+
+Programmet måste skicka SAML-begäranskodad i location-huvudet med hjälp av HTTP-omdirigerings-bindning. Mer information om hur du implementerar den, finns i avsnittet HTTP omdirigera bindning i den [SAML-protokollet specifikationsdokument](https://docs.oasis-open.org/security/saml/v2.0/saml-bindings-2.0-os.pdf).
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problem när du anpassar SAML-anspråk som skickas till ett program
 

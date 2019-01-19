@@ -10,14 +10,14 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 01/14/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ef62157644e55ed291562f581389228b5776f51
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353234"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413132"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -68,13 +68,15 @@ Kom igång med att utveckla med Azure-datorer, se [Kom igång med Azure Machine 
 
 DSVM är en anpassad virtuell dator (VM)-avbildning. Det är utformat för data science arbete som är förkonfigurerad med:
 
-  - Paket som till exempel TensorFlow, PyTorch, lär du dig Scikit, XGBoost och Azure Machine Learning SDK.
-  - Populära verktyg för datavetenskap, till exempel Spark fristående och test.
-  - Azure-verktyg som Azure CLI, AzCopy och Storage Explorer.
-  - Integrated development Environment (IDE: er), till exempel Visual Studio Code, pycharm med RStudio.
-  - Jupyter Notebook Server. 
+  - Paket som till exempel TensorFlow, PyTorch, lär du dig Scikit, XGBoost och Azure Machine Learning SDK
+  - Populära verktyg för datavetenskap som Spark fristående och ökad detaljnivå
+  - Azure-verktyg som Azure CLI, AzCopy och Storage Explorer
+  - Integrated development Environment (IDE: er), till exempel Visual Studio Code och PyCharm
+  - Jupyter Notebook-Server
 
-Azure Machine Learning-SDK fungerar på antingen Ubuntu eller Windows-versionen av DSVM. Om du vill använda DSVM som en utvecklingsmiljö, gör du följande:
+Azure Machine Learning-SDK fungerar på antingen Ubuntu eller Windows-versionen av DSVM. Men om du tänker använda DSVM som ett beräkningsmål endast Ubuntu stöds.
+
+Om du vill använda DSVM som en utvecklingsmiljö, gör du följande:
 
 1. Skapa en DSVM i något av följande miljöer:
 

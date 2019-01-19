@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 5a92f4543f865141d446f5b681674961f6fef046
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021041"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412877"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -52,7 +52,12 @@ Du kan använda följande verktyg för att skapa eller konfigurera ett virtuellt
 * En nätverkskonfigurationsfil (netcfg - för klassiska virtuella nätverk endast). Se den [konfigurera ett virtuellt nätverk med en nätverkskonfigurationsfil](virtual-networks-using-network-configuration-file.md) artikeln.
 
 ### <a name="what-address-ranges-can-i-use-in-my-vnets"></a>Vilka adressintervall kan jag använda Mina virtuella nätverk?
-Alla IP-adressintervall som definierats i [RFC 1918](http://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16.
+Alla IP-adressintervall som definierats i [RFC 1918](http://tools.ietf.org/html/rfc1918). Till exempel 10.0.0.0/16. Du kan inte lägga till följande-adressintervall:
+* 224.0.0.0/4 (Multicast)
+* 255.255.255.255/32 (Broadcast)
+* 127.0.0.0/8 (Loopback)
+* 169.254.0.0/16 (Link-local)
+* 168.63.129.16/32 (internt DNS)
 
 ### <a name="can-i-have-public-ip-addresses-in-my-vnets"></a>Kan jag ha offentliga IP-adresser i mitt virtuella nätverk?
 Ja. Mer information om offentliga IP-adressintervall finns i [skapa ett virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network). Offentliga IP-adresser kan inte nås direkt från internet.

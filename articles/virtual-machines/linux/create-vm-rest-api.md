@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 3eeaee9bc6320231f10aa85227e2f43756181806
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 22a800e65c0f64dfa897433d1ea983006ed62250
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433488"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412197"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Skapa en Linux-dator som använder SSH-autentisering med REST API
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du använder REST-API för att skapa en Linux-VM som
 Innan du skapar och skickar begäran behöver du:
 
 * Den `{subscription-id}` för din prenumeration
-  * Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * Om du har flera prenumerationer, se [arbeta med flera prenumerationer](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * En `{resourceGroupName}` du har skapat i tid
 * En [virtuellt nätverksgränssnitt](../../virtual-network/virtual-network-network-interface.md) i samma resursgrupp
 * En SSH-nyckelpar (du kan [Generera en ny](mac-create-ssh-keys.md) om du inte har någon)

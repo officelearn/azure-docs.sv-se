@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9f5d48a074f8069e243af5644f86ad3c3d8f559b
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: c339556353967db26f022384f2cf877962dc6d83
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52634871"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412316"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Hantera åtkomst med hjälp av RBAC och Azure Portal
 
@@ -33,7 +33,7 @@ Den **åtkomstkontroll (IAM)** bladet, kallas även för identitets- och åtkoms
 
 1. Klicka på den specifika resursen som du vill visa eller hantera.
 
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
     Nedan visas ett exempel på åtkomstkontroll (IAM)-bladet för en prenumeration.
 
@@ -65,21 +65,21 @@ Följ dessa steg om du vill visa åtkomst för en enskild användare, grupp, tj�
 
 1. Öppna **åtkomstkontroll (IAM)** i ett omfång, till exempel hanteringsgruppen, prenumeration, resursgrupp eller resurs, där du vill visa åtkomst.
 
-1. Klicka på den **Kontrollera åtkomst** fliken.
+1. Klicka på fliken **Kontrollera åtkomst**.
 
-    ![Åtkomstkontroll - fliken för Kontrollera åtkomst](./media/role-assignments-portal/access-control-check-access.png)
+    ![Åtkomstkontroll – fliken Kontrollera åtkomst](./media/role-assignments-portal/access-control-check-access.png)
 
-1. I den **hitta** väljer du den typ av säkerhetsobjekt som du vill kontrollera åtkomst för.
+1. I listan **Hitta** väljer du den typ av säkerhetsprincip som du vill kontrollera åtkomst för.
 
-1. Ange en sträng för att söka i katalogen för visningsnamn, e-postadresser eller objektidentifierare i sökrutan.
+1. I sökrutan anger du en sträng för att söka i katalogen efter visningsnamn, e-postadresser eller objektidentifierare.
 
-    ![Kontrollera åtkomst select-listan](./media/role-assignments-portal/check-access-select.png)
+    ![Välj lista för Kontrollera åtkomst](./media/role-assignments-portal/check-access-select.png)
 
-1. Klicka på säkerhetsobjektet att öppna den **tilldelningar** fönstret.
+1. Klicka på säkerhetsprincipen för att öppna fönsterrutan **tilldelningar**.
 
-    ![fönstret tilldelningar](./media/role-assignments-portal/check-access-assignments.png)
+    ![fönsterrutan tilldelningar](./media/role-assignments-portal/check-access-assignments.png)
 
-    Du kan se de roller som tilldelats de valda säkerhetsobjektet och omfång i det här fönstret. Om det inte finns någon neka tilldelningar i den här omfattningen eller ärvt för detta omfång visas.
+    I den här fönsterrutan kan du se de roller som tilldelats till den valda säkerhetsprincipen och omfånget. Om det finns några nekande tilldelningar i det här omfånget eller som ärvts till det här omfånget visas de.
 
 ### <a name="view-all-role-assignments-at-a-scope"></a>Visa alla rolltilldelningar för ett omfång
 
@@ -103,9 +103,9 @@ I RBAC, om du vill bevilja åtkomst måste tilldela du en roll till en användar
 
 1. Klicka på **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
 
-   Om du inte har behörighet att tilldela roller, inaktiveras alternativet Lägg till rollen tilldelning.
+   Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-   ![Lägg till rollen tilldelningsfönstret](./media/role-assignments-portal/add-role-assignment.png)
+   ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 
 1. I listrutan **Roll** väljer du en roll, till exempel **Virtuell datordeltagare**.
 
@@ -119,19 +119,19 @@ I RBAC, om du vill bevilja åtkomst måste tilldela du en roll till en användar
 
 Om du vill göra en administratör för en Azure-prenumeration för en användare, tilldela dem den [ägare](built-in-roles.md#owner) rollen prenumerationsområde. Ägarrollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive rätten att delegera åtkomst till andra. De här stegen är desamma som alla andra rolltilldelning.
 
-1. I Azure-portalen klickar du på **alla tjänster** och sedan **prenumerationer**.
+1. I Azure-portalen klickar du på **Alla tjänster** och sedan **Prenumerationer**.
 
 1. Klicka på den prenumeration där du vill bevilja åtkomst.
 
-1. Klicka på **åtkomstkontroll (IAM)**.
+1. Klicka på **Åtkomstkontroll (IAM)**.
 
 1. Klicka på den **rolltilldelningar** fliken för att visa alla rolltilldelningar för den här prenumerationen.
 
 1. Klicka på **Lägg till rolltilldelning** att öppna fönstret Lägg till rollen tilldelning.
 
-   Om du inte har behörighet att tilldela roller, inaktiveras alternativet Lägg till rollen tilldelning.
+   Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
-   ![Lägg till rollen tilldelningsfönstret](./media/role-assignments-portal/add-role-assignment.png)
+   ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 
 1. I den **rollen** listrutan, väljer den **ägare** roll.
 
@@ -166,6 +166,6 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Självstudier: Bevilja åtkomst för en användare med RBAC och Azure portal](quickstart-assign-role-user-portal.md)
-* [Självstudiekurs – Bevilja åtkomst för en användare med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
-* [Inbyggda roller](built-in-roles.md)
+* [Självstudier: Bevilja åtkomst för en användare med RBAC och Azure PowerShell](tutorial-role-assignments-user-powershell.md)
+* [Felsöka RBAC i Azure](troubleshooting.md)
 * [Organisera dina resurser med Azure-hanteringsgrupper](../azure-resource-manager/management-groups-overview.md)

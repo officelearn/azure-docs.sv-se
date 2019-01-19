@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: cd2399e25889cdc9c885b76e002e47415c0629e5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 977d40ba6fdb00f47f4ff32e60642ee3ab102da2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984402"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413642"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -31,7 +31,7 @@ Den här guiden förutsätter att du förstår de grundläggande principerna fö
 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: Om du inte redan har en Azure-prenumeration [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/).
-* **Lagringskonto**: Se [skapar ett lagringskonto](storage-quickstart-create-account.md) i [Om Azure-lagringskonton](storage-create-storage-account.md).
+* **Storage-konto**: Se [skapa ett lagringskonto](storage-quickstart-create-account.md) i [om Azure storage-konton](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli"></a>Installera Azure CLI
 
@@ -183,9 +183,9 @@ az storage account create \
     --sku <account_sku>
 ```
 
-* `--location` [Krävs]: plats. Till exempel ”USA, västra.
-* `--name` [Krävs]: namnet på lagringskontot. Namnet måste bestå av 3 till 24 tecken och Använd endast gemena alfanumeriska tecken.
-* `--resource-group` [Krävs]: namnet på resursgruppen.
+* `--location` [Krävs]: Plats. Till exempel ”USA, västra.
+* `--name` [Krävs]: Namnet på lagringskontot. Namnet måste bestå av 3 till 24 tecken och Använd endast gemena alfanumeriska tecken.
+* `--resource-group` [Krävs]: Namnet på resursgruppen.
 * `--sku` [Krävs]: SKU för lagringskontot. Tillåtna värden:
   * `Premium_LRS`
   * `Standard_GRS`
@@ -197,7 +197,7 @@ az storage account create \
 
 Du kan ha flera lagringskonton i Azure-prenumerationen. Du kan ange dessa miljövariabler för att välja en av dem ska användas för alla efterföljande storage-kommandon:
 
-Visa först dina lagringskontonycklar med kommandot [az storage account keys list](/cli/azure/storage/account/keys#list):
+Visa först dina lagringskontonycklar med kommandot [az storage account keys list](/cli/azure/storage/account/keys):
 
 ```azurecli-interactive
 az storage account keys list \
@@ -242,9 +242,9 @@ az storage container create --name <container_name>
 
 Du kan ange en av tre nivåer av läsbehörighet för en ny behållare genom att ange den valfria `--public-access` argument:
 
-* `off` (standard): behållardata är privata för kontoinnehavaren.
+* `off` (standard): Behållardata är privata för kontoinnehavaren.
 * `blob`: Offentlig läsbehörighet för blobar.
-* `container`: Läs- och lista offentlig åtkomst till hela behållaren.
+* `container`: Läs- och offentlig åtkomst till hela behållaren.
 
 Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).
 

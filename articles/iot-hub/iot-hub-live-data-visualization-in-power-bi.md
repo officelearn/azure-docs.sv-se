@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
 ms.author: rangv
-ms.openlocfilehash: a533bd6ee447479f08add23833bf5acdde5c4d40
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: a55e77853a1c9466892f686f34d17a5e84b11ba7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155107"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411294"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualisera sensordata i realtid från Azure IoT Hub med Power BI
 
@@ -57,13 +57,13 @@ Låt oss börja med att skapa ett Stream Analytics-jobb. När du skapar jobbet k
 
 2. Ange följande information för jobbet.
 
-   **Jobbnamn**: Jobbets namn. Namnet måste vara globalt unikt.
+   **Jobbnamn**: Namnet på jobbet. Namnet måste vara globalt unikt.
 
    **Resursgrupp**: Använd samma resursgrupp som din IoT-hubb använder.
 
    **Plats**: Använd samma plats som resursgruppen.
 
-   **Fäst på instrumentpanelen**: Välj det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
+   **Fäst på instrumentpanelen**: Markera det här alternativet för enkel åtkomst till IoT-hubben från instrumentpanelen.
 
    ![Skapa ett Stream Analytics-jobb i Azure](./media/iot-hub-live-data-visualization-in-power-bi/2_create-stream-analytics-job-azure.png)
 
@@ -75,13 +75,15 @@ Låt oss börja med att skapa ett Stream Analytics-jobb. När du skapar jobbet k
 
 2. Klicka på **Indata** under **Jobbtopologi**.
 
-3. I den **indata** fönstret klickar du på **Lägg till**, och ange sedan följande information:
+3. I den **indata** fönstret klickar du på **Lägg till strömindata**, och ange sedan följande information:
 
-   **Inmatat alias**: det unika aliaset för indata.
+   **Indataalias**: Det unika aliaset för indata och välj **ger IoT Hub-inställningar manuellt** nedan.
 
-   **Källan**: Välj **IoT-hubb**.
+   **Källa**: Välj **IoT-hubb**.
+   
+   **Slutpunkt**: Klicka på **meddelanden**.
 
-   **Konsumentgrupp**: Välj konsumentgrupp som du nyss skapade.
+   **Konsumentgrupp**: Välja konsumentgrupp som du nyss skapade.
 
 4. Klicka på **Skapa**.
 
@@ -91,15 +93,9 @@ Låt oss börja med att skapa ett Stream Analytics-jobb. När du skapar jobbet k
 
 1. Under **Jobbtopologi** klickar du på **Utdata**.
 
-2. I den **utdata** fönstret klickar du på **Lägg till**, och ange sedan följande information:
+2. I den **utdata** fönstret klickar du på **Lägg till** och **Power BI**, och ange sedan följande information:
 
    **Utdataalias**: Utdatas unika alias.
-
-   **Mottagare**: Välj **Power BI**.
-
-3. Klicka på **auktorisera**, och sedan logga in på ditt Power BI-konto.
-
-4. När det har auktoriserats, anger du följande information:
 
    **Gruppen arbetsyta**: Välj din mål-grupparbetsyta.
 
@@ -107,7 +103,9 @@ Låt oss börja med att skapa ett Stream Analytics-jobb. När du skapar jobbet k
 
    **Tabellnamn**: Ange ett tabellnamn.
 
-5. Klicka på **Skapa**.
+3. Klicka på **auktorisera**, och sedan logga in på ditt Power BI-konto.
+
+4. Klicka på **Skapa**.
 
    ![Lägg till utdata till ett Stream Analytics-jobb i Azure](./media/iot-hub-live-data-visualization-in-power-bi/4_add-output-to-stream-analytics-job-azure.png)
 
@@ -135,13 +133,13 @@ I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När 
 
 2. Logga in på ditt [Power BI](https://powerbi.microsoft.com/en-us/)-konto.
 
-3. Gå till arbetsytan grupp som du angav när du skapade utdata för Stream Analytics-jobbet.
+3. Klicka på den arbetsyta du använde **Min arbetsyta**.
 
-4. Klicka på **strömmande datauppsättningar**.
+4. Klicka på **Datauppsättningar**.
 
-   Du bör se den listade datauppsättningen som du angav när du skapade utdata för Stream Analytics-jobbet.
+   Du bör se den datauppsättning som du angav när du skapade utdata för Stream Analytics-jobbet.
 
-5. Under **ÅTGÄRDER** klickar du på den första ikonen för att skapa en rapport.
+5. För den datauppsättning som du har skapat, klickar du på **Lägg till rapport** (den första ikonen till höger om datauppsättningsnamnet).
 
    ![Skapa en Microsoft Power BI-rapport](./media/iot-hub-live-data-visualization-in-power-bi/7_create-power-bi-report-microsoft.png)
 
@@ -165,9 +163,11 @@ I Stream Analytics-jobbet klickar du på **Starta** > **Nu** > **Starta**. När 
 
 8. Klicka på **Spara** för att spara rapporten.
 
-9. Klicka på **filen** > **publicera på webben**.
+9. Klicka på **rapporter** på den vänstra rutan och klicka sedan på rapporten som du just skapade.
 
-10. Klicka på **skapa inbäddningskod**, och klicka sedan på **publicera**.
+10. Klicka på **filen** > **publicera på webben**.
+
+11. Klicka på **skapa inbäddningskod**, och klicka sedan på **publicera**.
 
 Du får se rapportlänken att du kan dela med vem som helst för Rapportåtkomst och ett kodfragment för att integrera rapporten på din blogg eller webbplats.
 

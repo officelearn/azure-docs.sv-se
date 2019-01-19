@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: c3e142c65cdfe00fb26694063f7733d62882cc0c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 5be96fc93a5a6636ccac6faf456458b3bcb8423a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267376"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413727"
 ---
 # <a name="luis-bot-in-c-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i C# med Bot Framework 3.x och Azure Web app-robot
 
@@ -153,7 +153,7 @@ I Azure-portalen klickar du på **testa i Web Chat** att testa roboten. Skriv me
 > Du kan kvarhålla LUIS-app utan några ändringar till din robot kod. Se [lägger du till exempel yttranden](https://docs.microsoft.com/azure/cognitive-services/LUIS/add-example-utterances) och [träna och testa LUIS-appen](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-interactive-test). 
 
 ## <a name="download-the-bot-to-debug"></a>Ladda ned roboten att felsöka
-Om din robot inte fungerar kan ladda ned projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot#debug-a-c-bot). 
+Om din robot inte fungerar kan ladda ned projektet till den lokala datorn och fortsätta [felsökning](https://docs.microsoft.com/bot-framework/bot-service-debug-bot). 
 
 ## <a name="learn-more-about-bot-framework"></a>Läs mer om Bot Framework
 Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://github.com/Microsoft/BotBuilder) och [4.x](https://github.com/Microsoft/botbuilder-dotnet) SDK: er.
@@ -162,7 +162,7 @@ Läs mer om [Bot Framework](https://dev.botframework.com/) och [3.x](https://git
 
 Lägg till LUIS avsikter och Bot service dialogrutor för hantering av **hjälpa**, **Avbryt**, och **hälsning** avsikter. Kom ihåg att träna, publicera och [skapa](#build-the-bot) web app-robot. Både LUIS och roboten bör ha samma avsikter.
 
-Se fler [exempel](https://github.com/Microsoft/AI) med konversationsanpassade robotar. 
+Se fler [exempel](https://github.com/Microsoft/AI) med konversationsrobotar. 
 
 > [!div class="nextstepaction"]
 > [Lägg till avsikter](./luis-how-to-add-intents.md)

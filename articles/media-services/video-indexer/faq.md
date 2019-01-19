@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: juliako
-ms.openlocfilehash: ff3aa86fee7fc30cfc18edc3b413a4378df69662
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 205a4f2089ec5f415932f98eefe2f3d5f614f0ba
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54307012"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402055"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -28,18 +28,17 @@ Video Indexer är en tjänst för artificiell intelligens som ingår i Microsoft
 
 ### <a name="what-can-i-do-with-video-indexer"></a>Vad kan jag göra med Video Indexer?
 
-Video Indexer kan utföra följande typer av åtgärder på mediefiler:
+Några av de åtgärder som Video Indexer kan utföra på mediefiler är:
 
 * Identifiera och extrahera tal och identifiera talare.
 * Identifiera och extrahera anvisningarna på skärmen text i en video.
-* Identifiera och etikettera objekt i en videofil.
-* Identifiera text i en video för varumärken, t.ex. Microsoft från ljudspår och anvisningarna på skärmen.
+* Identifierar objekt i en videofil.
+* Identifiera varumärken (till exempel: Microsoft) från ljudspår och anvisningarna på skärmen text i en video.
 * Identifiera och känna igen ansikten från en databas med kändisar och en användardefinierad databas med ansikten.
-* Extrahera nyckelord från video och ljud innehåll baserat på talat och visuella text.
-* Extrahera avsnitt diskuteras men inte nödvändigtvis uttryckligen anges i ljud- och innehåll utifrån talat och visuella text.
-* Skapa undertexter eller undertexter från ljudspåret.
+* Extrahera avsnitt diskuteras men inte nödvändigtvis nämns i ljud-och videoinnehåll.
+* Skapa undertexter eller undertexter ljudspåret.
 
-Mer information finns i [Översikt](video-indexer-overview.md).
+Mer information och fler Video Indexer-funktioner finns i [översikt](video-indexer-overview.md).
 
 ### <a name="how-do-i-get-started-with-video-indexer"></a>Hur kommer jag igång med Video Indexer?
 

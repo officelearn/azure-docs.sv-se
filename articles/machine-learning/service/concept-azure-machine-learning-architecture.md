@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: larryfr
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e5f569d5561050c9993ec48b096f60595d44b1b1
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a5a5b306341780ead737def90306fe6cb6a47db1
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391181"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401987"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Så här fungerar Azure Machine Learning-tjänsten: Arkitektur och begrepp
 
@@ -28,7 +28,7 @@ Arbetsflödet följer vanligtvis den här sekvensen:
 
 1. Utveckla maskininlärning utbildning skript i **Python**.
 1. Skapa och konfigurera en **beräkningsmålet**.
-1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Och poster för körningen är Spara som **körs** i den **arbetsytan**, som är partitionerad över **experimentera**.
+1. **Skicka skripten** till den konfigurerade beräkningsmål ska köras i den miljön. Vid träning, skripten kan läsa från eller skriva till **datalager**. Posterna i körningen sparas som **körs** i den **arbetsytan** och grupperade under **experiment**.
 1. **Fråga experimentet** för loggade mått från de aktuella och tidigare körningarna. Om mått som inte visar önskat utfall ska köras i slinga att gå tillbaka till steg 1 och iterera på dina skript.
 1. När du har hittat ett tillfredsställande kör registrera beständiga modellen i den **modellen registret**.
 1. Utveckla ett bedömningsskript.

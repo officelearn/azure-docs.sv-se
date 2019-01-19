@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 08420be7171df78babf62b262fef84fd29fb34ab
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 37ecb314c5f09a51d9ce9d28534a4664b75069af
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39495071"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412758"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementera Oracle Data Guard på en virtuell Azure Linux-dator 
 
@@ -48,9 +48,9 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med hjälp av den [az gruppen skapa](/cli/azure/group#az_group_create) kommando. En Azure-resursgrupp är en logisk behållare där Azure resurser distribueras och hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk behållare där Azure resurser distribueras och hanteras. 
 
-I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westus` plats:
+I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -688,6 +688,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
+[Självstudier: Skapa virtuella datorer med hög tillgänglighet](../../linux/create-cli-complete.md)
 
 [Utforska Azure CLI-exempel för VM-distribution](../../linux/cli-samples.md)

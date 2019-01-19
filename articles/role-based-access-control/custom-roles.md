@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 281c426170985d43401a13988218126ea3951634
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 17a2d1ac747b46ed9a55ceffeea3ba9f4b2f0bc7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405622"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412056"
 ---
 # <a name="custom-roles-in-azure"></a>Anpassade roller i Azure
 
@@ -84,7 +84,7 @@ När du skapar en anpassad roll, visas den i Azure-portalen med en orange resurs
 
     När du har din anpassade roll kan behöva du testa den för att kontrollera att den fungerar som förväntat. Om du behöver göra justeringar senare kan du uppdatera den anpassade rollen.
 
-En stegvis självstudiekurs om hur du skapar en anpassad roll finns i [självstudie: skapa en anpassad roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md) eller [självstudie: skapa en anpassad roll med hjälp av Azure CLI](tutorial-custom-role-cli.md).
+En stegvis självstudiekurs om hur du skapar en anpassad roll finns i [självstudien: Skapa en anpassad roll med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md) eller [självstudien: Skapa en anpassad roll med hjälp av Azure CLI](tutorial-custom-role-cli.md).
 
 ## <a name="custom-role-properties"></a>Egenskaper för anpassad roll
 
@@ -113,6 +113,7 @@ Precis som inbyggda roller i `AssignableScopes` egenskap anger scope att rollen 
 | Visa en anpassad roll | `Microsoft.Authorization/ roleDefinition/read` | Användare som fått den här åtgärden i ett omfång kan visa anpassade roller som är tillgängliga för tilldelning i detta omfång. Alla inbyggda roller kan anpassade roller ska vara tillgängliga för tilldelning. |
 
 ## <a name="next-steps"></a>Nästa steg
-- [Skapa anpassade roller med hjälp av Azure PowerShell](custom-roles-powershell.md)
+- [Skapa anpassade roller med Azure PowerShell](custom-roles-powershell.md)
 - [Skapa anpassade roller med Azure CLI](custom-roles-cli.md)
 - [Förstå rolldefinitioner](role-definitions.md)
+- [Felsöka RBAC i Azure](troubleshooting.md)

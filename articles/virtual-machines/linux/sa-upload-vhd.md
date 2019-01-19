@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1926f0bcf7efca786e97bd973601888e5a8d4463
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966511"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412350"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en Linux VM från anpassad disk med Azure CLI
 
@@ -35,13 +35,13 @@ Se till att du har senast [Azure CLI](/cli/azure/install-az-cli2) installerat oc
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår `myResourceGroup`, `mystorageaccount`, och `mydisks`.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `WestUs` plats:
+Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `WestUs`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
 ```
 
-Skapa ett lagringskonto för att lagra dina virtuella diskar med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create). I följande exempel skapas ett lagringskonto med namnet `mystorageaccount`:
+Skapa ett lagringskonto för att lagra dina virtuella diskar med [az storage-konto skapar](/cli/azure/storage/account). I följande exempel skapas ett lagringskonto med namnet `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westus \
@@ -124,7 +124,7 @@ Se även de **[Linux installationsinformation](create-upload-generic.md#general-
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 Resursgrupper sammanför logiskt alla Azure-resurser för dina virtuella datorer, till exempel virtuella nätverk och lagring. Resursgrupper för mer information, se [resursgrupperna översikt](../../azure-resource-manager/resource-group-overview.md). Innan du överför din anpassade disk och skapa virtuella datorer, måste du först skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create).
 
-I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westus` plats:
+I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -132,7 +132,7 @@ az group create --name myResourceGroup --location westus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett lagringskonto för din anpassade disk och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account#az_storage_account_create). Alla virtuella datorer med ohanterade diskar som du skapar från din anpassade disken måste vara i samma lagringskonto som disken. 
+Skapa ett lagringskonto för din anpassade disk och virtuella datorer med [az storage-konto skapar](/cli/azure/storage/account). Alla virtuella datorer med ohanterade diskar som du skapar från din anpassade disken måste vara i samma lagringskonto som disken. 
 
 I följande exempel skapas ett lagringskonto med namnet `mystorageaccount` i resursgruppen som skapades tidigare:
 

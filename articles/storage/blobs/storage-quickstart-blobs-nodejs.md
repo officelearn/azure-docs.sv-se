@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 31804932cd4176cd55af752a7c1d05ae0a5f0cdf
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 420b48101671c06ee1d820cd183ea0e5c2788635
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52260775"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410577"
 ---
 # <a name="how-to-upload-download-and-list-blobs-using-nodejs-sdk-v2"></a>Hur du laddar upp, ladda ned och lista blobar med Node.js SDK v2
 
@@ -224,7 +224,7 @@ const downloadBlob = async (containerName, blobName) => {
     });
 };
 ```
-Implementeringen som visas här gör att källan returnerar innehållet i bloben som en sträng. Du kan också ladda ned bloben som en [dataström](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) eller direkt till en [lokal fil](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile).
+Implementeringen som visas här gör att källan returnerar innehållet i bloben som en sträng. Du kan också ladda ned bloben som en [dataström](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtostream) eller direkt till en [lokal fil](/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest).
 
 ### <a name="delete-a-blob"></a>Ta bort en blob
 

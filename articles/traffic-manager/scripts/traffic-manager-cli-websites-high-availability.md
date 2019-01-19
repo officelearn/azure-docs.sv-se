@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 27e8d5c0c26f6932d98cfbfd5abd4a756c077383
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 6070c037138cfb0716c9a31d5923ecddb1a30790
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215158"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413574"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Dirigera trafik för hög tillgänglighet för program med hjälp av Azure CLI
 
@@ -54,7 +54,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan#az_appservice_plan_create) | Skapar en App Service-plan. Detta fungerar som en servergrupp för Azure-webbappen. |
 | [Skapa AZ webapp web](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Skapar en Azure-webbapp i App Service-planen. |
 | [Skapa AZ network traffic-manager-profil](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile#az_network_traffic_manager_profile_create) | Skapar en Azure Traffic Manager-profil. |
-| [Skapa AZ network traffic-manager endpoint](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint#az_network_traffic_manager_endpoint_create) | Lägger till en slutpunkt i en Azure Traffic Manager-profil. |
+| [Skapa AZ network traffic-manager endpoint](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Lägger till en slutpunkt i en Azure Traffic Manager-profil. |
 
 ## <a name="next-steps"></a>Nästa steg
 

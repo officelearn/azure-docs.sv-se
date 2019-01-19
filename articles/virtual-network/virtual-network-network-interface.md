@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c5667d5fafdc01e8568f459b675d91ace9b8869a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 1916144ab2c8d5b5f0ae8f5ec87bfbf03cf4629d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023761"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413897"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -105,14 +105,14 @@ DNS-servern är tilldelad av Azure DHCP-servern till nätverksgränssnittet i VM
 3. Välj **DNS-servrar** under **inställningar**.
 4. Välj antingen:
     - **Ärv från virtuellt nätverk**: Välj det här alternativet att ärva DNS-Serverinställningen som definierats för det virtuella nätverket nätverksgränssnittet har tilldelats. En anpassad DNS-server eller Azure-tillhandahållna DNS-server har definierats på nivån för virtuella nätverket. Azure-tillhandahållna DNS-servern kan matcha värdnamnen för resurser som är tilldelade till samma virtuella nätverk. FQDN måste användas för att matcha för resurser som tilldelats olika virtuella nätverk.
-    - **Anpassad**: Du kan konfigurera en egen DNS-server för att matcha namn i flera virtuella nätverk. Ange IP-adressen för den server som du vill använda som en DNS-server. DNS-serveradressen som du anger tilldelas endast till det här nätverksgränssnittet och åsidosättningar DNS-inställningar för det virtuella nätverket nätverksgränssnittet har tilldelats.
+    - **Anpassat**: Du kan konfigurera en egen DNS-server för att matcha namn i flera virtuella nätverk. Ange IP-adressen för den server som du vill använda som en DNS-server. DNS-serveradressen som du anger tilldelas endast till det här nätverksgränssnittet och åsidosättningar DNS-inställningar för det virtuella nätverket nätverksgränssnittet har tilldelats.
 5. Välj **Spara**.
 
 **Kommandon**
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="enable-or-disable-ip-forwarding"></a>Aktivera eller inaktivera IP-vidarebefordring
@@ -133,7 +133,7 @@ Inställningen måste aktiveras för varje nätverksgränssnitt som är kopplad 
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="change-subnet-assignment"></a>Ändra undernättilldelning
@@ -167,7 +167,7 @@ Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverk
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic update](/cli/azure/network/nic#az_network_nic_update)|
+|CLI|[AZ network nic update](/cli/azure/network/nic)|
 |PowerShell|[Set-AzureRmNetworkInterface](/powershell/module/azurerm.network/set-azurermnetworkinterface)|
 
 ## <a name="associate-or-dissociate-a-network-security-group"></a>Koppla eller koppla bort en grupp
@@ -199,7 +199,7 @@ När du tar bort ett nätverksgränssnitt släpps alla MAC- eller IP-adresser so
 
 |Verktyget|Kommando|
 |---|---|
-|CLI|[AZ network nic delete](/cli/azure/network/nic#az_network_nic_delete)|
+|CLI|[AZ network nic delete](/cli/azure/network/nic)|
 |PowerShell|[Remove-AzureRmNetworkInterface](/powershell/module/azurerm.network/remove-azurermnetworkinterface)|
 
 ## <a name="resolve-connectivity-issues"></a>Lösa problem med nätverksanslutningen

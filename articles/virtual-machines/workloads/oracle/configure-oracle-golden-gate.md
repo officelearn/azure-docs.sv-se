@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: f0ae48cadf2e90dc685a24aff54d89f86a11c287
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cb5ad6f351cdeadb999b1a62c225f23937c5b92e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494301"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413829"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementera Oracle guld Gate på en virtuell Azure Linux-dator 
 
@@ -43,9 +43,9 @@ Här följer en sammanfattning av konfigurationen miljö:
 > | **Oracle-version** |Oracle 12c version 2 – (12.1.0.2) |Oracle 12c version 2 – (12.1.0.2)|
 > | **Namnet på datorn** |myVM1 |myVM2 |
 > | **Operativsystem** |Oracle Linux 6.x |Oracle Linux 6.x |
-> | **Oracle-SID** |CDB1 |CDB1 |
+> | **Oracle SID** |CDB1 |CDB1 |
 > | **Schema för replikering** |TEST|TEST |
-> | **Guld Gate ägare/replikera** |C ##GGADMIN |REPUSER |
+> | **Guld Gate ägare/replikera** |C##GGADMIN |REPUSER |
 > | **Guld Gate-processen** |EXTORA |REPORA|
 
 
@@ -59,7 +59,7 @@ az login
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med kommandot [az group create](/cli/azure/group#az_group_create). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och från vilken de kan hanteras. 
+Skapa en resursgrupp med kommandot [az group create](/cli/azure/group). En Azure-resursgrupp är en logisk behållare där Azure-resurser distribueras och från vilken de kan hanteras. 
 
 I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`.
 

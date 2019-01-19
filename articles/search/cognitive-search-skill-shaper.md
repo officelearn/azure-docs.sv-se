@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: b8cc69c45332d0779c6e57b5d74145ee1f5140cd
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: a1f5a698ee76ebd0561bd19ff1a23d0f04be0771
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391009"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410123"
 ---
 #   <a name="shaper-cognitive-skill"></a>Formaren kognitiva kunskaper
 
@@ -29,7 +29,7 @@ Som standard stöder den här tekniken objekt som är en nivå. För mer komplex
 I svaret, är utdatanamnet alltid ”utdata”. Internt pipelinen kan mappa ett annat namn, till exempel ”analyzedText” i exemplen nedan till ”utdata”, men **formaren** färdighet själva returnerar ”utdata” i svaret. Det kan vara viktigt om du felsöker avancerad och dokument och notera avvikelsen namngivning, eller om du bygger en anpassad kunskap och strukturerar svaret själv.
 
 > [!NOTE]
-> Kompetensen är inte bunden till en Cognitive Services-API och det finns inga avgifter som är associerade med denna kunskap. Dock måste du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) ändå för att åsidosätta alternativet kostnadsfri resurs som begränsar du till ett litet antal dagliga enrichments.
+> Kompetensen är inte bunden till en Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md), men att åsidosätta den **kostnadsfri** resurs-alternativ som begränsar du till ett litet antal dagliga enrichments per dag.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Util.ShaperSkill

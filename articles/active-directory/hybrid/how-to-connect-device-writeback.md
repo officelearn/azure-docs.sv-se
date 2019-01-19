@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 389c519d5f63b311b2e9c2b1d48d6e09e02c7d81
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361078"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412826"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -57,10 +57,10 @@ Installera Azure AD Connect med anpassade eller standardinställningar. Microsof
 
 4. **Enhetsbehållare** sidan innehåller möjligheten att förbereda active directory med hjälp av något av två tillgängliga alternativ:
 
-    a. **Ange enterprise administratörsautentiseringsuppgifter**: om administratörsautentiseringsuppgifterna har angetts för skogen där enheter måste skrivas tillbaka, Azure AD Connect kommer förbereda skogen automatiskt under konfigurationen av tillbakaskrivning av enhet.
+    a. **Ange enterprise administratörsautentiseringsuppgifter**: Om autentiseringsuppgifterna som företagsadministratör har angetts för skogen där enheter måste skrivas tillbaka, förbereder Azure AD Connect skogen automatiskt under konfigurationen av tillbakaskrivning av enhet.
 
-    b. **Hämta PowerShell-skript**: Azure AD Connect auto-genererar ett PowerShell-skript som kan förbereda active directory för tillbakaskrivning av enhet. Om autentiseringsuppgifterna som företagsadministratör inte kan tillhandahållas i Azure AD Connect, rekommenderas att ladda ned PowerShell-skriptet. Ange det hämta PowerShell-skriptet **CreateDeviceContainer.psq** till skogen där enheter ska skrivas tillbaka till enterprise-administratören.
-    ![Förbereda active Directory-skog](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    b. **Hämta PowerShell-skript**: Azure AD Connect genererar auto-ett PowerShell-skript som kan förbereda active directory för tillbakaskrivning av enhet. Om autentiseringsuppgifterna som företagsadministratör inte kan tillhandahållas i Azure AD Connect, rekommenderas att ladda ned PowerShell-skriptet. Ange det hämta PowerShell-skriptet **CreateDeviceContainer.psq** till skogen där enheter ska skrivas tillbaka till enterprise-administratören.
+    ![Förbered active directory-skog](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Följande åtgärder utförs för att förbereda active directory-skogen:
     * Om de inte redan finns redan, skapar och konfigurerar nya behållare och objekt under CN = enhet registrering Configuration, CN = Services, CN = Configuration, [skog-dn].

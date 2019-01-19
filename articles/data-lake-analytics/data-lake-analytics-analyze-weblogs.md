@@ -9,12 +9,12 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246471"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402293"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics
 Lär dig att analysera webbplatsloggar med hjälp av Data Lake Analytics, särskilt på att ta reda på vilka referenter råkade ut för fel när de försöker att besöka webbplatsen.
@@ -165,7 +165,7 @@ Du kan lägga till ytterligare användardefinierade operatörer till programmet.
 
 1. Från **Server Explorer**, expandera **Azure**, expandera **Data Lake Analytics**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**, högerklicka på standardkontot för lagring av Data Lake och klicka sedan på **Explorer**.
 2. Dubbelklicka på **exempel** att öppna mappen och dubbelklickar på **utdata**.
-3. Dubbelklicka på **UnsuccessfulResponsees.log**.
+3. Dubbelklicka på **UnsuccessfulResponses.log**.
 4. Du kan också dubbelklicka på utdatafilen i diagramvyn för jobbet för att gå direkt till utdata.
 
 ## <a name="see-also"></a>Se också

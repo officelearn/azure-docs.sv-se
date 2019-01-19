@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2017
-ms.openlocfilehash: 2f3cc3b386dec0010b179455372fb49bcec55ffc
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 85cb23d865133f2ee769874aa5150ab13e04cd69
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558404"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410599"
 ---
 # <a name="continuously-integrate-and-develop-with-stream-analytics-tools"></a>Kontinuerlig integrering och utveckla med Stream Analytics-verktyg
 Den här artikeln beskriver hur du använder för att använda Azure Stream Analytics-verktyg för Visual Studio för att ställa in en kontinuerlig integrering och distribution process.
@@ -54,6 +54,8 @@ För alla autentiseringsuppgifterna som standardvärden anges till null. Du är 
     },
 ```
 Mer information om hur du [distribuera med en Resource Manager-mallfilen och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Mer information om hur du [använda ett objekt som en parameter i en Resource Manager-mall](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+
+Om du vill använda hanterade identiteter för Azure Data Lake Store Gen1 som utdatamottagare, måste du ge åtkomst till tjänstens huvudnamn med hjälp av PowerShell innan du distribuerar till Azure. Mer information om hur du [distribuera ADLS Gen1 med hanterad identitet med Resource Manager-mall](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
 
 ## <a name="command-line-tool"></a>Kommandoradsverktyget

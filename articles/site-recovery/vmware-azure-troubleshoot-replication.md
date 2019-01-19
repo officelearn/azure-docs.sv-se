@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 01/18/2019
 ms.author: ramamill
-ms.openlocfilehash: c53dc81da9469c0628adbd3751dc818997fa4d05
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 5c2d33b39614ded95ac38e07c844b0a8cafa7cd2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063686"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411483"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsöka problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -109,14 +109,19 @@ I följande lista visas hur du kan kontrollera processervern:
 
 När du försöker markera källdatorn för att aktivera replikering med Site Recovery kanske datorn inte är tillgängliga för en av följande orsaker:
 
-*  Om två virtuella datorer under vCenter har samma instans UUID, visas den första virtuella datorn som identifierats av konfigurationsservern på Azure-portalen. Se till att inga två virtuella datorer har samma instans UUID för att lösa problemet.
-*  Se till att du har lagt till korrekt vCenter-autentiseringsuppgifter när du ställer in konfigurationsservern med hjälp av OVF-mall eller en enhetlig installation. För att kontrollera de autentiseringsuppgifter som du har lagt till under installationen, se [ändra autentiseringsuppgifter för automatisk identifiering](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-*  Om de behörigheter som finns att få åtkomst till vCenter inte har behörigheterna som krävs kan kan identifiera virtuella datorer misslyckas. Se till att behörigheterna som beskrivs i [förbereda ett konto för automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till vCenter-användarkonto.
-*  Om den virtuella datorn redan skyddas med hjälp av Site Recovery är den virtuella datorn inte kan väljas för skydd i portalen. Se till att den virtuella datorn som du söker i portalen inte redan skyddas av en annan användare eller en annan prenumeration.
+* **Två virtuella datorer med samma instans UUID**: Om två virtuella datorer under vCenter har samma instans UUID, visas den första virtuella datorn som identifierats av konfigurationsservern på Azure-portalen. Se till att inga två virtuella datorer har samma instans UUID för att lösa problemet. Det här scenariot är vanligt i instanser där en säkerhetskopierade virtuell dator blir aktiv och är inloggad i vår identifieringsposter. Referera till [Azure Site Recovery VMware till Azure: Hur du rensar dubbletter eller inaktuella poster](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) att lösa.
+* **Felaktig vCenter användarautentiseringsuppgifter**: Se till att du har lagt till korrekt vCenter-autentiseringsuppgifter när du ställer in konfigurationsservern med hjälp av OVF-mall eller en enhetlig installation. För att kontrollera de autentiseringsuppgifter som du har lagt till under installationen, se [ändra autentiseringsuppgifter för automatisk identifiering](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+* **inte tillräcklig behörighet för vCenter**: Om de behörigheter som finns att få åtkomst till vCenter inte har behörigheterna som krävs kan kan identifiera virtuella datorer misslyckas. Se till att behörigheterna som beskrivs i [förbereda ett konto för automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till vCenter-användarkonto.
+* **Azure Site Recovery-hanteringsservrar**: Om den virtuella datorn används som hanteringsserver under en eller flera av följande roller - Configuration server /scale-out processervern / Master-målserver, och du inte kommer att kunna välja den virtuella datorn från portalen. Management-servrar kan inte replikeras.
+* **Redan skyddad/redundansväxlats via Azure Site Recovery services**: Om den virtuella datorn är redan skyddad eller har redundansväxlats genom Site Recovery, är den virtuella datorn inte kan väljas för skydd i portalen. Se till att den virtuella datorn som du söker i portalen inte redan skyddas av en annan användare eller en annan prenumeration.
+* **vCenter som inte är anslutna**: Kontrollera att vCenter är i anslutet tillstånd. Du kan kontrollera genom att gå till Recovery Services-valv > Site Recovery-infrastruktur > Konfigurationsservrar > Klicka på respektive konfigurationsservern > öppnas ett blad på din direkt med information om associerade servrar. Kontrollera om vCenter är ansluten. Om tillståndet ”inte ansluten”, Lös problemet och sedan [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) på portalen. Därefter kan listas virtuella datorer på portalen.
+* **ESXi avstängd**: Om ESXi-värd som den virtuella datorn finns i avstängd, har virtuella datorn visas inte eller kan inte väljas på Azure portal. Starta ESXi-värd [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server) på portalen. Därefter kan listas virtuella datorer på portalen.
+* **Väntar på omstart**: Om det finns en väntande omstart på den virtuella datorn, kommer sedan du inte att kunna välja dator på Azure-portalen. Se till att slutföra väntande omstart-aktiviteter [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Därefter kan listas virtuella datorer på portalen.
+* **Det gick inte att hitta IP**: Om den virtuella datorn inte har en giltig IP-adress som är kopplade till den, kommer sedan du inte att kunna välja dator på Azure-portalen. Se till att tilldela en giltig IP-adress till den virtuella datorn, [uppdatera konfigurationsservern](vmware-azure-manage-configuration-server.md#refresh-configuration-server). Därefter kan listas virtuella datorer på portalen.
 
-## <a name="protected-virtual-machines-arent-available-in-the-portal"></a>Skyddade virtuella datorer är inte tillgängliga i portalen
+## <a name="protected-virtual-machines-are-greyed-out-in-the-portal"></a>Skyddade virtuella datorer är gråmarkerat ut i portalen
 
-Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure-portalen om det finns dubblettvärden i systemet. Om du vill lära dig mer om att ta bort inaktuella poster och lösa problemet, se [Azure Site Recovery VMware till Azure: Hur du rensar dubbletter eller inaktuella poster](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
+Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure-portalen om det finns dubblettvärden i systemet. Om du vill lära dig mer om att ta bort inaktuella poster och lösa problemet, referera till [Azure Site Recovery VMware till Azure: Hur du rensar dubbletter eller inaktuella poster](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx).
 
 ## <a name="next-steps"></a>Nästa steg
 

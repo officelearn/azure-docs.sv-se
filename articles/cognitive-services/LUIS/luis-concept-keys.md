@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 6816fa3705348d07eced92c64e0c7020a08d01d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6196364f5983d443519429363bb94bfd6a1203c5
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132389"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411738"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Skriv- och fråga förutsägelse endpoint nycklar i LUIS
 LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
@@ -43,15 +43,17 @@ När du vill göra **produktion endpoint frågor**, skapa Azure [LUIS prenumerat
 > För att underlätta för många av exempel som använder den redigering nyckeln eftersom det innehåller några endpoint-anrop i dess [kvot](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Slutpunktsnyckel
- När du behöver **produktion endpoint frågor**, skapa en [LUIS nyckeln](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) i Azure-portalen. Kom ihåg att namnet används för att skapa nyckeln, du behöver den när du lägger till nyckeln till appen.
+När du behöver **produktion endpoint frågor**, skapa en Azure-resurs och sedan tilldela den till LUIS-app. 
 
-När LUIS prenumerationsprocessen är klar, [tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) till appen. 
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
+När process för att skapa Azure-resurs är klar [tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) till appen. 
 
-Slutpunktsnyckeln kan användas för alla dina LUIS-appar eller för specifika LUIS-appar. 
+    * Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
 
-Använd inte slutpunktsnyckeln för redigering av LUIS-appar. 
+    * Slutpunktsnyckeln kan användas för alla dina LUIS-appar eller för specifika LUIS-appar. 
+
+    * Använd inte slutpunktsnyckeln för redigering av LUIS-appar. 
 
 ## <a name="use-endpoint-key-in-query"></a>Använd slutpunktsnyckeln i fråga
 LUIS-slutpunkten accepterar två sorters fråga, både använda slutpunkten nyckel, men på olika platser:
@@ -76,9 +78,10 @@ Publicera regioner skiljer sig från redigering regioner. Kontrollera att du ska
 ## <a name="key-limit-errors"></a>Gräns för fel
 Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-manage-keys.md#assign-endpoint-key) nyckeln till appen på den **publicera** för den [LUIS](luis-reference-regions.md#luis-website) webbplats.
 
-## <a name="automating-assignment-of-the-endpoint-key"></a>Automatisera tilldelningen av slutpunktsnyckeln
+## <a name="assignment-of-the-endpoint-key"></a>Tilldelningen av slutpunktsnyckeln
 
-För att kunna tilldela slutpunktsnyckeln till en LUIS-app, måste du använda webbplatsen LUIS för rätt redigering och publicering [regioner](luis-reference-regions.md). Det finns **inga** automatiserad metod för att göra detta, oavsett mekanism som med ett Azure resource manager-skript, Azure CLI, programmässiga SDK eller API: erna.
+Du kan [tilldela](luis-how-to-manage-keys.md) slutpunktsnyckeln i den [LUIS portal](https://www.luis.ai) eller motsvarande-API: er. 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

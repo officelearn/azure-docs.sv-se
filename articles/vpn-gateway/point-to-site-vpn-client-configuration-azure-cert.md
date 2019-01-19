@@ -5,26 +5,26 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 01/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 11d23102ca807ab1ddf41f1d0e72aed8a8513ac8
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636653"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412073"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för native Azure certificate authentication P2S-konfigurationer
 
-VPN-klientkonfigurationsfiler finns i en zip-fil. Konfigurationsfiler ger de inställningar som krävs för en intern Windows, Mac IKEv2 VPN- eller Linux-klienter att ansluta till ett virtuellt nätverk via punkt-till-plats-anslutningar som använder Azures interna certifikatautentisering. Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
+VPN-klientkonfigurationsfiler finns i en zip-fil. Konfigurationsfiler ger de inställningar som krävs för en intern Windows, Mac IKEv2 VPN- eller Linux-klienter att ansluta till ett virtuellt nätverk via punkt-till-plats-anslutningar som använder Azures interna certifikatautentisering.
+
+-Klientkonfigurationsfiler är specifika för VPN-konfigurationen för det virtuella nätverket. Om det finns några ändringar i punkt-till-plats-VPN-konfigurationen när du har genererat de VPN-klientkonfigurationsfilerna, till exempel typ av VPN-protokoll eller autentiseringstyp, måste du generera nya VPN-klientkonfigurationsfiler för dina användarenheter. 
+
+* Mer information om punkt-till-plats-anslutningar finns i [About Point-to-Site VPN](point-to-site-about.md) (Om VPN för punkt-till-plats).
+* OpenVPN anvisningar finns i [konfigurera OpenVPN för P2S](vpn-gateway-howto-openvpn.md) och [konfigurera OpenVPN klienter](vpn-gateway-howto-openvpn-clients.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
->
-
->[!NOTE]
->-Klientkonfigurationsfiler är specifika för VPN-konfigurationen för det virtuella nätverket. Om det finns några ändringar i punkt-till-plats-VPN-konfigurationen när du har genererat de VPN-klientkonfigurationsfilerna, till exempel typ av VPN-protokoll eller autentiseringstyp, måste du generera nya VPN-klientkonfigurationsfiler för dina användarenheter.
->
 >
 
 ## <a name="generate"></a>Generera konfigurationsfiler för VPN-klienten

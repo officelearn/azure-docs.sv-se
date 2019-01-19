@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d40e23a7cc113a9db297a7dbf00a2372063dfb52
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060567"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413404"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
 
@@ -39,7 +39,7 @@ ms.locfileid: "39060567"
 
  Den här lösningen använder följande Azure-tjänster. Information om distributionsarkitekturen finns i den [distributionsarkitektur](#deployment-architecture) avsnittet.
 
-((1) /16 virtuellt nätverk – Operational VNet
+(1) /16 Virtual Network - Operational VNet
 - (3) /24 undernät – 3 nivåer (Web, Biz, Data)
 - (1) /27 undernät - lägger till
 - ((1) /27 undernät - Gateway-undernät
@@ -54,7 +54,7 @@ ms.locfileid: "39060567"
 - Aktiverat för att använda VNet-peering
 - Nätverkssäkerhetsgrupp (NSG) för att hantera flödet i nätverkstrafiken
 
-(1) application Gateway
+(1) Application Gateway
 - WAF - aktiverat
 - WAF-läge – skydd
 - Regeluppsättning: OWASP 3.0
@@ -84,7 +84,7 @@ ms.locfileid: "39060567"
 
 
 - (2) virtuella datorer web-nivå
-  - (2) IIS-serverroller - 1 per virtuell dator
+  - (2) IIS Server Roles - 1 per VM
   - (2) nätverkskort är anslutna till operativa VNet - 1 per virtuell dator
   - Inte ansluten till domänen
 
@@ -104,7 +104,7 @@ Tillgänglighetsuppsättningar
 - (1) biz nivån VM konfigurerats – 2 virtuella datorer
 - (1) datanivå VM konfigurerats – 2 virtuella datorer
 
-Load Balancer
+Lastbalanserare
 - (1) belastningsutjämnaren på Webbnivå
 - (1) biz belastningsutjämnaren på Webbnivå
 - (1) belastningsutjämnaren på Webbnivå data
@@ -129,36 +129,36 @@ Storage
 
 ### <a name="deployment-architecture"></a>Distributionsarkitektur:
 
-**Lokalt nätverk**: ett privat lokalt nätverk som implementerats i en organisation.
+**Lokalt nätverk**: Ett privat lokalt nätverk som implementerats i en organisation.
 
-**Produktion VNet**: The produktion [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (virtuellt nätverk) är värd för programmet och andra operativa resurser som körs i Azure. Varje virtuellt nätverk kan innehålla flera undernät som används för att isolera och hantering av nätverkstrafik.
+**Produktion VNet**: Produktion [VNet](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) (virtuellt nätverk) är värd för programmet och andra operativa resurser som körs i Azure. Varje virtuellt nätverk kan innehålla flera undernät som används för att isolera och hantering av nätverkstrafik.
 
-**Webb-nivå**: hanterar inkommande HTTP-begäranden. Svar returneras via den här nivån.
+**Webb-nivå**: Hanterar inkommande HTTP-begäranden. Svar returneras via den här nivån.
 
-**Affärsnivå**: implementerar affärsprocesser och andra funktionella logik för systemet.
+**Affärsnivå**: Implementerar affärsprocesser och andra funktionella logik för systemet.
 
-**Databasen nivån**: ger tillgång till beständig datalagring med [SQL Server Always On-Tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx) för hög tillgänglighet. Kunder kan använda [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) som en PaaS-alternativ.
+**Databasen nivån**: Ger beständig lagring, med hjälp av [SQL Server Always On-Tillgänglighetsgrupper](https://msdn.microsoft.com/library/hh510230.aspx) för hög tillgänglighet. Kunder kan använda [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) som en PaaS-alternativ.
 
-**Gateway**: den [VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) tillhandahåller anslutningen mellan routrarna i det lokala nätverket och virtuellt nätverk för produktion.
+**Gateway**: Den [VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) tillhandahåller anslutningen mellan routrarna i det lokala nätverket och virtuellt nätverk för produktion.
 
-**Internet-Gateway och offentlig IP-adress**: internet-gatewayen exponerar programtjänster för användare via internet. Trafik som kommer åt tjänsterna skyddas med ett [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuda Layer 7-Routning och belastningsutjämning med web application firewall (WAF)-skydd.
+**Internet-Gateway och offentlig IP-adress**: Internet-gateway exponerar programtjänster för användare via internet. Trafik som kommer åt tjänsterna skyddas med ett [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) erbjuda Layer 7-Routning och belastningsutjämning med web application firewall (WAF)-skydd.
 
-**Hantering av virtuellt nätverk**: detta [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) innehåller resurser som implementerar hanterings- och övervakningsfunktioner för de arbetsbelastningar som körs i produktion VNet.
+**Hantering av virtuellt nätverk**: Detta [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) innehåller resurser som implementerar hanterings- och övervakningsfunktioner för de arbetsbelastningar som körs i produktion VNet.
 
-**Jumpbox**: kallas även en [skyddsmiljö-värd](https://en.wikipedia.org/wiki/Bastion_host), vilket är en säker virtuell dator i nätverket som administratörer använder för att ansluta till virtuella datorer i produktion VNet. Jumpboxen har en NSG som endast tillåter fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i NSG: N för att tillåta (RDP) trafik för fjärrskrivbordet. Hantering av produktionsresurser är via RDP med en säker Jumpbox VM.
+**Jumpbox**: Kallas även en [skyddsmiljö-värd](https://en.wikipedia.org/wiki/Bastion_host), vilket är en säker virtuell dator i nätverket som administratörer använder för att ansluta till virtuella datorer i produktion VNet. Jumpboxen har en NSG som endast tillåter fjärrtrafik från offentliga IP-adresser på en säker lista. Källan för trafiken måste definieras i NSG: N för att tillåta (RDP) trafik för fjärrskrivbordet. Hantering av produktionsresurser är via RDP med en säker Jumpbox VM.
 
-**Användardefinierade vägar**: [användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) används för att definiera flödet av IP-trafik i virtuella Azure-nätverk.
+**Användardefinierade vägar**: [Användardefinierade vägar](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) används för att definiera flödet av IP-trafik i virtuella Azure-nätverk.
 
-**Nätverks-peer-kopplade virtuella nätverk**: The produktions- och hantering av virtuella nätverk är anslutna med [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+**Network Peerkopplade virtuella nätverk**: Produktions- och hantering av virtuella nätverk är anslutna med [VNet-peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 De här virtuella nätverken hanteras fortfarande som separata resurser, men visas som en för alla anslutningar för dessa virtuella datorer. Dessa nätverk som kommunicerar med varandra direkt med hjälp av privata IP-adresser. VNet-peering är föremål för de virtuella nätverken är i samma Azure-Region.
 
 **Nätverkssäkerhetsgrupper**: [NSG: er](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) innehåller åtkomstkontrollistor som tillåter eller nekar trafik inom ett virtuellt nätverk. NSG: er kan användas för att skydda trafik på ett undernät eller individuella VM-nivå.
 
-**Active Directory Domain Services (AD DS)**: den här arkitekturen ger en dedikerad [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) distribution.
+**Active Directory Domain Services (AD DS)**: Den här arkitekturen ger en dedikerad [Active Directory Domain Services](https://technet.microsoft.com/library/hh831484.aspx) distribution.
 
-**Loggning och granskning**: [Azure-aktivitetsloggen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) samlar in åtgärder som vidtas på resurserna i din prenumeration, till exempel vem som initierade åtgärden när åtgärden utfördes, status för åtgärden och värdena för andra egenskaper som kan hjälpa dig undersöka åtgärden. Azure-aktivitetslogg är en tjänst i Azure-plattformen som samlar in alla åtgärder på en prenumeration. Loggar kan arkiveras eller exporteras om det behövs.
+**Loggning och granskning**: [Azure-aktivitetslogg](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) insamlingar åtgärder vidtas på resurserna i prenumerationen som vem som initierade åtgärden när åtgärden utfördes, status för åtgärden och värdena för andra egenskaper som kan hjälpa dig undersöka den åtgärden. Azure-aktivitetslogg är en tjänst i Azure-plattformen som samlar in alla åtgärder på en prenumeration. Loggar kan arkiveras eller exporteras om det behövs.
 
-**Övervakning och aviseringar**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) är en plattformstjänst som tillhandahåller nätverk-infångade, flödesloggar, topologi verktyg och diagnostik för nätverk så inom dina virtuella nätverk.
+**Nätverket övervakning och avisering**: [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) är en plattformstjänst som tillhandahåller nätverk-infångade, flödesloggar, topologi verktyg och diagnostik för nätverk så inom dina virtuella nätverk.
 
 ## <a name="guidance-and-recommendations"></a>Vägledning och rekommendationer
 
@@ -170,47 +170,47 @@ De här virtuella nätverken hanteras fortfarande som separata resurser, men vis
 
 **Övervakning av**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started) är plattformstjänst som tillhandahåller en enda källa för övervakning av aktivitetsloggen, mått och diagnostikloggar för alla dina Azure-resurser. Azure Monitor kan konfigureras för att visualisera, fråga, vidarebefordra, arkivera och vidta åtgärder för mått och loggar från resurser i Azure. Du rekommenderas att resursbaserade åtkomstkontroll används för att skydda granskningsloggen för att säkerställa att användarna inte har möjlighet att ändra loggarna.
 
-**Aktivitetsloggar**: konfigurera [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) att ge insikt i de åtgärder som utförts på resurser i din prenumeration.
+**Aktivitetsloggar**: Konfigurera [Azure-aktivitetsloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) att ge insikt i de åtgärder som utförts på resurser i din prenumeration.
 
-**Diagnostikloggar**: [diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som genereras av en resurs. Dessa loggar kan innehålla Windows-händelsesystemloggar, blob, tabell och kö loggar.
+**Diagnostikloggar**: [Diagnostikloggar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) är alla loggar som genereras av en resurs. Dessa loggar kan innehålla Windows-händelsesystemloggar, blob, tabell och kö loggar.
 
 **Brandväggen loggar**: Application Gateway ger fullständig diagnostik och åtkomst till loggar. Brandväggsloggar är tillgängliga för Application Gateway-resurser som har WAF aktiverat.
 
-**Logga arkivering**: Log datalagring kan konfigureras för att skriva till en centraliserad Azure storage-konto för arkivering och en definierad kvarhållningsperiod. Loggar kan bearbetas med hjälp av Azure Log Analytics eller genom att SIEM-system från tredje part.
+**Arkivera loggen**: Datalagring i loggen kan konfigureras för att skriva till en centraliserad Azure-lagringskonto för arkivering och en definierad kvarhållningsperiod. Loggar kan bearbetas med hjälp av Azure Log Analytics eller genom att SIEM-system från tredje part.
 
 ### <a name="identity"></a>Identitet
 
-**Active Directory Domain Services**: den här arkitekturen ger en Active Directory Domain Services-distribution i Azure. Specifika rekommendationer för att implementera Active Directory i Azure finns i följande artiklar:
+**Active Directory Domain Services**: Den här arkitekturen ger en Active Directory Domain Services-distribution i Azure. Specifika rekommendationer för att implementera Active Directory i Azure finns i följande artiklar:
 
 [Utöka Active Directory Domain Services (AD DS) till Azure](https://docs.microsoft.com/azure/guidance/guidance-identity-adds-extend-domain).
 
 [Riktlinjer för att distribuera Windows Server Active Directory på Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory-integrering**: som ett alternativ till en dedikerad AD DS-arkitektur kan kunder kanske vill använda [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-azure-active-directory) integration eller [Active Directory i Azure som är anslutna till en lokal skog](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
+**Active Directory-integrering**: Som ett alternativ till en dedikerad AD DS-arkitektur kan kunder kanske vill använda [Azure Active Directory](https://docs.microsoft.com/azure/guidance/guidance-ra-identity) integration eller [Active Directory i Azure som är anslutna till en lokal skog](https://docs.microsoft.com/azure/guidance/guidance-ra-identity#using-active-directory-in-azure-joined-to-an-on-premises-forest).
 
 ### <a name="security"></a>Säkerhet
 
-**Hantering av säkerhet**: den här skissen gör att administratörer kan ansluta till hanteringen VNet och Jumpbox med RDP från en betrodd källa. Nätverkstrafik för management VNet kontrolleras med hjälp av NSG: er. Åtkomst till port 3389 är begränsad till trafik från en betrodd IP-adressintervall som har åtkomst till undernätet som innehåller Jumpbox.
+**Hantering av säkerhet**: Den här skissen kan administratörer ansluta till hanteringen VNet och Jumpbox med RDP från en betrodd källa. Nätverkstrafik för management VNet kontrolleras med hjälp av NSG: er. Åtkomst till port 3389 är begränsad till trafik från en betrodd IP-adressintervall som har åtkomst till undernätet som innehåller Jumpbox.
 
 Kunder kan också överväga att använda en [förbättrad administrativ säkerhetsmodell](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/securing-privileged-access) att skydda miljön när du ansluter till hanteringen VNet och Jumpbox. Vi rekommenderar att kunder använder för ökad säkerhet en [arbetsstation för privilegierad åtkomst](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations#what-is-a-privileged-access-workstation-paw) och RDGateway-konfiguration. Användningen av nätverkets virtuella installationer och offentliga och privata DMZ-miljöer erbjuder ytterligare säkerhetsförbättringar.
 
 **Skydda nätverket**: [Nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) (NSG) rekommenderas för varje undernät att tillhandahålla en andra skyddsnivå mot inkommande trafik som kringgår en felaktigt konfigurerad eller inaktiverad gateway. Exempel – [Resource Manager-mall för att distribuera en NSG](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/networkSecurityGroups).
 
-**Skydda offentliga slutpunkter**: internet-gatewayen exponerar programtjänster för användare via internet. Trafik som kommer åt tjänsterna skyddas med ett [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), som tillhandahåller en brandvägg för webbaserade program och HTTPS-protokollet.
+**Skydda offentliga slutpunkter**: Internet-gateway exponerar programtjänster för användare via internet. Trafik som kommer åt tjänsterna skyddas med ett [Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction), som tillhandahåller en brandvägg för webbaserade program och HTTPS-protokollet.
 
-**IP-intervall**: IP-intervall i arkitekturen är föreslagna intervall. Kunder bör du överväga att deras egen miljö och Använd lämpliga områden.
+**IP-intervall**: IP-adressintervall i arkitekturen är föreslagna intervall. Kunder bör du överväga att deras egen miljö och Använd lämpliga områden.
 
-**Hybridanslutning**: molnbaserade arbetsbelastningar är anslutna till det lokala datacentret via IPSEC VPN med hjälp av Azure VPN Gateway. Kunder bör se till att de använder en lämplig VPN-Gateway för att ansluta till Azure. Exempel – [VPN Gateway Resource Manager-mall](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som kör storskaliga, verksamhetskritiska arbetsbelastningar med stordatakrav kanske vill ha en hybrid arkitektur med [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) för privat nätverksanslutning till Microsoft-molntjänster.
+**Hybridanslutning**: Molnbaserad arbetsbelastningar är anslutna till det lokala datacentret via IPSEC VPN med hjälp av Azure VPN Gateway. Kunder bör se till att de använder en lämplig VPN-Gateway för att ansluta till Azure. Exempel – [VPN Gateway Resource Manager-mall](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Kunder som kör storskaliga, verksamhetskritiska arbetsbelastningar med stordatakrav kanske vill ha en hybrid arkitektur med [ExpressRoute](https://docs.microsoft.com/azure/guidance/guidance-hybrid-network-expressroute) för privat nätverksanslutning till Microsoft-molntjänster.
 
-**Problemseparering**: den här referensarkitekturen skiljer de virtuella nätverken för hanteringsåtgärder och verksamheten. Separata virtuella nätverk och undernät tillåter hantering, inklusive trafik ingående och utgående begränsningar med hjälp av NSG: er mellan nätverkssegment följa [Microsofts molntjänster och nätverkssäkerhet](https://docs.microsoft.com/azure/best-practices-network-security) bästa praxis.
+**Problemseparering**: Denna Referensarkitektur skiljer de virtuella nätverken för hanteringsåtgärder och verksamheten. Separata virtuella nätverk och undernät tillåter hantering, inklusive trafik ingående och utgående begränsningar med hjälp av NSG: er mellan nätverkssegment följa [Microsofts molntjänster och nätverkssäkerhet](https://docs.microsoft.com/azure/best-practices-network-security) bästa praxis.
 
 **Resurshantering**: Azure-resurser som virtuella datorer, virtuella nätverk och belastningsutjämnare som hanteras av grupperas tillsammans i [Azure-resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Åtkomstkontroll resursroller kan tilldelas till varje resursgrupp för att begränsa åtkomsten till endast auktoriserade användare.
 
-**Komma åt Kontrollbegränsningar**: Använd [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) för att hantera resurserna i ditt program med hjälp av [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan användas för att begränsa åtgärderna som DevOps kan utföra på varje nivå. När du beviljar behörighet använder den [principen om lägsta behörighet](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Logga alla administrativa åtgärder och utför regelbundna granskningar för att säkerställa att inga ändringar i konfigurationen har planerats.
+**Komma åt Kontrollbegränsningar**: Använd [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) för att hantera resurserna i ditt program med hjälp av [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan användas för att begränsa de åtgärder som DevOps kan utföra på varje nivå. När du beviljar behörighet använder den [principen om lägsta behörighet](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Logga alla administrativa åtgärder och utför regelbundna granskningar för att säkerställa att inga ändringar i konfigurationen har planerats.
 
-**Internetåtkomst**: den här referensarkitekturen använder [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) som internetuppkopplad gateway och load balancer. Vissa kunder kan också överväga att använda virtuella nätverksutrustning från tredje part för ytterligare skyddslager för nätverk säkerhet som ett alternativ till den [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Internetåtkomst**: Den här referensarkitekturen använder [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) som internetuppkopplad gateway och load balancer. Vissa kunder kan också överväga att använda virtuella nätverksutrustning från tredje part för ytterligare skyddslager för nätverk säkerhet som ett alternativ till den [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
-**Azure Security Center**: den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) tillhandahåller en central vy över säkerhetsstatusen för resurserna i prenumerationen och tillhandahåller rekommendationer som skyddar mot resurser som har komprometterats. Det kan också användas för att aktivera mer detaljerade principer. Till exempel kan principer tillämpas på specifika resursgrupper, vilket gör att företag kan anpassa dess efterlevnadsstatus risker. Vi rekommenderar att kunder som aktiverar Azure Security Center i sin Azure-prenumeration.
+**Azure Security Center**: Den [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) tillhandahåller en central vy över säkerhetsstatusen för resurserna i prenumerationen och tillhandahåller rekommendationer som skyddar mot resurser som har komprometterats. Det kan också användas för att aktivera mer detaljerade principer. Till exempel kan principer tillämpas på specifika resursgrupper, vilket gör att företag kan anpassa dess efterlevnadsstatus risker. Vi rekommenderar att kunder som aktiverar Azure Security Center i sin Azure-prenumeration.
 
 ## <a name="ncsc-cloud-security-principles-compliance-documentation"></a>Dokumentation för NCSC Cloud Security principer för efterlevnad
 

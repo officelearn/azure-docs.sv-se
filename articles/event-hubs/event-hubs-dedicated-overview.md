@@ -15,12 +15,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: ed1fedab45ce59af2c67ed8a2ef60714d26d5801
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: d418715ab651721d03b67bd411eb90607391bf10
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091034"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402344"
 ---
 # <a name="overview-of-event-hubs-dedicated"></a>Översikt över Event Hubs Dedicated
 
@@ -32,7 +32,7 @@ I följande tabell jämförs tillgängliga tjänstnivåerna för Event Hubs. Eve
 | --- |:---:|:---:|:---:|
 | Ingångshändelser | Betala per miljon händelser | Ingår |
 | Throughput unit (1 MB/s ingångshändelser, 2 MB/s utgångshändelser) | Betala per timme | Ingår |
-| Meddelandestorlek | 256 kB | 1 MB |
+| Meddelandestorlek | 1 MB | 1 MB |
 | Utgivarprinciper | Ja | Ja |   
 | Konsumentgrupper | 20 | 20 |
 | Återuppspelning av meddelande | Ja | Ja |
@@ -47,11 +47,10 @@ I följande tabell jämförs tillgängliga tjänstnivåerna för Event Hubs. Eve
 Följande fördelar är tillgängliga när du använder Event Hubs Dedicated:
 
 * Enskild klient som är värd för har inga brus från andra klienter.
-* Meddelandestorlek ökar till 1 MB jämfört med 256 KB för Standard.
 * Repeterbara prestanda varje gång.
 * Garanterad kapacitet för att uppfylla dina burst-behov.
 * Innehåller den [avbilda](event-hubs-capture-overview.md) funktionen i Event Hubs, att tillhandahålla integrering med mindre batchar och långsiktig kvarhållning.
-* Noll Underhåll: tjänsten hanterar belastningsutjämning, OS-uppdateringar, säkerhetsuppdateringar och partitionering.
+* Noll Underhåll: Tjänsten hanterar belastningsutjämning, OS-uppdateringar, säkerhetsuppdateringar och partitionering.
 * Fast prissättning per timme.
 * Kvarhållning av meddelanden i upp till 7 dagar utan extra kostnad.
 

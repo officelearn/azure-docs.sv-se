@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: c267fc8a3a40d5e1a4f34b607762e1f79e5940b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383439"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401494"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Uppdateringar av tjänsten i Azure Site Recovery
 Som en organisation måste du ta reda på hur du ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar. Azure Site Recovery bidrar till din BCDR-strategi genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.
@@ -48,7 +48,7 @@ Azure Site Recovery publicerar uppdateringar av tjänsten med jämna mellanrum �
 2. Se våra [tjänstuppdateringar](https://azure.microsoft.com/updates/?product=site-recovery) för att ta reda på vilken version av Site Recovery-komponenter stöder specifika versionn som du vill uppgradera till.
 3. Uppgradera först till den senaste versionen för webbplatser.
 4. Uppgradera nu OS/Kernel till önskad versioner.
-5. Utföra en omstart.
+5. Utför en omstart.
 6. Detta säkerställer att OS/Kernel-version på dina datorer är uppgraderade till den senaste versionen och även de senaste ändringarna i Site Recovery som krävs för att stödja den nya versionen också läses in på källdatorn.
 
 

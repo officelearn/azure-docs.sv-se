@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 066c9189e0c3cea409a99217e0ab4b46002df1f9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 92b3b3a2218486d41ab917472945b8485ccb4e12
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556789"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411806"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagna användare som använder Azure Active Directory
 När du tar bort en användare kan fortfarande kontot i ett väntetillstånd i 30 dagar. Under den 30-dagars fönstret kan användarkontot återställas, tillsammans med alla dess egenskaper. När 30-dagars fönstret skickar bort användaren automatiskt och permanent.
@@ -59,9 +59,6 @@ Alla relaterade kataloginformation bevaras även om en användares konto har ina
 2. Välj **återställning användaren**.
 
     ![Användare – sidan borttagna användare med återställning användare alternativet är markerat](media/active-directory-users-restore/users-deleted-users-restore-user.png)
-
->[!NOTE]
->När en användare har tagits bort från den lokala synkronisering omfång och tas bort i molnet, har tidigare DirSyncEnabled status för konton som felaktigt angetts till ”False”. Om du därefter som användaren har återställts manuellt från Azure AD-Papperskorgen, visade ett felaktigt tillstånd för ”endast molnet”-kontot. Detta har nu åtgärdats och värdet för DirSyncEnabled status är alltid hålls ”True” när en användare tas bort från sync omfattning, sedan ej permanent borttagna och manuellt kan återställas från Azure AD-Papperskorgen.
 
 ## <a name="permanently-delete-a-user"></a>Ta bort en användare permanent
 Du kan permanent ta bort en användare från din katalog utan att vänta i 30 dagar för automatisk borttagning. En permanent borttagen användare kan inte återställas av dig, en annan administratör eller av Microsoft kundsupport.

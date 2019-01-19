@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c921d9bed666e428779a125c17591c65ad690f1c
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
+ms.openlocfilehash: 718a679418790a6bf1207a96e5c204f7962de239
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52888944"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411296"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägg till ett lager för symbolen på en karta
 
@@ -23,7 +23,7 @@ Den här artikeln visar hur du kan rendera punkt data från en datakälla som et
 > [!TIP]
 > Symbol lager som standard renderas koordinaterna för alla geometrier i en datakälla. Funktioner för att begränsa lagret så att den återger endast punkt geometri set den `filter` tillhör skiktet till `['==', '$type', 'Point']`
 
-## <a name="add-a-symbol-layer"></a>Lägg till en symbol-lager
+## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt
 
 <iframe height='500' scrolling='no' title='Plats för växeln PIN-kod' src='//codepen.io/azuremaps/embed/ZqJjRP/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/ZqJjRP/'>växel PIN-kod plats</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -32,7 +32,7 @@ Det första blocket av koden ovan skapar en Kartobjekt. Du kan se [skapa en kart
 
 I det andra kodblocket, ett datakällobjekt skapas med hjälp av den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) klass. En [funktion] som innehåller en [punkt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometri är omslutna av den [form](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) klassen för att göra det lättare att uppdatera, och sedan skapas och läggs till datakällan.
 
-Det tredje kodblocket skapar en [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) och uppdateringar punktkoordinater vid mus klickar du på med hjälp av klassen shape [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest#setcoordinates) metod.
+Det tredje kodblocket skapar en [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) och uppdateringar punktkoordinater vid mus klickar du på med hjälp av klassen shape [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) metod.
 
 En [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) använder text eller ikoner för att rendera platsbaserad data och är inneslutna i den [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) som symboler på kartan.  Datakällan och händelselyssnaren klickar du på symbolen lagret skapas och läggs till kartan inom den [händelselyssnaren](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funktion för att tillse att punkten visas när kartan har lästs in helt.
 
@@ -82,4 +82,4 @@ Se följande artiklar om fler kodexempel att lägga till i dina kartor:
 > [Lägg till ett bubbeldiagram lager](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Lägga till HTML-skapare](./map-add-bubble-layer.md)
+> [Add HTML Makers](./map-add-bubble-layer.md)

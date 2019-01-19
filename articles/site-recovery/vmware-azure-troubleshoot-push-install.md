@@ -6,13 +6,13 @@ manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
-ms.date: 12/12/2018
-ms.openlocfilehash: fef0cfd05fe0d44966cbb9f15ba1148f8473207d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/18/2019
+ms.openlocfilehash: e397540d33df8a509e10f52fde41fc178cdba67e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789915"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411755"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Felsöka installationsproblem med Mobilitetstjänsten push
 
@@ -141,6 +141,14 @@ Om du vill visa listan över operativsystem och kernel-versioner som stöds av A
 ## <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>Start- och systempartitionerna / volymerna inte finns på samma disk (samtalsstatus: 95309)
 
 Innan du 9.20 version, Start- och systempartitionerna / volymerna på olika diskar har en konfiguration som inte stöds. Från [9.20 version](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), den här konfigurationen stöds. Använd senaste versionen för det här.
+
+## <a name="boot-disk-not-found-errorid-95310"></a>Det gick inte att hitta startdisken (samtalsstatus: 95310)
+
+En virtuell dator utan en startdisk kan inte skyddas. Detta är att säkerställa smidig återställning av virtuell dator under redundansväxlingen. Avsaknad av startdisk resulterar i fel att starta datorn efter redundans. Se till att den virtuella datorn innehåller startdisk och försök igen. Observera också att flera startdiskar på samma dator inte stöds.
+
+## <a name="multiple-boot-disks-found-errorid-95311"></a>Flera startdisketter finns (samtalsstatus: 95311)
+
+En virtuell dator med flera startdiskar är inte en [stöds configuration](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage).
 
 ## <a name="system-partition-on-multiple-disks-errorid-95313"></a>Systempartitionen på flera diskar (samtalsstatus: 95313)
 

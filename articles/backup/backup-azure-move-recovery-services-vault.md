@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 1/4/2019
 ms.author: sogup
-ms.openlocfilehash: ee61381eabed9dd7ead7deb23bc6f27c94031d3b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 0ab626bffa3520af0ea23314cbaed118d66e280f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382322"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401936"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Flytta ett Recovery Services-valv i Azure-prenumerationer och resursgrupper (begränsad offentlig förhandsversion)
 
@@ -42,9 +42,9 @@ Recovery Services-valv som konfigurerats för användning med **Azure Site Recov
 >
 >
 
-## <a name="register-the-subscription-to-move-your-recovery-services-vault"></a>Registrera prenumeration för att flytta ditt Recovery Services-valv
+## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registrera datakälla prenumerationen för att flytta ditt Recovery Services-valv
 
-Att registrera prenumerationen på **flytta** Recovery Services-valvet, kör du följande cmdlets från PowerShell-terminalen:
+Att registrera datakälla prenumerationen **flytta** Recovery Services-valvet, kör du följande cmdlets från PowerShell-terminalen:
 
 1. Logga in på ditt Azure-konto
 

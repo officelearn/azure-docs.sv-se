@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 4d61810adb24bb56b849a0a07ad1f097a1c33744
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: cc6857750534dad2ded29178eb3f140fc25cce0d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198090"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410497"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klientprogram till ditt Azure IoT Central program (Node.js)
 
-Den här artikeln beskrivs hur du som utvecklare enheten att ansluta ett allmänt Node.js-program som representerar en fysisk enhet för ditt Microsoft Azure IoT Central program.
+Den här artikeln beskrivs hur du som utvecklare enheten att ansluta ett allmänt Node.js-program som representerar en riktig enhet för ditt Microsoft Azure IoT Central program.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -84,7 +84,7 @@ Ange namnen på exakt som de visas i tabellen i mallar för enheten. Om egenskap
 
 Lägg till följande **nummer** inställningar i den **inställningssidan**:
 
-| Visningsnamn    | Fältnamn     | Enheter | Decimaler | Min | Max  | Inledande |
+| Visningsnamn    | Fältnamn     | Enheter | Decimals | Min | Max  | Inledande |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fläkthastighet       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | Ange temperatur | angeTemperatur | F     | 0        | 20  | 200  | 80      |
@@ -97,7 +97,7 @@ Lägg till en riktig enhet från enheten mallen du skapar och anteckna enhetens 
 
 ### <a name="create-a-nodejs-application"></a>Skapa ett Node.js-program
 
-Följande steg visar hur du skapar ett klientprogram som implementerar en riktig enhet som du lade till programmet. Node.js-program representerar här riktig fysisk enhet. 
+Följande steg visar hur du skapar ett klientprogram som implementerar en riktig enhet som du lade till programmet. Node.js-program representerar här riktig enhet. 
 
 1. Skapa en mapp med namnet `connected-air-conditioner-adv` på datorn. Navigera till mappen i kommandoradsverktyget-miljön.
 

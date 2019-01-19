@@ -7,28 +7,28 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 776363278352ca3de365760d334e99ab43b14bb5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389567"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413251"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Bifoga en Cognitive Services-resurs med en kompetens i Azure Search 
 
-AI-algoritmer som driver [kognitiv sökning pipelines](cognitive-search-concept-intro.md) för bearbetning av Ostrukturerade data baserat på [ **Cognitive Services-resurser**](https://azure.microsoft.com/services/cognitive-services/). Resurser som [ **visuellt** ](https://azure.microsoft.com/services/cognitive-services/computer-vision/) ger bildanalys och optisk teckenläsning (OCR) för att extrahera text och struktur utanför bildfiler, medan [ **Text Analytics** ](https://azure.microsoft.com/services/cognitive-services/text-analytics/) ger naturlig språkbearbetning, till exempel entitet erkännande och nyckeln diskussionsämne, att nämna några.
+AI-algoritmer enheten den [kognitiv sökning pipelines](cognitive-search-concept-intro.md) används för att behandla Ostrukturerade data i ett Azure Search indexering igen. Dessa algoritmer är baserade på [Cognitive Services-resurser](https://azure.microsoft.com/services/cognitive-services/), inklusive [visuellt](https://azure.microsoft.com/services/cognitive-services/computer-vision/) för bildanalys och optisk teckenläsning (OCR) och [textanalys](https://azure.microsoft.com/services/cognitive-services/text-analytics/)för igenkänning av entiteter, extrahering av diskussionsämne och andra enrichments.
 
 Du kan utöka ett begränsat antal dokument kostnadsfritt eller bifoga en fakturerbar Cognitive Services-resurs för större och mer frekventa arbetsbelastningar. I den här artikeln lär du dig hur du associerar en resurs för Cognitive Services med dina cognitive färdigheter och utöka data under [Azure sökindexering](search-what-is-an-index.md).
 
-Om din pipeline består av kunskaper som inte är relaterade till Cognitive Services API: er, bör du fortfarande använda en resurs för Cognitive Services, men du kommer inte att debiteras för dessa kunskaper. Orelaterade kunskaper omfattar: [anpassade funktioner](cognitive-search-create-custom-skill-example.md), [text fusion](cognitive-search-skill-textmerger.md), [text delare](cognitive-search-skill-textsplit.md), och [formaren](cognitive-search-skill-shaper.md).
+Om din pipeline består av kunskaper som inte är relaterade till Cognitive Services API: er, bör du fortfarande koppla en resurs för Cognitive Services. Gör så åsidosättningar i **kostnadsfri** resurs som begränsar du en liten mängd enrichments per dag. Det finns ingen kostnad för färdigheter som inte är bundna till Cognitive Services API: er. Inkludera dessa kunskaper: [anpassade funktioner](cognitive-search-create-custom-skill-example.md), [text fusion](cognitive-search-skill-textmerger.md), [text delare](cognitive-search-skill-textsplit.md), och [formaren](cognitive-search-skill-shaper.md).
 
 > [!NOTE]
 > Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. På så sätt kan vi ta betalt för körning av kompetens. På det här datumet måste också började vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
 >
-> Körningen av [inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) som ingår debiteras enligt de [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services), på samma pris som om du har utfört uppgiften direkt. Extrahering av avbildningen är en fakturerbar händelse Azure Search, för närvarande på priset för förhandsversionen. Mer information finns i [Azure Search prissättningssidan](https://go.microsoft.com/fwlink/?linkid=2042400) eller [hur debiteringen fungerar](search-sku-tier.md#how-billing-works).
+> [Inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) körning som ingår debiteras enligt de [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services), på samma pris som om du har utfört uppgiften direkt. Extrahering av avbildningen är en Azure Search-avgift kan för närvarande på priset för förhandsversionen. Mer information finns i [Azure Search prissättningssidan](https://go.microsoft.com/fwlink/?linkid=2042400) eller [hur debiteringen fungerar](search-sku-tier.md#how-billing-works).
 
 
 ## <a name="use-free-resources"></a>Använd kostnadsfria resurser

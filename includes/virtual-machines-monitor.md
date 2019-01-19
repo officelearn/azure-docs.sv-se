@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 47b58e74f57640098751b38c1a4fb504838c9ced
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54242360"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54404679"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -60,13 +60,11 @@ Några av de saker du kan göra med diagnostikloggar är:
 
 - [Spara dem till ett lagringskonto](../articles/azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell granskning. Du kan ange kvarhållningstid (i dagar) med hjälp av Resursdiagnostikinställningar.
 - [Stream dem till Event Hubs](../articles/azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) ska matas in av en tjänst från tredje part eller anpassade analyslösning till exempel Power BI.
-- Analysera dem med [OMS Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
+- Analysera dem med [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-- [Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/) ger funktioner för övervakning, varningar, och reparationen för molnet och lokala resurser. Du kan installera ett tillägg på en [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) eller en [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) som OMS-agenten installeras och registreras den virtuella datorn i en befintlig OMS-arbetsyta.
-
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) är en tjänst i OMS som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor.
+- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) är en tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. Du kan installera ett tillägg på en [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) eller en [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) som Log Analytics-agenten installeras och registreras den virtuella datorn i en befintlig Log Analytics-arbetsyta.
 
     För Windows och Linux-datorer är den rekommenderade metoden för att samla in loggar och mått genom att installera Log Analytics-agenten. Det enklaste sättet att installera Log Analytics-agenten på en virtuell dator är via den [Log Analytics VM-tillägget](../articles/log-analytics/log-analytics-azure-vm-extension.md). Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
 

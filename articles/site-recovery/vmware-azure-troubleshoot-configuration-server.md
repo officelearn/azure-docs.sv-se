@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: ramamill
-ms.openlocfilehash: a720b264c4283498604d1446283c5a2242fdb8b3
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb965313fda90da3fb0ec0cd418f87795a4e2722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381800"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413472"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Felsöka problem med konfigurationen av servern
 
@@ -71,7 +71,6 @@ Se till att den vCenter-servern har lagts till proxyinställningar för kringgå
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>Ändra IP-adressen för konfigurationsservern
 
 Vi rekommenderar starkt att du inte ändrar IP-adressen för en konfigurationsserver. Kontrollera att alla IP-adresser som är kopplade till konfigurationsservern är statiska IP-adresser. Använd inte DHCP IP-adresser.
->>>>>>> c842cff5a0480caa5183dbb7afe5016a7061c7b9
 
 ## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML-token är ogiltig
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/03/2018
 ms.author: cynthn
-ms.openlocfilehash: f84626c5a487d52f53a2c8bf492a124c87599ed0
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e283f21b65706860e198e2deca933f1986073cab
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932402"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413234"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Hur du använder Packer för att skapa Linux-avbildningar i Azure
 Varje virtuell dator (VM) i Azure skapas från en avbildning som definierar Linux-distribution och operativsystemsversion. Bilder kan innehålla förinstallerade program och konfigurationer. Azure Marketplace innehåller många avbildningar av första och tredje part för de vanligaste distributioner och programmiljöer eller du kan skapa dina egna anpassade avbildningar som är specialanpassade utifrån dina behov. Den här artikeln beskriver hur du använder verktyg med öppen källkod [Packer](https://www.packer.io/) att definiera och skapa anpassade avbildningar i Azure.
@@ -36,7 +36,7 @@ az group create -n myResourceGroup -l eastus
 ```
 
 
-## <a name="create-azure-credentials"></a>Skapa autentiseringsuppgifter för Azure
+## <a name="create-azure-credentials"></a>Skapa Azure-autentiseringsuppgifter
 Packer autentiserar med Azure med ett huvudnamn för tjänsten. Ett huvudnamn för Azure-tjänsten är en säkerhetsidentitet som du kan använda med appar, tjänster och automatiseringsverktyg som Packer. Du kontrollerar och definiera behörigheter om vilka åtgärder som tjänstens huvudnamn kan utföra i Azure.
 
 Skapa ett tjänstobjekt med [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) och matar ut de autentiseringsuppgifter som Packer behöver:
@@ -201,7 +201,7 @@ Det tar några minuter för Packer att skapa den virtuella datorn, kör provisio
 
 
 ## <a name="create-vm-from-azure-image"></a>Skapa virtuell dator från Azure-avbildning
-Du kan nu skapa en virtuell dator från avbildningen med [az vm skapa](/cli/azure/vm#az_vm_create). Ange den avbildning som du skapade med den `--image` parametern. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage* och genererar SSH-nycklar om de inte redan finns:
+Du kan nu skapa en virtuell dator från avbildningen med [az vm skapa](/cli/azure/vm). Ange den avbildning som du skapade med den `--image` parametern. I följande exempel skapas en virtuell dator med namnet *myVM* från *myPackerImage* och genererar SSH-nycklar om de inte redan finns:
 
 ```azurecli
 az vm create \

@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: fcd5137792e573c3077a4b9d5e815b9bf20774f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ec7b1ad33ec80593b718bdf86a48269fb469e078
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155079"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413523"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
@@ -27,10 +27,10 @@ Värden för tillägget implementerar två nya domäner namnområden för att ga
 
 Tabellen visar nya namnområden och de associera certifikat:
 
-| Distributionsmappen | Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN) | Omfång (per region) | Underdomän namnområde |
+| Distributionsmappen | Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN) | Omfång (per region) | SubDomain namespace |
 |-----------------------|------------------------------------------------------------------|-----------------------|------------------------------|
-| Admin-tillägg-värd | *.adminhosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Admin-tillägg-värd | adminhosting. \<region >. \<fqdn > |
-| Offentliga tillägget värd | * .hosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Offentliga tillägget värd | som är värd för. \<region >. \<fqdn > |
+| Admin-tillägg-värd | *.adminhosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Admin-tillägg-värd | adminhosting.\<region>.\<fqdn> |
+| Offentliga tillägget värd | * .hosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Offentliga tillägget värd | hosting.\<region>.\<fqdn> |
 
 Detaljerad certifikatkraven finns i den [certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar](azure-stack-pki-certs.md) artikeln.
 
@@ -129,8 +129,8 @@ Om enskilda värd A-poster har konfigurerats för att publicera Azure Stack-slut
 
 | IP-adress | Värdnamn | Typ |
 |----|------------------------------|------|
-| \<IP &GT; | *. Adminhosting. \<Region >. \<FQDN > | A |
-| \<IP &GT; | *. Som är värd för. \<Region >. \<FQDN > | A |
+| \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
+| \<IP> | *.Hosting.\<Region>.\<FQDN> | A |
 
 Allokerade IP-adresser kan hämtas med hjälp av privilegierad slutpunkt genom att köra cmdlet **Get-AzureStackStampInformation**.
 
@@ -201,10 +201,10 @@ Följande befintliga slutpunktsportar måste stängas i din befintliga brandväg
 
 | Slutpunkt (VIP) | Protokoll | Portar |
 |----------------------------------------|----------|-------------------------------------------------------------------------------------------------------------------------------------|
-| Portal (administratör) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015 |
-| Portal (användare) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003 |
+| Portal (administratör) | HTTPS | 12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13012<br>13020<br>13021<br>13026<br>30015 |
+| Portal (användare) | HTTPS | 12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003 |
 | Azure Resource Manager (administratör) | HTTPS | 30024 |
-| Azure Resource Manager (användare) | HTTPS | 30024 |
+| Azure Resource Manager (user) | HTTPS | 30024 |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: zarhoads
-ms.openlocfilehash: 024cf099dd65db036ae0b68d7094a60427ffa69c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f16dbd743f7e5bb659d05325f85255223feb677d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119892"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411524"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
 
@@ -67,7 +67,7 @@ az network nsg create \
 ```
 
 ## <a name="create-and-configure-multiple-nics"></a>Skapa och konfigurera flera nätverkskort
-Skapa två nätverkskort med [az network nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas två nätverkskort, med namnet *myNic1* och *myNic2*, ansluten nätverkssäkerhetsgrupp, med ett nätverkskort som ansluter till varje undernät:
+Skapa två nätverkskort med [az network nic skapa](/cli/azure/network/nic). I följande exempel skapas två nätverkskort, med namnet *myNic1* och *myNic2*, ansluten nätverkssäkerhetsgrupp, med ett nätverkskort som ansluter till varje undernät:
 
 ```azurecli
 az network nic create \
@@ -105,7 +105,7 @@ Lägg till routningstabeller i gästoperativsystemet genom att följa stegen i [
 ## <a name="add-a-nic-to-a-vm"></a>Lägg till ett nätverkskort till en virtuell dator
 I föregående steg skapade en virtuell dator med flera nätverkskort. Du kan också lägga till nätverkskort till en befintlig virtuell dator med Azure CLI. Olika [VM-storlekar](sizes.md) stöd för olika antal nätverkskort, storlek, så den virtuella datorn i enlighet med detta. Om det behövs kan du [ändra storlek på en virtuell dator](change-vm-size.md).
 
-Skapa ett annat nätverkskort med [az network nic skapa](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas ett nätverkskort med namnet *myNic3* är anslutna till backend-undernät och gruppen skapades i föregående steg:
+Skapa ett annat nätverkskort med [az network nic skapa](/cli/azure/network/nic). I följande exempel skapas ett nätverkskort med namnet *myNic3* är anslutna till backend-undernät och gruppen skapades i föregående steg:
 
 ```azurecli
 az network nic create \

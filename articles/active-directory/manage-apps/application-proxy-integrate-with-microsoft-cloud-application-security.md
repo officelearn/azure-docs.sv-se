@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 3be75f2fe004939eff6bf6cc960759db69bfb93a
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 8de052175d93abdb82390d12d601c29bf0d4d462
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215107"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411874"
 ---
 # <a name="configure-real-time-application-access-monitoring-with-microsoft-cloud-app-security-and-azure-active-directory"></a>Konfigurera övervakning av realtidsprogram åtkomst med Microsoft Cloud App Security och Azure Active Directory
 Konfigurera ett lokalt program i Azure Active Directory (AD Azure) att använda Microsoft Cloud App Security (MCAS) för övervakning i realtid. MCAS använder Appkontroll för villkorsstyrd åtkomst för att övervaka och kontrollera sessioner i realtid baserat på principer för villkorlig åtkomst. Du kan använda dessa principer på den lokala program som använder Application Proxy i Azure Active Directory (AD Azure).
@@ -64,7 +64,7 @@ Om du vill konfigurera ditt program med programkontroll för villkorlig åtkomst
 
 ## <a name="test-conditional-access-app-control"></a>Test Appkontroll för villkorsstyrd åtkomst
 
-Om du vill testa distributionen av Azure AD-program med villkorlig åtkomstkontroll för programmet, följer du anvisningarna i [Testa distributionen för Azure AD-appar](/cloud-app-security/proxy-deployment-aad#test-the-deployment).
+Om du vill testa distributionen av Azure AD-program med villkorlig åtkomstkontroll för programmet, följer du anvisningarna i [Testa distributionen för Azure AD-appar](/cloud-app-security/proxy-deployment-aad).
 
 
 

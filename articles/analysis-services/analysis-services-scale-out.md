@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/18/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 775de554f39df8359c3852a2d7fa876fd12199d2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 213a695d99c50cea5962237c6210e6efcdbc5f6a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190863"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411687"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-utskalning
 
@@ -107,10 +107,10 @@ SSMS SSDT och anslutningssträngar i PowerShell, Azure-funktionsappar och AMO, a
 
 **Problem:** Användare får fel **servern hittades inte ”\<namnet på servern >' instansen i anslutningsläge” skrivskyddad ”.**
 
-**Lösning:** När du väljer den **separera bearbetningsservern från frågepoolen** alternativet klientanslutningar med hjälp av standard-anslutningssträngen (utan: rw) omdirigeras till frågerepliker för poolen. Om repliker i frågepoolen inte är ännu online eftersom synkronisering inte har ännu har slutförts, kan omdirigerad klientanslutningar misslyckas. Om du vill förhindra att misslyckade anslutningar, Välj att inte separera bearbetningsservern från frågepoolen tills en skalbar och synkronisering åtgärd har slutförts. Du kan använda minne och QPU mått för att övervaka synkroniseringsstatus för.
+**Lösning:** När du väljer den **separera bearbetningsservern från frågepoolen** alternativet klientanslutningar med hjälp av standard-anslutningssträngen (utan: rw) omdirigeras till frågerepliker för poolen. Om repliker i frågepoolen inte är ännu online eftersom synkronisering inte har ännu har slutförts, kan omdirigerad klientanslutningar misslyckas. Om du vill förhindra att misslyckade anslutningar, måste det finnas minst två servrar i frågepoolen när du utför en synkronisering. Varje server synkroniseras individuellt medan andra är online. Om du väljer att inte installera bearbetningsservern i frågepoolen under bearbetning, kan du välja att ta bort den från poolen för bearbetning och sedan lägga tillbaka det i poolen när bearbetningen är klar, men innan du synkroniserar. Använda minne och QPU mått för att övervaka synkroniseringsstatus för.
 
 ## <a name="related-information"></a>Relaterad information
 
 [Övervaka servermått](analysis-services-monitor.md)   
-[Hantera Azure Analysis Services](analysis-services-manage.md) 
+[Manage Azure Analysis Services](analysis-services-manage.md) 
 

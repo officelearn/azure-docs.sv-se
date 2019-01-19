@@ -11,19 +11,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/18/2018
+ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: dbef04710e1a91cfda8b039605b517de9524ee19
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: fd73863dacd7914e23199ba92211ea67e68f7d0d
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229582"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402157"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Red Hat Enterprise Linux-avbildningar i Azure
 Den här artikeln beskrivs tillgängliga Red Hat Enterprise Linux (RHEL)-avbildningar på Azure Marketplace tillsammans med principer avseende deras namngivning och kvarhållning.
 
 Information om principer för Red Hat-support för alla versioner av RHEL kan hittas på den [livscykel för Red Hat Enterprise Linux](https://access.redhat.com/support/policy/updates/errata) sidan.
+
+>[!Important]
+> RHEL-avbildningar för närvarande tillgängligt på Azure marketplace har stöd för Bring-Your-Own-prenumeration (BYOS) eller betala per användning (PAYG) licensiering modeller. Den [Azure Hybrid Use Benefit](../windows/hybrid-use-benefit-licensing.md) och dynamisk växla mellan BYOS och PAYG stöds inte. Växla licensieringsläge kräver omdistribuera den virtuella datorn från motsvarande bild.
+
+>[!Note]
+> Skicka ett supportärende hos Microsoft för eventuella problem som rör RHEL-avbildningar i Azure marketplace-galleriet.
 
 ## <a name="images-available-in-the-ui"></a>Bilder som är tillgängliga i Användargränssnittet
 När du söker efter ”Red Hat” i Marketplace eller när du skapar en resurs i Azure-portalens användargränssnitt, visas en delmängd av tillgängliga RHEL-avbildningar och relaterade Red Hat-produkter. Du kan alltid hämta den fullständiga uppsättningen tillgängliga VM-avbildningar med Azure CLI/PowerShell/API.
@@ -70,8 +76,8 @@ Begränsningen är i faktumet att om en icke-selektivt `yum update` körs mot en
 Följande erbjudanden är SKU: er är tillgängliga för allmänt bruk:
 Erbjudande| SKU | Partitionering | Etablering | Anteckningar
 :----|:----|:-------------|:-------------|:-----
-RHEL | 7-RÅDATA | RÅDATA | Linux-agent | RHEL 7 familj av avbildningar
-| | 7 – LVM | LVM | Linux-agent | RHEL 7 familj av avbildningar
+RHEL | 7-RAW | RÅDATA | Linux-agent | RHEL 7 familj av avbildningar
+| | 7-LVM | LVM | Linux-agent | RHEL 7 familj av avbildningar
 | | 7-RAW-CI | RAW-CI | Cloud-init | RHEL 7 familj av avbildningar
 | | 6.7 | RÅDATA | Linux-agent | RHEL 6.7 avbildningar, gamla namnkonventionen
 | | 6.8 | RÅDATA | Linux-agent | Samma som ovan för RHEL 6.8
@@ -83,10 +89,10 @@ RHEL | 7-RÅDATA | RÅDATA | Linux-agent | RHEL 7 familj av avbildningar
 | | 7.5 | RÅDATA | Linux-agent | Samma som ovan för RHEL 7.5
 RHEL-SAP | 7.4 | LVM | Linux-agent | RHEL 7.4 för SAP HANA och appar
 | | 7.5 | LVM | Linux-agent | RHEL 7.5 för SAP HANA och appar
-RHEL SAP HANA | 6.7 | RÅDATA | Linux-agent | RHEL 6.7 för SAP HANA
+RHEL-SAP-HANA | 6.7 | RÅDATA | Linux-agent | RHEL 6.7 för SAP HANA
 | | 7.2 | LVM | Linux-agent | RHEL 7.2 för SAP HANA
 | | 7.3 | LVM | Linux-agent | 7.3 RHEL for SAP HANA
-RHEL-SAP-APPAR | 6.8 | RÅDATA | Linux-agent | RHEL 6.8 for SAP Business Applications
+RHEL-SAP-APPS | 6.8 | RÅDATA | Linux-agent | RHEL 6.8 for SAP Business Applications
 | | 7.3 | LVM | Linux-agent | RHEL 7.3 for SAP Business Applications
 
 ### <a name="old-naming-convention"></a>Gamla namnkonventionen

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: zawad
-ms.openlocfilehash: e3e333594b32cff018f02cd1d3b32eaf44c11a65
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 3193e9ac6ac5e90584bbf548142b7573d61c310a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48904410"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413081"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå Azure AD-programtillåtelser inträffar
 
@@ -84,4 +84,4 @@ Här följer medgivande-upplevelser som en användare kan se i de vanliga scenar
 
 ## <a name="next-steps"></a>Nästa steg
 - Få en stegvisa översikt över [hur Azure AD-ramverket för medgivande implementerar medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework).
-- Mer information lär du dig [hur ett program med flera innehavare kan använda ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) implementerar ”användare” och ”admin” medgivande stöder mer avancerade mönster för flera nivåer.
+- Mer information lär du dig [hur ett program med flera innehavare kan använda ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) implementerar ”användare” och ”admin” medgivande stöder mer avancerade mönster för flera nivåer.

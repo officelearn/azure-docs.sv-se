@@ -1,5 +1,5 @@
 ---
-title: Analysera kundomsättning
+title: Analysera kundomsättningen
 titleSuffix: Azure Machine Learning Studio
 description: Fallstudie av att utveckla en integrerad modell för att analysera och bedömning kundomsättningen med Azure Machine Learning Studio.
 services: machine-learning
@@ -10,14 +10,14 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: dbe853172c0f0e49408bd4a2dd630a69659421d3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 153ddcc1ba0da6171963ec91511fafe84023ecf8
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260609"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401985"
 ---
-# <a name="analyzing-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Analysera kundens omsättning med hjälp av Azure Machine Learning Studio
 ## <a name="overview"></a>Översikt
 Den här artikeln beskriver vi en referensimplementering av ett kundomsättning analysis-projekt som skapats med hjälp av Azure Machine Learning. I den här artikeln diskuterar vi associerade allmän modeller för att lösa problemen med industriell kundomsättning holistiskt. Vi också mäta riktighet modeller som skapas med hjälp av Machine Learning och utvärdera anvisningarna för ytterligare utveckling.  
 

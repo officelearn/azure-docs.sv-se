@@ -17,14 +17,14 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: afcdb7c64f4431e920f1f1fbce1e1e6d3e4db79c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 11132426bb8adb6ede564e706e18f3eddd649bef
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52424960"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401885"
 ---
-# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Så här: anpassa anspråk som utfärdats i SAML-token för företagsprogram
+# <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företagsprogram
 
 Idag Azure Active Directory (Azure AD) har stöd för enkel inloggning på med de flesta företagsprogram, inklusive båda programmen som är förintegrerade i appgalleriet för Azure AD samt anpassade program. När en användare autentiseras till ett program via Azure AD med hjälp av protokollet SAML 2.0, skickar Azure AD en token till programmet (via en HTTP-POST). Och sedan programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token innehåller uppgifter om den användare som kallas ”anspråk”.
 
@@ -63,7 +63,7 @@ Välj önskad källa för den `NameIdentifier` (eller NameID) anspråk. Du kan v
 | E-post | E-postadressen för användaren |
 | userprincipalName | Användarens huvudnamn (UPN) för användaren |
 | onpremisessamaccount | SAM-kontonamn som har synkroniserats från den lokala Azure AD |
-| Objekt-ID | Objekt-ID för användaren i Azure AD |
+| objectID | Objekt-ID för användaren i Azure AD |
 | EmployeeID | EmployeeID för användaren |
 | Katalogtillägg | Katalogtillägg [synkroniseras från den lokala Active Directory med Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Tilläggsattribut 1 – 15 | Lokala tilläggsattribut som används för att utöka Azure AD-schema |
@@ -75,13 +75,13 @@ Du kan också använda funktionerna särskilda anspråk transformationer.
 | Funktion | Beskrivning |
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från e-postadressen, SAM-kontonamn eller användarens huvudnamn. Då extraheras bara den första delen av användarnamnet som skickas via (till exempel ”joe_smith” i stället för joe_smith@contoso.com). |
-| **JOIN()** | Ansluter till ett attribut med en verifierad domän. Om det valda användaren ID-värdet har en domän, extraherar användarnamnet om du vill lägga till valda verifierade domän. Exempel: Om du väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användaridentifierare och väljer contoso.onmicrosoft.com som verifierad domän, detta resulterar i joe_smith@contoso.onmicrosoft.com. |
+| **join()** | Ansluter till ett attribut med en verifierad domän. Om det valda användaren ID-värdet har en domän, extraherar användarnamnet om du vill lägga till valda verifierade domän. Exempel: Om du väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användaridentifierare och väljer contoso.onmicrosoft.com som verifierad domän, detta resulterar i joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 
 ## <a name="adding-claims"></a>Att lägga till anspråk
 
-När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen.
+När du lägger till ett anspråk, kan du ange attributets namn (som strikt inte behöver följer ett mönster för URI enligt SAML-specifikationen). Ange värdet till valfria användarattribut som lagras i katalogen eller Använd ett gemenskapsgödselmedel-värde som en statisk post för alla användare i din organisation.
 
 ![Lägg till användarattribut][7]
 

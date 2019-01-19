@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 2ef5d285c19900fd2896279edde8841581d7e947
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: f5e29f29a02509775347b491b8a11816cbbacd05
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388168"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413793"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Text Merge kognitiva kunskaper
 
 Den **Text sammanfoga** färdighet konsoliderar text från en samling av fält till ett fält. 
 
 > [!NOTE]
-> Kompetensen är inte bunden till en Cognitive Services-API och det finns inga avgifter som är associerade med denna kunskap. Dock måste du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) ändå för att åsidosätta alternativet kostnadsfri resurs som begränsar du till ett litet antal dagliga enrichments.
+> Kompetensen är inte bunden till en Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md), men att åsidosätta den **kostnadsfri** resurs-alternativ som begränsar du till ett litet antal dagliga enrichments per dag.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

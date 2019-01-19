@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: ba46ba6429640cf29d9abc75055563fb1578d2e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 87dacdfa6df4021607953efd61fe9b4f49b30383
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129598"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402276"
 ---
 # <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Justering av Azure Data Lake Storage Gen1 för prestanda
 
@@ -47,13 +47,13 @@ Nätverksanslutningen mellan dina källdata och Data Lake Storage Gen1 kan iblan
 
 När du har åtgärdat maskinvaran som källa och network connectivity flaskhalsar ovan, är du redo att konfigurera verktyg för datainhämtning. I följande tabell sammanfattas Nyckelinställningar för flera populära inmatning verktyg och ger djupgående prestandajustering artiklar för dessa.  Mer information om vilket verktyg du använder för ditt scenario finns i den här [artikeln](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
 
-| Verktyg               | Inställningar     | Mer information                                                                 |
+| Verktyget               | Inställningar     | Mer information                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| PowerShell       | PerFileThreadCount och ConcurrentFileCount |  [Länk](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
+| PowerShell       | PerFileThreadCount, ConcurrentFileCount |  [Länk](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell#performance-guidance-while-using-powershell) |
 | AdlCopy    | Azure Data Lake Analytics-enheter  |   [Länk](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
 | DistCp            | -m (mapper)   | [Länk](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Länk](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.block.size -m (mapper)    |   [Länk](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Länk](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Strukturera datauppsättningen
 
@@ -136,9 +136,9 @@ Förutom de allmänna riktlinjerna ovan har olika parametrar som är tillgängli
 
 | Arbetsbelastning               | Parametern för att ställa in uppgifter                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Spark i HDInisight](data-lake-store-performance-tuning-spark.md)       | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
+| [Spark i HDInsight](data-lake-store-performance-tuning-spark.md)       | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
 | [Hive på HDInsight](data-lake-store-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
-| [MapReduce på HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.Reduce.Memory</li><li>Mapreduce.Job.reduces</li></ul> |
+| [MapReduce på HDInsight](data-lake-store-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm på HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Antal arbetsprocesser</li><li>Antal spout executor instanser</li><li>Antal bult executor instanser </li><li>Antal spout uppgifter</li><li>Antal bult uppgifter</li></ul>|
 
 ## <a name="see-also"></a>Se också

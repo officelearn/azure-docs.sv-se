@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: acfdd9070b49805c20b8ef921b5387c151448aa1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961509"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411124"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använda internt DNS för VM-namnmatchning i Azure
 
@@ -70,7 +70,7 @@ Interna DNS-namn är bara matchas i Azure-nätverk. Eftersom DNS-namn som är in
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `myNic`, och `myVM`.
 
 ## <a name="create-the-resource-group"></a>Skapa en resursgrupp
-Börja med att skapa resursgruppen med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` i den `westus` plats:
+Börja med att skapa resursgruppen med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet `myResourceGroup` på platsen `westus`:
 
 ```azurecli
 az group create --name myResourceGroup --location westus
@@ -80,7 +80,7 @@ az group create --name myResourceGroup --location westus
 
 Nästa steg är att skapa ett virtuellt nätverk för att starta de virtuella datorerna till. Det virtuella nätverket innehåller ett undernät för den här genomgången. Mer information om virtuella Azure-nätverk finns i [skapa ett virtuellt nätverk](../../virtual-network/manage-virtual-network.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#create-a-virtual-network). 
 
-Skapa det virtuella nätverket med [az network vnet skapa](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet `myVnet` och undernät med namnet `mySubnet`:
+Skapa det virtuella nätverket med [az network vnet skapa](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet `myVnet` och undernät med namnet `mySubnet`:
 
 ```azurecli
 az network vnet create \
@@ -103,7 +103,7 @@ az network nsg create \
 ```
 
 ## <a name="add-an-inbound-rule-to-allow-ssh"></a>Lägg till en inkommande regel för att tillåta SSH
-Lägg till en inkommande regel för nätverkssäkerhetsgruppen med [az network nsg-regel skapar](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). I följande exempel skapas en regel med namnet `myRuleAllowSSH`:
+Lägg till en inkommande regel för nätverkssäkerhetsgruppen med [az network nsg-regel skapar](/cli/azure/network/nsg/rule). I följande exempel skapas en regel med namnet `myRuleAllowSSH`:
 
 ```azurecli
 az network nsg rule create \

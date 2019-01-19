@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 09464342bd39e57f6e637ce90adc7190d08340a9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265421"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402376"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -69,11 +69,11 @@ Om du vill ta ögonblicksbilder när appar körs, tar Azure Backup appkonsekvent
 
 I följande tabell beskrivs olika typer av konsekvens.
 
-**ögonblicksbild** | **VSS-based** | **Detaljer** | **Recovery**
+**ögonblicksbild** | **Detaljer** | **Recovery** | **Beräkningen**
 --- | --- | --- | ---
-**Programkonsekvent** | Ja (endast Windows) | Programkonsekvent säkerhetskopiering avbilda minne innehåll och väntande i/o-åtgärder. Appkonsekventa ögonblicksbilder använda VSS-skrivaren (eller före/efter-skript för Linux) som ser till att AppData konsekvens innan en säkerhetskopiering sker. | När du återställer med en programkonsekvent ögonblicksbild startas den virtuella datorn. Det finns inga skadade data eller dataförlust. Apparna starta i ett konsekvent tillstånd.
-**Filsystemkonsekvent** | Ja (endast Windows) |  Programkonsekventa säkerhetskopior av filen ger programkonsekventa säkerhetskopior av diskfiler genom att ta en ögonblicksbild av alla filer på samma gång.<br/><br/> Azure Backup-återställningspunkter är konsekvent för filen:<br/><br/> -Linux virtuella datorer säkerhetskopior som inte har före/efter-skript eller som har skript som misslyckades.<br/><br/> -Windows VM-säkerhetskopieringar där VSS misslyckades. | När du återställer med en filkonsekventa ögonblicksbilder, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Appar måste implementera sina egna ”åtgärds-”-mekanism för att se till att återställda data är konsekventa.
-**Kraschkonsekvent** | Nej | Kraschkonsekvens händer ofta när en Azure-dator stängs av vid tidpunkten för säkerhetskopieringen.  Endast de data som redan finns på disken vid tidpunkten för säkerhetskopieringen inhämtas och säkerhetskopieras.<br/><br/> En kraschkonsekvent återställningspunkt garantera inte datakonsekvens för operativsystemet eller appen. | Det finns inga garantier, men vanligtvis den virtuella datorn startas och sätt med en disk Kontrollera för att åtgärda skadade data. Alla data i minnet eller Skriv inte överföras till disk går förlorade. Appar implementerar sina egna dataverifieringen. Till exempel för en app för databasen samlar om transaktionsloggar innehåller poster som inte finns i databasen, databasprogrammet tills data är konsekventa.
+**Programkonsekvent** | Programkonsekvent säkerhetskopiering avbilda minne innehåll och väntande i/o-åtgärder. Appkonsekventa ögonblicksbilder använda VSS-skrivaren (eller före/efter-skript för Linux) som ser till att AppData konsekvens innan en säkerhetskopiering sker. | När du återställer med en programkonsekvent ögonblicksbild startas den virtuella datorn. Det finns inga skadade data eller dataförlust. Apparna starta i ett konsekvent tillstånd. | Windows: Alla VSS-skrivare har uppdaterats<br/><br/> Linux: Skript är före/efter konfigurerad och lyckades
+**Filsystemkonsekvent** | Programkonsekventa säkerhetskopior av filen ger programkonsekventa säkerhetskopior av diskfiler genom att ta en ögonblicksbild av alla filer på samma gång.<br/><br/> | När du återställer med en filkonsekventa ögonblicksbilder, den virtuella datorn startas. Det finns inga skadade data eller dataförlust. Appar måste implementera sina egna ”åtgärds-”-mekanism för att se till att återställda data är konsekventa. | Windows: Vissa VSS-skrivarna misslyckades <br/><br/> Linux: Som standard (om före/efter-skript inte har konfigurerats eller misslyckade)
+**Kraschkonsekvent** | Kraschkonsekvens händer ofta när en Azure-dator stängs av vid tidpunkten för säkerhetskopieringen.  Endast de data som redan finns på disken vid tidpunkten för säkerhetskopieringen inhämtas och säkerhetskopieras.<br/><br/> En kraschkonsekvent återställningspunkt garantera inte datakonsekvens för operativsystemet eller appen. | Det finns inga garantier, men vanligtvis den virtuella datorn startas och sätt med en disk Kontrollera för att åtgärda skadade data. Alla data i minnet eller Skriv inte överföras till disk går förlorade. Appar implementerar sina egna dataverifieringen. Till exempel för en app för databasen samlar om transaktionsloggar innehåller poster som inte finns i databasen, databasprogrammet tills data är konsekventa. | Virtuella datorn är i avstängning
 
 
 ## <a name="service-and-subscription-limits"></a>Begränsningar för tjänsten och prenumeration

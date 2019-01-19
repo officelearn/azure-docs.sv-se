@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 05134ff59f87aaac71588057f1ac50015a769672
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d5a8fa61307c278a77b33868a711970850a06f3e
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389842"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410055"
 ---
 #   <a name="text-split-cognitive-skill"></a>Text dela kognitiva kunskaper
 
 Den **Text dela** färdighet delar upp text i segment med text. Du kan ange om du vill dela texten i meningar eller sidor i en viss längd. Kompetensen är särskilt användbart om det finns maximala text längdkraven i andra färdigheter nedströms. 
 
 > [!NOTE]
-> Kompetensen är inte bunden till en Cognitive Services-API och det finns inga avgifter som är associerade med denna kunskap. Dock måste du [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md) ändå för att åsidosätta alternativet kostnadsfri resurs som begränsar du till ett litet antal dagliga enrichments.
+> Kompetensen är inte bunden till en Cognitive Services-API och du debiteras inte för att använda den. Du bör fortfarande [bifoga en resurs för Cognitive Services](cognitive-search-attach-cognitive-services.md), men att åsidosätta den **kostnadsfri** resurs-alternativ som begränsar du till ett litet antal dagliga enrichments per dag.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 

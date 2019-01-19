@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408837"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413676"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
@@ -56,7 +56,7 @@ Exempel på några av de sätt som Azure Identity Protection kan hjälpa att sky
 -   Ange grundläggande arbetsflöden för att spåra undersökningar.
 -   Ger enkel åtkomst till åtgärder som t.ex. återställning av lösenord.
 
-[Principer för riskbaserad, villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection#risky-sign-ins)
+[Principer för riskbaserad, villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 -   Minimera riskfyllda inloggningar genom att blockera inloggningar eller att kräva multifaktorautentisering utmaningar.
 -   Blockera eller skydda riskfyllda användarkonton.
 -   Kräv att användare att registrera sig för multifaktorautentisering.
@@ -91,13 +91,13 @@ Log Analytics kan du snabbt och lätt att förstå den övergripande säkerhetst
 
 Log Analytics säkerhet och granskning instrumentpanelen är uppdelad i fyra huvudkategorier:
 
--   **Säkerhetsdomäner**: kan du ytterligare utforska säkerhetsposter över tid, åtkomst skadlig kod utvärderingar, av kontroll av uppdateringar, visa nätverkssäkerhet, identitet, och komma åt information; Visa datorer med säkerhetshändelser; och snabbt komma åt Azure Instrumentpanelen för Security Center.
+-   **Säkerhetsdomäner**: Kan du utforska ytterligare säkerhetsposter över tid; bedömningar för skadlig kod för åtkomst. Uppdatera bedömningar. Visa nätverkssäkerhet, identitets- och åtkomstinformation; Visa datorer med säkerhetshändelser; och snabbt komma åt instrumentpanelen i Azure Security Center.
 
--   **Anmärkningsvärda problem**: gör att du snabbt identifiera antalet aktiva problem och allvarlighetsgraden på problemen.
+-   **Anmärkningsvärda problem**: Kan du snabbt identifiera antalet aktiva problem och allvarlighetsgraden på problemen.
 
--   **Identifieringar (förhandsversion)**: kan du identifiera angreppsmönster genom att visa säkerhetsaviseringar när de inträffar mot dina resurser.
+-   **Identifieringar (förhandsversion)**: Kan du identifiera angreppsmönster genom att visa säkerhetsaviseringar när de inträffar mot dina resurser.
 
--   **Hotinformation**: kan du identifiera angreppsmönster genom att visa det totala antalet servrar med utgående skadlig IP-trafik, typen av hot och en karta över platser för IP-adresser.
+-   **Hotinformation**: Kan du identifiera angreppsmönster genom att visa det totala antalet servrar med utgående skadlig IP-trafik, typen av hot och en karta över platser för IP-adresser.
 
 -   **Vanliga säkerhetsfrågor**: Visar en lista över de vanligaste säkerhetsfrågorna som du kan använda för att övervaka din miljö. När du väljer en fråga, Sök-rutan öppnas och visar resultatet för frågan.
 
@@ -124,7 +124,7 @@ Lösningar lägger till funktioner i Log Analytics. De främst körs i molnet oc
 
 Instrumentpanelen för säkerhet och granskning är ett exempel på dessa typer av lösningar.
 
-### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automatisering och kontroll: avisering på säkerhetskonfiguration drifts
+### <a name="automation-and-control-alert-on-security-configuration-drifts"></a>Automatisering och kontroll: Avisera om security configuration drifts
 
 Azure Automation automatiserar administrativa processer med runbooks som är baserade på PowerShell och körs i molnet. Runbooks kan också köras på en server i ditt lokala datacenter för att hantera lokala resurser. Azure Automation tillhandahåller konfigurationshantering med PowerShell Desired State Configuration (DSC).
 
@@ -162,13 +162,13 @@ Forskare får även hotinformation som delas med större leverantörer av molntj
 
 -   **Utnyttjar kraften i maskininlärning**: Azure Security Center har åtkomst till en stor mängd data om Molnets nätverksaktivitet, som kan användas för att identifiera hot mot din Azure-distributioner.
 
--   **Nyckelsökningsangrepp**: maskininlärning används för att skapa ett historiska mönster för fjärråtkomst försök, vilket innebär att det kan identifiera brute force-attacker mot SSH (Secure Shell), Remote Desktop Protocol (RDP) och SQL-portar.
+-   **Nyckelsökningsangrepp**: Maskininlärning används för att skapa ett historiska mönster för fjärråtkomst försök, vilket innebär att det kan identifiera brute force-attacker mot SSH (Secure Shell), Remote Desktop Protocol (RDP) och SQL-portar.
 
--   **Utgående DDoS och botnet-identifiering**: ett vanliga mål för attacker som är riktade till molnresurser är att använda beräkningskraft på dessa resurser för att utföra andra attacker.
+-   **Identifiering av utgående DDoS och botnät**: Ett gemensamt mål för attacker som är riktade till molnresurser är att använda beräkningskraft på dessa resurser för att utföra andra attacker.
 
--   **Ny beteendeanalys servrar och virtuella datorer**: när en server eller virtuell dator äventyras, angripare använder en mängd olika metoder för att köra skadlig kod på systemet undvika identifiering, säkerställer persistence och lagringsadministratörer säkerhetsåtgärder.
+-   **Ny beteendeanalys servrar och virtuella datorer**: När en server eller virtuell dator äventyras, använder angripare en mängd olika metoder för att köra skadlig kod på systemet undvika identifiering, säkerställer persistence och lagringsadministratörer säkerhetskontroller.
 
--   **Azure SQL Database Threat Detection**: Hotidentifiering för Azure SQL-databas som identifierar avvikande databasaktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
+-   **Azure SQL Database Threat Detection**: Hotidentifiering för Azure SQL-databas som identifierar avvikande databasaktiviteter som visar onormala och potentiellt skadliga försöker komma åt eller utnyttja databaser.
 
 ### <a name="behavioral-analytics"></a>Beteendeanalys
 
@@ -181,37 +181,37 @@ Mönstren bestäms också genom noggrann analys av skadliga beteenden av experta
 Dessutom korreleras mönster med andra tecken för att hitta bevis på utbredda. Den här korrelationen gör det möjligt att identifiera händelser som matchar fastställda hotindikatorer.
 
 Några exempel är:
--   **Misstänkt körning av processer**: Angripare använder flera metoder för att köra skadlig programvara utan identifiering. Exempelvis kan kan en angripare ge skadlig kod med samma namn som legitima systemfiler men placera filerna på en annan plats, använda ett namn som liknar den på en oskadlig fil eller maskera filens egentliga filnamnstillägg. Security Center-modellerna bearbetar beteenden och körningar för Övervakare för processen att identifiera avvikelser som dessa.
+-   **Körning av misstänkt process**: Angripare använder flera metoder för att köra skadlig programvara utan identifiering. Exempelvis kan kan en angripare ge skadlig kod med samma namn som legitima systemfiler men placera filerna på en annan plats, använda ett namn som liknar den på en oskadlig fil eller maskera filens egentliga filnamnstillägg. Security Center-modellerna bearbetar beteenden och körningar för Övervakare för processen att identifiera avvikelser som dessa.
 
--   **Dold skadlig kod och försök**: avancerad skadlig kod kan ta sig förbi traditionella antivirusprodukter genom att aldrig skriva till disk eller kryptera programvarukomponenter som lagras på disk. Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet ska fungera. När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen. Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, kommer åt känsliga data och gömda på en komprometterad dator utan att påverka prestanda för din datorn.
+-   **Dold skadlig kod och försök**: Avancerad skadlig kod kan ta sig förbi traditionella antivirusprodukter genom att aldrig skriva till disk eller kryptera programvarukomponenter som lagras på disk. Sådan skadlig kod kan dock identifieras med minnesanalyser eftersom den skadliga koden måste lämna spår i minnet ska fungera. När programvara kraschar fångar en kraschdumpfil en del av minnet vid tidpunkten för kraschen. Genom att analysera minnet i kraschdumpen kan Azure Security Center identifiera tekniker som utnyttjar sårbarheter i programvara, kommer åt känsliga data och gömda på en komprometterad dator utan att påverka prestanda för din datorn.
 
 -   **Lateral förflyttning och intern rekognosering**: Om du vill spara i ett komprometterat nätverk och leta upp och samla värdefull information, försöker angripare ofta lateralt från den komprometterade datorn till andra i samma nätverk. Security Center övervakar process- och inloggningsaktiviteter för att identifiera försök att expandera en angripares fäste i nätverket, till exempel fjärrkörning, nätverksavsökning och kontouppräkning.
 
 -   **Skadliga PowerShell-skript**: PowerShell kan användas av angripare för att köra skadlig kod på virtuella måldatorer för olika ändamål. Security Center inspekterar PowerShell-aktivitet för att hitta tecken på misstänkt aktivitet.
 
--   **Utgående attacker**: Angripare attackerar ofta resurser i molnet med avsikten att använda dessa resurser för att bygga upp fler attacker. Angripna virtuella datorer kan till exempel användas för att köra råstyrkeattacker mot andra virtuella datorer, skicka skräppost eller söka av öppna portar och andra enheter på internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När skräppost identifieras Security Center även korrelera ovanlig e-posttrafik med information fån Office 365 för att avgöra om den e-posten är skräppost eller resultatet av en legitim e-postkampanj.
+-   **Utgående attacker**: Angripare siktar in ofta molnresurser med målet att använda dessa resurser för att skapa fler attacker. Angripna virtuella datorer kan till exempel användas för att köra råstyrkeattacker mot andra virtuella datorer, skicka skräppost eller söka av öppna portar och andra enheter på internet. Genom att använda maskininlärning för nätverkstrafiken kan Security Center upptäcka avvikande utgående nätverkskommunikation. När skräppost identifieras Security Center även korrelera ovanlig e-posttrafik med information fån Office 365 för att avgöra om den e-posten är skräppost eller resultatet av en legitim e-postkampanj.
 
 ### <a name="anomaly-detection"></a>Avvikelseidentifiering
 
 Azure Security Center använder också avvikelseidentifiering för att identifiera hot. Till skillnad mot beteendeanalyser (som är beroende av kända mönster som härleds från stora datamängder) är avvikelseidentifiering mer ”anpassad” och utgår från standarder som är specifika för dina distributioner. Maskininlärning används för att fastställa normala aktiviteten i dina distributioner och sedan genereras regler som definierar avvikande förhållanden som kan representera en säkerhetshändelse. Här är ett exempel:
 
--   **Inkommande RDP/SSH-råstyrkeattacker**: dina distributioner kan ha upptagna virtuella datorer med många inloggningar varje dag och andra virtuella datorer som har några, om sådana finns, inloggningar. Azure Security Center kan fastställa standardvärden för inloggningsaktiviteten för dessa virtuella datorer och använda machine learning för att definiera runt de normala inloggningsaktiviteter. Om det förekommer någon avvikelse med den baslinje som definierats för inloggning relaterade egenskaper, kan en avisering genereras. Maskininlärningen avgör vad som är viktigt.
+-   **Inkommande RDP/SSH-råstyrkeattacker**: Dina distributioner kan ha upptagna virtuella datorer med många inloggningar varje dag och andra virtuella datorer som har några, om sådana finns, inloggningar. Azure Security Center kan fastställa standardvärden för inloggningsaktiviteten för dessa virtuella datorer och använda machine learning för att definiera runt de normala inloggningsaktiviteter. Om det förekommer någon avvikelse med den baslinje som definierats för inloggning relaterade egenskaper, kan en avisering genereras. Maskininlärningen avgör vad som är viktigt.
 
 ### <a name="continuous-threat-intelligence-monitoring"></a>Kontinuerlig övervakning av hotinformation
 
 Azure Security Center fungerar med säkerhet säkerhetsforskning och datavetenskapsteam över hela världen som kontinuerligt övervakar ändringar i hotlandskapet. Bland annat kan följande projekt nämnas:
 
--   **Övervakning av hotinformation**: Hotinformation inbegriper mekanismer, indikatorer, effekter och rekommendationer relaterade till befintliga eller nya hot. Den här informationen delas i säkerhets-communityn och Microsoft övervakar feeds om hotinformation från interna och externa källor.
+-   **Övervakning av hotinformation**: Hotinformation innehåller mekanismer, indikatorer, effekter och rekommendationer relaterade till befintliga eller nya hot. Den här informationen delas i säkerhets-communityn och Microsoft övervakar feeds om hotinformation från interna och externa källor.
 
--   **Informationsdelning**: insikter säkerhetsteamen breda Microsoft portfölj av molnet och lokala tjänster, servrar, och enheter för klientslutpunkter delar och analyseras.
+-   **Informationsdelning**: Insikter från security team i bred Microsoft-portfölj av molnet och lokala tjänster, servrar, och enheter klientslutpunkter delar och analyserar.
 
--   **Microsofts säkerhetsexperter**: kontinuerligt arbete i team inom hela Microsoft som arbetar inom specialiserade säkerhetsområden, till exempel datautredning och identifiering av webbattacker.
+-   **Microsofts säkerhetsexperter**: Kontinuerligt arbete i team inom hela Microsoft som arbetar inom specialiserade säkerhetsområden, till exempel identifiering av datautredning och webb-attack.
 
--   **Identifieringsjustering**: algoritmer körs mot kundens verkliga datauppsättningar och säkerhetsanalytiker arbetar med kunden för att granska resultaten. Sann och falsk positiv identifiering används för att förfina maskininlärningsalgoritmerna.
+-   **Identifieringsjustering**: Algoritmer körs mot kundens verkliga datauppsättningar och säkerhetsanalytiker arbetar med kunden för att granska resultaten. Sann och falsk positiv identifiering används för att förfina maskininlärningsalgoritmerna.
 
 Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieringar, som du kan dra nytta av direkt. Det finns inga åtgärder att vidta.
 
-## <a name="advanced-threat-detection-features-other-azure-services"></a>Funktionerna för avancerad hotidentifiering: andra Azure-tjänster
+## <a name="advanced-threat-detection-features-other-azure-services"></a>Avancerat funktionerna: Andra Azure-tjänster
 
 ### <a name="virtual-machines-microsoft-antimalware"></a>Virtuella datorer: Microsoft program mot skadlig kod
 
@@ -221,25 +221,25 @@ Dessa kombinerade ansträngningar resulterar i nya och förbättrade identifieri
 
 Här följer de funktionerna i Azure som distribuerar och aktiverar Microsoft program mot skadlig kod för dina program:
 
--   **Realtidsskydd**: övervakar aktiviteten i cloud services och på virtuella datorer för att identifiera och blockera körning av skadlig kod.
+-   **Realtidsskydd**: Övervakar aktiviteten i cloud services och på virtuella datorer för att identifiera och blockera körning av skadlig kod.
 
--   **Schemalagd genomsökning**: utför regelbundet riktade genomsökning för att identifiera skadlig kod, däribland program som körs aktivt.
+-   **Schemalagd genomsökning**: Utför regelbundet riktade genomsökning för att identifiera skadlig kod, däribland program som körs aktivt.
 
--   **Korrigering av skadlig kod**: automatiskt ska hantera identifierad skadlig kod, till exempel ta bort eller placera det i karantän skadliga filer och rensar skadliga registerposter.
+-   **Korrigering av skadlig kod**: Fungerar automatiskt på identifierade skadlig kod, till exempel ta bort eller placera det i karantän skadliga filer och rensar skadliga registerposter.
 
--   **Signaturuppdateringar**: installerar automatiskt de senaste signaturerna (virusdefinitioner av) för att säkerställa att skyddet är uppdaterad på en förbestämd frekvens.
+-   **Signaturuppdateringar**: Installerar automatiskt de senaste signaturerna (virusdefinitioner av) för att säkerställa att skyddet är uppdaterad på en förbestämd frekvens.
 
--   **Motorn för program mot skadlig kod uppdaterar**: uppdaterar automatiskt Microsoft Antimalware Engine.
+-   **Motorn för program mot skadlig kod uppdaterar**: Uppdateras automatiskt Microsoft Antimalware Engine.
 
--   **Uppdateringar för program mot skadlig kod plattform**: uppdaterar automatiskt Microsoft-plattformen för program mot skadlig kod.
+-   **Uppdateringar för program mot skadlig kod plattform**: Uppdateras automatiskt Microsoft-plattformen för program mot skadlig kod.
 
--   **Aktivt skydd**: rapporter telemetri metadata om identifierade hot och misstänkta resurser till Microsoft Azure för att se till att snabbt svar på växande hotbild är att aktivera i realtid synkron signatur analysleverans via den Microsoft active protection system.
+-   **Aktivt skydd**: Rapporterar telemetri metadata om identifierade hot och misstänkta resurser till Microsoft Azure för att se till att snabbt svar på den växande hotbild är att aktivera i realtid synkron signatur analysleverans via Microsoft active protection system.
 
--   **Exempel reporting**: ger och rapporterar exempel till tjänsten Microsoft program mot skadlig kod för att förfina tjänsten och aktivera felsökning.
+-   **Exempel reporting**: Ger och rapporterar exempel till tjänsten Microsoft program mot skadlig kod för att förfina tjänsten och aktivera felsökning.
 
--   **Undantag**: gör att program och administratörer kan konfigurera vissa filer, processer, och enheter ska undantas från skyddet och sökning efter prestanda och andra orsaker.
+-   **Undantag**: Gör att program och administratörer för att konfigurera vissa filer, processer, och enheter som ska undantas från skydd och sökning efter prestanda och andra orsaker.
 
--   **Händelseinsamling för program mot skadlig kod**: registrerar den tjänstehälsa för program mot skadlig kod, misstänkta aktiviteter och åtgärder som vidtagits i händelseloggen för operativsystemet och samlar in dem till kundens Azure-lagringskonto.
+-   **Händelseinsamling för program mot skadlig kod**: Registrerar den tjänstehälsa för program mot skadlig kod, misstänkta aktiviteter och åtgärder som vidtagits i händelseloggen för operativsystemet och samlar in dem till kundens Azure-lagringskonto.
 
 ### <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 
@@ -261,9 +261,9 @@ När tas emot ett e-postmeddelande för identifiering av hot, ska användare kun
 
 SQL Database threat detektorerna använder något av följande metoder för identifiering:
 
--   **Deterministisk identifiering**: identifierar misstänkta mönster (regler baserade) i SQL-klientfrågor som matchar kända attacker. Den här metoden har identifiering av hög och låg falskt positivt, men begränsad täckning eftersom den faller inom kategorin ”atomiska identifieringar”.
+-   **Deterministisk identifiering**: Identifierar misstänkta mönster (regler baserade) i SQL-klientfrågor som matchar kända attacker. Den här metoden har identifiering av hög och låg falskt positivt, men begränsad täckning eftersom den faller inom kategorin ”atomiska identifieringar”.
 
--   **Beteendeanalys identifiering**: identifierar avvikande aktivitet, vilket är onormalt beteende i databasen som inte visades under de senaste 30 dagarna. Exempel på SQL-klienten avvikande aktivitet kan vara en ökning av misslyckade inloggningar eller frågor, en stor mängd data som extraheras, ovanlig canonical frågor eller okänd IP-adresser som används för att få åtkomst till databasen.
+-   **Beteendeanalys identifiering**: Identifierar avvikande aktivitet, vilket är onormalt beteende i databasen som inte visades under de senaste 30 dagarna. Exempel på SQL-klienten avvikande aktivitet kan vara en ökning av misslyckade inloggningar eller frågor, en stor mängd data som extraheras, ovanlig canonical frågor eller okänd IP-adresser som används för att få åtkomst till databasen.
 
 ### <a name="application-gateway-web-application-firewall"></a>Application Gateway Web Application Firewall
 
@@ -303,19 +303,19 @@ API: T för Avvikelseidentifiering identifiering är en API som är användbart 
 
 Den [API: T för Avvikelseidentifiering](https://docs.microsoft.com/azure/machine-learning/machine-learning-apps-anomaly-detection-api) kan identifiera följande typer av avvikelser i tidsseriedata:
 
--   **Toppar och dalar**: när du övervakar antalet misslyckade inloggningar till en tjänst eller antalet utcheckningar på en webbplats för e-handel, ovanliga toppar och dalar kan säkerhetsattacker eller störningar-tjänsten.
+-   **Toppar och dalar**: När du övervakar antalet misslyckade inloggningar till en tjänst eller antalet utcheckningar på en plats för e-handel kan ovanliga toppar och dalar innebära säkerhetsattacker eller avbrott.
 
--   **Positiva och negativa trender**: när du övervakar minnesanvändningen vid, minska storleken på ledigt minne storleken anger en potentiell minnesläcka. För tjänsten Kölängd övervakning, innebära en beständig uppåtgående trend en underliggande programproblem.
+-   **Positiva och negativa trender**: När du övervakar minnesanvändningen vid, anger minska storleken på ledigt minnesstorlek en potentiell minnesläcka. För tjänsten Kölängd övervakning, innebära en beständig uppåtgående trend en underliggande programproblem.
 
--   **Nivåändringar och ändringar i dynamiska värdeintervall**: nivå ändringar i latensen för en tjänst efter en uppgradering eller lägre nivåer av undantag efter uppgraderingen kan vara intressant att övervaka.
+-   **Nivåändringar och ändringar i dynamiska värdeintervall**: Ändras i latensen för en tjänst efter en uppgradering eller lägre nivåer av undantag efter uppgraderingen kan vara intressant att övervaka.
 
 Machine learning-baserade API möjliggör:
 
--   **Flexibel och stabil**: avvikelseidentifiering identifiering modeller kan du konfigurera inställningar för känslighet och identifiera avvikelser mellan säsongs- och icke säsongsbundna datauppsättningar. Användare kan justera avvikelseidentifiering identifiering av modellen för att göra identifiering API mer eller mindre känsliga utifrån deras behov. Detta skulle innebära att kunna identifiera de mindre eller mer synliga avvikelser i data med och utan säsongens mönster.
+-   **Flexibel och stabil**: Avvikelseidentifiering identifiering modeller Tillåt användare att konfigurera inställningar för känslighet och identifiera avvikelser mellan säsongs- och icke säsongsbundna datauppsättningar. Användare kan justera avvikelseidentifiering identifiering av modellen för att göra identifiering API mer eller mindre känsliga utifrån deras behov. Detta skulle innebära att kunna identifiera de mindre eller mer synliga avvikelser i data med och utan säsongens mönster.
 
--   **Skalbar och snabb identifiering**: ett traditionellt sätt att övervakning med finns vad som anges i experternas domänkunskap är kostsamma och inte skalbar till miljontals dynamiskt ändra datauppsättningar. Modeller på identifiering av avvikelser i den här API: et lärs och modeller är justerade automatiskt från både historiska data och realtidsdata.
+-   **Skalbar och snabb identifiering**: Ett traditionellt sätt att övervaka med finns tröskelvärden anges av experternas domänkunskap är kostsamma och inte skalbar till miljontals dynamiskt ändra datauppsättningar. Modeller på identifiering av avvikelser i den här API: et lärs och modeller är justerade automatiskt från både historiska data och realtidsdata.
 
--   **Proaktiv och användbara**: långsamma trend och nivåändring identifiering kan användas för tidig avvikelseidentifiering. Tidig onormalt signaler som identifieras kan användas för att dirigera människor att undersöka och agera utifrån problemområden. Dessutom rotorsak analysis-modeller och aviseringar verktyg kan utvecklas på den här avvikelseidentifiering API-tjänsten.
+-   **Proaktiv och användbara**: Långsam trend och nivåändring identifiering kan användas för tidig avvikelseidentifiering. Tidig onormalt signaler som identifieras kan användas för att dirigera människor att undersöka och agera utifrån problemområden. Dessutom rotorsak analysis-modeller och aviseringar verktyg kan utvecklas på den här avvikelseidentifiering API-tjänsten.
 
 API: T för avvikelseidentifiering är en och effektiva lösning för en mängd olika scenarier, till exempel tjänstehälsa och KPI övervakning, IoT, prestandaövervakning och övervakning av nätverkstrafik. Här följer några populära scenarier där detta API kan vara användbara:
 
@@ -335,9 +335,9 @@ API: T för avvikelseidentifiering är en och effektiva lösning för en mängd 
 
 ### <a name="cloud-app-security"></a>Cloud App Security
 
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) är en fundamental komponent i Microsoft Cloud Security-stacken. Det är en omfattande lösning som kan hjälpa din organisation när du migrerar till dra full nytta av molnapparnas potential. Det behåller du kontrollen med ökad insyn i aktiviteten. Det hjälper också att öka skyddet av viktiga data i molnappar.
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) är en fundamental komponent i Microsoft Cloud Security-stacken. Det är en omfattande lösning som kan hjälpa din organisation när du migrerar till dra full nytta av molnapparnas potential. Det behåller du kontrollen med ökad insyn i aktiviteten. Det hjälper också till att bättre skydda viktiga data i molnappar.
 
-Med verktyg som hjälper att upptäcka skugg-IT, utvärdera risker, genomdriva principer, undersöka aktiviteter och stoppa hot kan kan organisationen säkrare flytta till molnet samtidigt som de behåller kontrollen över viktiga data.
+Med verktyg för att upptäcka Shadow IT, utvärdera risker, genomdriva principer, undersöka aktiviteter och stoppa hot kan organisationen migrera till molnet på ett säkrare sätt samtidigt som ni behåller kontrollen över viktiga data.
 
 | | |
 |---|---|
@@ -383,6 +383,6 @@ Exempel på brandväggar för webbprogram som är tillgängliga i Azure Marketpl
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Identifieringsfunktioner i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): hjälper dig att identifiera aktiva hot som mål dina Azure-resurser och ger insikter som du måste svara snabbt.
+- [Identifieringsfunktioner i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-detection-capabilities): Hjälper dig att identifiera aktiva hot som mål dina Azure-resurser och ger insikter som du måste svara snabbt.
 
-- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): hjälper dig att fokusera på dina problem om potentiella hot mot dina databaser.
+- [Azure SQL Database Threat Detection](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Hjälper dig att fokusera på dina problem om potentiella hot mot dina databaser.

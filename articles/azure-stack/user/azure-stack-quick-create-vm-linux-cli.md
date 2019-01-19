@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 1/14/2019
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: fdf9ecd9b6133f05c1b2bda9c32d763d067a0243
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 77194de0b175ae66c0a119a816f32b152f269e56
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304592"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413353"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Snabbstart: skapa en Linux-server-dator med hjälp av Azure CLI i Azure Stack
 
@@ -73,7 +73,7 @@ Den offentliga IP-adressen returneras i de **PublicIpAddress** parametern. Antec
 
 ## <a name="open-port-80-for-web-traffic"></a>Öppna port 80 för webbtrafik
 
-Eftersom den här virtuella datorn kommer att köra IIS-webbservern, måste du öppna port 80 för Internet-trafiken. Använd kommandot [az vm open-port](/cli/azure/vm#open-port) för att öppna önskad port.
+Eftersom den här virtuella datorn kommer att köra IIS-webbservern, måste du öppna port 80 för Internet-trafiken. Använd kommandot [az vm open-port](/cli/azure/vm) för att öppna önskad port.
 
 ```cli
 az vm open-port --port 80 --resource-group myResourceGroup --name myVM

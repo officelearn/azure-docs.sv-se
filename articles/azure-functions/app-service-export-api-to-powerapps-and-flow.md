@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 53aa40c047b2b5201cd74c0409d56e97d2880eb0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9f4bbf91b09abeb917fd9f49482881e33bf788ec
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602859"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413942"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Exportera en Azure-värdbaserade API till PowerApps och Microsoft Flow
 
@@ -156,7 +156,7 @@ När du använder Azure AD kan du behöver två Azure AD-programregistreringar: 
 
 - Konfigurera registrering för API: et med den [App Service autentisering/auktorisering](../app-service/configure-authentication-provider-aad.md) funktionen.
 
-- Om du vill konfigurera registrering för anslutningstjänsten, följer du stegen i [att lägga till en Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#adding-an-application). Registreringen måste få begränsad åtkomst till ditt API och en svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
+- Om du vill konfigurera registrering för anslutningstjänsten, följer du stegen i [att lägga till en Azure AD-program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Registreringen måste få begränsad åtkomst till ditt API och en svars-URL för `https://msmanaged-na.consent.azure-apim.net/redirect`. 
 
 Mer information finns i exemplen för Azure AD-registrering för [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) och [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/). De här exemplen använder Azure Resource Manager som API: et Ersätt ditt API om du följer instruktionerna.
 

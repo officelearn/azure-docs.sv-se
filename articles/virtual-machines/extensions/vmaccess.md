@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: roiyz
-ms.openlocfilehash: 638ca5d1b1b68896ff5dcad70fedf27261ae96cb
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 20d806540b0aa814c88ef4ff69834283ba4a7722
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452062"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413846"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Hantera administrativa användare, SSH och kontrollera eller reparera diskar på virtuella Linux-datorer med hjälp av VMAccess-tillägget med Azure CLI
 ## <a name="overview"></a>Översikt
@@ -39,12 +39,12 @@ VM Access-tillägget kan köras mot dessa Linux-distributioner:
 | Distribution | Version |
 |---|---|
 | Ubuntu | 16.04 LTS, 14.04 LTS och 12.04 LTS |
-| Debian | Debian 7,9 +, 8.2 + |
-| Red Hat | RHEL 6.7 +, 7.1 + |
+| Debian | Debian 7.9+, 8.2+ |
+| Red Hat | RHEL 6.7+, 7.1+ |
 | Oracle Linux | 6.4+, 7.0+ |
 | SUSE | 11 och 12 |
 | OpenSuse | openSUSE steg 42.2 + |
-| CentOS | CentOS 6.3 +, 7.0 + |
+| CentOS | CentOS 6.3+, 7.0+ |
 | CoreOS | 494.4.0+ |
 
 ## <a name="ways-to-use-the-vmaccess-extension"></a>Sätt att använda VMAccess-tillägget
@@ -53,7 +53,7 @@ Det finns två sätt som du kan använda VMAccess-tillägget på din virtuella L
 * Använd Azure CLI och de obligatoriska parametrarna.
 * [Använda raw JSON-filer som VMAccess-tillägget bearbetar](#use-json-files-and-the-vmaccess-extension) och sedan agera utifrån.
 
-I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+I följande exempel används [az vm user](/cli/azure/vm/user) kommandon. Om du vill utföra dessa steg du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 ## <a name="update-ssh-key"></a>Uppdatera SSH-nyckel
 I följande exempel uppdateras SSH-nyckel för användaren `azureuser` på den virtuella datorn med namnet `myVM`:
@@ -66,7 +66,7 @@ az vm user update \
   --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
-> **Obs:** den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
+> **OBS:** Den `az vm user update` kommando lägger du till den nya offentliga nyckel texten ska den `~/.ssh/authorized_keys` fil för administratören på den virtuella datorn. Detta inte ersätter eller ta bort några befintliga SSH-nycklar. Detta tar inte bort tidigare nycklar som anges vid tidpunkten för distribution eller efterföljande uppdateringar via VMAccess-tillägget.
 
 ## <a name="reset-password"></a>Återställa lösenord
 I följande exempel återställer lösenordet för användaren `azureuser` på den virtuella datorn med namnet `myVM`:

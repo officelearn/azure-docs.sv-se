@@ -3,7 +3,7 @@ title: Azure Cache för Redis vanliga frågor och svar | Microsoft Docs
 description: Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis
 services: azure-cache-for-redis
 documentationcenter: ''
-author: wesmc7777
+author: yegu-ms
 manager: cfowler
 editor: ''
 ms.assetid: c2c52b7d-b2d1-433a-b635-c20180e5cab2
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: azure-cache-for-redis
 ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
-ms.author: wesmc
-ms.openlocfilehash: 5d70e4beb97a23212bc85d529382d8e89f09336d
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.author: yegu
+ms.openlocfilehash: 3a0fb06acd9fc798f1528a1487ae0682135187ca
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199926"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402410"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Vanliga frågor och svar om Azure Cache for Redis
 Läs svaren på vanliga frågor, mönster och metodtips för Azure Cache för Redis.
@@ -141,7 +141,7 @@ Vi kan rita följande slutsatser från den här tabellen:
 | C2 |2,5 GB |2 |500 / 62.5 |41,000 |37,000 |
 | C3 |6 GB |4 |1000 / 125 |100 000 |90,000 |
 | C4 |13 GB |2 |500 / 62.5 |60,000 |55,000 |
-| C5 |26 GB |4 |1,000 / 125 |102 000 kr |93,000 |
+| C5 |26 GB |4 |1,000 / 125 |102,000 |93,000 |
 | C6 |53 GB |8 |2,000 / 250 |126,000 |120,000 |
 | **Storlekar för Premium-cache** | |**CPU-kärnor per shard** | **Megabit per sekund (Mbit/s) / megabyte per sekund (MBIT/s)** |**Begäranden per sekund (RPS) icke-SSL, per shard** |**Begäranden per sekund (RPS) SSL, per shard** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172,000 |
@@ -175,7 +175,7 @@ Se följande länkar för mer information om överväganden när du använder Az
 
 - [Azure Government-databaser – Azure Redis-Cache](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
 - [Azure Kina-molnet – Azure Redis-Cache](https://www.azure.cn/home/features/redis-cache/)
-- [Microsoft Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)
+- [Microsoft Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)
 
 Information om hur du använder Azure Cache Redis med PowerShell i Azure Government-molnet, Azure Kina-molnet och Microsoft Azure Germany finns i [hur du ansluter till andra moln – Azure Cache för Redis PowerShell](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
 
@@ -210,7 +210,7 @@ Vanligtvis är standardvärdena för klienten tillräckliga. Du kan finjustera a
       * Den här vägledningen kan leda till mer strömlinjeformad svarstider per `ConnectionMultiplexer`.
 
 ### <a name="what-azure-cache-for-redis-clients-can-i-use"></a>Vilka Azure-Cache för Redis-klienter kan jag använda?
-En av fördelarna med Redis är att det finns många klienter som stöder många olika programmeringsspråk. En aktuell lista över klienter finns i [Redis-klienter](https://redis.io/clients). Självstudier som omfattar flera olika språk och klienter finns i [hur du använder Azure Cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och klicka på önskat språk från växlaren språk överst i artikeln.
+En av fördelarna med Redis är att det finns många klienter som stöder många olika programmeringsspråk. En aktuell lista över klienter finns i [Redis-klienter](https://redis.io/clients). Självstudier som omfattar flera olika språk och klienter finns i [hur du använder Azure Cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och det är på samma nivå artiklar i tabellen i innehållsförteckningen.
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-access-keys.md)]
 
@@ -259,7 +259,7 @@ Du kan använda någon av de kommandon som finns på [Redis-kommandon](https://r
 ### <a name="why-doesnt-azure-cache-for-redis-have-an-msdn-class-library-reference-like-some-of-the-other-azure-services"></a>Varför har inte en biblioteksreferens för MSDN-klass som några av de andra Azure-tjänsterna i Azure Cache för Redis?
 Microsoft Azure Cache för Redis baserat på den populära öppen datakällan Azure Cache för Redis och kan nås via en mängd olika [Redis-klienter](https://redis.io/clients) för många programmeringsspråk. Varje klient har sin egen API som gör anrop till Azure Cache för att använda Redis-instans [Redis-kommandon](https://redis.io/commands).
 
-Eftersom varje klient skiljer sig, det är inte en centraliserad klass referens på MSDN och upprätthåller sin egen referensdokumentation för varje klient. Förutom referensdokumentationen finns flera självstudier visar hur du kommer igång med Azure Cache för Redis med hjälp av olika språk och cachelagrar klienter. Du hittar de här självstudierna i [hur du använder Azure Cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och klicka på önskat språk från växlaren språk överst i artikeln.
+Eftersom varje klient skiljer sig, det är inte en centraliserad klass referens på MSDN och upprätthåller sin egen referensdokumentation för varje klient. Förutom referensdokumentationen finns flera självstudier visar hur du kommer igång med Azure Cache för Redis med hjälp av olika språk och cachelagrar klienter. Du hittar de här självstudierna i [hur du använder Azure Cache för Redis](cache-dotnet-how-to-use-azure-redis-cache.md) och det är på samma nivå artiklar i tabellen i innehållsförteckningen.
 
 ### <a name="can-i-use-azure-cache-for-redis-as-a-php-session-cache"></a>Kan jag använda Azure Cache för Redis som en PHP-sessionscache?
 Ja, ange anslutningssträngen till din Azure-Cache för Redis-instans i att använda Azure Cache för Redis som en PHP-sessionscache, `session.save_path`.
@@ -392,7 +392,7 @@ Hur du konfigurerar den här inställningen:
   > Värdet som anges i den här konfigurationselement är en *per kärna* inställningen. Till exempel om du har en dator med 4 kärnor och vill att din minIOThreads inställningen ska vara 200 vid körning, använder du `<processModel minIoThreads="50"/>`.
   >
 
-* Utanför ASP.NET, och Azure WebSites global.asax, använda den [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API: ET.
+* Utanför ASP.NET, och Azure WebSites global.asax, använda den [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
 
   > [!NOTE]
   > Värdet som angetts för detta API är en global inställning som påverkar hela AppDomain. Om du har en dator med 4 kärnor och ställa in minWorkerThreads och minIOThreads på 50 per CPU under körning, använder du ThreadPool.SetMinThreads (200, 200).

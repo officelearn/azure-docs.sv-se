@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 3aa5a1c640cc46d677a66f5179f9f07a81e62b15
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 60c709108da041dc1e54ba69d3b1b153accebc19
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138083"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401409"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
@@ -92,7 +92,7 @@ Mer information och en diskussion om avvägningar mellan tillgänglighet och kon
 
 Skicka händelser i batchar kan öka genomflödet. Du kan använda den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API för att skapa en batch som objekt senare kan läggas till för en [SendAsync](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.sendasync) anropa.
 
-En enskild batch får inte överstiga 256 KB-gränsen för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälpmetoden [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) att se till att batchen inte överskrider 256 KB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) att lägga till händelser för att konstruera batchen. 
+En enskild batch får inte överskrida gränsen på 1 MB för en händelse. Dessutom använder varje meddelande i batchen samma utgivaridentitet. Det är avsändarens ansvar att se till att batchen inte överskrider den maximala händelsestorleken. Om den gör det genereras ett **Skicka**-felmeddelande för klienten. Du kan använda hjälpmetoden [EventHubClient.CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) att se till att batchen inte överskrider 1 MB. Du får en tom [EventDataBatch](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch) från den [CreateBatch](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createbatch) API och sedan använda [TryAdd](/dotnet/api/microsoft.azure.eventhubs.eventdatabatch.tryadd) att lägga till händelser för att konstruera batchen. 
 
 ## <a name="send-asynchronously-and-send-at-scale"></a>Skicka asynkront och skicka i skala
 

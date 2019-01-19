@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: jdial
-ms.openlocfilehash: 45c7a07231cbdcdc64ec348ed425a62b63bd822a
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d50e1b0f5d9c965ba9562eae1f06dd51341731ad
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016570"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412248"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
-Azure automatiskt dirigerar trafik mellan Azure undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon av Azures routning kan göra du det genom att skapa en routningstabell. Om du inte har använt routning i virtuella nätverk kan du läsa mer om den i den [routning översikt](virtual-networks-udr-overview.md) eller genom att slutföra en [självstudien](tutorial-create-route-table-portal.md).
+Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du vill ändra någon av Azures routning kan göra du det genom att skapa en routningstabell. Om du inte har använt routning i virtuella nätverk kan du läsa mer om den i den [routning översikt](virtual-networks-udr-overview.md) eller genom att slutföra en [självstudien](tutorial-create-route-table-portal.md).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -36,7 +36,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-Det finns en gräns för hur många routningstabeller som du kan skapa per Azure-plats och prenumeration. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Det finns en gräns för hur många routningstabeller du kan skapa per Azure-plats och prenumeration. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 1. I det övre vänstra hörnet i portalen väljer du **+ skapa en resurs**.
 2. Välj **nätverk**och välj sedan **routningstabellen**.
@@ -84,7 +84,7 @@ Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **ro
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routningstabell till ett undernät
 
-Ett undernät kan ha noll eller en routningstabell som är associerade med den. En routningstabell kan kopplas till noll eller flera undernät. Eftersom routningstabeller inte är kopplad till virtuella nätverk, måste du associera en routningstabell till varje undernät som du vill att associerad routningstabell. All trafik som lämnar undernätet dirigeras baserat på vägar som du har skapat i routningstabeller [systemstandardvägar](virtual-networks-udr-overview.md#default), och vägar sprids från ett lokalt nätverk, om det virtuella nätverket är anslutet till en gateway () Azure-nätverk ExpressRoute eller VPN, om du använder BGP med en VPN-gateway). Du kan bara associera en routningstabell till undernät i virtuella nätverk som finns i samma Azure-plats och prenumeration som routningstabellen.
+Ett undernät kan ha ingen eller en associerad routningstabell. En routningstabell kan kopplas till inget eller flera undernät. Eftersom routningstabeller inte är kopplade till virtuella nätverk måste du associera en routningstabell till varje undernät som du vill associera routningstabellen till. All trafik som lämnar undernätet dirigeras enligt de vägar som du har skapat i routningstabeller, [standardvägar](virtual-networks-udr-overview.md#default) och vägar som spridits från ett lokalt nätverk, om det virtuella nätverket är anslutet till en virtuell Azure-nätverksgateway (ExpressRoute, eller VPN, om du använder BGP med en VPN-gateway). Du kan bara associera en routningstabell till undernät i virtuella nätverk som finns på samma Azure-plats och i samma prenumeration som routningstabellen.
 
 1. Ange i sökrutan överst på portalen *virtuella nätverk* i sökrutan. När **virtuella nätverk** visas i sökresultaten, markerar du den.
 2. Välj det virtuella nätverket i den lista som innehåller det undernät som du vill associera en routningstabell till.
@@ -99,7 +99,7 @@ Om ditt virtuella nätverk är anslutet till en Azure VPN-gateway, associerar du
 - Azure CLI: [az network vnet-undernät update](/cli/azure/network/vnet/subnet?view=azure-cli-latest#az_network_vnet_subnet_update)
 - PowerShell: [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig)
 
-## <a name="dissociate-a-route-table-from-a-subnet"></a>Koppla bort en routningstabell från ett undernät
+## <a name="dissociate-a-route-table-from-a-subnet"></a>Avassociera en routningstabell från ett undernät
 
 När du koppla bort en routningstabell från ett undernät Azure dirigerar trafik baserat på dess [systemstandardvägar](virtual-networks-udr-overview.md#default).
 
@@ -116,7 +116,7 @@ När du koppla bort en routningstabell från ett undernät Azure dirigerar trafi
 
 ## <a name="delete-a-route-table"></a>Ta bort en routningstabell
 
-Om en routingtabell kopplas till undernät, kan inte tas bort. [Koppla bort](#dissociate-a-route-table-from-a-subnet) en routningstabell från alla undernät innan du försöker ta bort den.
+Om en routingtabell är kopplad till undernät kan den inte tas bort. [Koppla bort](#dissociate-a-route-table-from-a-subnet) en routningstabell från alla undernät innan du försöker ta bort den.
 
 1. Ange i sökrutan överst på portalen *routningstabeller* i sökrutan. När **routningstabeller** visas i sökresultaten, markerar du den.
 2. Välj **...**  till höger i routningstabellen som du vill ta bort.
@@ -125,7 +125,7 @@ Om en routingtabell kopplas till undernät, kan inte tas bort. [Koppla bort](#di
 **Kommandon**
 
 - Azure CLI: [ta bort az network route-table](/cli/azure/network/route-table/route#az_network_route_table_delete)
-- PowerShell: [Ta bort AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
+- PowerShell: [Remove-AzureRmRouteTable](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermroutetable?view=azurermps-6.8.1) 
 
 ## <a name="create-a-route"></a>Skapa en väg
 
@@ -136,7 +136,7 @@ Det finns en gräns för hur många vägar vägtabell kan skapa per Azure-plats 
 3. Välj **vägar**under **inställningar**.
 4. Välj **+ Lägg till**.
 5. Ange ett unikt **namn** för vägen i routningstabellen.
-6. Ange den **adressprefix**, i CIDR-notation, som du vill dirigera trafik till. Prefixet kan inte dupliceras i fler än en väg i routningstabellen, även om prefixet som kan vara i ett annat prefix. Om du har definierat 10.0.0.0/16 som ett prefix i ett flöde, kan du fortfarande definierar en annan väg med adressprefixet 10.0.0.0/24. Azure väljer en väg för trafik baserat på längsta prefix-matchningen. Läs mer om hur Azure väljer vägar i [routningsöversikten](virtual-networks-udr-overview.md#how-azure-selects-a-route).
+6. Ange den **adressprefix**, i CIDR-notation, som du vill dirigera trafik till. Prefixet kan inte dupliceras i mer än en väg i routningstabellen, även om prefixet som kan finnas i ett annat prefix. Om du har definierat 10.0.0.0/16 som ett prefix i ett flöde, kan du fortfarande definierar en annan väg med adressprefixet 10.0.0.0/24. Azure väljer en väg för trafik baserat på längsta prefix-matchningen. Läs mer om hur Azure väljer vägar i [routningsöversikten](virtual-networks-udr-overview.md#how-azure-selects-a-route).
 7. Välj en **nästa hopptyp**. En detaljerad beskrivning av alla nästa hopptyper Se [routningsöversikten](virtual-networks-udr-overview.md).
 8. Ange en IP-adress för **nexthop-adress**. Du kan bara ange en adress om du har valt *virtuell installation* för **nästa hopptyp**.
 9. Välj **OK**.
@@ -144,7 +144,7 @@ Det finns en gräns för hur många vägar vägtabell kan skapa per Azure-plats 
 **Kommandon**
 
 - Azure CLI: [az network route-table route skapa](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_create)
-- PowerShell: [Ny AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
+- PowerShell: [New-AzureRmRouteConfig](/powershell/module/azurerm.network/new-azurermrouteconfig)
 
 ## <a name="view-routes"></a>Visa flöden
 
@@ -156,7 +156,7 @@ Noll eller flera vägar innehåller en routningstabell. Läs mer om vilken infor
 
 **Kommandon**
 
-- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_list)
+- Azure CLI: [az network route-table route list](/cli/azure/network/route-table/route?view=azure-cli-latest)
 - PowerShell: [Get-AzureRmRouteConfig](/powershell/module/azurerm.network/get-azurermrouteconfig)
 
 ## <a name="view-details-of-a-route"></a>Visa information om en väg
@@ -195,7 +195,7 @@ Noll eller flera vägar innehåller en routningstabell. Läs mer om vilken infor
 **Kommandon**
 
 - Azure CLI: [az network route-table route delete](/cli/azure/network/route-table/route?view=azure-cli-latest#az_network_route_table_route_delete)
-- PowerShell: [Ta bort AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
+- PowerShell: [Remove-AzureRmRouteConfig](/powershell/module/azurerm.network/remove-azurermrouteconfig)
 
 ## <a name="view-effective-routes"></a>Visa effektiva vägar
 

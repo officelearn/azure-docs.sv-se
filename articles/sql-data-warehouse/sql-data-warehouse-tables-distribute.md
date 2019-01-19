@@ -10,17 +10,17 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 36db91cd7c4dad3c28c0c110ee837ca6d1284959
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3b272dd1c5b12c9f171c7e8c7c346f4d6cd4b777
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575397"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413880"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Vägledning för att utforma distribuerade tabeller i Azure SQL Data Warehouse
 Rekommendationer för att utforma hash-distribuerad och resursallokering distribuerade tabeller i Azure SQL Data Warehouse.
 
-Den här artikeln förutsätter att du är bekant med datadistribution och begrepp för flytt av data i SQL Data Warehouse.  Mer information finns i [Azure SQL Data Warehouse - arkitektur med massivt parallell bearbetning (MPP)](massively-parallel-processing-mpp-architecture.md). 
+Den här artikeln förutsätter att du är bekant med datadistribution och begrepp för flytt av data i SQL Data Warehouse.  Mer information finns i [Azure SQL Data Warehouse - arkitektur med massivt parallell bearbetning (MPP)](massively-parallel-processing-mpp-architecture.md). 
 
 ## <a name="what-is-a-distributed-table"></a>Vad är en distribuerad tabell?
 En distribuerad tabell visas som en enskild tabell, men raderna lagras över 60 distributioner. Raderna distribueras med en hash- eller resursallokering algoritmen.  
@@ -29,11 +29,11 @@ En distribuerad tabell visas som en enskild tabell, men raderna lagras över 60 
 
 En annan tabellagring är att replikera en liten tabell över Compute-noder. Mer information finns i [designriktlinjer för replikerade tabeller](design-guidance-for-replicated-tables.md). Snabbt mellan de tre alternativen finns distribuerade tabeller i den [tabeller översikt](sql-data-warehouse-tables-overview.md). 
 
-Förstå så mycket som möjligt om dina data och hur data är den server som en del av tabelldesign.  Till exempel tänka på följande:
+Förstå så mycket som möjligt om dina data och hur data är den server som en del av tabelldesign.  Till exempel tänka på följande:
 
-- Hur stora är tabellen?   
-- Hur ofta uppdateras tabellen?   
-- Måste jag fakta-och dimensionstabeller i ett informationslager?   
+- Hur stora är tabellen?   
+- Hur ofta uppdateras tabellen?   
+- Måste jag fakta-och dimensionstabeller i ett informationslager?   
 
 
 ### <a name="hash-distributed"></a>Hash-distribueras
@@ -147,7 +147,7 @@ where two_part_name in
     from dbo.vTableSizes
     where row_count > 0
     group by two_part_name
-    having min(row_count * 1.000)/max(row_count * 1.000) > .10
+    having (max(row_count * 1.000) - min(row_count * 1.000))/max(row_count * 1.000) >= .10
     )
 order by two_part_name, row_count
 ;

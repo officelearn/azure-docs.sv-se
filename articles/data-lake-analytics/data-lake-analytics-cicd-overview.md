@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 76bfcd5e1b7e0215cfea7fbbfe1c51726d305fbc
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 68691430621c0055b3465b9428a8206c6a544a97
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969847"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412537"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Hur du ställer in en CI/CD-pipeline för Azure Data Lake Analytics  
 
@@ -41,7 +41,7 @@ Innan du konfigurerar en build-aktivitet för ett U-SQL-projekt, kontrollera att
 
 Om inte, du har två alternativ för att migrera projektet:
 
-- Alternativ 1: Ändra gammalt importera objekt till den föregående.
+- Alternativ 1: Ändra det gamla import-objektet till den föregående.
 - Alternativ 2: Öppna det gamla projektet i Azure Data Lake Tools för Visual Studio. Använda en version som är nyare än 2.3.3000.0. Den gamla projektmallen uppgraderas automatiskt till den senaste versionen. Nya projekt som skapats med versioner som är nyare än 2.3.3000.0 använda den nya mallen.
 
 ### <a name="get-nuget"></a>Hämta NuGet
@@ -81,7 +81,7 @@ Definition av argument och värden är följande:
 * **USQLTargetType = Merge eller SyntaxCheck**:
     * **Sammanfoga**. Sammanfoga kompilerar bakomliggande kod filer. Exempel är **.cs**, **.py**, och **.r** filer. Den inlines resulterande biblioteket användardefinierad kod i U-SQL-skript. Exempel är en dll-binär, Python eller R kod.
     * **SyntaxCheck**. SyntaxCheck läge sammanfogar först filer med bakomliggande kod i U-SQL-skriptet. Den kompilerar sedan U-SQL-skript för att verifiera din kod.
-* **DataRoot =<DataRoot path>**. DataRoot krävs endast för SyntaxCheck läge. När den bygger skriptet med SyntaxCheck läge kontrollerar MSBuild referenser till databasobjekt i skriptet. Innan du bygga, ställa in en matchande lokal miljö som innehåller de refererade objekt i U-SQL-databas i build-datorns DataRoot mapp. Du kan också hantera dessa databasen beroenden av [refererar till ett U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databasen objektreferenser, inte filer.
+* **DataRoot=<DataRoot path>**. DataRoot krävs endast för SyntaxCheck läge. När den bygger skriptet med SyntaxCheck läge kontrollerar MSBuild referenser till databasobjekt i skriptet. Innan du bygga, ställa in en matchande lokal miljö som innehåller de refererade objekt i U-SQL-databas i build-datorns DataRoot mapp. Du kan också hantera dessa databasen beroenden av [refererar till ett U-SQL-databasprojekt](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild kontrollerar endast databasen objektreferenser, inte filer.
 * **EnableDeployment = true** eller **FALSKT**. EnableDeployment anger om det har rätt för att distribuera refererade U-SQL-databaser under skapandeprocessen. Om du refererar till ett projekt för U-SQL-databas och använder databasobjekt i U-SQL-skript, ange den här parametern **SANT**.
 
 ### <a name="continuous-integration-through-azure-pipelines"></a>Kontinuerlig integrering via Azure-Pipelines
@@ -246,7 +246,7 @@ Använd den [Azure PowerShell-uppgift](https://docs.microsoft.com/azure/devops/p
 param(
     [Parameter(Mandatory=$true)][string]$ADLSName, # ADLS account name to upload U-SQL scripts
     [Parameter(Mandatory=$true)][string]$ArtifactsRoot, # Root folder of U-SQL project build output
-    [Parameter(Mandatory=$false)][string]$DesitinationFolder = "USQLScriptSource" # Desitination folder in ADLS
+    [Parameter(Mandatory=$false)][string]$DestinationFolder = "USQLScriptSource" # Destination folder in ADLS
 )
 
 Function UploadResources()
@@ -261,7 +261,7 @@ Function UploadResources()
     foreach($file in $files)
     {
         Write-Host "Uploading file: $($file.Name)"
-        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DesitinationFolder $file)" -Force
+        Import-AzureRmDataLakeStoreItem -AccountName $ADLSName -Path $file.FullName -Destination "/$(Join-Path $DestinationFolder $file)" -Force
     }
 }
 
@@ -454,31 +454,31 @@ Vidta följande steg för att ställa in en databasåtgärd distribution i Azure
 
 | Parameter | Beskrivning | Standardvärde | Krävs |
 |---------|-----------|-------------|--------|
-|Paket|Sökvägen till distributionspaketet för U-SQL-databas som ska distribueras.|Null|true|
+|Paket|Sökvägen till distributionspaketet för U-SQL-databas som ska distribueras.|null|true|
 |Databas|Namnet på databasen som ska distribueras till eller skapats.|master|false|
-|Loggfil|Sökvägen till filen för loggning. Som standard till standard ut (konsol).|Null|false|
-|LogLevel|Certifikatutfärdarnivå: Verbose, Normal, varning eller fel.|LogLevel.Normal|false|
+|LogFile|Sökvägen till filen för loggning. Som standard till standard ut (konsol).|null|false|
+|LogLevel|Loggnivå: Verbose, Normal, varning eller fel.|LogLevel.Normal|false|
 
 #### <a name="parameter-for-local-deployment"></a>Parametern för lokal distribution
 
 |Parameter|Beskrivning|Standardvärde|Krävs|
 |---------|-----------|-------------|--------|
-|DataRoot|Sökvägen till rotmappen för lokala data.|Null|true|
+|DataRoot|Sökvägen till rotmappen för lokala data.|null|true|
 
 #### <a name="parameters-for-azure-data-lake-analytics-deployment"></a>Parametrar för Azure Data Lake Analytics-distribution
 
 |Parameter|Beskrivning|Standardvärde|Krävs|
 |---------|-----------|-------------|--------|
-|Konto|Anger vilket Azure Data Lake Analytics-konto för distribution till efter kontonamn.|Null|true|
-|ResourceGroup|Azure resursgruppens namn för Azure Data Lake Analytics-konto.|Null|true|
-|SubscriptionId|Azure prenumerations-ID för Azure Data Lake Analytics-konto.|Null|true|
-|Klientorganisation|Innehavarens namn är domännamnet i Azure Active Directory (AD Azure). Hitta den på sidan för hantering av prenumeration i Azure-portalen.|Null|true|
-|AzureSDKPath|Sökvägen som ska genomsökas beroende sammansättningar i Azure SDK.|Null|true|
+|Konto|Anger vilket Azure Data Lake Analytics-konto för distribution till efter kontonamn.|null|true|
+|ResourceGroup|Azure resursgruppens namn för Azure Data Lake Analytics-konto.|null|true|
+|SubscriptionId|Azure prenumerations-ID för Azure Data Lake Analytics-konto.|null|true|
+|Klientorganisation|Innehavarens namn är domännamnet i Azure Active Directory (AD Azure). Hitta den på sidan för hantering av prenumeration i Azure-portalen.|null|true|
+|AzureSDKPath|Sökvägen som ska genomsökas beroende sammansättningar i Azure SDK.|null|true|
 |Interaktiv|Om eller inte ska användas interaktivt läge för autentisering.|false|false|
-|ClientId|Azure AD-program-ID krävs för icke-interaktiv autentisering.|Null|Krävs för icke-interaktiv autentisering.|
-|Secrete|Secrete eller lösenord för icke-interaktiv autentisering. Den bör användas endast i en tillförlitlig och säker miljö.|Null|Krävs för icke-interaktiv autentisering, eller så Använd SecreteFile.|
-|SecreteFile|Filen sparas secrete eller lösenord för icke-interaktiv autentisering. Se till att hålla den läsbara bara av den aktuella användaren.|Null|Krävs för icke-interaktiv autentisering, eller så Använd Secrete.|
-|Certifikatfil|Filen sparas X.509-certifiering för icke-interaktiv autentisering. Standardinställningen är att använda klienten secrete autentisering.|Null|false|
+|ClientId|Azure AD-program-ID krävs för icke-interaktiv autentisering.|null|Krävs för icke-interaktiv autentisering.|
+|Secrete|Secrete eller lösenord för icke-interaktiv autentisering. Den bör användas endast i en tillförlitlig och säker miljö.|null|Krävs för icke-interaktiv autentisering, eller så Använd SecreteFile.|
+|SecreteFile|Filen sparas secrete eller lösenord för icke-interaktiv autentisering. Se till att hålla den läsbara bara av den aktuella användaren.|null|Krävs för icke-interaktiv autentisering, eller så Använd Secrete.|
+|CertFile|Filen sparas X.509-certifiering för icke-interaktiv autentisering. Standardinställningen är att använda klienten secrete autentisering.|null|false|
 | JobPrefix | Prefix för databasdistribution av ett U-SQL DDL-jobb. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Nästa steg

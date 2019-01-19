@@ -11,12 +11,12 @@ author: hning86
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6bd3bc86aa828ab28462de9d45f660889634cbd7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 71b4cf5d44ec6cb3fb8b70975193320a4eabfc3f
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100522"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401324"
 ---
 # <a name="troubleshooting-azure-machine-learning-service-aks-and-aci-deployments"></a>Felsökning av Azure Machine Learning-tjänsten AKS och ACI-distributioner
 
@@ -93,10 +93,10 @@ Om systemet är det går inte att skapa Docker-avbildningen i `image.wait_for_cr
 print(image.image_build_log_uri)
 
 # if you only know the name of the image (note there might be multiple images with the same name but different version number)
-print(ws.images()['myimg'].image_build_log_uri)
+print(ws.images['myimg'].image_build_log_uri)
 
 # list logs for all images in the workspace
-for name, img in ws.images().items():
+for name, img in ws.images.items():
     print (img.name, img.version, img.image_build_log_uri)
 ```
 Logg-uri för avbildning är en SAS-URL som pekar på en loggfil som lagras i Azure blob storage. Helt enkelt kopiera och klistra in URI: n i ett webbläsarfönster och du kan hämta och visa loggfilen.
@@ -115,7 +115,7 @@ Du kan skriva ut detaljerad Docker-motorn loggmeddelanden från objektet.
 print(service.get_logs())
 
 # if you only know the name of the service (note there might be multiple services with the same name but different version number)
-print(ws.webservices()['mysvc'].get_logs())
+print(ws.webservices['mysvc'].get_logs())
 ```
 
 ### <a name="debug-the-docker-image-locally"></a>Felsöka Docker-avbildningen lokalt
@@ -218,7 +218,7 @@ def run(input_data):
         # return error message back to the client
         return json.dumps({"error": result})
 ```
-**Obs**: returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Det kanske inte är en bra idé att göra detta i en produktionsmiljö av säkerhetsskäl.
+**Obs!** Returnerar felmeddelanden från den `run(input_data)` anrop görs för felsökning endast syfte. Det kanske inte är en bra idé att göra detta i en produktionsmiljö av säkerhetsskäl.
 
 
 ## <a name="next-steps"></a>Nästa steg
@@ -226,4 +226,4 @@ def run(input_data):
 Lär dig mer om distribution: 
 * [Hur du distribuerar och var](how-to-deploy-and-where.md)
 
-* [Självstudie: Skapa och distribuera modeller](tutorial-train-models-with-aml.md)
+* [Självstudier: Träna och distribuera modeller](tutorial-train-models-with-aml.md)

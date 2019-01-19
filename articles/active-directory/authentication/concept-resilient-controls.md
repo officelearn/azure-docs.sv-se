@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: caabc5a396c015b806778bfc5887b0708897101e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 34d60d82ff70ecf683b955b8b796b5d3269df53c
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101929"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401919"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -119,30 +119,48 @@ Principer för villkorlig åtkomst för oförutsedda händelser är en **inaktiv
 * Använda principer som begränsar åtkomst i apparna om en viss autentiseringsnivå inte uppnås i stället för bara återgång till fullständig åtkomst. Exempel:
   * Konfigurera en princip för säkerhetskopiering som skickar begränsad session anspråket till Exchange och SharePoint.
   * Om din organisation använder Microsoft Cloud App Security kan du överväga att återgång till en princip som engagerar MCAS och sedan MCAS tillåter läsbehörighet men inte laddar upp.
+* Namnge dina principer för att se till att det är enkelt att hitta dem under ett avbrott. Inkludera följande element i principens namn:
+  * En *märka nummer* för principen.
+  * Text att visa den här principen avser endast nödsituationer. Exempel: **AKTIVERA I NÖDFALL**
+  * Den *avbrott* som gäller för. Exempel: **Under avbrott i MFA**
+  * En *sekvensnummer* för att visa ordningen du måste aktivera principerna.
+  * Den *appar* som gäller för.
+  * Den *kontroller* gäller.
+  * Den *villkor* krävs.
+  
+Den här namngivningsstandarden för oförutsedda händelser principer kommer att på följande sätt: 
 
-I följande exempel: **Exempel A – Contingency CA: N för att återställa åtkomst till verksamhetskritiska Samarbetsappar**, är en typisk företagets reservplan. Organisationen kräver vanligtvis MFA för all åtkomst för Exchange Online och SharePoint Online i det här scenariot och kan avbrott i det här fallet är MFA-provider för kunden har ett avbrott (om Azure MFA, lokala MFA-provider eller tredje parts MFA). Den här principen minskar risken för avbrottet genom att tillåta specifika målanvändare åtkomst till de här apparna från betrodda Windows-enheter bara när de använder appen från betrodda företagets nätverk. Det kommer också utesluta nödfall konton och core administratörer från dessa begränsningar. Det här exemplet kräver en namngiven nätverksplats **CorpNetwork** och en säkerhetsgrupp **ContingencyAccess** med målanvändare, en grupp med namnet **CoreAdmins** med den Core-administratörer och en grupp med namnet **EmergencyAccess** med åtkomst vid akutfall. Contingency kräver fyra principer för att ange att lägga till.
+`
+EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
+`
+
+I följande exempel: **Exempel A – Contingency CA: N för att återställa åtkomst till verksamhetskritiska Samarbetsappar**, är en typisk företagets reservplan. Organisationen kräver vanligtvis MFA för all åtkomst för Exchange Online och SharePoint Online i det här scenariot och kan avbrott i det här fallet är MFA-provider för kunden har ett avbrott (om Azure MFA, lokala MFA-provider eller tredje parts MFA). Den här principen minskar risken för avbrottet genom att tillåta specifika målanvändare åtkomst till de här apparna från betrodda Windows-enheter bara när de använder appen från betrodda företagets nätverk. Det kommer också utesluta nödfall konton och core administratörer från dessa begränsningar. Målanvändarna kommer sedan att få åtkomst till Exchange Online och SharePoint Online, medan andra användare inte kommer fortfarande har åtkomst till appar på grund av avbrottet. Det här exemplet kräver en namngiven nätverksplats **CorpNetwork** och en säkerhetsgrupp **ContingencyAccess** med målanvändare, en grupp med namnet **CoreAdmins** med den Core-administratörer och en grupp med namnet **EmergencyAccess** med åtkomst vid akutfall. Contingency kräver fyra principer för att ange att lägga till. 
 
 **Exempel A – Contingency CA-principer för att återställa åtkomst till verksamhetskritiska Samarbetsappar:**
 
 * Principen 1: Kräv att domänanslutna enheter för Exchange och SharePoint
+  * Namn: EM001 - AKTIVERA I NÖDFALL: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
   * Användare och grupper: Inkludera ContingencyAccess. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Alla
   * Ge kontroll: Kräv domänansluten
   * Tillstånd: Disabled
 * Princip för 2: Blockera andra plattformar än Windows
+  * Namn: EM002 - AKTIVERA I NÖDFALL: MFA-avbrott [2/4] - Exchange SharePoint – blockera åtkomst utom Windows
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta Windows
   * Ge kontroll: Blockera
   * Tillstånd: Disabled
 * Princip 3: Blockera nätverk än CorpNetwork
+  * Namn: EM003 - AKTIVERA I NÖDFALL: MFA-avbrott [3 och 4] - Exchange SharePoint – blockera åtkomst förutom företagets nätverk
   * Användare och grupper: Inkludera alla användare. Undanta CoreAdmins och EmergencyAccess
   * Appar i molnet: Exchange Online och SharePoint Online
   * Villkor: Platser är valfri plats, undanta CorpNetwork
   * Ge kontroll: Blockera
   * Tillstånd: Disabled
 * Princip 4: Blockera EAS uttryckligen
+  * Namn: EM004 - AKTIVERA I NÖDFALL: MFA-avbrott [4/4] - Exchange - Block EAS för alla användare
   * Användare och grupper: Inkludera alla användare
   * Appar i molnet: Innehåller Exchange Online
   * Villkor: Klientappar: Exchange Active Sync
@@ -163,12 +181,14 @@ I den här nästa exempel **exempel B - Contingency CA-principer för att tillå
 **Exempel B - Contingency CA-principer:**
 
 * Principen 1: Blockera alla inte i SalesContingency-teamet
+  * Namn: EM001 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [1/2] - Salesforce - Block alla användare utom SalesforceContingency
   * Användare och grupper: Inkludera alla användare. Undanta SalesAdmins och SalesforceContingency
   * Appar i molnet: Salesforce.
   * Villkor: Ingen
   * Ge kontroll: Blockera
   * Tillstånd: Disabled
 * Princip för 2: Blockera säljteamet från valfri plattform än mobile (för att minska ytan på attack)
+  * Namn: EM002 - AKTIVERA I NÖDFALL: Enhetens efterlevnad avbrott [2/2] - Salesforce - Block på alla plattformar förutom iOS och Android
   * Användare och grupper: Inkludera SalesforceContingency. Exkludera SalesAdmins
   * Appar i molnet: Salesforce
   * Villkor: Plattformen omfattar alla Enhetsplattformar, undanta iOS och Android
@@ -215,14 +235,14 @@ Beroende på vilka åtgärder eller risker används under ett avbrott, kan din o
 
 ## <a name="after-a-disruption"></a>Efter ett avbrott
 
-Du måste återställa de ändringar du gjort som en del av aktiverad nödplan när tjänsten har återställts som orsakade avbrott. 
+Ångra ändringarna som en del av aktiverad nödplan när tjänsten har återställts som orsakade avbrott. 
 
 1. Aktivera de vanliga principerna
 2. Inaktivera principer för oförutsedda händelser. 
 3. Återställa alla ändringar du gjort och dokumenterade under kan avbrott.
 4. Kom ihåg att återskapa autentiseringsuppgifter och fysiskt skydda nya autentiseringsuppgifter information som en del av ditt konto för åtkomst vid akutfall-procedurer om du har använt ett åtkomstkonto för nödläge.
 5. Fortsätta att [prioritering som rapporterats av alla riskhändelser](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) efter avbrott för misstänkt aktivitet.
-6. Återkalla alla uppdateringstokens som har utfärdats [med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) att rikta en uppsättning användare. Återkalla alla uppdateringstokens är särskilt viktigt för privilegierade konton som används under avbrott och göra det tvingar dem att autentiseras på nytt och uppfylla kontroll över de återställda principerna.
+6. Återkalla alla uppdateringstokens som har utfärdats [med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) att rikta en uppsättning användare. Återkalla alla uppdateringstokens är viktig för privilegierade konton som används under avbrott och göra det tvingar dem att autentiseras på nytt och uppfylla kontroll över de återställda principerna.
 
 ## <a name="emergency-options"></a>Alternativ för nödläge
 

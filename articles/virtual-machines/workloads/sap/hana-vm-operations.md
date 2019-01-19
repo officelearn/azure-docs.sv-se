@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 96b0c44ff36dac3832e518deeed7f07b11e78c16
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cede896e9a2a4c92a495a502fb6cf69805d755ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160054"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402140"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Konfigurationer för SAP HANA-infrastruktur och åtgärder på Azure
 Det här dokumentet innehåller anvisningar för att konfigurera Azure-infrastrukturen och använda SAP HANA-system som har distribuerats på Azures inbyggda virtuella datorer (VM). Dokumentet innehåller också konfigurationsinformation för SAP HANA skalbar för M128s VM SKU: N. Det här dokumentet är inte avsedd att ersätta standard SAP-dokumentationen, som innehåller följande innehåll:
@@ -127,7 +127,7 @@ Azure Write Accelerator är en funktion som hämtar distribueras för Azure virt
 
 De rekommenderade konfigurationerna se ut:
 
-| SKU FÖR VIRTUELL DATOR | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data | / hana/log | / hana/delade | / Root volym | / usr/sap | Hana/säkerhetskopiering |
+| SKU FÖR VIRTUELL DATOR | RAM | Max. VM I/O<br /> Dataflöde | / hana/data | / hana/log | / hana/delade | / Root volym | / usr/sap | Hana/säkerhetskopiering |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
 | M32ts | 192 giB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256 GB | 500 MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
@@ -159,12 +159,12 @@ I följande tabell visas en konfiguration av VM-typer som kunder använder ofta 
 > Kontrollera om en viss typ av virtuell dator stöds för SAP HANA av SAP i produktionsscenarier den [SAP-dokumentationen för IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
 
 
-| SKU FÖR VIRTUELL DATOR | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data och/hana/log<br /> stripe används med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | Hana/säkerhetskopiering |
+| SKU FÖR VIRTUELL DATOR | RAM | Max. VM I/O<br /> Dataflöde | / hana/data och/hana/log<br /> stripe används med LVM eller MDADM | / hana/delade | / Root volym | / usr/sap | Hana/säkerhetskopiering |
 | --- | --- | --- | --- | --- | --- | --- | -- |
-| DS14v2 | 128 GiB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
+| DS14v2 | 112 giB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E16v3 | 128 GiB | 384 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S15 |
 | E32v3 | 256 GB | 768 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
-| E64v3 | 443 giB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
+| E64v3 | 432 giB | 1200 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | GS5 | 448 giB | 2000 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S30 |
 | M32ts | 192 giB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
 | M32ls | 256 GB | 500 MB/s | 3 x P20 | 1 x S20 | 1 x S6 | 1 x S6 | 1 x S20 |
@@ -271,7 +271,7 @@ Det ser ut som den grundläggande konfigurationen av en VM-nod för SAP HANA, sk
 
 Ändra storlek på volymer för noderna är samma som för skala upp, utom **/hana/delade**. För VM-SKU M128s ut föreslagna storlekar och typer:
 
-| SKU FÖR VIRTUELL DATOR | RAM | Max. VM-I/O<br /> Dataflöde | / hana/data | / hana/log | / Root volym | / usr/sap | Hana/säkerhetskopiering |
+| SKU FÖR VIRTUELL DATOR | RAM | Max. VM I/O<br /> Dataflöde | / hana/data | / hana/log | / Root volym | / usr/sap | Hana/säkerhetskopiering |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | M128s | 2000 giB | 2000 MB/s |3 x P30 | 2 x P20 | 1 x P6 | 1 x P6 | 2 x P40 |
 
@@ -403,7 +403,7 @@ Visa ytterligare information om Azure accelererat nätverk [här](https://docs.m
 
 Enligt DT 2.0 metodvägledning, bör disk-i/o-dataflöde vara minst 50 MB/sek per fysisk kärna. Titta på specifikationen för två Azure VM-typer som stöds för DT 2.0 en visas den maximala värdet för disken i/o-dataflödesgräns för den virtuella datorn:
 
-- E32sv3:   768 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 48 MB/sek per fysisk kärna
+- E32sv3    :   768 MB/sek (icke cachelagrat) vilket innebär att ett förhållande på 48 MB/sek per fysisk kärna
 - M64-32MS:  1 000 MB per sekund (icke cachelagrat) vilket innebär att ett förhållande på 62,5 MB/sek per fysisk kärna
 
 Det krävs för att lägga till flera Azure-diskar till den virtuella datorn 2.0 DT och skapa programvaru-raid (striping) på nivån för att uppnå maxgränsen för diskdataflöde per virtuell dator. En enskild Azure disk tillhandahålla inte dataflöde för att nå maxgränsen för virtuell dator i detta avseende. Azure Premium storage är obligatorisk för att köra DT 2.0. 
@@ -416,10 +416,10 @@ Beroende på storleken krav finns det olika alternativ för att nå det maximala
 Som M64 32ms VM har mycket minne, kanske i/o-belastning inte når gränsen särskilt för skrivskyddade beräkningsintensiva arbetsbelastningar. Färre diskar i stripe-uppsättning kan därför vara tillräcklig beroende på den specifika arbetsbelastningen för kunden. Men för att vara på den säkra sidan disken konfigurationerna nedan har valts för att garantera största möjliga dataflöde:
 
 
-| SKU FÖR VIRTUELL DATOR | Disk-Config 1 | Disk-Config 2 | Disk-Config 3 | Disk-Config 4 | Disk-Config 5 | 
+| SKU FÖR VIRTUELL DATOR | Disk-Config 1 | Disk Config 2 | Disk Config 3 | Disk-Config 4 | Disk-Config 5 | 
 | ---- | ---- | ---- | ---- | ---- | ---- | 
-| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3,5 TB | 8 x P15 -> 2 TB | 
-| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2,5 TB | 6 x P15 -> 1,5 TB | 
+| M64-32ms | 4 x P50 -> 16 TB | 4 x P40 -> 8 TB | 5 x P30 -> 5 TB | 7 x P20 -> 3.5 TB | 8 x P15 -> 2 TB | 
+| E32sv3 | 3 x P50 -> 12 TB | 3 x P40 -> 6 TB | 4 x P30 -> 4 TB | 5 x P20 -> 2.5 TB | 6 x P15 -> 1.5 TB | 
 
 
 Särskilt om arbetsbelastningen är Läs-intensiv kan det öka IO-prestanda för att aktivera Azure värden ”skrivskyddad” som rekommenderas för datavolymer för databasprogram. Medan transaktionen log diskcache för Azure-värd måste vara ”none”. 
@@ -431,8 +431,8 @@ Här följer några exempel om hur du ändrar storlek på loggvolymen:
 
 | skriver data volymens storlek och disk | loggvolymen och disk Skriv config 1 | loggvolymen och disk Skriv config 2 |
 | --- | --- | --- |
-| 4 x P50 -> 16 TB | 5 x P20 -> 2,5 TB | 3 x P30 -> 3 TB |
-| 6 x P15 -> 1,5 TB | 4 x P6 -> 256 GB | 1 x-P15 -> 256 GB |
+| 4 x P50 -> 16 TB | 5 x P20 -> 2.5 TB | 3 x P30 -> 3 TB |
+| 6 x P15 -> 1.5 TB | 4 x P6 -> 256 GB | 1 x P15 -> 256 GB |
 
 
 T.ex. för SAP HANA skalbar /hana/shared katalogen har som ska delas mellan SAP HANA VM och DT 2.0 VM. Samma arkitektur för SAP HANA med hjälp av att skala ut dedikerade virtuella datorer som fungerar som en NFS-server med hög tillgänglighet rekommenderas. Identiska designen kan användas för att tillhandahålla en delad volym för säkerhetskopiering. Men det är upp till kunden om hög tillgänglighet skulle vara nödvändigt eller om det räcker att bara använda en dedikerad virtuell dator med tillräckligt mycket lagringskapacitet för att fungera som en sekundär server.
@@ -443,7 +443,7 @@ T.ex. för SAP HANA skalbar /hana/shared katalogen har som ska delas mellan SAP 
 
 - [SAP HANA dynamisk lagringsnivåer guiden för installation och uppdatering](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
 - [SAP HANA dynamisk lagringsnivåer självstudier och resurser](https://www.sap.com/developer/topics/hana-dynamic-tiering.html)
-- [SAP HANA dynamisk lagringsnivåer PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
 - [Förbättringar av SAP HANA 2.0 Service Pack 02 dynamisk lagringsnivåer](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 
 

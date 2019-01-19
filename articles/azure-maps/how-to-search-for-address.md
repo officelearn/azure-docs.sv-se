@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cd6927cccfa85c8409d612a40a4e708e81af746a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387437"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413557"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Hitta en adress med hjälp av Azure Maps search-tjänst
 
@@ -42,7 +42,7 @@ De flesta sökfrågor som standard `maxFuzzyLevel=1` att få prestanda och minsk
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
-    | Fråge-URL | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
+    | URL för begäran | [https://atlas.microsoft.com/search/fuzzy/json?](https://atlas.microsoft.com/search/fuzzy/json?) |
     | Auktorisering | Ingen autentisering |
 
     Den **json** attribut i en URL-sökväg avgör svarsformat. Du använder json i den här artikeln för enkel användning och läsbarhet. Du kan hitta tillgängliga svar-format i den **hämta Fuzzy Search** definitionen av den [Maps funktions-API-referens](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
@@ -94,7 +94,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
-    | Fråge-URL | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
+    | URL för begäran | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
     | Auktorisering | Ingen autentisering |
 
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:
@@ -105,7 +105,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     |------------------|-------------------------|
     | API-versionen | 1.0 |
     | prenumerationsnyckel | \<Azure Maps-nyckel\> |
-    | DocumentDB | 400 breda St, Seattle, WA 98109 |
+    | DocumentDB | 400 Broad St, Seattle, WA 98109 |
   
 4. Klicka på **skicka** och granska svarstexten.
   
@@ -135,7 +135,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
-    | Fråge-URL | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
+    | URL för begäran | [https://atlas.microsoft.com/search/address/reverse/json?](https://atlas.microsoft.com/search/address/reverse/json?) |
     | Auktorisering | Ingen autentisering |
   
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:
@@ -158,7 +158,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     |-----|------------|
     | nummer | true |
 
-    Om den [nummer](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern skickas med begäran, svaret kan innehålla sida för gata (vänster/höger) och en förskjutning position för det numret.
+    Om den [nummer](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) Frågeparametern skickas med begäran, svaret kan innehålla sida för gata (vänster/höger) och en förskjutning position för det numret.
   
 6. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 
@@ -166,7 +166,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     |-----|------------|
     | returnSpeedLimit | true |
   
-    När den [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern anges svaret som returneras av bokförda hastighet gränsen.
+    När den [returnSpeedLimit](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) Frågeparametern anges svaret som returneras av bokförda hastighet gränsen.
 
 7. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 
@@ -174,7 +174,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     |-----|------------|
     | returnRoadUse | true |
 
-    När den [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) Frågeparametern är inställt, svaret returnerar väg Använd matris för omvänd geocodes på nivån för gata.
+    När den [returnRoadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) Frågeparametern är inställt, svaret returnerar väg Använd matris för omvänd geocodes på nivån för gata.
 
 8. Lägg till följande nyckel / värde-par för den **Params** och klicka **skicka**:
 
@@ -182,7 +182,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     |-----|------------|
     | roadUse | true |
 
-    Du kan begränsa omvänd geocode frågan till en viss typ av väg användning med den [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) frågeparameter.
+    Du kan begränsa omvänd geocode frågan till en viss typ av väg användning med den [roadUse](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) frågeparameter.
   
 ## <a name="search-for-the-cross-street-using-reverse-address-cross-street-search"></a>Sök efter mellan gata med hjälp av omvänd adress mellan gatuadress Search
 
@@ -195,7 +195,7 @@ Du kan skicka en fullständig eller partiell gatuadress till search-adress API o
     | Parameter | Föreslaget värde |
     |---------------|------------------------------------------------|
     | HTTP-metod | HÄMTA |
-    | Fråge-URL | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
+    | URL för begäran | [https://atlas.microsoft.com/search/address/reverse/crossstreet/json?](https://atlas.microsoft.com/search/address/reverse/crossstreet/json?) |
     | Auktorisering | Ingen autentisering |
   
 3. Klicka på **Params**, och ange följande nyckel / värde-par som används som frågan eller sökväg parametrar i fråge-URL:

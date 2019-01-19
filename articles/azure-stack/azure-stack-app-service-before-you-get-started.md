@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: anwestg
-ms.openlocfilehash: add4a7f1ce8133b5c3891f731fc98ee7fdb26ebd
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 31fe0ede202b72a3e71c8028543ef0677a44a335
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275677"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413030"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Innan du sätter igång med App Service i Azure Stack
 
@@ -71,7 +71,7 @@ När du kör följande PowerShell-kommando, måste du ange privilegierad slutpun
     Get-AzureStackRootCert.ps1
 ```
 
-#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 Skriptparametrar
+#### <a name="get-azurestackrootcertps1-script-parameters"></a>Get-AzureStackRootCert.ps1 script parameters
 
 | Parameter | Obligatorisk eller valfri | Standardvärde | Beskrivning |
 | --- | --- | --- | --- |
@@ -166,7 +166,7 @@ Som bästa praxis när du arbetar med någon av nödvändiga [Azure Stack PKI-ce
 
 Azure App Service i Azure Stack kan du distribuera resursprovidern till ett befintligt virtuellt nätverk eller kan du skapa ett virtuellt nätverk som en del av distributionen. Med hjälp av ett befintligt virtuellt nätverk kan du använda interna IP-adresser att ansluta till fil- och SQLServer krävs av Azure App Service i Azure Stack. Det virtuella nätverket måste konfigureras med följande adressintervall och undernät innan du installerar Azure App Service på Azure Stack:
 
-Virtuellt nätverk – /16
+Virtual Network - /16
 
 Undernät
 
@@ -327,7 +327,7 @@ Administratörer måste konfigurera SSO till:
 Följ de här stegen:
 
 1. Öppna en PowerShell-instans som azurestack\AzureStackAdmin.
-2. Gå till platsen där de skript som du har hämtat och extraherat i den [nödvändiga steg](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Gå till platsen där de skript som du har hämtat och extraherat i den [nödvändiga steg](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
 4. Kör den **skapa AADIdentityApp.ps1** skript. När du uppmanas, anger du Azure AD-klient-ID som du använder för din Azure Stack-distribution. Ange till exempel **myazurestack.onmicrosoft.com**.
 5. I den **Credential** fönstret anger du Azure AD-administratör tjänstkonto och lösenord. Välj **OK**.
@@ -353,7 +353,7 @@ Följ de här stegen:
 | AzureStackAdminCredential | Krävs | Null | Azure AD-tjänstens administrativa autentiseringsuppgifter. |
 | CertificateFilePath | Krävs | Null | **Fullständig sökväg** till den certifikatfil för identitetsprogram genereras tidigare. |
 | CertificatePassword | Krävs | Null | Lösenordet som hjälper dig skydda certifikatets privata nyckel. |
-| Miljö | Valfri | AzureCloud | Namnet på den miljö som stöds av molnet där målet Azure Active Directory Graph-tjänsten är tillgänglig.  Tillåtna värden: 'AzureCloud', 'AzureChinaCloud', 'Azureusgovernment eller', 'AzureGermanCloud'.|
+| Miljö | Valfri | AzureCloud | Namnet på den miljö som stöds av molnet där målet Azure Active Directory Graph-tjänsten är tillgänglig.  Tillåtna värden: 'AzureCloud', 'AzureChinaCloud', 'AzureUSGovernment', 'AzureGermanCloud'.|
 
 ## <a name="create-an-active-directory-federation-services-application"></a>Skapa ett Active Directory Federation Services-program
 
@@ -371,7 +371,7 @@ Administratörer måste konfigurera SSO till:
 Följ de här stegen:
 
 1. Öppna en PowerShell-instans som azurestack\AzureStackAdmin.
-2. Gå till platsen där de skript som du har hämtat och extraherat i den [nödvändiga steg](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Gå till platsen där de skript som du har hämtat och extraherat i den [nödvändiga steg](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started).
 3. [Installera PowerShell för Azure Stack](azure-stack-powershell-install.md).
 4. Kör den **skapa ADFSIdentityApp.ps1** skript.
 5. I den **Credential** fönstret anger du AD FS molnet administratörskonto och lösenord. Välj **OK**.

@@ -1,45 +1,41 @@
 ---
-Rubrik: Använda linjär regression i Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: En jämförelse av linjära regressionsmodeller i Excel och Azure Machine Learning Studio-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Migrera analytics från Excel till Azure Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: En jämförelse av linjära regressionsmodeller i Excel och Azure Machine Learning Studio-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---
-# <a name="using-linear-regression-in-azure-machine-learning-studio"></a>Använda linjär regression i Azure Machine Learning Studio
-> *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsoft Data Insights Center sökfunktion. I den här artikeln beskrivs de upplevelsen migrera en befintlig regression analysis suite till en molnbaserad lösning som använder Azure Machine Learning. 
-> 
-> 
+# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Migrera analytics från Excel till Azure Machine Learning Studio
 
-&nbsp; 
-
-
+> *Kate Baroni* och *Ben Boatman* är enterprise lösningsarkitekter i Microsoft Data Insights Center sökfunktion. I den här artikeln beskrivs de upplevelsen migrera en befintlig regression analysis suite till en molnbaserad lösning med hjälp av Azure Machine Learning Studio.
 
 ## <a name="goal"></a>Mål
+
 Vår projektet startades med två mål i åtanke: 
 
 1. Använda förutsägande analys för att förbättra vår organisation månatliga intäkter projektioner 
-2. Använd Azure Machine Learning för att bekräfta, optimera, öka hastighet, och skala för våra resultat. 
+2. Använd Azure Machine Learning Studio för att bekräfta, optimera, öka hastighet, och skala för våra resultat. 
 
-Vår organisation går igenom en månatlig intäkter prognoser processen som många företag. Vårt små team med affärsanalytiker har har behörighet att använda Azure Machine Learning för att stödja processen och förbättra prognosens noggrannhet. Teamet har använt några månader samla in data från flera källor och som kör dataattribut via statistiska analyser, identifiera viktiga punkter som är relevanta för försäljningsprognoser för tjänster. Nästa steg var att börja skapa prototyper statistiska regressionsmodeller på data i Excel. Vi hade en Excel-regressionsmodell som vinner den aktuella fält och ekonomi prognoser processer inom ett par veckor. Det blev baslinje förutsägelse resultatet. 
+Vår organisation går igenom en månatlig intäkter prognoser processen som många företag. Vårt små team med affärsanalytiker har har behörighet att använda Azure Machine Learning Studio för att stödja processen och förbättra prognosens noggrannhet. Teamet har använt några månader samla in data från flera källor och som kör dataattribut via statistiska analyser, identifiera viktiga punkter som är relevanta för försäljningsprognoser för tjänster. Nästa steg var att börja skapa prototyper statistiska regressionsmodeller på data i Excel. Vi hade en Excel-regressionsmodell som vinner den aktuella fält och ekonomi prognoser processer inom ett par veckor. Det blev baslinje förutsägelse resultatet. 
 
-Sedan tog vi nästa steg för att flytta vår förutsägande analys till Azure Machine Learning för att ta reda på hur Maskininlärning kan förbättra på förutsägande prestanda.
+Sedan tog vi nästa steg för att flytta vår förutsägande analys till Studio för att ta reda på hur Studio kunde förbättra på förutsägande prestanda.
 
 ## <a name="achieving-predictive-performance-parity"></a>Uppnå förutsägande prestanda paritet
-Vårt första prioritet var att uppnå paritet mellan regressionsmodeller Machine Learning och Excel. Baserat på samma data och samma delning för träning och testning av data, som vi ville få förutsägande prestanda paritet mellan Excel och Machine Learning. Inledningsvis misslyckades vi. Excel-datamodellen – bättre än Machine Learning-modell. Felet uppstod på grund av brist på förståelse för grundläggande verktygsinställningen i Machine Learning. Efter en synkronisering med Machine Learning-produktteamet vi fick en bättre förståelse för de grundläggande inställning krävs för våra data, och vi uppnådde paritet mellan de två modellerna. 
+Vårt första prioritet var att uppnå paritet mellan regressionsmodeller Studio och Excel. Baserat på samma data och samma delning för träning och testning av data, som vi ville få förutsägande prestanda paritet mellan Excel och Studio. Inledningsvis misslyckades vi. Excel-datamodellen – bättre än Studio-modell. Felet uppstod på grund av brist på förståelse för grundläggande verktygsinställningen i Studio. Efter en synkronisering med produktteam Studio vi fick en bättre förståelse för de grundläggande inställning krävs för våra data, och vi uppnådde paritet mellan de två modellerna. 
 
 ### <a name="create-regression-model-in-excel"></a>Skapa regression-modell i Excel
 Vår Excel-Regression används standard linjär regressionsmodell hittades i Excel-analysverktygens. 
 
-Vi beräknas *Mean absolut % Error* och använda den som prestandamått för modellen. Det tog tre månader att komma till en aktiv-modell i Excel. Vi tog mycket av utbildning i Machine Learning Studio-experiment som slutligen var fördelaktigt om kraven.
+Vi beräknas *Mean absolut % Error* och använda den som prestandamått för modellen. Det tog tre månader att komma till en aktiv-modell i Excel. Vi tog mycket av learning till Studio-experiment som slutligen var fördelaktigt om kraven.
 
-### <a name="create-comparable-experiment-in-azure-machine-learning"></a>Skapa jämförbara experiment i Azure Machine Learning
-Vi har följt stegen nedan för att skapa vårt experiment i Machine Learning Studio: 
+### <a name="create-comparable-experiment-in-studio"></a>Skapa jämförbara experiment i Studio
+Vi har följt stegen nedan för att skapa vårt experiment i Studio: 
 
-1. Överfört datauppsättningen som en csv-fil till Machine Learning Studio (liten fil)
+1. Överfört datauppsättningen som en csv-fil till Studio (liten fil)
 2. Skapa ett nytt experiment och används den [Välj kolumner i datauppsättning] [ select-columns] modul för att välja samma datafunktioner som används i Excel 
 3. Används den [dela Data] [ split] modulen (med *relativa uttryck* läge) att dela upp data i samma datauppsättningar för utbildning som hade gjorts i Excel 
 4. Redan experimenterat lite med den [linjär Regression] [ linear-regression] modulen (endast standardalternativ), dokumenterade och jämfört med resultatet till vår regressionsmodell för Excel
 
 ### <a name="review-initial-results"></a>Granska resultatet från den inledande
-Först Excel-datamodellen tydligt – bättre än Machine Learning Studio-modell: 
+Först Excel-datamodellen tydligt – bättre än Studio-modell: 
 
 |  | Excel | Studio |
 | --- |:---:|:---:|
@@ -51,13 +47,13 @@ Först Excel-datamodellen tydligt – bättre än Machine Learning Studio-modell
 
 När vi körde våra processen och resultat av utvecklare och datavetare på Machine Learning-teamet tillhandahålla de snabbt några användbara tips. 
 
-* När du använder den [linjär Regression] [ linear-regression] modul i Machine Learning Studio finns två metoder:
+* När du använder den [linjär Regression] [ linear-regression] modul i Studio finns två metoder:
   * Online brantaste Lutningsmetoden: Är mer lämpligt för större skala problem
   * Vanlig minsta kvadrat: Detta är den metod som de flesta tänker på när de hör linjär regression. Vanlig minsta kvadrat kan vara mer föredra för små datauppsättningar.
 * Överväg att justera parametern L2 Regularisering vikt för att förbättra prestanda. Den är inställd på 0,001 som standard, men för vårt liten datamängd vi ställa in det på 0,005 att förbättra prestanda. 
 
 ### <a name="mystery-solved"></a>Ta mysteriet löst!
-När vi tillämpade rekommendationerna uppnått vi samma baslinje-prestanda i Machine Learning Studio som med Excel: 
+När vi tillämpade rekommendationerna uppnått vi samma baslinje-prestanda i Studio som med Excel: 
 
 |  | Excel | Studio (första) | Studio med minsta kvadrat |
 | --- |:---:|:---:|:---:|
@@ -85,7 +81,7 @@ Dessutom Excel koefficienter jämfört med bra funktionen vikter i Azure-tränad
 ## <a name="next-steps"></a>Nästa steg
 Vi ville använda Machine Learning-webbtjänst i Excel. Vår affärsanalytiker förlitar sig på Excel och vi behövde ett sätt att anropa Machine Learning-webbtjänst med en rad med Excel-data och den returnerar förutsägelsevärdet till Excel. 
 
-Ville vi även optimera vår modell med hjälp av alternativen och algoritmer som finns i Machine Learning Studio.
+Ville vi även optimera vår modell med hjälp av alternativen och algoritmer som finns i Studio.
 
 ### <a name="integration-with-excel"></a>Integrering med Excel
 Vår lösning var att operationalisera vår Machine Learning regression-modellen genom att skapa en webbtjänst från den tränade modellen. Webbtjänsten har skapats inom ett par minuter, och vi kan kalla den direkt från Excel för att returnera ett värde för förväntade intäkter. 
@@ -103,7 +99,7 @@ Nu när vi har haft en baslinje med vår Excel-datamodellen, flyttas vi vidare a
 
 Sedan vi planerar att inkludera ytterligare algoritmer som [Bayesian] [ bayesian-linear-regression] eller [förstärkta beslutsträd] [ boosted-decision-tree-regression] i vår experiment att jämföra prestanda. 
 
-Om du vill experimentera med regression är en bra datauppsättning för att testa exempeldatauppsättningen energi effektivitet Regression som har många olika numeriska attribut. Datauppsättningen tillhandahålls som en del av exemplen på datauppsättningar i Machine Learning Studio. Du kan använda en mängd olika inlärningsmoduler för att förutse uppvärmning belastning eller kylning belastningen. Diagrammet nedan är en prestanda-jämförelse av olika regression lär sig mot den energieffektivitet datauppsättning att förutsäga för en målvariabel kylning belastning: 
+Om du vill experimentera med regression är en bra datauppsättning för att testa exempeldatauppsättningen energi effektivitet Regression som har många olika numeriska attribut. Datauppsättningen tillhandahålls som en del av exemplen på datauppsättningar i Studio. Du kan använda en mängd olika inlärningsmoduler för att förutse uppvärmning belastning eller kylning belastningen. Diagrammet nedan är en prestanda-jämförelse av olika regression lär sig mot den energieffektivitet datauppsättning att förutsäga för en målvariabel kylning belastning: 
 
 | Modell | Medelabsolutfel | Rot medelvärdet cirkels fel | Relativa absoluta fel | Relativ cirkels fel | Bestämningskoefficient |
 | --- | --- | --- | --- | --- | --- |
@@ -113,11 +109,11 @@ Om du vill experimentera med regression är en bra datauppsättning för att tes
 | Linjär Regression (vanlig minsta kvadrat) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>Viktiga Takeaways
-Vi lärt oss mycket av från körs Excel regression och Azure Machine Learning-experiment parallellt. Skapa baslinje i Excel och jämföra dem med modeller med Machine Learning [linjär Regression] [ linear-regression] hjälpte oss Lär dig Azure Machine Learning och vi har hittat möjligheter att förbättra data prestanda för val av och modell. 
+Vi vet mycket genom att köra Excel-regression och Studio-experiment parallellt. Skapa baslinje i Excel och jämföra dem med modeller med Machine Learning [linjär Regression] [ linear-regression] hjälpte oss att lära dig Studio, och vi har hittat möjligheter att förbättra dataurval och modell prestanda. 
 
-Vi hittade också att det är lämpligt att använda [Filter-baserade Funktionsurval] [ filter-based-feature-selection] att påskynda framtida förutsägelse projekt. Genom att använda val av funktioner för dina data, kan du skapa en förbättrad modell i Machine Learning med bättre prestanda. 
+Vi hittade också att det är lämpligt att använda [Filter-baserade Funktionsurval] [ filter-based-feature-selection] att påskynda framtida förutsägelse projekt. Genom att använda val av funktioner till dina data kan skapa du en modell för förbättrad i Studio med bättre prestanda. 
 
-Möjlighet att överföra förutsägande analys prognoser från Machine Learning till Excel hela organismen tillåter en kraftig ökning i möjligheten att tillhandahålla har resultaten till en bred företag målgrupp. 
+Möjlighet att överföra förutsägande analys prognoser från Studio till Excel hela organismen tillåter en kraftig ökning i möjligheten att tillhandahålla har resultaten till en bred företag målgrupp. 
 
 ## <a name="resources"></a>Resurser
 Här är några resurser som hjälper dig att arbeta med regression: 

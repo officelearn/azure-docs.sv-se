@@ -9,16 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 5d3e837cf644e0cb9b35a0cfc715a9dcace592e3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e69d03e2c45ee34723bd6aace3a2a26cead63e96
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082993"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411619"
 ---
-# <a name="manage-azure-endpoint-subscription-keys"></a>Hantera Azure-slutpunkt prenumerationsnycklar
+# <a name="manage-azure-resource-keys-for-prediction-endpoint-queries"></a>Hantera Azure-resurs-nycklar för slutpunkt-förutsägelsefrågor
+
+[!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
 Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). Produktionssystem, använda en [betald](https://aka.ms/luis-price-tier) nivå. 
 
@@ -57,7 +59,7 @@ Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). 
 5. Kom ihåg att [tilldela den här slutpunktsnyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) på den **publicera** sidan och använda det på alla endpoint-frågor. 
 
 ## <a name="exceed-pricing-tier-usage"></a>Överskrida prisnivå nivå användning
-Varje nivå kan endpoint förfrågningar till ditt Understanding Intelligent Service-konto med ett specifikt intervall. Om antalet begäranden som är högre än den tillåtna av ditt avgiftsbelagda konto per minut eller per månad, begäranden får ett HTTP-fel för ”429: för många förfrågningar”.
+Varje nivå kan endpoint förfrågningar till ditt Understanding Intelligent Service-konto med ett specifikt intervall. Om antalet begäranden som är högre än den tillåtna av ditt avgiftsbelagda konto per minut eller per månad, begäranden får ett HTTP-fel för ”429: För många förfrågningar ”.
 
 Varje nivå kan ackumulerande begäranden per månad. Om förfrågningarna är högre än den tillåtna begäranden får ett HTTP-fel för ”403: tillåts inte”.  
 

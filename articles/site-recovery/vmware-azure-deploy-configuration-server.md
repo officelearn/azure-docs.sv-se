@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: 1efbd6bfb6f3bc3e5deae058b542f665b3153cdb
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794362"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410769"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -67,13 +67,16 @@ Licensen som medföljer mallen för OVA är en licens för utvärdering som är 
 3. I **Välj källa**, ange platsen för den nedladdade OVF.
 4. I **detaljer för recensionen**väljer **nästa**.
 5. I **Välj namn och mapp** och **Välj konfiguration**, accepterar du standardinställningarna.
-6. I **Välj lagring** väljer du för bästa prestanda **Thick Provision Eager Zeroed** i **Välj virtuellt diskformat**.
+6. I **Välj lagring** väljer du för bästa prestanda **Thick Provision Eager Zeroed** i **Välj virtuellt diskformat**. Användning av tunn etableringsalternativ kan påverka prestandan av konfigurationsservern.
 7. Acceptera standardinställningarna på resten av sidorna i guiden.
 8. I **Klart att slutföras**:
 
     * Om du vill konfigurera den virtuella datorn med standardinställningarna väljer du **Power on after deployment** (Slå på strömmen efter distributionen) > **Slutför**.
 
     * Om du vill lägga till ytterligare ett nätverksgränssnitt, rensa **slå på strömmen efter distributionen**, och välj sedan **Slutför**. Konfigurationsservermallen distribueras som standard med ett enda nätverkskort. Du kan lägga till ytterligare nätverkskort efter distributionen.
+
+> [!IMPORTANT]
+> Ändra inte resurskonfigurationer (minne/kärnor/CPU-begränsning), ändra/ta bort installerade tjänster eller filer på konfigurationsservern efter distributionen. Detta påverkar registrering av konfigurationsservern med Azure-tjänster och prestanda för konfigurationsservern.
 
 ## <a name="add-an-additional-adapter"></a>Lägg till ytterligare en adapter
 
@@ -119,7 +122,7 @@ Om du vill lägga till ett extra nätverkskort i konfigurationsservern, lägger 
 
 ## <a name="upgrade-the-configuration-server"></a>Uppgradera konfigurationsservern
 
-Om du vill uppgradera konfigurationsservern till den senaste versionen, följer du dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
+Om du vill uppgradera konfigurationsservern till den senaste versionen, följer du dessa [steg](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Detaljerade anvisningar om hur du uppgraderar alla Site Recovery-komponenter, klickar du på [här](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 
 ## <a name="manage-the-configuration-server"></a>Hantera konfigurationsservern
 
@@ -141,20 +144,26 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
     Referera till [arkitektur för Azure-replikering för VMware till](vmware-azure-architecture.md) mer information om konfigurationsservern och dess funktioner.
 5. Var hittar jag den senaste versionen av konfigurationsservern
 
-    Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Du kan också direkt ladda ned det från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Du kan också direkt ladda ned det från [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Mer instruktioner om hur du uppgraderar alla Site Recovery-komponenter [här](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
 6. Var kan jag hämta lösenfrasen för konfigurationsservern?
 
     Referera till [i den här artikeln](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) att hämta lösenfrasen.
-7. Var kan jag hämta valv registreringsnycklar?
+7. Kan jag ändra lösenfrasen?
+
+    **Inte**, du är **du inte ändra lösenfrasen** av konfigurationsservern. Ändring i lösenfras bryter replikering av skyddade datorer och leder till kritiskt hälsotillstånd.
+8. Var kan jag hämta valv registreringsnycklar?
 
     I den **Recovery Services-valv**, **hantera** > **Site Recovery-infrastruktur** > **Konfigurationsservrar**. Välj i servrar, **ladda ned Registreringsnyckeln** att hämta valvautentiseringsfilen.
-8. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
+9. Kan jag klona en befintlig Configuration Server och använda det för dirigering av replikering?
 
     **Inte**, användning av klonade konfigurationsservern komponent stöds inte.
 
-9. Kan jag ändra IP-Adressen för konfigurationsservern?
+10. Kan jag ändra IP-Adressen för konfigurationsservern?
 
     **Inte**, rekommenderas att inte ändra IP-adressen för en konfigurationsserver. Se till att alla IP-adresser tilldelade till konfigurationsservern är STATISKA IP-adresser och inte DHCP IP-adresser.
+11. Kan jag konfigurera konfigurationsservern på Azure?
+
+    Du rekommenderas att ställa in konfigurationsservern på en lokal miljö med direct rad med för att se med v Center- och minimera svarstider för överföring av data. Du kan skapa schemalagda säkerhetskopieringar av konfigurationsservern för [återställning efter fel syften](vmware-azure-manage-configuration-server.md#failback-requirements).
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

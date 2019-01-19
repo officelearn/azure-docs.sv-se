@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb25f237450a83a34645ad4dfd9a2839c5525c6f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 87c605feeab742ae589cf8d5d9a98c8e53ccf662
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53090439"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410463"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autentisera Stream Analytics till Azure Data Lake Storage Gen1 med hjälp av hanterade identiteter (förhandsversion)
 
@@ -21,9 +21,9 @@ Azure Stream Analytics stöder hanterad identitetsautentisering med Azure Data L
 
 Gå till den [åtta nya funktioner i Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) blogginlägg för att registrera dig för den här förhandsversionen och Läs mer om nya funktioner.
 
-Den här artikeln visar två sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som matar ut till en Azure Data Lake Storage Gen1: via Azure-portalen och via Azure Resource Manager för malldistribution.
+Den här artikeln beskrivs två sätt att aktivera hanterad identitet för Azure Stream Analytics-jobb som producerar till en Azure Data Lake Storage Gen1 via Azure-portalen, Azure Resource Manager för malldistribution och Azure Stream Analytics-verktyg för Visual Studio.
 
-## <a name="enable-managed-identity-with-azure-portal"></a>Aktivera hanterade identiteter med Azure-portalen
+## <a name="azure-portal"></a>Azure Portal
 
 1. Starta genom att skapa ett nytt Stream Analytics-jobb eller genom att öppna ett befintligt jobb i Azure-portalen. På menyraden på vänster sida av skärmen, Välj **hanterad tjänstidentitet (förhandsversion)** finns under **konfigurera**.
 
@@ -64,6 +64,28 @@ Den här artikeln visar två sätt att aktivera hanterad identitet för Azure St
    ![Stream Analytics åtkomst till listan i portalen](./media/stream-analytics-managed-identities-adls/stream-analytics-access-list.png)
 
    Läs mer om Data Lake Storage Gen1 filsystemsbehörigheter i [åtkomstkontroll i Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md).
+
+## <a name="stream-analytics-tools-for-visual-studio"></a>Stream Analytics-verktyg för Visual Studio
+
+1. I JobConfig.json, ställer du in **Använd systemtilldelade identiteter** till **SANT**.
+
+   ![Stream Analytics-jobbkonfigurationen hanterade identiteter](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
+
+2. I egenskapsfönstret utdata av ADLS Gen1 utdatamottagaren, klickar du på autentiseringsläge listrutan och välj **hanterad tjänstidentitet (förhandsversion)**.
+
+   ![ADLS utdata hanterade identiteter](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
+
+3. Fyll i resten av egenskaperna och klicka på **spara**.
+
+4. Klicka på **skicka till Azure** i frågeredigeraren.
+
+   När du har skickat jobbet göra verktygen två saker:
+
+   * Skapar automatiskt en tjänst huvudnamn identitet för Stream Analytics-jobb i Azure Active Directory. Livscykeln för den nyligen skapade identiteten ska hanteras av Azure. När Stream Analytics-jobbet tas bort, raderas automatiskt associerade identiteten (det vill säga tjänstens huvudnamn) av Azure.
+
+   * Automatiskt in **skriva** och **kör** behörigheter för ADLS-Gen1 prefix sökvägen som används i jobbet och tilldela den till den här mappen och alla underordnade.
+
+5. Du kan skapa Resource Manager-mallar med följande egenskap med [Stream Analytics-CI. CD-Nuget-paketet](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/) version 1.5.0 eller senare på en dator för build (utanför Visual Studio). Följ resurshanteraren malldistributionen stegen i nästa avsnitt för att hämta tjänsten huvudnamn och bevilja åtkomst till tjänstens huvudnamn via PowerShell.
 
 ## <a name="resource-manager-template-deployment"></a>Resource Manager för malldistribution
 
@@ -153,3 +175,5 @@ Den här artikeln visar två sätt att aktivera hanterad identitet för Azure St
 ## <a name="next-steps"></a>Nästa steg
 
 * [Skapa ett Data lake Store-utdata med stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Testa Stream Analytics-frågor lokalt med Visual Studio](stream-analytics-vs-tools-local-run.md)
+* [Testa realtidsdata lokalt med hjälp av Azure Stream Analytics-verktyg för Visual Studio](stream-analytics-live-data-local-testing.md) 

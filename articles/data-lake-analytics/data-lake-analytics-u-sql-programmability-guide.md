@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: 0fa695218bb1112324ef2ddac80e52f927a5971b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 9ff75cbd0a4915cdf7045be9a45d11075dda15bd
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045304"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402327"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL-Programmeringsguide
 
@@ -504,7 +504,7 @@ Konstruktor i klassen:
 
 * SqlUserDefinedTypeAttribute (typ Formateraren)
 
-* Skriv Formateraren: krävs för parametern för att definiera en UDT-formaterare--mer specifikt typ av den `IFormatter` gränssnittet måste skickas här.
+* Skriv Formateraren: Obligatoriska parametern att definiera en UDT-formaterare--mer specifikt typ av den `IFormatter` gränssnittet måste skickas här.
 
 ```
 [SqlUserDefinedType(typeof(MyTypeFormatter))]
@@ -529,13 +529,13 @@ Den `IFormatter` gränssnittet Serialiserar och ta bort Serialiserar ett objektd
 
 \<typeparam name = ”T” > rottyp för objektdiagrammet serialisera och deserialisera.
 
-* **Deserialisera**: ta bort Serialiserar data på den angivna dataströmmen och reconstitutes diagram över objekt.
+* **Deserialize**: Ta bort Serialiserar data på den angivna dataströmmen och reconstitutes diagram över objekt.
 
-* **Serialisera**: Serialiserar ett objekt eller ett diagram över objekt med den angivna roten till den angivna dataströmmen.
+* **Serialize**: Serialiserar ett objekt eller ett diagram över objekt med den angivna roten till den angivna dataströmmen.
 
-`MyType` instans: instans av typen.  
-`IColumnWriter` skrivaren / `IColumnReader` läsare: den underliggande kolumn dataströmmen.  
-`ISerializationContext` kontext: uppräkning som definierar en uppsättning flaggor som anger käll- eller målservrar kontext för dataströmmen under serialiseringen.
+`MyType` Instans: Instans av typen.  
+`IColumnWriter` skrivaren / `IColumnReader` läsare: Den underliggande kolumn dataströmmen.  
+`ISerializationContext` Kontext: Uppräkning som definierar en uppsättning flaggor som anger käll- eller målservrar kontext för dataströmmen under serialiseringen.
 
 * **Mellanliggande**: Anger att käll- eller målservrar kontexten inte är en bestående butik.
 
@@ -947,7 +947,7 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 
 * T1: Den första parametern i ackumuleras
 * T2: Den första parametern i ackumuleras
-* TResult: Returnera typ av Avsluta
+* TResult: Returtypen för Avsluta
 
 Exempel:
 
@@ -1056,8 +1056,8 @@ Här följer en lista över UDO i U-SQL:
 UDO kallas vanligtvis uttryckligen i U-SQL-skript som en del av följande U-SQL-uttryck:
 
 * EXTRAHERA
-* UTDATA
-* PROCESSEN
+* OUTPUT
+* PROCESS
 * KOMBINERA
 * MINSKA
 
@@ -1067,11 +1067,11 @@ UDO kallas vanligtvis uttryckligen i U-SQL-skript som en del av följande U-SQL-
 ## <a name="use-user-defined-extractors"></a>Använda anpassade extraktorer
 U-SQL kan du importera externa data med hjälp av en EXTRACT-instruktion. En EXTRACT-instruktion kan använda inbyggda UDO extraktorer:  
 
-* *Extractors.Text()*: tillhandahåller extrahering från avgränsade textfiler i olika kodningar.
+* *Extractors.Text()*: Innehåller extrahering från avgränsade textfiler i olika kodningar.
 
-* *Extractors.Csv()*: tillhandahåller extrahering från kommaavgränsade värden (CSV)-filer för olika kodningar.
+* *Extractors.Csv()*: Innehåller extrahering från kommaavgränsade värden (CSV)-filer för olika kodningar.
 
-* *Extractors.Tsv()*: tillhandahåller extrahering från fliken med kommaseparerade värden (TVS) filer med olika kodningar.
+* *Extractors.Tsv()*: Innehåller extrahering från fliken med kommaseparerade värden (TVS) filer med olika kodningar.
 
 Det kan vara praktiskt att utveckla en egen extraktor. Det kan vara användbart vid dataimport om vi vill göra något av följande uppgifter:
 
@@ -1219,9 +1219,9 @@ OUTPUT @rs0 TO @output_file USING Outputters.Text();
 ## <a name="use-user-defined-outputters"></a>Använda användardefinierade utdatafunktioner
 Användardefinierade outputter är en annan U-SQL-UDO som gör det möjligt att utöka inbyggda funktioner för U-SQL. Liknar extraktor, det finns flera inbyggda utdatafunktioner.
 
-* *Outputters.Text()*: skriver data till avgränsade textfiler i olika kodningar.
-* *Outputters.Csv()*: skriver data till fil med kommaavgränsade värden (CSV) filer med olika kodningar.
-* *Outputters.Tsv()*: skriver data till filer tabbavgränsade värden (TVS) av olika kodningar.
+* *Outputters.Text()*: Skriver data till avgränsade textfiler i olika kodningar.
+* *Outputters.Csv()*: Skriver data till fil med kommaavgränsade värden (CSV) filer med olika kodningar.
+* *Outputters.Tsv()*: Skriver data till filer tabbavgränsade värden (TVS) av olika kodningar.
 
 Anpassade outputter kan du skriva data i ett anpassat definierade format. Detta kan vara användbart för följande uppgifter:
 
@@ -1300,7 +1300,7 @@ string val = row.Get<string>(col.Name)
 
 Den här metoden kan du skapa en flexibel outputter för alla metadata-schemat.
 
-Utdata som skrivs till filen med hjälp av `System.IO.StreamWriter`. Stream-parametern anges till `output.BaseStrea` som en del av `IUnstructuredWriter output`.
+Utdata som skrivs till filen med hjälp av `System.IO.StreamWriter`. Stream-parametern anges till `output.BaseStream` som en del av `IUnstructuredWriter output`.
 
 Observera att det är viktigt att tömma Databufferten för filen efter varje iteration av raden. Dessutom kan den `StreamWriter` objekt måste användas med disponibla attributet aktiverad (standard) och med den **med** nyckelord:
 
@@ -1775,7 +1775,7 @@ I den här användningsfall fungerar användardefinierade applier som en kommaav
 
 ```
 103 Z1AB2CD123XY45889   Ford,Explorer,2005,SUV,152345
-303 Y0AB2CD34XY458890   Shevrolet,Cruise,2010,4Dr,32455
+303 Y0AB2CD34XY458890   Chevrolet,Cruise,2010,4Dr,32455
 210 X5AB2CD45XY458893   Nissan,Altima,2011,4Dr,74000
 ```
 

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/26/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 8d0138d20e1a30ab3efc509eb71f17a6b1e4e8e5
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9ed3ab89387afc78bd631416a683e11f4dc7054a
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287480"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54402259"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Hantering av arbetsbelastning med resursklasser i Azure SQL Data Warehouse
 Riktlinjer för att hantera minne och samtidighet för frågor i Azure SQL Data Warehouse med hjälp av resursklasser.  
@@ -90,7 +90,7 @@ På **Gen2 endast**, dynamiska resursklasser är verkligen dynamiska adresser pu
 ### <a name="default-resource-class"></a>Standard resursklass
 Som standard varje användaren är medlem i den dynamiska resursklassen **smallrc**. 
 
-Resursklass av tjänstadministratör är fast och kan inte ändras.  Tjänstadministratör är användaren som skapades under etableringen.
+Resursklass av tjänstadministratör vara högst smallrc och kan inte ändras.  Tjänstadministratör är användaren som skapades under etableringen.  Tjänstadministratör i den här kontexten är inloggningen som angetts för ”serveradministratören” när skapar en ny SQL Data Warehouse-instans med en ny server.
 
 > [!NOTE]
 > Användare eller grupper som har definierats som Active Directory-administratör är också tjänstadministratörer.

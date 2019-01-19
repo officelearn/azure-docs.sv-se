@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 6eb2452507c3adcb8532a0dd2e50ad701e35cd7f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579241"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412520"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägga U-SQL-jobb med hjälp av SQL Server Integration Services (SSIS)
 
@@ -40,13 +40,13 @@ Du kan hämta U-SQL-skriptet från olika platser med hjälp av inbyggda funktion
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scenario 1 – Använd funktionen skriptet anrop tabellvärdesfunktioner och lagrade procs
 
-Konfigurera i Azure Data Lake Analytics uppgift Editor **SourceType** som **DiretInput**, och placera U-SQL-instruktioner i **USQLStatemnt**.
+Konfigurera i Azure Data Lake Analytics uppgift Editor **SourceType** som **DirectInput**, och placera U-SQL-instruktioner i **USQLStatemnt**.
 
-För enkelt maintainence och hantering av koden, bara lägga kort U-SQL-skript som infogade skript, till exempel kan du anropa den befintliga tabellvärderade funktioner och lagrade procedurer i dina U-SQL-databaser. 
+För enkelt underhåll och hantering av koden, bara lägga kort U-SQL-skript som infogade skript, till exempel kan du anropa den befintliga tabellvärderade funktioner och lagrade procedurer i dina U-SQL-databaser. 
 
 ![Redigera infogat U-SQL-skript i SSIS-aktivitet](./media/data-lake-analytics-schedule-jobs-ssis/edit-inline-usql-script-in-ssis.png)
 
-Relaterad artikel: [så skicka parametern till lagrade procedurer](#scenario-6-pass-parameters-to-u-sql-script)
+Relaterad artikel: [Hur du skicka parametern till lagrade procedurer](#scenario-6-pass-parameters-to-u-sql-script)
 
 ## <a name="scenario-2-use-u-sql-files-in-azure-data-lake-store"></a>Scenario 2 – Använd U-SQL-filer i Azure Data Lake Store
 
@@ -119,7 +119,7 @@ I designvyn för SSIS-paket, lägger du till en **systemaktivitet för Azure Dat
 
 Du kan använda U-SQL-filer i Azure Blob Storage med hjälp av **Azure Blob hämta uppgift** i Azure Feature Pack. Den här metoden kan du använda skripten i molnet.
 
-Stegen är liknande med [Scnario 2: Använd U-SQL-filer i Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Ändra systemaktivitet för Azure Data Lake Store-filen till Azure Blob Download uppgift. [Läs mer om Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
+Stegen är liknande med [Scenario 2: Använda U-SQL-filer i Azure Data Lake Store](#scenario-2-use-u-sql-files-in-azure-data-lake-store). Ändra systemaktivitet för Azure Data Lake Store-filen till Azure Blob Download uppgift. [Läs mer om Azure Blob hämta uppgift](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task?view=sql-server-2017).
 
 Kontrollflödet är som nedan.
 

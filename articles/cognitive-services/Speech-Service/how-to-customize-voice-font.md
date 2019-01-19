@@ -10,18 +10,18 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: e2c176e35cbc75747230e429d0ddae9d420db8b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867588"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413710"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
-Tal röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.* 
+Tal röst anpassning kan du skapa en identifierbara, en av en typ ton för ditt varumärke: en *rösttyp.*
 
-För att skapa din rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda den här rösttyp för att syntetisera tal. 
+För att skapa din rösttyp du gör en studio-registrering och ladda upp de associerade skript som träningsdata. Tjänsten skapar sedan en unik röst modell koll på inspelningen. Du kan använda den här rösttyp för att syntetisera tal.
 
 Du kan komma igång med en liten mängd data för ett konceptbevis. Men ju mer data du tillhandahålla, desto mer naturliga och professional låter din röst.
 
@@ -49,7 +49,7 @@ En datauppsättning för träning röst består av en uppsättning ljudfiler, ti
 
 Du kan förbereda de här filerna på två sätt. Antingen skriva ett skript och läses av röst personal eller använda offentligt tillgängliga ljud och transkribera till text. Om du gör det senare måste du redigera disfluencies från ljudfiler, till exempel ”um” och andra information ljud, hackar, mumbled ord eller mispronunciations.
 
-För att skapa en bra rösttyp, gör du inspelningarna i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst. 
+För att skapa en bra rösttyp, gör du inspelningarna i en tyst rum med en mikrofon av hög kvalitet. Konsekvent volym talar pris, samtalsstil motivation och lättfattliga maner, ovanor tal är nödvändiga för att skapa en fantastisk digital röst.
 
 Om du vill skapa en röst för användning i produktion, rekommenderar vi att du använder en professionell inspelning studio och röst personal. Mer information finns i [så spela in röst-exempel för en anpassad röst](record-custom-voice-samples.md).
 
@@ -102,30 +102,30 @@ När du har förberett din ljudfil arkivering och betyg överföra dem via den [
 
     Den **min röst** tabellen visas. Den är tom om du inte har laddat upp röst datauppsättningar ännu.
 
-3. Om du vill öppna sidan för att ladda upp en ny datauppsättning, Välj **dataimport**. 
+3. Om du vill öppna sidan för att ladda upp en ny datauppsättning, Välj **dataimport**.
 
     ![Importera Voice-Data](media/custom-voice/import-voice-data.png)
 
-4. Ange ett namn och beskrivning i fälten som tillhandahålls. 
+4. Ange ett namn och beskrivning i fälten som tillhandahålls.
 
-5. Välj språk för din rösttyper. Kontrollera att språkinformationen matchar språket i spela in data och skripten. 
+5. Välj språk för din rösttyper. Kontrollera att språkinformationen matchar språket i spela in data och skripten.
 
 6. Välj kön talaren vars röst som du använder.
 
-7. Välj skript och ljudfiler för att ladda upp. 
+7. Välj skript och ljudfiler för att ladda upp.
 
 8. Välj **Import** att ladda upp data. För större datamängder kan det ta flera minuter att importera.
 
 > [!NOTE]
 > Kostnadsfria användare kan ladda upp två datauppsättningar i taget. Standard-prenumerationsanvändare kan samtidigt överföra fem datauppsättningar. Om du når gränsen kan du vänta tills minst en av dina datauppsättningar har importerats. Försök sedan igen.
 
-När överföringen är klar, den **Mina röstdata** tabellen visas igen. Du bör se en post som motsvarar den datauppsättning som du just har överfört. 
+När överföringen är klar, den **Mina röstdata** tabellen visas igen. Du bör se en post som motsvarar den datauppsättning som du just har överfört.
 
 Datauppsättningar verifieras automatiskt efter överföringen. Dataverifiering innehåller en rad kontroller på ljudfiler att verifiera sina filformat, storlek och samplingsfrekvensen. Kontrollerar om filerna som taltranskription Kontrollera filformatet och göra vissa text normalisering. Talade transkriberas använder taligenkänning. Sedan jämförs resultatsträngen med avskrift som du angav.
 
-![Min Voice-Data](media/custom-voice/my-voice-data.png)
+![My Voice Data](media/custom-voice/my-voice-data.png)
 
-I följande tabell visas bearbetning tillstånden för importerade datauppsättningar: 
+I följande tabell visas bearbetning tillstånden för importerade datauppsättningar:
 
 | Status | Betydelse
 | ----- | -------
@@ -143,19 +143,19 @@ Högre signal-brus förhållande (SNR) anger lägre bruset i dina ljud. Du kan v
 
 ## <a name="build-your-voice-font"></a>Skapa din rösttyp
 
-När din datauppsättning har verifierats, kan du använda den för att skapa din anpassad rösttyp. 
+När din datauppsättning har verifierats, kan du använda den för att skapa din anpassad rösttyp.
 
 1.  I den **anpassad röst** nedrullningsbara menyn, Välj **modeller**.
- 
+
     Den **Mina Rösttyper** tabellen visas, visa en lista över alla anpassade rösttyper du redan har skapat.
 
-1. Under rubriken tabellen, väljer **skapa röster**. 
+1. Under rubriken tabellen, väljer **skapa röster**.
 
     Sidan för att skapa en rösttyp visas. De aktuella nationella inställningarna visas i den första raden i tabellen. Ändra språk för att skapa en röst i ett annat språk. De nationella inställningarna måste vara samma som för de datauppsättningar som används för att skapa röst.
 
-1. Ange ett namn och beskrivning för att identifiera den här modellen som du gjorde när du har laddat upp din datauppsättning. 
+1. Ange ett namn och beskrivning för att identifiera den här modellen som du gjorde när du har laddat upp din datauppsättning.
 
-    Välj ett namn noggrant. Namnet du anger här blir det namn som du använder för att ange röst i din begäran om talsyntes som en del av SSML indata. Endast bokstäver, siffror och några skiljetecken som '-', '_' och '(',')' tillåts.
+    Välj ett namn noggrant. Namnet du anger här blir det namn som du använder för att ange röst i din begäran om talsyntes som en del av SSML indata. Endast bokstäver, siffror och några skiljetecken som `-`, `_`, och `(', ')` tillåts.
 
     Ett vanligt användningsområde för den **beskrivning** fält är att anteckna namnen på de datauppsättningar som har använts för att skapa modellen.
 
@@ -167,7 +167,7 @@ När din datauppsättning har verifierats, kan du använda den för att skapa di
 
     ![Skapa modell](media/custom-voice/create-model.png)
 
-Den nya modellen visas i den **Mina Rösttyper** tabell. 
+Den nya modellen visas i den **Mina Rösttyper** tabell.
 
 ![Min Rösttyper](media/custom-voice/my-voice-fonts.png)
 
@@ -212,7 +212,7 @@ När distributionen har **lyckades**, slutpunkten för din distribuerade röstty
 
 Online testning av slutpunkten är också tillgängligt via portalen anpassade röst. Om du vill testa din slutpunkt, Välj **slutpunkter testning** från den **anpassad röst** nedrullningsbara menyn. Slutpunkten testning sida visas. Välj en distribuerade anpassade röst och ange vilken text som ska läsas (i oformaterad text eller SSML format) i textrutan.
 
-> [!NOTE] 
+> [!NOTE]
 > När du använder SSML, den `<voice>` taggen måste ange namnet som du gav din anpassade röst när du skapade den. Om du skickar in oformaterad text, används alltid anpassade röst.
 
 Om du vill ta del av texten som sägs i din anpassad rösttyp, Välj **spela upp**.
@@ -223,10 +223,18 @@ Anpassad slutpunkt är funktionellt identiskt med standard-slutpunkt som använd
 
 ## <a name="language-support"></a>Stöd för språk
 
-Röst anpassning är tillgängligt för amerikansk engelska (en-US), fastlandet kinesiska (zh-CN) och italienska (it-IT).
+Röst anpassning är tillgänglig på följande språk:
+
+| Språk | Nationell inställning |
+|----------|--------|
+| Kinesiska (fastlandet) | zh-CN |
+| English (US) | en-US |
+| Franska | fr-FR |
+| Tyska | de-DE |
+| Italienska | IT-IT |
 
 > [!NOTE]
-> Italienska ton börjar med en datauppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en datauppsättning av över 2 000 yttranden.
+> Franska, tyska och italienska röst utbildning börjar med en datauppsättning av över 2 000 yttranden. Kinesiska – engelska tvåspråkig modeller stöds också med en datauppsättning av över 2 000 yttranden.
 
 ## <a name="next-steps"></a>Nästa steg
 

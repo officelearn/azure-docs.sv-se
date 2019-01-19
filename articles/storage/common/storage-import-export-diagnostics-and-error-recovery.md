@@ -8,19 +8,19 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 2a54752f933b91265d0aa8add61ca0707615931b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526335"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413625"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostik och felåterställning för Azure Import/Export-jobb
 Tjänsten Azure Import/Export skapar en fellogg i det associerade lagringskontot för varje enhet som bearbetas. Du kan också aktivera utförlig loggning genom att ange den `LogLevel` egenskap `Verbose` när du anropar den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs#Jobs_Update) åtgärder.
 
  Som standard, loggarna skrivs till en behållare med namnet `waimportexport`. Du kan ange ett annat namn genom att ange den `DiagnosticsPath` egenskapen när du anropar den `Put Job` eller `Update Job Properties` åtgärder. Loggfilerna lagras som blockblobar med följande namngivningskonvention: `waies/jobname_driveid_timestamp_logtype.xml`.
 
- Du kan hämta URI för loggar för ett jobb genom att anropa den [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) igen. URI för utförliga loggen returneras i de `VerboseLogUri` egenskapen för varje enhet medan URI för felloggen returneras i de `ErrorLogUri` egenskapen.
+ Du kan hämta URI för loggar för ett jobb genom att anropa den [Get Job](/rest/api/storageimportexport/jobs) igen. URI för utförliga loggen returneras i de `VerboseLogUri` egenskapen för varje enhet medan URI för felloggen returneras i de `ErrorLogUri` egenskapen.
 
 Du kan använda loggningsdata för att identifiera följande problem.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 43cec400a21671d47d1a6c390833a5e4c6517709
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 403d60232f6b22161031dd4eb1af062336c370ee
+ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975244"
+ms.lasthandoff: 01/18/2019
+ms.locfileid: "54401766"
 ---
 # <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Justering av Azure Data Lake Storage Gen2 för prestanda
 
@@ -47,7 +47,7 @@ När du har åtgärdat maskinvaran som källa och network connectivity flaskhals
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)   | [Länk](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [Länk](../../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | FS.Azure.block.size -m (mapper)    |   [Länk](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
+| Sqoop           | fs.azure.block.size, -m (mapper)    |   [Länk](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## <a name="structure-your-data-set"></a>Strukturera datauppsättningen
 
@@ -133,9 +133,9 @@ Förutom de allmänna riktlinjerna ovan har olika parametrar som är tillgängli
 
 | Arbetsbelastning               | Parametern för att ställa in uppgifter                                                         |
 |--------------------|-------------------------------------------------------------------------------------|
-| [Spark i HDInisight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
+| [Spark i HDInsight](data-lake-storage-performance-tuning-spark.md)       | <ul><li>NUM executors</li><li>Executor-minne</li><li>Executor-kärnor</li></ul> |
 | [Hive på HDInsight](data-lake-storage-performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
-| [MapReduce på HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.Reduce.Memory</li><li>Mapreduce.Job.reduces</li></ul> |
+| [MapReduce på HDInsight](data-lake-storage-performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.Map.Memory</li><li>Mapreduce.Job.Maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [Storm på HDInsight](data-lake-storage-performance-tuning-storm.md)|  | <ul><li>Antal arbetsprocesser</li><li>Antal spout executor instanser</li><li>Antal bult executor instanser </li><li>Antal spout uppgifter</li><li>Antal bult uppgifter</li></ul>|
 
 ## <a name="see-also"></a>Se också

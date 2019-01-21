@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 01/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 716c6b67676bb3421fd5dbd0274ed41c7705c676
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b71b62d50f209c033597799dd26f579fcb200cc9
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53133527"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413387"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -60,14 +60,21 @@ Använd inte följande tecken i avsikt och entiteten namn:
 |`]`|Högerparentes|
 |`\`|Omvänt snedstreck|
 
+## <a name="key-usage"></a>Nyckelanvändning
+
+Förstå språket har separata nycklar, en typ för redigering och en typ för att fråga förutsägelse-slutpunkten. Mer information om skillnaderna mellan nyckeltyper finns [redigering och fråga förutsägelse endpoint nycklar i LUIS](luis-concept-keys.md).
+
 ## <a name="key-limits"></a>Viktiga begränsningar
+
 Redigering nyckel har olika begränsningar för redigering och slutpunkten. Slutpunktsnyckeln LUIS-tjänsten är endast giltig för slutpunkten frågor.
+
 
 |Nyckel|Redigering|Slutpunkt|Syfte|
 |--|--|--|--|
-|Redigera/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
-|[Prenumeration] [ pricing] - F0 - kostnadsfri nivå |Ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
-|[Prenumeration] [ pricing] - S0 - Basic-nivån|Ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Language Understanding redigering/Starter|1 miljon/månad, 5/sekund|1 tusen/månad, 5/sekund|Redigera LUIS-appen|
+|Språkförståelse [prenumeration] [ pricing] - F0 - kostnadsfri nivå |ogiltig|10 tusen/månad, 5/sekund|Fråga din LUIS-slutpunkt|
+|Språkförståelse [prenumeration] [ pricing] - S0 - Basic-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
+|Cognitive Service [prenumeration] [ pricing] - S0 - Standard-nivån|ogiltig|50 per sekund|Fråga din LUIS-slutpunkt|
 |[Sentiment analysis-integrering](luis-how-to-publish-app.md#enable-sentiment-analysis)|Ogiltig|utan kostnad|Att lägga till sentiment information, inklusive extrahering av diskussionsämne data |
 |Tal-integrering|Ogiltig|5.50 USD/1 tusen endpoint begäranden|Konvertera talat uttryck till text-uttryck och returnerar LUIS resultat|
 

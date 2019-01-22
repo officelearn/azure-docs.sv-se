@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 62a9fd6eee15618e7153fd84030840b429e214ed
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9a5a20ffd5065f155fff6342937e1c17a1905797
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52833524"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430491"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
@@ -37,7 +37,7 @@ I tabell sammanfattas de nödvändiga förutsättningarna för att distribuera d
 | IIS | – Ingen befintlig standardwebbplatsen <br> -Aktivera [anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) inställningen  <br> – Ingen befintlig webbplats/program som lyssnar på port 443<br>|
 | Typ av nätverkskort | VMXNET3 (när distribueras som en VMware VM) |
 | IP-adresstyp | Statisk |
-| Internet-åtkomst | Servern måste ha åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> -*. services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (krävs inte för skala ut Processervrar) <br> - time.nist.gov <br> - time.windows.com |
+| Internet-åtkomst | Servern måste ha åtkomst till dessa webbadresser: <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://management.azure.com <br> - *.services.visualstudio.com <br> - https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi (krävs inte för skala ut Processervrar) <br> - time.nist.gov <br> - time.windows.com |
 | Portar | 443 (kontrolkanalsorchestration)<br>9443 (dataöverföring)|
 
 ## <a name="download-the-latest-installation-file"></a>Ladda ned den senaste klientinstallationsfilen
@@ -217,7 +217,7 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 Du kan köra samlade uppdateringar för att uppdatera konfigurationsservern. Uppdateringar kan användas för upp till N-4 versioner. Exempel:
 
 - Om du kör 9.7, 9.8, 9.9 eller 9.10 – kan du uppgradera direkt till 9.11.
-- Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. innan du 9.11.
+- Om du kör 9,6 eller tidigare och du vill uppgradera till 9.11, måste du först uppgradera till version 9.7. before  9.11.
 
 Länkar till samlade uppdateringar för att uppgradera till alla versioner av konfigurationsservern är tillgängliga i den [wiki-sida för uppdateringar](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
 
@@ -253,7 +253,7 @@ Uppgradera servern på följande sätt:
 3. Avinstallera program i följande ordning:
   * Microsoft Azure Recovery Services-agent
   * Microsoft Azure Site Recovery Mobility Service/huvudmålservern
-  * Microsoft Azure Site Recovery-providern
+  * Microsoft Azure Site Recovery Provider
   * Microsoft Azure Site Recovery Configuration Server/Processerver
   * Microsoft Azure Site Recovery Configuration Serverberoenden
   * MySQL-Server 5.5
@@ -264,7 +264,7 @@ Uppgradera servern på följande sätt:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Ta bort eller Avregistrerar en konfigurationsserver (PowerShell)
 
-1. [Installera](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen
+1. [Installera](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen
 2. Logga in på till ditt Azure-konto med hjälp av kommandot
     
     `Connect-AzureRmAccount`

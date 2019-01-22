@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 2713f48ce490aa42b6b1aa4e69a71f8f8053d1fb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be7aa43ec6001be78fb405290914f19174559530
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426212"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435727"
 ---
-# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: återställning av lösenord för självbetjäning i Azure AD
+# <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
 
 Hur lösenordsåterställning via självbetjäning (SSPR) arbete? Vad betyder det alternativet i gränssnittet? Fortsätt att läsa och lär dig mer om Azure Active Directory (Azure AD) SSPR.
 
@@ -186,8 +186,8 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 Återställning av lösenord och ändrar stöds helt för alla konfigurationer för business-to-business (B2B). B2B återställning av användarlösenord stöds i följande tre fall:
 
    * **Användare från en partnerorganisation med en befintlig Azure AD-klient**: Om du samarbetar med organisationen har en befintlig Azure AD-klient, vi *respekterar principerna för lösenordsåterställning är aktiverade på den klienten*. För lösenordsåterställning för att fungera behöver partnerorganisationen bara se till att Azure AD SSPR är aktiverad. Det finns ingen extra kostnad för Office 365-kunder och den kan aktiveras genom att följa stegen i vår [Kom igång med lösenordshantering](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords) guide.
-   * **Användare som registrerar sig via** självanmälan: om organisationen du samarbetar med används den [självanmälan](../users-groups-roles/directory-self-service-signup.md) funktion för att komma åt en klient, vi låter dem återställa lösenord med e-postadress som de registrerade.
-   * **B2B-användare**: alla nya B2B-användare som skapats med hjälp av den nya [Azure AD B2B-funktioner](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösenord med e-postadress som de registrerade under inbjudan.
+   * **Användare som registrerar sig via** självanmälan: Om organisationen du samarbetar med den [självanmälan](../users-groups-roles/directory-self-service-signup.md) funktion för att komma åt en klient, vi låter dem återställa lösenord med e-postadress som de registrerade.
+   * **B2B-användare**: Alla nya B2B-användare som skapats med hjälp av den nya [Azure AD B2B-funktioner](../active-directory-b2b-what-is-azure-ad-b2b.md) kommer också att kunna återställa sina lösenord med e-postadress som de registrerade under inbjudan.
 
 Om du vill testa det här scenariot, går du till https://passwordreset.microsoftonline.com med någon av dessa partneranvändare. Om de har en alternativ e-postadress eller autentisering e-post som definierats för lösenordsåterställning fungerar som förväntat.
 

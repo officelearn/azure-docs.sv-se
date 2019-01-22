@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/5/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 01693f16b0af59881c22fefb6ec8abe0c4fb3874
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 278c31f3f1880a3df561038d2710a2b5cc3d68e6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52996631"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437849"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Egenskaper för en användare för Azure Active Directory B2B-samarbete
 
@@ -25,11 +25,11 @@ Beroende på behov i organisationen som bjuder in kan en Azure AD B2B-användare
 
 - Tillstånd 1: Homed i en extern instans av Azure AD och representeras som en gästanvändare i organisationen som bjuder in. I det här fallet loggar B2B-användaren in med ett Azure AD-konto som tillhör den inbjudna klienten. Om partnerorganisationen inte använder Azure AD, skapas fortfarande gästanvändare i Azure AD. Kraven är att de lösa in sin inbjudan och Azure AD verifierar sin e-postadress. Den här ordningen kallas även en innehavare för just-in-time-(åtkomst JIT) eller en ”viral” innehavare.
 
-- Tillstånd 2: Homed i ett Microsoft- eller ett annat konto och representeras som en gästanvändare i organisationen värden. I det här fallet gästanvändare loggar in med ett Microsoft-konto eller ett socialt konto (google.com eller liknande). Inbjudna användarens identitet skapas som ett Microsoft-konto i den organisationen som bjuder in directory under erbjudandet inlösen.
+- Tillstånd 2: Homed i ett Microsoft- eller ett annat konto, vilket representeras som gästanvändare i organisationen värden. I det här fallet gästanvändare loggar in med ett Microsoft-konto eller ett socialt konto (google.com eller liknande). Inbjudna användarens identitet skapas som ett Microsoft-konto i den organisationen som bjuder in directory under erbjudandet inlösen.
 
 - Tillstånd 3: Homed i värden organisationens lokala Active Directory och synkroniseras med värden organisationens Azure AD. Du kan använda Azure AD Connect för att synkronisera partnerkonton till molnet som Azure AD B2B-användare med UserType = gäst. Se [bevilja hanteras lokalt partneråtkomst till molnresurser](hybrid-on-premises-to-cloud.md).
 
-- Tillstånd 4: Homed i värden organisationens Azure AD med UserType = Gäst och autentiseringsuppgifter som värd-organisation hanterar.
+- Tillstånd 4: I värden organisationens Azure AD med UserType = Gäst och autentiseringsuppgifter som värd-organisation hanterar.
 
   ![Visa den inbjudaren initialer](media/user-properties/redemption-diagram.png)
 
@@ -61,7 +61,7 @@ För gästanvändare i tillståndet 3 och 4 tillstånd, den **källa** är inst�
 Den här egenskapen anger förhållandet för användaren som ska värd-innehavare. Den här egenskapen kan ha två värden:
 - Medlem: Det här värdet anger en medarbetare i organisationen för värden och en användare i organisationens löneuppgifter. Den här användaren till exempel förväntar sig att ha åtkomst till interna webbplatser. Den här användaren anses inte vara en externa medarbetaren.
 
-- Gäst: Det här värdet anger en användare som inte anses vara interna för företag, till exempel en externa medarbetare, partner eller kund. Användaren är inte förväntas ta emot en VD interna PM eller ta emot företagets fördelar, till exempel.
+- Guest: Det här värdet anger en användare som inte anses vara interna för företag, till exempel en externa medarbetare, partner eller kund. Användaren är inte förväntas ta emot en VD interna PM eller ta emot företagets fördelar, till exempel.
 
   > [!NOTE]
   > UserType har ingen relation till hur användaren loggar in, katalogrollen för användare och så vidare. Den här egenskapen kan du bara anger användarens relation till värd-organisation och kan organisationen för att genomdriva principer som är beroende av den här egenskapen.
@@ -69,11 +69,11 @@ Den här egenskapen anger förhållandet för användaren som ska värd-innehava
 ### <a name="source"></a>Källa
 Den här egenskapen anger hur användaren loggar in.
 
-- Inbjuden användare: Den här användaren har bjudits men ännu har in inte inbjudan.
+- Inbjudna användare: Den här användaren har bjudits men ännu har in inte inbjudan.
 
 - Externa Active Directory: Den här användaren är homed i en extern organisation och autentiserar med hjälp av en Azure AD-konto som hör till den andra organisationen. Den här typen av inloggning motsvarar läge 1.
 
-- Microsoft-konto: den här användaren är homed i ett Microsoft-konto och autentiserar med hjälp av ett Microsoft-konto. Den här typen av inloggning motsvarar läge 2.
+- Microsoft-konto: Den här användaren är homed i ett Microsoft-konto och autentiserar med hjälp av ett Microsoft-konto. Den här typen av inloggning motsvarar läge 2.
 
 - Windows Server Active Directory: Den här användaren är inloggad från en lokal Active Directory som hör till den här organisationen. Den här typen av inloggning motsvarar tillstånd 3.
 

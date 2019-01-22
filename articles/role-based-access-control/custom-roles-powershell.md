@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 06/20/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: c8e5f34bb6b38a3f187d86a1ebc0c7019c7f1046
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 6020aa0a770075526d8d07c94b847b5933a26c2a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437026"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428128"
 ---
 # <a name="create-custom-roles-using-azure-powershell"></a>Skapa anpassade roller med hjälp av Azure PowerShell
 
@@ -30,7 +30,7 @@ Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens spec
 Om du vill skapa anpassade roller, behöver du:
 
 - Behörigheter att skapa anpassade roller som [Owner](built-in-roles.md#owner) (Ägare) eller [User Access Administrator](built-in-roles.md#user-access-administrator) (Administratör för användaråtkomst)
-- Lokalt installerat [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Lokalt installerat [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="list-custom-roles"></a>Lista anpassade roller
 

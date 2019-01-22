@@ -7,12 +7,12 @@ ms.service: databox
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: alkohli
-ms.openlocfilehash: b4966d03e44591f01bee945c743ea83f57e6da93
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: d1367504182eb8d8335796dc37800c30e0a563b8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54392275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438600"
 ---
 # <a name="use-cases-for-azure-data-box-gateway"></a>Användningsfall för Azure Data Box-Gateway
 
@@ -41,7 +41,7 @@ Den startar när enheten fylls med data, begränsning ingress-frekvens (om det b
 
 Använd Data Box Gateway när du vill behålla dina data för långsiktig i molnet. Du kan använda den **Arkiv** lagringsnivå för långsiktig kvarhållning.
 
-Arkivnivån optimeras som sällan lagrar data i minst 180 dagar. Den **Arkiv** nivå erbjuder de lägsta lagringskostnaderna men har de högsta åtkomstkostnaderna. Mer information går du till [arkivåtkomstnivå](/azure/storage/blobs/storage-blob-storage-tiers.md#archive-access-tier).
+Arkivnivån optimeras som sällan lagrar data i minst 180 dagar. Den **Arkiv** nivå erbjuder de lägsta lagringskostnaderna men har de högsta åtkomstkostnaderna. Mer information går du till [arkivåtkomstnivå](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
 ### <a name="move-data-to-archive-tier"></a>Flytta data till arkivnivån
 
@@ -49,14 +49,14 @@ Innan du börjar måste du kontrollera att du har en aktiv gatewayenhet för Dat
 
 - Använda Data Box-Gateway-enheten för att ladda upp data till Azure via vanliga överföringen enligt beskrivningen i [överföra data via rutan Datagateway](data-box-gateway-deploy-add-shares.md).
 - När data har överförts kommer du behöva flytta den till arkivnivån. Du kan ange blob-nivå på två sätt: Azure PowerShell-skript eller en princip för livscykelhantering för Azure Storage.  
-    - Om du använder Azure PowerShell, följer du dessa [steg](/azure/databox/data-box-how-to-set-data-tier.md#use-azure-powershell-to-set-the-blob-tier) att flytta data till arkivnivån.
+    - Om du använder Azure PowerShell, följer du dessa [steg](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) att flytta data till arkivnivån.
     - Om du använder Azure livscykelhantering, Följ stegen nedan för att flytta data till arkivnivån.
-        - [Registrera](/azure/storage/common/storage-lifecycle-management-concepts.md#register-for-preview) förhandsversionen av Blob Lifecycle management-tjänsten att använda arkivet nivå.
-        - Använd följande princip att [Arkivera data på mata in](/azure/storage/blobs/storage-lifecycle-management-concepts.md#archive-data-at-ingest.md).
+        - [Registrera](/azure/storage/common/storage-lifecycle-management-concepts#register-for-preview) förhandsversionen av Blob Lifecycle management-tjänsten att använda arkivet nivå.
+        - Använd följande princip att [Arkivera data på mata in](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-at-ingest).
 - När blobarna som är markerade som Arkiv, kan de inte längre ändras med gatewayen flytta varma eller kalla nivån. Om filen finns i den lokala lagringen, överförs inte ändringar som görs i den lokala kopian (inklusive borttagningar) för att arkivera nivå.
 - Om du vill läsa data i arkivlagring, som ska extraheras genom att ändra blob-nivå för att frekvent eller lågfrekvent. [Uppdatera resursen](data-box-gateway-manage-shares.md#refresh-shares) på gatewayen inte rehydrate blob.
 
-Lär dig mer om hur du vill veta mer [hantera Azure Blob-Lagringslivscykeln](/azure/storage/common/storage-lifecycle-management-concepts.md).
+Lär dig mer om hur du vill veta mer [hantera Azure Blob-Lagringslivscykeln](/azure/storage/common/storage-lifecycle-management-concepts).
 
 ## <a name="initial-bulk-transfer-followed-by-incremental-transfer"></a>Inledande bulk överföring följt av inkrementella överföringen
 
@@ -66,10 +66,10 @@ Använd tillsammans Data och Data Box Gateway när du vill göra en bulköverfö
 
 Följ stegen nedan för att kopiera data till Data Box och överföra den till Azure Storage.
 
-1. [Beställa Data Box](/azure/databox/data-box-deploy-ordered.md).
-2. [Konfigurera din Data Box](/azure/databox/data-box-deploy-set-up.md).
-3. [Kopiera data till Data Box via SMB](/azure/databox/data-box-deploy-copy-data.md).
-4. [Returnera Data Box, kontrollera ladda upp data till Azure](/azure/databox/data-box-deploy-picked-up.md).
+1. [Beställa Data Box](/azure/databox/data-box-deploy-ordered).
+2. [Konfigurera din Data Box](/azure/databox/data-box-deploy-set-up).
+3. [Kopiera data till Data Box via SMB](/azure/databox/data-box-deploy-copy-data).
+4. [Returnera Data Box, kontrollera ladda upp data till Azure](/azure/databox/data-box-deploy-picked-up).
 5. När ladda upp data till Azure är klar ska alla data i Azure storage-behållare. I storage-konto för Data Box går du till behållaren Blob (och fil) för att se till att alla data har kopierats. Notera namnet på behållaren som du använder det här namnet senare. Exempel på följande skärmbild `databox` behållare kommer att användas för den inkrementella överföringen.
 
     ![Behållare med data på Data Box](media/data-box-gateway-use-cases/data-container1.png)

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7b20ceb61f522bea11e7256c824a851e587cbd49
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 40bfa8317effd25cf3d9aa28b8f63e292213a83b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975465"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425990"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Självstudier: Skapa på begäran Apache Hadoop-kluster i HDInsight med Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Azure PowerShell. Anvisningar finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
+- Azure PowerShell. Anvisningar finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.7.0).
 
 - Ett Azure Active Directory-tjänstobjekt. När du har skapat tjänstens huvudnamn, måste du hämta den **program-ID** och **autentiseringsnyckeln** med hjälp av anvisningarna i den länkade artikeln. Du behöver dessa värden senare i den här självstudien. Kontrollera också att tjänstens huvudnamn är medlem i den *deltagare* rollen för prenumerationen eller resursgruppen som klustret har skapats. Anvisningar att hämta värdena som krävs och tilldela rätt roller finns i [och skapa en Azure Active Directory-tjänstens huvudnamn](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -166,7 +166,7 @@ I den här artikeln får konfigurera du Hive-aktiviteten för att skapa ett HDIn
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
-1. I den vänstra menyn, Välj **+ skapa en resurs**.
+1. Välj **+ Skapa en resurs** från menyn till vänster.
 
 1. Under **Azure Marketplace**väljer **Analytics**.
 

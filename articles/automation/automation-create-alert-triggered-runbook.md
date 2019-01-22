@@ -3,18 +3,18 @@ title: Använd en avisering för att utlösa en Azure Automation-runbook
 description: Lär dig hur du utlöser en runbook ska köras när en Azure-avisering utlöses.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d35d2bfdf379d5bf02ebb4b2fd71fb85519c741a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 88fe7740170638e9e0d7398a02dcf83ab81f6ffc
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53581654"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421691"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Använd en avisering för att utlösa en Azure Automation-runbook
 
@@ -232,3 +232,4 @@ Att skapa en klassisk:
 * Mer information om olika sätt att starta en runbook finns [starta en runbook](automation-starting-a-runbook.md).
 * Läs hur du skapar en aktivitetsloggavisering i [skapa aviseringar för aktivitetsloggen](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json).
 * Läs hur du skapar en avisering om nästan i realtid i [skapar en aviseringsregel i Azure-portalen](../azure-monitor/platform/alerts-metric.md?toc=/azure/azure-monitor/toc.json).
+

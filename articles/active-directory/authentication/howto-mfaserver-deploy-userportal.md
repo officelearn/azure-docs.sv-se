@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 1bd9dd82fb72c3d6b0759139680647be764f273a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0c78974eb9775506f2ccbc6158eb03aa0c73be49
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161561"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431545"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Användarportal för Azure Multi-Factor Authentication-servern
 
@@ -88,7 +88,7 @@ Om din organisation använder appen Microsoft Authenticator som en av verifierin
 
 Om du installerar användarportalen på en annan server än Azure Multi-Factor Authentication-servern följer du dessa steg:
 
-1. **På MFA-servern** går du till installationssökvägen (exempel: C:\Program\Multi-Factor Authentication Server) och kopierar filen **MultiFactorAuthenticationUserPortalSetup64** till en plats som är tillgänglig för den Internet-anslutna servern där du installerar den.
+1. **På MFA-servern**, bläddrar du till installationssökvägen (exempel: C:\Program\Microsoft Files\Multi-Factor Authentication Server), och kopiera filen **MultiFactorAuthenticationUserPortalSetup64** till en plats som är tillgängliga för internet-anslutna servern där du installerar den.
 2. Kör installationsfilen **MultiFactorAuthenticationUserPortalSetup64** på den Internet-anslutna webbservern som administratör, ändra platsen om du vill och ändra namnet på den virtuella katalogen till ett kort namn om du så önskar.
 3. Binda ett SSL-certifikat till webbplatsen i IIS.
 
@@ -138,7 +138,7 @@ Azure Multi-Factor Authentication-servern tillhandahåller flera alternativ för
 | Använd säkerhetsfrågor som reserv | Tillåt säkerhetsfrågor om tvåstegsverifiering misslyckas. Du kan ange antalet säkerhetsfrågor som måste besvaras korrekt. |
 | Tillåt användare att koppla en utomstående OATH-token | Låt användare ange en OATH-token från en tredje part. |
 | Använd OATH-token som reserv | Tillåt användning av en OATH-token om tvåstegsverifiering misslyckas. Du kan också ange tidsgränsen för sessionen i antal minuter. |
-| Aktivera loggning | Aktivera loggning på användarportalen. Loggfilerna finns på: C:\Program Files\Multi-Factor Authentication Server\Logs. |
+| Aktivera loggning | Aktivera loggning på användarportalen. Loggfilerna finns på: C:\Program Files\Multi-Factor Authentication-server\loggar. |
 
 De här inställningarna blir synliga för användaren när de är aktiverade och användaren är inloggad på användarportalen.
 

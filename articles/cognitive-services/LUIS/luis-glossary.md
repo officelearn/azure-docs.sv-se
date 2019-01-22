@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b0bbd3300e48e82e44a7b7fac05f89c8d25e007f
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 8cddea1757b37ca462611874af7ace1af70c9646
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603505"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425192"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>Language understanding ordlista med gemensam terminologi och begrepp
 Den Språkförståelse (LUIS) ordlista förklarar villkor som du kan stöta på när du arbetar med LUIS API Service.
@@ -74,7 +74,7 @@ I kontexten LUIS en **domän** är en del av kunskaper. Din domän är specifik 
 
 ## <a name="endpoint"></a>Slutpunkt
 
-Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[nycklar och slutpunkter](luis-how-to-manage-keys.md)** i din app, eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+Den [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL: en är där du kan skicka LUIS frågor efter den [LUIS-app](#luis-app) har skapats och publicerats. Slutpunkts-URL innehåller regionen för den publicerade appen samt app-ID. Du hittar slutpunkten på den **[nycklar och slutpunkter](luis-how-to-azure-subscription.md)** i din app, eller du kan hämta slutpunkts-URL från den [hämta Appinfo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Det ser ut som en exempel-slutpunkt:
 
@@ -177,7 +177,7 @@ Samma som [programmässiga nyckeln](#programmatic-key), omdöpt till redigering 
 
 ## <a name="subscription-key"></a>Prenumerationsnyckel
 
-Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänsten LUIS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se din aktuella slutpunktsnyckeln i slutpunkts-URL längst ned i [ **nycklar och slutpunkter** sidan](luis-how-to-manage-keys.md) i [LUIS](luis-reference-regions.md) webbplats. Det är värdet för **prenumerationsnyckel** namn/värde-par.
+Prenumerationsnyckeln är den **endpoint** nyckel som är associerad med tjänsten LUIS [du skapade i Azure](luis-how-to-azure-subscription.md). Den här nyckeln är inte den [redigering nyckeln](#programmatic-key). Om du har en slutpunktsnyckel kan användas för alla begäranden om slutpunkten i stället för nyckeln för redigering. Du kan se din aktuella slutpunktsnyckeln i slutpunkts-URL längst ned i [ **nycklar och slutpunkter** sidan](luis-how-to-azure-subscription.md) i [LUIS](luis-reference-regions.md) webbplats. Det är värdet för **prenumerationsnyckel** namn/värde-par.
 
 ## <a name="test"></a>Test
 

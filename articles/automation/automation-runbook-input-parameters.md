@@ -3,18 +3,18 @@ title: Indataparametrar för Runbook
 description: Indataparametrar för Runbook öka flexibiliteten i runbooks genom att låta dig skicka data till en runbook när den startas. Den här artikeln beskrivs olika scenarier där indataparametrar som används i runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 650effed388dde4419e2ff6aede2f0468551a959
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: d22a2de29e170979d9ab5d61c7f21a47d6aee99c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52276694"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433449"
 ---
 # <a name="runbook-input-parameters"></a>Indataparametrar för Runbook
 
@@ -151,7 +151,7 @@ Du kan se de attribut som har angetts för parametern i etiketten under rutan. A
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>Starta en publicerad runbook med hjälp av PowerShell-cmdlets och tilldela parametrar
 
-* **Azure Resource Manager-cmdletar:** du kan starta en Automation-runbook som skapades i en resursgrupp med hjälp av [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
+* **Azure Resource Manager-cmdletar:** Du kan starta en Automation-runbook som skapades i en resursgrupp med hjälp av [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook).
   
   **Exempel:**
   
@@ -160,7 +160,7 @@ Du kan se de attribut som har angetts för parametern i etiketten under rutan. A
   
   Start-AzureRmAutomationRunbook -AutomationAccountName “TestAutomation” -Name “Get-AzureVMGraphical” –ResourceGroupName $resourceGroupName -Parameters $params
   ```
-* **Cmdlet: ar för klassiska Azure-modell:** du kan starta en automation-runbook som har skapats i en standardresursgrupp med hjälp av [Start AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
+* **Cmdletar för klassiska Azure-modell:** Du kan starta en automation-runbook som har skapats i en standardresursgrupp med hjälp av [Start AzureAutomationRunbook](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
   **Exempel:**
   
@@ -177,7 +177,7 @@ Du kan se de attribut som har angetts för parametern i etiketten under rutan. A
 
 #### <a name="start-a-runbook-by-using-an-sdk-and-assign-parameters"></a>Starta en runbook med hjälp av ett SDK och tilldela parametrar
 
-* **Azure Resource Manager-metod:** du kan starta en runbook med hjälp av SDK i ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en runbook i ditt Automation-konto. Du kan visa alla koden på vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
+* **Azure Resource Manager-metod:** Du kan starta en runbook med hjälp av SDK i ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en runbook i ditt Automation-konto. Du kan visa alla koden på vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).  
   
   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -196,7 +196,7 @@ Du kan se de attribut som har angetts för parametern i etiketten under rutan. A
       return response.Job;
       }
   ```
-* **Azure klassiska distributionsmodell-metod:** du kan starta en runbook med hjälp av SDK i ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en runbook i ditt Automation-konto. Du kan visa alla koden på vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
+* **Azure klassiska distributionsmodell-metod:** Du kan starta en runbook med hjälp av SDK i ett programmeringsspråk. Nedan visas ett C# kodfragment för att starta en runbook i ditt Automation-konto. Du kan visa alla koden på vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs).
   
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -235,15 +235,15 @@ Runbook-jobb kan skapas och startas med Azure Automation REST-API med hjälp av 
 
 Ersätt följande parametrar i begärans URI:
 
-* **prenumerations-id:** ditt Azure-prenumerations-ID.  
-* **cloud-service-name:** namnet på molnet service för att som begäran ska skickas.  
-* **Automation-kontonamn:** namnet på ditt automation-konto som finns inom den angivna Molntjänsten.  
-* **jobb-id:** GUID för jobbet. GUID i PowerShell kan skapas med hjälp av den **[GUID]::NewGuid(). ToString ()** kommando.
+* **prenumerations-id:** Ditt Azure-prenumerations-ID.  
+* **cloud-service-name:** Namnet på Molntjänsten som begäran ska skickas.  
+* **Automation-kontonamn:** Namnet på ditt automation-konto som finns inom den angivna Molntjänsten.  
+* **job-id:** GUID för jobbet. GUID i PowerShell kan skapas med hjälp av den **[GUID]::NewGuid(). ToString ()** kommando.
 
 Använda begärandetexten för att skicka parametrar till runbook-jobbet. Det tar följande två egenskaper i JSON-format:
 
-* **Runbook-namn:** krävs. Namnet på runbooken för att jobbet ska starta.  
-* **Runbook-parametrar:** valfritt. En ordlista med parameterlistan i (namn, värde)-format där namnet ska vara av typen sträng och värdet kan vara ett giltigt JSON-värde.
+* **Runbook-namn:** Krävs. Namnet på runbooken för att jobbet ska starta.  
+* **Runbook-parametrar:** Valfri. En ordlista med parameterlistan i (namn, värde)-format där namnet ska vara av typen sträng och värdet kan vara ett giltigt JSON-värde.
 
 Om du vill starta den **Get-AzureVMTextual** runbook som du skapade tidigare med **VMName** och **resourceGroupName** som parametrar, använder du följande JSON-format för begärantexten.
 
@@ -285,4 +285,5 @@ När du kör en runbook med en webhook, fördefinierade Indataparametern **[Webh
 * Mer information om olika sätt att starta en runbook finns [starta en runbook](automation-starting-a-runbook.md).
 * Om du vill redigera en runbook som text, referera till [redigera runbooks med text](automation-edit-textual-runbook.md).
 * Om du vill redigera en grafisk runbook, referera till [grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md).
+
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 7bd63dc991500f1d7f68169342b9612c1b303a07
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: 18f2ebc97a182f03483c4a4119f88774b4b0b9fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53320666"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431885"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Konfigurera Azure Multi-Factor Authentication-inställningar
 
@@ -31,7 +31,7 @@ Några av de här inställningarna gäller för MFA-servern eller den Azure MFA.
 
 | Funktion | Beskrivning |
 | ------- | ----------- |
-| Kontoutelåsning | Tillfälligt låsa konton i Multi-Factor authentication-tjänsten om det finns för många nekade autentiseringsförsök i följd. Den här funktionen gäller enbart för användare som anger en PIN-kod för att autentisera. (MFA-Server) |
+| Kontoutelåsning | Tillfälligt låsa konton i Multi-Factor authentication-tjänsten om det finns för många nekade autentiseringsförsök i följd. Den här funktionen gäller enbart för användare som anger en PIN-kod för att autentisera. (MFA Server) |
 | [Blockera/avblockera användare](#block-and-unblock-users) | För att blockera specifika användare på MFA Server (lokalt) från att kunna ta emot Multi-Factor Authentication-begäranden. Alla autentiseringsförsök för blockerade användare nekas automatiskt. Användare att vara blockerad i 90 dagar från den tidpunkt då de är blockerade. |
 | [Bedrägerivarning](#fraud-alert) | Konfigurera inställningar som rör användare möjlighet att rapportera bedrägliga begäranden från MFA-servern. |
 | Meddelanden | Aktivera meddelanden av händelser från MFA-servern. |

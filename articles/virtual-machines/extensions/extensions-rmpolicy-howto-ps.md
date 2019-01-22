@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: roiyz;cynthn
-ms.openlocfilehash: 15a6a7f4753d51118d23d2e3c021010218d2d2d7
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 82b01cec892f15f7f85f6b5f822475114b5b73c6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451841"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434997"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Använda Azure Policy för att begränsa installation av tillägg på virtuella Windows-datorer
 
 Du kan skapa en Azure policy som använder PowerShell för att begränsa tillägg för virtuella datorer i en resursgrupp om du vill förhindra användning eller installationen av vissa tillägg på dina virtuella Windows-datorer. 
 
-Den här självstudien används Azure PowerShell i Cloud Shell, som uppdateras till den senaste versionen. Om du väljer att installera och använda PowerShell lokalt behöver du ha version 3.6 eller senare av Azure PowerShell-modulen för den här självstudien. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+Den här självstudien används Azure PowerShell i Cloud Shell, som uppdateras till den senaste versionen. Om du väljer att installera och använda PowerShell lokalt behöver du ha version 3.6 eller senare av Azure PowerShell-modulen för den här självstudien. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 ## <a name="create-a-rules-file"></a>Skapa en regelfil
 
@@ -139,7 +139,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>Testa principen
 
-Om du vill testa principen som du försök använda VM Access-tillägg. Följande bör misslyckas med meddelandet ”Set-AzureRmVMAccessExtension: resursen” myVMAccess' förhindrades av principen ”.
+Om du vill testa principen som du försök använda VM Access-tillägg. Följande bör misslyckas med meddelandet ”Set-AzureRmVMAccessExtension: Resursen 'myVMAccess' förhindrades av principen ”.
 
 ```azurepowershell-interactive
 Set-AzureRmVMAccessExtension `

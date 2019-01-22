@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ba870cf722f95fb6516e1969350d3d25ba280a8c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 06e0509f05352a023651d7121aa89e18e375ef32
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043795"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428333"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Skapa ett Service Fabric-kluster med Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ Mallen som används är tillgänglig på den [Azure Service Fabric-mallexempel: 
 Följande kommando kan skapa antingen Windows eller Linux-kluster, måste du ange Operativsystemet på lämpligt sätt. PowerShell/CLI-kommandona utdata även certifikatet i den angivna *CertificateOutputFolder*, men se till att certifikatmappen som redan har skapats. Kommandot tar även andra parametrar, till exempel VM-SKU.
 
 > [!NOTE]
-> Följande PowerShell-kommando fungerar bara med Azure Resource Managers PowerShell version > 6.1. Kör följande PowerShell-kommando ”Get-Module AzureRM” om du vill kontrollera den aktuella versionen av Azure Resource Managers PowerShell-version. Följ [den här länken](/powershell/azure/install-azurerm-ps?view=azurermps-6.3.0) att uppgradera din Azure Resource Managers PowerShell-version. 
+> Följande PowerShell-kommando fungerar bara med Azure Resource Managers PowerShell version > 6.1. Kör följande PowerShell-kommando ”Get-Module AzureRM” om du vill kontrollera den aktuella versionen av Azure Resource Managers PowerShell-version. Följ [den här länken](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.3.0) att uppgradera din Azure Resource Managers PowerShell-version. 
 >
 >
 
@@ -292,7 +292,7 @@ Nu har du ett säkert kluster som körs i Azure. Nästa [ansluta till klustret](
 JSON-syntax och egenskaper för att använda en mall finns i [Microsoft.ServiceFabric/clusters mallreferensen](/azure/templates/microsoft.servicefabric/clusters).
 
 <!-- Links -->
-[azure-powershell]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[azure-powershell]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [azure-CLI]:https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
 [customize-your-cluster-template]: service-fabric-cluster-creation-via-arm.md#create-a-service-fabric-cluster-resource-manager-template

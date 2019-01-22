@@ -3,18 +3,18 @@ title: Azure Automation Linux Hybrid Runbook Worker
 description: Den här artikeln innehåller information om hur du installerar en Azure Automation Hybrid Runbook Worker så att du kan köra runbooks på Linux-baserade datorer i ditt lokala datacenter eller moln.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f32574dc0a3fd61c21e8c9a7c1ec93c7d366d384
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e0aaddb841687718295e09e64b23d9cefa9246fd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408854"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436118"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Distribuera en Linux Hybrid Runbook Worker
 
@@ -49,10 +49,10 @@ Minimikraven för en Linux Hybrid Runbook Worker är:
 | **Nödvändigt paket** | **Beskrivning** | **Lägsta version**|
 |--------------------- | --------------------- | -------------------|
 |Glibc |GNU C-bibliotek| 2.5-12 |
-|openssl| OpenSSL-bibliotek | 1.0 (TLS 1.1 och TLS 1.2 stöds|
-|CURL | cURL webbklienten | 7.15.5|
+|Openssl| OpenSSL-bibliotek | 1.0 (TLS 1.1 och TLS 1.2 stöds|
+|Curl | cURL webbklienten | 7.15.5|
 |Python-ctypes | |
-|PAM | PAM-moduler|
+|PAM | Pluggable Authentication Modules|
 | **Valfria paket** | **Beskrivning** | **Lägsta version**|
 | PowerShell Core | Om du vill köra PowerShell-runbooks PowerShell måste vara installerad, se [installera PowerShell Core på Linux](/powershell/scripting/setup/installing-powershell-core-on-linux) att lära dig hur du installerar den.  | 6.0.0 |
 
@@ -119,3 +119,4 @@ Läs hur du felsöker Hybrid Runbook Worker-arbeten i [felsökning Linux Hybrid 
 
 * Läs hur du konfigurerar dina runbooks för att automatisera processer i ditt lokala datacenter eller andra moln i [köra runbooks på en Hybrid Runbook Worker](automation-hrw-run-runbooks.md).
 * Instruktioner om hur du tar bort Hybrid Runbook Worker finns [ta bort Azure Automation Hybrid Runbook Worker](automation-hybrid-runbook-worker.md#remove-a-hybrid-runbook-worker).
+

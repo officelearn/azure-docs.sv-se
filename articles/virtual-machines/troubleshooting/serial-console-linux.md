@@ -14,34 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 0c47600082a2c633116d1e85e9f31324544c2c57
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261759"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438091"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
-Seriekonsol för virtuell dator (VM) i Azure portal ger åtkomst till en textbaserad konsol för Linux-datorer. Den här seriell anslutning ansluter till den seriella porten COM1 för den virtuella datorn, som ger tillgång till den, oberoende av den virtuella datorns tillstånd för nätverk eller operativsystem. Åtkomst till seriekonsol för en virtuell dator kan du göra med Azure-portalen. Den tillåts endast för de användare som har en rollen virtuell Datordeltagare eller högre för den virtuella datorn. 
+Seriekonsol för virtuell dator (VM) i Azure portal ger åtkomst till en textbaserad konsol för Linux-datorer. Den här seriell anslutning ansluter till den seriella porten COM1 för den virtuella datorn, som ger tillgång till den, oberoende av den virtuella datorns tillstånd för nätverk eller operativsystem. Åtkomst till seriekonsol för en virtuell dator kan du göra med Azure-portalen. Den tillåts endast för de användare som har en rollen virtuell Datordeltagare eller högre för den virtuella datorn.
 
 Seriell konsol dokumentation för virtuella Windows-datorer finns i [seriekonsol för virtuell dator för Windows](../windows/serial-console.md).
 
-> [!NOTE] 
+> [!NOTE]
 > Seriekonsol för virtuella datorer är allmänt tillgängligt i globala Azure-regioner. Det finns inte ännu i Azure government eller Azure Kina moln.
 
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Förutsättningar
 
-- Den virtuella datorn som du försöker komma åt en seriell konsol måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte. 
+- Den virtuella datorn som du försöker komma åt en seriell konsol måste använda resource management-distributionsmodellen. Klassiska distributioner stöds inte.
 
-- Den virtuella datorn som du försöker komma åt en seriell konsol måste ha [startdiagnostik](boot-diagnostics.md) aktiverat. 
+- Den virtuella datorn som du försöker komma åt en seriell konsol måste ha [startdiagnostik](boot-diagnostics.md) aktiverat.
 
     ![Inställningarna för startdiagnostik](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-- Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto: 
+- Ett konto som använder en seriell konsol måste ha den [rollen virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [startdiagnostik](boot-diagnostics.md) storage-konto:
 
-    - Den virtuella datorn som du försöker komma åt en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet. 
+    - Den virtuella datorn som du försöker komma åt en seriell konsol måste ha en lösenordsbaserad konto. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
 
     - Inställningar som är specifika för Linux-distributioner, se [seriekonsolen tillgänglighet för Linux-distribution](#serial-console-linux-distribution-availability).
 
@@ -61,37 +61,40 @@ Seriekonsol för virtuella datorer är bara tillgänglig via Azure portal:
      ![Linux seriekonsolfönstret](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
-> [!NOTE] 
+> [!NOTE]
 > Seriekonsolen kräver en lokal användare med ett konfigurerat lösenord. Virtuella datorer som konfigurerats enbart med en offentlig SSH-nyckel kan inte logga in till seriekonsol. Om du vill skapa en lokal användare med ett lösenord, använda den [VMAccess-tillägget](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), som är tillgängligt i portalen genom att välja **Återställ lösenord** i Azure-portalen och skapa en lokal användare med ett lösenord.
 > Du kan också återställa administratörslösenordet i ditt konto genom att [med GRUB starta i enanvändarläge](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Seriell konsol tillgänglighet för Linux-distribution
-Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsolen ska fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att välja **seriekonsolen** i den **Support och felsökning** på Azure portal ger åtkomst till seriekonsol. 
+Gästoperativsystemet måste konfigureras för att läsa och skriva konsolmeddelanden att den seriella porten för seriekonsolen ska fungera korrekt. De flesta [godkända Azure Linux-distributioner](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har seriekonsolen konfigureras som standard. Att välja **seriekonsolen** i den **Support och felsökning** på Azure portal ger åtkomst till seriekonsol.
 
 Distribution      | Seriell konsolåtkomst
 :-----------|:---------------------
-Red Hat Enterprise Linux    | Seriell konsolåtkomst aktiverat som standard. 
-CentOS      | Seriell konsolåtkomst aktiverat som standard. 
+Red Hat Enterprise Linux    | Seriell konsolåtkomst aktiverat som standard.
+CentOS      | Seriell konsolåtkomst aktiverat som standard.
 Ubuntu      | Seriell konsolåtkomst aktiverat som standard.
 CoreOS      | Seriell konsolåtkomst aktiverat som standard.
-SUSE        | Nyare SLES-avbildningar på Azure har seriell konsolåtkomst aktiverat som standard. Om du använder äldre versioner (10 eller tidigare) av SLES på Azure kan du läsa den [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol. 
+SUSE        | Nyare SLES-avbildningar på Azure har seriell konsolåtkomst aktiverat som standard. Om du använder äldre versioner (10 eller tidigare) av SLES på Azure kan du läsa den [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) att aktivera Seriell konsol.
 Oracle Linux        | Seriell konsolåtkomst aktiverat som standard.
 Anpassade Linux-avbildningar     | Aktivera seriekonsol för en anpassad Linux VM-avbildning genom att aktivera åtkomst till konsolen i filen */etc/inittab* att köra en terminal på `ttyS0`. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Läs mer om hur du skapar anpassade avbildningar korrekt [skapa och ladda upp en VHD för Linux i Azure](https://aka.ms/createuploadvhd). Om du skapar en anpassad kernel, Överväg att aktivera dessa kernel-flaggor: `CONFIG_SERIAL_8250=y` och `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Konfigurationsfilen finns vanligtvis under den */boot/* sökväg.
 
-## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för att komma åt seriekonsolen 
-Scenario          | Åtgärder i seriekonsolen                
+> [!NOTE]
+> Om du inte ser något i seriekonsolen, se till att startdiagnostik har aktiverats på den virtuella datorn.
+
+## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för att komma åt seriekonsolen
+Scenario          | Åtgärder i seriekonsolen
 :------------------|:-----------------------------------------
 Bruten *FSTAB* fil | Tryck på den **RETUR** att fortsätta och använda en textredigerare för att åtgärda den *FSTAB* fil. Du kan behöva vara i enanvändarläge gör. Mer information finns i [hur du löser problem med fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) och [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
-Felaktig brandväggsregler | Få åtkomst till den seriella konsolen och åtgärda iptables. 
-Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet. 
-Problem med SSH/RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna. 
-Nätverket låsa system| Komma åt seriekonsolen från Azure portal för att hantera systemet. 
-Interagera med startprogrammet | Åtkomst GRUB från seriell konsol. Mer information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md). 
+Felaktig brandväggsregler | Få åtkomst till den seriella konsolen och åtgärda iptables.
+Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet.
+Problem med SSH/RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna.
+Nätverket låsa system| Komma åt seriekonsolen från Azure portal för att hantera systemet.
+Interagera med startprogrammet | Åtkomst GRUB från seriell konsol. Mer information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Inaktivera seriekonsolen
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.
 
-> [!NOTE] 
+> [!NOTE]
 > Om du vill aktivera eller inaktivera seriekonsol för en prenumeration, måste du ha skrivbehörighet till prenumerationen. Dessa behörigheter kan vara administratörer eller ägare. Anpassade roller kan också ha skrivbehörighet.
 
 ### <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
@@ -99,11 +102,11 @@ Seriell konsol kan inaktiveras för en hel prenumeration via den [inaktivera kon
 
 ![Testa REST-API](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för att inaktivera, aktivera och visa inaktiverad status för seriekonsolen för en prenumeration: 
+Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för att inaktivera, aktivera och visa inaktiverad status för seriekonsolen för en prenumeration:
 
 * Hämta inaktiverad status för seriekonsolen för en prenumeration:
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -111,7 +114,7 @@ Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för 
     ```
 * Inaktivera seriekonsol för en prenumeration:
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -119,7 +122,7 @@ Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för 
     ```
 * Så här aktiverar Seriell konsol för en prenumeration:
     ```azurecli-interactive
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"'))
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
 
@@ -129,24 +132,24 @@ Du kan också använda följande uppsättning bash-kommandon i Cloud Shell för 
 ### <a name="vm-level-disable"></a>Inaktivera för VM-nivå
 Seriell konsol kan inaktiveras för en specifik virtuell dator genom att inaktivera inställningen för den virtuella datorn boot diagnostics. Inaktivera startdiagnostik från Azure portal för att inaktivera seriekonsolen för den virtuella datorn.
 
-## <a name="serial-console-security"></a>Seriell konsol-säkerhet 
+## <a name="serial-console-security"></a>Seriell konsol-säkerhet
 
-### <a name="access-security"></a>Åtkomstsäkerhet 
+### <a name="access-security"></a>Åtkomstsäkerhet
 Åtkomst till seriekonsol är begränsad till användare som har en åtkomstroll av [virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) eller högre för att den virtuella datorn. Om din Azure Active Directory-klient kräver multifaktorautentisering (MFA) och åtkomst till seriell konsol måste också MFA att Seriell konsol åtkomst sker via det [Azure-portalen](https://portal.azure.com).
 
 ### <a name="channel-security"></a>Kanalsäkerhet
 Alla data som skickas fram och tillbaka krypteras under överföringen.
 
 ### <a name="audit-logs"></a>Granskningsloggar
-All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.  
+All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) loggarna för den virtuella datorn. Åtkomst till de här loggarna ägs och kontrolleras av administratören för Azure virtuella datorer.
 
->[!CAUTION] 
-Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information. 
+>[!CAUTION]
+Inga lösenord för åtkomst för konsolen loggas. Men om kommandon körs i konsolen innehåller eller utgående lösenord, hemligheter, användarnamn eller någon annan form av personligt identifierbar information (PII), skrivs de till diagnostikloggar för VM-start. De skrivs tillsammans med alla andra synlig text, som en del av implementeringen av Seriell konsol rullar tillbaka funktion. Dessa loggar är cirkulär och endast personer med läsbehörighet till lagringskontot för diagnostik ha åtkomst till dem. Vi rekommenderar dock följa bästa praxis för att använda Remote Desktop för allt som kan omfatta hemligheter och/eller personligt identifierbar information.
 
 ### <a name="concurrent-usage"></a>Samtidig användning
 Om en användare är ansluten till seriekonsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna till samma session.
 
->[!CAUTION] 
+>[!CAUTION]
 Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjlighet att framtvinga en utloggning vid frånkoppling (med hjälp av SIGHUP eller liknande mekanism) är fortfarande i översikten. Det finns en automatisk tidsgräns har aktiverats i särskilda administrativa SAC (Console); för Windows Du kan dock konfigurera terminal timeout-inställningen för Linux. Du gör detta genom att lägga till `export TMOUT=600` i din *.bash_profile* eller *.profile* -filen för att användare kan du använda för att logga in på konsolen. Den här inställningen når tidsgränsen för sessionen efter 10 minuter.
 
 ## <a name="accessibility"></a>Hjälpmedel
@@ -161,26 +164,27 @@ Seriekonsolen har inbyggt stöd för Skärmläsaren. Navigera med en skärmläsa
 ## <a name="errors"></a>Fel
 Eftersom de flesta felen är tillfälliga kan försöker anslutningen ofta åtgärda dem. I följande tabell visas en lista över fel och åtgärder.
 
-Fel                            |   Åtgärd 
+Fel                            |   Åtgärd
 :---------------------------------|:--------------------------------------------|
-Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;*. Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. | Kontrollera att den virtuella datorn har [startdiagnostik](boot-diagnostics.md) aktiverat. 
+Det gick inte att hämta inställningarna för startdiagnostik för  *&lt;VMNAME&gt;*. Se till att startdiagnostik har aktiverats för den här virtuella datorn om du vill använda seriekonsolen. | Kontrollera att den virtuella datorn har [startdiagnostik](boot-diagnostics.md) aktiverat.
 Den virtuella datorn är i tillståndet stoppad frigjord. Starta den virtuella datorn och försök Seriell konsol-anslutning. | Den virtuella datorn måste vara i tillståndet igång för att komma åt seriekonsolen.
 Du har inte behörighet att använda den här virtuella datorn med seriekonsolen. Kontrollera att du har minst deltagarbehörigheter för virtuell dator.| Seriell konsol-åtkomst kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
 Det går inte att fastställa resursgruppen för startdiagnostiklagringskonto  *&lt;STORAGEACCOUNTNAME&gt;*. Kontrollera att startdiagnostik har aktiverats för den här virtuella datorn och du har åtkomst till det här lagringskontot. | Seriell konsol-åtkomst kräver vissa behörigheter. Mer information finns i [krav](#prerequisites).
 Web socket är stängd eller kunde inte öppnas. | Du kan behöva godkänna `*.console.azure.com`. En mer detaljerad men längre metod är att godkänna den [Microsoft Azure Datacenter IP-intervall](https://www.microsoft.com/download/details.aspx?id=41653), som ändras relativt regelbundet.
 Ett ”förbjuden”-svar påträffades vid åtkomst till den här Virtuella datorns lagringskonto för startdiagnostik. | Se till att startdiagnostik inte har en brandvägg för kontot. Ett lagringskonto för tillgänglig startdiagnostik är nödvändiga för seriekonsolen ska fungera.
 
-## <a name="known-issues"></a>Kända problem 
+## <a name="known-issues"></a>Kända problem
 Vi är medvetna om några problem med seriell konsol. Här är en lista över dessa problem och åtgärder för problemlösning.
 
-Problem                           |   Åtgärd 
+Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
 Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en uppmaning som ska visas. | Mer information finns i [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan inträffa om du kör en anpassad virtuell dator, förstärkt installation eller GRUB konfiguration som orsakar Linux för att kunna ansluta ordentligt till den seriella porten.
 Seriell konsol text tar endast upp en del av skärmstorlek (ofta när du använder en textredigerare). | Seriell konsoler stöder inte förhandling om fönsterstorlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att det blir inga SIGWINCH signalen skickas till uppdatera skärmens storlek och den virtuella datorn har ingen kunskap om storleken på din terminal. Installera xterm eller ett liknande verktyg för att förse dig med den `resize` kommandot och kör sedan `resize`.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
+Seriell konsol fungerar inte med en brandvägg för storage-konto. | Seriell konsol avsiktligt fungerar inte med storage-konto brandväggar aktiverad på startdiagnostiklagringskonto.
 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar 
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **FRÅGOR OCH. Hur kan jag skicka feedback?**
 
@@ -203,7 +207,7 @@ A. Om du vill aktivera eller inaktivera seriekonsolen på en prenumeration hela-
 
 **FRÅGOR OCH. Vem som kan komma åt seriekonsolen för min virtuella dator?**
 
-A. Du måste ha rollen virtuell Datordeltagare eller högre för en virtuell dator att få åtkomst till den Virtuella datorns Seriell konsol. 
+A. Du måste ha rollen virtuell Datordeltagare eller högre för en virtuell dator att få åtkomst till den Virtuella datorns Seriell konsol.
 
 **FRÅGOR OCH. Min seriekonsolen inte visar någonting, vad gör jag?**
 

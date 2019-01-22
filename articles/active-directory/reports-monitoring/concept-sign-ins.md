@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e1b1102594e7e4470c08cb0f18068dd368c0fe7a
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245097"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436730"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -161,7 +161,7 @@ Om du behöver mer flexibilitet kan du använda skriptlösningen. Klicka på **s
 
 Om du vill köra skriptet på en **Windows 10** dator, måste du utföra några ytterligare steg först. 
 
-1. Installera den [AzureRM-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0l).
+1. Installera den [AzureRM-modulen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.4.0l).
 2. Importera modulen genom att öppna en PowerShell-kommandotolk och kör kommandot **Import-Module AzureRM**.
 3. Kör **Set-ExecutionPolicy obegränsad** och välj **Ja till alla**. 
 4. Du kan nu köra det hämta PowerShell-skriptet i administratörsläge för att skapa CSV-filen.

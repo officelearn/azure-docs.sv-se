@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: 3a74450ca8025f07b00dc18c9b81b147afa7439c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64aa936dc1dbb1d2a700a31253cf7a3caee6b66f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975306"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436782"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett gränssnitt för Azure-nätverk
 
@@ -34,7 +34,7 @@ Utför följande uppgifter innan du slutför stegen i ett avsnitt i den här art
 
 - Om du inte redan har ett Azure-konto, registrera dig för en [kostnadsfritt utvärderingskonto](https://azure.microsoft.com/free).
 - Om du använder portalen, öppnar du https://portal.azure.com, och logga in med ditt Azure-konto.
-- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Om du utför uppgifterna i den här artikeln med hjälp av PowerShell-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 - Om du utför uppgifterna i den här artikeln med hjälp av Azure-kommandoradsgränssnittet (CLI)-kommandon antingen köra kommandon den [Azure Cloud Shell](https://shell.azure.com/bash), eller genom att köra CLI från datorn. Den här självstudien krävs Azure CLI version 2.0.31 eller senare. Kör `az --version` för att hitta den installerade versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli). Om du kör Azure CLI lokalt måste du också behöva köra `az login` att skapa en anslutning till Azure.
 
 Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nätverksdeltagare](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) roll eller till en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) som tilldelas de åtgärder som anges i [nätverk gränssnitt behörigheter](virtual-network-network-interface.md#permissions).
@@ -53,13 +53,13 @@ Du kan lägga till så många [privata](#private) och [offentliga](#public) [IPv
     |---|---|---|
     |Namn|Ja|Måste vara unikt för nätverksgränssnittet|
     |Typ|Ja|Eftersom du lägger till en IP-konfiguration till en befintlig nätverksgränssnitt och varje nätverksgränssnitt måste ha en [primära](#primary) IP-konfiguration, det enda alternativet är **sekundära**.|
-    |Tilldelningsmetoden för privat IP-adress|Ja|[**Dynamisk**](#dynamic): Azure tilldelar nästa tillgängliga adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i. [**Statisk**](#static): du tilldelar en adress som är oanvända för adressintervall för undernätet nätverksgränssnittet har distribuerats i.|
-    |Offentlig IP-adress|Nej|**Inaktiverat:** ingen offentlig IP-adressresurs är för närvarande associerad till IP-konfigurationen. **Aktiverad:** väljer du en befintlig offentlig IPv4-IP-adress, eller skapa en ny. Läs hur du skapar en offentlig IP-adress, den [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) artikeln.|
+    |Tilldelningsmetoden för privat IP-adress|Ja|[**Dynamic**](#dynamic): Azure tilldelar nästa tillgängliga adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i. [**Static**](#static): Du tilldelar en oanvända adress för adressintervall för undernätet nätverksgränssnittet har distribuerats i.|
+    |Offentlig IP-adress|Nej|**Inaktiverad:** Ingen offentlig IP-adressresurs är för närvarande associerad till IP-konfigurationen. **Aktiverad:** Välj en befintlig offentlig IPv4-IP-adress eller skapa en ny. Läs hur du skapar en offentlig IP-adress, den [offentliga IP-adresser](virtual-network-public-ip-address.md#create-a-public-ip-address) artikeln.|
 6. Lägg till manuellt sekundära privata IP-adresser för VM-operativsystemet när du har slutfört instruktionerna i den [tilldela flera IP-adresser till VM-operativsystem](virtual-network-multiple-ip-addresses-portal.md#os-config) artikeln. Se [privata](#private) IP-adresser för att tänka på innan du manuellt lägger till IP-adresser till ett VM-operativsystem. Lägg inte till offentliga IP-adresser till VM-operativsystem.
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig)|
@@ -80,7 +80,7 @@ Du kanske måste ändra tilldelningsmetoden för en IPv4-adress ändra statiska 
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig)|
@@ -96,7 +96,7 @@ Du kan ta bort [privata](#private) och [offentliga](#public) IP-adresser från e
 
 **Kommandon**
 
-|Verktyg|Kommando|
+|Verktyget|Kommando|
 |---|---|
 |CLI|[AZ network nic ip-config delete](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig)|
@@ -144,7 +144,7 @@ Det finns scenarier där det är nödvändigt att ange IP-adressen för ett nät
 4. Startar den virtuella datorn.
 5. [Konfigurera manuellt](virtual-network-multiple-ip-addresses-portal.md#os-config) sekundära IP-adresser inom operativsystemet (och även den primära IP-adressen i Windows) så att de matchar vad du ställer in i Azure.
 
-Genom att följa förblir de här stegen, privata IP-adress tilldelas till nätverksgränssnitt i Azure och inom en virtuell dators operativsystem, desamma. Om du vill hålla reda på vilka virtuella datorer i din prenumeration som du har angett IP-adresser inom ett operativsystem för manuellt, Överväg att lägga till en Azure [taggen](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) till de virtuella datorerna. Du kan använda ”IP-adresstilldelning: statisk”, till exempel. På så sätt kan du lätt kan hitta de virtuella datorerna i din prenumeration som du har ställt in manuellt IP-adress för operativsystemet.
+Genom att följa förblir de här stegen, privata IP-adress tilldelas till nätverksgränssnitt i Azure och inom en virtuell dators operativsystem, desamma. Om du vill hålla reda på vilka virtuella datorer i din prenumeration som du har angett IP-adresser inom ett operativsystem för manuellt, Överväg att lägga till en Azure [taggen](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#tags) till de virtuella datorerna. Du kan använda ”IP-adresstilldelning: Statisk ”, till exempel. På så sätt kan du lätt kan hitta de virtuella datorerna i din prenumeration som du har ställt in manuellt IP-adress för operativsystemet.
 
 Förutom att aktivera en virtuell dator ska kunna kommunicera med andra resurser i samma eller anslutna virtuella nätverk, kan en privat IP-adress också en virtuell dator kommunicera utgående till Internet. Utgående anslutningar är adress källnätverket översättas av Azure till en oförutsägbara offentliga IP-adress. Om du vill veta mer om Azure utgående Internet-anslutning kan du läsa den [Azure utgående Internet-anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) artikeln. Du kan inte kommunicera inkommande från Internet till en virtuell dators privata IP-adress. Om din utgående anslutningar kräver en förutsägbar offentliga IP-adress kan du associera en offentlig IP-adressresurs till ett nätverksgränssnitt.
 
@@ -173,7 +173,7 @@ Dynamisk privat IPv4 och IPv6 (valfritt) adresser att tilldelas som standard.
 Du kan tilldela en offentlig eller privat statisk IPv4-adress (valfritt) till en IP-konfiguration. Du kan inte tilldela en statisk offentlig eller privat IPv6-adress till en IP-konfiguration. Läs mer om hur Azure tilldelar statiska offentliga IPv4-adresser i [offentliga IP-adresser](virtual-network-public-ip-address.md).
 
 - **Endast offentliga**: Azure tilldelar adress från ett intervall som är unika för varje Azure-region. Du kan ladda ned listan över intervall (prefix) för [offentliga](https://www.microsoft.com/download/details.aspx?id=56519) Azure-moln och för Azure-moln för [amerikanska myndigheter](https://www.microsoft.com/download/details.aspx?id=57063), [Kina](https://www.microsoft.com/download/details.aspx?id=57062) eller [Tyskland](https://www.microsoft.com/download/details.aspx?id=57064). Adressen ändras inte förrän den offentliga IP-adressresursen som den är tilldelad till har tagits bort eller tilldelningsmetoden ändras till dynamisk. Om den offentliga IP-adressresursen är kopplad till en IP-konfiguration, måste den kopplas bort från IP-konfiguration innan du ändrar dess tilldelningsmetod.
-- **Endast privat**: du väljer och tilldelar en adress från undernätets adressintervall. Adressen som du tilldelar kan vara alla adresser i adressintervallet i undernätet som inte är någon av de fyra första adresserna i undernätets adressintervall och som inte är tilldelade till någon annan resurs i undernätet. Statiska adresser släpps endast om ett nätverksgränssnitt tas bort. Om du ändrar allokeringsmetoden till statisk tilldelar Azure dynamiskt de tidigare tilldelade statiska IP-adresserna som dynamiska adresser, även om adressen inte är nästa tillgängliga adress i undernätets adressintervall. Adressen ändras också om nätverksgränssnittet har tilldelats ett annat undernät i samma virtuella nätverk. För att tilldela nätverksgränssnittet till ett annat undernät måste du emellertid först ändra allokeringsmetoden från statisk till dynamisk. När nätverksgränssnittet har tilldelats ett annat undernät kan du ändra allokeringsmetod till statisk och tilldela en IP-adress från det nya undernätets adressintervall.
+- **Endast privat**: Du väljer och tilldelar en adress från undernätets adressintervall. Adressen som du tilldelar kan vara alla adresser i adressintervallet i undernätet som inte är någon av de fyra första adresserna i undernätets adressintervall och som inte är tilldelade till någon annan resurs i undernätet. Statiska adresser släpps endast om ett nätverksgränssnitt tas bort. Om du ändrar allokeringsmetoden till statisk tilldelar Azure dynamiskt de tidigare tilldelade statiska IP-adresserna som dynamiska adresser, även om adressen inte är nästa tillgängliga adress i undernätets adressintervall. Adressen ändras också om nätverksgränssnittet har tilldelats ett annat undernät i samma virtuella nätverk. För att tilldela nätverksgränssnittet till ett annat undernät måste du emellertid först ändra allokeringsmetoden från statisk till dynamisk. När nätverksgränssnittet har tilldelats ett annat undernät kan du ändra allokeringsmetod till statisk och tilldela en IP-adress från det nya undernätets adressintervall.
 
 ## <a name="ip-address-versions"></a>IP-adress versioner
 
@@ -202,7 +202,7 @@ En offentlig IP-adress har skapats med basic eller standard-SKU. Mer information
 ## <a name="next-steps"></a>Nästa steg
 Läs följande artiklar för att skapa en virtuell dator med olika IP-konfigurationer:
 
-|Aktivitet|Verktyg|
+|Aktivitet|Verktyget|
 |---|---|
 |Skapa en virtuell dator med flera nätverksgränssnitt|[CLI](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [PowerShell](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 |Skapa en enda NIC-VM med flera IPv4-adresser|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|

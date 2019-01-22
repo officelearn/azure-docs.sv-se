@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: dc4cd28fe61c422f65f47c74c7cbc4686d73ab77
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d9fd7544c61b021bbb5db32087847cbeaddd3918
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628842"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431732"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Rapporter i Azure Multi-Factor Authentication
 
@@ -58,7 +58,7 @@ Informationen är tillgänglig via den [Azure-portalen](https://portal.azure.com
 
 Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande information:
 
-**MFA krävs:** Om MFA krävs för inloggning eller inte. MFA kan krävas på grund av MFA per användare, villkorlig åtkomst eller andra orsaker. Möjliga värden är **Ja** eller **nr**.
+**MFA krävs:** Om MFA krävs för att logga in eller inte. MFA kan krävas på grund av MFA per användare, villkorlig åtkomst eller andra orsaker. Möjliga värden är **Ja** eller **nr**.
 
 **MFA-resultat:** Mer information om huruvida MFA uppfylldes eller nekades:
 
@@ -103,7 +103,7 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
       - användaren kunde inte hittas
       - verifieringskoden har redan använts en gång
 
-**MFA-autentiseringsmetod:** Autentiseringsmetoden som användaren använde för att slutföra MFA. Möjliga värden omfattar:
+**MFA-autentiseringsmetod:** Autentiseringsmetoden som användaren som används för att slutföra MFA. Möjliga värden omfattar:
 
 - Textmeddelande
 - Meddelanden via mobilapp
@@ -112,7 +112,7 @@ Rapporterna om inloggningsaktiviteter för MFA ger dig åtkomst till följande i
 - Telefonsamtal (kontorstelefon)
 - Telefonsamtal (alternativ autentiseringstelefon)
 
-**Information om MFA-autentisering:**: Delvis gömd version av telefonnumret, till exempel: + X XXXXXXXX64.
+**Information för MFA-autentisering:** Gömd version av telefonnumret, till exempel: + X XXXXXXXX64.
 
 **Villkorlig åtkomst** hitta information om principer för villkorlig åtkomst som påverkade inloggningsförsök, inklusive:
 

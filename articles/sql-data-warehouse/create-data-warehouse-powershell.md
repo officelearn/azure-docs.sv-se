@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 11/15/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 60bd7cc2084ce64477cf89a5fd28d9a505fbfbfb
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 22ccc11d1eb74fd868fd740f02311baeb5ac5987
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852647"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54433619"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>Snabbstart: Skapa och fråga en Azure SQL data warehouse med Azure PowerShell
 
@@ -23,7 +23,7 @@ Snabbt skapa ett Azure SQL data warehouse med Azure PowerShell.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). 
+För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). 
 
 
 > [!NOTE]
@@ -31,7 +31,7 @@ För den här självstudien krävs Azure PowerShell-modul version 5.1.1 eller se
 >
 >
 
-## <a name="sign-in-to-azure"></a>Logga in till Azure
+## <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure-prenumerationen med den [Add-AzureRmAccount](/powershell/module/azurerm.profile/add-azurermaccount) och följer den på skärmen riktningar.
 
@@ -45,7 +45,7 @@ Om du vill se vilken prenumeration som du använder kör [Get-AzureRmSubscriptio
 Get-AzureRmSubscription
 ```
 
-Om du vill använda en annan prenumeration än standard, kör [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
+Om du behöver använda en annan prenumeration än standardprenumerationen kör du [Set-AzureRmContext](/powershell/module/azurerm.profile/set-azurermcontext).
 
 ```powershell
 Set-AzureRmContext -SubscriptionName "MySubscription"
@@ -102,7 +102,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk kanske utgående trafik via port 1433 inte tillåtas av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL-servern om inte din IT-avdelning öppnar port 1433.
+> SQL Database och SQL Data Warehouse kommunicerar via port 1433. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 1433 bli nekad av nätverkets brandvägg. I så fall kan du inte ansluta till Azure SQL-servern om inte din IT-avdelning öppnar port 1433.
 >
 
 
@@ -122,15 +122,15 @@ New-AzureRmSqlDatabase `
 
 Erfordrade parametrar är:
 
-* **RequestedServiceObjectiveName**: mängden [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) du begär. Öka den mängden ökar beräkningskostnader. En lista över värden som stöds finns i [minne och samtidighet gränser](memory-and-concurrency-limits.md).
-* **DatabaseName**: namnet på SQL Data Warehouse som du skapar.
-* **ServerName**: namnet på den server som du använder för att skapa.
-* **ResourceGroupName**: resursgruppen som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
-* **Version**: Måste vara ”DataWarehouse” för att skapa ett SQL Data Warehouse.
+* **RequestedServiceObjectiveName**: Mängden [data informationslagerenheter](what-is-a-data-warehouse-unit-dwu-cdwu.md) du begär. Öka den mängden ökar beräkningskostnader. En lista över värden som stöds finns i [minne och samtidighet gränser](memory-and-concurrency-limits.md).
+* **DatabaseName**: Namnet på SQL Data Warehouse som du skapar.
+* **ServerName**: Namnet på den server som du använder för att skapa.
+* **ResourceGroupName**: Resursgrupp som du använder. Använd Get-AzureResource för att hitta tillgängliga resursgrupper i din prenumeration.
+* **Edition**: Måste vara ”DataWarehouse” skapa ett SQL Data Warehouse.
 
 Valfria parametrar är:
 
-- **CollationName**: Standardsortering om inte annat anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras på en databas.
+- **Sorteringsnamnet**: Standardsortering om inte anges är SQL_Latin1_General_CP1_CI_AS. Sortering kan inte ändras på en databas.
 - **MaxSizeBytes**: Maximal standardstorlek för en databas är 10 GB.
 
 Mer information om parameteralternativen finns i [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase).

@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 12/12/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 21baa89293c74ec49720bffc2506e20789fe9e55
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: b897b50edf4d5a7eeabacc6da1505e165f2bb21a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411049"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431749"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-december-2018"></a>Vad är nytt i Azure SQL Data Warehouse? December 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i December 2018.
@@ -53,6 +53,9 @@ Mer information om Query Store i Azure SQL Data Warehouse finns i artikeln [öve
 Azure SQL Data Warehouse Gen2 har nu stöd för lägre beräkningsnivåer. Kunder kan uppleva Azure SQL Data Warehouse branschledande prestanda, flexibiliteten och säkerhetsfunktioner som börjar med 100 cDWU ([Informationslagerenheter](https://docs.microsoft.com/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu)) och skala till 30 000 cDWU på några minuter. Från mitten av December 2018, kan kunder dra nytta av Gen2 prestanda och flexibilitet med lägre compute nivåer i [regioner](https://docs.microsoft.com/azure/sql-data-warehouse/gen2-lower-tier-regions), med resten av regionerna som är tillgängliga under 2019.
 
 Genom att släppa startpunkt för nästa generation av informationslager, öppnas Microsoft dörrar till värdet-drivna kunder som vill utvärdera alla fördelar med en säker, högpresterande data warehouse utan att gissa vilka utvärderingsmiljö är bäst för dessa. Kunder kan börja så lågt som 100 cDWU ned från den aktuella 500 cDWU startpunkten. SQL Data Warehouse Gen2 fortsätter att stödja pausa och återuppta drift- och går utöver bara flexibilitet vid beräkning. Gen2 också har stöd för obegränsad columnstore lagringskapacitet tillsammans med 2,5 gånger mer minne per fråga, upp till 128 samtidiga frågor och [Adaptiv cachelagring](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/) funktioner. Dessa funktioner i genomsnitt få fem gånger så mycket prestanda jämfört med samma Data Warehouse-enhet på Gen1 till samma pris. GEO-redundanta säkerhetskopieringar är standard för Gen2 med inbyggda garanterad dataskydd. Azure SQL Data Warehouse Gen2 är redo att skala när du är.
+
+## <a name="columnstore-background-merge"></a>Columnstore bakgrund Merge
+Som standard lagrar Azure SQL Data Warehouse (Azure SQL DW) data i kolumnformat, micro-partitioner kallas [radgrupper](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-memory-optimizations-for-columnstore-compression). Ibland, på grund av minne som avgränsar vid indexet bygge eller data kan du läsa in tid, i radgrupper kan komprimeras med mindre än optimala storleken på en miljon rader. Radgrupper kan också bli fragmenterad på grund av borttagningar. Små eller fragmenterade radgrupper leda till högre minnesförbrukning, samt ineffektiva Frågekörningen. Den här versionen av Azure SQL DW sammanfogar columnstore Underhåll bakgrundsaktiviteten små komprimerade radgrupper för att skapa större radgrupper för att bättre utnyttja minne och snabba upp Frågekörningen.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du vet lite om SQL Data Warehouse, lär du dig hur du snabbt [skapa ett SQL Data Warehouse][create a SQL Data Warehouse]. Om du är nybörjare på Azure kan du upptäcka det [Azure-ordlistan] [ Azure glossary] till hjälp när du lär dig hur ny terminologi. Eller så kan du se över några av de övriga SQL Data Warehouse-resurserna.  

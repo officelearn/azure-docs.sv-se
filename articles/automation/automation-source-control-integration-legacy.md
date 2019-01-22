@@ -3,18 +3,18 @@ title: Källkontrollsintegration i Azure Automation - äldre
 description: Den här artikeln beskriver källkontrollsintegrering med GitHub i Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a6ae91ba768f9aa002c2814133b26dd152c7ef25
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 8316e571e97fce65b3f8308709d3300bc585663f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784822"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434877"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Källkontrollintegrering i Azure Automation - äldre
 
@@ -79,7 +79,7 @@ Om du redan har ett GitHub-konto och en databas som du vill länka till Azure Au
 
     ![Variabler](media/automation-source-control-integration-legacy/automation_04_Variables.png)  
 
-    * **Automation-källkontroll** läggs till som ett auktoriserat program till ditt GitHub-konto. Visa programmet: från startsidan GitHub navigerar du till din **profil** > **inställningar** > **program**. Det här programmet kan Azure Automation att synkronisera dina GitHub-lagringsplatsen till ett Automation-konto.  
+    * **Automation-källkontroll** läggs till som ett auktoriserat program till ditt GitHub-konto. Visa programmet: Från startsidan GitHub navigerar du till din **profil** > **inställningar** > **program**. Det här programmet kan Azure Automation att synkronisera dina GitHub-lagringsplatsen till ett Automation-konto.  
 
     ![Git-program](media/automation-source-control-integration-legacy/automation_05_GitApplication.png)
 
@@ -99,7 +99,7 @@ Runbook-kontroll i kan du skicka ändringar som du har gjort i en runbook i Azur
 1. När du klickar på **checka in**, ges du ett bekräftelsemeddelande visas, klicka på **Ja** att fortsätta.  
    
     ![Incheckningsmeddelande](media/automation-source-control-integration-legacy/automation_07_CheckinMessage.png)
-2. Incheckning startar källa kontroll runbook: **synkronisering MicrosoftAzureAutomationAccountToGitHubV1**. Denna runbook ansluter till GitHub och skickar ändringar från Azure Automation till databasen. Om du vill visa den kontrollerade i jobbhistoriken, gå tillbaka till den **integrering av källkontroll** fliken och klicka för att öppna sidan för synkronisering av centrallager. Den här sidan visas alla dina källkontrolljobb.  Välj det jobb som du vill visa och klicka om du vill visa information.  
+2. Startar källa kontroll runbook checkar in: **Sync-MicrosoftAzureAutomationAccountToGitHubV1**. Denna runbook ansluter till GitHub och skickar ändringar från Azure Automation till databasen. Om du vill visa den kontrollerade i jobbhistoriken, gå tillbaka till den **integrering av källkontroll** fliken och klicka för att öppna sidan för synkronisering av centrallager. Den här sidan visas alla dina källkontrolljobb.  Välj det jobb som du vill visa och klicka om du vill visa information.  
    
     ![Checka in Runbook](media/automation-source-control-integration-legacy/automation_08_CheckinRunbook.png)
    
@@ -110,7 +110,7 @@ Runbook-kontroll i kan du skicka ändringar som du har gjort i en runbook i Azur
 3. Namnet på den ändrade runbooken skickas som indataparameter för markerad i runbook. Du kan [visa Jobbinformationen](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) genom att expandera runbook i **synkronisering av centrallager** sidan.  
    
     ![Checka in indata](media/automation-source-control-integration-legacy/automation_09_CheckinInput.png)
-4. Uppdatera din GitHub-lagringsplatsen när jobbet har slutförts för att visa ändringarna.  Det bör finnas en allokering i din lagringsplats med ett meddelande: **uppdaterad *Runbooknamn* i Azure Automation.**  
+4. Uppdatera din GitHub-lagringsplatsen när jobbet har slutförts för att visa ändringarna.  Det bör finnas en allokering i din lagringsplats med ett meddelande: **Uppdatera *Runbooknamn* i Azure Automation.**  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>Synkronisera runbooks från källkontroll till Azure Automation
 Knappen Synkronisera på sidan för synkronisering av centrallager kan du hämta alla runbooks i runbookmapp av lagringsplatsen till ditt Automation-konto. Samma databas kan synkroniseras till mer än en Automation-konto. Nedan visas stegen för att synkronisera en runbook:
@@ -118,7 +118,7 @@ Knappen Synkronisera på sidan för synkronisering av centrallager kan du hämta
 1. Automation-konto där du konfigurerar källkontroll, öppna den **Integration/lagringsplats för Källkontrollssynkronisering** och klicka på **synkronisering**.  Du uppmanas via ett bekräftelsemeddelande klickar du på **Ja** att fortsätta.  
    
     ![Knappen Synkronisera](media/automation-source-control-integration-legacy/automation_10_SyncButtonwithMessage.png)
-2. Synkronisering startar runbook: **synkronisering MicrosoftAzureAutomationAccountFromGitHubV1**. Denna runbook ansluter till GitHub och hämtar ändringarna från databasen till Azure Automation. Du bör se ett nytt jobb på den **synkronisering av centrallager** för den här åtgärden. Klicka för att öppna informationssidan jobbet om du vill visa information om synkroniseringsjobb.  
+2. Synkronisering startar runbook: **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. Denna runbook ansluter till GitHub och hämtar ändringarna från databasen till Azure Automation. Du bör se ett nytt jobb på den **synkronisering av centrallager** för den här åtgärden. Klicka för att öppna informationssidan jobbet om du vill visa information om synkroniseringsjobb.  
    
     ![Synkronisera Runbook](media/automation-source-control-integration-legacy/automation_11_SyncRunbook.png)
 
@@ -142,4 +142,5 @@ Mer information om integrering av källkontroll, finns i följande resurser:
 * [Azure Automation: Källkontrollintegrering i Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
 * [Rösta på din favorit källkontrollsystem](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
 * [Azure Automation: Integrera källkontroll för Runbook med hjälp av Azure DevOps](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+
 

@@ -3,18 +3,18 @@ title: Hantera Azure Automation kör som-konton
 description: Den här artikeln beskriver hur du hanterar ditt kör som-konton med PowerShell eller från portalen.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7bd84b42cfa61d199d70e02345f9229a45fd7704
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726176"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431205"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -44,8 +44,8 @@ Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privi
 |---|---------|---------|
 |Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Programroll för utvecklare        |
 |Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör         |
-|Skapa och få en AD-tjänstens huvudnamn|[Ny AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Programadministratör eller GLOBAL administratör        |
-|Tilldela eller hämta RBAC-rollen för det angivna huvudnamnet|[Ny-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administratör för användaråtkomst eller ägare        |
+|Skapa och få en AD-tjänstens huvudnamn|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Programadministratör eller GLOBAL administratör        |
+|Tilldela eller hämta RBAC-rollen för det angivna huvudnamnet|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administratör för användaråtkomst eller ägare        |
 |Skapa eller ta bort ett Automation-certifikat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Deltagare i resursgrupp         |
 |Skapa eller ta bort en automationsanslutning|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Deltagare i resursgrupp |
 
@@ -389,3 +389,4 @@ Du kan snabbt lösa dessa problem med Kör som-kontot genom att ta bort och åte
 
 * Läs mer om tjänstens huvudnamn, [programobjekt och tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md).
 * Mer information om certifikat och Azure-tjänster finns i [Certifikatöversikt för Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
+

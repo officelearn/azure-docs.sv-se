@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/11/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 945dcf5776867a9b892a879569a4b58890cb1975
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 2c496f78650be6fc19197c82dc9534fbd256ac45
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076656"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422600"
 ---
 # <a name="ibm-db2-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>IBM DB2 Azure virtuella datorer DBMS-distribution för SAP-arbetsbelastningar
 
@@ -235,7 +235,7 @@ ms.locfileid: "39076656"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -321,14 +321,14 @@ Följande SAP-information är relaterade till SAP på Azure om området som besk
 
 | Nummer | Titel |
 | --- | --- |
-| [1928533] |SAP-program i Azure: produkter och Azure VM-typer |
-| [2015553] |SAP på Microsoft Azure: supportkrav |
+| [1928533] |SAP-program i Azure: Produkter som stöds och Azure VM-typer |
+| [2015553] |SAP på Microsoft Azure: Supportkrav |
 | [1999351] |Felsökning av utökad Azure övervakning för SAP |
 | [2178632] |Nyckeln som övervakning av mått för SAP på Microsoft Azure |
-| [1409604] |Virtualisering på Windows: förbättrad övervakning |
-| [2191498] |SAP på Linux med Azure: förbättrad övervakning |
+| [1409604] |Virtualisering på Windows: Förbättrad övervakning |
+| [2191498] |SAP på Linux med Azure: Förbättrad övervakning |
 | [2233094] |DB6: SAP-program i Azure med IBM DB2 för Linux, UNIX- och Windows - ytterligare Information |
-| [2243692] |Linux på Microsoft Azure (IaaS) VM: SAP problem |
+| [2243692] |Linux på Microsoft Azure (IaaS) virtuell dator: Problem med SAP-licens |
 | [1984787] |SUSE LINUX Enterprise Server 12: Installationsinformation |
 | [2002167] |Red Hat Enterprise Linux 7.x: Installation och uppgradering |
 | [1597355] |Växlingsutrymme rekommendation för Linux |

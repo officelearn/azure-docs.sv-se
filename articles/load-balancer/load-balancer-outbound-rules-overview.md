@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 3848e2caefbc8fdfb30f36272f1b13e120312a7c
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0020d1a830932ffe77f7edc54e9e2e52e04dcb15
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185026"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439110"
 ---
 # <a name="load-balancer-outbound-rules"></a>Utgående regler för belastningsutjämnare
 
@@ -208,6 +208,7 @@ När du använder en intern Standard Load Balancer, är utgående NAT inte tillg
 - En uppsättning konfigurerbara utgående tidsgränsen för inaktivitet är 4 till 66 minuter (240 4000 sekunder).
 - Belastningsutjämnaren har inte stöd för ICMP för utgående NAT.
 - Portalen kan inte användas för att konfigurera eller visa utgående regler.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
+- Utgående regler kan endast tillämpas på den primära nätverkskortet och den primära IP-konfigurationen.
 
 ## <a name="next-steps"></a>Nästa steg
 

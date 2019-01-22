@@ -4,18 +4,18 @@ description: En självstudiekurs som steg för steg beskriver hur du skapar, tes
 keywords: runbook, runbook-mall, runbook-automation, azure runbook
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 04/13/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6a9e6bbf3bc507a4d45af03c791104c9490cd36f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: be811d0dc2ce2eca0b20ca12165eaf0799bd6b5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195904"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426802"
 ---
 # <a name="my-first-graphical-runbook"></a>Min första grafiska runbook
 
@@ -45,18 +45,18 @@ Börja med att skapa en enkel runbook som visar texten *Hello World*.
    Automation-kontosidan innehåller en snabb översikt över resurserna i det här kontot. Du bör redan ha vissa tillgångar. De flesta av dessa tillgångar är de moduler som ingår automatiskt i ett nytt Automation-konto. Du behöver även autentiseringstillgången som nämns i [kravavsnittet](#prerequisites).
 
 2. Välj **Runbooks** under **PROCESSHANTERING** för att öppna listan med runbook-jobb.
-3. Skapa en ny runbook genom att välja **+ Lägg till en runbook**, klicka på **skapa en ny runbook**.
+3. Skapa en ny runbook genom att välja **+ Lägg till en runbook**, klicka sedan på **skapa en ny runbook**.
 4. Ge din runbook namnet *MyFirstRunbook-Graphical*.
 5. I det här fallet ska du skapa en [grafisk runbook](automation-graphical-authoring-intro.md). Välj därför **Grafisk** för **Typ av runbook**.<br> ![Ny runbook](media/automation-first-runbook-graphical/create-new-runbook.png)<br>
 6. Klicka på **Skapa** för att skapa den nya runbooken och öppna den grafiska redigeraren.
 
-## <a name="add-activities"></a>Lägg till aktiviteter
+## <a name="add-activities"></a>Lägga till aktiviteter
 
 Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen till vänster i redigeraren. Du ska lägga till en **Write-Output**-cmdlet som returnerar text från runbook-jobbet.
 
 1. I bibliotekskontrollen klickar du i sökrutan och skriver **Write-Output**. Sökresultatet visas på följande bild: <br> ![Microsoft.PowerShell.Utility](media/automation-first-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 1. Rulla längst ned i listan. Du kan antingen högerklicka på **Write-Output** och välja **Lägg till på ytan** eller klicka på ellipsen bredvid cmdleten och välja **Lägg till på ytan**.
-1. Klicka på aktiviteten **Write-Output** på arbetsytan. Den här åtgärden öppnar sidan konfiguration kontroll, där du kan konfigurera aktiviteten.
+1. Klicka på aktiviteten **Write-Output** på arbetsytan. Den här åtgärden öppnar sidan konfiguration kontroll som gör att du kan konfigurera aktiviteten.
 1. **Etiketten** tilldelas som standard samma namn som cmdleten, men du kan ändra den till något mer beskrivande. Ändra den till *Skriv Hello World på skärmen*.
 1. Klicka på **Parametrar** för att ange värden för cmdletens parametrar.
 
@@ -74,77 +74,77 @@ Du kan lägga till aktiviteter i din runbook med hjälp av bibliotekskontrollen 
 
 Innan du publicerar runbook-jobbet så att den blir tillgänglig i produktionsmiljön testar du den och kontrollerar att den fungerar som den ska. När du testar en runbook kör du dess **utkastversion** och visar dess utdata interaktivt.
 
-1. Välj **Test rutan** att öppna sidan Test.
+1. Välj **Testfönster** att öppna sidan Test.
 1. Starta testet genom att klicka på **Starta**. Detta bör vara det enda aktiverade alternativet.
 1. Ett [runbook-jobb](automation-runbook-execution.md) skapas och dess status visas i rutan.
 
    Jobbets första status är *I kö*, vilket betyder att det väntar på att en runbook-arbetsroll i molnet ska bli tillgänglig. Därefter ändras statusen till *Startar* när en runbook-arbetsroll gör anspråk på jobbet, och sedan till *Körs* när runbook-jobbet börjar köras.
 
 1. När runbook-jobbet är klart visas dess utdata. I det här fallet visas *Hello World*.<br> ![Hello World](media/automation-first-runbook-graphical/runbook-test-results.png)
-1. Stäng sidan Test om du vill återgå till arbetsytan.
+1. Stäng sidan Test för att återgå till arbetsytan.
 
-## <a name="publish-and-start-the-runbook"></a>Publicera och starta runbook
+## <a name="publish-and-start-the-runbook"></a>Publicera och starta runbooken
 
 Det runbook-jobb som du har skapat är fortfarande i utkastläge. Den behöver publiceras innan du kan köra den i produktion. När du publicerar en runbook skriver du över den befintliga publicerade versionen med utkastversionen. I det här fallet har du ingen publicerad version ännu eftersom du precis har skapat runbook-jobbet.
 
-1. Välj **publicera** publicera en runbook och sedan **Ja** när du tillfrågas.
-1. Om du rulla åt vänster om du vill visa runbook i den **Runbooks** sidan visas en **redigering Status** av **publicerade**.
-1. Bläddra till höger för att visa sidan för **MyFirstRunbook grafiska**.
+1. Välj **publicera** att publicera runbooken och sedan **Ja** när du tillfrågas.
+1. Om du rullar åt vänster för att visa runbooken på den **Runbooks** sida, visas en **Redigeringsstatusen** av **publicerad**.
+1. Bläddra tillbaka åt höger för att visa sidan för **MyFirstRunbook-Graphical**.
 
    Vi kan använda alternativen längs överkanten för att starta runbooken, schemalägga den så att den startar senare eller skapa en [webhook](automation-webhooks.md) så att den kan startas via ett HTTP-anrop.
 
-1. Välj **starta** och sedan **Ja** när du uppmanas att starta runbook.
-1. En sida i jobbet har öppnats för runbook-jobbet har skapats. Kontrollera att **Jobbstatus** är **Slutförd**.
+1. Välj **starta** och sedan **Ja** när du uppmanas att starta runbooken.
+1. En jobbsidan öppnas för runbook-jobbet som har skapats. Kontrollera att **Jobbstatus** är **Slutförd**.
 1. När runbookens status visas som *Slutförd* klickar du på **Utdata**. Den **utdata** sidan öppnas och du kan se den *Hello World* i fönstret.
-1. Stänga sidan utdata.
-1. Klicka på **alla loggar** att öppna sidan dataströmmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
-1. Stäng alla loggar sidan och sidan jobbet om du vill gå tillbaka till sidan MyFirstRunbook grafiska.
-1. Visa alla jobb för runbook Stäng den **jobbet** och välja **jobb** under **resurser**. Här visas alla jobb som skapats av det här runbook-jobbet. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
+1. Stäng sidan utdata.
+1. Klicka på **alla loggar** att öppna sidan strömmar för runbook-jobbet. Du bör endast se *Hello World* i utdataströmmen, men även andra dataströmmar kan visas för ett runbook-jobb, till exempel Utförlig och Fel, om runbook-jobbet skriver till dem.
+1. Stäng sidan alla loggar och jobbsidan att återgå till sidan MyFirstRunbook-Graphical.
+1. Att visa alla jobb för runbook-jobbet stänger den **jobbet** och välj **jobb** under **resurser**. Här visas alla jobb som skapats av det här runbook-jobbet. Nu bör du endast se ett jobb eftersom du bara körde jobbet en gång.
 1. Du kan klicka på det här jobbet för att öppna samma jobbfönster som du visade när du startade runbook-jobbet. På så sätt kan du gå tillbaka i tiden och visa information om alla jobb som har skapats för en specifik runbook.
 
-## <a name="create-variable-assets"></a>Skapa variabeln tillgångar
+## <a name="create-variable-assets"></a>Skapa variabler för tillgångar
 
 Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Innan du konfigurerar runbook-jobbet för autentisering skapar du en variabel som ska lagra prenumerations-ID:t och referera till det när du har konfigurerat aktiviteten för autentisering i steg 6 nedan. Genom att ta med en referens till prenumerationskontexten kan du enkelt arbeta mellan flera prenumerationer. Kopiera prenumerations-ID:t från alternativet Prenumerationer vid navigeringsfönstret innan du fortsätter.
 
-1. Automation-konton på sidan Välj **variabler** under **delade resurser**.
-1. Välj **lägga till en variabel**.
-1. I den nya variabeln sidan, i den **namn** ange **AzureSubscriptionId** och i den **värdet** ange ditt prenumerations-ID. Behåll *sträng* som **Typ** och standardvärdet för **Kryptering**.
+1. På sidan Automation-konton väljer **variabler** under **delade resurser**.
+1. Välj **Lägg till en variabel**.
+1. I den nya variabeln sidan, i den **namn** anger **AzureSubscriptionId** och i den **värdet** Skriv ditt prenumerations-ID. Behåll *sträng* som **Typ** och standardvärdet för **Kryptering**.
 1. Skapa variabeln genom att klicka på **Skapa**.
 
 ## <a name="add-authentication"></a>Lägg till autentisering
 
-Nu när du har en variabel som ska innehålla prenumerations-ID:t kan du konfigurera runbook-jobbet för att autentisera med ”kör som”-autentiseringsuppgifterna som avses i [kravavsnittet](#prerequisites). Det gör du genom att lägga till Azure kör som-anslutningen **tillgången** och **Connect-AzureRmAccount** cmdlet till arbetsytan.
+Nu när du har en variabel som ska innehålla prenumerations-ID:t kan du konfigurera runbook-jobbet för att autentisera med ”kör som”-autentiseringsuppgifterna som avses i [kravavsnittet](#prerequisites). Det gör du genom att lägga till Azures kör som-anslutningen **tillgången** och **Connect-AzureRmAccount** cmdlet på arbetsytan.
 
-1. Gå tillbaka till din runbook och väljer **redigera** på sidan MyFirstRunbook grafiska.
-1. Du behöver den **skriva Hello World till utdata** längre, så klickar du på ellipserna (...) och väljer **ta bort**.
+1. Gå tillbaka till din runbook och välj **redigera** på sidan MyFirstRunbook-Graphical.
+1. Du behöver inte den **Skriv Hello World på skärmen** längre klickar du på ellipserna (...) och välj **ta bort**.
 1. Expandera **TILLGÅNGAR**, **Anslutningar** i bibliotekskontrollen och lägg till **AzureRunAsConnection** på arbetsytan genom att välja **Lägg till på ytan**.
-1. Skriv i kontrollen biblioteket **Connect-AzureRmAccount** i textrutan Sök.
+1. Skriv i bibliotekskontrollen **Connect-AzureRmAccount** i sökrutan för bibliotekskontrollen.
 
    > [!IMPORTANT]
-   > **Lägg till AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen bibliotekets objekt, om du inte ser **Connect-AzureRMAccount**, kan du använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
+   > **Add-AzureRmAccount** är nu ett alias för **Connect-AzureRMAccount**. När sökningen biblioteket objekt, om du inte ser **Connect-AzureRMAccount**, du kan använda **Add-AzureRmAccount**, eller så kan du uppdatera dina moduler i ditt Automation-konto.
 
-1. Lägg till **Connect-AzureRmAccount** till arbetsytan.
-1. Hovra över **Hämta ”kör som”-anslutning** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra på pilen till **Connect-AzureRmAccount**. Pilen som du skapade är en *länk*. Runbook startat med **hämta kör som-anslutning** och kör sedan **Connect-AzureRmAccount**.<br> ![Skapa länk mellan aktiviteter](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
-1. På arbetsytan, Välj **Connect-AzureRmAccount** och i fönstret kontrolltypen Configuration **inloggning till Azure** i den **etikett** textruta.
-1. Klicka på **parametrar** och konfigurationssidan för aktiviteten Parameter visas.
-1. **Ansluta AzureRmAccount** har flera parameteruppsättningar, så du måste välja en innan du kan ange parametervärden. Klicka på **Parameteruppsättning** och välj parameteruppsättningen **ServicePrincipalCertificate**.
-1. När du har valt parameteruppsättningen visas parametrarna i aktiviteten parametern konfigurationssidan. Klicka på **APPLICATIONID**.<br> ![Lägg till Azure RM-kontoparametrar](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
-1. Parametervärdet på sidan Välj **aktivitetsutdata** för den **datakällan** och välj **hämta kör som-anslutning** i listan i den **fältet sökväg** textruta typen **ApplicationId**, och klicka sedan på **OK**. Du anger namnet på egenskapen för Fältsökväg eftersom aktiviteten matar ut ett objekt med flera egenskaper.
-1. Klicka på **CERTIFICATETHUMBPRINT**, och värdet för parametern på sidan Välj **utdata för aktiviteten** för den **datakällan**. Välj **Hämta ”kör som”-anslutning** i listan. I textrutan **Fältsökväg** skriver du **CertificateThumbrprint** och klickar på **OK**.
-1. Klicka på **SERVICEPRINCIPAL**, och värdet för parametern på sidan Välj **ConstantValue** för den **datakällan**, klickar du på alternativet **SANT**, och klicka sedan på **OK**.
-1. Klicka på **TENANTID**, och värdet för parametern på sidan Välj **utdata för aktiviteten** för den **datakällan**. Välj **Hämta ”kör som”-anslutning** i listan. I textrutan **Fältsökväg** skriver du **TenantId** och klickar på **OK** två gånger.
+1. Lägg till **Connect-AzureRmAccount** på arbetsytan.
+1. Hovra över **Hämta ”kör som”-anslutning** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till **Connect-AzureRmAccount**. Pilen som du skapade är en *länk*. Runbook startat med **hämta kör som-anslutning** och kör sedan **Connect-AzureRmAccount**.<br> ![Skapa länk mellan aktiviteter](media/automation-first-runbook-graphical/runbook-link-auth-activities.png)
+1. På arbetsytan, Välj **Connect-AzureRmAccount** och i fönstret konfiguration kontrolltypen **logga in på Azure** i den **etikett** textrutan.
+1. Klicka på **parametrar** och sidan konfiguration av Aktivitetsparameter visas.
+1. **Connect-AzureRmAccount** har flera parameteruppsättningar så du måste välja en innan du kan ange parametervärden. Klicka på **Parameteruppsättning** och välj parameteruppsättningen **ServicePrincipalCertificate**.
+1. När du har valt parameteruppsättningen visas parametrarna på sidan konfiguration av Aktivitetsparameter. Klicka på **APPLICATIONID**.<br> ![Lägg till Azure RM-kontoparametrar](media/automation-first-runbook-graphical/Add-AzureRmAccount-params.png)
+1. Värdet på parametern på sidan Välj **aktivitetsutdata** för den **datakälla** och välj **hämta kör som-anslutning** i listan i den **fältsökväg** textrutan typ **ApplicationId**, och klicka sedan på **OK**. Du anger namnet på egenskapen för Fältsökväg eftersom aktiviteten matar ut ett objekt med flera egenskaper.
+1. Klicka på **CERTIFICATETHUMBPRINT**, och värdet på parametern på sidan Välj **aktivitetsutdata** för den **datakälla**. Välj **Hämta ”kör som”-anslutning** i listan. I textrutan **Fältsökväg** skriver du **CertificateThumbrprint** och klickar på **OK**.
+1. Klicka på **SERVICEPRINCIPAL**, och värdet på parametern på sidan Välj **ConstantValue** för den **datakälla**, klickar du på alternativet **SANT**, och klicka sedan på **OK**.
+1. Klicka på **TENANTID**, och värdet på parametern på sidan Välj **aktivitetsutdata** för den **datakälla**. Välj **Hämta ”kör som”-anslutning** i listan. I textrutan **Fältsökväg** skriver du **TenantId** och klickar på **OK** två gånger.
 1. Skriv **Set-AzureRmContext** i sökrutan i bibliotekskontrollen.
 1. Lägg till **Ange AzureRmContext** på arbetsytan.
 1. På arbetsytan väljer du **Set-AzureRmContext** och skriver **Ange prenumerations-ID** i textrutan **Etikett** i fönstret Konfigurationskontroll.
-1. Klicka på **parametrar** och konfigurationssidan för aktiviteten Parameter visas.
+1. Klicka på **parametrar** och sidan konfiguration av Aktivitetsparameter visas.
 1. **Set-AzureRmContext** har flera parameteruppsättningar så du måste välja en innan du kan ange parametervärden. Klicka på **Parameteruppsättning** och välj parameteruppsättningen **SubscriptionId**.
-1. När du har valt parameteruppsättningen visas parametrarna i aktiviteten parametern konfigurationssidan. Klicka på **SubscriptionID**
-1. På sidan parametervärdet väljer **Variabeltillgång** för den **datakällan** och välj **AzureSubscriptionId** i listan och klicka sedan på **OK** två gånger.
+1. När du har valt parameteruppsättningen visas parametrarna på sidan konfiguration av Aktivitetsparameter. Klicka på **SubscriptionID**
+1. Värdet på parametern på sidan Välj **Variabeltillgång** för den **datakälla** och välj **AzureSubscriptionId** i listan och klicka sedan på **OK** två gånger.
 1. Hovra över **Inloggning i Azure** tills en cirkel visas längst ned i formen. Klicka på cirkeln och dra pilen till **Ange prenumerations-ID**.
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-auth-config.png)
 
-## <a name="add-activity-to-start-a-vm"></a>Lägg till aktivitet om du vill starta en virtuell dator
+## <a name="add-activity-to-start-a-vm"></a>Lägg till aktivitet för att starta en virtuell dator
 
 Nu lägger du till en **Start-AzureRmVM**-aktivitet för att starta en virtuell dator. Du kan välja valfri virtuell dator i Azure-prenumerationen och sedan hårdkodar du namnet i cmdleten.
 
@@ -159,12 +159,12 @@ Nu lägger du till en **Start-AzureRmVM**-aktivitet för att starta en virtuell 
 
 Din runbook bör se ut ungefär så här nu: <br>![Konfiguration av runbook-autentisering](media/automation-first-runbook-graphical/runbook-startvm.png)
 
-## <a name="add-additional-input-parameters"></a>Lägg till ytterligare indataparametrar
+## <a name="add-additional-input-parameters"></a>Lägga till ytterligare indataparametrar
 
 Runbook-jobbet startar den virtuella datorn i resursgruppen som du angav i cmdleten **Start-AzureRmVM**. Runbook-jobbet skulle vara mer användbart om du kunde ange när det startar. Nu lägger du till indataparametrar för runbook-jobbet för att implementera den funktionen.
 
-1. Öppna Redigeraren för grafiska genom att klicka på **redigera** på den **MyFirstRunbook grafiska** fönstret.
-1. Välj **ingående och utgående** och sedan **lägga till indata** att öppna fönstret Runbookinmatningsparameter.
+1. Öppna den grafiska redigeraren genom att klicka på **redigera** på den **MyFirstRunbook-Graphical** fönstret.
+1. Välj **indata och utdata** och sedan **Lägg till indata** att öppna fönstret indataparameter för Runbook.
 1. Ange *VMName* för **Namn**. Behåll *sträng* för **Typ**, men ändra **Obligatorisk** till *Ja*. Klicka på **OK**.
 1. Skapa en andra obligatorisk indataparameter kallad *ResourceGroupName* och klicka sedan på **OK** för att stänga fönstret **Indata och utdata**.<br> ![Indataparametrar för Runbook](media/automation-first-runbook-graphical/start-azurermvm-params-outputs.png)
 1. Välj aktiviteten **Start-AzureRmVM** och klicka på **Parametrar**.
@@ -181,7 +181,7 @@ Runbook-jobbet startar den virtuella datorn i resursgruppen som du angav i cmdle
 
 Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella datorn om den inte redan startats. Du gör detta genom att lägga till en **Get-AzureRmVM**-cmdlet till runbook-jobbet som hämtar den virtuella datorns status på instansnivå. Sedan lägger du till kodmodulen **Hämta status** för PowerShell Workflow med PowerShell-kodfragmentet för att kontrollera om den virtuella datorn körs eller är stoppad. En villkorlig länk från modulen **Hämta status** kör bara **Start-AzureRmVM** om körningsstatusen är Stoppad. Slutligen matar du ut ett meddelande som meddelar om den virtuella datorn startades eller inte med hjälp av PowerShell-cmdleten Write-Output.
 
-1. Öppna **MyFirstRunbook grafiska** i grafiska redigerare.
+1. Öppna **MyFirstRunbook-Graphical** i den grafiska redigeraren.
 1. Ta bort länken mellan **Ange prenumerations-ID** och **Start-AzureRmVM** genom att klicka på den och sedan trycka på *Del*.
 1. Skriv **Get-AzureRm** i sökrutan i bibliotekskontrollen.
 1. Lägg till **Get-AzureRmVM** på arbetsytan.
@@ -193,7 +193,7 @@ Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella 
 1. Expandera **Runbook-kontroll** i bibliotekskontrollen och lägg till **Kod** på arbetsytan.  
 1. Skapa en länk från **Get-AzureRmVM** till **Kod**.  
 1. Klicka på **Kod** och ändra etiketten i fönstret Konfiguration till **Hämta status**.
-1. Välj **kod** parameter, och **redigerare** visas.  
+1. Välj **kod** parametern och **Kodredigerare** visas.  
 1. Klistra in följande kodfragment i kodredigeraren:
 
     ```powershell-interactive
@@ -220,7 +220,7 @@ Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella 
 1. Välj länken till **Meddela att den virtuella datorn har startat** och ändra **Använd villkor** till **Sant**.
 1. För **Villkorsuttryck** skriver du *$ActivityOutput['Start-AzureRmVM'].IsSuccessStatusCode -eq $true*. Nu körs den här Write-Output-kontrollen bara om den virtuella datorn har startats.
 1. Välj länken till **Meddela att det inte gick att starta den virtuella datorn** och ändra **Använd villkor** till **Sant**.
-1. För **Villkorsuttryck** skriver du *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - ne $true*. Nu körs den här Write-Output-kontrollen bara om den virtuella datorn inte har startats. Din runbook bör se ut som följande bild: <br> ![Runbook med Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
+1. För **Villkorsuttryck** skriver du *$ActivityOutput ['Start-AzureRmVM']. IsSuccessStatusCode - ne $true*. Nu körs den här Write-Output-kontrollen bara om den virtuella datorn inte har startats. Din runbook bör se ut som på följande bild: <br> ![Runbook med Write-Output](media/automation-first-runbook-graphical/runbook-startazurermvm-complete.png)
 1. Spara runbooken och öppna Testfönster.
 1. Starta runbooken när den virtuella datorn är stoppad så bör den starta.
 
@@ -229,4 +229,5 @@ Nu ändrar du runbook-jobbet så att det endast försöker starta den virtuella 
 * Läs mer om grafisk redigering i [Grafisk redigering i Azure Automation](automation-graphical-authoring-intro.md)
 * Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 * Se hur du kommer igång med runbooks baserade på PowerShell-arbetsflöden i [Min första PowerShell-arbetsflödesbaserade runbook](automation-first-runbook-textual.md)
+
 

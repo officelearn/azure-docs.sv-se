@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d9f3ba642a5d00594aa6bdef597d5db43c2fc121
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 008fba2fd6052ac9043de6ec217cb71d17f3ecce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188988"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427108"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Förhandsversion: Azure AD lösenord protection övervakning, rapportering och felsökning
 
@@ -38,9 +38,9 @@ Händelser som loggas av olika DC agent-komponenter med hjälp av följande inte
 
 |Komponent |Händelse-ID-intervall|
 | --- | --- |
-|DC-agenten lösenord DLL-fil| 10000 19999|
+|DC-agenten lösenord DLL-fil| 10000-19999|
 |Värdprocessen för DC agent-tjänsten| 20000-29999|
-|Validering av logik för DC agent-tjänsten princip| 30000 39999|
+|Validering av logik för DC agent-tjänsten princip| 30000-39999|
 
 För en lyckad validering åtgärd, det är vanligtvis en händelse loggas från DLL-filen DC agenten lösenord filter. För en misslyckad åtgärd för verifiering, finns vanligtvis två händelser som loggats, en från DC-agenttjänsten och en från DC agenten lösenord filter DLL-filen.
 
@@ -188,7 +188,7 @@ Spårningsloggning är inaktiverad som standard.
 
 Proxy-tjänsten kan konfigureras för att skriva till en textlogg genom att ange följande registervärde:
 
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters! EnableTextLogging = registernyckelvärdet 1 (REG_DWORD)
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
 Textloggning är inaktiverad som standard. En omstart av Proxy-tjänsten krävs för ändringar i det här värdet ska börja gälla. När aktiverat proxyn skriver till en loggfil som finns under:
 

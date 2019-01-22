@@ -3,18 +3,18 @@ title: Variabler för tillgångar i Azure Automation
 description: Variabler för tillgångar är värden som är tillgängliga för alla runbooks och DSC-konfigurationer i Azure Automation.  Den här artikeln beskrivs detaljer om variabler och hur du arbetar med dem i både textbaserade och grafisk redigering.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: aaf8671ec4bfc4bcf6fecaa357f6ae983eb04499
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e60c5eee20caafc1c5ad41e3ccf568f4bd944745
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330530"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434435"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabler för tillgångar i Azure Automation
 
@@ -201,3 +201,4 @@ I följande bild visas exempel aktiviteter för att uppdatera en variabel med et
 
 * Läs mer om att ansluta aktiviteter tillsammans i grafisk redigering i [länkar i grafisk redigering](automation-graphical-authoring-intro.md#links-and-workflow)
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md) 
+

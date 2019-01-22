@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f64331c2b75df84f44486f192e17a744b43fcf9b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 5ec079e0dfecbd6c4752bab2b8eb821fb01fdabd
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244910"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432361"
 ---
 # <a name="how-to-configure-password-writeback"></a>Så här gör du: Konfigurera tillbakaskrivning av lösenord
 
@@ -48,7 +48,7 @@ Om du vill använda tillbakaskrivning av lösenord, måste du ha en av de följa
 * Azure AD Premium P1
 * Azure AD Premium P2
 * Enterprise Mobility + Security E3 eller A3
-* Enterprise Mobility + Security E5 eller A5
+* Enterprise Mobility + Security E5 or A5
 * Microsoft 365 E3 eller A3
 * Microsoft 365 E5 eller A5
 * Microsoft 365 F1

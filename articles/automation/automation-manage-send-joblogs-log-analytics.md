@@ -3,18 +3,18 @@ title: Vidarebefordra jobbdata från Azure Automation till Log Analytics
 description: Den här artikeln visar hur du skickar jobbet har statusen och runbook jobbströmmar till Azure Log Analytics för att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 06/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8a1f7e367b3f8f06e33bbcd11f8090c9578c1d30
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 0125c64a96929db9c8846ca7ad731fa3dc795f98
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53269574"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432973"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-log-analytics"></a>Vidarebefordra jobbstatus och jobbströmmar från Automation till Log Analytics
 
@@ -22,9 +22,9 @@ Automation kan skicka runbook jobbet status och jobbströmmar till Log Analytics
 
 * Få insikt i dina Automation-jobb.
 * Utlösa ett e-post eller en avisering baserat på din runbook jobbstatus (till exempel växlas eller har pausats).
-* Skriva avancerade frågor över din jobbströmmar.
-* Kombinera jobb i Automation-konton.
-* Visualisera jobbets historik över tid.
+* Skriv avancerade frågor för dina jobbströmmar.
+* Korrelera jobb för olika Automation-konton.
+* Visualisera din jobbhistorik över tid.
 
 ## <a name="prerequisites-and-deployment-considerations"></a>Krav och överväganden vid distribution
 
@@ -98,7 +98,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Beskriver jobbstatusen för runbook. Möjliga värden:<br>-Jobbet har startats<br>-Jobbet misslyckades<br>-Jobbet slutfördes |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
+| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -121,7 +121,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics oc
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
 | ResultDescription |Innehåller utdataströmmen från runbook. |
 | CorrelationId |GUID som är korrelations-Id för runbook-jobbet. |
-| Resurs-ID |Anger Azure Automation-konto resurs-id för runbook. |
+| ResourceId |Anger Azure Automation-konto resurs-id för runbook. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
 | ResourceProvider | MICROSOFT. AUTOMATION |
@@ -183,3 +183,4 @@ Log Analytics ger större ökar du synligheten för Automation-jobb och hjälper
 * Information om hur du skapar och hämta utdata och meddelanden från runbooks finns i [Runbook-utdata och meddelanden](automation-runbook-output-and-messages.md).
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
 * Läs mer om Log Analytics och datakällsamling i [insamling av Azure storage-data i Log Analytics-översikten](../azure-monitor/platform/collect-azure-metrics-logs.md).
+

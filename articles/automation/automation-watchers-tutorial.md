@@ -3,17 +3,17 @@ title: Skapa en bevakaraktivitet i Azure Automation-konto
 description: Lär dig hur du skapar en bevakaraktivitet i Azure Automation-konto för att se upp för nya filer som skapas i en mapp.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 4068ce42babb786ca33e1b0d41fdfefc7d3f78be
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52282780"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436764"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Skapa en Azure Automation-watcher uppgifter för att spåra ändringar i filen på en lokal dator
 
@@ -90,7 +90,7 @@ Bevakaraktiviteten består av två delar. Bevakaren och åtgärden. Bevakaren k�
 1. Ange följande värden för parametrarna:
 
    ***EVENTDATA** – lämna tomt. Data skickas från bevakarrunbookflöde.  
-   ***Kör inställningar** ** -lämnar som Azure som denna runbook körs i Automation-tjänsten.
+   ***Kör inställningar** -lämnar som Azure som denna runbook körs i Automation-tjänsten.
 
 1. Klicka på **OK**, och välj sedan att gå tillbaka till sidan watcher.
 1. Klicka på **OK** att skapa bevakaraktiviteten.
@@ -153,3 +153,4 @@ Följ den här länken om du vill veta mer om redigering egna runbooks.
 
 > [!div class="nextstepaction"]
 > [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md).
+

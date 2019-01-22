@@ -10,19 +10,20 @@ ms.component: manage
 ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: a4737f4308f49547178bb216b90589c596f604c9
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 7a02a7fb8043c63ce47f7f0c7dccf025ab5ab402
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118446"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421462"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
-Azure SQL Data Warehouse är en molnbaserad Enterprise Data mpp-modell som utnyttjar massivt parallell bearbetning (MPP) för att snabbt köra komplexa frågor över petabyte med data. Använd SQL Data Warehouse som en viktig komponent i en lösning för stordata. Importera stordata till SQL Data Warehouse med enkla PolyBase T-SQL-frågor och utnyttja sedan kraften i MPP för att köra högpresterande analyser. Använd informationslagret en tid för att integrera och analysera och upptäck vilket fantastiskt hjälpmedel det är för att fördjupa insikterna.
+Azure SQL Data Warehouse (SQL DW) är en molnbaserad Företagsinformationslager som utnyttjar massivt parallell bearbetning (MPP) för att snabbt köra komplexa frågor över petabyte med data. Använd SQL Data Warehouse som en viktig komponent i en lösning för stordata. Importera stordata till SQL Data Warehouse med enkla PolyBase T-SQL-frågor och utnyttja sedan kraften i MPP för att köra högpresterande analyser. Använd informationslagret en tid för att integrera och analysera och upptäck vilket fantastiskt hjälpmedel det är för att fördjupa insikterna.
 
 Klicka på länkarna nedan för att få mer information om nya funktioner och förbättringar som du kan förvänta dig i den senaste versionen av Azure SQL Data Warehouse. Du kan förvänta dig att få dessa tjänsteuppdateringar under ditt identifierade underhållsschema.
 
+- [SQL DW Version 10.0.10106.0](./release-notes-10-0-10106-0.md)
 - [December 2018](./release-notes-december-2018.md)
 - [Oktober 2018](./release-notes-october-2018.md)
 - [September 2018](./release-notes-september-2018.md)
@@ -39,9 +40,9 @@ Att fastställa vilka versionen har varit som tillämpats på ditt informationsl
 SELECT @@VERSION AS 'SQL Data Warehouse';
 ```
 
-Exempel på utdata: ![SQL Data Warehouse-version](./media/release-notes/sql_data_warehouse_version.png)
+Exempel på utdata: ![SQL Data Warehouse-version](./media/release-notes/dw-version.png)
 
-Använd det datum som identifierats för att kontrollera vilken versionen har kopplats till Azure SQL Data Warehouse. 
+Använd den version som identifierats för att kontrollera vilken versionen har kopplats till Azure SQL Data Warehouse. 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: f0b13480c06e154b85300f4a8a2f8a84db04c31b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 5424448207bca3e6db253245ce7197feae5fba21
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582385"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424990"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -105,7 +105,7 @@ Det här steget kan redan vara klar på din klient, men det är bra att kontroll
 2. Välj **Azure Active Directory** > **Azure AD Connect**
 3. Kontrollera att din synkroniseringsstatus är **aktiverad** och att den senaste synkroniseringen har mindre än en timme sedan.
 
-Om du vill sätta igång en ny runda av synkronisering oss instruktionerna i [Azure AD Connect sync: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
+Om du vill sätta igång en ny runda av synkronisering oss instruktionerna i [Azure AD Connect-synkronisering: Scheduler](../hybrid/how-to-connect-sync-feature-scheduler.md#start-the-scheduler).
 
 ### <a name="determine-which-authentication-methods-your-users-can-use"></a>Avgöra vilka autentiseringsmetoder som användarna kan använda
 

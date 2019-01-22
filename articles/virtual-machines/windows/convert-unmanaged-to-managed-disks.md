@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 26ddc1df8353a8a8b0e0c54a0c906c8d8b6b45b9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: fecf17d95231cc37a141cfb72397f44ce2e980b5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52495330"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435608"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Konvertera en Windows-dator från ohanterade diskar till managed disks
 
 Om du har befintliga Windows virtuella datorer (VM) som använder ohanterade diskar kan du konvertera de virtuella datorerna för att använda hanterade diskar via den [Azure Managed Disks](managed-disks-overview.md) service. Den här processen konverterar både operativsystemdisken och kopplade datadiskar.
 
-Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure PowerShell. Om du behöver installera eller uppgradera den kan du läsa [installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Den här artikeln visar hur du konverterar virtuella datorer med hjälp av Azure PowerShell. Om du behöver installera eller uppgradera den kan du läsa [installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 

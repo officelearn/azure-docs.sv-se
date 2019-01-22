@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 50edabb395380c8b0185736205834dd65e47317f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7cbeeefe24e6f399c959484eea8aebede4598d20
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424667"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Vanliga och frågor svar om lösenordshantering
 
@@ -33,57 +33,57 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
 
 ## <a name="password-reset-registration"></a>Registrering av lösenordsåterställning
 
-* **F: kan Mina användare registrerar sina egna data för återställning av lösenord?**
+* **F:  Mina användare kan registrera sina egna data för återställning av lösenord?**
 
-  > **S:** Ja. Så länge återställning av lösenord är aktiverat och de är licensierade användare kan gå till registreringsportalen för lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sin autentiseringsinformation. Användare kan också registrera via åtkomstpanelen (https://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver för att väljer sina profilbild **profil**, och välj sedan den **registrera för återställning av lösenord** alternativet.
+  > **A:** Ja. Så länge återställning av lösenord är aktiverat och de är licensierade användare kan gå till registreringsportalen för lösenordsåterställning (https://aka.ms/ssprsetup) att registrera sin autentiseringsinformation. Användare kan också registrera via åtkomstpanelen (https://myapps.microsoft.com). Om du vill registrera via åtkomstpanelen, de behöver för att väljer sina profilbild **profil**, och välj sedan den **registrera för återställning av lösenord** alternativet.
   >
   >
-* **F: om jag aktiverar lösenord återställa för en grupp och sedan väljer att aktivera det för alla mina användare krävs Omregistrera?**
+* **F:  Om jag aktiverar lösenord återställa för en grupp och sedan väljer att aktivera det för alla mina användare krävs Omregistrera?**
 
-  > **S:** Nej. Användare som måste fylla i autentiseringsdata krävs inte för att registrera igen.
+  > **A:** Nej. Användare som måste fylla i autentiseringsdata krävs inte för att registrera igen.
   >
   >
-* **F: kan jag definierar data om återställning av lösenord för Mina användare?**
+* **F:  Kan jag definierar data om återställning av lösenord för Mina användare?**
 
-  > **S:** Ja, kan du göra det med Azure AD Connect, PowerShell, den [Azure-portalen](https://portal.azure.com), eller Office 365 Administrationscenter. Mer information finns i [återställning av Data som används av Azure AD-självbetjäning lösenord](howto-sspr-authenticationdata.md).
+  > **A:** Ja, du kan göra det med Azure AD Connect, PowerShell, den [Azure-portalen](https://portal.azure.com), eller Office 365 Administrationscenter. Mer information finns i [återställning av Data som används av Azure AD-självbetjäning lösenord](howto-sspr-authenticationdata.md).
   >
   >
-* **F: kan jag synkroniserar data om säkerhetsfrågor från en lokal plats?**
+* **F:  Kan jag synkroniserar data om säkerhetsfrågor från en lokal plats?**
 
-  > **S:** Nej, det inte är möjligt i dag.
+  > **A:** Nej, detta är inte möjligt i dag.
   >
   >
-* **F: kan Mina användare att registrera data så att andra användare inte kan se dessa data?**
+* **F:  Mina användare kan registrera data så att andra användare inte kan se dessa data?**
 
-  > **S:** Ja. När användare registrerar data med hjälp av lösenordet återställa portalen för registrering, data sparas i privata autentisering fält som endast är synliga för globala administratörer och användaren.
+  > **A:** Ja. När användare registrerar data med hjälp av lösenordet återställa portalen för registrering, data sparas i privata autentisering fält som endast är synliga för globala administratörer och användaren.
   >
   >
-* **F: Mina användare måste registreras innan de kan använda för återställning av lösenord?**
+* **F:  Har Mina användare registreras innan de kan använda för återställning av lösenord?**
 
-  > **S:** Nej. Om du definierar tillräckligt med autentiseringsinformation för deras räkning kan inte användare att registrera. Fungerar lösenordsåterställning så länge som du har korrekt formaterade data som lagras i lämpliga fält i katalogen.
+  > **A:** Nej. Om du definierar tillräckligt med autentiseringsinformation för deras räkning kan inte användare att registrera. Fungerar lösenordsåterställning så länge som du har korrekt formaterade data som lagras i lämpliga fält i katalogen.
   >
   >
-* **F: kan jag synkronisera eller ange telefon för autentisering, autentisering e-post eller alternativa autentisering phone fälten åt mina användare?**
+* **F:  Kan jag synkronisera eller telefon för autentisering, e-post för autentisering och alternativa autentisering phone fälten åt mina användare?**
 
-  > **S:** de fält som kan ställas in av en Global administratör har definierats i artikeln [SSPR-datakrav](howto-sspr-authenticationdata.md).
+  > **A:** De fält som kan ställas in av en Global administratör har definierats i artikeln [SSPR-datakrav](howto-sspr-authenticationdata.md).
   >
   >
-* **F: hur avgöra vilka alternativ du ska visa mina användare i portalen för registrering av?**
+* **F:  Hur avgör vilka alternativ du ska visa mina användare i portalen för registrering av?**
 
-  > **S:** lösenordsåterställning registrering portalen visar endast de alternativ som du har aktiverat för dina användare. Dessa alternativ finns den **princip för lösenordsåterställning för användare** för din katalog **konfigurera** fliken. Till exempel om du inte aktiverar säkerhetsfrågor, kan sedan användare inte registrera för det valda alternativet.
+  > **A:** Registreringsportalen för lösenordsåterställning visar bara alternativ du har aktiverat för dina användare. Dessa alternativ finns den **princip för lösenordsåterställning för användare** för din katalog **konfigurera** fliken. Till exempel om du inte aktiverar säkerhetsfrågor, kan sedan användare inte registrera för det valda alternativet.
   >
   >
-* **F: när en användare anses vara registrerad?**
+* **F:  När en användare anses vara registrerad?**
 
-  > **S:** anses en användare registrerad för SSPR när de har registrerat minst **antal metoder som krävs för att återställa** ett lösenord som du har angett i den [Azure-portalen](https://portal.azure.com).
+  > **A:** En användare anses vara registrerad för SSPR när de har registrerat minst **antal metoder som krävs för att återställa** ett lösenord som du har angett i den [Azure-portalen](https://portal.azure.com).
   >
   >
 
 ## <a name="password-reset"></a>Lösenordsåterställning
 
-* **F: förhindrar du att användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
+* **F:  Hindrar användare från flera försök att återställa ett lösenord i en kort tidsperiod?**
 
-  > **S:** Ja, det finns säkerhetsfunktioner som är inbyggda i lösenordsåterställning för att skydda dem från missbruk. 
+  > **A:** Ja, det finns säkerhetsfunktioner som är inbyggda i lösenordsåterställning för att skydda dem från missbruk. 
   >
   > Du kan testa endast fem återställning lösenordsförsök inom 24 timmar innan de har låsts ute i 24 timmar. 
   >
@@ -94,187 +94,187 @@ Den här vanliga frågor och svar är uppdelat i följande avsnitt:
   > Räknarna återställs när en användare återställer sitt lösenord.
   >
   >
-* **F: hur lång tid ska vänta tar emot ett e-post, SMS eller telefonsamtal från återställning av lösenord?**
+* **F:  Hur länge ska vänta tar emot ett e-post, SMS eller telefonsamtal från återställning av lösenord?**
 
-  > **S:** e-post, SMS-meddelanden och samtal ska tas emot i mindre än en minut. I normala fall är 5 till 20 sekunder.
+  > **A:** E-post, SMS-meddelanden och samtal ska tas emot i mindre än en minut. I normala fall är 5 till 20 sekunder.
     >Om du inte får meddelandet i det här tidsintervallet:
         > * Kontrollera skräpposten.
         > * Kontrollera att talet eller e-post som kontaktas är det du förväntar dig.
         > * Kontrollera att autentiseringsdata i katalogen är korrekt formaterad exempelvis + 1 4255551234 eller *user@contoso.com*. 
   >
   >
-* **F: vilka språk som stöds för återställning av lösenord?**
+* **F:  Vilka språk stöds vid återställning av lösenord?**
 
-  > **S:** Användargränssnittet för lösenordsåterställning SMS-meddelanden och röstsamtal är lokaliserade på samma språk som stöds i Office 365.
+  > **A:** Användargränssnittet för lösenordsåterställning SMS-meddelanden och röstsamtal är lokaliserade på samma språk som stöds i Office 365.
   >
   >
-* **F: vilka delar av lösenordsåterställningen hämta märkesprodukter när jag har angett organisationens företagsanpassning objekten i min katalog är konfigurera fliken?**
+* **F:  Vilka delar av lösenordsåterställningen hämta märkesprodukter när jag har angett i organisationens företagsanpassning objekt i min katalog är konfigurera fliken?**
 
-  > **S:** portalen för återställning av lösenord visar organisationens logotyp och låter dig konfigurera länken ”Kontakta administratören” så att den pekar till en anpassad e-post eller URL. Alla e-postmeddelanden som skickas av lösenordsåterställning innehåller organisationens logotyp, färger och namn i brödtexten i e-postmeddelandet och har anpassats från inställningarna för det specifika namnet.
+  > **A:** Portalen för återställning av lösenord visar organisationens logotyp och låter dig konfigurera länken ”Kontakta administratören” så att den pekar till en anpassad e-post eller URL. Alla e-postmeddelanden som skickas av lösenordsåterställning innehåller organisationens logotyp, färger och namn i brödtexten i e-postmeddelandet och har anpassats från inställningarna för det specifika namnet.
   >
   >
-* **F: hur kan jag för att informera användarna om vart du ska gå att återställa sina lösenord?**
+* **F:  Hur kan jag för att informera användarna om vart du ska gå att återställa sina lösenord?**
 
-  > **S:** prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#sample-communication) artikeln.
+  > **A:** Prova några förslag på vår [SSPR distribution](howto-sspr-deployment.md#sample-communication) artikeln.
   >
   >
-* **F: kan jag använda den här sidan från en mobil enhet?**
+* **F:  Kan jag använda den här sidan från en mobil enhet?**
 
-  > **S:** Ja, den här sidan fungerar på mobila enheter.
+  > **A:** Ja, fungerar den här sidan på mobila enheter.
   >
   >
-* **F: det stöd för att låsa upp lokala Active Directory-konton när användare återställa sina lösenord?**
+* **F:  Det stöd för att låsa upp lokala Active Directory-konton när användare återställa sina lösenord?**
 
-  > **S:** Ja. När en användare återställer sina lösenord, om tillbakaskrivning av lösenord har distribuerats via Azure AD Connect, låses användarens konto automatiskt när de återställer sina lösenord.
+  > **A:** Ja. När en användare återställer sina lösenord, om tillbakaskrivning av lösenord har distribuerats via Azure AD Connect, låses användarens konto automatiskt när de återställer sina lösenord.
   >
   >
-* **F: hur kan jag integrera direkt till min användarens inloggning Skrivbordsmiljö för återställning av lösenord?**
+* **F:  Hur kan jag integrera direkt till min användarens inloggning Skrivbordsmiljö för återställning av lösenord?**
 
-  > **S:** om du är en Azure AD Premium-kund kan du installera Microsoft Identity Manager utan extra kostnad och distribuera lokala lösenordsåterställning av lösningen.
+  > **A:** Om du är en Azure AD Premium-kund kan du installera Microsoft Identity Manager utan extra kostnad och distribuerar den lokala lösenordsåterställning av lösningen.
   >
   >
-* **F: kan jag ställa in olika säkerhetsfrågor för olika språk?**
+* **F:  Kan jag ställa in olika säkerhetsfrågor för olika språk?**
 
-  > **S:** Nej, det inte är möjligt i dag.
+  > **A:** Nej, detta är inte möjligt i dag.
   >
   >
-* **F: hur många frågor kan jag konfigurera för säkerhetsalternativ för autentisering av frågor?**
+* **F:  Hur många frågor kan jag konfigurera för säkerhetsalternativ för autentisering av frågor?**
 
-  > **S:** du kan konfigurera upp till 20 anpassade säkerhetsfrågor i den [Azure-portalen](https://portal.azure.com).
+  > **A:** Du kan konfigurera upp till 20 anpassade säkerhetsfrågor i den [Azure-portalen](https://portal.azure.com).
   >
   >
-* **F: hur lång tid kan säkerhetsfrågor vara?**
+* **F:  Hur lång tid kan säkerhetsfrågor vara?**
 
-  > **S:** säkerhetsfrågor kan innehålla 3 till 200 tecken.
+  > **A:** Säkerhetsfrågor kan innehålla 3 till 200 tecken.
   >
   >
-* **F: hur lång tid kan svar på säkerhetsfrågor vara?**
+* **F:  Hur lång tid kan svar på säkerhetsfrågor vara?**
 
-  > **S:** svar får innehålla 3 till 40 tecken.
+  > **A:** Svar kan innehålla 3 till 40 tecken.
   >
   >
-* **F: är duplicerade svar på säkerhetsfrågor som avvisade?**
+* **F:  Är duplicerade svar på säkerhetsfrågor som avvisade?**
 
-  > **S:** Ja, vi avvisa duplicerade svar på säkerhetsfrågor.
+  > **A:** Ja, vi avvisa duplicerade svar på säkerhetsfrågor.
   >
   >
-* **F: kan en användare registrera samma säkerhetsfråga mer än en gång?**
+* **F:  Kan en användare registrera samma säkerhetsfråga mer än en gång?**
 
-  > **S:** Nej. När en användare registrerar en viss fråga, kan de registrera sig för frågan en gång.
+  > **A:** Nej. När en användare registrerar en viss fråga, kan de registrera sig för frågan en gång.
   >
   >
-* **F: är det möjligt att ange en lägsta gräns på säkerhetsfrågor för registrering och återställa?**
+* **F:  Är det möjligt att ange en lägsta gräns på säkerhetsfrågor för registrering och återställa?**
 
-  > **S:** Ja, du kan ange en gräns för registrering och en annan för återställning. Tre till fem säkerhetsfrågor kan krävas för registrering, och tre till fem frågor kan krävas för återställning.
+  > **A:** Ja, kan du ange en gräns för registrering och en annan för återställning. Tre till fem säkerhetsfrågor kan krävas för registrering, och tre till fem frågor kan krävas för återställning.
   >
   >
-* **F: Jag har konfigurerat min principen så att användarna kan använda säkerhetsfrågor för återställning, men Azure-administratörer verkar konfigureras på olika sätt.**
+* **F:  Jag har konfigurerat min principen så att användarna kan använda säkerhetsfrågor för återställning, men Azure-administratörer verkar konfigureras på olika sätt.**
 
-  > **S:** detta är förväntat beteende. Microsoft tillämpar en stark standardprincip med två gates för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar att administratörer med säkerhetsfrågor. Du hittar mer information om den här principen i den [lösenordsprinciper och begränsningar i Azure Active Directory](concept-sspr-policy.md) artikeln.
+  > **A:** Detta är förväntat beteende. Microsoft tillämpar en stark standardprincip med två gates för lösenordsåterställning för alla Azure-administratörsroller. Detta förhindrar att administratörer med säkerhetsfrågor. Du hittar mer information om den här principen i den [lösenordsprinciper och begränsningar i Azure Active Directory](concept-sspr-policy.md) artikeln.
   >
   >
-* **F: om en användare har registrerat mer än det maximala antalet frågor som krävs för återställning, hur säkerhetsfrågorna väljs under återställning?**
+* **F:  Om en användare har registrerat mer än det maximala antalet frågor som krävs för återställning, hur säkerhetsfrågorna väljs under återställning?**
 
-  > **S:** *N* antalet säkerhetsfrågor väljs slumpmässigt från det totala antalet frågor en användare har registrerat för var *N* är den mängd som har angetts för den **tal frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och presenteras vid återställning. För att förhindra att fråga till, om användaren får svar på frågorna fel urvalsprocessen startar.
+  > **A:** *N* antalet säkerhetsfrågor väljs slumpmässigt från det totala antalet frågor en användare har registrerat för var *N* är den mängd som har angetts för den **antalet frågor som krävs för att återställa** alternativet. Till exempel om en användare har registrerat fem säkerhetsfrågor, men bara tre krävs för att återställa ett lösenord, tre av de fem frågorna väljs slumpmässigt och presenteras vid återställning. För att förhindra att fråga till, om användaren får svar på frågorna fel urvalsprocessen startar.
   >
   >
-* **F: hur lång tid är e-post och SMS enstaka lösenord giltig?**
+* **F:  Hur lång tid är e-post och SMS enstaka lösenord giltig?**
 
-  > **S:** sessioners livstid för återställning av lösenord är 15 minuter. Användaren har 15 minuter att återställa sina lösenord från början av åtgärden för lösenordsåterställning. E-post och SMS engångskod är ogiltiga när den här tidsperioden har gått ut.
+  > **A:** Sessioners livstid för återställning av lösenord är 15 minuter. Användaren har 15 minuter att återställa sina lösenord från början av åtgärden för lösenordsåterställning. E-post och SMS engångskod är ogiltiga när den här tidsperioden har gått ut.
   >
   >
-* **F: kan jag hindra användare från att återställa sina lösenord?**
+* **F:  Kan jag hindra användare från att återställa sina lösenord?**
 
-  > **S:** Ja, om du använder en grupp för att aktivera SSPR, du kan ta bort en enskild användare från gruppen där användarna kan återställa sina lösenord. Om användaren är en Global administratör de behåller möjligheten att återställa sina lösenord, och det går inte att inaktivera.
+  > **A:** Om du använder en grupp för att aktivera SSPR, kan du Ja, ta bort en enskild användare från gruppen där användarna kan återställa sina lösenord. Om användaren är en Global administratör de behåller möjligheten att återställa sina lösenord, och det går inte att inaktivera.
   >
   >
 
 ## <a name="password-change"></a>Lösenordsändring
 
-* **F: var ska Mina användare gå för att ändra sina lösenord?**
+* **F:  Var ska Mina användare gå för att ändra sina lösenord?**
 
-  > **S:** användare kan ändra sina lösenord överallt där de ser sina profilbild eller ikonen, som i det övre högra hörnet av deras [Office 365](https://portal.office.com) portal eller [åtkomstpanelen](https://myapps.microsoft.com) inträffar. Användare kan ändra sina lösenord från den [Åtkomstpanelsprofil sidan](https://account.activedirectory.windowsazure.com/r#/profile). Användare kan också behöva ändra sina lösenord automatiskt på inloggningssidan för Azure AD om deras lösenord har upphört att gälla. Slutligen användare kan bläddra till den [portal Azure AD-lösenordsändring](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) direkt om de vill ändra sina lösenord.
+  > **A:** Användare kan ändra sina lösenord överallt där de ser sina profilbild eller ikonen, som i det övre högra hörnet av deras [Office 365](https://portal.office.com) portal eller [åtkomstpanelen](https://myapps.microsoft.com) inträffar. Användare kan ändra sina lösenord från den [Åtkomstpanelsprofil sidan](https://account.activedirectory.windowsazure.com/r#/profile). Användare kan också behöva ändra sina lösenord automatiskt på inloggningssidan för Azure AD om deras lösenord har upphört att gälla. Slutligen användare kan bläddra till den [portal Azure AD-lösenordsändring](https://account.activedirectory.windowsazure.com/ChangePassword.aspx) direkt om de vill ändra sina lösenord.
   >
   >
-* **F: kan Mina användare meddelas i Office-portalen när deras lokala lösenord upphör att gälla?**
+* **F:  Kan Mina användare meddelas i Office-portalen när deras lokala lösenord upphör att gälla?**
 
-  > **S:** Ja, det är möjligt i dag om du använder Active Directory Federation Services (AD FS). Om du använder AD FS följer du anvisningarna i den [skicka lösenord princip anspråk med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artikeln. Om du använder synkronisering av lösenordshash kan är det inte möjligt i dag. Vi Synkronisera inte lösenordsprinciper från lokala kataloger, så det inte är möjligt för oss upphör att gälla aviseringar till molnet upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösenord ska upphöra att gälla via PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Ja, det är möjligt i dag om du använder Active Directory Federation Services (AD FS). Om du använder AD FS följer du anvisningarna i den [skicka lösenord princip anspråk med AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) artikeln. Om du använder synkronisering av lösenordshash kan är det inte möjligt i dag. Vi Synkronisera inte lösenordsprinciper från lokala kataloger, så det inte är möjligt för oss upphör att gälla aviseringar till molnet upplevelser. I båda fallen är det också möjligt att [meddela användare vars lösenord ska upphöra att gälla via PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
-* **F: kan jag hindra användare från att ändra sina lösenord?**
+* **F:  Kan jag hindra användare från att ändra sina lösenord?**
 
-  > **S:** för endast molnbaserade användare lösenordsändringar kan inte blockeras. För lokala användare, kan du ange den **användaren kan inte ändra lösenordet** alternativet för att du har valt. De valda användarna kan inte ändra sina lösenord.
+  > **A:** Ändringar av lösenord för molnexklusiva användare kan inte blockeras. För lokala användare, kan du ange den **användaren kan inte ändra lösenordet** alternativet för att du har valt. De valda användarna kan inte ändra sina lösenord.
   >
   >
 
 ## <a name="password-management-reports"></a>Lösenordshanteringsrapporter
 
-* **F: hur lång tid tar det för de data som visas på lösenordshanteringsrapporter?**
+* **F:  Hur lång tid tar det för de data som visas på lösenordshanteringsrapporter?**
 
-  > **S:** Data ska visas på lösenordshanteringsrapporter i 5-10 minuter. I vissa fall kan det ta upp till en timme visas.
+  > **A:** Data bör visas på lösenordshanteringsrapporter i 5-10 minuter. I vissa fall kan det ta upp till en timme visas.
   >
   >
-* **F: hur kan jag för att filtrera lösenordshanteringsrapporter?**
+* **F:  Hur kan jag för att filtrera lösenordshanteringsrapporter?**
 
-  > **S:** för att filtrera lösenordshanteringsrapporter, Välj små förstoringsglaset till extrema höger om kolumnetiketterna längst upp i rapporten. Om du vill göra mer omfattande filtrering kan du ladda ned rapporten till Excel och skapa en pivottabell.
+  > **A:** Välj små förstoringsglaset till extrema höger om kolumnetiketterna längst upp i rapporten för att filtrera lösenordshanteringsrapporter. Om du vill göra mer omfattande filtrering kan du ladda ned rapporten till Excel och skapa en pivottabell.
   >
   >
 * **F: Vad är det maximala antalet händelser som lagras i lösenordshanteringsrapporter?**
 
-  > **S:** upp till 75 000 lösenord återställning eller lösenord återställning registreringshändelser lagras i lösenordshanteringsrapporter, utsträckning tillbaka så långt det är 30 dagar. Vi arbetar för att expandera det här talet med fler händelser.
+  > **A:** Upp till 75 000 återställning av lösenord eller ett lösenord lagras registreringshändelser för lösenordsåterställning i lösenordshanteringsrapporter, utsträckning tillbaka så långt det är 30 dagar. Vi arbetar för att expandera det här talet med fler händelser.
   >
   >
-* **F: hur långt tillbaka går lösenordshanteringsrapporter?**
+* **F:  Hur långt tillbaka går lösenordshanteringsrapporter?**
 
-  > **S:** lösenordshantering rapporterar show-åtgärder som inträffat under de senaste 30 dagarna. För tillfället, om du vill arkivera dessa data, kan du hämta rapporter med jämna mellanrum och spara dem i en annan plats.
+  > **A:** Lösenordshanteringsrapporter visar åtgärder som inträffat under de senaste 30 dagarna. För tillfället, om du vill arkivera dessa data, kan du hämta rapporter med jämna mellanrum och spara dem i en annan plats.
   >
   >
-* **F: finns det ett maximalt antal rader som kan visas på lösenordshanteringsrapporter?**
+* **F:  Finns det ett maximalt antal rader som kan visas på lösenordshanteringsrapporter?**
 
-  > **S:** Ja. Upp till 75 000 rader kan visas på något av lösenordshanteringsrapporter, oavsett om de visas i Användargränssnittet eller laddas ned.
+  > **A:** Ja. Upp till 75 000 rader kan visas på något av lösenordshanteringsrapporter, oavsett om de visas i Användargränssnittet eller laddas ned.
   >
   >
-* **F: finns det en API för att få åtkomst till återställning av lösenord eller registrering som rapporterar data?**
+* **F:  Finns det en API för att få åtkomst till återställning av lösenord eller registrering som rapporterar data?**
 
-  > **S:** Ja. Läs hur du kan komma åt lösenordsåterställning reporting dataströmmen i [kan få tillgång till återställning av lösenord rapporteringshändelser programmässigt](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Ja. Läs hur du kan komma åt lösenordsåterställning reporting dataströmmen i [kan få tillgång till återställning av lösenord rapporteringshändelser programmässigt](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
   >
   >
 
 ## <a name="password-writeback"></a>Tillbakaskrivning av lösenord
 
-* **F: hur fungerar tillbakaskrivning av lösenord i bakgrunden?**
+* **F:  Hur fungerar tillbakaskrivning av lösenord i bakgrunden?**
 
-  > **S:** finns i artikeln [hur tillbakaskrivning av lösenord fungerar](howto-sspr-writeback.md) för en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösenord och hur data flödar genom systemet tillbaka till din lokala miljö.
+  > **A:** Finns i artikeln [hur tillbakaskrivning av lösenord fungerar](howto-sspr-writeback.md) för en förklaring av vad som händer när du aktiverar tillbakaskrivning av lösenord och hur data flödar genom systemet tillbaka till din lokala miljö.
   >
   >
-* **F: hur lång tid tillbakaskrivning av lösenord tar ska fungera? Är det en synkronisering fördröjning har uppstått med hash-synkronisering av lösenord?**
+* **F:  Hur lång tid tillbakaskrivning av lösenord tar ska fungera? Är det en synkronisering fördröjning har uppstått med hash-synkronisering av lösenord?**
 
-  > **S:** tillbakaskrivning av lösenord är direkt. Det är en synkron pipeline som fungerar grunden annorlunda än synkronisering av lösenordshash. Tillbakaskrivning av lösenord kan du få i realtid feedback om deras återställning av lösenord eller ändra åtgärden. Genomsnittlig tid för en lyckad tillbakaskrivning av lösenord är under 500 ms.
+  > **A:** Tillbakaskrivning av lösenord är direkt. Det är en synkron pipeline som fungerar grunden annorlunda än synkronisering av lösenordshash. Tillbakaskrivning av lösenord kan du få i realtid feedback om deras återställning av lösenord eller ändra åtgärden. Genomsnittlig tid för en lyckad tillbakaskrivning av lösenord är under 500 ms.
   >
   >
-* **F: om mitt lokala konto inaktiveras, hur är min molnkonto och åtkomst påverkas?**
+* **F:  Om mitt lokala konto inaktiveras, hur är min molnkonto och åtkomst påverkas?**
 
-  > **S:** om ditt lokala-ID har inaktiverats kan dina moln-ID och åtkomst kommer också att inaktiveras när nästa synkroniseringsintervall via Azure AD Connect. Den här synkroniseringen har som standard var 30: e minut.
+  > **A:** Om ditt lokala-ID har inaktiverats kan kommer dina moln-ID och åtkomst också att inaktiveras när nästa synkroniseringsintervall via Azure AD Connect. Den här synkroniseringen har som standard var 30: e minut.
   >
   >
-* **F: om mitt lokala konto är begränsad av en lokal Active Directory-lösenordsprincip, SSPR lyder under den här principen om jag ändrar mitt lösenord?**
+* **F:  Om mitt lokala konto är begränsad av en lokal Active Directory-lösenordsprincip, SSPR lyder under den här principen om jag ändrar mitt lösenord?**
 
-  > **S:** Ja, SSPR förlitar sig på och följer av den lokala Active Directory-lösenordsprincip. Den här principen innehåller lösenordsprinciper för för vanliga Active Directory-domän, samt några definierade, detaljerade lösenordsprinciper som är riktade till en användare.
+  > **A:** Ja, förlitar sig på SSPR och följer av den lokala Active Directory-lösenordsprincip. Den här principen innehåller lösenordsprinciper för för vanliga Active Directory-domän, samt några definierade, detaljerade lösenordsprinciper som är riktade till en användare.
   >
   >
-* **F: vilka typer av konton fungerar tillbakaskrivning av lösenord för?**
+* **F:  Vilka typer av konton fungerar tillbakaskrivning av lösenord fungerar för?**
 
-  > **S:** lösenord tillbakaskrivning av fungerar för användarkonton som synkroniseras från en lokal Active Directory till Azure AD, inklusive federerad lösenords-hash som synkroniseras och genomströmning Autentication användare.
+  > **A:** Tillbakaskrivning av lösenord fungerar för användarkonton som synkroniseras från en lokal Active Directory till Azure AD, inklusive federerad, lösenord hash-synkroniserade och anslutningsdiskar Autentication-användare.
   >
   >
-* **F: kan framtvinga tillbakaskrivning av lösenord min domän lösenordsprinciper?**
+* **F:  Påtvingar tillbakaskrivning av lösenord min domän lösenordsprinciper?**
 
-  > **S:** Ja. Tillbakaskrivning av lösenord framtvingar ålder för lösenord, historik, komplexitet, filter och andra begränsningar som du kan utsätta på plats för lösenord i den lokala domänen.
+  > **A:** Ja. Tillbakaskrivning av lösenord framtvingar ålder för lösenord, historik, komplexitet, filter och andra begränsningar som du kan utsätta på plats för lösenord i den lokala domänen.
   >
   >
-* **F: är det säkert att tillbakaskrivning av lösenord?  Hur vet jag att jag inte kommer över ditt konto?**
+* **F:  Är tillbakaskrivning av lösenord säker?  Hur vet jag att jag inte kommer över ditt konto?**
 
-  > **S:** Ja, tillbakaskrivning av lösenord är säker. Om du vill läsa mer om flera säkerhetslager implementeras av tjänsten för tillbakaskrivning av lösenord, Kolla in den [säkerhet för tillbakaskrivning av lösenord](concept-sspr-writeback.md#password-writeback-security) i avsnittet den [översikt för tillbakaskrivning av lösenord](howto-sspr-writeback.md) artikeln.
+  > **A:** Ja, tillbakaskrivning av lösenord är säker. Om du vill läsa mer om flera säkerhetslager implementeras av tjänsten för tillbakaskrivning av lösenord, Kolla in den [säkerhet för tillbakaskrivning av lösenord](concept-sspr-writeback.md#password-writeback-security) i avsnittet den [översikt för tillbakaskrivning av lösenord](howto-sspr-writeback.md) artikeln.
   >
   >
 

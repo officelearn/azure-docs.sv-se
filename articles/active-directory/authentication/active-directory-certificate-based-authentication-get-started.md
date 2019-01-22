@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: annaba
-ms.openlocfilehash: 3172ba12fbbd0135d1a5a3684145787c83aad040
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 7d8c0a837f5618580c5e76e5ca97e19844b95698
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242423"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427176"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Kom igång med certifikatbaserad autentisering i Azure Active Directory
 
@@ -161,7 +161,7 @@ Följande steg beskriver hur du uppdaterar och ogiltigförklara autentiseringsto
 
 Det datum som du anger måste vara i framtiden. Om datumet inte är i framtiden kan den **StsRefreshTokensValidFrom** egenskapen har inte angetts. Om datumet är i framtiden, **StsRefreshTokensValidFrom** anges till den aktuella tiden (inte det datum som anges med kommandot Set-MsolUser).
 
-## <a name="step-4-test-your-configuration"></a>Steg 4: Testa konfigurationen
+## <a name="step-4-test-your-configuration"></a>Steg 4: Testa din konfiguration
 
 ### <a name="testing-your-certificate"></a>Testa ditt certifikat
 

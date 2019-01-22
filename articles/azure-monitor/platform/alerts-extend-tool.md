@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: bdc3646116dfd5f16c0c039c4fb95d11c6593adf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: alerts
+ms.openlocfilehash: dc8c1733f506870765523b17c1fc3e283ff9cbdb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121001"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423283"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Utöka aviseringar från Log Analytics till Azure-aviseringar
 Funktionen för säkerhetsvarningar i Azure Log Analytics ersätts av Azure-aviseringar. Som en del av denna övergång utökas aviseringar som du ursprungligen konfigurerades i Log Analytics till Azure. Om du inte vill vänta tills de flyttas automatiskt till Azure, kan du starta processen:
@@ -37,7 +37,7 @@ Följande steg beskriver hur du utökar aviseringar för arbetsytan från Operat
 ![Skärmbild av Operations Management Suite aviseringsinställningar portalsidan med utöka till Azure markerat](media/alerts-extend-tool/ExtendInto.png)
 6. En tre steg-guiden som visas i den **aviseringar** fönstret. Läs översikten och välj **nästa**.
 ![Skärmbild av steg 1 i guiden](media/alerts-extend-tool/ExtendStep1.png)  
-7. I det andra steget, visas en sammanfattning av de föreslagna ändringarna lista lämpliga [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md) för aviseringarna. Om liknande åtgärder ses över fler än en avisering, föreslår guiden associera en enda åtgärd-grupp med alla.  Namngivningskonventionen är följande: *WorkspaceName_AG_ #Number*. Om du vill fortsätta, Välj **nästa**.
+7. I det andra steget, visas en sammanfattning av de föreslagna ändringarna lista lämpliga [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md) för aviseringarna. Om liknande åtgärder ses över fler än en avisering, föreslår guiden associera en enda åtgärd-grupp med alla.  Namngivningskonventionen är följande: *WorkspaceName_AG_#Number*. Om du vill fortsätta, Välj **nästa**.
 ![Skärmbild av steg 2 i guiden](media/alerts-extend-tool/ExtendStep2.png)  
 8. I det sista steget i guiden väljer du **Slutför**, och bekräfta när du uppmanas att starta processen. Du kan också ange en e-postadress så att du meddelas när processen är klar och alla aviseringar har flyttats till Azure-aviseringar.
 ![Skärmbild av steg 3 i guiden](media/alerts-extend-tool/ExtendStep3.png)
@@ -52,7 +52,7 @@ Aviseringar fortsätter att listas i Operations Management Suite-portalen, även
 ## <a name="option-2-use-the-alertsversion-api"></a>Alternativ 2: Använd AlertsVersion API
 Du kan använda Log Analytics AlertsVersion API för att utöka aviseringar från Log Analytics till Azure-aviseringar från alla klienter som kan anropa en REST-API. Du kan komma åt API: et från PowerShell med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient), ett kommandoradsverktyg med öppen källkod. Du kan spara resultaten i JSON.  
 
-Om du vill använda API: et måste skapa du först en GET-begäran. Detta utvärderar och returnerar en sammanfattning av de föreslagna ändringarna innan du försöker att utöka till Azure med hjälp av en POST-begäran. I resultatlistan dina aviseringar och en föreslagen lista över [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md), i JSON-format. Om liknande åtgärder ses över fler än en avisering, föreslår tjänsten att associera dem alla med en enskild åtgärdsgrupp. Namngivningskonventionen är följande: *WorkspaceName_AG_ #Number*.
+Om du vill använda API: et måste skapa du först en GET-begäran. Detta utvärderar och returnerar en sammanfattning av de föreslagna ändringarna innan du försöker att utöka till Azure med hjälp av en POST-begäran. I resultatlistan dina aviseringar och en föreslagen lista över [åtgärdsgrupper](../../azure-monitor/platform/action-groups.md), i JSON-format. Om liknande åtgärder ses över fler än en avisering, föreslår tjänsten att associera dem alla med en enskild åtgärdsgrupp. Namngivningskonventionen är följande: *WorkspaceName_AG_#Number*.
 
 ```
 armclient GET  /subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>/alertsversion?api-version=2017-04-26-preview
@@ -481,3 +481,4 @@ Här följer anvisningarna för reparation för varje fel:
 
 * Mer information om den nya [Azure Alerts uppleva](../../azure-monitor/platform/alerts-overview.md).
 * Lär dig mer om [loggaviseringar i Azure Alerts](alerts-unified-log.md).
+

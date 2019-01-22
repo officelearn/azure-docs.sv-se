@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2018
 ms.author: jdial
-ms.openlocfilehash: 366ff0b59835ca3a28cafd5de77c0bd645ff58c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d05adabc9bbabdb9f6d1af9831dbb33afe63cf87
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984236"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424650"
 ---
 # <a name="diagnose-a-virtual-machine-network-traffic-filter-problem"></a>Diagnostisera problem med virtuella nätverk trafik filter
 
@@ -44,8 +44,8 @@ Stegen nedan förutsätter att du har en befintlig virtuell dator att visa de ef
 
    Reglerna du ser i föregående bild är för ett nätverksgränssnitt med namnet **myVMVMNic**. Du ser att det finns **regler för INKOMMANDE PORTAR** för nätverksgränssnittet från två olika nätverkssäkerhetsgrupper:
    
-   - **mySubnetNSG**: som är associerade med det undernät som nätverksgränssnittet finns i.
-   - **myVMNSG**: som är kopplad till nätverksgränssnittet i den virtuella datorn med namnet **myVMVMNic**.
+   - **mySubnetNSG**: Är kopplat till det undernät som nätverksgränssnittet finns i.
+   - **myVMNSG**: Som är kopplad till nätverksgränssnittet i den virtuella datorn med namnet **myVMVMNic**.
 
    Regeln med namnet **DenyAllInBound** är vad förhindrar inkommande kommunikation till den virtuella datorn via port 80, från internet, enligt beskrivningen i den [scenariot](#scenario). Regeln listorna *0.0.0.0/0* för **källa**, som innehåller internet. Ingen annan regel med högre prioritet (lägre nummer) tillåter port 80 inkommande. Att tillåta port 80 inkommande till den virtuella datorn från internet, se [lösa ett problem](#resolve-a-problem). Läs mer om säkerhetsregler och hur Azure tillämpar dem i [Nätverkssäkerhetsgrupper](security-overview.md).
 
@@ -77,7 +77,7 @@ Stegen nedan förutsätter att du har en befintlig virtuell dator att visa de ef
 
 ## <a name="diagnose-using-powershell"></a>Diagnostisera med hjälp av PowerShell
 
-Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.0.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Login-AzureRmAccount` att logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions)].
+Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.0.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också behöva köra `Login-AzureRmAccount` att logga in på Azure med ett konto som har den [behörighet](virtual-network-network-interface.md#permissions)].
 
 Hämta effektiva säkerhetsregler för ett nätverksgränssnitt med [Get-AzureRmEffectiveNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermeffectivenetworksecuritygroup). I följande exempel hämtas de effektiva säkerhetsreglerna för ett nätverksgränssnitt med namnet *myVMVMNic*, som i en resursgrupp med namnet *myResourceGroup*:
 
@@ -155,8 +155,8 @@ I den föregående utdatan, namnet på nätverksgränssnittet som är *myVMVMNic
 Oavsett om du använde den [PowerShell](#diagnose-using-powershell), eller [Azure CLI](#diagnose-using-azure-cli) för att felsöka problemet visas utdata som innehåller följande information:
 
 - **NetworkSecurityGroup**: ID för nätverkssäkerhetsgruppen.
-- **Associationen**: om nätverkssäkerhetsgruppen är kopplad till en *NetworkInterface* eller *undernät*. Om en NSG är associerad till båda, utdata returneras med **NetworkSecurityGroup**, **Association**, och **EffectiveSecurityRules**, för varje NSG. Om NSG: N som associeras eller avassocieras omedelbart innan du kör kommandot för att visa de effektiva säkerhetsreglerna, kan du behöva vänta några sekunder innan ändringarna återspeglas i kommandoutdata.
-- **EffectiveSecurityRules**: en förklaring av varje egenskap beskrivs i [skapa en säkerhetsregel](manage-network-security-group.md#create-a-security-rule). Regeln namn som inleds med *defaultSecurityRules /* är standard säkerhetsregler som finns i varje NSG. Regeln namn som inleds med *securityRules /* är regler som du har skapat. Regler som anger en [tjänsttaggen](security-overview.md#service-tags), till exempel **Internet**, **VirtualNetwork**, och **AzureLoadBalancer** för den  **destinationAddressPrefix** eller **sourceAddressPrefix** egenskaperna kan också ha värden för den **expandedDestinationAddressPrefix** egenskapen. Den **expandedDestinationAddressPrefix** egenskapslistor alla adressprefix som representeras av tjänsttaggen.
+- **Associationen**: Om nätverkssäkerhetsgruppen är kopplad till en *NetworkInterface* eller *undernät*. Om en NSG är associerad till båda, utdata returneras med **NetworkSecurityGroup**, **Association**, och **EffectiveSecurityRules**, för varje NSG. Om NSG: N som associeras eller avassocieras omedelbart innan du kör kommandot för att visa de effektiva säkerhetsreglerna, kan du behöva vänta några sekunder innan ändringarna återspeglas i kommandoutdata.
+- **EffectiveSecurityRules**: En förklaring av varje egenskap beskrivs i [skapa en säkerhetsregel](manage-network-security-group.md#create-a-security-rule). Regeln namn som inleds med *defaultSecurityRules /* är standard säkerhetsregler som finns i varje NSG. Regeln namn som inleds med *securityRules /* är regler som du har skapat. Regler som anger en [tjänsttaggen](security-overview.md#service-tags), till exempel **Internet**, **VirtualNetwork**, och **AzureLoadBalancer** för den  **destinationAddressPrefix** eller **sourceAddressPrefix** egenskaperna kan också ha värden för den **expandedDestinationAddressPrefix** egenskapen. Den **expandedDestinationAddressPrefix** egenskapslistor alla adressprefix som representeras av tjänsttaggen.
 
 Om du ser duplicerade regler som visas i utdata, beror det på att en NSG är associerad till både nätverksgränssnittet och undernätet. Både NSG: er har samma standardregler och kan ha ytterligare duplicerade regler, om du har skapat dina egna regler som är samma i båda NSG: er.
 
@@ -175,7 +175,7 @@ Om du använder Azure [portal](#diagnose-using-azure-portal), [PowerShell](#diag
 | Protokoll                | TCP                                                                                |
 | Åtgärd                  | Tillåt                                                                              |
 | Prioritet                | 100                                                                                |
-| Namn                    | Tillåt HTTP-alla                                                                     |
+| Namn                    | Allow-HTTP-All                                                                     |
 
 När du har skapat regeln port 80 tillåts inkommande från internet, eftersom regelns prioritet är högre än standardsäkerhetsregel som heter *DenyAllInBound*, som nekar trafik. Lär dig hur du [skapa en säkerhetsregel](manage-network-security-group.md#create-a-security-rule). Om olika NSG: er är kopplade till både nätverksgränssnittet och undernätet, måste du skapa samma regel i båda NSG: er.
 

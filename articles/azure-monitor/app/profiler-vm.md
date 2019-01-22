@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 3f720cdf369e7377f16bb2ea9cba7e898097cc29
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 4dfe4140fbc4238af014d838d31aae167cdd1c16
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359790"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438770"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Profil för web apps som körs på virtuella Azure-datorer eller en virtuell datorskalning in med hjälp av Application Insights Profiler
 
@@ -29,7 +29,7 @@ Du kan också distribuera Azure Application Insights Profiler på de här tjäns
 ## <a name="deploy-profiler-on-a-virtual-machine-or-a-virtual-machine-scale-set"></a>Distribuera Profiler på en virtuell dator eller en VM-skalningsuppsättning
 Den här artikeln visar hur du hämtar Application Insights Profiler som körs på din Azure-dator (VM) eller Azure virtual machine scale Sets. Profiler har installerats med Azure Diagnostics-tillägget för virtuella datorer. Konfigurera tillägg för att köra Profiler och skapa Application Insights SDK i ditt program.
 
-1. Lägg till Application Insights SDK till din [ASP.NET-program](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) eller vanliga [.NET-program](https://docs.microsoft.com/azure/application-insights/windows-services?toc=/azure/azure-monitor/toc.json).  
+1. Lägg till Application Insights SDK till din [ASP.NET-program](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) eller vanliga [.NET-program](windows-services.md?toc=/azure/azure-monitor/toc.json).  
   Om du vill visa profiler för dina begäranden, måste du skicka begärandetelemetri till Application Insights.
 
 1. Installera Azure-diagnostiktillägget på den virtuella datorn. Fullständig Resource Manager-mallexempel finns:  
@@ -88,6 +88,6 @@ Vi har inga planer på att stöd för Application Insights Profiler för lokala 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Generera trafik till ditt program (till exempel starta en [tillgänglighetstestet](https://docs.microsoft.com/azure/application-insights/monitor-web-app-availability)). Vänta 10 till 15 minuter innan spårningarna starta som ska skickas till Application Insights-instans.
-- Se [Profiler-spårningar](https://docs.microsoft.com/azure/application-insights/profiler-overview?toc=/azure/azure-monitor/toc.json) i Azure-portalen.
+- Generera trafik till ditt program (till exempel starta en [tillgänglighetstestet](monitor-web-app-availability.md)). Vänta 10 till 15 minuter innan spårningarna starta som ska skickas till Application Insights-instans.
+- Se [Profiler-spårningar](profiler-overview.md?toc=/azure/azure-monitor/toc.json) i Azure-portalen.
 - Om du vill ha hjälp med felsökning av problem med Profiler finns i [Profiler felsökning](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).

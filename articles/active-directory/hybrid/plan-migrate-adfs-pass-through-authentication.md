@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: Migrera från federation till direktautentisering för Azure AD | Microsoft Docs'
-description: Information om hur du flyttar din hybrid identity-miljö från federation till direktautentisering.
+title: 'Azure AD Connect: Migrera från federation till direktautentisering för Azure Active Directory | Microsoft Docs'
+description: Den här artikeln innehåller information om hur du flyttar din hybridmiljön identitet från federation till direktautentisering.
 services: active-directory
 author: billmath
 manager: mtillman
@@ -11,74 +11,77 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c7d236769d5e9adca0402affc2d0eccdf78a6837
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 52acac64180ae7d6d545ec5edaa1473e47290020
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107760"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438651"
 ---
-# <a name="migrate-from-federation-to-pass-through-authentication-for-azure-ad"></a>Migrera från federation till direktautentisering för Azure AD
-Följande dokument innehåller vägledning om hur du flyttar från AD FS till direktautentisering.
+# <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från federation till direktautentisering för Azure Active Directory
 
->[!NOTE]
->Ett nedladdningsbart en kopia av det här dokumentet är tillgänglig [här](https://aka.ms/ADFSTOPTADPDownload).
+Den här artikeln beskriver hur du flyttar din organisation domäner från Active Directory Federation Services (AD FS) till direktautentisering.
 
-## <a name="prerequisites-for-pass-through-authentication"></a>Krav för direktautentisering
-Följande krav måste anges innan du kan migrera.
+Du kan [ladda ned den här artikeln](https://aka.ms/ADFSTOPTADPDownload).
+
+## <a name="prerequisites-for-migrating-to-pass-through-authentication"></a>Förutsättningar för att migrera till direktautentisering
+
+Följande krävs för att migrera från med hjälp av AD FS till med hjälp av direktautentisering.
+
 ### <a name="update-azure-ad-connect"></a>Uppdatera Azure AD Connect
 
-Du bör ha minst ska kunna genomföra stegen för att migrera till direktautentisering [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Den här versionen innehåller betydande förändringar i hur inloggning konverteringen utförs och minskar den totala tid att migrera från Federation till autentisering i molnet från potentiellt timmar och minuter.
+För att slutföra de steg som det tar för att migrera till med hjälp av direktautentisering, måste du ha [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 eller en senare version. I Azure AD Connect 1.1.819.0 utföra sätt logga in konvertering ändringar avsevärt. Den totala tid att migrera från AD FS till autentisering i molnet i den här versionen har minskats från potentiellt timmar till några minuter.
 
 > [!IMPORTANT]
-> Inaktuella dokumentation, verktyg och bloggar tyda på att användarkonvertering är ett obligatoriskt steg vid konvertering domäner från federerade till hanterade. **Konvertera användare** är krävs inte längre och Microsoft arbetar på att uppdatera dokumentation och verktyg för att återspegla detta.
+> Du kan läsa i inaktuella dokumentation, verktyg och bloggar att användarkonvertering krävs när du konverterar domäner från federerad identitet till hanterad identitet. *Konvertera användare* inte längre behövs. Microsoft arbetar med för att uppdatera dokumentation och verktyg för att ändringen visas.
 
-Uppdatera Azure AD Connect till den senaste versionen gå igenom den här [uppdatera instruktioner](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+Om du vill uppdatera Azure AD Connect måste du slutföra stegen i [Azure AD Connect: Uppgradera till den senaste versionen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
 ### <a name="plan-authentication-agent-number-and-placement"></a>Planera autentisering agenten antal och placering
 
-Direktautentisering åstadkoms genom att distribuera lätt agenter på de Azure AD Connect-servern och på din lokala Windows-servrar. Installera agenter så nära som möjligt till dina Active Directory-domänkontrollanter som minskar svarstiderna.
+Direktautentisering kräver distribution av lightweight agenter på Azure AD Connect-servern och på din lokala dator som kör Windows Server. Installera agenter så nära som möjligt till dina Active Directory-domänkontrollanter för att minska svarstiden.
 
-För de flesta kunder två eller tre autentisering agenter är tillräckligt för hög tillgänglighet och kapacitet och en klient kan ha mer än 12 agenter som har registrerats. Första agenten installeras alltid på AAD Connect själva servern. Referera till den [information om nätverk trafik uppskattningar och prestanda hos](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations) agenten begränsningar och alternativ för agenten.
+Två eller tre autentiseringsagenter är tillräckliga för att tillhandahålla hög tillgänglighet och kapaciteten som krävs för de flesta kunder. En klient kan ha upp till 12 agenter som har registrerats. Första agenten installeras alltid på själva Azure AD Connect-servern. Läs om agenten begränsningar och alternativ för agenten i [Azure AD-direktautentisering: Aktuella begränsningar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-current-limitations).
 
-### <a name="plan-migration-method"></a>Planera migreringsmetod
+### <a name="plan-the-migration-method"></a>Planera migreringsmetod
 
-Det finns två metoder för att migrera från federerad autentisering till PTA och sömlös enkel inloggning. Vilken metod du använder beror på hur AD FS ursprungligen konfigurerades.
+Du kan välja från två metoder för att migrera från federerad Identitetshantering till direktautentisering och sömlös enkel inloggning (SSO). Vilken metod du använder beror på hur din instans av AD FS ursprungligen konfigurerades.
 
-- **Använda Azure AD Connect**. Om AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect och ändringen direktautentisering *måste* utföras via Azure AD Connect-guiden.
+* **Azure AD Connect**. Om du ursprungligen konfigurerades AD FS med hjälp av Azure AD Connect, du *måste* ändra till direktautentisering med hjälp av Azure AD Connect-guiden.
 
-När du använder Azure AD Connect, körs det cmdleten Set-MsolDomainAuthentication du automatiskt när du ändrar inloggningsmetod för användare och därför du har ingen kontroll över den unfederating alla verifierade federerade domäner i Azure AD-klienten.  
-‎  
-> [!NOTE]
-> För närvarande kan du inte undvika icke federating alla domäner i din klientorganisation när du ändrar användaren logga in på direktautentisering när AAD Connect användes ursprungligen för att konfigurera AD FS för dig.  
+   Azure AD Connect körs automatiskt den **Set-MsolDomainAuthentication** cmdlet när du ändrar inloggningsmetod för användare. Azure AD Connect unfederates automatiskt alla verifierade federerade domäner i Azure AD-klienten.
+
+   > [!NOTE]
+   > För närvarande om du ursprungligen använde Azure AD Connect kan konfigurera AD FS kan du undvika unfederating alla domäner i din klientorganisation när du ändrar den användaren logga in till direktautentisering.
 ‎
-- **Använda Azure AD Connect med PowerShell**. Den här metoden kan endast användas när AD FS inte ursprungligen konfigurerades med Azure AD Connect. Du måste ändra metoden användare logga in via Azure AD Connect-guiden, men den grundläggande skillnaden är att den inte körs automatiskt cmdleten Set-MsolDomainAuthentication åt dig när den har ingen medvetenhet om AD FS-gruppen och därför har du fullständig kontroll över vilka domäner konverteras och i vilken ordning.
+* **Azure AD Connect med PowerShell**. Du kan använda den här metoden om du inte har ursprungligen konfigurera AD FS med hjälp av Azure AD Connect. För det här alternativet kan ändra du fortfarande metoden användare logga in via Azure AD Connect-guiden. Den grundläggande skillnaden med det här alternativet är att guiden automatiskt inte körs den **Set-MsolDomainAuthentication** cmdlet. Med det här alternativet har du fullständig kontroll över vilka domäner konverteras och i vilken ordning.
 
-Utför steg i följande avsnitt för att förstå vilken metod du ska använda.
+Slutför stegen i följande avsnitt för att förstå vilken metod du ska använda.
 
 #### <a name="verify-current-user-sign-in-settings"></a>Kontrollera aktuell användare logga in inställningarna
 
-Kontrollera dina aktuella användare logga in inställningar genom att logga in på Azure AD-portalen [ https://aad.portal.azure.com ](https://aad.portal.azure.com/) med ett globalt administratörskonto. 
+1. Logga in på den [Azure AD-portalen](https://aad.portal.azure.com/) med hjälp av ett globalt administratörskonto.
+2. I den **användarinloggning** verifierar du följande inställningar:
+   * **Federation** är inställd på **aktiverad**.
+   * **Sömlös enkel inloggning** är inställd på **inaktiverad**.
+   * **Direktautentisering** är inställd på **inaktiverad**.
 
-I den **användaren logga In** verifierar som **Federation** är **aktiverad** och att **sömlös enkel inloggning** och  **Direktautentisering** är **inaktiverad**. 
-
-![Bild 5](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
+   ![Skärmbild av inställningarna i avsnittet för Azure AD Connect-användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image1.png)
 
 #### <a name="verify-how-federation-was-configured"></a>Kontrollera hur federation har konfigurerats
 
-   1. Gå till din Azure AD Connect-servern och starta Azure AD Connect och välj sedan **konfigurera**.
-   2. På den **ytterligare uppgifter** väljer **visa aktuell konfiguration** och välj sedan **nästa**.</br>
-   ![Bild 31](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)</br>
-   3. I den **granska din lösning** skärmen, rulla ned till **Active Directory Federation Services (AD FS)**.</br>
-   Om du ser att AD FS-konfigurationen är i det här avsnittet och sedan på ett säkert sätt kan du anta AD FS ursprungligen konfigurerades via Azure AD Connect och kan därför konvertering av din domänerna från federerad som hanteras kan också styras via Azure AD Connect  **Ändra användarinloggning** alternativ, den här processen beskrivs i avsnittet **alternativ 1: Konfigurerar direktautentisering med hjälp av Azure AD Connect**.  
-‎
-   4. Om du inte kan se Active Directory Federation Services som visas i de aktuella inställningarna så måste du manuellt konvertera domänerna från federerat till hanteras via PowerShell som beskrivs i avsnittet **alternativ 2 - växel från Federation till PTA med Azure AD Connect och PowerShell**.
+1. Öppna Azure AD Connect på din Azure AD Connect-servern. Välj **konfigurera**.
+2. På den **ytterligare uppgifter** väljer **visa aktuell konfiguration**, och välj sedan **nästa**.<br />
+ 
+   ![Skärmbild av alternativet Visa aktuell konfiguration på sidan ytterligare uppgifter](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image2.png)<br />
+3. På den **granska din lösning** , bläddrar du till **Active Directory Federation Services (AD FS)**.<br />
+
+   * Om AD FS-konfigurationen visas i det här avsnittet, kan du på ett säkert sätt anta att AD FS ursprungligen konfigurerades med hjälp av Azure AD Connect. Du kan konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av Azure AD Connect **ändra användarinloggning** alternativet. Mer information om processen finns i avsnittet **alternativ 1: Konfigurera direktautentisering med hjälp av Azure AD Connect**.
+   * Om AD FS inte visas i de aktuella inställningarna, måste du manuellt konvertera dina domäner från federerad identitet till hanterad identitet med hjälp av PowerShell. Mer information om den här processen finns i avsnittet **alternativ 2: Växla från federation till direktautentisering med hjälp av Azure AD Connect och PowerShell**.
 
 ### <a name="document-current-federation-settings"></a>Dokumentet aktuella federationsinställningar
 
-Du hittar den aktuella inställningen genom att köra cmdleten Get-MsolDomainFederationSettings.
-
-Kommandot är:
+Du hittar de aktuella inställningarna för federation genom att köra den **Get-MsolDomainFederationSettings** cmdlet:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
@@ -90,321 +93,365 @@ Exempel:
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
 ```
 
+Kontrollera alla inställningar som kan ha anpassats för dokumentationen för federation design och distribution. Mer specifikt söker för anpassningar i **PreferredAuthenticationProtocol**, **SupportsMfa**, och **PromptLoginBehavior**.
 
-Validera alla inställningar som kanske har anpassats till dina Federation design- och dokumentation, mer specifikt **PreferredAuthenticationProtocol**, **SupportsMfa**, och  **PromptLoginBehavior**.
+Mer information finns i dessa artiklar:
 
-Mer information om vad inställningarna finns nedan.
-
-[Active Directory Federation Services uppmana = parameterstöd för inloggning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)  
-‎[Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
+* [AD FS-prompten = parameterstöd för inloggning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)
+* [Set-MsolDomainAuthentication](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainauthentication?view=azureadps-1.0)
 
 > [!NOTE]
-> Om SupportsMfa är för närvarande värdet ”true” sedan detta innebär att du använder en lokala MFA-lösning för att mata in en 2nd factor-utmaning i autentiseringsflödet för användaren. Detta fungerar inte längre för scenarier med Azure AD-autentisering och i stället måste du använda Azure MFA (molnbaserad) tjänst för att utföra samma funktion. Noggrant utvärdera dina krav på MFA innan du går vidare och se till att du förstår hur du utnyttjar Azure MFA och licensiering konsekvenserna registreringsprocessen för användaren innan du konverterar dina domäner.
+> Om **SupportsMfa** är inställd på **SANT**, du använder en lokal multifaktorautentisering lösning för att mata in en andra faktor-utmaning i autentiseringsflödet för användaren. Den här konfigurationen fungerar inte längre för scenarier med Azure AD-autentisering. 
+>
+> Använd i stället Azure Multi-Factor Authentication molnbaserad tjänst för att utföra samma funktion. Utvärdera din multifaktorautentiseringskrav noggrant innan du fortsätter. Innan du konverterar domäner, se till att du förstår hur du använder Azure Multi-Factor Authentication och licensiering konsekvenserna registreringsprocessen för användaren.
 
-#### <a name="backup-federation-settings"></a>Säkerhetskopiering federationsinställningar
+#### <a name="back-up-federation-settings"></a>Säkerhetskopiera federationsinställningar
 
-Även om inga ändringar görs till andra förlitande part på AD FS-gruppen under den här processen, bör du kontrollera att du har en aktuell giltig säkerhetskopia av din AD FS-servergrupp som kan återställas. Du kan göra detta med hjälp av den kostnadsfria Microsoft [AD FS snabb återställa verktyget](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool). Det här verktyget kan användas för att säkerhetskopiera och återställa AD FS, antingen till en befintlig grupp eller en ny grupp.
+Även om inga ändringar görs till andra förlitande parter i din AD FS-servergrupp under de processer som beskrivs i den här artikeln, rekommenderar vi att du har en aktuell giltig säkerhetskopia av AD FS-gruppen som du kan återställa från. Du kan skapa en aktuell giltig säkerhetskopia med hjälp av den kostnadsfria Microsoft [AD FS snabb återställa verktyget](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-rapid-restore-tool). Du kan använda verktyget för att säkerhetskopiera AD FS och för att återställa en befintlig servergrupp eller skapa en ny servergrupp.
 
-Om du väljer att inte använda AD FS snabb återställa verktyget, bör sedan minst du exportera ”Microsoft Office 365 Identity-plattformen” förlitande parten och alla associerade anpassade anspråksregler som du har lagt till. Du kan göra detta via följande PowerShell-exempel
+Om du väljer att inte använda AD FS snabb återställa verktyg, minst, ska du exportera Microsoft Office 365 Identity Platform förlitande parten och alla associerade anpassade anspråksregler som du har lagt till. Du kan exportera förtroende för förlitande part och associerade anspråksregler med hjälp av följande PowerShell-exempel:
 
 ``` PowerShell
 (Get-AdfsRelyingPartyTrust -Name "Microsoft Office 365 Identity Platform") | Export-CliXML "C:\temp\O365-RelyingPartyTrust.xml"
 ```
 
-## <a name="deployment-considerations-and-ad-fs-usage"></a>Överväganden vid distribution och användning av AD FS
+## <a name="deployment-considerations-and-using-ad-fs"></a>Överväganden vid distribution och använder AD FS
 
-### <a name="validate-your-current-ad-fs-usage"></a>Verifiera din nuvarande förbrukning i AD FS
+Det här avsnittet beskrivs överväganden vid distribution och information om hur du använder AD FS.
 
-Innan du konverterar federerade till hanterade bör bör du titta på hur du använder AD FS i dag för Azure AD/Office 365 och andra program (förtroenden för förlitande part). Mer specifikt bör du i följande tabell:
+### <a name="current-ad-fs-use"></a>Den aktuella AD FS använder
 
-| Om| sedan |
+Innan du konverterar från federerad identitet till hanterad identitet, titta på hur du använder AD FS för Azure AD, Office 365 och andra program (förtroenden för förlitande part). Mer specifikt beskriver scenarier som beskrivs i följande tabell:
+
+| Om | sedan |
 |-|-|
-| Du kommer att behålla AD FS för andra program.| Du kommer att använda både AD FS och Azure AD och kommer att behöva tänka på slutanvändarens upplevelse som ett resultat. Användare kan behöva autentisera två gånger i vissa fall kan en gång till Azure AD (där de får enkel inloggning och senare till andra program som Office 365) och igen för alla program som fortfarande kopplad till AD FS som en förlitande part. |
-| AD FS är kraftigt anpassade och beroende av specifika anpassningsinställningarna i onload.js-filen inte kan dupliceras i Azure AD (exempel: du har ändrat inloggningen så att användarna bara ange något SamAccountName-format för sina användarnamn i motsats i ett UPN- eller har en kraftigt företagsanpassad inloggning)| Behöver du kontrollera att din aktuella anpassning kraven kan uppfyllas av Azure AD innan du fortsätter. Se avsnitten anpassning av AD FS och AD FS-anpassning för mer information och vägledning.|
-| Du blockerar äldre autentiseringsklienter via AD FS.| Överväg att ersätta kontroller för att blockera äldre autentiseringsklienter som för närvarande finns på AD FS med en kombination av [villkorlig åtkomstkontroll för äldre autentisering](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [klientåtkomst för Exchange Online Regler för](https://aka.ms/EXOCAR). |
-| Du behöver användare att utföra MFA mot den lokala MFA server-lösning när du autentiserar till AD FS.| Du kommer inte att kunna mata in en MFA-kontrollen via den lokala MFA-lösning i autentiseringsflödet för en hanterad domän, men du kan använda Azure MFA-tjänsten för att göra det framöver när domänen konverteras. Om användarna inte använder Azure MFA i dag, kommer det innebära en genomfört slutanvändarens registreringssteget som du måste förbereda för och kommunicera dina slutanvändare. |
-| Du använder principer för åtkomstkontroll (AuthZ-regler) idag i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta dem med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](https://aka.ms/EXOCAR).|
+| Du planerar att fortsätta att använda AD FS med andra program (än Azure AD och Office 365). | När du har konverterat domäner ska du använda både AD FS och Azure AD. Överväg att användarupplevelsen. I vissa situationer kan användare vara tvungna att autentiseras två gånger: en gång till Azure AD (där en användare får åtkomst med enkel inloggning till andra program som Office 365) och igen för alla program som fortfarande är bundna till AD FS som en förlitande part. |
+| Din instans av AD FS är kraftigt anpassad och förlitar sig på specifika anpassningsinställningarna i onload.js-filen (till exempel om du har ändrat inloggningen så att användare bara använda en **SamAccountName** format för sina användarnamn i stället för en användare har huvudnamn (UPN) eller din organisation kraftigt märkesprodukter inloggningen går). Vara det går inte att dubbletter av onload.js-filen i Azure AD. | Innan du fortsätter måste du kontrollera att Azure AD kan uppfylla din aktuella anpassningskrav. Mer information och anvisningar finns i avsnitt om anpassning av AD FS och AD FS-anpassning.|
+| Du kan använda AD FS för att blockera tidigare versioner av autentiseringsklienter.| Överväg att ersätta AD FS-kontroller som blockerar tidigare versioner av autentiseringsklienter med hjälp av en kombination av [villkorlig åtkomstkontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomstregler för Exchange Online-klienten](http://aka.ms/EXOCAR). |
+| Du behöver användare att utföra multifaktorautentisering mot en lokal Multi-Factor authentication server-lösning när användare autentiseras till AD FS.| I en hanterad identitet-domän, kan du mata in en utmaning för multifaktorautentisering via lokal multifaktorautentisering lösning i autentiseringsflödet. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för multi-Factor authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication, krävs ett genomfört användaren registreringssteget. Du måste förbereda för och kommunicera planerad registreringen till dina användare. |
+| Du använder principer för åtkomstkontroll (AuthZ-regler) i AD FS för att styra åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande Azure AD [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) och [åtkomstregler för Exchange Online-klienten](http://aka.ms/EXOCAR).|
 
-### <a name="considerations-for-common-ad-fs-customizations"></a>Överväganden för vanliga AD FS-anpassningar
+### <a name="common-ad-fs-customizations"></a>Vanliga AD FS-anpassningar
 
-#### <a name="inside-corporate-network-claim"></a>Inifrån företagsnätverkanspråk
+Det här avsnittet beskrivs vanliga AD FS-anpassningar.
 
-InsideCorporateNetwork anspråk utfärdas av AD FS om den autentiserande användaren är i företagsnätverket. Det här anspråket kan sedan skickas till Azure AD och används för att koppla förbi Multi-Factor authentication baserat på användarens nätverksplats. Se [tillförlitliga IP-adresser för federerade användare](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud) för information om hur du avgör om du har aktiverat för närvarande i AD FS.
+#### <a name="insidecorporatenetwork-claim"></a>InsideCorporateNetwork anspråk
 
-InsideCorporateNetwork anspråket visas inte längre när dina domäner konverteras till direktautentisering. [Namngivna platser i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) kan användas för att ersätta den här funktionen.
+AD FS-problem i **InsideCorporateNetwork** anspråk om användaren som autentiseras är i företagsnätverket. Det här anspråket kan sedan skickas vidare till Azure AD. Anspråket används för att koppla förbi Multi-Factor authentication baserat på användarens nätverksplats. Om du vill lära dig att avgöra om den här funktionen för närvarande är tillgängliga i AD FS, se [tillförlitliga IP-adresser för federerade användare](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-adfs-cloud).
 
-När med namnet platser har konfigurerats, alla principer för villkorlig åtkomst som konfigurerats för att inkludera eller exkludera nätverksplatserna som ”alla betrodda platser” eller ”MFA tillförlitliga IP-adresser” måste uppdateras för att återspegla de nyligen skapade med namnet platser.
+Den **InsideCorporateNetwork** anspråk är inte tillgängligt när dina domäner har konverterats till direktautentisering. Du kan använda [namngivna platser i Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-named-locations) att ersätta den här funktionen.
 
-Se [Active Directory villkorsstyrd åtkomstplatser](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations) mer information om platsvillkoret för villkorlig åtkomst.
+När du har konfigurerat namngivna platser måste du uppdatera alla principer för villkorlig åtkomst som är konfigurerade för antingen inkludera eller exkludera nätverket **alla betrodda platser** eller **MFA tillförlitliga IP-adresser** värden till återspegla den nya namngivna platser.
 
-#### <a name="hybrid-azure-ad-joined-devices"></a>Enheter för hybrid Azure AD har anslutits
+Mer information om den **plats** ange villkor för villkorlig åtkomst, se [Active Directory-platser för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-locations).
 
-Koppla en enhet till Azure AD kan du skapa regler för villkorlig åtkomst som tillämpar enheter som uppfyller ditt åtkomst-standarder för säkerhet och efterlevnad och tillåter användare att logga in på en enhet med ett organisations arbets- eller skolkonto i stället för en personlig konto. Hybrid Azure AD-anslutna enheter kan du ansluta din AD-domänanslutna enheter till Azure AD. Din federerad miljö kan ha konfigurerats med den här funktionen.
+#### <a name="hybrid-azure-ad-joined-devices"></a>Hybrid Azure AD-anslutna enheter
 
-Om du vill säkerställa att ansluta till Hybrid fortsätter att fungera för alla nya enheter som är anslutna till domänen när dina domäner har konverterats till direktautentisering, måste Azure AD Connect konfigureras för att synkronisera Active Directory-datorkonton för Windows 10-klienter Azure AD. För Windows 7 och Windows 8-datorkonton, Hybrid delta använder sömlös SSO för att registrera datorn i Azure AD och du behöver inte synkronisera dem som du gör med Windows 10-enheter. Du men måste distribuera en uppdaterad workplacejoin.exe-fil (via en MSI-fil) i dessa äldre klienter så att de kan registrera sig med sömlös enkel inloggning. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
+När du ansluter en enhet till Azure AD kan du skapa regler för villkorlig åtkomst som leder till att enheterna uppfyller dina access-standarder för säkerhet och efterlevnad. Dessutom kan användare logga in på en enhet med ett organisations arbets- eller skolkonto i stället för ett personligt konto. När du använder hybrid Azure AD-anslutna enheter kan du ansluta din Active Directory-domänanslutna enheter till Azure AD. Miljön federerad kanske har ställts in att använda den här funktionen.
 
-Mer information om det här kravet finns i [hur du konfigurerar hybrid Azure Active Directory-anslutna enheter](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup)
+För att säkerställa att hybrid anslutning fortsätter att fungera för alla enheter som är anslutna till domänen när dina domäner har konverterats till direktautentisering för Windows 10-klienter, måste du använda Azure AD Connect för att synkronisera Active Directory-datorkonton till Azure AD.
+
+För Windows 8 och Windows 7-datorkonton använder hybrid anslutning sömlös enkel inloggning för att registrera datorn i Azure AD. Du behöver inte synkronisera Windows 8 och Windows 7-datorkonton som du gör med Windows 10-enheter. Dock måste du distribuera en uppdaterad workplacejoin.exe-fil (via en MSI-fil) för Windows 8 och Windows 7-klienter så att de kan registrera sig själva med sömlös enkel inloggning. [Ladda ned MSI-filen](https://www.microsoft.com/download/details.aspx?id=53554).
+
+Mer information finns i [konfigurera hybrid Azure AD-anslutna enheter](https://docs.microsoft.com/azure/active-directory/device-management-hybrid-azuread-joined-devices-setup).
 
 #### <a name="branding"></a>Anpassning
 
-Din organisation kan ha [anpassade din AD FS-inloggningssidor](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) att visa information som är mer relevant i organisationen. I så, fall Överväg att göra liknande [anpassningar till inloggningssidan för Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
+Om din organisation [anpassade din AD FS-inloggningssidor](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-user-sign-in-customization) för att visa information som är mer relevant för organisationen, Överväg att göra liknande [anpassningar till inloggningssidan för Azure AD](https://docs.microsoft.com/azure/active-directory/customize-branding).
 
-Liknande anpassningar är tillgängliga, väntat vissa visuella ändringar. Du kanske vill inkludera ändringarna i din kommunikation till slutanvändare.
+Även om liknande anpassningar är tillgängliga, väntat vissa visuella ändringar på inloggningssidorna efter konverteringen. Du kanske vill ange information om ändringarna i din kommunikation för användare.
 
 > [!NOTE]
-> Företagsanpassning är tillgängligt endast om du har köpt Premium eller Basic-licens för Azure AD eller har en Office 365-licens.
+> Anpassning av organisation är tillgänglig endast om du köper Premium eller Basic-licens för Azure Active Directory eller om du har en Office 365-licens.
 
-## <a name="planning-for-smart-lockout"></a>Planera för smart kontoutelåsning
+## <a name="plan-for-smart-lockout"></a>Planera för smart kontoutelåsning
 
-Azure AD smart kontoutelåsning skyddar mot brute force-lösenord attacker och förhindrar att den lokala Active Directory-kontot bli utelåsta när direktautentisering används och en grupp för kontoutelåsning har angetts i Active Directory. 
+Azure AD smart kontoutelåsning skyddar mot lösenord brute force-attacker. Smart låsning förhindrar att en lokal Active Directory-konto bli utelåsta när direktautentisering används och en grupp för kontoutelåsning har angetts i Active Directory.
 
-Mer information om [Smart kontoutelåsning funktion och hur du redigerar dess konfiguration](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout).
+Mer information finns i [Azure Active Directory smart kontoutelåsning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout).
 
-## <a name="planning-deployment-and-support"></a>Planera distribution och support
+## <a name="plan-deployment-and-support"></a>Planera distribution och support
+
+Utföra uppgifter som beskrivs i det här avsnittet hjälper dig att planera för distribution och support.
 
 ### <a name="plan-the-maintenance-window"></a>Planera underhållet
 
-Domän-konverteringsprocessen själva är relativt snabba, kan Azure AD fortfarande skicka vissa autentiseringsbegäranden till AD FS-servrarna under en period på upp till 4 timmar efter domän konverteringen har slutförts. Under den här fyra timmarsperioden och beroende på olika tjänsten på klientsidan cacheminnen dessa autentiseringar inte kan accepteras av Azure AD och användarna får ett felmeddelande som de ska kunna autentiseras mot AD FS fortfarande, men Azure AD accepterar inte längre en användarens utfärdade token som det federationsförtroendet har nu tagits bort.
+Även om domänen processen är relativt snabba, kan Azure AD fortsätta att skicka vissa autentiseringsbegäranden till AD FS-servrarna i upp till fyra timmar efter domän konverteringen har slutförts. Under den här fyra timmar och beroende på olika cacheminnen för tjänsten på klientsidan, kan Azure AD inte acceptera dessa autentiseringar. Användare kan få felmeddelanden. Användaren kan fortfarande har autentiseras mot AD FS, men Azure AD accepterar inte längre användarens utfärdade token eftersom det federationsförtroendet har nu tagits bort.
 
-> [!NOTE]
-> Detta kommer endast inverkan användare komma åt tjänster via en webbläsare under det här inlägget konvertering fönstret förrän tjänsten på klientsidan cachen rensats. Äldre klienter (Exchange ActiveSync, Outlook 2010/2013) bör inte påverkas som Exchange Online från ett cacheminne med sina autentiseringsuppgifter för en viss tidsperiod som används för att autentisera igen användaren tyst utan att behöva gå tillbaka till AD FS. Autentiseringsuppgifter som lagras på enheten för dessa klienter används för att autentisera igen själva tyst när detta cachelagras är avmarkerad och användare får därför inte några frågor för lösenord på grund av domän-konverteringsprocessen. Däremot för Modern autentisering klienter (Office 2013/2016, IOS och Android-appar) dessa använder en giltig uppdatera Token för att hämta nya åtkomsttoken för fortsatt åtkomst till resurser i stället för att gå tillbaka till AD FS och därför är immun till alla frågor för lösenord som en resultat av domän-konvertering bearbeta och fortsätter att fungera utan övrig konfiguration krävs.
+Endast användare som har åtkomst till tjänster via en webbläsare under det här fönstret efter konverteringen innan tjänsten på klientsidan cachen rensats påverkas. Äldre klienter (Exchange ActiveSync, Outlook 2010/2013) är inte förväntas påverkas eftersom Exchange Online från ett cacheminne med sina autentiseringsuppgifter för en angiven tidsperiod. Cachen används tyst autentiseras användaren. Användaren behöver inte gå tillbaka till AD FS. Autentiseringsuppgifter som lagras på enheten för dessa klienter används för att tyst återautentisera sig när det cachelagrade är avmarkerad. Användare är inte förväntas ta emot några frågor för lösenord på grund av domän-konverteringsprocessen.
+
+Modern autentiseringsklienter (Office 2016 och Office 2013, iOS och Android-appar) använder en giltig uppdateringstoken för att hämta nya åtkomsttoken för fortsatt åtkomst till resurser i stället för att återgå till AD FS. De här klienterna är immun till alla frågor för lösenord som härrör från domänen processen. Klienterna fortsätter att fungera utan ytterligare konfiguration.
+
 > [!IMPORTANT]
-> Inte stänga av din AD FS-miljö eller ta bort Office 365 förtroende för förlitande part förrän du har kontrollerat att alla användare har autentiserar med hjälp av molnautentisering.
+> Inte stänga av din AD FS-miljö eller ta bort Office 365-förtroende för förlitande part förrän du har kontrollerat att alla användare kan autentisera med hjälp av molnautentisering.
 
 ### <a name="plan-for-rollback"></a>Planera för återställning
 
-Om ett större problem hittas och inte kan lösas snabbt, kanske du vill återställa lösningen tillbaka till Federation. Det är viktigt att planera vad du gör om distributionen inte går som planerat. Om konverteringen i domänen eller en användare misslyckas under distributionen eller behöver du återställer till federation, måste du förstå hur du minimera eventuella driftstopp och påverkan för dina användare.
+Om det uppstår ett större problem som du inte kan lösa snabbt, kan du välja att återställa lösningen till federation. Det är viktigt att planera vad du gör om distributionen inte lanseras som avsett. Om konverteringen i domänen eller en användare inte kan genomföras under distributionen, eller om du vill återställa till federation, måste du förstå hur att minimera eventuella driftstopp och minska inverkan på användarna.
 
-#### <a name="rolling-back"></a>Återställa
+#### <a name="to-roll-back"></a>Att återställa
 
-Läs dokumentationen för Federation design och distribution för din viss distributionsinformation. Processen bör omfatta:
+Om du vill planera för återställning i dokumentationen federation design och distribution för din specifika distributionsinformation. Processen bör innehålla dessa uppgifter:
 
-* Konvertera hanterade domäner till federerad med hjälp av Convert-MSOLDomainToFederated 
-
+* Konvertera hanterade domäner till federerade domäner med hjälp av den **Convert-MSOLDomainToFederated** cmdlet.
 * Om det behövs kan du konfigurera ytterligare anspråk regler.
 
-### <a name="plan-change-communications"></a>Planera ändra kommunikation
+### <a name="plan-communications"></a>Planera kommunikation
 
-En viktig del av planeringen distribution och support är att säkerställa att dina slutanvändare är proaktivt dig informerad om ändringar och vad de kan brytas eller måste göra. 
+En viktig del av planeringen av distribution och support är att säkerställa att dina användare är proaktivt dig informerad om kommande ändringar. Användare bör i förväg veta vad det kan uppstå och vad som krävs av dem.
 
-När både direktautentisering och sömlös SSO distribueras, ändras inloggning för slutanvändaren när åtkomst till Office 365 och andra tillhörande resurser autentiseras via Azure AD. Användare utanför nätverket visas nu i Azure AD-inloggningssida, till skillnad från omdirigeras till sidan formulärbaserad presenteras av externa internetuppkopplade Web Application Proxy-servrar.
+När både direktautentisering och sömlös SSO distribueras, ändras användarupplevelsen logga in för att komma åt Office 365 och andra resurser som autentiseras via Azure AD. Användare som är utanför nätverket se bara Azure AD-inloggningssidan. Dessa användare omdirigeras inte till sidan formulärbaserad som presenteras av utåtriktade webbprogramproxyservrarna.
 
-Det finns flera element att planera din kommunikationsstrategi för. Exempel på dessa är:
+Inkludera följande element i din kommunikationsstrategi för:
 
-* Meddela användaren om kommande och utgivna funktioner via
-  * E-post och andra interna kommunikationskanaler
-  * Visuella objekt, till exempel affischer
-  * Executive live eller andra kommunikation
-* Bestämma vem som anpassar och som skickar meddelandet, och när.
+* Meddela användare om kommande och utgivna funktioner med hjälp av:
+   * E-post och andra interna kommunikationskanaler.
+   * Visuella objekt, till exempel affischer.
+   * Executive, live eller andra kommunikation.
+* Bestämma vem som anpassar kommunikationen och som skickar meddelandet, och när.
 
-## <a name="implementing-your-solution"></a>Implementera lösningen
+## <a name="implement-your-solution"></a>Implementera din lösning
 
-Nu när du har planerat din lösning, är du redo att implementera den. Implementering innehåller följande komponenter:
+Du har planerat din lösning. Nu kan du nu kan du implementera den. Implementering omfattar följande komponenter:
 
-   1. Förbereda för sömlös enkel inloggning på
-   2. Om du ändrar inloggningsmetod direktautentisering och Aktivera sömlös SSO
+* Förbereder för sömlös enkel inloggning.
+* Ändrar inloggningsmetoden till direktautentisering och Aktivera sömlös SSO.
 
-## <a name="step-1--prepare-for-seamless-sso"></a>Steg 1 – Förbered för sömlös SSO
+### <a name="step-1-prepare-for-seamless-sso"></a>Steg 1: Förbereda för sömlös SSO
 
-Du måste lägga till en Azure AD-URL till användarnas Zoninställningar för intranätet med hjälp av Grupprincip i Active Directory till dina enheter att använda sömlös enkel inloggning.
+För dina enheter att använda sömlös enkel inloggning, måste du lägga till en Azure AD-URL: en användares Zoninställningar för intranätet med hjälp av en Grupprincip i Active Directory.
 
-Som standard beräknas automatiskt rätt zonen Internet- eller intranätvärdar från en specifik URL i webbläsaren. Till exempel ”http://contoso/” mappar till zonen Intranät, medan ”http://intranet.contoso.com/” mappar till zonen Internet (eftersom URL: en innehåller en punkt). Webbläsare skickar inte Kerberos-biljetter till en slutpunkt i molnet, t.ex. Azure AD-URL, såvida inte du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
+Webbläsare beräkna automatiskt rätt zonen internet- eller intranätvärdar från en URL. Till exempel **http:\/\/contoso /** mappar till intranätzonen och **http:\/\/intranet.contoso.com** mappar till zonen internet eftersom ( URL: en innehåller en punkt). Webbläsare skickar Kerberos-biljetter till en slutpunkt i molnet, t.ex. Azure AD-URL, endast om du uttryckligen lägga till URL: en till webbläsarens intranätzonen.
 
-Följ den [steg för att lansera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) önskade ändringar till dina enheter.
-
-> [!IMPORTANT]
-> Den här ändringen ändra inte det sätt som användarna måste logga in till Azure AD. Det är dock viktigt den här konfigurationen tillämpas på alla enheter innan du fortsätter med de steg 3 Observera också att användare som loggar in på enheter som inte har fått den här konfigurationen behöver bara ange användarnamn och lösenord för att logga in på Azure AD.
-
-## <a name="step-2--change-sign-in-method-to-pta-and-enable-seamless-sso"></a>Steg 2 – ändra inloggningsmetod till PTA och Aktivera sömlös enkel inloggning
-
-### <a name="option-a-configuring-pta-by-using-azure-ad-connect"></a>Alternativ A: Konfigurera PTA med hjälp av Azure AD Connect
-
-Använd den här metoden när AD FS har ursprungligen konfigurerats med Azure AD Connect. Du kan inte använda den här metoden om din AD FS inte ursprungligen konfigurerades med Azure AD Connect.
+Slutför steg för att [lansera](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start) önskade ändringar till dina enheter.
 
 > [!IMPORTANT]
-> Kom ihåg att genom att följa stegen nedan alla domäner kommer att konverteras från federerade till hanterade. Läs avsnittet planera Migreringsmetoden för mer information.[](#_Plan_Migration_Method)
+> Den här ändringen ändrar inte det sätt som användarna måste logga in till Azure AD. Det är dock viktigt att du använder den här konfigurationen till alla dina enheter innan du fortsätter. Användare som loggar in på enheter som inte har fått den här konfigurationen krävs bara att ange ett användarnamn och lösenord för att logga in på Azure AD.
 
-Först måste du ändra inloggnings-metod:
+### <a name="step-2-change-the-sign-in-method-to-pass-through-authentication-and-enable-seamless-sso"></a>Steg 2: Ändra inloggningsmetoden till direktautentisering och Aktivera sömlös enkel inloggning
 
-   1. Öppna guiden på Azure AD Connect-servern.
-   2. Välj **ändra användarinloggning i** och välj sedan **nästa**. 
-   3. I den **Anslut till Azure AD** skärmen Ange användarnamn och lösenord för en Global administratör.
-   4. Den **användarinloggning** skärmen, ändra alternativknappen från **Federation med AD FS** till **direktautentisering**väljer **aktivera enkel inloggning**  därefter **nästa**.
-   5. Aktivera enkel inloggning på skärmen anger du autentiseringsuppgifter för administratörskontot för domänen och väljer nästa.  
+Du har två alternativ för att ändra inloggningsmetoden till direktautentisering och Aktivera sömlös SSO.
+
+#### <a name="option-a-configure-pass-through-authentication-by-using-azure-ad-connect"></a>Alternativ A: Konfigurera direktautentisering med hjälp av Azure AD Connect
+
+Använd den här metoden om du har konfigurerat din AD FS-miljön med hjälp av Azure AD Connect. Du kan inte använda den här metoden om du *inte* ursprungligen konfigurera AD FS-miljön med hjälp av Azure AD Connect.
+
+> [!IMPORTANT]
+> När du har slutfört följande konverteras alla domäner från federerad identitet till hanterad identitet. Mer information finns [planera migrering metoden](#plan-the-migration-method).
+
+Börja med att ändra inloggningsmetoden:
+
+1. Öppna Azure AD Connect-guiden på Azure AD Connect-servern.
+2. Välj **ändra användarinloggning**, och välj sedan **nästa**. 
+3. På den **Anslut till Azure AD** anger du användarnamnet och lösenordet för ett globalt administratörskonto.
+4. På den **användarinloggning** väljer den **direktautentisering** knapp, väljer **aktivera enkel inloggning**, och välj sedan **nästa**.
+5. På den **aktivera enkel inloggning** , ange autentiseringsuppgifter för ett domänadministratörskonto och välj sedan **nästa**.
 
    > [!NOTE]
-   > Administratörsbehörighet för domänen krävs för att aktivera sömlös enkel inloggning som processen utför följande åtgärder som kräver dessa förhöjd behörighet. Autentiseringsuppgifter som domänadministratör lagras inte i Azure AD Connect eller i Azure AD. De används endast för att aktivera funktionen och sedan tas bort när installationen har slutförts
+   > Autentiseringsuppgifter för administratörskontot för domänen krävs för att aktivera sömlös enkel inloggning. Processen är klar följande åtgärder, som kräver dessa förhöjd behörighet. Inloggningsuppgifterna för domänadministratören konto lagras inte i Azure AD Connect eller i Azure AD. Autentiseringsuppgifter för domänadministratör används endast för att aktivera funktionen. Autentiseringsuppgifterna tas bort när processen har slutförts.
    >
-   > * Ett datorkonto med namnet AZUREADSSOACC (som representerar Azure AD) skapas i din lokala Active Directory (AD).
-   > * Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD.
-   > * Dessutom skapas två Kerberos tjänsternas huvudnamn (SPN) för att representera två URL: er som används under Azure AD-inloggningen.
-   > * Autentiseringsuppgifter som domänadministratör lagras inte i Azure AD Connect eller i Azure AD. De används endast för att aktivera funktionen och sedan tas bort när installationen har slutförts
+   > 1. Ett datorkonto med namnet AZUREADSSOACC (som representerar Azure AD) skapas i din lokala Active Directory-instans.
+   > 2. Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD.
+   > 3. Två Kerberos tjänsternas huvudnamn (SPN) skapas för att representera två URL: er som används under Azure AD-inloggningen.
 
-   6. I den **redo att konfigurera** skärmen, se till att **starta synkroniseringsprocessen när konfigurationen är klar** kryssrutan är markerad. Välj sedan **konfigurera**.</br>
-   ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)</br>
-   7. Öppna den **Azure AD-portalen**väljer **Azure Active Directory**, och välj sedan **Azure AD Connect**.
-   8. Kontrollera att **Federation inaktiveras** medan **sömlös enkel inloggning på** och **Pass-omfattande autentisering** är **aktiverad**.</br>
-   ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)</br>
+6. På den **redo att konfigurera** sidan och se till att den **starta synkroniseringsprocessen när konfigurationen är klar** kryssrutan är markerad. Välj **konfigurera**.<br />
 
-Därefter måste du distribuera ytterligare autentiseringsmetoder. Öppna den **Azure-portalen**, bläddra till **Azure Active Directory, Azure AD Connect** och klicka på **direktautentisering**.
+   ![Skärmbild av klart att konfigurera](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image8.png)<br />
+7. I Azure AD-portalen väljer du **Azure Active Directory**, och välj sedan **Azure AD Connect**.
+8. Kontrollera inställningarna:
+  * **Federation** är inställd på **inaktiverad**.
+  * **Sömlös enkel inloggning** är inställd på **aktiverad**.
+  * **Direktautentisering** är inställd på **aktiverad**.<br />
 
-Från den **direktautentisering** klickar du på knappen ladda ned. Från den **hämta** Agent-skärmen, klicka på **acceptera villkoren och hämta**.
+  ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image9.png)<br />
 
-Hämtningen av ytterligare autentiseringsagenter påbörjas. Installera den sekundära autentiseringsagent på en domänansluten server. 
+Nästa. distribuera ytterligare autentiseringsmetoder:
 
-> [!NOTE]
-> Första agenten installeras alltid på Azure AD Connect-servern som en del av konfigurationsändringar i avsnittet användare logga In i Azure AD Connect-verktyget. Inga ytterligare Autentiseringsagenter ska installeras på en separat server. Vi rekommenderar att ha mellan 2 – 3 ytterligare Autentiseringsagenter tillgängliga. 
+1. I Azure-portalen går du till **Azure Active Directory** > **Azure AD Connect**, och välj sedan **direktautentisering**.
+2. På den **direktautentisering** väljer den **hämta** knappen.
+3. På den **ladda ned agenten** väljer **acceptera villkoren och hämta**.
 
-Kör agentinstallationen för autentisering. Under installationen måste du ange autentiseringsuppgifter för en **Global administratör** konto.
-
-![Bild 1243067202](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
-
-![Bild 1243067210](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
-
-När autentisering-agenten har installerats kan gå du tillbaka till sidan Autentiseringsagenten för direktautentisering hälsotillstånd för att kontrollera status för ytterligare agenter.
-
-
-Gå till belastningstester och nästa steg.
-
-> [!IMPORTANT]
-> Hoppa över avsnittet Alternativ B: Växla från Federation till PTA genom att använda Azure AD Connect och PowerShell som stegen i att avsnittet inte gäller.  
-
-### <a name="option-b---switch-from-federation-to-pta-using-azure-ad-connect-and-powershell"></a>Alternativ B - växlar du från federation till PTA med hjälp av Azure AD Connect och PowerShell
-
-Använd det här alternativet om din federationsserver inte ursprungligen konfigurerades med hjälp av Azure AD Connect. Först måste du aktivera direktautentisering:
-
-   1. Öppna guiden på Azure AD Connect-servern.
-   2. Välj **ändra användarinloggning i** och välj sedan **nästa**.
-   3. I den **Anslut till Azure AD** skärmen Ange användarnamn och lösenord för en Global administratör.
-   4. På den **användarinloggning** skärmen, ändra alternativknappen från **inte konfigurerar** till **direktautentisering**väljer **aktivera enkel inloggning** därefter **nästa**.
-   5. I **aktivera enkel inloggning** skärmen, ange autentiseringsuppgifter för administratörskontot för domänen och välj sedan **nästa**.
-
-   > [!NOTE]
-   > Administratörsbehörighet för domänen krävs för att aktivera sömlös enkel inloggning som processen utför följande åtgärder som kräver dessa förhöjd behörighet. Autentiseringsuppgifter som domänadministratör lagras inte i Azure AD Connect eller i Azure AD. De används endast för att aktivera funktionen och sedan tas bort när installationen har slutförts.
-   >
-   > * Ett datorkonto med namnet AZUREADSSOACC (som representerar Azure AD) skapas i din lokala Active Directory (AD).
-   > * Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD.
-   > * Dessutom skapas två Kerberos tjänsternas huvudnamn (SPN) för att representera två URL: er som används under Azure AD-inloggningen.
-
-   6. I den **redo att konfigurera** skärmen, se till att **starta synkroniseringsprocessen när konfigurationen är klar** kryssrutan är markerad. Välj sedan **konfigurera**.</br>
-   ‎![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)</br>
-   När du väljer konfigurera genomförs följande steg:
-   * Den första Autentiseringsagenten för direktautentisering är installerad
-   * Direkt-funktionen är aktiverad
-   * Sömlös enkel inloggning är aktiverat.  
-   7. Kontrollera att **Federation** fortfarande **aktiverad** och **sömlös enkel inloggning** och **Pass-omfattande autentisering** är nu aktiverade.
-   ![Bild 2](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
-   8. Välj **direktautentisering** och kontrollera att statusen är **Active**.</br>
-   
-   Om Autentiseringsagenten inte är aktiv, Följ [de här felsökningsstegen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication) innan du fortsätter med domän konversationen processen i nästa steg. Du riskerar att orsaka ett avbrott för autentisering om du konverterar domäner innan du verifierar att PTA agenterna har installerats och att deras status visas som ”aktiv” i Azure-portalen.  
-   9. Distribuera sedan ytterligare autentiseringsagenter. Öppna den **Azure-portalen**, bläddra till **Azure Active Directory**, **Azure AD Connect** och klicka på **direktautentisering**.
-   10. Från den **direktautentisering** klickar du på den **hämta** knappen. Från den **ladda ned Agent** klickar du på på **acceptera villkoren och hämta**.
-   
-   Hämtningen av ytterligare autentiseringsagenter påbörjas. Installera den sekundära autentiseringsagent på en domänansluten server.
+  Ytterligare autentiseringsagenter börja ladda ned. Installera den sekundära autentiseringen-agenten på en domänansluten server. 
 
   > [!NOTE]
-  > Första agenten installeras alltid på Azure AD Connect-servern som en del av konfigurationsändringar i avsnittet användare logga In i Azure AD Connect-verktyget. Inga ytterligare Autentiseringsagenter ska installeras på en separat server. Vi rekommenderar att ha mellan 2 – 3 ytterligare Autentiseringsagenter tillgängliga.
-  
-   11. Kör agentinstallationen för autentisering. Under installationen måste du ange autentiseringsuppgifter för en **Global administratör** konto.</br>
-   ![Bild 1243067215](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)</br>
-   ![Bild 1243067216](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image24.png)</br>
-   12. När autentisering-agenten har installerats kan gå du tillbaka till sidan Autentiseringsagenten för direktautentisering hälsotillstånd för att kontrollera status för ytterligare agenter.
+  > Första agenten installeras alltid på Azure AD Connect själva servern som en del av konfigurationsändringar som gjorts i den **användarinloggning** avsnitt av Azure AD Connect-verktyget. Installera eventuella ytterligare autentisering-agenter på en separat server. Vi rekommenderar att du har två eller tre ytterligare autentiseringsagenter tillgängliga. 
 
-Nu är Federation fortfarande aktiverade och fungerar för dina domäner. Om du vill fortsätta med distributionen, måste varje domän som ska konverteras från federerade till hanterade så direktautentisering börjar autentisering begäranden för domänen.
+4. Kör agentinstallationen autentisering. Under installationen måste du ange autentiseringsuppgifter för ett globalt administratörskonto.
 
-Inte alla domäner måste de konverteras på samma gång, kanske du väljer att börja med en testdomän i din produktionsklient eller domänen med minsta möjliga antal användare.
+  ![Skärmbild som visar knappen installera på sidan för Microsoft Azure AD Connect-agenten autentiseringspaket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image11.png)
 
-Konverteringen utförs med hjälp av Azure AD PowerShell-modulen.
+  ![Skärmbild som visar sidan logga in](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image12.png)
 
-   1. Öppna **PowerShell** och logga in på Azure AD via en **Global administratör** konto.
-   2. Om du vill konvertera den första domänen, kör du följande kommando:
+5. När autentiseringsagenten har installerats kan du återgå till direktautentisering agent health sidan för att kontrollera status för ytterligare agenter.
+
+Gå vidare till [testning och nästa steg](#testing-and-next-steps).
+
+> [!IMPORTANT]
+> Hoppa över avsnittet **alternativ B: Växla från federation till direktautentisering med hjälp av Azure AD Connect och PowerShell**. Stegen i avsnittet gäller inte om du har valt alternativet A Om du vill ändra inloggningsmetoden till direktautentisering och Aktivera sömlös enkel inloggning. 
+
+#### <a name="option-b-switch-from-federation-to-pass-through-authentication-by-using-azure-ad-connect-and-powershell"></a>Alternativ B: Växla från federation till direktautentisering med hjälp av Azure AD Connect och PowerShell
+
+Använd det här alternativet om du inte har konfigurerat ditt federerade domäner med hjälp av Azure AD Connect.
+
+Först aktivera direktautentisering:
+
+1. Öppna Azure AD Connect-guiden på Azure AD Connect-servern.
+2. Välj **ändra användarinloggning**, och välj sedan **nästa**.
+3. På den **Anslut till Azure AD** anger du användarnamnet och lösenordet för ett globalt administratörskonto.
+4. På den **användarinloggning** väljer den **direktautentisering** knappen. Välj **aktivera enkel inloggning**, och välj sedan **nästa**.
+5. På den **aktivera enkel inloggning** , ange autentiseringsuppgifter för ett domänadministratörskonto och välj sedan **nästa**.
+
+   > [!NOTE]
+   > Autentiseringsuppgifter för administratörskontot för domänen krävs för att aktivera sömlös enkel inloggning. Processen är klar följande åtgärder, som kräver dessa förhöjd behörighet. Inloggningsuppgifterna för domänadministratören konto lagras inte i Azure AD Connect eller i Azure AD. Autentiseringsuppgifter för domänadministratör används endast för att aktivera funktionen. Autentiseringsuppgifterna tas bort när processen har slutförts.
+   > 
+   > 1. Ett datorkonto med namnet AZUREADSSOACC (som representerar Azure AD) skapas i din lokala Active Directory-instans.
+   > 2. Krypteringsnyckel för det datorkonto Kerberos delas på ett säkert sätt med Azure AD.
+   > 3. Två Kerberos tjänsternas huvudnamn (SPN) skapas för att representera två URL: er som används under Azure AD-inloggningen.
+
+6. På den **redo att konfigurera** sidan och se till att den **starta synkroniseringsprocessen när konfigurationen är klar** kryssrutan är markerad. Välj **konfigurera**.<br />
+
+   ‎![Skärmbild som visar sidan klart att konfigurera sidan och knappen Konfigurera](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image18.png)<br />
+   Genomförs följande steg när du väljer **konfigurera**:
+
+   1. Den första direktautentisering-agenten är installerad.
+   2. Direkt funktionen är aktiverad.
+   3. Sömlös enkel inloggning är aktiverat.
+
+7. Kontrollera inställningarna:
+   * **Federation** är inställd på **aktiverad**.
+   * **Sömlös enkel inloggning** är inställd på **aktiverad**.
+   * **Direktautentisering** är inställd på **aktiverad**.
+   
+   ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image19.png)
+8. Välj **direktautentisering** och kontrollera att statusen är **Active**.<br />
+   
+   Om autentiseringsagenten inte är aktiv, kan du slutföra vissa [felsökningssteg](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-pass-through-authentication) innan du fortsätter med domän processen i nästa steg. Du riskerar att orsaka ett avbrott för autentisering om du konverterar domäner innan du verifiera att direktautentisering agenterna är installerade och att deras status **Active** i Azure-portalen.
+
+Distribuera ytterligare autentiseringsagenter:
+
+1. I Azure-portalen går du till **Azure Active Directory** > **Azure AD Connect**, och välj sedan **direktautentisering**.
+2. På den **direktautentisering** väljer den **hämta** knappen. 
+3. På den **ladda ned agenten** väljer **acceptera villkoren och hämta**.
  
- ``` PowerShell
- Set-MsolDomainAuthentication -Authentication Managed -DomainName <domainname>
- ```
+   Autentiseringsagenten börjar ladda ned. Installera den sekundära autentiseringen-agenten på en domänansluten server.
+
+   > [!NOTE]
+   > Första agenten installeras alltid på Azure AD Connect själva servern som en del av konfigurationsändringar som gjorts i den **användarinloggning** avsnitt av Azure AD Connect-verktyget. Installera eventuella ytterligare autentisering-agenter på en separat server. Vi rekommenderar att du har två eller tre ytterligare autentiseringsagenter tillgängliga.
  
-   3. Öppna den **Azure AD-portalen**väljer **Azure Active Directory**, och välj sedan **Azure AD Connect**.  
-   4. När du har konverterat federerade domäner, kontrollerar du att **Federation inaktiveras** medan **sömlös enkel inloggning** och **direktautentisering** är  **Aktiverad**.</br>
-   ![bild](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)</br>
+4. Kör agentinstallationen autentisering. Under installationen, måste du ange autentiseringsuppgifterna för ett globalt administratörskonto.<br />
+
+   ![Skärmbild som visar knappen installera på sidan för Microsoft Azure AD Connect-agenten autentiseringspaket](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image23.png)<br />
+   ![Skärmbild som visar sidan logga in](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image24.png)<br />
+5. När autentiseringsagenten har installerats kan du gå tillbaka till direktautentisering agent health sidan för att kontrollera status för ytterligare agenter.
+
+Nu är federerad autentisering fortfarande aktiv och operativa för dina domäner. Om du vill fortsätta med distributionen måste du konvertera domänerna från federerad identitet till hanterad identitet så att direktautentisering börjar betjänar autentiseringsbegäranden för domänen.
+
+Du behöver att konvertera alla domäner på samma gång. Du kan välja att starta med en testdomän i din produktionsklient eller börja med din domän som har det lägsta antalet användare.
+
+Slutföra konverteringen med hjälp av Azure AD PowerShell-modulen:
+
+1. I PowerShell inloggningen till Azure AD med hjälp av ett globalt administratörskonto.
+2. Om du vill konvertera den första domänen, kör du följande kommando:
+ 
+   ``` PowerShell
+   Set-MsolDomainAuthentication -Authentication Managed -DomainName <domain name>
+   ```
+ 
+3. I Azure AD-portalen väljer du **Azure Active Directory** > **Azure AD Connect**.
+4. När du konverterar alla federerade domäner, kontrollerar du inställningarna:
+   * **Federation** är inställd på **inaktiverad**.
+   * **Sömlös enkel inloggning** är inställd på **aktiverad**.
+   * **Direktautentisering** är inställd på **aktiverad**.<br />
+
+   ![Skärmbild som visar inställningarna i avsnittet för användare](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image26.png)<br />
 
 ## <a name="testing-and-next-steps"></a>Testning och nästa steg
 
+Utför följande uppgifter för att kontrollera direktautentisering och slutföra processen.
+
 ### <a name="test-pass-through-authentication"></a>Test-direktautentisering 
 
-När du din klient använder federation kan har användare omdirigerats från inloggningssidan för Azure AD till AD FS-miljön. Nu när klienten har konfigurerats för direktautentisering istället för federation användare kommer inte få omdirigeras till AD FS och i stället ska logga in direkt via Azure AD-inloggningssida.
+När din klient används för federerad identitet, omdirigerades användare från inloggningssidan för Azure AD till din AD FS-miljön. Nu när klienten har konfigurerats för direktautentisering istället för federerad autentisering omdirigeras inte användare till AD FS. Användare kan i stället logga in direkt på inloggningssidan för Azure AD.
 
-Öppna Internet Explorer i InPrivate-läge för att undvika sömlös SSO loggar du in automatiskt och gå till inloggningssidan för Office 365 ([https://portal.office.com](https://portal.office.com/)). Skriv den **UPN** för dina användare och klicka på **nästa**. Se till att ange UPN för en hybrid-användare som har synkroniserats från din lokala Active Directory och som tidigare var federerad. Användaren ser skärmen för att ange sitt användarnamn och lösenord.
+Så här testar direktautentisering:
 
-![Bild 18](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
+1. Öppna Internet Explorer i InPrivate-läge så att sömlös SSO inte logga in dig automatiskt.
+2. Gå till inloggningssidan för Office 365 ([http://portal.office.com](http://portal.office.com/)).
+3. Ange ett användar-UPN och välj sedan **nästa**. Se till att du anger UPN-namnet för en hybrid-användare som har synkroniserats från din lokala Active Directory-instans och som har använt federerad autentisering. Det visas en sida där du anger det användarnamn och lösenord:
 
-![Bild 19](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image28.png)
+   ![Skärmbild som visar inloggningssidan där du anger ett användarnamn](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image27.png)
 
-När du skriver lösenordet, bör du hämta omdirigeras till Office 365-portalen.
+   ![Skärmbild som visar inloggningssidan där du anger ett lösenord](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image28.png)
 
-![Bild 23](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
+4. När du har angett lösenordet och välj **logga in**, du är omdirigeras till Office 365-portalen.
 
-### <a name="test-seamless-single-sign-on"></a>Testa sömlös enkel inloggning
+   ![Skärmbild som visar Office 365-portalen](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image29.png)
 
-   1. Logga in på en domän domänanslutna datorer som är anslutna till företagsnätverket. 
-   2. Öppna **Internet Explorer** eller **Chrome** och gå till någon av följande webbadresser:   
-      ‎  
-      ‎[https://myapps.microsoft.com/contoso.com](https://myapps.microsoft.com/contoso.com) [https://myapps.microsoft.com/contoso.onmicrosoft.com](https://myapps.microsoft.com/contoso.onmicrosoft.com) (Ersätt Contoso med din domän).
+### <a name="test-seamless-sso"></a>Testa sömlös SSO
 
-      Användaren kort kommer att omdirigeras till inloggningssidan för Azure AD och ser meddelandet ”försöker att logga in” och bör inte ange ett användarnamn eller lösenord.</br>
-   ![Bild 24](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image30.png)</br>
-   3. Sedan kan ska användaren få omdirigeras och har loggat in på åtkomstpanelen:
+Så här testar sömlös enkel inloggning:
 
-> [!NOTE]
-> Sömlös enkel inloggning fungerar på Office 365-tjänster som stöder tips för domänen (till exempel myapps.microsoft.com/contoso.com). Office 365-portalen (portal.office.com) för närvarande stöder inte tips för domänen och därför det är normalt att användare måste ange sina UPN. När ett UPN är angivna, sömlös enkel inloggning på kan hämta Kerberos-biljetten för användarens räkning och logga dem i utan att ange ett lösenord.
-> [!TIP]
-> Överväg att distribuera [Hybrid för Azure AD Join i Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) för en förbättrad enkel inloggning.
+1. Logga in på en domänansluten dator som är ansluten till företagsnätverket.
+2. I Internet Explorer eller Chrome, går du till någon av följande webbadresser (Ersätt ”contoso” med domänen):
 
-### <a name="removal-of-the-relying-party-trust"></a>Borttagning av förlitande part
+   * https:\/\/myapps.microsoft.com/contoso.com
+   * https:\/\/myapps.microsoft.com/contoso.onmicrosoft.com
 
-När du har verifierat att alla användare och klienter har autentiseras via Azure AD, kan det ses säkert att ta bort Office 365 förtroende för förlitande part.
+   Användaren omdirigeras kort till Azure AD-inloggningssidan, som visar meddelandet ”försöker att logga in”. Användaren är inte uppge ett användarnamn eller lösenord.<br />
 
-Om AD FS inte används för andra syften (andra förtroende för förlitande part har konfigurerats), är det säkert att inaktivera AD FS nu.
+   ![Skärmbild som visar inloggningssidan för Azure AD och meddelande](media/plan-migrate-adfs-pass-through-authentication/migrating-adfs-to-pta_image30.png)<br />
+3. Användaren omdirigeras och loggat har in på åtkomstpanelen:
+
+   > [!NOTE]
+   > Sömlös SSO fungerar på Office 365-tjänster som stöder tips för domänen (till exempel myapps.microsoft.com/contoso.com). Office 365-portalen (portal.office.com) stöder för närvarande inte tips för domänen. Användare måste ange ett UPN. När ett UPN har angetts, hämtar sömlös SSO Kerberos-biljetten för användarens räkning. Användaren är inloggad utan att ange ett lösenord.
+
+   > [!TIP]
+   > Överväg att distribuera [hybrid Azure AD join i Windows 10](https://docs.microsoft.com/azure/active-directory/device-management-introduction) för en bättre SSO-upplevelse.
+
+### <a name="remove-the-relying-party-trust"></a>Ta bort det förlitande partsförtroendet
+
+När du verifierar att alla användare och klienter har autentiseras via Azure AD, är det säkert att ta bort det förlitande partsförtroendet för Office 365.
+
+Om du inte använder AD FS för andra ändamål (det vill säga för andra förtroenden för förlitande part), är det säkert att inaktivera AD FS i det här läget.
 
 ### <a name="rollback"></a>Återställning
 
-Om ett större problem hittas och inte kan lösas snabbt, kanske du vill återställa lösningen tillbaka till Federation.
+Om du identifierar ett större problem och inte kan lösa det snabbt, kan du välja att återställa lösningen till federation.
 
-Läs dokumentationen för Federation design och distribution för din viss distributionsinformation. Processen bör omfatta:
+I dokumentationen federation design och distribution för din specifika distributionsinformation. Processen ska omfatta dessa uppgifter:
 
-* Konvertera hanterade domäner till federerad med hjälp av Convert-MSOLDomainToFederated
-* Om det behövs kan du konfigurera ytterligare anspråk regler.
+* Konvertera hanterade domäner till federerad autentisering med hjälp av den **Convert-MSOLDomainToFederated** cmdlet.
+* Om det behövs konfigurerar du ytterligare anspråksregler.
 
-### <a name="enable-synchronization-of-userprincipalname-updates"></a>Aktivera synkronisering av userPrincipalName uppdateringar
+### <a name="sync-userprincipalname-updates"></a>Synkronisera userPrincipalName uppdateringar
 
-Historiskt sett uppdateringar till attributet UserPrincipalName med synkroniseringstjänsten från den lokala har blockerats, om inte båda dessa villkor är uppfyllda:
+Historiskt sett uppdaterar till den **UserPrincipalName** attribut, som använder synkroniseringstjänsten från den lokala miljön, blockeras såvida inte båda dessa villkor är uppfyllda:
 
-* Användaren är hanterad (icke-federerade).
+* Användaren är i en hanterad identitet för (icke-federerade)-domän.
 * Användaren har inte tilldelats en licens.
 
-Mer information om hur du kontrollerar eller aktivera den här funktionen finns i följande artikel:
-
-[Synkronisera userPrincipalName uppdateringar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
+Läs hur du kontrollerar eller aktivera den här funktionen i [synkronisera userPrincipalName uppdateringar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
 ## <a name="roll-over-the-seamless-sso-kerberos-decryption-key"></a>Förnya sömlös SSO Kerberos-krypteringsnyckel
 
-Det är viktigt att ofta förnyar Kerberos krypteringsnyckel för AZUREADSSOACC datorkontot (som representerar Azure AD) skapas i din lokala AD-skog. Vi rekommenderar starkt att du förnyar Kerberos-krypteringsnyckel minst var 30 dagar så att den överensstämmer med hur medlemmar i Active Directory-domänen för att skicka ändringar av lösenord. Eftersom ingen tillhörande enhet ansluten till AZUREADSSOACC datorkontoobjektet måste uppdateringen utföras manuellt.
+Det är viktigt att ofta förnyar Kerberos-krypteringsnyckel för AZUREADSSOACC datorkontot (som representerar Azure AD). Datorkontot AZUREADSSOACC skapas i din lokala Active Directory-skog. Vi rekommenderar starkt att du förnyar Kerberos-krypteringsnyckel minst var 30 dagar så att den överensstämmer med det sättet att medlemmar i Active Directory-domänen skickar lösenordsändringar. Det finns inga associerade enheten ansluten till AZUREADSSOACC datorkontoobjektet, så du måste utföra uppdateringen manuellt.
 
-Följ dessa steg på den lokala servern där du kör Azure AD Connect för att initiera förlängningen av Kerberos-krypteringsnyckel.
+Initiera förnyelse av krypteringsnyckel sömlös SSO Kerberos på den lokala servern som kör Azure AD Connect.
 
-[Hur kan jag växla Kerberos krypteringsnyckel för datorkontot AZUREADSSOACC](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq)?
+Mer information finns i [hur jag förnyar Kerberos-krypteringsnyckel för datorkontot AZUREADSSOACC?](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-faq).
 
 ## <a name="monitoring-and-logging"></a>Övervakning och loggning
 
-Servrar som kör den Autentiseringsagenter bör övervakas för att upprätthålla tillgängligheten för lösningen. Förutom allmän räknare för serverprestanda exponera den Autentiseringsagenter prestandaobjekt som kan användas för att förstå autentisering statistik och fel.
+Övervaka de servrar som kör autentiseringsagenter för att upprätthålla tillgängligheten för lösningen. Förutom allmän räknare för serverprestanda exponera autentiseringsagenter prestandaobjekt som hjälper dig att förstå autentisering statistik och fel.
 
-Autentiseringsagenter logga åtgärder till Windows-händelseloggarna under ”program och tjänsten Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin”.
+Autentiseringsagenter logga åtgärder till Windows-händelseloggar som finns under program- och Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin.
 
-Felsökningsloggar kan aktiveras om det behövs.
+Du kan också aktivera loggning för felsökning.
 
-Visa mer information om [övervakning och loggning](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication).
+Mer information finns i [felsöka Azure Active Directory-direktautentisering](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-Pass-through-authentication).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Designbegrepp för Azure AD Connect](plan-connect-design-concepts.md)
-- [Välj rätt-autentisering](https://docs.microsoft.com/azure/security/azure-ad-choose-authn)
-- [Topologier som stöds](plan-connect-design-concepts.md)
+* Lär dig mer om [designbegrepp för Azure AD Connect](plan-connect-design-concepts.md).
+* Välj den [rätt autentisering](https://docs.microsoft.com/azure/security/azure-ad-choose-authn).
+* Lär dig mer om [stöds topologier](plan-connect-design-concepts.md).

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 818674ba1825a438a5abeb7927bcf0f683506625
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 045d95daf78775c483a9ec4e7abec0baff999838
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159931"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432684"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Katalogintegrering mellan Azure MFA Server och Active Directory
 
@@ -28,11 +28,11 @@ Som standard konfigureras Azure Multi-Factor Authentication (MFA) Server att imp
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Använd Active Directory |Välj alternativet Använd Active Directory om du vill använda Active Directory för import och synkronisering.  Det här är standardinställningen. <br>Obs! För att Active Directory-integreringen ska fungera korrekt ansluter du datorn till en domän och loggar in med ett domänkonto. |
+| Använd Active Directory |Välj alternativet Använd Active Directory om du vill använda Active Directory för import och synkronisering.  Det här är standardinställningen. <br>Obs! Anslut datorn till en domän för Active Directory-integrering ska fungera korrekt, och logga in med ett domänkonto. |
 | Inkludera betrodda domäner |Markera kryssrutan **Inkludera betrodda domäner** om du vill att agenten ska försöka ansluta till domäner som är betrodda av den aktuella domänen, en annan domän i skogen eller domäner som ingår i ett skogsförtroende.  Om du inte ska importera eller synkronisera användare från någon av de betrodda domänerna avmarkerar du kryssrutan för att förbättra prestanda.  Kryssrutan är markerad som standard. |
-| Använd specifik LDAP-konfiguration |Välj alternativet Använd LDAP om du vill använda LDAP-inställningarna som angetts för import och synkronisering. Obs! Om du väljer Använd LDAP ändras referenserna i användargränssnittet från Active Directory till LDAP. |
+| Använd specifik LDAP-konfiguration |Välj alternativet Använd LDAP om du vill använda LDAP-inställningarna som angetts för import och synkronisering. Obs! När du väljer Använd LDAP ändras referenser användargränssnittet från Active Directory till LDAP. |
 | Knappen Redigera |Du kan använda knappen Redigera om du vill redigera de aktuella LDAP-inställningarna. |
-| Använd attributbegränsade frågor |Anger om attributbegränsade frågor ska användas.  Med attributbegränsade frågor kan du göra effektiva katalogsökningar efter kvalificerade poster baserat på posterna i en annan posts attribut.  Azure Multi-Factor Authentication Server använder attributbegränsade frågor för att effektivt fråga användare som är medlemmar i en säkerhetsgrupp.   <br>Obs! Det finns vissa fall där attributbegränsade frågor stöds, men inte bör användas.  Active Directory kan exempelvis ha problem med attributbegränsade frågor när en säkerhetsgrupp innehåller medlemmar från mer än en domän. I detta fall avmarkerar du kryssrutan. |
+| Använd attributbegränsade frågor |Anger om attributbegränsade frågor ska användas.  Med attributbegränsade frågor kan du göra effektiva katalogsökningar efter kvalificerade poster baserat på posterna i en annan posts attribut.  Azure Multi-Factor Authentication Server använder attributbegränsade frågor för att effektivt fråga användare som är medlemmar i en säkerhetsgrupp.   <br>Obs!  Det finns tillfällen där attributbegränsade frågor stöds, men inte bör användas.  Active Directory kan exempelvis ha problem med attributbegränsade frågor när en säkerhetsgrupp innehåller medlemmar från mer än en domän. I detta fall avmarkerar du kryssrutan. |
 
 LDAP-inställningarna beskrivs i följande tabell.
 
@@ -54,10 +54,9 @@ Med filter kan du ange villkor för att kvalificera poster när du utför en kat
 
 Azure Multi-Factor Authentication har följande tre filteralternativ:
 
-* 
-  **Containerfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av containerobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
-* **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av säkerhetsobjekt, beroende på katalogschemat.  <br>Obs! Om det lämnas tomt används (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)) som standard.
-* **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Om det lämnas tomt används (&(objectCategory=person)(objectClass=user)) som standard.
+* **Containerfilter** – Ange filtervillkoren som används för att kvalificera behållarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (|(objectClass=organizationalUnit)(objectClass=container)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av containerobjekt, beroende på katalogschemat.  <br>Obs!  Om det lämnas tomt används ((objectClass=organizationalUnit)(objectClass=container)) som standard.
+* **Säkerhetsgruppfilter** – Ange filtervillkoren som används för att kvalificera säkerhetsposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectCategory=group)(groupType:1.2.840.113556.1.4.804:=-2147483648)).  För andra LDAP-kataloger använder du filtervillkoren som kvalificerar varje typ av säkerhetsobjekt, beroende på katalogschemat.  <br>Obs!  Om det lämnas tomt används (&(objectCategory=group) (objectCategory=Group)(grouptype:1.2.840.113556.1.4.804:=-2147483648)))) används som standard.
+* **Användarfilter** – Ange filtervillkoren som används för att kvalificera användarposter när en katalogsökning utförs.  För Active Directory och ADAM används oftast (&(objectClass=user)(objectCategory=person)).  För andra LDAP-kataloger använder du (objectClass=inetOrgPerson) eller liknande, beroende på katalogschemat. <br>Obs!  Om det lämnas tomt används (& (objectCategory=person)(objectClass=User)) som standard.
 
 ## <a name="attributes"></a>Attribut
 Du kan anpassa attributen efter behov för en viss katalog.  På så sätt kan du lägga till anpassade attribut och finjustera synkroniseringen till endast de attribut som du behöver. Använd namnet på attributet från katalogschemat för värdet för varje attributfält. Följande tabell innehåller ytterligare information om varje funktion.
@@ -112,8 +111,8 @@ Följande tabell innehåller ytterligare information om inställningarna på fli
 
 | Funktion | Beskrivning |
 | --- | --- |
-| Aktivera synkronisering med Active Directory |Om det här alternativet har valts avsöker tjänsten Multi-Factor Auth Server regelbundet Active Directory för att identifiera ändringar. <br><br>Obs! Minst ett synkroniseringsobjekt måste läggas till och Synkronisera nu måste köras innan Multi-Factor Auth Server- tjänsten börjar bearbeta ändringar. |
-| Synkronisera var |Ange tidsintervallet som Multi-Factor Auth Server-tjänsten ska vänta mellan att göra avsökningar och bearbeta ändringar. <br><br> Obs! Det angivna intervallet är tiden mellan början av varje cykel.  Om tiden för att bearbeta ändringar överskrider intervallet startar tjänsten en ny avsökning direkt. |
+| Aktivera synkronisering med Active Directory |Om det här alternativet har valts avsöker tjänsten Multi-Factor Auth Server regelbundet Active Directory för att identifiera ändringar. <br><br>Obs! Minst ett synkroniseringsobjekt måste läggas till och synkronisera nu måste utföras innan Multi-Factor Auth Server-tjänsten börjar bearbeta ändringar. |
+| Synkronisera var |Ange tidsintervallet som Multi-Factor Auth Server-tjänsten ska vänta mellan att göra avsökningar och bearbeta ändringar. <br><br> Obs! Det angivna tidsintervallet är tiden mellan början av varje cykel.  Om tiden för att bearbeta ändringar överskrider intervallet startar tjänsten en ny avsökning direkt. |
 | Ta bort användare som inte längre finns i Active Directory |Om du väljer det här alternativet bearbetar tjänsten Multi-Factor Auth Server tombstone-objekten för borttagna användare i Active Directory och tar bort relaterade Multi-Factor Auth Server-användare. |
 | Utför alltid en fullständig synkronisering |Om du väljer det här alternativet utför tjänsten Multi-Factor Auth Server alltid en fullständig synkronisering.  Om alternativet är avmarkerat utför tjänsten Multi-Factor Auth Server en inkrementell synkronisering genom att endast fråga efter användare som har ändrats.  Alternativet är avmarkerat som standard. <br><br>Om alternativet är avmarkerat utför Azure MFA Server endast inkrementell synkronisering om katalogen stöder DirSync-kontrollen och om kontobindningen till katalogen har behörighet att köra inkrementella DirSync-frågor.  Om kontot inte har rätt behörighet eller om flera domäner omfattas av synkroniseringen utför Azure MFA Server en fullständig synkronisering. |
 | Kräv administratörsgodkännande om fler än X användare ska inaktiveras eller tas bort |Synkroniseringsobjekt kan konfigureras att inaktivera eller ta bort användare som inte längre är medlemmar i objektets container eller säkerhetsgrupp.  Som ett skydd kan godkännande från en administratör krävas om antalet användare som ska inaktiveras eller tas bort överskrider ett tröskelvärde.  Om det här alternativet har valts krävs godkännande för det angivna tröskelvärdet.  Standardvärdet är 5 och intervallet är 1 till 999. <br><br> Godkännandet börjar med att ett e-postmeddelande skickas till administratören. E-postmeddelandet innehåller anvisningar för att granska och godkänna inaktiveringen och borttagningen av användare.  När användargränssnittet för Multi-Factor Auth Server startas uppmanas administratören att ge sitt godkännande. |

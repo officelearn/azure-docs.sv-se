@@ -3,18 +3,18 @@ title: Visa ändringar i filinnehåll med Azure Automation
 description: Använd funktionen filen innehållsändringar i ändringsspårning för att visa innehållet i en fil som har ändrats.
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0582505d66bbef3064359fa4047676c4ba60b4e9
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37872262"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438009"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visa innehållet i en fil som spåras med ändringsspårning
 
@@ -42,7 +42,7 @@ Filspårning innehåll kan du visa innehållet i en fil före och efter en ändr
 
 5. När du har aktiverat, visas lagringskontot och SAS-URI: er. SAS-URI: er upphör att gälla efter 365 dagar och kan skapas på nytt genom att klicka på den **återskapa** knappen.
 
-   ![lista nycklar](./media/change-tracking-file-contents/account-keys.png)
+   ![Lista nycklar](./media/change-tracking-file-contents/account-keys.png)
 
 ## <a name="add-a-file"></a>Lägg till en fil
 
@@ -62,7 +62,7 @@ I följande steg vägleder dig genom att aktivera ändringsspårning för en fil
 
 1. På den **ändringsinformation** kan du se standard före och efter filen information längst upp till vänster, klickar på **visa ändringar i filinnehåll** att se innehållet i filen.
 
-  ![ändringsinformation](./media/change-tracking-file-contents/change-details.png)
+  ![Information om ändringar](./media/change-tracking-file-contents/change-details.png)
 
 1. Den nya sidan visar filinnehållet i en sida-vid-sida-vy. Du kan också välja **infogade** att visa ändringarna infogade.
 
@@ -76,3 +76,4 @@ Gå kursen på ändringsspårning vill veta mer om hur du använder lösningen:
 > [Felsöka ändringar i din miljö](automation-tutorial-troubleshoot-changes.md)
 
 * Använd [Loggsökningar i Log Analytics](../log-analytics/log-analytics-log-searches.md) att visa detaljerad spårning av data.
+

@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
-ms.openlocfilehash: 1fcb72d75dca99b6670ca3ff536403a6268554a2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: ce6c3364c594bc515abd9f0c02bd69bf500e4f4e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50238156"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436577"
 ---
 # <a name="set-environment-variables"></a>Ange miljövariabler
 
@@ -20,9 +20,9 @@ Ställa in miljövariabler i container instances kan du tillhandahålla dynamisk
 
 Exempel: Om du kör den [microsoft/aci-wordcount] [ aci-wordcount] behållaravbildningen, du kan ändra sitt beteende genom att ange följande miljövariabler:
 
-*NumWords*: antalet ord som skickas till STDOUT.
+*NumWords*: Antalet ord som skickas till STDOUT.
 
-*MinLength*: det minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
+*MinLength*: Minsta antalet tecken i ett ord för att det ska räknas. En hög siffra ignorerar vanliga ord som ”av” och ”den”.
 
 Om du vill skicka hemligheter som miljövariabler kan Azure Container Instances stöder [säkra värden](#secure-values) för både Windows och Linux-behållare.
 
@@ -38,7 +38,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-Om du vill ändra utdata, starta en andra behållare med den `--environment-variables` argumentet som har lagts till, att ange värden för den *NumWords* och *MinLength* variabler:
+Om du vill ändra utdata, starta en andra behållare med den `--environment-variables` argumentet som har lagts till, att ange värden för den *NumWords* och *MinLength* variabler. (Det här exemplet förutsätter att du kör CLI i ett Bash-gränssnittet eller Azure Cloud Shell. Om du använder Windows-kommandotolk, ange variablerna med dubbla citattecken, till exempel `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -255,6 +255,6 @@ Uppgiftsbaserade scenarier, till exempel en stor datauppsättning med flera beh�
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/azurerm.containerinstance/get-azurermcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [new-azurermcontainergroup]: /powershell/module/azurerm.containerinstance/new-azurermcontainergroup
 [portal]: https://portal.azure.com

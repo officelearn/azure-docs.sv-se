@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: cynthn
-ms.openlocfilehash: cd11bb8ae8f22705feb7eebeafde385fcf11fdcd
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: d606009ea378de4addb06f9123baf3282637cf85
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637093"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423382"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Anslut en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -28,11 +28,11 @@ Den här artikeln visar hur du kopplar både nya och befintliga diskar till en W
 
 Granska först de här tipsen:
 * Storleken på den virtuella datorn styr hur många datadiskar som du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Om du vill använda Premium storage behöver en Premium Storage-aktiverad virtuell dator-typ som den DS-serien eller GS-serien virtuella datorn. Mer information finns i [Premium Storage: lagring med höga prestanda för Azure-Datorbelastningar](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* Om du vill använda Premium storage behöver en Premium Storage-aktiverad virtuell dator-typ som den DS-serien eller GS-serien virtuella datorn. Mer information finns i [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](premium-storage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-För att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 6.0.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du även behöver köra `Connect-AzureRmAccount` att skapa en anslutning till Azure.
+För att installera och använda PowerShell lokalt kräver den här självstudien Azure PowerShell-Modulversion 6.0.0 eller senare. Kör ` Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du även behöver köra `Connect-AzureRmAccount` att skapa en anslutning till Azure.
 
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator

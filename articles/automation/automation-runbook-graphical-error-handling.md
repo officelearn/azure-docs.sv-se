@@ -3,18 +3,18 @@ title: Felhantering i Azure Automation grafiska runbooks
 description: Den här artikeln beskriver hur du implementerar felhanteringslogik i Azure Automation grafiska runbooks.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 14112a9a9f64f20540a8f7e1d37cd31017238e59
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d7fe38334b71334d4dae9235643117efdf5fbd5d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192718"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436696"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Felhantering i Azure Automation grafiska runbooks
 
@@ -30,7 +30,7 @@ De typer av PowerShell-fel som kan uppstå under körning är avslutande eller i
 
 * **Icke-avslutande fel**: Ett icke-allvarligt fel som gör att körningen kan fortsätta trots felet. Exempel på detta är operativa fel som att en fil inte gick att hitta och behörighetsproblem.
 
-Grafiska Azure Automation-runbooks har förbättrats och fått en funktion för felhantering. Du kan nu omvandla undantag till icke-avslutande fel och skapa fellänkar mellan aktiviteter. På så sätt kan en runbookredigerare fånga upp fel och hantera det förväntade eller oväntade tillståndet.  
+Azure Automation grafiska runbooks har förbättrats med funktioner för felhantering. Du kan nu omvandla undantag till icke-avslutande fel och skapa fellänkar mellan aktiviteter. På så sätt kan en runbookredigerare fånga upp fel och hantera det förväntade eller oväntade tillståndet.  
 
 ## <a name="when-to-use-error-handling"></a>När du ska använda felhantering
 
@@ -69,3 +69,4 @@ Fellänkar flödar från dessa aktiviteter till en enda **felhanteringsaktivitet
 * Om du vill veta mer om länkar och länktyper i grafiska runbooks kan du läsa [Graphical authoring in Azure Automation](automation-graphical-authoring-intro.md#links-and-workflow) (Grafisk redigering i Azure Automation).
 
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra ett runbook-jobb](automation-runbook-execution.md).
+

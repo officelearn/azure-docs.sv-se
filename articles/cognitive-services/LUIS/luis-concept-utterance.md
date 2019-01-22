@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae090a8cd812868f63c9805b2f5b59769a715090
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975278"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427210"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är avsedda för LUIS-app
 
@@ -88,7 +88,7 @@ Utbildning som är allmänt icke-deterministisk: uttryck förutsägelsen kan var
 
 ## <a name="testing-utterances"></a>Testa yttranden 
 
-Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till den [förutsägelse endpoint](luis-how-to-manage-keys.md) URL: en. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](luis-how-to-review-endoint-utt.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
+Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skicka yttranden till den [förutsägelse endpoint](luis-how-to-azure-subscription.md) URL: en. Dessa uttryck används för att förbättra prestandan för avsikter och entiteter med [granska yttranden](luis-how-to-review-endoint-utt.md). Tester som skickades med webbplatsen LUIS testning fönstret skickas inte via slutpunkten och därför bidrar inte till aktiv inlärning. 
 
 ## <a name="review-utterances"></a>Granska yttranden
 

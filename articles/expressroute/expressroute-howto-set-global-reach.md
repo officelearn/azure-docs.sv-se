@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 3df107f8854469b50c5e8483515388b5c93fb244
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: ab1098ca65ad92cffdbe1dfb24fd43fcc8f10eae
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53383280"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431686"
 ---
 # <a name="configure-expressroute-global-reach-preview"></a>Konfigurera ExpressRoute Global räckvidd (förhandsversion)
 Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med hjälp av PowerShell. Mer information finns i [ExpressRouteRoute Global räckvidd](expressroute-global-reach.md).
@@ -26,7 +26,7 @@ Den här artikeln hjälper dig att konfigurera ExpressRoute Global räckvidd med
 
 Innan du börjar konfigurationen måste du kontrollera följande:
 
-* Att du har installerat den senaste versionen av Azure PowerShell. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+* Att du har installerat den senaste versionen av Azure PowerShell. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 * Att du förstår ExpressRoute kretsetablering [arbetsflöden](expressroute-workflows.md).
 * När är din ExpressRoute-kretsar i ett etablerat tillstånd.
 * Att Azures privata peering har konfigurerats på ExpressRoute-kretsar.  

@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 4aa6f8fdf4eaa8e439c1a8c8c0202cf49a04433c
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: b8252e6575ec7acb46fb69563720cc38796964ce
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584317"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425076"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för mått med Azure Monitor
 
@@ -117,13 +117,13 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
 6. Du kan inaktivera en måttaviseringsregel med följande kommando.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} --enabled false
     ```
 
 7. Du kan ta bort en måttaviseringsregel med följande kommando.
 
     ```azurecli
-    az monitor metrics alert update -g {ResourceGroup} -n {AlertRuleName} -enabled false
+    az monitor metrics alert delete -g {ResourceGroup} -n {AlertRuleName}
     ```
 
 ## <a name="next-steps"></a>Nästa steg
@@ -131,3 +131,4 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
 - [Skapa måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-enable-template.md).
 - [Förstå hur mått aviseringar work](alerts-metric-overview.md).
 - [Förstå web hook schemat för måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+

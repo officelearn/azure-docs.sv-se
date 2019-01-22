@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025013"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425918"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -63,10 +63,10 @@ Om ditt deltagande i den offentliga förhandsversionen av konvergerade registrer
 
 I följande lista beskrivs var och en av rapportkolumner i Azure-portalen i detalj:
 
-* **Användaren**: den användare som försökte lösenord återställa registreringsåtgärden.
-* **Rollen**: rollen för användare i katalogen.
-* **Datum och tid**: datum och tid för försöket.
-* **Data registrerad**: autentiseringsdata som du angav under lösenord registrering för lösenordsåterställning.
+* **Användaren**: Den användare som försökte lösenord återställa registreringsåtgärden.
+* **Roll**: Rollen för användaren i katalogen.
+* **Datum och tid**: Datum och tid för försöket.
+* **Registrerade**: Autentiseringsdata som användaren har angett under registrering av återställning.
 
 ## <a name="description-of-the-report-values-in-the-azure-portal"></a>Beskrivning av rapporten värdena i Azure portal
 
@@ -74,7 +74,7 @@ I följande tabell beskrivs de olika värdena som du kan ange för varje kolumn 
 
 | Kolumn | Tillåtna värden och deras innebörd |
 | --- | --- |
-| Registrerade |**Alternativ e-postadress**: användaren används en alternativ e-postadress eller e-post för autentisering för att autentisera.<p><p>**Arbetstelefon**: användaren används en telefon på kontoret för att autentisera.<p>**Mobiltelefon**: användaren används en mobiltelefon eller autentiseringstelefon för att autentisera.<p>**Säkerhetsfrågor**: användaren används säkerhetsfrågor för att autentisera.<p>**Valfri kombination av de tidigare metoderna, till exempel alternativ e-post + mobiltelefon**: inträffar när en två-gate-princip har angetts och visar vilka två metoder som användaren använde för att autentisering sin begäran om lösenordsåterställning. |
+| Registrerade |**Alternativ e-postadress**: Användaren används en alternativ e-postadress eller e-post för autentisering för att autentisera.<p><p>**Arbetstelefon**: Användaren används en telefon på kontoret för att autentisera.<p>**Mobiltelefon**: Användaren används en mobiltelefon eller autentiseringstelefon för att autentisera.<p>**Säkerhetsfrågor**: Användaren används säkerhetsfrågor för att autentisera.<p>**Valfri kombination av de tidigare metoderna, till exempel alternativ e-post + mobiltelefon**: Inträffar när en två-gate-princip har angetts och visar vilka två metoder som användaren använde för att autentisering sin begäran om lösenordsåterställning. |
 
 ## <a name="self-service-password-management-activity-types"></a>Självbetjäning aktivitetstyper för lösenordshantering
 
@@ -84,41 +84,41 @@ Följande aktivitetstyper av visas i den **Self-Service lösenordshantering** h�
 * [Ändra lösenord (självbetjäning)](#activity-type-change-password-self-service): Anger att en användare utförde en frivillig eller tvingad (på grund av utgången) Ändra lösenordet.
 * [Återställ lösenord (av administratör)](#activity-type-reset-password-by-admin): Anger att en administratör har genomfört en å en användares från Azure-portalen.
 * [Återställ lösenord (självbetjäning)](#activity-type-reset-password-self-service): Anger att en användare har återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com).
-* [Lösenordsåterställning via självbetjäning aktivitetsförlopp för lösenordsåterställningsflöde](#activity-type-self-serve-password-reset-flow-activity-progress): anger varje specifikt steg som en användare fortsätter genom, t.ex. skicka ett särskilt lösenord återställa autentiseringsgate, som en del av lösenordet återställa lösenordet.
-* [Lås upp användarkonto (självbetjäning)](#activity-type-unlock-user-account-self-service): Anger att en användare har låsts upp sina Active Directory-konto utan att återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com) med hjälp av aktivt Katalogfunktion för konto låser du upp utan återställning.
+* [Lösenordsåterställning via självbetjäning aktivitetsförlopp för lösenordsåterställningsflöde](#activity-type-self-serve-password-reset-flow-activity-progress): Anger varje specifikt steg som en användare fortsätter genom, t.ex. skicka ett särskilt lösenord återställa autentiseringsgate, som en del av lösenordet återställa lösenordet.
+* [Lås upp användarkonto (självbetjäning)](#activity-type-unlock-user-account-self-service): Anger att en användare har låsts upp sina Active Directory-konto utan att återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com) låsa upp utan återställning med hjälp av funktionen Active Directory för kontot.
 * [Användare registrerad för lösenordsåterställning via självbetjäning](#activity-type-user-registered-for-self-service-password-reset): Anger att en användare har registrerat all nödvändig information för att kunna återställa sina lösenord i enlighet med principen för lösenordsåterställning för aktuell klient.
 
-### <a name="activity-type-blocked-from-self-service-password-reset"></a>Aktivitetstyp: blockerad från lösenordsåterställning via självbetjäning
+### <a name="activity-type-blocked-from-self-service-password-reset"></a>Aktivitetstyp: Blockerad från lösenordsåterställning via självbetjäning
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en användare har försökt att återställa ett lösenord, använda en specifik gate eller verifiera ett telefonnummer fler än fem Totalt antal gånger under 24 timmar.
-* **Aktivitet aktören**: den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
+* **Aktivitet aktören**: Den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
 * **Aktivitetsstatus**:
   * _Lyckade_: Anger att en användare begränsades från utföra eventuella ytterligare återställningar, försök eventuella ytterligare autentiseringsmetoder eller verifieringen av eventuella ytterligare telefonnummer för nästkommande 24 timmar.
-* **Aktivitetens status felorsak**: ej tillämpligt.
+* **Aktivitetens status felorsak**: Ej tillämpligt.
 
-### <a name="activity-type-change-password-self-service"></a>Aktivitetstyp: ändra lösenord (självbetjäning)
+### <a name="activity-type-change-password-self-service"></a>Aktivitetstyp: Ändra lösenord (självbetjäning)
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en användare utförde en frivillig eller tvingad (på grund av utgången) Ändra lösenordet.
-* **Aktivitet aktören**: den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
+* **Aktivitet aktören**: Den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Den användare som har ändrat sitt lösenord. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
   * _Lyckade_: Anger att en användare har ändrat sitt lösenord.
-  * _Fel_: visar att en användare misslyckades med att ändra sina lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
+  * _Fel_: Anger att en användare Det gick inte att ändra sina lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 * **Aktivitetens status felorsak**: 
-  * _FuzzyPolicyViolationInvalidPassword_: användaren har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
+  * _FuzzyPolicyViolationInvalidPassword_: Användaren har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
 
 ### <a name="activity-type-reset-password-by-admin"></a>Aktivitetstyp: Återställ lösenord (av administratör)
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en administratör har genomfört en å en användares från Azure-portalen.
-* **Aktivitet aktören**: administratören som utförs åt en annan användare eller administratör om återställning av lösenord. Måste vara antingen en global administratör, lösenordsadministratör, administratören eller supportavdelningsadministratör.
-* **Mål för aktiviteten**: användaren vars lösenord har återställts. Användaren kan vara en användare eller en annan administratör.
+* **Aktivitet aktören**: Administratören som utförs åt en annan användare eller administratör om återställning av lösenord. Måste vara antingen en global administratör, lösenordsadministratör, administratören eller supportavdelningsadministratör.
+* **Mål för aktiviteten**: Den användare vars lösenord har återställts. Användaren kan vara en användare eller en annan administratör.
 * **Aktivitet statusar**:
   * _Lyckade_: Anger att en administratör har återställts en användares lösenord.
   * _Fel_: Anger att en administratör gick inte att ändra en användares lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
@@ -128,47 +128,47 @@ I följande lista beskrivs den här aktiviteten i detalj:
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en användare har återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com).
-* **Aktivitet aktören**: användare återställa sina lösenord. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: användare återställa sina lösenord. Användaren kan vara en användare eller administratör.
+* **Aktivitet aktören**: Den användare som kan återställa sina lösenord. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Den användare som kan återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
   * _Lyckade_: Anger att en användare har återställts sina egna lösenord.
-  * _Fel_: visar att en användare misslyckades med att återställa sina egna lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
+  * _Fel_: Visar att en användare misslyckades med att återställa sina egna lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 * **Aktivitetens status felorsak**: 
-  * _FuzzyPolicyViolationInvalidPassword_: administratören har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
+  * _FuzzyPolicyViolationInvalidPassword_: Administratören har valt ett lösenord som har automatiskt förbjuden eftersom identifieringsfunktioner Microsoft förbjudna lösenord visade sig vara för vanligt eller särskilt svaga.
 
-### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Aktivitetstyp: själv hantera lösenordsåterställning aktivitetsförlopp för lösenordsåterställningsflöde
+### <a name="activity-type-self-serve-password-reset-flow-activity-progress"></a>Aktivitetstyp: Självsignerat fungera aktivitetsförlopp för lösenordsåterställningsflöde för lösenordsåterställning
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
-* **Aktivitetsbeskrivningen**: indikerar varje specifikt steg som en användare fortsätter genom (t.ex. skicka ett särskilt lösenord återställa autentiseringsgate) som en del av lösenordet återställa lösenordet.
-* **Aktivitet aktören**: användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
+* **Aktivitetsbeskrivningen**: Indikerar varje specifikt steg som en användare fortsätter genom (t.ex. skicka ett särskilt lösenord återställa autentiseringsgate) som en del av lösenordet återställa lösenordet.
+* **Aktivitet aktören**: Användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Användaren som utförde en del av lösenordet återställa flödet. Användaren kan vara en användare eller administratör.
 * **Aktivitet statusar**:
-  * _Lyckade_: visar att en användare har slutförts ett specifikt steg till flödet för återställning av lösenord.
+  * _Lyckade_: Anger att en användare har slutfört ett specifikt steg till flödet för återställning av lösenord.
   * _Fel_: Anger att ett specifikt steg av lösenordet återställa flöde misslyckades. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
-* **Aktivitetens statusorsaker**: visas i följande tabell för [alla tillåtna återställning aktivitetens statusorsaker](#allowed-values-for-details-column).
+* **Aktivitetens statusorsaker**:   Se följande tabell för [alla tillåtna återställning aktivitetens statusorsaker](#allowed-values-for-details-column).
 
 ### <a name="activity-type-unlock-a-user-account-self-service"></a>Aktivitetstyp: Lås upp användarkonto (självbetjäning)
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
-* **Aktivitetsbeskrivningen**: Anger att en användare har låsts upp sina Active Directory-konto utan att återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com) med hjälp av Active Directory-funktion i kontoupplåsning utan återställning.
-* **Aktivitet aktören**: den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
+* **Aktivitetsbeskrivningen**: Anger att en användare har låsts upp sina Active Directory-konto utan att återställa sina lösenord från den [portal för Azure AD-lösenordsåterställning](https://passwordreset.microsoftonline.com) låsa upp utan återställning med hjälp av funktionen Active Directory för kontot.
+* **Aktivitet aktören**: Den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Den användare som låsas upp sitt konto utan att återställa sina lösenord. Användaren kan vara en användare eller administratör.
 * **Tillåtna aktivitet statusar**:
   * _Lyckade_: Anger att en användare har olåst sitt eget konto.
   * _Fel_: Anger att en användare Det gick inte att låsa upp sitt konto. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade.
 
-### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Aktivitetstyp: användare registrerad för lösenordsåterställning via självbetjäning
+### <a name="activity-type-user-registered-for-self-service-password-reset"></a>Aktivitetstyp: Användare registrerad för lösenordsåterställning via självbetjäning
 
 I följande lista beskrivs den här aktiviteten i detalj:
 
 * **Aktivitetsbeskrivningen**: Anger att en användare har registrerat all nödvändig information för att kunna återställa sina lösenord i enlighet med principen för lösenordsåterställning för aktuell klient. 
-* **Aktivitet aktören**: användaren som registrerade för återställning av lösenord. Användaren kan vara en användare eller administratör.
-* **Mål för aktiviteten**: användaren som registrerade för återställning av lösenord. Användaren kan vara en användare eller administratör.
+* **Aktivitet aktören**: Användaren som registrerad för lösenordsåterställning. Användaren kan vara en användare eller administratör.
+* **Mål för aktiviteten**: Användaren som registrerad för lösenordsåterställning. Användaren kan vara en användare eller administratör.
 * **Tillåtna aktivitet statusar**:
   * _Lyckade_: Anger att en användare har registrerats för lösenordsåterställning i enlighet med den aktuella principen. 
-  * _Fel_: visar att en användare misslyckades med att registrera för återställning av lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade. 
+  * _Fel_: Visar att en användare misslyckades med att registrera för återställning av lösenord. Du kan välja raden för att se den **aktivitet statusorsak** kategori om du vill veta mer om varför de inträffade. 
 
      >[!NOTE]
      >Felet betyder det inte går att återställa sina egna lösenord. Det innebär att de inte slutför registreringen. Om det finns overifierade data på deras konto är korrekt, till exempel ett telefonnummer som inte har verifierats, även om de inte har kontrollerat det här telefonnumret, kan de fortfarande använda för att återställa sina lösenord. Mer information finns i [vad som händer när en användare registrerar?](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-learn-more#what-happens-when-a-user-registers).

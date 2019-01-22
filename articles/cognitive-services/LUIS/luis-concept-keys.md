@@ -11,15 +11,15 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: diberry
-ms.openlocfilehash: 6196364f5983d443519429363bb94bfd6a1203c5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: ff7f25a9c1ac73c53587bb320ef3889a5bfa9dc5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411738"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54439127"
 ---
 # <a name="authoring-and-query-prediction-endpoint-keys-in-luis"></a>Skriv- och fråga förutsägelse endpoint nycklar i LUIS
-LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [tilldela den](luis-how-to-manage-keys.md#assign-endpoint-key) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
+LUIS använder två nycklar: [redigering](#programmatic-key) och [endpoint](#endpoint-key). Redigering nyckeln skapas automatiskt åt dig när du skapar ditt Understanding Intelligent Service-konto. När du är redo att publicera LUIS-appen kan du behöva [skapa slutpunktsnyckeln](luis-how-to-azure-subscription.md), [tilldela den](luis-how-to-azure-subscription.md) till din LUIS-app och [använder den med slutpunkt-frågan](#use-endpoint-key-in-query). 
 
 |Nyckel|Syfte|
 |--|--|
@@ -47,7 +47,7 @@ När du behöver **produktion endpoint frågor**, skapa en Azure-resurs och seda
 
 [!INCLUDE [Azure resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
 
-När process för att skapa Azure-resurs är klar [tilldela nyckeln](luis-how-to-manage-keys.md#assign-endpoint-key) till appen. 
+När process för att skapa Azure-resurs är klar [tilldela nyckeln](luis-how-to-azure-subscription.md) till appen. 
 
     * Slutpunktsnyckeln kan en kvot på slutpunkten träffar baserat på vilken plan för användning som du angav när du skapar nyckeln. Se [priser för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) information om priser.
 
@@ -76,13 +76,13 @@ Se [viktiga begränsningar](luis-boundaries.md#key-limits) och [Azure-regioner](
 Publicera regioner skiljer sig från redigering regioner. Kontrollera att du skapar en app i redigering region motsvarande att publicera region som du vill.
 
 ## <a name="key-limit-errors"></a>Gräns för fel
-Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-manage-keys.md#assign-endpoint-key) nyckeln till appen på den **publicera** för den [LUIS](luis-reference-regions.md#luis-website) webbplats.
+Om du överskrider din per sekund kvot du får ett HTTP 429-fel. Om du överskrider din per månad kvot du får felmeddelandet HTTP 403. Åtgärda felen genom att hämta en LUIS [endpoint](#endpoint-key) nyckel, [tilldela](luis-how-to-azure-subscription.md) nyckeln till appen på den **publicera** för den [LUIS](luis-reference-regions.md#luis-website) webbplats.
 
 ## <a name="assignment-of-the-endpoint-key"></a>Tilldelningen av slutpunktsnyckeln
 
-Du kan [tilldela](luis-how-to-manage-keys.md) slutpunktsnyckeln i den [LUIS portal](https://www.luis.ai) eller motsvarande-API: er. 
+Du kan [tilldela](luis-how-to-azure-subscription.md) slutpunktsnyckeln i den [LUIS portal](https://www.luis.ai) eller motsvarande-API: er. 
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig [begrepp](luis-how-to-manage-keys.md#assign-endpoint-key) om nycklar för redigering och slutpunkt.
+* Lär dig [begrepp](luis-how-to-azure-subscription.md) om nycklar för redigering och slutpunkt.

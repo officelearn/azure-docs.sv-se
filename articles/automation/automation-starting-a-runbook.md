@@ -3,23 +3,23 @@ title: Starta en runbook i Azure Automation
 description: Sammanfattar de olika metoderna som kan användas för att starta en runbook i Azure Automation och ger information om hur du använder både Azure-portalen och Windows PowerShell.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2aea370d7de063805eb584cd7d90395ca725b4c
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 41ea6e6a8c09217c0bb34e07bb911329121f8b7b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275495"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424973"
 ---
 # <a name="starting-a-runbook-in-azure-automation"></a>Starta en runbook i Azure Automation
 Tabellen nedan hjälper dig att fastställa metod för att starta en runbook i Azure Automation som är mest lämpliga för ditt specifika scenario. Den här artikeln innehåller mer information om hur du startar en runbook med Azure-portalen och med Windows PowerShell. Information om de andra metoderna finns i annan dokumentation som du kan komma åt via länkarna nedan.
 
-| **METODEN** | **EGENSKAPER** |
+| **METHOD** | **EGENSKAPER** |
 | --- | --- |
 | [Azure Portal](#starting-a-runbook-with-the-azure-portal) |<li>Enklaste metoden med interaktivt användargränssnitt.<br> <li>Formulär med enkla parametervärden.<br> <li>Spåra jobbets status.<br> <li>Åtkomst som autentiseras med Azure-inloggningsförfrågningar. |
 | [Windows PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/start-azureautomationrunbook) |<li>Anropa från kommandoraden med Windows PowerShell-cmdlets.<br> <li>Kan ingå i automatiserad lösning med flera steg.<br> <li>Begäran har autentiserats med certifikat eller OAuth användarens huvudnamn / service principal.<br> <li>Ange enkla och komplexa parametervärden.<br> <li>Spåra jobbets status.<br> <li>Klient krävs för stöd av PowerShell-cmdletar. |
@@ -179,4 +179,5 @@ jsmith
 ## <a name="next-steps"></a>Nästa steg
 * Runbook-arkitekturen i aktuella artikeln ger en översikt över runbooks som hanterar resurser i Azure och lokalt med Hybrid Runbook Worker. Läs om hur du kör Automation-runbooks i datacentret, [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md).
 * Läs mer om skapa modulbaserade runbooks som ska användas av andra runbooks för specifika eller vanliga funktioner [underordnade Runbooks](automation-child-runbooks.md).
+
 

@@ -8,14 +8,14 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
-ms.openlocfilehash: d3d42a3c81153d54690f0825368eaa950dbac18e
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9046090a45d52a283d28d1c4cc79b44503cb5a9d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52314787"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427601"
 ---
 # <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Förhandsversion: Azure AD lösenord skydd lokalt – vanliga frågor och svar
 
@@ -26,19 +26,19 @@ ms.locfileid: "52314787"
 
 ## <a name="general-questions"></a>Allmänna frågor
 
-**F: när uppnår allmän tillgänglighet (GA) i Azure AD-lösenordsskydd?**
+**F: När uppnår allmän tillgänglighet (GA) i Azure AD-lösenordsskydd?**
 
 Vi har inte meddelat allmän tillgänglighet datum än.
 
-**F: är den lokala Azure AD-lösenordsskydd som stöds i icke-offentlig moln?**
+**F: Är den lokala Azure AD-lösenordsskydd som stöds i icke-offentlig moln?**
 
 Nej, den lokala Azure AD-lösenordsskydd stöds bara i det offentliga molnet.
 
-**F: hur kan jag använda fördelarna med Azure AD lösenord skydd till en delmängd av Mina lokala användare?**
+**F: Hur kan jag använda fördelarna med Azure AD lösenord skydd till en delmängd av Mina lokala användare?**
 
 Stöds ej. När distribuerats och aktiverats, Azure AD-lösenordsskydd skilja inte – alla användare får lika säkerhetsfördelarna.
 
-**F: finns det stöd för att installera Azure AD-lösenordsskydd sida vid sida med andra filter-lösenordsbaserade produkter?**
+**F: Finns det stöd för att installera Azure AD-lösenordsskydd sida vid sida med andra filter-lösenordsbaserade produkter?**
 
 Ja. Stöd för flera filter DLL-filer för registrerade lösenord är en core Windows-funktion och inte specifikt för Azure AD-lösenordsskydd. Alla registrerade lösenord filter DLL: er måste godkänna innan ett lösenord har godkänts.
 
@@ -56,7 +56,7 @@ Mer information finns i följande artiklar:
 
 Det här kravet orsakas av core Windows beteende.
 
-**F: finns det något sätt att konfigurera en DC-agenten för att använda en särskild proxyserver?**
+**F: Finns det något sätt att konfigurera en DC-agenten för att använda en särskild proxyserver?**
 
 Nej.
 

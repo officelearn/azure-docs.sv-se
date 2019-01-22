@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 12/14/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8686130e3b10ece605a6e648badf9aa1dae5e071
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 65c685936fabab65698a077f22c2dfde17469055
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435692"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436424"
 ---
 # <a name="oracle-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Distribution av Oracle-DBMS i Azure virtuella datorer för SAP-arbetsbelastningar
 
@@ -235,7 +235,7 @@ ms.locfileid: "53435692"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -366,8 +366,8 @@ Minsta konfiguration:
 | \oracle\<SID > \origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
 | \oracle\<SID > \origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
 | \oracle\<SID > \sapdata1...n | Premium | Skrivskyddad | Kan användas |
-| \oracle\<SID > \oraarch | Standard | Ingen | Behövs inte |
-| Oracle hem, saptrace... | OS-disk | | Behövs inte |
+| \oracle\<SID>\oraarch | Standard | Ingen | Behövs inte |
+| Oracle Home, saptrace, ... | OS-disk | | Behövs inte |
 
 
 Val av diskar som värd för online gör om loggar bör styras av krav på IOPs. Det är möjligt att lagra alla sapdata1... n (registerutrymmen) på en enda monterade disken så länge storlek, IOPS och dataflöde uppfyller kraven. 
@@ -375,14 +375,14 @@ Val av diskar som värd för online gör om loggar bör styras av krav på IOPs.
 Prestandakonfiguration:
 | Komponent | Disk | Cachelagring | Lagringspool |
 | --- | ---| --- | --- |
-| \oracle\<SID > \origlogaA | Premium | Ingen | Kan användas  |
-| \oracle\<SID > \origlogaB | Premium | Ingen | Kan användas |
+| \oracle\<SID>\origlogaA | Premium | Ingen | Kan användas  |
+| \oracle\<SID>\origlogaB | Premium | Ingen | Kan användas |
 | \oracle\<SID > \mirrlogAB | Premium | Ingen | Kan användas |
-| \oracle\<SID > \mirrlogBA | Premium | Ingen | Kan användas |
+| \oracle\<SID>\mirrlogBA | Premium | Ingen | Kan användas |
 | \oracle\<SID > \sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
-| \oracle\SID\sapdata(n+1) * | Premium | Ingen | Kan användas |
-| \oracle\<SID > \oraarch* | Premium | Ingen | Behövs inte |
-| Oracle hem, saptrace... | OS-disk | Behövs inte |
+| \oracle\SID\sapdata(n+1)* | Premium | Ingen | Kan användas |
+| \oracle\<SID>\oraarch* | Premium | Ingen | Behövs inte |
+| Oracle Home, saptrace, ... | OS-disk | Behövs inte |
 
 *(n+1) - som är värd för SYSTEM och TEMP Ångra registerutrymmen. I/o-mönster av systemet och ångra registerutrymmen skiljer sig från andra registerutrymmen som är värd för programdata. Ingen cachelagring är det bästa alternativet för prestanda för System och ångra registerutrymmen.
 * oraarch - lagringspoolen behövs inte från prestandavyn. Det kan användas för att få mer utrymme
@@ -448,29 +448,29 @@ Enligt beskrivningen i dokumentet [överväganden för distribution av Azure vir
 För att identifiera de Azure VM-typerna som stöds, se SAP-kommentar [1928533]
 
 Minsta konfiguration:
-| Komponent | Disk | Cachelagring | Tar bort specifika konfigurationer * |
+| Komponent | Disk | Cachelagring | Stripping* |
 | --- | ---| --- | --- |
 | /Oracle/<SID>/origlogaA & mirrlogB | Premium | Ingen | Behövs inte |
 | /Oracle/<SID>/origlogaB & mirrlogA | Premium | Ingen | Behövs inte |
 | /Oracle/<SID>/sapdata1...n | Premium | Skrivskyddad | Kan användas |
 | /Oracle/<SID>/oraarch | Standard | Ingen | Behövs inte |
-| Oracle hem, saptrace... | OS-disk | | Behövs inte |
+| Oracle Home, saptrace, ... | OS-disk | | Behövs inte |
 
 * Tar bort specifika konfigurationer: LVM stripe eller MDADM med RAID0
 
 Valet av disk som värd för Oracles online gör om loggar bör styras av krav på IOPS. Det är möjligt att lagra alla sapdata1... n (registerutrymmen) på en enda monterade disken så länge volymen, IOPS och dataflöde uppfyller kraven. 
 
 Prestandakonfiguration:
-| Komponent | Disk | Cachelagring | Tar bort specifika konfigurationer * |
+| Komponent | Disk | Cachelagring | Stripping* |
 | --- | ---| --- | --- |
 | /Oracle/<SID>/origlogaA | Premium | Ingen | Kan användas  |
 | /Oracle/<SID>/origlogaB | Premium | Ingen | Kan användas |
 | /Oracle/<SID>/mirrlogAB | Premium | Ingen | Kan användas |
 | /Oracle/<SID>/mirrlogBA | Premium | Ingen | Kan användas |
 | /Oracle/<SID>/sapdata1...n | Premium | Skrivskyddad | Rekommenderas  |
-| /Oracle/SID/sapdata(n+1)* | Premium | Ingen | Kan användas |
+| /oracle/SID/sapdata(n+1)* | Premium | Ingen | Kan användas |
 | /Oracle/<SID>/oraarch* | Premium | Ingen | Behövs inte |
-| Oracle hem, saptrace... | OS-disk | Behövs inte |
+| Oracle Home, saptrace, ... | OS-disk | Behövs inte |
 
 * Tar bort specifika konfigurationer: LVM stripe eller MDADM med RAID0 *(n+1) – som är värd för SYSTEM och TEMP Ångra registerutrymmen. han i/o-mönster av systemet och ångra registerutrymmen skiljer sig från andra registerutrymmen som är värd för programdata. Ingen cachelagring är det bästa alternativet för prestanda för System och ångra registerutrymmen.
 * oraarch - lagringspoolen behövs inte från prestandavyn. Kan användas för att få mer utrymme.

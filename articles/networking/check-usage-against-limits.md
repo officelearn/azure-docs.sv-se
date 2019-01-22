@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0b15861f663c98d3b873f95a0ea6c485ada91fb6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385523"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421614"
 ---
 # <a name="check-resource-usage-against-limits"></a>Kontrollera resursanvändningen mot gränser
 
@@ -34,9 +34,9 @@ I den här artikeln du lär dig att se hur många av varje typ av resurs som du 
 4. Välj namnet på den prenumeration som du vill visa användningsinformation för.
 5. Under **inställningar**väljer **användning + kvoter**.
 6. Du kan välja följande alternativ:
-    - **Resurstyper**: du kan välja alla typer av resurser eller Välj vilken typ av resurser som du vill visa.
-    - **Providers**: du kan välja alla resursprovidrar eller välj **Compute**, **nätverk**, eller **Storage**.
-    - **Platser**: du kan välja alla Azure-platser eller välja specifika platser.
+    - **Resurstyper**: Du kan välja alla typer av resurser eller Välj vilken typ av resurser som du vill visa.
+    - **Providers**: Du kan välja alla resursprovidrar eller välj **Compute**, **nätverk**, eller **Storage**.
+    - **Platser**: Du kan välja alla Azure-platser eller välja specifika platser.
     - Du kan välja för att visa alla resurser eller de resurser där minst en distribueras.
 
     Exempel på följande bild visar alla nätverksresurser med minst en resurs som är distribuerad i östra USA:
@@ -47,7 +47,7 @@ I den här artikeln du lär dig att se hur många av varje typ av resurs som du 
 
 ## <a name="powershell"></a>PowerShell
 
-Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.0.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Login-AzureRmAccount` att logga in på Azure.
+Du kan köra kommandon i den [Azure Cloud Shell](https://shell.azure.com/powershell), eller genom att köra PowerShell från datorn. Azure Cloud Shell är ett interaktivt gränssnitt. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. Om du kör PowerShell från datorn, måste den *AzureRM* PowerShell-modulen version 6.0.1 eller senare. Kör `Get-Module -ListAvailable AzureRM` på datorn, hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt, måste du också köra `Login-AzureRmAccount` att logga in på Azure.
 
 Visa din användning mot gränser med [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). I följande exempel hämtas användningen av resurser där minst en resurs är distribuerad i platsen East USA:
 

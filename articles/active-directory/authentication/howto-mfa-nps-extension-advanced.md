@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: a857732bcbe70cec164cebb54d7c09a1f103a942
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 81f6d6607f2fcc86e2499a537f3ddeff470d35f9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160618"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429114"
 ---
 # <a name="advanced-configuration-options-for-the-nps-extension-for-multi-factor-authentication"></a>Avancerade konfigurationsalternativ för NPS-tillägget för Multifaktorautentisering
 
@@ -47,7 +47,7 @@ Om du vill konfigurera en godkänd IP-lista, gå till `HKLM\SOFTWARE\Microsoft\A
 | ---- | ---- | ------------- | ----------- |
 | IP_WHITELIST | sträng | Tom | Ange en semikolonavgränsad lista med IP-adresser. Inkludera IP-adresser för datorer där tjänstbegäranden kommer t.ex NAS/VPN-servern. IP-intervall är undernät inte stöds. <br><br> Till exempel *10.0.0.1;10.0.0.2;10.0.0.3*.
 
-När en begäran kommer från en IP-adress som finns på vitlistan, hoppas över tvåstegsverifiering. IP-vitlistan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP lista över tillåtna ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
+När en begäran kommer från en IP-adress som finns på vitlistan, hoppas över tvåstegsverifiering. IP-vitlistan jämförs IP-adressen som har angetts i den *ratNASIPAddress* attribut för RADIUS-begäran. Om en RADIUS-begäran kommer utan attributet ratNASIPAddress, loggas följande varning: ”P_WHITE_LIST_WARNING::IP vitlista ignoreras eftersom käll-IP saknas i RADIUS-begäran i NasIpAddress attribut”.
 
 ## <a name="next-steps"></a>Nästa steg
 

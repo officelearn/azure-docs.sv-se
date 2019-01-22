@@ -3,7 +3,7 @@ title: Skydda poäng i Azure Security Center | Microsoft Docs
 description: " Prioritera dina säkerhetsrekommendationer som använder säker poängen i Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4bc426e291a47ae42e7628ad911e2960e654819f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: monhaber
+ms.openlocfilehash: 4c7f272cbf98fefbf70e917634fb623c9e1b6a3b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261306"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425901"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säker poäng i Azure Security Center
 
@@ -45,7 +45,7 @@ Visa dina övergripande säker poäng:
 2. Överst ser du Secure bedöma viktiga funktioner:
    - Den **övergripande skyddar score** representerar poäng per principer per vald prenumeration
    - **Skydda poäng efter kategori** visar vilka resurser behöver mest åtgärdas
-   - **Främsta rekommendationer av säker poäng inverkan** tillhandahåller en lista över rekommendationer som förbättrar dina säker poäng mest om du åtgärda dem.
+   - **Främsta rekommendationer av säker poäng inverkan** tillhandahåller en lista över rekommendationer som förbättrar dina säker poäng mest om du implementerar dem.
  
    ![säker poäng](./media/security-center-secure-score/secure-score-dashboard.png)
 

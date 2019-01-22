@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: bd2f796ab2feee4bb862d8de2c44efc742163f06
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 1a5a5dc04f9ac663fe2e29fd81df5201435c1bc1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167536"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430170"
 ---
-# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserade Azure Multi-Factor Authentication
+# <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Distribuera molnbaserad Azure Multi-Factor Authentication
 
 Det är enkelt att komma igång med Azure Multi-Factor Authentication (MFA Azure).
 
@@ -77,11 +77,11 @@ Innan du aktiverar Azure Multi-Factor Authentication, måste din organisation be
    * REKOMMENDERAT: På den **undanta** fliken, markerar du kryssrutan för **användare och grupper** och välj en grupp som ska användas för undantag när användare inte har åtkomst till sina autentiseringsmetoder.
    * Klicka på **Klar**.
 1. Under **Molnappar**väljer den **alla molnappar** alternativknappen.
-   * Du kan också: På den **undanta** -fliken, Välj molnappar som din organisation inte kräver MFA för.
+   * DU KAN OCKSÅ: På den **undanta** -fliken, Välj molnappar som din organisation inte kräver MFA för.
    * Klicka på **Klar**.
 1. Under **villkor** avsnittet:
-   * : Om du har aktiverat Azure Identity Protection, du kan välja att utvärdera inloggningsrisk som en del av principen.
-   * Du kan också: Om du har konfigurerat betrodda platser eller namngivna platser, kan du ange om du vill inkludera eller exkludera dessa platser från principen.
+   * DU KAN OCKSÅ: Om du har aktiverat Azure Identity Protection kan välja du att utvärdera inloggningsrisk som en del av principen.
+   * DU KAN OCKSÅ: Om du har konfigurerat betrodda platser eller namngivna platser, kan du ange om du vill inkludera eller exkludera dessa platser från principen.
 1. Under **bevilja**, se till att den **bevilja åtkomst** alternativknappen har valts.
     * Markera kryssrutan för **kräva multifaktorautentisering**.
     * Klicka på **Välj**.

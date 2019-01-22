@@ -3,19 +3,19 @@ title: Hantera en virtuell Azure-dator med inventeringssamling | Microsoft Docs
 description: Hantera en virtuell dator med inventeringssamling
 services: automation
 ms.service: automation
-ms.component: change-inventory-management
+ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 9fabaa2be850e5b15f10fc78adb14dfd5c112906
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49403618"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426054"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
@@ -126,3 +126,4 @@ Ta bort den virtuella datorn från inventeringshantering:
 
 * Information om hur du hanterar ändringar i inställningarna för filer och registret finns i [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Spåra programändringar i miljön med lösningen Ändringsspårning).
 * Läs om hur du hanterar Windows- och paketuppdateringar på dina virtuella datorer i [uppdateringshanteringslösningen i Azure](../operations-management-suite/oms-solution-update-management.md).
+

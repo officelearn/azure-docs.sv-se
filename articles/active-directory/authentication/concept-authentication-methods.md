@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: d8d7850e7d5253cfec4431fed3e09f4007995494
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 90eb9177ec679fdf8007b734848a5bc3c72e5974
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249701"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430338"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -59,41 +59,41 @@ Om du använder säkerhetsfrågor, bör du använda dem tillsammans med en annan
 
 ### <a name="predefined-questions"></a>Fördefinierade frågor
 
-* I vilken stad träffade du din första make/maka/partner?
+* I vilken stad träffade du din första partner?
 * I vilken stad träffades dina föräldrar?
 * I vilken stad bor ditt närmsta syskon?
-* I vilken stad föddes din pappa?
-* I vilken stad hade du ditt första jobb?
-* I vilken stad föddes din mamma?
-* Vilken stad befann du dig i på nyårsafton 2000?
-* Vad hette din favoritlärare i gymnasiet i efternamn?
-* Vad heter ett av de universitet du har ansökt till men aldrig gått på?
-* Vad heter den plats där du hade din första bröllopsmottagning?
-* Vilket är din pappas mellannamn?
-* Vilken är din favoriträtt?
-* Vad hette din mormor i för- och efternamn?
-* Vilket är din mammas mellannamn?
+* I vilken stad föddes din far?
+* I vilken stad var ditt första jobb?
+* I vilken stad föddes din mor?
+* I vilken stad var du på Nyårsafton 2000?
+* Vad hette din favoritlärare på gymnasiet i efternamn?
+* Vad är namnet på ett universitet du ansökte till men inte gick på?
+* Vad heter stället där du höll din första bröllopsmottagning?
+* Vad heter din far i mellannamn?
+* Vad är din favoriträtt?
+* Vad heter din mormor i för- och efternamn?
+* Vad var din mors namn som ogift?
 * Vad är ditt äldsta syskon månad och år? (t.ex. November 1985)
-* Vilket är ditt äldsta syskons mellannamn?
-* Vad hette din farfar i för- och efternamn?
-* Vilket är ditt yngsta syskons mellannamn?
-* Vilken skola gick du i när du gick i sjätte klass?
-* Vad hette din bästa barndomskompis i för- och efternamn?
-* Vad hette din första kärlek i för- och efternamn?
+* Vad heter ditt äldsta syskon i mellannamn?
+* Vad heter din farfar i för- och efternamn?
+* Vad heter ditt yngsta syskon i mellannamn?
+* I vilken skola gick du i sjätte klass?
+* Vad var för- och efternamnet på din bästa barndomsvän?
+* Vad var för- och efternamnet på din första partner?
 * Vad hette din favoritlärare i grundskolan i efternamn?
-* Av vilket märke och vilken modell var din första bil eller motorcykel?
-* Vad hette den första skolan som du gick i?
-* Vad hette det sjukhus där du föddes?
-* Vad är adressen till ditt första barndomshem?
+* Vilket märke och modell hade din första bil eller motorcykel?
+* Vad hette den första skolan du gick på?
+* Vad hette sjukhuset där du föddes?
+* Vilken gata låg ditt första barndomshem på?
 * Vad hette din barndomshjälte?
-* Vad hette din favoritgosedjur?
+* Vad hette ditt favoritgosedjur?
 * Vad hette ditt första husdjur?
-* Vad hade du för smeknamn som barn?
-* Vilken var din favoritsport i gymnasiet?
-* Vilket var ditt första jobb?
-* Vilka är de fyra sista siffrorna i det telefonnummer du hade som barn?
-* Vad drömde du om att bli som vuxen när du var barn?
-* Vilken är den mest berömda person som du har träffat?
+* Vad var ditt smeknamn som barn?
+* Vad var din favoritsport i gymnasiet?
+* Vad var ditt första jobb?
+* Vad var de sista fyra siffrorna i telefonnumret du hade som barn?
+* När du var ung, vad ville du bli när du växte upp?
+* Vem är den mest berömda personen du någonsin träffat?
 
 Alla de fördefinierade säkerhetsfrågorna är översättas och lokaliserad till den fullständiga uppsättningen Office 365-språk baserat på användarens webbläsare språkinställningar.
 

@@ -4,18 +4,18 @@ description: Med rollbaserad åtkomstkontroll (RBAC) kan du hantera åtkomsten t
 keywords: automation rbac, rollbaserad åtkomstkontroll, azure rbac
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 538208c39d6436c15b95760133e00c980e2e8277
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727910"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424327"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Rollbaserad åtkomstkontroll i Azure Automation
 
@@ -35,8 +35,8 @@ I Azure Automation beviljas åtkomst genom att lämplig RBAC-roll tilldelas till
 |Automation Runbook-operator|Rollen Automation Runbook-operatör kan du visa namn och egenskaper för en runbook.|
 | Log Analytics Contributor | Rollen Log Analytics Contributor kan du läsa alla övervakningsdata och redigera övervakningsinställningarna. Redigera övervakningsinställningarna omfattar att lägga till VM-tillägg till virtuella datorer, läsa lagringskontonycklar för att kunna konfigurera loggsamlingar från Azure storage, skapa och konfigurera automationskonton, lägga till lösningar och konfigurera Azure diagnostics på alla Azure-resurser.|
 | Log Analytics Reader | Log Analytics Reader-rollen kan du visa och söka efter alla data samt visa övervakningsinställningar. Detta omfattar visning av konfigurationen av Azure diagnostics på alla Azure-resurser. |
-| Övervaka deltagare | Övervakning av deltagarrollen kan du läsa alla övervakningsdata och uppdatera övervakningsinställningarna.|
-| Övervaka läsare | Med övervakning läsarrollen kan du läsa alla övervakningsdata. |
+| Övervakningsdeltagare | Övervakning av deltagarrollen kan du läsa alla övervakningsdata och uppdatera övervakningsinställningarna.|
+| Övervakningsläsare | Med övervakning läsarrollen kan du läsa alla övervakningsdata. |
 | Administratör för användaråtkomst |Med rollen Administratör för användaråtkomst kan du hantera användaråtkomsten till Azure Automation-konton. |
 
 ## <a name="role-permissions"></a>Rollbehörigheter
@@ -73,7 +73,7 @@ En läsare kan visa alla resurser i ett Automation-konto men göra inte några �
 
 ### <a name="automation-operator"></a>Automation-operatör
 
-En Automation-operatör kan skapa och hantera jobb och läsa runbook-namn och egenskaper för alla runbooks i ett Automation-konto.  Obs: Om du vill kontrollera operatorn åtkomst till enskilda runbooks och sedan inte den här rollen och i stället använda rollerna ”Automation-Jobboperator och Automation Runbook-operatör i kombination. I följande tabell visas de behörigheter som beviljas för rollen:
+En Automation-operatör kan skapa och hantera jobb och läsa runbook-namn och egenskaper för alla runbooks i ett Automation-konto.  Obs! Om du vill kontrollera operatorn åtkomst till enskilda runbooks och sedan inte den här rollen och i stället använda rollerna ”Automation-Jobboperator och Automation Runbook-operatör i kombination. I följande tabell visas de behörigheter som beviljas för rollen:
 
 |**Åtgärder**  |**Beskrivning**  |
 |---------|---------|
@@ -162,7 +162,7 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 |**Inte åtgärder**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Det går inte att läsa in delade åtkomstnycklar.|
 
-### <a name="monitoring-contributor"></a>Övervaka deltagare
+### <a name="monitoring-contributor"></a>Övervakningsdeltagare
 
 Övervaka deltagare kan läsa alla övervakningsdata och uppdatera inställningarna för övervakning. I följande tabell visas de behörigheter som beviljas för rollen:
 
@@ -188,7 +188,7 @@ En Log Analytics Reader kan visa och söka i alla övervakningsdata och dessutom
 |Microsoft.Support/*|Skapa och hantera supportärenden.|
 |Microsoft.WorkloadMonitor/workloads/*|Hantera arbetsbelastningar.|
 
-### <a name="monitoring-reader"></a>Övervaka läsare
+### <a name="monitoring-reader"></a>Övervakningsläsare
 
 En övervakning läsare kan läsa alla övervakningsdata. I följande tabell visas de behörigheter som beviljas för rollen:
 
@@ -214,7 +214,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Onboarding från en virtuell dator
 
-|**Åtgärd**  |**Behörighet**  |**Minsta omfång**  |
+|**Åtgärd**  |**Permission**  |**Minsta omfång**  |
 |---------|---------|---------|
 |Skriva ny distribution      | Microsoft.Resources/deployments/*          |Prenumeration          |
 |Skriva ny resursgrupp      | Microsoft.Resources/subscriptions/resourceGroups/write        | Prenumeration          |
@@ -234,7 +234,7 @@ Följande tabeller visar de minsta nödvändiga behörigheter som behövs för a
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding från Automation-konto
 
-|**Åtgärd**  |**Behörighet** |**Minsta omfång**  |
+|**Åtgärd**  |**Permission** |**Minsta omfång**  |
 |---------|---------|---------|
 |Skapa ny distribution     | Microsoft.Resources/deployments/*        | Prenumeration         |
 |Skapa ny resursgrupp     | Microsoft.Resources/subscriptions/resourceGroups/write         | Prenumeration        |
@@ -334,7 +334,7 @@ AssignableScopes : {/}
 ```
 
 [Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) visar Azure AD RBAC-rolltilldelningar i det specificerade omfånget. Utan parametrar returnerar detta kommando alla rolltilldelningar som skapats under prenumerationen. Använd parametern **ExpandPrincipalGroups** om du vill visa en lista med alla åtkomsttilldelningar för den angivna användaren och för de grupper som användaren är medlem i.
-    **Exempel:** Använd följande kommando om du vill visa alla användare och deras roller i ett Automation-konto.
+    **Exempel:** Använd följande kommando för att lista alla användare och deras roller i ett automation-konto.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -376,7 +376,7 @@ ObjectType         : User
 ```
 
 Använd [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603781.aspx) att ta bort åtkomst till en specifik användare, grupp eller program från ett visst omfång.
-    **Exempel:** använder du följande kommando för att ta bort användaren från rollen ”Automation-operatör” i Automation-kontoomfånget.
+    **Exempel:** Använd följande kommando för att ta bort användaren från rollen ”Automation-operatör” i Automation-kontoomfånget.
 
 ```azurepowershell-interactive
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
@@ -428,3 +428,4 @@ När en användare som har tilldelats rollen Automation-operatör på Runbook-om
 * Information om hur du kan konfigurera RBAC på olika sätt med Azure Automation finns i [Hantera rollbaserad åtkomstkontroll med Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
 * Mer information om hur du kan starta en runbook på olika sätt finns i [Starta en runbook](automation-starting-a-runbook.md)
 * Information om olika runbook-typer finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)
+

@@ -3,18 +3,18 @@ title: Grafisk redigering i Azure Automation
 description: Grafisk redigering kan du skapa runbook-flöden för Azure Automation utan att arbeta med kod. Den här artikeln innehåller en introduktion till grafisk redigering och all information som behövs för att börja skapa en grafisk runbook.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a4cd2cec56a15660a03ac111b1b8962d531479ad
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233685"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427244"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Grafisk redigering i Azure Automation
 
@@ -34,7 +34,7 @@ Du kan öppna den grafiska redigeraren i Azure portal genom att skapa eller redi
 
 I följande avsnitt beskrivs kontrollerna i den grafiska redigeraren.
 
-### <a name="canvas"></a>Arbetsytan
+### <a name="canvas"></a>Canvas
 
 Arbetsytan är där du utformar din runbook. Du lägger till aktiviteter från noder i bibliotekskontrollen runbook och Anslut dem med länkar att definiera logiken för runbook.
 
@@ -111,7 +111,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 
 | Datakälla | Beskrivning |
 |:--- |:--- |
-| Konstantvärde |Ange ett värde för parametern. Detta är endast tillgängligt för följande datatyper: Int32, Int64, sträng, booleskt värde, DateTime, växel. |
+| Konstant värde |Ange ett värde för parametern. Detta är endast tillgängligt för följande datatyper: Int32, Int64, sträng, booleskt värde, DateTime, växla. |
 | Aktivitetsutdata |Utdata från en aktivitet som föregår den aktuella aktiviteten i arbetsflödet. Alla giltiga aktiviteter visas. Välj bara aktiviteten att använda dess utdata för parametervärdet. Om aktiviteten matar ut ett objekt med flera egenskaper, kan du ange namnet på egenskapen när du har valt aktiviteten. |
 | Indata för Runbook |Välj en runbook-indataparameter som indata för Aktivitetsparametern. |
 | Variabel tillgång |Välj ett Automation-variabel som indata. |
@@ -119,7 +119,7 @@ När du anger ett värde för en parameter kan välja du en datakälla för att 
 | Certifikattillgång |Välj ett Automation-certifikat som indata. |
 | Anslutningstillgång |Välj ett Automation-anslutningens som indata. |
 | PowerShell-uttryck |Ange enkla [PowerShell-uttryck](#powershell-expressions). Uttrycket utvärderas innan aktiviteten och resultatet som används för parametervärdet. Du kan använda variabler för att referera till utdata för en aktivitet eller en indataparameter för runbook. |
-| Inte konfigurerat |Tar bort ett värde som konfigurerats tidigare. |
+| Inte konfigurerad |Tar bort ett värde som konfigurerats tidigare. |
 
 #### <a name="optional-additional-parameters"></a>Valfria ytterligare parametrar
 
@@ -272,7 +272,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 Du kan ange [kontrollpunkter](automation-powershell-workflow.md#checkpoints) i en grafiskt PowerShell Workflow-runbook genom att välja *kontrollpunkt runbook* för varje aktivitet. Detta leder till en kontrollpunkt anges när aktiviteten körs.
 
-![Kontrollpunkt](media/automation-graphical-authoring-intro/set-checkpoint.png)
+![Checkpoint](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
 Kontrollpunkter är endast aktiverad i grafiska PowerShell Workflow-runbooks, det är inte tillgänglig i grafiska runbooks. Om runbook använder Azure-cmdletar, ska du följa eventuella med kontrollpunkt aktivitet med en Connect-AzureRmAccount om runbooken har pausats och startar om från den här kontrollpunkten på en annan arbetsprocess.
 

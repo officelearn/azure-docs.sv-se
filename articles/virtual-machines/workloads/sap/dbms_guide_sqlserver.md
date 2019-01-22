@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 78ad40796a31e0c803b892e0c1b50e66b32c2b0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430178"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425889"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SQL Server Azure virtuella datorer DBMS-distribution för SAP NetWeaver
 
@@ -235,7 +235,7 @@ ms.locfileid: "49430178"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/install-azurerm-ps
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -328,9 +328,9 @@ I följande avsnitt, aggregeras och nämns delar av delar av dokumentationen und
 
 Det finns några SQL-Server i IaaS specifik information som du bör känna till innan du fortsätter:
 
-* **Stöd för SQL-Version**: för SAP-kunder, SQL Server 2008 R2 och senare stöds på Microsoft Azure-dator. Tidigare versioner stöds inte. Granska den här allmänna [Supportmeddelande](https://support.microsoft.com/kb/956893) för mer information. I allmänhet SQL Server 2008 finns även stöd av Microsoft. Men på grund av viktiga funktioner för SAP, som introducerades i SQL Server 2008 R2, SQL Server 2008 R2 är den lägsta versionen för SAP. I allmänhet bör du använda den senaste SQL Server versioner om du vill köra SAP-arbetsbelastningen i Azure IaaS. De senaste versionerna av SQL Server erbjuder bättre integrering i några av de Azure-tjänster och funktioner. Eller har ändrats och därmed optimerar åtgärder i en Azure IaaS-infrastruktur. Dokumentet är därför begränsade till SQL Server 2016 och SQL Server 2017.
+* **Stöd för SQL-Version**: För SAP-kunder, SQL Server 2008 R2 och senare stöds på Microsoft Azure-dator. Tidigare versioner stöds inte. Granska den här allmänna [Supportmeddelande](https://support.microsoft.com/kb/956893) för mer information. I allmänhet SQL Server 2008 finns även stöd av Microsoft. Men på grund av viktiga funktioner för SAP, som introducerades i SQL Server 2008 R2, SQL Server 2008 R2 är den lägsta versionen för SAP. I allmänhet bör du använda den senaste SQL Server versioner om du vill köra SAP-arbetsbelastningen i Azure IaaS. De senaste versionerna av SQL Server erbjuder bättre integrering i några av de Azure-tjänster och funktioner. Eller har ändrats och därmed optimerar åtgärder i en Azure IaaS-infrastruktur. Dokumentet är därför begränsade till SQL Server 2016 och SQL Server 2017.
 * **SQL-prestanda**: Microsoft Azure virtuella värddatorerna utför även i jämförelse med andra offentliga molnerbjudanden för virtualisering, men enskilda resultaten kan variera. Läs artikeln [prestandametodtips för SQL Server i Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
-* **Med hjälp av avbildningar från Azure Marketplace**: det snabbaste sättet att distribuera en ny Microsoft Azure VM är att använda en avbildning från Azure Marketplace. Det finns avbildningar i Azure Marketplace, som innehåller de senaste versionerna av SQL Server. Bilderna där SQL Server redan är installerat kan inte användas direkt för SAP NetWeaver-program. Orsaken är standardsortering för SQL Server är installerat i dessa bilder och inte den sortering som krävs av SAP NetWeaver-system. För att kunna använda sådana bilder, kontrollera stegen i kapitlet [med hjälp av en SQL Server-avbildning från Microsoft Azure Marketplace][dbms-guide-5.6]. 
+* **Med hjälp av avbildningar från Azure Marketplace**: Det snabbaste sättet att distribuera en ny Microsoft Azure VM är att använda en avbildning från Azure Marketplace. Det finns avbildningar i Azure Marketplace, som innehåller de senaste versionerna av SQL Server. Bilderna där SQL Server redan är installerat kan inte användas direkt för SAP NetWeaver-program. Orsaken är standardsortering för SQL Server är installerat i dessa bilder och inte den sortering som krävs av SAP NetWeaver-system. För att kunna använda sådana bilder, kontrollera stegen i kapitlet [med hjälp av en SQL Server-avbildning från Microsoft Azure Marketplace][dbms-guide-5.6]. 
 
 
 ## <a name="recommendations-on-vmvhd-structure-for-sap-related-sql-server-deployments"></a>Rekommendationer för VM/VHD-strukturen för SAP-relaterade SQL Server-distributioner
@@ -422,8 +422,8 @@ Automatisk säkerhetskopiering innehåller en automatisk säkerhetskopiering fö
 
 Mer information om funktionerna i den här metoden finns i följande artiklar:
 
-- SQLServer 2014: [automatisk säkerhetskopiering för SQL Server 2014-datorer (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
-- SQL Server 2016/2017: [automatisk säkerhetskopiering v2 för virtuella Azure-datorer (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
+- SQL Server 2014: [Automatiserad säkerhetskopiering för SQL Server 2014-datorer (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup)
+- SQL Server 2016/2017: [Automatisk säkerhetskopiering v2 för virtuella Azure-datorer (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2)
 
 Titta i dokumentationen, ser du att det förbättrade funktioner med de nyare versionerna av SQLServer. Visa mer information på SQL Server automatiska säkerhetskopieringar släpps i artikeln [SQL Server-hanterad säkerhetskopiering till Microsoft Azure](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-managed-backup-to-microsoft-azure?view=sql-server-2017). Teoretisk säkerhetskopiering storleksgränsen är 12 TB.  Automatiska säkerhetskopior kan vara en bra metod för säkerhetskopiering storlekar på upp till 12 TB. Eftersom flera blobar skrivs till parallellt, du kan förvänta dig en genomströmning på större än 100 MB per sekund. 
  
@@ -450,7 +450,7 @@ Eftersom SQL Server-avbildningar på Azure Marketplace inte har ställts in att 
 
 * Öppna ett Windows-kommandofönster som administratör.
 * Ändra katalogen till C:\Program Files\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
-* Kör kommandot: Setup.exe /QUIET/Action = REBUILDDATABASE /INSTANCENAME = MSSQLSERVER /SQLSYSADMINACCOUNTS =`<local_admin_account_name`> /SQLCOLLATION = SQL_Latin1_General_Cp850_BIN2   
+* Kör kommandot: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
   * `<local_admin_account_name`> är det konto som har definierats som administratörskontot när du distribuerar den virtuella datorn för första gången i galleriet.
 
 Processen tar bara några minuter. För att se om steget till slut med rätt resultat, utför du följande steg:

@@ -6,13 +6,13 @@ ms.author: snmuvva
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: alerts
-ms.openlocfilehash: 24d0965fa2a88bc844a81c7430d46c071a9b874b
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 40cf37c08705384fb664402c3d40efa229cbbcdf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580050"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422804"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Förstå hur arbetet aviseringar i mått i Azure Monitor
 
@@ -136,3 +136,4 @@ Om du använder klassiska måttaviseringar idag och vill ha mer information om m
 - [Lär dig att skapa, visa och hantera aviseringar för mått i Azure](alerts-metric.md)
 - [Lär dig hur du distribuerar måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [Läs mer om åtgärdsgrupper](action-groups.md)
+

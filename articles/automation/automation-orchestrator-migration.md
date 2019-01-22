@@ -3,18 +3,18 @@ title: Migrera från Orchestrator till Azure Automation
 description: Beskriver hur du migrerar runbooks och integration packs från System Center Orchestrator till Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 80b0523f8442e30e6af329263be454fa545933d6
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: ae47cba8f8e9a7cdf914c0b3ea5dfb9fa6c259a9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275290"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432905"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Migrera från Orchestrator till Azure Automation (Beta)
 Runbooks i [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) baseras på aktiviteter från integrationspaket som är skrivna specifikt för Orchestrator medan runbooks i Azure Automation baseras på Windows PowerShell.  [Grafiska runbooks](automation-runbook-types.md#graphical-runbooks) i Azure Automation har en liknande utseende till Orchestrator-runbooks med deras aktiviteter som representerar PowerShell-cmdlet: ar, underordnade runbooks och tillgångar.
@@ -56,7 +56,7 @@ Orchestrator innehåller en uppsättning [standardaktiviteter](https://technet.m
 
 Förutom att stöda konverterade runbooks, användas cmdlets i modulen standardaktiviteter av någon som är bekant med Orchestrator för att skapa nya runbooks i Azure Automation.  Även om funktionen för alla aktiviteter som standard kan utföras med cmdlet: ar, fungerar de på olika sätt.  Cmdlets i modulen konverterade standardaktiviteter kommer fungerar på samma sätt som deras motsvarande aktiviteter och använda samma parametrar.  Detta kan hjälpa befintliga Orchestrator runbook-redigeraren i sina övergången till Azure Automation-runbooks.
 
-## <a name="system-center-orchestrator-integration-modules"></a>System Center Orchestrator-integreringsmoduler
+## <a name="system-center-orchestrator-integration-modules"></a>System Center Orchestrator Integration Modules
 Microsoft tillhandahåller [integreringspaket](https://technet.microsoft.com/library/hh295851.aspx) för att skapa runbooks för att automatisera System Center-komponenter och andra produkter.  Vissa av dessa integrationspaket för närvarande är baserade på OIT men för närvarande kan inte konverteras till integreringsmoduler på grund av kända problem.  [System Center Orchestrator-integreringsmoduler](https://www.microsoft.com/download/details.aspx?id=49555) innehåller konverterade versioner av integreringspaketen som kan importeras till Azure Automation och Service Management Automation.  
 
 Uppdaterade versioner av integreringspaket baserat på OIT som kan konverteras med Integration Pack Converter RTM-versionen av det här verktyget kommer att publiceras.  Vägledning ges också för att hjälpa dig att konvertera runbooks med aktiviteter från integrationspaket som inte baseras på OIT.
@@ -129,8 +129,9 @@ Anledningen till att den här strategin används är för bäst spegling av funk
 Runbooks i Orchestrator starta andra runbooks med den **anropa Runbook** aktivitet. Om runbook omvandlas innehåller den här aktiviteten och **vänta på slutförande** alternativet har ställts in så skapas en runbook-aktivitet för den konverterade runbook.  Om den **vänta på slutförande** alternativet inte anges så skapas en Arbetsflödesskript aktivitet som använder **Start AzureAutomationRunbook** att starta runbooken.  När du har importerat den konverterade runbooken i Azure Automation måste du ändra den här aktiviteten med den information som anges i aktiviteten.
 
 ## <a name="related-articles"></a>Relaterade artiklar
-* [System Center 2012 – Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
+* [System Center 2012 - Orchestrator](https://technet.microsoft.com/library/hh237242.aspx)
 * [Service Management Automation](https://technet.microsoft.com/library/dn469260.aspx)
 * [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)
 * [Orchestrator-standardaktiviteter](https://technet.microsoft.com/library/hh403832.aspx)
 * [Ladda ned System Center Orchestrator Migration Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=47323)
+

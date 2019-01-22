@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2018
 ms.author: spelluru
-ms.openlocfilehash: 099bdc25c27e264c3c7732243068307856840409
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 655159185a6011d79b927fd16d2957e2a59c8376
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028607"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437800"
 ---
-# <a name="test-your-app-in-azure"></a>Testa din app i Azure 
+# <a name="test-your-app-in-azure"></a>Testa appen i Azure 
 Den här artikeln innehåller steg för att testa ditt program i Azure med DevTest Labs. Först måste du ställa in en filresurs i ett laboratorium och montera den som en enhet på utvecklingsdatorn lokal och en virtuell dator i ett labb. Sedan använder du Visual Studio 2017 för att distribuera appen till filresursen så att du kan köra appen på den virtuella datorn i laboratoriet.  
 
 ## <a name="prerequisites"></a>Förutsättningar 
@@ -56,7 +56,7 @@ Den här artikeln innehåller steg för att testa ditt program i Azure med DevTe
 
     ![Välj lab VM](media/test-app-in-azure/select-lab-vm.png)
 2. Välj **Connect** i verktygsfältet för att ansluta till den virtuella datorn. 
-3. [Installera Azure PowerShell](https://azure.microsoft.com/downloads/) med hjälp av den **Windows installerar** länken i den **kommandoradsverktyg** avsnittet. Andra sätt att installera Azure PowerShell, se [i den här artikeln](/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
+3. [Installera Azure PowerShell](https://azure.microsoft.com/downloads/) med hjälp av den **Windows installerar** länken i den **kommandoradsverktyg** avsnittet. Andra sätt att installera Azure PowerShell, se [i den här artikeln](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.8.1).
 4. Följ instruktionerna i den [montera filresursen](#mount-the-file-share) avsnittet. 
 
 ## <a name="publish-your-app-from-visual-studio"></a>Publicera en app från Visual Studio

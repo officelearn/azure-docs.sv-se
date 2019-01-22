@@ -3,32 +3,32 @@ title: Runbook-utdata och meddelanden i Azure Automation
 description: Beskriver hur du skapar och hämta utdata och meddelanden från runbooks i Azure Automation.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cc1ef2a3ab09ec5b86d1dc0b4c139afd43ba356d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969132"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431222"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Runbook-utdata och meddelanden i Azure Automation
 De flesta Azure Automation-runbooks har någon form av utdata. Dessa utdata kan ett felmeddelande till användaren eller ett komplext objekt som du planerar att använda med en annan runbook. Windows PowerShell innehåller [flera strömmar](/powershell/module/microsoft.powershell.core/about/about_redirection) att skicka utdata från ett skript eller ett arbetsflöde. Azure Automation fungerar på olika sätt med var och en av dessa strömmar. Du bör följa bästa praxis för hur du använder när du skapar en runbook.
 
 Följande tabell innehåller en kort beskrivning av varje ström och deras beteende i Azure-portalen för publicerade runbooks och när [testar en runbook](automation-testing-runbook.md). Mer information om varje dataström finns i senare avsnitt.
 
-| Stream | Beskrivning | Publicerad | Testa |
+| Stream | Beskrivning | Publicerad | Test |
 |:--- |:--- |:--- |:--- |
-| Resultat |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
+| Utdata |Objekt som ska användas av andra runbooks. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Varning |Varningsmeddelande avsett för användaren. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Fel |Felmeddelande avsett för användaren. Till skillnad från ett undantag fortsätter runbooken när ett felmeddelande visas som standard. |Skrivs till jobbhistoriken. |Visas i rutan Testutdata. |
 | Utförlig |Meddelanden som ger information om allmänna eller felsökning. |Skrivs till jobbhistoriken endast om utförlig loggning är aktiverad för runbooken. |Visas i rutan Testutdata endast om $VerbosePreference är inställt på Fortsätt i runbooken. |
 | Förlopp |Poster som genereras automatiskt före och efter varje aktivitet i runbook. Runbook bör inte försöka skapa sina egna förloppsposter eftersom de är avsedda för en interaktiv användare. |Skrivs till jobbhistoriken endast om förloppsloggning är aktiverad för runbooken. |Inte visas i rutan Testutdata. |
-| Felsökning |Meddelanden avsedda för en interaktiv användare. Bör inte användas i runbooks. |Skrivs inte till jobbhistoriken. |Skrivs inte till rutan Testutdata. |
+| Felsöka |Meddelanden avsedda för en interaktiv användare. Bör inte användas i runbooks. |Skrivs inte till jobbhistoriken. |Skrivs inte till rutan Testutdata. |
 
 ## <a name="output-stream"></a>Utdataströmmen
 Utdataströmmen är avsedd för utdata för objekt som skapas av ett skript eller ett arbetsflöde när det körs korrekt. I Azure Automation används främst dataströmmen för objekt som ska användas av [överordnade runbooks som anropar den aktuella runbooken](automation-child-runbooks.md). När du [anropar en infogad runbook](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) från en överordnad runbook returnerar den data från utdataströmmen till överordnat. Använd bara utdataströmmen för att kommunicera allmän information tillbaka till användaren om du vet att runbooken aldrig anropas av andra runbooks. Som bästa praxis, men bör du vanligtvis använda den [utförlig Stream](#verbose-stream) att kommunicera allmän information för användaren.
@@ -162,15 +162,15 @@ I följande tabell visas de preferensvariabler som kan användas i runbooks med 
 
 | Variabel | Standardvärde | Giltiga värden |
 |:--- |:--- |:--- |
-| WarningPreference |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
-| ErrorActionPreference |Fortsätt |Stoppa<br>Fortsätt<br>SilentlyContinue |
-| VerbosePreference |SilentlyContinue |Stoppa<br>Fortsätt<br>SilentlyContinue |
+| WarningPreference |Fortsätta |Stop<br>Fortsätta<br>SilentlyContinue |
+| ErrorActionPreference |Fortsätta |Stop<br>Fortsätta<br>SilentlyContinue |
+| VerbosePreference |SilentlyContinue |Stop<br>Fortsätta<br>SilentlyContinue |
 
 I följande tabell visas beteendet för de preferensvariabelvärden som är giltiga i runbooks.
 
 | Värde | Beteende |
 |:--- |:--- |
-| Fortsätt |Loggar meddelandet och fortsätter att köra runbooken. |
+| Fortsätta |Loggar meddelandet och fortsätter att köra runbooken. |
 | SilentlyContinue |Fortsätter att köra runbooken utan att logga meddelandet. Det här värdet har ignoreras meddelandet. |
 | Stoppa |Loggar meddelandet och pausar runbooken. |
 
@@ -204,7 +204,7 @@ Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 ``` 
 
 ### <a name="graphical-authoring"></a>Grafisk redigering
-För grafiska runbooks är extra loggning tillgänglig i form av aktivitet på servernivå spårning. Det finns två nivåer av spårning: Basic och detaljerat. I grundläggande spårning ser du start- och tidpunkten för varje aktivitet i runbook samt information som rör alla återförsök för aktiviteten. Några exempel är antalet försök och starttid för aktiviteten. I Detaljerad spårning får du grundläggande spårning plus indata och utdata för varje aktivitet. För närvarande skrivs trace-poster med hjälp av den utförliga dataströmmen, så måste du aktivera utförlig loggning när du aktiverar spårning. För grafiska runbooks med aktiverad spårning finns inget behov av att logga förloppsposter. Grundläggande spårning har samma funktion och är mer informativ.
+För grafiska runbooks är extra loggning tillgänglig i form av aktivitet på servernivå spårning. Det finns två nivåer av spårning: Grundläggande och detaljerad. I grundläggande spårning ser du start- och tidpunkten för varje aktivitet i runbook samt information som rör alla återförsök för aktiviteten. Några exempel är antalet försök och starttid för aktiviteten. I Detaljerad spårning får du grundläggande spårning plus indata och utdata för varje aktivitet. För närvarande skrivs trace-poster med hjälp av den utförliga dataströmmen, så måste du aktivera utförlig loggning när du aktiverar spårning. För grafiska runbooks med aktiverad spårning finns inget behov av att logga förloppsposter. Grundläggande spårning har samma funktion och är mer informativ.
 
 ![Grafisk redigering jobbet strömmar vy](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
 
@@ -234,4 +234,5 @@ Läs mer om hur du konfigurerar du integrering med Log Analytics för att samla 
 ## <a name="next-steps"></a>Nästa steg
 * Läs mer om att köra runbook, hur du övervakar runbook-jobb och andra tekniska detaljer i [Spåra runbook-jobb](automation-runbook-execution.md)
 * Information om hur du utformar och använda underordnade runbooks finns i [underordnade runbooks i Azure Automation](automation-child-runbooks.md)
+
 

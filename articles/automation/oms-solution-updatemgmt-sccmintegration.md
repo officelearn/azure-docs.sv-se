@@ -3,18 +3,18 @@ title: Rikta uppdateringar med hjälp av SCCM-samlingar i Azure Automation - han
 description: Den här artikeln är avsedd att hjälpa dig att konfigurera System Center Configuration Manager med den här lösningen för att hantera uppdateringar av SCCM-hanterade datorer.
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f3ab50c4fdc080b157212bcc662a2acf6629483d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c3b595e9c4d4b98814d1b68adede97204bf3eb96
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097972"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422736"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Integrera System Center Configuration Manager med uppdateringshantering
 
@@ -51,3 +51,4 @@ För att hantera uppdateringar för virtuella Windows Server-datorer som är Con
 När du har utfört konfigurationsändringen skapar du en ny distribution genom att följa stegen som beskrivs i [skapa en Uppdateringsdistribution](automation-tutorial-update-management.md#schedule-an-update-deployment) och välj **importerade grupper** på den **typen** listrutan att välja lämplig Configuration Manager-samling.
 
 ## <a name="next-steps"></a>Nästa steg
+

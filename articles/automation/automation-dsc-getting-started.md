@@ -3,24 +3,24 @@ title: Komma igång med Azure Automation State Configuration
 description: Förklaring och exempel på de vanligaste uppgifterna i Azure Automation tillstånd Configuration (DSC)
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634375"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432453"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med Azure Automation State Configuration
 
 Den här artikeln förklarar hur du gör de vanligaste uppgifterna med Azure Automation tillstånd-konfiguration, till exempel skapa, importera, och kompilera konfigurationer, konfigurera datorer för att hantera, och visa rapporter. En översikt över vilka Azure Automation-Tillståndskonfiguration är finns i [översikt över Azure Automation tillstånd Configuration](automation-dsc-overview.md). Desired State Configuration (DSC) dokumentation finns i [Windows PowerShell Desired State Configuration-översikt](/powershell/dsc/overview).
 
-Den här artikeln innehåller en stegvis guide till med hjälp av Azure Automation State Configuration. Om du vill att en exempel-miljö som redan har konfigurerats utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mallen: [Azure Automation hanteras nodmallen för](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen ställer in en slutförd tillståndskonfigurationen för Azure Automation-miljön, inklusive en Azure-dator som hanteras av Azure Automation State Configuration.
+Den här artikeln innehåller en stegvis guide till med hjälp av Azure Automation State Configuration. Om du vill att en exempel-miljö som redan har konfigurerats utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mallen: [Azure Automation hanteras nodmallen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen ställer in en slutförd tillståndskonfigurationen för Azure Automation-miljön, inklusive en Azure-dator som hanteras av Azure Automation State Configuration.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

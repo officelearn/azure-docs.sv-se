@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 10/23/2018
-ms.openlocfilehash: 8785ef50cd7bd27e866b1fa546317021eed5da01
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 301b0179c8222bfdff3b07f7962a74a4cc83b8f6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599118"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432293"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL database med hjälp av automatiska databassäkerhetskopieringar
 
@@ -92,10 +92,8 @@ Du kan vanligtvis återställer en databas till en tidigare tidpunkt för åters
 
 ## <a name="deleted-database-restore"></a>Återställning av databasen som har tagits bort
 
-Du kan återställa en borttagen databas till borttagningstid för en borttagen databas på samma logiska server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du kan återställa en borttagen databas till en tidigare tidpunkt under kvarhållning av säkerhetskopior med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
+Du kan återställa en borttagen databas till borttagningstid för en borttagen databas på samma logiska server med hjälp av Azure-portalen [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase), eller [REST (createMode = återställer)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du kan [återställa borttagen databas på hanterad instans med hjälp av PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2019/01/21/recreate-dropped-database-on-azure-sql-managed-instance). Du kan återställa en borttagen databas till en tidigare tidpunkt under kvarhållning av säkerhetskopior med hjälp av [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/restore-azurermsqldatabase).
 
-> [!Note]
-> Återställa borttagen databas finns inte i hanterade instanser.
 > [!TIP]
 > En PowerShell-exempelskript som visar hur du återställer en borttagen databas, se [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
 > [!IMPORTANT]
@@ -105,9 +103,9 @@ Du kan återställa en borttagen databas till borttagningstid för en borttagen 
 
 Återställa en borttagen databas via Azure-portalen under dess [DTU-baserade modellen kvarhållningsperiod](sql-database-service-tiers-dtu.md) eller [vCore-baserade modellen kvarhållningsperiod](sql-database-service-tiers-vcore.md) med Azure portal, öppna sidan för din server och i den Operations-området klickar du på **borttagna databaser**.
 
-![ta bort-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
+![deleted-database-restore-1](./media/sql-database-recovery-using-backups/deleted-database-restore-1.png)
 
-![ta bort-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
+![deleted-database-restore-2](./media/sql-database-recovery-using-backups/deleted-database-restore-2.png)
 
 > [!IMPORTANT]
 > Om du vill återställa en borttagen databas via programmering, se [programmässigt utföra återställning med hjälp av automatisk säkerhetskopiering](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
@@ -161,7 +159,7 @@ Du återställer en enda eller grupperade databas med hjälp av REST-API:
 
 | API | Beskrivning |
 | --- | --- |
-| [REST (createMode = Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Återställer en databas |
+| [REST (createMode=Recovery)](https://docs.microsoft.com/rest/api/sql/databases) |Återställer en databas |
 | [Hämta skapa eller uppdatera Database-Status](https://docs.microsoft.com/rest/api/sql/operations) |Returnerar status under en återställning |
 
 ### <a name="azure-cli"></a>Azure CLI

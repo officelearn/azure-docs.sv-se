@@ -3,18 +3,18 @@ title: Redigera runbooks med text i Azure Automation
 description: Den här artikeln innehåller olika procedurer för att arbeta med PowerShell och PowerShell Workflow-runbooks i Azure Automation med textredigeraren.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b17fc82d6e9cbda6ffa94ac2ee5c97835b089a7e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cbe13c9167ebccdd55d54ddd99ba11c6d58b01e8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399727"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429941"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Redigera runbooks med text i Azure Automation
 
@@ -103,3 +103,4 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 * [Autentiseringsuppgifter](automation-credentials.md)
 * [Scheman](automation-schedules.md)
 * [Variabler](automation-variables.md)
+

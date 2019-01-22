@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: b99874ce87c6e161fcd62ec871c6aee277ec946e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e8f37adc07bffb8a1e770085ecee6f813d3c2932
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232304"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425619"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Konfigurera IoT Hub-filöverföringar med hjälp av PowerShell
 
@@ -24,7 +24,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du skapa en [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) på bara några minuter.
 
-* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* [Azure PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 * Azure IoT hub. Om du inte har en IoT-hubb, kan du använda den [cmdlet New-AzureRmIoTHub](https://docs.microsoft.com/powershell/module/azurerm.iothub/new-azurermiothub) att skapa något eller använder portalen för att [skapar en IoT hub](iot-hub-create-through-portal.md).
 
@@ -96,15 +96,15 @@ Du kan nu konfigurera IoT hub till [ladda upp filer till IoT hub](iot-hub-devgui
 
 Konfigurationen kräver följande värden:
 
-* **Lagringsbehållare**: en blobbehållare i Azure storage-konto i din aktuella Azure-prenumeration ska associeras med din IoT-hubb. Du har hämtat den nödvändiga lagringskontoinformation i föregående avsnitt. IoT Hub genererar automatiskt SAS URI: er med skrivbehörighet till den här blob-behållare för enheter som ska användas när de laddar upp filer.
+* **Lagringsbehållare**: En blob-behållare i ett Azure storage-konto i din aktuella Azure-prenumeration ska associeras med din IoT-hubb. Du har hämtat den nödvändiga lagringskontoinformation i föregående avsnitt. IoT Hub genererar automatiskt SAS URI: er med skrivbehörighet till den här blob-behållare för enheter som ska användas när de laddar upp filer.
 
-* **Ta emot meddelanden om uppladdade filer**: aktivera eller inaktivera meddelanden för uppladdning av filen.
+* **Ta emot meddelanden om uppladdade filer**: Aktivera eller inaktivera meddelanden för uppladdning av filen.
 
-* **SAS TTL**: den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard.
+* **SAS TTL**: Den här inställningen är den time-to-live SAS URI: er returneras till enheten av IoT Hub. Ange en timme som standard.
 
-* **Filen notification inställningar standard TTL**: den time-to-live för en fil ladda upp meddelandet innan det förfaller. Ange en dag som standard.
+* **Filen notification inställningar standard TTL**: De time-to-live för en fil ladda upp meddelandet innan det förfaller. Ange en dag som standard.
 
-* **Filen notification maximalt antal leveranser**: antalet gånger som IoT-hubben försöker leverera en fil ladda upp meddelandet. Värdet 10 som standard.
+* **Filen notification maximalt antal leveranser**: Hur många gånger som IoT-hubben försöker leverera en fil att överföra meddelanden. Värdet 10 som standard.
 
 Använd följande PowerShell-cmdlet för att konfigurera filen överföra inställningar på din IoT-hubb:
 

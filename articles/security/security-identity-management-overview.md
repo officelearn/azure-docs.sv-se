@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As a IT Pro or decision maker I am trying to learn about identity mangement capabilities in Azure
-ms.openlocfilehash: 84ab35c269af66f58f3886a5dd0606ce69a11be9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d1933e58cae522b03ced29183440e226d47dfdf9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255889"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435064"
 ---
 # <a name="azure-identity-management-security-overview"></a>Säkerhetsöversikt för Azure identity management
 
@@ -44,7 +44,7 @@ Artikeln fokuserar på följande grundläggande Azure Identity management-funkti
 * Säkerhetsövervakning, varningar och maskininlärningsbaserade rapporter
 * Hantering av konsumentidentitet och åtkomst
 * Enhetsregistrering
-* Privileged identity management
+* Privileged Identity Management
 * Identitetsskydd
 * Hybrid identity management/Azure AD connect
 * Azure AD-åtkomstgranskningar
@@ -101,11 +101,11 @@ Säkerhetsövervakning, varningar och machine learning-baserade rapporter som vi
 
 I Azure-portalen rapporter som hör till följande kategorier:
 
-* **Avvikelseidentifiering rapporter**: innehålla inloggningshändelser som vi inte avvikande. Vårt mål är att se till att du är medveten om sådan aktivitet och gör det möjligt att avgöra om en händelse är misstänkta.
-* **Integrerade program rapporter**: ge insikter om hur molnappar används i din organisation. Azure AD erbjuder integrering med tusentals molnprogram.
-* **Felrapporter**: visar fel som kan uppstå när du etablerar konton för att externa program.
+* **Avvikelseidentifiering rapporter**: Innehåller inloggningshändelser som vi inte avvikande. Vårt mål är att se till att du är medveten om sådan aktivitet och gör det möjligt att avgöra om en händelse är misstänkta.
+* **Integrerade program rapporter**: Ge insikter om hur molnappar används i din organisation. Azure AD erbjuder integrering med tusentals molnprogram.
+* **Felrapporter**: Visa fel som kan uppstå när du etablerar konton för att externa program.
 * **Användarspecifika rapporter**: Visa inloggningsaktivitet enhetsdata för en viss användare.
-* **Aktivitetsloggar**: innehåller en post för alla granskade händelser inom den senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, och ändringar av aktivitet och aktiviteten för återställning och registrering av lösenord.
+* **Aktivitetsloggar**: Innehåller en post för alla granskade händelser inom den senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, och ändringar av aktivitet och aktiviteten för återställning och registrering av lösenord.
 
 Läs mer:
 
@@ -124,7 +124,7 @@ När du använder Azure AD B2C kan kan dina användare registrera dig för dina 
 Läs mer:
 
 * [Vad är Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C preview: registrera och logga in konsumenter i dina program](../active-directory-b2c/active-directory-b2c-overview.md)
+* [Azure Active Directory B2C preview: Registrera dig och logga in konsumenter i dina program](../active-directory-b2c/active-directory-b2c-overview.md)
 * [Azure Active Directory B2C Preview: Typer av program](../active-directory-b2c/active-directory-b2c-apps.md)
 
 ## <a name="device-registration"></a>Enhetsregistrering
@@ -139,7 +139,7 @@ Läs mer:
 * [Automatisk enhetsregistrering med Azure AD för Windows-domänanslutna enheter](../active-directory/active-directory-conditional-access-automatic-device-registration.md)
 * [Konfigurera automatisk registrering av Windows-domänanslutna enheter med Azure AD](../active-directory/active-directory-conditional-access-automatic-device-registration-setup.md)
 
-## <a name="privileged-identity-management"></a>Privileged identity management
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Med Azure AD Privileged Identity Management kan du hantera, kontrollera och övervaka Privilegierade identiteter och åtkomst till resurser i Azure AD, samt andra Microsoft-onlinetjänster, till exempel Office 365 och Microsoft Intune.
 
@@ -154,9 +154,8 @@ Med Azure AD Privileged Identity Management kan du:
 
 Läs mer:
 
-* [Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md)
-* [Roller i Azure AD Privileged Identity Management](../active-directory/privileged-identity-management/pim-roles.md)
-* [Azure AD Privileged Identity Management: Så här lägger du till eller ta bort en användarroll](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
+* [Vad är Azure AD Privileged Identity Management?](../active-directory/privileged-identity-management/pim-configure.md)
+* [Tilldela Azure AD-katalogroller i PIM](../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
 ## <a name="identity-protection"></a>Identitetsskydd
 
@@ -165,7 +164,7 @@ Azure AD Identity Protection är en säkerhetstjänst som tillhandahåller en sa
 Läs mer:
 
 * [Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md)
-* [Channel 9: Azure AD och Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD och Identity visa: Förhandsversionen av Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrid identity management/Azure AD connect
 

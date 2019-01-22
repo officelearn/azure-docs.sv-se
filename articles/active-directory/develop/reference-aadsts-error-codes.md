@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 11/30/2018
+ms.date: 01/11/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 97f884a45a0a07e2b4c48f39483c70248e7a492e
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620410"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434112"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -105,7 +105,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS50131 | ConditionalAccessFailed - anger olika fel för villkorlig åtkomst, till exempel felaktiga Windows enhetens tillstånd, begäran som blockerats på grund av misstänkt aktivitet, åtkomstprincip eller säkerhet policybeslut. |
 | AADSTS50132 | SsoArtifactInvalidOrExpired - sessionen är inte giltig på grund av lösenordet upphör att gälla eller lösenordsändring. |
 | AADSTS50133 | SsoArtifactRevoked - sessionen är inte giltig på grund av lösenordet upphör att gälla eller lösenordsändring. |
-| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - fel datacenter. Auktorisering part måste finnas i samma datacenter där den ursprungliga begäran finns för att godkänna en begäran som initierades av en app i flödet för OAuth 2.0-enhet. |
+| AADSTS50134 | DeviceFlowAuthorizeWrongDatacenter - Wrong data center. Auktorisering part måste finnas i samma datacenter där den ursprungliga begäran finns för att godkänna en begäran som initierades av en app i flödet för OAuth 2.0-enhet. |
 | AADSTS50135 | PasswordChangeCompromisedPassword – ändra lösenord krävs på grund av risken för kontot. |
 | AADSTS50136 | RedirectMsaSessionToApp - enda MSA-session har identifierats. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken - sessionen är ogiltig på grund av en extern uppdateringstoken som saknas. |
@@ -135,7 +135,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS53001 | DeviceNotDomainJoined - princip för villkorlig åtkomst kräver en domänansluten enhet och enheten är inte ansluten till en domän. Att användaren använder en domän har anslutit enheten. |
 | AADSTS53002 | ApplicationUsedIsNotAnApprovedApp - appen som används är inte en godkänd app för villkorlig åtkomst. Användaren måste använda en av apparna i listan över godkända appar för att använda för att få åtkomst. |
 | AADSTS53003 | BlockedByConditionalAccess - åtkomst har blockerats av principer för villkorlig åtkomst. Åtkomstprincipen tillåter inte utfärdande. |
-| AADSTS53004 | ProofUpBlockedDueToRisk - användare måste slutföra registreringen för multifaktorautentisering innan du använder det här innehållet. Användaren bör registrera sig för multifaktorautentisering. |
+| AADSTS53004 | ProofUpBlockedDueToRisk - User needs to complete the multi-factor authentication registration process before accessing this content. Användaren bör registrera sig för multifaktorautentisering. |
 | AADSTS54000 | MinorUserBlockedLegalAgeGroupRule |
 | AADSTS65001 | DelegationDoesNotExist - användaren eller administratören har inte godkänt att använda programmet med ID X. Send en interaktiv auktoriseringsbegäran för den här användaren och resursen. |
 | AADSTS65004 | UserDeclinedConsent - användaren nekade samtycker till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|
@@ -187,7 +187,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS90013 | InvalidUserInput - indata från användaren är inte giltiga. |
 | AADSTS90014 | MissingRequiredField - den här felkoden kan visas i olika fall när ett förväntat fält inte finns i autentiseringsuppgifterna. |
 | AADSTS90015 | QueryStringTooLong - frågesträngen är för långt. |
-| AADSTS90016 | MissingRequiredClaim - åtkomsttoken är inte giltig. Det nödvändiga anspråket saknas. |
+| AADSTS90016 | MissingRequiredClaim - The access token isn't valid. Det nödvändiga anspråket saknas. |
 | AADSTS90019 | MissingTenantRealm – Azure AD kunde inte fastställa klient-ID från begäran. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat - formatet huvudnamn är inte giltigt eller uppfyller inte den förväntade `name[/host][@realm]` format. Huvudnamnet krävs, värden och sfär är valfria och kan anges till null. |
 | AADSTS90023 | InvalidRequest |
@@ -254,6 +254,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS221000 | DeviceOnlyTokensNotSupportedByResource - resursen har inte konfigurerats för att acceptera endast token. |
 | AADSTS240001 | BulkAADJTokenUnauthorized - användaren behörighet inte att registrera enheter i Azure AD. |
 | AADSTS240002 | RequiredClaimIsMissing - id_token kan inte användas som `urn:ietf:params:oauth:grant-type:jwt-bearer` bevilja.|
+| AADSTS700016 | UnauthorizedClient_DoesNotMatchRequest - programmet hittades inte i katalogen/klient. Detta kan inträffa om programmet inte har installerats av administratör för klienten eller godkänts av någon användare i klienten. Du kanske har felaktigt konfigurerat identifierarvärde för programmet eller skickat din autentiseringsbegäran om till fel klient. |
 | AADSTS700020 | InteractionRequired - beviljad åtkomst kräver interaktion. |
 | AADSTS700022 | InvalidMultipleResourcesScope - det angivna värdet för Indataparametern omfånget är inte giltig eftersom den innehåller fler än en resurs. |
 | AADSTS700023 | InvalidResourcelessScope - det angivna värdet för Indataparametern omfånget är inte giltig när begär en åtkomsttoken. |

@@ -3,18 +3,18 @@ title: Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data
 description: Den här artikeln visar hur du skickar Desired State Configuration (DSC) rapportdata från tillståndskonfigurationen för Azure Automation till Log Analytics för att ge ytterligare insikter och hantering.
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 author: bobbytreed
 ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 88805f26869ad75830cef1aa074cd90cb947e76f
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 2450ffcbd9fa7bebd5a1b862aa9c35baa5dbdc95
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52681746"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425193"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Vidarebefordra Azure Automation-Tillståndskonfiguration rapporterar data till Log Analytics
 
@@ -140,7 +140,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ReportEndTime_t |Datum och tid när rapporten har slutförts. |
 | NumberOfResources_d |Antalet DSC-resurser anropas i konfigurationen tillämpas på noden. |
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
-| Resurs-ID |Anger vilket Azure Automation-konto. |
+| ResourceId |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |
@@ -171,7 +171,7 @@ Diagnostik från Azure Automation skapar två typer av poster i Log Analytics.
 | ErrorMessage_s |Felmeddelande om resursen misslyckades. |
 | DscResourceDuration_d |Tid i sekunder som kördes av DSC-resurs. |
 | SourceSystem | Hur Log Analytics insamlade data. Alltid *Azure* för Azure-diagnostik. |
-| Resurs-ID |Anger vilket Azure Automation-konto. |
+| ResourceId |Anger vilket Azure Automation-konto. |
 | ResultDescription | Beskrivning för den här åtgärden. |
 | SubscriptionId | Azure-prenumerationen Id (GUID) för Automation-kontot. |
 | ResourceGroup | Namnet på resursgruppen för Automation-kontot. |

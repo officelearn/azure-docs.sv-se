@@ -3,7 +3,7 @@ title: Anpassningsbara programkontroller i Azure Security Center | Microsoft Doc
 description: Det här dokumentet hjälper dig att använda anpassningsbar programkontroll i Azure Security Center för att vitlista godkända program som körs i virtuella Azure-datorer.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: 9268b8dd-a327-4e36-918e-0c0b711e99d2
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2018
-ms.author: rkarlin
-ms.openlocfilehash: e4538127b39e01f2e30f8b219c2ccee56cb4d2bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.date: 01/21/2019
+ms.author: monhaber
+ms.openlocfilehash: b7a27dea9f521f14bfb4278eada636cb7e30c581
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262905"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427142"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Anpassningsbara programkontroller i Azure Security Center
 Lär dig att konfigurera programkontroll i Azure Security Center med den här genomgången.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Vad är anpassningsbara programkontroller i Security Center?
-Anpassningsbara programkontroller är en intelligent, automatiserad slutpunkt till slutpunkt vitlistning lösning från Azure Security Center. Det hjälper dig att styra vilka program kan köras på din virtuella dator i Azure, vilket bland annat hjälper dig skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning att analysera programmen som körs på dina virtuella datorer och hjälper dig att tillämpa de specifika vitlisteregler med den här intelligensen. Den här funktionen förenklar processen med att konfigurera och underhålla användningsprinciper för listan över tillåtna program, så att du kan:
+Anpassningsbar programkontroll är en intelligent, automatiserad slutpunkt till slutpunkt vitlistning lösning från Azure Security Center. Det hjälper dig att styra vilka program kan köras på din virtuella dator i Azure, vilket bland annat, hjälper till att skydda dina virtuella datorer mot skadlig kod. Security Center använder maskininlärning att analysera programmen som körs på dina virtuella datorer och hjälper dig att tillämpa de specifika vitlisteregler med den här intelligensen. Den här funktionen förenklar processen med att konfigurera och underhålla användningsprinciper för listan över tillåtna program, så att du kan:
 
 - Blockera eller Varna vid försök att köra skadliga program, inklusive de som annars kan missas av program mot skadlig kod.
 - Uppfylla organisationens säkerhetsprincip som anger att bara licensierade program får användas.
@@ -73,7 +73,7 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
   ![Kontrollregler för program](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. I den **Välj virtuella datorer**, granska listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill tillämpa en princip för whitelising till. Nu visas två listor:
+3. I den **Välj virtuella datorer**, granska listan med rekommenderade virtuella datorer och avmarkerar dem du inte vill tillämpa en princip till listan över tillåtna program. Nu visas två listor:
 
   - **Rekommenderade program**: en lista över program som är vanliga på virtuella datorer i den här gruppen och rekommenderas för att kunna köras.
   - **Fler program**: en lista över program som antingen är mindre vanligt förekommande på virtuella datorer i den här gruppen eller som kallas Exploitables (se mer nedan), och rekommenderas för granskning.
@@ -87,7 +87,6 @@ Avsnittet **Grupper av virtuella datorer** innehåller tre flikar:
 
 5. När du är färdig med dina val klickar du på **Skapa**. <br>
 När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler ovanpå den inbyggda listan över tillåtna Programlösningen tillgängliga på Windows-servrar (AppLocker).
-
 
 > [!NOTE]
 > - Security Center förlitar sig på minst två veckors data för att skapa en baslinje och fylla i unika rekommendationer för varje grupp med virtuella datorer. Nya Security Center-kunder på standardnivån bör vara beredda på att deras grupp med virtuella datorer först visas på fliken *Ingen rekommendation*.
@@ -122,7 +121,7 @@ När du har valt skapa skapar Azure Security Center automatiskt lämpliga regler
    > - Som vi nämnde tidigare blir alltid en ny princip för programkontroll som standard konfigurerad i läget *Granska*. 
    >
 
-4. Under **principtillägg**, du kan lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar listan över tillåtna program-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.
+4. Under **principtillägg**, lägga till valfri programsökväg som du vill tillåta. När du lägger till sökvägarna skapar Security Center uppdaterar listan över tillåtna program-princip för program på de virtuella datorerna i den markerade gruppen av virtuella datorer och skapar lämpliga regler för programmen utöver de regler som redan finns på plats.
 
 5. Granska de aktuella överträdelser som anges i den **de senaste aviseringarna** avsnittet. Klicka på varje rad omdirigeras till den **aviseringar** sidan i Azure Security Center och visa alla aviseringar som har identifierats av Azure Security Center på virtuella.
   - **Aviseringar**: eventuella överträdelser som har loggats.

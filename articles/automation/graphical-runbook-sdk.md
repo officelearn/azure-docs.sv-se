@@ -3,18 +3,18 @@ title: Översikt över Azure Automation Grpahical runbook SDK
 description: Den här artikeln beskriver hur du använder Azure Automation grafiska Runbook-SDK
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 702af8311887afc94e7127704d3377e944503324
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: bc9f1feff6d8d45e52c8621d1ec4b36e0a4a4a76
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39240002"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434265"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Använd Azure Automation grafiska runbook SDK
 
@@ -103,7 +103,7 @@ Aktiviteter har implementerats av följande klasser i den `Orchestrator.GraphRun
 |WorkflowScriptActivity     | Kör ett kodblock PowerShell eller PowerShell-arbetsflöde (beroende på typ av runbook) i samband med runbook. Detta är ett kraftfullt verktyg, men inte många: Användargränssnittet visas den här skriptblock som text. motorn för körning behandlar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntax-kontroll. Om du behöver bara anropa ett enda PowerShell-kommando, föredra CommandActivity.        |
 
 > [!NOTE]
-> Inte härleda egna aktiviteter från de angivna klasserna: kan inte använda runbooks med anpassade aktivitetstyper i Azure Automation.
+> Härled inte egna aktiviteter från de angivna klasserna: Azure Automation kommer inte att kunna använda runbooks med anpassade aktivitetstyper.
 
 CommandActivity och InvokeRunbookActivity parametrar måste anges som värde beskrivningar, inte direkt värden. Värdet beskrivningar ange hur du ska produceras faktiska parametrarnas värden. Följande värde beskrivningar tillhandahålls för närvarande:
 
@@ -119,7 +119,7 @@ CommandActivity och InvokeRunbookActivity parametrar måste anges som värde bes
 |PowerShellExpressionValueDescriptor     | Anger en egen PowerShell-uttryck som utvärderas innan du anropar aktiviteten.  <br/>Detta är ett kraftfullt verktyg, men inte många: Gränssnittet för att visa det här uttrycket som text. motorn för körning behandlar det angivna blocket som en svart ruta och gör inga försök att analysera innehållet, förutom en grundläggande syntax-kontroll. När det är möjligt, föredrar du mer specifika beskrivningar av värdet.      |
 
 > [!NOTE]
-> Inte härleda ditt eget värde beskrivningar av de angivna klasserna: Azure Automation kommer inte att kunna använda runbooks med anpassade descriptor värdetyper.
+> Härled inte ditt eget värde beskrivningar av de angivna klasserna: Azure Automation kommer inte att kunna använda runbooks med anpassade descriptor värdetyper.
 
 Skapa en instans av länkar som ansluter aktiviteter och lägga till dem i runbooken:
 
@@ -146,3 +146,4 @@ Det serialiserade formatet kan ändras i framtida versioner av `Orchestrator.Gra
 ## <a name="next-steps"></a>Nästa steg
 
 Läs mer om grafiska Runbooks i Azure Automation i [grafisk redigering introduktion](automation-graphical-authoring-intro.md)
+

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: d80794511f334cd6dc5af418e24fc774b7d8728f
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: d89fb86209af2074794d5a5abcdcebadec904799
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867518"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434282"
 ---
 # <a name="azure-active-directory-b2b-collaboration-licensing-guidance"></a>Vägledning om Azure Active Directory B2B-samarbete och licenser
 
@@ -31,7 +31,7 @@ Användarlicensiering för B2B-gäst automatiskt beräknas och rapporteras baser
 
 Det finns vissa situationer där en gästanvändare inte är rapporteras med 1:5-kvoten för externa användare. Om en gästanvändare redan har en betald Azure AD-licens i användarens organisation, användaren inte använda någon av dina B2B-gäst användarlicenser. Dessutom kan kostnadsfria Gäst som användarna kan använda Azure AD-funktioner med inga ytterligare licenskrav. Gästanvändare har åtkomst till kostnadsfria Azure AD-funktioner, även om du inte har någon betald Azure AD-licenser. 
 
-## <a name="examples-calculating-guest-user-licenses"></a>Exempel: Beräkna gäst-användarlicenser
+## <a name="examples-calculating-guest-user-licenses"></a>Exempel: Beräkning av gäst-användarlicenser
 När du vet hur många gästanvändare behöver åtkomst till din betalda Azure AD-tjänster, kontrollera att du har tillräckligt med Azure AD betald licenser för att täcka gästanvändare i förhållandet krävs 1:5. Här följer några exempel:
 
 - Du vill bjuda in 100 gästanvändare till din Azure AD-appar eller tjänster och du vill tilldela åtkomsthantering och driftsättning till alla gästanvändare. Du bör också att kräva MFA och villkorlig åtkomst för 50 i dessa gästanvändare. Du behöver för att täcka den här kombinationen 10 Azure AD Basic-licenser och 10 Azure AD Premium P1-licenser. Om du tänker använda Identity Protection-funktioner med din gästanvändare måste Azure AD Premium P2-licenser i samma 1:5 förhållandet att täcka gästanvändare.
@@ -50,4 +50,4 @@ I dessa båda situationer, bättre lösning är att använda B2B-API för att bj
 Se följande resurser på Azure AD B2B-samarbete:
 
 * [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-* [Vanliga frågor (och svar FAQ) om Azure Active Directory B2B-samarbete](faq.md)
+* [Vanliga frågor och svar om Azure Active Directory B2B-samarbete](faq.md)

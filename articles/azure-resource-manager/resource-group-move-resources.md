@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: 32298b78f3b98afb6754e07ad63467f4f995d84f
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382905"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426734"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -98,7 +98,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
-* Recovery Services-valv – du måste vara registrerade i en [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Recovery Services-valv – registrera din prenumeration för [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
@@ -305,7 +305,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
-Om du vill flytta ett Recovery Services-valv, måste du registrera i den [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Om du vill flytta ett Recovery Services-valv, registrera din prenumeration för [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
 
 För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer.
 

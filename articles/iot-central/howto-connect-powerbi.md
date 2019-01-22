@@ -7,12 +7,12 @@ author: viv-liu
 ms.author: viviali
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6f8bed8aba43d77cdfad49f4fe62a4c7aa2c5ce3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: a37eb68d135d156c25c58bf91489d5b50ac2c170
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368077"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423128"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data i en Power BI-instrumentpanel
 
@@ -29,7 +29,7 @@ Använd Azure IoT Central Analytics Power BI-lösningsmall för att skapa en kra
 
 Den här lösningsmallen ställer in den pipeline som hämtar data i Azure Blob storage-kontot från [löpande dataexport](howto-export-data.md). Dessa data flödar genom att Azure Functions, Azure Data Factory och Azure SQL Database för att bearbeta och transformera data. Utdata kan visualiseras och analyseras i en Power BI-rapport som du kan hämta som en PBIX-fil. Alla dessa resurser skapas i din Azure-prenumeration, så du kan anpassa varje komponent för att passa dina behov. Den här lösningsmallen är helt öppen källkod, så du kan läsa mer om arkitekturen och bygg ut lösningen genom att besöka den [GitHub-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate).
 
-## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Hämta den [lösningsmall för Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate) från Microsoft AppSource
+## <a name="get-the-azure-iot-central-analytics-solution-templatehttpsbpsolutiontemplatescomnamemicrosoft-iotcontinuousdataexporttemplate-from-microsoft-appsource"></a>Hämta den [lösningsmall för Azure IoT Central Analytics](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate) från Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Konfigurera mallen kräver följande:
@@ -52,7 +52,7 @@ Den andra rapporten aktivitetsgruppsrapport djupare i händelser och visar en hi
 
 ## <a name="resources"></a>Resurser
 
-Gå till AppSource för att hämta den [lösningsmall för Azure IoT Central Analytics](https://aka.ms/iotcentralpowerbisolutiontemplate).
+Gå till AppSource för att hämta den [lösningsmall för Azure IoT Central Analytics](https://bpsolutiontemplates.com/?name=Microsoft-IoTContinuousDataExportTemplate).
 
 Gå till den [GitHub-lagringsplatsen](https://aka.ms/iotcentralgithubpowerbisolutiontemplate) vill veta mer om arkitekturen och bygg ut lösningen.
 

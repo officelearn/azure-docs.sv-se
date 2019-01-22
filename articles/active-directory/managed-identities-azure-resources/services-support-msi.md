@@ -8,13 +8,13 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
-manager: mtillman
-ms.openlocfilehash: ca7ce29adb0b83215b64065ef83ff476025b8e81
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+manager: daveba
+ms.openlocfilehash: 7591860d36a3d6472411321c60c608411ab4eb8b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199722"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437682"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 
@@ -29,7 +29,7 @@ Följande Azure-tjänster stöder hanterade identiteter för Azure-resurser:
 
 ### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-|Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+|Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion |
 | Användartilldelad | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion
@@ -44,7 +44,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure Virtual Machi
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Azure Virtual Machine Scale Sets
 
-|Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+|Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Förhandsversion | Förhandsversion | Förhandsversion |
 | Användartilldelad | Förhandsversion | Förhandsversion | Förhandsversion | Förhandsversion
@@ -59,7 +59,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure Virtual Machi
 
 ### <a name="azure-app-service"></a>Azure App Service
 
-|Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+|Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
 | Användartilldelad | Förhandsversion | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt
@@ -73,7 +73,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure App Service (
 
 ### <a name="azure-functions"></a>Azure Functions
 
-Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
 | Användartilldelad | Förhandsversion | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt
@@ -87,7 +87,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure Functions (i 
 
 ### <a name="azure-logic-apps"></a>Azure Logic Apps
 
-Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
 | Användartilldelad | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt
@@ -99,7 +99,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure Logic Apps (i
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
-Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 | Användartilldelad | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt
@@ -113,7 +113,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure Data Factory 
 
 ### <a name="azure-api-management"></a>Azure API Management
 
-Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Tillgängligt | Tillgängligt | Inte tillgängligt | Inte tillgängligt |
 | Användartilldelad | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt
@@ -124,7 +124,7 @@ Se listan nedan för att konfigurera hanterad identitet för Azure API Managemen
 
 ### <a name="azure-container-instances"></a>Azure Container Instances
 
-Hanterade identitetstypen |  Allmänt tillgängligt<br>Azure-regioner globalt | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+Hanterade identitetstypen |  Allmänt tillgängligt<br>Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
 | Systemtilldelad | Linux: Förhandsversion<br>Windows: Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
 | Användartilldelad | Linux: Förhandsversion<br>Windows: Inte tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt

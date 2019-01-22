@@ -3,22 +3,22 @@ title: Scheman i Azure Automation
 description: Automationsscheman används för att schemalägga runbooks i Azure Automation för att starta automatiskt. Beskriver hur du skapar och hanterar ett schema i så att du kan automatiskt starta en runbook vid en given tidpunkt eller enligt ett återkommande schema.
 services: automation
 ms.service: automation
-ms.component: shared-capabilities
+ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46294772"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437224"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Schemaläggning av en Runbook i Azure Automation
 
-Om du vill schemalägga en runbook i Azure Automation ska starta vid en viss tid länkar du det till ett eller flera scheman. Ett schema kan konfigureras att köras en gång eller enligt ett tillståndet per timme eller dagligen schema för runbooks i Azure-portalen. Du kan också schemalägga dem för varje vecka, månadsvis, särskilda dagar i veckan eller dagar i månaden eller en viss dag i månaden. En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks som är länkad till den.
+Om du vill schemalägga en runbook i Azure Automation ska starta vid en viss tid länkar du det till ett eller flera scheman. Ett schema kan konfigureras att köras en gång eller enligt ett tillståndet per timme eller dagligen schema för runbooks i Azure-portalen. Du kan också schemalägga dem för varje vecka, månadsvis, särskilda dagar i veckan eller dagar i månaden eller en viss dag i månaden. En runbook kan länkas till flera scheman och ett schema kan vara kopplat till flera runbooks.
 
 > [!NOTE]
 > Scheman stöder för närvarande inte Azure Automation DSC-konfigurationer.
@@ -71,7 +71,7 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 
 ## <a name="linking-a-schedule-to-a-runbook"></a>Länka ett schema till en runbook
 
-En runbook kan länkas till flera scheman och ett schema kan ha flera runbooks som är länkad till den. Om en runbook har parametrar, kan du ange värden för dessa. Du måste ange värden för alla obligatoriska parametrar och kan ange värden för parametrar. De här värdena används varje gång runbook startas med det här schemat. Du kan koppla samma runbook till ett annat schema och ange olika parametervärden.
+En runbook kan länkas till flera scheman och ett schema kan vara kopplat till flera runbooks. Om en runbook har parametrar, kan du ange värden för dessa. Du måste ange värden för alla obligatoriska parametrar och kan ange värden för parametrar. De här värdena används varje gång runbook startas med det här schemat. Du kan koppla samma runbook till ett annat schema och ange olika parametervärden.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Länka ett schema till en runbook med Azure-portalen
 
@@ -129,3 +129,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 ## <a name="next-steps"></a>Nästa steg
 
 * Kom igång med runbooks i Azure Automation, se [starta en Runbook i Azure Automation](automation-starting-a-runbook.md)
+

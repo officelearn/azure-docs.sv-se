@@ -1,6 +1,6 @@
 ---
 title: Konfigurera SaaS-appar för B2B-samarbete i Azure Active Directory | Microsoft Docs
-description: Kod och PowerShell-exempel för Azure Active Directory B2B-samarbete
+description: Kod- och PowerShell-exempel för Azure Active Directory B2B-samarbete
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 78f34183b30f8ea9fe44ddaf2b57b237cbb09749
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: efec0feae3ea15868290756ea1b34b2f52784e1d
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985770"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423637"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Konfigurera SaaS-appar för B2B-samarbete
 
@@ -30,7 +30,7 @@ Innan du tittar på app-specifika anvisningar, är här några tumregel:
 * I användarattribut för att lösa eventuella problem med felaktig användarprofil-disk (UPD) i gästanvändare, alltid ange **användaridentifierare** till **user.mail**.
 
 
-## <a name="dropbox-business"></a>Dropbox-företag
+## <a name="dropbox-business"></a>Dropbox Business
 
 Om du vill att användarna ska logga in med deras organisation, måste du manuellt konfigurera Dropbox företag för att använda Azure AD som en identitetsprovider för Security Assertion Markup Language (SAML). Om Dropbox företag inte har konfigurerats för att göra det, kan inte fråga eller annars tillåter användare att logga in med Azure AD.
 

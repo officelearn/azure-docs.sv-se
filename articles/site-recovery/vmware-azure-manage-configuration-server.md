@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 0d45d460b56f956a97779b46a72d0e4cd97a6b41
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 81f775d8deccb9fb8b23e811a6ca89886576f55f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849708"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431647"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Hantera konfigurationsservern för VMware-VM-katastrofåterställning
 
@@ -35,7 +35,7 @@ Du kan komma åt konfigurationsservern på följande sätt:
 1. Att uppdatera de autentiseringsuppgifter som används för att ansluta till VMware-servern för automatisk identifiering av virtuella VMware-datorer, efter [inloggning](#access-configuration-server), Välj kontot och klickar på **redigera**.
 2. Ange de nya autentiseringsuppgifterna och välj sedan **OK**.
 
-    ![Ändra VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
+    ![Modify VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
 Du kan också ändra autentiseringsuppgifter via CSPSConfigtool.exe.
 
@@ -65,7 +65,7 @@ Om du missade lägga till autentiseringsuppgifter vid OVF distribution av konfig
 
 1. Efter [inloggning](#access-configuration-server)väljer **hantera autentiseringsuppgifter för virtuell dator**.
 2. Klicka på **Lägg till autentiseringsuppgifter för virtuell dator**.
-    ![Lägg till-mobility-autentiseringsuppgifter](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Ange de nya autentiseringsuppgifterna och klicka på **Lägg till**.
 
 Du kan också lägga till autentiseringsuppgifter via CSPSConfigtool.exe.
@@ -174,7 +174,7 @@ Uppgradera servern på följande sätt:
 
 Du kan också ta bort konfigurationsservern med hjälp av PowerShell.
 
-1. [Installera](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen.
+1. [Installera](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-4.4.0) Azure PowerShell-modulen.
 2. Logga in på ditt Azure-konto med hjälp av det här kommandot:
 
     `Connect-AzureRmAccount`

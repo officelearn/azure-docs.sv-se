@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pullabhk
 ms.assetid: 80da8ece-2cce-40dd-8dce-79960b6ae073
-ms.openlocfilehash: 4ead84ef415dcb85682b15414380055d8799b54c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: bbeccd03fffb699c95d52d50ec5c45e38b43ef51
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051228"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430407"
 ---
 # <a name="use-powershell-to-back-up-and-restore-azure-file-shares"></a>Använd PowerShell för att säkerhetskopiera och återställa Azure-filresurser
 
@@ -34,7 +34,7 @@ Visa den **AzureRm.RecoveryServices.Backup** PowerShell cmdlet-referens, se [Azu
 ## <a name="setup-and-registration"></a>Installation och registrering
 
 > [!NOTE]
-> Enligt vad som anges i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.13.0), stöd för nya funktioner i AzureRM modulen slutar i November 2018. Det finns stöd för säkerhetskopiering av Azure-filresurser med den nya Az PowerShell-modulen som är nu allmänt tillgänglig.
+> Enligt vad som anges i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0), stöd för nya funktioner i AzureRM modulen slutar i November 2018. Det finns stöd för säkerhetskopiering av Azure-filresurser med den nya Az PowerShell-modulen som är nu allmänt tillgänglig.
 
 Följ dessa steg för att börja.
 

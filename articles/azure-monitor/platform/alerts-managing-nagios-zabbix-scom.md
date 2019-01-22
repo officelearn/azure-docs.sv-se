@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
-ms.component: alerts
-ms.openlocfilehash: f45774d8afc8760d0a02cb0c863c9ef100ef1365
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.subservice: alerts
+ms.openlocfilehash: 48fb9d8eaf2003834a420b48d649c830c608fd6e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381872"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54421223"
 ---
 # <a name="manage-alerts-from-scom-zabbix-and-nagios-in-azure-monitor"></a>Hantera aviseringar från SCOM, Zabbix och Nagios i Azure Monitor
 
@@ -32,3 +32,4 @@ När du har konfigurerat import till Log Analytics kan du börja visa aviserings
 >  1. Alla aktiverade aviseringsinstanser blir tillgänglig både i Azure Monitor och Azure Log Analytics. Det finns för närvarande inget sätt att välja mellan de två mata in endast specifika utlöst aviseringar.
 >  1. Alla aviseringar från SCOM, Zabbix och Nagios har signaltyp ”okänt” eftersom den underliggande telemetri-typen inte är tillgänglig.
 >  1. Nagios-aviseringar är inte tillståndskänsliga – till exempel den [övervaka villkor](https://aka.ms/azure-alerts-overview) varning kommer inte att gå från ”Fired” till ”löst”. I stället visas både ”Fired” och ”löst” som separata aviseringsinstanser. 
+

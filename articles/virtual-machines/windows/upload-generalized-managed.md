@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 93d5cbdb44d3014b547141d59ce96cf607276846
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1a5b9f7abbb17aeefa3647e965c63c1f6dc4b0a7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234620"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429267"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>Ladda upp en generaliserad virtuell Hårddisk och använda den för att skapa nya virtuella datorer i Azure
 
@@ -32,7 +32,7 @@ Ett exempelskript finns i [exempel på skript för att ladda upp en virtuell Hå
 
 - Innan du laddar upp alla VHD till Azure, bör du följa [förbereda en Windows-VHD eller VHDX för att överföra till Azure](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Granska [planera för migrering till Managed Disks](on-prem-to-azure.md#plan-for-the-migration-to-managed-disks) innan du påbörjar migreringen till [Managed Disks](managed-disks-overview.md).
-- Den här artikeln kräver AzureRM-modulen version 5.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM.Compute` att hitta din version. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+- Den här artikeln kräver AzureRM-modulen version 5.6 eller senare. Kör ` Get-Module -ListAvailable AzureRM.Compute` att hitta din version. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 
 ## <a name="generalize-the-source-vm-by-using-sysprep"></a>Generalisera den Virtuella källdatorn med hjälp av Sysprep

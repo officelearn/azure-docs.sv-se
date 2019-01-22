@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: e5e9901d6265b48a7b57cdf2c146ebb623ad5c3d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 501659a93306342c7a212d135b4fdd89be096451
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992210"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428179"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visa topologi för Azure-nätverk
 
@@ -46,7 +46,7 @@ Du kan använda den [Azure-portalen](#azure-portal), [Azure CLI](#azure-cli), el
 
 6. Välj **ladda ned topologi** ladda ned bilden som en redigerbara fil i svg-format.
 
-Resurserna som visas i diagrammet är en delmängd av nätverkskomponenter i det virtuella nätverket. Till exempel när en nätverkssäkerhetsgrupp visas visas säkerhetsregler i den inte i diagrammet. Även om inte differentierade i diagrammet, utgör en av två relationer: *inneslutning* eller *associerade*. Om du vill se en fullständig lista över resurser i det virtuella nätverket och typen av relation mellan resurser, generera topologi med [PowerShell](#powershell) eller [Azure CLI](#azure-cli).
+Resurserna som visas i diagrammet är en delmängd av nätverkskomponenter i det virtuella nätverket. Till exempel när en nätverkssäkerhetsgrupp visas visas säkerhetsregler i den inte i diagrammet. Även om inte differentierade i diagrammet, utgör en av två relationer: *Inneslutning* eller *associerade*. Om du vill se en fullständig lista över resurser i det virtuella nätverket och typen av relation mellan resurser, generera topologi med [PowerShell](#powershell) eller [Azure CLI](#azure-cli).
 
 ## <a name = "azure-cli"></a>Visa topologi – Azure CLI
 
@@ -85,7 +85,7 @@ Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-
 
 Du kan köra kommandon i stegen nedan:
 - I Azure Cloud Shell, genom att välja **prova** längst upp höger på alla kommandon. Azure Cloud Shell är ett interaktivt gränssnitt som har vanliga Azure-verktyg förinstallerat och har konfigurerats för att använda med ditt konto.
-- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn i den här artikeln kräver version 5.7.0-installationsprogram eller senare av AzureRm-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+- Genom att köra PowerShell från datorn. Om du kör PowerShell från datorn i den här artikeln kräver version 5.7.0-installationsprogram eller senare av AzureRm-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 Det konto som du använder måste ha nödvändiga [behörigheter](required-rbac-permissions.md).
 
@@ -132,18 +132,18 @@ Alla resurser som returneras i en topologi ha någon av följande typer av relat
 | Relationstyp | Exempel                                                                                                |
 | ---               | ---                                                                                                    |
 | Inneslutning       | Ett virtuellt nätverk innehåller ett undernät. Ett undernät innehåller ett nätverksgränssnitt.                            |
-| Som är associerade        | Ett nätverksgränssnitt är associerad med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverksgränssnitt. |
+| Associerad        | Ett nätverksgränssnitt är associerad med en virtuell dator. En offentlig IP-adress är kopplad till ett nätverksgränssnitt. |
 
 ## <a name="properties"></a>Egenskaper
 
 Alla resurser som returneras i en topologi har följande egenskaper:
 
-- **Namn på**: namnet på resursen
-- **ID**: URI: N för resursen.
+- **Namn**: Namnet på resursen
+- **ID**: URI för resursen.
 - **Plats**: Azure-regionen som resursen finns i.
-- **Associationer**: en lista över kopplingar till det refererade objektet. Varje association har följande egenskaper:
-    - **AssociationType**: refererar till förhållandet mellan ett underordnat objekt och överordnat. Giltiga värden är *innehåller* eller *associerade*.
-    - **Namn på**: namnet på den refererade resursen.
+- **Associationer**: En lista över kopplingar till det refererade objektet. Varje association har följande egenskaper:
+    - **AssociationType**: Refererar till förhållandet mellan ett underordnat objekt och överordnat. Giltiga värden är *innehåller* eller *associerade*.
+    - **Namn**: Namnet på den refererade resursen.
     - **ResourceId**:-URI: N av resursen som refereras i kopplingen.
 
 ## <a name="next-steps"></a>Nästa steg

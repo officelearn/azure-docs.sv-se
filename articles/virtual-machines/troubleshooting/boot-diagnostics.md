@@ -10,12 +10,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 55feef336ade461d4e3936d2f76122e5b4b4c00e
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 59602977c1b7f6dd0524c6535d8458d3eb1a3f26
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401307"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425585"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Hur du använder startdiagnostik för felsökning av virtuella datorer i Azure
 
@@ -79,7 +79,7 @@ Via diagnostikprofilen kan du välja det lagringskonto där loggarna ska placera
 }
 ```
 
-Mer information om hur du distribuerar resurser med hjälp av mallar finns i [snabbstarten: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+Mer information om hur du distribuerar resurser med hjälp av mallar finns i [snabbstarten: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostik på befintlig virtuell dator 
 

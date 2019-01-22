@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: librown
-ms.openlocfilehash: b09bb65cdb571c9df95d1922f4132abe5b77907c
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0179f87787c91a90edb54a1956a6f10d1dffc4b1
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52963955"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434197"
 ---
 # <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Lösenord utan telefoninloggning med Microsoft Authenticator-appen (offentlig förhandsversion)
 
@@ -37,16 +37,21 @@ För en förhandsversion, en administratör måste först lägga till en princip
 
 ### <a name="steps-to-enable"></a>Steg för att aktivera
 
-Kontrollera att du har den senaste versionen av den offentliga förhandsversionen av Azure Active Directory V2 PowerShell-modulen. Du kanske vill avinstallera och installera om för att kontrollera detta genom att köra följande kommandon:
+1. Kontrollera att du har den senaste versionen av den offentliga förhandsversionen av Azure Active Directory V2 PowerShell-modulen. Du kanske vill avinstallera och installera om för att kontrollera detta genom att köra följande kommandon:
+    ```powershell
+    Uninstall-Module -Name AzureADPreview
+    Install-Module -Name AzureADPreview
+    ```
 
-1. `Uninstall-Module -Name AzureADPreview`
-2. `Install-Module -Name AzureADPreview`
+2. Autentisera till Azure AD-klienten att använda Azure AD V2 PowerShell-modulen. Det konto som används måste antingen vara en säkerhetsadministratör eller Global administratör.
+    ```powershell
+    Connect-AzureAD
+    ```
 
-Du kan aktivera den lösenord utan inloggning förhandsvisning mobil med hjälp av följande PowerShell-kommandon:
-
-1. `Connect-AzureAD`
-   1. Logga in med ett konto i klient i dialogrutan för autentisering. Kontot måste antingen vara en säkerhetsadministratör eller Global administratör.
-1. `New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn`
+3. Skapa princip för Authenticator logga In:
+    ```powershell
+    New-AzureADPolicy -Type AuthenticatorAppSignInPolicy -Definition '{"AuthenticatorAppSignInPolicy":{"Enabled":true}}' -isOrganizationDefault $true -DisplayName AuthenticatorAppSignIn
+    ```
 
 ## <a name="how-do-my-end-users-enable-phone-sign-in"></a>Hur aktiverar slutanvändarna telefoninloggning?
 

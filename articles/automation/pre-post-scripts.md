@@ -3,18 +3,18 @@ title: Konfigurera före och efter skript på din distribution med hantering av 
 description: Den här artikeln beskriver hur du konfigurerar och hanterar före och efter-skript för uppdateringsdistributioner
 services: automation
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edbb953111fb4589539369bd9b2519b48b9b70eb
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 4c34c6c6e0a3f618cbd9337993aa6d176962fe6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121319"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428247"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Hantera skript före och efter (förhandsversion)
 
@@ -54,7 +54,7 @@ Genom att klicka på uppdateringsdistributionen kör du finns ytterligare inform
 
 När du konfigurerar som före och efter-skript som du bara kan skicka parametrar schemaläggning av en runbook. Parametrar definieras vid tidpunkten för uppdatering distributionen skapas. Utöver standard runbook-parametrarna erbjuds en extra parameter. Den här parametern är **SoftwareUpdateConfigurationRunContext**. Den här parametern är en JSON-sträng, och om du definierar parametern i skriptet före eller efter det skickas automatiskt av uppdateringsdistributionen. Parametern innehåller information om distributionen av uppdateringen som är en delmängd av information som returneras av den [SoftwareUpdateconfigurations API](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration) i följande tabell visar de egenskaper som anges i variabeln:
 
-### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext egenskaper
+### <a name="softwareupdateconfigurationruncontext-properties"></a>SoftwareUpdateConfigurationRunContext properties
 
 |Egenskap   |Beskrivning  |
 |---------|---------|
@@ -224,3 +224,4 @@ Vill du fortsätta till självstudien om hur du hanterar uppdateringar för din 
 
 > [!div class="nextstepaction"]
 > [Hantera uppdateringar och korrigeringar för virtuella datorer i Windows Azure](automation-tutorial-update-management.md)
+

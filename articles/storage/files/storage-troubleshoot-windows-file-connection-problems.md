@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: a7ab2e76280458326539fe83d3507dfb4e4a486e
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c99ee1f520496148e22e540fa1f41f9bd74ae6a5
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023115"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436220"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -61,7 +61,7 @@ Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till
 
 För att kontrollera om din brandvägg eller Internetleverantören blockerar port 445, använda den [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) verktyget eller `Test-NetConnection` cmdlet. 
 
-Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
+Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
 
    
     $resourceGroupName = "<your-resource-group-name>"
@@ -237,9 +237,9 @@ Om du vill kopiera en fil i nätverket, måste du först dekryptera den. Använd
 
 - Använd den **Kopiera /d** kommando. Det tillåter krypterade filer ska sparas som dekrypterade filer vid målet.
 - Ange följande registernyckel:
-  - Sökväg = HKLM\Software\Policies\Microsoft\Windows\System
+  - Path = HKLM\Software\Policies\Microsoft\Windows\System
   - Värdetypen = DWORD
-  - Namn = CopyFileAllowDecryptedRemoteDestination
+  - Name = CopyFileAllowDecryptedRemoteDestination
   - Värde = 1
 
 Tänk på att ställa in registernyckeln påverkar alla åtgärder i kopia som görs till nätverksresurser.

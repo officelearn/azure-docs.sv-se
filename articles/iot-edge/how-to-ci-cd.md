@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aef88a4fbc7d71ee1438333afd9773d1aba3ed9c
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 519b9e73e63285f167fca76061f84752ff676916
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359161"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431511"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Kontinuerlig integrering och kontinuerlig distribution till Azure IoT Edge
 
@@ -81,7 +81,7 @@ I det här avsnittet skapar du en build-pipeline som är konfigurerad för att k
     
     ![Konfigurera build modulen avbildningar](./media/how-to-ci-cd/build-and-push.png)
 
-1. I andra **Azure IoT Edge** uppgift, uppdatera den **visningsnamn** till **Azure IoT Edge - Push-modulen avbildningar**, och i den **åtgärd** listrutan Välj **skicka modulen avbildningar**. Välj typ av Container Registry, måste du konfigurera och välj samma registret i din code(module.json). I den **. filen template.json** kontroll markerar den **deployment.template.json** -fil som beskriver din IoT Edge-lösning. Välj sedan **standard plattform**, se till att välja samma plattform för inbyggd modul-avbildningar. Den här uppgiften skickar alla modulen avbildningar till behållarregistret som du har valt. Och även lägga till autentiseringsuppgifter för container-registret i den **deployment.json** fil, du kan hitta sökvägen till filen i utdata variabler. Ange aliaset till `edge` för den här variabeln. Om du har flera behållarregister som värd för dina modul-avbildningar, måste du duplicera den här uppgiften, Välj olika behållarregister och använda **kringgå modulen eller modulerna** i avancerade inställningar för att kringgå de avbildningar som inte är för detta specifika register.
+1. I andra **Azure IoT Edge** uppgift, uppdatera den **visningsnamn** till **Azure IoT Edge - Push-modulen avbildningar**, och i den **åtgärd** listrutan Välj **skicka modulen avbildningar**. Välj typ av Container Registry, måste du konfigurera och välj samma registret i din code(module.json). I den **. filen template.json** kontroll markerar den **deployment.template.json** -fil som beskriver din IoT Edge-lösning. Välj sedan **standard plattform**, se till att välja samma plattform för inbyggd modul-avbildningar. Den här uppgiften skickar alla modulen avbildningar till behållarregistret som du har valt. Och även lägga till autentiseringsuppgifter för container-registret i den **deployment.json** fil. Om du har flera behållarregister som värd för dina modul-avbildningar, måste du duplicera den här uppgiften, Välj olika behållarregister och använda **kringgå modulen eller modulerna** i avancerade inställningar för att kringgå de avbildningar som inte är för detta specifika register.
 
     ![Konfigurera push-modulen avbildningar](./media/how-to-ci-cd/push.png)
 

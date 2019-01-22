@@ -4,7 +4,7 @@ description: Steg för steg-anvisningar och exempel för att använda en Azure-d
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: msi
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: bf363e4b03fb604e1b9af0d30b6e4ac471a41821
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980295"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423195"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för inloggning 
 
@@ -83,7 +83,7 @@ Se [Azure-tjänster som stöder Azure AD-autentisering](services-support-msi.md#
 
 Svar som följande kan tyda på att den Virtuella datorns hanterad identitet för Azure-resurser inte har konfigurerats korrekt:
 
-- PowerShell: *Invoke-WebRequest: Det gick inte att ansluta till fjärrservern*
+- PowerShell: *Invoke-WebRequest: Det går inte att ansluta till fjärrservern*
 - CLI: *MSI: Det gick inte att hämta en token från ”http://localhost:50342/oauth2/token” med ett fel av ' HTTPConnectionPool (värd = localhost, port = 50342)* 
 
 Om du får något av dessa fel, gå tillbaka till den virtuella Azure-datorn i den [Azure-portalen](https://portal.azure.com) och:

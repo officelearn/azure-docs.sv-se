@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: a7198683a643d643a76aefee22a3ad08e27c7fc9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4d2b39d2fefed3532486a4e0a7b713a16c9f8760
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984065"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437139"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Bevilja behörigheter till användare från partnerorganisationer i din Azure Active Directory-klient
 
@@ -36,4 +36,4 @@ Azure Active Directory (Azure AD) B2B-samarbete användare läggs till som gäst
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Egenskaper för användare av B2B-samarbete](user-properties.md)
+- [Användaregenskaper för B2B-samarbete](user-properties.md)

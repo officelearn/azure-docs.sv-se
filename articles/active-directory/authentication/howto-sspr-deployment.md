@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f786a20f61c8851c1d50a89edd392b9b974db076
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9c728ba4c77cd22782adc9916da62cc309a8150b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622328"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431667"
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Distribuera självbetjäning för återställning av lösenord
 
@@ -24,13 +24,13 @@ De flesta kunder genomför följande steg för att säkerställa en smidig distr
 > [!VIDEO https://www.youtube.com/embed/OZn5btP6ZXw]
 
 1. Slutför en pilot lansering med en liten del av din organisation.
-   * Information om hur du pilotprogrammet finns i den [självstudie: fullständig pilotprojekt för återställning av en Azure AD lösenord för självbetjäning lansera](tutorial-sspr-pilot.md).
+   * Information om hur du pilotprogrammet finns i den [självstudien: Fullständig pilotprojekt för återställning av en Azure AD lösenord för självbetjäning lansera](tutorial-sspr-pilot.md).
 1. Utbilda supportavdelningen.
    * Hur kommer de att användarna?
    * Tvingar du användarna att använda SSPR och inte tillåter din supportavdelning att hjälpa användarna?
    * Har du försett dem med URL: er för registrering och återställa?
       * Registrering:  https://aka.ms/ssprsetup
-      * Återställ: https://aka.ms/sspr
+      * Reset: https://aka.ms/sspr
 1. Förklara för användarna.
    * Det här avsnittet i det här dokumentet går över exemplet kommunikation lösenord portaler, verkställa registrering och fylla i autentiseringsdata.
    * Azure Active Directory-produktgruppen har skapat en [stegvis distributionsplan](https://aka.ms/SSPRDeploymentPlan) som kan användas parallellt med dokumentationen på den här webbplatsen, för att organisationen ska kunna skapa en affärsstudie och planera för distribution av självåterställning av lösenord.
@@ -41,12 +41,12 @@ De flesta kunder genomför följande steg för att säkerställa en smidig distr
 
 Många kunder tycker att det enklaste sättet att få användarna att använda SSPR är att skicka ut e-post med enkla anvisningar. [Vi har skapat enkla e-postmeddelanden och andra säkerheter som du kan använda som en mall för att distribuera](https://www.microsoft.com/download/details.aspx?id=56768):
 
-* **Kommer snart**: Den här e-postmallen används några veckor eller dagar innan distributionen äger rum, så att användarna uppmärksammas på att en åtgärd krävs.
-* **Tillgänglig nu**: Den här e-postmallen används samma dag som distributionen äger rum för att leda användarna till att registrera sig och bekräfta sina autentiseringsdata. Om användarna registrerar sig nu är SSPR tillgängligt för dem när de behöver det.
-* **Påminnelse om registrering**: En e-postmall som används under några dagar eller veckor efter distributionen för att påminna användarna om att de måste registrera sig och bekräfta sina autentiseringsdata.
-* **SSPR affischer**: affischer kan du anpassa och visa runt organisationen i dagar och veckor inledande upp till och när din lansering.
-* **SSPR placeringskort**: tabellen kort som du kan placera i rummet lunch, konferensrum, eller på skrivbord att uppmana användarna att slutföra registreringen.
-* **SSPR klistermärken**: klistermärke mallar du kan anpassa och skriva ut om du vill placera bärbara datorer, Övervakare, tangentbord eller mobiltelefoner för att komma ihåg hur du kommer åt SSPR.
+* **Kommer snart**: En e-postmall som du använder några veckor eller dagar före distributionen för att informera användarna om de behöver göra något.
+* **Tillgängligt för tillfället**: En e-postmall som att du använder dag som distributionen äger rum för att tvinga användarna att registrera sig och bekräfta sina autentiseringsdata. Om användarna registrerar sig nu är SSPR tillgängligt för dem när de behöver det.
+* **Påminnelse om registrering**: En e-postmall för några dagar eller veckor efter distributionen för att påminna användarna registrera sig och bekräfta sina autentiseringsdata.
+* **SSPR affischer**: Affischer kan du anpassa och visa runt organisationen i dagar och veckor inledande upp till och när din lansering.
+* **SSPR placeringskort**: Tabellen kort som du kan placera i rummet lunch, konferensrum, eller på skrivbord att uppmana användarna att slutföra registreringen.
+* **SSPR klistermärken**: Etikett-mallar som du kan anpassa och skriva ut om du vill placera bärbara datorer, Övervakare, tangentbord eller mobiltelefoner för att komma ihåg hur du kommer åt SSPR.
 
 ![SSPR e-exempel][Email]
 

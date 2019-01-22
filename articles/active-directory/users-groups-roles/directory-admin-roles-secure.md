@@ -13,16 +13,16 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: da53fa7d20c66b09e06c70222f29f060fa5803c8
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c2ee0834b0c6872d96bebe71231f1a9424ff261a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53387088"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438158"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Skydda privilegierad åtkomst för hybrid- och distributioner i Azure AD
 
-Säkerheten för de flesta eller samtliga företagstillgångar i modern organisation beror på integriteten hos de Privilegierade konton som administrerar och hanterar IT-system. Skadliga aktörer ofta inklusive cyberangripare riktar sig mot administratörskonton och andra element för privilegierad åtkomst att snabbt få tillgång till känsliga data och system med hjälp av stöldattacker av autentiseringsuppgifter. Cloud finns services, skydd och svar i gemensamma ansvaret för molntjänstleverantören och kunden. Mer information om de senaste hoten till slutpunkter och molnet finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/sir/default.aspx). Den här artikeln kan hjälpa dig att utveckla en handlingsplan mot kunskapsluckor mellan dina aktuella planer och de riktlinjer som beskrivs här.
+Säkerheten för de flesta eller samtliga företagstillgångar i modern organisation beror på integriteten hos de Privilegierade konton som administrerar och hanterar IT-system. Skadliga aktörer ofta inklusive cyberangripare riktar sig mot administratörskonton och andra element för privilegierad åtkomst att snabbt få tillgång till känsliga data och system med hjälp av stöldattacker av autentiseringsuppgifter. Cloud finns services, skydd och svar i gemensamma ansvaret för molntjänstleverantören och kunden. Mer information om de senaste hoten till slutpunkter och molnet finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report). Den här artikeln kan hjälpa dig att utveckla en handlingsplan mot kunskapsluckor mellan dina aktuella planer och de riktlinjer som beskrivs här.
 
 > [!NOTE] 
 > Microsoft strävar efter att de högsta nivåerna av förtroende, transparens, standardefterlevnad och regelefterlevnad. Läs mer om hur Microsofts team för global incidenthantering minimera effekterna av att attacker mot molntjänster och hur säkerhet är inbyggt i Microsoft-produkter och molntjänster på [Microsoft Trust Center - Security](https://www.microsoft.com/trustcenter/security)och mål för Microsoft-efterlevnad på [Microsoft Trust Center - efterlevnad](https://www.microsoft.com/trustcenter/compliance).
@@ -74,7 +74,7 @@ Microsoft rekommenderar att du utvecklar och följer en översikt över för att
 
 ## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>Steg 1: Kritiska objekt som vi rekommenderar att du gör direkt
 
-![Steg 1](./media/directory-admin-roles-secure/stage-one.png)
+![Fas 1](./media/directory-admin-roles-secure/stage-one.png)
 
 Steg 1 i översikten fokuserar på viktiga uppgifter som är snabb och enkel att implementera. Vi rekommenderar att du gör dessa några objekt direkt inom de första 24 – 48 timmarna att se till att en grundläggande nivå av säker privilegierad åtkomst. Det här steget av säkerhetsöversikten över säker privilegierad åtkomst innehåller följande åtgärder:
 

@@ -1,6 +1,6 @@
 ---
-title: Utöka behörighet för Global administratör i Azure Active Directory | Microsoft Docs
-description: Beskriver hur du utöka behörighet för en Global administratör i Azure Active Directory med Azure portal eller REST API.
+title: Utöka behörighet för att hantera alla Azure-prenumerationer och hanteringsgrupper | Microsoft Docs
+description: Beskriver hur du höjer åtkomst för en Global administratör för att hantera alla prenumerationer och hanteringsgrupper i Azure Active Directory med Azure portal eller REST API.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,32 +12,34 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/15/2018
+ms.date: 01/15/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7552018c32078295c164023f909a604c6522c32f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321673"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437478"
 ---
-# <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Utöka behörighet för Global administratör i Azure Active Directory
+# <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Utöka behörighet för att hantera alla Azure-prenumerationer och hanteringsgrupper
 
-Om du är en [Global administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) i Azure Active Directory (AD Azure), det kan finnas tillfällen när du vill göra följande:
-
-- Få åtkomst till en Azure-prenumeration när en användare har förlorat åtkomst
-- Ge en annan användare eller dig själv åtkomst till en Azure-prenumeration
-- Se alla Azure-prenumerationer i en organisation
-- Ge en automation-app (till exempel en app för fakturering eller granskning) åtkomst till alla Azure-prenumerationer
-
-Den här artikeln beskrivs olika sätt att du kan utöka din behörighet i Azure AD.
+Som Global administratör i Azure Active Directory (AD Azure), kanske du inte har åtkomst till alla prenumerationer och hanteringsgrupper i din katalog. Den här artikeln beskriver hur kan du höja din åtkomst till alla prenumerationer och hanteringsgrupper.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
-## <a name="overview"></a>Översikt
+## <a name="why-would-you-need-to-elevate-your-access"></a>Varför skulle du behöva öka din till?
 
-Azure AD och Azure-resurser är skyddade oberoende från varandra. Det vill säga Azure AD-rolltilldelningar beviljas inte åtkomst till Azure-resurser och Azure rolltilldelningar bevilja inte åtkomst till Azure AD. Men om du är en Global administratör i Azure AD kan kan du tilldela dig själv åtkomst till alla Azure-prenumerationer och hanteringsgrupper i din katalog. Använd den här funktionen om du inte har åtkomst till resurser i Azure-prenumeration, till exempel virtuella datorer eller lagringskonton, och du vill använda din Global administratörsbehörighet för att få åtkomst till resurserna.
+Om du är en Global administratör kan finnas det tillfällen när du vill göra följande:
+
+- Få åtkomst till en Azure-prenumerations- eller grupp när en användare har förlorat åtkomst
+- Bevilja en annan användare eller dig själv åtkomst till en Azure-prenumerations- eller grupp
+- Se alla Azure-prenumerationer eller hanteringsgrupper i en organisation
+- Ge en automation-app (till exempel en app för fakturering eller granskning) åtkomst till alla Azure-prenumerationer eller hanteringsgrupper
+
+## <a name="how-does-elevate-access-work"></a>Hur höjer åtkomst till arbete?
+
+Azure AD och Azure-resurser är skyddade oberoende från varandra. Det vill säga Azure AD-rolltilldelningar beviljas inte åtkomst till Azure-resurser och Azure rolltilldelningar bevilja inte åtkomst till Azure AD. Men om du är en [Global administratör](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) i Azure AD, du kan tilldela dig själv åtkomst till alla Azure-prenumerationer och hanteringsgrupper i din katalog. Använd den här funktionen om du inte har åtkomst till resurser i Azure-prenumeration, till exempel virtuella datorer eller lagringskonton, och du vill använda din Global administratörsbehörighet för att få åtkomst till resurserna.
 
 När du utöka din behörighet du kommer att tilldelas den [administratör för användaråtkomst](built-in-roles.md#user-access-administrator) roll i Azure på rotscopet (`/`). På så sätt kan du visa alla resurser och tilldela åtkomst i någon prenumeration eller hanteringsgrupp i katalogen. Administratör för användaråtkomst rolltilldelningar kan tas bort med hjälp av PowerShell.
 
@@ -55,19 +57,29 @@ Följ stegen nedan för att utöka behörighet för Global administratör med hj
 
    ![Azure AD-egenskaper – skärmbild](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Under **åtkomsthantering för Azure-resurser**, inställd växeln **Ja**.
+1. Under **åtkomsthantering för Azure-resurser**, Ställ in växlaren **Ja**.
 
    ![Åtkomsthantering för Azure-resurser – skärmbild](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Om du anger växeln till **Ja**, tilldelas du rollen Administratör för användaråtkomst i Azure RBAC vid rotscopet (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Den här växeln är endast tillgänglig för användare som har tilldelats rollen Global administratör i Azure AD.
+   När du anger växlingsknappen till **Ja**, tilldelas du rollen Administratör för användaråtkomst i Azure RBAC vid rotscopet (/). Detta ger dig behörighet att tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Den här växlingsknappen är endast tillgänglig för användare som har tilldelats rollen Global administratör i Azure AD.
 
-   Om du anger växeln till **nr**, rollen Administratör för användaråtkomst i Azure RBAC tas bort från ditt konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Du kan visa och hantera den Azure-prenumerationer och hanteringsgrupper som du har beviljats åtkomst.
+   När du anger växlingsknappen till **nr**, rollen Administratör för användaråtkomst i Azure RBAC tas bort från ditt konto. Du kan inte längre tilldela roller i alla Azure-prenumerationer och hanteringsgrupper som är associerade med den här Azure AD-katalog. Du kan visa och hantera den Azure-prenumerationer och hanteringsgrupper som du har beviljats åtkomst.
 
 1. Klicka på **spara** att spara dina inställningar.
 
-   Den här inställningen gäller enbart för den inloggade användaren är inte en global egenskap.
+   Den här inställningen gäller enbart för den inloggade användaren är inte en global egenskap. Du kan inte utöka behörighet för alla medlemmar i rollen som Global administratör.
 
-1. Utföra uppgifter som du behöver göra på den utökade behörigheten. Ange växeln när du är klar, tillbaka till **nr**.
+1. Logga ut och logga in för att uppdatera din åtkomst.
+
+    Du bör nu ha åtkomst till alla prenumerationer och hanteringsgrupper i din katalog. Lägg märke till att du har tilldelats rollen Administratör för användaråtkomst vid rotscopet.
+
+   ![Prenumeration rolltilldelningar med rotscopet – skärmbild](./media/elevate-access-global-admin/iam-root.png)
+
+1. Göra de ändringar som du behöver göra på den utökade behörigheten.
+
+    Information om hur du tilldelar roller finns i [hantera åtkomst med RBAC och Azure portal](role-assignments-portal.md). Om du använder Azure AD Privileged Identity Management (PIM), se [identifiera Azure-resurser för att hantera i PIM](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) eller [tilldela Azure-resursroller i PIM](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+
+1. När du är klar kan du ange den **åtkomsthantering för Azure-resurser** växla tillbaka till **nr**. Eftersom detta är en inställning för per användare, måste du vara inloggad som samma användare som har använts för att utöka behörighet.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -89,16 +101,22 @@ RoleDefinitionName : User Access Administrator
 RoleDefinitionId   : 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9
 ObjectId           : d65fd0e9-c185-472c-8f26-1dafa01f72cc
 ObjectType         : User
+CanDelegate        : False
 ```
 
 ### <a name="remove-a-role-assignment-at-the-root-scope-"></a>Ta bort en rolltilldelning vid rotscopet (/)
 
-Ta bort en administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), använder den [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kommando.
+Ta bort en administratör för användaråtkomst rolltilldelning för en användare vid rotscopet (`/`), Följ stegen nedan.
 
-```azurepowershell
-Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
-  -RoleDefinitionName "User Access Administrator" -Scope "/"
-```
+1. Logga in som en användare som kan ta bort utökad åtkomst. Detta kan vara samma användare som används för att utöka åtkomst eller en annan Global administratör med utökad åtkomst vid rotscopet.
+
+
+1. Använd den [Remove-AzureRmRoleAssignment](/powershell/module/azurerm.resources/remove-azurermroleassignment) kommando för att ta bort rolltilldelningen administratör för användaråtkomst.
+
+    ```azurepowershell
+    Remove-AzureRmRoleAssignment -SignInName <username@example.com> `
+      -RoleDefinitionName "User Access Administrator" -Scope "/"
+    ```
 
 ## <a name="rest-api"></a>REST-API
 

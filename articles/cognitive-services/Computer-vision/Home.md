@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4c952c847aa56b385065a878b664b3d1d98763f4
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: cd4eca669936a206241069f1f8a8d9440f45be33
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584028"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229786"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
@@ -69,6 +69,10 @@ Visuellt innehåll kan analysera bilder som uppfyller följande krav:
 - Filstorleken måste vara mindre än 4 megabyte (MB)
 - Bildens dimensioner måste vara större än 50 x 50 bildpunkter  
   För OCR måste bildens mått vara mellan 50 x 50 och 4 200 x 4 200 bildpunkter
+
+## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
+Som med alla Cognitive Services bör utvecklare som använder tjänsten Visuellt innehåll känna till Microsofts policyer gällande kunddata. Se [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

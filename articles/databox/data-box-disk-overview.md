@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 874142df31d96de36b2b5be81a863c2f31317c52
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 506e36f72237f776c3969d945156c3edd6a64ffb
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158048"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319978"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Vad är Azure Data Box Disk?
 
@@ -84,7 +84,7 @@ Mer information finns i [Säkerhet och dataskydd i Azure Data Box Disk](data-box
 | Datagränssnitt                                          | USB   |
 | Säkerhet                                                | Förkrypterat med BitLocker och säker uppdatering <br> Nyckelskyddade diskar <br> Data hålls alltid krypterade  |
 | Dataöverföringshastighet                                      | upp till 430 MB/s beroende på filstorlek      |
-|Hantering                                               | Azure Portal |
+|Hantering                                               | Azure-portalen |
 
 
 ## <a name="region-availability"></a>Regional tillgänglighet

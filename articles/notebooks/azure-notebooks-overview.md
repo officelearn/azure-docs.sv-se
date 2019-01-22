@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/04/2018
+ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 2640316ce8915018df30fc94df0e1fbb207e894b
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713615"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246219"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
@@ -57,7 +57,7 @@ Kort sagt hjälper Azure Notebooks dig att utföra ditt arbete effektivare och d
 
 Azure Notebooks är en kostnadsfri tjänst, men varje projekt är begränsat till 4 GB minne och 1 GB data för att förhindra missbruk. Legitima användare som överskrider dessa gränser får en Captcha-utmaning för att fortsätta köra notebook-filer.
 
-Om du vill inaktivera alla gränser associerar du kontot med en Azure-prenumeration, vilket gör att du kan välja nivåerna för Premium-beräkning.
+Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du använda beräkningsnivåer i Azure Data Science Virtual Machine.
 
 ## <a name="available-kernels-and-environments"></a>Tillgängliga kernels och miljöer
 

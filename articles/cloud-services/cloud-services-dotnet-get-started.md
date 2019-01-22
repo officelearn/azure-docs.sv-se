@@ -1,6 +1,6 @@
 ---
 title: Kom igång med Azure Cloud Services och ASP.NET | Microsoft Docs
-description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobbar.
+description: Lär dig hur du kan skapa en app för flera nivåer med ASP.NET MVC och Azure. Appen körs i en molntjänst med en webbroll och en arbetsroll. Appen använder Entity Framework, SQL Database och Azure Storage-köer och -blobar.
 services: cloud-services, storage
 documentationcenter: .net
 author: jpconnock
@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 59354b7f4a1a82d1fa2fd105bd743ecb73526434
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 966536b7129a91f4c6fd8dd7bf0270be660bdf81
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716114"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332072"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Kom igång med Azure Cloud Services och ASP.NET
 
@@ -64,7 +64,7 @@ Appen lagrar annonser i en SQL-databas och använder Entity Framework Code First
 
 ![Annonstabell](./media/cloud-services-dotnet-get-started/adtable.png)
 
-När en användare laddar upp en bild, lagrar klientdelen som körs i en webbroll bilden i en [Azure-blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), och den lagrar annonsinformationen i databasen med en URL som pekar på blobben. Samtidigt skriver den ett meddelande till en Azure-kö. En serverdelsprocess som körs i en arbetsroll söker regelbundet i kön efter nya meddelanden. När ett nytt meddelande dyker upp, skapar arbetsrollen en miniatyrbild för den bilden och uppdaterar miniatyrbildens URL-databasfält för den annonsen. I följande diagram visas hur programmets olika delar fungerar tillsammans.
+När en användare laddar upp en bild, lagrar klientdelen som körs i en webbroll bilden i en [Azure-blob](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), och den lagrar annonsinformationen i databasen med en URL som pekar på bloben. Samtidigt skriver den ett meddelande till en Azure-kö. En serverdelsprocess som körs i en arbetsroll söker regelbundet i kön efter nya meddelanden. När ett nytt meddelande dyker upp, skapar arbetsrollen en miniatyrbild för den bilden och uppdaterar miniatyrbildens URL-databasfält för den annonsen. I följande diagram visas hur programmets olika delar fungerar tillsammans.
 
 ![Contoso Ads-arkitektur](./media/cloud-services-dotnet-get-started/apparchitecture.png)
 
@@ -99,9 +99,9 @@ När en användare laddar upp en bild, lagrar klientdelen som körs i en webbrol
 
      ![Sidan Details (Detaljer)](./media/cloud-services-dotnet-get-started/details.png)
 
-Du har kört programmet helt på din lokala dator utan anslutning till molnet. Lagringsemulatorn lagrar kö- och blobbdata i en SQL Server Express LocalDB-databas, och programmet lagrar annonsdata i en annan LocalDB-databas. Entity Framework Code First skapade automatiskt annonsdatabasen första gången webbappen försökte få tillgång till den.
+Du har kört programmet helt på din lokala dator utan anslutning till molnet. Lagringsemulatorn lagrar kö- och blobdata i en SQL Server Express LocalDB-databas, och programmet lagrar annonsdata i en annan LocalDB-databas. Entity Framework Code First skapade automatiskt annonsdatabasen första gången webbappen försökte få tillgång till den.
 
-I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobbar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnet och databasresurser kan du göra det. Det är bara att ställa in anslutningssträngar, vilket du får lära dig här.
+I följande avsnitt får du konfigurera lösningen så att den använder Azure-molnresurser för köer, blobar och programdatabasen när den körs i molnet. Om du vill fortsätta att köra lösningen lokalt men använda molnet och databasresurser kan du göra det. Det är bara att ställa in anslutningssträngar, vilket du får lära dig här.
 
 ## <a name="deploy-the-application-to-azure"></a>Distribuera programmet till Azure
 Följ dessa steg för att köra programmet i molnet:
@@ -159,7 +159,7 @@ När appen körs i molnet använder den en molnbaserad databas.
 10. Klicka på **Skapa**.
 
 ### <a name="create-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
-Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobbdata i molnet.
+Ett Azure-lagringskonto tillhandahåller resurser för att lagra kö- och blobdata i molnet.
 
 I ett riktigt program skapar du vanligtvis separata konton för programdata jämfört med loggningsdata, samt separata konton för testdata jämfört med produktionsdata. Under den här kursen använder du bara ett konto.
 
@@ -321,7 +321,7 @@ Contoso Ads-programmet skapas i följande steg:
 * Konfigurera anslutningssträngar.
 * Lägg till kodfiler.
 
-När lösningen har skapats granskar du koden som är unik för molntjänstprojekt samt Azure-blobbar och -köer.
+När lösningen har skapats granskar du koden som är unik för molntjänstprojekt samt Azure-blobar och -köer.
 
 ### <a name="create-a-cloud-service-visual-studio-solution"></a>Skapa en Visual Studio-lösning med molntjänst
 1. I Visual Studio väljer du **New Project** (Nytt projekt) på menyn **File** (Arkiv).
@@ -380,7 +380,7 @@ I det här avsnittet konfigurerar du Azure Storage- och SQL-anslutningssträngar
 3. Högerklicka på ContosoAdsWeb under **Roles** (Roller) i ContosoAdsCloudService-projektet, och klicka sedan på **Properties** (Egenskaper).
 
     ![Rollegenskaper](./media/cloud-services-dotnet-get-started/roleproperties.png)
-4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för  **ContosAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
+4. Klicka på fliken **Settings** (Inställningar) i egenskapsfönstret för **ContosoAdsWeb [roll]**, och klicka sedan på **Add Setting** (Lägg till inställning).
 
     Lämna **Service Configuration** (Tjänstkonfiguration) inställd på **All Configurations** (Alla konfigurationer).
 5. Lägg till en inställning med namnet *StorageConnectionString*. Ange **typen** som *ConnectionString*, och ställ in **värdet** till *UseDevelopmentStorage=true*.
@@ -415,7 +415,7 @@ Om du vill lägga till filer i ett projekt eller i en mapp, högerklickar du på
 
 Du kan nu skapa och köra programmet enligt de tidigare anvisningarna i kursen, och appen använder lokala databas- och lagringsemulatorresurser.
 
-I de följande avsnitten beskrivs den kod som gäller när du arbetar med Azure-miljön, -blobbar och -köer. Under den här kursen förklaras inte hur du skapar MVC-kontrollanter och vyer med scaffold-teknik, hur du skriver Entity Framework-kod som fungerar med SQL Server-databaser eller grundläggande information om asynkron programmering i ASP.NET 4.5. Mer information om de här ämnena finns i följande resurser:
+I de följande avsnitten beskrivs den kod som gäller när du arbetar med Azure-miljön, -blobar och -köer. Under den här kursen förklaras inte hur du skapar MVC-kontrollanter och vyer med scaffold-teknik, hur du skriver Entity Framework-kod som fungerar med SQL Server-databaser eller grundläggande information om asynkron programmering i ASP.NET 4.5. Mer information om de här ämnena finns i följande resurser:
 
 * [Kom igång med MVC 5](http://www.asp.net/mvc/tutorials/mvc-5/introduction/getting-started)
 * [Kom igång med EF 6 och MVC 5](http://www.asp.net/mvc/tutorials/getting-started-with-ef-using-mvc)
@@ -494,7 +494,7 @@ var storageAccount = CloudStorageAccount.Parse
     (RoleEnvironment.GetConfigurationSettingValue("StorageConnectionString"));
 ```
 
-Sedan hämtar den en referens till blobcontainern för *images*, skapar containern om den inte redan finns, och anger åtkomstbehörighet för den nya containern. Som standard tillåter nya containrar enbart klienter med lagringskontouppgifter att få tillgång till blobbar. Webbplatsen kräver att blobbarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobbarna.
+Sedan hämtar den en referens till blobcontainern för *images*, skapar containern om den inte redan finns, och anger åtkomstbehörighet för den nya containern. Som standard tillåter nya containrar enbart klienter med lagringskontouppgifter att få tillgång till blobar. Webbplatsen kräver att blobarna är offentliga så att den kan visa bilder med URL:er som pekar på bildblobarna.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -531,7 +531,7 @@ Filen *Views\Home\Index.cshtml* visar kategorilänkar på startsidan. Länkarna 
 ```
 
 ### <a name="contosoadsweb---adcontrollercs"></a>ContosoAdsWeb – AdController.cs
-I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobbar och köer.
+I filen *AdController.cs* anropar konstruktorn metoden `InitializeStorage` för att skapa Azure Storage-klientbiblioteksobjekt som tillhandahåller en API som kan användas för blobar och köer.
 
 Sedan hämtar koden en referens till blobcontainern för *images* som du såg tidigare i *Global.asax.cs*. När den gör det anger den en [standardpolicy för återförsök](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) som är lämplig för en webbapp. Standardpolicyn för återförsök med exponentiell begränsning kan hänga webbappen längre än en minut vid upprepade återförsök för ett tillfälligt fel. Återförsökspolicyn som anges här väntar i tre sekunder efter varje försök i upp till tre försök.
 
@@ -559,7 +559,7 @@ public async Task<ActionResult> Create(
     HttpPostedFileBase imageFile)
 ```
 
-Om användaren har valt en fil att ladda upp, laddar koden upp filen, sparar den i en blob och uppdaterar Ad-databasposten med en URL som pekar på blobben.
+Om användaren har valt en fil att ladda upp, laddar koden upp filen, sparar den i en blob och uppdaterar Ad-databasposten med en URL som pekar på bloben.
 
 ```csharp
 if (imageFile != null && imageFile.ContentLength != 0)
@@ -569,7 +569,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-Koden som utför uppladdningen är i metoden `UploadAndSaveBlobAsync`. Den skapar ett GUID-namn för blobben, laddar upp och sparar filen, och returnerar en referens till den sparade blobben.
+Koden som utför uppladdningen är i metoden `UploadAndSaveBlobAsync`. Den skapar ett GUID-namn för bloben, laddar upp och sparar filen, och returnerar en referens till den sparade bloben.
 
 ```csharp
 private async Task<CloudBlockBlob> UploadAndSaveBlobAsync(HttpPostedFileBase imageFile)
@@ -592,7 +592,7 @@ var queueMessage = new CloudQueueMessage(queueMessageString);
 await queue.AddMessageAsync(queueMessage);
 ```
 
-Koden för HttpPost-metoden `Edit` är liknande, förutom att om användaren väljer en ny bildfil måste alla blobbar som redan finns tas bort.
+Koden för HttpPost-metoden `Edit` är liknande, förutom att om användaren väljer en ny bildfil måste alla blobar som redan finns tas bort.
 
 ```csharp
 if (imageFile != null && imageFile.ContentLength != 0)
@@ -603,7 +603,7 @@ if (imageFile != null && imageFile.ContentLength != 0)
 }
 ```
 
-I nästa exempel visas den kod som tar bort blobbar när du tar bort en annons.
+I nästa exempel visas den kod som tar bort blobar när du tar bort en annons.
 
 ```csharp
 private async Task DeleteAdBlobsAsync(Ad ad)
@@ -767,7 +767,7 @@ Contoso Ads-programmet har med avsikt förenklats för den här komma igång-kur
 Här följer några exempelprogram för molntjänster som visar fler verklighetsbaserade kodningsexempel, i ordningen från mindre till mer komplexa:
 
 * [PhluffyFotos](https://code.msdn.microsoft.com/PhluffyFotos-Sample-7ecffd31). Liknande koncept som i Contoso Ads men här finns fler funktioner och fler verklighetsbaserade kodningsexempel.
-* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobbar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
+* [Azure Cloud Service Multi-Tier Application with Tables, Queues, and Blobs](https://code.msdn.microsoft.com/windowsazure/Windows-Azure-Multi-Tier-eadceb36). Introducerar Azure Storage-tabeller samt blobar och köer. Baserat på en äldre version av Azure SDK för .NET, kräver vissa ändringar för att fungera med den aktuella versionen.
 
 Allmän information om hur du utvecklar för molnet finns i [Skapa verkliga molnappar med Azure](http://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/introduction).
 

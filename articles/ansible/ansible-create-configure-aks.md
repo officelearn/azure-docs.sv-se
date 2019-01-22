@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/23/2018
-ms.openlocfilehash: be9de3c10fdfd040b249dd8da568259c599d7215
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: c4f78d8bb43b26814dc3a4b94109dfd8719cb48f
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050395"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258840"
 ---
 # <a name="create-and-configure-azure-kubernetes-service-clusters-in-azure-using-ansible"></a>Skapa och konfigurera Azure Kubernetes Service-kluster i Azure med Ansible
 Med Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö. Du kan använda Ansible för att hantera Azure Kubernetes Service (AKS). Den här artikeln beskriver hur du använder Ansible för att skapa och konfigurera ett Azure Kubernetes Service-kluster.
@@ -28,7 +28,10 @@ Med Ansible kan du automatisera distributionen och konfigurationen av resurser i
 > Ansible 2.6 krävs för att köra följande exempelspelböcker i den här självstudien. 
 
 ## <a name="create-a-managed-aks-cluster"></a>Skapa ett hanterat AKS-kluster
-I följande Ansible-exempelspelbok skapas en resursgrupp och ett AKS-kluster som finns i resursgruppen:
+Koden i det här avsnittet presenterar en Ansible-exempelspelbok som skapas en resursgrupp och ett AKS-kluster som finns i resursgruppen.
+
+> [!Tip]
+> För platshållaren `your_ssh_key` anger du din offentliga RSA-nyckel i enradigt format – som ska börja med ”ssh-rsa” (utan citattecken). 
 
   ```yaml
   - name: Create Azure Kubernetes Service
@@ -99,7 +102,8 @@ Utdataresultatet från kommandot **ansible-playbook* liknar följande utada som 
 
 Exempelspelboken i föregående avsnitt definierar två noder. Om du behöver fler eller färre containerarbetsbelastningar i ditt kluster kan du enkelt justera antalet noder. Exempelspelboken i det här avsnittet ökar antalet noder från två noder till tre. Du ändrar antalet noder genom att ändra **count**-värdet i blocket **agent_pool_profiles**. 
 
-Ange egna `ssh_key`, `client_id` och `client_secret` i blocket **service_principal**:
+> [!Tip]
+> För platshållaren `your_ssh_key` anger du din offentliga RSA-nyckel i enradigt format – som ska börja med ”ssh-rsa” (utan citattecken). 
 
 ```yaml
 - name: Scale AKS cluster

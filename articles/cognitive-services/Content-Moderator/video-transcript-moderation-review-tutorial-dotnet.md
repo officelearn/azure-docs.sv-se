@@ -1,27 +1,27 @@
 ---
 title: 'Självstudier: Moderera videor och avskrifter i .NET – Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Använda Content Moderator till att moderera videor och avskrifter i .NET.
+description: I den här självstudien visas hur du skapar en komplett modereringslösning för video och avskrift med maskinassisterad moderering och HITL-granskning (human-in-the-loop).
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 1/27/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: e5958eeb4aca4cdc41bbc263a4cc38378927874b
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 45f1b4d16bd982e17b67d6fb337e0d917f635851
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118582"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332701"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Självstudier: Moderering av videor och avskrifter
 
 Med Content Moderators video-API:er kan du moderera videor och skapa videogranskningar i det manuella granskningsverktyget. 
 
-I den här detaljerade självstudien visas hur du skapar en komplett modereringslösning för video och avskrift med maskinassisterad moderering och HITL-granskning (human-in-the-loop).
+I den här självstudien visas hur du skapar en komplett modereringslösning för video och avskrift med maskinassisterad moderering och HITL-granskning (human-in-the-loop).
 
 Ladda ned [C#-konsolprogrammet](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) för den här självstudien. Konsolprogrammet använder SDK:n och relaterade paket till att utföra följande uppgifter:
 
@@ -241,7 +241,7 @@ Den här funktionen utför följande steg:
 
 - Kontrollerar att konfigurationen i `App.config` innehåller alla nödvändiga data
 - Kontrollerar att den binära `ffmpeg`-filen finns
-- Skapar utdatafilnamnet genom att lägga till `_c.mp4` i basnamnet på filen (till exempel `Example.mp4` -> `E>xample_c.mp4`)
+- Skapar utdatafilnamnet genom att lägga till `_c.mp4` i basnamnet på filen (till exempel `Example.mp4` -> `Example_c.mp4`)
 - Skapar en kommandoradssträng som utför konverteringen
 - Startar en `ffmpeg`-process från kommandoraden
 - Väntar på att videon ska bearbetas

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 0db76e80b2ff7400e7c2914efbd2bbcb24d9b005
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034326"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359467"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -94,7 +94,7 @@ Vi har lagt till en orkestrerare för att samordna aktivitetsfunktioner. Nu läg
 
 ## <a name="create-an-activity-function"></a>Skapa en aktivitetsfunktion
 
-1. Upprepa stegen från föregående avsnitt och skapa en tredje funktion med hjälp av HTTP-utlösarmallen. Den här gången ger du dock funktionen namnet `SayHello`.
+1. Upprepa stegen från föregående avsnitt och skapa en tredje funktion med hjälp av HTTP-utlösarmallen. Den här gången ger du dock funktionen namnet `E1_SayHello`.
 
 2. Öppna filen index.js för den nya funktionen och ersätt innehållet med följande kod:
 
@@ -121,9 +121,11 @@ Med Azure Functions Core Tools kan du köra ett Azure Functions-projekt på din 
 
     ![Lokala Azure-utdata](../media/functions-create-first-function-vs-code/functions-vscode-f5.png)
 
-4. Klistra in webbadressen för HTTP-begäran i webbläsarens adressfält och se statusen för orkestreringen.
+4. Ersätt `{functionName}` med `OrchestratorFunction`.
 
-5. Tryck på SKIFT+F1 för att stoppa felsökningen.
+5. Med ett verktyg som [Postman](https://www.getpostman.com/) eller [cURL](https://curl.haxx.se/) skickar du en HTTP POST-begäran till URL-slutpunkten.
+
+6. Stoppa felsökningen genom att trycka på SKIFT+F1 i VS Code.
 
 När du har kontrollerat att funktionen körs korrekt på den lokala datorn är det dags att publicera projektet på Azure.
 

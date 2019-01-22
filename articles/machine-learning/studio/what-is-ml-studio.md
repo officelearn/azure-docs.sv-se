@@ -1,6 +1,7 @@
 ---
-title: Översikt –Azure Machine Learning Studio | Microsoft Docs
-description: Översikt av Azure ML Studio, ett drag-och-släpp-verktyg för att snabbt skapa modeller från bibliotek med algoritmer och moduler som redan är helt färdiga att använda.
+title: Vad är
+titleSuffix: Azure Machine Learning Studio
+description: Azure Machine Learning Studio är ett dra-och-släpp-verktyg för att snabbt skapa modeller från bibliotek med algoritmer och moduler som är klara att använda.
 keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 03/28/2018
-ms.openlocfilehash: b1c0d3da6dba4bf56baaf583d89c58fdc13ef83f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 04c9803909fb5dfd1072840a0c1d7e33814ad1a3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53250526"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54264368"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Vad är Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio är ett drag-och-släpp-verktyg där flera användare kan samarbeta för att bygga, testa och distribuera prediktiva analyslösningar utifrån dina data. Tjänsten Machine Learning Studio publicerar modeller som webbtjänster som enkelt kan användas av anpassade appar eller BI-verktyg som Excel.
@@ -161,7 +162,7 @@ När du har en tränad modell utvärderar du modellen med hjälp av återståend
 * **prov**: En del av en datauppsättning som är avsedd att representera helheten. Prover kan väljas slumpmässigt eller baserat på specifika funktioner i datauppsättningen.
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [självstudiekurs med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).  
+Du kan lära dig grunderna i förutsägelseanalyser och maskininlärning genom att gå en [självstudie med stegvisa anvisningar](create-experiment.md) och genom att [bygga vidare på prover](sample-experiments.md).  
 
 
 <!-- Module References -->

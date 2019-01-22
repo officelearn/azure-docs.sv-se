@@ -4,15 +4,15 @@ description: Ger en översikt över tjänsten Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/02/2019
+ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c511ef8fc4ae580f869ef90da3e2c8764a146881
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969139"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263211"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -29,7 +29,7 @@ Med Azure Migrate får du hjälp med att:
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
-- Du kan endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0 eller 6.5).
+- Du kan endast utvärdera lokala virtuella VMware-datorer (VM) för migrering till virtuella Azure-datorer. De virtuella VMware-datorerna måste hanteras av en vCenter Server (version 5.5, 6.0, 6.5 eller 6.7).
 - Om du vill utvärdera virtuella Hyper-datorer och fysiska servrar kan du använda [Distributionshanteraren för Azure Site Recovery](https://aka.ms/asr-dp-hyperv-doc) för Hyper-V och våra [partnerverktyg](https://azure.microsoft.com/migration/partners/) för fysiska datorer.
 - Du kan identifiera upp till 1 500 virtuella datorer i en enda identifiering och upp till 1 500 virtuella datorer i ett enda projekt. Dessutom kan du utvärdera upp till 1 500 virtuella datorer i en enda utvärdering.
 - Om du vill identifiera en större miljö kan du dela identifieringen och skapa flera projekt. [Läs mer](how-to-scale-assessment.md). Azure Migrate stöder upp till 20 projekt per prenumeration.
@@ -38,6 +38,7 @@ Med Azure Migrate får du hjälp med att:
     **Geografi** | **Lagringsplats**
     --- | ---
     Azure Government | Virginia (USA-förvaltad region)
+    Asien | Sydostasien
     Europa | Europa, norra eller Europa, västra
     USA | USA, östra eller USA, västra centrala
 
@@ -76,7 +77,7 @@ Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegensk
 3. Du ansluter till den virtuella datorn via vCenter Server och anger ett nytt lösenord för den vid anslutning.
 4. Du kör insamlaren på den virtuella datorn för att inleda identifieringen.
 5. Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
-5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
+5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure-portalen.
 6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
 7.  När en grupp har definierats kan skapa du en utvärdering för den.
 8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.

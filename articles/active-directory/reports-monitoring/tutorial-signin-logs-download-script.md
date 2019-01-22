@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8b9097a62ca4bfa67fb5eb35e06f7834df6691e7
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622813"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54213102"
 ---
-# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Självstudie: Ladda ned och använda ett skript för åtkomst till inloggningsloggar
+# <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Självstudier: Ladda ned och använda ett skript för åtkomst till inloggningsloggar
 
-Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure Portal. Alternativet **Ladda ned** i Azure-portalen skapar en CSV-fil av de senaste 5 000 posterna. Om du behöver mer flexibilitet, till exempel för att ladda ned mer än 5 000 poster i taget eller ladda ned loggarna efter schemalagda intervall, kan du använda knappen **Skript** till att generera ett PowerShell-skript för att ladda ned dina data.
+Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure-portalen. Alternativet **Ladda ned** i Azure-portalen skapar en CSV-fil av de senaste 5 000 posterna. Om du behöver mer flexibilitet, till exempel för att ladda ned mer än 5 000 poster i taget eller ladda ned loggarna efter schemalagda intervall, kan du använda knappen **Skript** till att generera ett PowerShell-skript för att ladda ned dina data.
 
 I den här självstudien lär du dig hur du genererar ett skript för att ladda ned alla inloggningsloggar från de senaste 24 timmarna och schemalägger den för körning varje dag. 
 
@@ -33,7 +33,7 @@ I den här självstudien lär du dig hur du genererar ett skript för att ladda 
 
 Du behöver
 
-* En Azure Active Directory-klientorganisation med en premiumlicens (P1/P2). 
+* En Azure Active Directory-klientorganisation med en premiumlicens (P1/P2). Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens. 
 * En användare som har rollen **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportläsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
 * Om du vill köra nedladdningsskriptet på en Windows 10-dator [konfigurerar du AzureRM-modulen och anger körningsprincipen](concept-sign-ins.md#running-the-script-on-a-windows-10-machine).
 

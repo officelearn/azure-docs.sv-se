@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7bf8258524b0b5e73c1a499fb6d3578098a0821e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039171"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359076"
 ---
 # <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Använda Azure Cosmos DB:s API för MongoDB-stöd för MongoDB-funktioner och syntax
 
@@ -20,13 +20,13 @@ Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera d
 
 Med hjälp av Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB som du är van vid och alla de företagsfunktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
-## <a name="mongodb-protocol-support"></a>Protokollstöd för MongoDB
+## <a name="protocol-support"></a>Protokollstöd
 
 Azure Cosmos DB:s API för MongoDB är kompatibelt med MongoDB Server-version **3.2** som standard. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Funktioner eller frågeoperatorer som lagts till i MongoDB version **3.4** är för närvarande tillgängliga som en förhandsversion. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
 
 Även [MongoDB-sammansättningspipeline](#aggregation-pipeline) är för närvarande tillgänglig som en separat förhandsgranskningsfunktion.
 
-## <a name="mongodb-query-language-support"></a>Stöd för MongoDB-frågespråk
+## <a name="query-language-support"></a>Stöd för frågespråk
 
 Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder som för närvarande stöds, operatorer, steg, kommandon och alternativ.
 
@@ -313,7 +313,7 @@ Unika index är tillgängliga för alla Cosmos-konton med hjälp av Azure Cosmos
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
-Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du kan aktivera TTL för samlingar genom att gå till [Azure Portal](https://portal.azure.com).
+Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du kan aktivera TTL för samlingar genom att gå till [Azure-portalen](https://portal.azure.com).
 
 ## <a name="user-and-role-management"></a>Användar- och rollhantering
 

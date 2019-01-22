@@ -6,14 +6,14 @@ author: jamesbak
 ms.service: storage
 ms.author: jamesbak
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 6b2812e31174c4e5d61ae9941563e39357de9522
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: e4e75c65178c4bbedcf781c2fbf2149a94a702cd
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107097"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321202"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
@@ -42,6 +42,30 @@ För att slutföra den här självstudien behöver du:
 * [Skapa ett Azure Data Lake Storage Gen2-konto](data-lake-storage-quickstart-create-account.md).
 * Ladda ned (**small_radio_json.json**) från lagringsplatsen [U-SQL Examples and Issue Tracking](https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) och notera sökvägen där du sparar filen.
 * Logga in på [Azure-portalen](https://portal.azure.com/).
+
+## <a name="set-aside-storage-account-configuration"></a>Spara lagringskontokonfiguration
+
+Du behöver namnet på ditt lagringskonto och en slutpunkts-URI för filsystem.
+
+Du kan få fram namnet på ditt lagringskonto i Azure-portalen genom att välja **Alla tjänster** och filtrera på *lagring*. Välj sedan **Lagringskonton** och leta rätt på ditt lagringskonto.
+
+Du kan få fram slutpunkts-URI:n för filsystem genom att välja **Egenskaper**, och i egenskapsfönstret hittar du värdet för fältet **Primär slutpunkt för ADLS-filsystem**.
+
+Klistra in båda dessa värden i en textfil. Du kommer att behöva dem snart.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
+
+Skapa ett huvudnamn för tjänsten genom att följa anvisningarna i det här avsnittet: [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Det finns några saker som du måste göra när du utför stegen i den här artikeln.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Skapa ett Azure Active Directory-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) i artikeln måste du ange slutpunkts-URI:n som du nyss tog fram i fältet **Inloggnings-URL** i dialogrutan **Skapa**.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln måste du tilldela programmet till **deltagarrollen för bloblagring**.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
 
 ## <a name="create-the-workspace"></a>Skapa arbetsytan
 
@@ -101,35 +125,36 @@ Först måste du skapa en anteckningsbok på Azure Databricks-arbetsytan och kö
 
 1. På [Azure-portalen](https://portal.azure.com) går du till Azure Databricks-arbetsytan som du skapade och väljer **Starta arbetsyta**.
 
-1. Välj **Arbetsyta** till vänster. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
+2. Välj **Arbetsyta** till vänster. I listrutan **Arbetsyta** väljer du **Skapa** > **Anteckningsbok**.
 
     ![Skapa en anteckningsbok i Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-create-notebook.png "Skapa anteckningsbok i Databricks")
 
-1. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Scala** som språk och välj sedan det Spark-kluster som du skapade tidigare.
+3. Ge anteckningsboken ett namn i dialogrutan **Skapa anteckningsbok**. Välj **Scala** som språk och välj sedan det Spark-kluster som du skapade tidigare.
 
     ![Ange information för en anteckningsbok i Databricks](./media/data-lake-storage-handle-data-using-databricks/databricks-notebook-details.png "Ange information för en anteckningsbok i Databricks")
 
     Välj **Skapa**.
 
-1. Ange följande kod i den första anteckningsbokscellen och kör koden. Ersätt de platshållare som visas inom hakparentes i exemplet med dina egna värden:
+4. Kopiera och klistra in följande kodblock i den första cellen, men kör inte den här koden än.
 
     ```scala
-    %python%
-    configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-     
+    val configs = Map(
+    "fs.azure.account.auth.type" -> "OAuth",
+    "fs.azure.account.oauth.provider.type" -> "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+    "fs.azure.account.oauth2.client.id" -> "<application-id>",
+    "fs.azure.account.oauth2.client.secret" -> "<authentication-key>"),
+    "fs.azure.account.oauth2.client.endpoint" -> "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+    "fs.azure.createRemoteFileSystemDuringInitialization"->"true")
+
     dbutils.fs.mount(
-        source = "abfss://<file-system-name>@<account-name>.dfs.core.windows.net/[<directory-name>]",
-        mount_point = "/mnt/<mount-name>",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/<directory-name>",
+    mountPoint = "/mnt/<mount-name>",
+    extraConfigs = configs)
     ```
 
-1. Välj Skift+Retur för att köra koden.
+5. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten [Spara lagringskontokonfiguration](#config) och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln. Ställ in platshållarvärdena `file-system-name`, `directory-name` och `mount-name` på de namn du vill ge filsystemet, katalogen och monteringspunkten.
 
-Nu skapas filsystemet för lagringskontot.
+6. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
 ## <a name="upload-the-sample-data"></a>Ladda upp exempeldata
 

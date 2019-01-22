@@ -1,10 +1,11 @@
 ---
-title: 'Självstudie: Virtuella datorer med lastbalanserare i flera tillgänglighetszoner – Azure Portal'
+title: 'Självstudie: Virtuella datorer med lastbalanserare i flera tillgänglighetszoner – Azure-portalen'
 titlesuffix: Azure Load Balancer
-description: Den här kursen visar hur du skapar en Standard Load Balancer med zonredundant klientdel för att lastbalansera virtuella datorer i flera tillgänglighetszoner med hjälp av Azure Portal
+description: Den här kursen visar hur du skapar en Standard Load Balancer med zonredundant klientdel för att lastbalansera virtuella datorer i flera tillgänglighetszoner med hjälp av Azure-portalen
 services: load-balancer
 documentationcenter: na
 author: KumudD
+manager: twooley
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines across availability zones in a region, so that the customers can still access the web service if a datacenter is unavailable.
 ms.service: load-balancer
 ms.devlang: na
@@ -14,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 05/17/2018
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 18b5f82a5181f0bbf7024b302b802684ef676c8f
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d2e81e4f2eda730dc064699f42ba7bfb49648082
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255344"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230840"
 ---
-# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure Portal
+# <a name="tutorial-load-balance-vms-across-availability-zones-with-a-standard-load-balancer-using-the-azure-portal"></a>Självstudie: Lastbalansera virtuella datorer i flera tillgänglighetszoner med Standard Load Balancer med hjälp av Azure-portalen
 
-Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. Den här kursen går stegvis igenom hur du skapar en offentlig lastbalanseringsstandard som lastbalanserar virtuella datorer i flera tillgänglighetszoner. Det här hjälper till att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter. Med zonredundans kan en eller flera tillgänglighetszoner misslyckas och datasökvägen överleva så länge en zon i regionen har god status. Lär dig att:
+Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. Den här kursen går stegvis igenom hur du skapar en offentlig Standard Load Balancer som lastbalanserar virtuella datorer i flera tillgänglighetszoner. Det här hjälper till att skydda dina appar och data från ett osannolikt fel eller förlust av ett helt datacenter. Med zonredundans kan en eller flera tillgänglighetszoner misslyckas och datasökvägen överleva så länge en zon i regionen har god status. Lär dig att:
 
 > [!div class="checklist"]
 > * Skapa en Standard Load Balancer
@@ -42,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure Portal på [http://portal.azure.com](http://portal.azure.com).
+Logga in på Azure-portalen på [http://portal.azure.com](http://portal.azure.com).
 
 ## <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
 
@@ -88,9 +89,9 @@ Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutning
 
 ### <a name="create-network-security-group-rules"></a>Skapa regler för nätverkssäkerhetsgrupp
 
-I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar använder HTTP och RDP med Azure Portal.
+I det här avsnittet skapar du nätverkssäkerhetsgruppsregler som tillåter att inkommande anslutningar använder HTTP och RDP med Azure-portalen.
 
-1. I Azure Portal klickar du på **Alla resurser** i den vänstra menyn. Sök sedan och klicka på **myNetworkSecurityGroup** som finns i resursgruppen **myResourceGroupLBAZ**.
+1. I Azure-portalen klickar du på **Alla resurser** i den vänstra menyn. Sök sedan och klicka på **myNetworkSecurityGroup** som finns i resursgruppen **myResourceGroupLBAZ**.
 2. Klicka på **Ingående säkerhetsregler** under **Inställningar** och klicka sedan på **Lägg till**.
 3. Ange dessa värden för den ingående säkerhetsregeln *myHTTPRule* så att inkommande HTTP-anslutningar som använder port 80 tillåts:
     - *Tjänstetagg* – för **Källa**.

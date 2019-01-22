@@ -12,18 +12,18 @@ ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4809c09b5aa7b8212981cc13589602a365a23a37
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: d82e80530d375a9d0f0a6d3f491d3070942ca02f
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113622"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54331919"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Skapa en funktion i Azure som utlöses av en timer
 
 Lär dig hur du använder Azure Functions för att skapa en funktion [utan server](https://azure.microsoft.com/solutions/serverless/) som körs enligt ett schema som du definierar.
 
-![Skapa en funktionsapp i Azure Portal](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
+![Skapa en funktionsapp i Azure-portalen](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -43,30 +43,30 @@ Därefter skapar du en funktion i den nya funktionsappen.
 
 ## <a name="create-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
-1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det är den första funktionen i din funktionsapp väljer du **Anpassad funktion**. Detta visar en fullständig uppsättning med funktionsmallar.
+1. Expandera funktionsappen och klicka på knappen **+** bredvid **Funktioner**. Om det här är den första funktionen i din funktionsapp väljer du **I portalen** och sedan **Fortsätt**. Annars går du till steg tre.
 
-    ![Sidan snabbstart för funktioner i Azure Portal](./media/functions-create-scheduled-function/add-first-function.png)
+   ![Sidan snabbstart för funktioner i Azure-portalen](./media/functions-create-scheduled-function/function-app-quickstart-choose-portal.png)
 
-2. Skriv `timer` i sökfältet och välj sedan önskat språk för utlösarmallen för timern. 
+2. Välj **Fler mallar** och sedan **Slutför och visa mallar**.
 
-    ![Välj mallen för den utlösta timerfunktionen.](./media/functions-create-scheduled-function/functions-create-timer-trigger.png)
+    ![Functions-snabbstart, välj fler mallar](./media/functions-create-scheduled-function/add-first-function.png)
 
-3. Konfigurera den nya utlösaren med inställningar enligt tabellen under bilden.
+3. I sökfältet skriver du `timer` och konfigurerar den nya utlösaren med inställningarna enligt tabellen under bilden.
 
-    ![Skapa en timerutlöst funktion i Azure Portal.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
+    ![Skapa en timerutlöst funktion i Azure-portalen.](./media/functions-create-scheduled-function/functions-create-timer-trigger-2.png)
 
     | Inställning | Föreslaget värde | Beskrivning |
     |---|---|---|
     | **Namn** | Standard | Det här är namnet på den timerutlösta funktionen. |
     | **Schema** | 0 \*/1 \* \* \* \* | Ett [CRON-uttryck](functions-bindings-timer.md#cron-expressions) med sex fält som schemalägger att funktionen ska köras varje minut. |
 
-2. Klicka på **Skapa**. En funktion skapas i valt språk som körs varje minut.
+4. Klicka på **Skapa**. En funktion skapas i valt språk som körs varje minut.
 
-3. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna.
+5. Kontrollera körningen genom att granska spårningsinformationen som skrivs till loggarna.
 
-    ![Funktionsloggvisning i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
+    ![Funktionsloggvisning i Azure-portalen.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Sedan ändrar du funktionens schema så att det körs en gång per timme i stället för varje minut. 
+Sedan ändrar du funktionens schema så att det körs en gång per timme i stället för varje minut.
 
 ## <a name="update-the-timer-schedule"></a>Uppdatera timerschemat
 
@@ -74,7 +74,7 @@ Sedan ändrar du funktionens schema så att det körs en gång per timme i stäl
 
 2. Ange ett nytt **Schema**-värde för `0 0 */1 * * *` så att det körs varje timme och klicka sedan på **Spara**.  
 
-![Funktioner, uppdatera timerschema i Azure Portal.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
+![Funktioner, uppdatera timerschema i Azure-portalen.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 
 Du har nu en funktion som körs en gång i timmen. 
 

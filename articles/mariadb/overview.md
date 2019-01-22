@@ -7,12 +7,12 @@ ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
 ms.date: 12/03/2018
-ms.openlocfilehash: 507425a6cffc6f3b49e117ebf5a604bf0d252164
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 7fecc280d4e92df88f5f8e9b9e571273328d2458
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542024"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352322"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Vad är Azure Database for MariaDB?
 
@@ -45,7 +45,7 @@ Tjänsten Azure Database for MariaDB erbjuder flera tjänstnivåer: Grundläggan
 
 ## <a name="monitoring-and-alerting"></a>Övervakning och avisering
 
-Hur avgör du när du ska skapa upp eller ned? Du kan använda de inbyggda funktionerna för prestandaövervakning och avisering i Azure Database for MariaDB, tillsammans med prestandaklassificering baserat på virtuella kärnor. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner de virtuella kärnorna baserat på dina aktuella eller beräknade prestandakrav. <!--See [Alerts](howto-alert-on-metric.md) for details.-->
+Hur avgör du när du ska skapa upp eller ned? Du kan använda de inbyggda funktionerna för prestandaövervakning och avisering i Azure Database for MariaDB, tillsammans med prestandaklassificering baserat på virtuella kärnor. Med dessa verktyg kan du snabbt utvärdera effekten av att skala upp eller ner de virtuella kärnorna baserat på dina aktuella eller beräknade prestandakrav. Mer information finns i [Aviseringar](howto-alert-metric.md).
 
 ## <a name="keep-your-app-and-business-running"></a>Håll igång din app och din verksamhet
 
@@ -55,7 +55,7 @@ Azures branschledande serviceavtal med 99,99 % tillgänglighet drivs av ett glo
 
 Azure-databastjänster har en tradition av datasäkerhet som Azure Database for MariaDB upprätthåller. Azure Database for MariaDB ger funktioner som begränsar åtkomst, skyddar data i vila och under rörelse samt hjälper dig att övervaka aktivitet. Besök [Azure Säkerhetscenter](https://www.microsoft.com/en-us/trustcenter/security) för information om Azures plattformssäkerhet.
 
-Azure Database for MariaDB-tjänsten använder lagringskryptering för vilande data. Data, inklusive säkerhetskopierade data, krypteras på disk. (Temporära filer som skapas av motorn när den kör frågor krypteras inte på disk.) Tjänsten använder chiffer med AES 256 bitar, vilket ingår i Azure Storage-kryptering. Nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
+Azure Database for MariaDB-tjänsten använder lagringskryptering för vilande data och är FIPS 140-2-kompatibel. Data, inklusive säkerhetskopierade data, krypteras på disk. (Temporära filer som skapas av motorn när den kör frågor krypteras inte på disk.) Tjänsten använder chiffer med AES 256 bitar, vilket ingår i Azure Storage-kryptering. Nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras.
 
 Tjänsten Azure Database for MariaDB är som standard konfigurerad att kräva [SSL-anslutningssäkerhet](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
 

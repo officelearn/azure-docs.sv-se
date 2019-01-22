@@ -1,6 +1,6 @@
 ---
 title: Nätverkssäkerhet i Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Förstå hur IP-brandväggen och integreringen av virtuella nätverk fungerar i Azure Data Lake Storage Gen1
+description: Förstå hur integreringen av virtuella nätverk fungerar i Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 703a865eca90deabcb6bbc64a75fc2bad52b43b7
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: a363b5688e5fe915bd96393c35b3f39c69052d7c
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288007"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359314"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1---preview"></a>Integrering av virtuella nätverk för Azure Data Lake Storage Gen1 – förhandsversion
 
-Den här artikeln introducerar integrering av virtuella nätverk för Azure Data Lake Storage Gen1, som är i förhandsversion. Med integrering av virtuella nätverk kan du konfigurera dina konton för att endast acceptera trafik från specifika virtuella nätverk och undernät. 
+Den här artikeln introducerar integrering av virtuella nätverk för Azure Data Lake Storage Gen1. Med integrering av virtuella nätverk kan du konfigurera dina konton för att endast acceptera trafik från specifika virtuella nätverk och undernät. 
 
 Den här funktionen hjälper till att skydda ditt Data Lake Storage-konto från externa hot.
 
@@ -73,11 +73,11 @@ Några tillgängliga alternativ är:
 
 ## <a name="limitations"></a>Begränsningar
 
-- HDI-kluster som skapades innan det fanns stöd för integrering av virtuella nätverk med Data Lake Storage Gen1 måste återskapas för att ge stöd för den här nya funktionen.
+- HDInsight-kluster som skapades innan det fanns stöd för integrering av virtuella nätverk med Data Lake Storage Gen1 måste återskapas för att ge stöd för den här nya funktionen.
  
-- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Mer information finns i avsnittet [Undantag](##Exceptions).
+- När du skapar ett nytt HDInsight-kluster och väljer ett Data Lake Storage Gen1-konto med integrering av virtuella nätverk aktiverat misslyckas processen. Inaktivera först regeln för virtuella nätverk. Eller så kan du på bladet **Brandvägg och virtuella nätverk** i Data Lake Storage-kontot välja **Tillåt åtkomst från alla nätverk och tjänster**. Skapa därefter HDInsight-klustret innan du slutligen återaktiverar regeln för virtuella nätverk eller avmarkera **Allow access from all networks and services (Tillåt åtkomst från alla nätverk och tjänster)**. Mer information finns i avsnittet [Undantag](##Exceptions).
 
-- Förhandsversionen av integrering av virtuella nätverk med Data Lake Storage Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
+- Integrering av virtuella nätverk med Data Lake Storage Gen1 fungerar inte med [hanterade identiteter för Azure-resurser](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
 - Fil- och mappdata i ditt Data Lake Storage Gen1-konto med virtuellt nätverk aktiverat är inte tillgängliga från portalen. Den här begränsningen omfattar åtkomst från en virtuell dator som finns i det virtuella nätverket och aktiviteter som att använda Datautforskaren. Kontohanteringsaktiviteter fortsätter att fungera. Fil- och mappdata i ditt Data Lake Storage-konto med virtuellt nätverk aktiverat är tillgängliga via alla icke-portalresurser. Dessa resurser inkluderar SDK-åtkomst, PowerShell-skript och andra Azure-tjänster när de inte kommer från portalen. 
 

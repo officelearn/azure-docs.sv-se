@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/30/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 42ed9091ff7ab8059ba253f62726b30899d6e697
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: b948616aa21d390cedc877b0a09e272815abc82a
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036064"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54358566"
 ---
-# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudie: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
+# <a name="tutorial-return-azure-data-box-and-verify-data-upload-to-azure"></a>Självstudier: Skicka tillbaka Azure Data Box och verifiera datauppladdning till Azure
 
 Den här självstudien beskriver hur du returnerar Azure Data Box och verifierar data som laddats upp till Azure.
 
@@ -28,7 +28,7 @@ I den här självstudien får du lära dig om ämnen som:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du börjar ska du se till att du har slutfört [självstudien om att kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
+Innan du börjar bör du slutföra följande [självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
 
 ## <a name="ship-data-box-back"></a>Skicka tillbaka Data Box
 
@@ -37,9 +37,7 @@ Innan du börjar ska du se till att du har slutfört [självstudien om att kopie
 
     Om enheten levereras i Europa visar E-ink-skärmen inte fraktsedeln. I stället inkluderas returfraktsedeln i det genomskinliga facket under leveransfraktsedeln. Ta bort den gamla fraktsedeln och se till att fraktsedeln är väl synlig.
     
-3. Om du returnerar enheten i USA bokar du upphämtning med UPS. Om du returnerar enheten i Europa via DHL bokar du upphämtning på DHL:s webbplats. Navigera till DHL-webbplatsen för ditt land. Under Våra divisioner klickar du på DHL Express. Välj **Skicka > Skicka online**. 
-
-    Identifiera ditt fraktsedelsnummer och klicka på **Boka upphämtning**.
+3. Om du returnerar enheten bokar du upphämtning med UPS. Om du vill schemalägga en upphämtning ringer du din lokala UPS (landspecifikt kostnadsfritt nummer) eller lämnar din Data Box på din närmaste samlingsplats.
 
 4. Nära Data Box-enheten hämtas och skannas av transportföretaget uppdateras orderstatusen i portalen till **hämtad**. Du får också ett spårnings-ID.
 

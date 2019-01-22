@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 10/10/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 44f5ea606efafbb310e4740d75cbf86b7069e7ca
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: f2c9385e55559e53c9118e047bdddbe178a10770
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722523"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359569"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-app i Azure App Service på Linux
 
@@ -28,14 +28,14 @@ ms.locfileid: "53722523"
 > I den här artikeln distribueras en app till App Service i Linux. Om du vill distribuera en app till App Service i _Windows_ kan du läsa [Skapa en Node.js- och MongoDB-app i Azure](../app-service-web-tutorial-nodejs-mongodb-app.md).
 >
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar som Azure Cosmos DB för MongoDB API-databasen. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här självstudien visar hur du skapar en Node.js-app, ansluter den lokalt till en MongoDB-databas och sedan distribuerar den till en databas i Azure Cosmos DB:s API för MongoDB. När du är klar har du ett MEAN-program (MongoDB, Express, AngularJS och Node.js) som körs i App Service på Linux. För enkelhetens skull använder exempelprogrammet [MEAN.js-webbramverket](https://meanjs.org/).
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
 Du lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en databas med Azure Cosmos DB för MongoDB-API
+> * skapa en databas med Azure Cosmos DB:s API för MongoDB
 > * ansluta en Node.js-app till MongoDB
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen
@@ -121,7 +121,7 @@ Du kan när som helst stoppa Node.js genom att trycka på `Ctrl+C` i terminalen.
 
 ## <a name="create-production-mongodb"></a>Skapa produktions-MongoDB
 
-I det här steget skapar du en Cosmos-databas som har konfigurerats med MongoDB-API i Azure. När appen har distribuerats till Azure används den här molndatabasen.
+I det här steget skapar du ett databaskonto med hjälp av Azure Cosmos DB:s API för MongoDB. När appen har distribuerats till Azure används den här molndatabasen.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -157,7 +157,7 @@ När Cosmos DB-kontot har skapats, visar Azure CLI information liknande följand
 }
 ```
 
-## <a name="connect-app-to-production-cosmos-db-configured-with-mongodb-api"></a>Anslut app till produktion Cosmos DB konfigurerat med MongoDB API
+## <a name="connect-app-to-production-configured-with-azure-cosmos-dbs-api-for-mongodb"></a>Anslut app till produktion konfigurerad med Azure Cosmos DB:s API för MongoDB
 
 I det här steget, ansluter du ditt MEAN.js-exempelprogram till en Cosmos DB-databas som du just skapade med en MongoDB-anslutningssträng.
 
@@ -317,7 +317,7 @@ http://<app_name>.azurewebsites.net
 
 Klicka på alternativet för att **registrera** på den översta menyn och skapa en låtsasanvändare.
 
-Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.jsapp i Azure anslutning till Azure Cosmos DB för MongoDB API.
+Om du lyckas och appen loggar in automatiskt till den skapade användaren har din MEAN.js-app i Azure anslutning till Azure Cosmos DB:s API för MongoDB.
 
 ![MEAN.js-app som körs i Azure App Service](./media/tutorial-nodejs-mongodb-app/meanjs-in-azure.png)
 
@@ -453,7 +453,7 @@ Om du lade till några artiklar tidigare kan du fortfarande se dem. Befintliga d
 
 ## <a name="manage-your-azure-app"></a>Hantera din Azure-app
 
-Gå till [Azure Portal](https://portal.azure.com) om du vill se den app du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
 
 Klicka på **App Services** på menyn till vänster och klicka sedan på din Azure-apps namn.
 
@@ -461,7 +461,7 @@ Klicka på **App Services** på menyn till vänster och klicka sedan på din Azu
 
 Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
-![App Service-sidan på Azure Portal](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
+![App Service-sidan på Azure-portalen](./media/tutorial-nodejs-mongodb-app/web-app-blade.png)
 
 [!INCLUDE [cli-samples-clean-up](../../../includes/cli-samples-clean-up.md)]
 
@@ -472,7 +472,7 @@ Portalen visar som standard dina webbappar på sidan **Översikt**. På den här
 Vad du lärt dig:
 
 > [!div class="checklist"]
-> * Skapa en databas med Azure Cosmos DB för MongoDB-API
+> * skapa en databas med Azure Cosmos DB:s API för MongoDB
 > * Anslut en Node.js-app till en databas
 > * distribuera appen till Azure
 > * uppdatera datamodellen och distribuera om appen

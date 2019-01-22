@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 0a629b9b068694960178c1c5727ba2f38b0e8af7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7d45c11345312fe48312bd4e744433397a17a62d
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190348"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359331"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Skapa en Azure Database for MariaDB-server med hjälp av Azure CLI
 
@@ -57,12 +57,12 @@ ssl-enforcement | **Aktiverad** | Huruvida SSL ska aktiveras för den här serve
 storage-size | **51200** | Serverns lagringskapacitet (enheten är megabyte). Giltiga lagringsstorlekar är 5 120 MB (minst) med ökningar i steg om 1 024 MB. Mer information om storleksgränser för lagring finns i [Prisnivåer](./concepts-pricing-tiers.md). 
 version | **10.2** | MariaDB-huvudmotorversionen.
 admin-user | **myadmin** | Användarnamnet för administratörsinloggningen. Parametern **admin-user** får inte bvara **azure_superuser**, **admin**, **administrator**, **root**, **guest** eller **public**.
-admin-password | *ditt lösenord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror (0-9) och icke-alfanumeriska tecken.
+admin-password | *ditt lösenord* | Lösenordet för administratörsanvändaren. Lösenordet måste innehålla mellan 8 och 128 tecken. Det måste innehålla tecken från tre av följande kategorier: Engelska versaler, engelska gemener, siffror och icke-alfanumeriska tecken.
 
-Parametervärdet **sku-name** följer konventionen *prisnivåer*\_*compute-generering*\_*virtuella kärnor* såsom visas i följande exempel:
-+ `--sku-name B_Gen5_4` mappar till prisnivån Basic, compute-genereringen Gen 5 och 4 virtuella kärnor.
-+ `--sku-name GP_Gen5_32` mappar till prisnivån Generell användning, compute-genereringen Gen 5 och 32 virtuella kärnor.
-+ `--sku-name MO_Gen5_2` mappar till prisnivån Minnesoptimerad, compute-genereringen Gen 5 och 2 virtuella kärnor.
+Parametervärdet för sku-namn följer namngivningskonventionen {prisnivå}\_{compute-generering}\_{vCores} som i exemplen nedan:
++ `--sku-name B_Gen5_1` mappar till Basic, Gen 5 och 1 virtuell kärna. Det här alternativet är minsta tillgängliga SKU.
++ `--sku-name GP_Gen5_32` mappar till generell användning, Gen 5 och 32 vCores.
++ `--sku-name MO_Gen5_2` mappar till minnesoptimerad, Gen 5 och 2 vCores.
 
 Information om giltiga värden efter region och om nivåer finns i [Prisnivåer](./concepts-pricing-tiers.md).
 

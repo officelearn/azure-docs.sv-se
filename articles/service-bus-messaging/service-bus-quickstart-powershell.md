@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – Skicka och ta emot meddelanden till och från Azure Service Bus | Microsoft Docs
-description: I den här snabbstarten får du lära dig att skicka och ta emot Service Bus-meddelanden med PowerShell och .NET-standardklienten
+title: Snabbstart – Använda Azure PowerShell för att skapa en Service Bus-kö | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du använder Azure PowerShell för att skapa en Service Bus-kö. Sedan använder du ett exempelprogram för att skicka meddelanden till och ta emot meddelanden från kön.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
@@ -8,17 +8,16 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 2669b3ad9abc2370b4ecb66596d6edde17c82ddd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242440"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54259673"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Snabbstart: Skicka och ta emot meddelanden med Azure PowerShell och .NET
-
+# <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure PowerShell för att skapa en Service Bus-kö
 Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och absolut tillförlitlighet. Ett typiskt Service Bus-scenario innefattar vanligen frikoppling av två eller flera program, tjänster eller processer från varandra och överföring av status- eller dataförändringar. Sådana scenarier kan handla om schemaläggning av flera batchjobb i ett annat program eller tjänster eller att utlösa beställningsuppfyllelse. En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller regionalt distributionscenter för påfyllning och lageruppdateringar. I det här scenariot, skickar klientappen och tar emot meddelanden från en Service Bus-kö.
 
 ![kö](./media/service-bus-quickstart-powershell/quick-start-queue.png)

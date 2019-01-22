@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
+ms.date: 01/14/2019
 ms.author: mstewart
 ms.custom: seodec18
-ms.openlocfilehash: ee2a4be97b2b56f9c659639a34e821e37c188828
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6f94ec1a64108cde6ff69a572559960a988a1b7c
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087872"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261289"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell
 
@@ -30,9 +30,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 - Windows PowerShell ISE
-- Installera eller uppdatera till den [senaste versionen av Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Installera eller uppdatera till den [senaste versionen av AzureRM PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
     - AzureRM-modulversionen måste vara 6.0.0 eller senare. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
-- En kopia av [Azure Disk Encryption-skriptet om förhandskrav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+- En kopia av [Azure Disk Encryption-skriptet om förhandskrav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - Om du redan har det här skriptet kan du ladda ned en ny kopia som nyligen har ändrats. 
     - Markera all text med **CTRL + A** och kopiera sedan all text till anteckningar med **CTRL + C**.
     - Spara filen som **ADEPrereqScript.ps1**

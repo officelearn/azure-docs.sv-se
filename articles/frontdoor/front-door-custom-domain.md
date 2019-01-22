@@ -1,5 +1,5 @@
 ---
-title: Självstudiekurs – Lägga till en anpassad domän i Azure Front Door-konfigurationen | Microsoft Docs
+title: Självstudie – Lägga till en anpassad domän i Azure Front Door-konfigurationen | Microsoft Docs
 description: I den här självstudien får du lära dig hur du implementerar en anpassad domän i Azure Front Door.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 58829bcd1b3c38b70929167beae5d8866483d616
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0e1c5e4c3e4b40fd04ca9d48aba9b1e5194d4261
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716505"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54330933"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-front-door"></a>Självstudier: Lägg till en anpassad domän i din Front Door
 I den här självstudien får du lära dig hur du lägger till en anpassad domän i Front Door. När du använder Azure Front Door-tjänsten för programleverans behövs en anpassad domän om du vill att ditt eget domännamn ska synas i din slutanvändarbegäran. Att ha ett synligt domännamn kan vara praktiskt för dina kunder och användbart i profileringssyfte.
@@ -43,14 +43,14 @@ Om du använder Azure som värd för dina [DNS-domäner](https://docs.microsoft.
 
 ## <a name="create-a-cname-dns-record"></a>Skapa en CNAME DNS-post
 
-Innan du kan använda en anpassad domän med din Front Door behöver du skapa en CNAME-post (kanoniskt namn) med din domänleverantör som pekar till din Front Doors standardklientdelsvärd (som contose.azurefd.net). En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn. För Azure Front Door-tjänsten är källdomännamnet namnet på din anpassade domän och måldomännamnet är värdnamnet för Front Door-slutpunkten. När Front Door har verifierat CNAME-posten du skapade dirigeras den trafik som går till den anpassade källdomänen (till exempel www.contoso.com) till den angivna standardklientdelsvärden för Front Door (som contoso.azurefd.net). 
+Innan du kan använda en anpassad domän med din Front Door behöver du skapa en CNAME-post (kanoniskt namn) med din domänleverantör som pekar till din Front Doors standardklientdelsvärd (till exempel contoso.azurefd.net). En CNAME-post är en typ av DNS-post som mappar ett källdomännamn till ett måldomännamn. För Azure Front Door-tjänsten är källdomännamnet namnet på din anpassade domän och måldomännamnet är värdnamnet för Front Door-slutpunkten. När Front Door har verifierat CNAME-posten du skapade dirigeras den trafik som går till den anpassade källdomänen (till exempel www.contoso.com) till den angivna standardklientdelsvärden för Front Door (som contoso.azurefd.net). 
 
 En anpassad domän och dess underdomän kan endast associeras med en Front Door åt gången. Du kan däremot använda olika underdomäner från samma anpassade domän för olika Front Door-tjänster genom att använda flera CNAME-poster. Du kan också mappa en anpassad domän med olika underdomäner till samma Front Door.
 
 
 ## <a name="map-the-temporary-afdverify-sub-domain"></a>Mappa den tillfälliga underdomänen afdverify
 
-När du mappar en befintlig domän som är i produktion finns några saker att tänka på. Medan du registrerar din anpassade domän i Azure Portal kan det uppstå en kort tids driftstopp. För att undvika störningar i webbtrafiken mappar du först din anpassade domän till standardklientdelsvärden för Front Door med Azure-underdomänen afdverify för att skapa en tillfällig CNAME-mappning. Den här metoden gör att användare kan komma åt din domän utan avbrott under tiden DNS-mappningen utförs.
+När du mappar en befintlig domän som är i produktion finns några saker att tänka på. Medan du registrerar din anpassade domän i Azure-portalen kan det uppstå en kort tids driftstopp. För att undvika störningar i webbtrafiken mappar du först din anpassade domän till standardklientdelsvärden för Front Door med Azure-underdomänen afdverify för att skapa en tillfällig CNAME-mappning. Den här metoden gör att användare kan komma åt din domän utan avbrott under tiden DNS-mappningen utförs.
 
 Om du använder din anpassade domän för första gången och ingen produktionstrafik körs på den, kan du mappa din anpassade domän direkt till din Front Door. Gå vidare till [Mappa permanent anpassad domän](#map-the-permanent-custom-domain).
 
@@ -103,7 +103,7 @@ Till exempel är förfarandet för GoDaddy-domänregistratorn följande:
 
 När du har registrerat din anpassade domän kan du lägga till den i din Front Door.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/) och navigera till den Front Door som innehåller klientdelsvärden som du vill mappa till en anpassad domän.
+1. Logga in på [Azure-portalen](https://portal.azure.com/) och navigera till den Front Door som innehåller klientdelsvärden som du vill mappa till en anpassad domän.
     
 2. På sidan **Front Door-designer** klickar du på ”+” för att lägga till en anpassad domän.
     
@@ -197,7 +197,7 @@ I föregående steg lade du till en anpassad domän i en Front Door. Om du inte 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
 > - Skapa en CNAME DNS-post

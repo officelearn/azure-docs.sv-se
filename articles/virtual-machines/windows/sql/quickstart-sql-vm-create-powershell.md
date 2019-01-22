@@ -3,7 +3,7 @@ title: Skapa en SQL Server Windows-VM med Azure PowerShell | Microsoft Docs
 description: Den här kursen visar hur du skapar virtuell Windows SQL Server 2017-dator med Azure PowerShell.
 services: virtual-machines-windows
 documentationcenter: na
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
@@ -11,14 +11,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 02/15/2018
-ms.author: jroth
-ms.openlocfilehash: bebb153d5ff840a0eed7d6afffccd03a5236592d
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 12/21/2018
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42023622"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332446"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
@@ -47,7 +48,7 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
    Connect-AzureRmAccount
    ```
 
-1. Du bör se en inloggningsskärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
+1. Du bör se en skärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure-portalen.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -122,11 +123,11 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
 
 ## <a name="create-the-sql-vm"></a>Skapa den virtuella SQL-datorn
 
-1. Definiera dina autentiseringsuppgifter för att logga in på den virtuella datorn. Användarnamnet är ”azureadmin”. Se till att ändra lösenordet innan du kör kommandot.
+1. Definiera dina autentiseringsuppgifter för att logga in på den virtuella datorn. Användarnamnet är ”azureadmin”. Se till att ändra \<lösenordet> innan du kör kommandot.
 
    ``` PowerShell
    # Define a credential object
-   $SecurePassword = ConvertTo-SecureString 'Change.This!000' `
+   $SecurePassword = ConvertTo-SecureString '<password>' `
       -AsPlainText -Force
    $Cred = New-Object System.Management.Automation.PSCredential ("azureadmin", $securePassword)
    ```
@@ -136,7 +137,7 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
    ```PowerShell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
-   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13 | `
+   $VMConfig = New-AzureRmVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
       Set-AzureRmVMOperatingSystem -Windows -ComputerName $VMName -Credential $Cred -ProvisionVMAgent -EnableAutoUpdate | `
       Set-AzureRmVMSourceImage -PublisherName "MicrosoftSQLServer" -Offer "SQL2017-WS2016" -Skus "SQLDEV" -Version "latest" | `
       Add-AzureRmVMNetworkInterface -Id $Interface.Id
@@ -164,19 +165,19 @@ För att få portalintegrering och SQL VM-funktioner måste du installera [till�
    Get-AzureRmPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
-1. Ta sedan den returnerade IP-adressen och skicka den som kommandoradsparameter till **mstsc** för att starta en fjärrskrivbordssession på den nya virtuella datorn.
+1. Skicka sedan den returnerade IP-adressen som kommandoradsparameter till **mstsc** för att starta en fjärrskrivbordssession på den nya virtuella datorn.
 
    ```
    mstsc /v:<publicIpAddress>
    ```
 
-1. Ange autentiseringsuppgifter för ett annat konto när du tillfrågas om autentiseringsuppgifter. Ange användarnamnet med ett föregående omvänt snedstreck (till exempel `\azureadmin`, och det lösenord som du angav tidigare i den här snabbstarten.
+1. Ange autentiseringsuppgifter för ett annat konto när du tillfrågas om autentiseringsuppgifter. Ange användarnamnet med ett föregående omvänt snedstreck (till exempel `\azureadmin`), och det lösenord som du angav tidigare i den här snabbstarten.
 
 ## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
 
 1. När du har loggat in i fjärrskrivbordssessionen kan du starta **SQL Server Management Studio 2017** från Start-menyn.
 
-1. Behåll standardvärden i dialogrutan **Anslut till server**. Servernamnet är namnet på den virtuella datorn. Autentisering har angetts till **Windows-autentisering**. Klicka på **Anslut**.
+1. Behåll standardvärden i dialogrutan **Anslut till server**. Servernamnet är namnet på den virtuella datorn. Autentisering har angetts till **Windows-autentisering**. Välj **Anslut**.
 
 Du är nu ansluten till SQL Server lokalt. Om du vill ansluta via en fjärranslutning måste du [konfigurera anslutningen](virtual-machines-windows-sql-connect.md) från portalen eller manuellt.
 

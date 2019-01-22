@@ -12,17 +12,17 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/28/2018
+ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 1af74cc44391c95fba781cbce14e9118ca36c14b
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078502"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321746"
 ---
-# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudie: Skapa och distribuera en app med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
+# <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Självstudier: Skapa och distribuera ett program med en ASP.NET Core Web API-klientdelstjänst och en tillståndskänslig serverdelstjänst
 
 Den här självstudien ingår i en serie.  Du får se hur du skapar ett Azure Service Fabric-program med en ASP.NET Core Web API-klientdel och en tillståndskänslig serverdelstjänst för att lagra dina data. När du är klar har du ett röstningsprogam med ASP.NET Core-webbklient som sparar röstningsresultat i en tillståndskänslig backend-tjänst i klustret. Om du inte vill skapa röstningsprogrammet manuellt kan du [ladda ned källkoden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) för det färdiga programmet och gå vidare till [Gå igenom exempelprogrammet för röstning](#walkthrough_anchor).  Om du vill kan du visa en [videogenomgång](https://channel9.msdn.com/Events/Connect/2017/E100) av den här kursen.
 
@@ -326,8 +326,6 @@ I Solution Explorer öppnar du *VotingWeb/PackageRoot/ServiceManifest.xml*.  Let
 
 Uppdatera också värdet för egenskapen Application URL i projektet Voting så att webbläsare öppnar rätt port när du felsöker appen.  Välj projektet **Voting** i Solution Explorer och uppdatera egenskapen **Application URL** till **8080**.
 
-![Program-URL](./media/service-fabric-tutorial-deploy-app-to-party-cluster/application-url.png)
-
 ### <a name="deploy-and-run-the-voting-application-locally"></a>Distribuera och köra appen Voting lokalt
 Du kan nu köra appen Voting och felsöka den. Tryck på **F5** i Visual Studio så att du distribuerar appen till ditt lokala Service Fabric-kluster i felsökningsläge. Det här går inte om du inte öppnade Visual Studio som **administratör** tidigare.
 
@@ -346,7 +344,7 @@ Nu när ett ASP.NET Web API-tjänsten körs i programmet kan du fortsätta med a
 
 I Service Fabric kan du konsekvent och tillförlitligt lagra dina data direkt i tjänsten med hjälp av tillförlitliga samlingar. En tillförlitlig samling är en uppsättning samlingsklasser med hög tillgänglighet och tillförlitlighet som är välbekanta för alla som har använt C#-samlingar.
 
-I den här självstudiekursen skapar du en tjänst som lagrar ett räknarvärde i en tillförlitlig samling.
+I den här självstudien skapar du en tjänst som lagrar ett räknarvärde i en tillförlitlig samling.
 
 1. I Solution Explorer högerklickar du på **Tjänster** i projektet för Voting-appen och väljer **Lägg till > Ny Service Fabric-tjänst**.
     
@@ -354,7 +352,7 @@ I den här självstudiekursen skapar du en tjänst som lagrar ett räknarvärde 
 
     När tjänstprojektet har skapats har du två tjänster i ditt program. Du kan lägga till fler tjänster på samma sätt allt eftersom du fortsätter att bygga på ditt program. Tjänsterna kan ha olika versionsnummer och uppgraderas fristående.
 
-3. På nästa sida finns en uppsättning ASP.NET Core-projektmallar. För den här självstudiekursen väljer du **API**.
+3. På nästa sida finns en uppsättning ASP.NET Core-projektmallar. För den här självstudien väljer du **API**.
 
     Visual Studio skapar ett projekt för VotingData-tjänsten och visar det i Solution Explorer.
 
@@ -454,12 +452,7 @@ I nästa steg ansluter du de två tjänsterna och får webbprogrammets klientdel
 
 I Service Fabric har du full flexibilitet i kommunikationen med tillförlitliga tjänster. I ett och samma program kan du ha tjänster som är tillgängliga TCP. Andra tjänster som kan nås via ett HTTP-REST-API och ännu fler tjänster kan vara tillgängliga via webbsockets. Bakgrundsinformation om de tillgängliga alternativen och vilka kompromisser du kan behöva göra finns i [Kommunicera med tjänster](service-fabric-connect-and-communicate-with-services.md).
 
-I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) och [Omvänd proxy för Service Fabric](service-fabric-reverseproxy.md) så att VotingWeb-webbtjänsten i klientdelen kan kommunicera med VotingData-tjänsten i serverdelen. Den omvända proxyn är som standard konfigurerad att använda port 19081, och det bör fungera i den här självstudien. Porten anges i ARM-mallen som används för att skapa klustret. Om du vill veta vilken port som används tittar du i klustermallen i resursen **Microsoft.ServiceFabric/clusters**, eller på elementet HttpApplicationGatewayEndpoint i klustrets manifest.
-
-> [!NOTE]
-> Omvänd proxy stöds endast i ett kluster som kör Windows 8 och senare eller Windows Server 2012 och senare.
-
-<u>Resursen Microsoft.ServiceFabric/clusters, reverseProxyEndpointPort</u>
+I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) och [Omvänd proxy för Service Fabric](service-fabric-reverseproxy.md) så att VotingWeb-webbtjänsten i klientdelen kan kommunicera med VotingData-tjänsten i serverdelen. Den omvända proxyn är som standard konfigurerad att använda port 19081, och det bör fungera i den här självstudien. Porten för omvänd proxy har angetts i Azure Resource Manager-mallen som används för att konfigurera klustret. Om du vill veta vilken port som använts, titta i klustermallen i resursen **Microsoft.ServiceFabric/clusters**: 
 
 ```json
 "nodeTypes": [
@@ -472,13 +465,10 @@ I den här självstudien använder du [ASP.NET Core Web API](service-fabric-reli
           }
         ],
 ```
-Så här visar du elementet HttpApplicationGatewayEndpoint i det lokala Service Fabric-klustrets manifest:
-1. Öppna en webbläsare och gå till http://localhost:19080.
-2. Klicka på **Manifest**.
+Porten för omvänd proxy som används i det lokala utvecklingsklustret visar elementet **HttpApplicationGatewayEndpoint** i det lokala Service Fabric-klustermanifestet:
+1. Öppna ett webbläsarfönster och gå till http://localhost:19080 för att öppna verktyget Service Fabric Explorer.
+2. Välj **Kluster -> Manifest**.
 3. Anteckna porten för elementet HttpApplicationGatewayEndpoint. Den bör vara 19081. Om den inte är 19081 måste du ändra porten i metoden GetProxyAddress i följande VotesController.cs-kod.
-
-
-
 
 <a id="updatevotecontroller" name="updatevotecontroller_anchor"></a>
 
@@ -622,9 +612,9 @@ När du felsöker programmet i Visual Studio använder du ett lokalt utvecklings
 
 Gör så här om du vill se vad som händer i koden:
 
-1. Öppna filen **VotingWeb\VotesController.cs** och ange en brytpunkt i metoden **Put** i webb-API:t (rad 63).
+1. Öppna filen **VotingWeb\VotesController.cs** och ange en brytpunkt i metoden **Put** i webb-API:t (rad 72).
 
-2. Öppna filen **VotingData\VoteDataController.cs** och ange en brytpunkt i metoden **Put** i det här webb-API:t (rad 53).
+2. Öppna filen **VotingData\VoteDataController.cs** och ange en brytpunkt i metoden **Put** i det här webb-API:t (rad 54).
 
 3. Tryck på **F5** för att starta appen i felsökningsläge.
 

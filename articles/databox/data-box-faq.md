@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 09/27/2018
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568038"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359416"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -86,7 +86,7 @@ A. Du kan klona din tidigare beställning. En kloning skapar samma ordning som t
 ## <a name="configure-and-connect"></a>Konfigurera och ansluta
 
 ### <a name="q-how-do-i-unlock-the-data-box"></a>F. Hur låser jag upp min Data Box? 
-A.  Gå till din Data Box-beställning på Azure-portalen och navigera till **Enhetsinformation**. Kopiera lösenordet för upplåsning. Använd det här lösenordet för att logga in i det lokala webbgränssnittet på din Data Box. Mer information finns i [självstudien om hur du packar upp och ansluter Azure Data Box](data-box-deploy-set-up.md).
+A.  Gå till din Data Box-beställning på Azure-portalen och navigera till **Enhetsinformation**. Kopiera lösenordet för upplåsning. Använd det här lösenordet för att logga in i det lokala webbgränssnittet på din Data Box. Mer information finns i [Självstudie: Packa upp, kabelanslut och anslut till Azure Data Box](data-box-deploy-set-up.md).
 
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>F. Kan jag använda en Linux-värddator för att ansluta och kopiera data till Data Box?
 A.  Ja. Du kan använda Data Box för att ansluta till SMB- och NFS-klienter. Mer information finns i listan över [operativsystem som stöds](data-box-system-requirements.md) för värddatorn.
@@ -114,6 +114,9 @@ A. Om indikatorn för systemfel lyser betyder det att datorn inte är felfri. [K
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>F. Jag kan inte komma åt Data Box-upplåsningslösenordet på Azure-portalen. Vad kan det bero på?
 A. Om du inte kan komma åt upplåsningslösenordet på Azure-portalen kontrollerar du behörigheterna för din prenumeration och ditt lagringskonto. Kontrollera att du har behörighet som deltagare eller ägare på resursgruppsnivå. Om inte behöver du minst ha rollbehörigheten som Data Box-operator för att kunna se autentiseringsuppgifterna.
+
+### <a name="q-is-port-channel-configuration-supported-on-data-box-how-about-mpio"></a>F. Stöder Data Box portkonfiguration för kanalen? Vad gäller MPIO?
+A. Vi stöder inte portkonfiguration för kanalen, Multipath IO (MPIO)-konfiguration eller vLAN-konfiguration på Data Box.
 
 ## <a name="track-status"></a>Spåra status
 
@@ -147,7 +150,7 @@ Mer information finns i [Självstudie: Kopiera data till Azure Data Box](data-bo
 ### <a name="q-are-there-any-tips-to-speed-up-the-data-copy"></a>F. Finns det några tips för att påskynda datakopieringen?
 A.  Påskynda kopieringsprocessen:
 
-- Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om de exakta kommandon som används finns i [Självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
+- Använd flera dataströmmar. Med till exempel Robocopy kan du använda flertrådsalternativet. Mer information om exakt vilket kommando som används finns i [Självstudie: Kopiera data till Azure Data Box och verifiera](data-box-deploy-copy-data.md).
 - Använda flera sessioner.
 - Kontrollera att dina data finns lokalt på datorn som Data Box är ansluten till, i stället för att kopiera via nätverk (där du kan begränsas av nätverkshastigheterna).
 - Analysera prestanda för den dator som används för att kopiera data. Ladda ned och använd [Bluestop FIO-verktyget](https://bluestop.org/fio/) för att analysera servermaskinvarans prestanda.
@@ -223,17 +226,17 @@ A.  Azure Data Box-tjänsten tillhandahåller rapporter som du kan använda för
 ### <a name="what-type-of-reporting-is-available-to-support-chain-of-custody"></a>Vilken typ av rapportering är tillgänglig för spårbarhet och övervakning?
 A.  Följande rapportering är tillgänglig för spårbarhet och övervakning:
 
-- Transportlogistik från DHL och UPS.
+- Transportlogistik från UPS.
 - Loggning om start och resursåtkomst av användaren.
 - Manifestfil med en 64-bitars CRC (Cyclic Redundancy Check 64) eller kontrollsumma för varje fil som matas in i Data Box.
 - Rapportering av filer som inte kunde laddas upp till Azure Storage-kontot.
 - Sanering av Data Box-enheten (enligt NIST 800 88R1-standarder) efter att alla data har kopierats till ditt Azure Storage-konto.
 
-### <a name="are-the-carrier-tracking-logs--from-upsdhl-available"></a>Är transportföretagets spårningsloggar (från UPS/DHL) tillgängliga? 
+### <a name="are-the-carrier-tracking-logs-from-ups-available"></a>Är transportföretagets spårningsloggar (från UPS) tillgängliga? 
 A.  Transportföretagets spårningsloggar samlas in Data Box-orderhistoriken. Den här rapporten är tillgänglig när enheten har returnerats till Azure-datacentret och data på enhetsdiskarna har rensats. Du kan också gå direkt till transportföretagets webbplats och ange spårningsnumret för ordern för att visa spårningsinformationen.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Kan jag själv transportera Data Box till Azures datacenter? 
-A.  Nej. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS/DHL.
+A.  Nej. Azures datacenter accepterar för närvarande inte leverans av Data Box från kunder eller andra transportföretag än UPS.
 
 
 ## <a name="next-steps"></a>Nästa steg

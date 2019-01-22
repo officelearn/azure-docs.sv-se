@@ -1,21 +1,21 @@
 ---
 title: 'Självstudier: Innehållsmoderering på Facebook – Azure Content Moderator'
 titlesuffix: Azure Cognitive Services
-description: Moderera Facebook-sidor med Content Moderator.
+description: I självstudien lär du dig att använda maskininlärningsbaserade Content Moderator till att moderera Facebook-inlägg och kommentarer.
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: tutorial
-ms.date: 09/18/2017
+ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 048f2f40714fd7675c073337825d75443e58039b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 085ddaf757f2a11b4db4aadb22ad16009d29231e
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255439"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260455"
 ---
 # <a name="tutorial-facebook-content-moderation-with-content-moderator"></a>Självstudier: Innehållsmoderering på Facebook – Azure Content Moderator
 
@@ -35,7 +35,7 @@ Nedanstående bild visar komponenterna i lösningen.
 
 ## <a name="create-a-content-moderator-team"></a>Skapa ett Content Moderator-team
 
-Gå till sidan [Snabbstart](quick-start.md) för att registrera dig för Content Moderator och skapa ett team.
+Gå till snabbstarten [Try Content Moderator on the web](quick-start.md) (Testa Content Moderator på webben) för att registrera dig för Content Moderator och skapa ett team.
 
 ## <a name="configure-image-moderation-workflow-threshold"></a>Konfigurera ett arbetsflöde för bildändring (tröskelvärde)
 
@@ -152,10 +152,6 @@ Lösningen skickar alla bilder och texter som publiceras på din Facebook-sida t
 ## <a name="license"></a>Licens
 
 Alla SDK:er i Microsoft Cognitive Services och exempel är licensierade med MIT-licensen. Mer information finns i [LICENS](https://microsoft.mit-license.org/).
-
-## <a name="developer-code-of-conduct"></a>Uppförandekod för utvecklare
-
-Utvecklare som använder Cognitive Services, inklusive det här klientbiblioteket och exemplet, förväntas följa ”Uppförandekod för utvecklare i Microsoft Cognitive Services”, som finns på http://go.microsoft.com/fwlink/?LinkId=698895.
 
 ## <a name="next-steps"></a>Nästa steg
 

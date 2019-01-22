@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Strömma data till Azure Databricks med Event Hubs '
+title: 'Självstudier: Strömma data i Azure Databricks med Event Hubs '
 description: Läs om hur du använder Azure Databricks med Event Hubs till att mata in strömmande data från Twitter och läsa dessa data nästan i realtid.
 services: azure-databricks
 author: lenadroid
@@ -10,14 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 6e75e549486fb260f3ccbdead7fe1dea02593f3c
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 16095dabb0e5e3e303e82126c7f57cb4ff3fe8dd
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51707154"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54200934"
 ---
-# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudie: Strömma data till Azure Databricks med Event Hubs
+# <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Självstudier: Strömma data i Azure Databricks med Event Hubs
 
 I den här självstudien ansluter du ett datainmatningssystem med Azure Databricks för att strömma data till ett Apache Spark-kluster i nästan realtid. Du konfigurerar datainmatningssystemet med Azure Event Hubs och ansluter det sedan till Azure Databricks så att de meddelanden som skickas kan bearbetas. Om du vill få åtkomst till en dataström använder du Twitter-API:er till att mata in tweets i Event Hubs. När du har datan i Azure Databricks kan du köra analysjobb och analysera datan ytterligare. 
 
@@ -58,7 +58,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure Portal.
+1. Välj **Skapa en resurs** > **Data och analys** > **Azure Databricks** i Azure-portalen.
 
     ![Databricks på Azure-portalen](./media/databricks-stream-from-eventhubs/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -168,7 +168,7 @@ I det här avsnittet skapar du två anteckningsböcker i Databricks-arbetsytan m
 
 ## <a name="send-tweets-to-event-hubs"></a>Skicka tweets till Event Hubs
 
-I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värdena för Event Hubs-arbetsytan och Twitter-programmet som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
+I anteckningsboken **SendTweetsToEventHub** klistrar du in följande kod och ersätter platshållarna med värden för Event Hubs-namnrymden och det Twitter-program som du skapade tidigare. Anteckningsboken strömmar tweets med nyckelordet ”Azure” till Event Hubs i realtid.
 
 ```scala
     import java.util._
@@ -370,7 +370,7 @@ När du är klar med självstudien kan du avsluta klustret. Detta gör du genom 
 Om du inte manuellt avslutar klustret kommer det att stoppas automatiskt, förutsatt att du har markerat kryssrutan **Avsluta efter \_\_ minuters inaktivitet** när klustret skapades. I dessa fall stoppas klustret automatiskt om det har varit inaktivt under den angivna tiden.
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen lärde du dig att:
+I den här självstudien lärde du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Databricks-arbetsyta
@@ -384,4 +384,4 @@ I den här självstudiekursen lärde du dig att:
 Gå till nästa självstudie för att lära dig om att utföra attitydanalyser på strömmade data med Azure Databricks och [Microsoft Cognitive Services-API](../cognitive-services/text-analytics/overview.md).
 
 > [!div class="nextstepaction"]
->[Attitydanalys på strömmad data med hjälp av Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)
+>[Sentimentanalys på strömmade data med hjälp av Azure Databricks ](databricks-sentiment-analysis-cognitive-services.md)

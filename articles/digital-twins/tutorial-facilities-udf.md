@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/26/2018
+ms.date: 12/27/2018
 ms.author: dkshir
-ms.openlocfilehash: 077dee19bbe32379bc88919117b3c61177828094
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 465dd2a69ad42b8b6a88268eb35a1aa7d8d922c5
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556109"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54229404"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Självstudier: Etablera din byggnad och övervaka arbetsvillkor med Azure Digital Twins
 
@@ -30,6 +30,7 @@ I den här guiden får du lära dig att:
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-konfigurationen](tutorial-facilities-setup.md). Innan du fortsätter bör du kontrollera att du har:
+
 - Ett [Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - En instans av Digital Twins som körs. 
 - [Digital Twins C#-exemplen](https://github.com/Azure-Samples/digital-twins-samples-csharp) nedladdade och extraherade på din arbetsdator. 
@@ -37,6 +38,7 @@ Den här självstudien förutsätter att du har [slutfört Azure Digital Twins-k
 - [Visual Studio Code](https://code.visualstudio.com/) för att utforska exempelkoden. 
 
 ## <a name="define-conditions-to-monitor"></a>Definiera villkor för övervakning
+
 Du kan definiera en uppsättning specifika villkor för att övervaka i enheten eller sensordata, som kallas för *matchare*. Du kan sedan definiera funktioner som kallas för *användardefinierade funktioner*. Användardefinierade funktioner kör anpassad logik på data som kommer från dina utrymmen och enheter, när villkoren som anges av matcharna förekommer. Mer information finns i [Databearbetning och användardefinierade funktioner](concepts-user-defined-functions.md). 
 
 Från exempelprojektet **occupancy-quickstart** öppnar du filen **src\actions\provisionSample.yaml** i Visual Studio Code. Tänk på att avsnittet börjar med typen **matchare**. Varje post under den här typen som skapar en matchare med det angivna **namnet**. Matcharen övervakar en sensor av typen **dataTypeValue**. Observera hur den relaterar till området med namnet *Focus Room A1*, som har en **enhetsnod** som innehåller några sensorer. Om du vill etablera en matchare som spårar en av dessa sensorer ser du till att dess **dataTypeValue** matchar sensorns **dataType**. 
@@ -48,14 +50,15 @@ Lägg till följande matchare under de befintliga matcharna. Kontrollera att nyc
         dataTypeValue: Temperature
 ```
 
-Matcharen spårar sensorn SAMPLE_SENSOR_TEMPERATURE som du lade till i [den första självstudien](tutorial-facilities-setup.md). Dessa rader finns också i filen *provisionSample.yaml* som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad. 
+Matcharen spårar sensorn SAMPLE_SENSOR_TEMPERATURE som du lade till i [den första självstudien](tutorial-facilities-setup.md). Dessa rader finns också i filen *provisionSample.yaml* som kommenterade rader. Du kan ta bort kommentaren från dem genom att ta bort tecknet `#` före varje rad.
 
-<a id="udf" />
+<a id="udf"></a>
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
+
 Du kan använda användardefinierade funktioner för att anpassa bearbetningen av dina sensordata. De är anpassad JavaScript-kod som kan köras i din Azure Digital Twins-instans när vissa villkor som beskrivs av matchare sker. Du kan skapa matchare och användardefinierade funktioner för varje sensor som du vill övervaka. Mer information finns i [Databearbetning och användardefinierade funktioner](concepts-user-defined-functions.md). 
 
-I exempelfilen provisionSample.yaml letar du efter ett avsnitt som börjar med typen **userdefinedfunctions**. I det här avsnittet etableras en användardefinierad funktion med ett angivet **namn**. Den här användardefinierade funktionen fungerar som listan över matchare under **matcherNames**. Lägg märke till hur du kan ange en egen JavaScript-fil för den användardefinierade funktionen som **skriptet**. 
+I exempelfilen provisionSample.yaml letar du efter ett avsnitt som börjar med typen **userdefinedfunctions**. I det här avsnittet etableras en användardefinierad funktion med ett angivet **namn**. Den här användardefinierade funktionen fungerar som listan över matchare under **matcherNames**. Lägg märke till hur du kan ange en egen JavaScript-fil för den användardefinierade funktionen som **skriptet**.
 
 Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Space Administrator (Utrymmesadministratör) till den användardefinierade funktionen. Med den här rollen kommer den åt de händelser som kommer från någon av de etablerade utrymmena. 
 
@@ -188,7 +191,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
 > [!TIP]
 > Om du får ett felmeddelande liknande ”I/O-åtgärden avbröts eftersom en tråd avslutades eller på grund av att ett program begärde det” under etableringen kan du försöka att köra kommandot igen. Detta kan inträffa om HTTP-klientens tidsgräns gått ut på grund av ett nätverksproblem.
 
-<a id="simulate" />
+<a id="simulate"></a>
 
 ## <a name="simulate-sensor-data"></a>Simulera sensordata
 
@@ -202,13 +205,13 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
     dotnet restore
     ```
 
-1. Öppna filen **appSettings.json** i redigeringsprogrammet och redigera följande värden:
+1. Öppna filen [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) i redigeringsprogrammet och redigera följande värden:
 
    a. **DeviceConnectionString**: Tilldela värdet för `ConnectionString` i utdatafönstret från föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
 
    b. **HardwareId** i matrisen **Sensors** (Sensorer): Eftersom du simulerar händelser från sensorer som etablerats på din Azure Digital Twins-instans bör maskinvaru-ID och namnen på sensorerna i den här filen matcha `sensors`-noden i filen provisionSample.yaml.
 
-      Lägg till en ny post för temperatursensorn. Noden **Sensors** (Sensorer) i appSettings.json bör se ut så här:
+      Lägg till en ny post för temperatursensorn. Noden **Sensorer** (Sensorer) i appsettings.json bör se ut så här:
 
       ```JSON
       "Sensors": [{
@@ -233,6 +236,7 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
    > Eftersom simuleringsexemplet inte kommunicerar direkt med din instans av Digital Twins måste du inte autentisera.
 
 ## <a name="get-results-of-the-user-defined-function"></a>Hämta resultat från den användardefinierad funktionen
+
 Den användardefinierade funktionen körs varje gång din instans tar emot data för enheten och sensorn. I det här avsnittet ombeds din Azure Digital Twins-instans att hämta resultatet för den användardefinierade funktionen. Du ser i nära realtid när det finns ett tillgängligt rum, att luften är frisk och temperaturen är rätt. 
 
 1. Öppna kommandofönstret som du använde för att etablera exemplet eller ett nytt kommandofönster och gå till mappen **occupancy-quickstart\src i exemplet igen**.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 6f1cd08e3c786a1d163a22b5da5150fde5f45b95
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 22678a44cda38b52982e977281d3310efde15831
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135346"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247290"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Självstudie: Konfigurera meddelandedirigering med IoT Hub
 
@@ -244,9 +244,9 @@ New-AzureRmServiceBusQueue -ResourceGroupName $resourceGroup `
 
 ```
 
-Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enhetsidentiteten används av simuleringsprogrammet för att skicka meddelanden till IoT-hubben. Den här funktionen finns inte i PowerShell, men du kan skapa enheten i [Azure Portal](https://portal.azure.com).
+Skapa sedan en enhetsidentitet och spara nyckeln för framtida bruk. Den är enhetsidentiteten används av simuleringsprogrammet för att skicka meddelanden till IoT-hubben. Den här funktionen finns inte i PowerShell, men du kan skapa enheten i [Azure-portalen](https://portal.azure.com).
 
-1. Öppna [Azure Portal](https://portal.azure.com) och logga in på ditt Azure-konto.
+1. Öppna [Azure-portalen](https://portal.azure.com) och logga in på ditt Azure-konto.
 
 2. Klicka på **Resursgrupper** och välj din resursgrupp. I den här självstudien används **ContosoResources**.
 
@@ -276,7 +276,7 @@ Konfigurera nu routning för lagringskontot. Du gå till fönstret meddelanderou
 
 Data skrivs till bloblagring i Avro-format.
 
-1. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. 
 
 2. Klicka på IoT-hubben i listan över resurser. I självstudien används **ContosoTestHub**. 
 
@@ -290,9 +290,9 @@ Data skrivs till bloblagring i Avro-format.
 
 5. Ange ett namn på slutpunkten. I den här självstudien används **StorageContainer**.
 
-6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudiekursen används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
+6. Klicka på **Välj en container**. Det tar dig till en lista över dina lagringskonton. Välj det som du skapade i förberedelsesteget. I den här självstudien används **contosostorage**. Den visar en lista över containrar i det lagringskontot. Välj den container som du skapade i förberedelsesteget. I självstudien används **contosoresults**. Klicka på **Välj**. Du kommer tillbaka till fönstret **Lägg till slutpunkt**. 
 
-7. I den här självstudiekursen används standardinställningar för resten av fälten. 
+7. I den här självstudien används standardinställningar för resten av fälten. 
 
    > [!NOTE]
    > Du kan ange formatet för blobnamnet med hjälp av **Format på blobfilens namn**. Standardvärdet är `{iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}`. Formatet måste innehålla {iothub}, {partition}, {YYYY}, {MM}, {DD}, {HH} och {mm} i valfri ordning. 
@@ -368,7 +368,7 @@ Konfigurera nu routning för Service Bus-kön. Du gå till fönstret meddelander
 
 Service Bus-kön ska användas för att ta emot meddelanden som har angetts som kritiska. Konfigurera en logikapp som ska övervaka Service Bus-kön och som skickar e-post när ett meddelande läggs till i Service Bus-kön. 
 
-1. I [Azure Portal](https://portal.azure.com) klickar du på **+ Skapa en resurs**. Skriv **logikapp** i sökrutan och klicka på Retur. Från sökresultatet som visas väljer du Logikapp och klickar på **Skapa** för att fortsätta till rutan **Skapa en logikapp**. Fyll i fälten. 
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **+ Skapa en resurs**. Skriv **logikapp** i sökrutan och klicka på Retur. Från sökresultatet som visas väljer du Logikapp och klickar på **Skapa** för att fortsätta till rutan **Skapa en logikapp**. Fyll i fälten. 
 
    **Namn**: Det här fältet är logikappens namn. I självstudien används **ContosoLogicApp**. 
 
@@ -424,7 +424,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 ### <a name="create-the-stream-analytics-job"></a>Skapa Stream Analytics-jobbet
 
-1. I [Azure Portal](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
+1. I [Azure-portalen](https://portal.azure.com) klickar du på **Skapa en resurs** > **Sakernas Internet** > **Stream Analytics-jobb**.
 
 2. Ange följande information för jobbet.
 
@@ -494,7 +494,7 @@ Om du vill se data i Power BI-visualiseringen konfigurerar du först ett Stream 
 
 4. Klicka på **Spara**.
 
-5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudiekursen kallas det **contosoJob**.
+5. Stäng rutan Fråga. Nu kommer du tillbaka till vyn över resurser i resursgruppen. Klicka på Stream Analytics-jobbet. I den här självstudien kallas det **contosoJob**.
 
 ### <a name="run-the-stream-analytics-job"></a>Köra Stream Analytics-jobbet
 
@@ -536,7 +536,7 @@ Om allt är korrekt konfigurerat bör då se följande resultat:
    * Logikappen som hämtar meddelandet från Service Bus-kön fungerar som den ska.
    * Logic App-anslutningsprogrammet till Outlook fungerar som det ska. 
 
-2. I [Azure Portal](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobbar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
+2. I [Azure-portalen](https://portal.azure.com) klickar du på **Resursgrupper** och väljer resursgruppen. I den här självstudien används **ContosoResources**. Välj lagringskontot, klicka på **Blobar** och välj sedan containern. I självstudien används **contosoresults**. Du bör se en mapp, och du kan öka detaljnivån mellan kataloger tills du ser en eller flera filer. Öppna en av dessa filer. De innehåller poster som dirigeras till lagringskontot. 
 
    ![Skärmbild som visar resultatfilerna i lagringen.](./media/tutorial-routing/results-in-storage.png)
 
@@ -629,4 +629,4 @@ I den här självstudien har du lärt dig att använda meddelanderoutning för a
 Gå vidare till nästa självstudie där du får lära dig hur du hanterar tillstånd för en IoT-enhet. 
 
 > [!div class="nextstepaction"]
-[Konfigurera dina enheter från en serverdelstjänst](tutorial-device-twins.md)
+[Konfigurera och använda mått och diagnostik med en IoT-hubb](tutorial-use-metrics-and-diags.md)

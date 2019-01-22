@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: b0382d31f9d16228ca3447ace9c7d4f171b206f6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548994"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321814"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 
@@ -36,12 +36,31 @@ Den här självstudien visar hur du använder och frågar efter flyginformation 
 2. Välj **Ladda ned** och spara resultatet på datorn.
 3. Anteckna filnamnet och sökvägen för nedladdningen. Du behöver den informationen i ett senare steg.
 
-För att slutföra den här självstudien behöver du ett lagringskonto med analysfunktioner. Vi rekommenderar att du slutför [snabbstarten](data-lake-storage-quickstart-create-account.md) om ämnet för att skapa ett. När du har skapat det går du till lagringskontot för att hämta konfigurationsinställningar.
+För att slutföra den här självstudien behöver du ett lagringskonto med analysfunktioner. Vi rekommenderar att du slutför [snabbstarten](data-lake-storage-quickstart-create-account.md) om ämnet för att skapa ett. 
 
-1. Under **Inställningar** väljer du **Åtkomstnycklar**.
-2. Välj knappen **Kopiera** intill **key1** för att kopiera nyckelvärdet.
+## <a name="set-aside-storage-account-configuration"></a>Spara lagringskontokonfiguration
 
-Både kontonamnet och nyckeln behövs i senare steg i den här självstudien. Öppna ett textredigeringsprogram och spara kontonamnet och nyckeln för framtida bruk.
+Du behöver namnet på ditt lagringskonto och en slutpunkts-URI för filsystem.
+
+Du kan få fram namnet på ditt lagringskonto i Azure-portalen genom att välja **Alla tjänster** och filtrera på *lagring*. Välj sedan **Lagringskonton** och leta rätt på ditt lagringskonto.
+
+Du kan få fram slutpunkts-URI:n för filsystem genom att välja **Egenskaper**, och i egenskapsfönstret hittar du värdet för fältet **Primär slutpunkt för ADLS-filsystem**.
+
+Klistra in båda dessa värden i en textfil. Du kommer att behöva dem snart.
+
+<a id="service-principal"/>
+
+## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
+
+Skapa ett huvudnamn för tjänsten genom att följa anvisningarna i det här avsnittet: [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+
+Det finns några saker som du måste göra när du utför stegen i den här artikeln.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Skapa ett Azure Active Directory-program](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application) i artikeln måste du ange slutpunkts-URI:n som du nyss tog fram i fältet **Inloggnings-URL** i dialogrutan **Skapa**.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln måste du tilldela programmet till **deltagarrollen för bloblagring**.
+
+:heavy_check_mark: När du utför stegen i avsnittet [Hämta värden för att logga in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln klistrar du in värdena för klient-ID, program-ID och autentiseringsnyckel i en textfil. Du kommer att behöva dem snart.
 
 ## <a name="create-a-databricks-cluster"></a>Skapa ett Databricks-kluster
 
@@ -63,22 +82,24 @@ Nästa steg är att skapa ett Databricks-kluster för att skapa en dataarbetsyta
 14. Ange valfritt namn i fältet **Name** (Namn) och välj **Python** som språk.
 15. Alla andra fält kan lämnas med standardvärdena.
 16. Välj **Skapa**.
-17. Klistra in följande kod i cellen **Cmd 1**. Ersätt de platshållare som visas inom hakparentes i exemplet med dina egna värden:
+17. Kopiera och klistra in följande kodblock i den första cellen, men kör inte den här koden än.
 
-    ```scala
-    %python%
+    ```Python
     configs = {"fs.azure.account.auth.type": "OAuth",
-        "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-        "fs.azure.account.oauth2.client.id": "<service-client-id>",
-        "fs.azure.account.oauth2.client.secret": "<service-credentials>",
-        "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token"}
-        
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<application-id>",
+           "fs.azure.account.oauth2.client.secret": "<authentication-id>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant-id>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+
     dbutils.fs.mount(
-        source = "abfss://dbricks@<account-name>.dfs.core.windows.net/folder1",
-        mount_point = "/mnt/flightdata",
-        extra_configs = configs)
+    source = "abfss://<file-system-name>@<storage-account-name>.dfs.core.windows.net/folder1",
+    mount_point = "/mnt/flightdata",
+    extra_configs = configs)
     ```
-18. Kör kodcellen genom att trycka på **SKIFT + RETUR**.
+18. I det här kodblocket ersätter du platshållarvärdena `storage-account-name`, `application-id`, `authentication-id` och `tenant-id` med de värden som du hämtade när du genomförde stegen i avsnitten [Spara lagringskontokonfiguration](#config) och [Skapa ett huvudnamn för tjänsten](#service-principal) i den här artikeln. Ersätt platshållaren `file-system-name` med ett namn som du vill ge ditt filsystem.
+
+19. Tryck på **SKIFT + RETUR** för att köra koden i det här blocket.
 
 ## <a name="ingest-data"></a>Mata in data
 

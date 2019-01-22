@@ -1,22 +1,22 @@
 ---
-title: Snabbstart – Använd Azure CLI för att skicka och ta emot meddelanden från Azure Service Bus | Microsoft Docs
-description: I den här snabbstarten får du lära dig att skicka och ta emot Azure Service Bus-meddelanden med Azure CLI och ett exempelprogram i Java
+title: Snabbstart – Använda Azure CLI för att skapa en Service Bus-kö | Microsoft Docs
+description: I den här snabbstarten lär du dig hur du använder Azure CLI för att skapa en Service Bus-kö. Sedan använder du ett Java-exempelprogram för att skicka meddelanden till och ta emot meddelanden från kön.
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2018
+ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 522447b73454016bff5188d07b27702fa21cb748
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 781bca5c3083df9db326e4dc71438c71a7c02bc3
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53998684"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54258332"
 ---
-# <a name="quickstart-send-and-receive-messages-using-azure-cli-and-java"></a>Snabbstart: Skicka och ta emot meddelanden med Azure CLI och Java
+# <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure CLI för att skapa en Service Bus-kö
 
 Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och tillförlitlighet. Ett typiskt scenario för Service Bus innefattar frikoppling av två eller flera program, tjänster eller processer från varandra (program behöver inte vara online samtidigt), överföring av status eller dataändringar och skicka meddelanden mellan programmen. 
 
@@ -34,7 +34,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] i
 
 Klicka på Cloud Shell-knappen på menyn i det övre högra hörnet i Azure-portalen och från listmenyn **Välj miljö**, väljer du **Bash**. 
 
-## <a name="use-cli-to-create-resources"></a>Använd CLI för att skapa resurser
+## <a name="use-the-azure-cli-to-create-resources"></a>Använda Azure CLI för att skapa resurser
 
 I Cloud Shell, från Bash-prompten, utfärdar du följande kommandon för att etablera Service Bus-resurserna. Tänk på att ersätta alla platshållare med lämpliga värden:
 
@@ -266,7 +266,7 @@ void registerReceiver(QueueClient queueClient) throws Exception {
 I den här artikeln skapade du ett Service Bus-namnområde och andra resurser som krävs för att skicka och ta emot meddelanden från en kö. Om du vill läsa mer om att skriva kod för att skicka och ta emot meddelanden, fortsätter du till följande självstudier för Service Bus:
 
 > [!div class="nextstepaction"]
-> [Uppdatera lagringsplatsen med CLI och Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Uppdatera lagret med hjälp av Azure CLI och Java](./service-bus-tutorial-topics-subscriptions-cli.md)
 
 [kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

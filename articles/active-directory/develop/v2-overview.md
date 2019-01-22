@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 88904b27e114c27dc7b1051c755d3c831c90554f
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286698"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54232481"
 ---
 # <a name="about-v20"></a>Om v2.0
 
@@ -30,13 +30,13 @@ V2.0-slutpunkten och plattformen har varit i en förhandsversion och förbättra
 > [!NOTE]
 > MSAL Android, iOS och .NET har fortfarande funktioner under utveckling. Du kan använda dem för att skapa program och skicka feedback.
 
-Utvecklarupplevelsen i Azure-portalen har uppdaterats avsevärt och omfattar nu alla dina program som skapats med ADAL eller MSAL och har förbättrad användbarhet.
+Upplevelsen i Azure-portalens [Appregistreringar (förhandsversion)](quickstart-register-app.md) har uppdaterats avsevärt och omfattar nu alla dina program som skapats med ADAL eller MSAL och har förbättrad användbarhet.
 
 Tidigare var programutvecklare som ville stödja både personliga Microsoft-konton och arbetskonton från Azure Active Directory (AD Azure) tvungna att integrera med två separata system. V2.0-slutpunkten och plattformen ger en API-autentiseringsversion som förenklar den här processen. Den kan logga in från båda typer av konton med hjälp av en enskild integrering. Program som använder v2.0-slutpunkten kan också använda REST-API:er från [Microsoft Graph API](https://developer.microsoft.com/graph) med hjälp av endera kontotyp.
 
 ## <a name="getting-started"></a>Komma igång
 
-Välj din favoritplattform i följande lista för att skapa ett program med hjälp av Microsofts bibliotek och ramverk med öppen källkod. Du kan även använda OAuth 2.0- och OpenID Connect-protokoll för att skicka och ta emot protokollmeddelanden direkt utan att använda ett autentiseringsbibliotek.
+Välj din favoritplattform i följande lista för att skapa ett program med hjälp av Microsofts bibliotek och ramverk med öppen källkod:
 
 [!INCLUDE [v2.0 endpoint platforms](../../../includes/active-directory-v2-quickstart-table.md)]
 
@@ -46,14 +46,12 @@ Läs mer om vad du kan göra med Azure AD v2.0-slutpunkten:
 
 * Identifiera de [typer av program som du kan skapa med Azure AD v2.0-slutpunkten](v2-app-types.md).
 * Förstå [begränsningarna, restriktionerna och villkoren](active-directory-v2-limitations.md) med Azure AD v2.0-slutpunkten.
-* Titta på den här videon för att få en översikt över Azure AD v2.0-slutpunkten:
-
->[!VIDEO https://channel9.msdn.com/Events/Build/2017/P4031/player]
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 Utforska detaljerad information om v2.0:
 
+* [Om Microsoft Identity-plattformen](about-microsoft-identity-platform.md)
 * [Referens för v2.0-protokoll](active-directory-v2-protocols.md)
 * [Referens för åtkomsttoken](access-tokens.md)
 * [Referens för ID-token](id-tokens.md)

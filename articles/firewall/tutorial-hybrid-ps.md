@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell'
-description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
+description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure-portalen.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: abbbec05dfb6d81a65941619a36b7f3afcdc1fba
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53435573"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54261476"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -49,9 +49,9 @@ Den här självstudien kräver att du kör PowerShell lokalt. Du måste ha Azure
 
 Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 
-- En användardefinierad väg i ekerundernätet som pekar på Azure-brandväggens IP-adress som standardgateway. BGP-vägspridning måste vara **inaktiverad** i den här routningstabellen.
-- En användardefinierad väg i hubbgatewayundernätet måste peka på brandväggens IP-adress som nästa hopp till ekernätverken.
-- Det krävs ingen användardefinierad väg Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
+- En användardefinierad väg (UDR, User-Defined Route) i ekerundernätet som pekar på IP-adressen för Azure Firewall som standardgateway. BGP-vägspridning måste vara **inaktiverad** i den här routningstabellen.
+- En UDR i hubbgatewayens undernät måste peka på brandväggens IP-adress som nästa hopp till ekernätverken.
+- Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
 - Se till att ange **AllowGatewayTransit** vid peering av VNet-Hub till VNet-Spoke och **UseRemoteGateways** vid peering av VNet-Spoke till VNet-Hub.
 
 Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-routes) i den här självstudien.
@@ -60,7 +60,7 @@ Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-
 >Azure Firewall måste ha direkt Internetanslutning. Om du har aktiverat tvingad tunneltrafik till lokalt via ExpressRoute eller Application Gateway behöver du konfigurera UDR 0.0.0.0/0 med värdet **NextHopType** inställt på **Internet** och sedan tilldela den till  **AzureFirewallSubnet**.
 
 >[!NOTE]
->Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om UDE pekar på Azure Firewall som standardgateway. Om du vill skicka undernätet till undernätstrafik i brandväggen i det här scenariot så måste UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
+>Trafiken mellan direkt peerkopplade virtuella nätverk dirigeras direkt även om en UDR pekar på Azure Firewall som standardgateway. För att undernät till undernät-trafik ska kunna skickas till brandväggen i det här scenariot måste en UDR uttryckligen innehålla nätverksprefixet för målundernätverket på båda undernäten.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 

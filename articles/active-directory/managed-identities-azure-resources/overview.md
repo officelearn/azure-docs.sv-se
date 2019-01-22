@@ -14,12 +14,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 3b9c8ea3dba5fdbd3e25293873ab1ae6854b3b83
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5397ab76afa8c28623f1522ffa773b0895e19f02
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728116"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303946"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Vad är hanterade identiteter för Azure-resurser?
 
@@ -38,7 +38,7 @@ Funktionen Hanterade identiteter för Azure-resurser är kostnadsfri med Azure A
 
 Följande termer används i de hanterade identiteterna för Azure-resursernas dokumentationsuppsättning:
 
-- **Klient-ID** – En unik identifierare som genererats av Azure AD och som kopplas till ett program och tjänstens huvudnamn under den första etableringen.
+- **Klient-ID** – En unik identifierare som genereras av Azure AD och som kopplas till ett program och tjänstens huvudnamn under den första etableringen.
 - **Ägar-ID** – Objekt-ID för tjänstens huvudnamnsobjekt för din hanterade identitet som används för att bevilja rollbaserad åtkomst till en Azure-resurs.
 - **Azure Instance Metadata Service (IMDS)** – En REST-slutpunkt som är tillgänglig för alla virtuella IaaS-datorer som skapas via Azure Resource Manager. Slutpunkten är tillgänglig på en välkänd icke-dirigerbar IP-adress (169.254.169.254), som endast kan nås från den virtuella datorn.
 
@@ -101,7 +101,7 @@ Följande diagram visar hur hanterade tjänstidentiteter fungerar med virtuella 
 
 ## <a name="how-can-i-use-managed-identities-for-azure-resources"></a>Hur använder jag hanterade identiteter för Azure-resurser?
 
-Gå självstudiekurserna nedan om du vill veta hur du använder hanterade identiteter för att få åtkomst till olika Azure-resurser.
+Gå självstudierna nedan om du vill veta hur du använder hanterade identiteter för att få åtkomst till olika Azure-resurser.
 
 Lär dig hur du använder en hanterad identitet med en virtuell Windows-dator:
 

@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Flex Global View | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Flex Global View.
+title: 'Självstudier: Azure Active Directory-katalogintegrering med GTNexus SSO System | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och GTNexus SSO System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -12,22 +12,22 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
-ms.openlocfilehash: ae466dc4bce6ab7068622272651c22d70fc84fff
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 646c9b1c3a1f10cae678e6788379eb6bbd144e78
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54067504"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54263500"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-flex-global-view"></a>Självstudier: Azure Active Directory-integrering med Flex Global View
+# <a name="tutorial-azure-active-directory-integration-with-gtnexus-sso-system"></a>Självstudier: Azure Active Directory-katalogintegrering med GTNexus SSO System
 
-I den här självstudien lär du dig att integrera Flex Global View med Azure Active Directory (AD Azure).
-Genom att integrera Flex Global View med Azure AD får du följande fördelar:
+I den här självstudien lär du dig att integrera GTNexus SSO System med Azure Active Directory (AD Azure).
+Genom att integrera GTNexus SSO System med Azure AD får du följande fördelar:
 
-* Du kan i Azure AD styra vem som har åtkomst till Flex Global View.
-* Du kan göra så att dina användare automatiskt loggas in på Flex Global View (enkel inloggning) med sina Azure AD-konton.
+* Du kan i Azure AD styra vem som har åtkomst till GTNexus SSO System.
+* Du kan låta dina användare automatiskt loggas in på GTNexus SSO System (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,22 +35,22 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Flex Global View behöver du följande:
+För att konfigurera Azure AD-integrering med GTNexus SSO System behöver du följande:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Flex Global View-prenumeration med enkel inloggning aktiverat
+* Prenumeration på GTNexus SSO System med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Flex Global View stöder **IDP**-initierad enkel inloggning
+* GTNexus SSO System stöder **IDP**-initierad enkel inloggning
 
-## <a name="adding-flex-global-view-from-the-gallery"></a>Lägga till Flex Global View från galleriet
+## <a name="adding-gtnexus-sso-system-from-the-gallery"></a>Lägga till GTNexus SSO System från galleriet
 
-För att konfigurera integreringen av Flex Global View till Azure AD behöver du lägga till Flex Global View från galleriet till listan över hanterade SaaS-appar.
+För att konfigurera integreringen av GTNexus SSO System med Azure AD måste du lägga till GTNexus SSO System från galleriet i din lista över hanterade SaaS-appar.
 
-**Lägg till Flex Global View från galleriet genom att utföra följande steg:**
+**Lägg till GTNexus SSO System från galleriet genom att utföra följande steg:**
 
 1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
@@ -64,31 +64,31 @@ För att konfigurera integreringen av Flex Global View till Azure AD behöver du
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Flex Global View**, väljer **Flex Global View** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
+4. I sökrutan skriver du **GTNexus SSO System**, väljer **GTNexus SSO System** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-     ![Flex Global View i resultatlistan](common/search-new-app.png)
+     ![GTNexus SSO System i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med Flex Global View baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Flex Global View upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning för Azure AD med GTNexus SSO System baserat på en testanvändare som heter **Britta Simon**.
+För att enkel inloggning ska fungera så måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i GTNexus SSO System upprättas.
 
-För att konfigurera och testa enkel inloggning för Azure AD med Flex Global View behöver du slutföra följande byggstenar:
+För att konfigurera och testa enkel inloggning för Azure AD med GTNexus SSO System från Microsoft behöver du slutföra följande byggstenar:
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Flex Global View](#configure-flex-global-view-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+2. **[Konfigurera enkel inloggning för GTNexus SSO System](#configure-gtnexus-sso-system-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Flex Global View-testanvändare](#create-flex-global-view-test-user)** – för att ha en motsvarighet för Britta Simon i Flex Global View som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa GTNexus SSO System-testanvändare](#create-gtnexus-sso-system-test-user)** – för att ha en motsvarighet för Britta Simon i JGTNexus SSO System som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med Flex Global View:
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med GTNexus SSO System:
 
-1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Flex Global View**-programintegrering och väljer **Enkel inloggning**.
+1. I [Azure-portalen](https://portal.azure.com/), på sidan för **GTNexus SSO System**-programintegrering, väljer du **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Flex 
 
     ![image](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet Flex Global View:
+    c. När metadatafilen har laddats upp fylls värdena **Identifierare** och **Svars-URL** i automatiskt i textrutan för avsnittet GTNexus SSO System:
 
     ![image](common/idp-intiated.png)
 
@@ -121,9 +121,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Flex 
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-### <a name="configure-flex-global-view-single-sign-on"></a>Konfigurera enkel inloggning för Flex Global View
+### <a name="configure-gtnexus-sso-system-single-sign-on"></a>Konfigurera enkel inloggning för GTNexus SSO System
 
-För att konfigurera enkel inloggning på **Flex Global View**-sidan behöver du skicka **Federation Metadata-XML** till [supportteamet för Flex Global View](mailto:support@gtnexus.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **GTNexus SSO System**-sidan behöver du skicka **Federation Metadata-XML** till [supportteamet för GTNexus SSO System](mailto:support@gtnexus.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -152,15 +152,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till Flex Global View.
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till GTNexus SSO System.
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Flex Global View**.
+1. I Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **GTNexus SSO System**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan väljer du **Flex Global View**.
+2. I listan med program väljer du **GTNexus SSO System**.
 
-    ![Flex Global View-länken i programlistan](common/all-applications.png)
+    ![GTNexus SSO System-länken i listan med program](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -176,15 +176,15 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-flex-global-view-test-user"></a>Skapa Flex Global View-testanvändare
+### <a name="create-gtnexus-sso-system-test-user"></a>Skapa GTNexus SSO System-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i Flex Global View. Kontakta [supportteamet för Flex Global View](mailto:support@gtnexus.com) för att lägga till användare i Flex Global View-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet ska du skapa en användare med namnet Britta Simon i GTNexus SSO System. Arbeta med [GTNexus SSO System-supportteamet](mailto:support@gtnexus.com) för att lägga till användare i GTNexus SSO System-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Flex Global View-panelen i åtkomstpanelen bör du automatiskt loggas in på Flex Global View som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på GTNexus SSO System-panelen i åtkomstpanelen bör du automatiskt loggas in på GTNexus SSO System som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

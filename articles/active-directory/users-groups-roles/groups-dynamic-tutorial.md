@@ -1,6 +1,6 @@
 ---
-title: Självstudiekurs om att lägga till och ta bort användare för dynamiskt gruppmedlemskap i Azure Active Directory
-description: I den här självstudiekursen använder du grupper med användarmedlemskapsregler för att lägga till eller ta bort användare automatiskt
+title: Lägga till och ta bort användare för dynamiskt gruppmedlemskap – självstudie – Azure Active Directory
+description: I den här självstudien använder du grupper med användarmedlemskapsregler för att lägga till eller ta bort användare automatiskt
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,12 +14,12 @@ ms.date: 08/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 2119bb60cbdc36f62623ce0db52885e17f3d3006
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 6efb649142f43a98ea08c99ae853de0fc0c8ea3c
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "40209191"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54321271"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Självstudier: Lägga till eller ta bort gruppmedlemmar automatiskt
 
@@ -43,7 +43,7 @@ Du behöver inte tilldela licenser till användarna för att de ska bli medlemma
 
 Först skapar du en grupp för dina gästanvändare som alla finns i samma partnerföretag. De behöver en speciallicens, så det är ofta effektivare att skapa en grupp för det här syftet.
 
-1. Logga in på Azure Portal https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
+1. Logga in på Azure-portalen https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
 2. Välj **Azure Active Directory** > **Grupper** > **Ny grupp**.
   ![välj kommandot för ny grupp](./media/groups-dynamic-tutorial/new-group.png)
 3. På bladet **Grupp**:
@@ -76,7 +76,7 @@ Kanske är din slutliga plan att tilldela alla dina gästanvändare till egna gr
 
 **Ta bort gästanvändargruppen**
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som är global administratör för klientorganisationen.
 2. Välj **Azure Active Directory** > **Grupper**. Välj gruppen **Gästanvändare Contoso**, välj ellipsen (...) och välj sedan **Ta bort**. När du tar bort gruppen tas alla tilldelade licenser bort.
 
 **Återställa gruppen Alla användare**
@@ -85,7 +85,7 @@ Kanske är din slutliga plan att tilldela alla dina gästanvändare till egna gr
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig att:
+I den här självstudien lärde du dig att:
 > [!div class="checklist"]
 > * Skapa en grupp med gästanvändare
 > * Tilldela licenser till den nya gruppen

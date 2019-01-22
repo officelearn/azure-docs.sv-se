@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Använda Azure Database Migration Service till att migrera MongoDB till Mongo API för Azure Cosmos DB offline | Microsoft Docs'
-description: Lär dig att migrera från MongoDB lokalt till Mongo API för Azure Cosmos DB offline, genom att använda Azure Database Migration Service.
+title: 'Självstudier: Använda Azure Database Migration Service till att migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline | Microsoft Docs'
+description: Lär dig att migrera från MongoDB lokalt till Azure Cosmos DB:s API för MongoDB offline genom att använda Azure Database Migration Service.
 services: dms
 author: pochiraju
 ms.author: rajpo
@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 12/11/2018
-ms.openlocfilehash: 4651c9afab99577622af71297e1fb6465a20097f
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b4f8d2bdbce20fc7a932280edc26cb3ddfbe6471
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713105"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54247613"
 ---
-# <a name="tutorial-migrate-mongodb-to-azure-cosmos-db-mongo-api-offline-using-dms"></a>Självstudie: Migrera MongoDB till Mongo API för Azure Cosmos DB offline med DMS
-Du kan använda Azure Database Migration Service till att utföra en offlinemigrering (en gång) av databaser från en lokal instans eller en molninstans av MongoDB till Mongo API för Azure Cosmos DB.
+# <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Självstudier: Migrera MongoDB till Azure Cosmos DB:s API för MongoDB offline med DMS
+Du kan använda Azure Database Migration Service till att utföra en offlinemigrering (en gång) av databaser från en lokal instans eller en molninstans av MongoDB till Azure Cosmos DB:s API för MongoDB.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -28,11 +28,11 @@ I den här guiden får du lära dig att:
 > * Köra migreringen.
 > * Övervaka migreringen.
 
-I den här självstudien migrerar du datamängden **Wingtips** i MongoDB som hanteras på en virtuell Azure-dator till API:et för Azure Cosmos DB för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
+I den här självstudien migrerar du en datamängd i MongoDB på en virtuell Azure-dator till Azure Cosmos DB:s API för MongoDB med hjälp av Azure Database Migration Service. Om du inte har konfigurerat någon MongoDB-källa, kan du läsa artikeln [Installera och konfigurera MongoDB på en virtuell Windows-dator i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/install-mongodb).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 För att slutföra den här kursen behöver du:
-- [Skapa ett Azure Cosmos DB för MongoDB API-konto](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
+- [Skapa ett Azure Cosmos DB-API för MongoDB-konto](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Skapa virtuellt nätverk för Azure Database Migration Service genom att använda Azure Resource Manager-distributionsmodellen, som ger plats-till-plats-anslutning för dina lokala källservrar genom att använda [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) eller [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 - Kontrollera att dina NSG-regler för Azure Virtual Network (VNET) inte blockerar följande kommunikationsportar: 443, 53, 9354, 445 och 12000. Mer information om trafikfiltrering för Azure VNET NSG finns i artikeln om att [filtrera nätverkstrafik med nätverkssäkerhetsgrupper](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Öppna Windows-brandväggen så att Azure Database Migration Service kommer åt MongoDB-källservern, med standardinställningen TCP-port 27017.
@@ -52,7 +52,7 @@ För att slutföra den här kursen behöver du:
     ![Registrera resursprovider](media/tutorial-mongodb-to-cosmosdb/portal-register-resource-provider.png)    
 
 ## <a name="create-an-instance"></a>Skapa en instans
-1.  I Azure Portal väljer du + **Skapa en resurs**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
+1.  I Azure-portalen väljer du + **Skapa en resurs**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Service** i listrutan.
 
     ![Azure Marketplace](media/tutorial-mongodb-to-cosmosdb/portal-marketplace.png)
 
@@ -66,9 +66,9 @@ För att slutföra den här kursen behöver du:
 
 5. Välj ett befintligt virtuellt nätverk eller skapa ett nytt.
 
-    Det virtuella nätverket ger Azure Database Migration Service åtkomst till käll-SQL Server och målinstansen av Azure SQL Database.
+    Det virtuella nätverket ger Azure Database Migration Service åtkomst till MongoDB-källinstansen och Azure SQL Database-målkontot.
 
-    Mer information om hur du skapar ett virtuellt nätverk i Azure Portal finns i artikeln [Skapa ett virtuellt nätverk med hjälp av Azure-portalen](https://aka.ms/DMSVnet).
+    Mer information om hur du skapar ett virtuellt nätverk i Azure-portalen finns i artikeln [Skapa ett virtuellt nätverk med hjälp av Azure-portalen](https://aka.ms/DMSVnet).
 
 6. Välj en prisnivå.
 
@@ -81,9 +81,9 @@ För att slutföra den här kursen behöver du:
 7.  Välj **Skapa** för att skapa tjänsten.
 
 ## <a name="create-a-migration-project"></a>Skapa ett migreringsprojekt
-När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och skapar sedan ett nytt migreringsprojekt.
+När tjänsten har skapats letar du reda på den i Azure-portalen, öppnar den och skapar sedan ett nytt migreringsprojekt.
 
-1. I Azure Portal väljer du **Alla tjänster**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
+1. I Azure-portalen väljer du **Alla tjänster**, söker efter Azure Database Migration Service och väljer sedan **Azure Database Migration Services**.
  
       ![Leta reda på alla instanser Azure Database Migration Service](media/tutorial-mongodb-to-cosmosdb/dms-search.png)
 
@@ -103,7 +103,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
    Du kan också använda anslutningssträngsläget och ange en plats för en container till blogglagerfilen, där du har säkerhetskopierade samlingsdata som du planerar att migrera.
 
    > [!NOTE]
-   > Azure Database Migration Service kan även migrera bson-dokument eller json-dokument till Mongo API-samlingar för Azure Cosmos DB.
+   > Azure Database Migration Service kan även migrera bson-dokument eller json-dokument till Azure Cosmos DB:s API för MongoDB-samlingar.
     
    Du kan även använda IP-adressen i situationer då DNS-namnmatchning inte är möjlig.
 
@@ -112,7 +112,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 2. Välj **Spara**.
 
 ## <a name="specify-target-details"></a>Ange målinformation
-1. På sidan **Information om migreringsmål** anger du anslutningsinformationen för Azure Cosmos DB-målkontot, vilket är det företablerade MongoDB-konto för Azure Cosmos DB som du ska migrera dina MongoDB-data till.
+1. På sidan **Information om migreringsmål** anger du anslutningsinformationen för Azure Cosmos DB-målkontot, vilket är det företablerade Azure Cosmos DB-API för MongoDB-kontot som du ska migrera dina MongoDB-data till.
 
     ![Ange målinformation](media/tutorial-mongodb-to-cosmosdb/dms-specify-target.png)
 
@@ -163,7 +163,7 @@ När tjänsten har skapats letar du reda på den i Azure Portal, öppnar den och
 
 ## <a name="verify-data-in-cosmos-db"></a>Kontrollera data i Cosmos DB
 
-- När migreringen är klar kan du kontrollera ditt Azure Cosmos DB för MongoDB API-konto för att se om alla samlingar migrerades korrekt.
+- När migreringen är klar kan du kontrollera ditt Azure Cosmos DB-konto för att se om alla samlingar migrerades korrekt.
 
     ![Aktivitetsstatus Slutförd](media/tutorial-mongodb-to-cosmosdb/dms-cosmosdb-data-explorer.png)
 

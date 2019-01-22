@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.component: autoscale
-ms.openlocfilehash: d676af42b80d12ac0e537ce0c2bc008e196990c6
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53587088"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54262327"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -63,7 +63,7 @@ I följande steg får du hjälp att fylla autoskalningsskärmen så att den ser 
   ![Navigera till inställningarna för automatisk skalning](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrance-profile"></a>Skapa en upprepningsprofil
+## <a name="create-recurrence-profile"></a>Skapa profil för upprepning
 
 1. Klicka på länken **Add a scale condition** (Lägg till ett skalningsvillkor) under standardprofilen.
 
@@ -123,7 +123,7 @@ Vi rekommenderar att du alltid använder en inskalningsregel tillsammans med en 
 ## <a name="trigger-scale-out-action"></a>Lös ut utskalningsåtgärden
 Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste webbappen ta emot fler än 10 förfrågningar på mindre än 5 minuter.
 
-1. Öppna ett webbläsarfönster och navigera till den webbapp du skapade tidigare i självstudien. Du hittar URL:en för webbappen i Azure Portal genom att gå till Web App-resursen och klicka på knappen **Bläddra** på fliken Översikt.
+1. Öppna ett webbläsarfönster och navigera till den webbapp du skapade tidigare i självstudien. Du hittar URL:en för webbappen i Azure-portalen genom att gå till Web App-resursen och klicka på knappen **Bläddra** på fliken Översikt.
 
 2. Läs in sidan fler än 10 gånger i snabb följd.
 
@@ -144,7 +144,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 1. Kontrollera att inga förfrågningar skickas till webbappen.
 
-2. Läs in Azure Portal.
+2. Läs in Azure-portalen.
 
 3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
 
@@ -162,7 +162,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-1. Klicka på **Alla resurser** på menyn till vänster på Azure Portal och välj sedan webbappen du skapade i den här självstudien.
+1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj sedan webbappen du skapade i den här självstudien.
 
 2. Klicka på **Ta bort** på resurssidan, bekräfta borttagningen genom att skriva **Ja** i textrutan och klicka sedan på **Ta bort**.
 

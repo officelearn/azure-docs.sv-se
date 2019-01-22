@@ -1,6 +1,6 @@
 ---
 title: Skapa en Azure Search-tjänst i portalen – Azure Search
-description: Etablera en Azure Search-tjänst i Azure Portal. Välj resursgrupper, regioner, samt SKU eller prisnivå.
+description: Etablera en Azure Search-tjänst i Azure-portalen. Välj resursgrupper, regioner, samt SKU eller prisnivå.
 manager: cgronlun
 author: HeidiSteen
 services: search
@@ -9,22 +9,22 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 5165dd16b77a242ca83d3e5864b6e60f3e12a567
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002645"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230534"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
-Azure Search är en fristående-resurs som används för att lägga till en sökfunktion i anpassade appar. Även om Azure Search enkelt integreras med många andra Azure-tjänster kan du också använda det separat, med appar som finns på nätverksservrar eller med programvara som körs på andra molnplattformar. 
+Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Azure Search integreras enkelt med många andra Azure-tjänster, men du kan även använda det separat, med appar på nätverksservrar eller med programvara som körs på andra molnplattformar. 
 
-I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/). 
+I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure-portalen](https://portal.azure.com/). 
 
 ![Azure Search-resurs i portalen](media/search-create-service-portal/azure-search-resource-label.png)
 
-Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Om du behöver hjälp att komma igång går du till bakgrundsinformationen i [Hantera Azure Search med PowerShell](search-manage-powershell.md).
+Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Om du behöver hjälp att komma igång går du till [Hantera Azure Search med PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Prenumerera (kostnadsfritt eller betalt)
 

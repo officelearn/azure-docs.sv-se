@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/27/2018
 ms.author: wesmc
-ms.openlocfilehash: 1bb21f6decc725c47f135c9842a2ba6d8989f693
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: df183f73feb1c87fb9deda8f647c5107f6c460cc
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515179"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54245460"
 ---
-# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-the-telemetry-from-the-hub-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läs telemetrin från hubben med ett serverdelsprogram (C)
+# <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>Snabbstart: Skicka telemetri från en enhet till en IoT-hubb och läsa den med ett serverdelsprogram (C)
 
 [!INCLUDE [iot-hub-quickstarts-1-selector](../../includes/iot-hub-quickstarts-1-selector.md)]
 
@@ -46,7 +46,7 @@ Du kan använda SDK:n genom att installera paketen och biblioteken för följand
 
 * **mbed**: För utvecklare som skapar enhetsprogram på mbed-plattformen har vi publicerat ett bibliotek och exempel som gör att du kommer igång på bara några minuter med Azure IoT Hub. Mer information finns i [Använda mbed-biblioteket](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#mbed).
 
-* **Arduino**: Om du utvecklar på Arduino, kan du utnyttja Azure IoT-biblioteket i Arduino IDE-bibliotekshanteraren. Mer information finns i [Azure IoT Hub-biblioteket för Arduino](https://github.com/azure/azure-iot-arduino).
+* **Arduino**: Om du utvecklar på Arduino kan du utnyttja Azure IoT-biblioteket i Arduino IDE-bibliotekshanteraren. Mer information finns i [Azure IoT Hub-biblioteket för Arduino](https://github.com/azure/azure-iot-arduino).
 
 * **iOS**: SDK:n för IoT Hub-enheter är tillgänglig som CocoaPods för Mac- och iOS-enhetsutveckling. Mer information finns i [iOS-exempel för Microsoft Azure IoT](https://cocoapods.org/pods/AzureIoTHubClient).
 
@@ -122,9 +122,9 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
 
 1. Kör följande kommandon i Azure Cloud Shell för att lägga till IoT Hub CLI-tillägget och skapa enhetens identitet. 
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
-   **MyCDevice**: Det här är det namn du angav för den registrerade enheten. Använd MyCDevice som et visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyCDevice** : Det här är det namn du angav för den registrerade enheten. Använd MyCDevice som et visas. Om du väljer ett annat namn för din enhet måste du även använda det namnet i hela artikeln, och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -133,7 +133,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I det h
 
 2. Kör följande kommandon i Azure Cloud Shell för att hämta _enhetsanslutningssträngen_ för enheten du just registrerade:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyCDevice --output table
@@ -192,7 +192,7 @@ I det här avsnittet kommer du att använda Azure Cloud Shell med [IoT-tillägge
 
 1. Med Azure Cloud Shell kör du följande kommando för att ansluta och läsa meddelanden från IoT-hubben:
 
-   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
+   **YourIoTHubName** : Ersätt platshållaren nedan med det namn du valde för din IoT-hubb.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table

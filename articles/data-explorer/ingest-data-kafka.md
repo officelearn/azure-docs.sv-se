@@ -8,16 +8,16 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 21eb28611c1e40695356d502c262c23013591986
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: b53c26f265cc5d944c8e15ae5bf436e8f71dcc2f
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117375"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352741"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Snabbstart: Mata in data från Kafka i Azure Data Explorer
  
-Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Kafka. Kafka är en distribuerad strömningsplattform som gör det möjligt att skapa realtidsbaserade datapipelines som på ett tillförlitligt sätt flyttar data mellan system och program. 
+Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Kafka. Kafka är en distribuerad strömningsplattform som gör det möjligt att skapa realtidsbaserade datapipelines som på ett tillförlitligt sätt flyttar data mellan system och program.
  
 ## <a name="prerequisites"></a>Nödvändiga komponenter
  
@@ -30,9 +30,11 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 * [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
  
 ## <a name="kafka-connector-setup"></a>Konfiguration av Kafka-anslutningsappen
+
 Kafka Connect är ett verktyg för skalbar och tillförlitlig dataströmning mellan Apache Kafka och andra system. Det gör det enkelt att snabbt definiera anslutningsappar som skickar stora datasamlingar till och från Kafka. ADX Kafka Sink fungerar som anslutningsapp från Kafka.
  
-### <a name="bundle"></a>Paket 
+### <a name="bundle"></a>Paket
+
 Kafka kan läsa in en `.jar` som ett plugin-program som fungerar som en anpassad anslutningsapp. För att skapa en sådan `.jar` klonar vi koden lokalt och skapar med hjälp av Maven. 
 
 #### <a name="clone"></a>Klona
@@ -41,7 +43,7 @@ Kafka kan läsa in en `.jar` som ett plugin-program som fungerar som en anpassad
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### <a name="build"></a>Utveckla
 
 Skapa lokalt med Maven för att bilda en `.jar` komplett med beroenden.
@@ -55,9 +57,9 @@ I rotkatalogen *kafka-sink-azure-kusto* kör du:
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### <a name="deploy"></a>Distribuera 
- 
+
 Läs in plugin-programmet i Kafka. Ett distributionsexempel med docker finns på [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
@@ -112,13 +114,16 @@ Skapa en tabell i ADX som Kafka kan skicka data till. Skapa tabellen i det klust
 Nu när Kafka-klustret har anslutits till ADX använder du den [exempelapp](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) som du laddade ned för att generera data.
 
 ### <a name="clone"></a>Klona
+
 Klona exempelappen lokalt:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### <a name="run-the-app"></a>Kör appen
+
 1. Öppna exempelapplösningen i Visual Studio.
 
 1. I filen `Program.cs` uppdaterar du konstanten `connectionString` till Kafka-anslutningssträngen.
@@ -131,7 +136,7 @@ cd ./azure-kusto-samples-dotnet/kafka/
 
 1. När appen har skickat några meddelanden går du vidare till nästa steg.
  
-## <a name="query-and-review-the-data"></a>Köra frågor mot och granska data 
+## <a name="query-and-review-the-data"></a>Köra frågor mot och granska data
 
 1. Se till att inga fel inträffar under datainmatningen:
 

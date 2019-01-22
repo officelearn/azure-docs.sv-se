@@ -8,12 +8,12 @@ ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: seodec18
 ms.date: 12/06/2018
-ms.openlocfilehash: d6e293b80df1ab227a3100040a54b189f48d8027
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 19d903a4083c432ac3932189ad8a6890be9014fb
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53102817"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54354237"
 ---
 # <a name="stream-into-event-hubs-for-the-apache-kafka"></a>Strömma till Event Hubs för Apache Kafka
 Den här snabbstarten visar hur du strömmar till Kafka-aktiverade Event Hubs utan att ändra protokoll-klienter eller köra dina egna kluster. Du lär dig att använda dina tillverkare och konsumenter för att kommunicera med Kafka-aktiverade Event Hubs med bara en konfigurationsändring i dina program. Azure Event Hubs stöder [Apache Kafka version 1.0.](https://kafka.apache.org/10/documentation.html)
@@ -34,13 +34,13 @@ För att kunna slutföra den här snabbstarten behöver du följande:
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Skapa ett Kafka-aktiverat Event Hubs-namnområde
 
-1. Logga in på [Azure Portal][Azure Portal] och klicka på **Skapa en resurs** längst upp till vänster på skärmen.
+1. Logga in på [Azure-portalen](https://portal.azure.com) och klicka på **Skapa en resurs** högst upp till vänster på skärmen.
 
 2. Sök efter Event Hubs och välj de alternativ som visas här:
     
     ![Sök efter Event Hubs på portalen](./media/event-hubs-create-kafka-enabled/event-hubs-create-event-hubs.png)
  
-3. Ange ett unikt namn och aktivera Kafka för namnområdet. Klicka på **Skapa**.
+3. Ange ett unikt namn och aktivera Kafka för namnområdet. Klicka på **Skapa**. Obs! Event Hubs för Kafka stöds endast på standardnivå och dedikerad nivå i Event Hubs. Basic-nivån i Event Hubs returnerar ett fel för auktorisering av avsnittet som svar på alla Kafka-åtgärder.
     
     ![Skapa ett namnområde](./media/event-hubs-create-kafka-enabled/create-kafka-namespace.jpg)
  

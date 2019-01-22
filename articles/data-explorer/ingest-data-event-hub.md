@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ff512ac3bef1ce721860172dbaf9d9b68512a518
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064703"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352945"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -29,7 +29,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 * [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure-portalen
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -189,13 +189,13 @@ Med appen som genererar data kan du nu se flödet av dessa data från händelseh
     ![Meddelanderesultat](media/ingest-data-event-hub/message-result-set.png)
 
     > [!NOTE]
-    > ADX har en sammansättningsprincip (batchbearbetning) för datainmatning som är utformad för att optimera inmatningsprocessen. Principen är konfigurerad till 5 minuter, så det kan förekomma en fördröjning.
+    > Azure Data Explorer har en sammansättningsprincip (batchbearbetning) för datainmatning som är utformad för att optimera inmatningsprocessen. Principen är konfigurerad till 5 minuter, så det kan förekomma en fördröjning.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** för att undvika kostnader.
 
-1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
+1. Välj **Resursgrupper** i Azure-portalen längst till vänster och välj sedan den resursgrupp du skapat.  
 
     Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 

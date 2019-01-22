@@ -12,14 +12,14 @@ ms.topic: overview
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/20/2018
+ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 7b0a837bf23145c5ac5e5775d4324582fa3a6b20
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: e66acd6a94b891ac3f727fddb7a88a9c56f465d3
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120843"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54246576"
 ---
 # <a name="what-is-azure-load-balancer"></a>Vad är Azure Load Balancer?
 
@@ -153,7 +153,13 @@ En intern lastbalanserare möjliggör följande typer av belastningsutjämning:
 *Figur: Belastningsutjämning av flernivåprogram med hjälp av både en offentlig och en intern Load Balancer*
 
 ## <a name="pricing"></a>Prissättning
-Standard Load Balancer-användning debiteras baserat på antalet konfigurerade belastningsutjämningsregler och mängden bearbetade inkommande och utgående data. Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-priser](https://azure.microsoft.com/pricing/details/load-balancer/).
+
+Standard Load Balancer-användning debiteras.
+
+- Antalet konfigurerade belastningsutjämningsregler och utgående regler (inkommande NAT-regler räknas inte till det totala antalet regler).
+- Mängden inkommande och utgående data som bearbetas oavsett regel. 
+
+Prisinformation om Standard Load Balancer finns på sidan med [Load Balancer-priser](https://azure.microsoft.com/pricing/details/load-balancer/).
 
 Basic Load Balancer tillhandahålls kostnadsfritt.
 

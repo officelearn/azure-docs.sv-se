@@ -1,5 +1,5 @@
 ---
-title: Logga nätverkstrafik till och från en virtuell dator – Azure Portal | Microsoft Docs
+title: Logga nätverkstrafik till och från en virtuell dator – Azure-portalen | Microsoft Docs
 description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -17,14 +17,14 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 2ec2ac6508dfbf0c1a42f72dc393fa8b841ab877
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: ce2d69e26909231383f3538d51387f27d8202a43
+ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822474"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54332480"
 ---
-# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
+# <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure-portalen
 
 Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här guiden får du lära dig att:
 
@@ -38,11 +38,11 @@ Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
 > [!NOTE] 
-> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Konfiguration är tillgänglig via Azure-portalen och REST API. Om du aktiverar loggar av version 2 i en region som inte stöds sparas loggar av version 1 i ditt lagringskonto.
+> Flödesloggar av version 2 är endast tillgängliga i regionen USA, västra centrala. Om du aktiverar loggar av version 2 i en region som inte stöds matas loggar av version 1 in i ditt lagringskonto.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
-1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure Portal.
+1. Klicka på **+ Skapa en resurs** längst upp till vänster på Azure-portalen.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Datacenter** eller **Ubuntu Server 17.10 VM**.
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**:
 
@@ -212,7 +212,7 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 | T            | Protokoll               | Anger om protokollet för flödet var TCP (T) eller UDP (U).                                  |
 | O            | Riktning              | Anger om trafiken var inkommande (I) eller utgående (O).                                     |
 | A            | Åtgärd                 | Anger om trafiken tilläts (A) eller nekades (D).  
-| C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Börja, när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter (Continuing) för en pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
+| C            | Flödestillstånd **endast version 2** | Registrerad flödets tillstånd. Möjliga tillstånd är **B**: Början när ett flöde skapas. Statistik tillhandahålls inte. **C**: Fortsätter för ett pågående flöde. Statistik tillhandahålls med 5 minuters mellanrum. **E**: Slutet (End), när ett flöde avslutas. Statistik tillhandahålls. |
 | 30 | Skickade paket – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från källa till mål sedan den senaste uppdateringen. |
 | 16978 | Skickade byte – källa till mål **endast version 2** | Det totala antalet TCP- eller UDP-paketbyte som skickats från källa till mål sedan den senaste uppdateringen. Paketbyte omfattar paketets huvud och nyttolast. | 
 | 24 | Skickade paket – mål till källa **endast version 2** | Det totala antalet TCP- eller UDP-paket som skickats från mål till källa sedan den senaste uppdateringen. |
@@ -220,4 +220,4 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. Du kan visualisera data med hjälp av [trafikanalysverktyg](traffic-analytics.md) i Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) och andra verktyg.
+I den här självstudien lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. Du kan visualisera data med hjälp av [trafikanalysverktyg](traffic-analytics.md) i Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) och andra verktyg.

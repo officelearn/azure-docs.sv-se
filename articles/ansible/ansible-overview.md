@@ -1,53 +1,53 @@
 ---
-title: Med Ansible med Azure
-description: Introduktion till att använda Ansible till automatiserar molntilldelning, konfigurationshantering och programdistributioner.
+title: Använda Ansible med Azure
+description: En introduktion till att använda Ansible för att automatisera etablering i molnet, konfigurationshantering och programdistribution.
 ms.service: ansible
-keywords: ansible, azure, devops, översikt, etablera molnet, konfigurationshantering, programdistribution, ansible-moduler, ansible-spelböcker
+keywords: ansible, azure, devops, overview, cloud provision, configuration management, application deployment, ansible modules, ansible playbooks
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/02/2018
-ms.topic: article
-ms.openlocfilehash: d684c4238a7550ca3ec34629fffdc9791db55954
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: MT
+ms.topic: overview
+ms.openlocfilehash: 55dcda953454ce3eb4e19dabbf198f886d028180
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052708"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54357938"
 ---
 # <a name="ansible-with-azure"></a>Ansible med Azure
 
-[Ansible](https://www.ansible.com) är en produkt med öppen källkod som automatiserar molntilldelning, konfigurationshantering och programdistributioner. Med Ansible kan du etablera virtuella datorer, behållare och nätverk och slutföra molninfrastrukturer. Dessutom kan Ansible du automatisera distributionen och konfigurationen av resurser i din miljö.
+[Ansible](https://www.ansible.com) är en produkt som bygger på öppen källkod och som automatiserar molntilldelning, konfigurationshantering och programdistribution. Med Ansible kan du tilldela virtuella datorer, containrar, nätverk och kompletta molninfrastrukturer. Med Ansible kan du dessutom automatisera distributionen och konfigurationen av resurser i din miljö.
 
 Den här artikeln ger en översikt över några av fördelarna med att använda Ansible med Azure.
 
-## <a name="ansible-playbooks"></a>Ansible-spelböcker
+## <a name="ansible-playbooks"></a>Spelböcker i Ansible
 
-[Ansible-spelböcker](https://docs.ansible.com/ansible/latest/playbooks.html) är Ansibles konfiguration, distribution och orkestrering språk. De kan beskriva en princip som du vill att din fjärrsystem framtvinga eller en uppsättning steg i en allmän IT-process. När du skapar en spelbok göra du det med hjälp av YAML, som definierar en modell av en konfiguration eller process.
+[Spelböcker](https://docs.ansible.com/ansible/latest/playbooks.html) är konfigurations-, distributions- och orkestreringsspråket i Ansible. De kan beskriva en princip som ska tillämpas i dina fjärrsystem eller en uppsättning steg i en allmän IT-process. Du skapar en spelbok med hjälp av YAML, som definierar en modell av en konfiguration eller process.
 
-## <a name="ansible-modules"></a>Ansible-moduler
+## <a name="ansible-modules"></a>Moduler i Ansible
 
-Ansible innehåller en uppsättning [Ansible moduler](https://docs.ansible.com/ansible/latest/modules_by_category.html) som kan köras direkt på fjärrvärdar eller via [spelböcker](https://docs.ansible.com/ansible/latest/playbooks.html). Användarna kan också skapa egna moduler. Moduler kan användas för att styra systemresurser - som-tjänster, paket eller filer – eller köra systemkommandon.
+I Ansible ingår en uppsättning [moduler](https://docs.ansible.com/ansible/latest/modules_by_category.html) som kan köras direkt på fjärrvärdar eller via [spelböcker](https://docs.ansible.com/ansible/latest/playbooks.html). Användare kan också skapa egna moduler. Modulerna kan användas till att hantera systemresurser som tjänster, paket eller filer – eller köra systemkommandon.
 
-För att interagera med Azure-tjänster, Ansible innehåller en uppsättning [Ansible molnet moduler](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) som tillhandahåller verktyg för att enkelt skapa och dirigera infrastrukturen i Azure. 
+Ansible innehåller även en uppsättning [molnmoduler](https://docs.ansible.com/ansible/list_of_cloud_modules.html#azure) för interaktion med Azure-tjänster. Dessa tillhandahåller verktyg så att du enkelt kan skapa och hantera din infrastruktur i Azure. 
 
 ## <a name="migrate-existing-workload-to-azure"></a>Migrera en befintlig arbetsbelastning till Azure
 
-När du har använt Ansible för att definiera infrastrukturen kan använda du ditt programs spelbok så att Azure automatiskt skala din miljö efter behov. 
+När du har definierat infrastrukturen med Ansible kan du tillämpa programmets spelbok så att Azure automatiskt skalar miljön efter behov. 
 
 ## <a name="automate-cloud-native-application-in-azure"></a>Automatisera molnbaserade program i Azure
 
-Ansible kan du automatisera molnprogram i Azure med Azure-mikrotjänster som [Azure Functions](https://azure.microsoft.com//services/functions/) och [Kubernetes på Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
+Med Ansible kan du automatisera molnbaserade program i Azure med Azure-mikrotjänster som [Azure Functions](https://azure.microsoft.com//services/functions/) och [Kubernetes på Azure](https://azure.microsoft.com/services/container-service/kubernetes/).  
 
-## <a name="manage-deployments-with-dynamic-inventory"></a>Hantera distributioner med dynamisk lager
-Via dess [dynamisk lager](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) funktionen, Ansible gör möjligheten att pull inventering från Azure-resurser. Du kan tagga dina befintliga Azure-distributioner och hantera dessa taggade distributioner via Ansible.
+## <a name="manage-deployments-with-dynamic-inventory"></a>Hantera distributioner med dynamiskt lager
+Via dess [dynamiska lagerfunktion](https://docs.ansible.com/ansible/intro_dynamic_inventory.html) tillhandahåller Ansible möjligheten att hämta tillgångar från Azure-resurser. Sedan kan du tagga befintliga Azure-distributioner och hantera dem via Ansible.
 
-## <a name="additional-azure-marketplace-options"></a>Ytterligare alternativ för Azure Marketplace
-Den [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) Azure Marketplace-avbildning från Red Hat hjälper organisationer att skala IT-automatisering och hantera komplexa distributioner mellan fysiska, virtuella och molnbaserade infrastrukturer. Ansible Tower innehåller funktioner som ger ytterligare kontrollmöjligheter synlighet, kontroll, säkerhet och effektivitet som behövs för dagens företag. Ansible Tower krypterar autentiseringsuppgifter, till exempel Azure och SSH-nycklar så att du kan delegera jobb till ovana anställda utan att riskera att exponera dina autentiseringsuppgifter.
+## <a name="additional-azure-marketplace-options"></a>Fler Azure Marketplace-alternativ
+[Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) från Red Hat hjälper organisationer att skala IT-automatisering och hantera komplexa distributioner mellan fysiska, virtuella och molnbaserade infrastrukturer. Ansible Tower innehåller funktioner som ger ytterligare synlighetsnivåer, kontroll, säkerhet och den effektivitet som krävs för moderna företag. Ansible Tower krypterar autentiseringsuppgifter som Azure- och SSH-nycklar så att du kan delegera jobb till mindre erfarna medarbetare utan att riskera att autentiseringsuppgifterna exponeras.
 
-## <a name="ansible-module-and-version-matrix-for-azure"></a>Ansible-modulen och version matris för Azure
-Ansible levereras med ett antal moduler som kan utföras direkt på fjärrvärdar eller via spelböcker.
-Den [Ansible-modulen och version matris](./ansible-matrix.md) visar Ansible-moduler för Azure som kan utnyttja Azure-molnresurser, till exempel virtuella datorer, nätverk och behållartjänster. 
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Ansible-moduler och versioner för Azure
+Ansible levereras med ett antal moduler som kan köras direkt på fjärrvärdar eller via spelböcker.
+I artikeln om [Ansibles moduler och versioner](./ansible-matrix.md) visas de Ansible-moduler för Azure som kan tillhandahålla Azure-molnresurser, som virtuella dator-, nätverks och containertjänster. 
 
 ## <a name="next-steps"></a>Nästa steg
 - [Konfigurera Ansible](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

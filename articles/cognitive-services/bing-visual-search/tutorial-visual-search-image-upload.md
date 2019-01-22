@@ -10,12 +10,12 @@ ms.component: bing-visual-search
 ms.topic: tutorial
 ms.date: 07/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 23e6d044a1c08fb585e01d61a97deaf87e24cbb9
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: aa221569cec6df298db4a90560ac7ea0992dd120
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743110"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54318736"
 ---
 # <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Självstudier: Ladda upp bilder till API för visuell sökning i Bing
 
@@ -628,7 +628,7 @@ Funktionen `addShopping()` skapar en länk för alla returnerade shoppingresulta
 
 ### <a name="products-insights"></a>Products-insikter
 
-Funktionen `addProducts()` skapar en länk för alla returnerade shoppingresultat genom att iterera genom listan över `Products`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
+Funktionen `addProducts()` skapar en länk för alla returnerade produktresultat genom att iterera genom listan över `Products`-åtgärder och lägga till en `<img>`-tagg till det utomliggande `<div>` för var och en.
 
 ```javascript
 

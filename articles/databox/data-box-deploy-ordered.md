@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 00c001b5c0c2c3dab86477fca798ec651f7b6c93
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189974"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359127"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudier: Beställa Azure Data Box
 
@@ -22,7 +22,7 @@ Azure Data Box är en hybridmolnlösning som gör att du kan importera lokala da
 I den här självstudien beskriver vi hur du kan beställa en Azure Data Box. I den här självstudien lär du dig:
 
 > [!div class="checklist"]
-> * Registrera dig för Data Box
+> * Förutsättningar för att distribuera Data Box
 > * Beställa en Data Box
 > * Spåra beställningen
 > * Avbryta beställningen
@@ -63,7 +63,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 4. Kontrollera om Data Box-tjänsten är tillgänglig i din region. Ange eller välj följande information och klicka på **Tillämpa**. 
     |Inställning  |Värde  |
     |---------|---------|
-    |Prenumeration     | Välj en prenumeration för EA, CSP eller betala per användning för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
+    |Prenumeration     | Välj en prenumeration för EA, CSP eller Azure-sponsring för Data Box-tjänsten. <br> Prenumerationen är kopplad till ditt faktureringskonto.       |
     |Överföringstyp     | Välj **Importera till Azure**.        |
     |Källand     |   Välj landet där dina data finns.         |
     |Azure-målregion     |     Välj den Azure-region dit du vill överföra data.        |
@@ -79,7 +79,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     |   Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
     |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).        |
-    |Lagringskonto(n)     | Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan även ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **Blob Storage**.        |
+    |Lagringskonto(n)     | Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan även ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **Blob Storage**. Det går inte att använda lagringskonton som har konfigurerade regler. För lagringskonton måste **åtkomst tillåtas från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
     
 7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Klicka på **Nästa**.
 
@@ -94,7 +94,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
 
 ## <a name="track-the-order"></a>Spåra beställningen
 
-När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar beställningen i tillståndet **Ordered** (beställd).
+När du har skapat beställningen kan du spåra statusen för ordern via Azure-portalen. Öppna Data Box-beställningen och navigera till **Overview** (Översikt) för att visa status. Portalen visar beställningen i tillståndet **Ordered** (beställd).
 
 Om enheten inte är tillgänglig får du ett meddelande. Om enheten är tillgänglig identifierar Microsoft enheten för leverans och förbereder försändelsen. Vid enhetsförberedelsen utförs följande åtgärder:
 

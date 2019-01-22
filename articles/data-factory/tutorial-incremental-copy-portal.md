@@ -1,6 +1,6 @@
 ---
 title: Kopiera en tabell stegvis med Azure Data Factory | Microsoft Docs
-description: I den här självstudiekursen kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
+description: I den här självstudien kommer du att skapa en Azure Data Factory-pipeline som kopierar data stegvis från en Azure SQL-databas till Azure Blob Storage.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: yexu
-ms.openlocfilehash: ad490630d3ce5d625bce05c75c20fa71a7aa2d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9e9c0b141987f8af563944c8eee216b8218846c
+ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014549"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54352894"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Läsa in data stegvis från en Azure SQL-databas till Azure Blob Storage
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
 
-I den här självstudiekursen får du göra följande:
+I den här självstudien får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
@@ -135,7 +135,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 Kör följande kommando för att skapa en lagrad procedur i din SQL-databas:
 
 ```sql
-CREATE PROCEDURE sp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
+CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
 AS
 
 BEGIN
@@ -302,7 +302,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ![Lagrad proceduraktivitet – SQL-konto](./media/tutorial-incremental-copy-portal/sp-activity-sql-account-settings.png)
 26. Växla till fliken **Lagrad procedur** och gör följande: 
 
-    1. Som **Namn på lagrad procedur** väljer du **sp_write_watermark**. 
+    1. Som **Namn på lagrad procedur** väljer du **usp_write_watermark**. 
     2. När du ska ange värden för parametrarna för lagrad procedur klickar du på **Importera parameter** och anger följande värden för parametern: 
 
         | Namn | Typ | Värde | 

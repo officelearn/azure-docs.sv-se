@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2b114a4aed812a91a9f6c4ed43f57411e47ea677
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714402"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260036"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snabbstart: Konfigurera och hämta en hemlighet från Azure Key Vault med hjälp av en Node-webbapp 
 
@@ -62,7 +62,7 @@ I följande exempel skapas en resursgrupp med namnet *<YourResourceGroupName>* p
 az group create --name "<YourResourceGroupName>" --location "East US"
 ```
 
-Resursgruppen som du nyss skapade används i hela den här självstudiekursen.
+Resursgruppen som du nyss skapade används i hela den här självstudien.
 
 ## <a name="create-an-azure-key-vault"></a>Skapa ett Azure Key Vault
 
@@ -80,7 +80,7 @@ Nu är ditt Azure-konto det enda kontot med behörighet att utföra åtgärder i
 
 ## <a name="add-a-secret-to-key-vault"></a>Lägga till en hemlighet i Key Vault
 
-Vi lägger till en hemlighet för att illustrera hur detta fungerar. Du kan lagra en SQL-anslutningssträng eller annan information som du behöver skydda men göra tillgänglig för ditt program. I den här självstudiekursen kallas lösenordet **AppSecret** och lagrar värdet för **MySecret**.
+Vi lägger till en hemlighet för att illustrera hur detta fungerar. Du kan lagra en SQL-anslutningssträng eller annan information som du behöver skydda men göra tillgänglig för ditt program. I den här självstudien kallas lösenordet **AppSecret** och lagrar värdet för **MySecret**.
 
 Skriv kommandona nedan för att skapa en hemlighet i Key Vault med namnet **AppSecret** som ska lagra värdet **MySecret**:
 

@@ -4,17 +4,17 @@ description: Använd Azure-skisser för att skapa, definiera och distribuera art
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 11/07/2018
+ms.date: 01/15/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9e44a44b76e79375076f71cf808d6d30eebc5cdb
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: b66a1c2c12a97ea8754377a138b51a4ca1739c21
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311430"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320692"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definiera och tilldela en Azure-skiss med REST API
 
@@ -68,7 +68,7 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 I varje REST API-URI finns det variabler som används och som du måste ersätta med egna värden:
 
-- `{YourMG}` – Ersätt med namnet på din hanteringsgrupp
+- `{YourMG}` – Ersätt med ID för din hanteringsgrupp
 - `{subscriptionId}` – Ersätt med ditt prenumerations-ID
 
 1. Skapa det första _skissobjektet_. **Begärandetexten** innehåller egenskaper för skissen, de resursgrupper som ska skapas och alla parametrar på skissnivå. Parametrarna anges vid tilldelning och används av artefakterna som lagts till i senare steg.
@@ -130,7 +130,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till rolltilldelningen för prenumerationen. **Begärandetexten** definierar _typen_ av artefakt, egenskaperna justeras efter rolldefinitions-ID:t och huvudidentiteterna skickas som en matris med värden. I exemplet nedan konfigureras huvudidentiteterna som beviljas den angivna rollen till en parameter som anges under skisstilldelningen.
+1. Lägg till rolltilldelningen för prenumerationen. **Begärandetexten** definierar _typen_ av artefakt, egenskaperna justeras efter rolldefinitions-ID:t och huvudidentiteterna skickas som en matris med värden. I exemplet nedan konfigureras huvudidentiteterna som beviljas den angivna rollen till en parameter som anges under skisstilldelningen. I det här exemplet används den inbyggda rollen _Deltagare_ med ett GUID på `b24988ac-6180-42a0-ab88-20f7382dd24c`.
 
    - REST API-URI
 
@@ -150,7 +150,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till principtilldelning för prenumerationen. **Begärandetexten** definierar _typen_ av artefakt, egenskaperna som justeras efter en princip- eller initiativdefinition, samt konfigurerar principtilldelningen så att de definierade skissparametrarna som konfigureras under skisstilldelningen används.
+1. Lägg till principtilldelning för prenumerationen. **Begärandetexten** definierar _typen_ av artefakt, egenskaperna som justeras efter en princip- eller initiativdefinition, samt konfigurerar principtilldelningen så att de definierade skissparametrarna som konfigureras under skisstilldelningen används. I det här exemplet används den inbyggda principen _Lägg till tagg och standardvärdet i resursgrupper_ med ett GUID på `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API-URI
 
@@ -178,7 +178,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till en till principtilldelning för lagringstaggen (genom att återanvända parametern _storageAccountType_) för prenumerationen. Den här ytterligare principtilldelningsartefakten visar att en parameter som definierats för skissen kan användas av mer än en artefakt. I exemplet används **storageAccountType** för att ange en tagg på resursgruppen. Det här värdet anger information om lagringskontot som skapas i nästa steg.
+1. Lägg till en till principtilldelning för lagringstaggen (genom att återanvända parametern _storageAccountType_) för prenumerationen. Den här ytterligare principtilldelningsartefakten visar att en parameter som definierats för skissen kan användas av mer än en artefakt. I exemplet används **storageAccountType** för att ange en tagg på resursgruppen. Det här värdet anger information om lagringskontot som skapas i nästa steg. I det här exemplet används den inbyggda principen _Lägg till tagg och standardvärdet i resursgrupper_ med ett GUID på `49c88fc8-6fd1-46fd-a676-f12d1d3a4c71`.
 
    - REST API-URI
 
@@ -292,7 +292,7 @@ I varje REST API-URI finns det variabler som används och som du måste ersätta
      }
      ```
 
-1. Lägg till rolltilldelning under resursgruppen. På liknande sätt som i föregående rolltilldelningspost använder exemplet nedan definitionsidentifieraren för rollen **Ägare** och tilldelar den en annan parameter från skissen.
+1. Lägg till rolltilldelning under resursgruppen. På liknande sätt som i föregående rolltilldelningspost använder exemplet nedan definitionsidentifieraren för rollen **Ägare** och tilldelar den en annan parameter från skissen. I det här exemplet används den inbyggda rollen _Ägare_ med ett GUID på `8e3af657-a8ff-443c-a75c-2fe8c4bcb635`.
 
    - REST API-URI
 

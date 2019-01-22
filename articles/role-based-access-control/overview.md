@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 01/14/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9ddad471236877977fec620565d8f110e265ff72
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c614ae9d157c6e4121701cb22213706020ee20a7
+ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867906"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54303335"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Vad är rollbaserad åtkomstkontroll (Role-based access control, RBAC)?
 
@@ -78,7 +78,7 @@ Azure har infört dataåtgärder (för närvarande i förhandsversion) som gör 
 
 ### <a name="scope"></a>Omfång
 
-*Omfång* är den gräns som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
+*Omfång* är den uppsättning resurser som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
 
 I Azure kan du ange ett omfång på flera nivåer: [hanteringsgrupp](../azure-resource-manager/management-groups-overview.md), prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad-relation.
 
@@ -99,6 +99,12 @@ Följande diagram visar ett exempel på en rolltilldelning. I det här exemplet 
 ![Rolltilldelning för att kontrollera åtkomst](./media/overview/rbac-overview.png)
 
 Du kan skapa rolltilldelningar med hjälp av Azure-portalen, Azure CLI, Azure PowerShell, Azure-SDK:er eller REST-API:er. Du kan ha upp till 2 000 rolltilldelningar i varje prenumeration. För att kunna skapa och ta bort rolltilldelningar behöver du ha `Microsoft.Authorization/roleAssignments/*`-behörighet. Den här behörigheten beviljas via rollerna [Ägare](built-in-roles.md#owner) eller [Administratör för användaråtkomst](built-in-roles.md#user-access-administrator).
+
+## <a name="multiple-role-assignments"></a>Flera rolltilldelningar
+
+Så vad händer om du har flera överlappande rolltilldelningar? RBAC är en additiv modell, så att de gällande behörigheterna är tillägget av dina rolltilldelningar. Fundera på följande exempel där en användare beviljas deltagarrollen i prenumerationsomfånget och läsarrollen på en resursgrupp. Tillägget av behörigheter för deltagare och läsare är effektivt rollen deltagare för resursgruppen. Därför har läsarrolltilldelningen ingen inverkan i det här fallet.
+
+![Flera rolltilldelningar](./media/overview/rbac-multiple-roles.png)
 
 ## <a name="deny-assignments"></a>Avvisa tilldelning
 
@@ -126,7 +132,7 @@ Följande är de övergripande stegen som RBAC använder för att avgöra om du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart – Bevilja åtkomst för en användare med RBAC och Azure Portal](quickstart-assign-role-user-portal.md)
+- [Snabbstart: Bevilja åtkomst för en användare med hjälp av RBAC och Azure-portalen](quickstart-assign-role-user-portal.md)
 - [Hantera åtkomst med hjälp av RBAC och Azure-portalen](role-assignments-portal.md)
 - [Förstå de olika rollerna i Azure](rbac-and-directory-admin-roles.md)
-- [Enterprise Cloud Adoption: Hantering av resursåtkomst i Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)
+- [Molnimplementering för företag: Åtkomsthantering av resurser i Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

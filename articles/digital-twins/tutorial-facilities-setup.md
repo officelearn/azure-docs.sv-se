@@ -6,14 +6,14 @@ author: dsk-2015
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 12/17/2018
 ms.author: dkshir
-ms.openlocfilehash: b21e5a87561757e2991a7b9addce0d1f3383204f
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 28433f8f3f181c507521cb12f064df045ae21d9d
+ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557724"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54212200"
 ---
 # <a name="tutorial-deploy-azure-digital-twins-and-configure-a-spatial-graph"></a>Självstudie: Distribuera Azure Digital Twins och konfigurera ett spatialt diagram
 
@@ -33,9 +33,7 @@ I seriens första kurs lär du dig följande:
 > * Ändra en Digital Twins-exempelapp.
 > * Etablera byggnaden.
 
-
 I de här kurserna används och ändras samma exempel som i [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md), för en mer detaljerad och djupgående täckning av de här begreppen.
-
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
@@ -45,7 +43,7 @@ I de här kurserna används och ändras samma exempel som i [snabbstarten för a
 
 - [Visual Studio Code](https://code.visualstudio.com/) för att utforska exempelkoden. 
 
-<a id="deploy" />
+<a id="deploy"></a>
 
 ## <a name="deploy-digital-twins"></a>Distribuera Digital Twins
 
@@ -53,8 +51,7 @@ Använd stegen i det här avsnittet för att skapa en ny instans av Azure Digita
 
 [!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
-
-<a id="permissions" />
+<a id="permissions"></a>
 
 ## <a name="grant-permissions-to-your-app"></a>Bevilja appen behörigheter
 
@@ -64,19 +61,20 @@ Om du redan har en appregistrering kan du återanvända den för ditt exempel. M
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 
-
 ## <a name="configure-the-digital-twins-sample"></a>Konfigurera Digital Twins-exemplet
 
 Det här avsnittet vägleder dig genom en Azure Digital Twins-app som kommunicerar med [Digital Twins REST-API:erna](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index). 
 
 ### <a name="download-the-sample"></a>Hämta exemplet
+
 Om du redan har exemplen för [snabbstarten för att hitta tillgängliga rum](quickstart-view-occupancy-dotnet.md) kan du hoppa över dessa steg.
 
-1. Ladda ned [Digital Twins .Net-exemplen](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip). 
-2. Extrahera innehållet i zip-mappen på din dator. 
+1. Ladda ned [Digital Twins .Net-exemplen](https://github.com/Azure-Samples/digital-twins-samples-csharp/archive/master.zip).
+2. Extrahera innehållet i zip-mappen på din dator.
 
 ### <a name="explore-the-sample"></a>Utforska exemplet
-I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\digital-twins-samples.code-workspace** i Visual Studio Code. Den innehåller två projekt: 
+
+I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\digital-twins-samples.code-workspace** i Visual Studio Code. Den innehåller två projekt:
 
 * Du kan använda etableringsexemplet **occupancy-quickstart** för att konfigurera och etablera en [graf med rumslig information](concepts-objectmodel-spatialgraph.md#graph). Den här grafen är en digital bild av fysiska utrymmen och resurserna i dem. Den använder en [objektmodell](concepts-objectmodel-spatialgraph.md#model) som definierar objekt för en smart byggnad. En komplett lista över Digital Twins-objekt och REST-API:er finns i [den här REST API-dokumentationen](https://docs.westcentralus.azuresmartspaces.net/management/swagger) eller den URL för API för hantering som har skapats för [din instans](#deploy).
 
@@ -89,6 +87,7 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
 * Simuleringsexemplet **device-connectivity** simulerar sensordata och skickar det till den IoT-hubb som har etablerats för din Digital Twin-instans. Du använder det här exemplet i [nästa självstudie när du har etablerat den rumsliga grafen](tutorial-facilities-udf.md#simulate). Sensorn och enhetsidentifierarna som du använder för att konfigurera det här exemplet ska vara samma som det du använder för att etablera grafen.
 
 ### <a name="configure-the-provisioning-sample"></a>Konfigurera etableringsexemplet
+
 1. Öppna ett kommandofönster och gå till det nedladdade exemplet. Kör följande kommando:
 
     ```cmd/sh
@@ -101,10 +100,10 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
     dotnet restore
     ```
 
-1. I Visual Studio Code öppnar du filen **appSettings.json** i projektet **occupancy-quickstart**. Uppdatera följande värden:
+1. I Visual Studio Code öppnar du filen [appSettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/appSettings.json) i projektet **occupancy-quickstart**. Uppdatera följande värden:
    * **ClientId**: Ange program-ID:t för din Azure AD-appregistrering. Du antecknade ID:t i avsnittet där du [anger appbehörigheter](#permissions).
    * **Klientorganisation**: Ange katalog-ID för din [Azure AD-klient](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant). Du antecknade även ID:t i avsnittet där du [anger appbehörigheter](#permissions).
-   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: _https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/**.
+   * **BaseUrl**: Ange URL:en för din Digital Twins-instans. Du kan hämta den här URL:en genom att ersätta platshållarna i den här URL:en med värdena för din instans: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Du kan också hämta URL:en genom att ändra URL:en för API för hantering i [distributionsavsnittet](#deploy). Ersätt **swagger/** med **api/v1.0/**.
 
 1. Se en lista över Digital Twins-funktioner som du kan utforska med hjälp av exemplet. Kör följande kommando:
 
@@ -112,10 +111,11 @@ I den extraherade exempelmappen öppnar du filen **digital-twins-samples-csharp\
     dotnet run
     ```
 
-<a id="provision-spaces" />
+<a id="provision-spaces"></a>
 
 ## <a name="understand-the-provisioning-process"></a>Förstå etableringsprocessen
-I det här avsnittet visas hur exemplet etablerar en rumslig graf över en byggnad. 
+
+I det här avsnittet visas hur exemplet etablerar en rumslig graf över en byggnad.
 
 I Visual Studio Code bläddrar du till mappen **occupancy-quickstart\src\actions** och öppnar filen **provisionSample.cs**. Observera följande funktion:
 
@@ -137,15 +137,16 @@ public static async Task<IEnumerable<ProvisionResults.Space>> ProvisionSample(Ht
 
 ```
 
-Den här funktionen använder **provisionSample.yaml** i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Plats*, *Våning*, *Område* och *Rum*. Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum). 
+Den här funktionen använder [provisionSample.yaml](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/provisionSample.yaml) i samma mapp. Öppna den här filen och notera hierarkin för en kontorsbyggnad: *Plats*, *Våning*, *Område* och *Rum*. Vilken som helst av dessa fysiska utrymmen kan innehålla *devices* (enheter) och *sensors* (sensorer). Varje post har en fördefinierad `type`&mdash;, till exempel Floor (Våning), Room (Rum).
 
 I **yaml**-exempelfilen visas en rumslig graf som använder `Default` Digital Twins-objektmodellen. Den här modellen innehåller allmänna namn för de flesta typer. Allmänna namn är tillräckliga för en byggnad. Exempel är Temperature (Temperatur) för SensorDataType (Sensordatatyp) och Map (Karta) för SpaceBlobType (Utrymmesblobtyp). Ett exempel på utrymmestypen är Room (Rum) med undertyperna FocusRoom (Fokusrum), ConferenceRoom (Konferensrum) och så vidare. 
 
 Om du var tvungen att skapa en rumslig graf för en annan typ av plats, till exempel en fabrik, kanske du behöver en annan objektmodell. Du kan få reda på vilka modeller som är tillgängliga att använda genom att köra kommandot `dotnet run GetOntologies` på kommandoraden för etableringsexemplet. 
 
-Mer information om rumsliga grafer och objektmodellerna finns i [Förstå Digital Twins-objektmodellen och rumslig graf](concepts-objectmodel-spatialgraph.md). 
+Mer information om rumsliga grafer och objektmodellerna finns i [Förstå Digital Twins-objektmodellen och rumslig graf](concepts-objectmodel-spatialgraph.md).
 
 ### <a name="modify-the-sample-spatial-graph"></a>Ändra exemplet på rumslig graf
+
 Filen **provisionSample.yaml** innehåller följande noder:
 
 - **resurser**: Noden `resources` skapar en Azure IoT Hub-resurs för att kommunicera med enheterna i din konfiguration. En IoT-hugg på rotnoden i grafen kan kommunicera med alla enheterna och sensorerna i din graf.  
@@ -168,22 +169,19 @@ Spara och stäng filen provisionSample.yaml. I nästa självstudie lägger du ti
 > [!TIP]
 > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du har skapat i den här självstudien:
 
 1. På den vänstra menyn i [Azure-portalen](http://portal.azure.com) väljer du **Alla resurser**, väljer din Digital Twins-resursgrupp och **Ta bort**.
-   
+
     > [!TIP]
     > Om det inträffade problem när du skulle ta bort Digital Twins-instansen finns det nu en tjänstuppdatering som åtgärdar det. Försök att ta bort instansen igen.
 
-1. Ta bort exempelprogrammet på datorn om det behövs. 
-
+1. Ta bort exempelprogrammet på datorn om det behövs.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Fortsätt till nästa självstudie i serien för att lära dig hur du implementerar en anpassad logik för att övervaka villkor i exempelbyggnaden: 
 > [!div class="nextstepaction"]
 > [Självstudie: Etablera byggnaden och övervaka arbetsförhållanden](tutorial-facilities-udf.md)
-

@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
-ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
+ms.openlocfilehash: 1916aa94dcf7528ce898ef37eac29c1017f03f15
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51633469"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54231894"
 ---
 # <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
 
@@ -72,10 +72,14 @@ Mer information om personidentifiering finns i [API:et för identifiering](https
 
 Följande exempelprogram visar några sätt som ansikts-API:et kan användas.
 
-- [Microsoft Face API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) – en WPF-app som visar flera olika scenarier för avkänning, analys och identifiering av ansikten.
+- [Microsoft Ansikts-API: Windows Client Library & Sample](https://github.com/Microsoft/Cognitive-Face-Windows) – en WPF-app som visar flera olika scenarier för avkänning, analys och identifiering av ansikten.
 - [FamilyNotes UWP-appen](https://github.com/Microsoft/Windows-appsample-familynotes) – en app för universell Windows-plattform (UWP) som använder ansiktsidentifiering tillsammans med tal, Cortana, pennanteckningar och kamera i ett scenario med delade familjeanteckningar.
+
+## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
+Som med alla Cognitive Services bör utvecklare som använder ansiktsigenkänningstjänsten känna till Microsofts policyer gällande kunddata. Se [Cognitive Services-sidan](https://www.microsoft.com/en-us/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Följ en snabbstart för att implementera ett enkelt ansiktsavkänningsscenario i kod.
-- [Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#](quickstarts/csharp.md) (andra språk som är tillgänglig)
+- [Snabbstart: Identifiera ansikten i en bild med hjälp av .NET SDK med C#](quickstarts/csharp.md) (andra språk är tillgängliga)

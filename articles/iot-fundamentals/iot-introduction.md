@@ -7,12 +7,12 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/11/2018
 ms.author: robinsh
-ms.openlocfilehash: 2480aa92dec8d8e8879db813b1cfcddc26f77b7e
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1cb588d68153a88d8b55b2696b376c4eb8704f5
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792534"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199295"
 ---
 # <a name="what-is-azure-internet-of-things-iot"></a>Vad är Azure Sakernas Internet (IoT)?
 
@@ -34,6 +34,8 @@ Enheter består vanligtvis av ett kretskort med anslutna sensorer som ansluter t
 * närvarosensorer i ett rum
 
 Två enheter som används ofta för prototyper är grundläggande MX-Chip IoT Devkit från Microsoft och Raspberry PI-enheter. MX-Chip Devkit har sensorer som skapats för temperatur, tryck och fuktighet, samt ett gyroskop och en accelerometer, en magnetometer och en Wi-Fi-krets. Raspberry PI är en IoT-enhet som du kan koppla många olika typer av sensorer till, så att du kan välja exakt det du behöver för ditt scenario. 
+
+Mer information om tillgängliga IoT-enheter finns i branschens största [katalog med enheter som är certifierade för IoT](https://catalog.azureiotsolutions.com/alldevices).
 
 [SDK:er för IoT-enheter](../iot-hub/iot-hub-devguide-sdks.md) hjälper dig att skapa appar som körs på dina enheter så att de kan utföra uppgifter som du behöver. Med SDK:er kan du skicka telemetri till din IoT-hubb, ta emot meddelanden och uppdateringar från IoT-hubb och så vidare.
 

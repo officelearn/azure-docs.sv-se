@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
-ms.date: 10/26/2018
+ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: 5e8e675b32bfd4c741b82b1ab341a80adbb0529d
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: d9b5473e87d83912dd2f33c00e983e346226e4aa
+ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741648"
+ms.lasthandoff: 01/12/2019
+ms.locfileid: "54242955"
 ---
 # <a name="what-is-azure-custom-vision"></a>Vad är Azure Custom Vision?
 
@@ -27,7 +27,7 @@ Custom Vision-tjänsten använder en maskininlärningsalgoritm för att klassifi
 
 ### <a name="classification-and-object-detection"></a>Klassificering och objektidentifiering
 
-Anpassade funktioner för Custom Vision kan delas in i två funktioner. **Bildklassificering** tilldelar en fördelning av klassificeringar till varje bild. **Objektidentifiering** är liknande, men returnerar även koordinaterna i bilden där de tillämpade taggarna kan hittas.
+Anpassade funktioner för Custom Vision kan delas in i två funktioner. **Bildklassificering** tilldelar en fördelning av klassificeringar till varje bild. Både klassificeringsmodellen för multiklass (en tagg per bild) och flera delar (valfritt antal taggar per bild) stöds. **Objektidentifiering** liknar flerdelsklassificering, men returnerar även koordinaterna i bilden där de tillämpade etiketterna kan hittas.
 
 ### <a name="optimization"></a>Optimering
 
@@ -39,6 +39,10 @@ Dessutom kan du välja från flera olika typer av Custom Vision-algoritmen som �
 Custom Vision Service är tillgängligt som en uppsättning av anpassade SDK: er eller via ett webbaserat gränssnitt på [Custom Vision-startsidan](https://customvision.ai/). Du kan skapa, testa och träna en modell via gränssnittet, eller båda.
 
 ![Custom Vision-startsida för i ett Chrome-webbläsarfönster](media/browser-home.png)
+
+## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet
+
+Som med alla Cognitive Services bör utvecklare som använder Custom Vision-tjänsten känna till Microsofts policyer gällande kunddata. Se [Cognitive Services-sidan](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) på Microsoft Trust Center om du vill veta mer.
 
 ## <a name="next-steps"></a>Nästa steg
 

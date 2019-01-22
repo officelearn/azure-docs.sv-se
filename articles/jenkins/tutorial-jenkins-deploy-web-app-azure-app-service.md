@@ -8,12 +8,12 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: 786fc427e4cb631c4aedd0f795daebebd9fb15bc
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3554151490215f128efc6725b7aaa0628d503366
+ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077444"
+ms.lasthandoff: 01/14/2019
+ms.locfileid: "54260147"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure App Service med kontinuerlig integrering och distribution i Jenkins
 
@@ -43,7 +43,7 @@ För att slutföra den här självstudien behöver du följande objekt:
 
 * En [Jenkins](https://jenkins.io/)-server med Java Development Kit (JDK) och Maven-verktyg installerade på en virtuell Linux-baserad dator i Azure
 
-  Om du inte har en Jenkins-server utför du dessa steg nu på Azure Portal: [Skapa en Jenkins-server på en virtuell Linux-dator i Azure](/azure/jenkins/install-jenkins-solution-template)
+  Om du inte har en Jenkins-server utför du dessa steg nu på Azure-portalen: [Skapa en Jenkins-server på en virtuell Linux-dator i Azure](/azure/jenkins/install-jenkins-solution-template)
 
 * Ett [GitHub](https://github.com)-konto så att du kan få en fungerande kopia ([förgrening](#fork)) för exempelwebbappen för Java. 
 

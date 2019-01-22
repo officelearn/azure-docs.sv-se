@@ -3,7 +3,7 @@ title: Översikt över SQL Server i Azure Windows Virtual Machines | Microsoft D
 description: Lär dig hur du kör fullständiga versioner av SQL Server på Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: ''
-author: rothja
+author: MashaMSFT
 manager: craigg
 tags: azure-service-management
 ms.assetid: c505089e-6bbf-4d14-af0e-dd39a1872767
@@ -13,13 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/12/2018
-ms.author: jroth
-ms.openlocfilehash: 416d1c7d45902735f58e397dd9195185ba0867df
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.author: mathoma
+ms.reviewer: jroth
+ms.openlocfilehash: 43305efc146151d131152e712869e283af65f0b2
+ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315255"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54359773"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Vad är SQL Server på Azure Virtual Machines? (Windows)
 
@@ -41,7 +42,7 @@ Virtuella Azure-datorer med SQL Server kan dra nytta av [automatisk säkerhetsko
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 
-Om du behöver hög tillgänglighet bör du överväga att konfigurera SQL Server-tillgänglighetsgrupper. Det här betyder att det finns flera virtuella Azure-datorer med SQL Server i ett virtuellt nätverk. Du kan konfigurera din lösning med hög tillgänglighet manuellt eller använda mallar i Azure Portal för automatisk konfiguration. En översikt över alternativ med hög tillgänglighet finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
+Om du behöver hög tillgänglighet bör du överväga att konfigurera SQL Server-tillgänglighetsgrupper. Det här betyder att det finns flera virtuella Azure-datorer med SQL Server i ett virtuellt nätverk. Du kan konfigurera din lösning med hög tillgänglighet manuellt eller använda mallar i Azure-portalen för automatisk konfiguration. En översikt över alternativ med hög tillgänglighet finns i [Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md).
 
 ## <a name="performance"></a>Prestanda
 
@@ -49,7 +50,7 @@ Virtuella datorer i Azure erbjuder olika datorstorlekar för att uppfylla olika 
 
 ## <a name="get-started-with-sql-vms"></a>Kom igång med virtuella SQL-datorer
 
-För att komma igång väljer du en avbildning av en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Följande avsnitt innehåller direktlänkar till Azure Portal för galleriavbildningarna för virtuella datorer med SQL Server.
+För att komma igång väljer du en avbildning av en virtuell dator med SQL Server med rätt version, utgåva och operativsystem. Följande avsnitt innehåller direktlänkar till Azure-portalen för galleriavbildningarna för virtuella datorer med SQL Server.
 
 > [!TIP]
 > Mer information om att förstå prissättningen för SOL-avbildningar kan du läsa [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Prisvägledning för virtuella SQL Server Azure-datorer). 
@@ -81,6 +82,14 @@ Om du vill använda din egen licens kan du antingen konvertera en befintlig virt
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
+
+Det är möjligt att distribuera en äldre avbildning av SQL Server som inte är tillgänglig i Azure-portalen med hjälp av PowerShell. Om du vill visa alla tillgängliga avbildningar med hjälp av Powershell använder du följande kommando:
+
+  ```PowerShell
+  Get-AzureRmVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
+  ```
+
+Mer information om hur du distribuerar virtuella SQL Server-datorer med hjälp av PowerShell finns i [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md) (Etablera virtuella SQL Server-datorer med Azure PowerShell).
 
 
 ### <a name="connect-to-the-vm"></a>Anslut till VM:en
@@ -115,7 +124,7 @@ CEIP (Customer Experience Improvement Program) är aktiverat som standard. Det s
 
 Kom igång med SQL Server på Azure Virtual Machines:
 
-* [Skapa en virtuell SQL Server-dator på Azure Portal](quickstart-sql-vm-create-portal.md)
+* [Skapa en virtuell SQL Server-dator på Azure-portalen](quickstart-sql-vm-create-portal.md)
 
 Få svar på vanliga frågor om virtuella SQL-datorer:
 

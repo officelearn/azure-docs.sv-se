@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 08a6134d61c4f93f891488ef24a7b81e81645897
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 6bd72fd91190c9ed54b4dfd3e7b1e957c375bd4c
+ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53089810"
+ms.lasthandoff: 01/11/2019
+ms.locfileid: "54230568"
 ---
 # <a name="what-is-azure-iot-edge"></a>Vad är Azure IoT Edge?
 
@@ -27,7 +27,7 @@ Azure IoT Edge flyttar molnbaserade analyser och anpassad affärslogik så att d
 Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om du vill att enheten ska reagera så snabbt som möjligt vid nödfall kan du utföra avvikelseidentifiering på själva enheten. Om du vill minska bandbreddskostnaderna och undvika att överföra terabyte med rådata kan du på samma sätt utföra datarensning och sammanställning lokalt. Skicka sedan insikterna till molnet. 
 
 Azure IoT Edge består av tre komponenter:
-* IoT Edge-moduler är containrar som kör Azure-tjänster, tjänster från tredje part eller din egen kod. De distribueras till IoT Edge-enheter och körs lokalt på enheterna. 
+* IoT Edge-moduler är containrar som kör Azure-tjänster, tjänster från tredje part eller din egen kod. Moduler distribueras till IoT Edge-enheter och körs lokalt på enheterna. 
 * IoT Edge-körningen körs på varje IoT Edge-enhet och hanterar modulerna som distribueras till varje enhet. 
 * Med ett molnbaserad gränssnitt kan du övervaka och hantera IoT-enheter via fjärranslutning.
 
@@ -37,27 +37,25 @@ IoT Edge-moduler är körningsenheter som för närvarande är implementerade so
 
 ### <a name="artificial-intelligence-on-the-edge"></a>Artificiell intelligens på gränsen
 
-Med Azure IoT Edge kan du distribuera komplex händelsebearbetning, Machine Learning, bildigenkänning och annan värdefull AI utan att skriva internt. Azure-tjänster som Azure Functions, Azure Stream Analytics och Azure Machine Learning kan köras lokalt via Azure IoT Edge, men du är inte begränsad till Azure-tjänster. Vem som helst kan skapa AI-moduler och göra dem tillgängliga för communityn. 
+Med Azure IoT Edge kan du distribuera komplex händelsebearbetning, maskininlärning, bildigenkänning och annan värdefull AI utan att skriva internt. Azure-tjänster som Azure Functions, Azure Stream Analytics och Azure Machine Learning kan köras lokalt via Azure IoT Edge, men du är inte begränsad till Azure-tjänster. Vem som helst kan skapa AI-moduler och göra dem tillgängliga för communityn. 
 
 ### <a name="bring-your-own-code"></a>Ha med din egen kod
 
-När du vill distribuera din egen kod till dina enheter kan du göra det med Azure IoT Edge. Azure IoT Edge innehåller samma programmeringsmiljö som de andra Azure IoT-tjänsterna. Samma kod kan köras på en enhet eller i molnet. Azure IoT Edge stöder både Linux och Windows, så du kan koda till vilken plattform du vill. Det har stöd för Java, .NET Core 2.0, Node.js, C och Python. Det gör att dina utvecklare kan koda på ett språk de redan kan och använda befintlig affärslogik utan att skriva från grunden.
+När du vill distribuera din egen kod till dina enheter kan du göra det med Azure IoT Edge. Azure IoT Edge innehåller samma programmeringsmiljö som de andra Azure IoT-tjänsterna. Samma kod kan köras på en enhet eller i molnet. Azure IoT Edge stöder både Linux och Windows, så du kan koda till vilken plattform du vill. Den har stöd för Java, .NET Core 2.0, Node.js, C och Python. Det gör att dina utvecklare kan koda på ett språk de redan kan och använda befintlig affärslogik.
 
 ## <a name="iot-edge-runtime"></a>IoT Edge-körning
 
 Azure IoT Edge-körning möjliggör anpassad och molnbaserad logik på IoT Edge-enheter. Det finns på IoT Edge-enheten och utför åtgärder för hantering och kommunikation. Körningen utför flera funktioner:
 
 * Installerar och uppdaterar arbetsbelastningar på enheten.
-* Underhåller Azure IoT Edge-säkerhetsstandarder på enheten.
+* Upprätthåller Azure IoT Edge-säkerhetsstandarder på enheten.
 * Säkerställer att IoT Edge-moduler alltid körs.
 * Rapporterar modulens hälsa till molnet för fjärrövervakning.
-* Underlättar kommunikationen mellan nedströms lövenheter och IoT Edge-enheten.
-* Underlättar kommunikationen mellan moduler på IoT Edge-enheten.
-* Underlättar kommunikationen mellan IoT Edge-enheten och molnet.
+* Hanterar kommunikationen mellan nedströms lövenheter och en IoT Edge-enhet, mellan modulerna på en IoT Edge-enhet, och mellan en IoT Edge-enhet och molnet.
 
 ![IoT Edge-körning skickar insikter och rapportering till IoT Hub](./media/about-iot-edge/runtime.png)
 
-Det är helt upp till dig hur du använder en Azure IoT Edge-enhet. Körningen används ofta för att distribuera AI till gatewayar som sammanställer och bearbetar data från flera andra lokala enheter, men det är bara ett alternativ. Lövenheter kan också vara Azure IoT Edge-enheter oavsett om de är anslutna till en gateway eller direkt till molnet.
+Det är upp till dig hur du använder en Azure IoT Edge-enhet. Körningen används ofta för att distribuera AI till gatewayer som sammanställer och bearbetar data från flera andra lokala enheter, men det är bara ett alternativ. Lövenheter kan också vara Azure IoT Edge-enheter oavsett om de är anslutna till en gateway eller direkt till molnet.
 
 Azure IoT Edge-körningen körs på en stor uppsättning IoT-enheter för att möjliggöra körningen på många olika sätt. Den stöder både Linux- och Windows-operativsystem och avlägsnar maskinvaruinformation. Använd en enhet som är mindre än en Raspberry Pi 3 om du inte hanterar stora datamängder eller skala upp till en industrialiserad server för att köra resursintensiva arbetsbelastningar.
 
@@ -65,7 +63,7 @@ Azure IoT Edge-körningen körs på en stor uppsättning IoT-enheter för att m�
 
 Det är komplicerat att hantera programvarans livscykel för företagsenheter. Det är ännu svårare att hantera programvarans livscykel för miljontals heterogena IoT-enheter. Arbetsbelastningar måste skapas och konfigureras för en viss typ av enhet, distribueras i stor skala till de miljontals enheterna i din lösning och övervakas för att fånga upp enheter som beter sig felaktigt. Dessa aktiviteter kan inte utföras på enhetsbasis och måste göras i stor skala.
 
-Azure IoT Edge integreras sömlöst med Azure IoT-lösningsacceleratorer för att tillhandahålla en kontrollplan för lösningens behov. Med molntjänster kan användare:
+Azure IoT Edge integreras sömlöst med Azure IoT-lösningsacceleratorer för att tillhandahålla en kontrollplan för lösningens behov. Med molntjänster kan du:
 
 * Skapa och konfigurera en arbetsbelastning som ska köras på en specifik typ av enhet.
 * Skicka en arbetsbelastning till en uppsättning enheter.

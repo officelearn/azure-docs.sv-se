@@ -4,7 +4,7 @@ description: Den här artikeln förklarar hur du löser problem med e-postmeddel
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 543b7dc1-ccc9-407f-85a1-a9944c0ba1be
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/20/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 311c16ba0c6b3378fd743b77e263a5d91f8b6a37
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512efb45ee5c56cd0a10286d4156ae2d81f2f99
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51237103"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464960"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Förnya federationscertifikat för Office 365 och Azure Active Directory
 ## <a name="overview"></a>Översikt
@@ -58,7 +58,7 @@ Azure AD försöker övervaka federationsmetadata och uppdatera certifikaten fö
 >
 
 ## Kontrollera om certifikat som behöver uppdateras <a name="managecerts"></a>
-### <a name="step-1-check-the-autocertificaterollover-state"></a>Steg 1: Kontrollera AutoCertificateRollover-tillstånd
+### <a name="step-1-check-the-autocertificaterollover-state"></a>Steg 1: Kontrollera AutoCertificateRollover tillstånd
 Öppna PowerShell på AD FS-servern. Kontrollera att värdet för AutoCertificateRollover har angetts till True.
 
     Get-Adfsproperties
@@ -68,7 +68,7 @@ Azure AD försöker övervaka federationsmetadata och uppdatera certifikaten fö
 >[!NOTE] 
 >Om du använder AD FS 2.0 kan du först köra Add-Pssnapin Microsoft.Adfs.Powershell.
 
-### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Steg 2: Kontrollera att AD FS och Azure AD är synkroniserade
+### <a name="step-2-confirm-that-ad-fs-and-azure-ad-are-in-sync"></a>Steg 2: Bekräfta att AD FS och Azure AD är synkroniserade
 Öppna MSOnline PowerShell-kommandotolk på din AD FS-servern och Anslut till Azure AD.
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Kontrollera att certifikaten som konfigurerats i AD FS och Azure AD litar egensk
 
 Om tumavtrycken i båda utdata matchar är ditt certifikat synkroniserade med Azure AD.
 
-### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: Kontrollera om ditt certifikat som snart upphör att gälla
+### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Steg 3: Kontrollera om det är ditt certifikat upphör snart att gälla
 I utdata från Get-MsolFederationProperty eller Get-AdfsCertificate, kontrollera datum under ”inte efter”. Om datumet är mindre än 30 dagar, bör du vidta åtgärder.
 
 | AutoCertificateRollover | Certifikat synkroniserade med Azure AD | Federationsmetadata är allmänt tillgänglig | Giltighet | Åtgärd |
@@ -115,7 +115,7 @@ Kontrollera följande för att bekräfta att certifikatet kan uppdateras automat
 
 **2. AD FS-federationsmetadata är allmänt tillgänglig.** Kontrollera att din federationsmetadata är offentligt tillgänglig genom att navigera till följande URL från en dator i det offentliga internet (från företagsnätverket):
 
-https:// (your_FS_name) /federationmetadata/2007-06/federationmetadata.xml
+https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
 där `(your_FS_name) `ersätts med värden federationstjänstnamnet din organisation använder, till exempel fs.contoso.com.  Om du har verifierat båda dessa inställningar, du behöver inte göra något annat.  
 

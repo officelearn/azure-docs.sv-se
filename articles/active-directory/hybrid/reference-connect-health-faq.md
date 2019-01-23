@@ -4,7 +4,7 @@ description: HÄR får du svar på frågor om Azure AD Connect Health. Avsnittet
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: f1b851aa-54d7-4cb4-8f5c-60680e2ce866
 ms.service: active-directory
@@ -14,22 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 83ff526eb0bd0c51822fc52c90b958d50022a834
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497735"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470332"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (Azure AD) Connect Health. Avsnittet täcker frågor om hur du använder tjänsten, inklusive fakturering modellen, funktioner, begränsningar och support.
 
 ## <a name="general-questions"></a>Allmänna frågor
-**F: jag hantera flera Azure AD-kataloger. Hur växlar jag till den som har Azure Active Directory Premium?**
+**F: Jag hantera flera Azure AD-kataloger. Hur växlar jag till den som har Azure Active Directory Premium?**
 
 Växla mellan olika Azure AD-klienter, Välj den för tillfället inloggade **användarnamn** i det övre högra hörnet och välj sedan lämpligt konto. Om kontot inte listas här, väljer **logga ut**, och sedan använda de autentiseringsuppgifter som global administratör för katalogen som har Azure Active Directory Premium aktiverat för att logga in.
 
-**F: vilken version av identitet roller stöds av Azure AD Connect Health?**
+**F: Vilken version av identitet roller stöds av Azure AD Connect Health?**
 
 I följande tabell listar rollerna och operativsystemversioner som stöds.
 
@@ -41,7 +41,7 @@ I följande tabell listar rollerna och operativsystemversioner som stöds.
 
 Observera att de funktioner som tillhandahålls av tjänsten kan variera beroende på rollen och operativsystemet. Med andra ord kanske alla funktioner inte tillgänglig för alla versioner av operativsystemet. Se funktionsbeskrivningar för information.
 
-**F: hur många licenser behöver jag att övervaka min infrastruktur?**
+**F: Hur många licenser behöver jag att övervaka min infrastruktur?**
 
 * Den första Connect Health-agenten kräver minst en Azure AD Premium-licens.
 * Alla registrerade ytterligare agenter krävs 25 ytterligare Azure AD Premium-licenser.
@@ -60,7 +60,7 @@ Exempel:
 | 4 | 76 | 1 AD FS-servern, 1 AD FS-proxy och 2 domänkontrollanter |
 | 5 | 101 | 1 azure AD Connect-servern, 1 AD FS-servern, 1 AD FS-proxy och 2-domänkontrollanter |
 
-**F: kan Azure AD Connect Health stöd för Azure-molnet för Tyskland?**
+**F: Azure AD Connect Health har stöd för Azure-molnet för Tyskland?**
 
 Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [synkroniseringsfunktionen fel rapporten](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
 
@@ -82,7 +82,7 @@ Effekten av att installera Microsoft Azure AD Connect Health Agent, AD FS, web a
 Följande talen är ett approximativt värde:
 
 * CPU-förbrukning: ~ 1-5% ökning.
-* Minnesförbrukning: upp till 10% av det totala systemminnet.
+* Minnesförbrukning: Upp till 10% av det totala systemminnet.
 
 > [!NOTE]
 > Om agenten inte kan kommunicera med Azure lagrar agenten lokalt för en definierad högsta gräns. Agenten skriver över dessa ”cachelagrade” data på basis av ”minst senast servas”.
@@ -92,13 +92,13 @@ Följande talen är ett approximativt värde:
 * Bufferten för lokal lagring för Azure AD Connect Health-agenterna: ~ 20 MB.
 * För AD FS-servrar rekommenderar vi att du etablerar ett utrymme på 1 024 MB (1 GB) för AD FS-granskning kanalen för Azure AD Connect Health-agenter att bearbeta alla granskningsdata innan den skrivs över.
 
-**F: Jag måste starta om Mina servrar under installationen av Azure AD Connect Health-agenterna?**
+**F: Måste jag att starta om Mina servrar under installationen av Azure AD Connect Health-agenterna?**
 
 Nej. Installationen av agenterna kräver inte omstart av servern. Installationen av vissa nödvändiga steg kan dock kräva en omstart av servern.
 
 I Windows Server 2008 R2 måste till exempel installationen av .NET 4.5 Framework server startas om.
 
-**F: fungerar Azure AD Connect Health via en direkt HTTP-proxy?**
+**F: Fungerar Azure AD Connect Health via en direkt HTTP-proxy?**
 
 Ja. Du kan konfigurera Hälsoagenten om du vill använda en HTTP-proxy för att vidarebefordra utgående HTTP-begäranden för pågående åtgärder.
 Läs mer om [konfigurera HTTP-Proxy för Health-agenterna](how-to-connect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy).
@@ -109,15 +109,15 @@ Om du vill konfigurera en proxyserver under agentregistreringen kan behöva du �
 2. Välj **använder en proxyserver för ditt lokala nätverk**.
 3. Välj **Avancerat** om du har olika aktiveringsproxyportarna för HTTP och HTTPS/Secure.
 
-**F: kan Azure AD Connect Health stöder grundläggande autentisering när du ansluter till HTTP-proxyservrar?**
+**F: Azure AD Connect Health stöder grundläggande autentisering när du ansluter till HTTP-proxyservrar?**
 
 Nej. En mekanism för att ange en godtycklig användarnamn och lösenord för grundläggande autentisering stöds inte för närvarande.
 
-**F: vilka portar i brandväggen behöver jag öppna för Azure AD Connect Health-agenten ska fungera?**
+**F: Vilka portar i brandväggen behöver jag öppna för Azure AD Connect Health-agenten ska fungera?**
 
 Se den [kravavsnitt](how-to-connect-health-agent-install.md#requirements) lista över portar i brandväggen och andra krav för anslutning.
 
-**F: Varför visas två servrar med samma namn i Azure AD Connect Health-portalen?**
+**F: Varför ser jag två servrar med samma namn i Azure AD Connect Health-portalen?**
 
 När du tar bort en agent från en server tas servern inte automatiskt bort från Azure AD Connect Health-portalen. Om du manuellt ta bort en agent från en server eller ta bort själva servern, måste du manuellt ta bort posten från Azure AD Connect Health-portalen.
 
@@ -135,26 +135,26 @@ Health-agenten kan inte registrera på grund av följande anledningar:
 * Utgående kommunikation är föremål för en SSL-kontroll av nätverket. Detta gör att det certifikat som använder agenten som ska ersättas med server/entiteten inspektion och stegen för att slutföra agentregistreringen misslyckas.
 * Användaren har inte åtkomst för att genomföra registreringen av agenten. Globala administratörer har åtkomst som standard. Du kan använda [rollbaserad åtkomstkontroll](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) att delegera åtkomst till andra användare.
 
-**F: Jag kan komma aviserad om att ”Hälsotjänstens data inte är uppdaterad”. Hur gör jag för att felsöka problemet?**
+**F: Jag är komma aviserad om att ”Hälsotjänstens data inte är uppdaterad”. Hur gör jag för att felsöka problemet?**
 
 Azure AD Connect Health genererar en avisering när den inte tar emot alla datapunkter från servern under de senaste två timmarna. [Läs mer](how-to-connect-health-data-freshness.md).
 
 ## <a name="operations-questions"></a>Operations-frågor
-**F: Jag behöver aktivera granskning på web application proxy-servrar?**
+**F: Måste jag aktivera granskning på web application proxy-servrar?**
 
 Nej, granskning behöver inte aktiveras på web application proxy-servrar.
 
-**F: hur Azure AD Connect Health-aviseringar supportärendena?**
+**F: Hur Azure AD Connect Health-aviseringar supportärendena?**
 
 Azure AD Connect Health-aviseringar supportärendena går att på ett lyckat tillstånd. Azure AD Connect Health-agenterna identifiera och rapportera lyckades villkor till tjänsten med jämna mellanrum. För några aviseringar är Undertryckning tidsbaserade. Om samma fel inte observeras inom 72 timmar från genereringen, matchas med andra ord automatiskt aviseringen.
 
-**F: Jag kan komma aviserad om att ”Test-autentiseringsbegäran (syntetisk transaktion) kunde inte hämta en token”. Hur gör jag för att felsöka problemet?**
+**F: Jag är komma aviserad om att ”Test-autentiseringsbegäran (syntetisk transaktion) kunde inte hämta en token”. Hur gör jag för att felsöka problemet?**
 
 Azure AD Connect Health för AD FS genererar den här aviseringen när Health-agenten installeras på AD FS-servern inte kan hämta en token som en del av en syntetisk transaktion som initieras av Hälsoagenten. Health-agenten använder det lokala systemsammanhanget och försöker hämta en token för ett självsignerat förlitande part. Det här är ett övergripande test för att kontrollera att AD FS är i tillståndet utfärda token.
 
 Det här testet misslyckas oftast eftersom Health-agenten inte kan matcha namnet på AD FS-servergruppen. Detta kan inträffa om AD FS-servrar som finns bakom en belastningsutjämnare för nätverk och begäran hämtar initieras från en nod som är bakom belastningsutjämnare (i stället för en vanlig klient som är framför belastningsutjämnaren). Detta kan åtgärdas genom att uppdatera filen ”värdar” ”C:\Windows\System32\drivers\etc” inkludera IP-adressen för AD FS-servern eller en loopback-IP-adress (127.0.0.1) för namnet på AD FS-servergruppen (t.ex sts.contoso.com). Att lägga till värdfilen kommer kortslutning nätverksanrop, vilket medför att Health-agenten att hämta token.
 
-**F: Jag har fått ett e-postmeddelande som anger mina datorer inte är korrigeras för de senaste ransomeware-attackerna. Varför får jag detta e-postmeddelande?**
+**F: Jag får ett e-postmeddelande som anger mina datorer inte är korrigeras för de senaste ransomeware-attackerna. Varför får jag detta e-postmeddelande?**
 
 Azure AD Connect Health-tjänsten genomsöks alla datorer som övervakas för att säkerställa att uppdateringarna som krävs har installerats. E-postmeddelandet har skickats till innehavaradministratörer Om minst en dator inte har de viktiga uppdateringarna. Följande logik används för att göra den bedömningen.
 1. Hitta alla snabbkorrigeringar som är installerade på datorn.

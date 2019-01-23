@@ -4,7 +4,7 @@ description: Identifiera företagets affärsbehov som leder dig att fastställa 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: de690978-84ef-41ad-9dfe-785722d343a1
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 06/27/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 756d55fe535d424bf796e24968cfdc9c82721c1c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9be8ddb6869a4872ff3eae9b589584f850c7dc96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312762"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463628"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att utnyttja den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och på att tillhandahålla nya och intressanta funktioner att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity utformningen.  Dessa tjänster och arbetsbelastningar behöver använda hybrididentitet både lokalt och i molnet.  
@@ -69,7 +69,7 @@ Därefter måste du utvärdera identitetskrav för integrering. Den här utvärd
 * Är ett krav för federation?  På grund av följande:
   * Kerberos-baserad enkel inloggning
   * Företaget har ett lokalt program (antingen inbyggd interna eller 3 part) som använder SAML eller liknande federation-funktioner.
-  * MFA via smartkort. RSA SecurID, osv.
+  * MFA via smartkort. RSA SecurID, etc.
   * Åtkomstregler för klienten som löser frågorna nedan:
     1. Kan jag blockera all extern åtkomst till Office 365 baserat på IP-adressen för klienten?
     2. Kan jag blockera all extern åtkomst till Office 365, utom Exchange ActiveSync?

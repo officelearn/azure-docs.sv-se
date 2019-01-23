@@ -1,24 +1,17 @@
 ---
-title: Översikt över Azure DNS-delegering | Microsoft Docs
+title: Översikt av Azure DNS-delegering
 description: Lär dig hur du ändrar domändelegering och använder Azure DNS-namnservrar för att tillhandahålla domänvärdtjänster.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: a00cc00dee3a505f88abef3ecf99f49aa027c30b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
-ms.translationtype: HT
+ms.openlocfilehash: d1de1212280c6767862233f990c9fc5e0cf97473
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170512"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461042"
 ---
 # <a name="delegation-of-dns-zones-with-azure-dns"></a>Delegering av DNS-zoner med Azure DNS
 
@@ -58,13 +51,16 @@ Följande bild visar ett exempel på en DNS-fråga. Contoso.net och partners.con
 ![DNS-namnserver](./media/dns-domain-delegation/image1.png)
 
 1. Klientbegäranden `www.partners.contoso.net` från den lokala DNS-servern.
-1. Eftersom den lokala DNS-servern inte har posten skickar den en begäran till rotservern.
-1. Rotservern har inte posten, men känner till adressen till `.net`-servern och ger den adressen till DNS-servern
-1. DNS-servern skickar begäran till `.net`-servern. Den inte har posten men känner till adressen till contoso.net-servern. I det här fallet är det en DNS-zon i Azure DNS.
-1. Zonen `contoso.net` har inte posten men känner till namnservern för `partners.contoso.net` och skickar den som svar. I det här fallet är det en DNS-zon i Azure DNS.
-1. DNS-servern begär IP-adressen till `partners.contoso.net` från `partners.contoso.net`-zonen. Den innehåller A-posten och svarar med IP-adressen.
-1. DNS-servern skickar IP-adressen till klienten
-1. Klienten ansluter till webbplatsen `www.partners.contoso.net`.
+2. Eftersom den lokala DNS-servern inte har posten skickar den en begäran till rotservern.
+3. Rotservern har inte posten, men känner till adressen till `.net`-servern och ger den adressen till DNS-servern
+4. Den lokala DNS-servern skickar begäran till den `.net` namnservern.
+5. Den `.net` namnservern har inte posten men känner till adressen för den `contoso.net` namnservern. I det här fallet svarar den med adressen för namnservern för DNS-zon i Azure DNS.
+6. Den lokala DNS-servern skickar en begäran till namnservern för den `contoso.net` zon som finns i Azure DNS.
+7. Zonen `contoso.net` har inte posten men känner till namnservern för `partners.contoso.net` och svarar med adressen. I det här fallet är det en DNS-zon som finns i Azure DNS.
+8. Den lokala DNS-servern skickar en begäran till namnservern för den `partners.contoso.net` zon.
+9. Den `partners.contoso.net` zon har A-posten och svarar med IP-adress.
+10. Den lokala DNS-servern skickar IP-adressen till klienten
+11. Klienten ansluter till webbplatsen `www.partners.contoso.net`.
 
 Varje delegering har i själva verket två kopior av NS-posterna: en i den överordnade zonen som pekar på den underordnade zonen och en annan i den underordnade zonen. Contoso.net-zonen innehåller NS-posterna för contoso.net (utöver NS-posterna i ”net”). Dessa poster kallas för auktoritativa NS-poster och finns överst i den underordnade zonen.
 

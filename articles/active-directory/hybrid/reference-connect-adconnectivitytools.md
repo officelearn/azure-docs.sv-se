@@ -2,23 +2,23 @@
 title: 'Azure AD Connect: ADConnectivityTools PowerShell-referens | Microsoft Docs'
 description: Det här dokumentet innehåller information för ADConnectivityTools.psm1 PowerShell-modulen.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9d63c35d82a98d816c18dd299a8e0e81baa5bc8d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e398814e9ce8b98d8b1079d6f6c429e829c99d21
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425232"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462105"
 ---
-# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect: ADConnectivityTools PowerShell-referens
+# <a name="azure-ad-connect--adconnectivitytools-powershell-reference"></a>Azure AD Connect:  ADConnectivityTools PowerShell-referens
 Följande dokumentation innehåller information för ADConnectivityTools.psm1 PowerShell-modul som ingår i Azure AD Connect.
 
-## <a name="confirm-dnsconnectivity"></a>Bekräfta DnsConnectivity
+## <a name="confirm-dnsconnectivity"></a>Confirm-DnsConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Identifierar lokala Dns-problem.
@@ -97,7 +97,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-forestexists"></a>Bekräfta ForestExists
+## <a name="confirm-forestexists"></a>Confirm-ForestExists
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Anger om det finns en angiven skog.
@@ -229,7 +229,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-networkconnectivity"></a>Bekräfta NetworkConnectivity
+## <a name="confirm-networkconnectivity"></a>Confirm-NetworkConnectivity
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Identifierar lokala nätverksanslutningsproblem.
@@ -310,7 +310,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-targetsarereachable"></a>Bekräfta TargetsAreReachable
+## <a name="confirm-targetsarereachable"></a>Confirm-TargetsAreReachable
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Anger om en angiven skogen och dess associerade domänkontrollanter kan nås.
@@ -461,7 +461,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-validenterpriseadmincredentials"></a>Bekräfta ValidEnterpriseAdminCredentials
+## <a name="confirm-validenterpriseadmincredentials"></a>Confirm-ValidEnterpriseAdminCredentials
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Kontrollerar om en användare har autentiseringsuppgifter som företagsadministratör.
@@ -773,7 +773,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-credentials"></a>-Autentiseringsuppgifter
+#### <a name="-credentials"></a>-Credentials
 Användarnamnet och lösenordet för den användare som kör testet.
 Det kräver samma nivå av behörigheter som krävs för att köra i Azure AD Connect-guiden.
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf6f27b7720cf4a30aa08ca02f9150aebe564244
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f427ce2df8a83a3fb43291fcb375a1e01b32060d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135948"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447028"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet visar hur du skapar funktioner för data som lagras i en SQL Server-VM på Azure som hjälper algoritmer som Lär dig mer effektivt från data. Du kan använda SQL-databaser eller ett programmeringsspråk som Python för att åstadkomma detta. Båda metoderna är visas här.
@@ -114,7 +114,7 @@ Följande formatet för anslutningssträngen kan användas för att ansluta till
 Den [Pandas biblioteket](http://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Följande kod läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Nu kan du arbeta med Pandas dataram som beskrivs i avsnitt [skapa funktioner för Azure blob storage-data med Panda](create-features-blob.md).
 

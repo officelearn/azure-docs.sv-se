@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a1e315c7837f682e3b12624387902599138c957f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 1b3e33c47d4188ba273fb232e2e166a2c33cb1b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322018"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463838"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -36,7 +36,13 @@ Vi rekommenderar starkt att du läser [planera för distribution av Azure Files]
 
     > [!Note]  
     > Azure File Sync stöder ännu inte PowerShell 6 + på Windows Server 2012 R2 eller Windows Server 2016.
-* Azure PowerShell-modulen på de servrar som du vill använda med Azure File Sync. Mer information om hur du installerar Azure PowerShell-moduler finns i [installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Du bör alltid använda den senaste versionen av Azure PowerShell-moduler. 
+* Az- och AzureRM PowerShell-moduler.
+    - Az-modulen kan installeras genom att följa instruktionerna här: [Installera och konfigurera Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+    - Modulen AzureRM PowerShell kan installeras genom att köra följande PowerShell-cmdlet:
+    
+        ```PowerShell
+        Install-Module AzureRM
+        ```
 
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Förbereda Windows Server för användning med Azure File Sync
 För varje server som du planerar att använda med Azure File Sync, inklusive varje servernoden i ett redundanskluster, inaktivera **Förbättrad säkerhetskonfiguration i Internet Explorer**. Detta krävs endast för inledande serverregistrering. Du kan aktivera det igen när servern har registrerats.
@@ -70,61 +76,6 @@ Stop-Process -Name iexplore -ErrorAction SilentlyContinue
 
 ---
 
-## <a name="install-the-azure-file-sync-agent"></a>Installera Azure File Sync-agenten
-Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. 
-
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-Du kan ladda ned agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). När nedladdningen är klar dubbelklickar du på MSI-paketet för att starta installationen av Azure File Sync-agenten.
-
-> [!Important]  
-> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
-
-Vi rekommenderar att du gör följande:
-- Lämna standardinstallationssökväg (C:\Program Files\Azure\StorageSyncAgent) för att förenkla underhållet för felsökning och server.
-- Aktivera Microsoft Update för att hålla Azure File Sync uppdaterade. Alla uppdateringar sker av Azure File Sync-agenten, inklusive funktionsuppdateringar och snabbkorrigeringar, från Microsoft Update. Vi rekommenderar att du installerar den senaste uppdateringen till Azure File Sync. Mer information finns i [Azure File Sync-uppdateringsprincip](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
-
-När installationen av Azure File Sync-agent är klar öppnas automatiskt Användargränssnittet för registrering av servern. Du måste ha en tjänst för Lagringssynkronisering innan du registrerar; Se nästa avsnitt om hur du skapar en Lagringssynkroniseringstjänst.
-
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
-Kör följande PowerShell-kod för att hämta den aktuella versionen av Azure File Sync-agenten för ditt operativsystem och installera den på datorn.
-
-> [!Important]  
-> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
-
-```PowerShell
-# Gather the OS version
-$osver = [System.Environment]::OSVersion.Version
-
-# Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
-        -OutFile "StorageSyncAgent.exe" 
-}
-else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
-}
-
-# Extract the MSI from the install package
-$tempFolder = New-Item -Path "afstemp" -ItemType Directory
-Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
-
-# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
-# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
-Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
-
-# Note that this cmdlet will need to be run in a new session based on the above comment.
-# You may remove the temp folder containing the MSI and the EXE installer
-Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
-```
-
----
-
 ## <a name="deploy-the-storage-sync-service"></a>Distribuera tjänsten för synkronisering av lagring 
 Distributionen av Azure File Sync som börjar med att placera en **Lagringssynkroniseringstjänst** resurs i en resursgrupp för din valda prenumeration. Vi rekommenderar att du etablerar så lite av dessa efter behov. Du skapar en förtroenderelation mellan dina servrar och den här resursen och en server kan bara registreras för en Lagringssynkroniseringstjänst. Vi rekommenderar därför att distribuera så många lagringstjänster för synkronisering som du behöver till olika grupper av servrar. Tänk på att servrar från olika lagringstjänster för synkronisering inte kan synkronisera med varandra.
 
@@ -147,7 +98,7 @@ När du är klar väljer du **skapa** att distribuera Storage Sync-tjänsten.
 Innan du interagerar med Azure File Sync management-cmdletar, behöver du importera en DLL-fil och skapa en kontext för hantering av Azure File Sync. Detta är nödvändigt eftersom de Azure File Sync cmdletarna inte ännu en del av Azure PowerShell-moduler.
 
 > [!Note]  
-> StorageSync.Management.PowerShell.Cmdlets.dll paketet, som innehåller management-cmdletar för Azure File Sync (avsiktligt) innehåller en cmdlet med ett icke-godkända verb (`Login`). Namnet `Login-AzureStorageSync` valdes för att matcha den `Login-AzAccount` alias för cmdleten i Azure PowerShell-modulen. Det här felmeddelandet (och cmdleten) tas bort Azure File Sync-agenten har lagts till i Azure PowerShell-modulen.
+> StorageSync.Management.PowerShell.Cmdlets.dll paketet, som innehåller management-cmdletar för Azure File Sync (avsiktligt) innehåller en cmdlet med ett icke-godkända verb (`Login`). Namnet `Login-AzureStorageSync` valdes för att matcha den `Login-AzAccount` alias för cmdleten i Azure PowerShell-modulen. Det här felmeddelandet (och cmdleten) tas bort när Azure File Sync-agenten har lagts till i Azure PowerShell-modulen.
 
 ```PowerShell
 $acctInfo = Login-AzAccount
@@ -216,6 +167,61 @@ New-AzureRmStorageSyncService -StorageSyncServiceName $storageSyncName
 
 ---
 
+## <a name="install-the-azure-file-sync-agent"></a>Installera Azure File Sync-agenten
+Azure File Sync-agenten är ett nedladdningsbart paket som möjliggör att Windows Server kan synkroniseras med en Azure-filresurs. 
+
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+Du kan ladda ned agenten från den [Microsoft Download Center](https://go.microsoft.com/fwlink/?linkid=858257). När nedladdningen är klar dubbelklickar du på MSI-paketet för att starta installationen av Azure File Sync-agenten.
+
+> [!Important]  
+> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
+
+Vi rekommenderar att du gör följande:
+- Lämna standardinstallationssökväg (C:\Program Files\Azure\StorageSyncAgent) för att förenkla underhållet för felsökning och server.
+- Aktivera Microsoft Update för att hålla Azure File Sync uppdaterade. Alla uppdateringar sker av Azure File Sync-agenten, inklusive funktionsuppdateringar och snabbkorrigeringar, från Microsoft Update. Vi rekommenderar att du installerar den senaste uppdateringen till Azure File Sync. Mer information finns i [Azure File Sync-uppdateringsprincip](storage-sync-files-planning.md#azure-file-sync-agent-update-policy).
+
+När installationen av Azure File Sync-agent är klar öppnas automatiskt Användargränssnittet för registrering av servern. Du måste ha en tjänst för Lagringssynkronisering innan du registrerar; Se nästa avsnitt om hur du skapar en Lagringssynkroniseringstjänst.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+Kör följande PowerShell-kod för att hämta den aktuella versionen av Azure File Sync-agenten för ditt operativsystem och installera den på datorn.
+
+> [!Important]  
+> Om du planerar att använda Azure File Sync med ett redundanskluster, måste Azure File Sync-agenten installeras på varje nod i klustret. Varje nod i klustret måste vara registrerad för att fungera med Azure File Sync.
+
+```PowerShell
+# Gather the OS version
+$osver = [System.Environment]::OSVersion.Version
+
+# Download the appropriate version of the Azure File Sync agent for your OS.
+if ($osver.Equals([System.Version]::new(10, 0, 14393, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875004 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
+    Invoke-WebRequest `
+        -Uri https://go.microsoft.com/fwlink/?linkid=875002 `
+        -OutFile "StorageSyncAgent.exe" 
+}
+else {
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2 and Windows Server 2016")
+}
+
+# Extract the MSI from the install package
+$tempFolder = New-Item -Path "afstemp" -ItemType Directory
+Start-Process -FilePath ".\StorageSyncAgent.exe" -ArgumentList "/C /T:$tempFolder" -Wait
+
+# Install the MSI. Start-Process is used to PowerShell blocks until the operation is complete.
+# Note that the installer currently forces all PowerShell sessions closed - this is a known issue.
+Start-Process -FilePath "$($tempFolder.FullName)\StorageSyncAgent.msi" -ArgumentList "/quiet" -Wait
+
+# Note that this cmdlet will need to be run in a new session based on the above comment.
+# You may remove the temp folder containing the MSI and the EXE installer
+Remove-Item -Path ".\StorageSyncAgent.exe", ".\afstemp" -Recurse -Force
+```
+
+---
+
 ## <a name="register-windows-server-with-storage-sync-service"></a>Registrera Windows Server i tjänsten för synkronisering av lagring
 När du registrerar Windows Server med en tjänst för synkronisering av lagring etableras en förtroenderelation mellan din server (eller ditt kluster) och tjänsten för synkronisering av lagring. En server kan bara registreras på en tjänst för synkronisering av lagring och kan synkronisera med andra servrar och Azure-filresurser som associeras med samma tjänst för synkronisering av lagring.
 
@@ -230,7 +236,7 @@ När du loggar in uppmanas du att ange följande information:
 ![Skärmbild av användargränssnittet för serverregistrering](media/storage-sync-files-deployment-guide/register-server-scubed-1.png)
 
 - **Azure-prenumeration**: Den prenumeration som innehåller Storage Sync-tjänsten (se [distribuera Storage Sync-tjänsten](#deploy-the-storage-sync-service)). 
-- **Resursgrupp**: Den resursgrupp som innehåller Storage Sync-tjänsten.
+- **Resursgrupp**: Den resursgrupp som innehåller tjänsten för synkronisering av lagring.
 - **Tjänst för lagringssynkronisering**: Namnet på Storage Sync-tjänsten som du vill registrera.
 
 När du har valt informationen som krävs, Välj **registrera** att slutföra registreringen för servern. Som en del av registreringsprocessen uppmanas du att logga in en ytterligare inloggning.

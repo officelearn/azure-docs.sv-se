@@ -4,7 +4,7 @@ description: Beskriver hur shadow attribut fungerar i Azure AD Connect-synkronis
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 62278fa031c28fb32f882e438df0194c4db04efd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470383"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-tjänsten shadow attribut
 De flesta attribut representeras på samma sätt i Azure AD som de är i din lokala Active Directory. Men vissa attribut har en särskild hantering och attributvärdet i Azure AD kan skilja sig från vad som synkroniserar Azure AD Connect.

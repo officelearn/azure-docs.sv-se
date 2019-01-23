@@ -1,11 +1,11 @@
 ---
-title: Hur du skickar meddelanden schemalagda | Microsoft Docs
+title: Hur du skickar schemalagda meddelanden | Microsoft Docs
 description: Det här avsnittet beskriver hur du använder schemalagda meddelanden med Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
-keywords: push-meddelanden, push-meddelande, schemalägga push-meddelanden
-author: dimazaid
-manager: kpiteira
+keywords: push-meddelanden, push-meddelande, schemaläggning av push-meddelanden
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
@@ -13,27 +13,43 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 0f4055a11d22604c0936685a7a2be3d56b259a5b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: af0de9e8c18644f4ae200f6546c0dd0a41320f9f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33776985"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471845"
 ---
-# <a name="how-to-send-scheduled-notifications"></a>Så här: Skicka schemalagda meddelanden
-## <a name="overview"></a>Översikt
-Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men inte har ett enkelt sätt att aktivera upp backend-koden för att skicka meddelandet. Standardnivån meddelandehubbar stöd för en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
+# <a name="how-to-send-scheduled-notifications"></a>Hur: Skicka schemalagda meddelanden
 
-När du skickar ett meddelande kan bara använda den [ScheduledNotification](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) klassen i Notification Hubs SDK som visas i följande exempel:
+Om du har ett scenario där du vill skicka ett meddelande vid en viss tidpunkt i framtiden, men som inte har ett enkelt sätt att aktivera in backend-koden så att skicka meddelandet. Standard-nivån för meddelandehubbar stöd för en funktion som gör att du kan schemalägga meddelanden upp till sju dagar i framtiden.
 
-    Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
-    var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
 
-Du kan också avbryta en tidigare schemalagda meddelanden med dess notificationId:
+## <a name="schedule-your-notifications"></a>Schemalägg meddelanden
+När du skickar ett meddelande, använder bara den [ `ScheduledNotification` klass](https://msdn.microsoft.com/library/microsoft.azure.notificationhubs.schedulednotification.aspx) i Notification Hubs SDK som visas i följande exempel:
 
-    await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
+```c#
+Notification notification = new AppleNotification("{\"aps\":{\"alert\":\"Happy birthday!\"}}");
+var scheduled = await hub.ScheduleNotificationAsync(notification, new DateTime(2014, 7, 19, 0, 0, 0));
+```
 
-Det finns ingen begränsning för antalet schemalagda meddelanden som du kan skicka.
+## <a name="cancel-scheduled-notifications"></a>Avbryt schemalagda meddelanden
+Du kan också avbryta en tidigare schemalagda meddelande med hjälp av dess meddelande-ID:
 
+```c#
+await hub.CancelNotificationAsync(scheduled.ScheduledNotificationId);
+```
+
+Det finns ingen gräns för antalet schemalagda meddelanden som du kan skicka.
+
+## <a name="next-steps"></a>Nästa steg
+
+Se följande självstudiekurser:
+
+ - [Push-meddelanden till alla registrerade enheter](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
+ - [Skicka meddelanden till specifika enheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
+ - [Skicka lokaliserade meddelanden](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
+ - [Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) 
+ - [Platsbaserade push-meddelanden](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

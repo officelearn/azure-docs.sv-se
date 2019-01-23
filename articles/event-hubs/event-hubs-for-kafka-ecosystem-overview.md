@@ -3,19 +3,19 @@ title: Använd event hub från Apache Kafka - app i Azure Event Hubs | Microsoft
 description: Den här artikeln innehåller information om stöd för Apache Kafka med Azure Event Hubs.
 services: event-hubs
 documentationcenter: .net
-author: basilhariri
+author: shvija
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: 1c484b6418fd5a453713bc464fff690ef444f109
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 8bf381e7c66e06bbaa140ed865f0f7c9b4f001af
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091194"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452351"
 ---
 # <a name="use-azure-event-hubs-from-apache-kafka-applications"></a>Använd Azure Event Hubs från Apache Kafka-program
 Event Hubs ger en Kafka-slutpunkt som kan användas av din befintliga Kafka-baserade program som ett alternativ till att köra dina egna Kafka-kluster. Har stöd för Händelsehubbar [Apache Kafka-protokollet 1.0 och senare](https://kafka.apache.org/documentation/), och fungerar med dina befintliga Kafka-program, inklusive MirrorMaker.  
@@ -31,7 +31,7 @@ Begreppsmässigt Kafka och Event Hubs är nästan identiska: de är båda partit
 | Kafka-koncept | Event Hubs-koncept|
 | --- | --- |
 | Kluster | Namnrymd |
-| Avsnitt | Event Hubs |
+| Avsnitt | Händelsehubb |
 | Partition | Partition|
 | Konsumentgrupp | Konsumentgrupp |
 | Offset | Offset|
@@ -76,6 +76,4 @@ Den här artikeln kan du tillhandahålla en introduktion till Event Hubs för Ka
 - [Ansluta Akka Streams till en Kafka-aktiverad händelsehubb](event-hubs-kafka-akka-streams-tutorial.md)
 - [Utforska exempel på vår GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
- 
- 
 

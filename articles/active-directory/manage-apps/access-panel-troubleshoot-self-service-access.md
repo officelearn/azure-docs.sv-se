@@ -4,7 +4,7 @@ description: Felsöka problem som rör självbetjäningsåtkomsten
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: japere,asteen
-ms.openlocfilehash: 3a8e0ca54766f36ba3343f420d751f2e40a8033b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1c3d4c12af6321643c6ed916c9ae6541f902fd24
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357635"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468775"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problemet med hjälp av självbetjäningsåtkomsten
 
@@ -62,18 +62,18 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
 
-10. **Valfritt:** om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
+10. **Valfritt:** Om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
 
-11. **Valfritt: för program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att ange användarens lösenord för det här programmet?**  växla till **Ja**.
+11. **Valfritt: För program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att konfigurera användarens lösenord för det här program?**  växla till **Ja**.
 
-12. **Valfritt:** för att ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 person företagsgodkännaren.
+12. **Valfritt:** Om du vill ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 enskilda företagsgodkännaren.
 
  >[!NOTE]
  > Grupper stöds inte.
  >
  >
 
-13. **Valfritt:** **för program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som dessa användare ska tilldelas.
+13. **Valfritt:** **För program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som Dessa användare ska tilldelas.
 
 14. Klicka på den **spara** längst upp på bladet för att slutföra.
 

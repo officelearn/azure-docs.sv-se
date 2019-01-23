@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0f98f815c0417d1ee8ad5708589b5402a033f83a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5fc5829744d3740f3484303ae009145106264fec
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989549"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470723"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-the-azure-cli"></a>Ansluta virtuella nätverk med peerkoppling med hjälp av Azure CLI
 
@@ -47,7 +47,7 @@ Du måste skapa en resursgrupp för det virtuella nätverket och alla andra resu
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork1* med adressprefixet *10.0.0.0/16*.
+Skapa ett virtuellt nätverk med kommandot [az network vnet create](/cli/azure/network/vnet). I följande exempel skapas ett virtuellt nätverk med namnet *myVirtualNetwork1* med adressprefixet *10.0.0.0/16*.
 
 ```azurecli-interactive 
 az network vnet create \
@@ -88,7 +88,7 @@ vNet2Id=$(az network vnet show \
   --out tsv)
 ```
 
-Skapa en peer-kopplingen från *myVirtualNetwork1* till *myVirtualNetwork2* med [az network vnet-peering skapa](/cli/azure/network/vnet/peering#az_network_vnet_peering_create). Om den `--allow-vnet-access` parametern inte anges, en peering har upprättats, men ingen kommunikation kan flöda genom den.
+Skapa en peer-kopplingen från *myVirtualNetwork1* till *myVirtualNetwork2* med [az network vnet-peering skapa](/cli/azure/network/vnet/peering). Om den `--allow-vnet-access` parametern inte anges, en peering har upprättats, men ingen kommunikation kan flöda genom den.
 
 ```azurecli-interactive
 az network vnet peering create \

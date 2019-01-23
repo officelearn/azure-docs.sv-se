@@ -2,21 +2,21 @@
 title: Azure Event Grid blob storage Händelseschema
 description: Beskriver de egenskaper som har angetts för blob storage-händelser med Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: 11524f8868a0102e30b06f3385a26b1bd06aae6e
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 401eb660d7e5ddc68bc7422ef9f2e600295d2aea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469749"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid-Händelseschema för Blob storage
 
-Den här artikeln innehåller egenskaperna och schemat för blob storage-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för blob storage-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 En lista över exempel på skript och självstudier finns i [Storage händelsekälla](event-sources.md#storage).
 
@@ -83,7 +83,7 @@ Schemat för en blob tas bort händelsen liknar:
   "metadataVersion": "1"
 }]
 ```
- 
+ 
 ## <a name="event-properties"></a>Egenskaper för händelse
 
 En händelse har följande översta data:
@@ -91,7 +91,7 @@ En händelse har följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
@@ -105,11 +105,11 @@ Dataobjektet har följande egenskaper:
 | -------- | ---- | ----------- |
 | api | sträng | Åtgärden som utlöste händelsen. |
 | clientRequestId | sträng | Ett klientgenererade, täckande värde med en teckengräns på 1 KB. När du har aktiverat lagringsanalys, loggning, registreras den i analytics-loggarna. |
-| begärande-ID | sträng | Den unika identifieraren för begäran. Använd det för felsökning av begäran. |
+| requestId | sträng | Den unika identifieraren för begäran. Använd det för felsökning av begäran. |
 | eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
 | contentType | sträng | Innehållstyp som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
-| BlobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
+| blobType | sträng | Typ av blob. Giltiga värden är ”BlockBlob” eller ”PageBlob”. |
 | url | sträng | Sökvägen till blobben. |
 | sekvenseraren | sträng | Ett användarstyrd värde som du kan använda för att spåra begäranden. |
 | storageDiagnostics | objekt | Information om storage-diagnostik. |

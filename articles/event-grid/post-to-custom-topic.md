@@ -1,55 +1,55 @@
 ---
-title: Skicka händelsen till anpassad Azure händelse rutnätet ämne
-description: Beskriver hur du publicerar en händelse till ett eget avsnitt för rutnät för Azure-händelse
+title: Skicka händelsen till anpassat Azure Event Grid-ämne
+description: Beskriver hur man publicerar en händelse till ett anpassat ämne för Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 04/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e4256de1d9112d785b6d1cd52067fc99144a0a04
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: b219e9475151ecd14d8b45db9501a06cde05875b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34303342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470604"
 ---
-# <a name="post-to-custom-topic-for-azure-event-grid"></a>Efter att anpassade avsnittet för rutnät för Azure-händelse
+# <a name="post-to-custom-topic-for-azure-event-grid"></a>Skicka till anpassat ämne för Azure Event Grid
 
-Den här artikeln beskriver hur du publicerar en händelse till ett eget avsnitt. Formatet för post- och händelsen data visas. Den [serviceavtalet (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) gäller bara poster som matchar det förväntade formatet.
+Den här artikeln beskriver hur man publicerar en händelse till ett anpassat ämne. Den visar formatet för post- och händelse-data. Den [serviceavtal (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/) gäller endast för inlägg som matchar det förväntade formatet.
 
 ## <a name="endpoint"></a>Slutpunkt
 
-När du skickar HTTP POST till en anpassad avsnittet använda URI-format: `https://<topic-endpoint>?api-version=2018-01-01`.
+När du skickar HTTP POST till ett anpassat ämne, använder du URI-format: `https://<topic-endpoint>?api-version=2018-01-01`.
 
 En giltig URI är till exempel: `https://exampletopic.westus2-1.eventgrid.azure.net/api/events?api-version=2018-01-01`.
 
-Om du vill hämta slutpunkten för en anpassad avsnittet med Azure CLI, använder du:
+Om du vill hämta slutpunkten för ett anpassat ämne med Azure CLI, använder du:
 
 ```azurecli-interactive
 az eventgrid topic show --name <topic-name> -g <topic-resource-group> --query "endpoint"
 ```
 
-Om du vill hämta slutpunkten för en anpassad avsnittet med Azure PowerShell, använder du:
+Om du vill hämta slutpunkten för ett anpassat ämne med Azure PowerShell använder du:
 
 ```powershell
 (Get-AzureRmEventGridTopic -ResourceGroupName <topic-resource-group> -Name <topic-name>).Endpoint
 ```
 
-## <a name="header"></a>Sidhuvud
+## <a name="header"></a>Huvud
 
-I en begäran innehåller ett värde med ett huvud med namnet `aeg-sas-key` som innehåller en nyckel för autentisering.
+Inkludera ett huvudvärde med namnet i begäran, `aeg-sas-key` som innehåller en nyckel för autentisering.
 
 Ett ogiltigt huvudvärde är till exempel `aeg-sas-key: VXbGWce53249Mt8wuotr0GPmyJ/nDT4hgdEj9DpBeRr38arnnm5OFg==`.
 
-Om du vill hämta nyckel för en anpassad avsnittet med Azure CLI, använder du:
+Om du vill hämta nyckel för ett anpassat ämne med Azure CLI, använder du:
 
 ```azurecli
 az eventgrid topic key list --name <topic-name> -g <topic-resource-group> --query "key1"
 ```
 
-Om du vill hämta nyckel för en anpassad avsnittet med PowerShell använder du:
+Om du vill hämta nyckel för ett anpassat ämne med PowerShell använder du:
 
 ```powershell
 (Get-AzureRmEventGridTopicKey -ResourceGroupName <topic-resource-group> -Name <topic-name>).Key1
@@ -57,7 +57,7 @@ Om du vill hämta nyckel för en anpassad avsnittet med PowerShell använder du:
 
 ## <a name="event-data"></a>Händelsedata
 
-För anpassade ämnen innehåller på översta nivån data samma fält som standard resurs användardefinierade händelser. En av dessa egenskaper är en data-egenskap som innehåller egenskaper som är unika för det anpassade avsnittet. När händelsen utgivare bestämmer du egenskaperna för detta dataobjekt. Använd följande schema:
+Anpassade ämnen innehåller översta data samma fält som standard resurs-definierade händelser. En av dessa egenskaper är en data-egenskap som innehåller egenskaper som är unika för det anpassade ämnet. När händelseutfärdare bestämmer du egenskaperna för dataobjektet. Använd följande schema:
 
 ```json
 [
@@ -74,9 +74,9 @@ För anpassade ämnen innehåller på översta nivån data samma fält som stand
 ]
 ```
 
-En beskrivning av de här egenskaperna finns [Azure händelse rutnätet Händelseschema](event-schema.md). Matrisen kan skicka händelser till en händelse rutnätet ämne ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
+En beskrivning av de här egenskaperna finns i [Azure Event Grid Händelseschema](event-schema.md). När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB.
 
-Ett giltigt händelsenamn data schema är till exempel:
+En giltig data-Händelseschema är till exempel:
 
 ```json
 [{
@@ -94,15 +94,15 @@ Ett giltigt händelsenamn data schema är till exempel:
 
 ## <a name="response"></a>Svar
 
-Efter bokföring till avsnittet slutpunkten får du svar. Svaret är en standard HTTP-svarskoden. Några vanliga svar är:
+När du publicera till avsnittet slutpunkten får du ett svar. Svaret är en HTTP-svarskoden som standard. Vissa vanliga svar är:
 
 |Resultat  |Svar  |
 |---------|---------|
 |Lyckades  | 200 OK  |
 |Händelsedata är i felaktigt format | 400 Felaktig förfrågan |
-|Ogiltig snabbtangent | 401 obehörig |
+|Ogiltig åtkomstnyckel | 401 Ej behörig |
 |Felaktig slutpunkt | 404 Hittades inte |
-|Matrisen eller händelse överskrider storleksgränsen | 413 nyttolasten för stor |
+|Matris eller händelse överskrider storleksgränsen | 413 nyttolast som är för stor |
 
 För fel har meddelandetexten följande format:
 
@@ -121,6 +121,6 @@ För fel har meddelandetexten följande format:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du övervakar händelse leveranser finns [övervakaren händelse rutnätet meddelandeleverans](monitor-event-delivery.md).
-* Läs mer om autentiseringsnyckeln [händelse rutnätet säkerhets- och autentiseringstjänster](security-authentication.md).
-* Mer information om hur du skapar en prenumeration på Azure händelse rutnätet finns [händelse rutnätet prenumeration schemat](subscription-creation-schema.md).
+* Information om hur du övervakar händelse leveranser finns i [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
+* Läs mer om autentiseringsnyckeln [Event Grid säkerhet och autentisering](security-authentication.md).
+* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).

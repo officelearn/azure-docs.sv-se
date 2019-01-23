@@ -4,7 +4,7 @@ description: Vägledning för specifika problem som du kan stöta på när du lo
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 17114818105935d8d6a7ac647f1d98c097e78efd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8f545aad7256764780a68f4b43ee30bf68749187
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357447"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469720"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problem som loggar in på en icke-galleriprogram som konfigurerats för federerad enkel inloggning
 
@@ -134,7 +134,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -202,7 +202,7 @@ När du konfigurerar om programmet ska du logga in till programmet.
 
 ## <a name="certificate-or-key-not-configured"></a>Certifikat eller nyckel har inte angetts
 
-Fel AADSTS50003: Inga signeringsnyckeln konfigurerats.
+Fel AADSTS50003: Inga signeringsnyckel som konfigurerats.
 
 **Möjlig orsak**
 

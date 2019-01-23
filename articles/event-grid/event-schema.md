@@ -6,18 +6,18 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 07/20/2018
+ms.date: 01/20/2019
 ms.author: babanisa
-ms.openlocfilehash: f7be7e5f5e51a47b95d39047af9bcf08e463ca34
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b67d656ed6ab537a01696ec9c0c98f84b880f03b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186119"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470634"
 ---
 # <a name="azure-event-grid-event-schema"></a>Schema för Azure Event Grid-händelse
 
-Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem obligatoriska strängegenskaper och ett nödvändiga data-objekt. Egenskaperna är vanliga i alla händelser från valfri utgivare. Dataobjektet har egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-ämnen.
+Den här artikeln beskriver egenskaper och scheman som är tillgängliga för alla händelser. Händelser som består av en uppsättning med fem obligatoriska strängegenskaper och ett nödvändiga data-objekt. Egenskaperna är vanliga i alla händelser från valfri utgivare. Dataobjektet har egenskaper som är specifika för varje utgivare. De här egenskaperna är specifika för resursleverantör, till exempel Azure Storage eller Azure Event Hubs för system-ämnen.
 
 Händelsekällor används för att skicka händelser till Azure Event Grid i en matris som kan ha flera händelseobjekt. När skicka händelser till en event grid-ämne kan matrisen ha en total storlek på upp till 1 MB. Varje händelse i matrisen är begränsat till 64 KB. Om en händelse eller matrisen är större än storleksgränserna, får du svaret **413 nyttolasten är för stor**.
 
@@ -83,7 +83,7 @@ Alla händelser har samma följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |

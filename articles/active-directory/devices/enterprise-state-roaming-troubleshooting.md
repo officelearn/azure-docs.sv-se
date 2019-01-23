@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise state roaminginställningarna, windows-molnet, vanliga frågor och svar på enterprise tillståndsväxling
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: f45d0515-99f7-42ad-94d8-307bc0d07be5
@@ -18,12 +18,12 @@ ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: 3825d527e520fae87d0dd2712df767090adad4e5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 417b909e4a5272b993a4696c1ef8d6718e055738
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248429"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452946"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Felsöka Enterprise State Roaming-inställningar i Azure Active Directory
 
@@ -42,7 +42,7 @@ Innan du startar felsökning, kontrollera att användare och enhet har konfigure
 ## <a name="information-to-include-when-you-need-help"></a>Information som ska ingå när du behöver hjälp
 Om du inte kan lösa problemet med riktlinjerna nedan kan du kontakta vår support-tekniker. När du kontaktar dem ska du inkludera följande information:
 
-* **Allmän beskrivning av felet**: finns det några felmeddelanden som ses av användaren? Om det fanns inget felmeddelande, Beskriv de oväntade resultat som du såg i detalj. Vilka funktioner är aktiverade för synkronisering och vad är den användare som förväntar sig att synkronisera? Flera funktioner inte synkroniserar eller isolerade till en?
+* **Allmän beskrivning av felet**: Finns det några felmeddelanden som ses av användaren? Om det fanns inget felmeddelande, Beskriv de oväntade resultat som du såg i detalj. Vilka funktioner är aktiverade för synkronisering och vad är den användare som förväntar sig att synkronisera? Flera funktioner inte synkroniserar eller isolerade till en?
 * **Användare som påverkas** – är sync fungerande/misslyckas för en användare eller flera användare? Hur många enheter ingår per användare? Dem inte synkroniserar alla eller vissa av dem synkroniseras och vissa inte synkroniserar?
 * **Information om användaren** – vilka identiteten är användaren med att logga in på enheten? Hur användaren loggar in på enheten? De är en del av en vald säkerhetsgrupp som tillåts synkronisera? 
 * **Information om enheten** – är den här enheten av Azure AD-anslutna eller domänansluten? Vilken build är enheten på? Vilka är de senaste uppdateringarna?
@@ -74,15 +74,15 @@ Enterprise State Roaming kräver att enheten registreras med Azure AD. Även om 
 **Potentiella problem**: **WamDefaultSet** och **AzureAdJoined** både har ”Nej” i fältvärdet enheten var ansluten till domänen och registrerad med Azure AD och synkroniserar inte enheten. Om den visar detta, enheten kan behöva vänta på att principen tillämpas det gick inte att autentiseringen för enheten när du ansluter till Azure AD Användaren kan behöva vänta några timmar innan principen tillämpas. Andra åtgärder för felsökning kan omfatta försöker automatisk registrering genom att logga ut och in igen eller starta om aktiviteten i Schemaläggaren. I vissa fall kan köra ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 
-**Potentiella problem**: fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Du kan också prova att gå till IT-administratören i portalen **Azure Active Directory** > **enheter** > **Enterprise State Roaming** inaktivera och återaktivera **användarna kan synkronisera inställningar och AppData på enheter**. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
+**Potentiella problem**: Fältet för **SettingsUrl** är tom och synkroniserar inte enheten. Användaren kan ha senast inloggad till enheten innan Enterprise State Roaming aktiverades i Azure Active Directory-portalen. Starta om enheten och har användarinloggning. Du kan också prova att gå till IT-administratören i portalen **Azure Active Directory** > **enheter** > **Enterprise State Roaming** inaktivera och återaktivera **användarna kan synkronisera inställningar och AppData på enheter**. En gång återaktiveras, starta om enheten och har användarinloggning. Om detta inte löser problemet, **SettingsUrl** kan vara tom när det gäller ett felaktigt certifikat. I det här fallet kör ”*dsregcmd.exe /leave*” i en upphöjd kommandotolk, starta om och försök registrera igen kan bidra med det här problemet.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming och Multi-Factor Authentication 
 
 Enterprise State Roaming kan misslyckas under vissa förhållanden synkroniserar data om Azure Multi-Factor Authentication har konfigurerats. Mer information om problemen finns i dokumentet support [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potentiella problem**: om din enhet är konfigurerad för att kräva Multifaktorautentisering på Azure Active Directory-portalen, kan du inte synkronisera inställningar när du loggar in på en Windows 10-enheten med ett lösenord. Den här typen av Multi-Factor Authentication-konfigurationen är avsedd att skydda en Azure-administratörskonto. Administrativa användare kan fortfarande att kunna synkronisera genom att logga in på sina Windows 10-enheter med sina Microsoft Passport för arbete PIN-kod eller genom att fylla i Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Office 365.
+**Potentiella problem**: Om enheten är konfigurerad för att kräva Multifaktorautentisering på Azure Active Directory-portalen, kan du inte synkronisera inställningar när du loggar in på en Windows 10-enheten med ett lösenord. Den här typen av Multi-Factor Authentication-konfigurationen är avsedd att skydda en Azure-administratörskonto. Administrativa användare kan fortfarande att kunna synkronisera genom att logga in på sina Windows 10-enheter med sina Microsoft Passport för arbete PIN-kod eller genom att fylla i Multi-Factor Authentication vid åtkomst till andra Azure-tjänster som Office 365.
 
-**Potentiella problem**: synkronisering kan misslyckas om en administratör konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multi-Factor-autentisering och åtkomst-token på enheten går ut. Se till att du loggar in och logga ut med hjälp av Microsoft Passport för arbete PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
+**Potentiella problem**: Synkroniseringen kan misslyckas om en administratör konfigurerar principen för villkorlig åtkomst för Active Directory Federation Services Multi-Factor-autentisering och åtkomst-token på enheten går ut. Se till att du loggar in och logga ut med hjälp av Microsoft Passport för arbete PIN-kod eller slutföra Multifaktorautentisering vid åtkomst till andra Azure-tjänster som Office 365.
 
 ### <a name="event-viewer"></a>Loggboken
 
@@ -166,7 +166,7 @@ I steg rensning, rensa följande filer:
 
 ---
 
-### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Händelse-ID 6065:80070533 den här användaren inte kan logga in eftersom det här kontot är inaktiverat  
+### <a name="event-id-6065-80070533-this-user-cant-sign-in-because-this-account-is-currently-disabled"></a>Event ID 6065: 80070533 den här användaren kan inte logga in eftersom det här kontot är inaktiverat  
 
 I Loggboken under SettingSync/felsökningsloggar, kan det här felet visas när användarens autentiseringsuppgifter har upphört att gälla. Dessutom kan det inträffa när klienten inte har automatiskt AzureRMS som etablerats. 
 
@@ -175,9 +175,9 @@ I det första fallet har användaren uppdatera sina autentiseringsuppgifter och 
 
 ---
 
-### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Händelse-ID 1098: Fel: 0xCAA5001C Token broker åtgärden misslyckades  
+### <a name="event-id-1098-error-0xcaa5001c-token-broker-operation-failed"></a>Event ID 1098: Fel: 0xCAA5001C token broker-åtgärden misslyckades  
 
-I Loggboken under AAD/Operational loggar det här felet kan visas med händelsen 1104: AAD molnet AP-plugin-programmet anropet Get token returnerade fel: 0xC000005F. Det här problemet uppstår om det saknar behörigheter eller ägarskap attribut.  
+I Loggboken under AAD/Operational loggar visas det här felet med händelsen 1104: Asien och Stillahavsområdet för AAD-molnet plugin-programmet anropet Get token returnerade fel: 0xC000005F. Det här problemet uppstår om det saknar behörigheter eller ägarskap attribut.  
 
 **Rekommenderad åtgärd**  
 Fortsätter med stegen [KB3196528](https://support.microsoft.com/kb/3196528).  

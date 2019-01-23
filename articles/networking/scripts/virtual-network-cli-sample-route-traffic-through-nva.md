@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: jdial
-ms.openlocfilehash: 62077f45d96e96a7fef35cf025740849d2b99445
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 110e8c6a57cd2cdfedec808e073f04b70a55362d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054148"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465589"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>Dirigera trafik via en virtuell nätverksinstallation
 
@@ -51,10 +51,10 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |
+| [az network vnet create](/cli/azure/network/vnet) | Skapar ett virtuellt Azure-nätverk och klientdelsundernät. |
 | [az network subnet create](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_create) | Skapar serverdels- och DMZ-undernät. |
 | [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create) | Skapar en offentlig IP-adress för att komma åt den virtuella datorn från Internet. |
-| [az network nic create](/cli/azure/network/nic#az_network_nic_create) | Skapar ett virtuellt nätverksgränssnitt och aktiverar IP-vidarebefordran för det. |
+| [az network nic create](/cli/azure/network/nic) | Skapar ett virtuellt nätverksgränssnitt och aktiverar IP-vidarebefordran för det. |
 | [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create) | Skapar en nätverkssäkerhetsgrupp (NSG). |
 | [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create) | Skapar NSG-regler som tillåter inkommande HTTP- och HTTPS-portar till den virtuella datorn. |
 | [az network vnet subnet update](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_update)| Associerar NSG:erna och routningstabellerna med undernät. |

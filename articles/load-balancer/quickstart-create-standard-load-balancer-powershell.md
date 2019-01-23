@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 08/22/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 93bcf30010b6fecd302342d262080fcfe18ed0ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 62ccf86d138ff71706aca4c19f548f175e6c09ce
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425245"
+ms.locfileid: "54447623"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en Standardbelastningsutjämnare med Azure PowerShell
 Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
@@ -281,7 +281,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
  
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serversidan enligt följande:
 
-1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAdress` hämtar du den offentliga IP-adressen för lastbalanseraren.
+1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

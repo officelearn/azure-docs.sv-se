@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 01/17/2019
-ms.openlocfilehash: 2a5066a2dcb74051088b2fc67b5089e95ae4dd3f
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 5ebdf45bec4e7cfceb75354af40c7a21c22c6eef
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410361"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446790"
 ---
 # <a name="manage-artifact-metadata-in-integration-accounts-with-azure-logic-apps-and-enterprise-integration-pack"></a>Hantera artefaktmetadata i konton för integrering med Azure Logic Apps och Enterprise-Integrationspaket
 
@@ -47,7 +47,7 @@ Du kan definiera anpassade metadata för artefakter i integrationskonton och få
 
 1. När du är klar väljer du **OK**.
 
-1. Välj för att visa dessa metadata i JavaScript Object Notation (JSON)-definitionen för integrationskontot **redigera som JSON** så att den JSON-redigeraren öppnas: 
+1. Välj för att visa dessa metadata i JavaScript Object Notation (JSON)-definitionen för integrationskontot **redigera som JSON** så att JSON-redigerare öppnas: 
 
    ![JSON för partner metadata](media/logic-apps-enterprise-integration-metadata/partner-metadata.png)
 

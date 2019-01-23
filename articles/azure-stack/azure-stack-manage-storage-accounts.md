@@ -11,36 +11,27 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 09/28/2018
+ms.date: 01/18/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 8eed0b4f2d14d22bdd9eddac9dbb4c0e02404975
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 149da2c186ae1e0c3fa5af14a630a0edef7deb25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302722"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470281"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Hantera lagringskonton i Azure Stack
+
 Lär dig mer om att hantera lagringskonton i Azure Stack för att hitta, återställa och frigöra lagringskapacitet baserat på affärsbehoven.
 
-## <a name="find"></a>Hitta ett storage-konto
+## <a name="find-a-storage-account"></a>Hitta ett storage-konto
 Listan med lagringskonton i regionen kan ses i Azure Stack med:
 
 1. Logga in på den [administrationsportalen](https://adminportal.local.azurestack.external).
 
-2. Välj **alla tjänster** > **regionshantering** under **Administration**.
+2. Välj **alla tjänster** > **lagringskonton**.
 
-3. Välj **Storage** från den **Resursprovidrar** lista.
-   
-   ![Lagringsresursprovider](media/azure-stack-manage-storage-accounts/image1.png)
-
-5. Välj **lagringskonton** i **Storage**.
-   
-   ![](media/azure-stack-manage-storage-accounts/image2.png)
-   
-   Bladet visar listan med lagringskonton i den regionen.
-   
    ![](media/azure-stack-manage-storage-accounts/image4.png)
 
 Som standard visas de första 10 kontona. Du kan välja att hämta mer genom att klicka på den **Läs in fler** länken längst ned i listan.

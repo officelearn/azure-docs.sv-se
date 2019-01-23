@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: d12edc2023deb69118d7c02e053cd2525f6ae684
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: autoscale
+ms.openlocfilehash: 736ff5565bb279d26e686421cc13f54a73b1c7e9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437732"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461101"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoskalning vanliga mått
 Automatisk skalning med Azure Monitor kan du skala antalet instanser som körs upp eller ned, baserat på dessa data (mått). Det här dokumentet beskriver vanliga mått som du kanske vill använda. Du kan välja mått på resursen att skala genom att i Azure-portalen. Du kan också välja vilka mått som helst från en annan resurs kan skala med.
@@ -56,7 +56,7 @@ Du kan skapa en avisering för följande mått:
 | \Processor information (_Total) \Processor frekvens |Antal |
 | \System\Processes |Antal |
 | \Process (_Total) \Thread antal |Antal |
-| \Process (_Total) \Handle antal |Antal |
+| \Process(_Total)\Handle Count |Antal |
 | \Memory\% allokerade byte som används |Procent |
 | \Memory\Tillgängliga byte |Byte |
 | \Memory\Committed byte |Byte |
@@ -64,7 +64,7 @@ Du kan skapa en avisering för följande mått:
 | \Memory\Pool systemminne-byte |Byte |
 | \Memory\Pool växlingsbart systemminne-byte |Byte |
 | \PhysicalDisk(_Total)\% disk tid |Procent |
-| \PhysicalDisk(_Total)\% Diskläsningar tid |Procent |
+| \PhysicalDisk(_Total)\% Disk Read Time |Procent |
 | \PhysicalDisk(_Total)\% disk-skrivtid |Procent |
 | \PhysicalDisk (_Total) \Disk disköverföringar/sek |CountPerSecond |
 | \PhysicalDisk (_Total) \Disk Diskläsningar/sek |CountPerSecond |
@@ -72,9 +72,9 @@ Du kan skapa en avisering för följande mått:
 | \PhysicalDisk (_Total) \Disk byte/sek |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk-lästa byte/s |BytesPerSecond |
 | \PhysicalDisk (_Total) \Disk skrivna byte/sek |BytesPerSecond |
-| \Avg \PhysicalDisk (_Total). Diskkölängd |Antal |
-| \Avg \PhysicalDisk (_Total). Läs diskkölängd |Antal |
-| \Avg \PhysicalDisk (_Total). Diskkölängd för skrivning |Antal |
+| \PhysicalDisk(_Total)\Avg. Diskkölängd |Antal |
+| \PhysicalDisk(_Total)\Avg. Läs diskkölängd |Antal |
+| \PhysicalDisk(_Total)\Avg. Diskkölängd för skrivning |Antal |
 | \LogicalDisk(_Total)\% ledigt utrymme |Procent |
 | \LogicalDisk (_Total) \Free utrymme i MB |Antal |
 
@@ -187,3 +187,4 @@ Du kan uppdatera autoskalningsinställning i Resource Manager-mallen som du anv�
 > Konceptet för resurs-grupp finns inte för Service Bus, men Azure Resource Manager skapas en resursgrupp för standard per region. Resursgruppen är vanligtvis i formatet ”standard - ServiceBus-[region]”. Till exempel ”standard-ServiceBus-EastUS”, ”standard-ServiceBus-WestUS', 'Standard-ServiceBus-AustraliaEast” osv.
 >
 >
+

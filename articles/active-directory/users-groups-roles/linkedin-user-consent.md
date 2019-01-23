@@ -1,6 +1,6 @@
 ---
-title: LinkedIn-integrering Datadelning i Azure Active Directory | Microsoft Docs
-description: Förklarar hur LinkedIn-kontoanslutningar dela data via Microsoft-appar i Azure Active Directory
+title: LinkedIn integrering av Datadelning och godkännande i Azure Active Directory | Microsoft Docs
+description: Förklarar hur integrering LinkedIn delar data via Microsoft-appar i Azure Active Directory
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,22 +8,22 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/22/2019
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: 25060f41528c59d252adbc854704c6060becd907
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 776c793fb797e9388f0852773315f27cd42dde25
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319129"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471726"
 ---
-# <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>Användarens medgivande och delning av LinkedIn konto anslutningar data
+# <a name="linkedin-integration-data-sharing-and-consent"></a>Datadelning för LinkedIn-integrering och samtycke
 
 Som administratör för Azure Active Directory (Azure AD) kan ge du användarna i din organisation samtycker till att ansluta sina Microsoft arbets- eller skolkonto med ett LinkedIn-konto. När användarna ansluter sina konton, information och höjdpunkter från LinkedIn finns i vissa Microsoft-appar och tjänster. Användare kan också förväntar sig sin nätverksupplevelse på LinkedIn att förbättras och berikats med information från Microsoft.
 
-Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste användarna cconsent för att ansluta sina egna Microsoft och LinkedIn-konton. Användare uppmanas att ansluta sina konton första gången de klickar på om du vill se en persons LinkedIn-information på ett Profilkort i Outlook, OneDrive eller SharePoint Online. LinkedIn-kontoanslutningar är inte helt aktiverade för dina användare tills de godkänna att upplevelsen och för att ansluta sina konton.
+Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste användarna godkänna att ansluta sina egna Microsoft och LinkedIn-konton. Användare uppmanas att ansluta sina konton första gången de klickar på om du vill se en persons LinkedIn-information på ett Profilkort i Outlook, OneDrive eller SharePoint Online. LinkedIn-kontoanslutningar är inte helt aktiverade för dina användare tills de godkänna att upplevelsen och för att ansluta sina konton.
 
 [!INCLUDE [active-directory-gdpr-note](../../../includes/gdpr-hybrid-note.md)]
 
@@ -31,13 +31,13 @@ Om du vill se LinkedIn-information i Microsoft-appar och tjänster, måste anvä
 
 Åtkomst till LinkedIn-information i Microsoft-appar och tjänster gör det enklare för användarna att ansluta, engagera och skapa professionella relationer med kollegor, kunder och partner i och utanför organisationen. Nya användare kan få igång snabbare genom att ansluta med kollegor, mer information om dem och enkel åtkomst till mer information. Här är ett exempel på hur LinkedIn-information visas på kortet profil i Microsoft-appar:
 
-![Aktivera LinkedIn-kontoanslutningar](./media/linkedin-user-consent/display-example.png)
+![Aktiverar LinkedIn-integrering](./media/linkedin-user-consent/display-example.png)
 
-## <a name="enable-and-announce-linkedin-account-connections"></a>Aktivera och meddela LinkedIn-kontoanslutningar
+## <a name="enable-and-announce-linkedin-integration"></a>Aktivera och meddela LinkedIn-integrering
 
 Du måste vara en Azure Active Directory-administratör att hantera inställningen för din organisation. Du kan aktivera det för alla användare eller för en specifik uppsättning användare.
 
-1. Om du vill aktivera eller inaktivera konto anslutningar integration, följer du stegen i [LinkedIn-kontoanslutningar](linkedin-integration.md).
+1. Om du vill aktivera eller inaktivera integrationen, följer du stegen i [LinkedIn-integrering](linkedin-integration.md).
 2. När du meddela LinkedIn-integrering i din organisation, peka användarna på vanliga frågor om [LinkedIn-information i Microsoft-appar och tjänster](https://support.office.com/article/about-linkedin-information-and-features-in-microsoft-apps-and-services-dc81cc70-4d64-4755-9f1c-b9536e34d381). Artikeln innehåller information om var LinkedIn-information visas hur du ansluter konton och mycket mer.
 
 ## <a name="user-consent-for-data-access-in-microsoft-and-linkedin"></a>Användargodkännande för dataåtkomst i Microsoft och LinkedIn

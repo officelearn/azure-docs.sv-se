@@ -4,7 +4,7 @@ description: Går igenom hur du gör en ändring i konfigurationen i Azure AD Co
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7b9df836-e8a5-4228-97da-2faec9238b31
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6579e2ced3742eb1a70ccca96b9608fc6da628ee
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50088dd00b0410ea32b6b61516021563c7ae061f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53190643"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463379"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.
@@ -59,8 +59,8 @@ Den [scheduler](how-to-connect-sync-feature-scheduler.md) körs var 30: e minut 
 1. Klicka på **Lägg till ny regel**.
 2. På den **beskrivning** anger du följande:  
    ![Inkommande regel filtrering](./media/how-to-connect-sync-change-the-configuration/description2.png)  
-   * **Namn på**: Ge regeln ett beskrivande namn.
-   * **Beskrivning av**: Ge klargöranden så att någon annan kan förstå vad regeln för.
+   * **Namn**: Ge regeln ett beskrivande namn.
+   * **Beskrivning**: Ge klargöranden så att någon annan kan förstå vad regeln för.
    * **Anslutna System**: Det här är systemet där objektet finns. I det här fallet väljer **Active Directory-koppling**.
    * **Anslutna System/metaversum-objekttyp**: Välj **användaren** och **Person**respektive.
    * **Länktyp**: Ändra det här värdet till **ansluta**.
@@ -321,7 +321,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
     | Attribut | Operator | Värde |
     | --- | --- | --- |
-    | sourceObjectType | LIKA MED | Användare |
+    | sourceObjectType | EQUAL | Användare |
     | cloudMastered | NOTEQUAL | True |
 
     Omfångsfilter fastställer som Azure AD objekt utgående synkroniseringsregeln gäller. I det här exemplet använder vi samma Omfångsfilter från den *till AD – användaridentitet* synkroniseringsregel för out-of-box. Det förhindrar att synkroniseringsregeln tillämpas på objekt som inte är synkroniserade från en lokal Active Directory. Du kan behöva justera Omfångsfilter enligt din Azure AD Connect-distribution.

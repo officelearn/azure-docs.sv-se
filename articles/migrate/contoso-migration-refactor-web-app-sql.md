@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: eb046ceebf9c6233fa5178d18603add2f0c26a29
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: dec58b2bb82eeab8b95c59e2775d21d58e18cac4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608025"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450429"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: Omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
 
@@ -347,9 +347,9 @@ Contoso-administratörer kan nu konfigurera Azure DevOps för att skapa build-ve
 
     ![Distribuera app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. I **Välj en fil eller mapp**, de lokalisera den **SmartHotel.Registration.Wcf.zip** -filen som skapades under build och clilck **spara**.-sql
+18. I **Välj en fil eller mapp**, de lokalisera den **SmartHotel.Registration.Wcf.zip** -filen som skapades under build och clilck **spara**.
 
-    ![Spara WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
+    ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
 19. De klickar på **Pipeline** > **faser** **+ Lägg till**, för att lägga till en miljö för **SHWEB EUS2**. De välja en annan distribution i Azure App Service.
 

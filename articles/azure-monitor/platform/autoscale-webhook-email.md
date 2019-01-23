@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: c655f117009c0c7c682ad92a951edc7e12255bc2
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.subservice: autoscale
+ms.openlocfilehash: 248167eca532beb957c723f5074fc1546982efc8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53326412"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463328"
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Använda automatisk skalning åtgärder för att skicka e-post och webhook-aviseringar i Azure Monitor
 Den här artikeln visar hur du konfigurerar utlösare så att du kan anropa Webb-URL: er eller skicka e-postmeddelanden baserat på åtgärder för automatisk skalning i Azure.  
@@ -65,7 +65,7 @@ När du använder REST API eller Resource Manager-mallen inkludera meddelanden-e
 | sendToSubscriptionAdministrator |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | sendToSubscriptionCoAdministrators |ja |Värdet måste vara ”sant” eller ”FALSKT” |
 | customEmails |ja |Värdet kan vara null [] eller Strängmatrisen av e-postmeddelanden |
-| Webhooks |ja |Värdet kan vara null eller ogiltig Uri |
+| webhooks |ja |Värdet kan vara null eller ogiltig Uri |
 | serviceUri |ja |en giltig https Uri |
 | properties |ja |Värdet måste vara tom {} eller kan innehålla nyckel / värde-par |
 
@@ -120,3 +120,4 @@ När meddelandet Autoskala genereras ingår följande metadata i webhook-nyttola
 | oldCapacity |Ja |Det aktuella (gamla) instansantalet när autoskalning tog en skalningsåtgärd |
 | newCapacity |Ja |Ny instansantalet som automatisk skalning skalas till resursen |
 | Egenskaper |Nej |Valfri. Uppsättning < nyckel, värde > par (till exempel Dictionary < String, String >). För egenskapsfältet är valfritt. I en anpassad användargränssnittet eller baserade logikapparbetsflöde kan ange du nycklar och värden som kan skickas med nyttolasten. Ett annat sätt att skicka anpassade egenskaper tillbaka till det utgående webhook-anropet är att använda webhooken URI (som frågeparametrar) |
+

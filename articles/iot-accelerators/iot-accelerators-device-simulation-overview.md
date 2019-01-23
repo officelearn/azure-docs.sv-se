@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 12/03/2018
 ms.author: dobett
-ms.openlocfilehash: 69e3708ef4c31e2dd91b5f50baecc46ea129cf33
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 173963470a77932186b3c51f17ccb406b32a13f3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346721"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452232"
 ---
-# <a name="device-simulation-solution-accelerator-overview"></a>Enhetsöversikt simulering solution accelerator
+# <a name="device-simulation-solution-accelerator-overview"></a>Översikt över lösningsacceleratorn för enhetssimulering
 
 I en molnbaserad IoT-lösning ansluter dina enheter till en molnslutpunkt för att skicka telemetri, till exempel temperatur, plats och status. Lösningen använder den här telemetrin, så att du kan vidta åtgärder eller slutsatser från den.
 
@@ -28,7 +28,7 @@ När du utvecklar en IoT-lösning, är experimentering och testning viktiga dela
 
 ![Exemplet drönare simulering](media/iot-accelerators-device-simulation-overview/dronesimulation.png)
 
-Med Enhetssimulering kan du definiera enhetsmodeller för att simulera dina fysiska enheter. Den här modellen innehåller meddelandeformat, tvillingegenskaper och metoder. Du kan också simulera komplexa enhetsbeteenden med JavaScript.
+Med Enhetssimulering kan du definiera enhetsmodeller för att simulera verkliga-enheter. Den här modellen innehåller meddelandeformat, tvillingegenskaper och metoder. Du kan också simulera komplexa enhetsbeteenden med JavaScript.
 
 Du kan köra simuleringar för en till tusentals enheter som ansluter till alla IoT-hubb. För att hjälpa till med testning, kan alternativt du distribuera en IoT hub tillsammans med Enhetssimulering som en fristående miljö.
 

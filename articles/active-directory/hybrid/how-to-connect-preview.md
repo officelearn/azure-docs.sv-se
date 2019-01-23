@@ -4,7 +4,7 @@ description: Det här avsnittet beskrivs i mer detalj som finns i förhandsversi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c75cd8cf-3eff-4619-bbca-66276757cc07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ab64cc2fc206772fe0f842af9d2f4c3596d76c07
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 86c45379097f51569d734a46f50edd916428c48a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473069"
 ---
 # <a name="more-details-about-features-in-preview"></a>Mer information om funktioner i förhandsversion
 Det här avsnittet beskriver hur du använder funktioner för närvarande i förhandsversion.

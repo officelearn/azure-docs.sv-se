@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: philmea
-ms.openlocfilehash: 5fb615ff042cc5cdd3b6b8e42e4d91b161ebf445
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: ba5eb50dcf800c186124db348ac584ff6f55cebb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602383"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467323"
 ---
 # <a name="introduction-to-the-azure-iot-reference-architecture"></a>Introduktion till Azure IoT-Referensarkitektur
 
@@ -79,7 +79,7 @@ När lösningen matar in telemetri, är det viktigt att förstå hur flödet av 
 
 Routning kan skicka telemetri till en eller flera slutpunkter för lagring, analys processer och åtgärder. En lösning kan kombinera steg i olika ordning och bearbeta dem med samtidiga parallella uppgifter.
 
-Lösningen för fjärrövervakning använder [Azure Stream Analytics](/azure/stream-analytics/) för bearbetning av dataströmmen. Regelmotor i lösningen använder Stream Analytics-frågor för att generera larm och åtgärder. Lösningen kan till exempel använda en fråga för att identifiera när medeltemperaturen i en lastbil storage avdelning under en femminutersperiod understiger 36 grader.
+Lösningen för fjärrövervakning använder [Azure Stream Analytics](/azure/stream-analytics/) för bearbetning av dataströmmen. Regelmotor i lösningen använder Stream Analytics-frågor för att generera aviseringar och åtgärder. Lösningen kan till exempel använda en fråga för att identifiera när medeltemperaturen i en lastbil storage avdelning under en femminutersperiod understiger 36 grader.
 
 ### <a name="storage"></a>Storage
 

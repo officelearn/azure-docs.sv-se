@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: f484eaf127c1dda0e3389e237ace75f51401a806
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.date: 01/22/2019
+ms.openlocfilehash: b0b4a89aaf9b00b30e6b4759c8aa168f06d0d008
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959885"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462478"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent datakryptering för SQL Database och Data Warehouse
 
@@ -61,6 +61,9 @@ Du behöver inte dekryptera databaser för åtgärder i Azure. Transparent data 
 - Skapa en databaskopia
 - Återställning av säkerhetskopierade filen till Azure SQL Managed Instance
 
+> [!IMPORTANT]
+> Med manuell säkerhetskopiering med endast kopiering av en databas som har krypterats av tjänsthanterad TDE tillåts inte i Azure SQL Managed Instance, eftersom certifikatet som används för kryptering inte är tillgänglig. Använd punkt i tiden återställning funktion för att flytta den här typen av databasen till en annan hanterad instans.
+
 När du exporterar en transparent data encryption-skyddad databas, inte är det exporterade innehållet på databasen krypterad. Det här exporterade innehållet lagras i icke krypterade BACPAC-filer. Var noga med att skydda BACPAC-filer på rätt sätt och aktivera transparent datakryptering efter import av den nya databasen har slutförts.
 
 Till exempel om BACPAC-fil har exporterats från en lokal SQL Server-instans, krypteras importerade innehållet i den nya databasen inte automatiskt. På samma sätt, om BACPAC-fil har exporterats till en lokal SQL Server-instans, den nya databasen också inte krypteras automatiskt.
@@ -92,11 +95,11 @@ Använd följande cmdlets för Azure SQL Database och Data Warehouse:
 | [Set-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabasetransparentdataencryption) |Aktiverar eller inaktiverar transparent datakryptering för en databas|
 | [Get-AzureRmSqlDatabaseTransparentDataEncryption](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryption) |Hämtar transparent data encryption tillståndet för en databas |
 | [Get-AzureRmSqlDatabaseTransparentDataEncryptionActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabasetransparentdataencryptionactivity) |Kontrollerar kryptering förloppet för en databas |
-| [Lägg till AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Lägger till en Key Vault-nyckel till en SQL Server-instans |
+| [Add-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/add-azurermsqlserverkeyvaultkey) |Lägger till en Key Vault-nyckel till en SQL Server-instans |
 | [Get-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlserverkeyvaultkey) |Hämtar Key Vault-nycklar för en Azure SQL database-server  |
 | [Set-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqlservertransparentdataencryptionprotector) |Anger krypteringsskyddet transparent data för en SQL Server-instans |
 | [Get-AzureRmSqlServerTransparentDataEncryptionProtector](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqlservertransparentdataencryptionprotector) |Hämtar krypteringsskyddet transparent data |
-| [Ta bort AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Tar bort en nyckel med Key Vault från en SQL Server-instans |
+| [Remove-AzureRmSqlServerKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.sql/remove-azurermsqlserverkeyvaultkey) |Tar bort en nyckel med Key Vault från en SQL Server-instans |
 |  | |
 
 > [!IMPORTANT]

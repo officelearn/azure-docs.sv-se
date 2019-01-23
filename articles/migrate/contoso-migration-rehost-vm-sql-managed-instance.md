@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 35d2234ee52516c4ebf3e354e1ab6890144cdd5d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3564288c55716a9c64ae2460048cb255a60dcc02
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879476"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469584"
 ---
-# <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: byta Appvärd ett lokalt på en virtuell dator i Azure och SQL Database Managed Instance
+# <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: Ange ny värd för en lokal app på en virtuell Azure-dator och SQL Database Managed Instance
 
 I den här artikeln Contoso migrerar dess SmartHotel360 app klientdelens VM till en Azure virtuell dator med hjälp av Azure Site Recovery-tjänsten. Contoso migrerar också app-databas till Azure SQL Database Managed Instance.
 
@@ -27,14 +27,14 @@ Den här artikeln är i en serie av artiklar som dokumenterar hur det fiktiva f�
 
 **Artikel** | **Detaljer** | **Status**
 --- | --- | ---
-[Artikel 1: översikt](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som används i serien. | Tillgängligt
+[Artikel 1: Översikt över](contoso-migration-overview.md) | Översikt över Contosos migreringsstrategi, artikelserien och exempelappar som används i serien. | Tillgängligt
 [Artikel 2: Distribuera en Azure-infrastruktur](contoso-migration-infrastructure.md) | Contoso förbereder den lokala infrastrukturen och Azure-infrastrukturen för migrering. Samma infrastruktur används för alla migreringsartiklar om i serien. | Tillgängligt
 [Artikel 3: Utvärdera lokala resurser för migrering till Azure](contoso-migration-assessment.md) | Contoso kör en utvärdering av dess lokal tvålagers-SmartHotel-app som körs på VMware. Contoso utvärderar app virtuella datorer med hjälp av den [Azure Migrate](migrate-overview.md) service. Contoso utvärderar app SQL Server-databas med hjälp av [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Tillgängligt
 Artikel 4: Ange ny värd för en app på en virtuell Azure-dator och SQL Database Managed Instance | Contoso körs en lift and shift-migrering till Azure för dess lokal SmartHotel app. Contoso migrerar appen klientdelens VM med hjälp av [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrerar app-databasen till en Azure SQL Database Managed Instance med hjälp av den [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Den här artikeln
 [Artikel 5: Ange ny värd för en app på virtuella Azure-datorer](contoso-migration-rehost-vm.md) | Contoso migrerar dess SmartHotel app virtuella datorer till virtuella Azure-datorer med hjälp av Site Recovery-tjänsten. | Tillgängligt
 [Artikel 6: Ange ny värd för en app på virtuella Azure-datorer och i en SQL Server AlwaysOn-tillgänglighetsgrupp](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrerar SmartHotel appen. Contoso använder Site Recovery för att migrera de virtuella datorerna för appen. Database Migration Service används för att migrera app-databas till SQL Server-kluster som skyddas av en AlwaysOn-tillgänglighetsgrupp. | Tillgängligt
-[Artikel 7: Byta Appvärd en Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess Linux osTicket app på virtuella Azure-datorer med Site Recovery. | Tillgängligt
-[Artikel 8: Byta Appvärd en Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
+[Artikel 7: Ange ny värd för en app för Linux på Azure virtuella datorer](contoso-migration-rehost-linux-vm.md) | Contoso Slutför en lift and shift-migrering av dess Linux osTicket app på virtuella Azure-datorer med Site Recovery. | Tillgängligt
+[Artikel 8: Ange ny värd för en app för Linux på Azure virtuella datorer och Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrerar dess osTicket Linux-app till virtuella Azure-datorer med hjälp av Site Recovery. Den migrerar app-databas till Azure Database för MySQL med MySQL Workbench. | Tillgängligt
 [Artikel 9: Omstrukturera en app i en Azure webbapp och Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrerar dess SmartHotel-app till en Azure webbapp och migrerar app-databasen till en Azure SQL Server-instans. | Tillgängligt
 [Artikel 10: Omstrukturera en Linux-app i en Azure-webbapp och en Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrerar dess osTicket Linux-app till en Azure-webbapp på flera platser. Webbappen är integrerad med GitHub för kontinuerlig leverans. Contoso migrerar app-databasen till en Azure Database for MySQL-instans. | Tillgängligt
 [Artikel 11: Omstrukturera Team Foundation Server på Azure DevOps-tjänsterna](contoso-migration-tfs-vsts.md) | Contoso migrerar sin lokala Team Foundation Server-distributionen genom att migrera den till Azure DevOps-tjänsterna i Azure. | Tillgängligt
@@ -55,10 +55,10 @@ Contosos IT-ledning har arbetat tillsammans med företagets affärspartners att 
 
 - **Åtgärda tillväxten**: Contoso växer. Därför ökat trycket på företagets lokala system och infrastruktur.
 - **Öka effektiviteten**: Contoso behöver du ta bort onödiga procedurer och att effektivisera processer för utvecklare och användare. Affärsbehov IT är fast och som inte spill tid eller pengar, så företaget kan leverera snabbare på kunders behov.
-- **Förbättrad flexibilitet**: Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än de ändringar som sker i marketplace för företag för att utföra en global ekonomi. IT på Contoso måste inte vara i vägen eller bli en blockerare för företag.
-- **Skala**: enligt företagets verksamhet växer har Contoso IT måste tillhandahålla system som kan växa i samma takt.
+- **Förbättrad flexibilitet**:  Contoso IT måste vara mer responsiva gentemot behoven i verksamheten. Måste kunna reagera snabbare än de ändringar som sker i marketplace för företag för att utföra en global ekonomi. IT på Contoso måste inte vara i vägen eller bli en blockerare för företag.
+- **Skala**: När företagets verksamhet växer har måste Contoso IT ange system som kan växa i samma takt.
 
-## <a name="migration-goals"></a>Mål för migrering
+## <a name="migration-goals"></a>Migreringsmål
 
 Contoso cloud-teamet har identifierat mål för den här migreringen. Företaget använder migreringen mål för att avgöra den bästa migreringsmetoden.
 
@@ -159,11 +159,11 @@ Här är hur Contoso planerar att konfigurera distributionen:
 > * **Steg 2: Förbereda Database Migration Service**: Contoso måste registrera databasprovider för migrering, skapa en instans och sedan skapa ett projekt med Database Migration Service. Contoso måste ställa in en signatur för delad åtkomst (SAS) identifierare URI (Uniform Resource) för Database Migration Service. En SAS-URI ger delegerad åtkomst till resurser i Contosos storage-konto, så Contoso kan ge begränsade behörigheter till storage-objekt. Contoso ställer in en SAS-URI så Database Migration Service kan komma åt den lagringskontobehållare som tjänsten Överför säkerhetskopieringsfilerna för SQL Server.
 > * **Steg 3: Förbereda Azure Site Recovery**: Contoso måste skapa ett lagringskonto för att lagra replikerade data för Site Recovery. Det måste också skapa ett Azure Recovery Services-valv.
 > * **Steg 4: Förbereda lokala VMware för Site Recovery**: Contoso förbereder konton för VM-identifiering och agentinstallation installationen ska ansluta till virtuella Azure-datorer efter redundans.
-> * **Steg 5: Replikera datorer**: Om du vill konfigurera replikering Contoso konfigurera Site Recovery-miljöer för källa och mål, ställer in en replikeringsprincip och börjar replikera datorer till Azure Storage.
+> * **Steg 5: Replikera virtuella datorer**: Om du vill konfigurera replikering Contoso konfigurera Site Recovery-miljöer för källa och mål, ställer in en replikeringsprincip och börjar replikera datorer till Azure Storage.
 > * **Steg 6: Migrera databasen med hjälp av Database Migration Service**: Contoso migrerar databasen.
 > * **Steg 7: Migrera de virtuella datorerna med Site Recovery**: Contoso kör ett redundanstest för att kontrollera att allt fungerar. Contoso körs sedan en fullständig redundans för att migrera de virtuella datorerna till Azure.
 
-## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Steg 1: Förbered en SQL Database Managed Instance
+## <a name="step-1-prepare-a-sql-database-managed-instance"></a>Steg 1: Förbereda en SQL Database Managed Instance
 
 Om du vill konfigurera en Azure SQL Database Managed Instance behöver Contoso ett undernät som uppfyller följande krav:
 
@@ -171,7 +171,7 @@ Om du vill konfigurera en Azure SQL Database Managed Instance behöver Contoso e
 - När den hanterade instansen har skapats kan Contoso bör inte lägga till resurser i undernätet.
 - Undernätet kan inte ha en nätverkssäkerhetsgrupp som är kopplade till den.
 - Undernätet måste ha en användardefinierad routning (UDR) routningstabell. Den enda vägen tilldelade ska vara för nästa hopp internet 0.0.0.0/0. 
-- Valfri anpassad DNS: om anpassad DNS har angetts i Azure-nätverk, Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) måste läggas till i listan. Lär dig hur du [konfigurera anpassad DNS för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+- Valfri anpassad DNS: Om anpassad DNS har angetts i Azure-nätverk, måste Azures rekursiva matchare IP-adress (till exempel 168.63.129.16) läggas till i listan. Lär dig hur du [konfigurera anpassad DNS för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
 - Undernätet får inte ha en slutpunkt (lagring eller SQL) som är associerade med den. Tjänstslutpunkter bör inaktiveras i det virtuella nätverket.
 - Undernätet måste ha minst 16 IP-adresser. Lär dig hur du [storlek Managed Instance undernätet](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-vnet-configuration#determine-the-size-of-subnet-for-managed-instances).
 - I Contosos hybridmiljö krävs anpassade DNS-inställningar. Contoso konfigurerar DNS-inställningarna om du vill använda en eller flera av företagets Azure DNS-servrar. Läs mer om [DNS-anpassning](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
@@ -195,7 +195,7 @@ Contoso-administratörer som konfigurerar det virtuella nätverket så här:
 
       ![Nätverks-peering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
-5. De ange anpassade DNS-inställningar. DNS pekar först Contosos Azure-domänkontrollanter. Azure DNS är sekundär. Contoso Azure-domänkontrollanter finns på följande sätt:
+5. They set custom DNS settings. DNS pekar först Contosos Azure-domänkontrollanter. Azure DNS är sekundär. Contoso Azure-domänkontrollanter finns på följande sätt:
 
     - I den **PROD-DC-EUS2** undernät i östra USA 2 produktionsnätverket (**VNET-PROD-EUS2**)
     - **CONTOSODC3** adress: 10.245.42.4
@@ -238,7 +238,7 @@ Contoso överväger dessa faktorer:
     
 *Behöver du mer hjälp?*
 
-Lär dig hur du [konfigurera vägar för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal#create-new-route-table-and-a-route).
+Lär dig hur du [konfigurera vägar för en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal).
 
 ### <a name="create-a-managed-instance"></a>Skapa en hanterad instans
 
@@ -293,7 +293,7 @@ De utför sedan följande steg:
 - Lär dig hur du [skapar och använder SAS](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2).
 
 
-## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>Steg 3: Förbereda Azure för Site Recovery-tjänsten
+## <a name="step-3-prepare-azure-for-the-site-recovery-service"></a>Steg 3: Förbered Azure för Site Recovery-tjänsten
 
 Flera Azure-element krävs för Contoso att konfigurera Site Recovery för migrering av dess webbnivå VM (**WEBMV**):
 
@@ -441,9 +441,9 @@ När källan och målet har ställts in, Contoso administratörer skapa en repli
 
 1. I **Förbered infrastruktur** > **replikeringsinställningar** > **replikeringsprincip** >  **skapa och Associera**, de skapar den **ContosoMigrationPolicy** princip.
 2. De använder standardinställningarna:
-    - **Tröskelvärde för Replikeringspunktmål**: standardvärdet 60 minuter. Det här värdet anger hur ofta återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
-    - **Kvarhållning av återställningspunkt**: standardvärdet 24 timmar. Det här värdet anger hur länge kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster.
-    - **Frekvens för appkonsekvent ögonblicksbild**: standardvärdet 1 timme. Det här värdet anger med vilken frekvens vid vilken programkonsekventa ögonblicksbilder skapas.
+    - **Tröskelvärde för Replikeringspunktmål**: Standardvärdet 60 minuter. Det här värdet anger hur ofta återställningspunkter skapas. En avisering genereras när den kontinuerliga replikeringen överskrider den här gränsen.
+    - **Kvarhållning av återställningspunkt**: Standardvärdet 24 timmar. Det här värdet anger hur länge kvarhållningsperioden är för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster.
+    - **Appkonsekvent ögonblicksbildsfrekvens**: Standardvärdet 1 timme. Det här värdet anger med vilken frekvens vid vilken programkonsekventa ögonblicksbilder skapas.
  
     ![Replikeringsprincip – skapa](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 

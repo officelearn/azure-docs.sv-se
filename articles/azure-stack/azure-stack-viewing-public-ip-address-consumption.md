@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 1/14/2019
 ms.author: mabrigg
-ms.openlocfilehash: 072702b323a41e4c4c51edc7054ad41591dde4d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6d202ab9e2f6a8e96eb494d3d93caf66624f8364
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303539"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465211"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Visa förbrukning för offentlig IP-adress i Azure Stack
 
@@ -36,6 +36,7 @@ Syftet med panelen är att ge Azure Stack-operatörer en uppfattning om hur mån
 Den **offentliga IP-adresser** menyalternativet under **Klientresurser** visar en lista över de offentliga IP-adresser som har *uttryckligen skapade av innehavarna*. Du kan hitta menyalternativet på den **resursprovidrar**, **nätverk** fönstret. Antalet **används** offentliga IP-adresser på den **offentliga IP-adresspooler användning** panelen är alltid detsamma (större än) antalet på den **offentliga IP-adresser** panelen under  **Klient-resurser**.
 
 ## <a name="view-the-public-ip-address-usage-information"></a>Visa den offentliga användningsinformation för IP-adress
+
 Så här visar det totala antalet offentliga IP-adresser som har förbrukats i regionen:
 
 1. Välj i Azure Stack-administratörsportalen kan **alla tjänster**. Sedan, under den **ADMINISTRATION** kategori väljer **nätverk**.
@@ -46,6 +47,7 @@ Så här visar det totala antalet offentliga IP-adresser som har förbrukats i r
 Den **används** talet representerar antalet tilldelade IP-adresser från offentliga IP-adresspooler. Den **kostnadsfri** talet anger hur många offentliga IP-adresser från offentliga IP-adresspooler som inte har tilldelats och är fortfarande tillgängliga. Den **överföringskö** tal som representerar antalet används eller tilldelade adresser som en procentandel av det totala antalet offentliga IP-adresser i offentliga IP-adresspooler på den platsen.
 
 ## <a name="view-the-public-ip-addresses-that-were-created-by-tenant-subscriptions"></a>Visa de offentliga IP-adresser som har skapats av klient-prenumerationer
+
 Välj **offentliga IP-adresser** under **Klientresurser**. Granska listan över offentliga IP-adresser som uttryckligen har skapats av klient prenumerationer i en viss region.
 
 ![Offentliga IP-adresser för klient](media/azure-stack-viewing-public-ip-address-consumption/image02.png)
@@ -55,6 +57,7 @@ Du kanske märker att vissa offentliga IP-adresser som har tilldelats dynamiskt 
 Nätverksstyrenheten tilldelar inte en adress till resursen tills det har bindningar till ett gränssnitt, ett nätverkskort (NIC), en belastningsutjämnare eller en virtuell nätverksgateway. När den offentliga IP-adressen Binder till ett gränssnitt, allokerar en IP-adress för nätverkskortet. Adressen visas i den **adress** fält.
 
 ## <a name="view-the-public-ip-address-information-summary-table"></a>Visa den offentliga IP-adress information sammanfattningstabell
+
 I annat fall kan tilldelas offentliga IP-adresser som avgör om adressen visas i en lista eller en annan.
 
 | **Offentliga IP-adress tilldelning ärende** | **Visas i Användningsöversikt** | **Visas i offentliga IP-adresser klientlista** |
@@ -66,4 +69,5 @@ I annat fall kan tilldelas offentliga IP-adresser som avgör om adressen visas i
 | Offentlig IP-adress implicit skapas för IaaS VM-instanser och används för utgående NAT i det virtuella nätverket. Dessa skapas i bakgrunden när en klient skapar en VM-instans så att virtuella datorer kan skicka information till Internet. |Ja |Nej |
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Hantera Lagringskonton i Azure Stack](azure-stack-manage-storage-accounts.md)

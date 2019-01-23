@@ -4,7 +4,7 @@ description: Välj vilken proxy-lösning som är bäst om du uppgraderar från M
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,16 +15,16 @@ ms.date: 07/27/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c4ecb812156eae7402065cff4dc4bae3aef1554b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1517fedd4b4f8d46b0c7367fa4c1319325818b08
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461357"
 ---
 # <a name="compare-remote-access-solutions"></a>Jämför fjärråtkomstlösningar
 
-Azure Active Directory Application Proxy är en av två fjärråtkomstlösningarna som Microsoft erbjuder. Den andra är Web Application Proxy, lokal version. Dessa två lösningar ersätta tidigare produkter som erbjuds av Microsoft: Microsoft Forefront Threat Management Gateway (TMG) och enhetlig åtkomst Gateway (UAG). Använd den här artikeln för att förstå hur dessa fyra lösningar jämfört med varandra. Använd den här artikeln för att planera din migrering till en av programproxyn för de som fortfarande använder de inaktuella TMG eller UAG lösningarna. 
+Azure Active Directory Application Proxy är en av två fjärråtkomstlösningarna som Microsoft erbjuder. Den andra är Web Application Proxy, lokal version. Dessa två lösningar ersätter tidigare produkter som erbjuds av Microsoft: Microsoft Forefront Threat Management Gateway (TMG) och enhetlig åtkomst Gateway (UAG). Använd den här artikeln för att förstå hur dessa fyra lösningar jämfört med varandra. Använd den här artikeln för att planera din migrering till en av programproxyn för de som fortfarande använder de inaktuella TMG eller UAG lösningarna. 
 
 
 ## <a name="feature-comparison"></a>Jämför funktioner
@@ -46,7 +46,7 @@ Använd den här tabellen för att förstå hur Threat Management Gateway (TMG),
 | Autentisering med rubriker | - | Ja | - | Ja, med PingAccess | 
 | Säkerhet för molnskala | - | - | - | Ja | 
 | Villkorlig åtkomst | - | Ja | - | Ja |
-| Ingen komponent i perimeternätverket (DMZ) | - | - | - | Ja |
+| Inga komponenter i demilitariserad zon (DMZ) | - | - | - | Ja |
 | Inga inkommande anslutningar | - | - | - | Ja |
 
 För de flesta fall rekommenderar vi Azure AD-program till den moderna lösningen. Du kan inte använda anpassade domäner i Azure Active Directory Web Application Proxy är bara önskade i scenarier som kräver en proxyserver för AD FS. 
@@ -56,7 +56,7 @@ Azure AD-programproxyn erbjuder unika fördelar jämfört med liknande produkter
 - Utöka Azure AD till lokala resurser
    - Skalbar säkerhet och skydd
    - Funktioner som villkorlig åtkomst och Multi-Factor Authentication är enkelt att aktivera
-- Ingen komponent i perimeternätverket
+- Inga Component i demilitariserad zon
 - Inga inkommande anslutningar som krävs
 - En åtkomstpanelen att användarna kan gå till för alla program, inklusive O365, Azure AD-integrerade SaaS-appar och din lokala webbappar. 
 

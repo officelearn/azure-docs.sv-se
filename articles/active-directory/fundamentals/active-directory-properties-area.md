@@ -3,7 +3,7 @@ title: Lägg till din organisations sekretess information – Azure Active Direc
 description: Anvisningar om hur du lägger till din organisations sekretess information till området Azure Active Directory-egenskaper.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: lizross
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 50fcafbdef4fc09532d03ae145183dd45c381c73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: bfbb9a035c3f7a00de1610f1240448ff7b0b4abf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083843"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452606"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Lägg till din organisations sekretess information med hjälp av Azure Active Directory
 Den här artikeln beskrivs hur en administratör kan lägga till sekretessrelaterade information till en organisations Azure Active Directory (Azure AD)-klient, via Azure portal.

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 47a957453bf5962f59518719895edc0f13fe7dc8
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: 4ca5803ca410e3250e025eb60b5c1ff9fc7216b1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584385"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465249"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Kom igång med roller, behörigheter och säkerhet med Azure Monitor
 Många team behöver strikt reglera åtkomst till övervakningsdata och inställningar. Till exempel om du har som fungerar endast om hur du övervakar (support-tekniker, devops-tekniker) eller om du använder en leverantör av hanterade tjänster kan du behöva ge dem åtkomst till endast övervakningsdata samtidigt begränsa deras möjlighet att skapa, ändra, eller ta bort resurser. Den här artikeln visar hur du snabbt gäller en inbyggd övervakning RBAC-roll för en användare i Azure eller skapa en egen anpassad roll för en användare behöver begränsade behörigheter för övervakning. Det diskuterar sedan säkerhetsaspekter för dina Azure Monitor-relaterade resurser och hur du kan begränsa åtkomsten till den data de innehåller.
@@ -75,14 +75,14 @@ Om ovanstående inbyggda roller inte uppfyller de specifika behoven för ditt te
 | Microsoft.Insights/AlertRules/[Read, Write, Delete] |Läs/Skriv/ta bort aviseringsregler (från klassiska varningar). |
 | Microsoft.Insights/AlertRules/Incidents/Read |Lista över incidenter (historik över aviseringsregeln utlöses) för Varningsregler. Detta gäller endast till portalen. |
 | Microsoft.Insights/AutoscaleSettings/[Read, Write, Delete] |Läs/Skriv/ta bort autoskalningsinställningar. |
-| Microsoft.Insights/DiagnosticSettings/[Read, skriva, ta bort] |Läs/Skriv/ta bort diagnostikinställningar. |
+| Microsoft.Insights/DiagnosticSettings/[Read, Write, Delete] |Läs/Skriv/ta bort diagnostikinställningar. |
 | Microsoft.Insights/EventCategories/Read |Räkna upp alla kategorier som är möjliga i aktivitetsloggen. Används av Azure-portalen. |
 | Microsoft.Insights/eventtypes/digestevents/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. |
 | Microsoft.Insights/eventtypes/values/Read |Lista över aktivitetslogghändelser (av hanteringshändelser) i en prenumeration. Den här behörigheten gäller för både program- och portalen åtkomst till aktivitetsloggen. |
 | Microsoft.Insights/ExtendedDiagnosticSettings/[Read, skriva, ta bort] | Läs/Skriv/ta bort diagnostikinställningar för flödesloggar för nätverket. |
 | Microsoft.Insights/LogDefinitions/Read |Den här behörigheten krävs för användare som behöver åtkomst till aktivitetsloggar via portalen. |
 | Microsoft.Insights/LogProfiles/[Read, skriva, ta bort] |Läs/Skriv/ta bort loggprofiler (strömma aktivitetsloggen till event hub eller storage-konto). |
-| Microsoft.Insights/MetricAlerts/[Read, skriva, ta bort] |Läs/Skriv/ta bort aviseringar i nära realtid mått |
+| Microsoft.Insights/MetricAlerts/[Read, Write, Delete] |Läs/Skriv/ta bort aviseringar i nära realtid mått |
 | Microsoft.Insights/MetricDefinitions/Read |Läs måttdefinitionerna (lista över tillgängliga typer av mått för en resurs). |
 | Microsoft.Insights/Metrics/Read |Läsa måtten för en resurs. |
 | Microsoft.Insights/Register/Action |Registrera resursprovidern Azure Monitor. |
@@ -187,4 +187,5 @@ Mer information finns i [Network security och Azure Storage](../../storage/commo
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om RBAC och behörigheter i Resource Manager](../../role-based-access-control/overview.md)
 * [Läs en översikt över övervakning i Azure](../../azure-monitor/overview.md)
+
 

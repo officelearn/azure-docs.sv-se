@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: e241317231f3c607c373cb8a54e4b5bf6601b8e7
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: 64cbf8f8704dbb216a15247caf741ff43690496a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620769"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54457058"
 ---
 > [!div class="op_single_selector"]
 > * [C i Windows](../articles/iot-accelerators/iot-accelerators-connecting-devices.md)
@@ -41,7 +41,7 @@ Du behöver ett Azure-konto för att slutföra den här självstudiekursen. Om d
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Innan du kan skriva kod för enheten, distribuerar lösningsacceleratorn för fjärrövervakning och lägga till en ny fysisk enhet i lösningen.
+Innan du kan skriva kod för enheten, distribuerar lösningsacceleratorn för fjärrövervakning och lägga till en ny riktig enhet i lösningen.
 
 ### <a name="deploy-your-remote-monitoring-solution-accelerator"></a>Distribuera lösningsacceleratorn för fjärrövervakning
 
@@ -62,7 +62,7 @@ Om du vill lägga till en enhet till din fjärrövervakningslösning utför du f
 
 1. Välj **+ ny enhet**, och välj sedan **fysiska** som den **enhetstyp**:
 
-    ![Lägg till en fysisk enhet](media/iot-suite-selector-connecting/devicesprovision.png)
+    ![Lägga till en riktig enhet](media/iot-suite-selector-connecting/devicesprovision.png)
 
 1. Ange **fysiska kylaggregat** som enhetens ID. Välj den **symmetrisk nyckel** och **generera nycklar automatiskt** alternativ:
 
@@ -72,7 +72,7 @@ Om du vill lägga till en enhet till din fjärrövervakningslösning utför du f
 
     ![Hämta autentiseringsuppgifter](media/iot-suite-selector-connecting/credentials.png)
 
-Du har nu lagt till en fysisk enhet att lösningsacceleratorn för fjärrövervakning och anges dess enhetens anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enhetens anslutningssträng för att ansluta till din lösning.
+Du har nu lagt till en riktig enhet att lösningsacceleratorn för fjärrövervakning och anges dess enhetens anslutningssträng. I följande avsnitt kan du implementera klientprogram som använder enhetens anslutningssträng för att ansluta till din lösning.
 
 Klientprogrammet implementerar inbyggt **kylaggregat** enhetsmodell. En enhetsmodell för solution accelerator anger följande om en enhet:
 

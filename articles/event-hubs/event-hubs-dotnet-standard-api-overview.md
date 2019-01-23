@@ -9,19 +9,19 @@ ms.service: event-hubs
 ms.topic: article
 ms.date: 08/13/2018
 ms.author: shvija
-ms.openlocfilehash: 9b952bd96828c4f2c140cb2d75cecb9379895a63
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: f8cd167d8de738674939180e0d81fc9282434155
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746651"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450463"
 ---
 # <a name="event-hubs-net-standard-api-overview"></a>Översikt över Event Hubs .NET Standard-API
 
 Den här artikeln sammanfattas några av nyckeln för Azure Event Hubs [.NET Standard klientens API: er](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/). Det finns för närvarande två .NET Standard-klientbibliotek för Event Hubs:
 
-* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): innehåller alla basic runtime-åtgärder.
-* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): lägger till ytterligare funktioner som gör det möjligt att hålla reda på bearbetade händelser och är det enklaste sättet att läsa från en event hub.
+* [Microsoft.Azure.EventHubs](/dotnet/api/microsoft.azure.eventhubs): Innehåller alla basic runtime-åtgärder.
+* [Microsoft.Azure.EventHubs.Processor](/dotnet/api/microsoft.azure.eventhubs.processor): Lägger till ytterligare funktioner som gör det möjligt att hålla reda på bearbetade händelser och är det enklaste sättet att läsa från en event hub.
 
 ## <a name="event-hubs-client"></a>Event Hubs-klienten
 

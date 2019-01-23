@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar principer för Azure Active Directory 
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: a27862a6-d513-43ba-97c1-1c0d400bf243
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 06/14/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b59e4898f85de7ad93d9172cdb3c551a17799194
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 2df2d716516cb8e451c054fce3e184e1b4bf3f9b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630491"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447606"
 ---
-# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Så här: Kräv hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
+# <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Hur: Kräv att hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst
 
 I en mobil- och molnorienterade värld, Azure Active Directory (Azure AD) som möjliggör enkel inloggning till appar och tjänster från var som helst. Auktoriserade användare kan komma åt dina appar i molnet från en mängd olika enheter, inklusive mobila och personliga enheter. Men har många miljöer minst några appar som ska bara användas av enheter som uppfyller dina krav för säkerhet och efterlevnad. Dessa enheter är även känd som hanterade enheter. 
 
@@ -34,9 +34,9 @@ Den här artikeln förklarar hur du kan konfigurera principer för villkorlig å
 
 Krav på hanterade enheter för cloud app åtkomst ties **Azure AD villkorsstyrd åtkomst** och **Azure AD-enhetshantering** tillsammans. Om du inte är bekant med någon av dessa områden ännu, bör du läsa följande avsnitt kommer först:
 
-- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md) ** -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
+- **[Villkorlig åtkomst i Azure Active Directory](../active-directory-conditional-access-azure-portal.md)**  -den här artikeln ger en översikt över villkorlig åtkomst och termer som är relaterade.
 
-- **[Introduktion till hantering av enheter i Azure Active Directory](../devices/overview.md) ** -den här artikeln får du en överblick över de olika alternativ som du behöver hämta enheter organisationens kontrolleras. 
+- **[Introduktion till hantering av enheter i Azure Active Directory](../devices/overview.md)**  -den här artikeln får du en överblick över de olika alternativ som du behöver hämta enheter organisationens kontrolleras. 
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,11 +60,11 @@ Enkelt uttryckt hanterade enheter är enheter som är under *någon typ* för or
 
 Om du vill ha en enhet har registrerats med Azure AD har du tre alternativ:
 
-- **[Azure AD-registrerade enheter](../devices/overview.md#azure-ad-registered-devices) ** – om du vill hämta en personlig enhet registrerad med Azure AD
+- **[Azure AD-registrerade enheter](../devices/overview.md#azure-ad-registered-devices)**  – om du vill hämta en personlig enhet registrerad med Azure AD
 
-- **[Azure AD-anslutna enheter](../devices/overview.md#azure-ad-joined-devices) ** – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
+- **[Azure AD-anslutna enheter](../devices/overview.md#azure-ad-joined-devices)**  – om du vill hämta en organisations Windows 10-enhet som inte är ansluten till en lokal AD-registrerade med Azure AD. 
 
-- **[Azure AD-anslutna hybridenheter](../devices/overview.md#hybrid-azure-ad-joined-devices) ** – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
+- **[Azure AD-anslutna hybridenheter](../devices/overview.md#hybrid-azure-ad-joined-devices)**  – om du vill hämta en Windows 10 eller stöd äldre enheter som är ansluten till en lokal AD-registrerade med Azure AD.
 
 Om du vill bli en hanterad enhet, en registrerad enhet måste vara antingen en **Hybrid Azure AD-ansluten enhet** eller en **enhet som har markerats som kompatibel**.  
 

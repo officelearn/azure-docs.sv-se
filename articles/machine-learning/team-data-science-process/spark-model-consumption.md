@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 543ae7cecf9edcb5997a0bae66e0722d258a4523
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: eb66e5c84542127f63b6311a887494f1e2ba394c
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135313"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448796"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-byggda machine learning-modeller
 
@@ -279,7 +279,7 @@ Den innehåller också kod som visar hur du skalar data med den `StandardScalar`
                              line.trip_distance, line.fare_amount])
         return  features
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Använd Spark-modeller via ett webbgränssnitt
-Spark tillhandahåller en mekanism för att skicka via en fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livy. Livy är aktiverat som standard på ditt HDInsight Spark-kluster. Läs mer på Livy: [skicka Spark-jobb via fjärranslutning med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark tillhandahåller en mekanism för att skicka via en fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livy. Livy är aktiverat som standard på ditt HDInsight Spark-kluster. Mer information om Livy finns: [Skicka Spark-jobb via fjärranslutning med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Du kan använda Livy för att skicka ett jobb som batch resultat via en fjärranslutning en fil som lagras i en Azure-blob och skriver sedan resultaten till en annan blob. Om du vill göra detta måste du ladda upp Python-skriptet från  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) till bloben i Spark-kluster. Du kan använda ett verktyg som **Microsoft Azure Lagringsutforskaren** eller **AzCopy** att kopiera skriptet till kluster-blob. I vårt fall vi laddade upp skriptet till ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -555,7 +555,7 @@ Här är Python-kod för HTTP-anrop:
 
     import os
 
-    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILBLE BY DEFAULT
+    # OLDER HTTP LIBRARIES USED HERE INSTEAD OF THE REQUEST LIBRARY AS THEY ARE AVAILABLE BY DEFAULT
     import httplib, urllib, base64
 
     # REPLACE VALUE WITH ONES FOR YOUR SPARK CLUSTER
@@ -587,5 +587,5 @@ Om du föredrar en kostnadsfri klientmiljö kod kan använda den [Azure Logic Ap
 ![Logikappdesigner](./media/spark-model-consumption/spark-logica-app-client.png)
 
 ## <a name="whats-next"></a>Nästa steg
-**Korsvalidering och finjustering oinskränkt**: se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parametern.
+**Korsvalidering och finjustering oinskränkt**: Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parametern.
 

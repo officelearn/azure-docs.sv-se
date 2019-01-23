@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 2580d49fb7ab0779f81f1315b9765a0dc4745cb6
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: a808dc3e924d3f1800790bdb83cb4ce65112480b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078226"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470145"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Skicka molntjänst, virtuell dator eller Service Fabric diagnostiska data till Application Insights
 Molntjänster, virtuella datorer, Virtual Machine Scale Sets och Service Fabric alla Använd Azure Diagnostics-tillägget för att samla in data.  Azure-diagnostik skickar data till Azure Storage-tabeller.  Du kan dock också pipe alla eller en delmängd av data till andra platser med hjälp av Azure-diagnostiktillägget 1.5 eller senare.
@@ -218,3 +218,4 @@ I den tidigare konfigurationen med följande rader betydelser:
 * Lär dig hur du [se information om din Azure-diagnostik](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) i Application Insights.
 * Använd [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) att aktivera Azure diagnostics-tillägg för ditt program.
 * Använd [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) att aktivera Azure diagnostics-tillägg för ditt program
+

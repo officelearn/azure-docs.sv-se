@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 7225bc8121ddab8809ebb1c409a3af59dbcc42f2
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: ''
+ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118395"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468241"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Stream Azure-övervakningsdata till en händelsehubb för användning av något externt verktyg
 
@@ -52,7 +52,7 @@ Se även de [Azure Event Hubs vanliga frågor och svar](../../event-hubs/event-h
 
 Azure-klient övervakningsdata är för närvarande endast tillgängliga för Azure Active Directory. Du kan använda data från [Azure Active Directory-rapportering](../../active-directory/reports-monitoring/overview-reports.md), som innehåller historik över inloggning aktivitet och granska spårning av ändringar som gjorts i en viss klient.
 
-### <a name="azure-active-directory-data"></a>Azure Active Directory-data
+### <a name="azure-active-directory-data"></a>Azure Active Directory data
 
 Om du vill skicka data från Azure Active Directory-loggen i ett Event Hubs-namnområde måste konfigurera du en diagnostikinställning för klient på din AAD-klient. [Den här guiden](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) att ställa in en diagnostikinställning för klienten.
 
@@ -120,4 +120,5 @@ Routning övervakningsdata till en event hub med Azure Monitor kan du lätt kan 
 * [Arkivera aktivitetsloggen till ett lagringskonto](../../azure-monitor/platform/archive-activity-log.md)
 * [Läs en översikt över Azure-aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md)
 * [Konfigurera en avisering baserat på en händelse i aktivitetsloggen](../../azure-monitor/platform/alerts-log-webhook.md)
+
 

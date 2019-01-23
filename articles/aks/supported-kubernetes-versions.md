@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: e535d1c2c581e20667a1ccf10fc97fcf988bc91a
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 3e8342a719bf9ae7174195f88b97972d7f13193c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53001810"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465793"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Kubernetes-versioner som stöds i Azure Kubernetes Service (AKS)
 
@@ -41,17 +41,18 @@ Om du vill ta reda på vilka versioner som är tillgängliga för din prenumerat
 az aks get-versions --location eastus --output table
 ```
 
-Utdata liknar följande exempel som visar att Kubernetes-version *1.11.5* finns den senaste versionen:
+Utdata liknar följande exempel som visar att Kubernetes-version *1.12.4* finns den senaste versionen:
 
 ```
 KubernetesVersion    Upgrades
--------------------  ----------------------
-1.11.5               None available
-1.11.4               1.11.5
-1.10.9               1.11.4, 1.11.5
-1.10.8               1.10.9, 1.11.4, 1.11.5
-1.9.11               1.10.8, 1.10.9
-1.9.10               1.9.11, 1.10.8, 1.10.9
+-------------------  -----------------------
+1.12.4               None available
+1.11.6               1.12.4
+1.11.5               1.11.6, 1.12.4
+1.10.12              1.11.5, 1.11.6
+1.10.9               1.10.12, 1.11.5, 1.11.6
+1.9.11               1.10.9, 1.10.12
+1.9.10               1.9.11, 1.10.9, 1.10.12
 1.8.15               1.9.10, 1.9.11
 1.8.14               1.8.15, 1.9.10, 1.9.11
 ```

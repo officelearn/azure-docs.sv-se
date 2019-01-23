@@ -3,8 +3,8 @@ title: Push-meddelanden till specifika iOS-enheter med Azure Notification Hubs |
 description: I den här självstudien får du lära dig hur du använder Azure Notification Hubs för att skicka push-meddelanden till specifika iOS-enheter.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6ead4169-deff-4947-858c-8c6cf03cc3b2
 ms.service: notification-hubs
@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 18caf2b1b96052d93737c8a9815e2e6643a52a67
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: aaaeb4e101147c19af5bd1dc7071cca273255863
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918070"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449767"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudier: Push-meddelanden till specifika iOS-enheter med Azure Notification Hubs
 
@@ -41,7 +41,7 @@ I den här självstudien gör du följande:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Det här avsnittet bygger på den app som du skapade i [Självstudier: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started]. Innan du påbörjar den här självstudiekursen måste du ha redan slutfört [Självstudier: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started].
+Det här avsnittet bygger på den app som du skapade i [självstudien: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started]. Innan du påbörjar den här självstudiekursen måste du ha redan slutfört [självstudien: Push-meddelanden till iOS-appar med Azure Notification Hubs][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
 
@@ -59,7 +59,7 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     ![Xcode-gränssnittet builder][3]
 
 2. I redigeraren assistent, skapa kanaler för alla växlar och anropa dem ”WorldSwitch”, ”PoliticsSwitch”, ”BusinessSwitch”, ”TechnologySwitch”, ”ScienceSwitch”, ”SportsSwitch”
-3. Skapa en åtgärd för din knapp som kallas **prenumerera**. Din ViewController.h bör innehålla följande kod:
+3. Skapa en åtgärd för din knapp som kallas `subscribe`; din `ViewController.h` bör innehålla följande kod:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UISwitch *WorldSwitch;
@@ -135,7 +135,7 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
 
     Den här klassen använder lokal lagring för att lagra och hämta kategorier av nyheter som tar emot den här enheten. Den innehåller också en metod för att registrera dig för dessa kategorier med hjälp av en [mall](notification-hubs-templates-cross-platform-push-messages.md) registrering.
 
-7. Lägg till en import-sats för Notifications.h och lägga till en egenskap för en instans av klassen meddelanden i filen appdelegate-H::
+7. I den `AppDelegate.h` Lägg till en import-sats för `Notifications.h` och lägga till en egenskap för en instans av den `Notifications` klass:
 
     ```objc
     #import "Notifications.h"
@@ -143,9 +143,8 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. I den **didFinishLaunchingWithOptions** -metod i AppDelegate.m, Lägg till koden för att initiera meddelanden-instans i början av metoden.  
-
-    `HUBNAME` och `HUBLISTENACCESS` (definieras i hubinfo.h) bör redan ha den `<hub name>` och `<connection string with listen access>` platshållare ersätts med namnet på din meddelandehubb och anslutningssträngen för *DefaultListenSharedAccessSignature* som du tidigare hämtade
+8. I den `didFinishLaunchingWithOptions` -metod i `AppDelegate.m`, lägger du till kod för att initiera meddelanden-instans i början av metoden.  
+    `HUBNAME` och `HUBLISTENACCESS` (definieras i `hubinfo.h`) bör redan ha den `<hub name>` och `<connection string with listen access>` platshållare ersätts med namnet på din meddelandehubb och anslutningssträngen för *DefaultListenSharedAccessSignature*som du fick tidigare
 
     ```objc
     self.notifications = [[Notifications alloc] initWithConnectionString:HUBLISTENACCESS HubName:HUBNAME];
@@ -154,7 +153,7 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     > [!NOTE]
     > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra bör du bara distribuera nyckeln för lyssningsåtkomst med din klientapp. Lyssningsåtkomst gör det möjligt för din app att registrera sig för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckeln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
 
-9. I den **didRegisterForRemoteNotificationsWithDeviceToken** -metod i AppDelegate.m, Ersätt Koden i metoden med följande kod för att skicka enhetstoken till klassen meddelanden. Klassen meddelanden utför registrering för meddelanden med kategorierna. Om användaren ändrar kategori, anropa den `subscribeWithCategories` metod som svar på den **prenumerera** knappen uppdatera dem.
+9. I den `didRegisterForRemoteNotificationsWithDeviceToken` -metod i `AppDelegate.m`, Ersätt Koden i metoden med följande kod för att skicka enhetstoken till den `notifications` klass. Den `notifications` klass utför registrering för meddelanden med kategorierna. Om användaren ändrar kategori, anropa den `subscribeWithCategories` metod som svar på den **prenumerera** knappen uppdatera dem.
 
     > [!NOTE]
     > Eftersom enhetstoken som tilldelats av Apple Push Notification Service (APNS) kan risken när som helst, bör du registrera för meddelanden ofta att undvika meddelandet-fel. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
@@ -173,9 +172,9 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     }];
     ```
 
-    Nu bör det finnas ingen annan kod i den **didRegisterForRemoteNotificationsWithDeviceToken** metod.
+    Nu bör det finnas ingen annan kod i den `didRegisterForRemoteNotificationsWithDeviceToken` metoden.
 
-10. Följande metoder ska redan finnas i AppDelegate.m inte slutföra den [Kom igång med Notification Hubs] [ get-started] självstudien. Annars kan du lägga till dem.
+10. Följande metoder ska redan finnas i `AppDelegate.m` inte slutföra den [Kom igång med Notification Hubs] [ get-started] självstudien. Annars kan du lägga till dem.
 
     ```objc
     -(void)MessageBox:(NSString *)title message:(NSString *)messageText
@@ -195,7 +194,7 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
 
     Den här metoden hanterar meddelanden som tas emot när programmet körs genom att visa en enkel **UIAlert**.
 
-11. Lägg till en import-sats för H: i ViewController.m, och kopiera följande kod i XCode-genererade **prenumerera** metod. Den här koden uppdaterar registrering för meddelanden om du vill använda de nya kategorin taggar som användaren har valt i användargränssnittet.
+11. I `ViewController.m`, lägga till en `import` instruktionen för `AppDelegate.h` och kopiera följande kod i XCode-genererade `subscribe` metod. Den här koden uppdaterar registrering för meddelanden om du vill använda de nya kategorin taggar som användaren har valt i användargränssnittet.
 
     ```objc
     #import "Notifications.h"
@@ -220,9 +219,9 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     }];
     ```
 
-    Den här metoden skapar en **NSMutableArray** kategorier och använder den **meddelanden** klassen för att lagra listan i lokal lagring och registrerar motsvarande taggar på meddelandehubben. När kategorier ändras återskapas registreringen med de nya kategorierna.
+    Den här metoden skapar en `NSMutableArray` kategorier och använder den `Notifications` klassen för att lagra listan i lokal lagring och registrerar motsvarande taggar på meddelandehubben. När kategorier ändras återskapas registreringen med de nya kategorierna.
 
-3. I ViewController.m, lägger du till följande kod i den **viewDidLoad** metoden för att ange användargränssnittet baserat på de tidigare sparad kategorierna.
+12. I `ViewController.m`, Lägg till följande kod i den `viewDidLoad` metoden för att ange användargränssnittet baserat på de tidigare sparad kategorierna.
 
     ```objc
     // This updates the UI on startup based on the status of previously saved categories.
@@ -239,11 +238,11 @@ Det första steget är att lägga till de UI-element i din befintliga storyboard
     if ([categories containsObject:@"Sports"]) self.SportsSwitch.on = true;
     ```
 
-Appen kan nu användas för att lagra en uppsättning kategorier i enhetens lokala lagring används för att registrera med notification hub när appen startar. Användaren kan ändra valet av kategorier vid körning och klicka på den **prenumerera** metod för att uppdatera registreringen för enheten. Därefter uppdaterar du appen för att skicka aviseringar om inkomna Nyheter direkt i själva appen.
+Appen kan nu användas för att lagra en uppsättning kategorier i enhetens lokala lagring används för att registrera med notification hub när appen startar. Användaren kan ändra valet av kategorier vid körning och klicka på den `subscribe` metod för att uppdatera registreringen för enheten. Därefter uppdaterar du appen för att skicka aviseringar om inkomna Nyheter direkt i själva appen.
 
 ## <a name="optional-send-tagged-notifications"></a>(valfritt) Skicka taggade meddelanden
 
-Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från den [Azure Portal] med fliken för felsökning för meddelandehubben. 
+Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från den [Azure Portal] med fliken för felsökning för meddelandehubben.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -312,7 +311,7 @@ Normalt meddelanden skulle skickas genom en serverdelstjänst, men du kan skicka
     }
     ```
 
-2. I `ViewController.m`, uppdatera den **skicka meddelande** åtgärden som visas i den kod som följer. Så att den skickar meddelanden med hjälp av varje tagg individuellt och skickar till flera plattformar.
+2. I `ViewController.m`, uppdatera den `Send Notification` åtgärden som visas i den kod som följer. Så att den skickar meddelanden med hjälp av varje tagg individuellt och skickar till flera plattformar.
 
     ```objc
     - (IBAction)SendNotificationMessage:(id)sender
@@ -349,23 +348,15 @@ Normalt meddelanden skulle skickas genom en serverdelstjänst, men du kan skicka
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får skickat du broadcast-meddelanden till specifika iOS-enheter som har registrerats i kategorier. Om du vill lära dig mer om att skicka lokaliserade meddelanden går du vidare till följande självstudie: 
+I den här självstudien får skickat du broadcast-meddelanden till specifika iOS-enheter som har registrerats i kategorier. Om du vill lära dig mer om att skicka lokaliserade meddelanden går du vidare till följande självstudie:
 
 > [!div class="nextstepaction"]
 >[Skicka lokaliserade meddelanden](notification-hubs-ios-xplat-localized-apns-push-notification.md)
-
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-subscribed.png
 [2]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios1.png
 [3]: ./media/notification-hubs-ios-send-breaking-news/notification-hub-breakingnews-ios2.png
-
-
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx

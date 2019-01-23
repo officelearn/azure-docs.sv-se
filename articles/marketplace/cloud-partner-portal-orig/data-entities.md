@@ -1,6 +1,6 @@
 ---
 title: Dataentiteter | Microsoft Docs
-description: En översikt över data enheterna.
+description: En översikt över dataentiteter.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c7b321ab04df405c56cab0952942b0d6e142da6d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 579856ab87aaf8d051f2e3c161bb2d0e2f693ed5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811477"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446586"
 ---
 # <a name="data-entities"></a>Dataentiteter
 
@@ -29,7 +29,7 @@ Den här artikeln definierar och ger en översikt över dataentiteter. Den inneh
 
 En dataenhet är en abstraktion av fysiska tillämpningen av databastabeller. Till exempel data för varje kund kan lagras i en kundtabell i normaliserade tabeller, och sedan resten kan spridas till en liten uppsättning relaterade tabeller. I det här fallet visas data entitet för kund-konceptet som en avnormaliserat vy, där varje rad innehåller alla data från kundtabellen och dess relaterade tabeller. En dataenhet kapslar in ett koncept för företag till ett format som underlättar utveckling och integration. Den abstraherad natur en dataenhet kan förenkla programutvecklingen och anpassning. Senare, gör abstraktionen också programkod från ofrånkomligt omsättning av fysiska tabellerna mellan versioner.
 
-Sammanfattningsvis: dataenhet Ger konceptuell abstraktion och inkapsling (avnormaliserat view) av underliggande tabellscheman som representerar viktiga begrepp och funktioner.
+Sammanfattningsvis: Datatabell Ger konceptuell abstraktion och inkapsling (avnormaliserat view) av underliggande tabellscheman som representerar viktiga begrepp och funktioner.
 
 ## <a name="capabilities"></a>Funktioner
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e8e838fae0da3a47fe1b3ec8d412f956f5f28034
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 31d6725b6e02bbc583ad80f235360574941a97d3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468343"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding docker-behållare 
 
@@ -35,6 +35,7 @@ Den här behållaren har följande konfigurationsinställningar:
 |Ja|[Billing](#billing-setting)|Anger URI för tjänstresursen på Azure.|
 |Ja|[Licensvillkor](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
 |Nej|[Fluentd](#fluentd-settings)|Skriva log och eventuellt måttdata till en Fluentd-server.|
+|Nej|[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för utgående förfrågningar.|
 |Nej|[Loggning](#logging-settings)|Ger ASP.NET Core loggning stöd för din behållare. |
 |Ja|[Monterar](#mount-settings)|Läsa och skriva data från värddatorn till behållare och behållaren tillbaka till värddatorn.|
 
@@ -77,6 +78,10 @@ Den här inställningen kan hittas på följande platser:
 
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
+
+## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
 ## <a name="logging-settings"></a>Loggningsinställningar
  
@@ -189,3 +194,4 @@ ApiKey={APPLICATION_ID} \
 
 * Granska [hur du installerar och kör behållare](luis-container-howto.md)
 * Referera till [vanliga frågor (och svar FAQ)](luis-resources-faq.md) att lösa problem som rör LUIS-funktioner.
+* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)

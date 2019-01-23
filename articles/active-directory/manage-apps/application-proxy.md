@@ -3,7 +3,7 @@ title: Fjärråtkomst till lokala appar – Azure Active Directory Application P
 description: Azure Active Directory Application Proxy ger säker fjärråtkomst till lokala webbprogram. När du har en enkel inloggning till Azure AD, kan användare komma åt både i molnet och lokala program via en extern Webbadress eller en intern App-portal. Till exempel kan Application Proxy ge fjärråtkomst och enkel inloggning för fjärrskrivbord, SharePoint, Teams, Tableau, Qlik och verksamhetsspecifika (LOB) program.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 94330c9d53b69d86ff05fe2f0164cb7559e9d389
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 48f06d0f8b36c129ab7fa99a037cf2ccdb5b7004
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159136"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473358"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-active-directorys-application-proxy"></a>Fjärråtkomst till lokala program via Azure Active Directory Application Proxy 
 

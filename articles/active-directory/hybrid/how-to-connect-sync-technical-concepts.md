@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synkronisering: tekniska begrepp | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Tekniska begrepp | Microsoft Docs'
 description: Beskriver de tekniska begrepp för Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 731cfeb3-beaf-4d02-aef4-b02a8f99fd11
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: df3f244b70b52b6145b664c4e575c66542ada5b9
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2bf9876fc551b9ab0eb24c03a17f3d789c00530e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314540"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463498"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Azure AD Connect-synkronisering: Tekniska begrepp
 Den här artikeln är en sammanfattning av avsnittet [förstå arkitekturen](how-to-connect-sync-technical-concepts.md).

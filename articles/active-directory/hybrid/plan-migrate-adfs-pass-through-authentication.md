@@ -3,7 +3,7 @@ title: 'Azure AD Connect: Migrera från federation till direktautentisering för
 description: Den här artikeln innehåller information om hur du flyttar din hybridmiljön identitet från federation till direktautentisering.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.reviewer: martincoetzer
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 52acac64180ae7d6d545ec5edaa1473e47290020
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fe2ff3697d362119db2df682aacd89ebcf073059
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438651"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465640"
 ---
 # <a name="migrate-from-federation-to-pass-through-authentication-for-azure-active-directory"></a>Migrera från federation till direktautentisering för Azure Active Directory
 

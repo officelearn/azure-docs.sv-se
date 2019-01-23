@@ -2,10 +2,10 @@
 title: Vad är en migrering av princip för villkorlig åtkomst i Azure Active Directory? | Microsoft Docs
 description: Lär dig vad du behöver veta för att migrera klassiska principer i Azure-portalen.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: c8431ee305c8a266a79f58e8b4ba4e6541f79f9b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8d7223d12b69ccf870b8b3db0fb577f3712d17f7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629879"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446943"
 ---
 # <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>Vad är en migrering av princip för villkorlig åtkomst i Azure Active Directory? 
 
@@ -172,4 +172,4 @@ I en ny princip, du måste välja den [enhetsplattformar](technical-reference.md
 
 - Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 

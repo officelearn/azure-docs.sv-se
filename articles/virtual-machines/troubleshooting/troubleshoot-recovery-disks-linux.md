@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: 2f10a231c4edc3e01d3f8c5f7f4db1854f83044d
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: e6d6c47726b21a241b379366bd1fde6c6b90e223
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392410"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462020"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Felsöka en Linux-VM genom att koppla OS-disken till en virtuell dator med Azure CLI för återställning
 Om din Linux-dator (VM) påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är ett ogiltigt värde i `/etc/fstab` som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure CLI för att ansluta den virtuella hårddisken till en annan Linux VM att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn. 
@@ -35,7 +35,7 @@ Så här ser felsökningsprocessen ut:
 
 För den virtuella datorn som använder hanterade diskar, se [felsöka en hanterad Disk i virtuell dator genom att koppla en ny OS-disk](#troubleshoot-a-managed-disk-vm-by-attaching-a-new-os-disk).
 
-Om du vill utföra de här felsökningsstegen du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du vill utföra de här felsökningsstegen du behöver senast [Azure CLI](/cli/azure/install-az-cli2) installerat och loggat in till en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index).
 
 I följande exempel, ersätter du parameternamn med dina egna värden. Parametern exempelnamnen inkluderar `myResourceGroup`, `mystorageaccount`, och `myVM`.
 
@@ -69,7 +69,7 @@ Virtuella hårddiskar och virtuella datorer är två separata resurser i Azure. 
 
 Det första steget att återställa den virtuella datorn är att ta bort den Virtuella datorresursen. När du tar bort den virtuella datorn hamnar de virtuella hårddiskarna på ditt lagringskonto. När den virtuella datorn har tagits bort, kan du koppla den virtuella hårddisken till en annan virtuell dator för att felsöka och lösa problemen.
 
-Ta bort den virtuella datorn med [az vm ta bort](/cli/azure/vm#az_vm_delete). I följande exempel tar bort den virtuella datorn med namnet `myVM` från resursgruppen med namnet `myResourceGroup`:
+Ta bort den virtuella datorn med [az vm ta bort](/cli/azure/vm). I följande exempel tar bort den virtuella datorn med namnet `myVM` från resursgruppen med namnet `myResourceGroup`:
 
 ```azurecli
 az vm delete --resource-group myResourceGroup --name myVM 

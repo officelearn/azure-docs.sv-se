@@ -3,7 +3,7 @@ title: Arkiveringsjobb för vad som är nytt? – Azure Active Directory | Micro
 description: Vad är ny viktig i översikten delen av här Innehållspaketet innehåller 6 månaderna för aktiviteten. Efter sex månader artiklarna tas bort från den huvudsakliga artikeln och placera den här artikeln i arkivet.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc9892882cfd4c3f68118648baaaf278133bb2a8
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7dc067cd84ef43850034dec2f58da7e7dfa64cc4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191929"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449613"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -881,7 +881,7 @@ Från och med den 8 januari 2018, Azure AD-administration upplevelse i den klass
  
 Från och med den 8 januari 2018 har tagits bort PhoneFactor-webbportalen. Den här portalen användes för administration av MFA-servern, men dessa funktioner har flyttats till Azure-portalen på portal.azure.com. 
 
-MFA-konfigurationen finns här: **Azure Active Directory \> MFA-servern**
+MFA-konfigurationen finns här: **Azure Active Directory \> MFA Server**
  
 ---
  

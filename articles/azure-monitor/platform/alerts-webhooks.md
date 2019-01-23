@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.component: alerts
-ms.openlocfilehash: 2df24cfe217a9955a3abb08d042836821b083946
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: alerts
+ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580645"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465674"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Har en klassisk måttavisering meddela en icke-Azure-system med en webhook
 Du kan använda webhooks för att dirigera Azure aviseringsmeddelanden till andra system för efterbearbetning eller anpassade åtgärder. Du kan använda en webhook på en avisering och dirigerar den till tjänster som skickar SMS-meddelanden, logga buggar, för att meddela ett team via chatt eller meddelandetjänster eller för olika åtgärder. 
@@ -80,7 +80,7 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 | conditionType |Y |Mått, händelse |Två typer av aviseringar som stöds: mått- och. Måttaviseringar baseras på en måttvillkor. Aviseringar baseras på en händelse i aktivitetsloggen. Använd det här värdet om du vill kontrollera om aviseringen är baserad på ett mått eller på en händelse. |
 | villkor |Y | |Specifika fält att söka baserat på den **conditionType** värde. |
 | MetricName |För aviseringar för mått | |Namnet på det mått som definierar vad regeln övervakar. |
-| metricUnit |För aviseringar för mått |Byte, BytesPerSecond, antal, CountPerSecond, procent, sekunder |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
+| metricUnit |För aviseringar för mått |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |Den enhet som tillåts i måttet. Se [tillåtna värden](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx). |
 | metricValue |För aviseringar för mått | |Det faktiska värdet för det mått som orsakade aviseringen. |
 | Tröskelvärde |För aviseringar för mått | |Tröskelvärdet då aviseringen har aktiverats. |
 | Fönsterstorlek |För aviseringar för mått | |Tidsperioden som används för att övervaka Aviseringsaktivitet baserat på tröskelvärdet. Värdet måste vara mellan 5 minuter och 1 dag. Värdet måste vara i ISO 8601-format för varaktighet. |
@@ -106,3 +106,4 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla mått-b
 * Lär dig hur du [använder en logikapp för att skicka ett SMS-meddelande via Twilio från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett Slack-meddelande från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Lär dig hur du [använder en logikapp för att skicka ett meddelande till en Azure-kö från en Azure avisering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
+

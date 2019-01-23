@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 08/23/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4e9f5a9318db813b1a0f16d3599f74fd98e53ffc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818065"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452844"
 ---
-# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorlig åtkomst i Azure Active Directory
+# <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorsstyrd åtkomst i Azure Active Directory
 
 Med [villkorlig åtkomst i Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), du kan styra hur behöriga användare åtkomst till dina appar i molnet. Den här artikeln innehåller information om:
 
@@ -54,7 +54,7 @@ För att göra principen fungerar, måste du konfigurera:
 
 
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
+## <a name="what-you-should-know"></a>Det här bör du känna till
 
 ### <a name="how-are-assignments-evaluated"></a>Hur utvärderas tilldelningar?
 

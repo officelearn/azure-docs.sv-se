@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 1a0be03c278a152ea56fe0dac5277c39a0878057
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 7d5630c082c044ac936f555965aec5a2a00f3544
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412520"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448728"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Schemalägga U-SQL-jobb med hjälp av SQL Server Integration Services (SSIS)
 
@@ -40,7 +40,7 @@ Du kan hämta U-SQL-skriptet från olika platser med hjälp av inbyggda funktion
 
 ## <a name="scenario-1-use-inline-script-call-tvfs-and-stored-procs"></a>Scenario 1 – Använd funktionen skriptet anrop tabellvärdesfunktioner och lagrade procs
 
-Konfigurera i Azure Data Lake Analytics uppgift Editor **SourceType** som **DirectInput**, och placera U-SQL-instruktioner i **USQLStatemnt**.
+Konfigurera i Azure Data Lake Analytics uppgift Editor **SourceType** som **DirectInput**, och placera U-SQL-instruktioner i **USQLStatement**.
 
 För enkelt underhåll och hantering av koden, bara lägga kort U-SQL-skript som infogade skript, till exempel kan du anropa den befintliga tabellvärderade funktioner och lagrade procedurer i dina U-SQL-databaser. 
 

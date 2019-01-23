@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/03/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 62220104329e36fbb2e6f7d3b5b48bcaeaba3660
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66119ffab8c6117e223468834b59e6d6b19409a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083201"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445070"
 ---
 # <a name="dynamics-365-for-customer-engagement-storefront-details-tab"></a>Dynamics 365 för Customer Engagement Storefront information fliken
 
@@ -76,7 +76,7 @@ I följande tabell beskrivs där fälten i den här fliken:
 |      Fält            |    Beskrivning                 |
 |  ---------------      |  ---------------               |
 | Erbjudandet logotyp (png-format, 48 x 48) | Ladda upp en bild som visar på söksidan för din app. Formatet är PNG och storlek måste vara 48 x 48 pixel. |
-| Erbjudandet logotyp (png-format, 216 x 216) | Ladda upp en avbildning som ska disaply på detaljsidan för din app. Formatet är PNG och storlek måste vara 216 x 216 pixel. |
+| Erbjudandet logotyp (png-format, 216 x 216) | Ladda upp en avbildning som kommer att visas på detaljsidan för din app. Formatet är PNG och storlek måste vara 216 x 216 pixel. |
 | Videoklipp                | Ladda upp erbjudanden eller instruerande videor för appen, med högst fyra.  Fyll i video namn, URL (YouTube eller Vimeo endast) och associerade miniatyren i PNG-format och storlekar 1 280 x 720 pixel för varje video.  | 
 | Dokument             | Ladda upp produkten erbjudanden eller instruerande dokument i PDF-format, med högst tre.  Ange ett dokumentnamn för varje dokument.  |
 | Skärmbilder           | Ladda upp högst fem bilder av appens användargränssnitt i PNG-format och storlekar 1 280 x 720 bildpunkter.  Dessa skärmdumpar visas på sidan med AppSource för din app. |

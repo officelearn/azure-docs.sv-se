@@ -3,7 +3,7 @@ title: Återställ eller ta bort en nyligen borttagna användare – Azure Activ
 description: Så här att visa återställningsbara användare, Återställ en borttagen användare eller permanent ta bort en användare med Azure Active Directory.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -12,12 +12,12 @@ ms.date: 12/17/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 92b3b3a2218486d41ab917472945b8485ccb4e12
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 995a6a9da637c23663c51fe2f4b175741f5849b6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411806"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450331"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Återställa eller ta bort en nyligen borttagna användare som använder Azure Active Directory
 När du tar bort en användare kan fortfarande kontot i ett väntetillstånd i 30 dagar. Under den 30-dagars fönstret kan användarkontot återställas, tillsammans med alla dess egenskaper. När 30-dagars fönstret skickar bort användaren automatiskt och permanent.

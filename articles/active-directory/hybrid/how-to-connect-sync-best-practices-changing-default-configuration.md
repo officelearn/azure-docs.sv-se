@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synkronisering: ändra standardkonfigurationen | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Ändra standardkonfigurationen | Microsoft Docs'
 description: Beskriver Metodtips för att ändra standardkonfigurationen för Azure AD Connect-synkronisering.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 7638a031-1635-4942-94c3-fce8f09eed5e
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/29/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ad19916dc49c2bee870eef77611d120cc66b44cd
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f071d97df6932bec5ae4161511ba33369cc1828c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461185"
 ---
 # <a name="azure-ad-connect-sync-best-practices-for-changing-the-default-configuration"></a>Azure AD Connect-synkronisering: Metodtips för att ändra standardkonfigurationen
 Syftet med det här avsnittet är att beskriva som stöds respektive ändringar i Azure AD Connect-synkronisering.

@@ -3,7 +3,7 @@ title: Tilldela eller ta bort licenser – Azure Active Directory | Microsoft Do
 description: Anvisningar om hur du tilldelar eller ta bort Azure Active Directory-licenser från användare eller grupper.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
@@ -13,12 +13,12 @@ ms.date: 09/05/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 0d3f417b5a169b3d8d91d85b5f47496064c8f5f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: b7abcb4820dde221f17efa1fcded05df41fa7bed
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063360"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449494"
 ---
 # <a name="assign-or-remove-licenses-using-the-azure-active-directory-portal"></a>Tilldela eller ta bort licenser med hjälp av Azure Active Directory-portalen
 Många Azure Active Directory (Azure AD) tjänster måste du aktivera Azure AD-produkt och licensiera var och en av dina användare eller grupper (och associerade medlemmar) för produkten. Endast användare med aktiva licenser kommer att kunna komma åt och använda den licensierade Azure AD-tjänster.

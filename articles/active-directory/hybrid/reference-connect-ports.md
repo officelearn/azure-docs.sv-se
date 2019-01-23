@@ -4,7 +4,7 @@ description: Den här sidan är en teknisk referens för portar som krävs för 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: de97b225-ae06-4afc-b2ef-a72a3643255b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/02/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae221efe19d548c3b19cfcebc6728390cabf2b1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38a344fb6e67beae6310480646d84a1fe7730f84
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312608"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461050"
 ---
 # <a name="hybrid-identity-required-ports-and-protocols"></a>Portar och protokoll som krävs för hybrididentitet
 Följande dokument är en teknisk referens på de nödvändiga portar och protokoll för att implementera en hybrididentitetslösning. Använd följande bild och referera till motsvarande tabell.

@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
-ms.component: alerts
-ms.openlocfilehash: 8b56c338a62e88748be2a140e743c43b54da4b2d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: alerts
+ms.openlocfilehash: 1aeafa9fb2fc4d275e15d1a911adea7d3f3220dc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259877"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467238"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Loggaviseringar i Azure Monitor
 Den här artikeln innehåller information om aviseringar är en av typerna av aviseringar som stöds i den [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och Tillåt användare att använda Azures analysplattform som bas för aviseringar.
@@ -51,7 +51,7 @@ Skillnaderna mellan varningsregel typerna är som följer.
 ### <a name="number-of-results-alert-rules"></a>Antal resultat Varningsregler
 **Antal resultat** Varningsregler skapa en avisering när antalet poster som returneras av sökfrågan överskrider det angivna tröskelvärdet. Den här typen av varningsregel är perfekt för att arbeta med händelser, t.ex Windows-händelseloggar, Syslog, WebApp svar och anpassade loggar.  Du kanske vill skapa en avisering när en viss felhändelse skapas eller när flera felhändelser skapas inom en viss tidsperiod.
 
-**Tröskelvärde för**: Tröskelvärdet för ett antal resultat Varningsregler är större än eller mindre än ett visst värde.  Om antalet poster som returneras av loggsökningen matchar det här villkoret, skapas en avisering.
+**Tröskelvärde**: Tröskelvärdet för ett antal resultat Varningsregler är större än eller mindre än ett visst värde.  Om antalet poster som returneras av loggsökningen matchar det här villkoret, skapas en avisering.
 
 För att skicka en enskild händelse, ange hur många resultat till större än 0 och Sök efter förekomsten av en enskild händelse som har skapats sedan den senaste gången frågan kördes. Vissa program kan logga in med ett enstaka fel som inte nödvändigtvis genererar en avisering.  Programmet kan till exempel försök processen som skapade felhändelsen och lyckas nästa gång.  I det här fallet kan du inte vill skapa aviseringen om flera händelser skapas inom en viss tidsperiod.  
 
@@ -80,7 +80,7 @@ Sedan skulle aviseringen köra frågan var femte minut, med 30 minuters data –
     > [!NOTE]
     > Bin-funktionen måste användas i frågan för att ange intervall. Eftersom bin() kan leda till olika tidsintervall - omvandlas avisering automatiskt bin-kommando till bin_at kommandot med lämplig tidpunkt vid körning, för att säkerställa att resultaten med en fast tidpunkt. Metrisk måttenhet typen av avisering för log har utformats för att arbeta med frågor som har rapportanvändare bin() kommando
     
-- **Tröskelvärde för**: Tröskelvärdet för metriska måttenheter Varningsregler definieras av ett samlat värde och ett antal intrång.  Om en datapunkt i loggsökningen överskrider detta värde, den betraktas som ett intrång.  Om antalet överträdelser i för alla objekt i resultatet överskrider det angivna värdet, skapas en avisering för objektet.
+- **Tröskelvärde**: Tröskelvärdet för metriska måttenheter Varningsregler definieras av ett samlat värde och ett antal intrång.  Om en datapunkt i loggsökningen överskrider detta värde, den betraktas som ett intrång.  Om antalet överträdelser i för alla objekt i resultatet överskrider det angivna värdet, skapas en avisering för objektet.
 
 #### <a name="example-of-metric-measurement-type-log-alert"></a>Exempel på mått mätning typ log avisering
 Tänk dig ett scenario där du vill ha en avisering om en dator har överskridits processoranvändning 90% tre gånger under 30 minuter.  Du skapar en aviseringsregel med följande uppgifter:  
@@ -123,3 +123,4 @@ Priser för loggvarningar anges på den [priser för Azure Monitor](https://azur
 * Lär dig mer om [Azure-aviseringar](../../azure-monitor/platform/alerts-overview.md).
 * Läs mer om [Application Insights](../../azure-monitor/app/analytics.md).
 * Läs mer om [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).    
+

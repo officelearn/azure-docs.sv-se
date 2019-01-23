@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 009ad79e6e0bddaa5d736e7375fad80ae015f8c5
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: logs
+ms.openlocfilehash: 8f4b39141a9509990525769833e2cd193419752c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53578716"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469380"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Stream Azure diagnostikloggar till Log Analytics
 
@@ -101,3 +101,4 @@ På bladet Loggsökning i portalen eller Advanced Analytics-upplevelse som en de
 ## <a name="next-steps"></a>Nästa steg
 
 * [Läs mer om Azure-diagnostikloggar](diagnostic-logs-overview.md)
+

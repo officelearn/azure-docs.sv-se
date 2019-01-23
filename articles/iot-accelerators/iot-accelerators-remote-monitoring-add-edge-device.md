@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 67bfde828287d9892ad404f3d950dbe373503a56
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 5172ba9881f80e202bdc69689e67befb79101dc0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51828736"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450668"
 ---
 # <a name="add-an-iot-edge-device-to-your-remote-monitoring-solution-accelerator"></a>Lägga till en IoT Edge-enhet i lösningsacceleratorn för fjärrövervakning
 
@@ -24,9 +24,9 @@ Att lägga till en [IoT Edge](../iot-edge/about-iot-edge.md) enheten utvecklings
 
 ## <a name="add-the-iot-edge-device"></a>Lägg till IoT Edge-enhet
 
-Om du vill lägga till en IoT Edge-enhet att lösningsacceleratorn för fjärrövervakning, navigera till den **enheter** i webbläsaren och klicka på **+ ny enhet**.
+Om du vill lägga till en IoT Edge-enhet till lösningsacceleratorn för fjärrövervakning navigerar du till sidan **Enheter** i webbgränssnittet och klickar på **+ Ny enhet**.
 
-I den **ny enhet** panelen, väljer **IoT Edge-enhet**. Du kan lämna standardvärdena för de andra inställningarna. Klicka sedan på **Använd**:
+I den **ny enhet** panelen, väljer **IoT Edge-enhet**. Du kan behålla standardvärden för de andra inställningarna. Klicka sedan på **Använd**:
 
 ![Lägg till IoT Edge-enhet](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 
@@ -42,7 +42,7 @@ När du registrerar en enhet direkt med IoT hub i lösningsacceleratorn för fj�
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
-Innan du kan Distribuera modulerna till din Edge-enhet, måste du installera IoT Edge-körningen på den fysiska enheten. Följande instruktionsguider visar hur du installera runtime på vanliga enhetsplattformar:
+Innan du kan distribuera moduler till din Edge-enhet, måste du installera IoT Edge-körningen på den faktiska enheten. Följande instruktionsguider visar hur du installera runtime på vanliga enhetsplattformar:
 
 - [Installera Azure IoT Edge-körningen på Linux (x64)](../iot-edge/how-to-install-iot-edge-linux.md)
 - [Installera Azure IoT Edge-körningen på Linux (ARM32v7/armhf)](../iot-edge/how-to-install-iot-edge-linux-arm.md)

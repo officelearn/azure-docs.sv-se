@@ -4,7 +4,7 @@ description: Nya beteendet för hur du hanterar objekt med UPN eller ProxyAddres
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 537a92b7-7a84-4c89-88b0-9bce0eacd931
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e20ae31ae64483d4d11b793f1c8656107413c05d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f3460520b8914a25807c77f631aa4c64f3b2efb0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464875"
 ---
 # <a name="identity-synchronization-and-duplicate-attribute-resiliency"></a>Identitetssynkronisering och duplicerad attributåterhämtning
 Duplicerad Attributåterhämtning är en funktion i Azure Active Directory åtgärdar problem som orsakas av **UserPrincipalName** och **ProxyAddress** står i konflikt när du kör något av Microsofts synkroniseringsverktyg för.
@@ -133,7 +133,7 @@ Här är ett exempel på hur e-postmeddelande som ser ut för en ProxyAddress-ko
 ## <a name="resolving-conflicts"></a>Lösa konflikter
 Felsöka strategi och upplösning taktik för dessa fel bör inte skiljer sig från hanteringen av fel med duplicerade attribut har i förflutna. Den enda skillnaden är att timer-uppgift rensar via klient på tjänstsidan att automatiskt lägga till attributet i fråga till rätt objekt när konflikten har lösts.
 
-I följande artikel beskriver olika strategier för felsökning och lösningar: [dubblett eller ogiltigt attribut hindrar katalogsynkronisering i Office 365](https://support.microsoft.com/kb/2647098).
+I följande artikel beskriver olika strategier för felsökning och lösningar: [Dubblett eller ogiltigt attribut förhindra katalogsynkronisering i Office 365](https://support.microsoft.com/kb/2647098).
 
 ## <a name="known-issues"></a>Kända problem
 Ingen av de här problemen orsakar förluster eller tjänsten försämring av data. Flera av dem är aesthetic, andra orsaka standard ”*före återhämtning*” fel med duplicerade attribut undantagsfel i stället för att sätta i karantän attributet konflikt och en annan gör vissa fel att kräva extra manuell åtgärds-.

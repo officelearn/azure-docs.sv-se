@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: a9e46bdb97899957f09a847f0fef03a6fec5dc6a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452912"
+---
 # Översikt
 ## [Kom igång](get-started.md)
 ## [Certifieringar](sap-certifications.md)
@@ -68,7 +76,6 @@
 ### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
 ## [SAP Business One på Azure Virtual Machines](business-one-azure.md)
 ## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
-## [SAP NetWeaver på virtuella Azure Linux-datorer](suse-quickstart.md)
 ## [SAP LaMa-anslutning för Azure](lama-installation.md)
 ## Hög tillgänglighet på Windows och Linux
 ### [Översikt](sap-high-availability-guide-start.md)

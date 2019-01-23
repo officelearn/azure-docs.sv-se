@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 61da17d1dc59a08128671da163d8b3ea27f83994
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248018"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463226"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuera den lösningsacceleratorn för fjärrövervakning med hjälp av CLI
 
@@ -62,7 +62,7 @@ Det här avsnittet sammanfattas de största skillnaderna mellan en grundläggand
 
 ### <a name="basic"></a>Basic
 
-Grundläggande distribution är inriktat för visar lösningen. För att minska kostnaderna, distribueras alla mikrotjänster i en enskild virtuell dator. Den här distributionen använder inte en produktionsklar arkitektur.
+Basic-distributionen är anpassad för att visa upp lösningen. För att minska kostnaderna, distribueras alla mikrotjänster i en enskild virtuell dator. Den här distributionen använder inte en produktionsklar arkitektur.
 
 En grundläggande distribution skapar följande tjänster i Azure-prenumerationen:
 
@@ -70,7 +70,7 @@ En grundläggande distribution skapar följande tjänster i Azure-prenumeratione
 |-------|--------------------------------|--------------|----------|
 | 1     | [Linux-dator](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Som är värd för mikrotjänster |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1 – Standard-nivån | Enhetshantering och kommunikation |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata, regler, larm och andra kall lagring |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Lagra konfigurationsdata, regler, aviseringar och andra kall lagring |  
 | 1     | [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Lagring för virtuell dator och strömma kontrollpunkter |
 | 1     | [Webbprogram](https://azure.microsoft.com/services/app-service/web/)        |                 | Som är värd för frontend-webbprogram |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |
@@ -85,11 +85,11 @@ En vanlig distribution är en produktionsklar-distribution som utvecklare kan an
 
 En vanlig distribution skapar följande tjänster i Azure-prenumerationen:
 
-| Antal | Resurs                                     | SKU / storlek      | Används för |
+| Antal | Resurs                                     | SKU / Size      | Används för |
 |-------|----------------------------------------------|-----------------|----------|
 | 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Använd en fullständigt hanterad Kubernetes-behållare orchestration-tjänst, standardvärdet är 3 agenter|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2 – Standard-nivån | Enhetshantering, kommando och kontroll |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler och larm meddelanden |
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Lagra konfigurationsdata och enhetstelemetri som regler, aviseringar och meddelanden |
 | 5     | [Azure Storage-konton](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 för VM-lagring och 1 för strömmande kontrollpunkter |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Programgateway via SSL |
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Hantera användaridentiteter och säkerhet |

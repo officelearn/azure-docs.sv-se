@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 53361ed460917fff42008283429967eff2e80ab2
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 0609a653327640c542457822e41143b9b39dd6d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345104"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462207"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Anpassa lösningsacceleratorn för fjärrövervakning
 
@@ -77,7 +77,7 @@ Följande steg beskriver hur du ställer in en lokal miljö för utveckling av A
 
 ## <a name="customize-the-layout"></a>Anpassa layouten
 
-Varje sida i lösningen för fjärrövervakning består av en uppsättning kontroller, kallas *paneler* i källkoden. Den **instrumentpanelen** sidan består av fem paneler: översikt, karta, larm, telemetri och analys. Du hittar källkoden som definierar varje sida och dess paneler i den [datorer-remote-monitoring-webbgränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-lagringsplatsen. Till exempel den kod som definierar den **instrumentpanelen** sidan, layout och paneler på sidan finns i den [src/komponenter/sidor/instrumentpanelen](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) mapp.
+Varje sida i lösningen för fjärrövervakning består av en uppsättning kontroller, kallas *paneler* i källkoden. Den **instrumentpanelen** sidan består av fem paneler: Översikt över, karta, aviseringar, telemetri och analys. Du hittar källkoden som definierar varje sida och dess paneler i den [datorer-remote-monitoring-webbgränssnittet](https://github.com/Azure/pcs-remote-monitoring-webui) GitHub-lagringsplatsen. Till exempel den kod som definierar den **instrumentpanelen** sidan, layout och paneler på sidan finns i den [src/komponenter/sidor/instrumentpanelen](https://github.com/Azure/pcs-remote-monitoring-webui/tree/master/src/components/pages/dashboard) mapp.
 
 Eftersom panelerna hantera sin egen layout och storlek, kan du enkelt ändra layouten för en sida. Gör följande ändringar till den **PageContent** elementet i den `src/components/pages/dashboard/dashboard.js` filen till:
 
@@ -335,7 +335,7 @@ Telemetri diagrammet visar nu de fem minuterna av telemetridata:
 
 ## <a name="add-a-new-kpi"></a>Lägg till en ny KPI
 
-Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa KPI: er beräknas för den `src/components/pages/dashboard/dashboard.js` filen. KPI: er är renderas av de `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` fil. Följande steg beskriver hur du beräknar och visa en ny KPI-värde på den **instrumentpanelen** sidan. Exemplet som visas är att lägga till en ny procentuella förändringen i larm KPI:
+Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa KPI: er beräknas för den `src/components/pages/dashboard/dashboard.js` filen. KPI: er är renderas av de `src/components/pages/dashboard/panels/analytics/analyticsPanel.js` fil. Följande steg beskriver hur du beräknar och visa en ny KPI-värde på den **instrumentpanelen** sidan. Exemplet som visas är att lägga till en ny procentuella förändringen i varningsaviseringar KPI:
 
 1. Öppna filen `src/components/pages/dashboard/dashboard.js`. Ändra den **initialState** objekt att inkludera en **warningAlertsChange** egenskap enligt följande:
 
@@ -365,7 +365,7 @@ Den **instrumentpanelen** sidan visar KPI: er i den **Analytics** panelen. Dessa
       openCriticalCount: (acc.openCriticalCount || 0) + (isCritical && isOpen ? 1 : 0),
       totalWarningCount: (acc.totalWarningCount || 0) + (isWarning ? 1 : 0),
       totalCriticalCount: (acc.totalCriticalCount || 0) + (isCritical ? 1 : 0),
-      alarmsPerDeviceId: updatedAlarmsPerDeviceId
+      alertsPerDeviceId: updatedAlertsPerDeviceId
     };
     ```
 

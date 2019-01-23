@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synkronisering: förhindra oavsiktliga borttagningar | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar | Microsoft Docs'
 description: Det här avsnittet beskriver funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6a535d776da216029b905fb604ed378449a81082
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 25bc3d0c0517278f20cba4fd4beb2fc4d82b66f1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314631"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464161"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect-synkronisering: Förhindra oavsiktliga borttagningar
 Det här avsnittet beskriver funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
@@ -53,7 +53,7 @@ Om det var oväntat kan undersöka och vidta åtgärder. Om du vill se vilka obj
 2. Gå till **Anslutningsappar**.
 3. Välj kopplingen med typen **Azure Active Directory**.
 4. Under **åtgärder** till höger, Välj **Search Connector Space**.
-5. I popup-fönstret under **omfång**väljer **kopplas från eftersom** och välj en tid i förflutna. Klicka på **Search**. Den här sidan ger en överblick över alla objekt kommer att tas bort. Genom att klicka på varje objekt, kan du få ytterligare information om objektet. Du kan också klicka på **kolumnen inställningen** att lägga till fler attribut för att vara synliga i rutnätet.
+5. I popup-fönstret under **omfång**väljer **kopplas från eftersom** och välj en tid i förflutna. Klicka på **Sök**. Den här sidan ger en överblick över alla objekt kommer att tas bort. Genom att klicka på varje objekt, kan du få ytterligare information om objektet. Du kan också klicka på **kolumnen inställningen** att lägga till fler attribut för att vara synliga i rutnätet.
 
 ![Search Connector Space](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 

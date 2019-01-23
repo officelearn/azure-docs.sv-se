@@ -4,7 +4,7 @@ description: Hur du använder grupprinciper för att distribuera Internet Explor
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: be3950d199b4362caa5fcd3f66b948802cfa1c49
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 3a48b2ce4689490b3a38917edfb776a6ea28c478
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463447"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip
 Den här självstudien visar hur du använder grupprinciper för att fjärrinstallera Access Panel-tillägg för Internet Explorer på användarnas datorer. Det här tillägget är obligatoriskt för Internet Explorer-användare som behöver logga in på appar som har konfigurerats med hjälp av [lösenordsbaserad enkel inloggning](what-is-single-sign-on.md#password-based-sso).
@@ -31,7 +31,7 @@ Vi rekommenderar att administratörer automatisera distributionen av det här ti
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Du har ställt in [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), och du har anslutit dina användares datorer till domänen.
-* Du måste ha behörigheten ”Redigera inställningar” så här redigerar du den grupprincipobjekt (GPO). Som standard medlemmar i de följande säkerhetsgrupperna har denna behörighet: Domänadministratörer, Företagsadministratörer och skapare och ägare av Grupprincip. [Läs mer.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
+* Du måste ha behörigheten ”Redigera inställningar” så här redigerar du den grupprincipobjekt (GPO). Som standard har medlemmar i de följande säkerhetsgrupperna denna behörighet: Domänadministratörer, Företagsadministratörer och skapare och ägare av Grupprincip. [Läs mer.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
 ## <a name="step-1-create-the-distribution-point"></a>Steg 1: Skapa distributionsplatsen.
 Först måste du placera installer-paketet på en nätverksplats som kan användas av de datorer som du vill fjärrinstallera tillägget på. Det gör du genom att följa dessa steg:
@@ -44,7 +44,7 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
    
     ![Öppna filer och lagringstjänster](./media/deploy-access-panel-browser-extension/shares.png)
 4. Slutför den **guiden Ny resurs** och definiera behörigheter för att säkerställa att den kan nås från användarnas datorer. [Läs mer om resurser.](https://technet.microsoft.com/library/cc753175.aspx)
-5. Hämta följande Microsoft Windows Installer-paket (MSI-fil): [åtkomst panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
+5. Hämta följande Microsoft Windows Installer-paket (MSI-fil): [Få åtkomst till panelen Extension.msi](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)
 6. Kopiera installer-paketet till en önskad plats på resursen.
    
     ![Kopiera MSI-filen till resursen.](./media/deploy-access-panel-browser-extension/copy-package.png)
@@ -80,7 +80,7 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
 3. Högerklicka på **Programvaruinstallation**och välj sedan **New** > **paket...**
    
     ![Skapa en ny installationspaket för programvara](./media/deploy-access-panel-browser-extension/new-package.png)
-4. Gå till den delade mappen som innehåller installationspaketet från [steg 1: skapa distributionsplatsen](#step-1-create-the-distribution-point), Välj MSI-filen och klicka på **öppna**.
+4. Gå till den delade mappen som innehåller installationspaketet från [steg 1: Skapa distributionsplatsen](#step-1-create-the-distribution-point), Välj MSI-filen och klicka på **öppna**.
    
    > [!IMPORTANT]
    > Om resursen finns på denna server måste du kontrollera att du använder MSI-filen via sökvägen till nätverk i stället för den lokala filsökvägen.
@@ -94,10 +94,10 @@ Först måste du placera installer-paketet på en nätverksplats som kan använd
 
 Tillägget har nu distribuerats till den Organisationsenhet som du har valt. [Läs mer om Programvaruinstallation för Grupprincip.](https://technet.microsoft.com/library/cc738858%28v=ws.10%29.aspx)
 
-## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Steg 4: Automatiskt – aktivera tillägget för Internet Explorer
+## <a name="step-4-auto-enable-the-extension-for-internet-explorer"></a>Steg 4: Automatisk – aktivera tillägget för Internet Explorer
 Förutom att köra installationsprogrammet, måste alla tillägg för Internet Explorer uttryckligen aktiveras innan den kan användas. Följ stegen nedan för att aktivera åtkomst till panelen tillägget med hjälp av en Grupprincip:
 
-1. I den **Redigeraren för Grupprinciphantering** går du till något av följande sökvägar, beroende på vilken typ av konfiguration som du valde i fönstret [steg3: tilldela installationspaketet](#step-3-assign-the-installation-package):
+1. I den **Redigeraren för Grupprinciphantering** går du till något av följande sökvägar, beroende på vilken typ av konfiguration som du valde i fönstret [steg3: Tilldelar installationspaketet](#step-3-assign-the-installation-package):
    
    * `Computer Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
    * `User Configuration/Policies/Administrative Templates/Windows Components/Internet Explorer/Security Features/Add-on Management`
@@ -117,7 +117,7 @@ Förutom att köra installationsprogrammet, måste alla tillägg för Internet E
 
 Tillägget ska nu vara aktiverad för datorer i den valda Organisationsenheten. [Läs mer om hur du använder grupprinciper för att aktivera eller inaktivera tillägg.](https://technet.microsoft.com/library/dn454941.aspx)
 
-## <a name="step-5-optional-disable-remember-password-prompt"></a>Steg 5 (valfritt): inaktivera ”Kom ihåg lösenord” fråga
+## <a name="step-5-optional-disable-remember-password-prompt"></a>Steg 5 (valfritt): Inaktivera ”Kom ihåg lösenord” fråga
 När användare loggar in till webbplatser som använder tillägget för åtkomst-panelen, kan Internet Explorer indikera följande meddelandet som ber ”vill du lagra ditt lösenord”?
 
 ![Lösenordsprompt](./media/deploy-access-panel-browser-extension/remember-password-prompt.png)
@@ -151,7 +151,7 @@ Användare kommer inte längre att kunna lagra sina autentiseringsuppgifter elle
 ## <a name="step-6-testing-the-deployment"></a>Steg 6: Testa distributionen
 Följ stegen nedan för att kontrollera om tillägget distributionen har lyckats:
 
-1. Om du har distribuerat med **Datorkonfiguration**, logga in på en klientdator som hör till den Organisationsenhet som du valde i [steg 2: skapa grupprincipobjektet](#step-2-create-the-group-policy-object). Om du har distribuerat med **Användarkonfiguration**, se till att logga in som en användare som tillhör denna Organisationsenhet.
+1. Om du har distribuerat med **Datorkonfiguration**, logga in på en klientdator som hör till den Organisationsenhet som du valde i [steg 2: Skapa grupprincipobjektet](#step-2-create-the-group-policy-object). Om du har distribuerat med **Användarkonfiguration**, se till att logga in som en användare som tillhör denna Organisationsenhet.
 2. Det kan ta ett par logga moduler för grupprincipen ändras till fullständigt uppdatera med den här datorn. Om du vill tvinga uppdateringen, öppna en **kommandotolk** fönster och kör sedan följande kommando: `gpupdate /force`
 3. Du måste starta om datorn för att installationen ska äga rum. Starttillstånd kan ta betydligt längre tid än vanligt när tillägget installeras.
 4. Efter omstart, öppna **Internet Explorer**. I det övre högra hörnet i fönstret klickar du på **verktyg** (kugghjulsikonen) och välj sedan **Hantera tillägg**.

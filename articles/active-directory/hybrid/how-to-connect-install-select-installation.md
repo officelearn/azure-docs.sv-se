@@ -4,7 +4,7 @@ description: Den här artikeln vägleder dig genom hur du väljer installationst
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e4185b6b30bdd01492d9aae7ac38e18aaba7eef5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6082d583432e246ba3d45f3e97f4b104710e8727
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312048"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473698"
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Välj vilken installationstyp du vill använda för Azure AD Connect
 Azure AD Connect har två typer av appinstallationer för nyinstallation: Express och anpassad. Det här avsnittet hjälper dig att avgöra vilket alternativ du ska använda under installationen.
@@ -43,7 +43,7 @@ Du får:
 
 Alternativ där du kan fortfarande använda Express:
 
-- Om du inte vill synkronisera alla organisationsenheter du kan fortfarande använda Express och på den sista sidan avmarkera **starta synkroniseringsprocessen...**\*. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
+- Om du inte vill synkronisera alla organisationsenheter du kan fortfarande använda Express och på den sista sidan avmarkera ** starta synkroniseringsprocessen... ***. Kör installationsguiden igen och ändra organisationsenheter i [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options) och aktivera schemalagd synkronisering.
 - Du vill aktivera en av funktionerna i Azure AD Premium, till exempel tillbakaskrivning av lösenord. Först gå igenom express för att hämta den inledande installationen har slutförts. Kör installationsguiden igen och ändra den [konfigurationsalternativ](how-to-connect-installation-wizard.md#customize-synchronization-options).
 
 ## <a name="custom"></a>Anpassat

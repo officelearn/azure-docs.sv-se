@@ -1,6 +1,6 @@
 ---
 title: Konfigurera programmet i Publiceringsportalen | Microsoft Docs
-description: Anvisningarna i hur du ställer in din applicatoin i molnet Publiceringsportalen.
+description: Anvisningarna i hur du ställer in ditt program i molnet Publiceringsportalen.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9386f0e0bf552789b027df96e9e54ebcf31d7d34
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7b5bb0bf8ff5fac10c47cf5bdf9564903f4d6b94
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811337"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448491"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Konfigurera programmet i Publiceringsportalen
 
@@ -82,15 +82,15 @@ De flesta utgivare lämnar dessa fält med standardvärden, användare, Nej, Nej
 
 Här är en förklaring till dessa fält:
 
-* Filnamn för ditt paket: namnet på filen som du skapade i steget ovan när du skapar zip-filen som är ditt CRM AppSource-paket. I exemplet ovan är det ”Microsoft\_SamplePackage.zip”.
-* URL: en för din paketplatsen: det här är URL: en till Azure Storage-kontot som innehåller namnet på paketet som anges ovan. Det är den URL som skapades i steg 9 av avsnittet ovan.
-* Finns det mer än en crm-paketet i din paketfil: Välj Ja **endast** om du stöder flera versioner av crm med olika paket. Det här är ”No” för de flesta partner. Om du väljer Ja måste du skapa AppSource-paket för varje version av din lösning. _Obs: Det inte handlar om du har flera **zip** filer. Om du har flera solution.zip filer men endast en version kan väljer du fortfarande ”Nej” Verktyget paketering ska du använda dessa automatiskt._
+* Filnamn för ditt paket: Namnet på filen du skapade i steget ovan när du skapar zip-filen som är ditt CRM AppSource-paket. I exemplet ovan är det ”Microsoft\_SamplePackage.zip”.
+* URL: en för din plats för paket: Det här är URL: en till Azure Storage-kontot som innehåller namnet på paketet som anges ovan. Det är den URL som skapades i steg 9 av avsnittet ovan.
+* Finns det mer än en crm-paketet i din paketfil: Välj Ja **endast** om du stöder flera versioner av crm med olika paket. Det här är ”No” för de flesta partner. Om du väljer Ja måste du skapa AppSource-paket för varje version av din lösning. _Obs! Det inte handlar om du har flera **zip** filer. Om du har flera solution.zip filer men endast en version kan väljer du fortfarande ”Nej” Verktyget paketering ska du använda dessa automatiskt._
 
 ### <a name="crm-package-availability"></a>Tillgänglighet för CRM-paket
 
 Välj vilka regioner av CRM ditt paket kommer att göras tillgänglig för det här avsnittet. Information som regioner för att hantera vilka länder finns i länken: [http://o365datacentermap.azurewebsites.net/](http://o365datacentermap.azurewebsites.net/)
 
-Obs: Distribuera för Tyskland ”suveräna och molnet för amerikanska myndigheter” suveräna kräver särskild behörighet och verifiering under CERTIFIKATUTFÄRDARE
+Obs! Distribuera till Tyskland ”suveräna och molnet för amerikanska myndigheter” suveräna kräver särskild behörighet och verifiering under CERTIFIKATUTFÄRDARE
 
 ## <a name="storefront-details"></a>Storefront information
 
@@ -184,13 +184,13 @@ Ange Webbadressen till support för din app.
 
 ### <a name="lead-destination"></a>Leda mål
 
-Välj ett CRM-system där du leda kommer att lagras. Välj ”Azure-tabellen” här om du har någon av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. CRM-system som du väljer här är där skriver du information för slutanvändare som provar din app på AppSource (leads). Beroende på i CRM-systemet som du väljer, klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
+Välj ett CRM-system där du leda kommer att lagras. Välj ”Azure Table” om du har någon av följande CRM-system: Salesforce, Marketo, Microsoft Dynamics CRM. CRM-system som du väljer här är där skriver du information för slutanvändare som provar din app på AppSource (leads). Beroende på i CRM-systemet som du väljer, klickar du på motsvarande URL nedan för information om hur du slutför nästa uppsättning fält
 
-* [Azure-tabell](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+* [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 * [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 * [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 * [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)
 
 ## <a name="storefront-details"></a>Storefront information
 
-Kontaktinformation som används för intern kommunikation mellan partner och Microsoft endast. Obs: Det är viktigt att du använder en e-postadress som övervakas i de här fälten. Vi använder den här e-post för att kommunicera med dig på förloppet på Publicera till AppSource. Endast stöd för URL: en ska vara synliga för kunderna.
+Kontaktinformation som används för intern kommunikation mellan partner och Microsoft endast. Obs! Det är viktigt att du använder en e-postadress som övervakas i de här fälten. Vi använder den här e-post för att kommunicera med dig på förloppet på Publicera till AppSource. Endast stöd för URL: en ska vara synliga för kunderna.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD sync-tjänstkontot, lösenord
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 76b19162-8b16-4960-9e22-bd64e6675ecc
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a0cdaa54d0da58a02cbe9fcda36cbaff6b1fab4a
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 50b877e1c0ead8f840aecdb8da939a9626e13e1e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53184907"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461016"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Ändra Azure AD Connect sync tjänstkontolösenord
 Om du ändrar Azure AD Connect sync tjänstkontolösenord kan synkroniseringstjänsten inte kan starta korrekt förrän du har avbrutit krypteringsnyckeln och initierats om Azure AD Connect sync tjänstkontolösenord. 
@@ -93,7 +93,7 @@ Avbryt den befintliga krypteringsnyckeln så att du kan skapa den nya kryptering
 Eftersom de befintliga lösenord som lagras i databasen kan inte längre dekrypteras så behöver du ge synkroniseringstjänsten lösenordet för AD DS-kontot. Synkroniseringstjänsten krypterar lösenord med hjälp av den nya krypteringsnyckeln:
 
 1. Starta hanteraren för synkroniseringstjänsten (START → Synchronization Service).
-</br>![Synkronisering av Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
+</br>![Sync Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Gå till den **kopplingar** fliken.
 3. Välj den **AD Connector** som motsvarar din lokala AD. Upprepa följande steg för var och en av dem om du har mer än en AD-koppling.
 4. Under **åtgärder**väljer **egenskaper**.

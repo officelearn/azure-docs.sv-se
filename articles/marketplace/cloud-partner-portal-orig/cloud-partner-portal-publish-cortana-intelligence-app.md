@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a6357640ceeb7c5f1bde4eea85aa5265990935f4
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: dd917136dd777226f421d3ae6315798d36de8dc2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157164"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452062"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publicera en Cortana Intelligence-erbjudande med partnerportalen i molnet
 
@@ -31,9 +31,9 @@ Cloud Partner Portal stöder rollbaserad åtkomst till portalen, vilket gör det
 
 Innan ett erbjudande kan publiceras åt en utgivare konto, ett för individer med \"ägare\" rollen behöva samtycker till att följa den [användningsvillkor](https://azure.microsoft.com/support/legal/website-terms-of-use/), [sekretesspolicy för Microsoft](https://www.microsoft.com/privacystatement/default.aspx), och [Microsoft Azure Certified-programavtalet](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
-## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Börja skapa ett erbjudande med Cortana Inteligence
+## <a name="to-start-creating-a-cortana-intelligence-offer"></a>Börja skapa en Cortana Intelligence-erbjudande
 
-När alla krav har uppfyllts, är du redo att börja redigera Cortana Inteligence erbjudandet.
+När alla krav har uppfyllts, är du redo att börja redigera Cortana Intelligence-erbjudandet.
 
 1.  Logga in på den [partnerportalen i molnet](http://cloudpartner.azure.com/).
 2.  I det vänstra navigeringsfältet väljer **+ nytt erbjudande**.
@@ -296,7 +296,7 @@ Välj **Azure Table** om du använder någon av dessa CRM-system: Salesforce ell
 
 Om du vill ha mer information om CRM-system som du vill använda, väljer du något av följande länkar för system som stöds.
 
--   [Azure-tabell](./cloud-partner-portal-lead-management-instructions-azure-table.md)
+-   [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)
 -   [Microsoft Dynamics CRM](./cloud-partner-portal-lead-management-instructions-dynamics.md)
 -   [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md)

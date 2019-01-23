@@ -4,7 +4,7 @@ description: Felsöka vanliga problem som kan stöta på när du loggar in på f
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 2a13df5fc609fe7cfddff91841e082c123d758f5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379272"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468817"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problem vid inloggning ett Microsoft-program
 
@@ -34,11 +34,11 @@ Det finns tre sätt att en användare kan få åtkomst till ett Microsoft-public
 
 -   För program som Microsoft eller 3 part publicerar fritt för allmän användning, användare kan också få åtkomst via **administratörens godkännande**. Det innebär att en administratör har fastställt programmet kan användas av alla i organisationen, så att de logga in på programmet med ett globalt administratörskonto och bevilja åtkomst till alla i organisationen.
 
-Om du vill felsöka problemet, börja med den [allmänna problemområden med programåtkomst att tänka på](#general-problem-areas-with-application-access-to-consider) och sedan läsa de [genomgång: steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) komma in i den information.
+Om du vill felsöka problemet, börja med den [allmänna problemområden med programåtkomst att tänka på](#general-problem-areas-with-application-access-to-consider) och läs sedan de [genomgång: Steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access) in informationen.
 
 ## <a name="general-problem-areas-with-application-access-to-consider"></a>Allmänna problemområden med programåtkomst att tänka på
 
-Följande är en lista över de allmänna problemområden som innehåller detaljer om du har en uppfattning om var du ska börja, men vi rekommenderar att du läser den här genomgången att komma igång snabbt: [genomgång: steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
+Följande är en lista över de allmänna problemområden som innehåller detaljer om du har en uppfattning om var du ska börja, men vi rekommenderar att du läser den här genomgången att komma igång snabbt: [Genomgång: Steg för att felsöka Microsoft Application access](#walkthrough-steps-to-troubleshoot-microsoft-application-access).
 
 -   [Problem med användarkontot](#problems-with-the-users-account)
 
@@ -204,7 +204,7 @@ Följ dessa steg om du vill kontrollera status för multifaktorautentisering fö
 
 9.  Välj användaren i listan över användare och **aktivera**, **inaktivera**, eller **tvinga** multifaktorautentisering efter behov.
 
-  * **Obs**: om en användare finns i en **tvingande** tillstånd, kan du ange dem till **inaktiverad** tillfälligt och låter dem tillbaka till sitt konto. När de är tillbaka i kan du ändra deras tillstånd att **aktiverad** igen för att kräva att Omregistrera kontaktinformationen vid nästa inloggning i. Du kan också följa stegen i den [Kontrollera en användares autentiseringskontakt](#check-a-users-authentication-contact-info) verifiera eller ange informationen för dessa.
+  * **Obs!** Om en användare finns i en **tvingande** tillstånd, kan du ange dem till **inaktiverad** tillfälligt och låter dem tillbaka till sitt konto. När de är tillbaka i kan du ändra deras tillstånd att **aktiverad** igen för att kräva att Omregistrera kontaktinformationen vid nästa inloggning i. Du kan också följa stegen i den [Kontrollera en användares autentiseringskontakt](#check-a-users-authentication-contact-info) verifiera eller ange informationen för dessa.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Kontrollera en användares information
 

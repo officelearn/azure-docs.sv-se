@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 280c646a3265ff7ab9a3d32412a2be2e3989e22e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: bb17916fb4d9b9b3ae1481ead7508214f5956c70
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297477"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464280"
 ---
 # <a name="get-image-insights-with-the-bing-image-search-api"></a>Hämta information om bilder med den bildsökning i Bing
 
@@ -216,10 +216,10 @@ Den `region` fältet identifierar bilden där Bing identifieras entiteten. Perso
 
 Värdena för rektangeln är i förhållande till bredden och höjden på den ursprungliga bilden och är i intervallet 0,0 till och med 1.0. Till exempel om avbildningen är 300 x 200 och dess övre, vänstra hörnet är tidpunkt (10, 20) och längst ned till höger är tidpunkt (290, 150) och sedan normaliserade rektangeln är:  
 
--   Left: 10 / 300 = 0.03333...  
--   Översta: 20 / 200 = 0,1  
+-   Vänster: 10 / 300 = 0.03333...  
+-   Överkant:  20 / 200 = 0.1  
 -   Höger: 290 / 300 = 0.9667...  
--   Längst ned: 150 / 200 = 0,75  
+-   Längst ned: 150 / 200 = 0.75  
 
 Du kan använda den region som Bing returnerar i efterföljande insights-anrop. Till exempel för att hämta visuellt likartade bilder av identifierade entiteten. Mer information finns i [beskärning avbildning som ska användas med visuellt likartade och entiteten igenkänning av moduler](#croppingimages). Nedan visas mappningen mellan fälten region och frågeparametrar som du skulle göra att beskära bilder.  
 
@@ -408,7 +408,7 @@ Nedan visas svaret på den tidigare begäran. Svaret innehåller en bild av en l
 }
 ```
 
-Hämta en lista över handlare som erbjuder produkt online (se den [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offer-offercount) fältet), anropa API: et igen och ange `modules` till ShoppingSources. Slutligen anger den `insightsToken` frågeparameter som token hittades i den sammanfattande bilden av produkten.  
+Hämta en lista över handlare som erbjuder produkt online (se den [offerCount](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) fältet), anropa API: et igen och ange `modules` till ShoppingSources. Slutligen anger den `insightsToken` frågeparameter som token hittades i den sammanfattande bilden av produkten.  
 
 ```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/details?modules=ShoppingSources&insightsToken=ccid_hb3uRvUk*mid_BF5C252A47F2C765...&mkt=en-us HTTP/1.1    

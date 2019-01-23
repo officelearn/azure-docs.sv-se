@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: f0ce189ebbec6991a1ec316219d45b96cc85f202
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52845951"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462564"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Konfigurera haveriberedskap för Hyper-V-datorer till en sekundär plats med hjälp av PowerShell (Resource Manager)
 
@@ -276,4 +276,4 @@ Använd följande kommandon för att övervaka redundans. Vänta tills bearbetni
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Läs mer](/powershell/module/azurerm.recoveryservices.backup/#recovery) om Site Recovery med PowerShell och Resource Manager-cmdletar.
+[Läs mer](/powershell/module/azurerm.recoveryservices.backup/) om Site Recovery med PowerShell och Resource Manager-cmdletar.

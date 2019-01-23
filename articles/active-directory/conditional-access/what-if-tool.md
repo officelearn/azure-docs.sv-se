@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 3bc7dd8103bed9a5a04566d08a1daec0708a59c4
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: fc78e6381c3e3bae0d1806f85b4d7038ad11e799
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285041"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452432"
 ---
 # <a name="what-is-the-what-if-tool-in-azure-active-directory-conditional-access"></a>Vad är vad om-verktyget i Azure Active Directory villkorlig åtkomst?
 
@@ -32,7 +32,7 @@ Den här artikeln förklarar hur du kan använda det här verktyget för att tes
 
 ## <a name="what-it-is"></a>Vad det är
 
-Den **what-if för villkorlig åtkomst princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. I stället för test Driver dina principer genom att utföra flera inloggningar manuellt, kan du utvärdera en simulerad inloggning för en användare med det här verktyget. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten inte bara innehåller det tillämpade villkorliga åtkomstprinciper utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
+Den **what-if för villkorlig åtkomst princip verktyget** tillåter dig att förstå effekten av principer för villkorlig åtkomst på din miljö. Med verktyget kan du utvärdera en simulerad användarinloggning i stället för att testa principerna genom att köra många manuella inloggningar. Simuleringen uppskattar inloggningens inverkan på dina principer och genererar en simuleringsrapport. Rapporten inte bara innehåller det tillämpade villkorliga åtkomstprinciper utan även [klassiska principer](policy-migration.md#classic-policies) om de finns.    
 
 Vad avgöra om verktygen innehåller också ett sätt att snabbt de principer som gäller för en viss användare. Du kan använda informationen, till exempel om du behöver felsöka ett problem.  
 

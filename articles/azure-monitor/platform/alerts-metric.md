@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: b8252e6575ec7acb46fb69563720cc38796964ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d871cecda8e7957e3d0d3c37078b8a1fa2ab5214
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425076"
+ms.locfileid: "54451263"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar för mått med Azure Monitor
 
@@ -31,23 +31,23 @@ Följande procedur beskriver hur du skapar en måttaviseringsregel i Azure-porta
     > [!TIP]
     > De flesta resursbladen har också **aviseringar** i sina resursmenyn under **övervakning**, du kan skapa aviseringar därifrån också.
 
-3. Klicka på **Välj mål**, Välj en målresurs som du vill ändra i fönstret kontext som läser in. Använd **prenumeration** och **resurstyp** listrutor för att hitta resursen som du vill övervaka. Du kan också använda sökfältet för att hitta din resurs.
+3. Klicka på **Välj mål**, i fönstret kontext som läser in väljer du en målresurs som du vill att Avisera om. Använd **prenumeration** och **resurstyp** listrutor för att hitta resursen som du vill övervaka. Du kan också använda sökfältet för att hitta din resurs.
 
-4. Om den valda resursen har mått som du kan skapa aviseringar, **tillgängliga signaler** på nederkant höger innehåller mått. Du kan visa en fullständig lista över resurstyper som stöds för måttaviseringar i den här [artikel](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)
+4. Om den valda resursen har mått som du kan skapa aviseringar, **tillgängliga signaler** på nederkant höger innehåller mått. Du kan visa en fullständig lista över resurstyper som stöds för måttaviseringar i den här [artikeln](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
-5. När du har valt en målresurs, klickar du på **lägga till villkor**
+5. När du har valt en målresurs, klickar du på **Lägg till villkor**.
 
 6. Du kommer se en lista över signaler som stöds för resursen, Välj det mått som du vill skapa en avisering på.
 
-7. Du ser ett diagram för måttet för de senaste 6 timmarna. Definiera den **Period**, **frekvens**, **operatorn** och **tröskelvärdet**, det avgör den logik som måttaviseringsregel utvärdera.
+7. Du kan också förfina måttet genom att justera **Period** och **aggregering**. Om måttet har dimensioner kan du visa **dimensioner** tabellen som visas. Välj ett eller flera värden per dimension. Metrisk varning körs utvärdera villkoret för alla kombinationer av värden som väljs. [Mer information om hur aviseringar på flerdimensionella mått fungerar](alerts-metric-overview.md). Du kan också **Välj \***  för någon av dimensionerna. **Välj \***  kommer dynamiskt skala markeringen till alla nuvarande och framtida värden för en dimension.
 
-8. Med hjälp av måttdiagram bestämma du vad kan vara en rimlig tröskelvärdet.
+8. Du ser ett diagram för måttet för de senaste 6 timmarna. Definiera aviseringsparametrar; **Villkorstyp**, **frekvens**, **operatorn** och **tröskelvärdet** eller **känslighet**, den här Avgör den logik som utvärderar måttaviseringsregel. [Mer information om tröskelvärden för dynamiska villkor typ och känslighet alternativ](alerts-dynamic-thresholds.md).
 
-9. Du kan också om måttet har dimensioner kan visas dimensioner tabellen som visas. Välj ett eller flera värden per dimension. Metrisk varning körs utvärdera villkoret för alla kombinationer av värden som väljs. [Mer information om hur aviseringar på flerdimensionella mått fungerar](alerts-metric-overview.md). Du kan också **Välj \***  för någon av dimensionerna. **Välj \***  kommer dynamiskt skala markeringen till alla nuvarande och framtida värden för en dimension.
+9. Om du använder ett statiskt tröskelvärde kan måttdiagram att avgöra vad kan vara en rimlig tröskelvärdet. Om du använder en dynamisk tröskelvärden visar mått diagrammet beräknade tröskelvärden baserat på senaste data.
 
 10. Klicka på **Klar**
 
-11. Du kan också lägga till ytterligare villkor om du vill övervaka en komplex aviseringsregel
+11. Du kan också lägga till en annan villkor om du vill övervaka en komplex aviseringsregel. Användare kan för närvarande har Varningsregler med dynamiska tröskelvärden kriterier som ett villkor.
 
 12. Fyll i **aviseringsinformation** som **avisering Regelnamn**, **beskrivning** och **allvarlighetsgrad**
 
@@ -73,7 +73,7 @@ Du kan visa och hantera måttaviseringsregler med hjälp av bladet hantera regle
 
 4. Klicka på namnet på måttet varningsregeln som du vill redigera
 
-5. I den Redigera regeln klickar du på den **Avisera kriterier** du vill redigera. Du kan ändra måttet, tröskelvärde och andra fält som krävs
+5. I den Redigera regeln klickar du på den **Avisera kriterier** du vill redigera. Du kan ändra måttet, tröskelvärde för villkoret och andra fält som krävs
 
     > [!NOTE]
     > Du kan inte redigera den **målresurs** och **avisering Regelnamn** när metrisk varning har skapats.
@@ -92,10 +92,10 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
     az monitor metrics alert --help
     ```
 
-3. Du kan skapa en enkel måttaviseringsregel som övervakar om den genomsnittliga procent CPU på en virtuell dator är större än 70
+3. Du kan skapa en enkel måttaviseringsregel som övervakar om den genomsnittliga procent CPU på en virtuell dator är större än 90
 
     ```azurecli
-    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90"
+    az monitor metrics alert create -n {nameofthealert} -g {ResourceGroup} --scopes {VirtualMachineResourceID} --condition "avg Percentage CPU > 90" --description {descriptionofthealert}
     ```
 
 4. Du kan visa alla måttaviseringar i en resursgrupp med hjälp av följande kommando
@@ -130,5 +130,6 @@ I föregående avsnitt beskrivs hur du skapar, visa och hantera måttaviseringsr
 
 - [Skapa måttaviseringar med hjälp av Azure Resource Manager-mallar](../../azure-monitor/platform/alerts-enable-template.md).
 - [Förstå hur mått aviseringar work](alerts-metric-overview.md).
+- [Förstå hur mått aviseringar med dynamiska tröskelvärden villkor work](alerts-dynamic-thresholds.md).
 - [Förstå web hook schemat för måttaviseringar](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
 

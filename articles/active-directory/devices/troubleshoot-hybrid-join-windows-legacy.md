@@ -4,7 +4,7 @@ description: Felsöka hybrid Azure Active Directory-anslutna äldre enheter.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b5fd5a9544e27092c8b65e18d59701421fc59ef5
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 546f9054978f0b9fbe6bb9063905c982de627442
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800867"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445294"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>Felsöka hybrid Azure Active Directory-anslutna äldre enheter 
 
@@ -37,7 +37,7 @@ Windows 10 eller Windows Server 2016 finns i [felsökning Azure Active Directory
 
 Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory-anslutna hybridenheter](hybrid-azuread-join-plan.md) till stöd för följande scenarier:
 
-- Enhetsbaserad villkorlig åtkomst
+- Enhetsbaserad villkorad åtkomst
 
 
 Den här artikeln ger felsökningsanvisningar för att lösa eventuella problem.  
@@ -116,7 +116,7 @@ Om enheten inte hybrid Azure AD-anslutna, kan du försöka göra hybrid Azure AD
 
     ![Anslut till arbetsplatsen för Windows](./media/troubleshoot-hybrid-join-windows-legacy/05.png)
 
-Du kan också hitta statusinformation i Loggboken under: **program och tjänster Log\Microsoft-Arbetsplatsanslutning**
+Du kan också hitta statusinformation i Loggboken under: **Program och tjänster Log\Microsoft Workplace Join**
   
 **De vanligaste orsakerna till en misslyckad hybrid Azure AD-anslutning är:** 
 

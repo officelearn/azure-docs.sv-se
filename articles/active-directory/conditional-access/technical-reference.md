@@ -4,7 +4,7 @@ description: Få en översikt över inställningar som stöds i en villkorlig å
 services: active-directory.
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 56a5bade-7dcc-4dcf-8092-a7d4bf5df3c1
 ms.service: active-directory
 ms.component: conditional-access
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 46dfb96df7b16fe03bd5c2c69fd9e2e33b04bbd2
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 0971b5abee872d9a7010f0ce931f09c47808eb80
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408586"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452147"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -149,7 +149,7 @@ För att automatiskt distribuera det här tillägget till Chrome webbläsare, sk
 |--- | ---|
 |Sökväg | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Namn | 1 |
-|Typ | REG_SZ (sträng) |
+|Typ | REG_SZ (String) |
 |Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
@@ -158,8 +158,8 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 |--- | ---|
 |Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Namn | 1 |
-|Typ | REG_SZ (sträng) |
-|Data | {”mönstret” ”:https://device.login.microsoftonline.com” ”, filter”: {”utfärdar”: {”CN”: ”MS-organisationsåtkomst”}}}|
+|Typ | REG_SZ (String) |
+|Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Dessa webbläsare har stöd för autentisering, vilket gör att enheten har identifierats och verifieras mot en princip. Enhet-kontrollen misslyckas om webbläsaren körs i privat läge. 
 
@@ -186,7 +186,7 @@ Den här inställningen påverkar åtkomstförsök från följande mobilappar oc
 |Office 2016-appar, universella Office-appar, Office 2013, OneDrive-Synkroniseringsklienten (se [anteckningar](https://support.office.com/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), Office-grupper stöd planeras i framtiden, stöd för SharePoint-appar planeras i framtiden|Office 365 SharePoint Online|Windows 10|
 |Office 2016 för macOS (Word, Excel, PowerPoint, OneNote endast). OneDrive för företag-stöd planeras för framtiden|Office 365 SharePoint Online|Mac OS X|
 |Office-mobilappar|Office 365 SharePoint Online|Android, iOS|
-|Office Yammer-appen|Office 365 Yammer|Windows 10, iOS och Android|
+|Office Yammer-appen|Office 365 Yammer|Windows 10, iOS, Android|
 |Outlook 2016 (Office för Mac OS)|Office 365 Exchange Online|Mac OS X|
 |Outlook 2016, Outlook 2013, Skype för företag|Office 365 Exchange Online|Windows 8.1, Windows 7|
 |Outlook-mobilappen|Office 365 Exchange Online|Android, iOS|
@@ -214,8 +214,8 @@ Den här inställningen gäller för klientappar som följande:
 
 - Microsoft Intune Managed Browser
 - Microsoft PowerBI
-- Microsoft fakturering
-- Startprogram för Microsoft
+- Microsoft Invoicing
+- Microsoft Launcher
 - Microsoft Azure Information Protection
 - Microsoft Excel
 - Microsoft Kaizala 
@@ -225,7 +225,7 @@ Den här inställningen gäller för klientappar som följande:
 - Microsoft Planner
 - Microsoft PowerPoint
 - Microsoft SharePoint
-- Microsoft Skype för företag
+- Microsoft Skype for Business
 - Microsoft StaffHub
 - Microsoft Teams
 - Microsoft Visio

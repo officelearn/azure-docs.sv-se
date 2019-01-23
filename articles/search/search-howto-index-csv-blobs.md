@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 2bd89432a15f6960b07102ede317acca5864b773
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: eac0c1f2f7ded35cf09eec12f0406c754621f49c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310903"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465470"
 ---
 # <a name="indexing-csv-blobs-with-azure-search-blob-indexer"></a>Indexera CSV-blobar med Azure Search blob-indexeraren
 Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-storage.md) Parsar avgränsad text blobbar som ett enda segment med text. Men med BLOB-objekt som innehåller CSV-data, du ofta behandlar varje rad i bloben som ett separat dokument. Till exempel med följande avgränsad text kan du parsa den till två dokument, som var och en som innehåller ”id”, ”datePublished” och ”taggar” fält: 
@@ -27,7 +27,7 @@ Som standard [Azure Search blob-indexeraren](search-howto-indexing-azure-blob-st
 I den här artikeln får lära du dig att tolka CSV-blobar med en Azure Search blob-indexeraren. 
 
 > [!IMPORTANT]
-> Den här funktionen är för närvarande i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
+> CSV-blob-indexering är för närvarande i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 > 
 
 ## <a name="setting-up-csv-indexing"></a>Konfigurera CSV-indexering
@@ -74,7 +74,7 @@ Datakälla:
         "container" : { "name" : "my-container", "query" : "<optional, my-folder>" }
     }   
 
-Indexerare:
+Indexer:
 
     POST https://[service name].search.windows.net/indexers?api-version=2017-11-11-Preview
     Content-Type: application/json

@@ -4,7 +4,7 @@ description: Beskriver hur du lägger till dina resurser för användare av Offi
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623035"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470706"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -43,14 +43,14 @@ Geografiska områden i Office 365 som är tillgängliga för flera Geo är:
 | --- | --- |
 | Asien och stillahavsområdet | APC |
 | Australien | AU: ER |
-| Kanada | KAN |
+| Kanada | CAN |
 | Europeiska unionen | EUR |
 | Frankrike | FRA |
-| Indien | SÖK |
+| Indien | IND |
 | Japan | JPN |
 | Korea | KOR |
 | Storbritannien | GBR |
-| USA | PARTITIONSNAMN |
+| USA | NAM |
 
 * Om ett geografiskt område inte visas i den här tabellen (till exempel Sydamerika) kan sedan den inte användas för Multi-GEO-replikering.
 * Geo Indien är endast tillgängligt för kunder med fakturerings-adress och licenser i den här område.
@@ -93,7 +93,7 @@ Se till att ingen synkronisering sker när du är mitt uppdaterar Synkronisering
 
 ![Skärmbild av hanteraren för synkroniseringstjänsten](./media/how-to-connect-sync-feature-preferreddatalocation/preferreddatalocation-step1.png)
 
-## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Steg 2: Lägga till källattributet i schemat för den lokala Active Directory-koppling
+## <a name="step-2-add-the-source-attribute-to-the-on-premises-active-directory-connector-schema"></a>Steg 2: Lägga till källattributet i den lokala Active Directory-koppling schemat
 Inte alla Azure AD-attribut har importerats till det lokala Active Directory-koppling utrymmet. Om du har valt för att använda ett attribut som inte synkroniseras som standard, måste du importera den. Lägga till källattributet i listan över importerade attribut:
 
 1. Välj den **kopplingar** fliken i hanteraren för synkroniseringstjänsten.
@@ -166,7 +166,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
     | Attribut | Operator | Värde |
     | --- | --- | --- |
-    | sourceObjectType | LIKA MED | Användare |
+    | sourceObjectType | EQUAL | Användare |
     | cloudMastered | NOTEQUAL | True |
 
     Omfångsfilter avgör vilka objekt som den här utgående synkroniseringsregeln tillämpas på Azure AD. I det här exemplet använder vi samma Omfångsfilter från ”ut till AD – användaridentitet” synkroniseringsregel för OOB (out of box). Det förhindrar synkroniseringsregeln tillämpas **användaren** objekt som inte är synkroniserade från en lokal Active Directory. Du kan behöva justera Omfångsfilter enligt din Azure AD Connect-distribution.
@@ -235,7 +235,7 @@ I allmänhet krävs fullständig synkroniseringscykel. Detta är eftersom du har
 1. Starta en PowerShell-session.
 2. Aktivera schemalagd synkronisering igen genom att köra denna cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
-## <a name="step-8-verify-the-result"></a>Steg 8: Verifiera resultatet
+## <a name="step-8-verify-the-result"></a>Steg 8: Kontrollera resultatet
 Nu är det dags att kontrollera konfigurationen och aktivera den för användarna.
 
 1. Lägga till geografiskt till det valda attributet på en användare. Listan över tillgängliga geografiska områden kan hittas i [den här tabellen](#enable-synchronization-of-preferreddatalocation).  

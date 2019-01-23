@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 064c1b8100e165627d5227b9f24b87aefae2e769
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790766"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471658"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Azure Diagnostics-tillägget configuration schemat versioner och historik
 Den här sidan index Azure Diagnostics-tillägg-schemat versioner levereras som en del av Microsoft Azure SDK.  
@@ -33,11 +33,11 @@ Azure Diagnostics-tillägget används med andra Microsoft-produkter för diagnos
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Azure SDK och diagnostik versioner leverans diagram  
 
-|Azure SDK-version | Diagnostik-tilläggsversion | Modell|  
+|Azure SDK version | Diagnostik-tilläggsversion | Modell|  
 |------------------|-------------------------------|------|  
 |1.x               |1.0                            |plug-in|  
 |2.0 - 2.4         |1.0                            |plug-in|  
-|2.5               |1.2                            |Tillägget|  
+|2.5               |1.2                            |extension|  
 |2.6               |1.3                            |"|  
 |2.7               |1.4                            |"|  
 |2.8               |1.5                            |"|  
@@ -210,3 +210,4 @@ Om du uppgraderar ditt projekt från Azure SDK 2.4 till Azure SDK 2.5 eller sena
 * **Diagnostik för molnprogram för tjänsten kan endast konfigureras på rollnivå, inte på instansnivå.**
 * **Varje gång som du har distribuerat din app diagnostikkonfigurationen uppdateras** – om du ändrar konfigurationen diagnostik från Server Explorer och distribuera om din app kan det medföra problem för paritet.
 * **I Azure SDK 2.5 och senare, kraschdumpar är konfigurerade i inte i kod i konfigurationsfilen diagnostik** – om du har kraschdumpar som konfigurerats i koden, måste du manuellt överföra konfigurationen från kod till konfigurationsfil, eftersom den kraschdumpar överförs inte under migreringen till Azure SDK 2.6.
+

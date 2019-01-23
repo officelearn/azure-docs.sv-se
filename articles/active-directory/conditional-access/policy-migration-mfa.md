@@ -2,10 +2,10 @@
 title: Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal | Microsoft Docs
 description: Den här artikeln visar hur du migrerar en klassiska princip som kräver Multi-Factor authentication i Azure-portalen.
 services: active-directory
-keywords: villkorlig åtkomst till appar, villkorlig åtkomst med Azure AD, säker åtkomst till företagets resurser, principer för villkorlig åtkomst
+keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 20a15bf94826df0b058be59ff242c46878ea26dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 042553e08868a5874a162ad2f4669c92a0a0a5ec
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630083"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452283"
 ---
 # <a name="migrate-a-classic-policy-that-requires-multi-factor-authentication-in-the-azure-portal"></a>Migrera en klassisk princip som kräver Multi-Factor authentication i Azure portal 
 
@@ -151,4 +151,4 @@ Om du vill inaktivera din klassiska principen, klickar du på **inaktivera** i d
 
 - Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
 
-- Om du är redo att konfigurera principer för villkorlig åtkomst för din miljö kan du läsa den [bästa praxis för villkorlig åtkomst i Azure Active Directory](best-practices.md). 
+- Om du är redo att konfigurera principer för villkorsstyrd åtkomst för din miljö kan du läsa sidan om [metodtips för villkorsstyrd åtkomst i Azure Active Directory](best-practices.md). 

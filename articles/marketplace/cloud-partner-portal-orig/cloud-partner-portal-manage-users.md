@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d24cf56a898a4f4f8317246cbc2317e926256a77
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 56c646c2ab1f733c37a20cf6e6a5945b223beec4
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811525"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447283"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>Hantera användare på partnerportalen i molnet
 ======================================
@@ -36,20 +36,20 @@ Att **lägga till användare och tilldela roller** för publicering av erbjudand
 <a name="step-2-click-add-user"></a>Steg 2. Klicka på Lägg till användare.
 -----------------------
 
-![Välj Adducer](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Välj Lägg till användare](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 <a name="step-3-type-email-address-and-select-a-role-assignment"></a>Steg 3. Skriv e-postadress och välj en rolltilldelning.
 --------------------------------------------------------
 
 Du kan lägga till den nya användaren som ”ägare” eller ”bidragsgivar”.
 
-**E-post**: lägga till e-postadresserna för gruppmedlemmar som kommer att arbeta med publicera erbjudandet. Microsoft-konton (Outlook, Hotmail och Live) och Org ID: N stöds.
+**e-post**: Lägg till e-postadresserna för gruppmedlemmar som kommer att arbeta med publicera erbjudandet. Microsoft-konton (Outlook, Hotmail och Live) och Org ID: N stöds.
 
 o Lägg till en ”team/grupp e-alias/säkerhetsgrupp, om en enskild arbetar på erbjudandet lämnar organisationen.
 
 o se till att e-ID: N i Cloud Partner Portal övervakas för all kommunikation från Microsoft.
 
-**Rollen**: se tabellen nedan för att identifiera rolltypen lämpliga användare.
+**Roll**: Se tabellen nedan för att identifiera rolltypen lämpliga användare.
 
 ![Tilldela rollen](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![roller nivå](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -59,7 +59,8 @@ För närvarande kan endast ägare kan komma åt Azure Payouts och Azure-kund fl
 <a name="step-4-select-the-publisher-name-you-want-to-add-to-the-new-user-then-click-add-to-complete-user-addition"></a>Steg 4. Välj utgivarens namn som du vill lägga till i den nya användaren och sedan klicka på Lägg till för att slutföra användaren har lagts till.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> Den ”Utgivarnamn som din e-post har lagts till som ägare eller deltagare visas i listrutan för utgivaren för val av”.
 
 ![Tilldela roll - väljer utgivare](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

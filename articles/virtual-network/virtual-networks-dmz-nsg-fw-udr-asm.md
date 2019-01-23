@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: 9c2ebcfc376456f63896ebae8331136aff0cdb99
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 36d6733ddc73ace2026ea838cf8f701db95469e6
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119449"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448474"
 ---
 # <a name="example-3--build-a-dmz-to-protect-networks-with-a-firewall-udr-and-nsg"></a>Exempel 3 – skapa ett perimeternätverk för att skydda nätverk med en brandvägg, UDR och NSG
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -134,7 +134,7 @@ I det här exemplet används följande kommandon för att skapa routningstabelle
             -NextHopType VNETLocal
 5. Slutligen med routningstabellen skapas och konfigureras med en användardefinierad routning, måste tabellen nu vara bundet till ett undernät. I skriptet routningstabellen klientdelen också är bundet till undernätet på klientsidan. Här är skriptet bindning för backend-undernät.
    
-     Set-AzureSubnetRouteTable - VirtualNetworkName $VNetName ”
+     Set-AzureSubnetRouteTable -VirtualNetworkName $VNetName `
    
         -SubnetName $BESubnet `
         -RouteTableName $BERouteTableName
@@ -153,7 +153,7 @@ Konfigurera IP-vidarebefordran är ett enda kommando och kan göras vid tidpunkt
 
 1. Anropa den VM-instans som är din virtuella installation brandväggen i det här fallet och aktivera IP-vidarebefordran (Obs!; ett objekt i rött som börjar med ett dollartecken (t.ex.: $VMName[0]) är en användardefinierad variabel från skriptet i referensavsnittet i det här dokumentet. Nollbaserade omges av hakparenteser [0] representerar den första virtuella datorn i matrisen med virtuella datorer för exempelskript för att fungera utan modifiering, den första virtuella datorn (VM 0) måste vara brandväggen):
    
-     Get-AzureVM-och namnge $VMName [0] - ServiceName $ServiceName [0] | `
+     Get-AzureVM -Name $VMName[0] -ServiceName $ServiceName[0] | `
    
         Set-AzureIPForwarding -Enable
 
@@ -209,7 +209,7 @@ I det här exemplet behöver vi 7 typer av regler, dessa regeltyper beskrivs på
   2. DNS-regel: Den här regeln tillåter endast DNS (port 53)-trafik skickas till DNS-servern. För den här miljön som de flesta trafik från klientdelen till serverdelen blockeras, kan den här regeln särskilt DNS från alla lokala undernätet.
   3. Undernätet till undernätet regel: Den här regeln är att låta alla servrar i serverdelen undernät att ansluta till en server på klientdelens undernät (men inte tvärtom).
 * Felsäker regel (för trafik som inte uppfyller något av ovanstående):
-  1. Neka alla regel för nätverkstrafik: Detta bör alltid vara den sista regeln (när det gäller prioritet) och därför om en trafiken flödar inte matchar någon av de föregående regler som den kommer att tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar.
+  1. Deny All Traffic Rule: Detta bör alltid vara den sista regeln (när det gäller prioritet) och därför om en trafiken flödar inte matchar någon av de föregående regler som den kommer att tas bort av den här regeln. Det här är en standardregel och vanligtvis aktiverad behövs vanligtvis inga ändringar.
 
 > [!TIP]
 > Alla portar tillåts för enkelt för det här exemplet i ett scenario med verkliga den mest specifika porten på den andra program trafik regeln och adressintervall som ska användas för att minska risken för angrepp på den här regeln.
@@ -241,7 +241,7 @@ En slutpunkt kan öppnas antingen vid tidpunkten för skapandet av VM eller ansl
 
 En management-klienten måste installeras på en dator som kan hantera brandväggen och skapa de konfigurationer som krävs. Se dokumentationen från din brandvägg (eller andra NVA)-leverantören om hur du hanterar enheten. Resten av det här avsnittet och i nästa avsnitt, brandvägg regler skapas, beskriver konfigurationen av brandväggen, via leverantörer management-klienten (dvs. inte Azure-portalen eller PowerShell).
 
-Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG-administratör](https://techlib.barracuda.com/NG61/NGAdmin)
+Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 När du har loggat till brandväggen men innan du skapar brandväggsregler, finns det två nödvändiga objektklasser som kan göra att man skapar reglerna enklare; Nätverks- och objekt.
 
@@ -312,10 +312,10 @@ Egenskaperna för varje regel som krävs för att slutföra det här exemplet be
      
      | Regelnamn | Server | Tjänst | Mållistan |
      | --- | --- | --- | --- |
-     | RDP-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
-     | RDP-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
-     | RDP-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
-     | RDP-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
+     | RDP-to-IIS01 |IIS01 |IIS01 RDP |10.0.1.4:3389 |
+     | RDP-to-DNS01 |DNS01 |DNS01 RDP |10.0.2.4:3389 |
+     | RDP-to-AppVM01 |AppVM01 |AppVM01 RDP |10.0.2.5:3389 |
+     | RDP-to-AppVM02 |AppVM02 |AppVm02 RDP |10.0.2.6:3389 |
 
 > [!TIP]
 > Teknikområde omfånget för fälten käll- och minskar risken för angrepp. Den mest begränsat omfång som gör att funktionerna ska användas.
@@ -777,7 +777,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 
@@ -967,7 +967,7 @@ Om du vill installera ett exempelprogram för detta och andra DMZ-exempel finns 
 [3]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectfrontend.png "Skapa ett nätverk på klientsidan-objekt"
 [4]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectdns.png "Skapa ett DNS-Server-objekt"
 [5]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpa.png "Kopia av standard RDP-regel"
-[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 regel"
+[6]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/createnetworkobjectrdpb.png "AppVM01 Rule"
 [7]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconapplicationredirect.png "Programikon för omdirigering"
 [8]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/icondestinationnat.png "Mål NAT-ikon"
 [9]: ./media/virtual-networks-dmz-nsg-fw-udr-asm/iconpass.png "Skicka ikon"

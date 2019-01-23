@@ -4,7 +4,7 @@ description: Den här sidan dokument tänka på för Azure AD-instanser.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: f340ea11-8ff5-4ae6-b09d-e939c76355a3
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d086b958ddca6caded19cc02a790f8091aba993e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: be20f50b68ab3715e2b7a98db208dcd81a995f1b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425192"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463889"
 ---
-# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Tänka på för instanser
+# <a name="azure-ad-connect-special-considerations-for-instances"></a>Azure AD Connect: Att tänka på för instanser
 Azure AD Connect används oftast med världsomfattande instans av Azure AD och Office 365. Men det finns även andra instanser och de har olika krav för URL: er och andra saker.
 
 ## <a name="microsoft-cloud-germany"></a>Microsoft Cloud Germany

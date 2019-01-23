@@ -4,7 +4,7 @@ description: Beskriver säkerhetsöverväganden vid användning av Azure AD Appl
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2017
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 985ea1f16cff010041d61d808280cb47f2b77aa9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 23ea1806c1670b73883384a0e4981f362bad90f0
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618367"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472730"
 ---
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Säkerhetsöverväganden för att komma åt appar med Azure AD Application Proxy
 
@@ -48,7 +48,7 @@ Använd rikare principkontroller innan anslutningar till nätverket upprättas.
 
 Med [villkorlig åtkomst](../conditional-access/overview.md), kan du ange begränsningar på vilken trafik tillåts åtkomst till backend-server-program. Du kan skapa principer som begränsar inloggningar baserat på plats, styrkan hos autentisering och användarprofilen för risken.
 
-Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. 
+Du kan också använda villkorlig åtkomst för att konfigurera Multi-Factor Authentication-principer, att lägga till ytterligare en säkerhetsnivå till din användarautentiseringar. Dessutom kan dina program kan också dirigeras till Microsoft Cloud App Security via Azure AD villkorsstyrd åtkomst för att tillhandahålla övervakning i realtid och kontroller, via [åtkomst](https://docs.microsoft.com/en-us/cloud-app-security/access-policy-aad) och [session](https://docs.microsoft.com/en-us/cloud-app-security/session-policy-aad) principer
 
 ### <a name="traffic-termination"></a>Trafik-avslutning
 
@@ -92,8 +92,8 @@ Microsoft bevakar trafikmönster för enskilda program och din prenumeration som
 
 Azure AD Application Proxy består av två delar:
 
-* Molnbaserad tjänst: den här tjänsten körs i Azure och är där externa klient/användare anslutningar görs.
-* [On-premises connector](application-proxy-connectors.md): komponenten lokala anslutningstjänsten lyssnar efter förfrågningar från Azure AD Application Proxy-tjänsten och hanterar anslutningar till de interna program. 
+* Molnbaserad tjänst: Den här tjänsten körs i Azure och är där externa klient/användare anslutningar görs.
+* [On-premises connector](application-proxy-connectors.md): Komponenten lokala anslutningstjänsten lyssnar efter förfrågningar från Azure AD Application Proxy-tjänsten och hanterar anslutningar till de interna program. 
 
 Ett flöde mellan anslutningsappen och programproxytjänsten upprättas när:
 
@@ -110,8 +110,8 @@ Anslutningsappen använder ett klientcertifikat för att autentisera till tjäns
 
 När anslutningen är först ställer in, äga rum i flödet följande händelser:
 
-1. Registreringen av anslutningsappen till tjänsten sker som en del av installationen av anslutningen. Användare uppmanas att ange sina autentiseringsuppgifter för Azure AD-administratör. Den token som anskaffats från den här autentiseringen sedan presenteras för Azure AD Application Proxy-tjänsten.
-2. Application Proxy-tjänsten utvärderar token. Den kontrollerar om användaren är en företagsadministratör i klienten. Om användaren inte är administratör avslutas processen.
+1. Registreringen av anslutningsappen till tjänsten sker som en del av installationen av anslutningen. Användare uppmanas att ange sina autentiseringsuppgifter för Azure AD-administratör. Den token som anskaffats från den här autentiseringen sedan presenteras för Azure AD Application Proxy-tjänsten.
+2. Application Proxy-tjänsten utvärderar token. Den kontrollerar om användaren är en företagsadministratör i klienten. Om användaren inte är administratör avslutas processen.
 3. Anslutningen genererar en certifikatbegäran för klienten och skickar dem, tillsammans med denna token till Application Proxy-tjänsten. Tjänsten i sin tur verifierar token och signerar certifikat klientbegäran.
 4. Anslutningsappen använder klientcertifikatet för framtida kommunikation med tjänsten Application Proxy.
 5. Anslutningen utför en inledande pull av system-konfigurationsdata från tjänsten med hjälp av dess klientcertifikatet och det är nu redo att ta begäranden.
@@ -176,7 +176,7 @@ När begäran och överföring av innehåll till backend-server är klar väntar
 
 När den får ett svar gör anslutningen en utgående anslutning till tjänsten Application Proxy att returnera de information om och påbörja direktuppspelning returnerade data.
 
-#### <a name="5-the-service-streams-data-to-the-user"></a>5. Tjänsten strömmar data för användaren. 
+#### <a name="5-the-service-streams-data-to-the-user"></a>5. Tjänsten strömmar data för användaren. 
 
 Viss bearbetning av programmet kan inträffa här. Om du har konfigurerat Application Proxy att översätta rubriker eller URL: er i ditt program sker bearbetningen efter behov under det här steget.
 

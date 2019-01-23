@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 01/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 05f6208788060459e67a787507a56adeed980e2d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 60c4b22fb34a66a0ff68db26030be0e0ea3c0066
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319002"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470256"
 ---
 # <a name="azure-data-box-edge-system-requirements-preview"></a>Systemkrav för Azure Data Box Edge (förhandsversion)
 
@@ -97,7 +97,7 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 | URL-mönster                      | Komponenten eller funktioner                     |   |
 |----------------------------------|---------------------------------------------|---|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |   |
+| `https://mcr.microsoft.com`<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |   |
 | https://\*.azurecr.io                     | Personliga och 3 part behållarregister (valfritt) |   |
 | https://\*.azure-devices.net              | IoT Hub-åtkomst (krävs)                             |   |
 

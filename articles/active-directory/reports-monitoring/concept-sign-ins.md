@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4b4c2e35059fa3521a74e1cb0c218c100b12a4ec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cb0c72c8a14dd71bbbe9d6cd46224542f7bf3e5b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436730"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470587"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapporter om inloggningsaktiviteter i Azure Active Directory-portalen
 
@@ -44,7 +44,7 @@ Det här avsnittet ger en översikt över rapporten inloggningar.
 * Dessutom kan alla användare (icke-administratörer) kan komma åt sina egna inloggningar 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>Vilken Azure AD-licens behöver du för att komma åt inloggningsaktiviteter?
-* Din klient måste ha en Azure AD Premium-licens som är associerade med den för att visa inloggningar helt upp i rapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktiviteter data före uppgraderingen, det tar ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens.
+* Din klient måste ha en Azure AD Premium-licens som är associerade med den för att visa inloggningar helt upp i rapporten. Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version. Observera att om du inte har några aktivitetsdata före uppgraderingen tar det ett par dagar innan data visas i rapporterna när du har uppgraderat till en premiumlicens.
 
 ## <a name="sign-ins-report"></a>Rapport över inloggningar
 
@@ -203,7 +203,10 @@ När du klickar på ett objekt visas mer information om inloggningen:
 - Date
 - MFA krävs
 - Inloggningsstatus
- 
+
+> [!NOTE]
+> IP-adresser utfärdas så att det finns ingen slutgiltiga koppling mellan en IP-adress och var datorn med den här adressen är fysiskt. Mappning av IP-adresser är komplicerat av leverantörer av mobil- och VPN-anslutningar att utfärda IP-adresser från central pooler som är ofta mycket är långt från där klientenheten faktiskt används. För närvarande i Azure AD-rapporter är konverterar IP-adress till en fysisk plats en bästa prestanda baserat på spårningar, registerdata, omvänd sökningar och annan information.
+
 På sidan **Användare** visas en fullständig översikt över alla användarinloggningar om du klickar på **Inloggningar** i avsnittet **Aktivitet**.
 
 ![Inloggningsaktivitet](./media/concept-sign-ins/08.png "inloggningsaktivitet")

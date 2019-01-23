@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 01/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e53351d4581791df77dbb64d9eb0f25815204f5
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426734"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463039"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -56,6 +56,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure-datautforskaren
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - köper Azure DevOps-organisationer med icke-Microsoft-tillägg måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.
@@ -166,6 +167,7 @@ Du kan flytta hanterade diskar från 24 September 2018. Det här stödet innebä
 Följande scenarier stöds inte ännu:
 
 * Virtuella datorer med certifikat som lagras i Key Vault kan flyttas till en ny resursgrupp i samma prenumeration, men inte mellan prenumerationer.
+* Hanterade diskar i Availability Zones kan inte flyttas till en annan prenumeration
 * Virtual Machine Scale Sets med Standard-SKU-belastningsutjämnare eller SKU offentlig IP kan inte flyttas
 * Virtuella datorer som skapats från Marketplace-resurser med anslutna-planer kan inte flyttas mellan resursgrupper eller prenumerationer. Avetablera den virtuella datorn i den aktuella prenumerationen och distribuera igen i den nya prenumerationen.
 

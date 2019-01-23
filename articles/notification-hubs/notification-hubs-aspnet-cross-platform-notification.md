@@ -3,8 +3,8 @@ title: Skicka plattformsoberoende meddelanden till användare med Azure Notifica
 description: Lär dig hur du använder Meddelandehubbar mallar för att skicka i en enskild begäran en plattformsoberoende meddelande som är inriktad på alla plattformar.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
 ms.service: notification-hubs
@@ -12,17 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: c9d1874fb611b349403736593fdc9eccc45d2d4d
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 637bae0a3f6bba712662e894b75c8bd663e91b4a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055783"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446639"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Skicka plattformsoberoende meddelanden till användare med Meddelandehubbar
-I en tidigare självstudiekurs [meddela användare med Meddelandehubbar], du har lärt dig hur du push-meddelanden till alla enheter som är registrerade till en specifik autentiserade användare. I självstudien, var flera begäranden tvungna att skicka ett meddelande till varje klientplattform som stöds. Azure Notification Hubs stöder mallar, som du kan ange hur en specifik enhet vill ta emot meddelanden. Den här metoden förenklar skicka plattformsoberoende meddelanden. 
+
+I en tidigare självstudiekurs [meddela användare med Meddelandehubbar], du har lärt dig hur du push-meddelanden till alla enheter som är registrerade till en specifik autentiserade användare. I självstudien, var flera begäranden tvungna att skicka ett meddelande till varje klientplattform som stöds. Azure Notification Hubs stöder mallar, som du kan ange hur en specifik enhet vill ta emot meddelanden. Den här metoden förenklar skicka plattformsoberoende meddelanden.
 
 Den här artikeln visar hur du drar nytta av mallar för att skicka i en enskild begäran en plattformsoberoende meddelande som är inriktad på alla plattformar. Mer detaljerad information om mallar finns i [översikt över Azure Notification Hubs][Templates].
 
@@ -31,57 +32,61 @@ Den här artikeln visar hur du drar nytta av mallar för att skicka i en enskild
 
 > [!NOTE]
 > Med Notification Hubs, kan en enhet registrera flera mallar med samma tagg. I det här fallet ett inkommande meddelande som riktar sig mot taggen resultaten i flera meddelanden levereras till enheten, en för varje mall. Den här processen kan du visa samma meddelande i flera visual meddelanden, till exempel både som en Aktivitetsikon och popup-meddelande i en Windows Store-app.
-> 
-> 
+
+## <a name="send-cross-platform-notifications-using-templates"></a>Skicka plattformsoberoende meddelanden med hjälp av mallar
 
 Om du vill skicka plattformsoberoende meddelanden med hjälp av mallar, gör du följande:
 
 1. I Solution Explorer i Visual Studio, expanderar den **domänkontrollanter** och sedan öppna filen RegisterController.cs.
 
-2. Leta upp kodblocket i den **placera** metod som skapar en ny registrering och Ersätt sedan den `switch` innehåll med följande kod:
-   
-        switch (deviceUpdate.Platform)
-        {
-            case "mpns":
-                var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                       "<wp:Toast>" +
-                            "<wp:Text1>$(message)</wp:Text1>" +
-                       "</wp:Toast> " +
-                    "</wp:Notification>";
-                registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "wns":
-                toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
-                registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
-                break;
-            case "apns":
-                var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
-                registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
-                break;
-            case "gcm":
-                var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
-                registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
-                break;
-            default:
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
-        }
-   
+2. Leta upp kodblocket i den `Put` metod som skapar en ny registrering och Ersätt sedan den `switch` innehåll med följande kod:
+
+    ```csharp
+    switch (deviceUpdate.Platform)
+    {
+        case "mpns":
+            var toastTemplate = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                    "<wp:Toast>" +
+                        "<wp:Text1>$(message)</wp:Text1>" +
+                    "</wp:Toast> " +
+                "</wp:Notification>";
+            registration = new MpnsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "wns":
+            toastTemplate = @"<toast><visual><binding template=""ToastText01""><text id=""1"">$(message)</text></binding></visual></toast>";
+            registration = new WindowsTemplateRegistrationDescription(deviceUpdate.Handle, toastTemplate);
+            break;
+        case "apns":
+            var alertTemplate = "{\"aps\":{\"alert\":\"$(message)\"}}";
+            registration = new AppleTemplateRegistrationDescription(deviceUpdate.Handle, alertTemplate);
+            break;
+        case "gcm":
+            var messageTemplate = "{\"data\":{\"message\":\"$(message)\"}}";
+            registration = new GcmTemplateRegistrationDescription(deviceUpdate.Handle, messageTemplate);
+            break;
+        default:
+            throw new HttpResponseException(HttpStatusCode.BadRequest);
+    }
+    ```
+
     Den här koden anropar metoden plattformsspecifika för att skapa en mall för registrering i stället för en intern registrering. Eftersom mallregistreringar härleds från interna registreringar, behöver du inte ändra befintliga registreringar.
 
-3. I den **meddelanden** styrenhet, ersätter den **sendNotification** metoden med följande kod:
-   
-        public async Task<HttpResponseMessage> Post()
-        {
-            var user = HttpContext.Current.User.Identity.Name;
-            var userTag = "username:" + user;
-   
-            var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
-            await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
-   
-            return Request.CreateResponse(HttpStatusCode.OK);
-        }
-   
+3. I den `Notifications` styrenhet, ersätter den `sendNotification` metoden med följande kod:
+
+    ```csharp
+    public async Task<HttpResponseMessage> Post()
+    {
+        var user = HttpContext.Current.User.Identity.Name;
+        var userTag = "username:" + user;
+
+        var notification = new Dictionary<string, string> { { "message", "Hello, " + user } };
+        await Notifications.Instance.Hub.SendTemplateNotificationAsync(notification, userTag);
+
+        return Request.CreateResponse(HttpStatusCode.OK);
+    }
+    ```
+
     Den här koden skickar ett meddelande till alla plattformar på samma gång, utan att du har problem att ange en intern nyttolast. Notification Hubs bygger och levererar rätt nyttolasten till alla enheter med de angivna *taggen* värdet som anges i de registrerade mallarna.
 
 4. Publicera ditt projekt för WebApi-serverdelen.
@@ -92,17 +97,15 @@ Om du vill skicka plattformsoberoende meddelanden med hjälp av mallar, gör du 
     Ett meddelande visas på varje enhet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har slutfört den här självstudiekursen lär du dig mer om Meddelandehubbar och mallar i följande avsnitt:
 
 * [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Översikt över Azure Notification Hubs][Templates]: innehåller mer detaljerad information om mallar.
+* [Översikt över Azure Notification Hubs][Templates]: Innehåller mer detaljerad information om mallar.
 
 <!-- Anchors. -->
 
 <!-- Images. -->
-
-
-
 
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md

@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synkronisering: driftåtgärder och saker du | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Driftåtgärder och saker du | Microsoft Docs'
 description: Det här avsnittet beskriver operativa uppgifter för Azure AD Connect-synkronisering och hur du förbereder för den här komponenten.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: b29c1790-37a3-470f-ab69-3cee824d220d
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 11390f1ad777d20e31c263b4a694ae5cb31f3fd3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c4dc5ae107cc8babbd425edd6c5de428e130fc3a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311901"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467544"
 ---
-# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synkronisering: driftåtgärder och överväganden
+# <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Azure AD Connect-synkronisering: Driftåtgärder och saker att tänka på
 Målet med det här avsnittet är att beskriva driftåtgärder för Azure AD Connect-synkronisering.
 
 ## <a name="staging-mode"></a>Mellanlagringsläge
@@ -74,8 +74,8 @@ Du har nu mellanlagrade export i Azure AD och lokalt AD (om du använder Exchang
 
 #### <a name="verify"></a>Verifiera
 1. Starta en kommandotolk och gå till `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` namnet på anslutningen finns i synkroniseringstjänsten. Den har ett namn som liknar ”contoso.com – AAD” för Azure AD.
-3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` du har en fil i % temp % med namnet export.csv som kan granskas i Microsoft Excel. Den här filen innehåller alla ändringar som är på väg att exporteras.
+2. Kör: `csexport "Name of Connector" %temp%\export.xml /f:x` Namnet på anslutningen finns i synkroniseringstjänsten. Den har ett namn som liknar ”contoso.com – AAD” för Azure AD.
+3. Kör: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Du har en fil i % temp % med namnet export.csv som kan granskas i Microsoft Excel. Den här filen innehåller alla ändringar som är på väg att exporteras.
 4. Gör nödvändiga ändringar i informationen eller konfigurationen och köra de här stegen igen (importera och synkronisera och verifiera) tills de ändringar som är på väg att exporteras förväntas.
 
 **Förstå filen export.csv** merparten av filen är självförklarande. Vissa förkortningar att förstå innehållet:
@@ -85,7 +85,7 @@ Du har nu mellanlagrade export i Azure AD och lokalt AD (om du använder Exchang
 **Hämta vanliga identifierare** export.csv-filen innehåller alla ändringar som är på väg att exporteras. Varje rad motsvarar en ändring för ett objekt i anslutarplatsen och objektet har identifierats av attributet DN. DN-attributet är en unik identifierare som tilldelats till ett objekt i anslutarplatsen. När du har många rader/ändringar i export.csv att analysera, kan det vara svårt att ta reda på vilka objekt ändringarna är för baserat på attributet DN enbart. Använd csanalyzer.ps1 PowerShell-skript för att förenkla analysera ändringarna. Skriptet hämtar vanliga identifierare (till exempel displayName, userPrincipalName) av objekt. Du använder skriptet:
 1. Kopiera PowerShell-skriptet från avsnittet [CSAnalyzer](#appendix-csanalyzer) till en fil med namnet `csanalyzer.ps1`.
 2. Öppna ett PowerShell-fönster och bläddra till mappen där du skapade PowerShell-skriptet.
-3. Kör: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
+3. Run: `.\csanalyzer.ps1 -xmltoimport %temp%\export.xml`.
 4. Nu har du en fil med namnet **processedusers1.csv** som kan granskas i Microsoft Excel. Observera att filen innehåller en mappning från attributet DN till vanliga identifierare (till exempel displayName och userPrincipalName). För närvarande omfattar inte de faktiska attributändringar som ska exporteras.
 
 #### <a name="switch-active-server"></a>Växla aktiv server
@@ -126,7 +126,7 @@ Om du inte använder den SQL Server Express som medföljer Azure AD Connect, bö
 
 Stöd för SQL AOA lades till i Azure AD Connect i version 1.1.524.0. Innan du installerar Azure AD Connect måste du aktivera SQL AOA. Under installationen identifierar Azure AD Connect om den angivna SQL-instansen är aktiverat för SQL AOA eller inte. Om SQL AOA är aktiverad, räknat Azure AD Connect ytterligare ut om SQL AOA har konfigurerats för att använda synkron replikering eller asynkron replikering. När du konfigurerar tillgänglighetsgruppens lyssnare, rekommenderas att du ställer in egenskapen RegisterAllProvidersIP till 0. Detta beror på Azure AD Connect för närvarande använder SQL Native Client för att ansluta till SQL och SQL Native Client stöder inte användning av egenskapen MultiSubNetFailover.
 
-## <a name="appendix-csanalyzer"></a>Bilaga CSAnalyzer
+## <a name="appendix-csanalyzer"></a>Appendix CSAnalyzer
 Se avsnittet [Kontrollera](#verify) om hur du använder det här skriptet.
 
 ```
@@ -152,9 +152,9 @@ write-host "Importing XML" -ForegroundColor Yellow
 $resolvedXMLtoimport=Resolve-Path -Path ([Environment]::ExpandEnvironmentVariables($xmltoimport))
 
 #use an XmlReader to deal with even large files
-$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
+$result=$reader = [System.Xml.XmlReader]::Create($resolvedXMLtoimport) 
 $result=$reader.ReadToDescendant('cs-object')
-do 
+do 
 {
     #create the object placeholder
     #adding them up here means we can enforce consistency

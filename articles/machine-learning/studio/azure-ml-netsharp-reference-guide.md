@@ -245,7 +245,7 @@ Mer information om en pool lager finns i följande artiklar:
 
 ## <a name="response-normalization-bundles"></a>Svaret normalisering paket
 
-**Svaret normalisering** är ett schema för lokala normalisering som introducerades av Geoffrey Hinton et al. i dokumentet [ImageNet Classiﬁcation med djupgående Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
+**Svaret normalisering** är ett schema för lokala normalisering som introducerades av Geoffrey Hinton et al. i dokumentet [ImageNet klassificering med djupgående Convolutional Neural Networks](http://www.cs.toronto.edu/~hinton/absps/imagenet.pdf). 
 
 Svaret normalisering används för att underlätta generalisering i neurala nätverk. När en neuron håller på att utlösas på en mycket hög aktivering-nivå, Undertrycker en lokal svar normalisering layer aktivering andelen omgivande neurons. Detta görs med hjälp av tre parametrarna (`α`, `β`, och `k`) och en convolutional struktur (eller stadsdel form). Varje neuron i mållagret **y** motsvarar en neuron **x** i käll-lagret. Aktivering andelen **y** ges genom följande formel, där `f` är den aktivering i en neuron och `Nx` är kärnan (eller uppsättning som innehåller neurons i nätverket av **x**), som definieras av följande convolutional struktur:  
 

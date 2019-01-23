@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 333eebfa1bae919c43164572c63f2de4f7251fe0
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: a19b06e1297b86610ecee01a4e84150813cdb208
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261625"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452417"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publicera en Lösningsmall Azure Marketplace
 
@@ -139,7 +139,7 @@ Anger du följande inställningar för SKU.
 - **Rubrik** – en rubrik för SKU: N. Den här rubriken visas i galleriet för det här objektet.
 - **Sammanfattning av** – en kort sammanfattande beskrivning av SKU: N. (Maximal längd är 100 tecken.)
 - **Beskrivning av** – en detaljerad beskrivning av SKU: N.
-- **SKU-typen** – en listruta med följande värden: ”hanterade program (förhandsversion)” och ”mall”. Det här scenariot väljer **lösningsmallen**.
+- **SKU-typen** – en listruta med följande värden: ”Hanterat program (förhandsversion)” och ”mall”. Det här scenariot väljer **lösningsmallen**.
 - **Tillgänglighet i molnet** -platsen för SKU: N. Standardvärdet är **offentliga Azure**.
 
 ### <a name="package-details"></a>Paketinformation

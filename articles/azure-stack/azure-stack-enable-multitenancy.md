@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/6/2018
 ms.author: patricka
 ms.reviewer: bryanr
-ms.openlocfilehash: 28bd314e2dd179d83d2880e3acbf39805b54d333
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2861b0d1b7ac24a8e881ff052b865ca0384a55d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263976"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464816"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Flera innehavare i Azure Stack
 
@@ -158,3 +158,5 @@ Om du inte längre vill att flera klienter i Azure Stack kan du inaktivera multi
 
 - [Hantera delegerade providrar](azure-stack-delegated-provider.md)
 - [Azure Stack viktiga begrepp](azure-stack-key-features.md)
+- [Hantera användning och fakturering för Azure Stack som molntjänstleverantör](azure-stack-add-manage-billing-as-a-csp.md)
+- [Lägga till klient för användning och fakturering i Azure Stack](azure-stack-csp-howto-register-tenants.md)

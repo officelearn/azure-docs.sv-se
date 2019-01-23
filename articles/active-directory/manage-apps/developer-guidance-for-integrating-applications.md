@@ -4,7 +4,7 @@ description: Avsedd för IT-proffs, innehåller den här artikeln riktlinjer fö
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: barbkess
 ms.custom: seohack1
-ms.openlocfilehash: 844f569b7c425f6a67acabe491508aa8d5fb00f5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: d717b9a89b2c22712821d96014e2f60ee4c0e4d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634437"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463651"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Utveckla line-of-business-appar för Azure Active Directory
 Den här guiden innehåller en översikt över utveckling line-of-business (LoB)-program för Azure Active Directory (AD). Målgruppen är globala administratörer för Active Directory/Office 365.
@@ -41,8 +41,8 @@ Registrerar ett program kan alla användare att göra följande:
   * Azure Active Directory som oAuth auktoriseringsservern (skydda en API som visas av programmet)
 * Deklarera behörighet krävs för programmet ska fungera som förväntat, inklusive:
 
-     - App-behörigheter (endast globala administratörer). Till exempel: rollmedlemskap i en annan Azure AD-program eller roll medlemskap i förhållande till en Azure-resurs, resursgrupp, eller en prenumeration
-     - Delegerade behörigheter (alla användare). Till exempel: Azure AD-inloggningen och Läs-profilen
+     - App-behörigheter (endast globala administratörer). Exempel: Medlemskap i en annan Azure AD-program eller roll medlemskap i förhållande till en Azure-resurs, resursgrupp, eller en prenumeration
+     - Delegerade behörigheter (alla användare). Exempel: Azure AD-inloggningen, och Läs profil
 
 > [!NOTE]
 > Som standard kan alla medlemmar registrera ett program. Läs hur du begränsar behörigheter för att registrera program till särskilda medlemmar i [hur program läggs till Azure AD](../develop/active-directory-how-applications-are-added.md#who-has-permission-to-add-applications-to-my-azure-ad-instance).

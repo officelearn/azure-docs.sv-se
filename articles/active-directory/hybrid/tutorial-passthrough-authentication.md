@@ -1,23 +1,23 @@
 ---
-title: 'Självstudiekurs:  Integrera en enda AD-skogen till Azure med hjälp av direktautentisering (PTA) | Microsoft Docs'
+title: 'Självstudier:  Integrera en enda AD-skogen till Azure med hjälp av direktautentisering (PTA) | Microsoft Docs'
 description: Visar hur du ställer in en hybridmiljö identitet med hjälp av direktautentisering.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 140161e88ee572d728a7f9c923c9528ea6755cc1
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 6bbf9cbea0671aaa73ddc5402f3102eea3154e6c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53165463"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467927"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudiekurs:  Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
+# <a name="tutorial--integrate-a-single-ad-forest-using-pass-through-authentication-pta"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av direktautentisering (PTA)
 
 ![Skapa](media/tutorial-passthrough-authentication/diagram.png)
 

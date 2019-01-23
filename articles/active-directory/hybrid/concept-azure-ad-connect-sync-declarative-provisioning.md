@@ -4,7 +4,7 @@ description: Förklarar deklarativ etablering konfigurationsmodellen i Azure AD 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: cfbb870d-be7d-47b3-ba01-9e78121f0067
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9242ffc0c87ee9f314745463b8287ad7531a982d
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 45b145d9a8922bc3da50cef7d9fa7aacf260417d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315037"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471786"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning"></a>Azure AD Connect-synkronisering: Förstå deklarativ etablering
 Det här avsnittet beskriver Konfigurationsmodell i Azure AD Connect. Modellen kallas deklarativ etablering och det kan du se en konfigurationsändring enkelt. Många saker som beskrivs i det här avsnittet avancerade och krävs inte för de flesta kundscenarier med.
@@ -41,13 +41,13 @@ Pipelinen har flera olika moduler. Var och en ansvarar för ett begrepp i synkro
 * [Prioritet](#precedence), matchas som i konflikt attributet bidrag
 * Mål, målobjektet
 
-## <a name="scope"></a>Omfång
+## <a name="scope"></a>Scope
 Utvärderar ett objekt i omfånget-modulen och anger de regler som omfattas och ska tas med i bearbetningen. Beroende på värden för attributen för objektet utvärderas olika Synkroniseringsregler i omfånget. Exempelvis kan har en inaktiverad användare med ingen Exchange-postlåda olika regler än en aktiverad användare med en postlåda.  
-![Omfång](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope1.png)  
 
 Omfånget är definierad som grupper och -satser. Paragrafer finns i en grupp. Ett logiskt AND används mellan alla satser i en grupp. Till exempel (avdelning = IT och land = Danmark). Ett logiskt OR används mellan grupper.
 
-![Omfång](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
+![Scope](./media/concept-azure-ad-connect-sync-declarative-provisioning/scope2.png)  
 Detta scope i den här bilden ska läsas som (avdelning = IT och land = Danmark) eller (land = Sverige). Om grupp 1 eller grupp 2 utvärderas till sant kommer regeln finns i omfattningen.
 
 Följande åtgärder har stöd för scope-modulen.
@@ -55,7 +55,7 @@ Följande åtgärder har stöd för scope-modulen.
 | Åtgärd | Beskrivning |
 | --- | --- |
 | LIKA MED, NOTEQUAL |En sträng jämför som utvärderar om värdet är lika med värdet i attributet. Se ISIN och ISNOTIN för flera värden attribut. |
-| LESSTHAN LESSTHAN_OR_EQUAL |Jämför en sträng som utvärderar om värdet är mindre än värdet i attributet. |
+| LESSTHAN, LESSTHAN_OR_EQUAL |Jämför en sträng som utvärderar om värdet är mindre än värdet i attributet. |
 | INNEHÅLLER, NOTCONTAINS |En sträng jämför som utvärderar om värde finns någonstans i värdet i attributet. |
 | STARTSWITH, NOTSTARTSWITH |En sträng jämför som utvärderar om värdet är i början av värdet i attributet. |
 | ENDSWITH NOTENDSWITH |En sträng jämför som utvärderar om värdet är i slutet av värdet i attributet. |
@@ -91,7 +91,7 @@ En metaversumobjekt finns kvar så länge det finns en synkroniseringsregel i om
 När en metaversumobjekt raderas alla objekt som är associerade med en utgående synkroniseringsregel som markerats för **etablera** markeras för en borttagning.
 
 ## <a name="transformations"></a>Transformationer
-Omvandlingarna används för att definiera hur attributen ska flöda från källan till målet. Flöden kan ha något av följande **flow typer**: Direct eller konstant uttryck. Ett direkt flöde flödar ett attributvärde som – är utan ytterligare omvandlingar. Ett konstant värde anger det angivna värdet. Ett uttryck som använder deklarativ etablering Uttrycksspråk för att uttrycka hur transformationen ska vara. Information om uttryck som språket finns i den [förstå deklarativ etablering Uttrycksspråk](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) avsnittet.
+Omvandlingarna används för att definiera hur attributen ska flöda från källan till målet. Flöden kan ha något av följande **flow typer**: Direkt-konstant eller -uttryck. Ett direkt flöde flödar ett attributvärde som – är utan ytterligare omvandlingar. Ett konstant värde anger det angivna värdet. Ett uttryck som använder deklarativ etablering Uttrycksspråk för att uttrycka hur transformationen ska vara. Information om uttryck som språket finns i den [förstå deklarativ etablering Uttrycksspråk](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md) avsnittet.
 
 ![Tilldela eller ta bort koppling](./media/concept-azure-ad-connect-sync-declarative-provisioning/transformations1.png)  
 
@@ -163,4 +163,4 @@ Du behöver ändra omfånget för reglerna för synkronisering så att källobje
 
 **Referensämnen**
 
-* [Azure AD Connect-synkronisering: referens för funktioner](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect-synkronisering: Referens för funktioner](reference-connect-sync-functions-reference.md)

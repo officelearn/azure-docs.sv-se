@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager-provkörning | Microsoft Docs
-description: Skapa en Markeplace provkörning med Azure Resource MAnager
+description: Skapa en Marketplace-Test-enhet med Azure Resource Manager
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: pbutlerm
@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 87e57a1ee417a4cc69308e8af80dd9b781d60aaf
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7cbd69a4551605b71930a23f837b467177e3cc3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139273"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451365"
 ---
 <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager-provkörning
 =================================
@@ -298,7 +298,7 @@ Nu när du har din provkörning som skapats beskriver i det här avsnittet var o
 
 Fältet första och viktigaste är att ange om du vill Test Drive aktiverats för ditt erbjudande eller inte. När du väljer **Ja,** resten av formuläret med alla de obligatoriska fälten visas för att fylla. När du väljer **Nej,** formuläret blir inaktiverad och om du publicerar med Test Drive inaktiverat din provkörning tas bort från produktionen.
 
-Obs: Om det finns några tester enheter som aktivt används av användare, dessa Provkörningar fortsätter att köras tills sin session upphör att gälla.
+Obs! Om det finns några tester enheter som aktivt används av användare, fortsätter dessa Provkörningar att köras tills sin session upphör att gälla.
 
 ### <a name="details"></a>Information
 

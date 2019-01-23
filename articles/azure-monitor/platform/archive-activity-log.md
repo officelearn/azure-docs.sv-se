@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
-ms.component: logs
-ms.openlocfilehash: 9714cb8ce1c3380ac74150148c8d84bd410e3fc4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.subservice: logs
+ms.openlocfilehash: d9abfe90296b27918594c41a207befe2b59027b9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715228"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461612"
 ---
 # <a name="archive-the-azure-activity-log"></a>Arkivera Azure-aktivitetsloggen
 I den här artikeln visar vi hur du kan använda Azure-portalen, PowerShell-Cmdlets och plattformsoberoende CLI för att arkivera dina [ **Azure-aktivitetsloggen** ](../../azure-monitor/platform/activity-logs-overview.md) i ett lagringskonto. Det här alternativet är användbart om du vill behålla din aktivitetslogg som är längre än 90 dagar (med fullständig kontroll över bevarandeprincipen) för granskning, statiska analys eller säkerhetskopiering. Om du behöver bara att behålla dina händelser i 90 dagar eller mindre du behöver inte konfigurera arkivering till ett lagringskonto eftersom aktivitetslogghändelser finns kvar i Azure-plattformen i 90 dagar utan att aktivera arkivering.
@@ -78,7 +78,7 @@ Om du vill arkivera aktivitetsloggen med någon av metoderna nedan, anger du den
 | Egenskap  | Krävs | Beskrivning |
 | --- | --- | --- |
 | namn |Ja |Namnet på din loggprofil. |
-| Storage-konto-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
+| storage-account-id |Ja |Resurs-ID för det Lagringskonto där aktivitetsloggar ska sparas. |
 | platser |Ja |Blankstegsavgränsad lista över regioner som du vill samla in händelser i aktivitetsloggen. Du kan visa en lista över alla regioner för din prenumeration med hjälp av `az account list-locations --query [].name`. |
 | dagar |Ja |Antal dagar för vilka händelser ska behållas, mellan 1 och 2147483647. Värdet noll kommer att lagra loggarna på obestämd tid (alltid).  Om noll, sedan parametern aktiverade ska anges till true. |
 |aktiverad | Ja |SANT eller FALSKT.  Används för att aktivera eller inaktivera bevarandeprincipen.  Om värdet är True måste dagsparametern vara ett värde som är större än 0.
@@ -184,4 +184,5 @@ Varje händelse som lagras i filen pt1h.JSON i matrisen ”poster” efter det h
 * [Ladda ned blobar för analys](../../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Stream aktivitetsloggen till Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
 * [Läs mer om aktivitetsloggen](../../azure-monitor/platform/activity-logs-overview.md)
+
 

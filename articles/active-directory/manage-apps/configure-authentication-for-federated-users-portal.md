@@ -4,7 +4,7 @@ description: Förklarar vad en Azure AD-klient är och hur du hanterar Azure via
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: infrastructure-services
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7b16e3ff5be21c52f354f0dcbb5dd91b4509e65e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957946"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461203"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Konfigurera Azure Active Directory-inloggning i beteendet för ett program med hjälp av en princip för identifiering av startsfär
 
@@ -37,7 +37,7 @@ Användaren kan behöva åtgärdas till någon av följande platser för att aut
 
 - Någon annan identitetsprovider som är federerad med Azure AD-klient.
 
-## <a name="auto-acceleration"></a>Automatisk acceleration 
+## <a name="auto-acceleration"></a>Auto-acceleration 
 Vissa organisationer konfigurera domäner i sina Azure Active Directory-klient för att federera med en annan IDP: N, till exempel AD FS för autentisering av användare.  
 
 När en användare loggar in i ett program, visas de först en Azure AD-inloggningssida. När de har skrivit sina UPN, om de finns i en federerad domän tas de sedan till sidan logga in på IDP: N som betjänar den domänen. Under vissa omständigheter kan administratörer vill dirigera användare till sidan logga in när de loggar in på specifika program. 
@@ -63,9 +63,9 @@ Domän-tipset syntax varierar beroende på vilket protokoll som används och kon
 
 **WS-Federation**: whr=contoso.com i frågesträngen.
 
-**SAML**: antingen en SAML-autentisering-begäran som innehåller ett domäntips eller en fråga sträng whr=contoso.com.
+**SAML**:  Antingen en SAML-autentisering-begäran som innehåller ett domäntips eller en fråga sträng whr=contoso.com.
 
-**Öppna ID Connect**: en sträng domain_hint=contoso.com för frågan. 
+**Öppna ID Connect**: En fråga sträng domain_hint=contoso.com. 
 
 Om ett domäntips ingår i autentiseringsbegäran från programmet, och klienten är federerad med domänen, försöker Azure AD omdirigerar logga in till IDP: N som har konfigurerats för domänen. 
 
@@ -168,7 +168,7 @@ I följande exempel har du skapa, uppdatera, länka och ta bort principer på tj
 
 Om inget returneras innebär det att du har inga principer som skapats i din klient.
 
-### <a name="example-set-hrd-policy-for-an-application"></a>Exempel: Set HRD-princip för ett program 
+### <a name="example-set-hrd-policy-for-an-application"></a>Exempel: Ange HRD-princip för ett program 
 
 I det här exemplet skapar du en princip som när den är tilldelad till ett program antingen: 
 - Automatisk accelererar-användare till en AD FS-inloggningsskärmen när de loggar in på ett program när det finns en enda domän i din klient. 
@@ -226,10 +226,10 @@ Att kontrollera vilka program har konfigurerats HRD-princip kan använda den **G
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ```
-#### <a name="step-5-youre-done"></a>Steg 5: Är du klar!
+#### <a name="step-5-youre-done"></a>Steg 5: Du är klar!
 Försök att kontrollera att den nya principen fungerar.
 
-### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Lista programmen för vilka HRD principen har konfigurerats
+### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>Exempel: Anger programmen för vilka HRD principen har konfigurerats
 
 #### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>Steg 1: Lista över alla principer som har skapats i din organisation 
 
@@ -239,7 +239,7 @@ Get-AzureADPolicy
 
 Obs den **ObjectID** på den princip som du vill lista tilldelningar för.
 
-#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Visa tjänsthuvudnamnen som principen är tilldelad  
+#### <a name="step-2-list-the-service-principals-to-which-the-policy-is-assigned"></a>Steg 2: Lista över tjänsthuvudnamnen som principen är tilldelad  
 
 ``` powershell
 Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>

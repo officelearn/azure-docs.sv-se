@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4aa7e8b45f3791212280226b396ed9eb0f86538c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 422c0477accab65b53071d22d067d96547bfeb8a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135482"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450582"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 
@@ -47,16 +47,16 @@ Modellering exempel med KA och finjustering Svep visas för den binära klassifi
 > 
 > 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Installationsprogrammet: Spark-kluster och anteckningsböcker
+## <a name="setup-spark-clusters-and-notebooks"></a>Konfigurera: Spark-kluster och bärbara datorer
 Steg för konfiguration och kod finns i den här genomgången för att använda ett HDInsight Spark 1.6. Men tillhandahålls Jupyter notebooks för HDInsight Spark 1.6- och Spark 2.0. En beskrivning av anteckningsböcker och länkar till dem finns i den [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-lagringsplatsen som innehåller dessa. Dessutom koden här och i länkade anteckningsböcker är generisk och bör fungera i ett Spark-kluster. Om du inte använder HDInsight Spark, konfiguration och hantering av steg kanske skiljer sig från vad som anges här. För enkelhetens skull följer du länkarna till Jupyter-anteckningsböcker för Spark 1.6 och 2.0 som ska köras i pyspark-kerneln för Jupyter Notebook-server:
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 anteckningsböcker
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): innehåller avsnitt i anteckningsboken #1 och modellen utveckling med hjälp av finjustering av hyperparametrar och korsvalidering.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Innehåller avsnitt i anteckningsboken #1 och modellen utveckling med hjälp av finjustering av hyperparametrar och korsvalidering.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-anteckningsböcker
 
-[Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning, modellering och bedömning i Spark 2.0-kluster.
+[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Den här filen innehåller information om hur du utför datagranskning, modellering och bedömning i Spark 2.0-kluster.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -403,7 +403,7 @@ Här är koden för att indexera och koda textfunktioner för binär klassificer
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -998,9 +998,9 @@ Dessa modeller beskrivs i inledningen. Varje modell att skapa avsnitt med exempe
 2. **Modellera utvärdering** på en datauppsättning för testning med mått
 3. **Sparar modell** i blob för framtida användning   
 
-> AZURE Obs: Korsvalidering används inte med tre regressionsmodeller i det här avsnittet, eftersom detta visades i detalj för logistic regressionsmodeller. Ett exempel som visar hur du använder KA med elastisk Net för linjär regression tillhandahålls i tillägget i det här avsnittet.
+> AZURE OBS: Korsvalidering används inte med tre regressionsmodeller i det här avsnittet, eftersom detta visades i detalj för logistic regressionsmodeller. Ett exempel som visar hur du använder KA med elastisk Net för linjär regression tillhandahålls i tillägget i det här avsnittet.
 > 
-> AZURE Obs: Enligt vår erfarenhet medför det kan uppstå problem med möte för LinearRegressionWithSGD modeller och parametrar måste vara ändrats/optimerade noggrant för att hämta en giltig modell. Skalning av variabler avsevärt hjälper med konvergens. Elastisk net regression som visas i tillägg till det här avsnittet kan också användas i stället för LinearRegressionWithSGD.
+> AZURE OBS: Enligt vår erfarenhet medför det kan finnas problem med möte för LinearRegressionWithSGD modeller och parametrar måste vara ändrats/optimerade noggrant för att hämta en giltig modell. Skalning av variabler avsevärt hjälper med konvergens. Elastisk net regression som visas i tillägg till det här avsnittet kan också användas i stället för LinearRegressionWithSGD.
 > 
 > 
 
@@ -1198,7 +1198,7 @@ Här är koden för att rita data med Jupyter-server.
 
 ![Aktuella-vs-förutse-tips-belopp](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Bilaga: Förhållandet uppgifter med parametersvep mellan verifiering
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Tillägg: Ytterligare regression uppgifter med parametersvep mellan verifiering
 Den här bilagan innehåller kod som visar hur du gör KA med elastisk net för linjär regression och hur du gör KA med parameterrensning med anpassad kod för slumpmässiga skog regression.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Korsvalidering med elastisk net för linjär regression
@@ -1438,5 +1438,5 @@ BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016
 ## <a name="whats-next"></a>Nästa steg
 Nu när du har skapat regression och klassificering modeller med Spark MlLib kan är du redo att lära dig hur du bedöma och utvärdera dessa modeller.
 
-**Modellera förbrukning:** information om hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet finns [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
+**Modell-användning:** Läs hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet i [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
 

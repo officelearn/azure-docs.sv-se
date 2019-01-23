@@ -4,7 +4,7 @@ description: Det här avsnittet beskriver funktionen inbyggda scheduler i Azure 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 6b1a598f-89c0-4244-9b20-f4aaad5233cf
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d8deb03d03446c1452d73a7c08df4cf14ffcd5b5
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8099194feed3761e32686ab15e8738b10ffd4e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311026"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462325"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Azure AD Connect-synkronisering: Scheduler
 Det här avsnittet beskrivs de inbyggda scheduler i Azure AD Connect-synkronisering (kallas även) Synkroniseringsmotorn).
@@ -123,7 +123,7 @@ Om scheduler körs för närvarande en synkroniseringscykel, kan du behöva stop
 När en synkroniseringscykel körs, kan du inte göra ändringar i konfigurationen. Vänta tills scheduler har slutfört processen, men du kan också stoppa den så att du kan göra dina ändringar omedelbart. Stoppar den aktuella cykeln är inte skadliga och väntande ändringar bearbetas med nästa körning.
 
 1. Starta genom att tala om scheduler för att stoppa aktuella cykeln med PowerShell-cmdlet `Stop-ADSyncSyncCycle`.
-2. Om du använder en version före 1.1.281 stoppar scheduler inte att stoppa den aktuella anslutningen från den aktuella aktiviteten. Om du vill tvinga anslutningen att stoppa, vidta följande åtgärder: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Om du använder en version före 1.1.281 stoppar scheduler inte att stoppa den aktuella anslutningen från den aktuella aktiviteten. Om du vill framtvinga anslutningen ska du vidta följande åtgärder: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
    * Starta **synkroniseringstjänsten** från start-menyn. Gå till **Anslutningsappar**, markera anslutningen med tillståndet **kör**, och välj **stoppa** från åtgärderna.
 
 Scheduler är fortfarande aktiv och börjar igen på nästa tillfälle.
@@ -133,7 +133,7 @@ Cmdletarna som beskrivs i det här avsnittet är bara tillgängliga i build [1.1
 
 Om inbyggda scheduler inte uppfyller dina krav, kan du schemalägga anslutningarna med hjälp av PowerShell.
 
-### <a name="invoke-adsyncrunprofile"></a>Anropa ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Du kan starta en profil för en koppling i det här sättet:
 
 ```

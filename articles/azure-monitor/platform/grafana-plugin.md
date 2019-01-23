@@ -8,13 +8,13 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
-ms.component: ''
-ms.openlocfilehash: 4579dd4fb14a01454f86d5913eb9dd44a8977db6
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.subservice: ''
+ms.openlocfilehash: 9d0f814428a4d7bc57b4f0a01ff5adc658af1d91
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440963"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466993"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Övervaka dina Azure-tjänster i Grafana
 Du kan nu övervaka Azure-tjänster och program från [Grafana](https://grafana.com/) med hjälp av den [Azure Monitor-plugin-programmet för datakällans](https://grafana.com/plugins/grafana-azure-monitor-datasource). Plugin-programmet samlar in program-prestandadata som samlats in från Azure Monitor, inklusive olika loggar och mått. Du kan sedan visa dessa data på din Grafana-instrumentpanel.
@@ -167,3 +167,4 @@ Om du har ställt in en Grafana-miljö på Azure, debiteras du när virtuella da
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Azure Monitor-mått](../../azure-monitor/platform/data-collection.md)
+

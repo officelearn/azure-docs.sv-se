@@ -4,7 +4,7 @@ description: Felsöka hybrid Azure Active Directory-anslutna enheter för Window
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: cdc25576-37f2-4afb-a786-f59ba4c284c2
 ms.service: active-directory
 ms.component: devices
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1d96c1e8adee55127a50b2d7c374418c22bfec4c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f9a32058bb9d9cb2f1fa2d04c8002f06fa80edeb
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050573"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446110"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-windows-10-and-windows-server-2016-devices"></a>Felsöka hybrid Azure Active Directory-anslutna enheter för Windows 10 och Windows Server 2016 
 
@@ -33,7 +33,7 @@ Andra Windows-klienter finns i [felsökning Azure Active Directory-anslutna äld
 
 Den här artikeln förutsätter att du har [konfigurerade Azure Active Directory-anslutna hybridenheter](hybrid-azuread-join-plan.md) till stöd för följande scenarier:
 
-- Enhetsbaserad villkorlig åtkomst
+- Enhetsbaserad villkorad åtkomst
 
 - [Företagsnätverksväxling av inställningar](../active-directory-windows-enterprise-state-roaming-overview.md)
 
@@ -59,8 +59,8 @@ För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling 
     | Enhetens tillstånd |  +----------------------------------------------------------------------+
     
         AzureAdJoined: YES
-     EnterpriseJoined: Inga DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 tumavtryck: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft-plattformen kryptografiprovider TpmProtected: Ja KeySignTest:: måste köra upphöjd att testa.
-                  IDP: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl : eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ == JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Ja DomainName: CONTOSO
+     EnterpriseJoined: Inga DeviceId: 5820fbe9-60c8-43b0-bb11-44aee233e4e7 Thumbprint: B753A6679CE720451921302CA873794D94C6204A KeyContainerId: bae6a60b-1d2f-4d2a-a298-33385f6d05e9 KeyProvider: Microsoft-plattformen kryptografiprovider TpmProtected: Ja KeySignTest:: MÅSTE köra upphöjd att testa.
+                  Idp: login.windows.net TenantId: 72b988bf-86f1-41af-91ab-2d7cd011db47 TenantName: Contoso AuthCodeUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/authorize AccessTokenUrl: https://login.microsoftonline.com/msitsupp.microsoft.com/oauth2/token MdmUrl: https://enrollment.manage-beta.microsoft.com/EnrollmentServer/Discovery.svc MdmTouUrl: https://portal.manage-beta.microsoft.com/TermsOfUse.aspx dmComplianceUrl: https://portal.manage-beta.microsoft.com/?portalAction=Compliance SettingsUrl: eyJVcmlzIjpbImh0dHBzOi8va2FpbGFuaS5vbmUubWljcm9zb2Z0LmNvbS8iLCJodHRwczovL2thaWxhbmkxLm9uZS5taWNyb3NvZnQuY29tLyJdfQ== JoinSrvVersion: 1.0 JoinSrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/device/ JoinSrvId: urn: ms-drs:enterpriseregistration.windows.net KeySrvVersion: 1.0 KeySrvUrl: https://enterpriseregistration.windows.net/EnrollmentServer/key/ KeySrvId: urn: ms-drs:enterpriseregistration.windows.net DomainJoined: Ja domännamn: CONTOSO
     
     +----------------------------------------------------------------------+
     | Användartillstånd |  +----------------------------------------------------------------------+
@@ -69,7 +69,7 @@ För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling 
                NgcKeyId: {C7A9AEDC-780E-4FDA-B200-1AE15561A46B}
         WorkplaceJoined: NO
           WamDefaultSet: YES
-    WamDefaultAuthority: organisationer WamDefaultId: https://login.microsoft.com WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd) AzureAdPrt: Ja
+    WamDefaultAuthority: organisationer WamDefaultId: https://login.microsoft.com       WamDefaultGUID: {B16898C6-A148-4967-9171-64D755DA8520} (AzureAd) AzureAdPrt: JA
 
 
 
@@ -77,7 +77,7 @@ För Windows 10 och Windows Server 2016, hybrid Azure Active Directory-koppling 
 
 Granska följande fält och se till att de har de förväntade värdena:
 
-### <a name="azureadjoined--yes"></a>AzureAdJoined: Ja  
+### <a name="azureadjoined--yes"></a>AzureAdJoined: JA  
 
 Det här fältet visar om enheten är ansluten med Azure AD. Om värdet är **nr**, ansluta till Azure AD har inte slutförts ännu. 
 
@@ -93,7 +93,7 @@ Det här fältet visar om enheten är ansluten med Azure AD. Om värdet är **nr
 
 - Om datorn har TPM, kan det vara i ett felaktigt tillstånd.
 
-- Det kan finnas en felaktig konfiguration av tjänsterna anges i dokumentet tidigare att du måste verifiera igen. Vanliga exempel är:
+- Det kan finnas en felaktig konfiguration av tjänsterna anges i dokumentet tidigare att du måste verifiera igen. Vanliga exempel:
 
     - Federationsservern har inte aktiverat WS-Trust-slutpunkter
 
@@ -103,19 +103,19 @@ Det här fältet visar om enheten är ansluten med Azure AD. Om värdet är **nr
 
 ---
 
-### <a name="domainjoined--yes"></a>DomainJoined: Ja  
+### <a name="domainjoined--yes"></a>DomainJoined: JA  
 
 Det här fältet visar om enheten är ansluten till en lokal Active Directory eller inte. Om värdet är **nr**, enheten kan inte utföra en hybrid Azure AD-anslutning.  
 
 ---
 
-### <a name="workplacejoined--no"></a>WorkplaceJoined: Nej  
+### <a name="workplacejoined--no"></a>WorkplaceJoined: NO  
 
 Det här fältet anger om enheten är registrerad med Azure AD som en personlig enhet (märkta *Arbetsplatsanslutna*). Det här värdet ska vara **nr** för en domänansluten dator som också är hybrid Azure AD-ansluten. Om värdet är **Ja**, ett arbets- eller skolkonto konto har lagts till innan slutförandet av hybrid Azure AD-anslutning. I det här fallet ignoreras kontot när du använder Anniversary Update-versionen av Windows 10 (1607).
 
 ---
 
-### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Ja och AzureADPrt: Ja
+### <a name="wamdefaultset--yes-and-azureadprt--yes"></a>WamDefaultSet: Ja och AzureADPrt: JA
   
 De här fälten anger om användaren har autentiserats till Azure AD när du loggar in på enheten. Om värdena är **nr**, det kan vara på grund av:
 

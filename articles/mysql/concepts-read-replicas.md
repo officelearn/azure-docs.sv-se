@@ -5,19 +5,20 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.openlocfilehash: 1c05203de694cde882277bf269f3ff87438f9f26
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 1/22/2019
+ms.openlocfilehash: 6ebbaece66d9055fd2bff68eee873b012b4a6d50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547736"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462428"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
 
 Läs replica-funktionen (offentlig förhandsversion) kan du replikera data från en Azure Database for MySQL-server (master) till upp till fem skrivskyddade servrar (repliker) inom samma Azure-region. Skrivskyddade repliker uppdateras asynkront med MySQL-motorn interna binär logg (binlog) fil baserat på positionen replikeringsteknik. Mer information om binlog replikering finns i [översikt över replikering av MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. Dessa servrar debiteras enligt samma taxa som en fristående server.
+Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. Du debiteras för varje Läs replik för etablerad beräkning i vCores och allokerat lagringsutrymme i GB/månad. 
+
 
 Läs mer om funktioner för replikering av MySQL och problem i den [dokumentation för replikering av MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
 

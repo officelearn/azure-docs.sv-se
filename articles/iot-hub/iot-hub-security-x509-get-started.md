@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: dobett
-ms.openlocfilehash: f10f1da93df6a313525e102e4906cfe67a5f6ae3
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: b190390840a765953a2125348c3c9188f6bf7d37
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351890"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452045"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Konfigurera X.509 säkerheten i Azure IoT hub
 
@@ -32,7 +32,7 @@ X.509-certifikatbaserad säkerheten i IoT Hub måste du börja med en [X.509-cer
 
 Du kan välja något av följande sätt att få ditt certifikat:
 - Köpa X.509-certifikat från en *certifikatutfärdare (CA) för rotmappen*. Detta rekommenderas för produktionsmiljöer.
-ELLER,
+OR,
 - Skapa dina egna X.509-certifikat med ett verktyg från tredje part som [OpenSSL](https://www.openssl.org/). Det här är bra för testning och utveckling. Se [hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) information om hur du skapar testa CA-certifikat med hjälp av PowerShell eller Bash. Resten av den här självstudien använder CA-testcertifikat som genereras genom att följa instruktionerna i [hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
 

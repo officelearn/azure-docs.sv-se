@@ -4,7 +4,7 @@ description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 6476793bc0c7398bb407a8ad2b245f48613717b7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230071"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461560"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Omdirigera hårdkodad länkar till appar som publiceras med Azure AD Application Proxy
 
@@ -33,9 +33,9 @@ Om du inte kan använda anpassade domäner i din klient, finns det flera alterna
 
 **Alternativ 1: Använda Managed Browser** – den här lösningen gäller endast om du planerar att rekommenderar eller kräva att användarna kommer åt programmet via Intune Managed Browser. Det kan hantera alla publicerade URL: er. 
 
-**Alternativ 2: Använd tillägget MyApps** – den här lösningen kräver att användarna ska kunna installera ett webbläsartillägg på klientsidan, men det kan hantera alla publicerade URL: er och fungerar i de flesta populära webbläsare. 
+**Alternativ 2: Använda tillägget MyApps** – den här lösningen kräver att användarna ska kunna installera ett webbläsartillägg på klientsidan, men det kan hantera alla publicerade URL: er och fungerar i de flesta populära webbläsare. 
 
-**Alternativ 3: Använd länken anonymt** – detta är en administratör på klientsidan inställning som inte visas för användarna. Det kan endast hantera URL: er i HTML och CSS. Hårdkodade interna URL: er genereras via Javascript fungerar (till exempel) inte.  
+**Alternativ 3: Använd länken translation inställningen** – detta är en administratör på klientsidan inställning som inte visas för användarna. Det kan endast hantera URL: er i HTML och CSS. Hårdkodade interna URL: er genereras via Javascript fungerar (till exempel) inte.  
 
 Dessa tre funktioner Behåll länkarna fungerar oavsett var dina användare är. När du har appar som pekar direkt på interna slutpunkter eller portar, kan du mappa dessa interna URL: er publicerade externa Application Proxy URL: er. 
 
@@ -60,7 +60,7 @@ Användaren måste ladda ned tillägget och logga in om du vill använda den hä
 
  
 
-### <a name="option-3-link-translation-setting"></a>Alternativ 3: Länk anonymt 
+### <a name="option-3-link-translation-setting"></a>Alternativ 3: Link Translation Setting 
 
 När länken translation är aktiverat programproxytjänsten söker igenom HTML och CSS för publicerade interna länkar och omvandlar dem så att användarna får en oavbruten upplevelse. 
 
@@ -85,7 +85,7 @@ Det finns två vanliga typer av interna länkar i dina lokala program:
 
 Länköversättning är aktiverat för varje program, så att du har kontroll över användarupplevelsen på per app-nivå. Aktivera länköversättning för en app när du vill ha länkarna *från* appen ska översättas länkar inte *till* appen. 
 
-Anta exempelvis att du har tre program som publicerats via programproxy att alla länkar till varandra: fördelar, kostnader och resa. Det finns en fjärde app Feedback, som inte har publicerats via programproxy.
+Anta att du har tre program som publicerats via programproxy att alla länkar till varandra: Fördelar, kostnader och resa. Det finns en fjärde app Feedback, som inte har publicerats via programproxy.
 
 När du aktiverar länköversättning för appen fördelar, länkar till utgifter och resor omdirigeras till de externa URL: er för dessa appar, men en länk till Feedback omdirigeras inte eftersom det finns inga externa URL: en. Länkar från utgifter och resor tillbaka till förmånerna fungerar inte, eftersom länken translation inte har aktiverats för dessa två appar.
 

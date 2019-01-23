@@ -4,7 +4,7 @@ description: Täcker grunderna om Azure AD Application Proxy-anslutningsappar
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 09/08/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 9ee7f0b975dd2990281833726b4013c9726a2935
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ecdf0f8f5fd15096dc6bd00461aaa78a14672a04
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134326"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472627"
 ---
 # <a name="set-a-custom-home-page-for-published-apps-by-using-azure-ad-application-proxy"></a>Ange en anpassad startsida för publicerade appar med hjälp av Azure AD Application Proxy
 
@@ -125,7 +125,7 @@ Skapa hemsidans URL och uppdatera ditt program med detta värde. Fortsätta att 
     ```
     $homepage = "https://sharepoint-iddemo.msappproxy.net/hybrid/"
     ```
-4. Uppdateringen blir med hjälp av GUID (objekt-ID) som du kopierade i ”steg 1: hitta ObjectID för appen”.
+4. Uppdateringen blir med hjälp av GUID (objekt-ID) som du kopierade i ”steg 1: Hitta ObjectID för appen ”.
 
     ```
     Set-AzureADApplication -ObjectId 8af89bfa-eac6-40b0-8a13-c2c4e3ee22a4 -Homepage $homepage

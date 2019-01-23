@@ -4,7 +4,7 @@ description: Översikt och innehållskarta av Designguide för Hybrididentitet
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 100509c4-0b83-4207-90c8-549ba8372cf7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d85157c3f1aafd33a2b996168f2f9eac613a209c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: d0930de0ac3272d2858e961ec2038093dcc9ccc9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344890"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463022"
 ---
 # <a name="azure-active-directory-hybrid-identity-design-considerations"></a>Azure Active Directory Hybrid Identity designöverväganden
 Konsument-baserade enheter proliferating företagets världen och molnbaserade program för programvara som tjänst (SaaS) är lätta att införa. Därför kan underhålla kontroll över användarnas programåtkomst på interna datacenter och plattformar en utmaning.  
@@ -49,7 +49,7 @@ På bilden ovan är ett exempel på en hybrididentitetslösning som använder mo
 
 Den här guiden innehåller en serie steg och aktiviteter som du kan följa för att utforma en hybrididentitetslösning som uppfyller din organisations unika krav. I följande steg och aktiviteter presenterar guiden relevanta tekniker och Funktionsalternativ som finns tillgängliga för dig att uppfylla funktions- och service kvalitetsnivån för din organisation.
 
-**Antaganden**: du har erfarenhet med Windows Server, Active Directory Domain Services och Azure Active Directory. I det här dokumentet förutsätts det du letar efter hur dessa lösningar kan uppfylla företagets behov på egen hand eller i en integrerad lösning.
+**Antaganden**: Du har erfarenhet med Windows Server, Active Directory Domain Services och Azure Active Directory. I det här dokumentet förutsätts det du letar efter hur dessa lösningar kan uppfylla företagets behov på egen hand eller i en integrerad lösning.
 
 ## <a name="design-considerations-overview"></a>Översikt över design-överväganden
 Det här dokumentet innehåller en uppsättning steg och aktiviteter som du kan följa för att utforma en hybrididentitetslösning som bäst uppfyller dina krav. Stegen visas i tur och ordning. Designöverväganden för dig i senare steg kan kräva att du ändrar beslut som du gjorde i tidigare steg, men på grund av konflikter som uppstår. Varje försök görs att varna dig om eventuella designkonflikter i hela dokumentet. 

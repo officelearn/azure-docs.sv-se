@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: dfe6184779d3c26273e8e7cabef4890360cf7e76
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567391"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446274"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Utforskning och visualisering Dataverktyg på den virtuella datorn för datavetenskap
 
@@ -32,9 +32,9 @@ Ett viktigt steg i datavetenskap är att förstå data. Visualisering och dataut
 | Vad är det?   | SQL-frågemotor för öppen källkod på stordata    |
 | Stöds DSVM-versioner      | Windows, Linux  |
 | Hur är det konfigurerade / installerad på DSVM?      |  Installerade i `/dsvm/tools/drill*` i inbäddade läge   |
-| Vanliga användningsområden      |  I situ datagranskning utan ETL. Fråga efter olika källor och format includign CSV, JSON, tabeller, Hadoop     |
+| Vanliga användningsområden      |  I situ datagranskning utan ETL. Fråga olika datakällor och inklusive CSV, JSON, tabeller, Hadoop-format     |
 | Hur du använder / köra den?      | Genväg på skrivbordet  <br/> [Kom igång med ökad detaljnivå på 10 minuter](https://drill.apache.org/docs/drill-in-10-minutes/)  |
-| Relaterade verktyg på DSVM      |   Spännen, Weka, SQL Server Management Studio      |
+| Relaterade verktyg på DSVM      |   Rattle, Weka, SQL Server Management Studio      |
 
 ## <a name="weka"></a>Weka
 |    |           |

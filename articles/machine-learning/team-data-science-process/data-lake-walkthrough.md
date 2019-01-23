@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8549a35eed0c1f61c087b9056e4564577170f5f6
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c6e88eb2e3f3e1b6e6ce2b7f8984799397af582
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141823"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451621"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: genomgång för en slutpunkt till slutpunkt
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: En slutpunkt till slutpunkt genomgång
 Den här genomgången visar hur du använder Azure Data Lake att göra datagranskning och binär klassificering uppgifter på ett exempel på NYC taxi resa och färdavgiften datauppsättning för att förutsäga om ett tips betalas av en avgiften. Vi går igenom stegen i den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
@@ -374,7 +374,7 @@ Resa och avgiften tabeller kan kopplas med medallion och hack_license pickup_tim
 
 Beräkna antalet poster, genomsnittlig tips belopp, varians för datamängden som tips, procentandelen lutad kommunikation för varje nivå av passagerare antal.
 
-    // contigency table
+    // contingency table
     @trip_summary8 =
         SELECT passenger_count,
                COUNT(*) AS cnt,
@@ -452,7 +452,7 @@ Det finns två alternativ att hämta data till Azure Machine Learning för att s
 * I det första alternativet, använder du de samplade data som har skrivits till en Azure Blob (i den **datasampling** stegen ovan) och använder Python för att skapa och distribuera modeller från Azure Machine Learning. 
 * I det andra alternativet fråga du data i Azure Data Lake direkt med hjälp av en Hive-fråga. Det här alternativet kräver att du skapar ett nytt HDInsight-kluster eller Använd ett befintligt HDInsight-kluster där Hive-tabeller pekar på NY Taxi-data i Azure Data Lake Storage.  Båda dessa alternativ beskrivs i följande avsnitt. 
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Alternativ 1: Använda Python för att skapa och distribuera machine learning-modeller
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Alternativ 1: Använd Python för att skapa och distribuera machine learning-modeller
 Skapa en Jupyter-anteckningsbok för att skapa och distribuera machine learning-modeller med hjälp av Python, på den lokala datorn eller i Azure Machine Learning Studio. Jupyter-anteckningsboken tillhandahålls på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) innehåller den fullständiga koden för att utforska, visualisera data, funktionsframställning, modellering och distribution. I den här artikeln beskrivs bara modellering och distribution. 
 
 ### <a name="import-python-libraries"></a>Importera Python-biblioteken

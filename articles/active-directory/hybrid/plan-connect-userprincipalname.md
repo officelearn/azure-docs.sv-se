@@ -8,13 +8,13 @@ ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
-manager: mtillman
-ms.openlocfilehash: 59df0dc61be1f670f21b94fe24e56a2f040f950e
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+manager: daveba
+ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468105"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
 
@@ -84,7 +84,7 @@ När uppdateringarna till ett användarobjekt synkroniseras till Azure AD-klient
 ## <a name="upn-scenarios"></a>UPN-scenarier
 Här följer några exempelscenarier på hur UPN beräknas baserat på det aktuella scenariot.
 
-### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Scenario 1: Icke-kontrollerad UPN-suffixet – den första synkroniseringen
+### <a name="scenario-1-non-verified-upn-suffix--initial-synchronization"></a>Scenario 1: Icke-kontrollerat UPN-suffixet – den första synkroniseringen
 
 ![Scenario1](./media/plan-connect-userprincipalname/example1.png)
 
@@ -92,7 +92,7 @@ Lokala användarobjektet:
 - mailNickName: &lt;inte har angetts&gt;
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
-- userPrincipalName: us3@contoso.com'
+- userPrincipalName : us3@contoso.com`
 
 Synkroniseras användarobjektet med Azure AD-klient för första gången
 - Ange Azure AD MailNickName-attributet till primära SMTP-adressprefix.
@@ -101,18 +101,18 @@ Synkroniseras användarobjektet med Azure AD-klient för första gången
 
 Användarobjektet med Azure AD-klient:
 - MailNickName: us1           
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
 
-### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: Icke-kontrollerad UPN-suffixet – angett den lokala mailNickName-attributet
+### <a name="scenario-2-non-verified-upn-suffix--set-on-premises-mailnickname-attribute"></a>Scenario 2: Icke-kontrollerat UPN-suffixet – angett den lokala mailNickName-attributet
 
 ![Scenario2](./media/plan-connect-userprincipalname/example2.png)
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
-- UserPrincipalName: us3@contoso.com
+- userPrincipalName : us3@contoso.com
 
 Synkronisera uppdateringen på den lokala mailNickName-attributet till Azure AD-klient
 - Uppdatera Azure AD MailNickName-attributet med lokala mailNickName-attributet.
@@ -120,17 +120,17 @@ Synkronisera uppdateringen på den lokala mailNickName-attributet till Azure AD-
 
 Användarobjektet med Azure AD-klient:
 - mailNickName: us4
-- UserPrincipalName: us1@contoso.onmicrosoft.com
+- UserPrincipalName : us1@contoso.onmicrosoft.com
 
-### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Icke-kontrollerad UPN-suffixet – uppdatera lokala userPrincipalName-attribut
+### <a name="scenario-3-non-verified-upn-suffix--update-on-premises-userprincipalname-attribute"></a>Scenario 3: Icke-kontrollerat UPN-suffixet – uppdatera lokala userPrincipalName-attribut
 
 ![Scenario3](./media/plan-connect-userprincipalname/example3.png)
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
-- UserPrincipalName: us5@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-klient
 - Uppdatering av lokalt userPrincipalName-attribut utlöser omberäkning av MOERA och Azure AD UserPrincipalName-attribut.
@@ -139,34 +139,34 @@ Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-k
 
 Användarobjektet med Azure AD-klient:
 - mailNickName: us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
-### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Icke-kontrollerad UPN-suffixet – uppdatering primär SMTP-adress och en lokal e-attribut
+### <a name="scenario-4-non-verified-upn-suffix--update-primary-smtp-address-and-on-premises-mail-attribute"></a>Scenario 4: Icke-kontrollerat UPN-suffixet – uppdatering primär SMTP-adress och en lokal e-attribut
 
 ![Scenario4](./media/plan-connect-userprincipalname/example4.png)
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
-- UserPrincipalName: us5@contoso.com
+- userPrincipalName : us5@contoso.com
 
 Synkronisera uppdateringen på en lokal e-postattribut och primär SMTP-adress till Azure AD-klient
 - När den första synkroniseringen för användarobjektet, uppdaterar till lokalt e-attributet och den primära SMTP-adressen påverkar inte Azure AD-MailNickName eller UserPrincipalName-attribut.
 
 Användarobjektet med Azure AD-klient:
 - mailNickName: us4
-- UserPrincipalName: us4@contoso.onmicrosoft.com
+- UserPrincipalName : us4@contoso.onmicrosoft.com
 
 ### <a name="scenario-5-verified-upn-suffix--update-on-premises-userprincipalname-attribute-suffix"></a>Scenario 5: Verifierade UPN-suffixet – uppdatera lokala suffix för userPrincipalName-attribut
 
 ![Scenario5](./media/plan-connect-userprincipalname/example5.png)
 
 Lokala användarobjektet:
-- mailNickName: us4
+- MailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
-- UserPrincipalName: us5@verified.contoso.com
+- userPrincipalName : us5@verified.contoso.com
 
 Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-klient
 - Uppdatera på lokalt userPrincipalName-attribut utlösare omberäkning av Azure AD UserPrincipalName-attribut.
@@ -174,7 +174,7 @@ Synkronisera uppdateringen på lokalt userPrincipalName-attribut till Azure AD-k
 
 Användarobjektet med Azure AD-klient:
 - mailNickName: us4     
-- UserPrincipalName: us5@verified.contoso.com
+- UserPrincipalName : us5@verified.contoso.com
 
 ## <a name="next-steps"></a>Nästa steg
 - [Integrerar dina lokala kataloger med Azure Active Directory](whatis-hybrid-identity.md)

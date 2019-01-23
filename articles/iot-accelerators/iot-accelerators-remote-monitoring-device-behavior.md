@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: edd5da35d33aa7e79fc3e972f3ea1cfe2ef40973
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c2151a4b1eb2a853ed343f6720b4f53af5e5e449
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631421"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449528"
 ---
 # <a name="implement-the-device-model-behavior"></a>Implementera beteendet för enhetsmodellen
 
@@ -23,7 +23,7 @@ Artikeln [förstå schemat för enhetsmodellen](iot-accelerators-remote-monitori
 - **Metoden** JavaScript-filer som körs när lösningen anropar en metod på enheten.
 
 > [!NOTE]
-> Modellen enhetsbeteenden är endast för simulerade enheter i device simulering-tjänsten. Om du vill skapa en fysisk enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
+> Modellen enhetsbeteenden är endast för simulerade enheter i device simulering-tjänsten. Om du vill skapa en riktig enhet Se [ansluta enheten till lösningsacceleratorn för fjärrövervakning](iot-accelerators-connecting-devices.md).
 
 I den här artikeln kan du se hur du:
 

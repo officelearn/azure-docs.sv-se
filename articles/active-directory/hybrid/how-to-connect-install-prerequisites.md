@@ -4,7 +4,7 @@ description: Det här avsnittet beskriver kraven och maskinvarukrav för Azure A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 91b88fda-bca6-49a8-898f-8d906a661f07
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a36868e5bab64883036e0f93352bea5341ff7fe7
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: eb5ad49a26631ca363737406f54b4c794e01ebda
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384077"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472848"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Förhandskrav för Azure AD Connect
 Det här avsnittet beskriver kraven och maskinvarukrav för Azure AD Connect.
@@ -79,7 +79,7 @@ Innan du installerar Azure AD Connect, finns det några saker som du behöver.
   * Om du använder Microsoft Cloud i Tyskland eller Microsoft Azure Government-molnet, läser [Azure AD Connect-synkroniseringstjänsten instanser överväganden](reference-connect-instances.md) för URL: er.
 * Azure AD Connect (version 1.1.614.0 och efter) använder TLS 1.2 som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om TLS 1.2 är inte tillgängligt i det underliggande operativsystemet, använder Azure AD Connect stegvis till äldre protokoll (TLS 1.1 och TLS 1.0).
 * Före version 1.1.614.0 använder TLS 1.0 i Azure AD Connect som standard för att kryptera kommunikationen mellan Synkroniseringsmotorn och Azure AD. Om du vill ändra till TLS 1.2, följer du stegen i [Aktivera TLS 1.2 för Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Om du använder en utgående proxy för att ansluta till Internet, med följande inställning i den **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** fil måste läggas till för installationsguiden och Azure AD Connect-synkronisering för att kunna ansluta till Internet och Azure AD. Den här texten måste anges längst ned i filen. I den här koden &lt;PROXYADRESS&gt; representerar faktiska proxy IP-adressen eller värdnamnet namnet.
+* Om du använder en utgående proxy för att ansluta till Internet, med följande inställning i den **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** fil måste läggas till för installationsguiden och Azure AD Connect-synkronisering för att kunna ansluta till Internet och Azure AD. Den här texten måste anges längst ned i filen. I den här koden &lt;PROXYADDRESS&gt; representerar faktiska proxy IP-adressen eller värdnamnet namnet.
 
 ```
     <system.net>
@@ -119,7 +119,7 @@ Läs mer om när du har problem med anslutningen [Felsöka anslutningsproblem](t
 ### <a name="powershell-and-net-framework"></a>PowerShell och .net Framework
 Azure AD Connect är beroende av Microsoft PowerShell och .NET Framework 4.5.1. Du behöver den här versionen eller senare installerat på servern. Beroende på din Windows Server-version kan du göra följande:
 
-* Windows Server 2012R2
+* Windows Server 2012 R2
   * Microsoft PowerShell installeras som standard. Ingen åtgärd krävs.
   * .NET framework 4.5.1 eller senare versioner erbjuds via Windows Update. Kontrollera att du har installerat de senaste uppdateringarna till Windows Server i Kontrollpanelen.
 * Windows Server 2008 R2 och Windows Server 2012
@@ -185,7 +185,7 @@ Här följer en lista över komponenter som Azure AD Connect installerar på den
 * Microsoft SQL Server 2012-kommandoradsverktyg
 * Microsoft SQL Server 2012 Express LocalDB
 * Microsoft SQL Server 2012 Native Client
-* Microsoft Visual C++ 2013 Vidaredistribution paket
+* Microsoft Visual C++ 2013 Redistribution Package
 
 ## <a name="hardware-requirements-for-azure-ad-connect"></a>Maskinvarukrav för Azure AD Connect
 Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-datorn.
@@ -202,7 +202,7 @@ Tabellen nedan visar de lägsta kraven för Azure AD Connect sync-datorn.
 
 De lägsta kraven för datorer som kör AD FS eller Webbprogramservrarna är följande:
 
-* PROCESSOR: Dubbla core 1,6 GHz eller högre
+* CPU: Dubbla core 1,6 GHz eller högre
 * MINNE: 2 GB eller högre
 * Azure VM: A2 configuration eller senare
 

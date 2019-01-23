@@ -5,7 +5,7 @@ services: active-directory
 keywords: Enterprise tillståndsväxling, windows-molnet, hur du aktiverar enterprise tillståndsväxling
 documentationcenter: ''
 author: tanning
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.component: devices
 ms.assetid: f71d66fd-7f9e-45eb-9cfe-5d989870f8a4
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: markvi
-ms.openlocfilehash: 9dc223015f85d83278d48494bf05693c7932bdde
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 3e6b2d09c2b3c204fc62428ab53a4d4e33d57eac
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50098071"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448388"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Aktivera enterprise tillståndsväxling i Azure Active Directory
 Enterprise State Roaming är tillgänglig för alla företag med en Azure AD Premium eller Enterprise Mobility + Security (EMS)-licens. Mer information om hur du hämtar en Azure AD-prenumeration finns i den [produktsidan för Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -75,9 +75,9 @@ Data som synkroniseras med Microsoft-molnet med hjälp av Enterprise State Roami
 ### <a name="explicit-deletion"></a>Explicit borttagning
 Explicit borttagning är när en Azure-administratör tar bort en användare eller en katalog eller annars begär uttryckligen att data som ska tas bort.
 
-* **Användaren tas bort**: när en användare tas bort i Azure AD, det användarkonto som nätverksväxling data tas bort efter 90 till 180 dagar. 
-* **Ta bort katalogen**: tar bort en hel katalog i Azure AD är en omedelbar åtgärd. Alla för inställningsdata som är associerade med den katalogen tas bort efter 90 till 180 dagar. 
-* **På begäran om borttagning av**: om Azure AD-administratören vill ta bort en viss användares data eller inställningsdata manuellt, administratören kan lämna in en biljett med [Azure-supporten](https://azure.microsoft.com/support/). 
+* **Användaren tas bort**: När en användare tas bort i Azure AD, tas det användarkonto som nätverksväxling data bort efter 90 till 180 dagar. 
+* **Ta bort katalogen**: Tar bort en hel katalog i Azure AD är en omedelbar åtgärd. Alla för inställningsdata som är associerade med den katalogen tas bort efter 90 till 180 dagar. 
+* **På begäran om borttagning av**: Om Azure AD-administratören vill ta bort en viss användares data eller inställningsdata manuellt, administratören kan lämna in en biljett med [Azure-supporten](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Ta bort inaktuella data
 Data som inte har använts i ett år (”kvarhållningsperioden”) kommer att behandlas som inaktuell och kan tas bort från Microsoft-molnet. Kvarhållningsperioden kan ändras, men inte mindre än 90 dagar. Inaktuella data kan vara en specifik uppsättning Windows/programinställningar eller alla inställningar för en användare. Exempel:

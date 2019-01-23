@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ae498cc6aea573e1c610cb50d96552f30be4d75e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 32b457858598ed3dec4a1398cb45310dba877bf3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140888"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447912"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 
@@ -47,14 +47,14 @@ Steg för konfiguration och kod finns i den här genomgången för att använda 
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 anteckningsböcker
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): innehåller information om hur du utför datagranskning, modellering och bedömning med flera olika algoritmer.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): Innehåller information om hur du utför datagranskning, modellering och bedömning med flera olika algoritmer.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-anteckningsböcker
 Regression och klassificering uppgifter som implementeras med hjälp av ett Spark 2.0-kluster finns i separata anteckningsböcker och klassificering anteckningsboken använder en annan datauppsättning:
 
-- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning, modellering, och bedömning i Spark 2.0-kluster med NYC Taxi-resa och avgiften-datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se information efter den här listan som jämför dessa anteckningsböcker. 
-- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av välkända flygbolag i tid avgår datauppsättningen från 2011 och 2012. Vi integrerat flygbolag datauppsättning med en flygplats weather-data (t.ex. vindhastigheten, temperaturen, höjd osv) före modellering, så dessa väder-funktioner kan tas med i modellen.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Den här filen innehåller information om hur du utför datagranskning, modellering, och bedömning i Spark 2.0-kluster med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se information efter den här listan som jämför dessa anteckningsböcker. 
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av välkända flygbolag i tid avgång datauppsättningen från 2011 och 2012. Vi integrerat flygbolag datauppsättning med en flygplats weather-data (t.ex. vindhastigheten, temperaturen, höjd osv) före modellering, så dessa väder-funktioner kan tas med i modellen.
 
 <!-- -->
 
@@ -72,7 +72,7 @@ Regression och klassificering uppgifter som implementeras med hjälp av ett Spar
 <!-- -->
 
 > [!NOTE]
-Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Första anteckningsboken i listan ovan visar många aspekter av datagranskning, visualisering och ML modellera utbildning på en bärbar dator som tar mindre tid att köra med ned samplas NYC datamängd, där filerna taxi och avgiften har redan domänansluten: [ Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) anteckningsboken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra startpunkt för att snabbt utforska koden har vi lagt till för Spark 2.0. 
+Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Första anteckningsboken i listan ovan visar många aspekter av datagranskning, visualisering och ML modellträning på en bärbar dator som tar mindre tid att köra med ned samplas NYC datamängd, där filerna taxi och avgiften har redan domänansluten: [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) anteckningsboken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra startpunkt för att snabbt utforska koden har vi lagt till för Spark 2.0. 
 
 <!-- -->
 
@@ -433,7 +433,7 @@ Här är koden för att indexera och koda textfunktioner för binär klassificer
         labPt = LabeledPoint(line.tipped, features)
         return  labPt
 
-    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC RERESSION MODELS
+    # ONE-HOT ENCODING OF CATEGORICAL TEXT FEATURES FOR INPUT INTO LOGISTIC REGRESSION MODELS
     def parseRowOneHotBinary(line):
         features = np.concatenate((np.array([line.pickup_hour, line.weekday, line.passenger_count,
                                             line.trip_time_in_secs, line.trip_distance, line.fare_amount]), 
@@ -1099,7 +1099,7 @@ BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016
 ## <a name="whats-next"></a>Nästa steg
 Nu när du har skapat regression och klassificering modeller med Spark MlLib kan är du redo att lära dig hur du bedöma och utvärdera dessa modeller. Avancerad datagranskning och modellering notebook aktivitetsgruppsrapport djupare i inklusive korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering. 
 
-**Modellera förbrukning:** information om hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet finns [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
+**Modell-användning:** Läs hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet i [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
 
-**Korsvalidering och finjustering oinskränkt**: se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parameter
+**Korsvalidering och finjustering oinskränkt**: Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parameter
 

@@ -4,7 +4,7 @@ description: Publicera program med PingAccess och App Proxy som stöd för rubri
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 10/11/2017
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: c5a69e0c15d6d75bb4f182c1d8f62863aae7c760
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 52111d54031b2d458b0bfc727dcb310fbbcbd9ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140854"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468628"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Rubrikbaserad autentisering för enkel inloggning med Application Proxy och PingAccess
 
@@ -73,7 +73,7 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 3. Välj **Lägg till** överst på bladet.
 4. Välj **lokala program**.
 5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar:
-   - **Intern URL**: anger normalt den URL som tar dig till inloggningssidan för appens när du är i företagsnätverket. Anslutningen måste behandla PingAccess-proxy som förstasida i appen för det här scenariot. Använd det här formatet: `https://<host name of your PA server>:<port>`. Porten är 3000 som standard, men du kan konfigurera det i PingAccess.
+   - **Intern URL**: Normalt kan du ange den URL som tar dig till inloggningssidan för appens när du är i företagsnätverket. Anslutningen måste behandla PingAccess-proxy som förstasida i appen för det här scenariot. Använd det här formatet: `https://<host name of your PA server>:<port>`. Porten är 3000 som standard, men du kan konfigurera det i PingAccess.
 
     > [!WARNING]
     > För den här typen av enkel inloggning, den interna URL: en måste använda https och kan inte använda http.

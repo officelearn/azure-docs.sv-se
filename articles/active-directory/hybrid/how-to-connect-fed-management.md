@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS management, AAD Connect Connect, inloggning, AD FS-
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a9a7848069300d5f52d16585a55313643e02bc72
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 02256c3e45d198fe35c0b3686bf4c1bc6f64c51a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244465"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463906"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Hantera och anpassa Active Directory Federation Services med hjälp av Azure AD Connect
 Den här artikeln beskriver hur du hanterar och anpassa Active Directory Federation Services (AD FS) med hjälp av Azure Active Directory (Azure AD) Connect. Den innehåller också andra vanliga aktiviteter för AD FS som du kan behöva göra en fullständig konfiguration av AD FS-servergrupp.
@@ -76,7 +76,7 @@ Vi rekommenderar att den lokala användarens huvudnamn Name(UPN) och molnet User
 ![Val av alternativa ID-attribut](./media/how-to-connect-fed-management/attributeselection.png)
 
 Konfigurera alternativa inloggnings-ID för AD FS består av två Huvudsteg:
-1. **Konfigurera rätt uppsättning utfärdande anspråk**: utfärdande anspråksregler i Azure AD förlitande part förtroende har ändrats för att använda det valda UserPrincipalName-attributet som den alternativa ID för användaren.
+1. **Konfigurera rätt uppsättning utfärdande anspråk**: Utfärdande anspråksregler i Azure AD-förtroende för förlitande part har ändrats för att använda det valda UserPrincipalName-attributet som den alternativa ID för användaren.
 2. **Aktivera alternativa inloggnings-ID i AD FS-konfigurationen**: AD FS-konfigurationen har uppdaterats så att AD FS kan slå upp användare i lämplig skogar med den alternativa-ID. Den här konfigurationen har stöd för AD FS i Windows Server 2012 R2 (med KB2919355) eller senare. Om AD FS-servrarna är 2012 R2, kontrollerar Azure AD Connect förekomsten av de nödvändiga KB. Om KB inte identifieras får visas en varning när konfigurationen är klar, enligt nedan:
 
     ![Varning för saknar KB 2012 R2](./media/how-to-connect-fed-management/kbwarning.png)
@@ -220,14 +220,14 @@ I den här regeln du frågar värdena för **ms-ds-consistencyguid** och **objec
 
 Dessutom med hjälp av **lägga till** och inte **problemet**, du undvika att lägga till ett utgående problem för entiteten och kan använda värden som mellanliggande värdena. Du tänker utfärda anspråk i en regel för senare när du har skapat vilket värde som ska användas som inte kan ändras-ID
 
-**Regel 2: Kontrollera om det finns en ms-ds-consistencyguid för användaren**
+**Regel 2: Kontrollera om ms-ds-consistencyguid för användaren**
 
     NOT EXISTS([Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"])
     => add(Type = "urn:anandmsft:tmp/idflag", Value = "useguid");
 
 Den här regeln anger en tillfällig flagga som kallas **idflag** som har angetts till **useguid** om det finns inga **ms-ds-consistencyguid** ifyllda. Logiken bakom det här är det faktum att AD FS inte tillåter tom anspråk. När du lägger till anspråk http://contoso.com/ws/2016/02/identity/claims/objectguid och http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid i regel 1 att avslutas med en **msdsconsistencyguid** anspråk endast om värdet har fyllts i för användaren. Om det inte är ifylld, ser att den har ett tomt värde och släpper den direkt i AD FS. Alla objekt har **objectGuid**, så det vidare kommer alltid att vara det när regel 1 körs.
 
-**Regel 3: Skicka ms-ds-consistencyguid som oföränderligt ID om den finns**
+**Regel 3: Utfärda ms-ds-consistencyguid som oföränderligt ID om den finns**
 
     c:[Type == "http://contoso.com/ws/2016/02/identity/claims/msdsconsistencyguid"]
     => issue(Type = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier", Value = c.Value);

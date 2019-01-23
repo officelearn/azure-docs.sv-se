@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 6b3f862acd5aba39a7ad6eb0ce2f0a9b4a9e5307
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973669"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467493"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda en enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och reglerna för nätverkssäkerhetsgruppen skapas automatiskt. Använd för mer kontroll över din miljö i produktion, du kan skapa de här resurserna förbereds i förväg och sedan lägga till de virtuella datorerna i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödjande resurserna i taget.
@@ -333,7 +333,7 @@ Utdata:
 ```
 
 ## <a name="create-a-virtual-nic"></a>Skapa ett virtuellt nätverkskort
-Virtuella nätverkskort (NIC) är tillgängliga programmässigt eftersom du kan använda regler för deras användning. Beroende på den [VM-storlek](sizes.md), kan du ansluta flera virtuella nätverkskort till en virtuell dator. I följande [az network nic skapa](/cli/azure/network/nic#az_network_nic_create) kommandot skapar du ett nätverkskort med namnet *myNic* och associera den med nätverkssäkerhetsgruppen. Offentliga IP-adress *myPublicIP* är även associerat med det virtuella nätverkskortet.
+Virtuella nätverkskort (NIC) är tillgängliga programmässigt eftersom du kan använda regler för deras användning. Beroende på den [VM-storlek](sizes.md), kan du ansluta flera virtuella nätverkskort till en virtuell dator. I följande [az network nic skapa](/cli/azure/network/nic) kommandot skapar du ett nätverkskort med namnet *myNic* och associera den med nätverkssäkerhetsgruppen. Offentliga IP-adress *myPublicIP* är även associerat med det virtuella nätverkskortet.
 
 ```azurecli
 az network nic create \

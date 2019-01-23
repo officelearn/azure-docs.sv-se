@@ -4,7 +4,7 @@ description: Så här felsöker du vanliga problem som kan stöta på när Konfi
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 1d2b4094300fa3e42f07bbbfe80630fbb40501c5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 340a7dfdf9698019eeb2c96dc56411afb7a78f50
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357467"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471998"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användaretablering för ett Azure AD-galleriprogram
 
@@ -67,7 +67,7 @@ När en användare visas som ”skipped” i granskningsloggarna, är det mycket
 
 -   **Ett obligatoriskt attribut är inte ifyllt för en användare eller saknas.** En viktig sak att tänka på när du konfigurerar etablering är att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flow från Azure AD till programmet. Detta inkluderar egenskapen ”matchande” som används för att identifiera och matcha användare/grupper mellan de två systemen. Läs mer om den här viktiga processen <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
 
-   * **Attributmappningar för grupper:** etablering av namn- och gruppinformation, förutom medlemmar, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Det kan vara Visa namn eller e-postalias), som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fylls i automatiskt för en grupp i Azure AD.
+   * **Attributmappningar för grupper:** Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Det kan vara Visa namn eller e-postalias), som gruppen och dess medlemmar inte etableras om matchning av egenskap är tom eller inte fylls i automatiskt för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

@@ -2,22 +2,22 @@
 title: Händelseschema för Azure Event Grid Container Registry
 description: Beskriver de egenskaper som anges för behållaren Reigstry händelser med Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/13/2018
-ms.author: tomfitz
-ms.openlocfilehash: d18a6718e4c29f3d04639644dc752b0733f15ba8
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.date: 01/13/2019
+ms.author: spelluru
+ms.openlocfilehash: 6f00d4f249543ece0eb8db4a8e040300d55b2de8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054784"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462852"
 ---
 # <a name="azure-event-grid-event-schema-for-container-registry"></a>Azure Event Grid-Händelseschema för Container Registry
 
-Den här artikeln innehåller egenskaperna och schemat för Container Registry-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för Container Registry-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 ## <a name="available-event-types"></a>Tillgängliga händelsetyper
 
@@ -100,7 +100,7 @@ En händelse har följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
@@ -122,7 +122,7 @@ Målobjektet har följande egenskaper:
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| Medietyp | sträng | MIME-typ för det refererade objektet. |
+| mediaType | sträng | MIME-typ för det refererade objektet. |
 | storlek | heltal | Antal byte av innehållet. Samma som fältet längd. |
 | Sammanfattad | sträng | Samling av innehållet, enligt definitionen i registret V2 HTTP API-specifikationen. |
 | Längd | heltal | Antal byte av innehållet. Samma som fältet. |
@@ -134,7 +134,7 @@ Begäranobjektet har följande egenskaper:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | id | sträng | ID för begäran som initierade händelsen. |
-| ADR | sträng | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
+| addr | sträng | Den IP- eller värdnamn och möjligen porten för klientanslutningen som initierade händelsen. Det här värdet är RemoteAddr från vanlig http-begäran. |
 | värd | sträng | Externt tillgängliga värdnamnet för registry-instans som den anges av http-rubriken på inkommande begäranden. |
 | metod | sträng | Metoden för begäran som genererade händelsen. |
 | USERAGENT | sträng | Användaren agent huvudet för begäran. |

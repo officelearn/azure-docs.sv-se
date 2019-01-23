@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e060075fbcf6a5083e51b753e119cb5471129a79
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308486"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465181"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
@@ -86,7 +86,7 @@ Varje ögonblicksbild skapar en återställningspunkt som representerar den tid 
 
 Du kan antingen behålla de återställda data warehouse och det aktuella eller ta bort en av dem. Om du vill ersätta det aktuella datalagret med återställda data warehouse, du kan byta namn på den med hjälp av [ALTER DATABASE (Azure SQL Data Warehouse)](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse) med alternativet Ändra namnet. 
 
-Om du vill återställa ett informationslager, se [Återställ ett informationslager med Azure portal](sql-data-warehouse-restore-database-portal.md), [Återställ ett informationslager med hjälp av PowerShell](sql-data-warehouse-restore-database-powershell.md), eller [Återställ ett informationslager med T-SQL](sql-data-warehouse-restore-database-rest-api.md) .
+Om du vill återställa ett informationslager, se [Återställ ett informationslager med Azure portal](sql-data-warehouse-restore-database-portal.md), [Återställ ett informationslager med hjälp av PowerShell](sql-data-warehouse-restore-database-powershell.md), eller [Återställ ett informationslager med hjälp av REST API: er](sql-data-warehouse-restore-database-rest-api.md).
 
 Om du vill återställa en borttagen eller pausat informationslager kan du [skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md). 
 

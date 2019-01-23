@@ -1,22 +1,22 @@
 ---
-title: Läs repliker i Azure Database for PostgreSQL
+title: Skrivskyddade repliker i Azure Database for PostgreSQL
 description: Den här artikeln beskrivs skrivskyddade repliker i Azure Database för PostgreSQL.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 7aecfdedba04502ffdc68876635611a2f26d9896
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/22/2019
+ms.openlocfilehash: cb02f0b786ff6f1c7dbef5471fb95ce6516f824c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383502"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466082"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Läs repliker i Azure Database för PostgreSQL
 Läs replik-funktionen kan du replikera data från en Azure Database for PostgreSQL-server (master) upp till fem skrivskyddade servrar (läsa repliker) inom samma Azure-region. Läs repliker uppdateras asynkront med inbyggda replikeringsteknik för PostgreSQL-motorn.
 
-Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. Repliker prissätts enligt samma taxa som en fristående server.
+Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. Du debiteras för varje Läs replik för etablerad beräkning i vCores och allokerat lagringsutrymme i GB/månad.
 
 ## <a name="when-to-use-read-replicas"></a>När du ska använda skrivskyddade repliker
 Läs replica-funktionen är avsett för att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Skrivskyddade arbetsbelastningar kan exempelvis vara isolerade på replikerna medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
@@ -117,7 +117,7 @@ När en replik har skapats, prisnivån (förutom till och från Basic), compute-
 > [!IMPORTANT]
 > Innan en master-serverkonfigurationen har uppdaterats till nya värden, bör de replikerna konfiguration uppdateras till samma eller högre värden. Detta säkerställer att repliker är kan hålla jämna steg med ändringar som gjorts i huvuddatabasen.
 
-I synnerhet kräver Postgres huvudservern värdet för max_connections ska vara större än värdet för den repliken annars inte kommer att starta replikeringen. Azure Database för PostgreSQL har max_connections värdet beroende på vilken sku. Mer information finns i [gränser doc](concepts-limits.md). 
+Postgres kräver särskilt replik server värdet för parametern max_connections ska vara större än eller lika med värdet i master annars inte kommer att starta replikeringen. Azure Database för PostgreSQL har max_connections värdet beroende på vilken sku. Mer information finns i [gränser doc](concepts-limits.md). 
 
 Försök att göra en uppdatering som bryter mot detta leder till ett fel.
 

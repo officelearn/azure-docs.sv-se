@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 12/12/2018
-ms.openlocfilehash: f6191ba2f6ca86e07842030c0fca0a65b8c9d09a
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.date: 01/22/2019
+ms.openlocfilehash: 420d3c256f9bf2d0884e98312a5a66aea08b13bc
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584504"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450889"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt över Azure SQL Database Managed Instance resursbegränsningar
 
@@ -37,9 +37,10 @@ Azure SQL Database Managed Instance kan distribueras på två maskinvara generat
 |   | **Generation 4** | **5: e generationen** |
 | --- | --- | --- |
 | Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysiska kärnor) | Intel E5-2673 v4 (Broadwell) 2.3-GHz-processorer, snabb eNVM SSD, vCore = 1 LP (hyper-tråd) |
-| Compute | 8, 16, 24 virtuella kärnor | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| Compute | 8, 16, 24 virtuella kärnor | 8, 16, 24, 32, 40, 64, 80 vCores |
 | Minne | 7 GB per vCore | 5.1 GB per vCore |
-| Maximalt lagringsutrymme (affärskritisk) | 1 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
+| Maximalt lagringsutrymme (Allmänt) |  8 TB | 1 TB |
+| Maximalt lagringsutrymme (affärskritisk) | 8 TB | 1 TB, 2 TB och 4 TB beroende på antalet kärnor |
 
 ### <a name="service-tier-characteristics"></a>Tjänstens nivån egenskaper
 
@@ -48,13 +49,12 @@ Hanterad instans har två tjänstnivåer - generell användning och affärskriti
 | **Funktion** | **Generell användning** | **Affärskritisk** |
 | --- | --- | --- |
 | Antal virtuella kärnor\* | Gen4: 8, 16, 24<br/>Gen5: 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24, 32 <br/> Gen5: 8, 16, 24, 32, 40, 64, 80 |
-| Minne | Gen4: 56GB - 156GB<br/>Gen5: 44GB – 440GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56GB - 156GB <br/> Gen5: 41GB – 408GB<br/>\*I proportion till antalet virtuella kärnor |
+| Minne | Gen4: 56GB-156GB<br/>Gen5: 44GB-440GB<br/>\*I proportion till antalet virtuella kärnor | Gen4: 56GB-156GB <br/> Gen5: 41GB-408GB<br/>\*I proportion till antalet virtuella kärnor |
 | Maxstorlek för lagring | 8 TB | Gen 4: 1 TB <br/> 5: e generationen: <br/>-1 TB för 8, 16 virtuella kärnor<br/>– 2 TB för 24 virtuella kärnor<br/>-4 TB för 32, 40, 64, 80 virtuella kärnor |
 | Maximalt lagringsutrymme per databas | Bestäms av den maximala lagringsstorleken per instans | Bestäms av den maximala lagringsstorleken per instans |
 | Maximalt antal databaser per instans | 100 | 100 |
 | Max databasfiler per instans | Upp till 280 | 32 767 filer per databas |
-| Data/Log IOPS (ungefärlig) | 500-7500 per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 11K - 110K (1375 per vCore) |
-| Instans Log dataflöde | 22MB/s per instans | 3MB/s per vCore<br/>Max 48MB/s |
+| Data/Log IOPS (ungefärlig) | 500-7500 per fil<br/>\*[Beror på filstorleken] (https://docs.microsoft.com/azure/virtual-machines ce Log dataflöde | 22MB/s per instans | 3MB/s per vCore<br/>Max 48MB/s |
 | Dataflöde (ungefärlig) | 100-250 MB/s per fil<br/>\*[Beror på filstorleken](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24 – 48MB/s per vCore |
 | I/o-svarstid (ungefärlig) | 5 – 10 ms | 1 – 2 ms |
 | Maxstorlek för tempDB | 192 1920 GB (24 GB per vCore) | Inga begränsningar – begränsas av de största instansstorleken för lagring |
@@ -73,7 +73,7 @@ Hanterad instans stöder för närvarande distribution endast för följande typ
 
 - [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/)
 - [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p/)
-- [Molntjänstleverantör (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
+- [Cloud Service Provider (CSP)](https://docs.microsoft.com/partner-center/csp-documents-and-learning-resources)
 - [Enterprise – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148p/)
 - [Betala per användning – utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0023p/)
 
@@ -91,11 +91,11 @@ I följande tabell visas regionala standardgränser för stöds prenumerationer:
 
 |Prenumerationstyp| Maxantal undernät för hanterad instans | Maximalt antal instanser |Maxantal GP hanterade instanser *|Maxantal BC hanterade instanser *|
 | :---| :--- | :--- |:--- |:--- |
-|Användningsbaserad betalning|1 *|4 *|4 *|1 *|
-|CSP |1 *|4 *|4 *|1 *|
-|Betala per användning – utveckling/testning|1 *|4 *|4 *|1 *|
-|Enterprise – utveckling/testning|1 *|4 *|4 *|1 *|
-|EA|3 **|12 **|12 **|3 **|
+|Användningsbaserad betalning|1*|4*|4*|1*|
+|CSP |1*|4*|4*|1*|
+|Betala per användning – utveckling/testning|1*|4*|4*|1*|
+|Enterprise – utveckling/testning|1*|4*|4*|1*|
+|EA|3**|12**|12**|3**|
 
 \* Du kan antingen distribuera 1 BC eller 4 GP-instanser i ett undernät så att det totala antalet ”instans enheter” i undernätet aldrig överstiger 4.
 

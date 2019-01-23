@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: 41511b27a84731df203d37d70d20df40f85af4fb
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.date: 01/22/2018
+ms.author: ramamill
+ms.openlocfilehash: 712f8fb2cb951460ad2be36b2899f52d4966fc82
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410769"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468411"
 ---
 # <a name="deploy-a-configuration-server"></a>Distribuera en konfigurationsserver
 
@@ -144,7 +144,7 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
     Referera till [arkitektur för Azure-replikering för VMware till](vmware-azure-architecture.md) mer information om konfigurationsservern och dess funktioner.
 5. Var hittar jag den senaste versionen av konfigurationsservern
 
-    Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Du kan också direkt ladda ned det från [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Mer instruktioner om hur du uppgraderar alla Site Recovery-komponenter [här](https://docs.microsoft.com/en-us/azure/site-recovery/service%20updates-how-to).
+    Anvisningar om att uppgradera konfigurationsservern via portalen finns i [uppgradera konfigurationsservern](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Mer instruktioner om hur du uppgraderar alla Site Recovery-komponenter [här](https://aka.ms/asr_how_to_upgrade).
 6. Var kan jag hämta lösenfrasen för konfigurationsservern?
 
     Referera till [i den här artikeln](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) att hämta lösenfrasen.
@@ -164,6 +164,8 @@ Se till att IP-adressen för konfigurationsservern inte ändras när konfigurati
 11. Kan jag konfigurera konfigurationsservern på Azure?
 
     Du rekommenderas att ställa in konfigurationsservern på en lokal miljö med direct rad med för att se med v Center- och minimera svarstider för överföring av data. Du kan skapa schemalagda säkerhetskopieringar av konfigurationsservern för [återställning efter fel syften](vmware-azure-manage-configuration-server.md#failback-requirements).
+
+Fler vanliga frågor och svar på konfigurationsservern, finns i vår [dokumentation om vanliga frågor om configuration server](vmware-azure-common-questions.md#configuration-server) .
 
 ## <a name="troubleshoot-deployment-issues"></a>Felsöka distributionsproblem
 

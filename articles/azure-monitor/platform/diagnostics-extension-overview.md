@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: dc8b8e37224201062d0cf53174f3248f04ca0cc3
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 5e3b42b1e1f72ccc4d1127f2926ee53c51d66291
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789764"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470519"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Vad är Azure Diagnostics-tillägget
 Azure Diagnostics-tillägget är en agent i Azure som aktiverar insamlingen av diagnostikdata på ett distribuerat program. Du kan använda diagnostiktillägget från ett antal olika källor. För närvarande är Azure-molntjänst (klassisk) rollerna Web och Worker, virtuella datorer, Virtual Machine Scale sets och Service Fabric. Andra Azure-tjänster har olika diagnostik metoder. Se [översikt över övervakning i Azure](../../azure-monitor/overview.md).
@@ -85,3 +85,4 @@ Kom igång på [övervaka ett Service Fabric-program](../../service-fabric/servi
 ## <a name="general-articles"></a>Allmänna artiklar
 * Lär dig hur du [använda prestandaräknare i Azure Diagnostics](../../cloud-services/diagnostics-performance-counters.md).
 * Om du har problem med att starta diagnostik eller söka efter data i Azure storage-tabeller finns i [felsöka Azure Diagnostics](diagnostics-extension-troubleshooting.md)
+

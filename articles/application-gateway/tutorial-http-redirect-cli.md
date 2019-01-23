@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 05609f016988720360c51fe529de2f389206406f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1a5b3ff6f8bce62081025488c1155431e78030dc
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978700"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464892"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure CLI
 
@@ -64,7 +64,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 
-Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Du kan sedan lägga till undernätet med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Skapa ett virtuellt nätverk med namnet *myVNet* och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Du kan sedan lägga till undernätet med namnet *myBackendSubnet* som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
 
 ```azurecli-interactive
 az network vnet create \
@@ -121,7 +121,7 @@ az network application-gateway create \
 
 ### <a name="add-the-http-port"></a>Lägg till HTTP-porten
 
-Du kan använda [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway/frontend-port#az-network_application_gateway_frontend_port_create) att lägga till HTTP-porten till application gateway.
+Du kan använda [az network application-gateway frontend-port skapar](/cli/azure/network/application-gateway/frontend-port) att lägga till HTTP-porten till application gateway.
 
 ```azurecli-interactive
 az network application-gateway frontend-port create \
@@ -146,7 +146,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Lägga till konfigurationen för omdirigering
 
-Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config#az-network_application_gateway_redirect_config_create).
+Lägg till HTTP till HTTPS-omdirigeringskonfiguration i application gateway med hjälp av [az network application-gateway omdirigerings-config skapa](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \

@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: v-livech
-ms.openlocfilehash: 621cc79c23fa21401f9ec11ee15b84ae3b9b1288
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 862d239227c277a92cbf80e54b010a4b184da016
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411124"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466099"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>Skapa virtuella nätverkskort och använda internt DNS för VM-namnmatchning i Azure
 
@@ -49,7 +49,7 @@ az network nic create \
 ```
 
 ### <a name="deploy-a-vm-and-connect-the-vnic"></a>Distribuera en virtuell dator och anslut det virtuella nätverkskortet
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). Den `--nics` flaggan ansluter det virtuella nätverkskortet till den virtuella datorn vid distribution till Azure. I följande exempel skapas en virtuell dator med namnet `myVM` med Azure Managed Disks och bifogar det virtuella nätverkskortet med namnet `myNic` från föregående steg:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). Den `--nics` flaggan ansluter det virtuella nätverkskortet till den virtuella datorn vid distribution till Azure. I följande exempel skapas en virtuell dator med namnet `myVM` med Azure Managed Disks och bifogar det virtuella nätverkskortet med namnet `myNic` från föregående steg:
 
 ```azurecli
 az vm create \
@@ -149,7 +149,7 @@ az network nic create \
 ## <a name="deploy-the-vm-into-the-virtual-network-infrastructure"></a>Distribuera den virtuella datorn till den virtuella nätverksinfrastrukturen
 Nu har vi ett virtuellt nätverk och undernät, en Nätverkssäkerhetsgrupp fungerar som en brandvägg för att skydda våra undernät genom att blockera all inkommande trafik utom port 22 för SSH- och ett virtuellt nätverkskort. Du kan nu distribuera en virtuell dator i den här befintliga nätverksinfrastrukturen.
 
-Skapa en virtuell dator med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet `myVM` med Azure Managed Disks och bifogar det virtuella nätverkskortet med namnet `myNic` från föregående steg:
+Skapa en virtuell dator med [az vm create](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet `myVM` med Azure Managed Disks och bifogar det virtuella nätverkskortet med namnet `myNic` från föregående steg:
 
 ```azurecli
 az vm create \

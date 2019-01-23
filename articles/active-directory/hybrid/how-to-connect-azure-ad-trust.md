@@ -5,7 +5,7 @@ keywords: AD FS, ADFS, AD FS-hantering, AAD Connect, Anslut, Azure AD, förtroen
 services: active-directory
 documentationcenter: ''
 ms.reviewer: anandyadavmsft
-manager: mtillman
+manager: daveba
 ms.component: hybrid
 ms.assetid: 2593b6c6-dc3f-46ef-8e02-a8e2dc4e9fb9
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.date: 07/28/2018
 ms.author: billmath
 author: billmath
 ms.custom: ''
-ms.openlocfilehash: 5ac69c53a6b6c1e4695b88e5806f8e883cd52c66
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: bfdc58b8af9fc5c7c5e56e78b17d97aa60681239
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462376"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Hantera AD FS-förtroende med Azure AD med Azure AD Connect
 
@@ -40,12 +40,12 @@ Azure AD Connect hanterar **endast** inställningar som är relaterade till Azur
 
 | Inställning | Beskrivning |
 | :--- | :--- |
-| Certifikat för tokensignering | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
+| Tokensigneringscertifikat | Azure AD Connect kan användas för att återställa och återskapa förtroendet med Azure AD. Azure AD Connect har en enstaka omedelbar förnyelse av certifikat för tokensignering för AD FS och uppdaterar Azure AD-federationsinställningar för domän.|
 | Token Signeringsalgoritm | Microsoft rekommenderar att du använder SHA-256 som algoritmen för tokensignering. Azure AD Connect kan känna av om token Signeringsalgoritm anges till ett värde mindre säkert än SHA-256. Det kommer att uppdatera inställningen till SHA-256 nästa möjliga konfigurationen igen. Andra förlitande part måste uppdateras för att använda det nya certifikatet för tokensignering. |
 | Azure AD-förtroende identifierare | Azure AD Connect anger värdet för rätt identifierare för Azure AD-förtroende. AD FS identifierar Azure AD-förtroende med hjälp av ID-värde. |
 | Azure AD-slutpunkter | Azure AD Connect säkerställer att de slutpunkter som konfigurerats för Azure AD-förtroende är alltid enligt de senaste rekommenderade värdena för flexibilitet och prestanda. |
 | Regler för utfärdandetransformering | Det finns mängder av anspråksregler som är nödvändiga för optimala prestanda med funktioner i Azure AD i en federerad miljö. Azure AD Connect säkerställer att Azure AD-förtroende är alltid konfigurerad med rätt uppsättning rekommenderade anspråksregler. |
-| Alternativ-id | Om synkronisering är konfigurerad för att använda alternativ-id, konfigurerar AD FS för att utföra autentisering med alternativ-id i Azure AD Connect. |
+| Alternate-id | Om synkronisering är konfigurerad för att använda alternativ-id, konfigurerar AD FS för att utföra autentisering med alternativ-id i Azure AD Connect. |
 | Automatisk metadata update | Förtroende med Azure AD har konfigurerats för automatisk metadata update. AD FS övervakar kontinuerligt metadata för Azure AD-förtroende och håller den uppdaterade om ändras på Azure AD-sida. |
 | Integrerad Windows-autentisering (IWA) | Under Hybrid Azure AD join-åtgärd, är IWA aktiverat för registrering av enheten att underlätta Hybrid Azure AD-anslutning för äldre enheter |
 

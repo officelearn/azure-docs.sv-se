@@ -3,7 +3,7 @@ title: Nyheter Viktig information – Azure Active Directory | Microsoft Docs
 description: Lär dig vad är nytt med Azure Active Directory, som föråldrade funktioner för de senaste versionsanteckningarna, kända problem, felkorrigeringar och kommande ändringar.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 featureFlags:
 - clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
@@ -15,12 +15,12 @@ ms.date: 12/10/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
-ms.openlocfilehash: eb76c1f09d73b2c1dbbf3c1accb96ac3849398e9
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 23fff8fee9e6fd289944da4e946a2a28369ecdd2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413965"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449511"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 

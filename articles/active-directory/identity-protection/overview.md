@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,16 +16,16 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 75d8503e6179b8ef3578a4a8c62ef1b288657a7b
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 73b76561829e6d50918881427894ea310920fce6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576825"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465215"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
-Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2-versionen som hjälper dig att:
+Azure Active Directory Identity Protection är en funktion i Azure AD Premium P2-versionen som gör att du kan:
 
 - Identifiera potentiella problem som påverkar organisationens identiteter
 
@@ -110,7 +110,7 @@ Resan via Identity Protection börjar vanligtvis med Identity Protection-instrum
 
 ![Reparation](./media/overview/1000.png "reparation")
 
-Instrumentpanelen ger dig åtkomst till:
+På instrumentpanelen har du åtkomst till:
 
 * Rapporter som **användare som har flaggats för risk**, **riskhändelser** och **sårbarheter**
 * Inställningar, till exempel konfigurationen av din **säkerhetsprinciper**, **meddelanden** och **registrering för multifaktorautentisering**
@@ -134,7 +134,7 @@ Om du vill implementera automatiska svar, tillhandahåller Azure Active Director
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Channel 9: Azure AD och Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+- [Channel 9: Azure AD och Identity visa: Förhandsversionen av Identity Protection](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 - [Aktivera Azure Active Directory Identity Protection](enable.md)
 

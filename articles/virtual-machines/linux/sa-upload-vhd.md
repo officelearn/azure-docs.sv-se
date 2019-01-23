@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: cynthn
-ms.openlocfilehash: 1ca6f2a0f8246e730206ea2a431f7968273a6e8d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: efb8887085ad1f6f47667b1305191e514de74330
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412350"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468190"
 ---
 # <a name="upload-and-create-a-linux-vm-from-custom-disk-with-the-azure-cli"></a>Ladda upp och skapa en Linux VM från anpassad disk med Azure CLI
 
@@ -69,7 +69,7 @@ az storage blob upload --account-name mystorageaccount \
     --file /path/to/disk/mydisk.vhd --name myDisk.vhd
 ```
 
-Ange URI: N på disken (`--image`) med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet `myVM` tidigare med hjälp av den virtuella disken har laddats upp:
+Ange URI: N på disken (`--image`) med [az vm skapa](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet `myVM` tidigare med hjälp av den virtuella disken har laddats upp:
 
 ```azurecli
 az vm create --resource-group myResourceGroup --location westus \
@@ -186,9 +186,9 @@ az storage blob upload --account-name mystorageaccount \
 ```
 
 ## <a name="create-the-vm"></a>Skapa den virtuella datorn
-Ange URI: N på disken för att skapa en virtuell dator med ohanterade diskar (`--image`) med [az vm skapa](/cli/azure/vm#az_vm_create). I följande exempel skapas en virtuell dator med namnet `myVM` tidigare med hjälp av den virtuella disken har laddats upp:
+Ange URI: N på disken för att skapa en virtuell dator med ohanterade diskar (`--image`) med [az vm skapa](/cli/azure/vm). I följande exempel skapas en virtuell dator med namnet `myVM` tidigare med hjälp av den virtuella disken har laddats upp:
 
-Du anger den `--image` parameter med [az vm skapa](/cli/azure/vm#az_vm_create) så att den pekar till din anpassade disk. Se till att `--storage-account` matchar det lagringskonto där din anpassade disk lagras. Du behöver inte använda samma behållare som den anpassa disken för att lagra dina virtuella datorer. Se till att skapa några ytterligare behållare på samma sätt som de föregående stegen innan du laddar upp din anpassade disk.
+Du anger den `--image` parameter med [az vm skapa](/cli/azure/vm) så att den pekar till din anpassade disk. Se till att `--storage-account` matchar det lagringskonto där din anpassade disk lagras. Du behöver inte använda samma behållare som den anpassa disken för att lagra dina virtuella datorer. Se till att skapa några ytterligare behållare på samma sätt som de föregående stegen innan du laddar upp din anpassade disk.
 
 I följande exempel skapas en virtuell dator med namnet `myVM` från den anpassa disken:
 

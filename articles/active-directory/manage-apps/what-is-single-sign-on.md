@@ -3,7 +3,7 @@ title: Enkel inloggning till program – Azure Active Directory | Microsoft Docs
 description: Lär dig mer om att välja en metod för enkel inloggning när du konfigurerar program i Azure Active Directory (AD Azure). Använd enkel inloggning så att användarna inte behöver komma ihåg lösenorden för alla program och för att förenkla administrationen av kontohantering.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: arvindh
-ms.openlocfilehash: b7e75753f8d7a9316dd1cc644dc22c42ef284736
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 452ec35f9a759bd09befb8c5a03a7fc5b3fb8ed2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190105"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463362"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Enkel inloggning till program i Azure Active Directory
 Lär dig mer om att välja den lämpligaste enkla inloggning metoden när du konfigurerar program i Azure Active Directory (AD Azure). 

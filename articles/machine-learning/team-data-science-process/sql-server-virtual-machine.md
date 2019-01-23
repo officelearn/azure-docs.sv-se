@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d14f03be3f6d62c201218f5073ba9af61765f55c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6b2890e90fd0a4d66ff8f62c6645584509eb0b29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136451"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446909"
 ---
 # <a name="heading"></a>Bearbeta Data i SQL Server-dator på Azure
 Det här dokumentet beskriver hur du utforska data och generera funktioner för data som lagras i en SQL Server-VM på Azure. Detta kan göras med Datatransformering med hjälp av SQL eller med ett programmeringsspråk som Python.
@@ -132,7 +132,7 @@ Följande formatet för anslutningssträngen kan användas för att ansluta till
 Den [Pandas biblioteket](http://pandas.pydata.org/) tillhandahåller en omfattande uppsättning datastrukturer och verktyg för analys av data för datamanipulering för Python-programmering i Python. Koden nedan läser resultatet som returneras från en SQL Server-databas till en dataram Pandas:
 
     # Query database and load the returned results in pandas data frame
-    data_frame = pd.read_sql('''select <columnname1>, <cloumnname2>... from <tablename>''', conn)
+    data_frame = pd.read_sql('''select <columnname1>, <columnname2>... from <tablename>''', conn)
 
 Nu kan du arbeta med Pandas dataram som beskrivs i artikeln [processen Azure Blob-data i miljön data science](data-blob.md).
 

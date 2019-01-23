@@ -4,7 +4,7 @@ description: Beskriver hur du aktiverar inbyggd klient apps att kommunicera med 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: a73e652c74f9d88f1e066de190834fc033c13cf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 472b30b849ef11ae0a42e1b41c25ec5dc341fb27
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135534"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462937"
 ---
 # <a name="how-to-enable-native-client-apps-to-interact-with-proxy-applications"></a>Så här aktiverar du ursprungliga klientappar kan interagera med proxy-program
 
@@ -34,7 +34,7 @@ Använd Azure AD Authentication Library, som tar hand om autentisering och har s
 
 Den här artikeln vägleder dig igenom fyra stegen för att publicera ett internt program med Application Proxy och Azure AD-Autentiseringsbiblioteket. 
 
-## <a name="step-1-publish-your-application"></a>Steg 1: Publicera ditt program
+## <a name="step-1-publish-your-application"></a>Steg 1: Publicera programmet
 Publicera dina proxy-program, precis som alla andra program och tilldela användare åtkomst till ditt program. Mer information finns i [publicera program med Application Proxy](application-proxy-add-on-premises-application.md).
 
 ## <a name="step-2-configure-your-application"></a>Steg 2: Konfigurera ditt program

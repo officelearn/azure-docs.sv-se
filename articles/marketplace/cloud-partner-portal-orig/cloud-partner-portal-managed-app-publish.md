@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bc044c8b59c939163336ecab01546fc26a7a2643
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6e5bcd6d9923b4051d44d51ff1a2534bc5e02f41
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811617"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54445668"
 ---
 <a name="publish-an-azure-managed-application-to-azure-marketplace"></a>Publicera ett Azure-hanterade program på Azure Marketplace 
 ========================================================
@@ -190,7 +190,7 @@ Formuläret marketplace inom ett erbjudande för azure-program begär fält som 
 
 #### <a name="preview-subscription-ids"></a>Förhandsversion av prenumerations-ID: N
 
-Ange en lista med ID i Azure-prenumeration som du vill ha åtkomst till erbjudandet när den publiceras. Dessa white visas prenumerationer gör att du kan testa förhandsgranskade erbjudandet innan du gör den live. Du kan placera upp till 100 prenumerationer i listan över tillåtna i partnerportalen.
+Ange en lista med ID i Azure-prenumeration som du vill ha åtkomst till erbjudandet när den publiceras. Dessa white visas prenumerationer gör att du kan testa förhandsgranskade erbjudandet innan du gör den live. Partnerportalen låter dig placera upp till 100 prenumerationer i listan över tillåtna.
 
 #### <a name="suggested-categories"></a>Föreslagna kategorier
 

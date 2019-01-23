@@ -4,7 +4,7 @@ description: Den här sidan har icke-Microsoft identitetsleverantörer som kan a
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 22c8693e-8915-446d-b383-27e9587988ec
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/23/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4a31e7ed12e75bd7dee3d53a8d650179d8e118d8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 56447f04e63c588e2192d350ce9188f8a15c604b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310984"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464739"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Kompatibilitetslista för Azure AD-federation
 Azure Active Directory tillhandahåller enkel inloggning och förbättrad säkerhet för åtkomst för Office 365 och andra Microsoft Online-tjänster för hybriddata och molnbaserad implementeringar utan någon lösning från tredje part. Office 365, som de flesta av Microsofts onlinetjänster, är integrerad med Azure Active Directory för katalogtjänster, autentisering och auktorisering. Azure Active Directory tillhandahåller också enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se Azure Active Directory [programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) för SaaS-program som stöds. 

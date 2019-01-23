@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 51849f8ed09d98ab4636d6fc752599b993f58e6f
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514323"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446569"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av .NET-serverdel och .NET-enhet
 
@@ -39,7 +39,7 @@ För att kunna genomföra den här kursen behöver du följande:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT hub
+### <a name="retrieve-connection-string-for-iot-hub"></a>Hämta anslutningssträngen för IoT-hubben
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
@@ -52,15 +52,15 @@ Nu har du skapat din IoT Hub och du har värdnamnet och IoT Hub-anslutningssträ
 
 I det här avsnittet skapar du en .NET-konsolapp på din simulerade enhet som uppdaterar modultvillingens rapporterade egenskaper.
 
-1. **Skapa ett Visual Studio-projekt:** i Visual Studio lägger du till ett Visual C# Windows Classic Desktop-projekt i befintliga lösningen med hjälp av den **Konsolapp (.NET Framework)** projektmall. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare. Ge projektet namnet **UpdateModuleTwinReportedProperties**.
+1. **Skapa ett Visual Studio-projekt:** I Visual Studio lägger du till ett visuellt objekt C# Windows Classic Desktop-projekt i den befintliga lösningen med hjälp av den **Konsolapp (.NET Framework)** projektmall. Kontrollera att .NET Framework-versionen är 4.6.1 eller senare. Ge projektet namnet **UpdateModuleTwinReportedProperties**.
 
     ![Skapa ett Visual Studio-projekt](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
 
-2. **Installera den senaste Azure IoT Hub .NET-enheten-SDK:** modultvilling för identitets- och modulen finns i offentlig förhandsversion. Den finns bara tillgänglig i IoT Hub-förhandsversionens enhets-SDK:er. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
+2. **Installera den senaste Azure IoT Hub .NET-enheten-SDK:** Modultvilling för identitets- och modulen finns i offentlig förhandsversion. Det är bara tillgängliga i SDK: er med IoT Hub, förhandsversioner enheter. I Visual Studio öppnar du Verktyg > Nuget-pakethanteraren > Hantera NuGet-paket för lösningen. Sök efter Microsoft.Azure.Devices.Client. Se till att du markerar kryssrutan för att inkludera förhandsversion. Välj den senaste versionen och installera. Nu har du åtkomst till alla modulfunktioner. 
 
     ![Installera Azure IoT Hub .NET-tjänstens SDK V1.16.0-preview-005](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-sdk.png)
 
-3. **Hämta anslutningssträngen modulen** --om du loggar in nu [Azure-portalen](https://portal.azure.com/). Gå till din IoT Hub och klicka på IoT-enheter. Leta rätt på myFirstDevice och öppna den, så ser du att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
+3. **Hämta anslutningssträngen modulen** --om du loggar in nu [Azure-portalen](https://portal.azure.com/). Gå till din IoT Hub och klicka på IoT-enheter. Hitta myFirstDevice, öppna den och du ser myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
     ![Information om Azure-portalmodulen](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

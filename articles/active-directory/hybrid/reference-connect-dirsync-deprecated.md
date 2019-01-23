@@ -4,7 +4,7 @@ description: Beskriver hur du uppgraderar från DirSync och Azure AD Sync till A
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: bd68fb88-110b-4d76-978a-233e15590803
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f4bf3e68c64281cb875c063597ab01eb53bbf78
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 60994ee928709206c6b55b7b0b687341f3219b5d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315044"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472083"
 ---
 # <a name="upgrade-windows-azure-active-directory-sync-and-azure-active-directory-sync"></a>Uppgradera Windows Azure Active Directory Sync och Azure Active Directory Sync
 Azure AD Connect är det bästa sättet att ansluta din lokala katalog till Azure AD och Office 365. Det här är det hög tid att uppgradera till Azure AD Connect från Windows Azure Active Directory Sync (DirSync) eller Azure AD Sync eftersom dessa verktyg nu är föråldrade och stöds inte längre från och med 13 April 2017.
@@ -41,7 +41,7 @@ Azure AD Connect är efterföljaren till DirSync och Azure AD Sync. Alla scenari
 |Den 31 december 2017|Azure AD kan inte längre accepterar kommunikation från Windows Azure Active Directory Sync (”DirSync”) och Microsoft Azure Active Directory Sync (”Azure AD Sync”).
 
 ## <a name="how-to-transition-to-azure-ad-connect"></a>Hur du övergår till Azure AD Connect
-Om du kör DirSync, det finns två sätt som du kan uppgradera: uppgradera, parallell distribution på plats. En uppgradering på plats rekommenderas för de flesta kunder och om du har en nyligen genomförd operativsystem och mindre än 50 000 objekt. I annat fall rekommenderas att du gör en parallell distribution där dina DirSync-konfigurationen flyttas till en ny server som kör Azure AD Connect.
+Om du kör DirSync, finns det två sätt som du kan uppgradera: Plats-uppgradering, parallell distribution. En uppgradering på plats rekommenderas för de flesta kunder och om du har en nyligen genomförd operativsystem och mindre än 50 000 objekt. I annat fall rekommenderas att du gör en parallell distribution där dina DirSync-konfigurationen flyttas till en ny server som kör Azure AD Connect.
 
 | Lösning | Scenario |
 | --- | --- |
@@ -58,13 +58,13 @@ Om du vill se hur du gör en uppgradering från DirSync till Azure AD Connect l�
 **F: Jag har fått ett e-postmeddelande från Azure-teamet och/eller ett meddelande från meddelandecenter för Office 365, men jag använder Connect.**  
 Meddelandet har också skickas till kunder som använder Azure AD Connect med ett build-nummer 1.0. \*.0 (med en i förväg 1.1-version). Microsoft rekommenderar att kunder kan hålla dig uppdaterad med Azure AD Connect-versioner. Den [automatisk uppgradering](how-to-connect-install-automatic-upgrade.md) funktionen som infördes i 1.1 gör det enkelt att alltid har den senaste versionen av Azure AD Connect är installerat.
 
-**F: kommer DirSync/Azure AD Sync slutar fungera på den 13 April 2017?**  
+**F: DirSync/Azure AD Sync slutar att fungera på den 13 April 2017?**  
 DirSync/Azure AD Sync fortsätter att fungera på den 13 April 2017.  Azure AD kan dock inte längre accepterar kommunikation från DirSync/Azure AD Sync 31 December 2017.
 
-**F: vilka DirSync-versioner kan jag uppgradera från?**  
+**F: Vilka DirSync-versioner kan jag uppgradera från?**  
 Det går för att uppgradera från någon DirSync-version som används för tillfället. 
 
-**F: vad gäller Azure AD Connector för FIM/MIM?**  
+**F: Vad är Azure AD Connector för FIM/MIM?**  
 Azure AD Connector för FIM/MIM har **inte** har meddelats som föråldrade. Det är på **funktionen låsning**; inga nya funktioner har lagts till och den får inga felkorrigeringar. Microsoft rekommenderar att kunder som använder du planerar att flytta från den till Azure AD Connect. Vi rekommenderar starkt att inte starta alla nya distributioner som använder den. Den här anslutningen kommer att tillkännages inaktuellt i framtiden.
 
 ## <a name="additional-resources"></a>Ytterligare resurser

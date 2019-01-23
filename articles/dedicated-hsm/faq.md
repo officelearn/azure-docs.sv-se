@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: concepts
 ms.date: 12/11/2018
 ms.author: barclayn
-ms.openlocfilehash: 44507e919b7ed827eb3c08101a04849faf92293c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: ec814bf641dea6f47b907e9f9e2646dfcf84ade1
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310305"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451756"
 ---
 # <a name="frequently-asked-questions-faq"></a>Vanliga frågor och svar (FAQ)
 
@@ -56,7 +56,7 @@ För tillfället ger Azure dedikerad HSM bara HSM: er lösenordsbaserad autentis
 
 ### <a name="q-will-azure-dedicated-hsm-host-my-hsms-for-me"></a>F: Arrangerar Azure dedikerad HSM min HSM: er för mig?
 
-Microsoft erbjuder Gemalto SafeNet Luna nätverks-HSM via dedikerade HSM-tjänst endast och kan inte vara värd för alla kunder som tillhandahålls av enheter.
+Microsoft erbjuder Gemalto SafeNet Luna nätverks-HSM via dedikerade HSM-tjänst endast och kan inte vara värd för alla enheter som tillhandahålls av kunden.
 
 ### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>F: Azure dedikerad HSM stöder PIN-kod/ETF funktioner eller uppfylla kraven för PCI HSM v1 eller v2-certifiering?
 
@@ -235,7 +235,7 @@ Dedikerad HSM-tjänsten tillhandahåller SafeNet nätverk HSM 7 installationer. 
   * CAST
   * Hash/Message Digest/HMAC: SHA-1, SHA-2, SM3
   * Viktiga härledning: SP800 108 räknare läge
-  * Viktiga radbrytning: SP800 38F
+  * Viktiga radbrytning: SP800-38F
   * Slumpmässig generering av nummer: FIPS 140-2 godkända DRBG (SP 800 – 90 CTR läge) uppfyller BSI DRG.4
 
 ### <a name="q-is-dedicated-hsm-fips-140-2-level-3-validated"></a>F: Är dedikerad HSM FIPS 140-2 Level 3 verifierade?
@@ -256,7 +256,7 @@ Innan du begär avetablering, har en kund zeroized HSM med hjälp av Gemalto til
 
 Dedikerad HSM tillhandahåller SafeNet nätverk HSM 7 installationer (modell A790). Här är en sammanfattning av maximala prestanda för vissa åtgärder: 
 
-* RSA 2048: 10 000 transaktioner per sekund
+* RSA-2048: 10 000 transaktioner per sekund
 * ECC P256: 20 000 transaktioner per sekund
 * AES-GCM: 17,000 transaktioner per sekund
 

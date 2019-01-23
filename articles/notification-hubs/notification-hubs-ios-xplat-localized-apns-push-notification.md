@@ -3,8 +3,8 @@ title: Skicka lokaliserade meddelanden till iOS-enheter med Azure Notification H
 description: Lär dig hur du använder lokaliserade pushmeddelanden till iOS-enheter med hjälp av Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: ios
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: d19fc4290f32359d3af66d96512f65abb17f5d34
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 56662a40df6abeb672992a2da4c04692e7280021
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918631"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451705"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Självstudie: Skicka lokaliserade meddelanden till iOS-enheter med Azure Notification Hubs 
+# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till iOS-enheter med Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -63,7 +63,7 @@ Sedan du se till att enheter ska registreras med en mall som refererar till rät
 
 ```json
 {
-    aps:{
+    aps: {
         alert: "$(News_French)"
     }
 }
@@ -73,14 +73,14 @@ Mer information om mallar finns i [mallar](notification-hubs-templates-cross-pla
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Slutför den [Push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) självstudiekursen och har du koden som är tillgängliga, eftersom den här självstudien bygger direkt på den koden.
-- Visual Studio 2017 är valfritt.
+* Slutför den [Push-meddelanden till specifika iOS-enheter](notification-hubs-ios-xplat-segmented-apns-push-notification.md) självstudiekursen och har du koden som är tillgängliga, eftersom den här självstudien bygger direkt på den koden.
+* Visual Studio 2017 är valfritt.
 
 ## <a name="update-the-app-user-interface"></a>Uppdatera app-användargränssnittet
 
 I det här avsnittet ska du ändra större News-appen som du skapade i avsnittet [använda Notification Hubs för att skicka de senaste nyheterna] att skicka lokaliserade senaste nytt med hjälp av mallar.
 
-I din **MainStoryboard_iPhone.storyboard**, lägga till en segmenterade kontroll med tre språk: engelska, franska och Mandarin.
+I din `MainStoryboard_iPhone.storyboard`, lägga till en segmenterade kontroll med tre språk: Engelska, franska och Mandarin.
 
 ![Skapa UI-storyboard iOS][13]
 
@@ -90,7 +90,7 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
 
 ## <a name="build-the-ios-app"></a>Skapa iOS-app
 
-1. Lägg till i din Notification.h den *retrieveLocale* metod, och ändra arkivet och prenumerera på metoder som visas i följande kod:
+1. I din `Notification.h` lägga till den `retrieveLocale` metoden och ändra arkivet och prenumerera på metoder som visas i följande kod:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet*) categories completion: (void (^)(NSError* error))completion;
@@ -101,7 +101,7 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
 
     - (int) retrieveLocale;
     ```
-    Ändra i din Notification.m den *storeCategoriesAndSubscribe* metoden genom att lägga till parametern nationella inställningar och lagra det i användarens standardinställningar:
+    I din `Notification.m`, ändra den `storeCategoriesAndSubscribe` metoden genom att lägga till den `locale` parametern och lagrar den i användarens standardinställningar:
 
     ```objc
     - (void) storeCategoriesAndSubscribeWithLocale:(int) locale categories:(NSSet *)categories completion:(void (^)(NSError *))completion {
@@ -139,7 +139,7 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
     }
     ```
 
-    Du använder metoden *registerTemplateWithDeviceToken*, i stället för *registerNativeWithDeviceToken*. Du måste ange json-mallen och ett namn för mallen (som appen kanske vill registrera olika mallar) när du registrerar dig för en mall. Se till att registrera din kategorier som taggar, som du vill se till att ta emot notifciations för dessa nyheter.
+    Du använder metoden `registerTemplateWithDeviceToken`, i stället för `registerNativeWithDeviceToken`. Du måste ange json-mallen och ett namn för mallen (som appen kanske vill registrera olika mallar) när du registrerar dig för en mall. Se till att registrera din kategorier som taggar, som du vill se till att ta emot meddelanden om dessa nyheter.
 
     Lägg till en metod för att hämta de nationella inställningarna från standard användarinställningar:
 
@@ -153,13 +153,13 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
     }
     ```
 
-2. Du måste se till att ViewController kommer att använda den nya UISegmentControl nu när du har ändrat klassen meddelanden. Lägg till följande rad i den *viewDidLoad* metod för att se till att visa det språk som för närvarande är markerad:
+2. Nu när du ändrat den `Notifications` klass, som du behöver se till att den `ViewController` utnyttjar den nya `UISegmentControl`. Lägg till följande rad i den `viewDidLoad` metod för att se till att visa det språk som för närvarande är markerad:
 
     ```objc
     self.Locale.selectedSegmentIndex = [notifications retrieveLocale];
     ```
 
-    I din *prenumerera* metod, ändra anrop till den *storeCategoriesAndSubscribe* till följande kod:
+    I din `subscribe` metod, ändra anrop till den `storeCategoriesAndSubscribe` till följande kod:
 
     ```objc
     [notifications storeCategoriesAndSubscribeWithLocale: self.Locale.selectedSegmentIndex categories:[NSSet setWithArray:categories] completion: ^(NSError* error) {
@@ -174,7 +174,7 @@ Kontrollera sedan att lägga till en IBOutlet i din ViewController.h enligt föl
     }];
     ```
 
-3. Slutligen kan du behöva uppdatera den *didRegisterForRemoteNotificationsWithDeviceToken* -metod i din AppDelegate.m så att du korrekt kan uppdatera din registrering när appen startas. Ändra anrop till den *prenumerera* -metoden för meddelanden med följande kod:
+3. Slutligen kan du behöva uppdatera den `didRegisterForRemoteNotificationsWithDeviceToken` -metod i din AppDelegate.m så att du korrekt kan uppdatera din registrering när appen startas. Ändra anrop till den `subscribe` metoden för meddelanden med följande kod:
 
     ```obj-c
     NSSet* categories = [self.notifications retrieveCategories];
@@ -261,20 +261,14 @@ Om du inte har åtkomst till Visual Studio eller bara vill du testa att skicka l
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien får skickat du lokaliserade meddelanden till iOS-enheter. Gå vidare till nästa självstudie om du vill veta hur du push-meddelanden till specifika användare av iOS-appar: 
+I den här självstudien får skickat du lokaliserade meddelanden till iOS-enheter. Gå vidare till nästa självstudie om du vill veta hur du push-meddelanden till specifika användare av iOS-appar:
 
 > [!div class="nextstepaction"]
 >[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-ios-apple-apns-notification.md)
 
 <!-- Images. -->
-
 [13]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized1.png
 [14]: ./media/notification-hubs-ios-send-localized-breaking-news/ios_localized2.png
-
-
-
-
-
 
 <!-- URLs. -->
 [How To: Service Bus Notification Hubs (iOS Apps)]: http://msdn.microsoft.com/library/jj927168.aspx
@@ -292,7 +286,6 @@ I den här självstudien får skickat du lokaliserade meddelanden till iOS-enhet
 [Push notifications to app users]: /develop/mobile/tutorials/push-notifications-to-users-ios
 [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
 [JavaScript and HTML]: ../get-started-with-push-js.md
-
 [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: http://msdn.microsoft.com/library/jj927170.aspx

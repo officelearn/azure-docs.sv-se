@@ -4,7 +4,7 @@ description: Det här avsnittet beskrivs vissa områden för design av implement
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4114a6c0-f96a-493c-be74-1153666ce6c9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.workload: Identity
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bf5384333504df023e98650934c77192f23f9f71
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 3d6141ac1fabe1a0391e6ad23276e5bc5ea1afb6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946002"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471794"
 ---
-# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp för
+# <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Designbegrepp
 Syftet med det här dokumentet är att beskriva områden som måste betraktas under genomförandet utformningen av Azure AD Connect. Det här dokumentet är en djupdykning i vissa områden och dessa koncept beskrivs kortfattat i andra dokument.
 
 ## <a name="sourceanchor"></a>sourceAnchor
@@ -44,7 +44,7 @@ Attributvärdet måste följa följande regler:
 
 * Färre än 60 tecken
   * Tecken som inte är a – z, A-Z eller 0-9 kodas och räknas som 3 tecken
-* Inte innehålla specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > () '; : , [ ] " \@ _
+* Inte innehålla specialtecken: &#92; ! # $ % & * + / = ? ^ &#96; { } | ~ < > ( ) ' ; : , [ ] " \@ _
 * Måste vara globalt unikt
 * Måste vara en sträng, heltal eller binär
 * Får inte baseras på användarens namn eftersom dessa kan ändras

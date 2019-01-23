@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: acedfab277199c2ada6af17584bab3f222fe1a13
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390015"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463753"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -503,6 +503,12 @@ using (var scope = new TransactionScope())
 CLR-moduler som placerats i Managed Instance och länkade servrar/distribuerade frågor som refererar till aktuell instans någon gång det går inte att matcha IP-Adressen för den lokala instansen. Det här felet är ett övergående problem.
 
 **Lösning**: Använd om möjligt kontext anslutningar i CLR-modulen.
+
+### <a name="tde-encrypted-databases-dont-support-user-initiated-backups"></a>Transparent Datakryptering krypteras databaser stöder inte användarinitierad säkerhetskopior
+
+Du kan inte utföra `BACKUP DATABASE ... WITH COPY_ONLY` för en databas som är krypterad med Transparent datakryptering (TDE). TDE tvingar säkerhetskopieringar krypteras med internt TDE-nycklar och nyckeln kan inte exporteras, så du kommer inte att återställa säkerhetskopian.
+
+**Lösning**: Använd automatisk säkerhetskopiering och point-in-time-återställning, eller inaktivera kryptering på databasen.
 
 ## <a name="next-steps"></a>Nästa steg
 

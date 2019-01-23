@@ -1,10 +1,10 @@
 ---
-title: 'Självstudiekurs:  Integrera en enda AD-skog till Azure med lösenordets hash-synkronisering (PHS) | Microsoft Docs'
+title: 'Självstudier:  Integrera en enda AD-skog till Azure med lösenordets hash-synkronisering (PHS) | Microsoft Docs'
 description: Visar hur du ställer in en hybridmiljö identitet med hjälp av hash-synkronisering av lösenord.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a8dfe39dc3d32ca96d6252bac96a2e7abc09eee5
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: ed8b2ec0c31adebac72e105ecfc4c5ec28e7b74b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164719"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471879"
 ---
-# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudiekurs:  Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
+# <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Självstudier:  Integrera en enskild AD-skog med hjälp av synkronisering av lösenordshash (PHS)
 
 ![Skapa](media/tutorial-password-hash-sync/diagram.png)
 
@@ -220,7 +220,7 @@ Vi kommer nu att verifiera att de användare som vi hade våra lokala katalog ha
 2. Till vänster, Välj **Azure Active Directory**
 3. Under **Hantera** väljer du **Användare**.
 4. Kontrollera att du ser de nya användarna i våra klient</br>
-![Synkronisering](media/tutorial-password-hash-sync/synch1.png)</br>
+![Synch](media/tutorial-password-hash-sync/synch1.png)</br>
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testa logga in med något av våra användare
 

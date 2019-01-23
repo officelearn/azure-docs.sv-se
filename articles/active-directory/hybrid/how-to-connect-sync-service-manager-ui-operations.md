@@ -4,7 +4,7 @@ description: Förstå fliken åtgärder i hanteraren för synkroniseringstjänst
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 97a26565-618f-4313-8711-5925eeb47cdc
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 92de95cb3192fb9f551bea631ef878070f9173cf
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57d5dd17a180c946043c307e31e1c89e91f1219e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46315058"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467697"
 ---
 # <a name="using-the-sync-service-manager-operations-tab"></a>På fliken synkronisering Service Manager-åtgärder
 
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-operations/operations.png)
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-operations/operations.png)
 
 Fliken åtgärder visas resultatet från de senaste åtgärderna. Den här fliken är att förstå och felsöka problem.
 
@@ -37,9 +37,9 @@ Den **Status** kolumnen är den viktigaste informationen och visar det mest allv
 | Status | Kommentar |
 | --- | --- |
 | Stoppad-\* |Det gick inte att slutföra körningen. Exempel: om fjärrdatorn är igång och kan inte kontaktas. |
-| Stoppad-fel-gräns |Det finns fler än 5 000 fel. Körningen stoppades automatiskt på grund av det stora antalet fel. |
+| stopped-error-limit |Det finns fler än 5 000 fel. Körningen stoppades automatiskt på grund av det stora antalet fel. |
 | slutförda -\*-fel |Körningen slutfördes, men det finns fel (färre än 5 000) som bör undersökas. |
-| slutförda -\*-varningar |Körningen har slutförts, men vissa data är inte i förväntat tillstånd. Om du har fel sedan är det här meddelandet vanligtvis bara ett tecken. Du bör inte undersöka varningar förrän du har åtgärdat felen. |
+| completed-\*-warnings |Körningen har slutförts, men vissa data är inte i förväntat tillstånd. Om du har fel sedan är det här meddelandet vanligtvis bara ett tecken. Du bör inte undersöka varningar förrän du har åtgärdat felen. |
 | lyckades |Inga problem. |
 
 När du har valt en rad uppdaterar längst ned för att visa information om som körs. Du kan ha en lista som säger att längst till vänster på nedersta, **steg #**. Den här listan visas bara om du har flera domäner i skogen där varje domän representeras av ett steg. Domännamnet finns under rubriken **Partition**. Under **Synkroniseringsstatistik**, du kan hitta mer information om antalet ändringar som har bearbetats. Du kan klicka på länkarna för att få en lista med ändrade objekt. Om du har objekt med fel felen som visas **synkroniseringsfel**.

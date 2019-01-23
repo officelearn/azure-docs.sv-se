@@ -4,7 +4,7 @@ description: Så här felsöker du problem med åtkomst till ett program från e
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: c12e223c4e57fccd78ed773f929949c7c63efe9f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1ba34fa0bed467d1b6dedc1d5a475bdf04032d6d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357464"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465317"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problem vid inloggning i ett program med hjälp av en djuplänk
 
@@ -250,7 +250,7 @@ Följ dessa steg om du vill tilldela en eller flera användare till ett program 
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Att lägga till dina användare till den **valda** klickar du på kryssrutan bredvid användarens profilfoto eller logotyp.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 

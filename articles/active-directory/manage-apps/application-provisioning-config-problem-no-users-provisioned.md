@@ -4,7 +4,7 @@ description: Så här felsöker du vanliga problem som kan stöta på när du in
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 3874e6ff6586726577a2c89e3cf45bbd3343b821
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fd5d833656d4ba395857c84ee8386bc7fb6d704e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040694"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465411"
 ---
 # <a name="no-users-are-being-provisioned-to-an-azure-ad-gallery-application"></a>Inga användare etableras till en Azure AD-galleriprogram
 När automatisk etablering har konfigurerats för ett program (inklusive verifierar att app-autentiseringsuppgifterna till Azure AD för att ansluta till appen är giltiga), som sedan/användare eller grupper tilldelas appen. Etablering bestäms av följande saker:
@@ -56,7 +56,7 @@ När en användare visas som ”skipped” i granskningsloggarna, är det viktig
 - **Ett Omfångsfilter har konfigurerats** **som filtrerar användaren baserat på ett attributvärde**. Läs mer på Omfångsfilter [Omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
 - **Användaren har ”inte effektivt rätt”.** Om du ser det aktuella felmeddelandet, beror det på att det finns ett problem med användarposten för tilldelning lagras i Azure AD. Ta bort användare (eller grupp) från appen för att åtgärda problemet och tilldela den igen. Läs mer på tilldelning [tilldela användare eller grupp åtkomst](assign-user-or-group-access-portal.md).
 - **Ett obligatoriskt attribut är inte ifyllt för en användare eller saknas.** En viktig sak att tänka på när du konfigurerar etablering är att granska och konfigurera attributmappningar och arbetsflöden som definierar vilka användare (eller grupp) egenskaper flow från Azure AD till programmet. Den här konfigurationen innehåller inställningen ”matchande egenskapen” som används för att identifiera och matcha användare/grupper mellan de två systemen. Läs mer om den här viktiga processen [anpassa etablering attributet Användarmappningar för SaaS-program i Azure Active Directory](customize-application-attributes.md).
-- **Attributmappningar för grupper:** etablering av namn- och gruppinformation, förutom medlemmar, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Matchande ID: T kan vara Visa namn eller e-postalias. Gruppen och dess medlemmar tillhandahålls inte om egenskapen matchande är tom eller inte fylls i automatiskt för en grupp i Azure AD.
+- **Attributmappningar för grupper:** Etablering av namn- och gruppinformation, förutom medlemmarna, om det stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera den **mappning** för grupp-objekt som visas i den **etablering** fliken. Om etablering grupper är aktiverad, bör du granska attributmappningar för att säkerställa att ett lämpligt fält som används för ”matchande ID”. Matchande ID: T kan vara Visa namn eller e-postalias. Gruppen och dess medlemmar tillhandahålls inte om egenskapen matchande är tom eller inte fylls i automatiskt för en grupp i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 

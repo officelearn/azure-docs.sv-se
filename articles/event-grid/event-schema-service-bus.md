@@ -6,18 +6,18 @@ author: banisadr
 manager: darosa
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: babanisa
-ms.openlocfilehash: afb85f20c49821ca98e078791730a3376198e9e5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f44d2c1c5be6ac895b6f5ea9feca29c0f8ed09f3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055812"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467748"
 ---
 # <a name="azure-event-grid-event-schema-for-service-bus"></a>Händelseschema för Azure Event Grid för Service Bus
 
-Den här artikeln innehåller egenskaperna och schemat för Service Bus-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för Service Bus-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 En lista över exempel på skript och självstudier finns i [Service Bus-händelsekälla](event-sources.md#service-bus).
 
@@ -83,7 +83,7 @@ En händelse har följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
@@ -98,7 +98,7 @@ Dataobjektet har följande egenskaper:
 | namespaceName | sträng | Service Bus-namnområdet resursen finns i. |
 | requestUri | sträng | URI: N till den eller de specifika prenumeration som genererar händelsen. |
 | entityType | sträng | Typ av Service Bus-entiteten som sänder händelser (kö eller prenumeration). |
-| Könamn | sträng | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om du använder ämnen / prenumerationer. |
+| queueName | sträng | Kön med aktiva meddelanden om prenumerera på en kö. Värdet null om du använder ämnen / prenumerationer. |
 | topicName | sträng | Avsnittet om Service Bus-prenumerationen med aktiva meddelanden tillhör. Värdet null om du använder en kö. |
 | subscriptionName | sträng | Service Bus-prenumerationen med aktiva meddelanden. Värdet null om du använder en kö. |
 

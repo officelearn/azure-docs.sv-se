@@ -4,7 +4,7 @@ description: Tilldela användare till programmet för att bevilja åtkomst
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d99209af9b1b6697419a046812928e75fed70321
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 04d29c69eb0dd74a2706af272e6c427179e110ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53076962"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472117"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -71,7 +71,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -109,7 +109,7 @@ Följ stegen nedan om du vill tilldela en eller flera grupper till ett program d
 
 11. Hovra över den **grupp** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid gruppen profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och Klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
 
 13. När du har valt grupper klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -145,18 +145,18 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 9.  Klicka sedan på väljaren bredvid etiketten för att välja gruppen till vilken användare som begär åtkomst till det här programmet ska läggas till, **till vilken grupp ska tilldelade användare läggas?** och välj en grupp.
 
-10. **Valfritt:** om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
+10. **Valfritt:** Om du inte vill att kräva ett företag godkännande innan användarna får åtkomst genom att ange den **kräver godkännande innan du beviljar åtkomst till det här programmet?** växla till **Ja**.
 
-11. **Valfritt: för program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att ange användarens lösenord för det här programmet?**  växla till **Ja**.
+11. **Valfritt: För program som använder lösenord för enkel inloggning på endast** om du vill att dessa företagsgodkännaren att ange de lösenord som skickas till det här programmet för godkända användare kan ställa in den **godkännare ha tillåtelse att konfigurera användarens lösenord för det här program?**  växla till **Ja**.
 
-12. **Valfritt:** för att ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 person företagsgodkännaren.
+12. **Valfritt:** Om du vill ange den företagsgodkännaren som har behörighet att bevilja åtkomst till det här programmet, klickar du på väljaren bredvid etiketten **som har behörighet att bevilja åtkomst till det här programmet?** att välja upp till 10 enskilda företagsgodkännaren.
 
   >[!NOTE]
   >Grupper stöds inte.
   >
   >
 
-13. **Valfritt:** **för program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som dessa användare ska tilldelas.
+13. **Valfritt:** **För program som exponera roller**, om du vill tilldela självbetjäning godkända användare till en roll, klickar du på väljaren bredvid den **till vilken roll ska användarna tilldelas i det här programmet?** att välja rollen som Dessa användare ska tilldelas.
 
 14. Klicka på den **spara** längst upp i fönstret för att slutföra.
 

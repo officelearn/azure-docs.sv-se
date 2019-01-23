@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: fdc4885c079a3659d394517f0a10394eff0720c8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 19e9690905fd993d59b186d59cc257b6b57e78b2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119161"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449834"
 ---
 # <a name="example-2--build-a-dmz-to-protect-applications-with-a-firewall-and-nsgs"></a>Exempel 2 – Skapa ett perimeternätverk för att skydda program med en brandvägg och NSG:er
 [Gå tillbaka till gränsen bästa praxis sidan][HOME]
@@ -87,7 +87,7 @@ Ovanstående vi nämnt NSG-reglerna är mycket lika NSG-reglerna i [exempel 1 �
 ## <a name="firewall-rules"></a>Brandväggsregler
 En management-klienten måste installeras på en dator som kan hantera brandväggen och skapa de konfigurationer som krävs. Se dokumentationen från din brandvägg (eller andra NVA)-leverantören om hur du hanterar enheten. Resten av det här avsnittet beskriver konfigurationen av brandväggen, via leverantörer management-klienten (dvs. inte Azure-portalen eller PowerShell).
 
-Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG-administratör](https://techlib.barracuda.com/NG61/NGAdmin)
+Instruktioner för att klienten ska ladda ned och ansluter till Barracuda som används i det här exemplet finns här: [Barracuda NG Admin](https://techlib.barracuda.com/NG61/NGAdmin)
 
 I brandväggen måste vidarebefordra regler skapas. Eftersom det här exemplet skickar endast internet-trafik inkommande i brandväggen och sedan till webbservern, krävs bara en vidarebefordran NAT-regel. Barracuda NextGen-brandväggen som används i det här exemplet är regeln en mål-NAT-regel (”Dst NAT”) för att skicka den här trafiken.
 
@@ -422,7 +422,7 @@ Det här PowerShell-skriptet ska köras lokalt på en internet-ansluten dator el
         $FatalError = $true}
     Else { Write-Host "The network config file was found" -ForegroundColor Green
             If (-Not (Select-String -Pattern $DeploymentLocation -Path $NetworkConfigFile)) {
-                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation varible is correct and the netowrk config file matches.' -ForegroundColor Yellow
+                Write-Host 'The deployment location was not found in the network config file, please check the network config file to ensure the $DeploymentLocation variable is correct and the network config file matches.' -ForegroundColor Yellow
                 $FatalError = $true}
             Else { Write-Host "The deployment location was found in the network config file." -ForegroundColor Green}}
 

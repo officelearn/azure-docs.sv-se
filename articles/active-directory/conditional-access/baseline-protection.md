@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 67f3299bcf5b852e05308a8e71004fcd613e83cf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158711"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446281"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Vad är skydd vid baslinjen (förhandsversion)?  
 
@@ -56,7 +56,7 @@ Den här baslinjeprincip ger dig möjlighet att exkludera användare. Du kanske 
 
 ## <a name="enable-a-baseline-policy"></a>Aktivera en baslinjeprincip 
 
-Grundläggande principer finns i förhandsversion, är de som standard inte aktiverat. Du måste manuellt aktivera en princip om du vill aktivera den. Om du uttryckligen aktivera baslinje-principer i förhandsversionsstadium förblir de aktiv när den här funktionen blir allmänt tillgänglig. Vilken beteendeförändring som planerat är orsaken till varför, för att aktivera och inaktivera måste du dessutom har ett tredje alternativ som anger du tillståndet för en princip: **aktivera principen automatiskt i framtiden**. Genom att välja det här alternativet kan du lämna principerna inaktiveras under förhandsgranskning, men låta Microsoft aktivera dem automatiskt när den här funktionen blir allmänt tillgänglig. Om du inte uttryckligen aktiverar baslinje principer nu och inte väljer den **aktivera principen automatiskt i framtiden** alternativet principerna förblir inaktiverad när den här funktionen blir allmänt tillgänglig.
+Grundläggande principer finns i förhandsversion, är de som standard inte aktiverat. Du måste manuellt aktivera en princip om du vill aktivera den. Om du uttryckligen aktivera baslinje-principer i förhandsversionsstadium förblir de aktiv när den här funktionen blir allmänt tillgänglig. Vilken beteendeförändring som planerat är orsaken till varför, dessutom för att aktivera och inaktivera måste du ha ett tredje alternativ att ställa in tillståndet för en princip: **Aktivera principen automatiskt i framtiden**. Genom att välja det här alternativet kan du lämna principerna inaktiveras under förhandsgranskning, men låta Microsoft aktivera dem automatiskt när den här funktionen blir allmänt tillgänglig. Om du inte uttryckligen aktiverar baslinje principer nu och inte väljer den **aktivera principen automatiskt i framtiden** alternativet principerna förblir inaktiverad när den här funktionen blir allmänt tillgänglig.
 
 
 **För att aktivera en baslinjeprincip:**  
@@ -99,5 +99,5 @@ Mer information finns i:
 
 - [Fem steg för att skydda din infrastruktur för Identitetshantering](https://docs.microsoft.com/azure/security/azure-ad-secure-steps)
 
-- [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md) 
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](overview.md) 
 

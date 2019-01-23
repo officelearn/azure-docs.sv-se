@@ -4,7 +4,7 @@ description: Innehåller information om hur synkronisering av lösenordshash fun
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f70c92e4f617ff5c2b652900ce3b803f8609d2f9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff5127e584ab7ddede31ff811824612a3be21f18
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078658"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468071"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller information du behöver för att synkronisera dina lösenord från en lokal Active Directory-instans till en molnbaserad Azure Active Directory (Azure AD)-instans.
@@ -140,6 +140,6 @@ Information om säkerhet och FIPS finns i [hash-synkronisering för Azure AD-lö
 Om du har problem med synkronisering av lösenordshash, se [Felsök synkronisering av lösenordshash](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* [Azure AD Connect-synkronisering: anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 * [Hämta en stegvis distributionsplan för att migrera från AD FS till synkronisering av Lösenordshash](https://aka.ms/authenticationDeploymentPlan)

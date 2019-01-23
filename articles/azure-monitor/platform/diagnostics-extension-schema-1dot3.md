@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: b5f1247c43dcbd836c684dbf41bafd0d319e5f7c
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: cd458ba08f12e9553233a1dd3d7caf03acda56c6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230483"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463515"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 och senare konfigurationsschema
 > [!NOTE]
@@ -422,7 +422,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**PublicConfig**|Krävs. Se beskrivning någon annanstans på den här sidan.|  
 |**PrivateConfig**|Valfri. Se beskrivning någon annanstans på den här sidan.|  
-|**isEnabled**|Booleskt värde. Se beskrivning någon annanstans på den här sidan.|  
+|**IsEnabled**|Booleskt värde. Se beskrivning någon annanstans på den här sidan.|  
 
 ## <a name="publicconfig-element"></a>PublicConfig Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig*
@@ -437,13 +437,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**LocalResourceDirectory**|Katalogen på den virtuella datorn där Monitoring Agent lagrar händelsedata. Om du inte har angetts standardkatalogen:<br /><br /> För en Worker/web-roll: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> För en virtuell dator: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Obligatoriska attribut är:<br /><br /> - **sökvägen** -katalogen på system som ska användas av Azure Diagnostics.<br /><br /> - **expandEnvironment** – styr om miljövariabler expanderas i Sökvägens namn.|  
 
 ## <a name="wadcfg-element"></a>WadCFG Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
 
  Identifierar och konfigurerar telemetridata som ska samlas in.  
 
 
 ## <a name="diagnosticmonitorconfiguration-element"></a>DiagnosticMonitorConfiguration Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
  Krävs
 
@@ -470,7 +470,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="crashdumps-element"></a>CrashDumps Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
 
  Aktivera insamling av kraschdumpar.  
 
@@ -484,7 +484,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Krävs. Definierar konfigurationsvärden för varje process.<br /><br /> Det krävs också följande attribut:<br /><br /> **processName** -namnet på processen som du vill att Azure-diagnostik för att samla in en kraschdumpfil för.|  
 
-## <a name="directories-element"></a>Kataloger Element
+## <a name="directories-element"></a>Directories Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger*
 
  Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar.  
@@ -500,7 +500,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="datasources-element"></a>Datakällor Element  
+## <a name="datasources-element"></a>DataSources Element  
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - kataloger - datakällor*
 
  En lista över kataloger som ska övervaka.  
@@ -538,7 +538,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwEventSourceProviderConfiguration*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders- EtwEventSourceProviderConfiguration*
 
  Konfigurerar insamling av händelser som genereras från [EventSource klass](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx).  
 
@@ -559,8 +559,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 
-## <a name="metrics-element"></a>Mått-Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - mått*
+## <a name="metrics-element"></a>Metrics Element  
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Metrics*
 
  Kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. Varje prestandaräknare som definieras i den **PerformanceCounters** elementet lagras i tabellen mått förutom tabellen prestandaräknaren.  
 
@@ -581,7 +581,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.
 
-|Underordnat Element|Beskrivning|  
+|Child Element|Beskrivning|  
 |-------------------|-----------------|  
 |**PerformanceCounterConfiguration**|Det krävs följande attribut:<br /><br /> - **counterSpecifier** -namnet på prestandaräknaren. Till exempel `\Processor(_Total)\% Processor Time`. Om du vill hämta en lista över prestandaräknare på din värd kör du kommandot `typeperf`.<br /><br /> - **sampleRate** -hur ofta räknaren ska aktiveras.<br /><br /> Valfritt attribut:<br /><br /> **enhet** -måttenhet för räknaren.|
 |**mottagare** | Har lagts till i 1.5. Valfri. Pekar på en plats för mottagaren att också skicka diagnostikdata. Azure Monitor eller Event Hubs.|    
@@ -590,13 +590,13 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
 
  Aktiverar insamlingen av Windows-händelseloggar.  
 
  Valfritt **scheduledTransferPeriod** attribut. Se tidigare förklaring.  
 
-|Underordnat Element|Beskrivning|  
+|Child Element|Beskrivning|  
 |-------------------|-----------------|  
 |**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namn på** – XPath-frågan som beskriver windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Om du vill samla in alla händelser, ange ”*”|  
 
@@ -604,7 +604,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 
 ## <a name="logs-element"></a>Loggar Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - loggar*
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - Logs*
 
  Presentera i version 1.0 och 1.1. Saknas i 1.2. Har lagts till i 1.3.  
 
@@ -635,7 +635,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**mottagare**|Se beskrivning någon annanstans på den här sidan.|  
 
-## <a name="sink-element"></a>Element för mottagare
+## <a name="sink-element"></a>Sink Element
  *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare*
 
  Har lagts till i version 1.5.  
@@ -651,8 +651,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**Application Insights**|sträng|Används endast när data skickas till Application Insights. Innehåller Instrumenteringsnyckeln för ett aktivt Application Insights-konto som du har åtkomst till.|  
 |**kanaler**|sträng|En för varje ytterligare filtrering som strömmar som du|  
 
-## <a name="channels-element"></a>Kanaler Element  
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare - kanaler*
+## <a name="channels-element"></a>Channels Element  
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
 
  Har lagts till i version 1.5.  
 
@@ -662,8 +662,8 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |-------------|----------|-----------------|  
 |**Kanal**|sträng|Se beskrivning någon annanstans på den här sidan.|  
 
-## <a name="channel-element"></a>Kanal-Element
- *Trädet: Rot - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - mottagare - kanaler - kanal*
+## <a name="channel-element"></a>Channel Element
+ *Trädet: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
 
  Har lagts till i version 1.5.  
 
@@ -671,7 +671,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Attribut|Typ|Beskrivning|  
 |----------------|----------|-----------------|  
-|**LogLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
+|**logLevel**|**sträng**|Anger den lägsta allvarlighetsgraden för loggposter som överförs. Standardvärdet är **Undefined**, som överför alla loggar. Andra möjliga värden (i ordningen för de flesta till minst information) är **utförlig**, **Information**, **varning**, **fel**, och **Kritiska**.|  
 |**Namn**|**sträng**|Ett unikt namn för kanalen att referera till|  
 
 
@@ -693,3 +693,4 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
  *Trädet: Rot - DiagnosticsConfiguration - IsEnabled*
 
  Booleskt värde. Använd `true` att aktivera diagnostiken eller `false` att inaktivera diagnostiken.
+

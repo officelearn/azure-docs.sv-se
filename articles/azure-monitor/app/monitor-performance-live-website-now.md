@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 463b2e8c7e349fa46737a9d630bd027fb28e7780
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199393"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464858"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -32,11 +32,12 @@ Du kan instrumentera en live-webbapp med Azure Application Insights utan att beh
 
 ![Skärmbild av App Insights översikt diagram som innehåller information om misslyckade förfrågningar, svarstid för servern och servern för serverbegäranden](./media/monitor-performance-live-website-now/overview-graphs.png)
 
-Du kan tillämpa Application Insights på dina .NET-webbprogram via tre vägar:
+Du kan välja mellan två vägar kan tillämpa Application Insights på dina .NET-webbprogram:
 
 * **Byggtid:** [Lägg till Application Insights SDK] [ greenbrown] till webbappens kod.
 * **Körtid:** Instrumentera webbappen på servern, som beskrivs nedan, utan att bygga om och omdistribuera koden.
-* **Båda:** Skapa SDK i webbappens kod och gäller även tillägg för körning. Få ut det bästa av två världar.
+> [!NOTE]
+> Om du använder version tid instrumentation körningstiden instrumention inte kommer att fungera även om den är påslagen.
 
 Här är en sammanfattning av vad du får med respektive väg:
 

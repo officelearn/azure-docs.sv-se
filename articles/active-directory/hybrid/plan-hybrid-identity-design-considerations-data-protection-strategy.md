@@ -4,7 +4,7 @@ description: Du definierar data protection strategin för din hybrididentitetsl�
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e76fd1f4-340a-492a-84d9-e05f3b7cc396
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 11/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 20782679a4e73c029d6c83fd3bc57914b4d28691
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: bef5671637b26f4fd0d0c27211edca946c395cdf
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52865054"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468564"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definiera en strategi för skydd av data för din hybrididentitetslösning
 I det här steget definierar du strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i dataskydd:
@@ -118,32 +118,32 @@ När användaren autentiseras med hjälp av Azure AD, är det viktigt att utvär
 
 Varje interaktion i diagrammet visade i bild X representerar en access control-scenario som kan omfattas av Azure AD. Nedan finner du en beskrivning av varje scenario:
 
-  1. Villkorlig åtkomst till program som finns lokalt: du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS i Windows Server 2012 R2.
+  1. Villkorlig åtkomst till program som finns lokalt: Du kan använda registrerade enheter med åtkomstprinciper för program som är konfigurerade för att använda AD FS i Windows Server 2012 R2.
 
-  2. Åtkomstkontroll till Azure portal: Azure kan du styra åtkomst till portalen med hjälp av rollbaserad åtkomstkontroll (RBAC)). Den här metoden gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra i Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan kan IT-administratörer delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
+  2. Åtkomstkontroll till Azure-portalen:  Med Azure kan du styra åtkomst till portalen med hjälp av rollbaserad åtkomstkontroll (RBAC)). Den här metoden gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra i Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan kan IT-administratörer delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
 
-   - Gruppbaserad rolltilldelning: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
-   - Använd inbyggda roller i Azure: du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
-   -  Detaljerad åtkomst till resurser: du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
+   - Gruppbaserad rolltilldelning: Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
+   - Använd inbyggda roller i Azure: Du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
+   -  Detaljerad åtkomst till resurser: Du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
 
    > [!NOTE]
    > Om du skapar program och vill anpassa åtkomstkontrollen för dem, är det också möjligt att använda Azure AD-programroller för auktorisering. Den här [WebApp-RoleClaims-DotNet exempel](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) om hur du skapar din app för att använda den här funktionen.
 
 
-  3. Villkorlig åtkomst för Office 365-program med Microsoft Intune: IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter kommer åt tjänsterna. 
+  3. Villkorlig åtkomst för Office 365-program med Microsoft Intune:  IT-administratörer kan etablera enhetsprinciper för villkorlig åtkomst för att skydda företagsresurser och samtidigt ge informationsarbetare på kompatibla enheter kommer åt tjänsterna. 
   
-  4. Villkorlig åtkomst för Saas-appar: [den här funktionen](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda Multi-Factor authentication-regler för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de kommer åt programmet från en IP-adress som i i organisationens nätverk.
+  4. Villkorlig åtkomst för Saas-appar: [Den här funktionen](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) kan du konfigurera regler för åtkomst av programspecifika multifaktorautentisering och möjligheten att blockera åtkomst för användare inte på ett betrott nätverk. Du kan använda Multi-Factor authentication-regler för alla användare som är kopplade till programmet, eller enbart för användare i de angivna säkerhetsgrupperna. Användare kan uteslutas från Multi-Factor authentication-krav om de kommer åt programmet från en IP-adress som i i organisationens nätverk.
 
 Jämförelse mellan dessa alternativ kan inte användas för den här uppgiften eftersom alternativen för åtkomstkontroll använder en multilayer metod. Se till att du använder sig av alla alternativ som är tillgängliga för varje scenario som kräver att du kan styra åtkomsten till dina resurser.
 
 ## <a name="define-incident-response-options"></a>Definiera alternativ för incidenthantering
 Azure AD kan hjälpa IT-avdelningen att identitet potentiella säkerhetsrisker i miljön genom att övervaka användarens aktivitet. IT kan använda Azure AD Access och rapporter för att få insyn i integriteten och säkerheten i din organisations katalog i användning. Med den här informationen kan kan IT-administratör bättre avgöra var potentiella säkerhetsrisker finns så att de kan planera på lämpligt sätt du minskar riskerna.  [Azure AD Premium-prenumeration](../fundamentals/active-directory-get-started-premium.md) har en uppsättning av säkerhetsrapporter som kan aktivera IT för att hämta den här informationen. [Azure AD-rapporter](../reports-monitoring/overview-reports.md) kategoriseras enligt följande:
 
-* **Avvikelseidentifiering rapporter**: innehålla inloggningshändelser som har identifierats vara avvikande. Målet är att se till att du är medveten om sådan aktivitet och gör att du kan fastställa om huruvida en händelse är misstänkta.
-* **Integrerade program rapporten**: ger insikter om hur molnappar används i din organisation. Azure Active Directory möjliggör integrering med tusentals molnprogram.
-* **Felrapporter**: visar fel som kan uppstå vid etablering av konton för att externa program.
-* **Användarspecifika rapporter**: visa enheten/logga i aktivitetsdata för en viss användare.
-* **Aktivitetsloggar**: innehåller en post för alla granskade händelser inom de senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, samt ändringar av aktivitet och aktiviteten för återställning och registrering av lösenord.
+* **Avvikelseidentifiering rapporter**: Innehåller inloggningshändelser som har identifierats vara avvikande. Målet är att se till att du är medveten om sådan aktivitet och gör att du kan fastställa om huruvida en händelse är misstänkta.
+* **Integrerade program rapporten**: Ger insikter om hur molnappar används i din organisation. Azure Active Directory möjliggör integrering med tusentals molnprogram.
+* **Felrapporter**: Visa fel som kan uppstå vid etablering av konton för att externa program.
+* **Användarspecifika rapporter**: Visa enhet/logga i aktivitetsdata för en viss användare.
+* **Aktivitetsloggar**: Innehåller en post för alla granskade händelser inom de senaste 24 timmarna, senaste 7 dagarna eller senaste 30 dagarna, samt ändringar av aktivitet och aktiviteten för återställning och registrering av lösenord.
 
 > [!TIP]
 > En annan rapport som kan också incidenthantering-teamet arbetar med ett ärende är den [användare med läckta autentiseringsuppgifter](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/15/azure-active-directory-premium-reporting-now-detects-leaked-credentials/) rapporten. Den här rapporten ser du alla matchningar mellan listan läckta autentiseringsuppgifter och din klient.

@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection kan cloud app discovery, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
 ms.component: identity-protection
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/24/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 11b6766533da65f55430d55bd8aa0b7067783e0c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: b1077eefbe57b6440caa0171fb7429485eeeb78e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48267478"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469193"
 ---
-# <a name="how-to-close-active-risk-events"></a>Så här: Stäng active riskhändelser
+# <a name="how-to-close-active-risk-events"></a>Hur: Stäng aktiva riskhändelser
 
 Med [riskhändelser](../reports-monitoring/concept-risk-events.md), Azure Active Directory identifierar indikatorer för potentiellt komprometterade användarkonton. Som administratör, som du vill hämta alla riskhändelser stängda, så att de berörda användarna inte längre är i fara.
 
@@ -47,7 +47,7 @@ Om du vill stänga active riskhändelser har följande alternativ:
 
 ## <a name="require-password-reset-with-a-user-risk-policy"></a>Kräv lösenord för självbetjäning med en princip för användarrisk
 
-Genom att konfigurera den [princip för villkorlig åtkomst användarrisk](howto-user-risk-policy.md), kan du kräva ändring av lösenordet om en risknivå för angiven användare har identifierats automatiskt. 
+Genom att konfigurera [användarriskprincipen för villkorsstyrd åtkomst](howto-user-risk-policy.md) kan du kräva att lösenordet ändras om en viss användarrisknivå har identifierats automatiskt. 
 
 ![Återställa lösenord](./media/howto-close-active-risk-events/13.png)
 

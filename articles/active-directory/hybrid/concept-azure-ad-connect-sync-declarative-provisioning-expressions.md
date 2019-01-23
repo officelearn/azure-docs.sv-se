@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Uttryck för deklarativ etablering | Microsoft Docs'
+title: 'Azure AD Connect: Deklarativ etablering uttryck | Microsoft Docs'
 description: Förklarar uttryck för deklarativ etablering.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3ea53c8-3801-4acf-a297-0fb9bb1bf11d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 26c835e6c2f658f7ad852fdd02dc8974db33e47b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 488309d9d78834896a939c66ccdc7515310103de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312069"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460507"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Azure AD Connect-synkronisering: Förstå uttryck för deklarativ etablering
 Azure AD Connect-synkronisering bygger på deklarativ etablering introducerades i Forefront Identity Manager 2010. Det kan du implementera enhetlig identitet integration affärslogik utan att behöva skriva kompilerad kod.
@@ -35,9 +35,9 @@ Attribut är starkt typbestämd. En funktion accepterar endast attribut av typen
 * Funktioner har ett namn följt av argument inom parentes: FunctionName (argumentet 1, argumentet N).
 * Attribut som identifierats av hakparenteser: [attributeName]
 * Parametrar som identifieras av procenttecken: % ParameterName %
-* Strängkonstanter omges av citattecken: till exempel ”Contoso” (Obs: måste använda raka citattecken ”” och inte typografiska citattecken ””)
+* Strängkonstanter omges av citattecken: Till exempel ”Contoso” (Obs: måste använda raka citattecken ”” och inte typografiska citattecken ””)
 * Numeriska värden anges utan citattecken och förväntas vara decimal. Hexadecimala värden föregås & H. Till exempel 98052 & HFF
-* Booleska värden uttrycks med konstanter: SANT, FALSKT.
+* Booleska värden uttrycks med konstanter: True, False.
 * Inbyggda konstanter och litteraler uttrycks med endast användarens namn: NULL, CRLF, IgnoreThisFlow
 
 ### <a name="functions"></a>Functions
@@ -98,5 +98,5 @@ Exempel:
 
 **Referensämnen**
 
-* [Azure AD Connect-synkronisering: referens för funktioner](reference-connect-sync-functions-reference.md)
+* [Azure AD Connect-synkronisering: Referens för funktioner](reference-connect-sync-functions-reference.md)
 

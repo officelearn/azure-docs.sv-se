@@ -1,23 +1,23 @@
 ---
 title: Konfigurera Azure Media Clipper lokalisering | Microsoft Docs
-description: Lär dig mer om Azure Media Clipper stöds språk och lokalisering support
+description: Läs mer om Azure Media Clipper stöds språk och lokaliseringsstöd
 services: media-services
-keywords: Clip; underklipp; kodning; media
+keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: dd0fc87741befd92cc41d0129fafcbc64db7ec9e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 227a312839950652924e75f0bafb474ce7bac588
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788146"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448677"
 ---
 # <a name="configure-localization"></a>Konfigurera lokalisering
-Azure Media Clipper är tillgänglig i 18 språk. Om du vill ange widget språk måste du definiera den `language` parametern under initieringen. Skicka in önskat språk kodsträngen i listan nedan:
+Azure Media Clipper finns på 18 språk. Om du vill ange widget-språk, måste du definiera den `language` parametern under initieringen. Skicka i kod-strängen önskat språk i listan nedan:
 - Kinesiska (förenklad): zh-hans
 - Kinesiska (traditionell): zh-hant
 - Tjeckiska: cs
@@ -27,8 +27,8 @@ Azure Media Clipper är tillgänglig i 18 språk. Om du vill ange widget språk 
 - Tyska: Tyskland
 - Ungerska: hu
 - Italienska: den
-- Japanska: ja
-- Koreanska: ko
+- Japanese: ja
+- Korean: ko
 - Polska: pl
 - Portugisiska (Brasilien): pt-br
 - Portugisiska (Portugal): pt-pt
@@ -37,7 +37,7 @@ Azure Media Clipper är tillgänglig i 18 språk. Om du vill ange widget språk 
 - Svenska: SA
 - Turkiska: tr
 
-Om du vill ange en anpassad ordlista eller utöka standardspråk och ordlista, måste du definiera den `languages` eller `extraLanguages` parametern respektive. Skicka in en ordlista med hjälp av följande JSON-format:
+Ange ett anpassat språkordlista eller utöka standardspråk och ordlista, måste du definiera den `languages` eller `extraLanguages` parametern respektive. Skicka in en egen ordlista med följande JSON-format:
 
 ```javascript
 {
@@ -49,7 +49,7 @@ Om du vill ange en anpassad ordlista eller utöka standardspråk och ordlista, m
 }
 ```
 
-Till exempel definierar i följande exempel lokaliserade engelska strängar:
+I följande exempel definierar exempelvis lokaliserade engelska strängar:
 
 ```javascript
 {
@@ -104,7 +104,7 @@ Till exempel definierar i följande exempel lokaliserade engelska strängar:
         'AdvancedSettings.allAudioTracks': 'All audio tracks selected',
         'AdvancedSettings.someAudioTracks': '{0} audio tracks selected',
         'AdvancedSettings.includeAllAudioTracks': 'Include all audio tracks',
-        'AssetsPanel.loadingError': 'Failed to retreive assets from server.',
+        'AssetsPanel.loadingError': 'Failed to retrieve assets from server.',
         'AssetsPanel.retry': 'Retry?',
         'CommandBar.prevFrameTitle': 'Move one frame backwards',
         'CommandBar.prevKeyFrameTitle': 'Move one GOP backwards',
@@ -142,4 +142,4 @@ Till exempel definierar i följande exempel lokaliserade engelska strängar:
 Se nästa steg för att konfigurera Azure Media Clipper:
 - [Läsa in tillgångar i Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
 - [Konfigurera anpassade kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Skickar urklippet jobb från Clipper](media-services-azure-media-clipper-submit-job.md)
+- [Skicka urklippningsjobb från Clipper](media-services-azure-media-clipper-submit-job.md)

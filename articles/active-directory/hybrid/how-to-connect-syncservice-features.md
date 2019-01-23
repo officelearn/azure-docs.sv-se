@@ -4,7 +4,7 @@ description: Beskriver funktionerna för tjänsten på klientsidan för Azure AD
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 213aab20-0a61-434a-9545-c4637628da81
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f5a251c3e867035ecc00d449c4fbc1cf980a4f1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243001"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461220"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Funktioner i tjänsten Azure AD Connect-synkronisering
 Synkroniseringsfunktionen av Azure AD Connect har två komponenter:
@@ -56,7 +56,7 @@ Följande inställningar konfigureras av Azure AD Connect och kan inte ändras a
 | DirSyncFeature | Kommentar |
 | --- | --- |
 | DeviceWriteback |[Azure AD Connect: Aktivera tillbakaskrivning av enheter](how-to-connect-device-writeback.md) |
-| DirectoryExtensions |[Azure AD Connect-synkronisering: katalogtillägg](how-to-connect-sync-feature-directory-extensions.md) |
+| DirectoryExtensions |[Azure AD Connect-synkronisering: Katalogtillägg](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Gör ett attribut som ska placeras i karantän när det är en dubblett av ett annat objekt i stället misslyckas hela objektet under exporten. |
 | Hash-synkronisering av lösenord |[Implementera lösenordshashsynkronisering med Azure AD Connect-synkronisering](how-to-connect-password-hash-synchronization.md) |
 |Direktautentisering|[Användarinloggning med Azure Active Directory-direktautentisering](how-to-connect-pta.md)|

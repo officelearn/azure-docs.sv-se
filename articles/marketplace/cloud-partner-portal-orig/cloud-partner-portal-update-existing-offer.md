@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: bfe2b0c70c8b912f6489ed461f5bcf6f233ed60d
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4bf11c0a084cb0241125a1ed546f48c1c5455de3
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48811389"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449460"
 ---
 <a name="update-an-existing-offer-for-azure-marketplace"></a>Uppdatera ett befintligt erbjudande för Azure Marketplace
 ==============================================
@@ -87,7 +87,7 @@ Så gör en ny SKU tillgängligt för ditt befintliga erbjudande i stegen nedan.
 
 1.  Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2.  Under **alla erbjudanden** erbjudandet som du vill uppdatera.
-3.  Under den **SKU: er** formuläret, clik på **lägga till nya SKU: N** och ger en **SKU ID** i popup-fönstret.
+3.  Under den **SKU: er** klickar du på på **lägga till nya SKU: N** och ger en **SKU ID** i popup-fönstret.
 4.  Följ resten av stegen som beskrivs i [publicera en virtuell dator på Azure Marketplace](./cloud-partner-portal-publish-virtual-machine.md).
 5.  Klicka på **publicera** inledningsanförande publicera arbetsflödet har ditt nya SKU: N som publiceras.
 
@@ -131,32 +131,32 @@ Du får förrän den 1 November 2018 att ange ett nytt pris för regionerna där
 | Land/region                  | ISO2 kod | Förenklad faktureringsvalutan |
 |--------------------------|-----------|-----------------------------|
 | **Algeriet**              | DZ        | USD                         |
-| **Argentina**            | KUNDRESKONTRA        | USD                         |
+| **Argentina**            | AR        | USD                         |
 | **Bahrain**              | BH        | USD                         |
-| **Vitryssland**              | GENOM ATT        | USD                         |
+| **Vitryssland**              | BY        | USD                         |
 | **Brasilien**               | BR        | BRL                         |
 | **Bulgarien**             | BG        | EUR                         |
 | **Chile**                | CL        | USD                         |
 | **Colombia**             | CO        | USD                         |
 | **Costa Rica**           | CR        | USD                         |
-| **Kroatien**              | Personal        | EUR                         |
+| **Kroatien**              | HR        | EUR                         |
 | **Tjeckien**       | CZ        | EUR                         |
-| **Egypten**                | T.EX.        | USD                         |
+| **Egypten**                | EG        | USD                         |
 | **Guatemala**            | GT        | USD                         |
 | **Hongkong**            | HK        | USD                         |
 | **Ungern**              | HU        | EUR                         |
-| **Island**              | ÄR        | EUR                         |
+| **Island**              | IS        | EUR                         |
 | **Indonesien**            | ID        | USD                         |
 | **Israel**               | IL        | USD                         |
-| **Jordanien**               | JO        | USD                         |
+| **Jordan**               | JO        | USD                         |
 | **Kazakstan**           | KZ        | USD                         |
 | **Kenya**                | KE        | USD                         |
 | **Kuwait**               | KW        | USD                         |
 | **Liechtenstein**        | LI        | EUR                         |
 | **Makedonien (FYRO)**     | MK        | USD                         |
-| **Malaysia**             | MIN        | USD                         |
+| **Malaysia**             | MY        | USD                         |
 | **Mexico**               | MX        | USD                         |
-| **Montenegro**           | MIG        | USD                         |
+| **Montenegro**           | ME        | USD                         |
 | **Marocko**              | MA        | USD                         |
 | **Nigeria**              | NG        | USD                         |
 | **Oman**                 | OM        | USD                         |
@@ -165,7 +165,7 @@ Du får förrän den 1 November 2018 att ange ett nytt pris för regionerna där
 | **Peru**                 | PE        | USD                         |
 | **Filippinerna**          | PH        | USD                         |
 | **Polen\***             | PL        | EUR                         |
-| **Qatar**                | KVALITETSKONTROLL        | USD                         |
+| **Qatar**                | QA        | USD                         |
 | **Rumänien**              | RO        | EUR                         |
 | **Saudiarabien**         | SA        | USD                         |
 | **Serbien**               | RS        | USD                         |

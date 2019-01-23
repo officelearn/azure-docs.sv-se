@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: article
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 02780a9e9702a41f677595d74b9861ea6a51b572
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260448"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54450412"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Självstudier: Ansluta, konfigurera, aktiverar Azure Data Box-Gateway (förhandsversion) 
 
@@ -86,7 +86,7 @@ Du har kommit till den **instrumentpanelen** för din enhet.
     - Du kan konfigurera nätverksgränssnittets som IPv4.
 
     >[!NOTE] 
-    > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DHCP, om du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla adpaters i den **enhetsegenskaper** i Azure-portalen för din tjänst.
+    > Vi rekommenderar att du inte växla lokala IP-adressen för nätverksgränssnittet från statisk till DHCP, om du inte har en annan IP-adress att ansluta till enheten. Om du använder ett nätverksgränssnitt och du växlar till DHCP och det är inget sätt att avgöra DHCP-adress. Om du vill ändra till en DHCP-adress, vänta tills enheten har registrerats med tjänsten och sedan ändra. Du kan visa IP-adresserna för alla kort i den **enhetsegenskaper** i Azure-portalen för din tjänst.
 
 4. (Valfritt) Konfigurera din webbproxyserver. Men webbproxykonfigurationen är valfritt, Tänk på att om du använder en webbproxy, du kan bara konfigurera den här.
    

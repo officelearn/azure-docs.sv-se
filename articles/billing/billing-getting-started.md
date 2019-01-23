@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: cwatson
-ms.openlocfilehash: 98ce2127cc9f60128767f8e4409134f2393ac84f
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 9d755d1a3d9ae54d33331eff9b547de70a5fd77f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53582438"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452904"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -90,7 +90,7 @@ När du får dina tjänster kan regelbundet kontrollerar du de hur mycket kostar
 
     ![Skärmbild av cost analysvyn i Azure-portalen](./media/billing-getting-started/cost-analysis.PNG)
 
-4. Du kan filtrera efter olika egenskaper som [taggar](#tags), resursgrupp och tidsintervallet. Klicka på **tillämpa** att bekräfta filtren och **hämta** om du vill exportera vyn till en fil med Comma-Separated värden (.csv).
+4. Du kan filtrera efter olika egenskaper som [taggar](#tags), resurstyp, resursgrupp och tidsintervall. Klicka på **tillämpa** att bekräfta filtren och **hämta** om du vill exportera vyn till en fil med Comma-Separated värden (.csv).
 
 5. Dessutom kan du klicka på en resurs för att se din dagliga spendera historik och hur mycket kostar resursen varje dag.
 

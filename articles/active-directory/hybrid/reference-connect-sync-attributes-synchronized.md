@@ -4,7 +4,7 @@ description: Visar en lista över attribut som synkroniseras till Azure Active D
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: c2bb36e0-5205-454c-b9b6-f4990bcedf51
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 08633b52e6b7cfef28635925ad9fcf34e065e9bf
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251806"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468636"
 ---
-# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: attribut som synkroniseras till Azure Active Directory
+# <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
 Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
 Attribut är grupperade efter relaterade Azure AD-app.
 
@@ -61,7 +61,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | CO |X |X | | |
 | Företagets |X |X | | |
 | countryCode |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -142,7 +142,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | msExchTeamMailboxOwners |X | | | |
 | msExchTeamMailboxSharePointUrl |X | | | |
 | msExchUserHoldPolicies |X | | | |
-| msOrg IsOrganizational | | |X | |
+| msOrg-IsOrganizational | | |X | |
 | objectSID |X | |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | oOFReplyToOriginator | | |X | |
 | otherFacsimileTelephone |X |X | | |
@@ -183,7 +183,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | CO |X |X | | |
 | Företagets |X |X | | |
 | countryCode |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
@@ -263,7 +263,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | CN |X | |X | |
 | CO |X |X | | |
 | Företagets |X |X | | |
-| Avdelning |X |X | | |
+| avdelning |X |X | | |
 | beskrivning |X |X |X | |
 | displayName |X |X |X | |
 | facsimiletelephonenumber |X |X |X | |
@@ -406,10 +406,10 @@ En Windows 10-domänanslutna computer(device) synkroniserar vissa attribut till 
 | accountEnabled |X | |
 | deviceTrustType |X |Hårdkodad värde för domänanslutna datorer. |
 | displayName |X | |
-| MS-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
+| ms-DS-CreatorSID |X |Kallas även registeredOwnerReference. |
 | objectGUID |X |Kallas även deviceID. |
 | objectSID |X |Kallas även onPremisesSecurityIdentifier. |
-| Operativsystemet |X |Kallas även deviceOSType. |
+| operatingSystem |X |Kallas även deviceOSType. |
 | operatingSystemVersion |X |Kallas även deviceOSVersion. |
 | userCertificate |X | |
 
@@ -427,14 +427,14 @@ Dessa attribut skrivs tillbaka från Azure AD till en lokal Active Directory nä
 | Attributnamn (Connect Användargränssnittet) |Attributnamn (lokala AD) | Användare | Kontakt | Grupp | Kommentar |
 | --- |:---:|:---:|:---:| --- |---|
 | msDS-ExternalDirectoryObjectID| ms-DS-External-Directory-Object-Id |X | | |Hämtad från Molnakarvärde i Azure AD. Det här attributet är ny i Exchange 2016 och Windows Server 2016 AD. |
-| msExchArchiveStatus| MS-Exch-ArchiveStatus |X | | |Online Arkiv: Gör det möjligt för kunder att arkivera e-post. |
-| msExchBlockedSendersHash| MS-Exch-BlockedSendersHash |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchSafeRecipientsHash| MS-Exch-SafeRecipientsHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchSafeSendersHash| MS-Exch-SafeSendersHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
-| msExchUCVoiceMailSettings| MS-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstbrevlåda: används av Microsoft Lync Server-integrering för att indikera att Lync Server lokalt att användaren har röstmeddelanden i online services. |
-| msExchUserHoldPolicies| MS-Exc-hUserHoldPolicies |X | | |Tvister skäl: Aktiverar cloud services för att avgöra vilka användare som är under tvister håller. |
+| msExchArchiveStatus| ms-Exch-ArchiveStatus |X | | |Online Arkiv: Ger kunder möjlighet att arkivera e-post. |
+| msExchBlockedSendersHash| ms-Exch-BlockedSendersHash |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
+| msExchSafeRecipientsHash| ms-Exch-SafeRecipientsHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
+| msExchSafeSendersHash| ms-Exch-SafeSendersHash  |X | | |Filtrering: Skriver tillbaka lokalt filtrering och online säker och blockerade avsändaren data från klienter. |
+| msExchUCVoiceMailSettings| ms-Exch-UCVoiceMailSettings |X | | |Aktivera Unified Messaging (UM) – Online röstbrevlåda: Används av Microsoft Lync Server-integrering för att indikera att Lync Server lokala att användaren har röstmeddelanden i online services. |
+| msExchUserHoldPolicies| ms-Exc-hUserHoldPolicies |X | | |Tvister skäl: Aktiverar molntjänster för att avgöra vilka användare som är under tvister håll. |
 | proxyAddresses| proxyAddresses |X |X |X |Endast x500-adress från Exchange Online har infogats. |
-| publicDelegates| MS-Exch-Public-ombud  |X | | |Gör en Exchange Online-postlåda som ska beviljas SendOnBehalfTo behörighet till användare med lokala Exchange-postlåda. Kräver Azure AD Connect version 1.1.552.0 eller efter. |
+| publicDelegates| ms-Exch-Public-Delegates  |X | | |Gör en Exchange Online-postlåda som ska beviljas SendOnBehalfTo behörighet till användare med lokala Exchange-postlåda. Kräver Azure AD Connect version 1.1.552.0 eller efter. |
 
 ## <a name="exchange-mail-public-folder"></a>Offentlig mapp för Exchange-e-post
 Dessa attribut synkroniseras från den lokala Active Directory till Azure AD när du väljer för att aktivera **offentlig mapp för Exchange-e-post**.
@@ -455,7 +455,7 @@ Enhetsobjekt skapas i Active Directory. De här objekten kan vara enheter som ä
 | --- |:---:| --- |
 | altSecurityIdentities |X | |
 | displayName |X | |
-| unikt namn |X | |
+| dn |X | |
 | msDS-CloudAnchor |X | |
 | msDS-DeviceID |X | |
 | msDS-DeviceObjectVersion |X | |

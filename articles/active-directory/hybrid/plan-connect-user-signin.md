@@ -4,7 +4,7 @@ description: Azure AD Connect användarinloggning för anpassade inställningar.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 57f1879e79dfdfe8eff421deb466b3098f5a5c60
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463464"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-inloggning användaralternativ
 Azure Active Directory (Azure AD) Connect kan användarna att logga in på både i molnet och lokala resurser med hjälp av samma lösenord. Den här artikeln beskriver viktiga begrepp för varje identitet modell för att välja den identitet som du vill använda för att logga in till Azure AD.

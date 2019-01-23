@@ -5,7 +5,7 @@ services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
@@ -17,14 +17,14 @@ ms.workload: identity
 ms.date: 06/13/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 68c2178440264aa6a6efce074b299f4e3deaa10f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 20beff7accbc987842141fa7ece9c17f11b0032e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415397"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448818"
 ---
-# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Så här: Kräver godkända klientappar för åtkomst till molnet appen med villkorlig åtkomst 
+# <a name="how-to-require-approved-client-apps-for-cloud-app-access-with-conditional-access"></a>Hur: Kräv godkända klientappar för cloud app-åtkomst med villkorlig åtkomst 
 
 Dina anställda använder mobila enheter för både personliga och arbetsrelaterade uppgifter. Att se till att dina anställda kan vara produktiva, vill du också förhindra förlust av data. Med villkorlig åtkomst för Azure Active Directory (AD Azure), kan du begränsa åtkomsten till dina appar i molnet på godkända klientappar som kan skydda företagets data.  
 
@@ -108,13 +108,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online**.
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online**.
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**:
+4. **Villkor:** Som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**:
 
     a. Som **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -137,14 +137,14 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online**.
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online**.
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
 
     a. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -188,14 +188,14 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/02.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**:
+4. **Villkor:** Som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**:
 
     a. Som **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -220,13 +220,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online**. Online 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online**. Online 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**:
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar**:
 
     a. Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -273,13 +273,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
 
      ![Villkorlig åtkomst](./media/app-based-conditional-access/02.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**. 
  
     a. Som **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -309,13 +309,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online**. 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online**. 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar**. 
 
     Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 
@@ -369,13 +369,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online** och **Office 365 SharePoint Online**. 
 
      ![Villkorlig åtkomst](./media/app-based-conditional-access/02.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **enhetsplattformar** och **klientappar**. 
  
     a. Som **enhetsplattformar**väljer **Android** och **iOS**.
 
@@ -405,13 +405,13 @@ För principen för villkorlig åtkomst i det här steget måste du konfigurera 
 
 1. Den **namn** av principer för villkorlig åtkomst.
 
-2. **Användare och grupper**: varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
+2. **Användare och grupper**: Varje princip för villkorlig åtkomst måste ha minst en användare eller grupp valdes.
 
-3. **Molnappar:** som molnappar, måste du välja **Office 365 Exchange Online**. 
+3. **Appar i molnet:** Som molnappar, måste du välja **Office 365 Exchange Online**. 
 
     ![Villkorlig åtkomst](./media/app-based-conditional-access/07.png)
 
-4. **Villkor:** som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
+4. **Villkor:** Som **villkor**, måste du konfigurera **klientappar (förhandsgranskning)**. 
 
     Som **klientappar (förhandsgranskning)** väljer **mobilappar och skrivbordsklienter** och **Exchange ActiveSync-klienter**.
 

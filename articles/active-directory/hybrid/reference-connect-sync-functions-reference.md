@@ -4,7 +4,7 @@ description: Referens för uttryck för deklarativ etablering i Azure AD Connect
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4f525ca0-be0e-4a2e-8da1-09b6b567ed5f
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: db427d0c171e164cb03d7280103fa85e5add4dd1
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157487"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471192"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
@@ -43,7 +43,7 @@ Typerna uttrycks med följande syntax:
 * **mvref** – multivärdes-referens
 * **NUM** – numeriskt
 * **REF** – referens
-* **str** – sträng
+* **str** – String
 * **var** – en variant (nästan) någon annan typ
 * **Annullera** – inte returnerar ett värde
 
@@ -57,14 +57,14 @@ Funktioner med vilka **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
-| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[certThumbprint](#certthumbprint) | |
+| [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
 [ CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Konvertering** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[GUIDFromString](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
 | **Datum / tid** | | | | |
-| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[formatDateTime](#formatdatetime) |[nu](#now) | |
+| [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[nu](#now) | |
 | [NumFromDate](#numfromdate) | | | | |
 | **Directory** | | | | |
 | [DNComponent](#dncomponent) |[DNComponentRev](#dncomponentrev) |[EscapeDNComponent](#escapedncomponent) | | |
@@ -76,15 +76,15 @@ Funktioner med vilka **mvbin**, **mvstr**, och **mvref** fungerar bara på flera
 | [BitAnd](#bitand) |[BitOr](#bitor) |[RandomNum](#randomnum) | | |
 | **Flera värden** | | | | |
 | [innehåller](#contains) |[Antal](#count) |[Objekt](#item) |[ItemOrNull](#itemornull) | |
-| [Anslut dig](#join) |[RemoveDuplicates](#removeduplicates) |[dela upp](#split) | | |
+| [Anslut dig](#join) |[RemoveDuplicates](#removeduplicates) |[Split](#split) | | |
 | **Programflöde** | | | | |
-| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[Växel](#switch) | |
+| [Fel](#error) |[IIF](#iif) |[Välj](#select) |[Switch](#switch) | |
 | [där](#where) |[med](#with) | | | |
 | **Text** | | | | |
 | [GUID](#guid) |[InStr](#instr) |[InStrRev](#instrrev) |[LCase](#lcase) | |
 | [Vänster](#left) |[Len](#len) |[LTrim](#ltrim) |[Mid](#mid) | |
-| [padLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Ersätt](#replace) | |
-| [ReplaceChars](#replacechars) |[Höger](#right) |[RTrim](#rtrim) |[trim](#trim) | |
+| [PadLeft](#padleft) |[PadRight](#padright) |[PCase](#pcase) |[Ersätt](#replace) | |
+| [ReplaceChars](#replacechars) |[Right](#right) |[RTrim](#rtrim) |[Trim](#trim) | |
 | [UCase](#ucase) |[Word](#word) | | | |
 
 - - -
@@ -333,7 +333,7 @@ Returnerar Oid för ämnesnamnet från ett certifikat.
 *   certificateRawData: Byte-matris representation av ett X.509-certifikat. Byte-matris kan vara binär (DER)-kodade eller Base64-kodad X.509-data.
 
 - - -
-### <a name="certthumbprint"></a>certThumbprint
+### <a name="certthumbprint"></a>CertThumbprint
 **Beskrivning:**  
 Returnerar tumavtrycket för ett certifikat.
 
@@ -431,7 +431,7 @@ Konverterar värdet för en matris av heltal till dess motsvarande strängrepres
 
 **Exempel:**  
 `ConvertToBase64("Hello world!")`  
-Returnerar ”SABlAGwAbABvACAAdwBvAHIAbABkACEA”
+Returns "SABlAGwAbABvACAAdwBvAHIAbABkACEA"
 
 - - -
 ### <a name="converttoutf8hex"></a>ConvertToUTF8Hex
@@ -446,7 +446,7 @@ Utdataformatet för den här funktionen används av Azure Active Directory som D
 
 **Exempel:**  
 `ConvertToUTF8Hex("Hello world!")`  
-Returnerar 48656C6C6F20776F726C6421
+Returns 48656C6C6F20776F726C6421
 
 - - -
 ### <a name="count"></a>Antal
@@ -501,7 +501,7 @@ Returnerar ett datum som innehåller ett datum som ett angivet tidsintervall har
 
 * intervall: Stränguttryck som är tidsintervallet som du vill lägga till. Strängen måste ha något av följande värden:
   * åååå år
-  * frågor och kvartal
+  * q Quarter
   * miljoner månad
   * y-dag på året
   * d dag
@@ -559,7 +559,7 @@ DNComponentRev returneras värdet för en angiven DN-komponent som kommer från 
 * Alternativ: DC – Ignorera alla komponenter med ”dc =”
 
 **Exempel:**  
-Om dn är ”cn = Joe, ou = Atlanta, ou = GA, ou = US, dc = contoso, dc = com” sedan  
+If dn is "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com" then  
 `DNComponentRev(CRef([dn]),3)`  
 `DNComponentRev(CRef([dn]),1,"DC")`  
 Båda att returnera oss.
@@ -628,7 +628,7 @@ Funktionen returnerar ett av en uppsättning möjliga värden baserat på ett an
 
 * villkor: ett värde eller uttryck som kan utvärderas till true eller false.
 * värdeomsant: Om villkoret utvärderas till SANT, det returnerade värdet.
-* värdeomfalskt: Om villkoret utvärderas till false, värdet som returneras.
+* valueIfFalse: Om villkoret utvärderas till false, värdet som returneras.
 
 **Exempel:**  
 `IIF([employeeType]="Intern","t-" & [alias],[alias])`  
@@ -648,7 +648,7 @@ InStr funktionen söker efter den första förekomsten av en understräng i en s
 * stringcheck: strängen som ska sökas igenom
 * stringmatch: strängen som ska hittas
 * Starta: startposition för att hitta delsträngen
-* Jämför: i vbTextCompare eller i vbBinaryCompare
+* compare: vbTextCompare or vbBinaryCompare
 
 **Anmärkning:**  
 Returnerar positionen där delsträngen hittades eller 0 om hittades inte.
@@ -673,7 +673,7 @@ Funktionen InStrRev söker efter den sista förekomsten av en understräng i en 
 * stringcheck: strängen som ska sökas igenom
 * stringmatch: strängen som ska hittas
 * Starta: startposition för att hitta delsträngen
-* Jämför: i vbTextCompare eller i vbBinaryCompare
+* compare: vbTextCompare or vbBinaryCompare
 
 **Anmärkning:**  
 Returnerar positionen där delsträngen hittades eller 0 om hittades inte.
@@ -971,7 +971,7 @@ NumFromDate-funktionen returnerar ett datum i Active Directorys datumformat.
 
 **Exempel:**  
 `NumFromDate(CDate("2012-01-01 23:00:00"))`  
-Returnerar 129699324000000000
+Returns 129699324000000000
 
 - - -
 ### <a name="padleft"></a>padLeft
@@ -1084,8 +1084,8 @@ Ersätt funktionen ersätter alla förekomster av en textsträng till en annan s
 **Anmärkning:**  
 Funktionen identifierar följande särskilda monikers:
 
-* \n – ny rad
-* \r – vagnretur
+* \n – New Line
+* \r – Carriage Return
 * \t – fliken
 
 **Exempel:**  
@@ -1172,7 +1172,7 @@ Processen för alla värden i en med flera värden attribut (eller resultatet av
 `mvattr Select(variable item, mvattr attribute, func function)`  
 `mvattr Select(variable item, exp expression, func function)`
 
-* objekt: Representerar ett element i attributet med flera värden
+* item: Representerar ett element i attributet med flera värden
 * attributet: attributet med flera värden
 * uttryck: ett uttryck som returnerar en uppsättning värden
 * villkor: alla funktioner som kan bearbeta ett objekt i attributet
@@ -1199,7 +1199,7 @@ Funktionen Split tar en sträng som avgränsas med en avgränsare och gör den t
 Returnerar en sträng som har flera värden med 2 element användbart för proxyAddress-attribut.
 
 - - -
-### <a name="stringfromguid"></a>GUIDFromString
+### <a name="stringfromguid"></a>StringFromGuid
 **Beskrivning:**  
 Funktionen GUIDFromString tar en binär GUID och konverterar den till en sträng
 
@@ -1279,7 +1279,7 @@ Returnerar en delmängd av värden från ett med flera värden attribut (eller r
 **Syntax:**  
 `mvattr Where(variable item, mvattr attribute, exp condition)`  
 `mvattr Where(variable item, exp expression, exp condition)`  
-* objekt: Representerar ett element i attributet med flera värden
+* item: Representerar ett element i attributet med flera värden
 * attributet: attributet med flera värden
 * villkor: ett uttryck som kan utvärderas till true eller false
 * uttryck: ett uttryck som returnerar en uppsättning värden
@@ -1335,5 +1335,5 @@ Returnerar ”har”
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect Sync: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

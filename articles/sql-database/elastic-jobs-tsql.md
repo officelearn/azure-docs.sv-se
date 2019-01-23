@@ -12,18 +12,18 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: eda71351b0375789d41808f9351cf000945b5f4c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606817"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449409"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
 Den här artikeln innehåller många exempelscenarier för att komma igång med elastiska jobb med T-SQL.
 
-I exemplen används den [lagrade procedurer](#job-stored-procedures) och [vyer](#job-views) tillgängliga i den [ *jobbet databasen*](elastic-jobs-overview.md#job-database).
+I exemplen används den [lagrade procedurer](#job-stored-procedures) och [vyer](#job-views) tillgängliga i den [ *jobbet databasen*](sql-database-job-automation-overview.md#job-database).
 
 Transact-SQL (T-SQL) används för att skapa, konfigurera, köra och hantera jobb. Skapa elastiska jobbagenten stöds inte i T-SQL, så måste du först skapa en *-elastisk jobbagent* med hjälp av portalen eller [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent).
 
@@ -53,7 +53,7 @@ GO
 ## <a name="create-a-target-group-servers"></a>Skapa en målgrupp (servrar)
 
 I följande exempel visas hur du kör ett jobb mot alla databaser i en server.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 
 ```sql
@@ -78,7 +78,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-a-single-database"></a>Undanta en enkel databas
 
 I följande exempel visas hur du kör ett jobb mot alla databaser i en server, förutom för databasen med namnet *MappingDB*.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -121,7 +121,7 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Skapa en målgrupp (pooler)
 
 I följande exempel visas hur du alla databaser i en eller flera elastiska pooler.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -146,7 +146,7 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Distribuera nya schemat till många databaser
 
 I följande exempel visas hur du distribuerar nya schemat till alla databaser.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 
 ```sql
@@ -195,7 +195,7 @@ Som standard söker jobbagenten för att skapa tabell för att lagra de returner
 2. Ytterligare en kolumn för internal_execution_id med datatypen uniqueidentifier.
 3. Icke-grupperat index med namnet ”IX_<TableName>_Internal_Execution_ID” i kolumnen internal_execution_id.
 
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommandon:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommandon:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -266,7 +266,7 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
 ## <a name="view-job-definitions"></a>Visa jobbdefinitioner
 
 I följande exempel visar hur du visar aktuella jobbdefinitioner.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -287,7 +287,7 @@ select * from jobs.jobsteps
 ## <a name="begin-ad-hoc-execution-of-a-job"></a>Starta ad hoc-körningen av ett jobb
 
 I följande exempel visar hur du startar ett jobb omedelbart.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -310,7 +310,7 @@ exec jobs.sp_start_job 'CreateTableTest', 1
 ## <a name="schedule-execution-of-a-job"></a>Schemalägga körningen av ett jobb
 
 I följande exempel visas hur du schemalägger ett jobb för framtida körning.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -325,7 +325,7 @@ EXEC jobs.sp_update_job
 ## <a name="monitor-job-execution-status"></a>Övervaka status för körning av jobb
 
 I följande exempel visar hur du visar information om körningen statusen för alla jobb.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -354,7 +354,7 @@ ORDER BY start_time DESC
 ## <a name="cancel-a-job"></a>Avbryta ett jobb
 
 I följande exempel visar hur du avbryter ett jobb.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -373,7 +373,7 @@ EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
 ## <a name="delete-old-job-history"></a>Ta bort gamla jobbhistorik
 
 I följande exempel visas hur du tar bort jobbhistoriken före ett visst datum.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -387,7 +387,7 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Ta bort ett jobb och alla dess jobbhistorik
 
 I följande exempel visas hur du tar bort ett jobb och alla relaterade jobbets historik.  
-Ansluta till den [ *jobbet databasen* ](elastic-jobs-overview.md#job-database) och kör följande kommando:
+Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -402,7 +402,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 
 ## <a name="job-stored-procedures"></a>Jobbet lagrade procedurer
 
-Följande lagrade procedurer finns i den [jobb databasen](elastic-jobs-overview.md#job-database).
+Följande lagrade procedurer finns i den [jobb databasen](sql-database-job-automation-overview.md#job-database).
 
 
 
@@ -474,7 +474,7 @@ Datum i vilket projekt körning kan börja. schedule_start_time är DATETIME2, m
 [  **@schedule_end_time =** ] schedule_end_time  
 Datum i vilket projekt körning kan stoppa. schedule_end_time är DATETIME2, med standardinställningen 9999-12-31 11:59:59.0000000. 
 
-[  **@job_id =** ] job_id utdata  
+[ **@job_id =** ] job_id OUTPUT  
 Jobbet ID-nummer för jobbet om har skapats. job_id är en utdata-variabel av typen uniqueidentifier.
 
 #### <a name="return-code-values"></a>Returkod för värden
@@ -514,7 +514,7 @@ Uppdaterar ett befintligt jobb.
 Namnet på jobbet som ska uppdateras. job_name är nvarchar(128).
 
 [  **@new_name =** ] 'nytt_namn'  
-Det nya namnet på jobbet. nytt_namn är nvarchar(128).
+Det nya namnet på jobbet. new_name is nvarchar(128).
 
 [  **@description =** ] ”beskrivning”  
 Beskrivning av jobbet. Beskrivningen är nvarchar(512).
@@ -636,7 +636,7 @@ Typ av kommandot som körs av den här jobstep. command_type är nvarchar(50) me
 
 Om anges måste värdet vara TSql.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 Typ av plats för lagringen av kommandot. command_source är nvarchar(50) med ett standardvärde för intern, vilket innebär att värdet för den @command_source parametern är literal texten för kommandot.
 
 Om anges måste värdet vara infogad.
@@ -648,7 +648,7 @@ Kommandot måste vara giltig T-SQL-skript och körs sedan av det här jobbsteget
 Namnet på databasen-omfattande autentisering i det här jobbet kontrolldatabas som används för att ansluta till alla måldatabaserna i målgruppen när det här steget körs. credential_name är nvarchar(128).
 
 [  **@target_group_name =** ] ”mål-gruppnamn.  
-Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name är nvarchar(128).
+Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name is nvarchar(128).
 
 [  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 Fördröjning innan det första återförsöket försöker om jobbsteget misslyckas vid första körningen försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
@@ -670,29 +670,29 @@ Om inte värdet null, vilken typ av destination kommandots första resultatupps�
 
 Om anges måste värdet vara SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[ **@output_credential_name =** ] 'output_credential_name'  
 Om inte värdet null, namnet på databasen-omfattande autentisering som används för att ansluta till måldatabasen utdata. Du måste ange om output_type är lika med SqlDatabase. output_credential_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@output_subscription_id =** ] 'output_subscription_id'  
+[ **@output_subscription_id =** ] 'output_subscription_id'  
 Måste beskrivning.
 
-[  **@output_resource_group_name =** ] 'output_resource_group_name'  
+[ **@output_resource_group_name =** ] 'output_resource_group_name'  
 Måste beskrivning.
 
-[  **@output_server_name =** ] 'output_server_name'  
+[ **@output_server_name =** ] 'output_server_name'  
 Om inte null, fullständigt kvalificerade DNS-namnet på den server som innehåller utdata-måldatabasen. Du måste ange om output_type är lika med SqlDatabase. output_server_name är nvarchar(256) med standardvärdet NULL.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[ **@output_database_name =** ] 'output_database_name'  
 Om inte null, namnet på databasen innehåller som utdata måltabellen. Du måste ange om output_type är lika med SqlDatabase. output_database_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
-Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. output_schema_name är nvarchar(128).
+[ **@output_schema_name =** ] 'output_schema_name'  
+Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. output_schema_name is nvarchar(128).
 
 [  **@output_table_name =** ] 'output_table_name'  
 Om inte värdet null, namnet på den tabell som kommandots första resultatuppsättningens ska skrivas till. Om tabellen inte redan finns, kommer den att skapas baserat på schemat för att returnera resultatuppsättningen. Du måste ange om output_type är lika med SqlDatabase. output_table_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@job_version =** ] job_version utdata  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version är heltal.
+[ **@job_version =** ] job_version OUTPUT  
+Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
 
 [  **@max_parallelism =** ] max_parallelism utdata  
 Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbsteget kommer att vara begränsad till endast köras på högst som många databaser per elastisk pool. Detta gäller för varje elastisk pool som ingår direkt i målgruppen eller som finns i en server som ingår i målgruppen. max_parallelism är heltal.
@@ -755,18 +755,18 @@ ID-nummer för steget som ska ändras. Step_id eller step_name måste anges. ste
 [  **@step_name =** ] 'step_name'  
 Namnet på steget som ska ändras. Step_id eller step_name måste anges. step_name är nvarchar(128).
 
-[  **@new_id =** ] new_id  
+[ **@new_id =** ] new_id  
 Ny sekvens ID-numret för jobbsteget. Steg identifikationsnummer börjar vid 1 och öka utan luckor. Om ett steg om, sedan anpassas andra steg automatiskt.
 
 [  **@new_name =** ] 'nytt_namn'  
-Det nya namnet på steget. nytt_namn är nvarchar(128).
+Det nya namnet på steget. new_name is nvarchar(128).
 
 [  **@command_type =** ] 'command_type'  
 Typ av kommandot som körs av den här jobstep. command_type är nvarchar(50) med ett standardvärde på TSql, vilket innebär att värdet för den @command_type parameter är ett T-SQL-skript.
 
 Om anges måste värdet vara TSql.
 
-[  **@command_source =** ] 'command_source'  
+[ **@command_source =** ] 'command_source'  
 Typ av plats för lagringen av kommandot. command_source är nvarchar(50) med ett standardvärde för intern, vilket innebär att värdet för den @command_source parametern är literal texten för kommandot.
 
 Om anges måste värdet vara infogad.
@@ -778,7 +778,7 @@ I kommandot måste vara giltig T-SQL-skript och körs sedan av det här jobbsteg
 Namnet på databasen-omfattande autentisering i det här jobbet kontrolldatabas som används för att ansluta till alla måldatabaserna i målgruppen när det här steget körs. credential_name är nvarchar(128).
 
 [  **@target_group_name =** ] ”mål-gruppnamn.  
-Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name är nvarchar(128).
+Namnet på den målgrupp som innehåller måldatabaserna som jobbsteget körs på. target_group_name is nvarchar(128).
 
 [  **@initial_retry_interval_seconds =** ] initial_retry_interval_seconds  
 Fördröjning innan det första återförsöket försöker om jobbsteget misslyckas vid första körningen försöket. initial_retry_interval_seconds är int, med standardvärdet 1.
@@ -800,23 +800,23 @@ Om inte värdet null, vilken typ av destination kommandots första resultatupps�
 
 Om anges måste värdet vara SqlDatabase.
 
-[  **@output_credential_name =** ] 'output_credential_name'  
+[ **@output_credential_name =** ] 'output_credential_name'  
 Om inte värdet null, namnet på databasen-omfattande autentisering som används för att ansluta till måldatabasen utdata. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_credential_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_credential_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@output_server_name =** ] 'output_server_name'  
+[ **@output_server_name =** ] 'output_server_name'  
 Om inte null, fullständigt kvalificerade DNS-namnet på den server som innehåller utdata-måldatabasen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_server_name är nvarchar(256) med standardvärdet NULL.
 
-[  **@output_database_name =** ] 'output_database_name'  
+[ **@output_database_name =** ] 'output_database_name'  
 Om inte null, namnet på databasen innehåller som utdata måltabellen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_database_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_database_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@output_schema_name =** ] 'output_schema_name'  
-Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. Om du vill återställa värdet för output_schema_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_schema_name är nvarchar(128).
+[ **@output_schema_name =** ] 'output_schema_name'  
+Om inte null, namnet på SQL-schemat innehåller som utdata måltabellen. Om output_type är lika med SqlDatabase, är standardvärdet dbo. Om du vill återställa värdet för output_schema_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_schema_name is nvarchar(128).
 
 [  **@output_table_name =** ] 'output_table_name'  
 Om inte värdet null, namnet på den tabell som kommandots första resultatuppsättningens ska skrivas till. Om tabellen inte redan finns, kommer den att skapas baserat på schemat för att returnera resultatuppsättningen. Du måste ange om output_type är lika med SqlDatabase. Om du vill återställa värdet för output_server_name till NULL, värdet för den här parametern anges till ”(tom sträng). output_table_name är nvarchar(128) med standardvärdet NULL.
 
-[  **@job_version =** ] job_version utdata  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version är heltal.
+[ **@job_version =** ] job_version OUTPUT  
+Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
 
 [  **@max_parallelism =** ] max_parallelism utdata  
 Den maximala nivån för parallellitet per elastisk pool. Om anges kommer jobbsteget kommer att vara begränsad till endast köras på högst som många databaser per elastisk pool. Detta gäller för varje elastisk pool som ingår direkt i målgruppen eller som finns i en server som ingår i målgruppen. Om du vill återställa värdet för max_parallelism till null, anger du värdet för den här parametern till-1. max_parallelism är heltal.
@@ -862,8 +862,8 @@ ID-nummer för steget som ska tas bort. Step_id eller step_name måste anges. st
 [  **@step_name =** ] 'step_name'  
 Namnet på steget som ska tas bort. Step_id eller step_name måste anges. step_name är nvarchar(128).
 
-[  **@job_version =** ] job_version utdata  
-Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version är heltal.
+[ **@job_version =** ] job_version OUTPUT  
+Output-parameter som ska tilldelas det nya versionsnumret för jobbet. job_version is int.
 
 #### <a name="return-code-values"></a>Returkod för värden
 0 (lyckades) eller 1 (misslyckades)
@@ -1160,7 +1160,7 @@ Tar bort historikposter för ett jobb.
 [  **@job_name =** ] 'job_name'  
 Namnet på jobbet som du vill ta bort historikposter. job_name är nvarchar(128) med standardvärdet NULL. Du måste ange job_id eller job_name, men båda kan inte anges.
 
-[  **@job_id =** ] job_id  
+[ **@job_id =** ] job_id  
  Det ID-nummer för jobbet för jobbet för poster som ska tas bort. job_id är uniqueidentifier med standardvärdet NULL. Du måste ange job_id eller job_name, men båda kan inte anges.
 
 [  **@oldest_date =** ] oldest_date  
@@ -1190,7 +1190,7 @@ GO
 
 ## <a name="job-views"></a>Jobbet vyer
 
-Följande vyer som är tillgängliga i den [jobb databasen](elastic-jobs-overview.md#job-database).
+Följande vyer som är tillgängliga i den [jobb databasen](sql-database-job-automation-overview.md#job-database).
 
 
 |Visa  |Beskrivning  |
@@ -1206,7 +1206,7 @@ Följande vyer som är tillgängliga i den [jobb databasen](elastic-jobs-overvie
 
 ### <a name="jobsexecutions-view"></a>Visa jobs_executions
 
-[jobb]. [jobs_executions]
+[jobs].[jobs_executions]
 
 Visar jobbhistorik körning.
 
@@ -1221,7 +1221,7 @@ Visar jobbhistorik körning.
 |**is_active**| bitars |Anger om informationen är aktiv eller inaktiv. 1 anger aktiva jobb och 0 indikerar inaktiva.
 |**livscykel**| nvarchar(50)|Värde som anger status för jobbet: ”skapa”, ”pågår”, ”misslyckad”, ”lyckades”, ”överhoppade', 'SucceededWithSkipped'|
 |**create_time**|   datetime2(7)|   Datum och tid då jobbet skapades.
-|**Starttid** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL om jobbet inte har körts ännu.
+|**start_time** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL om jobbet inte har körts ännu.
 |**end_time**|  datetime2(7)    |Datum och tid som jobbet slutförts körning. NULL om jobbet inte har ännu körts eller har inte slutförts ännu körning.
 |**current_attempts**   |int    |Antal gånger som steget återförsöktes. Överordnade jobb ska vara 0, underordnade jobbkörningar ska vara 1 eller större baserat på körningsprincipen.
 |**current_attempt_start_time** |datetime2(7)|  Datum och tid som jobbet startade körningen. NULL anger det här är den överordnade jobbkörningen.
@@ -1251,9 +1251,9 @@ Visar alla jobb.
 |**schedule_end_time**| datetime2(7)|   Datum och tid som jobbet har senaste har slutförts.|
 
 
-### <a name="jobversions-view"></a>Visa job_versions
+### <a name="jobversions-view"></a>job_versions view
 
-[jobb]. [job_verions]
+[jobs].[job_verions]
 
 Visar alla jobbversioner.
 
@@ -1301,13 +1301,13 @@ Visar alla steg i den aktuella versionen av varje jobb.
 
 ### <a name="jobstepversions-view"></a>Visa jobstep_versions
 
-[jobb]. [jobstep_versions]
+[jobs].[jobstep_versions]
 
 Visar alla steg i alla versioner av varje jobb. Schemat är identiska med [jobbsteg](#jobsteps-view).
 
 ### <a name="targetgroups-view"></a>Visa target_groups
 
-[jobb]. [target_groups]
+[jobs].[target_groups]
 
 Visar en lista över alla målgrupper.
 
@@ -1318,7 +1318,7 @@ Visar en lista över alla målgrupper.
 
 ### <a name="targetgroupsmembers-view"></a>Visa target_groups_members
 
-[jobb]. [target_groups_members]
+[jobs].[target_groups_members]
 
 Visar alla medlemmar i alla målgrupper.
 
@@ -1332,7 +1332,7 @@ Visar alla medlemmar i alla målgrupper.
 |**refresh_credential_name**    |nvarchar(128)  |Namnet på databasen-omfattande autentisering som används för att ansluta till gruppmedlem mål.|
 |**subscription_id**    |uniqueidentifier|  Unikt ID för prenumerationen.|
 |**resource_group_name**    |nvarchar(128)| Namnet på resursgruppen där gruppmedlem target finns.|
-|**servernamn**    |nvarchar(128)  |Namnet på den logiska servern i målgruppen. Bara anges om target_type är ”SqlServer'. |
+|**server_name**    |nvarchar(128)  |Namnet på den logiska servern i målgruppen. Bara anges om target_type är ”SqlServer'. |
 |**databasnamn**  |nvarchar(128)  |Namnet på databasen i målgruppen. Ange bara när target_type är ”SqlDatabase”.|
 |**elastic_pool_name**  |nvarchar(128)| Namnet på den elastiska poolen i målgruppen. Ange bara när target_type är 'SqlElasticPool'.|
 |**shard_map_name** |nvarchar(128)| Namnet på fragmentkartan i målgruppen. Ange bara när target_type är 'SqlShardMap'.|

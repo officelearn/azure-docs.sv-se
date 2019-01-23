@@ -4,7 +4,7 @@ description: Åtgärda problem som kan uppstå när det finns ingen fungerande a
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: baaf7bbb83ff600045e95cd16206fbfff9fce1c5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6e4f481ccefd8f583c197fc367419a4e6aaf8a5d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357733"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464450"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>Ingen fungerande anslutningsgrupp hittades för ett Application Proxy-program
 

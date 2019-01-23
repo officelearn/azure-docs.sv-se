@@ -2,21 +2,21 @@
 title: Azure Event Grid resource group Händelseschema
 description: Beskriver de egenskaper som har angetts för resursen gruppera händelser med Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 10/12/2018
-ms.author: tomfitz
-ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.date: 01/12/2019
+ms.author: spelluru
+ms.openlocfilehash: 2b570fdb42c29c6ad68add32be660ef57f1eec1f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310580"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468309"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Azure Event Grid-Händelseschema för resursgrupper
 
-Den här artikeln innehåller egenskaperna och schemat för resursen gruppera händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för resursen gruppera händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 Generera samma händelsetyper Azure-prenumerationer och resursgrupper. Händelsetyperna som är relaterade till resursändringar eller åtgärder. Den viktigaste skillnaden är att resursgrupper skickar händelser för resurserna i resursgruppen och Azure-prenumerationer Generera händelser för resurser i prenumerationen.
 
@@ -237,7 +237,7 @@ En händelse har följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är inte skrivbar. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |
@@ -253,12 +253,12 @@ Dataobjektet har följande egenskaper:
 | anspråk | objekt | Egenskaper för anspråken. Mer information finns i [JWT-specifikationen](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | sträng | En Operations-ID för felsökning. |
 | httpRequest | objekt | Information om åtgärden. Det här objektet är endast ingår när du uppdaterar en befintlig resurs eller ta bort en resurs. |
-| ResourceProvider | sträng | Resource provider för åtgärden. |
+| resourceProvider | sträng | Resource provider för åtgärden. |
 | resourceUri | sträng | URI för resursen i åtgärden. |
 | operationName | sträng | Åtgärden som utfördes. |
 | status | sträng | Status för åtgärden. |
 | subscriptionId | sträng | Prenumerations-ID för resursen. |
-| TenantId | sträng | Klient-ID för resursen. |
+| tenantId | sträng | Klient-ID för resursen. |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,40 +1,40 @@
 ---
-title: Azure händelse rutnätet SDK
-description: 'Beskriver SDK: erna för Azure händelse rutnätet. Dessa SDK: er ger hantering, publicering och användning.'
+title: 'Azure Event Grid-SDK: er'
+description: 'Beskriver de SDK: erna för Azure Event Grid. Dessa SDK: er ger-, publicering och användning.'
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 06/29/2018
-ms.author: tomfitz
-ms.openlocfilehash: 3c085074863aa166a5766116b6c63b7dc341ad96
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 53a1f50647e05b71afe6accb85f8a90cd8b7e253
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130843"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470417"
 ---
-# <a name="event-grid-sdks-for-management-and-publishing"></a>Händelsen rutnätet SDK-verktyg för hantering och publicering
+# <a name="event-grid-sdks-for-management-and-publishing"></a>Event Grid-SDK: er för hantering och publicering
 
-Händelsen rutnätet innehåller SDK-verktyg som hjälper dig att hantera resurser och publicera händelser programmässigt.
+Event Grid tillhandahåller SDK: er som hjälper dig att hantera dina resurser och publicerar händelser programmässigt.
 
-## <a name="management-sdks"></a>Management-SDK
+## <a name="management-sdks"></a>Hantering av SDK: er
 
-Management SDK kan du skapa, uppdatera och ta bort händelsen rutnätet ämnen och prenumerationer. Finns för närvarande följande SDK:
+Management SDK: er kan du skapa, uppdatera och ta bort event grid-ämnen och prenumerationer. För närvarande finns följande SDK: erna:
 
-* [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
+* [NET](https://www.nuget.org/packages/Microsoft.Azure.Management.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://search.maven.org/#search%7Cga%7C1%7Cazure-mgmt-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-arm-eventgrid)
 * [Python](https://pypi.python.org/pypi/azure-mgmt-eventgrid)
 * [Ruby](https://rubygems.org/gems/azure_mgmt_event_grid)
 
-## <a name="data-plane-sdks"></a>Data plan SDK
+## <a name="data-plane-sdks"></a>SDK: er för data-plan
 
-Dataplan SDK kan du skicka händelser till avsnitt som tar hand om autentisering, som utgör händelsen och skicka asynkront till den angivna slutpunkten. De kan du också använda den första part händelser. Finns för närvarande följande SDK:
+Dataplanet med hjälp av SDK: er kan du skicka händelser till avsnitt genom att ta hand om autentisering, som utgör händelsen och asynkront skicka information till den angivna slutpunkten. De kan du också använda den första part händelser. För närvarande finns följande SDK: erna:
 
-* [.NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
+* [NET](https://www.nuget.org/packages/Microsoft.Azure.EventGrid)
 * [Go](https://github.com/Azure/azure-sdk-for-go)
 * [Java](https://mvnrepository.com/artifact/com.microsoft.azure/azure-eventgrid)
 * [Node](https://www.npmjs.com/package/azure-eventgrid)
@@ -43,7 +43,7 @@ Dataplan SDK kan du skicka händelser till avsnitt som tar hand om autentisering
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Till exempel program, se [händelse rutnätet kodexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
-* En introduktion till händelse rutnätet finns [vad är händelsen rutnätet?](overview.md)
-* Händelsen rutnätet kommandon i Azure CLI, se [Azure CLI](/cli/azure/eventgrid).
-* Händelsen rutnätet kommandon i PowerShell, se [PowerShell](/powershell/module/azurerm.eventgrid).
+* Till exempel program finns i [Event Grid-kodexempel](https://azure.microsoft.com/resources/samples/?sort=0&service=event-grid).
+* En introduktion till Event Grid finns i [vad är Event Grid?](overview.md)
+* Event Grid-kommandon i Azure CLI finns i [Azure CLI](/cli/azure/eventgrid).
+* Event Grid-kommandon i PowerShell finns i [PowerShell](/powershell/module/azurerm.eventgrid).

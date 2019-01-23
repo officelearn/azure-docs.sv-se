@@ -4,7 +4,7 @@ description: Den här artikeln visar en lista över alla versioner av Azure AD C
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 780a4c5cd590b4fa1b4dd5b29fab738cb9a8bb6a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: e5d98b1d10051fee6ee5299fcdd8376434109603
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608451"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469771"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -240,7 +240,7 @@ Status 3/22/2018: Publicerat för automatiska uppgraderingar och nedladdning.
 >När uppgraderingen till den nya versionen utlöses automatiskt en fullständig synkronisering och fullständig import för Azure AD-anslutningsappen och en fullständig synkronisering för AD-koppling. Kontrollera att du har vidtagit nödvändiga åtgärder för att stödja detta eller håll om hur du uppgraderar förrän du har hittat en lämplig tidpunkt att göra det eftersom det kan ta en stund, beroende på storleken på din Azure AD Connect-miljö.
 
 >[!NOTE]
->”AutoUpgrade funktioner har felaktigt inaktiverats för vissa klienter som distribueras versioner senare än 1.1.524.0. För att säkerställa att din Azure AD Connect-instans är fortfarande berättigade till AutoUpgrade, kör du följande PowerShell-cmdlet: ”Set-ADSyncAutoUpgrade - AutoupGradeState aktiverat”
+>”AutoUpgrade funktioner har felaktigt inaktiverats för vissa klienter som distribueras versioner senare än 1.1.524.0. För att säkerställa att din Azure AD Connect-instans är fortfarande berättigade till AutoUpgrade, kör du följande PowerShell-cmdlet: “Set-ADSyncAutoUpgrade -AutoupGradeState Enabled”
 
 
 ### <a name="azure-ad-connect"></a>Azure AD Connect
@@ -673,7 +673,7 @@ CBool(
     |CertSubject|CertIssuer|CertKeyAlgorithm|
     |CertSubjectNameDN|CertIssuerOid|CertNameInfo|
     |CertSubjectNameOid|CertIssuerDN|IsCert|
-    |CertFriendlyName|certThumbprint|CertExtensionOids|
+    |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Välj|
@@ -690,8 +690,8 @@ CBool(
 
   * Följande attribut har lagts till Azure AD Connector schemat:
     * Grupp: OnPremisesSamAccountName
-    * Grupp: NetBIOS-namn
-    * Grupp: DNS-domännamn
+    * Grupp: NetBiosName
+    * Grupp: DnsDomainName
     * Användare: OnPremisesDistinguishedName
 
 * Skriptet ADSyncDomainJoinedComputerSync cmdleten har nu en ny valfri parameter med namnet AzureEnvironment. Parametern används för att ange vilken region som den motsvarande Azure Active Directory-klienten finns i. Giltiga värden är:

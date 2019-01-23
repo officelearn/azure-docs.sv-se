@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 6df8d9a5c1ca1e587834ea08f73b3dd9498f8537
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: cafb48f28e38794ce0757d50a5d87432b237e17c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753157"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54467171"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexera JSON-blobar med Azure Search Blob-indexeraren
 Den här artikeln visar hur du konfigurerar ett Azure Search blob-indexeraren för att extrahera strukturerat innehåll från JSON-blobar i Azure Blob storage.
@@ -23,6 +23,9 @@ Den här artikeln visar hur du konfigurerar ett Azure Search blob-indexeraren f�
 Du kan använda den [portal](#json-indexer-portal), [REST API: er](#json-indexer-rest), eller [.NET SDK](#json-indexer-dotnet) att indexera JSON-innehåll. Gemensamma för alla metoder är JSON-dokument som finns i en blobbehållare i Azure Storage-kontot. Anvisningar för push-överför JSON-dokument från andra icke-Azure-plattformar finns i [dataimport i Azure Search](search-what-is-data-import.md).
 
 JSON-blobar i Azure Blob storage är vanligtvis antingen ett enda JSON-dokument eller en JSON-matris. Blob-indexeraren i Azure Search kan parsa antingen konstruktion, beroende på hur du ställer in den **parsingMode** parametern på begäran.
+
+> [!IMPORTANT]
+> Indexera JSON-blob är allmänt tillgänglig, men JsonArray parsning finns i offentlig förhandsversion och ska inte användas i produktionsmiljöer. Mer information finns i [REST api-version = 2017-11-11-Preview](search-api-2017-11-11-preview.md). 
 
 <a name="json-indexer-portal"></a>
 
@@ -293,10 +296,10 @@ I följande exempel är en fullständigt angivna indexeraren nyttolast, inklusiv
 
 .NET SDK har fullständigt paritet med REST API. Vi rekommenderar att du läser avsnittet ovan REST API för att lära dig begrepp, arbetsflöde och krav. Du kan referera till följande .NET API-referensdokumentation att implementera en JSON-indexerare i förvaltad kod.
 
-+ [Microsoft.Azure.Search.models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.Azure.Search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.Azure.Search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 ## <a name="see-also"></a>Se också
 

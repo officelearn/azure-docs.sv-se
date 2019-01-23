@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9140739e1c9610cb4cbefb611546fe9588512d06
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050599"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464229"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Fjärråtkomst övervakning arkitektoniska val
 
@@ -45,7 +45,7 @@ Det här avsnittet beskriver de tekniska alternativen som görs i lösningen fö
 
 ![Core-Diagram](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
-### <a name="cloud-gateway"></a>Molngatewayen
+### <a name="cloud-gateway"></a>Cloud Gateway
 
 Azure IoT Hub används som molgatewayen fjärrövervakning lösning. [IoT Hub](https://azure.microsoft.com/services/iot-hub/) erbjuder säker, dubbelriktad kommunikation med enheter.
 
@@ -61,7 +61,7 @@ För bearbetning av dataströmmen använder av lösningen för fjärrövervaknin
 
 ### <a name="storage"></a>Storage
 
-För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som skickas via IoT Hub från dina anslutna enheter. Solution accelerator använder Azure Cosmos DB för alla andra lagringsenheter, till exempel kall lagring, definitioner av regler, larm och konfigurationsinställningar.
+För lagring använder lösningsacceleratorn för fjärrövervakning både Azure Time Series Insights och Azure Cosmos DB. Azure Time Series Insights lagrar meddelanden som skickas via IoT Hub från dina anslutna enheter. Solution accelerator använder Azure Cosmos DB för alla andra lagringsenheter, till exempel kall lagring, definitioner av regler, aviseringar och konfigurationsinställningar.
 
 Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-program. Lösningar som Azure Time Series Insights och Azure Data Lake är lämpliga för många användningsfall. Med Azure Time Series Insights kan du få djupare insikter om dina time series-sensordata genom att identifiera trender och avvikelser. Den här funktionen kan du utföra rotorsaksanalyser och undvika kostsamma avbrott.
 
@@ -70,7 +70,7 @@ Azure Cosmos DB är den rekommendera Allmänt varma storage-lösningen för IoT-
 
 ### <a name="business-integration"></a>Business-integrering
 
-Business-integrering i lösningen för fjärrövervakning är begränsad till generering av larm som är placerade i varma lagring. Anslut lösningen med Azure Logic Apps och implementerar djupare integrering företagsscenarier.
+Business-integrering i lösningen för fjärrövervakning är begränsad till generering av aviseringar som är placerade i varma lagring. Anslut lösningen med Azure Logic Apps och implementerar djupare integrering företagsscenarier.
 
 ### <a name="user-interface"></a>Användargränssnitt
 

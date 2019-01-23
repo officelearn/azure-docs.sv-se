@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 73bd86591f2d8604e0eb9553f99c311b6d421603
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9e13b8872fab89bef6ec952fe2ee0b901a25092e
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424060"
+ms.locfileid: "54452555"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Skapa en flexibel hanteringsstrategi för åtkomstkontroll med Azure Active Directory
 
@@ -199,7 +199,7 @@ Ordningen för aktivering:
 
 1. Undanta SalesAdmins och SalesforceContingency från den befintliga policyn för efterlevnad för Salesforce. Kontrollera att en användare i gruppen SalesforceContingency har åtkomst till Salesforce.
 2. Aktivera principen 1: Kontrollera användare utanför SalesContingency har inte åtkomst till Salesforce. Verifiera användare i SalesAdmins och SalesforceContingency har åtkomst till Salesforce.
-3. Aktivera princip för 2: Verifiera användare i gruppen SalesContigency kan komma åt Salesforce från sina bärbara Windows/Mac-datorer men kan fortfarande komma åt från sina mobila enheter. Kontrollera SalesAdmin har fortfarande åtkomst till Salesforce från valfri enhet.
+3. Aktivera princip för 2: Verifiera användare i gruppen SalesContingency kan komma åt Salesforce från sina bärbara Windows/Mac-datorer men kan fortfarande komma åt från sina mobila enheter. Kontrollera SalesAdmin har fortfarande åtkomst till Salesforce från valfri enhet.
 4. Inaktivera den befintliga policyn för efterlevnad för Salesforce.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>Distribuera lösenordshashsynkronisering även om de är externa eller användning av direktautentisering

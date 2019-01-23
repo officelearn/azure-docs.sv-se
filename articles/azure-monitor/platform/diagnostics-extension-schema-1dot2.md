@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 69caec10c1be067cf9e8fc7ad83c8daeaced2bda
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470570"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema för Azure Diagnostics 1.2-konfiguration
 > [!NOTE]
@@ -125,7 +125,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 |**crashDumpType**|Konfigurerar Azure-diagnostik för att samla in Dumpar mini eller fullständig krasch.|  
 |**directoryQuotaPercentage**|Konfigurerar procentandelen **overallQuotaInMB** som ska reserveras för kraschdumpar på den virtuella datorn.|  
 
-## <a name="directories-element"></a>Kataloger Element  
+## <a name="directories-element"></a>Directories Element  
  Aktiverar insamlingen av innehållet i en katalog, IIS misslyckades åtkomstloggar för begäran och/eller IIS-loggar. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
@@ -134,7 +134,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 |**FailedRequestLogs**|Inkludera det här elementet i konfigurationen kan loggsamlingar om misslyckade förfrågningar till ett IIS-webbplats eller ett program. Du måste även aktivera spårningsalternativ under **system. Webbserver** i **Web.config**.|  
 |**IISLogs**|Inkludera det här elementet i konfigurationen aktiverar insamlingen av IIS-loggar:<br /><br /> **containerName** -namnet på blobbehållaren i ditt Azure Storage-konto som används för att lagra IIS-loggar.|  
 
-## <a name="datasources-element"></a>Datakällor Element  
+## <a name="datasources-element"></a>DataSources Element  
  En lista över kataloger som ska övervaka. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
@@ -173,7 +173,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 |**DefaultEvents**|Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
 |**Händelse**|Obligatoriskt attribut:<br /><br /> **ID** -id för händelsen.<br /><br /> Valfritt attribut:<br /><br /> **eventDestination** -namnet på tabellen för att lagra händelser i|  
 
-## <a name="metrics-element"></a>Mått-Element  
+## <a name="metrics-element"></a>Metrics Element  
  Kan du skapa en tabell med prestandaräknaren som är optimerad för snabba frågor. I följande tabell beskrivs underordnade element:  
 
 |Elementnamn|Beskrivning|  
@@ -192,7 +192,7 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
-|**Anteckning**|Obligatoriskt attribut:<br /><br /> **displayName** – visningsnamnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **nationella inställningar** -språket som används vid visning av räknarnamnet|  
+|**annotation**|Obligatoriskt attribut:<br /><br /> **displayName** – visningsnamnet för räknaren<br /><br /> Valfritt attribut:<br /><br /> **nationella inställningar** -språket som används vid visning av räknarnamnet|  
 
 ## <a name="windowseventlog-element"></a>WindowsEventLog Element  
  I följande tabell beskrivs underordnade element:  
@@ -200,3 +200,4 @@ Definierar konfigurationsinställningar för dessa data som ska samlas in. I fö
 |Elementnamn|Beskrivning|  
 |------------------|-----------------|  
 |**DataSource**|Windows-händelseloggar att samla in. Obligatoriskt attribut:<br /><br /> **namn på** – XPath-frågan som beskriver windows-händelser som ska samlas in. Exempel:<br /><br /> `Application!*[System[(Level >= 3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level >= 3]]`<br /><br /> Om du vill samla in alla händelser, ange ”*”.|
+

@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 236b7543772f9e6df9c7ba7f1a9365153593a929
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005758"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473188"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse – massivt parallell bearbetning (MPP)-arkitektur
 Lär dig hur Azure SQL Data Warehouse kombinerar massivt parallell bearbetning (MPP) med Azure storage att uppnå höga prestanda och skalbarhet. 
@@ -51,7 +51,7 @@ Control-noden är hjärnan för datalagret. Det är den som är klientdelen som 
 
 Compute-noderna ger dataresurser. Distributioner som mappar till Compute-noder för bearbetning. Du behöver betala för mer beräkningsresurser mappar SQL Data Warehouse igen distributioner till tillgängliga beräkningsnoderna. Antalet compute-noderna sträcker sig från 1 till 60 och bestäms av servicenivå för datalagret.
 
-Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se Compute-nod-ID genom att söka efter node_id-kolumnen i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP systemvyer](sql-data-warehouse-reference-tsql-statements.md).
+Varje beräkningsnod har ett nod-ID som visas i systemvyer. Du kan se Compute-nod-ID genom att söka efter node_id-kolumnen i systemvyer vars namn börjar med sys.pdw_nodes. En lista över dessa systemvyer finns i [MPP systemvyer](http://docs.microsoft.com/sql/relational-databases/system-catalog-views/sql-data-warehouse-and-parallel-data-warehouse-catalog-views?view=aps-pdw-2016-au7).
 
 ### <a name="data-movement-service"></a>Data Movement Service
 Data Movement Service (DMS) är data transport-teknik som samordnar flyttar data mellan beräkningsnoderna. Vissa frågor kräver dataförflyttning se till de parallella frågorna returnerar korrekta resultat. När dataförflyttning krävs säkerställer DMS rätt data kommer till rätt plats. 

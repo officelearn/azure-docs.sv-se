@@ -3,8 +3,8 @@ title: Hur du använder Notification Hubs med Java
 description: Lär dig hur du använder Azure Notification Hubs från en Java-serverdel.
 services: notification-hubs
 documentationcenter: ''
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
@@ -12,16 +12,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 3251e2ecc9171081c5128dd0782eecdf83064114
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: 68c87b0fd892d5972e8c6b225c7c7bce3b3704db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312263"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449970"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Hur du använder Notification Hubs från Java
+
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Det här avsnittet beskriver de viktigaste funktionerna i den nya stöds fullt ut officiella Azure Notification Hub Java SDK.
@@ -41,7 +42,9 @@ SDK stöder för närvarande:
 * Plattformar som stöds: APNS (iOS), GCM (Android), WNS (Windows Store-appar), MPNS (Windows Phone), ADM (Amazon Kindle Fire), Baidu (Android utan Google-tjänster)
 
 ## <a name="sdk-usage"></a>SDK-användning
+
 ### <a name="compile-and-build"></a>Kompilera och bygga
+
 Använd [Maven 3.]
 
 Att skapa:
@@ -49,236 +52,326 @@ Att skapa:
     mvn package
 
 ## <a name="code"></a>Kod
+
 ### <a name="notification-hub-cruds"></a>Notification Hub CRUDs
+
 **Skapa en NamespaceManager:**
 
+    ```java
     NamespaceManager namespaceManager = new NamespaceManager("connection string")
+    ```
 
 **Skapa Meddelandehub:**
 
+    ```java
     NotificationHubDescription hub = new NotificationHubDescription("hubname");
     hub.setWindowsCredential(new WindowsCredential("sid","key"));
     hub = namespaceManager.createNotificationHub(hub);
+    ```
 
  ELLER
 
+    ```java
     hub = new NotificationHub("connection string", "hubname");
+    ```
 
 **Hämta Notification Hub:**
 
+    ```java
     hub = namespaceManager.getNotificationHub("hubname");
+    ```
 
 **Uppdatera Notification Hub:**
 
+    ```java
     hub.setMpnsCredential(new MpnsCredential("mpnscert", "mpnskey"));
     hub = namespaceManager.updateNotificationHub(hub);
+    ```
 
 **Ta bort Notification Hub:**
 
+    ```java
     namespaceManager.deleteNotificationHub("hubname");
+    ```
 
 ### <a name="registration-cruds"></a>Registrering CRUDs
+
 **Skapa en Notification Hub-klient:**
 
+    ```java
     hub = new NotificationHub("connection string", "hubname");
+    ```
 
 **Skapa Windows-registrering:**
 
+    ```java
     WindowsRegistration reg = new WindowsRegistration(new URI(CHANNELURI));
     reg.getTags().add("myTag");
     reg.getTags().add("myOtherTag");
     hub.createRegistration(reg);
+    ```
 
 **Skapa iOS-registrering:**
 
+    ```java
     AppleRegistration reg = new AppleRegistration(DEVICETOKEN);
     reg.getTags().add("myTag");
     reg.getTags().add("myOtherTag");
     hub.createRegistration(reg);
+    ```
 
 På samma sätt kan du skapa registreringar för Android (GCM), Windows Phone (MPNS) och Kindle Fire (ADM).
 
 **Skapa mallregistreringar:**
 
+    ```java
     WindowsTemplateRegistration reg = new WindowsTemplateRegistration(new URI(CHANNELURI), WNSBODYTEMPLATE);
     reg.getHeaders().put("X-WNS-Type", "wns/toast");
     hub.createRegistration(reg);
+    ```
 
-**Skapa registreringar med skapa registrerings-ID + upsert mönster**
+**Skapa registreringar med skapa registrerings-ID + upsert mönster:**
 
 Tar bort dubbletter på grund av eventuella förlorad svar om lagra registrerings-ID på enheten:
 
+    ```java
     String id = hub.createRegistrationId();
     WindowsRegistration reg = new WindowsRegistration(id, new URI(CHANNELURI));
     hub.upsertRegistration(reg);
+    ```
 
 **Uppdatera registreringar:**
 
+    ```java
     hub.updateRegistration(reg);
+    ```
 
 **Ta bort registreringar:**
 
+    ```java
     hub.deleteRegistration(regid);
+    ```
 
 **Fråga efter registreringar:**
 
 * **Få enkel registrering:**
 
-        hub.getRegistration(regid);
+    ```java
+    hub.getRegistration(regid);
+    ```
 
 * **Hämta alla registreringar i hubben:**
 
-        hub.getRegistrations();
+    ```java
+    hub.getRegistrations();
+    ```
 
 * **Hämta registreringar med tagg:**
 
-        hub.getRegistrationsByTag("myTag");
+    ```java
+    hub.getRegistrationsByTag("myTag");
+    ```
 
 * **Hämta registreringar per kanal:**
 
-        hub.getRegistrationsByChannel("devicetoken");
-
+    ```java
+    hub.getRegistrationsByChannel("devicetoken");
+    ```
 
 Alla samlingsfrågor stöder $top och fortsättning token.
 
 ### <a name="installation-api-usage"></a>Installation av API-användning
-API-installationen är en alternativ mekanism för registreringshantering av. I stället för att underhålla flera registreringar som inte är enkelt och kan enkelt utföras felaktigt eller ineffektiv, är det nu möjligt att använda en enda Installation-objektet. Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Du behöver inte anropa tjänsten för att hämta ID längre – bara generera GUID eller andra identifierare, förvara den på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken).
-Du bör endast göra ett enda anrop på serversidan: CreateOrUpdateInstallation, det är helt idempotenta, så passa på att försöka igen om det behövs.
+
+API-installationen är en alternativ mekanism för registreringshantering av. I stället för att underhålla flera registreringar som inte är enkelt och kan enkelt utföras felaktigt eller ineffektiv, är det nu möjligt att använda en enda Installation-objektet.
+
+Installationen innehåller allt du behöver: push-kanal (enhetstoken), taggar, mallar, sekundära paneler (för WNS och APN). Du behöver inte anropa tjänsten för att hämta ID längre – bara generera GUID eller andra identifierare, förvara den på enheten och skicka till din serverdel tillsammans med push-kanal (enhetstoken).
+
+På servern, bör du endast göra ett enda anrop till `CreateOrUpdateInstallation`; det helt är idempotenta, så passa på att försöka igen om det behövs.
 
 Som exempel Amazon Kindle Fire:
 
+    ```java
     Installation installation = new Installation("installation-id", NotificationPlatform.Adm, "adm-push-channel");
     hub.createOrUpdateInstallation(installation);
+    ```
 
 Om du vill uppdatera den:
 
+    ```java
     installation.addTag("foo");
     installation.addTemplate("template1", new InstallationTemplate("{\"data\":{\"key1\":\"$(value1)\"}}","tag-for-template1"));
     installation.addTemplate("template2", new InstallationTemplate("{\"data\":{\"key2\":\"$(value2)\"}}","tag-for-template2"));
     hub.createOrUpdateInstallation(installation);
+    ```
 
 Använd funktionen för deluppdatering, vilket gör för att ändra specifika egenskaper för objektet installation för avancerade scenarier. Deluppdatering är delmängd av JSON-korrigeringen åtgärder du kan köra mot objektet för Installation.
 
+    ```java
     PartialUpdateOperation addChannel = new PartialUpdateOperation(UpdateOperationType.Add, "/pushChannel", "adm-push-channel2");
     PartialUpdateOperation addTag = new PartialUpdateOperation(UpdateOperationType.Add, "/tags", "bar");
     PartialUpdateOperation replaceTemplate = new PartialUpdateOperation(UpdateOperationType.Replace, "/templates/template1", new InstallationTemplate("{\"data\":{\"key3\":\"$(value3)\"}}","tag-for-template1")).toJson());
     hub.patchInstallation("installation-id", addChannel, addTag, replaceTemplate);
+    ```
 
 Ta bort installationen:
 
+    ```java
     hub.deleteInstallation(installation.getInstallationId());
+    ```
 
-CreateOrUpdate, Patch och Delete är konsekvent med Get. Den begärda åtgärden leder till kön system under samtalet bara och körs i bakgrunden. Hämta är inte avsedd för huvudsakliga runtime-scenario, men bara för felsökning och felsökning, den är nära begränsad av tjänsten.
+`CreateOrUpdate`, `Patch`, och `Delete` är konsekvent med `Get`. Den begärda åtgärden leder till kön system under samtalet bara och körs i bakgrunden. Hämta är inte avsedd för huvudsakliga runtime-scenario, men bara för felsökning och felsökning, den är nära begränsad av tjänsten.
 
 Skicka flödet för installationer är desamma som för registreringar. Mål-meddelande till viss installationen – Använd bara tagg ”InstallationId: {desired-id}”. För det här fallet är koden:
 
+    ```java
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.sendNotification(n, "InstallationId:{installation-id}");
+    ```
 
 För en av flera mallar:
 
+    ```java
     Map<String, String> prop =  new HashMap<String, String>();
     prop.put("value3", "some value");
     Notification n = Notification.createTemplateNotification(prop);
     hub.sendNotification(n, "InstallationId:{installation-id} && tag-for-template1");
+    ```
 
 ### <a name="schedule-notifications-available-for-standard-tier"></a>Schemalägg meddelanden (tillgängligt för nivån STANDARD)
+
 Samma som vanlig skicka men med en extra parameter - scheduledTime som innehåller texten när meddelandet ska levereras. Tjänsten accepterar helst mellan nu + 5 minuter och nu + 7 dagar.
 
 **Schemalägg en intern Windows-meddelande:**
 
+    ```java
     Calendar c = Calendar.getInstance();
     c.add(Calendar.DATE, 1);
     Notification n = Notification.createWindowsNotification("WNS body");
     hub.scheduleNotification(n, c.getTime());
+    ```
 
 ### <a name="importexport-available-for-standard-tier"></a>Import/Export (tillgängligt för nivån STANDARD)
-Ibland är det krävs för att utföra bulkåtgärd mot registreringar. Vanligtvis är det för integrering med ett annat system eller bara en omfattande lösning för att anta att uppdatera taggar. Det rekommenderas inte att använda hämta/uppdatera flöde om tusentals registreringar ingår. Import/Export-funktionen har utformats för att täcka scenariot. I praktiken ger en åtkomst till vissa blob-behållare under ditt storage-konto som en källa för inkommande data och plats för utdata.
 
-**Skicka export-jobbet:**
+Du kan behöva utföra bulkåtgärd mot registreringar. Det är vanligtvis för integrering med ett annat system eller en omfattande lösning för att uppdatera taggar. Vi rekommenderar inte hämta/uppdatera flödet om tusentals registreringar ingår. Systemets Import/Export-funktionen har utformats för att täcka scenariot. Du ger åtkomst till en blob-behållare under ditt storage-konto som en källa för inkommande data och plats för utdata.
 
+**Skicka ett exportjobb:**
+
+    ```java
     NotificationHubJob job = new NotificationHubJob();
     job.setJobType(NotificationHubJobType.ExportRegistrations);
     job.setOutputContainerUri("container uri with SAS signature");
     job = hub.submitNotificationHubJob(job);
+    ```
 
+**Skicka ett importjobb:**
 
-**Skicka importjobb:**
-
+    ```java
     NotificationHubJob job = new NotificationHubJob();
     job.setJobType(NotificationHubJobType.ImportCreateRegistrations);
     job.setImportFileUri("input file uri with SAS signature");
     job.setOutputContainerUri("container uri with SAS signature");
     job = hub.submitNotificationHubJob(job);
+    ```
 
-**Vänta tills jobbet är klart:**
+**Vänta tills ett jobb är klar:**
 
+    ```java
     while(true){
         Thread.sleep(1000);
         job = hub.getNotificationHubJob(job.getJobId());
         if(job.getJobStatus() == NotificationHubJobStatus.Completed)
             break;
     }
+    ```
 
 **Hämta alla jobb:**
 
+    ```java
     List<NotificationHubJob> jobs = hub.getAllNotificationHubJobs();
+    ```
 
-**URI: N med SAS-signaturen:** Denna URL är Webbadressen till vissa blob-fil eller en blob-behållare plus uppsättning parametrar som behörigheter och förfallotid samt signaturen för alla dessa saker som gjordes med kontots SAS-nyckel. Azure Storage-Java-SDK har omfattande funktioner inklusive skapandet av sådana typer av URI: er. Du kan ta en titt på ImportExportE2E TestKlass (från platsen som GitHub) som har en basic- och compact implementering av Signeringsalgoritm som enkelt alternativ.
+**URI: N med SAS-signaturen:**
+
+ Denna URL är Webbadressen till en blobfil eller blob-behållare plus en uppsättning parametrar som behörigheter och förfallotid samt signaturen för alla dessa saker som gjordes med kontots SAS-nyckel. Azure Storage-Java-SDK har omfattande funktioner, inklusive hur du skapar dessa URI: er. Enkla alternativ är att ta en titt på de `ImportExportE2E` testa klass (från platsen som GitHub) som har en basic- och compact implementering av Signeringsalgoritm.
 
 ### <a name="send-notifications"></a>Skicka meddelanden
+
 Meddelande-objektet är helt enkelt en brödtext med rubriker, vissa verktygsmetoderna hjälp med att skapa objekt för interna och mallen meddelanden.
 
 * **Windows Store och Windows Phone 8.1 (utan Silverlight)**
 
-        String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
-        Notification n = Notification.createWindowsNotification(toast);
-        hub.sendNotification(n);
+    ```java
+    String toast = "<toast><visual><binding template=\"ToastText01\"><text id=\"1\">Hello from Java!</text></binding></visual></toast>";
+    Notification n = Notification.createWindowsNotification(toast);
+    hub.sendNotification(n);
+    ```
+
 * **iOS**
 
-        String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
-        Notification n = Notification.createAppleNotification(alert);
-        hub.sendNotification(n);
+    ```java
+    String alert = "{\"aps\":{\"alert\":\"Hello from Java!\"}}";
+    Notification n = Notification.createAppleNotification(alert);
+    hub.sendNotification(n);
+    ```
+
 * **Android**
 
-        String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-        Notification n = Notification.createGcmNotification(message);
-        hub.sendNotification(n);
+    ```java
+    String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+    Notification n = Notification.createGcmNotification(message);
+    hub.sendNotification(n);
+    ```
+
 * **Windows Phone 8.0 och 8.1 Silverlight**
 
-        String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
-                    "<wp:Notification xmlns:wp=\"WPNotification\">" +
-                       "<wp:Toast>" +
-                            "<wp:Text1>Hello from Java!</wp:Text1>" +
-                       "</wp:Toast> " +
-                    "</wp:Notification>";
-        Notification n = Notification.createMpnsNotification(toast);
-        hub.sendNotification(n);
+    ```java
+    String toast = "<?xml version=\"1.0\" encoding=\"utf-8\"?>" +
+                "<wp:Notification xmlns:wp=\"WPNotification\">" +
+                    "<wp:Toast>" +
+                        "<wp:Text1>Hello from Java!</wp:Text1>" +
+                    "</wp:Toast> " +
+                "</wp:Notification>";
+    Notification n = Notification.createMpnsNotification(toast);
+    hub.sendNotification(n);
+    ```
+
 * **Kindle Fire**
 
-        String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
-        Notification n = Notification.createAdmNotification(message);
-        hub.sendNotification(n);
+    ```java
+    String message = "{\"data\":{\"msg\":\"Hello from Java!\"}}";
+    Notification n = Notification.createAdmNotification(message);
+    hub.sendNotification(n);
+    ```
+
 * **Skicka till taggar**
   
-        Set<String> tags = new HashSet<String>();
-        tags.add("boo");
-        tags.add("foo");
-        hub.sendNotification(n, tags);
+    ```java
+    Set<String> tags = new HashSet<String>();
+    tags.add("boo");
+    tags.add("foo");
+    hub.sendNotification(n, tags);
+    ```
+
 * **Skicka till Tagguttryck**
 
-        hub.sendNotification(n, "foo && ! bar");
+    ```java
+    hub.sendNotification(n, "foo && ! bar");
+    ```
+
 * **Skicka**
 
-        Map<String, String> prop =  new HashMap<String, String>();
-        prop.put("prop1", "v1");
-        prop.put("prop2", "v2");
-        Notification n = Notification.createTemplateNotification(prop);
-        hub.sendNotification(n);
+    ```java
+    Map<String, String> prop =  new HashMap<String, String>();
+    prop.put("prop1", "v1");
+    prop.put("prop2", "v2");
+    Notification n = Notification.createTemplateNotification(prop);
+    hub.sendNotification(n);
+    ```
 
 Köra Java-kod ska nu skapa ett meddelande som visas på din målenhet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Det här avsnittet såg du hur du skapar en enkel Java REST-klient för Meddelandehubbar. Härifrån kan du:
 
 * Ladda ned hela [Java SDK], som innehåller hela SDK-koden.
@@ -297,4 +390,3 @@ Det här avsnittet såg du hur du skapar en enkel Java REST-klient för Meddelan
 [Skicka meddelanden till autentiserade användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Skicka plattformsoberoende meddelanden till autentiserade användare]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Maven 3.]: http://maven.apache.org/
-

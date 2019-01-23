@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ae039573cf202059114f23cca86207c117a35ead
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970413"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54470655"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualisera fjärrövervakning data med Power BI
 
@@ -49,7 +49,7 @@ Den här självstudien vägleder dig genom hur du ansluter din fjärrövervaknin
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Konfigurera Stream i Power BI
   
-1. Öppna Power BI desktop-appen och klicka på ”Hämta Data” från det övre vänstra hörnet. 
+1. Öppna Power BI desktop-appen och klicka på ”Hämta Data” i det övre vänstra hörnet. 
 
     ![Hämta Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
@@ -84,11 +84,11 @@ Den här självstudien vägleder dig genom hur du ansluter din fjärrövervaknin
 
 ## <a name="creating-a-dashboard"></a>Skapa en instrumentpanel
 
-När dataströmmen har anslutits, är du redo att skapa dina anpassade instrumentpaneler! Instrumentpanelen nedan är ett exempel på att ta den telemetri som immmited av våra simulerade enheter och som visar olika radfälten byter runt den som: 
+När dataströmmen har anslutits, är du redo att skapa dina anpassade instrumentpaneler! Instrumentpanelen nedan är ett exempel på att ta den telemetri som genereras av våra simulerade enheter och som visar olika pivoteringsmöjligheter runt den som: 
 
 * Enhetsplats på en karta (höger)
 * Enheter med deras status och allvarlighetsgrad. (upp till vänster)
-* Enheter med regler på plats, och om det finns några larm som spelas upp för dem (vänster nederkant)
+* Enheter med regler på plats, och om det finns några aviseringar som spelas upp för dem (vänster nederkant)
 
 ![Power BI-visualisering](./media/iot-accelerators-integrate-data-powerbi/visual_data.png)
 

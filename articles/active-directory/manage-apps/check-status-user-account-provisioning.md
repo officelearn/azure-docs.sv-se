@@ -4,7 +4,7 @@ description: Lär dig hur du kontrollerar status för automatisk användarkonto 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: af5d7174a2726a6ff8a62477149606ec5d43e94e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: def3c6aea7b915e8665367d4da27c1314374000c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357655"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463074"
 ---
-# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudie: Rapportering om automatisk användarens kontoetablering
+# <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Självstudier: Rapportering om automatisk användarens kontoetablering
 
 
 Azure Active Directory innehåller en [användarkonto etableringstjänsten](user-provisioning.md) som hjälper till att automatisera den etablering inaktivering av användarkonton i SaaS-appar och andra system för slutpunkt till slutpunkt identitetslivscykel hantering. Azure AD stöder förintegrerade användaretablering anslutningar för alla program och system i avsnittet ”aktuella” för den [Azure AD-programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured).
@@ -40,7 +40,7 @@ Etablering kopplingar är att ställa in och konfigureras med den [Azure-portale
 
 Den här artikeln använder följande termer som anges nedan:
 
-* **Käll-System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar från. Azure Active Directory är källsystemet för flesta förintegrerade etablering kopplingar, men det finns vissa undantag (exempel: Workday-inkommande synkronisering).
+* **Käll-System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar från. Azure Active Directory är källsystemet för flesta förintegrerade etablering kopplingar, men det finns vissa undantag (exempel: Workday inkommande synkronisering).
 
 * **Rikta System** -lagringsplatsen för användare som den Azure AD-etableringtjänsten synkroniserar till. Detta är vanligtvis ett SaaS-program (exempel: Salesforce, ServiceNow, Google Apps, Dropbox for Business), men i vissa fall kan vara ett lokalt system, till exempel Active Directory (exempel: Workday inkommande synkronisering till Active Directory).
 
@@ -68,7 +68,7 @@ Etablering sammanfattningsrapporten syns i den **etablering** fliken för angivn
 
 Etablering sammanfattningsrapporten ska vara den första plats administratörer titt att läsa på driftstatusen för etableringsjobbet för.
 
- ![Sammanfattningsrapport](./media/check-status-user-account-provisioning/summary_report.PNG)
+ ![Sammanfattningsrapport](./media/check-status-user-account-provisioning/summary_report.PNG)
 
 ## <a name="provisioning-audit-logs"></a>Etablering granskningsloggar
 Alla aktiviteter som utförs av etableringstjänsten registreras i Azure AD-granskningsloggar, som kan visas i den **granskningsloggar** fliken den **Kontoetablering** kategori. Händelsetyper loggade aktiviteter är:
@@ -83,13 +83,13 @@ Alla aktiviteter som utförs av etableringstjänsten registreras i Azure AD-gran
 
 När du visar etablering händelser för en enskild användare, sker normalt i den här ordningen:
 
-1. Importera händelse: användaren har hämtats från källsystemet.
+1. Importera händelse: Användaren har hämtats från källsystemet.
 
-2. Importera händelse: målsystemet efterfrågas för att kontrollera om finns för den hämtade användaren.
+2. Importera händelse: Målsystemet efterfrågas för att kontrollera om finns för den hämtade användaren.
 
-3. Synkronisering regeln händelse: användardata från käll- och system som ska utvärderas mot de konfigurerade attributmappning regler och Omfångsfilter att fastställa vilken åtgärd, om sådana finns, som ska utföras.
+3. Synkronisering regeln händelse: Användardata från käll- och system utvärderas mot de konfigurerade attributmappning regler och Omfångsfilter att fastställa vilken åtgärd, om sådana finns, som ska utföras.
 
-4. Exportera händelse: om händelsen synkronisering regel anges att en åtgärd ska utföras (Lägg till, uppdatera, ta bort), och sedan resultatet av åtgärden sparas i en Export-händelse.
+4. Exportera händelse: Om händelsen synkronisering regel anges att en åtgärd ska utföras (Lägg till, uppdatera, ta bort), och sedan resultatet av åtgärden sparas i en Export-händelse.
 
 ![Skapa en Azure AD-användare för testning](./media/check-status-user-account-provisioning/audit_logs.PNG)
 

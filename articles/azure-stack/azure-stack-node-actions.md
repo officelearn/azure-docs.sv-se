@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 170cf458496d91a28260296e2aba803d76fbc06b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 90910580fd7fc766376569de3ce43fc5ce297e8b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388833"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469210"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Skalningsåtgärder enhet noden i Azure Stack
 
@@ -148,9 +148,25 @@ När du kör reparationsåtgärden kan behöva du ange BMC IP-adress.
 
 Öppna en förhöjd PowerShell för att köra reparationsåtgärden, och kör följande cmdlet:
 
-  ````PowerShell
+  ```PowerShell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
-  ````
+  ```
+
+## <a name="shutdown"></a>Avstängning
+
+Den **avstängning** åtgärd fist flyttar alla aktiva arbetsbelastningar till de återstående noderna i samma skalningsenheten. Åtgärden stänger sedan gradvis av noden skala enhet.
+
+När du startar en nod som stängdes, måste du köra den [återuppta](#resume) åtgärd. Inte att återställa tidigare arbetsbelastningar som körs på noden.
+
+Om avstängningen misslyckas, försöker den [tömma](#drain) åtgärden följt av avstängningen.
+
+Öppna en förhöjd PowerShell för att köra avstängningsåtgärden, och kör följande cmdlet:
+
+  ```PowerShell
+  Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
+  ```
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,6 +3,7 @@ Rubrik: Distribuera Studio-arbetsyta med Azure Resource Manager titleSuffix: Be
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---
+
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuera Azure Machine Learning Studio-arbetsyta med Azure Resource Manager
 
 Med en Azure Resource Manager-mall för distribution av sparar du tid genom att ge ett skalbart sätt att distribuera sammankopplade komponenter med en verifiering och återförsöksmekanism. Om du vill konfigurera Azure Machine Learning-arbetsytor, till exempel behöver du du först konfigurera ett Azure storage-konto och sedan distribuerar din arbetsyta. Tänk dig att göra detta manuellt för hundratals arbetsytor. Ett enklare alternativ är att använda en Azure Resource Manager-mall för att distribuera en Azure Machine Learning-arbetsyta och alla dess beroenden. Den här artikeln tar dig igenom processen steg för steg. En bra översikt över Azure Resource Manager finns i [översikt över Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
@@ -83,7 +84,7 @@ Connect-AzureRmAccount
 ```
 Det här steget måste du upprepa för varje session. När autentiseringen är klar visas din prenumerationsinformation.
 
-![Azure-konto][1]
+! [Azure-konto] [1]
 
 Nu när vi har åtkomst till Azure kan vi skapa resursgruppen.
 
@@ -97,7 +98,7 @@ $rg
 Kontrollera att resursgruppen har etablerats korrekt. **ProvisioningState** ska vara ”lyckades”.
 Resursgruppens namn används av mallen för att generera lagringskontonamnet. Lagringskontonamnet måste vara mellan 3 och 24 tecken och siffror och gemener.
 
-![Resursgrupp][2]
+![Resource Group][2]
 
 * Med distributionen av resursgrupper kan distribuera en ny Machine Learning-arbetsyta.
 
@@ -125,10 +126,8 @@ När arbetsytan har etablerats, du kan även automatisera många Azure Machine L
 * Läs mer om [skapa Azure Resource Manager-mallar](../../azure-resource-manager/resource-group-authoring-templates.md). 
 * En titt på de [Azure Snabbstartsmallarna på lagringsplatsen](https://github.com/Azure/azure-quickstart-templates). 
 * Den här videon om [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39). 
-
-<!--Image references-->
-[1]: ./media/deploy-with-resource-manager-template/azuresubscription.png
-[2]: ./media/deploy-with-resource-manager-template/resourcegroupprovisioning.png
+* Se den [Resource Manager-mall referenshjälp](https://docs.microsoft.com/azure/templates/microsoft.machinelearning/allversions) 
+ <!--Image references--> [1]:./media/deploy-with-resource-manager-template/azuresubscription.png [2]: ./media/deploy-with-resource-manager-template/ resourcegroupprovisioning.PNG
 
 
 <!--Link references-->

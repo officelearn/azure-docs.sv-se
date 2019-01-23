@@ -4,7 +4,7 @@ description: Förstå fliken för anslutningar i hanteraren för synkroniserings
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 60f1d979-8e6d-4460-aaab-747fffedfc1e
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 592fcd80b80ecbd101dd559aa8baf78a60aaa517
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 5c3931fd75ea8e0780b8a7b4f613c865267074c1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312629"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466831"
 ---
 # <a name="using-connectors-with-the-azure-ad-connect-sync-service-manager"></a>Med hjälp av kopplingar med Azure AD Connect Sync Service Manager
 
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectors.png)
 
 Fliken för anslutningar används för att hantera alla system som Synkroniseringsmotorn är ansluten till.
 
@@ -46,7 +46,7 @@ Fliken för anslutningar används för att hantera alla system som Synkroniserin
 
 ### <a name="delete"></a>Ta bort
 Borttagningsåtgärden används för två olika saker.  
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/connectordelete.png)
 
 Alternativet **ta bort anslutningsplatsen endast** tar bort alla data, men behålla konfigurationen.
 
@@ -57,17 +57,17 @@ Båda alternativen synkronisera alla objekt och uppdatera metaversum-objekt. Den
 ### <a name="configure-run-profiles"></a>Konfigurera körningsprofiler
 Det här alternativet kan du se de körningsprofiler som konfigurerats för en koppling.
 
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/configurerunprofiles.png)
 
 ### <a name="search-connector-space"></a>Search Connector Space
 Search connector utrymme åtgärden är användbar för att hitta objekt och felsöka problem med.
 
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearch.png)
 
 Starta genom att välja en **omfång**. Du kan söka baserat på data (RDN DN, fästpunkt, underträd), eller för objektet (alla andra alternativ).  
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchscope.png)  
 Om du till exempel göra en underträd sökning får du alla objekt i en Organisationsenhet.  
-![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
+![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/cssearchsubtree.png)  
 Det här rutnätet som du kan markera ett objekt, Välj **egenskaper**, och [följer den](tshoot-connect-object-not-syncing.md) från anslutningsplatsen källa genom metaversum och till mål-anslutningsplatsen.
 
 ### <a name="changing-the-ad-ds-account-password"></a>Ändra AD DS-kontolösenordet
@@ -80,7 +80,7 @@ Lös problemet genom att uppdatera det AD DS-konto med hjälp av följande:
 
 
 1. Starta hanteraren för synkroniseringstjänsten (START → Synchronization Service).
-</br>![Synkronisering av Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
+</br>![Sync Service Manager](./media/how-to-connect-sync-service-manager-ui-connectors/startmenu.png)
 2. Gå till den **kopplingar** fliken.
 3. Välj den AD-koppling som är konfigurerat för att använda AD DS-kontot.
 4. Välj under åtgärder, **egenskaper**.

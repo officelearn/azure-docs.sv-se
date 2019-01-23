@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 437800483004cdbff89814579137f4057133d0fb
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 423edfecb7bfd69de9ef004686db4a05824d0857
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50913813"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465441"
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Azure Active Directory-direktautentisering: Teknisk djupdykning
 Den här artikeln är en översikt över hur fungerar med Azure Active directory (Azure AD)-direktautentisering. Djup teknisk och säkerhetsinformation finns i den [djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md) artikeln.
@@ -50,13 +50,13 @@ Följande diagram illustrerar komponenterna och steg som ingår:
 ![Direktautentisering](./media/how-to-connect-pta-how-it-works/pta2.png)
 
 ## <a name="next-steps"></a>Nästa steg
-- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs mer om vilka scenarier som stöds och vilka som inte är.
-- [Snabbstart](how-to-connect-pta-quick-start.md): komma igång på Azure AD-direktautentisering.
+- [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Läs om vilka scenarier som stöds och vilka som inte är.
+- [Snabbstart](how-to-connect-pta-quick-start.md): Kom igång på Azure AD-direktautentisering.
 - [Migrera från AD FS till direktautentisering](https://aka.ms/adfstoPTADP) -en detaljerad vägledning för att migrera från AD FS (eller andra tekniker för federation) till direktautentisering.
-- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
-- [Vanliga frågor och svar](how-to-connect-pta-faq.md): få svar på vanliga frågor och svar.
-- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig att lösa vanliga problem med funktionen direktautentisering.
-- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): få djupgående teknisk information om funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Mer information om den här tilläggsfunktionen.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): använda Azure Active Directory-forumet till filen nya funktionbegäran.
+- [Smart kontoutelåsning](../authentication/howto-password-smart-lockout.md): Konfigurera funktionen för smarta kontoutelåsning på din klient för att skydda användarkonton.
+- [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
+- [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
+- [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen direktautentisering.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.
 

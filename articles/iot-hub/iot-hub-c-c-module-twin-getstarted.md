@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 80d96bcb6b6073987f07ed6954f25023ab1133a4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247525"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452463"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av serverdelen i C och C-enheten
 
@@ -176,7 +176,7 @@ Den här appen skapar en enhetsidentitet med ID **myFirstDevice** och en modul i
 
 I det här avsnittet skapar du en C-app på din simulerade enhet som uppdaterar modultvillingen rapporterade egenskaper.
 
-1. **Hämta anslutningssträngen modulen** --om du loggar in nu [Azure-portalen](https://portal.azure.com). Gå till din IoT Hub och klicka på IoT-enheter. Leta rätt på myFirstDevice och öppna den, så ser du att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
+1. **Hämta anslutningssträngen modulen** --om du loggar in nu [Azure-portalen](https://portal.azure.com). Gå till din IoT Hub och klicka på IoT-enheter. Hitta myFirstDevice, öppna den och du ser myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
     ![Information om Azure-portalmodulen](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
 

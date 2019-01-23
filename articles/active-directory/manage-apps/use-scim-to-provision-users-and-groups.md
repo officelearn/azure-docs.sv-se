@@ -4,7 +4,7 @@ description: Azure Active Directory kan automatiskt etablera användare och grup
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 04287d286aed872a2b951c47e0f67a93bd19c7b3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 13491b10096e651b40a83e072057250e856d4ef1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469546"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -463,11 +463,11 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
    ```
 
    I följande exempel av en fråga för en användare med ett angivet värde för attributet externalId och är värden för argumenten som skickas till Query-metoden: 
-   * parametrar. AlternateFilters.Count: 1
+   * parameters.AlternateFilters.Count: 1
    * parametrar. AlternateFilters.ElementAt(0). AttributePath: ”externalId”
-   * parametrar. AlternateFilters.ElementAt(0). Jämförelseoperator: ComparisonOperator.Equals
+   * parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
    * parametrar. AlternateFilter.ElementAt(0). ComparisonValue: ”jyoung”
-   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin. RequestId ”] 
+   * correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
 
 2. Om svaret på en fråga till webbtjänsten för en användare med ett externalId-attributvärde som överensstämmer med mailNickname-attributvärdet för en användare inte returnerar några användare sedan Azure Active Directory-begäranden som tjänsten etablerar en användare som motsvarar det i Azure Active Directory.  Här är ett exempel på en sådan begäran: 
 
@@ -555,7 +555,7 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
 
    I exemplet med en begäran att hämta det aktuella tillståndet för en användare, är värdena för egenskaperna för objektet som tillhandahålls som värde för argumentet parametrar följande: 
   
-   * Identifierare: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+   * Identifierare: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
 4. Om ett referensattribut är uppdateras Azure Active Directory frågar tjänsten för att avgöra huruvida det aktuella värdet för referensattributet i Identitetslagret fronted av tjänsten redan matchar värdet för attributet i Azure Active Katalogen. För användare är det enda attributet som efterfrågas det aktuella värdet på det här sättet manager-attribut. Här är ett exempel på en begäran för att avgöra om attributet manager för en viss användare-objektet har ett visst värde: 
@@ -569,14 +569,14 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
 
    Om tjänsten har skapats med Common Language infrastruktur-bibliotek som tillhandahålls av Microsoft för att implementera SCIM-tjänster, översätts förfrågan till ett anrop till metoden fråga i den tjänstleverantör. Värdet för egenskaperna för objektet som tillhandahålls som värde för argumentet parametrar är följande: 
   
-   * parametrar. AlternateFilters.Count: 2
-   * parametrar. AlternateFilters.ElementAt(x). AttributePath: ”ID”
-   * parametrar. AlternateFilters.ElementAt(x). Jämförelseoperator: ComparisonOperator.Equals
-   * parametrar. AlternateFilter.ElementAt(x). ComparisonValue:  ”54D382A4-2050-4C03-94D1-E769F1D15682”
+   * parameters.AlternateFilters.Count: 2
+   * parameters.AlternateFilters.ElementAt(x).AttributePath: ”ID”
+   * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
    * parametrar. AlternateFilters.ElementAt(y). AttributePath: ”manager”
-   * parametrar. AlternateFilters.ElementAt(y). Jämförelseoperator: ComparisonOperator.Equals
-   * parametrar. AlternateFilter.ElementAt(y). ComparisonValue:  ”2819c223-7f76-453a-919d-413861904646”
-   * parametrar. RequestedAttributePaths.ElementAt(0): ”ID”
+   * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
+   * parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+   * parameters.RequestedAttributePaths.ElementAt(0): ”ID”
    * parametrar. SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
    Här är värdet för indexet x kan vara 0 och värdet för y index kan vara 1, eller värdet för x kan vara 1 och värdet för y kan vara 0, beroende på ordningen på uttryck av filter-frågeparameter.   
@@ -688,14 +688,14 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
 
     I exemplet med en begäran om att uppdatera en användare, har det angivna objektet som värde för argumentet patch egenskapsvärdena: 
   
-   * ResourceIdentifier.Identifier: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
    * (PatchRequest som PatchRequest2). Operations.Count: 1
-   * (PatchRequest som PatchRequest2). Operations.ElementAt(0). OperationName: OperationName.Add
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
    * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Path.AttributePath: ”manager”
-   * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.Count: 1
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
    * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Referens: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-   * (PatchRequest som PatchRequest2). Operations.ElementAt(0). Value.ElementAt(0). Värde: 2819c223-7f76-453a-919d-413861904646
+   * (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
 
 6. Om du vill avetablera en användare från en identity-butik fronted av en SCIM-tjänst, skickar Azure AD en begäran som: 
 
@@ -718,7 +718,7 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
 
    Objektet som tillhandahålls som värde för argumentet resourceIdentifier har de här egenskaperna i exemplet med en begäran om att avetablera en användare: 
 
-   * ResourceIdentifier.Identifier: ”54D382A4-2050-4C03-94D1-E769F1D15682”
+   * ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
    * ResourceIdentifier.SchemaIdentifier: ”urn: ietf:params:scim:schemas:extension:enterprise:2.0:User”
 
 ## <a name="group-provisioning-and-de-provisioning"></a>Gruppetablering och avetablering

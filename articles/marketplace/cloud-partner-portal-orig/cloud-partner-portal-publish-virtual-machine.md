@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 519867b1e0607a769948c86af263c172e810d107
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a2512c488ac368205da11d79de479a888735729
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078124"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448711"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publicera en virtuell dator på Azure Marketplace
 
@@ -138,7 +138,7 @@ Det här fältet kan du definiera tillgängligheten för din SKU i olika Azure-m
 
 Denna SKU kan distribueras till kunder i alla offentliga Azure-regioner som har Marketplace-integration.
 
-**Azure Government-molnet**
+**Azure Government Cloud**
 
 Denna SKU kan distribueras i Azure Government-molnet. Innan publicering till [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-marketplace-partners), rekommenderar vi utgivare testa och validera sin lösning fungerar som förväntat. Till samt test, [begär ett utvärderingskonto](https://azure.microsoft.com/offers/ms-azr-usgov-0044p). 
 

@@ -2,20 +2,20 @@
 title: 'Azure AD Connect: ADSyncConfig PowerShell-referens | Microsoft Docs'
 description: Det här dokumentet innehåller information för ADSyncConfig.psm1 PowerShell-modulen.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 84be07eeb112711de35853162b798b5f6ed0b2aa
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422770"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463532"
 ---
-# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect: ADSyncConfig PowerShell-referens
+# <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell-referens
 Följande dokumentation innehåller information för ADSyncConfig.psm1 PowerShell-modul som ingår i Azure AD Connect.
 
 
@@ -1355,7 +1355,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="show-adsyncadobjectpermissions"></a>Visa ADSyncADObjectPermissions
+## <a name="show-adsyncadobjectpermissions"></a>Show-ADSyncADObjectPermissions
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Visar behörigheterna för ett angivet AD-objekt.

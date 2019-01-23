@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 01/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 253cfd7ddeb04a12a3609ab5e14a37365015a568
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: c16a0eeb674e712ec1c3678a2e0002a8ddcfc329
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790885"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54464722"
 ---
 # <a name="move-operation-support-for-resources"></a>Flytta åtgärden stöd för resurser
 
@@ -136,8 +136,8 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | networksecuritygroups | Nej | Nej |
-| reserverade IP-adresser | Nej | Nej |
-| virtuella nätverk | Nej | Nej |
+| reservedips | Nej | Nej |
+| virtualnetworks | Nej | Nej |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -160,7 +160,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | images | Ja | Ja |
 | restorepointcollections | Nej | Nej |
 | sharedvmimages | Nej | Nej |
-| sharedvmimages/versioner | Nej | Nej |
+| sharedvmimages/versions | Nej | Nej |
 | ögonblicksbilder | Ja | Ja |
 | virtuella datorer | Ja | Ja |
 | virtuella datorer /-tillägg | Ja | Ja |
@@ -295,7 +295,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | Labs/virtuella datorer | Ja | Nej |
 | Scheman | Nej | Nej |
 
-## <a name="microsoftdns"></a>Microsoft.DNS
+## <a name="microsoftdns"></a>microsoft.dns
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | dnszones | Nej | Nej |
@@ -327,7 +327,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | Kluster | Ja | Ja |
-| Namnområden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -349,7 +349,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | ------------- | -------------- | ------------ |
 | jobb | Ja | Ja |
 
-## <a name="microsoftinsights"></a>Microsoft.Insights
+## <a name="microsoftinsights"></a>microsoft.insights
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | actiongroups | Ja | Ja |
@@ -371,6 +371,11 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | Valv | Ja | Ja |
+
+## <a name="microsoftkusto"></a>Microsoft.Kusto
+| Resurstyp | Resursgrupp | Prenumeration |
+| ------------- | -------------- | ------------ |
+| Kluster | Ja | Ja |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -468,7 +473,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | frontdoors | Ja | Ja |
 | frontdoorwebapplicationfirewallpolicies | Ja | Ja |
 | interfaceendpoints | Nej | Nej |
-| belastningsutjämnare | Ja | Ja |
+| loadbalancers | Ja | Ja |
 | localnetworkgateways | Ja | Ja |
 | networkintentpolicies | Ja | Ja |
 | networkinterfaces | Ja | Ja |
@@ -486,7 +491,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | trafficmanagerprofiles | Ja | Ja |
 | virtualhubs | Ja | Ja |
 | virtualnetworkgateways | Ja | Ja |
-| virtuella nätverk | Ja | Ja |
+| virtualnetworks | Ja | Ja |
 | virtualnetworktaps | Nej | Nej |
 | virtualwans | Ja | Ja |
 | vpngateways | Ja | Ja |
@@ -496,7 +501,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
-| Namnområden | Ja | Ja |
+| namnrymder | Ja | Ja |
 | namnområden/notificationhubs | Ja | Ja |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -534,7 +539,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
-| Namnområden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -555,7 +560,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
-| Namnområden | Ja | Ja |
+| namnrymder | Ja | Ja |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 | Resurstyp | Resursgrupp | Prenumeration |
@@ -624,7 +629,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | miljöer/eventsources | Ja | Ja |
 | miljöer/referencedatasets | Ja | Ja |
 
-## <a name="microsoftvisualstudio"></a>Microsoft.visualstudio
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 | Resurstyp | Resursgrupp | Prenumeration |
 | ------------- | -------------- | ------------ |
 | konto | Ja | Ja |
@@ -642,7 +647,7 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 | hostingenvironments | Nej | Nej |
 | servergrupper | Ja | Ja |
 | Platser | Ja | Ja |
-| platser/premieraddons | Ja | Ja |
+| sites/premieraddons | Ja | Ja |
 | platser/platser | Ja | Ja |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
@@ -655,10 +660,10 @@ När du har hittat resursprovidern och resurstypen, använda tabellerna i den h�
 
 Tjänster från tredje part stöder för närvarande inte flyttåtgärden. Dessa resursproviders är:
 
-* 84codes. CloudAMQP
+* 84codes.CloudAMQP
 * AppDynamics.APM
 * Aspera.Transfers
-* Auth0.cloud
+* Auth0.Cloud
 * Citrix.Cloud
 * Citrix.Services
 * CloudSimple.PrivateCloudIaaS

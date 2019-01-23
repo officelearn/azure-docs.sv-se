@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection kan molnidentifiering, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 60836abf-f0e9-459d-b344-8e06b8341d25
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 7e706b1dd9c7dd79285666885cb6ada89d8126b2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54460532"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Azure Active Directory Identity Protection spelbok
 
@@ -115,7 +115,7 @@ Det här avsnittet innehåller steg för att testa användarrisk och inloggnings
 
 ### <a name="user-risk-security-policy"></a>Riskprincip
 
-Mer information finns i [så här konfigurerar du principen för användarrisk](howto-user-risk-policy.md).
+Mer information finns i [Så här konfigurerar du principen för användarrisk](howto-user-risk-policy.md).
 
 ![Användarrisk](./media/playbook/02.png "Spelbok")
 
@@ -140,7 +140,7 @@ Mer information finns i [så här konfigurerar du principen för användarrisk](
 
 ### <a name="sign-in-risk-security-policy"></a>Säkerhetsprincip för inloggningsrisk
 
-Mer information finns i [så här konfigurerar du principen för inloggningsrisk](howto-sign-in-risk-policy.md).
+Mer information finns i [Så här konfigurerar du principen för inloggningsrisk](howto-sign-in-risk-policy.md).
 
 ![Inloggningsrisk](./media/playbook/01.png "Spelbok")
 
@@ -173,5 +173,5 @@ Mer information finns i [så här konfigurerar du principen för inloggningsrisk
 
 ## <a name="see-also"></a>Se också
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1398db59199c62e90f8cf5654586bda1c24f2541
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54055055"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463294"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -36,7 +36,7 @@ För att kunna köra LUIS-behållare, måste du ha följande:
 |--|--|
 |Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
 |Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
-|Språkresursen för Språkförståelse (LUIS) och tillhörande app |För att kunna använda behållaren måste du ha:<br><br>* A [ _Språkförståelse_ Azure-resurs](luis-how-to-azure-subscription.md), tillsammans med den associerade slutpunktsnyckel och slutpunkt URI (som används som fakturering slutpunkt).<br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID.<br>* På redigering för att hämta app-paket om du gör detta API.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}** : Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}** : Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Språkförståelse_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan. Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
+|Språkresursen för Språkförståelse (LUIS) och tillhörande app |För att kunna använda behållaren måste du ha:<br><br>* A [ _Språkförståelse_ Azure-resurs](luis-how-to-azure-subscription.md), tillsammans med den associerade slutpunktsnyckel och slutpunkt URI (som används som fakturering slutpunkt).<br>* En tränad eller publicerade app paketerad som en monterad indata till behållaren med dess tillhörande App-ID.<br>* På redigering för att hämta app-paket om du gör detta API.<br><br>Dessa krav används för att överföra kommandoradsargument till följande variabler:<br><br>**{AUTHORING_KEY}**: Den här nyckeln används för att hämta den paketerade appen från LUIS-tjänsten i molnet och ladda upp loggarna fråga tillbaka till molnet. Formatet är `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: Detta ID används för att välja appen. Formatet är `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}** : Den här nyckeln används för att starta behållaren. Du hittar slutpunktsnyckeln på två platser. Först är Azure-portalen inom den _Språkförståelse_ resursens nycklar lista. Slutpunktsnyckeln är också tillgängligt i LUIS-portalen med nycklar och slutpunkten inställningssidan. Använd inte den starter-nyckeln.<br><br>**{BILLING_ENDPOINT}** : Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan. Ett exempel är: `https://westus.api.cognitive.microsoft.com/luis/v2.0`.<br><br>Den [redigering nyckel och slutpunktsnyckeln](luis-boundaries.md#key-limits) har olika syften. Använd dem inte synonymt. |
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -113,7 +113,8 @@ Inkommande avbildningskatalog kan innehålla den **produktion**, **mellanlagring
 |Mellanlagring|Get, Post|Azure och behållare|`{APPLICATION_ID}_STAGING.gz`|
 |Produktion|Get, Post|Azure och behållare|`{APPLICATION_ID}_PRODUCTION.gz`|
 
->**Viktigt!** Inte byta namn på, ändra eller expandera LUIS-paketfilerna.
+> [!IMPORTANT]
+> Inte byta namn på, ändra eller expandera LUIS-paketfilerna.
 
 ### <a name="packaging-prerequisites"></a>Paketering krav
 
@@ -262,8 +263,8 @@ Använd värden https://localhost:5000, för behållaren API: er.
 
 |Pakettyp|Metod|Routa|Frågeparametrar|
 |--|--|--|--|
-|Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q = {q}<br>& mellanlagring<br>[& timezoneOffset]<br>[& utförlig]<br>[& logg]<br>|
-|Tränas|Get, Post|/ luis/v2.0/apps/{appId}/versions/{versionId}?|q = {q}<br>[& timezoneOffset]<br>[& utförlig]<br>[& logg]|
+|Publicerad|[Hämta](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [inlägg](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/ luis/v2.0/apps/{appId}?|q={q}<br>& mellanlagring<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]<br>|
+|Tränas|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[& utförlig]<br>[&log]|
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
@@ -358,7 +359,7 @@ Du kan använda en LUIS-programmet om det **omfattar inte** någon av följande 
 
 Konfigurationer som inte stöds|Information|
 |--|--|
-|Kulturer som stöds inte behållare| Tyska (de-DE)<br>Nederländska (nl-NL)<br>Japanska (ja-JP)<br>|
+|Kulturer som stöds inte behållare| Tyska (de-DE)<br>Nederländska (nl-NL)<br>Japanese (ja-JP)<br>|
 |Domäner som inte stöds|Fördefinierade domäner, inklusive fördefinierade domän avsikter och entiteter|
 |Stöds inte entiteter för alla kulturer|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) fördefinierade entitet för alla kulturer|
 |Stöds inte entiteter för engelska (en-US) kultur|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) fördefinierade entiteter|
@@ -377,9 +378,10 @@ I den här artikeln beskrivs begrepp och arbetsflöde för att hämta, installer
 * Du måste ange faktureringsinformation när instanser skapades av en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
+> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex, bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [konfigurera behållare](luis-container-configuration.md) för konfigurationsinställningar
 * Referera till [vanliga frågor (och svar FAQ)](luis-resources-faq.md) att lösa problem som rör LUIS-funktioner.
+* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)

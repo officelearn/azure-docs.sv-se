@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: zarhoads
-ms.openlocfilehash: c86ea4ca5353207d091d3e6edb13f1f3eba59175
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 84e01c319ab058c9abb05cd9882f4c25bea5cffb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410667"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462042"
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Hantera en VM-skalningsuppsättning med Azure CLI
 Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några av de vanliga Azure CLI-kommandon som kan du utföra följande uppgifter.
@@ -46,7 +46,7 @@ az vmss list-instances \
     --output table
 ```
 
-Om du vill visa mer information om en specifik VM-instans, lägger du till den `--instance-id` parameter [az vmss get-instance-view](/cli/azure/vmss#get-instance-view) och anger en instans för att visa. I följande exempel visar information om den Virtuella datorinstansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
+Om du vill visa mer information om en specifik VM-instans, lägger du till den `--instance-id` parameter [az vmss get-instance-view](/cli/azure/vmss) och anger en instans för att visa. I följande exempel visar information om den Virtuella datorinstansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
 
 ```azurecli
 az vmss get-instance-view \

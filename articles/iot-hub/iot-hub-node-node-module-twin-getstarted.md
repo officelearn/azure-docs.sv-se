@@ -9,12 +9,12 @@ ms.devlang: node
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 4016471be05c1062eb389ab4851330f3a80dbcb2
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ae798ecf2ba5f53cdfdef45b74677615d2e0a06d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969034"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447011"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-nodejs-back-end-and-nodejs-device"></a>Kom igång med IoT Hub identitets- och modulen modultvilling med hjälp av Node.js-serverdel och Node.js-enhets-
 
@@ -116,7 +116,7 @@ Den här appen skapar en enhetsidentitet med ID **myFirstDevice** och en modul i
 
 I det här avsnittet skapar du ett Node.js-appen på din simulerade enhet som uppdaterar modultvillingen rapporterade egenskaper.
 
-1. **Hämta modulens anslutningssträng** – nu om du loggar in på [Azure-portalen][lnk-portal]. Gå till din IoT Hub och klicka på IoT-enheter. Leta rätt på myFirstDevice och öppna den, så ser du att myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
+1. **Hämta modulens anslutningssträng** – nu om du loggar in på [Azure-portalen][lnk-portal]. Gå till din IoT Hub och klicka på IoT-enheter. Hitta myFirstDevice, öppna den och du ser myFirstModule har skapats. Kopiera modulens anslutningssträng. Den behövs i nästa steg.
 
     ![Information om Azure-portalmodulen][15]
 

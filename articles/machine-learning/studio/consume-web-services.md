@@ -72,7 +72,7 @@ I den [Azure Machine Learning Web Services Portal](https://services.azureml.net/
 1. Klicka på **WEBBTJÄNSTER** på den översta menyn.
 2. Klicka på den webbtjänst som du vill hämta nyckeln.
 
-Klicka på **Använd webbtjänst** att hämta URI: er för begäran Reposonse och tjänster för Batch-körning och exemplet koden i C#, R och Python.
+Klicka på **Använd webbtjänst** att hämta URI: er för begäranden och svar och tjänster för Batch-körning och exempel koden i C#, R och Python.
 
 Klicka på **Swagger API** baserat dokumentation för att hämta Swagger för API: er som anropas från den angivna URI: er.
 
@@ -167,7 +167,7 @@ namespace CallRequestResponseService
                 {
                     Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
 
-                    // Print the headers - they include the requert ID and the timestamp,
+                    // Print the headers - they include the request ID and the timestamp,
                     // which are useful for debugging the failure
                     Console.WriteLine(response.Headers.ToString());
 
@@ -228,7 +228,7 @@ try:
 except urllib2.HTTPError, error: 
     print("The request failed with status code: " + str(error.code))
 
-    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    # Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
     print(error.info())
     print(json.loads(error.read())) 
 ```
@@ -280,7 +280,7 @@ if (httpStatus >= 400)
 {
 print(paste("The request failed with status code:", httpStatus, sep=" "))
 
-# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+# Print the headers - they include the request ID and the timestamp, which are useful for debugging the failure
 print(headers)
 }
 

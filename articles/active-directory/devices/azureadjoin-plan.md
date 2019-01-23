@@ -4,7 +4,7 @@ description: Beskriver de steg som krävs för att implementera Azure AD-anslutn
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.component: devices
 ms.assetid: 81d4461e-21c8-4fdd-9076-0e4991979f62
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: cb604bec1860da25e18c1c3a56a012882e5ea58e
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: be7cded5b9cd2f7a3f33d1de11f36e82f079fc4b
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189521"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448576"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Anvisningar: Planera implementeringen av Azure AD-anslutningen
 
@@ -239,7 +239,7 @@ Här är en jämförelse av dessa tre metoder
 |Tillämpliga flöden|OOBE och inställningar|OOBE endast|OOBE endast|
 |Lokal administratörsbehörighet till primär användare|Ja, som standard|Konfigurerbara|Nej|
 |Kräv stöd för enheter OEM|Nej|Ja|Nej|
-|Versioner som stöds|1511 +|1709 +|1703 +|
+|Versioner som stöds|1511+|1709+|1703+|
  
 Välj din distributionsmetod sätt genom att granska tabellen ovan och granska följande överväganden för att börja använda endera metod:  
 

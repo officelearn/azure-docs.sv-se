@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure active directory identity protection kan molnidentifiering, hantering av program, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.component: conditional-access
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 680e52fefd8256b3ac270e8d721f27645ced49eb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 12440a8da63f19961322f06fd2459a28119e9d59
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004272"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54463209"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Sårbarheter som identifieras av Azure Active Directory Identity Protection
 Sårbarheter är svagheter i din miljö som kan utnyttjas av en angripare. Vi rekommenderar att du åtgärda dessa sårbarheter för att förbättra säkerhetspositionen för din organisation och förhindra att angripare utnyttjar dem.
@@ -40,7 +40,7 @@ Azure Multi-Factor authentication ger ett andra säkerhetslager för autentiseri
 
 Vi rekommenderar att du kräver Azure Multi-Factor Authentication för användarinloggningar. Multifaktorautentisering spelar en viktig roll i principer för riskbaserad villkorlig åtkomst som är tillgängliga via Identity Protection.
 
-Mer information finns i [vad är Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
+Mer information finns i [Vad är Azure Multi-Factor Authentication?](../authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Ohanterade molnappar
 Denna säkerhetsrisk kan du identifiera ohanterade molnappar i din organisation.
@@ -62,5 +62,5 @@ Mer information finns i [Azure AD Privileged Identity Management](../privileged-
 
 ## <a name="see-also"></a>Se också
 
-[Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+[Identitetsskydd för Azure Active Directory](../active-directory-identityprotection.md)
 

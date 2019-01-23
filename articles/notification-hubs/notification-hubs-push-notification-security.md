@@ -1,10 +1,10 @@
 ---
-title: Säkerhet för Notification hub
-description: Det här avsnittet beskriver security för Azure notification hubs.
+title: Notification Hubs säkerhet
+description: Det här avsnittet beskriver säkerhet för Azure notification hub.
 services: notification-hubs
 documentationcenter: .net
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 6506177c-e25c-4af7-8508-a3ddca9dc07c
 ms.service: notification-hubs
@@ -12,38 +12,41 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/14/2018
-ms.author: dimazaid
-ms.openlocfilehash: 9f197a85dfad31ce32d0f9c93127b69d8e33c9ee
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33778281"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465368"
 ---
-# <a name="security"></a>Säkerhet
+# <a name="security-model-of-azure-notification-hubs"></a>Säkerhetsmodellen i Azure Notification Hubs
+
 ## <a name="overview"></a>Översikt
-Det här avsnittet beskriver säkerhetsmodellen i Azure Notification Hubs. Eftersom Meddelandehubbar är en Service Bus-entitet, implementeras som i samma säkerhetsmodell som Service Bus. Mer information finns i [Service Bus autentisering](https://msdn.microsoft.com/library/azure/dn155925.aspx) avsnitt.
 
-## <a name="shared-access-signature-security-sas"></a>Säkerhet för delad åtkomst signatur (SAS)
-Notification Hubs implementerar en på entitetsnivå säkerhetsprogram kallas SAS (signatur för delad åtkomst). Det här schemat kan meddelandeentiteter att deklarera upp till 12 auktoriseringsregler i deras beskrivning som ger rättigheter på denna enhet.
+Det här avsnittet beskriver säkerhetsmodellen i Azure Notification Hubs. Eftersom Meddelandehubbar är en Service Bus-entiteten, implementera de samma säkerhetsmodell som Service Bus. Mer information finns i den [Service Bus-autentisering](https://msdn.microsoft.com/library/azure/dn155925.aspx) ämnen.
 
-Varje regel innehåller ett namn, ett nyckelvärde (delad hemlighet) och en uppsättning rättigheter, som beskrivs i avsnittet ”säkerhetsanspråk”. När du skapar en Meddelandehubb skapas två regler automatiskt: en med lyssna-behörighet (med klientappen) och en med alla rättigheter (som använder appens serverdel).
+## <a name="shared-access-signature-security-sas"></a>Säkerhet över signatur för delad åtkomst (SAS)
 
-När du utför registreringen management från klientappar om informationen som skickas meddelanden är inte känslig (till exempel väder uppdateringar), ett vanligt sätt att komma åt en Meddelandehubb är att ge nyckelvärdet för regeln endast lyssna-åtkomst till klientappen och ge nyckelvärdet för regeln fullständig åtkomst till appens serverdel.
+Notification Hubs implementerar en på entitetsnivå säkerhetsschema kallas SAS (signatur för delad åtkomst). Det här schemat kan meddelandeentiteter deklarera upp till 12 auktoriseringsregler i deras beskrivning som beviljas rättigheter på denna entitet.
 
-Det rekommenderas inte att bädda in värdet för nyckeln i Windows Store-appar för klienten. Ett sätt att undvika att bädda in värdet för nyckeln är att ha klientappen hämta från appens serverdel vid start.
+Varje regel innehåller ett namn, ett nyckelvärde (delad hemlighet) och en uppsättning rättigheter, enligt beskrivningen i avsnittet ”säkerhetsanspråk”. När du skapar en Meddelandehubb, två regler skapas automatiskt: en med behörighet att lyssna (kamerans klienten) och en med alla rättigheter (som appserverdelen använder).
 
-Det är viktigt att förstå att nyckeln med lyssna åtkomst tillåter ett klientprogram att registrera dig för en tagg. Om din app måste begränsa registreringar till särskilda taggar till specifika klienter (till exempel när taggar representerar användar-ID), måste din Apps serverdel utföra registreringar. Mer information finns i hantering av registreringen. Observera att på så sätt kan klientappen inte kommer har direkt åtkomst till Notification Hubs.
+När du utför registreringshantering från klient apps om informationen som skickas meddelanden är inte känsliga (t.ex, väder uppdateringar), ett vanligt sätt att få åtkomst till en Meddelandehubb är att ge nyckelvärdet för regeln endast lyssna till klientapp och för att ge nyckelvärdet för regeln fullständig åtkomst till app-serverdel.
 
-## <a name="security-claims"></a>Säkerhetsmålen
-Precis som andra entiteter, Notification Hub tillåts för tre säkerhetsanspråk: lyssna, skicka och hantera.
+Vi rekommenderar inte att du bäddar in nyckelvärdet i Windows Store-klientappar. Ett sätt att undvika att bädda in nyckelvärdet är att ha klientappen hämtar du den från appserverdelen vid start.
 
-| Begär | Beskrivning | Tillåtna åtgärder |
-| --- | --- | --- |
-| Lyssna |Skapa eller uppdatera, läsa och ta bort enda registreringar |Skapa eller uppdatera registrering<br><br>Läs registrering<br><br>Läsa alla registreringar för en referens<br><br>Ta bort registrering |
-| Skicka |Skicka meddelanden till meddelandehubben |Skicka meddelande |
-| Hantera |CRUDs om Notification Hubs (inklusive uppdaterar PNS-autentiseringsuppgifter och säkerhetsnycklar) och Läs registreringar baserat på taggar |Skapa/uppdatera och läsa/ta bort notification hub<br><br>Läs registreringar efter tagg |
+Det är viktigt att förstå att nyckeln med lyssna-åtkomst tillåter ett klientprogram att registrera dig för en tagg. Om din app måste begränsa registreringar till särskilda taggar för specifika klienter (till exempel när taggar representerar användar-ID), måste appens serverdel utföra registreringarna. Mer information finns i Registreringshantering. Observera att på så sätt kan klientappen inte kommer ha direkt åtkomst till Notification Hubs.
 
-Notification Hubs godkänna anspråk som beviljas av Microsoft Azure Access Control-token och av signatur-token som genereras med delade nycklar direkt på Meddelandehubben.
+## <a name="security-claims"></a>Säkerhetsanspråk
 
+Precis som andra entiteter, Notification Hub åtgärder tillåts för tre säkerhetsanspråk: Lyssna, skicka och hantera.
+
+| Begäran   | Beskrivning                                          | Tillåtna åtgärder |
+| ------- | ---------------------------------------------------- | ------------------ |
+| Lyssna  | Skapa/uppdatera, läsa och radera enda registreringar | Skapa/uppdatera registrering<br><br>Läsa registrering<br><br>Läsa alla registreringar för en referens<br><br>Ta bort registrering |
+| Skicka    | Skicka meddelanden till meddelandehubben                | Skicka meddelande |
+| Hantera  | CRUDs om Meddelandehubbar (inklusive uppdaterar PNS-autentiseringsuppgifter och säkerhetsnycklar) och Läs registreringar baserat på taggar |Skapa/uppdatera/läsa/ta bort notification hub<br><br>Läs registreringar efter tagg |
+
+Meddelandehubbar accepterar anspråk som beviljas genom Microsoft Azure Access Control-token och signaturtoken som genereras med delade nycklar inställt direkt på Meddelandehubben.

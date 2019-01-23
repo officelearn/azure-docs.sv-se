@@ -25,7 +25,7 @@ Här är några av de uppgifter du kan utföra med PowerShell-modulen. Titta nä
 * Kör ett experiment ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
 * Skapa en webbtjänst utanför en förutsägbart experiment ([New AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
 * Skapa en slutpunkt på en publicerad webbtjänst ([Lägg till AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Anropa en RRS- och/eller en BES-webbtjänstslutpunkt ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) och [Invoke-AmlWebServicBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+* Anropa en RRS-och/eller BES-webbtjänstslutpunkt ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) och [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
 
 Här är ett snabbt exempel på hur man kan använda PowerShell för att köra ett befintligt experiment:
 

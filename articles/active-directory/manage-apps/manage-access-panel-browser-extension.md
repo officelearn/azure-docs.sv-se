@@ -4,7 +4,7 @@ description: Hur du använder grupprinciper för att distribuera Internet Explor
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7ccaf272a79268ecd781821593a6041d5653a39b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715048"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471896"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Felsöka Access Panel-tillägg för Internet Explorer
 Den här artikeln hjälper dig att felsöka följande problem:
@@ -28,7 +28,7 @@ Den här artikeln hjälper dig att felsöka följande problem:
 * Du kan inte komma åt dina appar via portalen Mina appar när du använder Internet Explorer.
 * Du ser meddelandet ”installera programvara” även om du redan har installerat programvaran.
 
-Om du är administratör kan se även: [hur du distribuerar Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip](deploy-access-panel-browser-extension.md)
+Om du är administratör kan se även: [Så här distribuerar du Access Panel-tillägg för Internet Explorer med hjälp av en Grupprincip](deploy-access-panel-browser-extension.md)
 
 ## <a name="run-the-diagnostic-tool"></a>Kör diagnostikverktyget
 Du kan diagnostisera problem med installationen med tillägget Access Panel genom att hämta och köra diagnostikverktyg för åtkomstpanelen:

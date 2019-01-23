@@ -5,7 +5,7 @@ services: active-directory
 keywords: Felsöka Azure AD Connect direktautentisering genom att installera Active Directory, komponenter som krävs för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6172195a9914d841e480cd7ebbf9566616911378
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: db3dfc10d6936b063a225e48fd043b6208f10475
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686202"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472780"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Felsöka Azure Active Directory-direktautentisering
 
@@ -95,7 +95,7 @@ Kontrollera att du använder ett globalt administratörskonto enbart i molnet f�
 
 ### <a name="warning-message-when-uninstalling-azure-ad-connect"></a>Varning vid avinstallera Azure AD Connect
 
-Om du har direktautentisering har aktiverats på din klient och försök att avinstallera Azure AD Connect, den visar följande varning: ”användare kommer inte att kunna logga in på Azure AD om du inte har andra direktautentisering agenter som installerats på andra servrar ”.
+Om du har direktautentisering har aktiverats på din klient och försök att avinstallera Azure AD Connect, visar den följande varning: ”Användare kommer inte att kunna logga in på Azure AD om du inte har andra direktautentisering agenter som installerats på andra servrar”.
 
 Se till att din konfiguration är [med hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) innan du avinstallerar den Azure AD Connect för att undvika att skada användarinloggning.
 
@@ -137,7 +137,7 @@ Om du vill felsöka användaren inloggningar, leta efter spårningsloggar på **
         DateTime=xxxx-xx-xxTxx:xx:xx.xxxxxxZ
 ```
 
-Du kan hämta beskrivande information om felet (”1328” i föregående exempel) genom att öppna Kommandotolken och kör följande kommando (Observera: Ersätt '1328' med faktiska felnumret som visas i loggarna):
+Du kan hämta beskrivande information om felet (”1328” i föregående exempel) genom att öppna Kommandotolken och kör följande kommando (Observera: Ersätt ”1328' med faktiska felnumret som visas i loggarna):
 
 `Net helpmsg 1328`
 

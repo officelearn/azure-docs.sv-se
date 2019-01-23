@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4c1f115061dfba36a37da1647c34dd4587857377
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427482"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471828"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
 I Azure Search, en [resursen har skapats](search-create-service-portal.md) på en prisnivå nivå eller SKU som har åtgärdats för livslängden för tjänsten. Nivåerna ingår **kostnadsfri**, **grundläggande**, eller **Standard**, där **Standard** är tillgängligt i flera konfigurationer och kapaciteter. De flesta kunder börjar med den **kostnadsfri** nivå för utvärdering och konverteras sedan till **Standard** för utvecklings-och produktionsdistributionerna. Du kan utföra alla snabbstarter och självstudier på den **kostnadsfri** nivå, inklusive de för resurskrävande kognitiv sökning. 
 
-Nivåerna avgöra kapaciteten, inte funktioner och hjälp av:
+Nivåerna återspeglar egenskaperna för den maskinvara som är värd för den tjänsten (i stället funktioner) och hjälp av:
 
 + Antal index som du kan skapa
 + Storlek och hastighet partitioner (fysisk lagring)

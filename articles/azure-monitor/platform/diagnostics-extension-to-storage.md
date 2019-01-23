@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
-ms.component: diagnostic-extension
-ms.openlocfilehash: f0d1a51a3c787bd4d9602eeaad9ac92eda7bacb7
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103748"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468530"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Lagra och visa diagnostikdata i Azure Storage
 Diagnostiska data lagras inte permanent såvida inte du överföra den till Microsoft Azure storage-emulatorn eller Azure storage. En gång i lagring, den kan visas med en av flera tillgängliga verktyg.
@@ -79,4 +79,5 @@ Det finns flera verktyg för att visa data när den överförs till lagring. Exe
 
 ## <a name="next-steps"></a>Nästa steg
 [Spåra flödet i Cloud Services-program med Azure Diagnostics](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md)
+
 

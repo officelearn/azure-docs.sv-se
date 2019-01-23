@@ -4,7 +4,7 @@ description: Så här att lösa vanliga åtkomstproblem med Azure AD Application
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 768a9d930314882f88eab630365475d69aa5f83b
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 454749ee65bd6fa43480e61030aa2a9d66b71127
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213730"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476588"
 ---
 # <a name="cant-access-this-corporate-application-error-when-using-an-application-proxy-application"></a>”Det går inte att komma åt företagets programmet” fel när du använder ett programproxy-program
 
@@ -31,9 +31,9 @@ När du ser det här felet kan du hitta statuskoden på felsidan. Koden är för
 
 -   **Gateway-Timeout**: Tjänsten Application Proxy kan inte nå anslutningen. Det här felet tyder vanligen på problem med anslutningen tilldelningen kopplingen själv, eller nätverket regler runt anslutningen.
 
--   **Felaktig Gateway**: Anslutningen kan inte nå backend-applikationer. Det här felet kan indikera en felaktig konfiguration av programmet.
+-   **Bad Gateway**: Anslutningen kan inte nå backend-applikationer. Det här felet kan indikera en felaktig konfiguration av programmet.
 
--   **Det är inte tillåtet**: Användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
+-   **Forbidden**: Användaren har inte behörighet att komma åt programmet. Det här felet kan inträffa om användaren inte har tilldelats till programmet i Azure Active Directory eller om på serverdelen användaren inte har behörighet att komma åt programmet.
 
 Du hittar koden genom att titta på texten längst ned till vänster i felmeddelandet för fältet ”statuskod”. Också söka efter eventuella ytterligare tips längst ned på sidan.
 

@@ -4,7 +4,7 @@ description: Med villkorlig åtkomstkontroll kontrollerar de specifika villkor s
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 65f80aea-0426-4072-83e1-faf5b76df034
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 16b09b7d4bddc24d9efa2e37c9e31f61a4333f86
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 436bb3c235c76f04e0f3d0fec1beeec3872f1dfb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311726"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475823"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identitetslivscykel
 Identitet är en av grundpelarna i enterprise mobility och programmet åtkomststrategi. Om du loggar din mobila enhet eller SaaS-app, är din identitet på för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering förena och synkronisering mellan din identitet lagringsplatser, bland annat automatisera och centralisera att etablera resurser. ID-lösning bör vara en centraliserad identitet i både lokalt och i molnet och även använda någon form av identitetsfederation att underhålla centraliserad autentisering och på ett säkert sätt dela och samarbeta med externa användare och företag. Resurser mellan operativsystem och program till personer i eller tillhör en organisation. Organisationsstruktur kan ändras för att hantera etablering principer och procedurer.
 
 Det är också viktigt att du har en identitetslösning som är avsedda för att underlätta för dina användare genom att låta dem via självbetjäning upplevelser för att hålla dem produktiva. ID-lösning är mer robust om det möjliggör enkel inloggning för användare i alla resurser som de behöver åtkomst. Administratörer på alla nivåer kan använda standardiserad procedurer för att hantera användarens autentiseringsuppgifter. Vissa nivåer av administration kan minskas eller elimineras, beroende på bredden av etablering hanteringslösningen. Dessutom kan du säkert distribuera administrationsfunktioner, manuellt eller automatiskt, mellan olika organisationer. Till exempel kan en domänadministratör fungera endast personer och resurser i domänen. Den här användaren kan utföra uppgifter för administration och etablering, men har inte behörighet att göra konfigurationsåtgärder, till exempel skapa arbetsflöden.
 
-## <a name="determine-hybrid-identity-management-tasks"></a>Fastställa hanteringsuppgifter för Hybrid Identity
+## <a name="determine-hybrid-identity-management-tasks"></a>Determine Hybrid Identity Management Tasks
 Distribuera administrativa uppgifter i din organisation bättre precision och effektivitet för administration och förbättrar balansen för arbetsbelastningen för en organisation. Följande är pivoteringsmöjligheter som definierar en robust identitetshanteringssystem.
 
  ![](./media/plan-hybrid-identity-design-considerations/Identity_management_considerations.png)

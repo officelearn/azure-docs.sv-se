@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: a1fbe541d9cb2f9b5a839d90fcfa9c7b017efce9
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198516"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475670"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Konfigurera belastningsutjämning och utgående regler i Standardbelastningsutjämnare med Azure CLI
 
@@ -32,7 +32,7 @@ Om du väljer att installera och använda CLI lokalt så kräver den här själv
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group#create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 I följande exempel skapas en resursgrupp med namnet *myresourcegroupoutbound* i den *usaöstra2* plats:
 
@@ -42,7 +42,7 @@ I följande exempel skapas en resursgrupp med namnet *myresourcegroupoutbound* i
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>Skapa det virtuella nätverket
-Skapa ett virtuellt nätverk med namnet *myvnetoutbound* med ett undernät med namnet *mysubnetoutbound* i den *myresourcegroupoutbound* med [az network vnet Skapa](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Skapa ett virtuellt nätverk med namnet *myvnetoutbound* med ett undernät med namnet *mysubnetoutbound* i den *myresourcegroupoutbound* med [az network vnet Skapa](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \
@@ -55,7 +55,7 @@ Skapa ett virtuellt nätverk med namnet *myvnetoutbound* med ett undernät med n
 
 ## <a name="create-inbound-public-ip-address"></a>Skapa inkommande offentliga IP-adress 
 
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. En Standard Load Balancer stöder endast offentliga IP-standardadresser. Använd [az nätverket offentliga ip-skapa](https://docs.microsoft.com/cli/azure/network/public-ip#create) att skapa en offentlig IP-adress med namnet *mypublicipinbound* i *myresourcegroupoutbound*.
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. En Standard Load Balancer stöder endast offentliga IP-standardadresser. Använd [az nätverket offentliga ip-skapa](https://docs.microsoft.com/cli/azure/network/public-ip) att skapa en offentlig IP-adress med namnet *mypublicipinbound* i *myresourcegroupoutbound*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipinbound --sku standard
@@ -63,7 +63,7 @@ För att du ska kunna komma åt din webbapp på Internet behöver du en offentli
 
 ## <a name="create-outbound-public-ip-address"></a>Skapa utgående offentliga IP-adress 
 
-Skapa en-IP-standardadress för Belastningsutjämnarens klientdel en utgående konfiguration med hjälp av [az nätverket offentliga ip-skapa](https://docs.microsoft.com/cli/azure/network/public-ip#create).
+Skapa en-IP-standardadress för Belastningsutjämnarens klientdel en utgående konfiguration med hjälp av [az nätverket offentliga ip-skapa](https://docs.microsoft.com/cli/azure/network/public-ip).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -81,7 +81,7 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 ### <a name="create-load-balancer"></a>Skapa belastningsutjämnare
 
-Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az network lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) med namnet *lb* som innehåller en inkommande klientdelens IP-konfiguration och en backend-adresspool som är associerad med den offentliga IP-adressen *mypublicipinbound* som du skapade i föregående steg.
+Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az network lb skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet *lb* som innehåller en inkommande klientdelens IP-konfiguration och en backend-adresspool som är associerad med den offentliga IP-adressen *mypublicipinbound* som du skapade i föregående steg.
 
 ```azurecli-interactive
   az network lb create \
@@ -95,7 +95,7 @@ Skapa en belastningsutjämnare med den inkommande IP-adress med hjälp av [az ne
   ```
 
 ### <a name="create-outbound-frontend-ip"></a>Skapa utgående klientdels-IP
-Skapa utgående frontend IP-konfigurationen för belastningsutjämnaren med [az network lb frontend-IP-skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) som innehåller och utgående klientdelens IP-konfiguration med namnet *myfrontendoutbound* dvs som är kopplad till den offentliga IP-adressen *mypublicipoutbound*
+Skapa utgående frontend IP-konfigurationen för belastningsutjämnaren med [az network lb frontend-IP-skapa](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) som innehåller och utgående klientdelens IP-konfiguration med namnet *myfrontendoutbound* dvs som är kopplad till den offentliga IP-adressen *mypublicipoutbound*
 
 ```azurecli-interactive
   az network lb frontend-ip create \
@@ -107,7 +107,7 @@ Skapa utgående frontend IP-konfigurationen för belastningsutjämnaren med [az 
 
 ### <a name="create-health-probe"></a>Skapa hälsoavsökning
 
-En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
+En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -121,7 +121,7 @@ En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerst
 
 ### <a name="create-load-balancing-rule"></a>Skapa regel för belastningsutjämning
 
-En belastningsutjämningsregel definierar klientdelens IP-konfiguration för inkommande trafik och backend-poolen för att ta emot trafik samt nödvändig käll- och port. Skapa en regel för belastningsutjämnaren *myinboundlbrule* med [az network lb rule skapa](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) för att lyssna på port 80 i klientdelspoolen *myfrontendinbound* och skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen *bepool* också använder port 80. 
+En belastningsutjämningsregel definierar klientdelens IP-konfiguration för inkommande trafik och backend-poolen för att ta emot trafik samt nödvändig käll- och port. Skapa en regel för belastningsutjämnaren *myinboundlbrule* med [az network lb rule skapa](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) för att lyssna på port 80 i klientdelspoolen *myfrontendinbound* och skicka belastningsutjämnad nätverkstrafik till serverdelsadresspoolen *bepool* också använder port 80. 
 
 >[!NOTE]
 >Den här belastningsutjämningsregel inaktiverar automatisk utgående (S) NAT till följd av den här regeln med parametern – inaktivera utgående snat. Utgående NAT tillhandahålls endast av regel för utgående trafik.

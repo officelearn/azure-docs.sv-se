@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: a26deba97d1ed61f2a6f3b54dafe9f651167ab5b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 381c9a2af0f1743509db4495603c0e26da5c1736
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424378"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474527"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverksgränssnitt
 
@@ -38,7 +38,7 @@ Kontot du loggar in på eller ansluta till Azure med, måste tilldelas den [nät
 
 ## <a name="create-a-network-interface"></a>Skapa ett nätverksgränssnitt
 
-När du skapar en virtuell dator med Azure-portalen, skapar portalen ett nätverksgränssnitt med standardinställningar för dig. Om du hellre vill ange alla gränssnitt nätverksinställningarna kan du skapa ett nätverksgränssnitt med anpassade inställningar och koppla nätverksgränssnittet till en virtuell dator när du skapar den virtuella datorn (med PowerShell eller Azure CLI). Du kan också skapa ett nätverksgränssnitt och lägga till den i en befintlig virtuell dator (med PowerShell eller Azure CLI). Om du vill lära dig mer om att skapa en virtuell dator med en befintlig nätverksgränssnitt eller att lägga till eller ta bort nätverksgränssnitt från befintliga virtuella datorer, se [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md). Innan du skapar ett nätverksgränssnitt måste du ha en befintlig [virtuellt nätverk](manage-virtual-network.md#create-a-virtual-network) i samma plats och prenumeration skapar du ett nätverksgränssnitt i.
+När du skapar en virtuell dator med Azure-portalen, skapar portalen ett nätverksgränssnitt med standardinställningar för dig. Om du hellre vill ange alla gränssnitt nätverksinställningarna kan du skapa ett nätverksgränssnitt med anpassade inställningar och koppla nätverksgränssnittet till en virtuell dator när du skapar den virtuella datorn (med PowerShell eller Azure CLI). Du kan också skapa ett nätverksgränssnitt och lägga till den i en befintlig virtuell dator (med PowerShell eller Azure CLI). Om du vill lära dig mer om att skapa en virtuell dator med en befintlig nätverksgränssnitt eller att lägga till eller ta bort nätverksgränssnitt från befintliga virtuella datorer, se [Lägg till eller ta bort nätverksgränssnitt](virtual-network-network-interface-vm.md). Innan du skapar ett nätverksgränssnitt måste du ha en befintlig [virtuellt nätverk](manage-virtual-network.md) i samma plats och prenumeration skapar du ett nätverksgränssnitt i.
 
 1. I rutan som innehåller texten *Sök efter resurser* högst upp på Azure-portalen, Skriv *nätverksgränssnitt*. När **nätverksgränssnitt** visas i sökresultaten, markerar du den.
 2. Välj **+ Lägg till** under **nätverksgränssnitt**.
@@ -69,7 +69,7 @@ Portalen ger inte alternativet att tilldela nätverksgränssnittet till programs
 |Verktyget|Kommando|
 |---|---|
 |CLI|[az network nic create](/cli/azure/network/nic#az_network_nic_create)|
-|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface#create)|
+|PowerShell|[New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface)|
 
 ## <a name="view-network-interface-settings"></a>Visa inställningar för nätverksgränssnittet
 
@@ -158,7 +158,7 @@ Du kan ändra undernätet, men inte det virtuella nätverket, som ett nätverksg
 
 ## <a name="add-to-or-remove-from-application-security-groups"></a>Lägg till eller ta bort från programsäkerhetsgrupper
 
-Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp med hjälp av portalen om nätverksgränssnittet är kopplat till en virtuell dator. Du kan använda PowerShell eller Azure CLI för att lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp om nätverksgränssnittet är ansluten till en virtuell dator eller inte. Läs mer om [programsäkerhetsgrupper](security-overview.md#application-security-groups) och hur du [skapa en programsäkerhetsgrupp](manage-network-security-group.md#create-an-application-security-group).
+Du kan bara lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp med hjälp av portalen om nätverksgränssnittet är kopplat till en virtuell dator. Du kan använda PowerShell eller Azure CLI för att lägga till ett nätverksgränssnitt för eller ta bort ett nätverksgränssnitt från en programsäkerhetsgrupp om nätverksgränssnittet är ansluten till en virtuell dator eller inte. Läs mer om [programsäkerhetsgrupper](security-overview.md#application-security-groups) och hur du [skapa en programsäkerhetsgrupp](manage-network-security-group.md).
 
 1. I den *Sök efter resurser, tjänster och dokument* rutan längst upp i portalen, börjar du skriva namnet på en virtuell dator som har ett nätverksgränssnitt som du vill lägga till eller ta bort från en programsäkerhetsgrupp. När namnet på den virtuella datorn visas i sökresultatet väljer du den.
 2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **konfigurera programmet säkerhetsgrupper**väljer programsäkerhetsgrupper som du vill lägga till nätverksgränssnittet till, eller avmarkera programsäkerhetsgrupper som du vill ta bort nätverksgränssnittet från, Välj sedan **spara**. Endast nätverksgränssnitt som finns i samma virtuella nätverk kan läggas till i säkerhetsgruppen för samma program. Programsäkerhetsgruppen måste finnas på samma plats som nätverksgränssnittet.

@@ -8,21 +8,21 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 07/12/2017
 ms.author: robb
-ms.component: diagnostic-extension
-ms.openlocfilehash: 8a8883989a731265fb358c119d44fa4243b54a5e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: diagnostic-extension
+ms.openlocfilehash: 305aa28127e453c01de9b55ab6cb0ff3471afad9
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103952"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473817"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Felsökning av Azure-diagnostik
 Den här artikeln beskriver felsökningsinformation som är relevant för med hjälp av Azure Diagnostics. Läs mer om Azure diagnostics [översikt över Azure Diagnostics](diagnostics-extension-overview.md).
 
 ## <a name="logical-components"></a>Logiska komponenter
-**Startprogram för diagnostik-plugin-programmet (DiagnosticsPluginLauncher.exe)**: Startar Azure Diagnostics-tillägget. Fungerar som posten pekar processen.
+**Diagnostics Plugin Launcher (DiagnosticsPluginLauncher.exe)**: Startar Azure Diagnostics-tillägget. Fungerar som posten pekar processen.
 
-**Diagnostik-plugin-programmet (DiagnosticsPlugin.exe)**: Konfigurerar, startar och hanterar livslängden för övervakningsagenten. Det är den viktigaste process som startas av starta.
+**Diagnostics Plugin (DiagnosticsPlugin.exe)**: Konfigurerar, startar och hanterar livslängden för övervakningsagenten. Det är den viktigaste process som startas av starta.
 
 **Monitoring Agent (MonAgent\*.exe processer)**: Övervakar, samlar in och överför diagnostics-data.  
 
@@ -34,7 +34,7 @@ Följande är sökvägarna till vissa viktiga loggar och artefakter. Vi referera
 | --- | --- |
 | **Azure Diagnostics-konfigurationsfil** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\Config.txt |
 | **Loggfiler** | C:\Logs\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version>\ |
-| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID >.\< RoleName >. DiagnosticStore\WAD0107\Tables |
+| **Lokal lagring för diagnostikdata** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Tables |
 | **Övervakning av agentens konfigurationsfil** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MaConfig.xml |
 | **Azure Diagnostics-tillägg-paketet** | %SystemDrive%\Packages\Plugins\Microsoft.Azure.Diagnostics.PaaSDiagnostics\<version> |
 | **Loggsökväg samling verktyg** | %SystemDrive%\Packages\GuestAgent\ |
@@ -43,7 +43,7 @@ Följande är sökvägarna till vissa viktiga loggar och artefakter. Vi referera
 ### <a name="virtual-machines"></a>Virtuella datorer
 | Artefakt | Sökväg |
 | --- | --- |
-| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version > \RuntimeSettings |
+| **Azure Diagnostics-konfigurationsfil** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
 | **Loggfiler** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\ |
 | **Lokal lagring för diagnostikdata** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Tables |
 | **Övervakning av agentens konfigurationsfil** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MaConfig.xml |
@@ -74,9 +74,9 @@ Om det finns inga data för det specifika måttet, kontrollera **Diagnostiky** >
 - \Process (WaWorkerHost) \Private byte
 - \Memory\Page fel/sek
 - \.NET CLR-minne (_globala_)\% tid i GC i
-- \LogicalDisk (C:) \Disk skrivna byte/sek
+- \LogicalDisk(C:)\Disk Write Bytes/sec
 - \LogicalDisk (C:) \Disk-lästa byte/s
-- \LogicalDisk (D:) \Disk skrivna byte/sek
+- \LogicalDisk(D:)\Disk Write Bytes/sec
 - \LogicalDisk (D:) \Disk-lästa byte/s
 
 Om konfigurationen är korrekt, men du kan fortfarande inte kan se måttdata, Använd följande riktlinjer för felsökning.
@@ -293,3 +293,4 @@ Portalmiljö på de virtuella datorerna visar vissa prestandaräknare som standa
 - Om data i lagring har namn på prestandaräknare på engelska. Om räknarnamnen inte är på engelska, portal måttdiagram inte kunna identifiera den. **Minskning**: Ändra datorns språk till engelska för Systemkonton. Om du vill göra detta, Välj **Kontrollpanelen** > **Region** > **administrativa** > **inställningar**. Avmarkera sedan **Välkommen och systemkonton** så att anpassat språk inte används på system-kontot.
 
 - Om du använder jokertecken (\*) i ditt namn på prestandaräknare, portalen kommer inte kunna korrelera räknaren konfigurerade och samlat in när prestandaräknarna som ska skickas till Azure Storage-mottagare. **Minskning**: Att kontrollera att du kan använda jokertecken och få portalen expanderar den (\*), dirigera dina prestandaräknare till den [”Azure Monitor” mottagare](diagnostics-extension-schema.md#diagnostics-extension-111).
+

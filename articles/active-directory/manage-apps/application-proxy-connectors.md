@@ -3,7 +3,7 @@ title: Förstå Azure AD Application Proxy-anslutningar | Microsoft Docs
 description: Beskriver grunderna om Azure AD Application Proxy-kopplingar.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 8b410cc85584f45d4a3e9d7bce180a2c6aa46114
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ca483e84b28b50d963ecc6c2e26499574f546e0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134982"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473630"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Förstå Azure AD Application Proxy-anslutningar
 
@@ -99,7 +99,7 @@ Kopplingar kommer automatiskt att belastningsutjämna inom en anslutningsgrupp, 
 
 ## <a name="security-and-networking"></a>Säkerhet och nätverk
 
-Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köras inom ett perimeternätverk (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
+Kopplingar kan installeras var som helst i nätverket som gör att de kan skicka begäranden till Application Proxy-tjänsten. Det är viktiga att den dator som kör anslutningstjänsten även har åtkomst till dina appar. Du kan installera kopplingar i företagets nätverk eller på en virtuell dator som körs i molnet. Kopplingar kan köras inom en demilitariserad zon (DMZ), men det är inte nödvändigt eftersom all trafik är utgående så att nätverket förblir säkert.
 
 Kopplingar kan bara skicka utgående begäranden. Den utgående trafiken skickas till Application Proxy-tjänsten och till publicerade program. Du behöver att öppna ingående portar eftersom trafiken flödar båda riktningarna när en session har upprättats. Du behöver inte konfigurera belastningsutjämning mellan anslutningarna eller konfigurera inkommande åtkomst genom dina brandväggar. 
 
@@ -120,9 +120,9 @@ Utjämning av nätverksbelastning sker mellan kopplingar i ett angivet anslutnin
 
 En annan faktor som påverkar prestanda är kvaliteten på nätverk mellan kopplingar, inklusive: 
 
-* **Onlinetjänsten**: långsamma eller lång svarstid anslutningar till Application Proxy-tjänsten i Azure möjlighet att påverka prestanda för kopplingen. Ansluta din organisation till Azure med Express Route för bästa prestanda. I annat fall har ditt nätverksteam att säkerställa att anslutningar till Azure hanteras så effektivt som möjligt. 
-* **Serverdelsprogrammen**: I vissa fall kan det finns ytterligare Proxys mellan anslutningsappen och backend-program som kan långsam eller förhindra anslutningar. Om du vill felsöka det här scenariot, öppna en webbläsare från connector-server och försök att komma åt programmet. Om du kör anslutningarna i Azure, men program som finns på plats, kanske inte upplevelsen användarna förväntar sig.
-* **Domänkontrollanterna**: om kopplingarna utför SSO med hjälp av Kerberos-begränsad delegering kan de kontakta domänkontrollanter innan förfrågan skickas till serverdelen. Anslutningarna har ett cacheminne med Kerberos-biljetter, men i en miljö med upptagen svarstiden för domänkontrollanterna kan påverka prestanda. Det här problemet är vanligare för kopplingar som körs i Azure men kommunicerar med domänkontrollanter som finns på plats. 
+* **Onlinetjänsten**: Långsam eller lång svarstid anslutningar till Application Proxy-tjänst i Azure påverka prestanda för kopplingen. Ansluta din organisation till Azure med Express Route för bästa prestanda. I annat fall har ditt nätverksteam att säkerställa att anslutningar till Azure hanteras så effektivt som möjligt. 
+* **Serverdelsprogrammen**: I vissa fall finns ytterligare Proxys mellan anslutningsappen och backend-program som kan långsam eller förhindra anslutningar. Om du vill felsöka det här scenariot, öppna en webbläsare från connector-server och försök att komma åt programmet. Om du kör anslutningarna i Azure, men program som finns på plats, kanske inte upplevelsen användarna förväntar sig.
+* **Domänkontrollanterna**: Om kopplingarna utför SSO med hjälp av Kerberos-begränsad delegering kan kontakta de domänkontrollanter innan förfrågan skickas till serverdelen. Anslutningarna har ett cacheminne med Kerberos-biljetter, men i en miljö med upptagen svarstiden för domänkontrollanterna kan påverka prestanda. Det här problemet är vanligare för kopplingar som körs i Azure men kommunicerar med domänkontrollanter som finns på plats. 
 
 Läs mer om hur du optimerar ditt nätverk, [Network topologiöverväganden när du använder Azure Active Directory Application Proxy](application-proxy-network-topology.md).
 

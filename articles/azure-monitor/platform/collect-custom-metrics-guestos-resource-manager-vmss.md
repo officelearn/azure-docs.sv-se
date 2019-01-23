@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
-ms.openlocfilehash: 1513ea1c212d526b7fe2659855d4a80eabc9949b
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: metrics
+ms.openlocfilehash: 465fe66eadddbdd0cb428dc868d70a1ed8f5e47f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261714"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476962"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Skicka gäst-OS mått till arkivet som Azure Monitor-mått med en Azure Resource Manager-mall för en Windows VM-skalningsuppsättning
 
@@ -291,4 +291,5 @@ Du kan sedan också välja att använda dimensioner på det här måttet i diagr
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [anpassade mått](metrics-custom-overview.md).
+
 

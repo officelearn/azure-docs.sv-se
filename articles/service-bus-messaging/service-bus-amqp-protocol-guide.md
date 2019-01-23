@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 2c0fd7bd811445cd6bda8315c9c90ff6646d2be0
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: c437ffec635064bf301eb417717861b68beca611
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413915"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476997"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 i Azure Service Bus och Event Hubs-protokollguide
 
@@ -234,7 +234,7 @@ Egenskaper som programmet behöver definierar bör mappas till AMQP'S `applicati
 | Skapandetid |Deklarerar då meddelandet skapades. Inte används av Service Bus |Är inte tillgängliga via Service Bus-API. |
 | grupp-id |Programdefinierade identifierare för en uppsättning meddelanden. Används för Service Bus-sessioner. |[SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_SessionId) |
 | group-sequence |Räknare som identifierar den relativa sekvensnumret för meddelandet i en session. Ignoreras av Service Bus. |Är inte tillgängliga via Service Bus-API. |
-| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
+| reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) |
 
 #### <a name="message-annotations"></a>Meddelande-anteckningar
 

@@ -8,12 +8,12 @@ ms.date: 12/3/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ce78c86cdae9a06100fd17d00e0229805e42983b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 911f592c43865ea8bdfe85c1ad1071c7112ae9b6
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848467"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475449"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>Felsöka fel med delade resurser
 
@@ -39,6 +39,65 @@ För att lösa problemet måste du ta bort den modul som har fastnat i den **imp
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
+### <a name="module-fails-to-import"></a>Scenario: Modulen kan inte importera eller cmdlet: ar kan inte utföras när du har importerat
+
+#### <a name="issue"></a>Problem
+
+En modul kan inte importera eller importeras ordentligt, men inga cmdletar extraheras.
+
+#### <a name="cause"></a>Orsak
+
+Några vanliga orsaker som en modul inte kan importera till Azure Automation är:
+
+* Strukturen matchar inte strukturen som Automation måste det finnas i.
+* Modulen beror på en annan modul som inte har distribuerats till ditt Automation-konto.
+* Modulen saknar dess beroenden i mappen.
+* Den `New-AzureRmAutomationModule` cmdlet som används för att ladda upp modulen, och du har inte beviljat fullständig lagringssökväg eller har inte lästs in modulen med hjälp av en offentligt tillgänglig URL.
+
+#### <a name="resolution"></a>Lösning
+
+Någon av följande lösningar problemet på:
+
+* Kontrollera att modulen följer följande format: ModuleName.Zip **->** ModuleName eller versionsnummer **->** (ModuleName.psm1, ModuleName.psd1)
+* Öppna filen .psd1 och om modulen har några beroenden. I annat fall kan du ladda upp dessa moduler till Automation-kontot.
+* Se till att alla refererade DLL-filer finns i modulmappen.
+
+### <a name="all-modules-suspended"></a>Scenario: Uppdatera AzureModule.ps1 pausar när du uppdaterar moduler
+
+#### <a name="issue"></a>Problem
+
+När du använder den [uppdatering AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook för att uppdatera din Azure-moduler modulen uppdateringen uppdateringsprocessen hämtar har pausats.
+
+#### <a name="cause"></a>Orsak
+
+Standardinställningen för att avgöra hur många moduler uppdateras samtidigt är 10 när du använder den `Update-AzureModule.ps1` skript. Uppdateringen är känslig för fel när för många-modulerna uppdateras samtidigt.
+
+#### <a name="resolution"></a>Lösning
+
+Det är inte vanligt att alla AzureRM-moduler krävs i samma Automation-kontot. Vi rekommenderar att du bara importera de AzureRM-moduler som du behöver.
+
+> [!NOTE]
+> Undvika att importera den **AzureRM** modulen. Importera den **AzureRM** moduler kommer alla **AzureRM.\***  moduler som ska importeras, detta är inte recommened.
+
+Om uppdateringen pausar, måste du lägga till den `SimultaneousModuleImportJobCount` parametern till den `Update-AzureModules.ps1` skript och ange ett lägre värde än standardvärdet är 10. Du rekommenderas om du implementerar den här logiken för att starta med värdet 3 eller 5. `SimultaneousModuleImportJobCount` är en parameter i `Update-AutomationAzureModulesForAccount` system-runbook som används för att uppdatera Azure-moduler. Den här ändringen gör processen kör längre, men har större möjlighet att slutföra. I följande exempel visar parametern och var du vill placera den i runbook:
+
+ ```powershell
+         $Body = @"
+            {
+               "properties":{
+               "runbook":{
+                   "name":"Update-AutomationAzureModulesForAccount"
+               },
+               "parameters":{
+                    ...
+                    "SimultaneousModuleImportJobCount":"3",
+                    ... 
+               }
+              }
+           }
+"@
+```
+
 ## <a name="run-as-accounts"></a>Kör som-konton
 
 ### <a name="unable-create-update"></a>Scenario: Du kan inte skapa eller uppdatera en Kör som-konto
@@ -59,7 +118,7 @@ Du har inte de behörigheter som du behöver skapa eller uppdatera kör som-kont
 
 Du måste ha behörighet till de olika resurserna som används av kör som-kontot för att skapa eller uppdatera en Kör som-konto. Läs om de behörigheter som krävs för att skapa eller uppdatera en Kör som-konto i [kör som-kontobehörighet](../manage-runas-account.md#permissions).
 
-Om problemet beror på ett lås, kontrollera att låset är ok om du vill ta bort och navigera till den resurs som är låst, högerklicka låset och välj **ta bort** att ta bort låset.
+Om problemet är på grund av ett lås, kontrollerar du att låset är ok om du vill ta bort den. Gå sedan till den resurs som är låst och högerklicka på låset väljer **ta bort** att ta bort låset.
 
 ## <a name="next-steps"></a>Nästa steg
 

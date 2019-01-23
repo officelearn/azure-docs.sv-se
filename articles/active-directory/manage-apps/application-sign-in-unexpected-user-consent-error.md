@@ -4,7 +4,7 @@ description: Beskriver fel som kan uppstå under processen att samtycka till ett
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 70413d3467b2f9d5591e6138ed1a7347db58264b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 362671e255f8dc36f9474fd2d4e3117e4cc0c1e4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357507"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477727"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Ett oväntat fel inträffade när du utför medgivande till ett program
 
@@ -36,17 +36,17 @@ Vissa villkor måste vara sant för en användare att godkänna de behörigheter
 Det här felet uppstår när en användare som inte är en företagsadministratör försöker använda ett program som begär behörigheter som bara en administratör kan ge. Det här felet kan lösas av en administratör bevilja åtkomst till programmet för organisationen.
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Princip förhindrar tillståndsbeviljande fel
-* **AADSTS90093:** administratör för &lt;tenantDisplayName&gt; har angett en princip som hindrar dig från att bevilja &lt;namn på app&gt; de behörigheter som begärs. Kontakta en administratör för &lt;tenantDisplayName&gt;, som kan ge behörigheter till den här appen å dina vägnar.
+* **AADSTS90093:** En administratör för &lt;tenantDisplayName&gt; har angett en princip som hindrar dig från att bevilja &lt;namn på app&gt; de behörigheter som begärs. Kontakta en administratör för &lt;tenantDisplayName&gt;, som kan ge behörigheter till den här appen å dina vägnar.
 
 Det här felet uppstår när en företagsadministratör inaktiverar möjligheten för användare att samtycka till program och sedan en användare försöker använda ett program som kräver godkännande. Det här felet kan lösas av en administratör bevilja åtkomst till programmet för organisationen.
 
 ## <a name="intermittent-problem-error"></a>Problem med tillfälliga fel
-* **AADSTS90090:** det verkar som om inloggningsprocessen påträffade ett tillfälligt problem spela in de behörigheter som du har försökt att bevilja till &lt;clientAppDisplayName&gt;. Försök igen senare.
+* **AADSTS90090:** Det verkar som om inloggningsprocessen påträffade ett tillfälligt problem spela in de behörigheter som du har försökt att bevilja till &lt;clientAppDisplayName&gt;. Försök igen senare.
 
 Det här felet indikerar att ett tillfälligt tjänsten på klientsidan problem har uppstått. Det kan lösas genom att försöka att ge samtycke för programmet igen.
 
 ## <a name="resource-not-available-error"></a>Resursen inte tillgänglig fel
-* **AADSTS65005:** appen &lt;clientAppDisplayName&gt; begärt behörighet att komma åt en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt. 
+* **AADSTS65005:** Appen &lt;clientAppDisplayName&gt; begärt behörighet att komma åt en resurs &lt;resourceAppDisplayName&gt; som inte är tillgängligt. 
 
 Kontakta apputvecklaren.
 
@@ -56,7 +56,7 @@ Kontakta apputvecklaren.
 Kontrollera att den här resursen är tillgänglig eller kontakta en administratör för &lt;tenantDisplayName&gt;.
 
 ## <a name="permissions-mismatch-error"></a>Matchningsfel för behörigheter
-* **AADSTS65005:** appen begärt medgivande till åtkomst till resursen &lt;resourceAppDisplayName&gt;. Den här begäran misslyckades eftersom det inte matchar hur appen var förkonfigurerade under registreringen. Kontakta app vendor.* *
+* **AADSTS65005:** Appen begärt medgivande till åtkomst till resursen &lt;resourceAppDisplayName&gt;. Den här begäran misslyckades eftersom det inte matchar hur appen var förkonfigurerade under registreringen. Kontakta app vendor.* *
 
 De här felen som alla inträffar när en användare försöker att godkänna programmet begär behörighet att komma åt en resursprogram som inte kan hittas i organisationens katalog (klient). Den här situationen kan uppstå av flera skäl:
 

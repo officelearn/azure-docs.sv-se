@@ -3,7 +3,7 @@ title: Installera Azure AD Connect med SQL-delegerade administratörsbehörighet
 description: Det här avsnittet beskriver en uppdatering till Azure AD Connect där efter installationen med ett konto som har bara SQL dbo-behörigheter.
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: jparsons
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/07/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b951f541487d70bccb8a709f79a3674ef22eba3a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e4f1e60424e058f805e89fc3291cfa9a28390c8d
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314519"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474922"
 ---
 # <a name="install-azure-ad-connect-using-sql-delegated-administrator-permissions"></a>Installera Azure AD Connect med SQL-delegerade administratörsbehörigheter
 Före den senaste versionen av Azure AD Connect kan stöds administrativa delegering, när du distribuerar konfigurationer som krävs för SQL, inte.  Användare som vill installera Azure AD Connect som behövs för att ha administratörsbehörighet för servern (SA) på SQLServer.

@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: e5a4236b-1b32-4ee6-9aaa-fcde297a020f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 1/14/2019
+ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 3bd86fe8708d2cbb8cbddac4ca35d5afdc68d2e3
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474378"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -42,21 +41,21 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
     > [!IMPORTANT]  
     >  Azure Stack har inte stöd för dynamisk disk virtuella hårddiskar. Ändra storlek på en dynamisk disk som är kopplad till en virtuell dator lämnar den virtuella datorn i ett felaktigt tillstånd. Om du vill minimera detta problem genom att ta bort den virtuella datorn utan att ta bort den Virtuella datorns disk, en VHD-blob i ett lagringskonto. Konvertera den virtuella Hårddisken från en dynamisk disk till en fast disk och återskapa den virtuella datorn i.
 
-   * Det är mer effektivt att överföra en avbildning till Azure Stack blob-lagring än till Azure blob-lagring eftersom det tar mindre tid att överföra avbildningen till Azure Stack-avbildningslagringsplatsen.
+   - Det är mer effektivt att överföra en avbildning till Azure Stack blob-lagring än till Azure blob-lagring eftersom det tar mindre tid att överföra avbildningen till Azure Stack-avbildningslagringsplatsen.
 
-   * När du laddar upp den [Windows VM-avbildning](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), se till att ersätta den **logga in på Azure** steg med den [konfigurera PowerShell-miljö för Azure Stack-operatör](azure-stack-powershell-configure-admin.md) steg.  
+   - När du laddar upp den [Windows VM-avbildning](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/), se till att ersätta den **logga in på Azure** steg med den [konfigurera PowerShell-miljö för Azure Stack-operatör](azure-stack-powershell-configure-admin.md) steg.  
 
-   * Anteckna URI där du laddar upp avbildningen för blob-lagring. URI för blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
+   - Anteckna URI där du laddar upp avbildningen för blob-lagring. URI för blob-lagring har följande format: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **åtkomstprincip**. Du kan också generera en signatur för delad åtkomst för behållaren och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
+   - För att göra blob anonymt tillgänglig, går du till blob-behållaren storage-konto där den Virtuella datoravbildningen VHD har överförts. Välj **Blob**, och välj sedan **princip**. Du kan också generera en signatur för delad åtkomst för behållaren och lägger till den som en del av blob-URI. Det här steget ser till att bloben är tillgängliga att användas för att lägga till detta som en bild. Om du inte kan nås anonymt blob skapas VM-avbildning till i ett felaktigt tillstånd.
 
-   ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
+    ![Gå till lagringskontoblobbar](./media/azure-stack-add-vm-image/image1.png)
 
-   ![Ange blob-åtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
+    ![Ange blob-åtkomst till offentliga](./media/azure-stack-add-vm-image/image2.png)
 
-2. Logga in på Azure Stack som operatör. I menyn, Välj **alla tjänster**. Sedan, under den **ADMINISTRATION** kategori väljer **Compute** > **VM-avbildningar** > **Lägg till**.
+2. Logga in på Azure Stack som operatör. I menyn, Välj **alla tjänster** > **avbildningar** under **Compute** > **Lägg till**.
 
-3. Under **lägga till en virtuell datoravbildning**, ange utgivare, erbjudande, SKU och version av avbildningen av virtuella datorn. Dessa namn segment avser VM-avbildning i Resource Manager-mallar. Se till att välja den **osType** värde korrekt. För **OS diskens Blob-URI**, anger du Blob-URI där avbildningen laddades upp. Välj **skapa** att börja skapa avbildningen.
+3. Under **Skapa avbildning**, ange namn, prenumeration, resursgrupp, plats, OS-disken, OS-typ, lagringsblob-URI, kontotyp, och vara värd för cachelagring. Välj **skapa** att börja skapa avbildningen.
 
    ![Börja skapa avbildningen](./media/azure-stack-add-vm-image/image4.png)
 
@@ -154,7 +153,7 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 3. Logga in på Azure Stack som en operatör. Anvisningar finns i [logga in på Azure Stack som operatör](azure-stack-powershell-configure-admin.md).
 
-4. Skapa ett lagringskonto i globala Azure eller Azure Stack för att lagra din anpassade Virtuella datoravbildning. Instruktioner finns i [snabbstarten: Ladda upp, ladda ned och lista blobar med Azure portal](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
+4. Skapa ett lagringskonto i globala Azure eller Azure Stack för att lagra din anpassade Virtuella datoravbildning. Instruktioner finns i [snabbstarten: Ladda upp, ladda ned och lista blobar med Azure-portalen](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal).
 
 5. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX), överför avbildningen till ditt storage-konto och hämta URI där VM-avbildning kan hämtas med PowerShell.  
 

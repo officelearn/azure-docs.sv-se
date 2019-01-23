@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect-synkronisering: katalogtillägg | Microsoft Docs'
+title: 'Azure AD Connect-synkronisering: Katalogtillägg | Microsoft Docs'
 description: Det här avsnittet beskriver funktionen directory tillägg i Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 995ee876-4415-4bb0-a258-cca3cbb02193
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288313"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476911"
 ---
-# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: katalogtillägg
+# <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: Katalogtillägg
 Du kan använda katalogtillägg utöka schemat i Azure Active Directory (Azure AD) med egna attribut från en lokal Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du fortsätta att hantera lokala. Dessa attribut kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)respektive.
 
 För närvarande förbrukar inga Office 365-arbetsbelastning dessa attribut.
@@ -37,8 +37,8 @@ Du kan konfigurera vilka ytterligare attribut som du vill synkronisera i sökvä
 Installationen visar följande attribut som är giltig kandidater:
 
 * Användare och grupper objekttyper
-* Enkelvärdesattribut: sträng, booleskt värde, heltal, binär
-* Flera värden attribut: sträng, binär
+* Enkelvärdesattribut: Sträng, Boolean, heltal, binär
+* Flera värden attribut: Sträng, binär
 
 
 >[!NOTE]

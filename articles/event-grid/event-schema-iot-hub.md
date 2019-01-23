@@ -8,14 +8,14 @@ manager: timlt
 editor: ''
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 01/17/2019
 ms.author: kgremban
-ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: df1c0f8256b49e23b720df47c513fba8c62677b5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143581"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475211"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-Händelseschema för IoT Hub
 
@@ -115,7 +115,7 @@ Alla händelser som innehåller samma översta data:
 | -------- | ---- | ----------- |
 | id | sträng | Unik identifierare för händelsen. |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | data | objekt | IoT Hub händelsedata.  |
@@ -141,9 +141,9 @@ Innehållet i dataobjektet är olika för varje händelse-utgivare. För **skapa
 
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
-| enhetstvilling | objekt | Information om enhetstvillingen, vilket är molnet represenation programmetadata för enheten. | 
+| twin | objekt | Information om enhetstvillingen, vilket är molnet represenation programmetadata för enheten. | 
 | deviceID | sträng | Den unika identifieraren för enhetstvillingen. | 
-| ETag | sträng | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
+| etag | sträng | En systemhälsoverifierare för att säkerställa konsekvens för uppdateringar av en enhetstvilling. Varje etag garanteras vara unikt per enhetstvillingen. |  
 | deviceEtag| sträng | En systemhälsoverifierare för att säkerställa konsekvens av uppdateringar till en enhetsregister. Varje deviceEtag garanteras vara unikt per enhetsregister. |
 | status | sträng | Om enhetstvillingen är aktiverat eller inaktiverat. | 
 | statusUpdateTime | sträng | Uppdatera ISO8601-tidsstämpel för senaste enhetens twin status. |

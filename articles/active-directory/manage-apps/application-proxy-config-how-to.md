@@ -4,7 +4,7 @@ description: Lär dig hur du skapar en konfigurera ett programproxy-program i n�
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: a7a5c097f0400d89398cef66eeb7bd0ce8d5e97b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3470f7e68b095c087d188b61cea0586e0435d772
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474752"
 ---
 # <a name="how-to-configure-an-application-proxy-application"></a>Så här konfigurerar du ett programproxy-program
 

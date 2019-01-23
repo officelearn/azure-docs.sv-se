@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/14/2019
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 006a8172faae529ce9943773552da325bfae3f4b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 245314f0b7460cce270c97307e0719beebee472a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321542"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478645"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Viktig information för Azure File Sync-agenten
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Dina Windows Server-installationer omvandlas till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS). Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -72,7 +72,7 @@ Mer information om hur du installerar och konfigurerar Azure File Sync-agenten m
 
 - Agentinstallationspaketet måste installeras med förhöjd behörighet (admin) behörigheter.
 - Agenten stöds inte på distributionsalternativen för Windows Server Core eller Nano Server.
-- Agenten stöds endast på Windows Server 2016 och Windows Server 2012 R2.
+- Agenten stöds endast på Windows Server 2019, Windows Server 2016 och Windows Server 2012 R2.
 - Agenten kräver minst 2 GiB minne. Om servern körs på en virtuell dator med dynamiskt minne aktiverat, kommer den virtuella datorn ska konfigureras med en minsta 2048 MiB minne.
 - Storage Sync-agenten (FileSyncSvc)-tjänsten stöder inte serverslutpunkter som finns på en volym med system volume information (SVI) directory komprimeras. Den här konfigurationen leder till oväntade resultat.
 - Stoppfel 0x3B eller stoppfelet 0x1E kan uppstå när en VSS-ögonblicksbilden har skapats.

@@ -4,7 +4,7 @@ description: Så här publicerar du en lokal ASP.NET-program som har stöd för 
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: b8c69ebec2258581954e26dc6181d5f4b57f461c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 6313bc8f3245966d22e904f96a90674b27d396f7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137709"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54472943"
 ---
 # <a name="working-with-claims-aware-apps-in-application-proxy"></a>Arbeta med anspråksmedvetna appar i programproxyn
 [Anspråksmedvetna appar](https://msdn.microsoft.com/library/windows/desktop/bb736227.aspx) utför en omdirigering till Security Token Service (STS). STS begär autentiseringsuppgifter från användaren i utbyte mot en token och sedan omdirigeras användaren till programmet. Det finns ett antal sätt att aktivera Application Proxy att arbeta med dessa omdirigeringar. Använd den här artikeln för att konfigurera distributionen för anspråksmedvetna appar. 

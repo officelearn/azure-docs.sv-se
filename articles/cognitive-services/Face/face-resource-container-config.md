@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: eabbe8d771520d5b1d5360a3d86b96d27ea08277
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359450"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476928"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -33,6 +33,7 @@ Konfigurationsinställningar i Ansikts-behållaren är hierarkiska alla behålla
 * [CloudAI](#cloudai-configuration-settings)
 * [Licensvillkor](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Inställningar för HTTP-proxy autentiseringsuppgift](#http-proxy-credentials-settings)
 * [Loggning](#logging-configuration-settings)
 * [Monterar](#mounts-configuration-settings)
 
@@ -162,6 +163,11 @@ I följande tabell beskrivs de konfigurationsinställningar som stöds den `Flue
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | Tidsgräns i millisekunder för att upprätta en SSL/TLS-anslutning med Fluentd-servern. Standardvärdet är 10 000 millisekunder (10 sekunder).<br/> Om `UseTLS` har angetts till false, ignoreras det här värdet. |
 | `UseTLS` | Boolesk | Anger om behållaren ska använda SSL/TLS för att kommunicera med Fluentd-servern. Standardvärdet är FALSKT. |
 
+
+## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Inställningar för loggning
 
 Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd för din behållare. Du kan använda samma konfigurationsinställningar och värden för din behållare kan du för en ASP.NET Core-program. Följande loggning providers som stöds av Ansikts-behållaren:
@@ -212,3 +218,7 @@ Till exempel följande kommando definierar en Docker-bindning montera den `D:\Ou
   ```
 
 Ansikts-behållare använder inte indata eller utdata monterar för att lagra utbildning eller databasen. Ansikts-behållare ger i stället storage-scenarier för att hantera data i utbildnings- och databasen. Mer information om hur du använder storage-scenarier finns i [scenariot Lagringsinställningar](#storage-scenario-settings).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)

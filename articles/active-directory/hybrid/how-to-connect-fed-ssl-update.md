@@ -2,10 +2,10 @@
 title: Azure AD Connect – uppdatera SSL-certifikatet för AD FS-servergrupp | Microsoft Docs
 description: Den här dokumentet beskriver steg för att uppdatera SSL-certifikatet för AD FS-servergrupp med hjälp av Azure AD Connect.
 services: active-directory
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
-ms.service: active-directory
+ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.component: hybrid
 author: billmath
 ms.custom: seohack1
 ms.author: billmath
-ms.openlocfilehash: 8320eae9e1c12123a4379887124dee810998c4e3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cd9d20065c0be580c415100fae470b362b19a3de
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46314505"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474616"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Uppdatera SSL-certifikatet för en grupp i Active Directory Federation Services (AD FS)
 
@@ -37,7 +37,7 @@ Du kan utföra hela åtgärden för att uppdatera SSL-certifikat för AD FS-serv
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* **AD FS-servergrupp**: se till att AD FS-gruppen är Windows Server 2012 R2-baserad eller senare.
+* **AD FS-servergrupp**: Se till att AD FS-gruppen är Windows Server 2012 R2-baserad eller senare.
 * **Azure AD Connect**: Kontrollera att versionen av Azure AD Connect är 1.1.553.0 eller högre. Du använder aktiviteten **uppdatera AD FS SSL-certifikatet**.
 
 ![Uppdatera SSL-aktivitet](./media/how-to-connect-fed-ssl-update/updatessltask.png)
@@ -72,7 +72,7 @@ När du har angett certifikatet går Azure AD Connect igenom ett antal krav. Ver
 -   Certifikatkedjan för certifikatet är giltigt.
 -   Certifikatet är lösenordsskyddat.
 
-## <a name="step-3-select-servers-for-the-update"></a>Steg 3: Välj servrar för uppdateringen
+## <a name="step-3-select-servers-for-the-update"></a>Steg 3: Välj server för uppdateringen
 
 Välj de servrar som behöver ha SSL-certifikatet uppdateras i nästa steg. Servrar som är offline kan inte väljas för uppdateringen.
 

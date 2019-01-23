@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.author: dukek
-ms.component: alerts
-ms.openlocfilehash: 6f60e7c6e6a053e3c563fb1e0850d65311b9baba
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.subservice: alerts
+ms.openlocfilehash: cb70dd30d2c3218ac0ad6ef4bd7b71108845f8cb
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53346487"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476452"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Hastighetsbegränsning för röst, SMS, e-postmeddelanden, Azure App push-meddelanden och webhook inlägg
 Hastighetsbegränsning är en upphävande av meddelanden som uppstår när för många skickas till en viss telefonnummer, e-postadress eller enhet. Hastighetsbegränsning säkerställer att aviseringar är hanterbara och rekommenderade åtgärder.
@@ -35,3 +35,4 @@ Tröskelvärden för hastighet gränsen är:
 * Läs mer om [SMS Avisera beteende](alerts-sms-behavior.md).
 * Hämta en [översikt över aktivitetsloggaviseringar](alerts-overview.md), och lär dig hur du får aviseringar.  
 * Lär dig hur du [konfigurera aviseringar när en avisering om tjänstens hälsa publiceras](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+

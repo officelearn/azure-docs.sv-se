@@ -4,7 +4,7 @@ description: Det här avsnittet beskrivs de konton som används och skapas och b
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.reviewer: cychua
 ms.assetid: b93e595b-354a-479d-85ec-a95553dd9cc2
@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef8b621b41bb43c46ef728e28d3b312ac49f1da3
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308791"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478611"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -39,9 +39,9 @@ Azure AD Connect använder 3-konton för att kunna synkronisera information frå
 
 Förutom dessa tre konton som används för att köra Azure AD Connect, måste du också följande ytterligare konton att installera Azure AD Connect.  Dessa är:
 
-- **Lokalt administratörskonto**: administratör som installerar Azure AD Connect och vem som har behörighet som lokal administratör på datorn.
+- **Lokalt administratörskonto**: Den administratör som installerar Azure AD Connect och vem som har behörighet som lokal administratör på datorn.
 
-- **Administratörskontot för AD DS Enterprise**: du kan också används för att skapa kontot ”AD DS-koppling” ovan.
+- **Administratörskontot för AD DS Enterprise**: Du kan också används för att skapa kontot ”AD DS-koppling” ovan.
 
 - **Azure AD globala administratörskonto**: används för att skapa konto för Azure AD-koppling och konfigurera Azure AD.
 
@@ -113,14 +113,14 @@ Följande är en sammanfattning av anpassad installation sidorna i guiden, de au
 | AD FS-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Domänadministratören |Installation och konfiguration av AD FS-serverrollen. |
 | Web application proxy-servrar |För varje server i listan, guiden samlar in autentiseringsuppgifter när inloggningsuppgifterna för användaren som kör guiden är tillräckligt för att ansluta |Lokal administratör på måldatorn. |Installation och konfiguration av WAP-serverrollen. |
 | Autentiseringsuppgifter för proxyförtroende |Autentiseringsuppgifter för proxyförtroende Federation service (autentiseringsuppgifter proxyn använder för att registrera för ett betrott certifikat från FS |Domänkonto som är lokal administratör på AD FS-servern |Den första registreringen av FS WAP betrott certifikat. |
-| Sidan för AD FS-tjänstkontot, ”använda en domän användare kontoalternativet” |Autentiseringsuppgifter för AD-användare |Domänanvändare |AD-användarkonto vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
+| Sidan för AD FS-tjänstkontot, ”använda en domän användare kontoalternativet” |Autentiseringsuppgifter för AD-användare |Domain user |AD-användarkonto vars autentiseringsuppgifter tillhandahålls används som inloggningskontot för AD FS-tjänsten. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Skapa AD DS-anslutningskontot
 
 >[!IMPORTANT]
 >En ny PowerShell-modul namngivna ADSyncConfig.psm1 introducerades med build **1.1.880.0** (släpptes i augusti 2018) som innehåller en samling av cmdletar för att konfigurera rätt Active Directory-behörigheter för Azure AD DS Anslutningskontot.
 >
->Mer information finns i [Azure AD Connect: Konfigurera AD DS Connector kontot behörighet](how-to-connect-configure-ad-ds-connector-account.md)
+>Mer information finns i [Azure AD Connect: Konfigurera AD DS-Connector-kontot behörighet](how-to-connect-configure-ad-ds-connector-account.md)
 
 Det konto som du anger på den **Anslut dina kataloger** sidan måste finnas i Active Directory före installationen.  Azure AD Connect version 1.1.524.0 och senare har alternativet för att låta Azure AD Connect-guiden skapa den **AD DS-anslutningskontot** används för att ansluta till Active Directory.  
 
@@ -182,15 +182,15 @@ Förklaring:
 - *Kursiv* anger det rekommenderade alternativet om den inte är standardalternativet.
 - 2008 - standardalternativet när installerad på Windows Server 2008
 - Icke-fet - alternativ som stöds
-- Lokalt konto - kontot lokal användare på servern
-- Domänkonto - domänanvändarkonto
+- Local account - Local user account on the server
+- Domain account - Domain user account
 - sMSA - [fristående Hanterat tjänstkonto](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA - [gruppkontot Managed Service](https://technet.microsoft.com/library/hh831782.aspx)
 
 | | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
 | **fristående/arbetsgruppsdator** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
-| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA, gMSA | **gMSA**</br>Domänkonto |
+| **domänanslutna datorer** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
 | **Domänkontrollant** | **Domänkonto** | *gMSA*</br>**Domänkonto**</br>sMSA| *gMSA*</br>**Domänkonto**|
 
 #### <a name="virtual-service-account"></a>Virtuellt tjänstkonto

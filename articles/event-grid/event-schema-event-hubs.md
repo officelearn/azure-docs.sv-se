@@ -2,21 +2,21 @@
 title: Azure Event Grid event hubs Händelseschema
 description: Beskriver de egenskaper som har angetts för event hubs händelser med Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
-ms.author: tomfitz
-ms.openlocfilehash: e301f3895126ed52b8d4c1f046f69dfcedb3563c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.date: 01/17/2019
+ms.author: spelluru
+ms.openlocfilehash: 9c0113687d27bf43375f298057129a5594ec0a06
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057356"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475415"
 ---
 # <a name="azure-event-grid-event-schema-for-event-hubs"></a>Azure Event Grid-Händelseschema för event hubs
 
-Den här artikeln innehåller egenskaperna och schemat för event hubs-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
+Den här artikeln innehåller egenskaperna och schemat för event hubs-händelser. En introduktion till Händelsescheman i [Azure Event Grid Händelseschema](event-schema.md).
 
 En lista över exempel på skript och självstudier finns i [Händelsehubbar händelsekälla](event-sources.md#event-hubs).
 
@@ -60,7 +60,7 @@ En händelse har följande översta data:
 | Egenskap  | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurssökväg till händelsekällan. Det här fältet är skrivskyddat. Event Grid ger det här värdet. |
-| Ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
+| ämne | sträng | Publisher-definierade sökvägen till ämne för händelsen. |
 | Händelsetyp | sträng | En av typerna som registrerade händelsen för den här händelsekällan. |
 | eventTime | sträng | Den tid som händelsen genereras baserat på leverantörens UTC-tid. |
 | id | sträng | Unik identifierare för händelsen. |

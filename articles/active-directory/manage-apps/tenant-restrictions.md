@@ -4,7 +4,7 @@ description: Hur du använder Klientrestriktioner för att hantera vilka använd
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: yossib
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: barbkess
 ms.reviewer: richagi
-ms.openlocfilehash: 6989fe88fa17bcd99c99ee3e82d82fb403d1aae4
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 97cabf7821f223b900f86115c3bd85b12de450d4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096714"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478152"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Använd Klientrestriktioner för att hantera åtkomst till SaaS-molnprogram
 
@@ -70,7 +70,7 @@ Följande konfiguration krävs för att aktivera Klientrestriktioner via proxy-i
 
 #### <a name="configuration"></a>Konfiguration
 
-Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com login.microsoft.com och login.windows.net: *begränsa åtkomst till klienter* och *begränsa åtkomst sammanhangsberoende*.
+Infoga två HTTP-huvuden för varje inkommande begäran till login.microsoftonline.com login.microsoft.com och login.windows.net: *Begränsa-åtkomst-till-klienter* och *begränsa åtkomst-sammanhangsberoende*.
 
 Rubrikerna bör innehålla följande element: 
 - För *begränsa åtkomst till klienter*, värdet \<tillåts klientlista\>, vilket är en kommaavgränsad lista över klienter som du vill ge användare åtkomst till. Alla domäner som har registrerats hos en klient kan användas för att identifiera klienten i den här listan. Till exempel för att tillåta åtkomst till både Contoso och Fabrikam klienter, namn/värde-par ser ut som:  `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com` 

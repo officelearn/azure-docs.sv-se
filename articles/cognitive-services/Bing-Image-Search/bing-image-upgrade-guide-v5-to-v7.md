@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2192e3d2a344a31717c59c813123ed0c807a2841
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: c62ed151e1b09482c227f59ee5264de01d425255
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256561"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477826"
 ---
 # <a name="bing-image-search-api-upgrade-guide"></a>Uppgraderingsguide för bildsökning i Bing
 
@@ -39,7 +39,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 - Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
 
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -74,9 +74,9 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="query-parameters"></a>Frågeparametrar
 
-- Byta namn på den `modulesRequested` frågeparameter till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules).  
+- Byta namn på den `modulesRequested` frågeparameter till [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).  
 
-- Namn på anteckningar till taggar. Se [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules) frågeparameter för taggar.  
+- Namn på anteckningar till taggar. Se [moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) frågeparameter för taggar.  
 
 - Ändra listan över marknader som stöds av filtervärdet ShoppingSources till endast en-US. Se [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype).  
 
@@ -98,13 +98,13 @@ Blockerad|InvalidRequest.Blocked
 - Följande frågeparametrar är nu giltiga endast med den `/images/details` slutpunkt.  
 
     -   [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken)  
-    -   [Moduler](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modules)  
+    -   [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)  
     -   [imgUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imgurl)  
-    -   [CAB-fil](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
-    -   [CAL](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
-    -   [bil](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
+    -   [cab](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cab)  
+    -   [cal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cal)  
+    -   [car](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#car)  
     -   [cat](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#cat)  
-    -   [Markera](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#ct)  
+    -   [ct](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#ct)  
 
 - Byta namn på den `ImageInsightsResponse` objektet till [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsights).  
 

@@ -4,7 +4,7 @@ description: Den här artikeln beskriver ytterligare åtgärder som kan utföras
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
-manager: mtillman
+manager: daveba
 ms.assetid: 86cc3840-60fb-43f9-8b2a-8598a9df5c94
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 7e0e2e19f2f21fa3199cbc4911fed3427cbc162c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 35bbc44a8a54071530806576294163cb7ba627ea
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51280531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478305"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Active Directory Connect Health-åtgärder
 Det här avsnittet beskriver de olika åtgärder som du kan utföra med hjälp av Azure Active Directory (Azure AD) Connect Health.
@@ -64,6 +64,7 @@ Azure AD Connect Health för Active Directory Federation Services (AD FS) och Az
 
 1. Öppna den **Server** bladet från den **serverlista** bladet genom att välja servernamnet som ska tas bort.
 2. På den **Server** bladet från Åtgärdsfältet klickar du på **ta bort**.
+![Skärmbild av Azure AD Connect Health ta bort server](./media/how-to-connect-health-operations/DeleteServer2.png)
 3. Bekräfta genom att skriva namnet på servern i dialogrutan.
 4. Klicka på **Ta bort**.
 
@@ -86,8 +87,9 @@ När du tar bort en tjänstinstans, Tänk på följande:
 * När du har genomfört den här åtgärden om du vill börja övervaka tjänsten avinstallera och återinstallera Hälsoagenten på alla servrar. När du utför den här åtgärden om du vill börja övervaka samma server igen, avinstallera, installera och registrera Health-agenten på den servern.
 
 #### <a name="to-delete-a-service-instance-from-the-azure-ad-connect-health-service"></a>Att ta bort en instans av tjänsten från Azure AD Connect Health-tjänsten
-1. Öppna den **Service** bladet från den **tjänstelistan** bladet genom att välja service-identifier (servergruppens namn) som du vill ta bort.
-2. På den **Server** bladet från Åtgärdsfältet klickar du på **ta bort**.
+1. Öppna den **Service** bladet från den **tjänstelistan** bladet genom att välja service-identifier (servergruppens namn) som du vill ta bort. 
+2. På den **Service** bladet från Åtgärdsfältet klickar du på **ta bort**. 
+![Skärmbild av Azure AD Connect Health ta bort tjänsten](./media/how-to-connect-health-operations/DeleteServer.png)
 3. Bekräfta genom att skriva namnet på tjänsten i bekräftelserutan (till exempel: sts.contoso.com).
 4. Klicka på **Ta bort**.
    <br><br>
@@ -110,17 +112,17 @@ Alla andra roller (till exempel Administratörer åtkomst eller DevTest Labs-anv
 ### <a name="access-scope"></a>Åtkomstscope
 Azure AD Connect Health stöder hantering av åtkomst på två nivåer:
 
-* **Alla instanser av tjänsten**: det här är den rekommenderade sökvägen i de flesta fall. Den kontrollerar åtkomsten för alla tjänstinstanser (till exempel AD FS-servergrupp) för alla rolltyper som övervakas av Azure AD Connect Health.
-* **Tjänstinstans**: I vissa fall kan du behöva särskilja åtkomst baserat på rolltyper eller genom en tjänstinstans. I det här fallet kan du hantera åtkomst på instansnivå service.  
+* **Alla instanser av tjänsten**: Det här är den rekommendera sökvägen i de flesta fall. Den kontrollerar åtkomsten för alla tjänstinstanser (till exempel AD FS-servergrupp) för alla rolltyper som övervakas av Azure AD Connect Health.
+* **Tjänstinstans**: I vissa fall kan behöva du särskilja åtkomst baserat på rolltyper eller genom en tjänstinstans. I det här fallet kan du hantera åtkomst på instansnivå service.  
 
 Tillstånd beviljas om en användare har åtkomst antingen i katalogen eller tjänsten instans nivå.
 
 ### <a name="allow-users-or-groups-access-to-azure-ad-connect-health"></a>Tillåt att användare och grupper åtkomst till Azure AD Connect Health
 Följande steg visar hur du tillåter åtkomst.
-#### <a name="step-1-select-the-appropriate-access-scope"></a>Steg 1: Välj lämpliga åtkomstscope
+#### <a name="step-1-select-the-appropriate-access-scope"></a>Steg 1: Välj lämplig åtkomstscope
 Att tillåta åtkomst på den *alla tjänstinstanser* nivå i Azure AD Connect Health, öppna huvudbladet i Azure AD Connect Health.<br>
 
-#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Steg 2: Lägga till användare och grupper och tilldela roller
+#### <a name="step-2-add-users-and-groups-and-assign-roles"></a>Steg 2: Lägg till användare och grupper och tilldela roller
 1. Från den **konfigurera** klickar du på **användare**.<br>
    ![Skärmbild av Azure AD Connect Health resource sidopanelen](./media/how-to-connect-health-operations/startRBAC.png)
 2. Välj **Lägg till**.
@@ -140,7 +142,7 @@ Nu listas användare och grupper har åtkomst till, enligt deras tilldelade roll
 >
 >
 
-#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Steg 3: Dela bladet platsen med användare eller grupper
+#### <a name="step-3-share-the-blade-location-with-users-or-groups"></a>Steg 3: Dela mappen bladet med användare eller grupper
 1. När du har tilldelat behörigheter för en användare kan komma åt Azure AD Connect Health genom att gå [här](https://aka.ms/aadconnecthealth).
 2. På bladet kan du fästa bladet eller olika delar av det, på instrumentpanelen. Klicka bara på den **fäst på instrumentpanelen** ikon.<br>
    ![Skärmbild av Azure AD Connect Health RBAC Fäst bladet, med fästikonen markerad](./media/how-to-connect-health-operations/RBAC_pin_blade.png)

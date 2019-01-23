@@ -2,23 +2,23 @@
 title: Obeställbara meddelanden och principer för återförsök för Azure Event Grid-prenumerationer
 description: Beskriver hur du anpassar händelse Leveransalternativ för Event Grid. Ange ett mål för förlorade och ange hur lång tid att försöka igen leverans.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: tomfitz
-ms.openlocfilehash: 0a89a315f9c97f3cc6a8683f13c22b5066dc5dab
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.date: 01/06/2019
+ms.author: spelluru
+ms.openlocfilehash: 8660f09c41cf6226f2ffb173508d37c260522b80
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474259"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Obeställbara meddelanden och principer för återförsök
 
 När du skapar en händelseprenumeration kan anpassa du inställningarna för händelseleverans. Den här artikeln visar hur du konfigurerar en plats för obeställbara meddelanden och anpassa återförsöksinställningar för. Information om dessa funktioner finns i [Event Grid meddelandeleverans och försök igen](delivery-and-retry.md).
 
-## <a name="install-preview-feature"></a>Installera funktionen för förhandsgranskning
+## <a name="install-preview-feature"></a>Installera förhandsversionsfunktionen
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 

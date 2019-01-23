@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 4/12/2018
 ms.author: dukek
-ms.component: logs
-ms.openlocfilehash: 2dec2b1f9bdca8c83669b753d424204218f7a9ae
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.subservice: logs
+ms.openlocfilehash: 9bd5ec3471fc3447d1e29d875c154793daf8e9e5
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190705"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474038"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Visa meddelanden om hälsostatus för tjänsten med hjälp av Azure-portalen
 
@@ -37,9 +37,9 @@ correlationId | Vanligtvis ett GUID i formatet för strängen. Händelser som h�
 eventDataId | Den unika identifieraren för en händelse.
 EventName | Rubriken på en händelse.
 nivå | Nivån för en händelse
-resourceprovidername får | Namnet på resursprovidern för resursen som påverkas.
+resourceProviderName | Namnet på resursprovidern för resursen som påverkas.
 ResourceType| Typ av resurs för resursen som påverkas.
-understatus | Vanligtvis HTTP-statuskod för motsvarande RESTEN anropa, men kan även innehålla andra strängar som beskriver en understatus. Exempel: OK (HTTP-statuskod: 200) skapade (HTTP-statuskod: 201), godkänt (HTTP-statuskod: 202), inget innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400) hittades inte (HTTP-statuskod: 404) konflikt (HTTP-statuskod: 409), interna serverfel (HTTP-statuskod: 500), tjänsten är inte tillgänglig (HTTP-statuskod: 503) och Gateway-Timeout (HTTP-statuskod: 504).
+subStatus | Vanligtvis HTTP-statuskod för motsvarande RESTEN anropa, men kan även innehålla andra strängar som beskriver en understatus. Exempel: OK (HTTP-statuskod: 200) skapade (HTTP-statuskod: 201), godkänt (HTTP-statuskod: 202), inget innehåll (HTTP-statuskod: 204), felaktig begäran (HTTP-statuskod: 400) hittades inte (HTTP-statuskod: 404) konflikt (HTTP-statuskod: 409), interna serverfel (HTTP-statuskod: 500), tjänsten är inte tillgänglig (HTTP-statuskod: 503) och Gateway-Timeout (HTTP-statuskod: 504).
 eventTimestamp | Tidsstämpel när händelsen skapades av tjänsten Azure behandlingen av begäran som motsvarar händelsen.
 submissionTimestamp | Tidsstämpel när händelsen blev tillgängliga för frågor.
 subscriptionId | Azure-prenumerationen där den här händelsen loggades.
@@ -48,7 +48,7 @@ operationName | Namnet på åtgärden.
 category | Den här egenskapen är alltid **ServiceHealth**.
 resourceId | Resurs-ID för resursen som påverkas.
 Properties.title | Lokaliserade rubriken för den här kommunikationen. Engelska är standard.
-Properties.Communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
+Properties.communication | Lokaliserad information om kommunikationen med HTML-kod. Engelska är standard.
 Properties.incidentType | En av följande värden: **Åtgärd krävs**, **endast i informationssyfte**, **Incident**, **Underhåll**, eller **Security**.
 Properties.trackingId | Incidenten som den här händelsen är associerad. Används för att korrelera händelser relaterade till en incident.
 Properties.impactedServices | En kommenterad JSON-blob som beskriver de tjänster och regioner som påverkas av incidenten. Egenskapen innehåller en lista över tjänster, som har en **ServiceName**, och en lista över berörda regioner som har en **RegionName**.
@@ -95,3 +95,4 @@ Properties.communicationId | Kommunikation som är associerad till den här hän
 ## <a name="next-steps"></a>Nästa steg
 Ta emot [aviseringar när en avisering om tjänstens hälsa](../../azure-monitor/platform/alerts-activity-log-service-notifications.md) publiceras.  
 Läs mer om [aktivitetsloggaviseringar](../../azure-monitor/platform/activity-log-alerts.md).
+

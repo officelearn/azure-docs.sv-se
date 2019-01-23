@@ -4,7 +4,7 @@ description: Det här avsnittet innehåller åtgärdssteg LargeObject-fel som or
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 146ad5b3-74d9-4a83-b9e8-0973a19828d9
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0882976df898d36f1d5a5ff06e0de5c747613719
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ffc8832fa2da9d4bfad23752a5bc767ace2b573e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312083"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478628"
 ---
-# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: hantera LargeObject-fel som orsakats av userCertificate-attributet
+# <a name="azure-ad-connect-sync-handling-largeobject-errors-caused-by-usercertificate-attribute"></a>Azure AD Connect-synkronisering: Hantera LargeObject-fel som orsakats av userCertificate-attributet
 
 Azure AD tillämpar en maxgräns på **15** certifikat värden på den **userCertificate** attribut. Om Azure AD Connect exporterar ett objekt med mer än 15 värden till Azure AD, Azure AD returnerar en **LargeObject** fel med meddelandet:
 
@@ -41,7 +41,7 @@ Använd någon av följande metoder för att hämta listan med objekt i din klie
 ## <a name="mitigation-options"></a>Alternativ för lösning
 Tills LargeObject-fel har åtgärdats, kan andra attributändringar till samma objekt inte exporteras till Azure AD. Lös felet, kan du överväga följande alternativ:
 
- * Uppgradera Azure AD Connect för att skapa 1.1.524.0 eller efter. Skapa 1.1.524.0, out-of-box-synkroniseringen regler har uppdaterats för att inte exportera attribut userCertificate- och userSMIMECertificate om attribut har fler än 15 värden i Azure AD Connect. Mer information om hur du uppgraderar Azure AD Connect finns artikeln [Azure AD Connect: uppgradera från en tidigare version till senast](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
+ * Uppgradera Azure AD Connect för att skapa 1.1.524.0 eller efter. Skapa 1.1.524.0, out-of-box-synkroniseringen regler har uppdaterats för att inte exportera attribut userCertificate- och userSMIMECertificate om attribut har fler än 15 värden i Azure AD Connect. Mer information om hur du uppgraderar Azure AD Connect finns artikeln [Azure AD Connect: Uppgradera från en tidigare version till senast](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-upgrade-previous-version).
 
  * Implementera en **utgående synkroniseringsregel** i Azure AD Connect som exporterar en **null-värde i stället för de faktiska värdena för objekt med mer än 15 certifikatvärden**. Det här alternativet är lämpligt om du inte behöver något av värdena för certifikat som ska exporteras till Azure AD för objekt med mer än 15 värden. Information om hur du implementerar den här regeln för synkronisering, i nästa avsnitt [implementera synkroniseringsregel för att begränsa export av userCertificate-attributet](#implementing-sync-rule-to-limit-export-of-usercertificate-attribute).
 
@@ -106,7 +106,7 @@ Det bör finnas en befintlig sync-regel som är aktiverad och konfigurerad för 
 
     | Attribut | Operator | Värde |
     | --- | --- | --- |
-    | sourceObjectType | LIKA MED | Användare |
+    | sourceObjectType | EQUAL | Användare |
     | cloudMastered | NOTEQUAL | True |
 
 ### <a name="step-3-create-the-outbound-sync-rule-required"></a>Steg 3. Skapa den utgående synkroniseringsregel krävs
@@ -120,7 +120,7 @@ Den nya regeln för synkronisering måste ha samma **Omfångsfilter** och **hög
     | Beskrivning | *Ange en beskrivning* | T.ex. *”userCertificate-attributet har mer än 15 värden, exportera NULL”.* |
     | Anslutna System | *Välj den Azure AD-koppling* |
     | Anslutna System objekttyp | **Användaren** | |
-    | Typ av Metaversumobjekt | **Person** | |
+    | Typ av Metaversumobjekt | **person** | |
     | Länktyp | **Anslut dig** | |
     | Prioritet | *Om du har valt ett tal mellan 1 och 99* | Det antal valt får inte användas av alla befintliga synkroniseringsregel och har ett lägre värde (och därför högre prioritet) än den befintliga sync-regeln. |
 
@@ -132,7 +132,7 @@ Den nya regeln för synkronisering måste ha samma **Omfångsfilter** och **hög
     | --- | --- |
     | Flow-typ |**uttryck** |
     | Målattribut |**userCertificate** |
-    | Attribut för datakälla |*Använd följande uttryck*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
+    | Källattribut |*Använd följande uttryck*: `IIF(IsNullOrEmpty([userCertificate]), NULL, IIF((Count([userCertificate])> 15),AuthoritativeNull,[userCertificate]))` |
     
 6. Klicka på den **Lägg till** för att skapa synkroniseringsregel för.
 

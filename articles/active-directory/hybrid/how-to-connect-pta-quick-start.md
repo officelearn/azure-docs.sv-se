@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 831e5bff412f80f2140f6fd1b935a57bd412ccba
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d4ac8d730e27eb4cfb44fda27d6380bc715d15ca
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188137"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478067"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory-direktautentisering: Snabbstart
 
@@ -149,5 +149,5 @@ Dessutom kan du skapa och köra ett distributionsskript för obevakad. Detta är
 - [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
 - [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
 - [Djupgående om säkerhet](how-to-connect-pta-security-deep-dive.md): Få teknisk information om funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet till filen nya funktionbegäran.

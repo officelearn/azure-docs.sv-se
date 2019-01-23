@@ -2,17 +2,17 @@
 title: Azure Event Grid-begrepp
 description: Beskriver Azure Event Grid och dess begrepp. Definierar flera viktiga komponenter i Event Grid.
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: tomfitz
-ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.author: spelluru
+ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747566"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474361"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Koncept i Azure Event Grid
 
@@ -62,7 +62,7 @@ Information om hur du får din aktuella event grid-prenumerationer finns i [Quer
 
 Den [Event Grid-tillägget](/cli/azure/azure-cli-extensions-list) för Azure CLI kan du ange en giltighetstid datum när du skapar en händelseprenumeration. Om du använder REST-API kan använda `api-version=2018-09-15-preview`
 
-Händelseprenumerationen har upphört att gälla automatiskt efter det datumet. Ange en giltighetstid för prenumerationer på händelser som krävs endast under en begränsad tid och du inte bekymra dig om att rensa dessa prenumerationer. När du skapar en händelseprenumeration för att testa ett scenario kanske du exempelvis vill ställa in ett utgångsdatum. 
+Händelseprenumerationen upphör att gälla automatiskt efter det datumet. Ange en giltighetstid för prenumerationer på händelser som krävs endast under en begränsad tid och du inte bekymra dig om att rensa dessa prenumerationer. När du skapar en händelseprenumeration för att testa ett scenario kanske du exempelvis vill ställa in ett utgångsdatum. 
 
 Ett exempel på hur ett förfallodatum, se [prenumerera med avancerade filter](how-to-filter-events.md#subscribe-with-advanced-filters).
 

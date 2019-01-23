@@ -4,7 +4,7 @@ description: Beskriver grundpelare för identitets- och identifiera åtkomstkrav
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: e3b3b984-0d15-4654-93be-a396324b9f5e
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: f71fc7547ef60cdc3d038705dbb04d396affdf0a
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247712"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478237"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav på åtkomstkontroll för dina hybrididentitetslösning
 När en organisation utforma sina hybrididentitetslösning, kan de också använda denna möjlighet för att granska åtkomstkraven för de resurser som de planerar att göra den tillgänglig för användare. Åtkomst till data mellan alla fyra grundläggande faktorer för identitet, som är:
@@ -59,7 +59,7 @@ Vilken modell som din organisation antar varierar beroende på sina affärsbehov
 * Använder organisationen enkel inloggning för appar som finns lokalt eller i molnet?
   * Om Ja, införandet av en modell för hybrid identity påverkar den här processen?
 
-## <a name="access-control"></a>Access Control
+## <a name="access-control"></a>Åtkomstkontroll
 Autentisering och auktorisering är kärnelement att aktivera åtkomst till företagets data via användarens verifiering, är det också viktigt att kontrollera åtkomstnivån som dessa användare kommer att ha och andelen åtkomst har resurser att de hanterar. Din hybrididentitetslösning måste kunna ge detaljerad åtkomst till resurser, delegering och rollbaserad åtkomstkontroll. Se till att följande frågan besvaras om åtkomstkontroll:
 
 * Har företaget mer än en användare med förhöjda privilegier för att hantera ID-system?

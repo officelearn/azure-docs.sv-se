@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.author: ancav
-ms.component: autoscale
-ms.openlocfilehash: af7e280c7dcd82c18e91ded759756c3826342cd3
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: autoscale
+ms.openlocfilehash: 02840b8a909f46c37130bdb7162674c694a0ff96
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585389"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474837"
 ---
 # <a name="understand-autoscale-settings"></a>Förstå inställningarna för automatisk skalning
 Inställningarna för automatisk skalning säkerställer att du har rätt mängd resurser som körs för att hantera varierande belastning av ditt program. Du kan konfigurera inställningarna för automatisk skalning kan utlösas baserat på mått som indikerar belastning eller prestanda eller utlösta vid ett schemalagt datum och tid. Den här artikeln tar en närmare titt på uppbyggnad av en autoskalningsinställning. Artikeln börjar med schema- och egenskaperna för en inställning och sedan går igenom de olika profiltyperna som kan konfigureras. Slutligen beskrivs hur funktionen för automatisk skalning i Azure utvärderar vilken profil som ska köras vid en given tidpunkt.
@@ -310,3 +310,4 @@ Läs mer om automatisk skalning genom att referera till följande:
 * [Metodtips för automatisk skalning i Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
 * [Använda automatisk skalning åtgärder för att skicka e-post och webhook varningsmeddelanden](../../azure-monitor/platform/autoscale-webhook-email.md)
 * [REST-API för automatisk skalning](https://msdn.microsoft.com/library/dn931953.aspx)
+

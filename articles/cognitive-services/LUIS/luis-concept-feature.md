@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2d6f7e2fd332e1687db1564befeb6f531045c5dd
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 7a2d86bb61a27b9360d55775b64d16119fec0601
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474021"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras funktioner i din LUIS-app
 
@@ -40,7 +40,7 @@ En lista med frasen kanske utbytbara eller icke-utbytbara. En *utbytbara* frasen
 
 |Listtyp|Syfte|
 |--|--|
-|Utbytbara|Synonymer eller ord, när ändrades till ett annat ord. i listan, har samma syfte och entitetextrahering.|
+|Interchangeable|Synonymer eller ord, när ändrades till ett annat ord. i listan, har samma syfte och entitetextrahering.|
 |Icke-utbytbara|App ordförråd, specifika för din app mer så än Allmänt andra ord på det språket.|
 
 Fras visar inte bara hjälp med entiteten identifiering, men också avsikt klassificering där det är inte utbytbara rimligt som att lägga till utanför ordförråd ord som inte är på engelska.

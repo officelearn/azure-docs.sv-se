@@ -4,7 +4,7 @@ description: Det här dokumentet beskriver hur du konfigurerar och konfigurera f
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 5595fb2f-2131-4304-8a31-c52559128ea4
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5abe252ab9b3389680508537ea1d6f3823f910
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: abc01239a2bf61c39f99fe880bf17d7958a1597c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311866"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477940"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation innehåller råd om hur du använder flera översta domäner och underdomäner när federera med Office 365 eller Azure AD-domäner.
@@ -47,7 +47,7 @@ Ett fel uppstår när du försöker konvertera bmfabrikam.com domänen som ska f
 
 ![Federation-fel](./media/how-to-connect-install-multiple-domains/error.png)
 
-### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain-parametern
+### <a name="supportmultipledomain-parameter"></a>SupportMultipleDomain Parameter
 Du kan undvika den här begränsningen genom du behöver lägga till en annan IssuerUri som kan göras med hjälp av den `-SupportMultipleDomain` parametern.  Den här parametern används med följande cmdletar:
 
 * `New-MsolFederatedDomain`
@@ -168,7 +168,7 @@ Använd följande steg för att lägga till ett anpassat anspråk för underdom�
 ## <a name="next-steps"></a>Nästa steg
 Nu när Azure AD Connect är installerat kan du [verifiera installationen och tilldela licenser](how-to-connect-post-installation.md).
 
-Lär dig mer om dessa funktioner, som aktiverades med installationen: [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md), [Förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md) och [Azure AD Connect Health](how-to-connect-health-sync.md).
+Läs mer om dessa funktioner, som aktiverades med installationen: [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md), [förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md), och [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Läs mer om [schemaläggaren och hur du utlöser synkronisering](how-to-connect-sync-feature-scheduler.md).
 

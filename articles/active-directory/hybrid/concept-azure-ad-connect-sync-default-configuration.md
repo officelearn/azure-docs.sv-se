@@ -4,7 +4,7 @@ description: Den här artikeln beskriver standardkonfigurationen i Azure AD Conn
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ed876f22-6892-4b9d-acbe-6a2d112f1cd1
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: bd708d279649138fcb17362491da4eb7539c478b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6de48b0f4c7c69ab0c6acb4099234b853d2c1523
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313959"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478577"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Azure AD Connect-synkronisering: Förstå standardkonfigurationen
 Den här artikeln förklarar konfigurationsregler för out-of-box. Det dokument som reglerna och hur de här reglerna påverkar konfigurationen. Vi går också igenom standardkonfigurationen för Azure AD Connect-synkronisering. Målet är att läsaren förstår hur Konfigurationsmodell, med namnet deklarativ etablering fungerar i ett verkliga exempel. Den här artikeln förutsätter att du redan har installerat och konfigurera Azure AD Connect-synkronisering med hjälp av installationsguiden.
@@ -94,7 +94,7 @@ Ett gruppobjekt måste uppfylla följande som ska synkroniseras:
 * Måste ha färre än 50 000 medlemmar. Det här antalet är antalet medlemmar i den lokala gruppen.
   * Om den har fler medlemmar innan synkroniseringen startar första gången är gruppen inte synkroniserad.
   * Om antalet medlemmar växa från när den först skapades, sedan när den når 50 000 medlemmar stoppar synkronisering tills antal programmedlemskap är lägre än 50 000 igen.
-  * Obs: Antalet 50 000 medlemskap tillämpas också av Azure AD. Det går inte att synkronisera grupper med fler medlemmar, även om du ändrar eller tar bort den här regeln.
+  * Obs! 50 000 medlemskap antal tillämpas också av Azure AD. Det går inte att synkronisera grupper med fler medlemmar, även om du ändrar eller tar bort den här regeln.
 * Om gruppen är en **distributionsgrupp**, måste det också vara e-postaktiverad. Se [kontakta out-of-box regler](#contact-out-of-box-rules) för den här regeln tillämpas.
 
 Följande gruppobjekt är **inte** synkroniseras till Azure AD:
@@ -134,7 +134,7 @@ SRE är ett verktyg för resource kit och det är installerat med Azure AD Conne
 
 ![Synkroniseringsregler inkommande](./media/concept-azure-ad-connect-sync-default-configuration/syncrulesinbound.png)
 
-I det här fönstret kan se du alla Synkroniseringsregler som skapats för din konfiguration. Varje rad i tabellen är en Synkroniseringsregel. Till vänster under regeltyper, visas två olika typer: inkommande och utgående. Inkommande och utgående är från vyn i metaversum. Du kommer främst att fokusera på regler för inkommande trafik i den här översikten. Den aktuella listan över Synkroniseringsregler beror på identifierade schemat i AD. I bilden ovan kontoskog (fabrikamonline.com) har inte några tjänster, till exempel Exchange och Lync, och inga Synkroniseringsregler har skapats för dessa tjänster. Men i resursskogen (res.fabrikamonline.com) finns Synkroniseringsregler för dessa tjänster. Innehållet i reglerna är olika beroende på vilken version som har identifierats. Till exempel i en distribution med Exchange 2013 finns mer attributflöden som har konfigurerats än i Exchange 2010/2007.
+I det här fönstret kan se du alla Synkroniseringsregler som skapats för din konfiguration. Varje rad i tabellen är en Synkroniseringsregel. Till vänster under regeltyper visas två olika typer: Inkommande och utgående. Inkommande och utgående är från vyn i metaversum. Du kommer främst att fokusera på regler för inkommande trafik i den här översikten. Den aktuella listan över Synkroniseringsregler beror på identifierade schemat i AD. I bilden ovan kontoskog (fabrikamonline.com) har inte några tjänster, till exempel Exchange och Lync, och inga Synkroniseringsregler har skapats för dessa tjänster. Men i resursskogen (res.fabrikamonline.com) finns Synkroniseringsregler för dessa tjänster. Innehållet i reglerna är olika beroende på vilken version som har identifierats. Till exempel i en distribution med Exchange 2013 finns mer attributflöden som har konfigurerats än i Exchange 2010/2007.
 
 ### <a name="synchronization-rule"></a>Synkroniseringsregel
 En Synkroniseringsregel är ett konfigurationsobjekt med en uppsättning attribut som flödar när ett villkor är uppfyllt. Den används också för att beskriva hur ett objekt i en anslutarplats är kopplad till ett objekt i metaversumet kallas **join** eller **matchar**. De Synkroniseringsregler som har en högre prioritetsvärde som anger hur de relaterar till varandra. En Synkroniseringsregel med ett lägre numeriskt värde har högre prioritet och i ett flöde konflikt attributet högre prioritet wins konfliktlösningen.
@@ -145,7 +145,7 @@ Eftersom den här regeln är en regel för out-of-box, får du en varning när d
 
 ![Synkronisering regler varning](./media/concept-azure-ad-connect-sync-default-configuration/warningeditrule.png)
 
-En Synkroniseringsregel har fyra konfigurationsavsnitt: beskrivning, konfigurera filter, Join regler och transformeringar.
+En Synkroniseringsregel har fyra konfigurationsavsnitt: Beskrivning, Scoping filter, Join regler och transformeringar.
 
 #### <a name="description"></a>Beskrivning
 Det första avsnittet innehåller grundläggande information, till exempel namn och beskrivning.
@@ -187,7 +187,7 @@ Transformationsavsnittet definierar alla attributflöden som gäller för målob
 
 Om du vill placera den här konfigurationen i kontexten i en skog distribution resursen för Lagringskonton förväntas att hitta ett aktiverat konto i kontoskogen och ett inaktiverat konto i resursskogen med inställningar för Exchange och Lync. Synkroniseringsregeln som du tittar på innehåller attributen som krävs för att logga in och dessa attribut ska flöda från skogen där det finns ett aktiverat konto. Alla dessa attributflöden placeras tillsammans i en regel för synkronisering.
 
-En omvandling kan ha olika typer: konstant, direkt och uttryck.
+En omvandling kan ha olika typer: Konstant Direct och uttryck.
 
 * Ett konstant flöde flödar alltid en hårdkodad-värde. I fallet anger det alltid värdet **SANT** i metaversum-attribut med namnet **accountEnabled**.
 * Värdet för attributet i källan till Målattributet som flödar alltid i ett direkt flöde-är.
@@ -216,7 +216,7 @@ Du nu har tittat på vissa enskilda Synkroniseringsregler, men reglerna fungerar
 
 Prioritet för Synkroniseringsregler som anges i grupper med installationsguiden. Alla regler i en grupp har samma namn, men de är anslutna till olika anslutna kataloger. Installationsguiden ger regeln **i från AD – användare ansluta** högsta prioritet och itererar över alla anslutna AD-kataloger. Det fortsätter sedan med nästa grupper av regler i en viss ordning. I en grupp läggs reglerna i den ordning som kopplingarna som har lagts till i guiden. Om en annan koppling har lagts till via guiden, synkroniseringsreglerna sorteras och den nya kopplingen regler infogas senast i varje grupp.
 
-### <a name="putting-it-all-together"></a>Sätter samman allt
+### <a name="putting-it-all-together"></a>Färdigställa allt
 Vi nu vet hur Synkroniseringsregler för att kunna förstå hur konfigurationen fungerar med olika Synkroniseringsregler. Om du tittar på en användare och attribut som har bidragit till metaversum tillämpas reglerna i följande ordning:
 
 | Namn | Kommentar |

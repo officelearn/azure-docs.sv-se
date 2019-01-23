@@ -3,7 +3,7 @@ title: Tilldela en användare eller grupp till en enterprise-app i Azure Active 
 description: Så här väljer du en företagsapp att tilldela en användare eller grupp till den i Azure Active Directory
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: b6b7408b4efe4c3271ea2ddeb63a499bee670976
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 4d02adac41285ec4589c39eb61e7be48e960f92c
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711318"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477064"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Tilldela en användare eller grupp till en enterprise-app i Azure Active Directory
 Om du vill tilldela en användare eller grupp till en företagsapp, du måste ha behörighet att hantera appen enterprise och du måste vara global administratör för katalogen.
@@ -116,7 +116,7 @@ Det här exemplet tilldelar användare Britta Simon till den [Microsoft Workplac
         
 3. Kör kommandot `$sp.AppRoles` att visa rollerna som är tillgängliga för Workplace Analytics-programmet. I det här exemplet vill vi tilldela Britta Simon rollen analytiker (begränsad åtkomst).
     
-    ![Workplace Analytics roll](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
+    ![Workplace Analytics Role](./media/assign-user-or-group-access-portal/workplace-analytics-role.png)
 
 4. Tilldela rollnamnet den `$app_role_name` variabeln.
         

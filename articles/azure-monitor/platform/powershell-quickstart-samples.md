@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/14/2018
 ms.author: robb
-ms.component: ''
-ms.openlocfilehash: 72c50871f0d339d5d8f173a50e03aefc72fdcb36
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.subservice: ''
+ms.openlocfilehash: d3bd4d80f167a496c9b980891f31d30bc86a0cb2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53585413"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473767"
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Snabbstartsexempel för Azure Monitor PowerShell
 Den här artikeln visar exempel på PowerShell-kommandon för att få åtkomst till Azure Monitor-funktioner.
@@ -145,7 +145,7 @@ I följande tabell beskrivs de parametrar och värden som används för att skap
 | Namn |simpletestdiskwrite |
 | Platsen för den här aviseringsregeln |Östra USA |
 | ResourceGroup |montest |
-| TargetResourceId |/subscriptions/S1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
+| TargetResourceId |/subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig |
 | MetricName om aviseringen som har skapats |\PhysicalDisk (_Total) \Disk Diskskrivningar/sek. Se den `Get-MetricDefinitions` cmdlet om hur du hämtar exakt tjänstmåttets namn |
 | Operator |GreaterThan |
 | Tröskelvärdet (antal per sekund i för det här måttet) |1 |
@@ -387,3 +387,4 @@ Observera att egenskapen WorkspaceId tar den *resurs-ID* i arbetsytan. Du kan h�
 ```
 
 Dessa kommandon kan kombineras för att skicka data till flera destinationer.
+

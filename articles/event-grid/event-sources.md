@@ -2,17 +2,17 @@
 title: Azure Event Grid-händelsekällor
 description: Beskriver stöds händelsekällor för Azure Event Grid
 services: event-grid
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/19/2018
-ms.author: tomfitz
-ms.openlocfilehash: adef9d2f2d859c62d3b3b3a542536698fa668f9a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 01/19/2019
+ms.author: spelluru
+ms.openlocfilehash: 44bd92568db3a762453e1d76a620e6c792cd8913
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498308"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476044"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelsekällor i Azure Event Grid
 
@@ -128,7 +128,7 @@ Prenumerera på Blob Storage-händelser att reagera på blob skapas och borttagn
 | [Snabbstart: skapa och dirigera Blob storage-händelser med Azure portal](blob-event-quickstart-portal.md) | Visar hur du använder portalen för att skicka blob storage-händelser till en WebHook. |
 | [Azure CLI: prenumerera på händelser för ett Blob storage-konto](./scripts/event-grid-cli-blob.md) | Exempelskriptet som prenumererar på händelser för ett Blob storage-konto. Skickas händelsen till en WebHook. |
 | [PowerShell: prenumerera på händelser för ett Blob storage-konto](./scripts/event-grid-powershell-blob.md) | Exempelskriptet som prenumererar på händelser för ett Blob storage-konto. Skickas händelsen till en WebHook. |
-| [Resource Manager-mall: skapa Blob-lagring och en prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Distribuerar ett Azure Blob storage-konto och prenumererar på händelser för detta lagringskonto. Den skickar händelser till en WebHook. |
+| [Resource Manager-mall: Skapa Blob-lagring och en prenumeration](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Distribuerar ett Azure Blob storage-konto och prenumererar på händelser för detta lagringskonto. Den skickar händelser till en WebHook. |
 | [Översikt: reagera på Blob storage-händelser](../storage/blobs/storage-blob-event-overview.md) | Översikt över integrering av Blob-lagring med Event Grid. |
 | [Händelseschema](event-schema-blob-storage.md) | Visar fälten i Blob Storage-händelser. |
 

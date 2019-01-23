@@ -4,7 +4,7 @@ description: En introduktion till hur du kan använda Azure AD för att automati
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: ac58c6b951a03b403375fdc17dcd45f8e624deac
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: edd8e08ee20e7e6331701b55b3d58ebad3848408
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311461"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478492"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -57,13 +57,13 @@ Vissa vanliga motiveringarna till att använda den här funktionen är:
 Den **Provisioning-tjänsten för Azure AD** etablerar användare i SaaS-appar och andra system, genom att ansluta till användaren hanterings-API-slutpunkter som tillhandahålls av varje programleverantören. Dessa användare management API-slutpunkter kan Azure AD för att skapa, uppdatera och ta bort användare. För valda program etableringstjänsten kan också skapa, uppdatera och ta bort ytterligare identitetsrelaterade objekt, till exempel grupper och roller. 
 
 ![Etablering](./media/user-provisioning/provisioning0.PNG)
-*bild 1: den Azure AD-Etableringstjänsten*
+*bild 1: Azure AD Provisioning-tjänsten*
 
 ![Utgående etablering](./media/user-provisioning/provisioning1.PNG)
-*bild 2: ”utgående” användaretablering arbetsflöde från Azure AD till populära SaaS-program*
+*bild 2: ”Utgående” användaretablering arbetsflöde från Azure AD till populära SaaS-program*
 
 ![Inkommande etablering](./media/user-provisioning/provisioning2.PNG)
-*bild 3: ”Inbound” arbetsflödet från populära Human Capital Management (HCM)-program till Azure Active Directory och Windows Server Active Directory för användaretablering*
+*bild 3: ”Inkommande” användaren etablering arbetsflödet från populära Human Capital Management (HCM)-program till Azure Active Directory och Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med Azure AD automatisk användaretablering?
@@ -103,7 +103,7 @@ På skärmen application management etablering har konfigurerats i den **etabler
 
 * **Administratörsautentiseringsuppgifter** måste anges med Azure AD provisioning-tjänst som gör att den kan ansluta till API som tillhandahålls av programmet för användarhantering. Det här avsnittet kan du aktivera e-postmeddelanden om autentiseringsuppgifterna misslyckas eller Etableringsjobbet hamnar i [karantän](#quarantine).
 
-* **Attributmappningar** kan konfigureras som anger vilka fält i källsystemet (exempel: Azure AD) kommer har innehållet synkroniseras på vilka fält i målsystemet (exempel: ServiceNow). Om målprogrammet stöder det kan kan det här avsnittet du också konfigurera etablering av grupper förutom användarkonton. ”Matchande egenskaper” kan du välja vilka fält som används för att matcha konton mellan systemen. ”[Uttryck](functions-for-customizing-application-data.md)” kan du ändra och omvandla värden som hämtats från källsystemet innan de skrivs till målsystemet. Mer information finns i [anpassa attributmappningar](customize-application-attributes.md).
+* **Attributmappningar** kan konfigureras som anger vilka fält i källsystemet (exempel: Azure AD) har innehållet synkroniseras på vilka fält i målsystemet (exempel: ServiceNow). Om målprogrammet stöder det kan kan det här avsnittet du också konfigurera etablering av grupper förutom användarkonton. ”Matchande egenskaper” kan du välja vilka fält som används för att matcha konton mellan systemen. ”[Uttryck](functions-for-customizing-application-data.md)” kan du ändra och omvandla värden som hämtats från källsystemet innan de skrivs till målsystemet. Mer information finns i [anpassa attributmappningar](customize-application-attributes.md).
 
 ![Inställningar](./media/user-provisioning/provisioning_settings1.PNG)
 
@@ -127,13 +127,13 @@ På skärmen application management etablering har konfigurerats i den **etabler
 
 När Azure AD är källsystemet, etableringstjänsten använder det [differentiell fråga funktion i Azure AD Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) att övervaka användare och grupper. Etableringstjänsten körs en initial synkronisering mot källsystemet och målsystemet, följt av periodiska inkrementella synkroniseringar. 
 
-### <a name="initial-sync"></a>Den inledande synkroniseringen
+### <a name="initial-sync"></a>Initial synkronisering
 
 När etableringstjänsten startas, kommer den första synkroniseringen har någonsin tidigare utfört:
 
 1. Fråga efter alla användare och grupper från källsystemet, hämtas alla attribut som definierats i den [attributmappningar](customize-application-attributes.md).
 2. Filtrera användare och grupper som returneras med hjälp av något konfigurerat [tilldelningar](assign-user-or-group-access-portal.md) eller [attributbaserade Omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
-3. När en användare hittas som ska tilldelas eller inom omfånget för etablering tjänsten frågor målsystemet för en matchande användare som använder den angivna [matchar attribut](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: Om userPrincipal namnet i källsystemet är attributet matchande och mappar till användarnamnet i målsystemet och sedan etableringstjänsten frågar målsystemet användarnamn som matchar de userPrincipal värdena i källsystemet.
+3. När en användare hittas som ska tilldelas eller inom omfånget för etablering tjänsten frågor målsystemet för en matchande användare som använder den angivna [matchar attribut](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: Om namnet på userPrincipal i källsystemet är attributet matchande och mappar till frågar användarnamnet i målsystemet och sedan etableringstjänsten målsystemet användarnamn som matchar de userPrincipal värdena i källsystemet.
 4. Om en matchande användare inte finns i målsystemet, skapas den med hjälp av de attribut som returnerades från källsystemet. När användarkontot har skapats, identifierar etableringstjänsten och cachelagrar målsystemets-ID för den nya användaren, som används för att utföra alla framtida åtgärder på den användaren.
 5. Om en matchande användare hittas, uppdateras den med hjälp av de attribut som tillhandahålls av källsystemet. När användarkontot matchas etableringstjänsten identifierar och cachelagrar målsystemets-ID för den nya användaren, som används för att utföra alla framtida åtgärder på den användaren.
 6. Om attributmappningarna innehåller ”referens” attribut, utför tjänsten ytterligare uppdateringar på målsystemet och skapa och länka de refererade objekt. En användare kan till exempel ha en ”Manager”-attributet i målsystemet, som är länkad till en annan användare som har skapats i målsystemet.
@@ -197,13 +197,13 @@ I följande tabell sammanfattas synkroniseringstider för vanliga scenarier för
 
 | Omfattningskonfigurationen | Användare, grupper och medlemmar i omfånget | Den inledande synkroniseringstiden | Inkrementell synkronisering |
 | -------- | -------- | -------- | -------- |
-| Synkronisera tilldelade användare och grupper bara |  < 1 000 |  < 30 minuter | < 30 minuter |
+| Synkronisera tilldelade användare och grupper bara |  < 1,000 |  < 30 minuter | < 30 minuter |
 | Synkronisera tilldelade användare och grupper bara |  1 000 – 10 000 | 142 - 708 minuter | < 30 minuter |
-| Synkronisera tilldelade användare och grupper bara |   10 000 – 100 000 | 1,170 - 2,340 minuter | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  < 1 000 | < 30 minuter  | < 30 minuter |
+| Synkronisera tilldelade användare och grupper bara |   10,000 - 100,000 | 1,170 - 2,340 minuter | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  < 1,000 | < 30 minuter  | < 30 minuter |
 | Synkronisera alla användare och grupper i Azure AD |  1 000 – 10 000 | < 30-120 minuter | < 30 minuter |
-| Synkronisera alla användare och grupper i Azure AD |  10 000 – 100 000  | 713 - 1,425 minuter | < 30 minuter |
-| Synkronisera alla användare i Azure AD|  < 1 000  | < 30 minuter | < 30 minuter |
+| Synkronisera alla användare och grupper i Azure AD |  10,000 - 100,000  | 713 - 1,425 minuter | < 30 minuter |
+| Synkronisera alla användare i Azure AD|  < 1,000  | < 30 minuter | < 30 minuter |
 | Synkronisera alla användare i Azure AD | 1 000 – 10 000  | 43 - 86 minuter | < 30 minuter |
 
 

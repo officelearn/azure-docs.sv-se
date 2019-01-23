@@ -7,23 +7,23 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
-ms.component: ''
-ms.openlocfilehash: 6ed8bae2e1571722f7a9a0030a48e64c4f7fbc60
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.subservice: ''
+ms.openlocfilehash: 90ad5306c1594381409ed2bcbe767e2ffd055531
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106672"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473970"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Partnerintegrering i Azure Monitor
 | Partner |  |  |
 | --- | --- | --- |
 | [**AlertLogic**<br/>![Partner logotyp][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Partner logotyp][appdynamics-logo]][appdynamics-anchor] | [**ArcSight**][arcsight-anchor] |
 | [**Atlassians**<br/>![Partner logotyp][atlassian-logo]][atlassian-anchor] | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Partner logotyp][circonus-logo]][circonus-anchor] |
-| [**CloudHealth**<br/>![Partner logotyp][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/> ![Partner logotyp][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![Partner logotyp][datadog-logo]][datadog-anchor] |
+| [**CloudHealth**<br/>![Partner Logo][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/> ![Partner logotyp][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![Partner logotyp][datadog-logo]][datadog-anchor] |
 | [**Dynatrace** <br/> ![Partner logotyp][dynatrace-logo]][dynatrace-anchor] | [**Elastisk**<br/>![Partner logotyp][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![Partner logotyp][grafana-logo]][grafana-anchor] |
 | [**Influxdata**<br/>![Partner logotyp][influxdata-logo]][influxdata-anchor] | [**Övervakare för Logic**<br/>![Partner logotyp][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Partner logotyp][moogsoft-logo]][moogsoft-anchor] |
-| [**NewRelic**<br/>![Partner logotyp][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner logotyp][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![Partner logotyp][pagerduty-logo]][pagerduty-anchor] |
+| [**NewRelic**<br/>![Partner logotyp][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Partner logotyp][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![Partner Logo][pagerduty-logo]][pagerduty-anchor] |
 | [**QRadar**<br/>![Partner logotyp][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Partner logotyp][sciencelogic-logo]][sciencelogic-anchor] | [**SignalFx**<br/>![Partner logotyp][signalfx-logo]<br/>][signalfx-anchor] |
 | [**SIGNL4**<br/>![Partner logotyp][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [**Splunk** <br/> ![Partner logotyp][splunk-logo]][splunk-anchor] |
 | [**Sumo Logic**<br/>![Partner logotyp][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Partner logotyp][turbonomic-logo]][turbonomic-anchor] |
@@ -180,7 +180,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
-[elastic-anchor]: #elastic "Elastisk"
+[elastic-anchor]: #elastic "Elastic"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [influxdata-anchor]: #Influxdata "Influxdata"
@@ -194,7 +194,7 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [signl4-anchor]: #signl4 "SIGNL4"
 [solarwinds-anchor]: #solarwinds "SolarWinds"
 [splunk-anchor]: #azure-monitor-add-on-for-splunk "Splunk"
-[sumologic-anchor]: #sumo-logic "Sumo logik"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 [turbonomic-anchor]: #turbonomic "Turbonomic"
 
 <!--Icon references-->
@@ -249,3 +249,4 @@ Turbonomic levererar arbetsbelastningsautomatisering för hybridmoln genom att s
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk dokumentation."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic dokumentation."
 [turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic introduktion."
+

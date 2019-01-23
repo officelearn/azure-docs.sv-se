@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 623bf009a8d638073ea85e772f737e2ce220a4f8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624920"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477982"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Hitta aktivitetsrapporter i Azure portal
 
@@ -59,7 +59,7 @@ Aktivitetskategorier är:
 - Kontoetablering
 
 
-## <a name="sign-ins-report"></a>Rapporten inloggningar 
+## <a name="sign-ins-report"></a>Rapport över inloggningar 
 
 Den **inloggningar** vyn innehåller alla användarinloggningar, samt de **programanvändning** rapporten. Du kan också visa information om användningen av program i den **hantera** delen av den **företagsprogram** Översikt.
 
@@ -112,6 +112,89 @@ Du kan komma åt rapporter om identifierade riskhändelserna i den **Security** 
 - [Riskfyllda inloggningar](concept-risky-sign-ins.md)
 
     ![Säkerhetsrapporter](./media/howto-find-activity-reports/04.png "säkerhetsrapporter")
+
+## <a name="troubleshoot-issues-with-activity-reports"></a>Felsöka problem med aktivitetsrapporter
+
+### <a name="missing-data-in-the-downloaded-activity-logs"></a>Saknade data i nedladdade aktivitetsloggar
+
+#### <a name="symptoms"></a>Symtom 
+
+Jag har hämtat aktivitetsloggarna (granskning eller inloggningar) och kan inte se alla poster för den tid som jag har valt. Varför? 
+
+ ![Rapportering](./media/troubleshoot-missing-data-download/01.png)
+ 
+#### <a name="cause"></a>Orsak
+
+När du hämtar aktivitetsloggar i Azure portal begränsar vi omfattningen till 5 000 poster, sorterade efter senaste först. 
+
+#### <a name="resolution"></a>Lösning
+
+Du kan använda [rapporterings-API:er för Azure AD](concept-reporting-api.md) att hämta upp till en miljoner poster när som helst. Den rekommenderade metoden är att [köra ett skript enligt ett schema](tutorial-signin-logs-download-script.md) som anropar den reporting API: er för att hämta poster på ett inkrementellt sätt under en viss tidsperiod (till exempel varje dag eller varje vecka). 
+
+### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Saknas granskningsdata för senaste åtgärder i Azure portal
+
+#### <a name="symptoms"></a>Symtom
+
+Jag utförde vissa åtgärder i Azure Portal och förväntade att se granskningsloggarna för dessa åtgärder på bladet `Activity logs > Audit Logs`, men det går inte att hitta dem.
+
+ ![Rapportering](./media/troubleshoot-missing-audit-data/01.png)
+ 
+#### <a name="cause"></a>Orsak
+
+Åtgärder visas inte omedelbart i aktivitetsloggarna. Tabellen nedan räknar upp våra svarstidsvärden för aktivitetsloggar. 
+
+| Rapport | &nbsp; | Svarstid (P95) | Svarstid (P99) |
+|--------|--------|---------------|---------------|
+| Kataloggranskning | &nbsp; | 2 min | 5 min |
+| Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
+
+#### <a name="resolution"></a>Lösning
+
+Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
+
+### <a name="missing-logs-for-recent-user-sign-ins-in-the-azure-ad-sign-ins-activity-log"></a>Logga saknas loggar för de senaste användarinloggningar i Azure AD-inloggningar aktivitet
+
+#### <a name="symptoms"></a>Symtom
+
+Jag loggade nyligen in på Azure-portalen och förväntade mig att se inloggningsloggarna för de åtgärderna på bladet `Activity logs > Sign-ins`, men det går inte att hitta dem.
+
+ ![Rapportering](./media/troubleshoot-missing-audit-data/02.png)
+ 
+#### <a name="cause"></a>Orsak
+
+Åtgärder visas inte omedelbart i aktivitetsloggarna. Tabellen nedan räknar upp våra svarstidsvärden för aktivitetsloggar. 
+
+| Rapport | &nbsp; | Svarstid (P95) | Svarstid (P99) |
+|--------|--------|---------------|---------------|
+| Kataloggranskning | &nbsp; | 2 min | 5 min |
+| Inloggningsaktivitet | &nbsp; | 2 min | 5 min | 
+
+#### <a name="resolution"></a>Lösning
+
+Vänta i mellan 15 minuter och 2 timmar och se om åtgärderna visas i loggen. Om du inte ser loggarna även efter två timmar [skapar du en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) så undersöker vi problemet.
+
+### <a name="i-cant-view-more-than-30-days-of-report-data-in-the-azure-portal"></a>Jag kan inte se mer än 30 dagars rapportdata i Azure-portalen
+
+#### <a name="symptoms"></a>Symtom
+
+Jag kan inte se mer än 30 dagars inloggnings- och granskningsdata från Azure-portalen. Varför? 
+
+ ![Rapportering](./media/troubleshoot-missing-audit-data/03.png)
+
+#### <a name="cause"></a>Orsak
+
+Beroende på din licens lagrar Azure Active Directory aktivitetsrapporter under så här lång tid:
+
+| Rapport           | &nbsp; |  Azure AD Kostnadsfri | Azure AD Premium P1 | Azure AD Premium P2 |
+| ---              | ----   |  ---           | ---                 | ---                 |
+| Kataloggranskning  | &nbsp; |   7 dagar     | 30 dagar             | 30 dagar             |
+| Inloggningsaktivitet | &nbsp; | Inte tillgängligt. Du kan komma åt dina egna inloggningar i 7 dagar från det bladet för enskild användare | 30 dagar | 30 dagar             |
+
+Mer information finns i [Kvarhållningsprinciper för rapporter i Azure Active Directory](reference-reports-data-retention.md).  
+
+#### <a name="resolution"></a>Lösning
+
+Du har två alternativ för att behålla data längre än 30 dagar. Du kan använda [Azure AD Reporting-API:er](concept-reporting-api.md) för att hämta data programmatiskt och lagra dem i en databas. Du kan även integrera spårningsloggar i ett SIEM-system från tredje part, till exempel Splunk eller SumoLogic.
 
 ## <a name="next-steps"></a>Nästa steg
 

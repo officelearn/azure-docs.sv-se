@@ -5,7 +5,7 @@ services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 7f4750dd527aa53624fa977115a120911511b7d5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 45f99ac99c54caab17ba7b74dc09a46c335c8fe4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185077"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476350"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Azure Active Directory-direktautentisering djupgående om säkerhet
 
@@ -49,7 +49,7 @@ Dessa är viktiga säkerhetsaspekter i den här funktionen:
 ## <a name="components-involved"></a>Komponenter som ingår
 
 Allmän information om Azure AD fungerar, tjänst- och data finns i den [Säkerhetscenter](https://azure.microsoft.com/support/trust-center/). Följande komponenter ingår när du använder direktautentisering för att logga in användare:
-- **Azure AD-STS**: En tillståndslös säkerhetstokentjänst (STS) som bearbetar inloggningsförfrågningar och utfärdar säkerhetstoken till användarnas webbläsare, klienter eller tjänster som krävs.
+- **Azure AD STS**: En tillståndslös säkerhetstokentjänst (STS) som bearbetar inloggningsförfrågningar och utfärdar säkerhetstoken till användarnas webbläsare, klienter eller tjänster som krävs.
 - **Azure Service Bus**: Ger molnbaserad kommunikation med företagsmeddelandetjänster och reläer kommunikation som hjälper dig att ansluta dina lokala lösningar till molnet.
 - **Azure AD Connect-Autentiseringsagenten**: En komponent i den lokala som lyssnar efter och svarar på begäranden för verifiering av lösenord.
 - **Azure SQL Database**: Innehåller information om klientens Autentiseringsagenter, inklusive deras metadata och krypteringsnycklar.
@@ -214,4 +214,4 @@ Att automatiskt uppdatera en autentiseringsagent:
 - [Så här fungerar det](how-to-connect-pta-how-it-works.md): Lär dig grunderna i hur fungerar Azure AD-direktautentisering.
 - [Vanliga frågor och svar](how-to-connect-pta-faq.md): Få svar på vanliga frågor och svar.
 - [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen direktautentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): Läs mer om den här tilläggsfunktionen.

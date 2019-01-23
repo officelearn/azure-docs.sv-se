@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Uppgifter Hybrid Azure AD join efter konfigurationen | Microsoft Docs'
+title: 'Azure AD Connect: Uppgifter för hybrid Azure AD join efter konfigurationen | Microsoft Docs'
 description: Den här dokumentet beskriver post konfigurationsuppgifter som behövs för att slutföra Hybrid Azure AD-anslutning
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: billmath
 ms.assetid: ''
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 16fc7f1bb69efe94ce87f213627b78a4afa0fcc2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 31bf3c7ba2365f3fdfd6f2da1dbd1942ada1327e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475466"
 ---
 # <a name="post-configuration-tasks-for-hybrid-azure-ad-join"></a>Uppgifter efter konfiguration för Hybrid Azure AD-anslutning
 
@@ -30,12 +30,12 @@ När du har kört Azure AD Connect för att konfigurera din organisation för Hy
 Alla domänanslutna enheter som kör Windows 10 och Windows Server 2016 automatiskt registrera med Azure AD när alla konfigurationssteg är klara. Om du föredrar en kontrollerad distribution i stället för den här automatisk registrering, kan du använda grupprinciper för att selektivt aktivera eller inaktivera automatisk distribution.  Den här grupprincipen ska anges innan du startar den andra configuration steg: Azure AD
 * Skapa ett grupprincipobjekt i Active Directory.
 * Ge den namnet (ex-Hybrid Azure AD-anslutning).
-* Redigera och gå till: Datorkonfiguration > Principer > Administrationsmallar > Windows-komponenter > Device Registration.
+* Redigera och gå till:  Datorkonfiguration > Principer > Administrativa mallar > Windows-komponenter > Enhetsregistrering.
 
 >[!NOTE]
 >För 2012R2 principinställningarna finns på **Datorkonfiguration > Principer > Administrationsmallar > Windows-komponenter > Anslut till arbetsplatsen > automatiskt workplace join-klientdatorer**
 
-* Den här inställningen inaktiveras: registrera domänanslutna datorer som enheter.
+* Den här inställningen inaktiveras:  Registrera domänanslutna datorer som enheter.
 * Tillämpa och klicka på OK.
 * Länka Grupprincipobjektet till platsen för ditt val (organisationsenhet, säkerhet eller för domän för alla enheter).
 
@@ -69,7 +69,7 @@ Om din organisation använder Hashsynkronisering för lösenord eller direktaute
 Om du vill registrera Windows äldre enheter, måste du kontrollera att Azure AD-principen tillåter användare att registrera enheter. 
 
 * Logga in på ditt konto i Azure-portalen.
-* Gå till: Azure Active Directory > enheter > Enhetsinställningar
+* Gå till:  Azure Active Directory > enheter > Enhetsinställningar
 * Ange ”användare kan registrera sina enheter med Azure AD” alla.
 * Klicka på Spara
 
@@ -87,8 +87,8 @@ Det här installationsprogrammet skapar en schemalagd aktivitet på enhetssystem
 
 * Skapa ett grupprincipobjekt i Active Directory--om du inte redan har skapats.
 * Ge den namnet (ex-Hybrid Azure AD-anslutning).
-* Redigera och gå till: Datorkonfiguration > Principer > Administrationsmallar > Windows-komponenter > Device Registration
-* Aktivera: Registrera domänanslutna datorer som enheter
+* Redigera och gå till:  Datorkonfiguration > Principer > Administrativa mallar > Windows-komponenter > Enhetsregistrering
+* Aktivera:  Registrera domänanslutna datorer som enheter
 * Tillämpa och klicka på OK.
 * Länka Grupprincipobjektet till platsen för ditt val (organisationsenhet, säkerhet eller för domän för alla enheter).
 

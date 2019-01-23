@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 12/31/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 90f3a4571e485e52a47eda34eacf6367aef35933
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320998"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478116"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
@@ -43,7 +43,23 @@ Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina d
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Behöver Mina Azure-konto behörighet att skapa virtuella datorer?
 Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver du behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger när du konfigurerar Site Recovery och behörighet att skriva till det valda lagringskontot. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+## <a name="azure-site-recovery-components-upgrade"></a>Uppgradera Azure Site Recovery-komponenter
 
+### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>Min Mobility/Agentkonfiguration Server/processerverns version är mycket gammal och min uppgraderingen misslyckades. Hur ska jag uppgraderar till senaste versionen?
+
+Azure Site Recovery följer N-4 supportmodell. Se våra [supportmeddelande](https://aka.ms/asr_support_statement) att förstå information om hur du uppgraderar från mycket äldre versioner.
+
+### <a name="where-can-i-find-the-release-notesupdate-rollups-of-azure-site-recovery"></a>Var hittar jag release notes/samlade uppdateringar av Azure Site Recovery?
+
+Referera till den [dokumentet](https://aka.ms/asr_update_rollups) release notes information. Du hittar länkar för installation av respektive komponenter i varje samlade uppdateringen.
+
+### <a name="how-should-i-upgrade-site-recovery-components-for-on-premises-vmware-or-physical-site-to-azure"></a>Hur ska jag uppgradera Site Recovery-komponenter lokalt VMware eller fysiska plats till Azure?
+
+Se våra vägledningen [här](https://aka.ms/asr_vmware_upgrades) att uppgradera din komponenter.
+
+## <a name="is-reboot-of-source-machine-mandatory-for-each-upgrade"></a>Är omstart av källdatorn obligatoriskt för varje uppgraderingen?
+
+Alternativ som rekommenderas, är det inte obligatoriskt för varje uppgradering. Se [här](https://aka.ms/asr_vmware_upgrades) för tydliga anvisningar.
 
 ## <a name="on-premises"></a>Lokal
 
@@ -142,7 +158,7 @@ Nej. Om du vill göra detta måste du ställa in en konfigurationsserver i varje
 Även om det går måste den virtuella Azure-datorer som kör konfigurationsservern kommunicera med dina lokala VMware-infrastruktur och virtuella datorer. Detta kan lägga till svarstider och påverka pågående replikering.
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Hur uppdaterar jag configuration server?
-[Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uppdaterar konfigurationsservern. Du hittar den senaste uppdatering informationen i den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=site-recovery). Du kan också direkt ladda ned den senaste versionen av konfigurationsservern från [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+[Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) uppdaterar konfigurationsservern. Du hittar den senaste uppdatering informationen i den [uppdateringar i Azure-sidan](https://azure.microsoft.com/updates/?product=site-recovery). Du kan också direkt ladda ned den senaste versionen av konfigurationsservern från [Microsoft Download Center](https://aka.ms/asrconfigurationserver). Om din version är äldre än 4 versioner från den aktuella versionen, se vår [supportmeddelande](https://aka.ms/asr_support_statement) uppgraderingsanvisningar.
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Bör jag säkerhetskopiera distribuerade konfigurationsservern?
 Vi rekommenderar att utföra regelbundna schemalagda säkerhetskopieringar av konfigurationsservern. Den virtuella datorn att växlas tillbaka måste finnas i server-konfigurationsdatabasen för lyckad återställning efter fel och konfigurationsservern måste vara körs och är i anslutet tillstånd. Du kan lära dig mer om vanliga hanteringsaktiviteter för configuration server [här](vmware-azure-manage-configuration-server.md).

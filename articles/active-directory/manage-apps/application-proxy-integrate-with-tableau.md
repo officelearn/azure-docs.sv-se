@@ -3,7 +3,7 @@ title: Azure Active Directory Application Proxy och Tableau | Microsoft Docs
 description: Lär dig hur du använder Azure Active Directory (Azure AD) Application Proxy för att tillhandahålla fjärråtkomst för distributionen av bland annat Tableau.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
@@ -12,12 +12,12 @@ ms.date: 08/20/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 0ad58d4759d8532ab947043c20cc1060782c6d78
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 8a4231e5d49dad790855293ac50d475e499e0993
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138678"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54476163"
 ---
 # <a name="azure-active-directory-application-proxy-and-tableau"></a>Azure Active Directory Application Proxy och Tableau 
 
@@ -59,7 +59,7 @@ För:
 
 5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar: 
 
-    - **Intern URL**: det här programmet ska ha en intern URL som är den URL som Tableau själva. Till exempel `https://adventure-works.tableau.com`. 
+    - **Intern URL**: Det här programmet ska ha en intern URL som är den URL som Tableau själva. Till exempel `https://adventure-works.tableau.com`. 
 
     - **Förautentiseringsmetod**: Azure Active Directory (rekommenderas men krävs inte). 
 

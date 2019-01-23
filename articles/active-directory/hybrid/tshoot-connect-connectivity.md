@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Connect: Felsöka anslutningsproblem | Microsoft Docs'
+title: 'Azure AD Connect: Felsökning av anslutningsproblem | Microsoft Docs'
 description: Beskriver hur du kan felsöka anslutningsproblem med Azure AD Connect.
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 3aa41bb5-6fcb-49da-9747-e7a3bd780e64
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5d5eee525c6f071840d186cb6bd54faf9bf2787b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52310675"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474888"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.
@@ -46,7 +46,7 @@ I följande tabell är det absoluta minst för att kunna ansluta till Azure AD p
 | --- | --- | --- |
 | mscrl.microsoft.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
 | \*.verisign.com |HTTP/80 |Används för att hämta listor över återkallade certifikat. |
-| \*. entrust.net |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
+| \*.entrust.net |HTTP/80 |Används för att hämta listor över återkallade certifikat för MFA. |
 | \*.windows.net |HTTPS/443 |Används för att logga in på Azure AD. |
 | secure.aadcdn.microsoftonline-p.com |HTTPS/443 |Används för MFA. |
 | \*.microsoftonline.com |HTTPS/443 |Används för att konfigurera Azure AD-katalogen och importera/exportera data. |
@@ -114,37 +114,37 @@ Här är en dump från en faktisk proxy-loggen och guidesidan installation från
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:31 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:31 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:31 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:32 |Anslut: / /*bba800 ankare*. microsoftonline.com:443 |
-| 1/11/2016 8:32 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:33 |Connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:32 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Konfigurera**
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:43 |Anslut: / /*bba800 ankare*. microsoftonline.com:443 |
-| 1/11/2016 8:43 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:43 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Anslut: / /*bba900 ankare*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
 | 1/11/2016 8:44 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:44 |Anslut: / /*bba800 ankare*. microsoftonline.com:443 |
-| 1/11/2016 8:44 |Connect://login.microsoftonline.com:443 |
-| 1/11/2016 8:46 |Connect://provisioningapi.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://*bba800-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:44 |connect://login.microsoftonline.com:443 |
+| 1/11/2016 8:46 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:46 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
 **Den inledande synkroniseringen**
 
 | Tid | URL |
 | --- | --- |
-| 1/11/2016 8:48 |Connect://login.Windows.NET:443 |
+| 1/11/2016 8:48 |connect://login.windows.net:443 |
 | 1/11/2016 8:49 |connect://adminwebservice.microsoftonline.com:443 |
-| 1/11/2016 8:49 |Anslut: / /*bba900 ankare*. microsoftonline.com:443 |
-| 1/11/2016 8:49 |Anslut: / /*bba800 ankare*. microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba900-anchor*.microsoftonline.com:443 |
+| 1/11/2016 8:49 |connect://*bba800-anchor*.microsoftonline.com:443 |
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 Det här avsnittet beskriver fel som kan returneras från ADAL (autentiseringsbibliotek som används av Azure AD Connect) och PowerShell. Felet förklaras hjälper dig i att förstå din nästa steg.
@@ -189,7 +189,7 @@ Visas som ett oväntat fel inträffade i installationsguiden. Kan inträffa om d
 Med versioner drogs från och med build-nummer 1.1.105.0 (publicerad februari 2016), inloggningsassistenten tillbaka. Det här avsnittet och konfigurationen som inte längre ska krävs, men sparas som referens.
 
 För den enkel inloggningen i installationsassistenten att fungera, måste winhttp konfigureras. Den här konfigurationen kan göras med [ **netsh**](how-to-connect-install-prerequisites.md#connectivity).  
-![Netsh](./media/tshoot-connect-connectivity/netsh.png)
+![netsh](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>Inloggningsassistenten har inte konfigurerats korrekt
 Det här felet visas när inloggningsassistenten inte går att nå proxyservern eller proxyservern tillåter inte begäran.

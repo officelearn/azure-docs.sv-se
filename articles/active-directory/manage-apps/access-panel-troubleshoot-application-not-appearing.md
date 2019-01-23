@@ -4,7 +4,7 @@ description: Felsöka anledningen till att ett program inte visas i åtkomstpane
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviwer: japere
-ms.openlocfilehash: 9e3b1976cf11df77b8a5570c83f055001be8bb46
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3ed2a6cdd16483460ecd32314c424952d7667c0f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357812"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474055"
 ---
 # <a name="an-assigned-application-is-not-appearing-on-the-access-panel"></a>Ett tilldelat program visas inte på åtkomstpanelen
 
@@ -239,7 +239,7 @@ Följ stegen nedan om du vill konfigurera enkel inloggning för ett program som 
 
    1. Ange svars-URL och identifierare för att konfigurera programmet som en IdP-initierad SSO.
 
-   2.  **Valfritt:** för att konfigurera programmet som SP-initierad SSO URL: en inloggning som det är ett obligatoriskt värde.
+   2.  **Valfritt:** Det är ett obligatoriskt värde för att konfigurera programmet som URL: en inloggning till SP-initierad SSO.
 
 12. I den **användarattribut**, Välj den unika identifieraren för dina användare i den **användaridentifierare** listrutan.
 
@@ -488,7 +488,7 @@ Följ stegen nedan om du vill tilldela en eller flera användare till ett progra
 
 11. Hovra över den **användaren** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid användarens profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till flera användare**, typ i en annan **fullständigt namn** eller **e-postadress** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här användaren till den **valda** lista.
 
 13. När du har valt användare klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 
@@ -606,7 +606,7 @@ Följ stegen nedan om du vill tilldela en eller flera grupper till ett program d
 
 11. Hovra över den **grupp** i listan för att visa en **kryssrutan**. Klicka på kryssrutan bredvid gruppen profilfoto eller logotyp för att lägga till dina användare i den **valda** lista.
 
-12. **Valfritt:** om du skulle vilja **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och Klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
+12. **Valfritt:** Om du vill **lägga till mer än en grupp**, typ i en annan **fullständiga namn** till den **Sök efter namn eller e-postadress** sökrutan och klicka på kryssrutan för att lägga till den här gruppen till den **valda** lista.
 
 13. När du har valt grupper klickar du på den **Välj** för att lägga till dem i listan över användare och grupper som ska tilldelas till programmet.
 

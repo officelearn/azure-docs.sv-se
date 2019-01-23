@@ -11,12 +11,12 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1ef0fc9037548a58d9b0a4f46c212a43796d529b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231605"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475075"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 
@@ -46,7 +46,7 @@ Det är viktigt att betona att virtuella datorkärnor har en regional total grä
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../../../includes/azure-subscription-limits-azure-resource-manager.md)]
 
-En mer utförlig och aktuell lista över kvotgränser, hittar du i Azure hela kvoten artikeln [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#subscription-limits-1).
+En mer utförlig och aktuell lista över kvotgränser, hittar du i Azure hela kvoten artikeln [här](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ### <a name="azure-machine-learning-compute"></a>Azure Machine Learning-beräkning
 Det finns en standardgräns för kvot för både antalet kärnor och antal unika beräkningsresurser som tillåts per region för en prenumeration för Azure Machine Learning Compute. Den här kvoten skiljer sig från den virtuella datorn kärnkvoten ovan och core gränserna delas inte för närvarande mellan de två resurstyperna.

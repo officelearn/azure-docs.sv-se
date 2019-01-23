@@ -3,7 +3,7 @@ title: Flytta appar från AD FS till Azure AD. | Microsoft Docs
 description: Den här artikeln är avsedd att hjälpa företag att förstå hur du flyttar program till Azure AD, med fokus på federerade SaaS-program.
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 03/02/2018
 ms.author: barbkess
-ms.openlocfilehash: 7657ac2e2d5a169607c73b8934328ce41ecea78e
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cf8ce4d39d0097c1ec1866a0aad071a2b5d8908f
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141942"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474276"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>Flytta program från AD FS till Azure AD 
 
@@ -92,8 +92,8 @@ I följande tabeller visas viktiga delar i AD FS-, Azure AD- och SaaS-appar som 
 
 ### <a name="representing-the-app-in-azure-ad-or-ad-fs"></a>Representera appen i Azure AD eller AD FS
 Migreringen börjar med att utvärdera hur programmet är konfigurerat lokalt och mappar konfigurationen till Azure AD. I följande tabell visas en mappning av AD FS-konfigurationselement för förlitande part till motsvarande element i Azure AD.  
-- AD FS-term: Förlitande part eller förlitande partsförtroende.
-- Azure AD-term: Företagsprogram eller appregistrering (beroende på apptyp).
+- AD FS-term: Förlitande part eller förtroende för förlitande part.
+- Azure AD-term: Enterprise eller appregistrering (beroende på vilken typ av app).
 
 |Appkonfigurationselement|Beskrivning|Plats i AD FS-konfigurationen|Motsvarande plats i Azure AD-konfiguration|SAML-tokenelement|
 |-----|-----|-----|-----|-----|
@@ -124,7 +124,7 @@ Följande tabell beskriver viktiga IdP-konfigurationselement vid konfiguration a
 |IdP </br>utloggning </br>URL|Utloggnings-URL för IdP:n ur appens perspektiv (dit användarna omdirigeras när de väljer att logga ut från appen).|För AD FS är utloggnings-URL:en antingen samma som inloggnings-URL:en eller samma URL med tillägget ”wa=wsignout1.0”. Till exempel: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Motsvarande värde för Azure AD beror på om appen har stöd för SAML 2.0-utloggning eller inte.</br></br>Om appen har stöd för SAML-utloggning följer värdet mönstret där värdet för {tenant-id} ersätts med klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//login.microsoftonline.com/{tenant-id}/saml2</br></br>Om appen inte har stöd för SAML-utloggning: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |Token </br>signering </br>certifikat|IdP:n använder certifikatets privata nyckel till att signera utfärdade tokens. Den kontrollerar att token kom från samma IdP som appen är konfigurerad att ha förtroende för.|AD FS-certifikatet för tokensignering finns i AD FS-hanteringen under **Certifikat**.|I Azure AD finns certifikatet för tokensignering i Azure-portalen i programmets egenskaper för **Enkel inloggning** under rubriken **SAML-signeringscertifikat**. Därifrån kan du ladda ner certifikatet för uppladdning till appen.</br></br> Om programmet har fler än ett certifikat finns alla certifikat i federationsmetadatans XML-fil.|
 |Identifierare/</br>”utfärdare”|Identifierare för IdP:n ur appens perspektiv (kallas ibland för ”Utfärdar-ID”).</br></br>I SAML-token visas värdet som elementet **Utfärdare**.|Identifieraren för AD FS är vanligen federationstjänstens identifierare i AD FS-hanteringen under **Tjänst** > **Redigera federationstjänstens egenskaper**. Till exempel: http&#58;//fs.contoso.com/adfs/services/trust|Motsvarande värde för Azure AD följer mönstret där {tenant-id} ersätts med ditt klientorganisations-ID. Det finns i Azure-portalen under **Azure Active Directory** > **Egenskaper** som **Katalog-ID**: https&#58;//sts.windows.net/{tenant-id}/|
-|IdP </br>federation </br>metadata|Plats för IdP:ns offentligt tillgängliga federationsmetadata. (Federationsmetadata används av vissa appar som ett alternativ för administratören och konfigurerar URL:er, identifierare och certifikat för tokensignering individuellt.)|Hitta metadata-URL:en för AD FS-federation i AD FS-hanteringen under **Tjänst** > **Slutpunkter** > **Metadata** > **Typ: Federationsmetadata**. Till exempel: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Motsvarande värde för Azure AD följer mönstret https&#58;/ / login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. Värdet för {TenantDomainName} ersätts med klientorganisationens namn i formatet ”contoso.onmicrosoft.com”. </br></br>Mer information finns i [Federationsmetadata](../develop/azure-ad-federation-metadata.md).
+|IdP </br>federation </br>metadata|Plats för IdP:ns offentligt tillgängliga federationsmetadata. (Federationsmetadata används av vissa appar som ett alternativ för administratören och konfigurerar URL:er, identifierare och certifikat för tokensignering individuellt.)|Hitta URL: en för AD FS federation metadata i AD FS-hantering under **Service** > **slutpunkter** > **Metadata**  >   **Typ: Federationsmetadata**. Till exempel: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Motsvarande värde för Azure AD följer mönstret https&#58;/ / login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml. Värdet för {TenantDomainName} ersätts med klientorganisationens namn i formatet ”contoso.onmicrosoft.com”. </br></br>Mer information finns i [Federationsmetadata](../develop/azure-ad-federation-metadata.md).
 
 ## <a name="moving-saas-apps"></a>Flytta SaaS-appar
 Flytta SaaS-appar från AD FS eller någon annan identitetsprovider till Azure AD är en manuell process idag. Om du behöver appspecifik vägledning kan du [titta i listan med självstudier om integrering av SaaS-appar i Marketplace](../saas-apps/tutorial-list.md).
@@ -210,19 +210,19 @@ För att kunna verifiera åtkomsten ska användarna se SaaS-appen i sin [åtkoms
 ### <a name="configure-the-saas-app"></a>Konfigurera SaaS-appen
 Snabbprocessen från lokal federation till Azure AD beror på om SaaS-appen du arbetar med stöder flera identitetsproviders. Här följer några vanliga frågor om stöd för flera IdP:er:
 
-   **F: Vad betyder det att en app stöder flera IDP:er?**
+   **F: Vad innebär det en App stöder flera IDP: er?**
     
-   S: Med SaaS-appar som stöder flera IdP:er kan du ange all information om den nya IdP:n (i vårt fall Azure AD) innan du ändrar inloggningen. När konfigurationen är klar kan du ändra appens autentiseringskonfiguration så att den pekar på Azure AD.
+   S: SaaS-appar som stöder flera IDP: er kan du ange all information om den nya IDP: N (i vårt fall Azure AD) innan du ändrar inloggning. När konfigurationen är klar kan du ändra appens autentiseringskonfiguration så att den pekar på Azure AD.
 
-   **F: Varför spelar det någon roll om SaaS-appen stöder flera IdP:er?**
+   **F: Varför spelar det någon roll om SaaS-appen stöder flera IDP: er?**
 
-   S: Om flera IdP:er inte stöds måste administratören göra ett kort avbrott i tjänsten eller ett underhållsavbrott då han/hon konfigurerar Azure AD som en apps nya IdP. Under avbrottet ska användarna få ett meddelande om att de inte kan logga in på sina konton.
+   S: Om flera IDP: er inte stöds, måste administratören noterades en kort tidsperiod som ett avbrott i tjänsten eller då hon konfigurerar Azure AD som en Apps nya IdP. Under avbrottet ska användarna få ett meddelande om att de inte kan logga in på sina konton.
 
    Om en app har stöd för flera IdP:er kan en ytterligare IdP konfigureras i förväg. Administratören kan sedan snabbt växla IdP i Azure.
 
    Om appen stöder flera IdP:er och du väljer att flera IdP:er samtidigt ska hantera autentisering för inloggning, kan användarna välja vilken IdP som ska autentiseras på deras inloggningssida.
 
-#### <a name="example-support-for-multiple-idps"></a>Exempel: Stöd för flera IdP:er
+#### <a name="example-support-for-multiple-idps"></a>Exempel: Stöd för flera IDP: er
 I Salesforce finns exempelvis IdP-konfigurationen under **Inställningar** > **Företagsinställningar** > **Min domän** > **Autentiseringskonfiguration**.
 
 ![Avsnittet ”Autentiseringskonfiguration” i Salesforce-appen](media/migrate-adfs-apps-to-azure/migrate9.png)

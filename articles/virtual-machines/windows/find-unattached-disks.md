@@ -1,6 +1,6 @@
 ---
-title: Hitta och ta bort ej anslutna Azure hanterade och ohanterade diskar | Microsoft Docs
-description: Hur vill du ta bort ej anslutna Azure hanterade och ohanterade (virtuella hårddiskar/sidblobbar) diskar med hjälp av Azure PowerShell.
+title: Hitta och ta bort icke anslutna Azure-hanterade och ohanterade diskar | Microsoft Docs
+description: 'Så här att hitta och ta bort icke anslutna Azure hanterade och ohanterade (VHD: er/sidblob) diskar med hjälp av Azure PowerShell.'
 services: virtual-machines-windows
 documentationcenter: ''
 author: ramankumarlive
@@ -15,25 +15,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2018
 ms.author: ramankum
-ms.openlocfilehash: 17262978c9600b75a1ddf945cf170fea6ac4f8ce
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.component: disks
+ms.openlocfilehash: 11ffba34fff10d488cb3c9d81b7853f99b2ed138
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756940"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54475160"
 ---
-# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Hitta och ta bort ej anslutna Azure hanterade och ohanterade diskar
-Diskar som är kopplade till den virtuella datorn inte att ta bort när du tar bort en virtuell dator (VM) i Azure, som standard. Den här funktionen hjälper till att förhindra dataförlust på grund av oavsiktlig borttagning av virtuella datorer. När en virtuell dator tas bort, fortsätter att betala för ej anslutna diskar. Den här artikeln visar hur du hittar och tar bort ej anslutna diskarna och minska onödiga kostnader. 
+# <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks"></a>Hitta och ta bort icke anslutna Azure-hanterade och ohanterade diskar
+När du tar bort en virtuell dator (VM) i Azure, som standard alla diskar som är anslutna till den virtuella datorn inte tas bort. Den här funktionen hjälper till att förhindra dataförlust på grund av oavsiktlig borttagning av virtuella datorer. När en virtuell dator har tagits bort, fortsätter att betala för icke anslutna diskar. Den här artikeln visar hur du hitta och ta bort eventuella icke anslutna diskar och minska onödiga kostnader. 
 
 
-## <a name="managed-disks-find-and-delete-unattached-disks"></a>Hanterade diskar: hitta och ta bort ej anslutna diskar 
+## <a name="managed-disks-find-and-delete-unattached-disks"></a>Hanterade diskar: Hitta och ta bort icke anslutna diskar 
 
-Följande skript söker efter [hanterade diskar](managed-disks-overview.md) genom att undersöka värdet för den **av** egenskapen. När en hanterad disk som är ansluten till en virtuell dator i **av** -egenskapen innehåller resurs-ID för den virtuella datorn. När en hanterad disk är, den **av** -egenskapen är null. Skriptet undersöker alla hanterade diskar i en Azure-prenumeration. När skriptet hittar en hanterad disk med den **av** -egenskapen angetts till null, skriptet anger att disken är.
+Följande skript söker efter ej anslutna [hanterade diskar](managed-disks-overview.md) genom att undersöka värdet för den **ManagedBy** egenskapen. När en hanterad disk som är ansluten till en virtuell dator kan den **ManagedBy** egenskapen innehåller resurs-ID för den virtuella datorn. När en hanterad disk är frånkopplad, den **ManagedBy** -egenskapen är null. Skriptet undersöker alla hanterade diskar i en Azure-prenumeration. När skriptet hittar en hanterad disk med den **ManagedBy** -egenskapen angetts till null, skriptet anger att disken är frånkopplad.
 
 >[!IMPORTANT]
->Först kör skriptet genom att ange den **deleteUnattachedDisks** variabeln till 0. Den här åtgärden kan du söka efter och visa hanterade diskar.
+>Kör skriptet först genom att ange den **deleteUnattachedDisks** variabeln till 0. Den här åtgärden kan du hitta och visa alla ej anslutna hanterade diskar.
 >
->När du granskar alla diskar som kan köra skriptet igen och ange den **deleteUnattachedDisks** variabeln till 1. Den här åtgärden kan du ta bort alla ej ansluten hanterade diskar.
+>När du har läst icke anslutna diskar, kör skriptet igen och ange den **deleteUnattachedDisks** variabeln till 1. Den här åtgärden kan du ta bort icke anslutna hanterade diskar.
 >
 
 ```azurepowershell-interactive
@@ -69,14 +70,14 @@ foreach ($md in $managedDisks) {
  } 
 ```
 
-## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Ohanterad diskar: hitta och ta bort ej anslutna diskar 
+## <a name="unmanaged-disks-find-and-delete-unattached-disks"></a>Ohanterade diskar: Hitta och ta bort icke anslutna diskar 
 
-Ohanterad diskar är VHD-filer som lagras som [sidblobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) i [Azure storage-konton](../../storage/common/storage-create-storage-account.md). Följande skript söker efter ohanterade diskar (sidblobbar) genom att undersöka värdet för den **LeaseStatus** egenskapen. När en ohanterad disk som är ansluten till en virtuell dator i **LeaseStatus** egenskap är inställd på **låst**. När en ohanterad disk är, den **LeaseStatus** egenskap är inställd på **olåst**. Skriptet undersöker alla ohanterade diskar i alla Azure storage-konton i en Azure-prenumeration. När skriptet hittar en ohanterad disk med en **LeaseStatus** egenskapen **olåst**, fastställs att disken är.
+Ohanterade diskar är VHD-filer som lagras som [sidblobbar](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-page-blobs) i [Azure storage-konton](../../storage/common/storage-create-storage-account.md). Följande skript söker efter icke anslutna ohanterade diskar (sidblob) genom att undersöka värdet för den **LeaseStatus** egenskapen. När en ohanterad disk som är ansluten till en virtuell dator kan den **LeaseStatus** är inställd på **låst**. När en ohanterad disk är frånkopplad, den **LeaseStatus** är inställd på **olåst**. Skriptet undersöker alla ohanterade diskar i alla Azure storage-konton i en Azure-prenumeration. När skriptet hittar en ohanterad disk med en **LeaseStatus** egenskapen **olåst**, skriptet anger att disken är frånkopplad.
 
 >[!IMPORTANT]
->Först kör skriptet genom att ange den **deleteUnattachedVHDs** variabeln till 0. Den här åtgärden kan du söka efter och visa alla beräkningsfunktionen ohanterade virtuella hårddiskar.
+>Kör skriptet först genom att ange den **deleteUnattachedVHDs** variabeln till 0. Den här åtgärden kan du hitta och visa alla ej anslutna ohanterade virtuella hårddiskar.
 >
->När du granskar alla diskar som kan köra skriptet igen och ange den **deleteUnattachedVHDs** variabeln till 1. Den här åtgärden kan du ta bort alla ej ansluten ohanterade virtuella hårddiskar.
+>När du har läst icke anslutna diskar, kör skriptet igen och ange den **deleteUnattachedVHDs** variabeln till 1. Den här åtgärden kan du ta bort alla ej anslutna ohanterade virtuella hårddiskar.
 >
 
 ```azurepowershell-interactive
@@ -130,7 +131,7 @@ foreach($storageAccount in $storageAccounts){
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i [ta bort lagringskontot](../../storage/common/storage-create-storage-account.md) och [identifiera frånkopplade diskar med PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
+Mer information finns i [ta bort lagringskonto](../../storage/common/storage-create-storage-account.md) och [identifiera frånkopplade diskar med PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/)
 
 
 

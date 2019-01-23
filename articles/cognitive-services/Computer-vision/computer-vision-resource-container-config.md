@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 01/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 48d3bc7ecdd66565372be8347897202cae3ec158
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97de65acf724d12afd131ede25713e8f29d30bad
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579795"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477643"
 ---
 # <a name="configure-recognize-text-containers"></a>Konfigurera identifiera Text behållare
 
@@ -32,6 +32,7 @@ Konfigurationsinställningar i visuellt behållare är hierarkiska alla behålla
 * [Billing](#billing-configuration-setting)
 * [Licensvillkor](#eula-configuration-setting)
 * [Fluentd](#fluentd-configuration-settings)
+* [Inställningar för HTTP-proxy autentiseringsuppgift](#http-proxy-credentials-settings)
 * [Loggning](#logging-configuration-settings)
 * [Monterar](#mounts-configuration-settings)
 
@@ -116,6 +117,11 @@ I följande tabell beskrivs de konfigurationsinställningar som stöds den `Flue
 | `TlsConnectionEstablishmentTimeoutMs` | Integer | Tidsgräns i millisekunder för att upprätta en SSL/TLS-anslutning med Fluentd-servern. Standardvärdet är 10 000 millisekunder (10 sekunder).<br/> Om `UseTLS` har angetts till false, ignoreras det här värdet. |
 | `UseTLS` | Boolesk | Anger om behållaren ska använda SSL/TLS för att kommunicera med Fluentd-servern. Standardvärdet är FALSKT. |
 
+
+## <a name="http-proxy-credentials-settings"></a>HTTP-proxyinställningarna för autentiseringsuppgifter
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-configuration-settings"></a>Inställningar för loggning
 
 Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd för din behållare. Du kan använda samma konfigurationsinställningar och värden för din behållare kan du för en ASP.NET Core-program. Följande loggning providers som stöds av behållare för visuellt innehåll:
@@ -164,3 +170,7 @@ Till exempel följande kommando definierar en Docker-bindning montera den `D:\Ou
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
   ```
+
+## <a name="next-steps"></a>Nästa steg
+
+* Använder mer [Cognitive Services-behållare](../cognitive-services-container-support.md)

@@ -4,7 +4,7 @@ description: Hjälper till att definiera hybrid identitetshanteringsaktiviteter 
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 420b6046-bd9b-4fce-83b0-72625878ae71
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 5590f1fc3716582da090b8429f8bcf4fc7911dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6512cb71cc8ca973a778b7e172afcd9e056421ed
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251771"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478390"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Fastställa hybrid införande för identitetslivscykel
 I det här steget ska du definiera identity management strategin för din hybrididentitetslösning att uppfylla affärskrav som du definierade i [fastställa hybrid identitetshanteringsaktiviteter](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -43,9 +43,9 @@ Konton i avancerade IT-företag omfattar hundratals olika parametrar som definie
 Rollbaserad åtkomst kontroll (RBAC) använder roller och etablera principer för att utvärdera, testa och tillämpa dina affärsprocesser och regler för att bevilja åtkomst till användare. Viktiga administratörer skapa principer för etablering och tilldela användare till roller och som definierar uppsättningar av rättigheter till resurser för dessa roller. RBAC utökar identitetshanteringslösning för att använda programvarubaserade processer och minska manuell användaråtgärder i etableringsprocessen.
 RBAC i Azure AD gör det möjligt för företaget att begränsa antalet åtgärder som en person kan göra när han har åtkomst till Azure-portalen. Genom att använda RBAC för att styra åtkomst till portalen kan IT-administratörer ca delegera åtkomst med hjälp av följande metoder för hantering av åtkomst:
 
-* **Gruppbaserad rolltilldelning**: du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
-* **Utnyttja inbyggda roller i Azure**: du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
-* **Detaljerad åtkomst till resurser**: du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
+* **Gruppbaserad rolltilldelning**: Du kan tilldela åtkomst till Azure AD-grupper som kan synkroniseras från din lokala Active Directory. På så sätt kan du utnyttja befintliga investeringar som din organisation har gjort i verktyg och processer för att hantera grupper. Du kan också använda delegerad grupp-funktionen för hantering av Azure AD Premium.
+* **Utnyttja inbyggda roller i Azure**: Du kan använda tre roller, ägare, deltagare och läsare, så att användare och grupper har behörighet till endast de aktiviteter som de behöver för att göra sina jobb.
+* **Detaljerad åtkomst till resurser**: Du kan tilldela roller till användare och grupper för en viss prenumeration, resursgrupp eller en enskild Azure-resurs, till exempel en webbplats eller i databasen. På så sätt kan du se till att användarna har åtkomst till alla resurser som de behöver och ingen åtkomst till resurser som de inte behöver hantera.
 
 ## <a name="provisioning-and-other-customization-options"></a>Etablering och andra anpassningsalternativ för
 Ditt team kan använda affärsplaner och krav för att avgöra hur mycket du anpassar ID-lösning. Ett stort företag kan till exempel kräva en fasad lansering plan för arbetsflöden och anpassade kort som baseras på en tidslinje för stegvis etablering program som används mycket i geografiska områden. En annan anpassning planen kan innehålla två eller flera program som ska etableras i hela företaget, efter lyckad testning. Användarprogram interaktion kan anpassas och procedurer för att etablera resurser kan ändras för att hantera Automatisk etablering.
@@ -93,7 +93,7 @@ Kontrollera i följande tabell för att jämföra synkroniseringsåtgärder som:
 
 | Synkronisering av Management-alternativ | Fördelar | Nackdelar |
 | --- | --- | --- |
-| Synkroniseringsbaserade (via DirSync eller AADConnect) |Användare och grupper som synkroniserats från lokal plats och molnet <br>  **Principkontroll**: Kontoprinciper kan ställas in via Active Directory, som ger administratören möjlighet att hantera principer för lösenord, arbetsstation, begränsningar, lås rapporteras kontroller, och mer, utan att behöva utföra ytterligare aktiviteter i molnet.  <br>  **Åtkomstkontroll**: kan begränsa åtkomsten till Molntjänsten så att tjänsterna som kan nås via en företagsmiljö via online servrar eller båda. <br>  Minskar supportsamtalen: om användarna har färre lösenord för att komma ihåg, är det mindre troligt att glömma dem. <br>  Säkerhet: Användaridentiteter och informationen skyddas eftersom alla servrar och tjänster som används i enkel inloggning, administreras och kontrolleras den lokala. <br>  Stöd för stark autentisering: du kan använda stark autentisering (kallas även för tvåfaktorsautentisering) med Molntjänsten. Men om du använder stark autentisering, måste du använda enkel inloggning. | |
+| Synkroniseringsbaserade (via DirSync eller AADConnect) |Användare och grupper som synkroniserats från lokal plats och molnet <br>  **Principkontroll**: Kontoprinciper kan ställas in via Active Directory, vilket ger administratören möjlighet att hantera principer för lösenord, arbetsstation, begränsningar, lås rapporteras kontroller och mer, utan att behöva utföra ytterligare uppgifter i molnet.  <br>  **Åtkomstkontroll**: Kan begränsa åtkomsten till Molntjänsten så att tjänsterna som kan nås via en företagsmiljö via online-servrar, eller båda. <br>  Minskar supportsamtalen: Om användarna har färre lösenord för att komma ihåg, är de mindre troligt att glömma dem. <br>  Säkerhet: Användaridentiteter och informationen skyddas eftersom alla servrar och tjänster som används i enkel inloggning, administreras och kontrolleras den lokala. <br>  Stöd för stark autentisering: Du kan använda stark autentisering (kallas även för tvåfaktorsautentisering) med Molntjänsten. Men om du använder stark autentisering, måste du använda enkel inloggning. | |
 | Federationsbaserat (via AD FS) |Aktiverat som säkerhetstokentjänst (STS). När du konfigurerar en STS att tillhandahålla enkel inloggning med ett Microsoft-molntjänst, skapar du ett federerat förtroende mellan din lokala STS och federerad domän du har angett i Azure AD-klienten. <br> Gör att du kan använda samma uppsättning autentiseringsuppgifter för att få åtkomst till flera resurser <br>slutanvändare behöver inte underhålla flera uppsättningar med autentiseringsuppgifter. Ännu, användare måste ange sina autentiseringsuppgifter för var och en av de deltagande resurserna., B2B och B2C-scenarier som stöds. |Kräver särskild personal för distribution och underhåll av dedikerad lokal AD FS-servrar. Det finns vissa restriktioner gällande användningen av stark autentisering om du planerar att använda AD FS för din STS. Mer information finns i [konfigurera avancerade alternativ för AD FS 2.0](https://go.microsoft.com/fwlink/?linkid=235649). |
 
 > [!NOTE]

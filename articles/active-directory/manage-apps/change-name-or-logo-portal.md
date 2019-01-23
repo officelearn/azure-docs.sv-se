@@ -4,7 +4,7 @@ description: Så här ändrar du namnet eller en anpassad enterprise-app i Azure
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 08/28/2017
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.openlocfilehash: 47a53adb583ede0618321d9146362e4f663b0066
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 293cc161245ed1e674caa1fa37567a3b6f344d37
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369235"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54474608"
 ---
 # <a name="change-the-name-or-logo-of-an-enterprise-app-in-azure-active-directory"></a>Ändra namnet eller logotyp på en enterprise-app i Azure Active Directory
 Det är enkelt att ändra namnet eller logotyp för ett anpassade företagsprogram i Azure Active Directory (AD Azure). Du måste ha behörighet att göra dessa ändringar, och du måste vara skaparen av den anpassade appen.

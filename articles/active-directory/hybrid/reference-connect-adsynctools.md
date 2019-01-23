@@ -2,23 +2,23 @@
 title: 'Azure AD Connect: ADSyncTools PowerShell-referens | Microsoft Docs'
 description: Det här dokumentet innehåller information för ADSyncTools.psm1 PowerShell-modulen.
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54d23bca29c38f258334d7b641b8c1f480da55e1
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 3b98686730a0fbd65cd5fd64fe91d8c6fa06286e
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054972"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478220"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect:  ADSyncTools PowerShell-referens
 Följande dokumentation innehåller information för ADSyncTools.psm1 PowerShell-modul som ingår i Azure AD Connect.
 
-## <a name="clear-adsynctoolsconsistencyguid"></a>Rensa ADSyncToolsConsistencyGuid
+## <a name="clear-adsynctoolsconsistencyguid"></a>Clear-ADSyncToolsConsistencyGuid
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Rensa mS-Ds-ConsistencyGuid från AD-användare
@@ -65,7 +65,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="confirm-adsynctoolsadmoduleloaded"></a>Bekräfta ADSyncToolsADModuleLoaded
+## <a name="confirm-adsynctoolsadmoduleloaded"></a>Confirm-ADSyncToolsADModuleLoaded
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 {{Fyller du i sammanfattning}}
@@ -88,7 +88,7 @@ PS C:\> {{ Add example code here }}
 
 {{Lägg till exempel beskrivning här}}
 
-## <a name="connect-adsyncdatabase"></a>Ansluta AdSyncDatabase
+## <a name="connect-adsyncdatabase"></a>Connect-AdSyncDatabase
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 {{Fyller du i sammanfattning}}
@@ -238,7 +238,7 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-userprincipalname"></a>-UserPrincipalName
-userPrincipalName
+UserPrincipalName
 
 ```yaml
 Type: String
@@ -537,7 +537,7 @@ Funktionen frågor AAD Connect Körningshistorik och exporterar alla användare 
 
 $sourcePath = Read-Host - fråga ”ange din loggfilssökväg med filnamnet” # ”\<källsökväg\>” $outputPath = Read-Host-Prompt ”ange din out filsökväg med filnamnet” # ”\<Out_Path\>”
  
- Get-ADSyncToolsUsersSourceAnchorChanged - sourcePath $sourcePath - outputPath $outputPath
+ Get-ADSyncToolsUsersSourceAnchorChanged -sourcePath $sourcePath -outputPath $outputPath
 
 #### <a name="example-2"></a>EXEMPEL 2
 ```
@@ -580,7 +580,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="import-adsynctoolsimmutableidmigration"></a>Importera ADSyncToolsImmutableIdMigration
+## <a name="import-adsynctoolsimmutableidmigration"></a>Import-ADSyncToolsImmutableIdMigration
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Importera ImmutableID från AAD
@@ -644,7 +644,7 @@ Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
 
-## <a name="invoke-adsyncdatabasequery"></a>Anropa AdSyncDatabaseQuery
+## <a name="invoke-adsyncdatabasequery"></a>Invoke-AdSyncDatabaseQuery
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 {{Fyller du i sammanfattning}}
@@ -669,7 +669,7 @@ PS C:\> {{ Add example code here }}
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-query"></a>-Fråga
+#### <a name="-query"></a>-Query
 {{Fyll beskrivning av fråga}}
 
 ```yaml
@@ -703,7 +703,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="remove-adsynctoolsexpiredcertificates"></a>Ta bort ADSyncToolsExpiredCertificates
+## <a name="remove-adsynctoolsexpiredcertificates"></a>Remove-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Skript för att ta bort utgångna certifikat från UserCertificate-attributet
@@ -739,7 +739,7 @@ Ta bort ADSyncToolsExpiredCertificates-{TargetOU ”Organisationsenhet = datorer
 
 ### <a name="parameters"></a>PARAMETRAR
 
-#### <a name="-targetou"></a>{TargetOU-
+#### <a name="-targetou"></a>-TargetOU
 Target OU-sökning för AD-objekt
 
 ```yaml
@@ -788,7 +788,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="repair-adsynctoolsautoupgradestate"></a>Reparera ADSyncToolsAutoUpgradeState
+## <a name="repair-adsynctoolsautoupgradestate"></a>Repair-ADSyncToolsAutoUpgradeState
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Kort beskrivning
@@ -814,7 +814,7 @@ Example of how to use this cmdlet
 Another example of how to use this cmdlet
 ```
 
-## <a name="resolve-adsynchostaddress"></a>Lös ADSyncHostAddress
+## <a name="resolve-adsynchostaddress"></a>Resolve-ADSyncHostAddress
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 {{Fyller du i sammanfattning}}
@@ -854,7 +854,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="restore-adsynctoolsexpiredcertificates"></a>Återställ ADSyncToolsExpiredCertificates
+## <a name="restore-adsynctoolsexpiredcertificates"></a>Restore-ADSyncToolsExpiredCertificates
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 (FÖR ATT UTFÖRA) Återställer AD UserCertificate-attributet från en certicate-fil
@@ -997,7 +997,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-## <a name="trace-adsynctoolsadimport"></a>Spåra ADSyncToolsADImport
+## <a name="trace-adsynctoolsadimport"></a>Trace-ADSyncToolsADImport
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Skapar en spårningsfil från och AD-Import steg
@@ -1027,7 +1027,7 @@ Another example of how to use this cmdlet
 ### <a name="parameters"></a>PARAMETRAR
 
 #### <a name="-adconnectorxml"></a>-ADConnectorXML
-{{Fyll ADConnectorXML beskrivning}}
+{{Fill ADConnectorXML Description}}
 
 ```yaml
 Type: String
@@ -1056,7 +1056,7 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-#### <a name="-rootdn"></a>-RotDN
+#### <a name="-rootdn"></a>-rootDN
 Måldomänkontrollanten
 
 ```yaml
@@ -1121,7 +1121,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="trace-adsynctoolsldapquery"></a>Spåra ADSyncToolsLdapQuery
+## <a name="trace-adsynctoolsldapquery"></a>Trace-ADSyncToolsLdapQuery
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Kort beskrivning
@@ -1214,7 +1214,7 @@ Accept wildcard characters: False
 Denna cmdlet har stöd för parametrarna -Debug, -ErrorAction, -ErrorVariable, -InformationAction, -InformationVariable, -OutVariable, -OutBuffer, -PipelineVariable, -Verbose, -WarningAction och -WarningVariable.
 Mer information finns i about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216).
 
-## <a name="update-adsynctoolsconsistencyguidmigration"></a>Uppdatera ADSyncToolsConsistencyGuidMigration
+## <a name="update-adsynctoolsconsistencyguidmigration"></a>Update-ADSyncToolsConsistencyGuidMigration
 
 ### <a name="synopsis"></a>SAMMANFATTNING
 Uppdaterar användare med den nya ConsistencyGuid (ImmutableId)

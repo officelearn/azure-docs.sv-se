@@ -4,7 +4,7 @@ description: Lär dig vilka attributmappningar för SaaS-appar i Azure Active Di
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c54df9c4a01dbdb7713d03ff81108f28a60ec727
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44357823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54473732"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för ett tredje parts SaaS-program som aktiverad, styr dess attributvärden i form av attributmappningar Azure-portalen.
@@ -135,7 +135,7 @@ Det här alternativet tvingar effektivt omsynkronisering av alla användare meda
 >Vi rekommenderar starkt som **Etableringsstatus** anges till **av** innan du anropar det här alternativet.
 
 
-## <a name="what-you-should-know"></a>Vad du bör känna till
+## <a name="what-you-should-know"></a>Det här bör du känna till
 
 * Microsoft Azure AD tillhandahåller en effektiv implementering av en synkroniseringsprocessen. I en initierad miljö bearbetas bara de objekt som kräver uppdateringar under en synkroniseringscykel. 
 

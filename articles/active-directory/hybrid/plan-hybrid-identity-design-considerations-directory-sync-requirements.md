@@ -4,7 +4,7 @@ description: Identifiera vilka krav behövs för att synkronisera alla användar
 documentationcenter: ''
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 593eaa71-17eb-4c16-8c98-43cc62987e65
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 0a7d0b69df4610f85791da82b9d2e15a363a844c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ad14e443f7176a0acb2da3529348fba452f76dee
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46313910"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54477965"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Fastställa katalogsynkroniseringskrav
 Synkronisering handlar om och ger användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de använda synkroniserade kontot för autentisering eller federerad autentisering, måste användarna fortfarande att ha en identitet i molnet.  Den här identiteten måste bibehållas och uppdateras regelbundet.  Uppdateringarna kan olika former, från titel ändras till lösenordsändringar.  

@@ -152,7 +152,7 @@ Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet har visat en enkel orchestration för länkning av funktionen. I nästa exempel visas hur du implementerar fan-in/fan-i mönstret.
+Det här exemplet har visat en enkel orchestration för länkning av funktionen. I nästa exempel visas hur du implementerar bläddra in/bläddra in-mönstret.
 
 > [!div class="nextstepaction"]
-> [Kör Fan-in/fan-i exemplet](durable-functions-cloud-backup.md)
+> [Kör Bläddra in/bläddra in-exemplet](durable-functions-cloud-backup.md)

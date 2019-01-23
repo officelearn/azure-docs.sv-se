@@ -20,7 +20,7 @@ ms.locfileid: "53583467"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
-Automatiserad machine learning är tar träningsdata med ett definierat mål-funktionen och går igenom kombinationer av algoritmer och val av funktioner att automatiskt välja modellen med bäst för dina data baserat på poäng för utbildning. De traditionella machine learning-modell utvecklingsprocessen är mycket resurskrävande och kräver betydande domän kunskap och tid att köra och jämför resultatet från flera olika modeller. Automatiserad machine learning förenklar processen genom att generera modeller justerade från mål och begränsningar som du har definierat för ditt experiment, till exempel tiden för experiment att köra eller som modeller för att svartlista.
+Automatiserad machine learning är tar träningsdata med ett definierat mål-funktionen och går igenom kombinationer av algoritmer och val av funktioner att automatiskt välja modellen med bäst för dina data baserat på poäng för utbildning. De traditionella machine learning-modell utvecklingsprocessen är mycket resurskrävande och kräver betydande domän kunskap och tid att köra och jämför resultatet från flera olika modeller. Automatiserad machine learning förenklar processen genom att generera modeller justerade från mål och begränsningar som du har definierat för ditt experiment, till exempel tiden för experiment att köra eller som modeller för att blockeringslista.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 

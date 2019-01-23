@@ -211,20 +211,20 @@ Till exempel om `durableTask/extendedSessionIdleTimeoutInSeconds` är inställd 
 Det är viktigt att tänka på prestandakraven tidigt i planeringsprocessen när du planerar att använda varaktiga funktioner för ett produktionsprogram. Det här avsnittet beskrivs vissa grundläggande Användningsscenarier och den förväntade maximala dataflödet siffror.
 
 * **Sekventiell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som kör en serie Aktivitetsfunktioner en efter en. Den mest liknar den [funktionen länkning](durable-functions-sequence.md) exemplet.
-* **Parallell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster.
-* **Parallell bearbetning av certifikatsvar**: Det här scenariot är den andra halvan av den [Fan-out, Fan-in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos fan-in. Det är viktigt att Observera att till skillnad från fan-out, fan-in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
+* **Parallell aktivitetskörning**: Det här scenariot beskriver en orchestrator-funktion som körs många Aktivitetsfunktioner parallellt med den [Bläddra ut, bläddra in](durable-functions-cloud-backup.md) mönster.
+* **Parallell bearbetning av certifikatsvar**: Det här scenariot är den andra halvan av den [Bläddra ut, bläddra in](durable-functions-cloud-backup.md) mönster. Den fokuserar på prestanda hos bläddra in. Det är viktigt att Observera att till skillnad från bläddra ut, bläddra in gör du genom en enda orchestrator-funktion-instans, och därför kan bara köras på en enskild virtuell dator.
 * **Externa händelsebearbetning**: Det här scenariot representerar en enskild orchestrator-funktion-instans som väntar på [externa händelser](durable-functions-external-events.md), en i taget.
 
 > [!TIP]
-> Till skillnad från fan-out är fan-in åtgärder begränsad till en enda virtuell dator. Om programmet använder fan-out, fan-in mönster och du är orolig fan-in prestanda, Överväg att dividera icke aktivitet funktionen fan-out över flera [underordnade orkestreringar](durable-functions-sub-orchestrations.md).
+> Till skillnad från bläddra ut-åtgärder, så är bläddra in-åtgärder begränsade till en enda virtuell dator. Om programmet använder bläddra ut/bläddra in-mönster och du är orolig för bläddra in-prestanda, så överväg att dividera icke aktivitet funktionen bläddra ut över flera [underordnade orkestreringar](durable-functions-sub-orchestrations.md).
 
 I följande tabell visas den förväntade *maximala* dataflöde-nummer för de tidigare beskrivna scenarierna. ”Instans” refererar till en enda instans av en orchestrator-funktion som körs på en enda liten ([A1](../../virtual-machines/windows/sizes-previous-gen.md#a-series)) virtuell dator i Azure App Service. I samtliga fall det förutsätts att [utökade sessioner](#orchestrator-function-replay) är aktiverade. De faktiska resultaten kan variera beroende på CPU eller i/o-arbetet som utförs av funktionskoden.
 
 | Scenario | Maximalt dataflöde |
 |-|-|
 | Sekventiell aktivitetskörning | 5 aktiviteter per sekund per instans |
-| Parallell aktivitetskörning (fan-out) | 100 aktiviteter per sekund per instans |
-| Parallell bearbetning av certifikatsvar (fan-in) | 150 svar per sekund per instans |
+| Parallell aktivitetskörning (bläddra ut) | 100 aktiviteter per sekund per instans |
+| Parallell bearbetning av certifikatsvar (bläddra in) | 150 svar per sekund per instans |
 | Externa händelsebearbetning | 50 händelser per sekund per instans |
 
 > [!NOTE]

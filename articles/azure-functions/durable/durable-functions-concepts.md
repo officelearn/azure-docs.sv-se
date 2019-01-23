@@ -80,9 +80,9 @@ Den `context` parametern [DurableOrchestrationContext] \(.NET\) och `context.df`
 
 ### <a name="fan-in-out"></a>Mönster #2: Förgrening
 
-*FAN-in/fan-i* refererar till mönstret för att köra flera funktioner parallellt och sedan att vänta tills alla ska slutföras.  Vissa aggregering arbete utförs ofta i resultatet som returneras från funktioner.
+*Bläddra ut/bläddra in* refererar till mönstret för att köra flera funktioner parallellt och sedan att vänta tills alla ska slutföras.  Vissa aggregering arbete utförs ofta i resultatet som returneras från funktioner.
 
-![FAN-in/fan-i diagram](./media/durable-functions-concepts/fan-out-fan-in.png)
+![Bläddra ut/bläddra in-diagram](./media/durable-functions-concepts/fan-out-fan-in.png)
 
 Med normal funktion, fläkt kan du göra genom att använda funktionen Skicka flera meddelanden till en kö. Fläkt i är dock mycket mer utmanande. Du skulle behöva skriva kod för att spåra när de kö-utlösta funktionerna avslutas och lagra funktionen utdata. Tillägget varaktiga funktioner hanterar det här mönstret med relativt enkel kod.
 
@@ -131,7 +131,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-Fan-out arbetet ska distribueras till flera instanser av funktionen `F2`, och vad som ska spåras med hjälp av en dynamisk lista över aktiviteter. .NET `Task.WhenAll` API eller JavaScript `context.df.Task.all` API anropas för att vänta tills alla de anropade funktionerna ska slutföras. Sedan `F2` funktionen matar ut aggregeras i dynamiska uppgiftslistan och skickas till den `F3` funktion.
+Bläddra ut-arbetet ska distribueras till flera instanser av funktionen `F2`, och vad som ska spåras med hjälp av en dynamisk lista över aktiviteter. .NET `Task.WhenAll` API eller JavaScript `context.df.Task.all` API anropas för att vänta tills alla de anropade funktionerna ska slutföras. Sedan `F2` funktionen matar ut aggregeras i dynamiska uppgiftslistan och skickas till den `F3` funktion.
 
 Automatiska kontrollpunkter som sker på den `await` eller `yield` anropa `Task.WhenAll` eller `context.df.Task.all` säkerställer att alla krasch eller starta om datorn halvvägs inte kräver en omstart av någon redan slutfört uppgifterna.
 

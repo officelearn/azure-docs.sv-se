@@ -1,6 +1,6 @@
 ---
-title: FAN-in/fan-i scenarier i varaktiga funktioner – Azure
-description: Lär dig hur du implementerar ett fan-in-fläkt-in-scenario i tillägget varaktiga funktioner för Azure Functions.
+title: Bläddra in/bläddra in-scenarier i varaktiga funktioner – Azure
+description: Lär dig hur du implementerar ett bläddra in-bläddra ut-scenario i tillägget varaktiga funktioner för Azure Functions.
 services: functions
 author: kashimiz
 manager: jeconnoc
@@ -17,9 +17,9 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 12/21/2018
 ms.locfileid: "53727385"
 ---
-# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>FAN-in/fan-i scenariot i varaktiga funktioner – Cloud backup-exempel
+# <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Bläddra in/bläddra in-scenariot i varaktiga funktioner – Cloud backup-exempel
 
-*FAN-in/fan-i* refererar till mönstret för att köra flera funktioner samtidigt och sedan utför en aggregering på resultatet. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera ett fan-i/fan-in scenario. I exemplet är en hållbar funktion som säkerhetskopierar alla eller några av webbplatsinnehåll för en app till Azure Storage.
+*Bläddra in/bläddra in* refererar till mönstret för att köra flera funktioner samtidigt och sedan utför en aggregering på resultatet. Den här artikeln beskrivs ett exempel som använder [varaktiga funktioner](durable-functions-overview.md) att implementera ett bläddra in/bläddra in-scenario. I exemplet är en hållbar funktion som säkerhetskopierar alla eller några av webbplatsinnehåll för en app till Azure Storage.
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -180,7 +180,7 @@ Här är orchestration som en enda C#-fil i ett Visual Studio-projekt:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Det här exemplet visar hur du implementerar fan-in/fan-i mönstret. I nästa exempel visas hur du implementerar mönstret övervakaren med [varaktiga timers](durable-functions-timers.md).
+Det här exemplet visar hur du implementerar bläddra in/bläddra in-mönstret. I nästa exempel visas hur du implementerar mönstret övervakaren med [varaktiga timers](durable-functions-timers.md).
 
 > [!div class="nextstepaction"]
 > [Kör exemplet Övervakare](durable-functions-monitor.md)

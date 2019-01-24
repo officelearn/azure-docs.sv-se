@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 41f026da8b961cec0ae200e6182a7baa7a849af7
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 85ee6505adafab9587f3583cd4c7182efcc43c11
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411789"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853739"
 ---
 # <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort containrar baserat på containerns namnprefix
 
@@ -51,7 +51,7 @@ Det här skriptet använder följande kommandon för att ta bort containrar base
 | [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett Azure Storage-konto i den angivna resursgruppen. |
 | [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Skapar en container i Azure Blob-lagring. |
-| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Visar en lista över containrarna i ett Azure Storage-konto. |
+| [az storage container list](/cli/azure/storage/container) | Visar en lista över containrarna i ett Azure Storage-konto. |
 | [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Tar bort containrar i ett Azure Storage-konto. |
 
 ## <a name="next-steps"></a>Nästa steg

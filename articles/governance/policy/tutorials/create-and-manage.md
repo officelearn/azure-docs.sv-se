@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7cfcb71567931b1581618cf8f2239fb004befff8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ecebeef509f1f23e34ade6a79b8ffe39d4cbb0a5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53087039"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845630"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Skapa och hantera principer för att använda kompatibilitet
 
@@ -160,12 +160,12 @@ Inkludera en begärantext som liknar följande exempel:
 
 Innan du fortsätter med PowerShell-exemplet ser du till att du har den senaste versionen av Azure PowerShell installerad. Principparametrar lades till i version 3.6.0. Om du har en tidigare version returnerar exemplen ett fel som anger att parametern inte kan hittas.
 
-Du kan skapa en principdefinition med cmdleten `New-AzureRmPolicyDefinition`.
+Du kan skapa en principdefinition med cmdleten `New-AzPolicyDefinition`.
 
 Om du vill skapa en principdefinition från en fil skickar du sökvägen till filen. Använd följande exempel för en extern fil:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -DisplayName 'Deny cool access tiering for storage' `
     -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
@@ -174,7 +174,7 @@ $definition = New-AzureRmPolicyDefinition `
 Använd följande exempel för en lokal fil:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition `
+$definition = New-AzPolicyDefinition `
     -Name 'denyCoolTiering' `
     -Description 'Deny cool access tiering for storage' `
     -Policy 'c:\policies\coolAccessTier.json'
@@ -183,7 +183,7 @@ $definition = New-AzureRmPolicyDefinition `
 Om du vill skapa en principdefinition med en infogad regel använder du följande exempel:
 
 ```azurepowershell-interactive
-$definition = New-AzureRmPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
+$definition = New-AzPolicyDefinition -Name 'denyCoolTiering' -Description 'Deny cool access tiering for storage' -Policy '{
     "if": {
         "allOf": [{
                 "field": "type",
@@ -238,7 +238,7 @@ $parameters = '{
     }
 }'
 
-$definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
+$definition = New-AzPolicyDefinition -Name 'storageLocations' -Description 'Policy to specify locations for storage accounts.' -Policy $policy -Parameter $parameters
 ```
 
 ### <a name="view-policy-definitions-with-powershell"></a>Visa principdefinitioner med PowerShell
@@ -246,7 +246,7 @@ $definition = New-AzureRmPolicyDefinition -Name 'storageLocations' -Description 
 Om du vill visa alla principdefinitioner i din prenumeration använder du följande kommando:
 
 ```azurepowershell-interactive
-Get-AzureRmPolicyDefinition
+Get-AzPolicyDefinition
 ```
 
 Den returnerar alla tillgängliga principdefinitioner, inklusive inbyggda principer. Varje princip returneras i följande format:

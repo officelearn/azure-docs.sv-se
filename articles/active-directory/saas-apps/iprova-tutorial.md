@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: eb64fd7a7270c3bae03a94385fc77581637ac675
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: ba3b0e06630665082b62e070dac64e8bc572f6dc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981286"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811714"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Självstudier: Azure Active Directory-katalogintegrering med iProva
 
@@ -28,7 +28,7 @@ Du får följande fördelar när du integrerar iProva med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till iProva.
 * Du kan göra så att dina användare automatiskt loggas in på iProva (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure Portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -52,7 +52,7 @@ För att kunna konfigurera integreringen av iProva i Azure AD måste du lägga t
 
 **Gör följande för att lägga till iProva från galleriet:**
 
-1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -102,7 +102,7 @@ Du behöver denna information för att kunna konfigurera enkel inloggning med Az
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Gör följande för att konfigurera enkel inloggning med iProva:
 
@@ -205,9 +205,9 @@ Gör följande för att konfigurera enkel inloggning med iProva:
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -264,7 +264,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 4. Klicka på **Användare** på panelen **Användare och användargrupper**.
 
-5. Klicka på knappen **Add** (Lägg till).
+5. Klicka på knappen **Lägg till**.
 
 6. I fältet **Användarnamn** skriver du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com

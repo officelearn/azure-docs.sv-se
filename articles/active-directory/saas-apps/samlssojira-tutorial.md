@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 20e18819-e330-4e40-bd8d-2ff3b98e035f
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e527965782cc951553a5b5721955d4d3cfe67c6
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: adef572d9954443f24cfd1ab13c8c8a2e0ffa830
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811816"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO for Jira by resolution GmbH
 
@@ -161,11 +161,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon11.png)
 
-9. Klicka på **Add new IdP** (Lägg till ny IdP) på **konfigurationssidan för plugin-programmet SAML SingleSignOn** för att konfigurera inställningarna för identitetsprovidern.
+9. Klicka på **Lägg till ny IdP** på **konfigurationssidan för plugin-programmet SAML SingleSignOn** för att konfigurera inställningarna för identitetsprovidern.
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon4.png)
 
-10. Utför följande steg på sidan **Choose your SAML Identity Provider** (Välj din SAML-identitetsprovider):
+10. Utför följande steg på sidan **Välj din SAML-identitetsprovider**:
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5a.png)
  
@@ -181,7 +181,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5b.png)
 
-12. Utför följande steg på sidan **Import SAML IdP Metadata** (Importera SAML IdP-metadata):
+12. Utför följande steg på sidan **Importera SAML IdP-metadata**:
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5c.png)
 
@@ -193,7 +193,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
     
     d. Klicka på **Nästa**.
     
-13. Klicka på **Nästa** på sidan **User ID attribute and transformation** (Attribut för användar-ID och transformering).
+13. Klicka på **Nästa** på sidan för **attribut för användar-ID och transformering**.
 
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon5d.png)
     
@@ -201,7 +201,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML 
     
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon6a.png)
     
-15. Hoppa över användartestningen så länge genom att klicka på **Skip test & configure manually** (Hoppa över test och konfigurera manuellt) på sidan **Test your settings** (Testa dina inställningar). Du ska köra testningen i nästa avsnitt, vilket kräver ytterligare några inställningar på Azure-portalen. 
+15. Hoppa över användartestningen så länge genom att klicka på **Hoppa över test och konfigurera manuellt** på sidan **Testa dina inställningar**. Du ska köra testningen i nästa avsnitt, vilket kräver ytterligare några inställningar på Azure-portalen. 
     
     ![Konfigurera enkel inloggning](./media/samlssojira-tutorial/addon6b.png)
     

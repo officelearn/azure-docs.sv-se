@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 4808d390-a74e-4c98-8538-391a4a58aa62
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
-ms.openlocfilehash: ad6b0fd822d9b57e935a69f889e777d3292837f0
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27d7d31317d710daa1d2622c7a82a45c0bccbff3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981260"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-service-picco"></a>Självstudier: Azure Active Directory-integrering med Cloud Service PICCO
 
@@ -28,7 +28,7 @@ Du får följande fördelar när du integrerar Cloud Service PICCO med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till Cloud Service PICCO.
 * Du kan göra så att dina användare automatiskt loggas in på Cloud Service PICCO (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure Portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -53,7 +53,7 @@ För att kunna konfigurera integreringen av Cloud Service PICCO i Azure AD måst
 
 **Gör följande för att lägga till Cloud Service PICCO från galleriet:**
 
-1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -85,7 +85,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med Cloud Servi
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Gör följande för att konfigurera enkel inloggning med Azure AD med Cloud Service PICCO:
 
@@ -109,12 +109,12 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Cloud Serv
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `<SUB DOMAIN>.cloudservicepicco.com`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SUB DOMAIN>.cloudservicepicco.com/app`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<SUB DOMAIN>.cloudservicepicco.com/app`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Cloud Service PICCO-kundsupporten](mailto:picco.support@est.fujitsu.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure Portal.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Cloud Service PICCO-kundsupporten](mailto:picco.support@est.fujitsu.com) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
@@ -124,9 +124,9 @@ Om du vill konfigurera enkel inloggning på **Cloud Service PICCO**-sidan måste
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 

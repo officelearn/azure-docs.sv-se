@@ -3,19 +3,19 @@ title: Lägga till en app i din Azure Active Directory-klientorganisation | Micr
 description: I den här snabbstarten använder du Azure Portal för att lägga till ett galleriprogram i din Azure Active Directory-klientorganisation (Azure AD).
 services: active-directory
 author: barbkess
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.component: app-mgmt
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/24/2018
 ms.author: barbkess
-ms.openlocfilehash: 5cdadd93273b6010200b7211b75ca86dfa126b9d
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 0f2f912504ecf32ff5ba337951e24da0f816d463
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604833"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461934"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Snabbstart: Lägga till ett program i din Azure Active Directory-klientorganisation
 

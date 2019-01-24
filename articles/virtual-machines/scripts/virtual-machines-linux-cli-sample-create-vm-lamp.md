@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 1764fc15a888fbe15cc14b990721240d1baf3c40
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: cb8815db5e16603ca4578f6d3d943cbef62e49af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29851674"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54461153"
 ---
 # <a name="deploy-the-lamp-stack-in-a-load-balanced-virtual-machine-scale-set"></a>Distribuera LAMP-stacken i en belastningsutjämnad skalningsuppsättning med virtuella datorer
 
@@ -49,7 +49,7 @@ az group delete -n myResourceGroup
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, belastningsutjämnare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
@@ -59,8 +59,8 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az vmss extension set](https://docs.microsoft.com/cli/azure/vmss/extension#az_vmss_extension_set) | Skapa det tillägg som kör det anpassade skriptet på distributionen av en virtuell dator |
 | [az vmss update-instances](https://docs.microsoft.com/cli/azure/vmss#az_vmss_update_instances) | Kör det anpassade skriptet på de VM-instanser som distribuerades innan tillägget tillämpades på skalningsuppsättningen. |
 | [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale) | Skala upp skalningsuppsättningen genom att lägga till flera VM-instanser. Det anpassade skriptet körs på dem när de distribueras. |
-| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_list) | Hämta IP-adresserna för de virtuella datorer som skapats av exemplet. |
-| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Hämta klient- och serverdelsportarna som används av belastningsutjämnaren. |
+| [az network public-ip list](https://docs.microsoft.com/cli/azure/network/public-ip) | Hämta IP-adresserna för de virtuella datorer som skapats av exemplet. |
+| [az network lb show](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_show) | Hämta klient- och serverdelsportarna som används av lastbalanseraren. |
 
 ## <a name="next-steps"></a>Nästa steg
 

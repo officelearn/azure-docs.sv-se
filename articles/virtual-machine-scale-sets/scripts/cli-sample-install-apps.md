@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: a551856d5be1df63f4376c76c50ed53564afc175
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465040"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54468462"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Installera program till en skalningsuppsättning för en virtuell dator med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu och använder det anpassade skripttillägget för att installera ett grundläggande webbprogram. När skriptet har körts kan du komma åt webbappen via en webbläsare.
@@ -45,7 +45,7 @@ Det här skriptet använder följande kommandon för att skapa en resursgrupp, e
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/ad/group#az_ad_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az group create](/cli/azure/ad/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az vmss create](/cli/azure/vmss#az_vmss_create) | Skapar VM-skalningsuppsättningen och ansluter den till det virtuella nätverket, undernätet och nätverkssäkerhetsgruppen. En lastbalanserare skapas även för att distribuera trafik till flera virtuella datorinstanser. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
 | [az vmss extension set](/cli/azure/vmss/extension#az_vmss_extension_set) | Installerar det anpassade Azure-skripttillägget för att köra ett skript som förbereder datadiskarna på varje virtuell datorinstans. |
 | [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create) | Skapar en regel för lastbalanseraren för att distribuera trafik på TCP-port 80 till virtuella datorinstanser i skalningsuppsättningen. |

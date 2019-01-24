@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: dfb9db14f37efeb5ad83ef54fcc4613724d28a15
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: c8c7d94e216f45551ed869b2ba921f3c79e6307a
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229748"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452691"
 ---
 # <a name="get-started"></a>Snabbstart: Skapa en offentlig lastbalanserare med Azure PowerShell
 Den här snabbstarten visar hur du skapar en Basic-lastbalanserare med Azure PowerShell. Om du vill testa lastbalanseraren så distribuera två virtuella datorer (VM) som kör Windows-servern och lastbalansera en webbapp mellan de virtuella datorerna.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt kräver den här artikeln version 5.4.1 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
@@ -277,7 +277,7 @@ Parametern `-AsJob` skapar den virtuella datorn som en bakgrundsaktivitet så at
  
 Installera IIS med en anpassad webbsida på de båda virtuella datorerna på serversidan enligt följande:
 
-1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAdress` hämtar du den offentliga IP-adressen för lastbalanseraren.
+1. Hämta den offentliga IP-adressen för lastbalanseraren. Med `Get-AzureRmPublicIPAddress` hämtar du den offentliga IP-adressen för lastbalanseraren.
 
   ```azurepowershell-interactive
     Get-AzureRmPublicIPAddress `

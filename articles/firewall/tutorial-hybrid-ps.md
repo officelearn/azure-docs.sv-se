@@ -1,6 +1,6 @@
 ---
 title: 'Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell'
-description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure-portalen.
+description: I den här självstudien får du lära dig att distribuera och konfigurera Azure Firewall via Azure Portal.
 services: firewall
 author: vhorne
 ms.service: firewall
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2018
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: fc02f754682046ead3f546fc1253e1c9ac0a63b9
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 511fb425c6b31d204c88094ec5b1a49316495a0a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261476"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431528"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Självstudie: Distribuera och konfigurera Azure Firewall i ett hybridnätverk med hjälp av Azure PowerShell
 
@@ -45,7 +45,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här självstudien kräver att du kör PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.12.0 eller senare installerad. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.12.0 eller senare installerad. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
 

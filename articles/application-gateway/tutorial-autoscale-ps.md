@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 99fa5d6f0ba74b56a53f2d1af1b99c7e5c2896a7
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: dd6cc65fca98bc435a8cfea575ba10e3cff376be
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53323208"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54424684"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Självstudie: Skapa en application gateway som förbättrar åtkomsten till webbprogrammet
 
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.9.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Den här självstudien kräver att du kör Azure PowerShell lokalt. Du måste ha Azure PowerShell-modulen version 6.9.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). När du har verifierat PowerShell-versionen kör du `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

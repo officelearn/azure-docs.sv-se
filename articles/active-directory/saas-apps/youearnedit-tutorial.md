@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3011d44d-dfcf-4061-888f-cff90fbc8150
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: fd65d6a5d210b4b0549236ec39844e36480b10c9
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 5b3746a1e29f436c277fd238e13fd46010941824
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790266"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Självstudier: Azure Active Directory-integrering med YouEarnedIt
 
@@ -28,7 +28,7 @@ Du får följande fördelar när du integrerar YouEarnedIt med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till YouEarnedIt.
 * Du kan göra så att dina användare automatiskt loggas in på YouEarnedIt (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure Portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -52,7 +52,7 @@ För att kunna konfigurera integreringen av YouEarnedIt i Azure AD måste du lä
 
 **Gör följande för att lägga till YouEarnedIt från galleriet:**
 
-1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -78,13 +78,13 @@ För att kunna konfigurera och testa enkel inloggning med Azure AD med YouEarned
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för YouEarnedIt](#configure-youearnedit-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa YouEarnedIt-testanvändare](#create-youearnedit-test-user)** – så att det finns en motsvarighet till Britta Simon i YouEarnedIt som är länkad till Azure AD-representationen av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa YouEarnedIt-testanvändare](#create-youearnedit-test-user)** – så att det finns en motsvarighet till Britta Simon i YouEarnedIt som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Gör följande för att konfigurera enkel inloggning med Azure AD med YouEarnedIt:
 
@@ -104,22 +104,24 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med YouEarnedI
 
     ![YouEarnedIt – enkel inloggning-information för domän och -URL:er](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: 
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
+
     | Miljö  | Mönster  |
     |:--- |:--- |
     | Produktion | `https://<company name>.youearnedit.com/users/sign_in` |
     | Begränsat läge  |`https://<company name>.sandbox.youearnedit.com/users/sign_in` |
 
     b. I textrutan **Identifierare** anger du en URL med följande mönster:
+
     | Miljö  | Mönster  |
     |:--- |:--- |
     | Produktion | `<company name>.youearnedit.com` |
     | Begränsat läge  |`<company name>.sandbox.youearnedit.com` |
 
-    > [!NOTE] 
+    > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta din tilldelade YouEarnedIt Customer Success-ansvarig för att få dessa värden.
 
-4. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -139,9 +141,9 @@ För att kunna konfigurera enkel inloggning på **YouEarnedIt**-sidan måste du 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
@@ -192,11 +194,10 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 I det här avsnittet skapar du en användaren med namnet Britta Simon i YouEarnedIt. Kontakta din tilldelade YouEarnedIt Customer Success-ansvarig för att lägga till användarna på YouEarnedIt-plattformen.
 
->[!NOTE]
->YouEarnedIt förväntar sig att identitetsprovidern tillhandahåller EmailAddress eller UserName i NameID-attributet. Autentiseringen misslyckas om motsvarande UserName eller EmailAddress inte hittas i databasen eller inte matchar exakt. Detta kräver att kontona importeras i YouEarnedIt-systemet innan integreringen av enkel inloggning görs (normalt via API eller CSV-import).
+> [!NOTE]
+> YouEarnedIt förväntar sig att identitetsprovidern tillhandahåller EmailAddress eller UserName i NameID-attributet. Autentiseringen misslyckas om motsvarande UserName eller EmailAddress inte hittas i databasen eller inte matchar exakt. Detta kräver att kontona importeras i YouEarnedIt-systemet innan integreringen av enkel inloggning görs (normalt via API eller CSV-import).
 
-
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -209,4 +210,3 @@ När du klickar på YouEarnedIt-panelen i åtkomstpanelen bör du automatiskt lo
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

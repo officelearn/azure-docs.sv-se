@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: b3e2b4a9-749c-4895-813d-db46f8dfdbf8
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 15596c79859b4af08f3b1992a6aa072f5f86b48f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: aca546eb7eef105a04dee17b2cf29b136b96ef1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974938"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821778"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Självstudier: Azure Active Directory-integrering med Splunk Enterprise och Splunk Cloud
 
@@ -108,7 +108,7 @@ Om du vill konfigurera Azure AD enkel inloggning med Splunk Enterprise och Splun
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `<splunkserverUrl>`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<splunkserver>/saml/acs`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<splunkserver>/saml/acs`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [supportteamet för Splunk Enterprise och Splunk Cloud ](https://www.splunk.com/about-us/contact.html#tabs/customer-support) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

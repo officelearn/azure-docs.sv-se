@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 6b47d483-d3a3-442d-b123-171e3f0f7486
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 46c4389d92dfdaed9abdbe383b56708a3e8b5a73
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e316d08fd4e2a674b91a457a3e545f5aff3acbf8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809386"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO for Confluence by resolution GmbH
 
@@ -275,17 +275,17 @@ I SAML SSO for Confluence by resolution GmbH är etableringen en manuell åtgär
 
     ![Lägga till medarbetare](./media/samlssoconfluence-tutorial/user2.png) 
 
-    a. Skriv e-postadressen för användaren, t.ex. Britta Simon, i textrutan **Användarnamn**.
+    a. I textrutan **Användarnamn** skriver du e-postadressen för användaren: Britta Simon.
 
-    b. Skriv det fullständiga namnet för användaren, t.ex. Britta Simon, i textrutan **Fullständigt namn**.
+    b. I textrutan **Fullständigt namn** skriver du det fullständiga namnet för användaren: Britta Simon.
 
-    c. Skriv e-postadressen för användaren i textrutan **E-post**, t.ex. Brittasimon@contoso.com.
+    c. I textrutan **E-post** skriver du e-postadressen för användaren: Brittasimon@contoso.com.
 
-    d. Skriv lösenordet för Britta Simon i textrutan **Lösenord**.
+    d. I textrutan **Lösenord** skriver du lösenordet för Britta Simon.
 
     e. Klicka på **Bekräfta lösenord** för att ange lösenordet igen.
     
-    f. Klicka på **Lägg till**.
+    f. Klicka på knappen **Lägg till**.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 

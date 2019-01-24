@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 90154dab-eba2-4563-bcf0-f2acc797ea97
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 6f2fb29e705edde24d6f54faafd17b580ae131b5
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: c25196f03d9c4e70a43b9ea8c3a24ed6c0e39ead
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809870"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816015"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-for-customer"></a>Självstudier: Azure Active Directory-integrering med SAP Cloud for Customer
 
@@ -104,9 +104,9 @@ Konfigurera enkel inloggning i Azure AD med SAP Cloud for Customer genom att gö
 
     ![Information om SAP Cloud for Customer-domän och URL:er för enkel inloggning](common/sp-identifier.png)
 
-    a. Skriv en URL i textrutan **Inloggnings-URL** enligt följande mönster: `https://<server name>.crm.ondemand.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<server name>.crm.ondemand.com`
 
-    b. Skriv en URL i textrutan **Identifierare (entitets-ID)** enligt följande mönster: `https://<server name>.crm.ondemand.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<server name>.crm.ondemand.com`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Skaffa dess värden genom att kontakta [supportteamet för SAP Cloud for Customer-klienten](https://www.sap.com/about/agreements.sap-cloud-services-customers.html). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

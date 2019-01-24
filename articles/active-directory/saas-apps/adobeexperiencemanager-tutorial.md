@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 88a95bb5-c17c-474f-bb92-1f80f5344b5a
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 536db4e4927c03cafff35a3e811727a566c79dbd
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 53d1bf57a4a6471fa224de5296484857ed388486
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54062816"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821557"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-experience-manager"></a>Självstudier: Azure Active Directory-integrering med Adobe Experience Manager
 
@@ -80,8 +80,8 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Adobe Experience Manager](#configure-adobe-experience-manager-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa Adobe Experience Manager-testanvändare](#create-adobe-experience-manager-test-user)** – för att skapa en motsvarighet till Britta Simon i Adobe Experience Manager som är länkad till Azure AD-representationen av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Adobe Experience Manager-testanvändare](#create-adobe-experience-manager-test-user)** – för att skapa en motsvarighet till Britta Simon i Adobe Experience Manager som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -271,4 +271,3 @@ När du klickar på panelen för Adobe Experience Manager på åtkomstpanelen b�
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

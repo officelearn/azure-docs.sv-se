@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 773e7f7d-ec31-411b-860d-6a6633335d43
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: b0c5440098a135073513037ab1a4956c0aa76d2f
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 7392d4dbea0028683342e5ed6ede24f378cc2fdd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53975720"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820112"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-proofpoint-on-demand"></a>Självstudier: Azure Active Directory-integrering med Proofpoint on Demand
 
@@ -28,7 +28,7 @@ Du får följande fördelar när du integrerar Proofpoint on Demand med Azure AD
 
 * Du kan styra i Azure AD vilka som har åtkomst till Proofpoint on Demand.
 * Du kan göra så att dina användare automatiskt loggas in på Proofpoint on Demand (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure Portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -52,7 +52,7 @@ För att kunna konfigurera integreringen av Proofpoint on Demand i Azure AD mås
 
 **Gör följande för att lägga till Proofpoint on Demand från galleriet:**
 
-1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -84,7 +84,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med Proofpoint 
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Gör följande för att konfigurera enkel inloggning med Azure AD med Proofpoint on Demand:
 
@@ -108,10 +108,10 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Proofpoint
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<hostname>.pphosted.com/ppssamlsp`
 
-    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
+    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<hostname>.pphosted.com:portnumber/v1/samlauth/samlconsumer`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Proofpoint on Demand-kundsupporten](https://www.proofpoint.com/us/support-services) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure Portal.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL, identifierare och svars-URL. Kontakta [Proofpoint on Demand-kundsupporten](https://www.proofpoint.com/us/support-services) för att få dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -133,9 +133,9 @@ För att kunna konfigurera enkel inloggning på **Proofpoint on Demand**-sidan m
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 

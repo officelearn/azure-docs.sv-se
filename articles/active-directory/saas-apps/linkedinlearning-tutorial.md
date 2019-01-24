@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d5857070-bf79-4bd3-9a2a-4c1919a74946
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: e8d829c4990aa798ce77ecc9caae51ace4c53023
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: be5dd0a0fd1eb45c505a2f0ddf1489d21bfd38e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53808051"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821203"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Självstudier: Azure Active Directory-integrering med LinkedIn Learning
 
@@ -122,7 +122,7 @@ Konfigurera Azure AD enkel inloggning med LinkedIn Learning genom att utföra f�
 
     ![image](common/edit-attribute.png)
 
-6. Konfigurera SAML-tokenattributet så som visas på bilden ovan genom att redigera anspråken med hjälp av **redigeringsikonen** eller lägga till anspråken med hjälp av **Lägg till nytt anspråk** i avsnittet **Användaranspråk** i dialogrutan **Användarattribut** och utför sedan följande steg:
+6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** så redigerar du anspråken genom att använda **Redigera-ikonen** eller lägga till anspråken genom att använda **Lägg till nytt anspråk** för att konfigurera SAML-tokenattribut som det visas i bilden ovan och utföra följande steg:
     
     | Namn | Källattribut |
     | ---------------| --------------- |

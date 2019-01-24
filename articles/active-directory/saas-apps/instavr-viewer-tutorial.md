@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 13ffa29f-d0a5-4b21-b296-cfd76f380940
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: c63e7d03c0fc17e9892617aaeca94803c671acea
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: b0548ec2bb580c2898f610f00fd5ba911b314114
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195055"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823057"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-instavr-viewer"></a>Självstudie: Azure Active Directory-integrering med InstaVR Viewer
 
@@ -79,8 +79,8 @@ För att konfigurera och testa enkel inloggning för Azure AD med InstaVR Viewer
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för InstaVR Viewer](#configure-instavr-viewer-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa testanvändare för InstaVR Viewer ](#create-instavr-viewer-test-user)** – för att ha en motsvarighet för Britta Simon i InstaVR Viewer som är länkad till Azure AD-representationen av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare för InstaVR Viewer ](#create-instavr-viewer-test-user)** – för att ha en motsvarighet för Britta Simon i InstaVR Viewer som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -105,13 +105,13 @@ Konfigurera enkel inloggning för Azure AD med InstaVR Viewer med hjälp av föl
 
     ![Information om enkel inloggning med domän och URL:er för InstaVR Viewer](common/sp-identifier.png)
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`.
-    
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://console.instavr.co/auth/saml/login/<WEBPackagedURL>`
+
     > [!NOTE]
     > Det finns inget fast mönster för inloggnings-URL. Den skapas när InstaVR Viewer-kunden utför webbpaketering. Den är unik för varje kund och paket. För att få exakt inloggnings-URL behöver du logga in på InstaVR Viewer-instansen och utföra webbpaketering.
 
-    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`. 
-    
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://console.instavr.co/auth/saml/sp/<WEBPackagedURL>`
+
     > [!NOTE]
     > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med det faktiska identifierarvärde enligt beskrivningen senare i den här självstudien.
 

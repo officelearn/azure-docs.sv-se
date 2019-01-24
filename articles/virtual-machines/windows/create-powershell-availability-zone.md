@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 5f76b117b01090864e1bf33e986e8ec96f0bf376
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 23c53982919ad29c639a6441f206abb35ddb7a1b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31599942"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430799"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Skapa en virtuell Windows-dator i en tillgänglighetszon med PowerShell
 
@@ -29,7 +29,7 @@ Den här artikeln innehåller information om att använda Azure PowerShell för 
 
 Om du vill använda en tillgänglighetszon skapar du din virtuella dator i en [Azure-region som stöds](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Kontrollera att du har installerat den senaste Azure PowerShell-modulen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Kontrollera att du har installerat den senaste Azure PowerShell-modulen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 
@@ -69,7 +69,7 @@ virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
 
-Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk behållare där Azure-resurser distribueras och hanteras. I det här exemplet ska vi skapa en resursgrupp med namnet *myResourceGroup* i regionen *eastus2*. 
+Skapa en Azure-resursgrupp med [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. I det här exemplet ska vi skapa en resursgrupp med namnet *myResourceGroup* i regionen *eastus2*. 
 
 ```powershell
 New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS2

@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: Azure-Active-Directory
@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 5be86017926e09b5db5fd08f1c33d316b9031bc4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 999492b68112d3ab6a013cf02a66a5557c249157
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264299"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808797"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Självstudier: Azure Active Directory-integrering med Salesforce
 
 I den här självstudien får du lära dig hur du integrerar Salesforce med Azure Active Directory (Azure AD).
 Du får följande fördelar när du integrerar Salesforce med Azure AD:
 
-* Du kan i Azure AD styra vem som har åtkomst till Salesforce.
+* Du kan styra i Azure AD vilka som har åtkomst till Salesforce.
 * Du kan göra så att dina användare automatiskt loggas in på Salesforce (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure-portalen.
 
@@ -82,8 +82,8 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med Salesforce 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Salesforce](#configure-salesforce-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa Salesforce-testanvändare](#create-salesforce-test-user)** – så att det finns en motsvarighet till Britta Simon i Salesforce som är länkad till Azure AD-representationen av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Salesforce-testanvändare](#create-salesforce-test-user)** – så att det finns en motsvarighet till Britta Simon i Salesforce som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -242,7 +242,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 I det här avsnittet skapas en användare som heter Britta Simon i Salesforce. Salesforce stöder just-in-time-etablering, som är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns någon användare i Salesforce skapas en ny när du försöker komma åt Salesforce. Salesforce stöder även automatisk användaretablering. Mer information finns [här](salesforce-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 

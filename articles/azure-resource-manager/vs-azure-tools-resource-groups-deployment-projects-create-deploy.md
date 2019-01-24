@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 082170d6f8bfb687195de87cde4247697571b0d6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 48d23f9d6d79e89e24c808a59b73854952c93240
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715927"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425449"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Skapa och distribuera Azure-resursgrupper via Visual Studio
 Med Visual Studio kan du skapa ett projekt som distribuerar din infrastruktur och kod till Azure. Du kan till exempel definiera webbvärden, webbplatsen och databasen för din app och distribuera den infrastrukturen tillsammans med koden. Visual Studio har många olika startmallar som du kan använda för att distribuera vanliga scenarier. I den här artikeln ska du distribuera en webbapp och SQL Database.  
@@ -144,7 +144,7 @@ Nu är det dags att distribuera projektet. När du distribuerar ett Azure-resurs
 5. Distribuera projektet till Azure genom att välja knappen **Distribuera**. En PowerShell-konsol öppnas utanför Visual Studio-instansen. Ange SQL Server-administratörens lösenord i PowerShell-konsolen när du uppmanas att göra detta. **Din PowerShell-konsol kan vara dold bakom andra objekt eller minimerad i Aktivitetsfältet.** Leta reda på konsolen och välj den för att ange lösenordet.
    
    > [!NOTE]
-   > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Du behöver Azure PowerShell-cmdlets för att distribuera resursgrupper. Installera dem om du uppmanas att göra det. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+   > Visual Studio kan uppmana dig att installera Azure PowerShell-cmdlets. Du behöver Azure PowerShell-cmdlets för att distribuera resursgrupper. Installera dem om du uppmanas att göra det. Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
    > 
    > 
 6. Distributionen kan ta några minuter. I fönstren **Utdata** kan du se status för distributionen. När distributionen är klar indikerar det sista meddelandet att distributionen är framgångsrik med något liknande:

@@ -4,7 +4,7 @@ description: Använd Azure Portal och visa programmen i din Azure Active Directo
 services: active-directory
 documentationcenter: ''
 author: barbkess
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.component: app-mgmt
@@ -16,12 +16,12 @@ ms.date: 07/25/2018
 ms.author: barbkess
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: bedd83426ecb24681fcfa292a049b8d4a3271d6a
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: ce998cd23ac3606ca9269e1e3316e6679fe0a7af
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266488"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462869"
 ---
 # <a name="view-your-azure-active-directory-tenant-applications"></a>Visa programmen i din Azure Active Directory-klientorganisation
 
@@ -41,7 +41,7 @@ Så här hittar du programmen i din klientorganisation:
 
 1. Klicka på **Azure Active Directory** på den vänstra navigeringspanelen på **[Azure Portal](https://portal.azure.com)**. 
 
-2. Klicka på **Företagsprogram** på bladet Azure Active Directory. 
+2. På bladet Azure Active Directory klickar du på **Företagsprogram**. 
 
 3. Välj **Alla program** på den nedrullningsbara menyn **Programtyp** och klicka på **Använd**. Ett slumpmässigt urval av programmen i din klientorganisation visas.
 

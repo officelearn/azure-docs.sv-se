@@ -4,7 +4,7 @@ description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Direc
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dafa0864-aef2-4f5e-9eac-770504688ef4
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
-ms.openlocfilehash: 05e565d58faefbfc80815635afa38595177ad353
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: f93f6d01019b38fc157732ee221a5f73a156e809
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807473"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Självstudier: Azure Active Directory-katalogintegrering med NetSuite
 
@@ -329,5 +329,5 @@ När du klickar på NetSuite-panelen i åtkomstpanelen så borde du automatiskt 
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Konfigurera användaretablering](NetSuite-provisioning-tutorial.md)
+- [Konfigurera användarförsörjning](NetSuite-provisioning-tutorial.md)
 

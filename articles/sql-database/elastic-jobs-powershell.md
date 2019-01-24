@@ -12,16 +12,16 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 06/14/2018
-ms.openlocfilehash: 34277aaa6ad6c5b22fb1691af83091e49d3bf5c1
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 08571ac8b7e13bc0f414b481a481132793ba865d
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021330"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452759"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Skapa en elastisk jobbagent med PowerShell
 
-[Elastiska jobb](elastic-jobs-overview.md) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
+[Elastiska jobb](sql-database-job-automation-overview.md#elastic-database-jobs) aktiverar körning av ett eller flera Transact-SQL-skript (T-SQL) parallellt över flera databaser.
 
 I den här självstudien lär du dig de steg som krävs för att köra en fråga över flera databaser:
 
@@ -65,7 +65,7 @@ Om du inte redan har en Azure-prenumeration kan du skapa ett [kostnadsfritt](htt
 
 ## <a name="create-required-resources"></a>Skapa nödvändiga resurser
 
-För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](elastic-jobs-overview.md#job-database). 
+För att skapa elastiska jobbagenter krävs en databas (S0 eller högre) som kan användas som [jobbdatabas](sql-database-job-automation-overview.md#job-database). 
 
 *Skriptet nedan skapar en ny resursgrupp, server och databas som ska användas som jobbdatabas. Skriptet nedan skapar även en andra server med 2 tomma databaser att köra jobb mot.*
 
@@ -210,7 +210,7 @@ $JobCred = $JobAgent | New-AzureRmSqlElasticJobCredential -Name "jobuser" -Crede
 
 ## <a name="define-the-target-databases-you-want-to-run-the-job-against"></a>Definiera måldatabaserna som du vill köra jobbet mot
 
-En [målgrupp](elastic-jobs-overview.md#target-group) utgörs av en eller flera databaser som ett jobbsteg ska köras mot. 
+En [målgrupp](sql-database-job-automation-overview.md#target-group) utgörs av en eller flera databaser som ett jobbsteg ska köras mot. 
 
 Följande kodavsnitt skapar två målgrupper: *ServerGroup* och *ServerGroupExcludingDb2*. *ServerGroup* har alla databaser som finns på servern vid körningen som mål, och *ServerGroupExcludingDb2* har alla databaser på servern, utom *TargetDb2* som mål:
 

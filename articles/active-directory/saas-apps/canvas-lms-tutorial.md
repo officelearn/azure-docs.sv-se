@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
-ms.openlocfilehash: 7612dc441d53f168e4472320c2de1e4431e65e95
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: d9f4a616c1f182c3073c0febf2ba5c251655dc5e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065434"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824345"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>Självstudier: Azure Active Directory-integrering med Canvas
 
@@ -111,7 +111,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Canva
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [Canvas kundsupport](https://community.canvaslms.com/community/help) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-5. Öppna dialogrutan **SAML-signeringscertifikat** genom att klicka på **Redigera** i avsnittet **SAML-signeringscertifikat**.
+5. I avsnittet **SAML-signeringscertifikat** klickar du på knappen **Redigera** för att öppna dialogrutan **SAML-signeringscertifikat**.
 
     ![Redigera SAML-signeringscertifikat](common/edit-certificate.png)
 
@@ -153,7 +153,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Canva
 
     d. I textrutan för **länken för lösenordsändring** klistrar du in värdet för **URL:en för lösenordsändring** som du har kopierat från Azure-portalen.
 
-    e. I textrutan **Fingeravtryck för certifikat** klistrar du in **tumavtrycksvärdet** för certifikatet som du har kopierat från Azure-portalen.
+    e. I textrutan **Certificate Fingerprint** (Fingeravtryck för certifikat) klistrar du in **tumavtrycksvärdet** för certifikatet som du har kopierat från Azure-portalen.
 
     f. I listan med **attribut för inloggning** väljer du **NameID**.
 

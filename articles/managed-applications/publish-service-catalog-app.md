@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: a2e6e78268f97136533b4f72ce28373642b6c394
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7e9db85fb91dd0c9a33cc8205bdb30a648dfd38a
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801275"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438753"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Skapa och publicera en definition för det hanterade programmet
 
@@ -30,7 +30,7 @@ Om du vill publicera ett hanterat program för tjänstkatalogen måste du:
 
 I den här artikeln innehåller det hanterade programmet bara ett lagringskonto. Artikeln beskriver steg för steg hur du publicerar ett hanterat program. Fullständiga exempel hittar du i [exempelprojekten för Azure-hanterade program](sample-projects.md).
 
-PowerShell-exemplen i den här artikeln kräver Azure PowerShell 6.2 eller senare. Om det behövs, [uppdatera din version](/powershell/azure/install-azurerm-ps).
+PowerShell-exemplen i den här artikeln kräver Azure PowerShell 6.2 eller senare. Om det behövs, [uppdatera din version](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="create-the-resource-template"></a>Skapa resursmallen
 

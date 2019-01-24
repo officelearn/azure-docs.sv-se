@@ -4,7 +4,7 @@ description: Lär dig hur du laddar ned och använder ett PowerShell-skript för
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4afe0c73-aee8-47f1-a6cb-2d71fd6719d1
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 07239e3411bc8df06cdff731343649867b59a3c9
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: ad34a5c3d72ec1f7fce0b56a85fd7c9cba007366
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213102"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824583"
 ---
 # <a name="tutorial-how-to-download-and-use-a-script-to-access-sign-in-logs"></a>Självstudier: Ladda ned och använda ett skript för åtkomst till inloggningsloggar
 
-Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure-portalen. Alternativet **Ladda ned** i Azure-portalen skapar en CSV-fil av de senaste 5 000 posterna. Om du behöver mer flexibilitet, till exempel för att ladda ned mer än 5 000 poster i taget eller ladda ned loggarna efter schemalagda intervall, kan du använda knappen **Skript** till att generera ett PowerShell-skript för att ladda ned dina data.
+Du kan ladda ned informationen om inloggningsaktivitet om du vill arbete med den utanför Azure Portal. Alternativet **Ladda ned** i Azure-portalen skapar en CSV-fil av de senaste 5 000 posterna. Om du behöver mer flexibilitet, till exempel för att ladda ned mer än 5 000 poster i taget eller ladda ned loggarna efter schemalagda intervall, kan du använda knappen **Skript** till att generera ett PowerShell-skript för att ladda ned dina data.
 
 I den här självstudien lär du dig hur du genererar ett skript för att ladda ned alla inloggningsloggar från de senaste 24 timmarna och schemalägger den för körning varje dag. 
 

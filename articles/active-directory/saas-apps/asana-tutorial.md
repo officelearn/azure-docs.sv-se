@@ -4,7 +4,7 @@ description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Direc
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 837e38fe-8f55-475c-87f4-6394dc1fee2b
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: c37f98604ad10116698434888d137ef88d00d2e4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: b687f45221d968b3a75e6466ccb316273b9e0182
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972064"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822866"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asana"></a>Självstudier: Azure Active Directory-integrering med Asana
 
@@ -221,4 +221,4 @@ När du klickar på Asana-panelen i åtkomstpanelen så bör du automatiskt logg
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Konfigurera användaretablering](asana-provisioning-tutorial.md)
+* [Konfigurera användarförsörjning](asana-provisioning-tutorial.md)

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aa4ea4e724ec383fc9f22bd56572d2fd0e844abc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: e79b85a2dd47706ca83b6cbc2c59100b05574fab
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332446"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425568"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Snabbstart: Skapa en virtuell Windows SQL Server-dator med Azure PowerShell
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a id="powershell"></a> Skaffa Azure PowerShell
 
-Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="configure-powershell"></a>Konfigurera PowerShell
 
@@ -48,7 +48,7 @@ Den här snabbstarten kräver Azure PowerShell-modul version 3.6 eller senare. K
    Connect-AzureRmAccount
    ```
 
-1. Du bör se en skärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure-portalen.
+1. Du bör se en skärm där du kan ange dina autentiseringsuppgifter. Använd samma e-postadress och lösenord som du använder för att logga in på Azure Portal.
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

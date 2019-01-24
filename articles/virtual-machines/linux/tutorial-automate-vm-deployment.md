@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a023d9f600f63d1ead4cf7c7e2a3cceec794d28b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4f4456ed81fba4648f5bc3efaa415b1e44e5e415
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972615"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852124"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Självstudiekurs – Så här använder du cloud-init för att anpassa en virtuell Linux-dator i Azure vid den första starten
 
@@ -171,7 +171,7 @@ az keyvault certificate create \
 
 
 ### <a name="prepare-certificate-for-use-with-vm"></a>Förbereda ett certifikat för användning med en virtuell dator
-För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). Den virtuella datorn behöver certifikatet i ett visst format för att det ska kunna injiceras vid uppstart. Du konverterar certifikatet med [az vm secret format](/cli/azure/vm#az-vm-secret-format). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
+För att använda certifikatet medan den virtuella datorn skapas ska du hämta certifikatets ID med [az keyvault secret list-versions](/cli/azure/keyvault/secret#az-keyvault-secret-list-versions). Den virtuella datorn behöver certifikatet i ett visst format för att det ska kunna injiceras vid uppstart. Du konverterar certifikatet med [az vm secret format](/cli/azure/vm). Följande exempel tilldelar kommandonas resultat till variabler, vilket gör dem enklare att använda i nästa steg:
 
 ```azurecli-interactive
 secret=$(az keyvault secret list-versions \

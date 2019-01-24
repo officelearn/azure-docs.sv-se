@@ -3,19 +3,19 @@ title: Definiera en Azure Active Directory-tekniska profilen i en anpassad princ
 description: Definiera en Azure Active Directory-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cf7b051703e01493f365c1850ab815747321230b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: dc9cda92ef725bbfc1a12756912656f0c39474cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381700"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846752"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en Azure Active Directory-tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -120,7 +120,7 @@ Anspråkets namn är namnet på attributet Azure AD, såvida inte den **PartnerC
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD teknisk provideråtgärder
 
-### <a name="read"></a>Läsbehörighet
+### <a name="read"></a>Läsa
 
 Den **Läs** åtgärden läser data om ett enda användarkonto. Om du vill läsa användardata, måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames** (valfri typ, användarnamnet och e-postbaserad konto) eller **alternativeSecurityId**.  
 
@@ -152,7 +152,7 @@ Följande tekniska profil läser data om ett användarkonto med hjälp av använ
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Skrivbehörighet
+### <a name="write"></a>Skriva
 
 Den **skriva** åtgärden skapar eller uppdaterar ett enda användarkonto. Om du vill skriva ett användarkonto, måste du ange en nyckel som ett inkommande anspråk som **objectId**, **userPrincipalName**, **signInNames.emailAddress**, eller  **alternativeSecurityId**.  
 
@@ -252,14 +252,14 @@ Följande tekniska profilen tar bort en social användarkonto med **alternativeS
 ```
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Operation | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`, eller `DeleteClaimsPrincipal`. | 
+| Åtgärd | Ja | Åtgärden som ska utföras. Möjliga värden: `Read`, `Write`, `DeleteClaims`, eller `DeleteClaimsPrincipal`. | 
 | RaiseErrorIfClaimsPrincipalDoesNotExist | Nej | Returnerar ett fel om användarobjektet inte finns i katalogen. Möjliga värden: `true` eller `false`. | 
 | UserMessageIfClaimsPrincipalDoesNotExist | Nej | Om ett fel är att höjas (se Attributbeskrivning RaiseErrorIfClaimsPrincipalDoesNotExist), ange ska visas för användaren om användarobjektet inte finns. Värdet kan vara [lokaliserade](localization.md).| 
 | RaiseErrorIfClaimsPrincipalAlreadyExists | Nej | Returnerar ett fel om användarobjektet finns redan. Möjliga värden: `true` eller `false`.| 
 | UserMessageIfClaimsPrincipalAlreadyExists | Nej | Om ett fel är att höjas (se RaiseErrorIfClaimsPrincipalAlreadyExists Attributbeskrivning), ange ska visas för användaren om användarobjektet finns redan. Värdet kan vara [lokaliserade](localization.md).| 
-| ApplicationObjectId | Nej | Program-objektidentifierare för tilläggsattribut. Värde: T för ett program. Mer information finns i [Använd anpassade attribut i en anpassad profil redigera principen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
+| ApplicationObjectId | Nej | Program-objektidentifierare för tilläggsattribut. Värde: ObjectId för ett program. Mer information finns i [Använd anpassade attribut i en anpassad profil redigera principen](active-directory-b2c-create-custom-attributes-profile-edit-custom.md). | 
 | ClientId | Nej | Klient-ID för att få åtkomst till klientorganisationen som en tredje part. Mer information finns i [Använd anpassade attribut i en anpassad profil Redigera princip](active-directory-b2c-create-custom-attributes-profile-edit-custom.md) | 
 
 

@@ -11,29 +11,80 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/22/2019
 ms.author: raiye
-ms.openlocfilehash: 154b925cc173a1a8fac697e347759764807a3052
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0a9b811f3781cd181c17b9ed92b9ca653ee91af0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107913"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828459"
 ---
 # <a name="azure-guest-os"></a>Azure gäst-OS
 Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringarna tillämpas på Gästoperativsystemet i Azure. Sök i den här artikeln för att avgöra om en viss uppdatering gäller för Gästoperativsystem som du använder. Uppdateringar alltid överför för speciellt [familj] [ family-explain] de introducerades i.
+
+>[!NOTE]
+>Gäst-OS januari distribueras för närvarande till molnet virtuella datorer som är konfigurerade för automatiska uppdateringar. När distributionen är klar kan kommer den här versionen att göras tillgängligt för manuella uppdateringar via Azure portal och -konfigurationsfiler. Följande korrigeringar som ingår i Gästoperativsystemet i januari. Den här listan kan ändras.
+
+## <a name="january-2019-guest-os"></a>Januari 2019 gäst-OS
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
+| --- | --- | --- | --- | --- |
+| Rel 19-01 | [4480961] | Windows 10 Security | 5.27 | Den 8 januari 2019 |
+| Rel 19-01 | [4480964] | Windows-säkerhet | 4.62 | Den 8 januari 2019 |
+| Rel 19-01 | [4480972] | Windows-säkerhet | 3.69 | Den 8 januari 2019 |
+| Rel 19-01 | [4480960] | Windows-säkerhet | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480074] | Säkerheten i .net 4.x | 4.62 | Den 8 januari 2019 |
+| Rel 19-01 | [4480075] | Säkerheten i .net 4.x | 3.69 | Den 8 januari 2019 |
+| Rel 19-01 | [4480076] | Säkerheten i .net 4.x | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480086] | .Net 3.x Security | 4.62 | Den 8 januari 2019 |
+| Rel 19-01 | [4480083] | .Net 3.x Security | 3.69 | Den 8 januari 2019 |
+| Rel 19-01 | [4480085] | .Net 3.x Security | 2.82 | Den 8 januari 2019 |
+| Rel 19-01 | [4480979] | Flash | 3.69, 4.62, 5.27 | Den 8 januari 2019 |
+| Rel 19-01 | [4480965] | Internet Explorer | 2.82, 3.69, 4.62 | Den 8 januari 2019 |
+| Gäller inte | [4471318] | Insamling av december icke-säkerhet | 2.82 | 11 december 2018 |
+| Gäller inte | [4470641] | Insamling av icke-säkerhet december .NET 3.x | 2.82 | 11 december 2018 |
+| Gäller inte | [4470637] | Insamling av icke-säkerhet december .NET 4.x | 2.82 | 11 december 2018 |
+| Gäller inte | [4471330] | Insamling av december icke-säkerhet | 3.69 | 11 december 2018 |
+| Gäller inte | [4470629] | Insamling av icke-säkerhet december .NET 3.x | 3.69 | 11 december 2018 |
+| Gäller inte | [4470623] | Insamling av icke-säkerhet december .NET 4.x | 3.69 | 11 december 2018 |
+| Gäller inte | [4471320] | Insamling av december icke-säkerhet | 4.62 | 11 december 2018 |
+| Gäller inte | [4470630] | Insamling av icke-säkerhet december .NET 3.x | 4.62 | 11 december 2018 |
+| Gäller inte | [4470622] | Insamling av icke-säkerhet december .NET 4.x | 4.62 | 11 december 2018 |
+
+[4480961]: http://support.microsoft.com/kb/4480961
+[4480964]: http://support.microsoft.com/kb/4480964
+[4480972]: http://support.microsoft.com/kb/4480972
+[4480960]: http://support.microsoft.com/kb/4480960
+[4480074]: http://support.microsoft.com/kb/4480074
+[4480075]: http://support.microsoft.com/kb/4480075
+[4480076]: http://support.microsoft.com/kb/4480076
+[4480086]: http://support.microsoft.com/kb/4480086
+[4480083]: http://support.microsoft.com/kb/4480083
+[4480085]: http://support.microsoft.com/kb/4480085
+[4480979]: http://support.microsoft.com/kb/4480979
+[4480965]: http://support.microsoft.com/kb/4480965
+[4471318]: http://support.microsoft.com/kb/4471318
+[4470641]: http://support.microsoft.com/kb/4470641
+[4470637]: http://support.microsoft.com/kb/4470637
+[4471330]: http://support.microsoft.com/kb/4471330
+[4470629]: http://support.microsoft.com/kb/4470629
+[4470623]: http://support.microsoft.com/kb/4470623
+[4471320]: http://support.microsoft.com/kb/4471320
+[4470630]: http://support.microsoft.com/kb/4470630
+[4470622]: http://support.microsoft.com/kb/4470622
 
 ## <a name="december-2018-guest-os"></a>December 2018 gäst-OS
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18 – 12 | [4471321] | Windows 10-säkerhet | 5.26 | 11 december 2018 |
+| Rel 18 – 12 | [4471321] | Windows 10 Security | 5.26 | 11 december 2018 |
 | Rel 18 – 12 | [4471328] | Windows-säkerhet   | 2.81 | 11 december 2018 |
 | Rel 18 – 12 | [4471326] | Windows-säkerhet   | 3.68 | 11 december 2018 |
 | Rel 18 – 12 | [4471322] | Windows-säkerhet   | 4.61 | 11 december 2018 |
-| Rel 18 – 12 | [4470600] | Säkerheten i .net 3.x  | 2.81 | 11 december 2018 |
-| Rel 18 – 12 | [4470601] | Säkerheten i .net 3.x  | 3.68 | 11 december 2018|
-| Rel 18 – 12 | [4470602] | Säkerheten i .net 3.x  | 4.61 | 11 december 2018 |
+| Rel 18 – 12 | [4470600] | .Net 3.x Security  | 2.81 | 11 december 2018 |
+| Rel 18 – 12 | [4470601] | .Net 3.x Security  | 3.68 | 11 december 2018|
+| Rel 18 – 12 | [4470602] | .Net 3.x Security  | 4.61 | 11 december 2018 |
 | Rel 18 – 12 | [4470493] | Säkerheten i .net 4.x  | 2.81 | 11 december 2018 |
 | Rel 18 – 12 | [4470492] | Säkerheten i .net 4.x  | 3.68 | 11 december 2018 |
 | Rel 18 – 12 | [4470491] | Säkerheten i .net 4.x  | 4.61| 11 december 2018 |
@@ -65,15 +116,15 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-11 | [4466536] | Internet Explorer | 2,80, 3.67, 4.60 | Den 13 november 2018 |
-| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5,25-tums | Den 13 november 2018 |
-| Rel 18-11 | [4467106] | Windows-säkerhet | 2,80 | Den 13 november 2018 |
+| Rel 18-11 | [4466536] | Internet Explorer | 2.80, 3.67, 4.60 | Den 13 november 2018 |
+| Rel 18-11 | [4467694] | Flash | 3.67, 4.60, 5.25 | Den 13 november 2018 |
+| Rel 18-11 | [4467106] | Windows-säkerhet | 2.80 | Den 13 november 2018 |
 | Rel 18-11 | [4467678] | Windows-säkerhet | 3.67 | Den 13 november 2018 |
 | Rel 18-11 | [4467703] | Windows-säkerhet | 4.60 | Den 13 november 2018 |
-| Rel 18-11 | [4467691] | Windows 10-säkerhet | 5,25-tums | Den 13 november 2018 |
+| Rel 18-11 | [4467691] | Windows 10 Security | 5.25 | Den 13 november 2018 |
 | Gäller inte | [3173426] | Servicing Stack-uppdatering | 3.67 | 12 juli 2016 |
-| Gäller inte | [4465659] | Servicing Stack-uppdatering | 5,25-tums | Den 13 november 2018 |
-| Gäller inte | [4462923] | Insamling av oktober icke-säkerhet | 2,80 | 9 oktober 2018 |
+| Gäller inte | [4465659] | Servicing Stack-uppdatering | 5.25 | Den 13 november 2018 |
+| Gäller inte | [4462923] | Insamling av oktober icke-säkerhet | 2.80 | 9 oktober 2018 |
 | Gäller inte | [4462929] | Insamling av oktober icke-säkerhet | 3.67 | 9 oktober 2018 |
 | Gäller inte | [4462926] | Insamling av oktober icke-säkerhet | 4.60 | 9 oktober 2018 |
 | Gäller inte | [3109976] | App compat sådana | 4.60 | 12 april 2016 |
@@ -97,11 +148,11 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-10 | [4462917] | Windows 10-säkerhet | 5,24 | 9 oktober 2018 |
+| Rel 18-10 | [4462917] | Windows 10 Security | 5.24 | 9 oktober 2018 |
 | Rel 18-10 | [4462915] | Windows-säkerhet | 2.79 | 9 oktober 2018 |
 | Rel 18-10 | [4462931] | Windows-säkerhet | 3.66 | 9 oktober 2018 |
 | Rel 18-10 | [4462941] | Windows-säkerhet | 4.59 | 9 oktober 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5,24 | 9 oktober 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | 9 oktober 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 oktober 2018 |
 | Gäller inte | [4339284] | Time zone update | 2.79, 3.66, 4.59 | 24 juli 2018 |
 | Gäller inte | [4457144] | Insamling av september icke-säkerhet | 2.79 | Den 11 september 2018 |
@@ -134,13 +185,13 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 ## <a name="september-2018-guest-os"></a>September 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-09 | [4457131] | Windows 10-säkerhet | 5.23 | Den 11 september 2018 |
+| Rel 18-09 | [4457131] | Windows 10 Security | 5.23 | Den 11 september 2018 |
 | Rel 18-09 | [4457145] | Endast Windows-säkerhet | 2.78 | Den 11 september 2018 |
 | Rel 18-09 | [4457140] | Endast Windows-säkerhet | 3.65 | Den 11 september 2018 |
 | Rel 18-09 | [4457143] | Endast Windows-säkerhet | 4.58 | Den 11 september 2018 |
 | Rel 18-09 | [4457055], [4457030] | .NET 3.5, 4.5 säkerhet | 2.78 | Den 11 september 2018 |
-| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x-säkerhet | 3.65 | Den 11 september 2018 |
-| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x-säkerhet | 4.58 | Den 11 september 2018 |
+| Rel 18-09 | [4457053], [4457029] | .NET 3.5, 4.x Security | 3.65 | Den 11 september 2018 |
+| Rel 18-09 | [4457056], [4457028] | .NET 3.5, 4.x Security | 4.58 | Den 11 september 2018 |
 | Rel 18-09 | [4457146] | Flash | 3.65, 4.58, 5.23 | Den 11 september 2018 |
 | Rel 18-09 | [4457426] | Internet Explorer | 2.78, 3.65, 4.58 | Den 11 september 2018 |
 | Gäller inte | [4343900] | Insamling av augusti icke-säkerhet | 2.78 | Den 14 augusti 2018 |
@@ -156,19 +207,19 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 ## <a name="august-2018-guest-os"></a>Augusti 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-08 | [4343887] | Windows 10-säkerhet | 5.22 | Den 14 augusti 2018 |
-| Rel 18-08 | [4343899] | Endast Windows-säkerhet | 2,77 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343887] | Windows 10 Security | 5.22 | Den 14 augusti 2018 |
+| Rel 18-08 | [4343899] | Endast Windows-säkerhet | 2.77 | Den 14 augusti 2018 |
 | Rel 18-08 | [4343896] | Endast Windows-säkerhet | 3.64 | Den 14 augusti 2018 |
 | Rel 18-08 | [4343888] | Endast Windows-säkerhet | 4.57 | Den 14 augusti 2018 |
-| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 säkerhet | 2,77 | Den 14 augusti 2018 |
-| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x-säkerhet | 3.64 | Den 14 augusti 2018 |
-| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x-säkerhet | 4.57 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 säkerhet | 2.77 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x Security | 3.64 | Den 14 augusti 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x Security | 4.57 | Den 14 augusti 2018 |
 | Rel 18-08 | [4346742], [4346739] | .NET 3.5, 4.x OOB-version | 3.64 | 30 juli 2018 |
 | Rel 18-08 | [4346745], [4346408] | .NET 3.5, 4.x OOB-version | 4.57 | 30 juli 2018 |
 | Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | Den 14 augusti 2018 |
-| Rel 18-08 | [4343205] | Internet Explorer | 2,77, 3.64, 4.57 | Den 14 augusti 2018 |
-| Gäller inte | [4338818] |Insamling av juli icke-säkerhet |2,77 | Den 10 juli 2018 |
-| Gäller inte | [4019990] |D3D kompilatorn uppdatering för .NET |2,77 | Den 10 juli 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | Den 14 augusti 2018 |
+| Gäller inte | [4338818] |Insamling av juli icke-säkerhet |2.77 | Den 10 juli 2018 |
+| Gäller inte | [4019990] |D3D kompilatorn uppdatering för .NET |2.77 | Den 10 juli 2018 |
 | Gäller inte | [4338830] |Insamling av juli icke-säkerhet |3.64 | Den 10 juli 2018 |
 | Gäller inte | [4338421] |Insamling av juli ej säkerhet .NET 3.5 |3.64 | Den 10 juli 2018 |
 | Gäller inte | [4338416] |Juli ej säkerhet .NET 4 x rollup |3.64 | Den 10 juli 2018 |
@@ -179,38 +230,38 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 ## <a name="july-2018-guest-os"></a>Juli 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-07 | [4338814] |Windows 10-säkerhet |5.21 |Den 10 juli 2018 |
+| Rel 18-07 | [4338814] |Windows 10 Security |5.21 |Den 10 juli 2018 |
 | Rel 18-07 | [4338823] |Endast Windows-säkerhet |2.76 |Den 10 juli 2018 |
 | Rel 18-07 | [4338820] |Endast Windows-säkerhet |3.63 |Den 10 juli 2018 |
-| Rel 18-07 | [4338824] |Endast Windows-säkerhet |med 4,56 |Den 10 juli 2018 |
+| Rel 18-07 | [4338824] |Endast Windows-säkerhet |4.56 |Den 10 juli 2018 |
 | Rel 18-07 | [4345459] |Security Samlad uppdatering |2.76 |Den 10 juli 2018 |
 | Rel 18-07 | [4345425] |Security Samlad uppdatering |3.63 |Den 10 juli 2018 |
-| Rel 18-07 | [4345424] |Security Samlad uppdatering |med 4,56 |Den 10 juli 2018 |
+| Rel 18-07 | [4345424] |Security Samlad uppdatering |4.56 |Den 10 juli 2018 |
 | Rel 18-07 | [4345418] |Security Samlad uppdatering |5.21 |Den 10 juli 2018 |
-| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x-säkerhet |2.76 |Den 10 juli 2018 |
+| Rel 18-07 | [4338612], [4338602] |.NET 3.5, 4.x Security |2.76 |Den 10 juli 2018 |
 | Rel 18-07 | [4338601], [4338604] |.NET 3.5, 4.x 4,5 x-säkerhet |3.63 |Den 10 juli 2018 |
-| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x 4,5 x-säkerhet |med 4,56|Den 10 juli 2018 |
+| Rel 18-07 | [4338613], [4338600], [4338605] |.NET 3.5, 4.x 4,5 x-säkerhet |4.56|Den 10 juli 2018 |
 | Rel 18-07 | [4338832] |Flash |3.63, 4.76, 5.21 |Den 10 juli 2018 |
 | Rel 18-07 | [4339093] |Internet Explorer |2.76, 3.63, 4.76 |Den 10 juli 2018 |
 | Gäller inte | [4284826] |Insamling av juni icke-säkerhet |2.76 |12 juni 2018 |
 | Gäller inte | [4284855] |Insamling av juni icke-säkerhet |3.63 |12 juni 2018 |
-| Gäller inte | [4284815] |Insamling av juni icke-säkerhet |med 4,56 |12 juni 2018 |
+| Gäller inte | [4284815] |Insamling av juni icke-säkerhet |4.56 |12 juni 2018 |
 
 ## <a name="june-2018-guest-os"></a>Juni 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-06 | [4284880] |Windows 10-säkerhet |5.20 |12 juni 2018 |
-| Rel 18-06 | [4284867] |Endast Windows-säkerhet |2,75 |12 juni 2018 |
+| Rel 18-06 | [4284880] |Windows 10 Security |5.20 |12 juni 2018 |
+| Rel 18-06 | [4284867] |Endast Windows-säkerhet |2.75 |12 juni 2018 |
 | Rel 18-06 | [4284846] |Endast Windows-säkerhet |3.62 |12 juni 2018 |
 | Rel 18-06 | [4284878] |Endast Windows-säkerhet |4.55 |12 juni 2018 |
-| Rel 18-06 | [4230450] |Internet Explorer |2,75, 3.62, 4,75 |12 juni 2018 |
-| Rel 18-06 | [4287903] |Flash |3.62, 4,75, 5.20 |12 juni 2018 |
-| Gäller inte | [4103718] |Kan insamling av icke-säkerhet |2,75 |8 maj 2018 |
+| Rel 18-06 | [4230450] |Internet Explorer |2.75, 3.62, 4.75 |12 juni 2018 |
+| Rel 18-06 | [4287903] |Flash |3.62, 4.75, 5.20 |12 juni 2018 |
+| Gäller inte | [4103718] |Kan insamling av icke-säkerhet |2.75 |8 maj 2018 |
 | Gäller inte | [4103730] |Kan insamling av icke-säkerhet |3.62 |8 maj 2018 |
 | Gäller inte | [4103725] |Kan insamling av icke-säkerhet |4.55 |8 maj 2018 |
-| Gäller inte | [4040980], [4040977] |Insamling av september ' 17 .NET icke-säkerhet |2,75 |14 november 2017 |
-| Gäller inte | [4095874] |Inte .NET 3.5-security kan version |2,75 |8 maj 2018 |
-| Gäller inte | [4096495] |.NET ej 4.x säkerhet kan versionen |2,75 |8 maj 2018 |
+| Gäller inte | [4040980], [4040977] |Insamling av september ' 17 .NET icke-säkerhet |2.75 |14 november 2017 |
+| Gäller inte | [4095874] |Inte .NET 3.5-security kan version |2.75 |8 maj 2018 |
+| Gäller inte | [4096495] |.NET ej 4.x säkerhet kan versionen |2.75 |8 maj 2018 |
 | Gäller inte | [4040975] |Insamling av september ' 17 .NET icke-säkerhet |3.62 |14 november 2017 |
 | Gäller inte | [4095872] |Inte .NET 3.5-security kan version |3.62 |8 maj 2018 |
 | Gäller inte | [4096494] |.NET ej 4.x säkerhet kan versionen |3.62 |8 maj 2018 |
@@ -224,44 +275,44 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 ## <a name="may-2018-guest-os"></a>Maj 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18 05 | [4103721], [4103727], [4103723] |Windows 10-säkerhet |5.19 |8 maj 2018 |
+| Rel 18 05 | [4103721], [4103727], [4103723] |Windows 10 Security |5.19 |8 maj 2018 |
 | Rel 18 05 | [4103712] |Endast Windows-säkerhet |2.74 |8 maj 2018 |
-| Rel 18 05 | [4103726] |Endast Windows-säkerhet |3,61 |8 maj 2018 |
-| Rel 18 05 | [4103715] |Endast Windows-säkerhet |4.54.b |8 maj 2018 |
-| Rel 18 05 | [4095514], [4095519] |.NET 3.5, 4.x-säkerhet |2.74 |8 maj 2018 |
-| Rel 18 05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x 4,5 x-säkerhet |3,61 |8 maj 2018 |
+| Rel 18 05 | [4103726] |Endast Windows-säkerhet |3.61 |8 maj 2018 |
+| Rel 18 05 | [4103715] |Endast Windows-säkerhet |4.54 |8 maj 2018 |
+| Rel 18 05 | [4095514], [4095519] |.NET 3.5, 4.x Security |2.74 |8 maj 2018 |
+| Rel 18 05 | [4095512], [4095518], [4096235] |.NET 3.5, 4.x 4,5 x-säkerhet |3.61 |8 maj 2018 |
 | Rel 18 05 | [4095515], [4095517], [4096236] |.NET 3.5, 4.x 4,5 x-säkerhet |4.74|8 maj 2018 |
 | Rel 18 05 | [4054856] |Säkerheten i .NET 4,7 x |5.19 |8 maj 2018 |
-| Rel 18 05 | [4103768] |Internet Explorer |2.74, 3,61, 4.74 |8 maj 2018 |
-| Rel 18 05 | [4103729] |Flash |3,61, 4.74, 5.19 |8 maj 2018 |
-| Gäller inte | [4093118] |Insamling av april icke-säkerhet |2,73 |10 april 2018 |
-| Gäller inte | [4093123] |Insamling av april icke-säkerhet |3,61 |10 april 2018 |
+| Rel 18 05 | [4103768] |Internet Explorer |2.74, 3.61, 4.74 |8 maj 2018 |
+| Rel 18 05 | [4103729] |Flash |3.61, 4.74, 5.19 |8 maj 2018 |
+| Gäller inte | [4093118] |Insamling av april icke-säkerhet |2.73 |10 april 2018 |
+| Gäller inte | [4093123] |Insamling av april icke-säkerhet |3.61 |10 april 2018 |
 | Gäller inte | [4093114] |Insamling av april icke-säkerhet |4.74 |10 april 2018 |
 | Gäller inte | [4093137] |April SSU |5.19 |10 april 2018 |
-| Gäller inte | [4093753] |Tidszon update |2.74, 3,61, 4.74 |10 april 2018 |
+| Gäller inte | [4093753] |Tidszon update |2.74, 3.61, 4.74 |10 april 2018 |
 
 
 ## <a name="april-2018-guest-os"></a>April 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-04 | [4093119] |Windows 10-säkerhet |5.18 |10 april 2018 |
-| Rel 18-04 | [4093108] |Endast Windows-säkerhet |2,73 |10 april 2018 |
-| Rel 18-04 | [4093122] |Endast Windows-säkerhet |3,60 |10 april 2018 |
-| Rel 18-04 | [4093115] |Endast Windows-säkerhet |4,53 |10 april 2018 |
-| Rel 18-04 | [4092946] |Internet Explorer |2,73, 3,60, 4,53 |10 april 2018 |
-| Rel 18-04 | [4093110] |Flash |3,60, 4,53, 5.18 |10 april 2018 |
-| Gäller inte | [4088875] |Insamling av mars icke-säkerhet |2,73 |13 mars 2018 |
-| Gäller inte | [4099950] |Krav för mars insamling av icke-säkerhet|2,73 |13 mars 2018 |
-| Gäller inte | [4088877] |Insamling av mars icke-säkerhet |3,60 |13 mars 2018 |
-| Gäller inte | [4088876] |Insamling av mars icke-säkerhet |4,53 |13 mars 2018 |
+| Rel 18-04 | [4093119] |Windows 10 Security |5.18 |10 april 2018 |
+| Rel 18-04 | [4093108] |Endast Windows-säkerhet |2.73 |10 april 2018 |
+| Rel 18-04 | [4093122] |Endast Windows-säkerhet |3.60 |10 april 2018 |
+| Rel 18-04 | [4093115] |Endast Windows-säkerhet |4.53 |10 april 2018 |
+| Rel 18-04 | [4092946] |Internet Explorer |2.73, 3.60, 4.53 |10 april 2018 |
+| Rel 18-04 | [4093110] |Flash |3.60, 4.53, 5.18 |10 april 2018 |
+| Gäller inte | [4088875] |Insamling av mars icke-säkerhet |2.73 |13 mars 2018 |
+| Gäller inte | [4099950] |Krav för mars insamling av icke-säkerhet|2.73 |13 mars 2018 |
+| Gäller inte | [4088877] |Insamling av mars icke-säkerhet |3.60 |13 mars 2018 |
+| Gäller inte | [4088876] |Insamling av mars icke-säkerhet |4.53 |13 mars 2018 |
 
 ## <a name="march-2018-guest-os"></a>Mars 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-03 | [4088787], [4088776] |Windows 10-säkerhet |5,17 |13 mars 2018 |
+| Rel 18-03 | [4088787], [4088776] |Windows 10 Security |5.17 |13 mars 2018 |
 | Rel 18-03 | [4088878], [4088880], [4088879] |Endast Windows-säkerhet |2.72, 3.59, 4.52 |13 mars 2018 |
 | Rel 18-03 | [4089187] |Internet Explorer |2.72, 3.59, 4.52 |13 mars 2018 |
-| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5,17 |13 mars 2018 |
+| Rel 18-03 | [4074595] |Flash |3.59, 4.52, 5.17 |13 mars 2018 |
 | Gäller inte | [4074598] |Insamling av februari icke-säkerhet |2.72 |13 februari 2018 |
 | Gäller inte | [4074593] |Insamling av februari icke-säkerhet |3.59 |13 februari 2018 |
 | Gäller inte | [4074594] |Insamling av februari icke-säkerhet |4.52 |13 februari 2018 |
@@ -271,26 +322,26 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 ## <a name="february-2018-guest-os"></a>Februari 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-02 | [4074590], [4074588] |Windows 10-säkerhet |5.16 |13 februari 2018 |
-| Rel 18-02 | [4074587], [4074589], [4074597] |Endast Windows-säkerhet |2.71, 3,58, 4.51 |13 februari 2018 |
-| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3,58, 4.51 |13 februari 2018 |
-| Rel 18-02 | [4074595] |Flash |3,58, 4.51, 5.16 |13 februari 2018 |
+| Rel 18-02 | [4074590], [4074588] |Windows 10 Security |5.16 |13 februari 2018 |
+| Rel 18-02 | [4074587], [4074589], [4074597] |Endast Windows-säkerhet |2.71, 3.58, 4.51 |13 februari 2018 |
+| Rel 18-02 | [4074736] |Internet Explorer |2.71, 3.58, 4.51 |13 februari 2018 |
+| Rel 18-02 | [4074595] |Flash |3.58, 4.51, 5.16 |13 februari 2018 |
 | Gäller inte | [4056894] |Insamling av januari icke-säkerhet |2.71 |Den 4 januari 2018 |
-| Gäller inte | [4056896] |Insamling av januari icke-säkerhet |3,58 |Den 4 januari 2018 |
+| Gäller inte | [4056896] |Insamling av januari icke-säkerhet |3.58 |Den 4 januari 2018 |
 | Gäller inte | [4056895] |Insamling av januari icke-säkerhet |4.51 |Den 4 januari 2018 |
 | Gäller inte | [4054176], [4054172] |Insamling av januari .NET |2.71 |Den 4 januari 2018 |
-| Gäller inte | [4054175], [4054171] |Insamling av januari .NET |3,58 |Den 4 januari 2018 |
+| Gäller inte | [4054175], [4054171] |Insamling av januari .NET |3.58 |Den 4 januari 2018 |
 | Gäller inte | [4054177], [4054170] |Insamling av januari .NET |4.51 |Den 4 januari 2018 |
 
 ## <a name="january-2018-guest-os"></a>Januari 2018 gäst-OS
 | Produktkategori | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| Rel 18-01 | [4056898], [4056897], [4056899] |Endast Windows-säkerhet |2.70, 3.57, 4,50 |Den 3 januari 2018 |
+| Rel 18-01 | [4056898], [4056897], [4056899] |Endast Windows-säkerhet |2.70, 3.57, 4.50 |Den 3 januari 2018 |
 | Rel 18-01 | [4056890], [4056892] |Endast Windows-säkerhet |5.15 |Den 3 januari 2018 |
 | Gäller inte | [4054518] |Insamling av december icke-säkerhet |2.70 |12 december 2017 |
 | Gäller inte | [4054520] |Insamling av december icke-säkerhet |3.57 |12 december 2017 |
 | Gäller inte | [4054519] |Insamling av december icke-säkerhet |4.50 |12 december 2017 |
-| Gäller inte | [4051956] |Tidszon januariuppdateringen |2.70, 3.57, 4,50 |12 december 2017 |
+| Gäller inte | [4051956] |Tidszon januariuppdateringen |2.70, 3.57, 4.50 |12 december 2017 |
 
 
 
@@ -369,7 +420,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17-07 | [4025343] |Endast Windows-säkerhet |3.51 |11 juli 2017 |
 | Rel 17-07 | [4025376] |Flash |3.51, 4.44, 5.9 |11 juli 2017 |
 | Rel 17-07 | [4025252] |Internet Explorer |2.64, 3.51, 4.44 |11 juli 2017 |
-| Gäller inte | [4020322] |Tidszon Update |2.64, 3.51, 4.44 |11 juli 2017 |
+| Gäller inte | [4020322] |Timezone Update |2.64, 3.51, 4.44 |11 juli 2017 |
 | Gäller inte | [4022719] |Insamling av juni icke-säkerhet |2.64 |Den 13 juni 2017 |
 | Gäller inte | [4022724] |Insamling av juni icke-säkerhet |3.51 |Den 13 juni 2017 |
 | Gäller inte | [4022726] |Insamling av juni icke-säkerhet |4.44 |Den 13 juni 2017 |
@@ -410,11 +461,11 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17 05 | [4019213] |Endast Windows-säkerhet |4.42 | Den 9 maj 2017 |
 | Rel 17 05 | [4019214] |Endast Windows-säkerhet |3.49 | Den 9 maj 2017 |
 | Rel 17 05 | [4018271] |Kumulativ säkerhetsuppdatering för Internet Explorer |3.49 | Den 9 maj 2017 |
-| Rel 17 05 | [4010323] |SHA1-rådgivning |2.62, 4.42, 5.7 | Den 9 maj 2017 |
-| Rel 17 05 | [4022344] |Microsoft säkerhetsmeddelande |5.7 | Den 9 maj 2017 |
-| Rel 17 05 | [4022345] |Microsoft säkerhetsmeddelande |5.7 | Den 9 maj 2017 |
+| Rel 17 05 | [4010323] |SHA1 Advisory |2.62, 4.42, 5.7 | Den 9 maj 2017 |
+| Rel 17 05 | [4022344] |Microsoft Security Advisory |5.7 | Den 9 maj 2017 |
+| Rel 17 05 | [4022345] |Microsoft Security Advisory |5.7 | Den 9 maj 2017 |
 | Rel 17 05 | [4021279] |.NET /ASP.Net core rådgivning |2.62, 3.49, 4.42, 5.7 | Den 9 maj 2017 |
-| Gäller inte | [4012864] |Tidszon Update |2.62, 3.49, 4.42 | Den 9 maj 2017 |
+| Gäller inte | [4012864] |Timezone Update |2.62, 3.49, 4.42 | Den 9 maj 2017 |
 | Gäller inte | [4014565] |Insamling av april .NET icke-säkerhet |2.62 | 11 april 2017 |
 | Gäller inte | [4014559] |Insamling av april .NET icke-säkerhet |2.62 | 11 april 2017 |
 | Gäller inte | [4015549] |April icke - insamling av säkerhet |2.62 | 11 april 2017 |
@@ -442,8 +493,8 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | Rel 17-04 |  [4014564]; [4014572]; [4014549] |Säkerheten i .NET |3.48 | 11 april 2017 |
 | Rel 17-04 |  [4014566]; [4014552]; [4014573]; [4014558]  |Säkerheten i .NET |2.61 | 11 april 2017 |
 | Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0181 |5.6 | 11 april 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE 2017 0163; CVE 2017 0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 april 2017 |
-| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE 2017 0178; CVE 2017 0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 april 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0163; CVE-2017-0183; CVE-2017-0184; CVE-2017-0184; CVE-2017-0185; CVE-2017-0168 |2.61, 3.48, 4.41 | 11 april 2017 |
+| Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0178; CVE-2017-0179; CVE-2017-0162; CVE-2017-0169 |4.41 | 11 april 2017 |
 | Rel 17-04 |  [4015546]; [4015547]; [4015548]; [4015217]  |CVE-2017-0182; CVE-2017-0186; CVE-2017-0191 |2.61, 3.48, 4.41, 5.6 | 11 april 2017 |
 | Rel 17-04 |  [4015193]  |DST ändringar i Windows för Magallanes (Chile) |2.61, 3.48, 4.41 | 11 april 2017 |
 | Rel 17-04 |  [4012215]  |Mars 2017 månatliga kvalitet insamling av säkerhet för Windows 7 SP1 och Windows Server 2008 R2 SP1 |2.61 | 11 april 2017 |
@@ -652,7 +703,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS16-018 |[3136082] |Säkerhetsuppdatering för Windows Kernel-läge drivrutinen att åtgärda rättighetsökning |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 | MS16-019 |[3137893] |Säkerhetsuppdatering för .NET Framework att åtgärda fjärrkörning av kod |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 | MS16-021 |[3133043] |Säkerhetsuppdatering för NPS RADIUS-Server att åtgärda Denial of Service |4.29, 3.36, 2.48 |Den 9 februari 2016 |
-| Microsoft säkerhetsmeddelande |[3109853] |Uppdatering för att förbättra TLS samverkan |4.29, 3.36 |Den 9 februari 2016 |
+| Microsoft Security Advisory |[3109853] |Uppdatering för att förbättra TLS samverkan |4.29, 3.36 |Den 9 februari 2016 |
 | Ny utgåva-MS15 101 |[3089662] |Säkerhetsproblem i .NET Framework möjliggör rättighetsökning |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 | Ny utgåva-MS15 118 |[3104507] |Säkerhetsuppdateringar för .NET Framework att åtgärda rättighetsökning |4.29, 3.36, 2.48 |Den 9 februari 2016 |
 | Ny utgåva-MS15-128 |[3104503] |Säkerhetsuppdateringar för Microsoft grafik-komponent att åtgärda fjärrkörning av kod |4.29, 3.36, 2.48 |Den 9 februari 2016 |
@@ -666,68 +717,68 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | MS16-007 |[3124901] |Säkerhetsuppdateringen för Microsoft Windows att åtgärda fjärrkörning av kod |4.28, 3.35, 2.47 |12 januari 2016 |
 | MS16-008 |[3124605] |Säkerhetsuppdatering för Kernel att åtgärda rättighetsökning |4.28, 3.35, 2.47 |12 januari 2016 |
 | Microsoft Security Advisory Revision |[2755801] |Uppdatering för sårbarheter i Adobe Flash Player i Internet Explorer (paket KB: TBD) - rådgivande platshållare |4.28, 3.35 |12 januari 2016 |
-| Microsoft säkerhetsmeddelande |[3109853] |Uppdatering för att förbättra TLS samverkan |4.28, 3.35 |12 januari 2016 |
-| Microsoft säkerhetsmeddelande |[3123479] |Utfasning av SHA-1-hash-algoritm för Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
-| Microsoft säkerhetsmeddelande |[2736233] |Uppdateringar för ActiveX stoppbitar |4.28, 3.35, 2.47 |12 januari 2016 |
+| Microsoft Security Advisory |[3109853] |Uppdatering för att förbättra TLS samverkan |4.28, 3.35 |12 januari 2016 |
+| Microsoft Security Advisory |[3123479] |Utfasning av SHA-1-hash-algoritm för Microsoft Root Certificate Program |4.28, 3.35, 2.47 |12 januari 2016 |
+| Microsoft Security Advisory |[2736233] |Uppdateringar för ActiveX stoppbitar |4.28, 3.35, 2.47 |12 januari 2016 |
 
 ## <a name="december-2015-guest-os"></a>December 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 124 |[3116180] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.27, 3.34, 2.46 |Den 8 december 2015 |
-| MS15 126 |[3116178] |Säkerhetsuppdateringen för Microsoft VBScript och JScript för att fjärrkörning av kod |2.46 |Den 8 december 2015 |
+| MS15-124 |[3116180] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.27, 3.34, 2.46 |Den 8 december 2015 |
+| MS15-126 |[3116178] |Säkerhetsuppdateringen för Microsoft VBScript och JScript för att fjärrkörning av kod |2.46 |Den 8 december 2015 |
 | MS15-127 |[3100465] |Säkerhetsuppdateringen för Microsoft Windows DNS för att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
 | MS15-128 |[3104503] |Säkerhetsuppdateringar för Microsoft grafik-komponent att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
-| MS15 132 |[3116162] |Säkerhetsuppdatering för Windows att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
+| MS15-132 |[3116162] |Säkerhetsuppdatering för Windows att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
 | MS15-133 |[3116130] |Säkerhetsuppdatering för Windows PGM att åtgärda rättighetsökning |4.27, 3.34, 2.46 |Den 8 december 2015 |
-| MS15 134 |[3108669] |Säkerhetsuppdatering för Windows Media Center för att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
-| MS15 135 |[3119075] |Säkerhetsuppdatering för Windows drivrutiner i kernelläge att åtgärda rättighetsökning |4.27, 3.34, 2.46 |Den 8 december 2015 |
+| MS15-134 |[3108669] |Säkerhetsuppdatering för Windows Media Center för att åtgärda fjärrkörning av kod |4.27, 3.34, 2.46 |Den 8 december 2015 |
+| MS15-135 |[3119075] |Säkerhetsuppdatering för Windows drivrutiner i kernelläge att åtgärda rättighetsökning |4.27, 3.34, 2.46 |Den 8 december 2015 |
 
 ## <a name="november-2015-guest-os"></a>November 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 112 |[3104517] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.26, 3.33, 2.45 |Den 10 november 2015 |
-| MS15 114 |[3100213] |Säkerhetsuppdatering för Windows-ändringsjournalen att åtgärda fjärrkörning av kod |2.45 |Den 10 november 2015 |
+| MS15-112 |[3104517] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.26, 3.33, 2.45 |Den 10 november 2015 |
+| MS15-114 |[3100213] |Säkerhetsuppdatering för Windows-ändringsjournalen att åtgärda fjärrkörning av kod |2.45 |Den 10 november 2015 |
 | MS15-115 |[3105864] |Säkerhetsuppdateringen för Microsoft Windows att åtgärda fjärrkörning av kod |4.26, 3.33, 2.45 |Den 10 november 2015 |
 | MS15-117 |[3101722] |Säkerhetsuppdatering för NDIS att åtgärda rättighetsökning |2.45 |Den 10 november 2015 |
-| MS15 118 |[3104507] |Säkerhetsuppdateringar för .NET Framework att åtgärda rättighetsökning |4.26, 3.33, 2.45 |Den 10 november 2015 |
+| MS15-118 |[3104507] |Säkerhetsuppdateringar för .NET Framework att åtgärda rättighetsökning |4.26, 3.33, 2.45 |Den 10 november 2015 |
 | MS15-119 |[3104521] |Säkerhetsuppdatering för Winsock att åtgärda rättighetsökning |4.26, 3.33, 2.45 |Den 10 november 2015 |
 | MS15-120 |[3102939] |Säkerhetsuppdatering för IPSec att åtgärda Denial of Service |4.26, 3.33 |Den 10 november 2015 |
-| MS15 121 |[3081320] |Säkerhetsuppdatering av Schannel till Adressförfalskning |4.26, 3.33, 2.45 |Den 10 november 2015 |
-| MS15 122 |[3105256] |Säkerhetsuppdatering för Kerberos att åtgärda Security funktionen kringgå |4.26, 3.33, 2.45 |Den 10 november 2015 |
-| Microsoft säkerhetsmeddelande |[3097966] |Oavsiktligt rapporterat digitala certifikat möjliggör förfalskning |4.26, 3.33, 2.45 |Den 10 november 2015 |
+| MS15-121 |[3081320] |Säkerhetsuppdatering av Schannel till Adressförfalskning |4.26, 3.33, 2.45 |Den 10 november 2015 |
+| MS15-122 |[3105256] |Säkerhetsuppdatering för Kerberos att åtgärda Security funktionen kringgå |4.26, 3.33, 2.45 |Den 10 november 2015 |
+| Microsoft Security Advisory |[3097966] |Oavsiktligt rapporterat digitala certifikat möjliggör förfalskning |4.26, 3.33, 2.45 |Den 10 november 2015 |
 
 ## <a name="october-2015-guest-os"></a>Oktober 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 106 |[3096441] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.25, 3.32, 2.44 |13 oktober 2015 |
-| MS15 108 |[3089659] |Säkerhetsuppdatering för JScript och VBScript att bemöta potentiella fjärrkörning av kod |2.44 |13 oktober 2015 |
-| MS15 109 |[3096443] |Säkerhetsuppdatering för Windows-gränssnittet för att åtgärda fjärrkörning av kod |4.25, 3.32, 2.44 |13 oktober 2015 |
-| MS15 111 |[3096447] |Säkerhetsuppdatering för Windows Kernel att åtgärda rättighetsökning |4.25, 3.32, 2.44 |13 oktober 2015 |
-| Microsoft säkerhetsmeddelande |[3092627] |Uppdatering september 2015 för att åtgärda Windows eller program hänger sig när du har installerat säkerhetsuppdateringen 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
+| MS15-106 |[3096441] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.25, 3.32, 2.44 |13 oktober 2015 |
+| MS15-108 |[3089659] |Säkerhetsuppdatering för JScript och VBScript att bemöta potentiella fjärrkörning av kod |2.44 |13 oktober 2015 |
+| MS15-109 |[3096443] |Säkerhetsuppdatering för Windows-gränssnittet för att åtgärda fjärrkörning av kod |4.25, 3.32, 2.44 |13 oktober 2015 |
+| MS15-111 |[3096447] |Säkerhetsuppdatering för Windows Kernel att åtgärda rättighetsökning |4.25, 3.32, 2.44 |13 oktober 2015 |
+| Microsoft Security Advisory |[3092627] |Uppdatering september 2015 för att åtgärda Windows eller program hänger sig när du har installerat säkerhetsuppdateringen 3076895 |4.25, 3.32, 2.44 |13 oktober 2015 |
 
 ## <a name="september-2015-guest-os"></a>September 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
-| MS15 093 |[3088903] |Säkerhetsuppdatering för Internet Explorer |4.24, 3.31, 2.43 |Den 8 september 2015 |
-| MS15 094 |[3089548] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.24, 3.31, 2.43 |Den 8 september 2015 |
-| MS15 096 |[3072595] |Säkerhetsproblem i Active Directory-tjänsten möjliggör Denial of Service |4.24, 3.31, 2.43 |Den 8 september 2015 |
-| MS15 097 |[3089656] |Säkerhetsproblem i Microsoft grafik komponenten möjliggör rättighetsökning |4.24, 3.31, 2.43 |Den 8 september 2015 |
+| MS15-093 |[3088903] |Säkerhetsuppdatering för Internet Explorer |4.24, 3.31, 2.43 |Den 8 september 2015 |
+| MS15-094 |[3089548] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.24, 3.31, 2.43 |Den 8 september 2015 |
+| MS15-096 |[3072595] |Säkerhetsproblem i Active Directory-tjänsten möjliggör Denial of Service |4.24, 3.31, 2.43 |Den 8 september 2015 |
+| MS15-097 |[3089656] |Säkerhetsproblem i Microsoft grafik komponenten möjliggör rättighetsökning |4.24, 3.31, 2.43 |Den 8 september 2015 |
 | MS15-098 |[3089669] |Säkerhetsproblem i Windows Journal möjliggör fjärrkörning av kod |4.24, 3.31, 2.43 |Den 8 september 2015 |
 | MS15-101 |[3089662] |Säkerhetsproblem i .NET Framework möjliggör rättighetsökning |4.24, 3.31, 2.43 |Den 8 september 2015 |
 | MS15-102 |[3089657] |Säkerhetsproblem i Windows uppgiftshantering möjliggör rättighetsökning |4.24, 3.31, 2.43 |Den 8 september 2015 |
-| MS15 105 |[3091287] |Säkerhetsproblem i Windows Hyper-V möjliggör säkerhet funktionen kringgå |4.24 |Den 8 september 2015 |
+| MS15-105 |[3091287] |Säkerhetsproblem i Windows Hyper-V möjliggör säkerhet funktionen kringgå |4.24 |Den 8 september 2015 |
 
 ## <a name="august-2015-guest-os"></a>Augusti 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
 | --- | --- | --- | --- | --- |
 | MS15-079 |[3082442] |Kumulativ säkerhetsuppdatering för Internet Explorer |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15-080 |[3078662] |Säkerhetsproblem i Microsoft grafik komponenten möjliggör fjärrkörning av kod |4.23, 3.30, 2.42 |11 augusti 2015 |
-| MS15 082 |[3080348] |Säkerhetsproblem i RDP möjliggör fjärrkörning av kod |4.23, 3.30, 2.42 |11 augusti 2015 |
+| MS15-082 |[3080348] |Säkerhetsproblem i RDP möjliggör fjärrkörning av kod |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15-084 |[3080129] |Säkerhetsproblem i XML Core Services möjliggör avslöjande av Information |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15-085 |[3082487] |Säkerhetsproblem i Mount Manager möjliggör rättighetsökning |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15-088 |[3082458] |Osäkra kommandoraden parametern skicka möjliggör avslöjande av Information |4.23, 3.30, 2.42 |11 augusti 2015 |
 | MS15-089 |[3060716] |Säkerhetsproblem i Microsoft Windows möjliggör rättighetsökning |4.23, 3.30, 2.42 |11 augusti 2015 |
-| MS15 090 |[3076949] |Säkerhetsproblem i WebDAV möjliggör avslöjande av Information |4.23, 3.30, 2.42 |11 augusti 2015 |
+| MS15-090 |[3076949] |Säkerhetsproblem i WebDAV möjliggör avslöjande av Information |4.23, 3.30, 2.42 |11 augusti 2015 |
 
 ## <a name="july-2015-guest-os"></a>Juli 2015 gäst-OS
 | Anslags-ID | Överordnad KB-artikel | Beskrivning av säkerhetsrisk | Gäst-OS | Datum som introducerades |
@@ -809,7 +860,7 @@ Följande tabeller visar Microsoft Security Response Center (MSRC) uppdateringar
 | --- | --- | --- | --- | --- |
 | MS15-009 |[3034682] |Säkerhetsuppdatering för Internet Explorer |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-010 |[3036220] |Säkerhetsproblem i Windows drivrutiner i kernelläge möjliggör fjärrkörning av kod |4.17, 3.24, 2.36 |Gäller inte |
-| MS15 011 |[3000483] |Säkerhetsproblem i Grupprincip möjliggör fjärrkörning av kod |4.17, 3.24, 2.36 |Gäller inte |
+| MS15-011 |[3000483] |Säkerhetsproblem i Grupprincip möjliggör fjärrkörning av kod |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-014 |[3004361] |Säkerhetsproblem i SMB möjliggör säkerhet funktionen kringgå |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-015 |[3031432] |Säkerhetsproblem i Microsoft Windows möjliggör rättighetsökning |4.17, 3.24, 2.36 |Gäller inte |
 | MS15-016 |[3029944] |Säkerhetsproblem i Microsoft grafik komponenten möjliggör avslöjande av Information |4.17, 3.24, 2.36 |Gäller inte |

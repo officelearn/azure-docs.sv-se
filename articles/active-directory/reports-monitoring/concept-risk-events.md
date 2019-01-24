@@ -4,7 +4,7 @@ description: Den här artice ger dig en detaljerad översikt över riskhändelse
 services: active-directory
 keywords: identitetsskydd för Azure active directory, säkerhet, risk, risknivå, säkerhetsproblem, säkerhetsprincip
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4bca7ed2f10ce6b0231a260a9cf5b7468476343f
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 7c352b92edede8bb986a00d5db846bda7b299df2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652157"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808093"
 ---
 # <a name="azure-active-directory-risk-events"></a>Azure Active Directory-riskhändelser
 
@@ -44,6 +44,9 @@ För närvarande kan identifierar Azure Active Directory sex typer av riskhände
 - [Inloggningar från okända platser](#sign-in-from-unfamiliar-locations) 
 
 ![Riskhändelse](./media/concept-risk-events/91.png)
+
+> [!IMPORTANT]
+> Ibland, kan du hitta en riskhändelse utan en motsvarande inloggning transaktion i den [rapporten inloggningar](concept-sign-ins.md). Detta beror på att Identity Protection utvärderar risken för både **interaktiva** och **icke-interaktiv** inloggningar, medan den inloggningar rapporten visas endast de interaktiva inloggningarna.
 
 Den information som du får en identifierad riskhändelse är kopplad till din Azure AD-prenumeration. 
 

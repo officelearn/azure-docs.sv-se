@@ -1,11 +1,11 @@
 ---
-title: 'Självstudie: Konfigurera ThousandEyes för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera ThousandEyes för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till ThousandEyes.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: d2912c687d4968a239d5af747df4115ffd71bbeb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 2df899e6cb0078cdf949c3f8257719b00554e85b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345768"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815728"
 ---
-# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ThousandEyes för automatisk användaretablering
+# <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Självstudier: Konfigurera ThousandEyes för automatisk användaretablering
 
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i ThousandEyes och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ThousandEyes. 
@@ -74,7 +74,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till Thousandeyess anv�
 
     ![ThousandEyes etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Under den **administratörsautentiseringsuppgifter** avsnittet, ange den **hemlighet Token** genereras av din ThousandEyes konto (du hittar token under kontot ThousandEyes: **Security & Autentisering**). 
+5. Under den **administratörsautentiseringsuppgifter** avsnittet Ange den **OAuth ägar-Token** genereras av din ThousandEyes konto (du kan hitta och eller skapa en token under kontot för ThousandEyes  **Profilera** avsnittet).
 
     ![ThousandEyes etablering](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 

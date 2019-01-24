@@ -4,7 +4,7 @@ description: När ditt företag konfigurerar Azure Multi-Factor Authentication, 
 services: active-directory
 keywords: hur du använder azure-katalogen, active directory i molnet, active directory-självstudien
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: 9f602b08e94071a335d0c88377912ea9b53f37b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: a5cb5a879687bdbea043d582526f4dd357a2a620
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244448"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809929"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.

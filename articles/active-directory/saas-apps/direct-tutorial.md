@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med direktanslutning | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med direct | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och direct.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e693a721e5556970607fafd8ff187d3b06c913e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 6bb197b820b9f4262eb5c93665c46c14f9497d0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092894"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822662"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Självstudier: Azure Active Directory-integrering med direktanslutning
+# <a name="tutorial-azure-active-directory-integration-with-direct"></a>Självstudier: Azure Active Directory-integrering med direct
 
 Lär dig hur du integrerar direkt med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med direct, behöver du följande ob
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -68,11 +68,11 @@ Om du vill konfigurera integreringen av direkt till Azure AD, som du behöver l�
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 4. I sökrutan skriver **direkt**. Välj **direkt** i resultatrutan och välj sedan den **Lägg till** för att lägga till programmet.
 
@@ -118,13 +118,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/direct-tutorial/tutorial_direct_url1.png)
 
-     I den **inloggnings-URL** textrutan anger du URL: `https://direct4b.com/sso` 
+     I den **inloggnings-URL** textrutan anger du URL: `https://direct4b.com/sso` 
 
 5. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/direct-tutorial/tutorial_direct_certificate.png) 
 
-6. Klicka på **spara** knappen.
+6. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/direct-tutorial/tutorial_general_400.png)
 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-a-direct-test-user"></a>Skapa en direkt test-användare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i direct. Arbeta med [direct-support-teamet](https://direct4b.com/ja/support.html#inquiry) att lägga till användare i direct-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i direct. Arbeta med [direct-support-teamet](https://direct4b.com/ja/support.html#inquiry) att lägga till användare i direct-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

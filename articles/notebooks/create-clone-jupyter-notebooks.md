@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 151d945bbeda9f7dd496f8469f8f858e8369da8f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 8961a863f1b268a034310554230096cc0f9d5260
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164423"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844066"
 ---
 # <a name="create-and-clone-projects"></a>Skapa och klona projekt
 
@@ -30,7 +30,7 @@ Ett projekt har också enhetsspecifika metadata och andra konfigurationsinställ
 
 Din **Mina projekt** instrumentpanelen på `https://notebooks.azure.com/<userID>/projects` kan du visa, hantera, och skapa projekt:
 
-[![](media/my-projects-dashboard.png "Min instrumentpanel för projekt i Azure-anteckningsböcker")](media/my-projects-dashboard.png#lightbox)
+[![Min instrumentpanel för projekt i Azure-anteckningsböcker](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Vad du kan göra på instrumentpanelen beror på om du har loggat in med kontot som äger det användar-ID:
 
@@ -105,9 +105,9 @@ Att klona ett projekt:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Utforska notebook-exempelfiler](azure-notebooks-samples.md)
-- [Hur: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Hur: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Hur: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-- [Hur: Arbeta med filer](work-with-project-data-files.md)
-- [Hur: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
-- [Hur: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
+- [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
+- [Anvisningar: Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
+- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
+- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

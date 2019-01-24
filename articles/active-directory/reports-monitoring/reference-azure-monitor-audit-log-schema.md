@@ -4,7 +4,7 @@ description: Beskriv Azure AD audit log-schema för användning i Azure Monitor 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/14/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 28e1ab1f950cf16e096946ffdef343504460e70f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 04ea9387607be9b4a82eefe3c8dd3daa83867978
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543690"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818261"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Tolka Azure AD granska loggarna schemat i Azure Monitor (förhandsversion)
 
@@ -152,7 +152,7 @@ Den här artikeln beskrivs Azure Active Directory (Azure AD) Granska loggen sche
 | operationName | Namnet på åtgärden. |
 | operationVersion | REST API-versionen som begärs av klienten. |
 | category | För närvarande *Audit* är det enda värdet som stöds. |
-| TenantId | Klient-GUID som är associerat med loggarna. |
+| tenantId | Klient-GUID som är associerat med loggarna. |
 | resultType | Resultatet av åtgärden. Resultatet kan bli *lyckades* eller *fel*. |
 | resultSignature |  Det här fältet är omappade och du kan ignorera den. | 
 | resultDescription | Ytterligare en beskrivning av resultatet, där det är tillgängligt. | 

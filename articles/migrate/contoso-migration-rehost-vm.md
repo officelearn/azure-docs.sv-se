@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6bdb319eb89c3dad8b3602b0ec4561b962fcc868
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 36a84618a998dd2e06f5563fb8706a1dc8400e59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823359"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Contoso-migrering: Byt värd för en lokal app till virtuella Azure-datorer
 
@@ -66,7 +66,7 @@ Contoso cloud-teamet har fästs ned mål för den här migreringen. Dessa mål a
 
 ## <a name="solution-design"></a>Lösningsdesign
 
-sidbrytning efter fästa nedåt mål och krav, Contoso design och granska en distributionslösning och identifierar migreringsprocessen, inklusive Azure-tjänster som använder Contoso för migreringen.
+Efter att fästa ned mål och krav, Contoso utformar och granska en distributionslösning och identifierar migreringsprocessen, inklusive Azure-tjänster som använder Contoso för migreringen.
 
 ### <a name="current-app"></a>Aktuell app
 

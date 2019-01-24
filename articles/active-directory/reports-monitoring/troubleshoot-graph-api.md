@@ -4,7 +4,7 @@ description: 'Ger dig en lösning till fel vid anrop av Azure Active Directory R
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 0030c5a4-16f0-46f4-ad30-782e7fea7e40
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 33c382c8b28549e1b2be83322b910ca1a885e45d
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 299c9acb43fd0f3d7284a3b2ffb0c400b96cbc0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622764"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811697"
 ---
 # <a name="troubleshoot-errors-in-azure-active-directory-reporting-api"></a>Felsöka fel i Azure Active Directory reporting API
 
@@ -44,7 +44,7 @@ Om du får detta felmeddelande när du försöker komma åt inloggningar med Gra
 ![Ändra behörigheter för Användargränssnittet](./media/troubleshoot-graph-api/modify-permissions.png)
 
 
-### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fel: Varken klient är B2C eller klienten har inte premium-licens
+### <a name="error-neither-tenant-is-b2c-or-tenant-doesnt-have-premium-license"></a>Fel: Varken klienten är B2C eller klienten har inte premium-licens
 
 Åtkomst till inloggning rapporter kräver en Azure Active Directory premium 1 (P1) licens. Om du ser det här felmeddelandet vid åtkomst till inloggningar, se till att din klient är licensierad med Azure Active Directory P1-licens.
 
@@ -52,7 +52,7 @@ Om du får detta felmeddelande när du försöker komma åt inloggningar med Gra
 
 Om du ser det här felmeddelandet när du försöker komma åt granskningsloggar eller inloggningar med API: et, se till att ditt konto är en del av den **Säkerhetsläsare** eller **rapportläsare** roll i Azure Active Directory innehavaren. 
 
-### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: Programmet saknar behörighet för AAD-läsa kataloginformation 
+### <a name="error-application-missing-aad-read-directory-data-permission"></a>Fel: Program som saknar behörighet för AAD-läsa kataloginformation 
 
 Följ stegen i den [förutsättningar för att få åtkomst till Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md) så att programmet körs med rätt uppsättning behörigheter. 
 

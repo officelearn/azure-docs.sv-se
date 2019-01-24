@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/04/2019
-ms.openlocfilehash: da1cad5c949579e0c66d9cc49f99b7cee9d53f35
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/23/2019
+ms.openlocfilehash: 1ace7ecd42ac36be1c38e52dcef6663439b7db4c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452249"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817843"
 ---
 # <a name="registration-management"></a>Registreringshantering
 
@@ -34,6 +34,9 @@ Enhetsregistrering med en Notification Hub åstadkoms med hjälp av en **registr
 ### <a name="registrations"></a>Registreringar
 
 En registrering associerar Platform Notification Service (PNS) referensen för en enhet med taggar och eventuellt en mall. PNS-handtag kan vara en ChannelURI eller enhetstoken GCM registrerings-id. Taggar används för att dirigera meddelanden till rätt uppsättning enhetshandtag. Mer information finns i [Routning och Tagguttryck](notification-hubs-tags-segment-push-message.md). Mallar används för att implementera per registrering omvandling. Mer information finns i [Mallar](notification-hubs-templates-cross-platform-push-messages.md).
+
+> [!NOTE]
+> Azure Notification Hubs stöder högst 60 taggar per registrering.
 
 ### <a name="installations"></a>Installationer
 

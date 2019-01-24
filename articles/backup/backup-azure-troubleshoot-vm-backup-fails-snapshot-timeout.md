@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: c779344f4cb0544009952423b6771b75482c3061
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353971"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816763"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -113,6 +113,26 @@ Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella dator
 **Felmeddelande**: Azure Backup stöder för närvarande inte Standard SSD-diskar <br>
 
 Azure Backup stöder för närvarande Standard SSD-diskar endast för valv som har uppgraderats till [omedelbar återställning](backup-instant-restore-capability.md).
+
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu.
+
+**Felkod**: UserErrorBackupOperationInProgress <br>
+**Felmeddelande**: Det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu<br>
+
+Senaste säkerhetskopieringsjobbet misslyckades eftersom det finns en befintlig säkerhetskopiering pågår. Du kan inte starta ett nytt säkerhetskopieringsjobb tills det aktuella jobbet har slutförts. Se till att säkerhetskopieringen för närvarande pågår har slutförts innan du utlöser eller schemalägga en annan säkerhetskopieringsåtgärder. Du kan kontrollera status för säkerhetskopieringsjobb utföra i stegen nedan:
+
+1. Logga in på Azure-portalen, klickar du på **alla tjänster**. Ange Recovery Services och klicka på **Recovery Services-valv**. Listan över Recovery Services-valv visas.
+2. Listan över recovery services-valv, Välj ett valv där säkerhetskopian har konfigurerats.
+3. Klicka på valvets instrumentpanel **säkerhetskopieringsjobb** visas alla säkerhetskopieringsjobb.
+
+    * Om ett säkerhetskopieringsjobb pågår, vänta på den för att slutföra eller avbryta säkerhetskopieringen.
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0).
+    * Om du har konfigurerat om säkerhetskopiering i ett annat valv, kontrollera att det finns inga säkerhetskopieringsjobb som körs i det gamla valvet. Avbryt jobbet om den finns.
+        * Avbryt säkerhetskopieringsjobbet högerklickar på säkerhetskopieringsjobbet och klicka på **Avbryt** eller Använd [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.backup/stop-azurermbackupjob?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.12.0)
+4. Försök att säkerhetskopiera igen.
+
+Om den schemalagda säkerhetskopieringen tar längre tid som är i konflikt med nästa säkerhetskopieringskonfigurationen granskar den [metodtips](backup-azure-vms-introduction.md#best-practices), [säkerhetskopieringsprestanda](backup-azure-vms-introduction.md#backup-performance) och [återställa beräkningen ](backup-azure-vms-introduction.md#restore-considerations).
+
 
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar

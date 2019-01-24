@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.reviewer: mbullwin
 ms.author: harelbr
-ms.openlocfilehash: b1f4d278079b81b4a224dc4712426d1f078de110
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: edfd908166e4334bdfda0f043cba727cb0370405
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020412"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853603"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Hantera regler för smart identifiering för Application Insights med hjälp av Azure Resource Manager-mallar
 
@@ -154,6 +154,17 @@ Nedan visas en tabell med smart identifiering namn som de visas i portalen, till
 | Potentiell minnesläcka har identifierats (förhandsversion) | extension_memoryleakextension |
 | Potentiella säkerhetsproblem har identifierats (förhandsversion) | extension_securityextensionspackage |
 | Resursen användning problem har identifierats (förhandsversion) | extension_resourceutilizationextensionspackage |
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
+
+Det här avsnittet endast gäller för klassiska aviseringar för smart identifiering och hjälper dig att optimera dina aviseringar till att säkerställa att endast dina önskade mottagare får meddelanden. Vill veta mer om skillnaden mellan [klassiska aviseringar] (.. /Platform/Alerts-Classic.Overview.MD och det nya aviseringsgränssnittet refererar till den [aviseringar översikten](../platform/alerts-overview.md). Smart identifiering varnar för närvarande endast stöd för klassiska aviseringar uppstår. Det enda undantaget är [aviseringar för smart identifiering på Azure-molntjänster](./proactive-cloud-services.md). Kontrollera avisering meddelande för smart identifiering aviseringar i Azure cloud services användning [åtgärdsgrupper](../platform/action-groups.md).
+
+* Vi rekommenderar användning av specifika mottagare för smart identifiering/klassisk varningsmeddelanden.
+
+* För smart identifiering aviseringar den **grupp/grupp** kryssrutan alternativet, om aktiverad, skickar till användare med ägare, deltagare eller läsare roller i prenumerationen. I praktiken _alla_ användare med åtkomst till prenumerationen Application Insights-resursen omfattas och ska ta emot meddelanden. 
+
+> [!NOTE]
+> Om du använder den **grupp/grupp** kryssrutan alternativet, och inaktivera det, kommer du inte kunna återställa ändringen.
 
 ## <a name="next-steps"></a>Nästa steg
 

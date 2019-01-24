@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med TimeOffManager | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med TimeOffManager | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TimeOffManager.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 3685912f-d5aa-4730-ab58-35a088fc1cc3
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: e7f0f6bb778dedeea61b74b5ca0c2edbadd5279b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4ca13640f64c88164aa98c5434c252d844cebd72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39430295"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825194"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Självstudier: Azure Active Directory-integration med TimeOffManager
+# <a name="tutorial-azure-active-directory-integration-with-timeoffmanager"></a>Självstudier: Azure Active Directory-integrering med TimeOffManager
 
 I den här självstudien får du lära dig hur du integrerar TimeOffManager med Azure Active Directory (AD Azure).
 
@@ -44,39 +44,39 @@ Om du vill konfigurera Azure AD-integrering med TimeOffManager, behöver du föl
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till TimeOffManager från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa enkel inloggning med Azure AD
 
 ## <a name="add-timeoffmanager-from-the-gallery"></a>Lägg till TimeOffManager från galleriet
 För att konfigurera integrering av TimeOffManager i Azure AD, som du behöver lägga till TimeOffManager från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till TimeOffManager från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **TimeOffManager**väljer **TimeOffManager** resultatet panelen och klicka sedan på **Lägg till** för att lägga till programmet.
 
     ![Lägg till från galleriet](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TimeOffManager baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i TimeOffManager är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i TimeOffManager upprättas.
@@ -85,13 +85,13 @@ I TimeOffManager, tilldela värdet för den **användarnamn** i Azure AD som vä
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med TimeOffManager, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare TimeOffManager](#create-a-timeoffmanager-test-user)**  – du har en motsvarighet för Britta Simon i TimeOffManager som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt TimeOffManager program.
 
@@ -109,7 +109,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
      ![TimeOffManager domän och URL: er](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_url.png)
 
-    I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
+    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.timeoffmanager.com/cpanel/sso/consume.aspx?company_id=<companyid>`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska svars-URL. Du kan få det här värdet från **inställningssidan för enkelinloggning** som beskrivs senare i självstudien eller kontakta [TimeOffManager supportteamet](https://www.purelyhr.com/contact-us).
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Målet med det här avsnittet som beskriver hur du aktiverar användare att autentisera till TimeOffManger med ett konto i Azure AD med federation baserat på SAML-protokoll.
     
-    Programmets TimeOffManger förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta.
+    Programmets TimeOffManger förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel på detta.
 
     ![SAML-tokenattribut](./media/timeoffmanager-tutorial/tutorial_timeoffmanager_attrb.png "saml-tokenattribut")
     
@@ -128,7 +128,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | --- | --- |
     | Förnamn |User.givenName |
     | Efternamn |User.surname |
-    | E-post |User.Mail |
+    | E-post |User.mail |
     
     a.  För varje datarad i tabellen ovan, klickar du på **lägga till användarattribut**.
     
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d.  Klicka på **OK**.
     
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/timeoffmanager-tutorial/tutorial_general_400.png)
 
@@ -178,11 +178,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
       ![Enkel inloggning inställningar](./media/timeoffmanager-tutorial/ic795915.png "enkel inloggnings-inställningar")
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 

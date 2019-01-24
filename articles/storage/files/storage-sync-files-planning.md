@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 76bec0f0e924fe193519f47effb8dd45f6262697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 750ab99df1d241cf4252c49a5a9ced08a82b1c92
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630333"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809199"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -172,7 +172,7 @@ För volymer som inte har molnlagringsnivåer aktiverad, stöder Azure File Sync
 ### <a name="distributed-file-system-dfs"></a>Distribuerat filsystem (DFS)
 Azure File Sync har stöd för interop med DFS-namnområden (DFS-N) och DFS Replication (DFS-R) från och med [Azure File Sync-agenten 1.2](https://go.microsoft.com/fwlink/?linkid=864522).
 
-**DFS-namnområden (DFS-N)**: Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
+**DFS Namespaces (DFS-N)**: Azure File Sync stöds fullt ut på DFS-N-servrar. Du kan installera Azure File Sync-agenten på en eller flera DFS-N-medlemmar att synkronisera data mellan slutpunkterna för server och molnslutpunkten. Mer information finns i [översikt över DFS-namnområden](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/dfs-overview).
  
 **DFS Replication (DFS-R)**: Eftersom DFS-R- och Azure File Sync är båda replikeringslösningar, i de flesta fall rekommenderar vi att ersätta DFS-R med Azure File Sync. Det finns dock flera scenarier där du vill använda DFS-R- och Azure File Sync tillsammans:
 
@@ -205,6 +205,9 @@ Om du använder en lösning för säkerhetskopiering av en lokal ska säkerhetsk
 
 > [!Note]  
 > Återställning utan operativsystem (BMR) kan orsaka oväntade resultat och stöds inte för närvarande.
+
+> [!Note]  
+> VSS-ögonblicksbilder (inklusive fliken tidigare versioner) stöds inte på volymer som har molnlagringsnivåer aktiverad. Om molnet lagringsnivåer är aktiverad kan använda de Azure ögonblicksbilderna av filresurser för att återställa en fil från en säkerhetskopia.
 
 ### <a name="encryption-solutions"></a>Krypteringslösningar
 Stöd för krypteringslösningar beror på hur de implementeras. Azure File Sync är känt att arbeta med:

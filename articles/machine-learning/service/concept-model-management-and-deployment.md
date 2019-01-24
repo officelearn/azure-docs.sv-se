@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 467af0f04708c9c6758531fb1cd71d79e9ddd6d7
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 44f61d7b90018b76b1903a04d219dcf0226f95e0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302977"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852328"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Hantera, distribuera och övervaka modeller med Azure Machine Learning-tjänsten
 
@@ -39,7 +39,7 @@ Varje steg kan utföras separat eller som en del av en enskild distribution-komm
 
 Modellen kan du lagra och version dina modeller i Azure-molnet, på din arbetsyta. Modellen registret gör det enkelt att ordna och Håll koll på dina tränade modeller.
  
-Registrerade modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning-tjänsten har stöd för modeller som lagras med valfri modell som kan läsas in med hjälp av Python 3. 
+Registrerade modeller identifieras av namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Du kan också ange ytterligare metadatataggar under registreringen som kan användas när du söker för modeller. Azure Machine Learning-tjänsten har stöd för alla modeller som kan läsas in med hjälp av Python 3. 
 
 Du kan inte ta bort modeller som används av en avbildning.
 
@@ -63,13 +63,13 @@ Avbildningen kan även inkludera SDK-komponenterna för loggning och övervaknin
 Azure Machine Learning stöder de populäraste ramverken, men i allmänhet valfritt ramverk som kan vara pip installerade fungerar.
 
 När din arbetsyta skapades, så användes andra flera andra Azure-resurser av arbetsytan.
-Alla objekt som används för att skapa avbildningen lagras i Azure storage-kontot i din arbetsyta. Avbildningen skapas och lagras i Azure Container Registry. Du kan ange ytterligare metadatataggar när du skapar avbildningen, som lagras också som bild-registret och kan efterfrågas för att hitta din avbildning.
+Alla objekt som används för att skapa avbildningen lagras i Azure storage-kontot i din arbetsyta. Du kan ange ytterligare metadatataggar när du skapar avbildningen. Metadatataggar finns även som bild-registret och kan efterfrågas för att hitta din avbildning.
 
 Mer information finns i Konfigurera och registrera bilddelen av [distribuera modeller](how-to-deploy-and-where.md#configureimage).
 
 ## <a name="step-3-deploy-image"></a>Steg 3: Distribuera avbildningen
 
-Du kan distribuera registrerade avbildningar till molnet eller edge-enheter. Distributionsprocessen skapar alla resurser som behövs för att övervaka, belastningsutjämna och Autoskala din modell. Åtkomst till distribuerade tjänster kan skyddas med certifikatbaserad autentisering genom att tillhandahålla säkerhet-tillgångar under distributionen. Du kan också uppgradera en befintlig distribution om du vill använda en avbildning av en nyare.
+Du kan distribuera registrerade avbildningar till molnet eller edge-enheter. Distributionsprocessen skapar alla resurser som behövs för att övervaka belastningen och Autoskala din modell. Åtkomst till distribuerade tjänster kan skyddas med certifikatbaserad autentisering genom att tillhandahålla säkerhet-tillgångar under distributionen. Du kan också uppgradera en befintlig distribution om du vill använda en avbildning av en nyare.
 
 Webbtjänstdistributioner är också sökbara. Du kan exempelvis söka efter alla distributioner för en viss modell eller en bild.
 

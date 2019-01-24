@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med TINFOIL SECURITY | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med TINFOIL SECURITY | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TINFOIL SECURITY.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: da02da92-e3b0-4c09-ad6c-180882b0f9f8
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 4f25768cc7e4f5865c6cfa96ebfe3b0df97deeb6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f5dbf831677157f660f2c0a8dd2acefe1f6a218a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421380"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809487"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Självstudier: Azure Active Directory-integration med TINFOIL SECURITY
+# <a name="tutorial-azure-active-directory-integration-with-tinfoil-security"></a>Självstudier: Azure Active Directory-integrering med TINFOIL SECURITY
 
 I den här självstudien får du lära dig hur du integrerar TINFOIL SECURITY med Azure Active Directory (AD Azure).
 
@@ -44,39 +44,39 @@ Om du vill konfigurera Azure AD-integrering med TINFOIL SECURITY, behöver du f�
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till TINFOIL SECURITY från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa enkel inloggning med Azure AD
 
 ## <a name="add-tinfoil-security-from-the-gallery"></a>Lägg till TINFOIL SECURITY från galleriet
 För att konfigurera integrering av TINFOIL SECURITY i Azure AD, som du behöver lägga till TINFOIL SECURITY från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till TINFOIL SECURITY från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **TINFOIL SECURITY**väljer **TINFOIL SECURITY** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![TINFOIL SECURITY från galleriet](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TINFOIL SECURITY baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i TINFOIL SECURITY är att en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i TINFOIL SECURITY upprättas.
@@ -85,13 +85,13 @@ TINFOIL Security, tilldela värdet för den **användarnamn** i Azure AD som vä
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med TINFOIL SECURITY, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare TINFOIL SECURITY](#create-a-tinfoil-security-test-user)**  – du har en motsvarighet för Britta Simon i TINFOIL SECURITY som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt TINFOIL SECURITY-program.
 
@@ -116,7 +116,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Om du vill lägga till de nödvändiga attributmappningarna, utför du följande steg:
     
-    ![Attribut](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "attribut")
+    ![Attribut](./media/tinfoil-security-tutorial/tutorial_tinfoil-security_attribute1.png "Attribut")
     
     | Attributnamn    |   Attributvärde |
     | ------------------- | -------------------- |
@@ -134,7 +134,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     d. Klicka på **OK**.    
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Knappen Spara](./media/tinfoil-security-tutorial/tutorial_general_400.png)
 
@@ -146,15 +146,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I verktygsfältet högst upp, klickar du på **mitt konto**.
    
-    ![Instrumentpanelen](./media/tinfoil-security-tutorial/ic798971.png "instrumentpanel")
+    ![Instrumentpanel](./media/tinfoil-security-tutorial/ic798971.png "Instrumentpanel")
 
-1. Klicka på **Security**.
+1. Klicka på **Säkerhet**.
    
-    ![Security](./media/tinfoil-security-tutorial/ic798972.png "säkerhet")
+    ![Säkerhet](./media/tinfoil-security-tutorial/ic798972.png "Säkerhet")
 
 1. På den **enkel inloggning** configuration utför följande steg:
    
-    ![Enkel inloggning](./media/tinfoil-security-tutorial/ic798973.png "enkel inloggning")
+    ![Enkel inloggning](./media/tinfoil-security-tutorial/ic798973.png "Enkel inloggning")
    
     a. Välj **aktivera SAML**.
    
@@ -169,11 +169,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     f. Klicka på **Spara**.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -252,7 +252,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen TINFOIL SECURITY i åtkomstpanelen du bör få automatiskt loggat in på ditt TINFOIL SECURITY-program. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen TINFOIL SECURITY i åtkomstpanelen du bör få automatiskt loggat in på ditt TINFOIL SECURITY-program. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

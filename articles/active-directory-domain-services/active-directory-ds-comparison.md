@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Jämföra Azure AD Domain Services gör det själv domänkontrollanter | Microsoft Docs'
+title: 'Azure AD Domain Services: Jämför Azure AD Domain Services gör det själv domänkontrollanter | Microsoft Docs'
 description: Jämföra Azure Active Directory Domain Services för gör det själv-domänkontrollanter
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 165249d5-e0e7-4ed1-aa26-91a05a87bdc9
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ergreenl
-ms.openlocfilehash: f7455076d59e447ade9c15203593d260cf676894
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 45c1629aba2124230aa55f67583ff08584ab3c93
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155805"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847636"
 ---
 # <a name="how-to-decide-if-azure-ad-domain-services-is-right-for-your-use-case"></a>Hur du avgör om Azure AD Domain Services som passar ditt användningsområde
 Du kan distribuera dina arbetsbelastningar i Azure Infrastructure Services, utan att behöva bekymra dig om hur du underhåller infrastruktur för Identitetshantering i Azure med Azure AD Domain Services. Den här hanterade tjänsten skiljer sig från en typisk distribution för Windows Server Active Directory som du distribuerar och administrera på egen hand. Tjänsten är enkla att distribuera och ger automatiserade hälsoövervakning och reparation. Vi utvecklas ständigt tjänsten för att lägga till stöd för vanliga scenarier för distribution.
@@ -47,7 +47,7 @@ I följande tabell kan du välja mellan med hjälp av Azure AD Domain Services o
 | [**Schematillägg**](active-directory-ds-comparison.md#schema-extensions) |**&#x2715;** |**&#x2713;** |
 | [**Litar på AD-domän/skog**](active-directory-ds-comparison.md#ad-domain-or-forest-trusts) |**&#x2715;** |**&#x2713;** |
 | [**Läsa LDAP**](active-directory-ds-comparison.md#ldap-read) |**&#x2713;** |**&#x2713;** |
-| [**Säkert LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
+| [**Secure LDAP (LDAPS)**](active-directory-ds-comparison.md#secure-ldap) |**&#x2713;** |**&#x2713;** |
 | [**LDAP-write**](active-directory-ds-comparison.md#ldap-write) |**&#x2715;** |**&#x2713;** |
 | [**En Grupprincip**](active-directory-ds-comparison.md#group-policy) |**&#x2713;** |**&#x2713;** |
 | [**Geodistribution**](active-directory-ds-comparison.md#geo-dispersed-deployments) |**&#x2715;** |**&#x2713;** |
@@ -106,9 +106,9 @@ Azure AD Domain Services-hanterade domäner är tillgängliga i ett enda virtuel
 ## <a name="do-it-yourself-diy-ad-deployment-options"></a>”Gör-det-själv” (DIY) AD-distributionsalternativ
 Du kan ha distribution användningsfall där du behöver några av de funktioner som erbjuds av en Windows Server AD-installation. I dessa fall kan du överväga att något av alternativen nedan gör det själv (DIY):
 
-* **Fristående cloud domän:** du kan ställa in en fristående ”molnet domän' med hjälp av Azure-datorer som har konfigurerats som domänkontrollanter. Den här infrastrukturen är inte integrerat med din lokala AD-miljö. Det här alternativet kräver en annan uppsättning molnautentiseringsuppgifter för att inloggning/administrera virtuella datorer i molnet.
-* **Resursdistributionen skog:** du kan konfigurera en domän i skogstopologi resurs med hjälp av Azure virtuella datorer som konfigurerats som domänkontrollanter. Därefter kan du konfigurera ett AD-förtroende med din lokala AD-miljö. Domänanslutning datorer (Azure virtuella datorer) kan du till den här resursskog i molnet. Autentisering av användare som sker med antingen en VPN/ExpressRoute-anslutning till din lokala katalog.
-* **Utöka din lokala domän till Azure:** du kan ansluta Azure-nätverk till ditt lokala nätverk via en VPN/ExpressRoute-anslutning. Den här konfigurationen gör det möjligt för virtuella Azure-datorer är ansluten till din lokala AD. Ett annat alternativ är att höja upp domänkontrollanter för repliken för den lokala domänen i Azure som en virtuell dator. Du kan sedan konfigurera den för att replikera via en VPN/ExpressRoute-anslutning till din lokala katalog. Det här distributionsläget utökar effektivt din lokala domän till Azure.
+* **Fristående cloud domän:** Du kan ställa in en fristående ”molnet domän' med hjälp av Azure-datorer som har konfigurerats som domänkontrollanter. Den här infrastrukturen är inte integrerat med din lokala AD-miljö. Det här alternativet kräver en annan uppsättning molnautentiseringsuppgifter för att inloggning/administrera virtuella datorer i molnet.
+* **Resursdistributionen skog:** Du kan ställa in en domän i skogstopologi resurs med hjälp av Azure virtuella datorer som konfigurerats som domänkontrollanter. Därefter kan du konfigurera ett AD-förtroende med din lokala AD-miljö. Domänanslutning datorer (Azure virtuella datorer) kan du till den här resursskog i molnet. Autentisering av användare som sker med antingen en VPN/ExpressRoute-anslutning till din lokala katalog.
+* **Utöka din lokala domän till Azure:** Du kan ansluta Azure-nätverk till ditt lokala nätverk via en VPN/ExpressRoute-anslutning. Den här konfigurationen gör det möjligt för virtuella Azure-datorer är ansluten till din lokala AD. Ett annat alternativ är att höja upp domänkontrollanter för repliken för den lokala domänen i Azure som en virtuell dator. Du kan sedan konfigurera den för att replikera via en VPN/ExpressRoute-anslutning till din lokala katalog. Det här distributionsläget utökar effektivt din lokala domän till Azure.
 
 > [!NOTE]
 > Du kan bestämma att ett alternativ som gör det själv passar bättre för din distribution-användningsfall. Överväg att [delning feedback](active-directory-ds-contact-us.md) som hjälper oss att förstå vilka funktioner vill hjälpa du har valt Azure AD Domain Services i framtiden. Denna feedback hjälper oss att utveckla tjänsten så att den bättre passar dina distributionsbehov och användningsfall.

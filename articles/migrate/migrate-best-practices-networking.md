@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: raynew
-ms.openlocfilehash: 6d679cc3d24e2f0f2cb79eb2c9f02422d0818c80
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 5cbe0c5e86a1dfd8cc3cb374f0ae7e1c67ae9d77
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54215277"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828306"
 ---
 # <a name="best-practices-to-set-up-networking-for-workloads-migrated-to-azure"></a>Bästa praxis för att konfigurera nätverk för arbetsbelastningar migreras till Azure
 
@@ -164,7 +164,7 @@ Om du vill implementera en plats-till-plats-VPN kan ställa du in en VPN-gateway
 - Varje virtuellt nätverk kan bara ha en VPN-gateway.
 - Du kan skapa flera anslutningar till samma VPN-gateway. När du skapar flera anslutningar, delar alla VPN-tunnlar den tillgängliga bandbredden.
 - Varje Azure VPN-gateway består av två instanser i en aktiv-standby-konfiguration.
-    - För planerat underhåll eller unplaned störningar i den aktiva instansen, redundans och väntelägesinstansen tar över automatiskt och återupptar plats-till-plats eller VNet-till-VNet-anslutning. 
+    - För planerat underhåll eller uppstår ett oplanerat avbrott för en aktiv instans, redundans och väntelägesinstansen tar över automatiskt och återupptar plats-till-plats eller VNet-till-VNet-anslutning. 
     - Övergången orsakar ett kort avbrott.
     - Vid ett planerat underhåll återställs anslutningen inom 10 till 15 sekunder.
     - Oplanerat avbrott tar är återställa anslutningen för längre tid, cirka en 1,5 minuter i värsta fall.

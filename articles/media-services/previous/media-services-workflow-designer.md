@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
-ms.openlocfilehash: fa858ffbae5c1a37851ea114efd0fbc9cf010e68
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3f01d5342fbeeb5cb5e19af63a0dd91128778859
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200810"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823240"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Skapa avancerade arbetsflöden för kodning med Workflow Designer
 ## <a name="overview"></a>Översikt
@@ -30,7 +30,7 @@ Arbetsflöden kan omfatta kunden beslut logik och branchning utifrån Indatakäl
 
 Exempel-arbetsflöden som du kan skapa omfattar:
 
-* Beslutet bygga arbetsflöden som granskar källinnehållet för matchning av och koda bara önskade utdata-spår.  Det här är användbart genom att ta bort onödigt spåren som genereras av upscaling källa innehåll råkat.
+* Beslutet bygga arbetsflöden som granskar källinnehållet för matchning av och koda bara önskade utdata-spår.  Det här är användbart genom att ta bort onödigt spåren som genereras av upscaling källinnehållet oavsiktligt.
 * Flera indatafiler kan användas för att stödja bildtexter, överlägg och fästa tillsammans innehåll. 
 
 Det här verktyget kan också användas för att ändra någon av våra [publicerade arbetsflöden](media-services-workflow-designer.md#existing_workflows). 

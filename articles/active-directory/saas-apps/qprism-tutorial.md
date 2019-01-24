@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med QPrism | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med QPrism | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QPrism.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ddf22491d7531daecf4448e62e8594c3326d7b77
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8278b26f023ada109a8e6fa3965476e3dc4526c7
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39420282"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828068"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Självstudier: Azure Active Directory-integration med QPrism
+# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Självstudier: Azure Active Directory-integrering med QPrism
 
 I den här självstudien får du lära dig hur du integrerar QPrism med Azure Active Directory (AD Azure).
 
@@ -44,7 +44,7 @@ Om du vill konfigurera Azure AD-integrering med QPrism, behöver du följande ob
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
 - Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -57,13 +57,13 @@ För att konfigurera integrering av QPrism i Azure AD, som du behöver lägga ti
 
 **Lägga till QPrism från galleriet:**
 
-1. I den [Azure-portalen](https://portal.azure.com), i den vänstra rutan väljer **Azure Active Directory**. 
+1. I den vänstra rutan i [Azure-portalen](https://portal.azure.com) väljer du **Azure Active Directory**. 
 
     ![Azure Active Directory-knappen][1]
 
 1. Gå till **företagsprogram** > **alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram][2]
     
 1. Om du vill lägga till ett nytt program, överst i dialogrutan, Välj **nytt program**.
 
@@ -73,7 +73,7 @@ För att konfigurera integrering av QPrism i Azure AD, som du behöver lägga ti
 
     ![QPrism i resultatlistan](./media/qprism-tutorial/tutorial_qprism_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med QPrism, baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -89,13 +89,13 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med QPrism, utför du
 1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt QPrism program.
 
 1. I Azure-portalen på den **QPrism** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -112,15 +112,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med det faktiska ID: t och inloggnings-URL. Kontakta [QPrism klienten supportteamet](mailto:qsupport-ce@quatrro.com) att hämta dessa värden. 
 
-1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-     ![Länk för hämtning av certifikat](./media/qprism-tutorial/tutorial_qprism_certificate.png)
+     ![Länk för nedladdning av certifikatet](./media/qprism-tutorial/tutorial_qprism_certificate.png)
 
 1. Välj **Spara**.
 
     ![Konfigurera enkel inloggning spara knappen](./media/qprism-tutorial/tutorial_general_400.png)
     
-1. Att konfigurera enkel inloggning på **QPrism** sida, som du behöver skicka den **Appfederationsmetadata** till [QPrism supportteamet](mailto:qsupport-ce@quatrro.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **QPrism** sida, som du behöver skicka den **Appfederationsmetadata** till [QPrism supportteamet](mailto:qsupport-ce@quatrro.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -136,7 +136,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/qprism-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/qprism-tutorial/create_aaduser_02.png)
 
 1. Öppna den **användaren** dialogrutan överst i den **alla användare** dialogrutan **Lägg till**.
 
@@ -144,7 +144,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. I den **användaren** dialogrutan Gör följande:
 
-    ![Dialogrutan användare](./media/qprism-tutorial/create_aaduser_04.png)
+    ![Dialogrutan Användare](./media/qprism-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
@@ -156,7 +156,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-qprism-test-user"></a>Skapa en QPrism testanvändare
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i QPrism. Arbeta med den [QPrism supportteamet](mailto:qsupport-ce@quatrro.com) att lägga till användare i QPrism-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i QPrism. Arbeta med den [QPrism supportteamet](mailto:qsupport-ce@quatrro.com) att lägga till användare i QPrism-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -174,9 +174,9 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
     ![Länken QPrism i listan med program](./media/qprism-tutorial/tutorial_qprism_app.png)  
 
-1. I menyn till vänster väljer **användare och grupper**.
+1. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”][202]
 
 1. Välj **Lägg till**. Sedan, under **Lägg till tilldelning**väljer **användare och grupper**.
 

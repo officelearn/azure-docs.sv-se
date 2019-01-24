@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med FilesAnywhere | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med FilesAnywhere | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FilesAnywhere.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 220b5a486f5bb5d22c671ac6935e610a6eef62cf
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2dab43499d5f55474117f88cfaa1cecd1a50bf3e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115993"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822050"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Självstudier: Azure Active Directory-integration med FilesAnywhere
+# <a name="tutorial-azure-active-directory-integration-with-filesanywhere"></a>Självstudier: Azure Active Directory-integrering med FilesAnywhere
 
 I den här självstudien får du lära dig hur du integrerar FilesAnywhere med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera FilesAnywhere med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på FilesAnywhere (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,10 +45,10 @@ Om du vill konfigurera Azure AD-integrering med FilesAnywhere, behöver du följ
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,11 +69,11 @@ För att konfigurera integrering av FilesAnywhere i Azure AD, som du behöver l�
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **FilesAnywhere**.
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/filesanywhere-tutorial/tutorial_filesanywhere_url.png)
     
-    a. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
+    a. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company name>.filesanywhere.com/saml20.aspx?c=215`
 > [!NOTE]
 > Tänk på att värdet **215** är en **clientid** och är bara ett exempel. Du måste ersätta det med det faktiska clientid-värdet.
 
@@ -130,9 +130,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
     b. I den **inloggning på URL: en** textrutan anger du ett URL med hjälp av följande mönster: `https://<sub domain>.filesanywhere.com/`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med de faktiska logga på URL: en och svars-URL. Kontakta [FilesAnywhere supportteamet](mailto:support@FilesAnywhere.com) att hämta dessa värden. 
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska logga på URL: en och svars-URL. Kontakta [FilesAnywhere supportteamet](mailto:support@FilesAnywhere.com) att hämta dessa värden. 
 
-1. FilesAnywhere programvara förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+1. FilesAnywhere programvara förväntar sig SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel på detta.
     
     ![Konfigurera enkel inloggning](./media/filesanywhere-tutorial/tutorial_filesanywhere_attribute.png)
     
@@ -145,7 +145,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
     
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
-    | clientid | *”uniquevalue”* |
+    | clientid | *"uniquevalue"* |
 
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -153,13 +153,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/filesanywhere-tutorial/tutorial_FilesAnywhere_05.png)
     
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
     
     c. Från den **värdet** anger attributvärdet som visas för den raden.
     
     d. Klicka på **Ok**
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/filesanywhere-tutorial/tutorial_general_400.png)
 
@@ -210,7 +210,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure Management
 
 ### <a name="creating-a-filesanywhere-test-user"></a>Skapa en FilesAnywhere testanvändare
 
-Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt. 
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. 
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 1a5b3ff6f8bce62081025488c1155431e78030dc
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d9e0848b7e4598d03e5d8d8b15ff4cde3316884d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464892"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850883"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Skapa en Programgateway med HTTP till HTTPS-omdirigering med Azure CLI
 
@@ -161,7 +161,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>Lägg till regel för vidarebefordran
 
-Lägg till en routningsregel med namnet *2* med konfigurationen för omdirigering i application gateway med hjälp av [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rule#az-network_application_gateway_rule_create).
+Lägg till en routningsregel med namnet *2* med konfigurationen för omdirigering i application gateway med hjälp av [az network application-gateway rule skapa](/cli/azure/network/application-gateway/rule).
 
 ```azurecli-interactive
 az network application-gateway rule create \

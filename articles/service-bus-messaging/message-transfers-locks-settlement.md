@@ -3,22 +3,22 @@ title: Azure Service Bus-överföringar av meddelanden, lås och uppgörelser | 
 description: Översikt över Service Bus överföringar av meddelanden och avräkning åtgärder
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: spelluru
-ms.openlocfilehash: a1835e26f67427f84abd8a3cf24ad196fec8e99d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.author: aschhab
+ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854430"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846455"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och uppgörelser
 
@@ -96,7 +96,7 @@ Med en låg nivå AMQP-klient, Service Bus kan också användas ”före reglera
 
 ## <a name="settling-receive-operations"></a>Reglera får operations
 
-För att ta emot operations, Service Bus-API-klienter aktivera två olika lägen för explicit: *ta emot och ta bort* och *Peek-Lock*.
+För att ta emot operations, Service Bus-API-klienter aktivera två olika lägen för explicit: *Ta emot och borttagning* och *Peek-Lock*.
 
 Den [ta emot och ta bort](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge talar om för den asynkrona meddelandekön att tänka på alla meddelanden som skickas till den mottagande klienten som reglerade när skickas. Det innebär att meddelandet anses förbrukas så snart den asynkrona meddelandekön har satt till ledningen. Meddelandet går förlorad om meddelandeöverföringen misslyckas.
 

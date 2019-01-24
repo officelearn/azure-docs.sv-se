@@ -3,19 +3,19 @@ title: Datum-anspråk omvandling exempel för den identiteten upplevelse Framewo
 description: Datum anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 6a49e940c988d25da1e6f6a3c6f372e15fd2136f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405828"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850067"
 ---
 # <a name="date-claims-transformations"></a>Datum anspråk omvandlingar
 
@@ -29,11 +29,11 @@ Kontrollerar att ett datum och tid anspråk (strängdatatypen) är senare än et
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | leftOperand | sträng | Typ första anspråk som ska vara senare än andra anspråk. |
-| InputClaim | rightOperand | sträng | Andra anspråkets typ, och måste vara tidigare än det första anspråket. |
-| Indataparametrar | AssertIfEqualTo | boolesk | Anger om kontrollen ska skicka om den vänstra operanden är lika med den högra operanden. |
-| Indataparametrar | AssertIfRightOperandIsNotPresent | boolesk | Anger om kontrollen ska skicka om högeroperanden saknas. |
-| Indataparametrar | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder att tillåta mellan två datum-tid att tänka på tiderna som är lika med (till exempel till konto för klocka skeva). |
+| inputClaim | leftOperand | sträng | Typ första anspråk som ska vara senare än andra anspråk. |
+| inputClaim | rightOperand | sträng | Andra anspråkets typ, och måste vara tidigare än det första anspråket. |
+| InputParameter | AssertIfEqualTo | boolesk | Anger om kontrollen ska skicka om den vänstra operanden är lika med den högra operanden. |
+| InputParameter | AssertIfRightOperandIsNotPresent | boolesk | Anger om kontrollen ska skicka om högeroperanden saknas. |
+| InputParameter | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder att tillåta mellan två datum-tid att tänka på tiderna som är lika med (till exempel till konto för klocka skeva). |
 
 Den **AssertDateTimeIsGreaterThan** anspråkstransformering utförs alltid från en [teknisk verifieringsprofil](validation-technical-profile.md) som anropas av en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md). Den **DateTimeGreaterThan** självkontrollerad tekniska profilens metadata styr det felmeddelande som den tekniska profilen som visas för användaren.
 
@@ -83,7 +83,7 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 - Inkommande anspråk:
     - **leftOperand**: 2018-10-01T15:00:00.0000000Z
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
-- Resultat: Fel som utlöstes
+- Resultat: Fel uppstod
 
 
 ## <a name="convertdatetodatetimeclaim"></a>ConvertDateToDateTimeClaim
@@ -92,8 +92,8 @@ Konverterar en **datum** ClaimType till en **DateTime** ClaimType. Anspråkstran
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | datum | ClaimType som ska konverteras. |
-| outputClaim | outputClaim | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
+| InputClaim | inputClaim | datum | ClaimType som ska konverteras. |
+| OutputClaim | outputClaim | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 Exemplet nedan visar konvertering av anspråket `dateOfBirth` (datum datatyp) till en annan anspråk `dateOfBirthWithTime` (datatypen dateTime).
 
@@ -121,7 +121,7 @@ Hämta den aktuella UTC-datum och tid och lägga till värdet i en ClaimType.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| outputClaim | CURRENTDATETIMEN | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
+| OutputClaim | currentDateTime | Datum/tid | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 ```XML
 <ClaimsTransformation Id="GetSystemDateTime" TransformationMethod="GetCurrentDateTime">
@@ -134,7 +134,7 @@ Hämta den aktuella UTC-datum och tid och lägga till värdet i en ClaimType.
 ### <a name="example"></a>Exempel
 
 * Utgående anspråk:
-    * **CURRENTDATETIMEN**: 1534418820 (augusti 16 2018 11:27:00 AM)
+    * **currentDateTime**: 1534418820 (augusti 16 2018 11:27:00 AM)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
@@ -144,9 +144,9 @@ Avgöra om ett datum/tid är senare, tidigare eller lika med en annan. Resultate
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | firstDateTime | Datum/tid | Den första datum/tid att jämföra oavsett om den tidigare eller senare än andra datum/tid. Null-värde genereras ett undantag. |
 | InputClaim | secondDateTime | Datum/tid | Den andra datum/tid att jämföra oavsett om den tidigare eller senare än första datum/tid. Null-värde behandlas som den aktuella datetTime. |
-| Indataparametrar | Operator | sträng | Något av följande värden: samma, senare än eller tidigare än. |
-| Indataparametrar | timeSpanInSeconds | int | Lägg till timespan i första datum/tid. |
-| outputClaim | Resultatet | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
+| InputParameter | Operator | sträng | Något av följande värden: samma, senare än eller tidigare än. |
+| InputParameter | timeSpanInSeconds | int | Lägg till timespan i första datum/tid. |
+| OutputClaim | Resultatet | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 Använd detta anspråk omvandlingen att fastställa om två ClaimTypes är lika med, senare eller tidigare än andra. Du kan till exempel lagra den senaste gången en användare som godkänt dina villkor av tjänster (TOS). När 3 månader kan du be användaren att få åtkomst till förklaringar igen.
 Om du vill köra anspråksomvandling, måste du först hämta den aktuella datumet/tiden och senaste gången användaren godkänner även förklaringar.

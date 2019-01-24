@@ -1,11 +1,11 @@
 ---
-title: 'Självstudie: Konfigurera Slack för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Slack för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och användares användarkonton till Slack.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.openlocfilehash: ca73a7f76de61f841af55121823ab045a93632ae
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 5702f59a7924a3ca9eefae33dfcae5c3c16274d8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014794"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827218"
 ---
-# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Slack för automatisk användaretablering
+# <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Slack för automatisk användaretablering
 
 
 Syftet med den här självstudien är att visa dig de steg som du behöver utföra i Slack och Azure AD för att automatiskt etablera och användares användarkonton från Azure AD till Slack. 
@@ -36,7 +36,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 *   En Slack-klienten med den [Plus plan](https://aadsyncfabric.slack.com/pricing) eller bättre har aktiverats 
 *   Ett användarkonto i Slack med administratörsbehörighet för Team 
 
-Obs: Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
+Obs! Azure AD etablering integration förlitar sig på den [Slack SCIM API](https://api.slack.com/scim), som är tillgängliga för Slack team på Plus planera eller bättre.
 
 ## <a name="assigning-users-to-slack"></a>Tilldela användare till Slack
 
@@ -57,7 +57,7 @@ Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vi
 
 Det här avsnittet hjälper dig att ansluta din Azure AD till Slacks användarkonto etablering API och konfigurera etableringstjänsten att skapa, uppdatera och inaktivera tilldelade användarkonton i Slack baserat på användar- och grupptilldelningar i Azure AD.
 
-**Tips:** du kan också välja att aktiverat SAML-baserad enkel inloggning för Slack, följa instruktionerna i [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
+**Tips:** Du kan också välja att aktiverat SAML-baserad enkel inloggning för Slack, följa anvisningarna enligt [Azure-portalen](https://portal.azure.com). Enkel inloggning kan konfigureras oberoende av Automatisk etablering, även om de här två funktionerna komplettera varandra.
 
 
 ### <a name="to-configure-automatic-user-account-provisioning-to-slack-in-azure-ad"></a>Konfigurera automatisk etablering av användarkonto till Slack i Azure AD:

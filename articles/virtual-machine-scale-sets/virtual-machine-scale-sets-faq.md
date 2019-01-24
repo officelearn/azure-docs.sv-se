@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/12/2017
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 2a33283d735532d4cc4c11bc3910377f15aaa730
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002696"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812598"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -109,9 +109,9 @@ Ersätt exempelvärden med din resurs Uniform Resource Identifier (URI: er).
 
 Du kan skapa en autoskalningsinställning på en virtuell dator att använda värdnivå mått eller gäst-OS-baserade mått.
 
-En lista över mått som stöds finns i [vanliga mått för automatisk skalning för Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics). 
+En lista över mått som stöds finns i [vanliga mått för automatisk skalning för Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
 
-Ett fullständigt exempel för VM-skalningsuppsättningar finns i [avancerad automatisk skalning med Resource Manager-mallar för VM-skalningsuppsättningar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets). 
+Ett fullständigt exempel för VM-skalningsuppsättningar finns i [avancerad automatisk skalning med Resource Manager-mallar för VM-skalningsuppsättningar](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
 
 Exemplet använder värdnivå CPU måttet och ett antal mått för meddelandet.
 
@@ -140,7 +140,7 @@ Nej. Om regler för automatisk skalning kräver ytterligare VM-instanser som en 
 
 ## <a name="certificates"></a>Certifikat
 
-### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Hur skickar jag ett certifikat till den virtuella datorn på ett säkert sätt? Hur etablerar jag en VM-skalningsuppsättning att köra en webbplats där SSL för webbplatsen levereras på ett säkert sätt från en Certifikatkonfiguration för? (Vanliga rotation certifikatåtgärden skulle vara nästan samma sätt som en uppdateringsåtgärd för konfiguration.) Har du ett exempel på hur du gör detta? 
+### <a name="how-do-i-securely-ship-a-certificate-to-the-vm-how-do-i-provision-a-virtual-machine-scale-set-to-run-a-website-where-the-ssl-for-the-website-is-shipped-securely-from-a-certificate-configuration-the-common-certificate-rotation-operation-would-be-almost-the-same-as-a-configuration-update-operation-do-you-have-an-example-of-how-to-do-this"></a>Hur skickar jag ett certifikat till den virtuella datorn på ett säkert sätt? Hur etablerar jag en VM-skalningsuppsättning att köra en webbplats där SSL för webbplatsen levereras på ett säkert sätt från en Certifikatkonfiguration för? (Vanliga rotation certifikatåtgärden skulle vara nästan samma sätt som en uppdateringsåtgärd för konfiguration.) Har du ett exempel på hur du gör detta?
 
 Du kan installera ett certifikat för kunden direkt i ett Windows-certifikatarkiv från kundens key vault för att leverera ett certifikat till den virtuella datorn på ett säkert sätt.
 
@@ -177,15 +177,14 @@ az sf cluster create -h
 Granska keyvaults dokumentationen för de senaste certifikatåtgärder för API som stöds i Azure.
 
 Självsignerade certifikat kan inte användas för distribuerade förtroende som tillhandahålls av en certifikatutfärdare och ska inte användas för alla Service Fabric-kluster som är avsedda att värden företagslösningar till produktion; för ytterligare hjälp med Service Fabric-säkerhet, granska [Azure Service Fabric säkerhetsmetoder](https://docs.microsoft.com/en-us/azure/security/azure-service-fabric-security-best-practices) och [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
-  
 
-### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange en SSH-nyckelpar ska användas för SSH-autentisering med en Linux VM-skalningsuppsättning från en mall i Resource Manager?  
+### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>Kan jag ange en SSH-nyckelpar ska användas för SSH-autentisering med en Linux VM-skalningsuppsättning från en mall i Resource Manager?
 
-Ja. REST-API för **osProfile** liknar standard VM REST API. 
+Ja. REST-API för **osProfile** liknar standard VM REST API.
 
 Inkludera **osProfile** i mallen:
 
-```json 
+```json
 "osProfile": {
     "computerName": "[variables('vmName')]",
     "adminUsername": "[parameters('adminUserName')]",
@@ -202,24 +201,23 @@ Inkludera **osProfile** i mallen:
     }
 }
 ```
- 
+
 Det här JSON-blocket används i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
- 
+
 OS-profil används också i [grelayhost.json GitHub-snabbstartsmall](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
 
 Mer information finns i [skapa eller uppdatera en VM-skalningsuppsättningen](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
-  
 
-### <a name="how-do-i-remove-deprecated-certificates"></a>Hur tar jag bort föråldrad certifikat? 
+### <a name="how-do-i-remove-deprecated-certificates"></a>Hur tar jag bort föråldrad certifikat?
 
-Ta bort inaktuella certifikat genom att ta bort det gamla certifikatet från valvet certifikat. Lämna de certifikat som du vill behålla på datorn i listan. Certifikatet tas inte bort från dina virtuella datorer. Den också lägger inte till certifikatet till nya virtuella datorer som skapas i virtuella datorns skalningsuppsättning. 
+Ta bort inaktuella certifikat genom att ta bort det gamla certifikatet från valvet certifikat. Lämna de certifikat som du vill behålla på datorn i listan. Certifikatet tas inte bort från dina virtuella datorer. Den också lägger inte till certifikatet till nya virtuella datorer som skapas i virtuella datorns skalningsuppsättning.
 
 Ta bort certifikatet från befintliga virtuella datorer genom att skriva ett anpassat skripttillägg för att manuellt ta bort certifikat från certifikatarkivet.
- 
+
 ### <a name="how-do-i-inject-an-existing-ssh-public-key-into-the-virtual-machine-scale-set-ssh-layer-during-provisioning-i-want-to-store-the-ssh-public-key-values-in-azure-key-vault-and-then-use-them-in-my-resource-manager-template"></a>Hur jag mata in en befintlig offentlig SSH-nyckel i VM scale set SSH lagret under etableringen? Jag vill lagra SSH offentlig nyckelvärdena i Azure Key Vault och använda dem i min Resource Manager-mall.
 
 Om du tillhandahåller de virtuella datorerna endast med en offentlig SSH-nyckel, behöver du inte placera de offentliga nycklarna i Key Vault. Offentliga nycklar är inte hemliga.
- 
+
 Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM:
 
 ```json
@@ -233,7 +231,7 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM
         ]
     }
 ```
- 
+
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
 --- | --- | --- | --- |  ---
 SSH | Nej | Samling | Anger den viktiga SSH-konfigurationen för en Linux-operativsystem
@@ -242,79 +240,78 @@ nyckeldata | Ja | Sträng | Anger en base64-kodad offentlig SSH-nyckel
 
 Ett exempel finns i [101 – vm-sshkey GitHub-snabbstartsmall](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
- 
 ### <a name="when-i-run-update-azurermvmss-after-adding-more-than-one-certificate-from-the-same-key-vault-i-see-the-following-message"></a>När jag kör `Update-AzureRmVmss` när du lägger till fler än ett certifikat från samma nyckelvalvet, visas följande meddelande:
- 
+
 >Update-AzureRmVmss: Lista hemlighet innehåller upprepade instanser av /subscriptions/ < min-prenumerations-id > / resourceGroups/internal-rg-dev/providers/Microsoft.KeyVault/vaults/internal-keyvault-dev, vilket inte är tillåtet.
- 
+
 Detta kan inträffa om du försöker lägga till samma valv istället för att använda ett nytt valv-certifikat för den befintliga källvalv igen. Den `Add-AzureRmVmssSecret` kommandot fungerar inte korrekt om du lägger till ytterligare hemligheter.
- 
+
 Uppdatera listan över $vmss.properties.osProfile.secrets[0].vaultCertificates för att lägga till fler hemligheter från samma nyckelvalvet.
- 
+
 Den förväntade indatastrukturen finns [skapa eller uppdatera en virtuell dator ange](https://msdn.microsoft.com/library/azure/mt589035.aspx).
- 
+
 Hitta hemligheten i VM scale set objektet som är i nyckelvalvet. Lägg sedan till Certifikatreferens (URL: en och det hemliga butiksnamnet) i listan som är associerade med valvet.
 
-> [!NOTE] 
+> [!NOTE]
 > För närvarande kan du ta bort certifikat från virtuella datorer med hjälp av VM scale set-API.
 >
 
 Nya virtuella datorer har inte det gamla certifikatet. Virtuella datorer som har certifikatet och som redan har distribuerats har dock det gamla certifikatet.
- 
+
 ### <a name="can-i-push-certificates-to-the-virtual-machine-scale-set-without-providing-the-password-when-the-certificate-is-in-the-secret-store"></a>Kan jag överföra certifikat till skalningsuppsättning för virtuell dator utan att ange lösenord, när certifikatet i arkivet för hemliga?
 
 Du behöver inte hårdkoda lösenord i skript. Du kan dynamiskt hämta lösenord med de behörigheter som används för att köra skriptet för distribution. Om du har ett skript som flyttar ett certifikat från Arkiv för hemligheter nyckeln valvet, arkivet hemliga `get certificate` kommando visar också lösenordet för PFX-filen.
- 
-### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hur ställer arbete i egenskapen hemligheter för virtualMachineProfile.osProfile för en virtuell datorskalning? Varför behöver jag sourceVault värdet när jag behöver ange absolut URI för ett certifikat med hjälp av egenskapen certificateUrl? 
 
-En referens för Windows Remote Management (WinRM)-certifikat måste finnas i egenskapen hemligheter för OS-profil. 
+### <a name="how-does-the-secrets-property-of-virtualmachineprofileosprofile-for-a-virtual-machine-scale-set-work-why-do-i-need-the-sourcevault-value-when-i-have-to-specify-the-absolute-uri-for-a-certificate-by-using-the-certificateurl-property"></a>Hur ställer arbete i egenskapen hemligheter för virtualMachineProfile.osProfile för en virtuell datorskalning? Varför behöver jag sourceVault värdet när jag behöver ange absolut URI för ett certifikat med hjälp av egenskapen certificateUrl?
+
+En referens för Windows Remote Management (WinRM)-certifikat måste finnas i egenskapen hemligheter för OS-profil.
 
 Syftet med som anger källvalv är att genomdriva åtkomstkontrollistan (ACL) principer för åtkomstkontroll som finns i en användares Azure Cloud Service-modellen. Om käll-valvet har inte angetts skulle användare som inte har behörighet att distribuera eller få åtkomst till hemligheter till ett nyckelvalv kunna via en Compute Resource Provider (CRP). ACL: er finns även för resurser som inte finns.
 
 Om du anger en felaktig källa valv-ID men en giltig key vault-Webbadress rapporteras ett fel när du söka igen.
- 
-### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Om jag lägger till hemligheter till en befintlig VM-skalningsuppsättning ange, finns hemligheter som matas in i befintliga virtuella datorer eller endast i nya? 
+
+### <a name="if-i-add-secrets-to-an-existing-virtual-machine-scale-set-are-the-secrets-injected-into-existing-vms-or-only-into-new-ones"></a>Om jag lägger till hemligheter till en befintlig VM-skalningsuppsättning ange, finns hemligheter som matas in i befintliga virtuella datorer eller endast i nya?
 
 Certifikat läggs till i alla dina virtuella datorer, även före befintliga. Om din VM-skalningsuppsättningen upgradePolicy egenskapen är inställd på **manuell**, certifikatet har lagts till den virtuella datorn när du utför en manuell uppdatering på den virtuella datorn.
- 
+
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>Var placera certifikat för Linux-datorer?
 
 Om du vill lära dig mer om att distribuera certifikat för Linux-datorer, se [distribuera certifikat till virtuella datorer från en key vault för Kundhanterade](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/).
-  
+
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>Hur lägger jag till ett nytt valv-certifikat till ett nytt certifikatobjekt?
 
 Se följande PowerShell-exempel för att lägga till ett vault-certifikat till en befintlig hemlighet. Använd bara en hemlig objekt.
- 
+
 ```powershell
 $newVaultCertificate = New-AzureRmVmssVaultCertificateConfig -CertificateStore MY -CertificateUrl https://sansunallapps1.vault.azure.net:443/secrets/dg-private-enc/55fa0332edc44a84ad655298905f1809
- 
+
 $vmss.VirtualMachineProfile.OsProfile.Secrets[0].VaultCertificates.Add($newVaultCertificate)
- 
+
 Update-AzureRmVmss -VirtualMachineScaleSet $vmss -ResourceGroup $rg -Name $vmssName
 ```
- 
+
 ### <a name="what-happens-to-certificates-if-you-reimage-a-vm"></a>Vad händer med certifikat om du återavbilda en virtuell dator?
 
-Om du återavbilda en virtuell dator, raderas certifikat. Avbildningen borttagningar hela OS-disk. 
- 
+Om du återavbilda en virtuell dator, raderas certifikat. Avbildningen borttagningar hela OS-disk.
+
 ### <a name="what-happens-if-you-delete-a-certificate-from-the-key-vault"></a>Vad händer om du tar bort ett certifikat från key vault?
 
-Om hemligheten har tagits bort från nyckelvalvet och sedan kör `stop deallocate` för dina virtuella datorer och starta sedan om dem., om det uppstår ett fel. Felet inträffar eftersom CRP: N behöver hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från VM-skalningsuppsättningen. 
+Om hemligheten har tagits bort från nyckelvalvet och sedan kör `stop deallocate` för dina virtuella datorer och starta sedan om dem., om det uppstår ett fel. Felet inträffar eftersom CRP: N behöver hämta hemligheterna från nyckelvalvet, men den inte kan. I det här scenariot kan du ta bort certifikat från VM-skalningsuppsättningen.
 
 Komponenten CRP sparas inte kunden hemligheter. Om du kör `stop deallocate` för alla virtuella datorer i virtuella datorns skalningsuppsättning cachen tas bort. I det här scenariot hämtas hemligheter från nyckelvalvet.
 
 Det uppstår inte problemet vid utskalning eftersom det inte finns en cachelagrad kopia av hemlighet i Azure Service Fabric (i modellen single-fabric-klient).
- 
+
 ### <a name="why-do-i-have-to-specify-the-exact-location-for-the-certificate-url-httpsname-of-the-vaultvaultazurenet443secretsexact-location-as-indicated-in-service-fabric-cluster-security-scenarioshttpsazuremicrosoftcomdocumentationarticlesservice-fabric-cluster-security"></a>Varför måste jag ange den exakta platsen för certifikatets Webbadress (https://<name of the vault>.vault.azure.net:443/secrets/<exact location>), som anges i [säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
- 
+
 I Azure Key Vault-dokumentationen om att hämta hemligheten REST API ska returnera den senaste versionen av hemligheten om versionen inte har angetts.
- 
+
 Metod | URL
 --- | ---
 HÄMTA | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
 
 Ersätt {*hemligt namn*} med namnet och Ersätt {*hemlighet version*} med versionen av hemligheten som du vill hämta. Den hemliga versionen kan inte uteslutas. I så fall hämtas den aktuella versionen.
-  
+
 ### <a name="why-do-i-have-to-specify-the-certificate-version-when-i-use-key-vault"></a>Varför måste jag ange versionen certifikat när jag använder Key Vault?
 
 Syftet med Key Vault-krav för att ange den certifikat-versionen är att göra det för användarna vilka certifikat som har distribuerats på sina virtuella datorer.
@@ -323,7 +320,7 @@ Om du skapar en virtuell dator och uppdatera din hemlighet i nyckelvalvet, och d
 
 ### <a name="my-team-works-with-several-certificates-that-are-distributed-to-us-as-cer-public-keys-what-is-the-recommended-approach-for-deploying-these-certificates-to-a-virtual-machine-scale-set"></a>Mitt team fungerar med flera certifikat som har distribuerats till oss som .cer offentliga nycklar. Vad är den rekommenderade metoden för att distribuera dessa certifikat till en virtuell datorskalning inställd?
 
-För att distribuera .cer offentliga nycklar till en virtuell datorskalning ange kan du skapa en .pfx-fil som innehåller endast CER-filer. Gör detta genom att använda `X509ContentType = Pfx`. Till exempel läsa in .cer-filen som x509Certificate2 objekt i C# eller PowerShell och sedan anropa metoden. 
+För att distribuera .cer offentliga nycklar till en virtuell datorskalning ange kan du skapa en .pfx-fil som innehåller endast CER-filer. Gör detta genom att använda `X509ContentType = Pfx`. Till exempel läsa in .cer-filen som x509Certificate2 objekt i C# eller PowerShell och sedan anropa metoden.
 
 Mer information finns i [X509Certificate.Export-metoden (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
@@ -331,16 +328,16 @@ Mer information finns i [X509Certificate.Export-metoden (X509ContentType, String
 
 Du kan extrahera den senaste version URL i en Resource Manager-mall för att emulera skicka i ett certifikat som en base64-sträng. Ta med följande JSON-egenskapen i Resource Manager-mallen:
 
-```json 
+```json
 "certificateUrl": "[reference(resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults/secrets', parameters('vaultName'), parameters('secretName')), '2015-06-01').secretUriWithVersion]"
 ```
- 
+
 ### <a name="do-i-have-to-wrap-certificates-in-json-objects-in-key-vaults"></a>Måste jag omsluta certifikat i JSON-objekt i nyckelvalv?
 
-Certifikat måste inneslutas i JSON-objekt i skalningsuppsättningar för virtuella datorer och virtuella datorer. 
+Certifikat måste inneslutas i JSON-objekt i skalningsuppsättningar för virtuella datorer och virtuella datorer.
 
-Vi har också stöd för innehållstypen application/x-pkcs12. 
- 
+Vi har också stöd för innehållstypen application/x-pkcs12.
+
 För närvarande stöder vi inte CER-filer. Om du vill använda CER-filer, exportera dem till .pfx-behållare.
 
 
@@ -367,31 +364,30 @@ Ja. Du kan se några exempel MSI-mallar i Azure Quickstart-mallar. Linux: [ http
 Använd följande PowerShell-exempel för att ta bort tillägg för virtuell dator scale set:
 
 ```powershell
-$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" 
+$vmss = Get-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName"
 
 $vmss=Remove-AzureRmVmssExtension -VirtualMachineScaleSet $vmss -Name "extensionName"
 
 Update-AzureRmVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName" -VirtualMacineScaleSet $vmss
 ```
- 
+
 Du kan hitta Tilläggsnamn värdet i `$vmss`.
-   
+
 ### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>Finns det en VM-skalningsuppsättningen exempelmall som kan integreras med Log Analytics?
 
 En VM-skalningsuppsättningen exempelmall som kan integreras med Log Analytics, finns i det andra exemplet i [distribuera ett Azure Service Fabric-kluster och aktivera övervakning genom att använda Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
-   
+
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Tillägg verkar köras parallellt på VM-skalningsuppsättningar. Detta leder till min anpassade skripttillägg misslyckas. Vad kan jag göra för att åtgärda detta?
 
 Mer information om ordningsföljd för skalningsuppsättningar för virtuella datorer, se [tillägg finns i Azure VM-skalningsuppsättningar](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
- 
- 
+
 ### <a name="how-do-i-reset-the-password-for-vms-in-my-virtual-machine-scale-set"></a>Hur jag återställer lösenordet för virtuella datorer i min skalningsuppsättning för virtuella datorer?
 
 Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer i skalningsuppsättningar.
 
 - Ändra VM-skalningsuppsättningen direkt. Tillgänglig med Compute-API: et 2017-12-01 och senare.
 
-    Uppdatera administratörsautentiseringsuppgifter direkt i skalningsuppsättningen (till exempel med Azure Resource Explorer, PowerShell eller CLI). När skalningsuppsättningen är uppdaterade, alla nya har virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har endast nya autentiseringsuppgifter om de avbildning återställs. 
+    Uppdatera administratörsautentiseringsuppgifter direkt i skalningsuppsättningen (till exempel med Azure Resource Explorer, PowerShell eller CLI). När skalningsuppsättningen är uppdaterade, alla nya har virtuella datorer de nya autentiseringsuppgifterna. Befintliga virtuella datorer har endast nya autentiseringsuppgifter om de avbildning återställs.
 
 - Återställa lösenordet med hjälp av VM access-tillägg.
 
@@ -402,7 +398,7 @@ Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer 
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-     
+    
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -410,23 +406,21 @@ Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer 
     Update-AzureRmVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
     ```
 
-
 ### <a name="how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set"></a>Hur lägger jag till ett tillägg för alla virtuella datorer i min skalningsuppsättning för virtuella datorer?
 
 Om uppdateringsprincip har angetts till **automatisk**, omdistribuera mallen med de nya tilläggsegenskaper uppdaterar alla virtuella datorer.
 
 Om uppdateringsprincip har angetts till **manuell**först uppdatera tillägget och sedan manuellt uppdatera alla instanser i dina virtuella datorer.
 
-  
 ### <a name="if-the-extensions-associated-with-an-existing-virtual-machine-scale-set-are-updated-are-existing-vms-affected-that-is-will-the-vms-not-match-the-virtual-machine-scale-set-model-or-are-they-ignored-when-an-existing-machine-is-service-healed-or-reimaged-are-the-scripts-that-are-currently-configured-on-the-virtual-machine-scale-set-executed-or-are-the-scripts-that-were-configured-when-the-vm-was-first-created-used"></a>Om de tillägg som är associerade med en befintlig skalningsuppsättning för virtuell dator har uppdaterats, är de befintliga virtuella datorer som påverkas? (Det vill säga att de virtuella datorerna *inte* matchar VM-skalningsuppsättningen?) Eller ignoreras de? När en befintlig dator är tjänst-lagats eller avbildning, är de skript som är konfigurerade på virtuella datorns skalningsuppsättning som körs eller är de skript som konfigurerades när den virtuella datorn skapades används?
 
-Om tillägget definitionen i VM-skalningsuppsättningar uppdateras och upgradePolicy-egenskapen är inställd **automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy anges till **manuell**, tillägg har flaggats som inte matchar modellen. 
+Om tillägget definitionen i VM-skalningsuppsättningar uppdateras och upgradePolicy-egenskapen är inställd **automatisk**, uppdateras de virtuella datorerna. Om egenskapen upgradePolicy anges till **manuell**, tillägg har flaggats som inte matchar modellen.
 
 Om en befintlig virtuell dator är tjänsten har lagats, visas den som en omstart och tilläggen är inte igen. Om den återställs, är det t.ex. att ersätta operativsystemenheten med Källavbildningen. Alla specialisering från den senaste modellen, till exempel tillägg, körs.
- 
+
 ### <a name="how-do-i-join-a-virtual-machine-scale-set-to-an-active-directory-domain"></a>Hur jag för att koppla en VM-skalningsuppsättning i en Active Directory-domän?
 
-Du kan definiera ett tillägg för att ansluta till en VM-skalningsuppsättning i en Active Directory (AD)-domän. 
+Du kan definiera ett tillägg för att ansluta till en VM-skalningsuppsättning i en Active Directory (AD)-domän.
 
 Använd egenskapen JsonADDomainExtension för att definiera ett tillägg:
 
@@ -454,11 +448,11 @@ Använd egenskapen JsonADDomainExtension för att definiera ett tillägg:
     ]
 }
 ```
- 
+
 ### <a name="my-virtual-machine-scale-set-extension-is-trying-to-install-something-that-requires-a-reboot-for-example-commandtoexecute-powershellexe--executionpolicy-unrestricted-install-windowsfeature-name-fs-resource-manager-includemanagementtools"></a>Mina tillägg för skalningsuppsättning för virtuell dator försöker installera något som kräver en omstart. Till exempel ”commandToExecute” ”: powershell.exe - ExecutionPolicy obegränsad Install-WindowsFeature – namn FS-Resource-Manager – IncludeManagementTools”
 
-Om dina tillägg för skalningsuppsättning för virtuell dator försöker installera något som kräver en omstart, kan du använda tillägget Azure Automation Desired State Configuration (Automation DSC). Om operativsystemet är Windows Server 2012 R2, Azure hämtar i installationsprogrammet för Windows Management Framework (WMF) 5.0, omstarter, och sedan vidare med konfigurationen. 
- 
+Om dina tillägg för skalningsuppsättning för virtuell dator försöker installera något som kräver en omstart, kan du använda tillägget Azure Automation Desired State Configuration (Automation DSC). Om operativsystemet är Windows Server 2012 R2, Azure hämtar i installationsprogrammet för Windows Management Framework (WMF) 5.0, omstarter, och sedan vidare med konfigurationen.
+
 ### <a name="how-do-i-turn-on-antimalware-in-my-virtual-machine-scale-set"></a>Hur aktiverar jag program mot skadlig kod i min skalningsuppsättning för virtuella datorer?
 
 Om du vill aktivera program mot skadlig kod på din VM-skalningsuppsättning, använder du följande PowerShell-exempel:
@@ -467,24 +461,23 @@ Om du vill aktivera program mot skadlig kod på din VM-skalningsuppsättning, an
 $rgname = 'autolap'
 $vmssname = 'autolapbr'
 $location = 'eastus'
- 
+
 # Retrieve the most recent version number of the extension.
 $allVersions= (Get-AzureRmVMExtensionImage -Location $location -PublisherName "Microsoft.Azure.Security" -Type "IaaSAntimalware").Version
 $versionString = $allVersions[($allVersions.count)-1].Split(".")[0] + "." + $allVersions[($allVersions.count)-1].Split(".")[1]
- 
+
 $VMSS = Get-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname
 echo $VMSS
 Add-AzureRmVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publisher "Microsoft.Azure.Security" -Type "IaaSAntimalware" -TypeHandlerVersion $versionString
-Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS 
+Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
 ### <a name="i-need-to-execute-a-custom-script-thats-hosted-in-a-private-storage-account-the-script-runs-successfully-when-the-storage-is-public-but-when-i-try-to-use-a-shared-access-signature-sas-it-fails-this-message-is-displayed-missing-mandatory-parameters-for-valid-shared-access-signature-linksas-works-fine-from-my-local-browser"></a>Jag vill köra ett anpassat skript som finns i ett privat storage-konto. Skriptet körts har när lagringen är offentlig, men när jag försöker använda en signatur för delad åtkomst (SAS), misslyckas. Det här meddelandet visas: ”Obligatoriska parametrar saknas för giltig signatur för delad åtkomst”. Länken + SAS fungerar bra från min lokala webbläsare.
 
 Ställa in skyddade inställningarna med storage-kontonyckel och namn för att köra ett anpassat skript som finns i ett privat storage-konto. Mer information finns i [anpassade skript-tillägget för Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
-
 ## <a name="networking"></a>Nätverk
- 
+
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-applies-to-all-the-vm-nics-in-the-set"></a>Är det möjligt att tilldela en Nätverkssäkerhetsgrupp (NSG) till en skalningsuppsättning, så att den gäller för alla Virtuella nätverkskort i uppsättningen?
 
 Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättning som refererar till den i networkInterfaceConfigurations-avsnitt av nätverksprofilen. Exempel:
@@ -502,8 +495,8 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
                         "properties": {
                             "subnet": {
                                 "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnetName'), '/subnets/subnet1')]"
-                            }
-                "loadBalancerInboundNatPools": [
+                            },
+                            "loadBalancerInboundNatPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/inboundNatPools/natPool1')]"
                                 }
@@ -511,7 +504,7 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
                             "loadBalancerBackendAddressPools": [
                                 {
                                     "id": "[concat('/subscriptions/', subscription().subscriptionId,'/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/loadBalancers/', variables('lbName'), '/backendAddressPools/addressPool1')]"
-                                 }
+                                }
                             ]
                         }
                     }
@@ -528,16 +521,16 @@ Ja. En Nätverkssäkerhetsgrupp kan tillämpas direkt på en skalningsuppsättni
 ### <a name="how-do-i-do-a-vip-swap-for-virtual-machine-scale-sets-in-the-same-subscription-and-same-region"></a>Hur gör jag en VIP-växling för skalningsuppsättningar för virtuella datorer i samma prenumeration och samma region?
 
 Om du har två VM-skalningsuppsättningar med Azure Load Balancer klientdelar och de finns i samma prenumeration och region, kan du frigöra var och en offentlig IP-adresserna och tilldela till en annan. Se [VIP-växling: Blå-grön distribution i Azure Resource Manager](https://msftstack.wordpress.com/2017/02/24/vip-swap-blue-green-deployment-in-azure-resource-manager/) till exempel. Detta innebär en fördröjning nivå om resurserna som är frigjord/allokeras på nätverket. En snabbare alternativ är att använda Azure Application Gateway med två serverdelspooler och en regel för vidarebefordran. Du kan också hantera ditt program med [Azure App service](https://azure.microsoft.com/services/app-service/) som ger stöd för att snabbt växla mellan mellanlagring och produktion.
- 
+
 ### <a name="how-do-i-specify-a-range-of-private-ip-addresses-to-use-for-static-private-ip-address-allocation"></a>Hur jag för att ange ett intervall med privata IP-adresser som ska användas för statiska privata IP-adressallokering?
 
-IP-adresser har markerats från ett undernät som du anger. 
+IP-adresser har markerats från ett undernät som du anger.
 
-Allokeringsmetoden för IP-adresser för VM scale set är alltid ”dynamiska”, men det betyder inte att du kan ändra dessa IP-adresser. I det här fallet innebär ”dynamiska” endast att du inte anger IP-adressen i en PUT-begäran. Ange den statiska ange med undernätet. 
-    
-### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Hur distribuerar jag en VM-skalningsuppsättning till ett befintligt Azure virtuellt nätverk? 
+Allokeringsmetoden för IP-adresser för VM scale set är alltid ”dynamiska”, men det betyder inte att du kan ändra dessa IP-adresser. I det här fallet innebär ”dynamiska” endast att du inte anger IP-adressen i en PUT-begäran. Ange den statiska ange med undernätet.
 
-Om du vill distribuera en VM-skalningsuppsättning till en befintlig Azure-nätverk, [distribuera en VM-skalningsuppsättningen till ett befintligt virtuellt nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet). 
+### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Hur distribuerar jag en VM-skalningsuppsättning till ett befintligt Azure virtuellt nätverk?
+
+Om du vill distribuera en VM-skalningsuppsättning till en befintlig Azure-nätverk, [distribuera en VM-skalningsuppsättningen till ett befintligt virtuellt nätverk](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Hur gör jag för att lägga till IP-adressen för den första virtuella datorn i en VM-skalningsuppsättning till utdata från en mall?
 
@@ -549,18 +542,15 @@ Ja. Om du vill använda accelererat nätverk, ange enableAcceleratedNetworking t
 ```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
-    {
-        "name": "niconfig1",
-        "properties": {
-        "primary": true,
-        "enableAcceleratedNetworking" : true,
-        "ipConfigurations": [
+        {
+            "name": "niconfig1",
+            "properties": {
+                "primary": true,
+                "enableAcceleratedNetworking" : true,
+                "ipConfigurations": [
                 ]
             }
-            }
-        ]
         }
-    }
     ]
 }
 ```
@@ -618,7 +608,7 @@ Har du viss flexibilitet i hur du hanterar aviseringar för angivna tröskelvär
     ],
     "properties": {
         "name": "autoscale",
-        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/',  resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
+        "targetResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
         "enabled": true,
         "notifications": [
             {
@@ -644,8 +634,6 @@ Har du viss flexibilitet i hur du hanterar aviseringar för angivna tröskelvär
 ```
 
 I det här exemplet går en avisering till Pagerduty.com när ett tröskelvärde har uppnåtts.
-
-
 
 ## <a name="patching-and-operations"></a>Uppdatering och drift
 
@@ -693,14 +681,13 @@ Skapa först ett lagringskonto om du vill aktivera startdiagnostik. Placera seda
 ```
 
 När en ny virtuell dator skapas, visar InstanceView-egenskapen för den virtuella datorn information för skärmbild och så vidare. Här är ett exempel:
- 
+
 ```json
 "bootDiagnostics": {
     "consoleScreenshotBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.screenshot.bmp",
     "serialConsoleLogBlobUri": "https://o0sz3nhtbmkg6geswarm5.blob.core.windows.net/bootdiagnostics-swarmagen-4157d838-8335-4f78-bf0e-b616a99bc8bd/swarm-agent-9574AE92vmss-0_2.4157d838-8335-4f78-bf0e-b616a99bc8bd.serialconsole.log"
-  }
+}
 ```
-
 
 ## <a name="virtual-machine-properties"></a>Egenskaper för virtuell dator
 
@@ -716,7 +703,7 @@ Nej, du kan inte skicka annat tillägg argument till olika virtuella datorer i e
 
 ### <a name="why-are-there-gaps-between-my-virtual-machine-scale-set-vm-machine-names-and-vm-ids-for-example-0-1-3"></a>Varför finns det glapp mellan Mina VM scale set VM datornamn och VM-ID: N? Exempel: 0, 1, 3...
 
-Det finns glapp mellan dina VM scale set VM datornamn och VM-ID: N eftersom din VM-skalningsuppsättningen **overprovision** egenskapen är inställd på standardvärdet **SANT**. Om överetablering anges till **SANT**, fler virtuella datorer än vad som begärts skapas. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler. 
+Det finns glapp mellan dina VM scale set VM datornamn och VM-ID: N eftersom din VM-skalningsuppsättningen **overprovision** egenskapen är inställd på standardvärdet **SANT**. Om överetablering anges till **SANT**, fler virtuella datorer än vad som begärts skapas. Extra virtuella datorerna tas sedan bort. I detta fall använder du få ökad distributionstillförlitlighet, men på bekostnad av sammanhängande namngivning och sammanhängande Network adress Translation (NAT) regler.
 
 Du kan ange egenskapen **FALSKT**. För små VM scale sets påverkar detta avsevärt inte distributionstillförlitlighet.
 
@@ -728,4 +715,3 @@ Den största skillnaden mellan tar bort en virtuell dator i en skalningsuppsätt
 - Du vill starta en uppsättning virtuella datorer snabbare än du kan skala ut en skalningsuppsättning för virtuell dator.
   - Relaterat till det här scenariot, kan du ha skapat en egen motor för automatisk skalning och vill en snabbare slutpunkt till slutpunkt-skala.
 - Du har en skalningsuppsättning för virtuella datorer som är ojämnt fördelade mellan feldomäner och uppdateringsdomäner. Det kan vara eftersom du selektivt ta bort virtuella datorer eller virtuella datorer har tagits bort efter överetablering. Kör `stop deallocate` följt av `start` på den virtuella datorn skaluppsättningen jämnt distribuerar de virtuella datorerna mellan feldomäner och uppdateringsdomäner.
-

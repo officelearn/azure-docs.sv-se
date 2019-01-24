@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Skilljar | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Skilljar | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Skilljar.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c572f556-98a3-48e6-8e4c-e634b7a2ba70
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: a997de5530bf8ed475031147369b591b2d44d227
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 76490f5c4470da95f85bddbde1a2abb70f15d126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850341"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817061"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Självstudier: Azure Active Directory-integration med Skilljar
+# <a name="tutorial-azure-active-directory-integration-with-skilljar"></a>Självstudier: Azure Active Directory-integrering med Skilljar
 
 I den här självstudien får du lära dig hur du integrerar Skilljar med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Skilljar, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Skilljar i Azure AD, som du behöver lägga 
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Skilljar**.
 
@@ -112,29 +112,29 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/skilljar-tutorial/tutorial_skilljar_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.skilljar.com/`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>.skilljar.com/`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.skilljar.com/`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<companyname>.skilljar.com/`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Skilljar klienten supportteamet](https://support.skilljar.com/hc/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Skilljar klienten supportteamet](https://support.skilljar.com/hc/) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/skilljar-tutorial/tutorial_skilljar_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/skilljar-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **Skilljar** sida, som du behöver skicka de hämtade **XML-Metadata för**, och **namn Format identifierarvärde - urn: oasis: namn: tc: SAML:1.1:nameid-format: e-postadress** till [Skilljar supportteamet](https://support.skilljar.com/hc/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Skilljar** sida, som du behöver skicka de hämtade **XML-Metadata för**, och **namn Format identifierarvärde - urn: oasis: namn: tc: SAML:1.1:nameid-format: e-postadress** till [Skilljar supportteamet](https://support.skilljar.com/hc/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Skilljar. Skilljar stöder just-in-time-etablering, vilket är som standard aktiverat.
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Skilljar om det inte finns ännu. 
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Skilljar om det inte finns ännu. 
 
 >[!NOTE]
 >Om du vill skapa en användare manuellt kan du behöva kontakta den [Skilljar supportteamet](https://support.skilljar.com/hc/). 

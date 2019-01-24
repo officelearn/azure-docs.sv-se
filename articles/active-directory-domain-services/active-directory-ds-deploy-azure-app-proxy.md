@@ -4,7 +4,7 @@ description: Använda Azure AD Application Proxy på Azure Active Directory Doma
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 4621122d805f37be1578aa7b7c9ae059f3141c77
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fc428ddc5c9a99e04f932dec620d99a23f366d28
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840307"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845443"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuera Azure AD Application Proxy på en Azure AD Domain Services-hanterad domän
 Azure Active Directory (AD) Application Proxy kan du stödja fjärranvändare genom att publicera lokala program som kan nås via internet. Med Azure AD Domain Services kan du nu – flytta äldre program som körs lokalt till Azure Infrastructure Services. Du kan sedan publicera dessa program med hjälp av Azure AD Application Proxy för att tillhandahålla säker fjärråtkomst till användare i din organisation.
 
-Om du inte har använt Azure AD-programproxyn kan läsa mer om den här funktionen med följande artikel: [att tillhandahålla säker fjärråtkomst till lokala program](../active-directory/manage-apps/application-proxy.md).
+Om du är nybörjare på Azure AD-programproxyn, lär du dig mer om den här funktionen med följande artikel: [Att tillhandahålla säker fjärråtkomst till lokala program](../active-directory/manage-apps/application-proxy.md).
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -42,7 +42,7 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 ## <a name="task-1---enable-azure-ad-application-proxy-for-your-azure-ad-directory"></a>Uppgift 1 – Aktivera Azure AD Application Proxy för din Azure AD-katalog
 Utför följande steg om du vill aktivera Azure AD-programproxyn för Azure AD-katalogen.
 
-1. Logga in som administratör i den [Azure-portalen](https://portal.azure.com).
+1. Logga in som administratör i [Azure-portalen](https://portal.azure.com).
 
 2. Klicka på **Azure Active Directory** att ta fram översikt över directory. Klicka på **företagsprogram**.
 
@@ -96,9 +96,9 @@ Tidigare etablerat en virtuell dator i Windows Server och anslutit till den hant
 ## <a name="next-steps"></a>Nästa steg
 Du har konfigurerat Azure AD Application Proxy och integrerad med din hanterade domän i Azure AD Domain Services.
 
-* **Migrera dina program till Azure virtual machines:** kan du – flytta dina program från lokala servrar till Azure-datorer som är anslutna till din hanterade domän. Detta hjälper dig att ta bort infrastrukturkostnader som körs lokalt.
+* **Migrera dina program till Azure-datorer:** Du kan – flytta dina program från lokala servrar till Azure-datorer som är anslutna till din hanterade domän. Detta hjälper dig att ta bort infrastrukturkostnader som körs lokalt.
 
-* **Publicera program med Azure AD Application Proxy:** publicera program som körs på virtuella datorer i Azure med hjälp av Azure AD-programproxyn. Mer information finns i [publicera program med Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
+* **Publicera program med Azure AD Application Proxy:** Publicera program som körs på virtuella datorer i Azure med hjälp av Azure AD-programproxyn. Mer information finns i [publicera program med Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md)
 
 
 ## <a name="deployment-note---publish-iwa-integrated-windows-authentication-applications-using-azure-ad-application-proxy"></a>Obs distribution – publicera IWA (integrerad Windows-autentisering)-program med hjälp av Azure AD Application Proxy

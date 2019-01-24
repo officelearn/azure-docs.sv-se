@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: juliako
-ms.openlocfilehash: 618316b6b5979c65bc8906ea7d07c4f4fdf0930d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1477242e10918a9836ceea15d418fb462e193b1b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124618"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811748"
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementera redundans strömning med Azure Media Services
 
@@ -56,13 +56,13 @@ Följande gäller:
 * .NET framework 4.5 eller .NET Framework 4.
 * Visual Studio 2010 SP1 eller senare version (Professional, Premium, Ultimate eller Express).
 
-## <a name="set-up-your-project"></a>Konfigurera ditt projekt
+## <a name="set-up-your-project"></a>Konfigurera projektet
 I det här avsnittet, skapa och konfigurera ett konsolprogram i C#-projekt.
 
 1. Skapa en ny lösning som innehåller projektet C#-konsolprogram med Visual Studio. Ange **HandleRedundancyForOnDemandStreaming** namn och klicka sedan på **OK**.
 2. Skapa den **SupportFiles** mapp på samma nivå som den **HandleRedundancyForOnDemandStreaming.csproj** projektfilen. Under den **SupportFiles** mapp, skapa den **OutputFiles** och **MP4Files** mappar. Kopiera en MP4-fil i den **MP4Files** mapp. (I det här exemplet på **BigBuckBunny.mp4** filen används.) 
 3. Använd **Nuget** att lägga till referenser till DLL-filer som är relaterade till Media Services. I **Visual Studio-huvudmenyn**väljer **verktyg** > **Library Package Manager** > **Pakethanterarkonsolen**. I konsolfönstret skriver **Install-Package windowsazure.mediaservices**, och tryck på RETUR.
-4. Lägg till andra referenser som krävs för det här projektet: System.Configuration och avsnittsgruppen System.Web.
+4. Lägg till andra referenser som krävs för det här projektet: System.Configuration avsnittsgruppen och System.Web.
 5. Ersätt **med** instruktioner som har lagts till i den **Programs.cs** fil som standard med följande:
    
         using System;
@@ -178,7 +178,7 @@ I det här avsnittet skapar du kan hantera redundans.
                 CreateFileInfosForAssetWithRest(_contextTarget, targetAsset, MediaServicesAccountNameTarget, MediaServicesAccountKeyTarget);
         
                 // Check if the AssetFiles are now  associated with the asset.
-                Console.WriteLine("Asset files assocated with the {0} asset:", targetAsset.Name);
+                Console.WriteLine("Asset files associated with the {0} asset:", targetAsset.Name);
                 foreach (var af in targetAsset.AssetFiles)
                 {
                     Console.WriteLine(af.Name);

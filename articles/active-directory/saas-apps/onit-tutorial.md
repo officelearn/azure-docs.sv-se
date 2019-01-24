@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Onit | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Onit | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Onit.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: bc479a28-8fcd-493f-ac53-681975a5149c
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2017
 ms.author: jeedes
-ms.openlocfilehash: a93acc79fc447018b5cf63b2e2456bc394c1f78e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80ae8d6a1e27d13bc6750779f2e38649c49e2498
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425977"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814757"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-onit"></a>Självstudier: Azure Active Directory-integration med Onit
+# <a name="tutorial-azure-active-directory-integration-with-onit"></a>Självstudier: Azure Active Directory-integrering med Onit
 
 I den här självstudien får du lära dig hur du integrerar Onit med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Onit med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Onit.
 - Du kan aktivera användarna att automatiskt få loggat in på Onit (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Onit, behöver du följande obje
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -61,7 +61,7 @@ För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till
 
 **Utför följande steg för att lägga till Onit från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -69,7 +69,7 @@ För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -77,7 +77,7 @@ För att konfigurera integrering av Onit i Azure AD, som du behöver lägga till
 
     ![Onit i resultatlistan](./media/onit-tutorial/tutorial_onit_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Onit baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -87,13 +87,13 @@ I Onit, tilldela värdet för den **användarnamn** i Azure AD som värde för d
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Onit, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Onit](#create-an-onit-test-user)**  – du har en motsvarighet för Britta Simon i Onit som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Onit program.
 
@@ -101,7 +101,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Onit** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -111,18 +111,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Onit domän och URL: er med enkel inloggning för information](./media/onit-tutorial/tutorial_onit_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<sub-domain>.onit.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<sub-domain>.onit.com`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<sub-domain>.onit.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<sub-domain>.onit.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Onit klienten supportteamet](https://www.onit.com/support) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Onit klienten supportteamet](https://www.onit.com/support) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
 
-    ![Länk för hämtning av certifikat](./media/onit-tutorial/tutorial_onit_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/onit-tutorial/tutorial_onit_certificate.png) 
 
-1. Onit program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”Atrribute”** fliken av programmet. Följande skärmbild visar ett exempel för detta. 
+1. Onit program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”Atrribute”** fliken av programmet. Följande skärmbild visar ett exempel på detta. 
 
     ![Konfigurera enkel inloggning](./media/onit-tutorial/tutorial_onit_attribute.png) 
 
@@ -130,7 +130,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |
-    | e-post | User.Mail |
+    | e-post | user.mail |
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -138,17 +138,17 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/onit-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     c. Från den **värdet** anger attributvärdet som visas för den raden.
 
-    d. Lämna den **Namespace** tom.
+    d. Lämna **Namnrymd** tom.
     
     e. Klicka på **OK**.
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/onit-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/onit-tutorial/tutorial_general_400.png)
 
 1. På den **Onit Configuration** klickar du på **konfigurera Onit** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning, enkel inloggning för tjänsten URL för SAML** från den **Snabbreferens avsnittet.**
 
@@ -169,7 +169,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. På den **Security** fliken, utför följande steg:
 
-    ![Enkel inloggning](./media/onit-tutorial/IC791177.png "enkel inloggning")
+    ![Enkel inloggning](./media/onit-tutorial/IC791177.png "Enkel inloggning")
 
     a. Som **autentiseringsstrategi**väljer **enkel inloggning och lösenord**.
     
@@ -180,7 +180,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. I **Idp Cert fingeravtryck (SHA1)** textrutan klistra in den **tumavtryck** värdet för certifikat som du har kopierat från Azure-portalen.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
@@ -221,15 +221,15 @@ För att aktivera Azure AD-användare att logga in på Onit, måste de etableras
 
 När det gäller Onit är etablering en manuell aktivitet.
 
-**Utför följande steg för att konfigurera användaretablering:**
+**Utför följande steg för att konfigurera användarförsörjning:**
 
 1. Logga in på din **Onit** företagets plats som administratör.
-1. Klicka på **lägga till användare**.
+1. Klicka på **Lägg till användare**.
    
    ![Administration](./media/onit-tutorial/IC791180.png "Administration")
 1. På den **Lägg till användare** dialogrutan utför följande steg:
    
-   ![Lägg till användare](./media/onit-tutorial/IC791181.png "lägga till användare")
+   ![Lägg till användare](./media/onit-tutorial/IC791181.png "Lägg till användare")
    
   1. Typen i **namn** och **e-postadress** av en giltig Azure AD-konto som du vill etablera till relaterade textrutor.
   1. Klicka på **Skapa**.    

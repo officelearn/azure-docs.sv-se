@@ -3,19 +3,19 @@ title: Anpassa Användargränssnittet för en användarresa med anpassade princi
 description: Läs mer om Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8c3684f93bbf5b9fe9f5ea9167396b9822e70c48
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 1953e23c0676a0c81576a47f3f3ca36c3861935f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841633"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855065"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Anpassa Användargränssnittet för en användarresa med anpassade principer
 
@@ -111,7 +111,7 @@ Som ett krav måste du skapa ett lagringskonto. Du behöver en Azure-prenumerati
     c.  Namnet på din storage blob storage-behållare, *containerName*, till exempel *b2c*.
     d.  Sökvägen till den *-startpaket* exempelfiler, till exempel *... \B2CTemplates\wingtiptoys*.
 
-Om du har följt föregående steg, HTML5 och CSS-filer av den *UI-anpassning-Pack* för det fiktiva företaget **VingspetsLeksaker** nu pekar på ditt lagringskonto.  Du kan kontrollera att innehållet har laddats upp korrekt genom att öppna fönstret relaterade behållare i Azure-portalen. Du kan också kontrollera att innehållet har laddats upp korrekt genom att gå till sidan från en webbläsare. Mer information finns i [Azure Active Directory B2C: en hjälpverktyg som används för att visa sidan användare användargränssnitt (UI) anpassning av funktionen](active-directory-b2c-reference-ui-customization-helper-tool.md).
+Om du har följt föregående steg, HTML5 och CSS-filer av den *UI-anpassning-Pack* för det fiktiva företaget **VingspetsLeksaker** nu pekar på ditt lagringskonto.  Du kan kontrollera att innehållet har laddats upp korrekt genom att öppna fönstret relaterade behållare i Azure-portalen. Du kan också kontrollera att innehållet har laddats upp korrekt genom att gå till sidan från en webbläsare. Mer information finns i [Azure Active Directory B2C: En hjälpverktyg som används för att visa sidan användare användargränssnitt (UI) anpassning av funktionen](active-directory-b2c-reference-ui-customization-helper-tool.md).
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>Se till att lagringskontot har CORS aktiverat
 
@@ -143,7 +143,7 @@ I följande tabell beskrivs syftet med de föregående HTML5-sidorna.
 | *phonefactor.HTML* | Den här sidan kan användas som en mall för en sida för multifaktorautentisering. |
 | *resetpassword.html* | Den här sidan kan användas som en mall för en sida för glömt lösenord. |
 | *selfasserted.html* | Den här sidan kan användas som en mall för ett socialt konto registrera sida, en registreringssida för lokalt konto eller ett lokalt konto på inloggningssidan. |
-| *Unified.HTML* | Den här sidan kan användas som en mall för en enhetlig registrering eller på inloggningssidan. |
+| *unified.html* | Den här sidan kan användas som en mall för en enhetlig registrering eller på inloggningssidan. |
 | *updateprofile.html* | Den här sidan kan användas som en mall för en uppdatering profilsida. |
 
 ## <a name="add-a-link-to-your-html5css-templates-to-your-user-journey"></a>Lägg till en länk till dina HTML5/CSS-mallar till din användarresa
@@ -157,15 +157,15 @@ I följande tabell beskriver uppsättningen innehåll definition-ID: N som ident
 | Innehållsdefinition-ID | Beskrivning |
 |-----------------------|-------------|
 | *api.error* | **Felsida**. Den här sidan visas när ett undantag eller ett fel har påträffats. |
-| *API.idpselections* | **Sida för val av identitet**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under inloggning. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
-| *API.idpselections.Signup* | **Identitets-provider-markeringen för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
+| *api.idpselections* | **Sida för val av identitet**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under inloggning. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
+| *api.idpselections.signup* | **Identitets-provider-markeringen för registrering**. Den här sidan innehåller en lista över identitetsleverantörer som användaren kan välja mellan under registreringen. Dessa providers är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton (baserat på e-postadress eller användarnamn namn). |
 | *api.localaccountpasswordreset* | **Sida för glömt lösenord**. Den här sidan innehåller ett formulär som användaren har att fylla för att initiera sina återställning av lösenord.  |
-| *API.localaccountsignin* | **Lokalt konto på inloggningssidan**. Den här sidan innehåller en inloggningsformuläret som användaren har att fylla i när du loggar in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
-| *API.localaccountsignup* | **Registreringssida för lokalt konto**. Den här sidan innehåller en fyllt i registreringsformuläret som användaren har att fylla i när du registrerar dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel textinmatningsrutan, lösenordsruta, alternativknappen, flervals-listrutorna och välja flera kryssrutor. |
-| *API.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
+| *api.localaccountsignin* | **Lokalt konto på inloggningssidan**. Den här sidan innehåller en inloggningsformuläret som användaren har att fylla i när du loggar in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
+| *api.localaccountsignup* | **Registreringssida för lokalt konto**. Den här sidan innehåller en fyllt i registreringsformuläret som användaren har att fylla i när du registrerar dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel textinmatningsrutan, lösenordsruta, alternativknappen, flervals-listrutorna och välja flera kryssrutor. |
+| *api.phonefactor* | **Multifaktorautentiseringssidan**. Användare kan verifiera sina telefonnummer (med text eller röst) under registrering eller inloggning på den här sidan. |
 | *api.selfasserted* | **Registreringssida för socialt konto**. Den här sidan innehåller en fyllt i registreringsformuläret som användaren har att fylla i när du registrerar dig med ett befintligt konto från en social identitetsprovider, till exempel Facebook eller Google +. Den här sidan liknar föregående socialt konto registreringssidan med undantag för inmatningsfält för lösenord. |
 | *api.selfasserted.profileupdate* | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användaren kan använda för att uppdatera sina profiler. Den här sidan liknar föregående socialt konto registreringssidan med undantag för inmatningsfält för lösenord. |
-| *API.signuporsignin* | **Sida för enhetlig registrering eller inloggning**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
+| *api.signuporsignin* | **Sida för enhetlig registrering eller inloggning**.  Den här sidan hanterar både registrering och inloggning av användare som kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.
 
 ## <a name="next-steps"></a>Nästa steg
 [Referens: Förstå hur anpassade principer fungerar med Identitetsramverk i B2C](active-directory-b2c-reference-custom-policies-understanding-contents.md)

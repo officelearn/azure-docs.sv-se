@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: raynew
-ms.openlocfilehash: d3e6a17ba9d0712d921d8e0a1d0bcbcd68ce5cfb
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 84890c0658970aa9f61a06764cf902a5e5ee4379
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360326"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812575"
 ---
 # <a name="azure-backup-architecture"></a>Azure Backup-arkitektur
 
-Du kan använda den [Azure Backup-tjänsten](backup-overview.md) att säkerhetskopiera data till Microsoft Azure-molnet. Den här artikeln sammanfattas Azure Backup-arkitektur, komponenter och processer. 
+Med [Azure Backup-tjänsten](backup-overview.md) kan du säkerhetskopiera data till Microsoft Azure-molnet. Den här artikeln sammanfattas Azure Backup-arkitektur, komponenter och processer. 
 
 
 ## <a name="what-does-azure-backup-do"></a>Vad är Azure Backup?
@@ -94,7 +94,7 @@ Förbrukning av lagringsutrymme, för återställningstid (RTO) och nätverksfö
 
 I följande tabell sammanfattas funktioner för olika typer av säkerhetskopiering.
 
-**Funktion** | **Lokala Windows-datorer (direkt)** | **Azure VMs** | **Datorer/appar med DPM/MABS**
+**Funktion** | **Lokala Windows-datorer (direkt)** | **Virtuella Azure-datorer** | **Datorer/appar med DPM/MABS**
 --- | --- | --- | ---
 Säkerhetskopiera till valvet | ![Ja][green] | ![Ja][green] | ![Ja][green] 
 Säkerhetskopiering till disk för DPM/MABS än Azure | | | ![Ja][green] 
@@ -163,7 +163,7 @@ Säkerhetskopiera deduplicerade diskar | | | ![Delvis][yellow]<br/><br/> För DP
 - Virtuella Azure-datorer använder diskar för att lagra sitt operativsystem, appar och data.
 - Azure virtuella datorer har minst två diskar. En för operativsystemet och en tillfällig disk. De kan också ha datadiskar för appdata. Diskarna lagras som virtuella hårddiskar.
 - Virtuella hårddiskar lagras som sidblobar i standard- eller premium storage-konton i Azure.
-    - Standard-lagring: Tillförlitlig, billig disksupport för virtuella datorer som kör arbetsbelastningar som inte är känslig för fördröjning. Standard-lagring kan använda standard SSD-diskar eller standard SSD-diskar).
+    - Standard-lagring: Tillförlitlig, billig disksupport för virtuella datorer som kör arbetsbelastningar som inte är känslig för fördröjning. Standardlagring kan använda standarddiskar SSD eller HDD standarddiskar.
     - Premium-lagring: Högpresterande disksupport. Använder premium SSD-diskar.
 - Det finns olika prestandanivåer för diskar:
     - Standard HDD-disk: Backas upp av hårddiskar och används för kostnadseffektiv lagring.
@@ -209,9 +209,9 @@ När du återställer virtuella datorer med hanterade diskar kan återställa du
 - [Granska](backup-support-matrix.md) av stödmatrisen om du vill veta mer om funktioner som stöds och begränsningar för olika scenarier för säkerhetskopiering.
 - Konfigurera säkerhetskopiering för ett av scenarierna:
     - [Säkerhetskopiera virtuella Azure-datorer](backup-azure-arm-vms-prepare.md)
-    - [Säkerhetskopiera Windows-datorer direkt](tutorial-backup-windows-server-to-azure.md), utan en reservserver.
-    - [Konfigurera MABS](backup-azure-microsoft-azure-backup.md) för säkerhetskopiering till Azure och sedan säkerhetskopiera arbetsbelastningar till MABS.
-    - [Konfigurera DPM](backup-azure-dpm-introduction.md) för säkerhetskopiering till Azure och sedan säkerhetskopiera arbetsbelastningar till DPM.
+    - [Säkerhetskopiera Windows-datorer direkt](tutorial-backup-windows-server-to-azure.md) utan en reservserver.
+    - [Konfigurera MABS](backup-azure-microsoft-azure-backup.md) för säkerhetskopiering till Azure och säkerhetskopiera sedan arbetsbelastningar till MABS.
+    - [Konfigurera DPM](backup-azure-dpm-introduction.md) för säkerhetskopiering till Azure och säkerhetskopiera sedan arbetsbelastningar till DPM.
 
 
 [green]: ./media/backup-architecture/green.png

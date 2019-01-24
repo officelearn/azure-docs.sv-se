@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du programmässigt kan skapa och ha
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 3c8fd185feff9a580e2d23926dcf60cb33121122
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312484"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847058"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -22,18 +22,20 @@ Den här artikeln beskriver hur du programmässigt kan skapa och hantera princip
 
 Information om efterlevnad finns i [komma kompatibilitetsdata](getting-compliance-data.md).
 
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
 1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
 
-1. Uppdatera din AzureRM PowerShell-modul till den senaste versionen. Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps) detaljerad information. Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Registrera resursprovidern Policy Insights med Azure PowerShell för att verifiera att din prenumeration fungerar med resursprovidern. Om du vill registrera en resursleverantör måste du ha behörighet att köra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
    ```azurepowershell-interactive
-   Register-AzureRmResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
+   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
    Läs mer om att registrera och visa resursproviders [Resursproviders och resurstyper](../../../azure-resource-manager/resource-manager-supported-services.md).
@@ -72,13 +74,13 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
 1. Kör följande kommando för att skapa en principdefinition med hjälp av AuditStorageAccounts.json-filen.
 
    ```azurepowershell-interactive
-   New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
+   New-AzPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
    Kommandot skapar en principdefinition med namnet _Audit Storage-konton öppen för offentliga nätverk_.
-   Läs mer om andra parametrar som du kan använda [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   Läs mer om andra parametrar som du kan använda [New AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
-   När den anropas utan Platsparametrar, `New-AzureRmPolicyDefinition` standard till sparar principdefinitionen i den valda prenumerationen av sessioner kontext. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
+   När den anropas utan Platsparametrar, `New-AzPolicyDefinition` standard till sparar principdefinitionen i den valda prenumerationen av sessioner kontext. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
 
    - **SubscriptionId** -spara till en annan prenumeration. Kräver en _GUID_ värde.
    - **ManagementGroupName** -spara till en hanteringsgrupp. Kräver en _sträng_ värde.
@@ -86,21 +88,21 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
 1. När du skapar principdefinitionen har kan skapa du en principtilldelning genom att köra följande kommandon:
 
    ```azurepowershell-interactive
-   $rg = Get-AzureRmResourceGroup -Name 'ContosoRG'
-   $Policy = Get-AzureRmPolicyDefinition -Name 'AuditStorageAccounts'
-   New-AzureRmPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
+   $rg = Get-AzResourceGroup -Name 'ContosoRG'
+   $Policy = Get-AzPolicyDefinition -Name 'AuditStorageAccounts'
+   New-AzPolicyAssignment -Name 'AuditStorageAccounts' -PolicyDefinition $Policy -Scope $rg.ResourceId
    ```
 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
 
-   Den **omfång** parametern på `New-AzureRmPolicyAssignment` fungerar även med prenumerationer och hanteringsgrupper. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzureRmResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt.
+   Den **omfång** parametern på `New-AzPolicyAssignment` fungerar även med prenumerationer och hanteringsgrupper. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt.
    Ersätt `{rgName}`, `{subId}`, och `{mgName}` med din resurs gruppera namn, prenumerations-ID och namn på hanteringsgrupp, respektive.
 
    - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subId}/`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
-Mer information om hur du hanterar resursprinciper med Azure Resource Managers PowerShell-modulen finns i [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
+Mer information om hur du hanterar resursprinciper med Azure Resource Managers PowerShell-modulen finns i [Az.Resources](/powershell/module/az.resources/#policies).
 
 ### <a name="create-and-assign-a-policy-definition-using-armclient"></a>Skapa och tilldela en principdefinition med ARMClient
 
@@ -230,7 +232,7 @@ Mer information om hur du hanterar resursprinciper med Azure CLI finns i [resurs
 Granska följande artiklar för mer information om kommandon och frågor i den här artikeln.
 
 - [Azure REST API-resurser](/rest/api/resources/)
-- [Azure RM PowerShell-moduler](/powershell/module/azurerm.resources/#policies)
+- [Azure PowerShell-moduler](/powershell/module/az.resources/#policies)
 - [Azure CLI-kommandon för principen](/cli/azure/policy?view=azure-cli-latest)
 - [Princip för resursprovidern för Insights REST API-referens](/rest/api/policy-insights)
 - [Organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/overview.md)

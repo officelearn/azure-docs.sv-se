@@ -3,19 +3,19 @@ title: Kommentarer för utvecklare om hur du använder anpassade principer i Azu
 description: Information för utvecklare på Konfigurera och underhålla Azure AD B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/13/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ea884f6fecc1e8a0de1f6a0f8a4daafcdf612e9f
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: e0a3a295350fc75915cd839d4ac0da8e03866907
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272719"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844984"
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Viktig information för Azure Active Directory B2C förhandsversion för anpassad princip
 Anpassad princip funktionsuppsättningen är nu tillgänglig för utvärdering under förhandsversion för alla Azure Active Directory B2C (Azure AD B2C) kunder. Den här funktionsuppsättningen är avsett för avancerade identity-utvecklare som skapar de mest komplexa identity-lösningarna.  
@@ -88,14 +88,14 @@ Gränssnitt med externa komponenter och program
 | Lösenordskomplexitet | x |  |  |  |
 
 
-### <a name="content-definition"></a>Innehållsdefinition
+### <a name="content-definition"></a>Content Definition
 
 | Funktion | Utveckling | Förhandsversion | Allmän tillgänglighet (GA) | Anteckningar |
 |-----------------------------------------------------------------------------|-------------|---------|----|-------|
 |   Felsidan, api.error |  | x |  |  |
 |   Sidan för val av IDP: N, api.idpselections |  | x |  |  |
 |   Val av IDP: N för registrering, api.idpselections.signup |  | x |  |  |
-|   Har du glömt lösenordet, api.localaccountpasswordreset |  | x |  |  |
+|   Forgot Password, api.localaccountpasswordreset |  | x |  |  |
 |   Lokalt konto för inloggning, api.localaccountsignin |  | x |  |  |
 |   Registrering för, api.localaccountsignup för lokalt konto |  | x |  |  |
 |   MFA-sida, api.phonefactor |  | x |  |  |

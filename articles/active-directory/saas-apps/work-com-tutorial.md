@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Work.com | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Work.com | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Work.com.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 98e6739e-eb24-46bd-9dd3-20b489839076
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.openlocfilehash: f4247a24905b5865635495774412237118e3372a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 878ba9b5debd4c415a033ad5d885554f08185c1e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427371"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815675"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integration med Work.com
+# <a name="tutorial-azure-active-directory-integration-with-workcom"></a>Självstudier: Azure Active Directory-integrering med Work.com
 
 I den här självstudien får du lära dig hur du integrerar Work.com med Azure Active Directory (AD Azure).
 
@@ -44,39 +44,39 @@ Om du vill konfigurera Azure AD-integrering med Work.com, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till Work.com från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa enkel inloggning med Azure AD
 
 ## <a name="add-workcom-from-the-gallery"></a>Lägg till Work.com från galleriet
 För att konfigurera integrering av Work.com i Azure AD, som du behöver lägga till Work.com från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Work.com från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Work.com**väljer **Work.com** från resultatrutan klickar **Lägg till** för att lägga till programmet.
 
     ![Lägg till från galleriet](./media/work-com-tutorial/tutorial_work-com_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Work.com baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Work.com är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Work.com upprättas.
@@ -85,13 +85,13 @@ I Work.com, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Work.com, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Work.com](#create-a-workcom-test-user)**  – du har en motsvarighet för Britta Simon i Work.com som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Work.com program.
 
@@ -112,7 +112,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Work.com domän och URL: er](./media/work-com-tutorial/tutorial_work-com_url.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `http://<companyname>.my.salesforce.com`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `http://<companyname>.my.salesforce.com`
 
     > [!NOTE] 
     > Det här värdet är inte verkliga. Uppdatera det här värdet med faktiska inloggnings-URL: en. Kontakta [Work.com klienten supportteamet](https://help.salesforce.com/articleView?id=000159855&type=3) att hämta det här värdet. 
@@ -121,7 +121,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Avsnittet för SAML-signeringscertifikat](./media/work-com-tutorial/tutorial_work-com_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Knappen Spara](./media/work-com-tutorial/tutorial_general_400.png)
 
@@ -132,11 +132,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Gå till **installationsprogrammet**.
    
-    ![Installationsprogrammet](./media/work-com-tutorial/ic794108.png "installationen")
+    ![Konfiguration](./media/work-com-tutorial/ic794108.png "Konfiguration")
 
 1. I det vänstra navigeringsfönstret i den **administrera** klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna **Min domän** sidan. 
    
-    ![Min domän](./media/work-com-tutorial/ic767825.png "min domän")
+    ![My Domain](./media/work-com-tutorial/ic767825.png "My Domain")
 
 1. För att verifiera att din domän har ställts in korrekt, se till att den är i ”**steg 4 distribueras till användarna**” och granska din ”**Mina Domäninställningar**”.
    
@@ -146,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Gå till **installationsprogrammet**.
     
-    ![Installationsprogrammet](./media/work-com-tutorial/ic794108.png "installationen")
+    ![Konfiguration](./media/work-com-tutorial/ic794108.png "Konfiguration")
 
 1. Expandera den **säkerhetskontroller** menyn och klicka sedan på **inställningar för enkel inloggning**.
     
@@ -189,7 +189,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I den klassiska portalen i Work.com, i det vänstra navigeringsfönstret klickar du på **domänhantering** Expandera avsnittet relaterade och klicka sedan på **min domän** att öppna den **min domän** sidan. 
     
-    ![Min domän](./media/work-com-tutorial/ic794115.png "min domän")
+    ![My Domain](./media/work-com-tutorial/ic794115.png "My Domain")
 
 1. På den **min domän** sidan den **inloggning anpassningen** klickar du på **redigera**.
     
@@ -200,11 +200,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![Inloggningssidan anpassning](./media/work-com-tutorial/ic784366.png "inloggningssidan för anpassning")
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -237,17 +237,17 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 ### <a name="create-a-workcom-test-user"></a>Skapa en Work.com testanvändare
 För Azure Active Directory-användare för att kunna logga in måste de etableras till Work.com. När det gäller Work.com är etablering en manuell aktivitet.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Utför följande steg för att konfigurera användaretablering:
+### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Konfigurera användaretablering genom att utföra följande steg:
 1. Logga in på webbplatsen Work.com företag som administratör.
 
 1. Gå till **installationsprogrammet**.
    
-    ![Installationsprogrammet](./media/work-com-tutorial/IC794108.png "installationen")
+    ![Konfiguration](./media/work-com-tutorial/IC794108.png "Konfiguration")
 1. Gå till **hantera användare \> användare**.
    
     ![Hantera användare](./media/work-com-tutorial/IC784369.png "hantera användare")
 
-1. Klicka på **ny användare**.
+1. Klicka på **Ny användare**.
    
     ![Alla användare](./media/work-com-tutorial/IC794117.png "alla användare")
 
@@ -311,7 +311,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Work.com i åtkomstpanelen du bör få automatiskt loggat in på ditt Work.com program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

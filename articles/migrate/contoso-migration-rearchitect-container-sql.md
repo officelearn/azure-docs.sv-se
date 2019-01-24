@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6f894310157432a6e03e6ec4753f5efc2d8ac66d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 149a15353a7fd1d698af306971ecb0949db4c165
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267427"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817239"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Contoso-migrering: Omforma en lokal app till en Azure container och Azure SQL Database
 
@@ -199,7 +199,7 @@ Azure-behållaren har skapats med de exporterade filerna från Web-VM. Behållar
 
 ## <a name="step-3-provision-azure-service-fabric"></a>Steg 3: Etablera Azure Service Fabric
 
-SmartHotel360-behållaren körs i Azure Service Fabric Sluster. Contoso-administratörer skapa Service Fabric-kluster på följande sätt:
+SmartHotel360-behållaren körs i Azure Service Fabric-kluster. Contoso-administratörer skapa Service Fabric-kluster på följande sätt:
 
 1. Skapa en Service Fabric-resurs från Azure Marketplace
 
@@ -282,7 +282,7 @@ Contoso behöver klustercertifikat så att Azure DevOps-tjänsterna åtkomst til
 
 8. De behöver för att fastställa Base64-värdet för certifikatet för distribution av Azure DevOps-tjänsterna. De kan göra detta på den lokala utvecklararbetsstation med hjälp av PowerShell. De klistra in resultatet i en textfil för senare användning.
 
-    ```
+    ```powershell
         [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\path\to\certificate.pfx")) 
     ```
 
@@ -386,7 +386,7 @@ Lokal app är en traditionell app med tre nivåer:
 - Den använder Entity Framework för att integrera med data i SQL-databasen, göra den tillgänglig via en WCF-tjänst.
 - WebForms programmet interagerar med WCF-tjänst.
 
-Contoso-administratörer ska konvertera appen till en behållare med projektplats Studio och SDK-verktyg, enligt följande:
+Contoso-administratörer att konvertera appen till en behållare med Visual Studio och SDK-verktyg på följande sätt:
 
 
 1. Med Visual Studio, de granska öppna lösningsfilen (SmartHotel.Registration.sln) i den **SmartHotel360-interna-bokning-apps\src\Registration** katalogen i den lokala lagringsplatsen.  Två appar visas. Webbservergrupp SmartHotel.Registration.Web och WCF-tjänstapp SmartHotel.Registration.WCF.
@@ -530,7 +530,7 @@ Contoso-administratörer etablera en Azure Cosmos-databas som ett första steg.
 5. I portalen, de öppnar den nya databasen > **samling** > **dokument** och klicka på **nytt dokument**.
 6. De klistra in följande JSON-kod i dokumentfönstret. Det här är exempel på data i form av en enda tweet.
 
-    ```
+    ```json
     {
             "id": "2ed5e734-8034-bf3a-ac85-705b7713d911",
             "tweetId": 927750234331580911,
@@ -565,11 +565,11 @@ Med Cosmos DB som etablerats, kan Contoso-administratörer konfigurera att appen
 
 2. De fyller du i följande två parametrar:
 
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBEndpoint" Value="[URI]" />
    ```
    
-   ```
+   ```xml
    <Parameter Name="SentimentIntegration.CosmosDBAuthKey" Value="[Key]" />
    ```
 

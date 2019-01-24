@@ -2,24 +2,24 @@
 title: Komma igång med Azure Media Clipper | Microsoft Docs
 description: Komma igång med Azure Media Clipper, ett verktyg för att skapa videoklipp från AMS-tillgångar
 services: media-services
-keywords: Clip; underklipp; kodning; media
+keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: ac64d97aeeef6147aa62658c9ee440bf058f4db1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 27a330fa4d4f242a58d15ab3f08b70cef8b66d11
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788573"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810745"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Skapa klipp med Azure Media Clipper
-Det här avsnittet visas de grundläggande stegen för att komma igång med Azure Media Clipper. De följande avsnitten finns information om hur du konfigurerar Azure Media Clipper.
+Det här avsnittet visas de grundläggande stegen för att komma igång med Azure Media Clipper. Avsnitten som följer ger information om hur du konfigurerar Azure Media Clipper.
 
-- Lägg först till följande länkar för Azure Media Player och Azure Media Clipper till dokumentets head. Vi rekommenderar att explicit ange en version av Clipper och Azure Media Player i URL: er. Använd inte den senaste versionen av resurserna i produktion, eftersom de kan komma att ändras på begäran.
+- Lägg först till följande länkar för Azure Media Player och Azure Media Clipper dokumentets väljer du. Vi rekommenderar att uttryckligen ange en version av Clipper och Azure Media Player i URL: er. Använd inte den senaste versionen av dessa resurser i produktionen, eftersom de kan komma att ändras på begäran.
 
 ```javascript
 <!--Azure Media Player 2.1.4 or later is a prerequisite-->
@@ -30,19 +30,19 @@ Det här avsnittet visas de grundläggande stegen för att komma igång med Azur
 <script src="//amp.azure.net/libs/amc/0.1.0/azuremediaclipper.min.js"></script>
 ```
 
-- Lägg sedan till följande klasser i elementet div där du vill skapa en instans av Clipper.
+- Lägg sedan till följande klasser där du vill skapa en instans av Clipper div-elementet.
 
 ```javascript
 <div id="root" class="azure-subclipper" />
 ```
 
-Om du vill aktivera det mörka temat Lägg eventuellt mörkt skal-klassen:
+Lägg till mörk skal-klassen för att aktivera det mörka temat:
 
 ```javascript
 <div id="root" class="azure-subclipper dark-skin" />
 ```
 
-- Därefter instansiera Clipper med följande API-anrop:
+- Därefter skapa en instans av Clipper med följande API-anrop:
 
 ```javascript
 var subclipper = new subclipper({
@@ -88,40 +88,40 @@ var subclipper = new subclipper({
 ```
 
 Parametrarna för metodanropet initieringen är:
-- `selector` {KRÄVS, string}: CSS-väljare av matchande HTML-element där widgeten ska renderas.
-- `restVersion` {KRÄVS, string}: Azure Media Services REST API-version till målet. REST-versionen definierar formatet för utdata som genererats av widgeten. För närvarande stöds endast 2.0.
-- `submitSubclipCallback` {KRÄVS, promise} Återanropsfunktionen anropas när användaren klickar på knappen ”Skicka” för validering. Återanropsfunktionen förvänta utdata som genererats av widgeten (en konfiguration för render jobb eller en filterdefinitionen). Mer information finns i Skicka underklipp återanrop.
-- `logLevel` {VALFRITT, {”info', 'Varna', 'fel'}}: loggningsnivån som ska visas i webbläsarens konsol. Standardvärde: fel
-- `minimumMarkerGap` {VALFRITT, int}: den minimala storleken för ett underklipp (i sekunder). Obs: värdet ska vara större eller lika med 6, vilket är standard.
-- `singleBitrateMp4Profile` {VALFRITT JSON-objekt} Enkel bithastighet mp4 profil som används för render jobbkonfigurationen som genererats av widgeten. Om inte anges, används den [enkel bithastighet MP4 standardprofil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
-- `multiBitrateMp4Profile` {VALFRITT JSON-objekt} Flera bithastighet mp4-profil som används för att återge jobbkonfiguration som genererats av widgeten. Om inte anges, används den [multibithastighet MP4 standardprofil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
-- `keymap` {VALFRITT json-objekt} Kan du anpassa kortkommandon för validering. Mer information finns i [anpassningsbara kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md).
-- `assetsPanelLoaderCallback` {VALFRITT promise} Återanropsfunktionen anropas för att läsa in (asynkront) en ny sida av tillgångar i fönstret tillgångar varje gång användaren rullar längst ned i fönstret. Mer information finns i tillgången fönstret inläsaren återanrop.
-- `height` {VALFRITT, number} Totalt antal höjden på widgeten (minimihöjden är 600 px utan tillgångar rutan och 850 px med fönstret tillgångar).
-- `subclippingMode` (Valfritt, {'all', ' återge', 'filtrera'}): subclipping-läge(n) tillåts. Standardvärdet är alla.
-- `filterAssetsTypes` (Valfritt, bool): filterAssetsTypes kan du Visa/Dölj filter dropdown från fönstret tillgångar. Standardvärdet är true.
-- `speedLevels` (Valfritt, array): speedLevels kan ange olika hastighet nivåer för videospelaren, se [dokumentation för Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) för mer information.
-- `resetOnJobDone` (Valfritt, bool): resetOnJobDone tillåter Clipper återställs subclipper till ett initialt tillstånd när ett jobb har skickats.
-- `autoplayVideo` (Valfritt, bool): autoplayVideo kan Clipper spela upp videon på belastningen. Standardvärdet är true.
-- `language` {VALFRI sträng}: språk ställer in språket för validering. Om den inte anges försöker widgeten localize meddelanden utifrån språkinställningar för webbläsaren. Om inget språk har identifierats i webbläsaren, standard widgeten engelska. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
-- `languages` {VALFRITT, JSON}: parametern språk ersätter standardordlistan språk med en ordlista som definierats av användaren. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
-- `extraLanguages` (Valfritt, JSON): parametern extraLanaguages lägger till nya språk i standardordlista. Mer information finns i [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnitt.
+- `selector` {KRÄVS, sträng}: CSS-väljare för matchande HTML-element där widgeten ska återges.
+- `restVersion` {KRÄVS, sträng}: Azure Media Services REST API-version till målet. REST-versionen definierar formatet på de utdata som genereras i widgeten. För närvarande stöds endast 2.0.
+- `submitSubclipCallback` {KRÄVS, löftet} Den återanropsfunktion som anropas när du klickar på knappen ”Skicka” i widgeten. Återanropsfunktionen förvänta utdata genereras av widgeten (en konfiguration för rendering jobb eller en filterdefinitionen). Mer information finns i Skicka underklipp återanrop.
+- `logLevel` {VALFRITT, {'information', 'Varna', 'error'}}: Loggningsnivån som ska visas i webbläsarens konsol. Standardvärde: fel
+- `minimumMarkerGap` {VALFRITT, int}: Den minsta storleken på en underklipp (i sekunder). Obs: värdet ska vara större eller lika med 6, vilket är standard.
+- `singleBitrateMp4Profile` {VALFRITT JSON-objekt} Enkel bithastighet mp4 profil som används för rendering jobbkonfigurationen genereras i widgeten. Om inte anges så används den [med enkel bithastighet MP4 standardprofil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p).
+- `multiBitrateMp4Profile` {VALFRITT JSON-objekt} Med flera bithastigheter mp4-profil som används för att återge jobbkonfigurationen som genereras i widgeten. Om inte anges så används den [med flera bithastigheter MP4 standardprofil](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p).
+- `keymap` {VALFRITT json-objekt} Tillåter anpassning kortkommandon i widgeten. Mer information finns i [anpassningsbara kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md).
+- `assetsPanelLoaderCallback` {VALFRITT löftet} Den återanropsfunktion som anropas om du vill läsa in (asynkrona) en ny sida med tillgångar i fönstret tillgångar varje gång användaren rullar längst ned i fönstret. Mer information finns i tillgången fönstret inläsaren återanrop.
+- `height` {VALFRITT, number} Widgeten totala höjd (minsta höjd är 600 bildpunkter utan tillgångar fönstret och 850 px med fönstret tillgångar).
+- `subclippingMode` (Valfritt, {”alla”, ”återge”, ”filtrera”}): Underklippning-läge(n) tillåts. Standardvärdet är alla.
+- `filterAssetsTypes` (Valfritt, bool): filterAssetsTypes kan du Visa/Dölj filter listrutan från fönstret tillgångar. Standardvärdet är sant.
+- `speedLevels` (Valfritt, matris): speedLevels kan du ange olika hastighet nivåer för videospelaren, se [dokumentation för Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/#amp.player.playbackspeedoptions) för mer information.
+- `resetOnJobDone` (Valfritt, bool): resetOnJobDone tillåter Clipper att återställa subclipper till ett inledande tillstånd när ett jobb har skickats.
+- `autoplayVideo` (Valfritt, bool): autoplayVideo tillåter Clipper att spela upp videon på belastning. Standardvärdet är sant.
+- `language` {VALFRI, sträng}: språk anger språket i widgeten. Om inte anges försöker widgeten lokalisera meddelanden baserat på webbläsarens språk. Om inget språk har identifierats i webbläsaren, widgeten som standard till engelska. Mer information finns i den [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnittet.
+- `languages` {VALFRITT, JSON}: parametern språk ersätter standardordlista med språk med en ordlista som definierats av användaren. Mer information finns i den [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnittet.
+- `extraLanguages` (Valfritt, JSON): parametern extraLanguages lägger till nya språk i standardordlista. Mer information finns i den [konfigurera lokalisering](media-services-azure-media-clipper-localization.md) avsnittet.
 
-## <a name="typescript-definition"></a>Maskin-definition
-En [maskin](https://www.typescriptlang.org/) definitionsfilen för Clipper hittar [här](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
+## <a name="typescript-definition"></a>TypeScript-definition
+En [TypeScript](https://www.typescriptlang.org/) definitionsfilen för Clipper finns [här](http://amp.azure.net/libs/amc/latest/azuremediaclipper.d.ts).
 
 ## <a name="azure-media-clipper-api"></a>Azure Media Clipper API
-Det här avsnittet beskrivs API-ytan som tillhandahålls av Clipper.
+Det här avsnittet beskrivs de API-yta som tillhandahålls av Clipper.
 
-- `ready(handler)`: ger ett sätt att köra JavaScript så snart Clipper har lästs in och är redo att användas.
-- `load(assets)`: läser in en lista över tillgångar i en widget tidslinje (inte ska användas tillsammans med assetsPanelLoaderCallback). Se den här [artikeln](media-services-azure-media-clipper-load-assets.md) information om hur du läser in tillgångar i Clipper.
+- `ready(handler)`: ger ett sätt att köra JavaScript så fort Clipper är fullständigt inläst och klar att användas.
+- `load(assets)`: läser in en lista över tillgångar i widgeten tidslinjen (inte ska användas tillsammans med assetsPanelLoaderCallback). Se den här [artikeln](media-services-azure-media-clipper-load-assets.md) mer information om hur du läser in tillgångar i Clipper.
 - `setLogLevel(level)`: Anger loggningsnivån som ska visas i webbläsarens konsol. Möjliga värden är: `info`, `warn`, `error`.
-- `setHeight(height)`: Anger widgeten totala höjd i bildpunkter (minimihöjden är 600 bildpunkter utan tillgångar rutan och 850 px med fönstret tillgångar).
+- `setHeight(height)`: Anger widgeten totala höjd i bildpunkter (minsta höjd är 600 bildpunkter utan tillgångar fönstret och 850 px med fönstret tillgångar).
 - `version`: hämtar widget-version.
 
 ## <a name="next-steps"></a>Nästa steg
 Se nästa steg för att konfigurera Azure Media Clipper:
 - [Läsa in tillgångar i Azure Media Clipper](media-services-azure-media-clipper-load-assets.md)
 - [Konfigurera anpassade kortkommandon](media-services-azure-media-clipper-keyboard-shortcuts.md)
-- [Skickar urklippet jobb från Clipper](media-services-azure-media-clipper-submit-job.md)
+- [Skicka urklippningsjobb från Clipper](media-services-azure-media-clipper-submit-job.md)
 - [Konfigurera lokalisering](media-services-azure-media-clipper-localization.md)

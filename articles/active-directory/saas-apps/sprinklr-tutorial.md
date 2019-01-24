@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Sprinklr | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Sprinklr | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Sprinklr.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: b33938a1-25a5-484c-8e75-7dc6de2d534d
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b5f240091cf5ce9331ada818c218db04f508dbc8
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 062671313e42e6c936135dafb3d7d2a5c8adef82
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241811"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816644"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudier: Azure Active Directory-integration med Sprinklr
+# <a name="tutorial-azure-active-directory-integration-with-sprinklr"></a>Självstudier: Azure Active Directory-integrering med Sprinklr
 
 I den här självstudien får du lära dig hur du integrerar Sprinklr med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Sprinklr, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Sprinklr i Azure AD, som du behöver lägga 
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Sprinklr**.
 
@@ -112,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_sprinklr_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.sprinklr.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.sprinklr.com`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.sprinklr.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.sprinklr.com`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL och identifierare. Kontakta [Sprinklr klienten supportteamet](https://www.sprinklr.com/contact-us/) att hämta dessa värden. 
@@ -123,7 +123,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_sprinklr_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/sprinklr-tutorial/tutorial_general_400.png)
 
@@ -147,7 +147,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![Enkel inloggningar](./media/sprinklr-tutorial/ic782910.png "enkel inloggningar")
 
-    a. I den **namn** textrutan anger du ett namn för din konfiguration (till exempel: *WAADSSOTest*).
+    a. I textrutan **Name** (Namn) skriver du ett namn för organisationen (till exempel: *WAADSSOTest*).
 
     b. Välj **aktiverat**.
 
@@ -170,10 +170,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     ![SAML](./media/sprinklr-tutorial/ic782911.png "SAML")
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -213,11 +213,11 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Gå till **hantera klienten \> användare** i den vänstra rutan.
    
-    ![Inställningar för](./media/sprinklr-tutorial/ic782914.png "inställningar")
+    ![Inställningar](./media/sprinklr-tutorial/ic782914.png "Inställningar")
 
-1. Klicka på **lägga till användare**.
+1. Klicka på **Lägg till användare**.
    
-    ![Inställningar för](./media/sprinklr-tutorial/ic782915.png "inställningar")
+    ![Inställningar](./media/sprinklr-tutorial/ic782915.png "Inställningar")
 
 1. På den **Redigera användare** dialogrutan utför följande steg:
    
@@ -231,7 +231,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     d. Välj **användartyp**.
 
-    e. Klicka på **uppdatering**.
+    e. Klicka på **Uppdatera**.
    
      >[!IMPORTANT]
      >**Lösenord inaktiveras** måste väljas för att aktivera en användare att logga in via en identitetsleverantör. 
@@ -242,7 +242,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     a. Från den **Global** väljer **alla\_behörigheter**.  
 
-    b. Klicka på **uppdatering**.
+    b. Klicka på **Uppdatera**.
 
 >[!NOTE]
 >Du kan använda alla andra Sprinklr användare konto verktyg för att skapa eller API: er som tillhandahålls av Sprinklr att etablera användarkonton i Azure AD. 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: b16a476f1960c79c378cd3aa18eae789c289eb54
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 44d39dcfd8c271cc97a88da7d1f0bec84bd866df
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244040"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828374"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
@@ -78,10 +78,10 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Fält | Beskrivning |
 | --- | --- |
-| BasePath | **[Krävs]**<br/>Värdet för den här parametern representerar källan där data som ska importeras finns. Verktyget kommer rekursivt kopiera alla data som finns under den här sökvägen.<br><br/>**Tillåtna värden**: detta måste vara en giltig sökväg på lokal dator eller en giltig resurssökväg och ska vara tillgängliga för användaren. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg). Om sökvägen som slutar med ”\\”, en annan katalog representerar en sökväg som slutar utan ”\\” representerar en fil.<br/>Inga regex tillåts i det här fältet. Om sökvägen innehåller blanksteg, placerar du den i ””.<br><br/>**Exempel**: ”c:\Directory\c\Directory\File.txt”<br>”\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
+| BasePath | **[Krävs]**<br/>Värdet för den här parametern representerar källan där data som ska importeras finns. Verktyget kommer rekursivt kopiera alla data som finns under den här sökvägen.<br><br/>**Tillåtna värden**: Detta måste vara en giltig sökväg på lokal dator eller en giltig resurssökväg och ska vara tillgängliga för användaren. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg). Om sökvägen som slutar med ”\\”, en annan katalog representerar en sökväg som slutar utan ”\\” representerar en fil.<br/>Inga regex tillåts i det här fältet. Om sökvägen innehåller blanksteg, placerar du den i ””.<br><br/>**Exempel**: ”c:\Directory\c\Directory\File.txt”<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Krävs]**<br/> Sökvägen till den virtuella målkatalogen i Windows Azure storage-kontot. Den virtuella katalogen kanske eller kanske inte redan finns. Om det inte finns, skapas en Import/Export-tjänsten.<br/><br/>Glöm inte att använda giltiga behållarnamn när du anger målet virtuella kataloger eller blobar. Tänk på att behållarnamn måste vara gemener. Namngivningsregler för behållaren, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Om det bara rot har angetts, replikeras katalogstrukturen på källan i mål-blob-behållare. Om en annan katalogstrukturen är det önskade än som i källan, flera rader med mappning i CSV<br/><br/>Du kan ange en behållare eller ett blob-prefix som musik/70-talet /. Målkatalogen måste börja med behållarens namn följt av ett snedstreck ”/”, och du kan också omfatta en virtuell blob-katalog som slutar med ”/”.<br/><br/>När till Målbehållaren är Rotbehållare, måste du uttryckligen ange root-behållaren, inklusive snedstreck som $root /. Eftersom blobar i behållaren för roten inte får innehålla ”/” i sina namn, kopieras inte eventuella underkataloger i källkatalogen när målkatalogen är Rotbehållare.<br/><br/>**Exempel**<br/>Om målblobbsökvägen är https://mystorageaccount.blob.core.windows.net/video, värdet för det här fältet kan vara video /  |
 | BlobType | **[Valfritt]**  blockera &#124; sidan<br/>Import/Export-tjänsten stöder för närvarande 2 typer av Blobar. Sidan blobbar och blockera BlobsBy standard alla filer som ska importeras som Blockblobar. Och \*.vhd och \*vhdx kommer att importeras eftersom Page BlobsThere finns en gräns för blockblob och sidblob tillåtna storleken. Se [Storage skalbarhetsmål](storage-scalability-targets.md) för mer information.  |
-| Disposition | **[Valfritt]**  Byt namn på &#124; nr skriva över &#124; skriva över <br/> Det här fältet anger kopieringsbeteendet-under importen dvs När data överförs till storage-kontot från disken. Alternativen är: Byt namn på&#124;säkerhetslagring&#124;nr skrivs över. Som standard ”Byt namn på” om inget angavs. <br/><br/>**Byt namn på**: om ett objekt med samma namn finns skapar du en kopia på målet.<br/>Skriv över: ersätts filen med nyare fil. Senaste ändring wins filen.<br/>**Nej, skriva över**: hoppar över skrivning till filen om den redan finns.|
+| Disposition | **[Valfritt]**  Byt namn på &#124; nr skriva över &#124; skriva över <br/> Det här fältet anger kopieringsbeteendet-under importen dvs När data överförs till storage-kontot från disken. Alternativen är: Byt namn på&#124;säkerhetslagring&#124;nr skrivs över. Som standard ”Byt namn på” om inget angavs. <br/><br/>**Byt namn på**: Om ett objekt med samma namn finns skapar du en kopia på målet.<br/>Skriv över: ersätts filen med nyare fil. Senaste ändring wins filen.<br/>**Nej, skriva över**: Hoppar över skrivning till filen om redan finns.|
 | MetadataFile | **[Valfritt]** <br/>Värdet för det här fältet är metadatafilen som kan anges om den måste bevara metadata för objekt eller ange anpassade metadata. Sökvägen till metadatafilen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information |
 | PropertiesFile | **[Valfritt]** <br/>Sökvägen till filen egenskapen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information. |
 
@@ -109,11 +109,11 @@ H,Format,SilentMode,Encrypt,
 
 | Fält | Värde |
 | --- | --- |
-| Enhetsbeteckning | **[Krävs]**<br/> Varje enhet som anges för verktyget målet måste ha en enkel NTFS-volym på den och en enhetsbeteckning.<br/> <br/>**Exempel**: R eller r |
-| FormatOption | **[Krävs]**  Format &#124; AlreadyFormatted<br/><br/> **Formatet**: ange detta formateras alla data på disken. <br/>**AlreadyFormatted**: verktyget hoppar över formateringen när det här värdet har angetts. |
-| SilentOrPromptOnFormat | **[Krävs]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: det här värdet kommer att användare ska kunna köra verktyget i tyst läge. <br/>**PromptOnFormat**: verktyget uppmanas användaren att bekräfta om åtgärden är avsedd vid varje format.<br/><br/>Om inte har angetts kommandot Avbryt och visa felmeddelande ”: Ogiltigt värde för SilentOrPromptOnFormat: ingen” |
-| Kryptering | **[Krävs]**  Kryptera &#124; AlreadyEncrypted<br/> Värdet för det här fältet avgör vilka disken för att kryptera och som inte till. <br/><br/>**Kryptera**: verktyget att formateras. Om värdet för fältet ”FormatOption” är ”Format” krävs det här värdet ska vara ”kryptera”. Om ”AlreadyEncrypted” anges i det här fallet det kommer att orsaka ett fel uppstod under ”när du anger formatet Encrypt måste också anges”.<br/>**AlreadyEncrypted**: verktyget dekrypterar enheten med BitLockerKey som anges i fältet ”ExistingBitLockerKey”. Om värdet för fältet ”FormatOption” är ”AlreadyFormatted” kan kan sedan det här värdet vara antingen ”kryptera” eller ”AlreadyEncrypted” |
-| ExistingBitLockerKey | **[Krävs]**  Om värdet för fältet ”kryptering” är ”AlreadyEncrypted”<br/> Värdet för det här fältet är BitLocker-nyckel som är associerad med en viss disk. <br/><br/>Det här fältet bör lämnas tom om värdet för fältet ”kryptering” är ”kryptera”.  Om BitLocker Key anges i det här fallet är det kommer att orsaka ett fel uppstod under ”Bitlocker Key ska inte anges”.<br/>  **Exempel**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | **[Krävs]**<br/> Varje enhet som anges för verktyget målet måste ha en enkel NTFS-volym på den och en enhetsbeteckning.<br/> <br/>**Exempel**: R- eller r |
+| FormatOption | **[Krävs]**  Format &#124; AlreadyFormatted<br/><br/> **Formatet**: Om du anger detta formateras alla data på disken. <br/>**AlreadyFormatted**: Verktyget hoppar över formateringen när det här värdet har angetts. |
+| SilentOrPromptOnFormat | **[Krävs]**  SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Det här värdet kan användaren att köra verktyget i tyst läge. <br/>**PromptOnFormat**: Verktyget uppmanas användaren att bekräfta om åtgärden är avsedd vid varje format.<br/><br/>Om inte har angetts kommandot Avbryt och visa felmeddelande: ”Ogiltigt värde för SilentOrPromptOnFormat: ingen” |
+| Kryptering | **[Krävs]**  Kryptera &#124; AlreadyEncrypted<br/> Värdet för det här fältet avgör vilka disken för att kryptera och som inte till. <br/><br/>**kryptera**: Verktyget att formateras. Om värdet för fältet ”FormatOption” är ”Format” krävs det här värdet ska vara ”kryptera”. Om ”AlreadyEncrypted” anges i det här fallet det kommer att orsaka ett fel uppstod under ”när du anger formatet Encrypt måste också anges”.<br/>**AlreadyEncrypted**: Verktyget dekrypterar enheten med BitLockerKey som anges i fältet ”ExistingBitLockerKey”. Om värdet för fältet ”FormatOption” är ”AlreadyFormatted” kan kan sedan det här värdet vara antingen ”kryptera” eller ”AlreadyEncrypted” |
+| ExistingBitLockerKey | **[Krävs]**  Om värdet för fältet ”kryptering” är ”AlreadyEncrypted”<br/> Värdet för det här fältet är BitLocker-nyckel som är associerad med en viss disk. <br/><br/>Det här fältet bör lämnas tom om värdet för fältet ”kryptering” är ”kryptera”.  Om BitLocker Key anges i det här fallet är det kommer att orsaka ett fel uppstod under ”BitLocker Key ska inte anges”.<br/>  **Exempel**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
 ##  <a name="preparing-disk-for-import-job"></a>Förbereda disk för importjobb
 
@@ -206,18 +206,18 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 |     /ID:&lt;sessions-ID&gt;  | **Krävs**<br/> Sessionen Id används för att identifiera en kopia-session. Den används för att säkerställa att korrekt återställning av en session avbryts kopia.  |
 |     / ResumeSession  | Valfri. Om den senaste kopia-sessionen har avslutats onormalt, kan den här parametern anges för att fortsätta sessionen.   |
 |     / AbortSession  | Valfri. Om den senaste kopia-sessionen har avslutats onormalt, kan den här parametern anges för att avbryta sessionen.  |
-|     /SN:&lt;StorageAccountName&gt;  | **Krävs**<br/> Gäller endast för RepairImport och RepairExport. Namnet på lagringskontot.  |
-|     /Sk:&lt;StorageAccountKey&gt;  | **Krävs**<br/> Nyckeln för lagringskontot. |
-|     / InitialDriveSet:&lt;driveset.csv&gt;  | **Krävs** när du kör den första kopia-sessionen<br/> En CSV-fil som innehåller en lista med enheter för att förbereda.  |
-|     / AdditionalDriveSet:&lt;driveset.csv&gt; | **Krävs**. När du lägger till enheter till den aktuella kopian sessionen. <br/> En CSV-fil som innehåller en lista över ytterligare enheter som ska läggas till.  |
+|     /sn:&lt;StorageAccountName&gt;  | **Krävs**<br/> Gäller endast för RepairImport och RepairExport. Namnet på lagringskontot.  |
+|     /sk:&lt;StorageAccountKey&gt;  | **Krävs**<br/> Nyckeln för lagringskontot. |
+|     /InitialDriveSet:&lt;driveset.csv&gt;  | **Krävs** när du kör den första kopia-sessionen<br/> En CSV-fil som innehåller en lista med enheter för att förbereda.  |
+|     /AdditionalDriveSet:&lt;driveset.csv&gt; | **Krävs**. När du lägger till enheter till den aktuella kopian sessionen. <br/> En CSV-fil som innehåller en lista över ytterligare enheter som ska läggas till.  |
 |      / r:&lt;RepairFile&gt; | **Krävs** gäller endast för RepairImport och RepairExport.<br/> Sökvägen till filen för spårning av reparation pågår. Varje enhet måste ha en repair-fil.  |
 |     / d:&lt;TargetDirectories&gt; | **Krävs**. Gäller endast för RepairImport och RepairExport. För RepairImport, en eller flera semikolonavgränsad kataloger att reparera; För RepairExport, en katalog att reparera, t.ex. rotkatalogen på enheten.  |
-|     / CopyLogFile:&lt;DriveCopyLogFile&gt; | **Krävs** gäller endast för RepairImport och RepairExport. Sökvägen till loggfilen enhet kopia (utförlig eller fel).  |
-|     / ManifestFile:&lt;DriveManifestFile&gt; | **Krävs** gäller endast för RepairExport.<br/> Sökväg till enheten manifestfilen.  |
-|     / PathMapFile:&lt;DrivePathMapFile&gt; | **Valfritt**. Gäller endast för RepairImport.<br/> Sökvägen till filen som innehåller mappningar av sökvägar i förhållande till rotenheten till platserna för faktiska filer (tabbavgränsad). När du först det fylls i med sökvägar med tomt mål, vilket innebär att de inte ingår i TargetDirectories, åtkomst nekad med ogiltigt namn eller de finns i flera kataloger. Mappningsfilen sökväg kan redigeras med rätt målsökvägar manuellt och angetts igen för verktyget för att matcha sökvägarna korrekt.  |
-|     / ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Krävs**. Gäller endast för PreviewExport.<br/> Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet är samma som blobbformatet för blob i placera jobbet användningen av REST-API för Import/Export-tjänsten.  |
-|     / DriveSize:&lt;DriveSize&gt; | **Krävs**. Gäller endast för PreviewExport.<br/>  Storleken på enheter som ska användas för export. Till exempel 500 GB, 1,5 TB. Obs: 1 GB = 1 000 000 000 bytes1 TB = 1,000,000,000,000 byte  |
-|     / Datauppsättning:&lt;dataset.csv&gt; | **Krävs**<br/> En CSV-fil som innehåller en lista över kataloger och/eller en lista över filer som ska kopieras till målet enheter.  |
+|     /CopyLogFile:&lt;DriveCopyLogFile&gt; | **Krävs** gäller endast för RepairImport och RepairExport. Sökvägen till loggfilen enhet kopia (utförlig eller fel).  |
+|     /ManifestFile:&lt;DriveManifestFile&gt; | **Krävs** gäller endast för RepairExport.<br/> Sökväg till enheten manifestfilen.  |
+|     /PathMapFile:&lt;DrivePathMapFile&gt; | **Valfritt**. Gäller endast för RepairImport.<br/> Sökvägen till filen som innehåller mappningar av sökvägar i förhållande till rotenheten till platserna för faktiska filer (tabbavgränsad). När du först det fylls i med sökvägar med tomt mål, vilket innebär att de inte ingår i TargetDirectories, åtkomst nekad med ogiltigt namn eller de finns i flera kataloger. Mappningsfilen sökväg kan redigeras med rätt målsökvägar manuellt och angetts igen för verktyget för att matcha sökvägarna korrekt.  |
+|     /ExportBlobListFile:&lt;ExportBlobListFile&gt; | **Krävs**. Gäller endast för PreviewExport.<br/> Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet är samma som blobbformatet för blob i placera jobbet användningen av REST-API för Import/Export-tjänsten.  |
+|     /DriveSize:&lt;DriveSize&gt; | **Krävs**. Gäller endast för PreviewExport.<br/>  Storleken på enheter som ska användas för export. Till exempel 500 GB, 1,5 TB. Obs! 1 GB = 1 000 000 000 bytes1 TB = 1,000,000,000,000 byte  |
+|     /DataSet:&lt;dataset.csv&gt; | **Krävs**<br/> En CSV-fil som innehåller en lista över kataloger och/eller en lista över filer som ska kopieras till målet enheter.  |
 |     /silentmode  | **Valfritt**.<br/> Om inte anges kommer den påminna dig om krav på enheter och din bekräftelse att fortsätta.  |
 
 ## <a name="tool-output"></a>Verktyget utdata
@@ -341,7 +341,7 @@ En eller flera tomma 2,5 tum eller 3,5-tums SATA II eller III eller SSD hårddis
 
 #### <a name="how-can-i-enable-bitlocker-on-my-machine"></a>Hur kan jag aktivera BitLocker på min dator?
 
-Det är enkelt sätt att kontrollera genom att högerklicka på systemenheten. Den visar alternativ för Bitlocker om funktionen är aktiverad. Om den är avstängd, visas inte den.
+Det är enkelt sätt att kontrollera genom att högerklicka på systemenheten. Den visar alternativ för BitLocker om funktionen är aktiverad. Om den är avstängd, visas inte den.
 
 ![Kontrollera BitLocker](./media/storage-import-export-tool-preparing-hard-drives-import/BitLocker.png)
 

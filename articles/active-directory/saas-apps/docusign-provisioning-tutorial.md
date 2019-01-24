@@ -1,10 +1,10 @@
 ---
-title: 'Självstudie: Konfigurera DocuSign för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera DocuSign för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 294cd6b8-74d7-44bc-92bc-020ccd13ff12
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 6099c07a0f27966eb4c253b85d24afb0561a708b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d677e49266c4787fb1ae34203097b7004a515be9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345548"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812921"
 ---
-# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudie: Konfigurera DocuSign för automatisk användaretablering
+# <a name="tutorial-configure-docusign-for-automatic-user-provisioning"></a>Självstudier: Konfigurera DocuSign för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i DocuSign och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till DocuSign.
 

@@ -4,7 +4,7 @@ description: Ansluta en Windows Server-dator till Azure AD DS
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 29316313-c76c-4fb9-8954-5fa5ec82609e
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 748345bf89e7f746b8ef388ad5cabc987a07d1f8
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fc55fcef9977abcd8c40752d459088c1132cf2c1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957682"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850373"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Anslut en Windows Server-virtuell dator till en hanterad domän
 Den här artikeln visar hur du distribuerar en Windows Server-dator med hjälp av Azure portal. Den visar sedan hur du kopplar den virtuella datorn till en hanterad Azure Active Directory Domain Services (Azure AD DS)-domän.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="step-1-create-a-windows-server-virtual-machine"></a>Steg 1: Skapa en Windows Server-dator
+## <a name="step-1-create-a-windows-server-virtual-machine"></a>Steg 1: Skapa en virtuell Windows Server-dator
 Om du vill skapa en Windows-dator som är ansluten till det virtuella nätverket där du har aktiverat Azure AD DS, gör du följande:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
@@ -84,7 +84,7 @@ Utför följande steg för att ansluta till den virtuella datorn:
 Nu kan bör du vara inloggad till den nya Windows-datorn med dina autentiseringsuppgifter som lokal administratör. Nästa steg är att ansluta den virtuella datorn till domänen.
 
 
-## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Steg 3: Ansluta till Windows Server-dator med Azure AD DS-hanterad domän
+## <a name="step-3-join-the-windows-server-virtual-machine-to-the-azure-ad-ds-managed-domain"></a>Steg 3: Ansluta Windows Server-dator med Azure AD DS-hanterad domän
 Utför följande steg för att ansluta till Windows Server-dator med Azure AD DS-hanterad domän:
 
 1. Ansluta till Windows Server-dator som du ser i ”steg 2”. På den **starta** skärmen genom att öppna **Serverhanteraren**.
@@ -107,9 +107,9 @@ Utför följande steg för att ansluta till Windows Server-dator med Azure AD DS
 
 7. Du kan ange autentiseringsuppgifter i någon av följande sätt:
 
-   * **UPN-formatet**: (rekommenderas) Ange användarens huvudnamn (UPN) suffix för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är *bob@domainservicespreview.onmicrosoft.com*.
+   * **UPN-formatet**: (Rekommenderas) Ange suffixet för användarens huvudnamn (UPN) för användarkontot som konfigurerats i Azure AD. I det här exemplet UPN-suffix för användaren *bob* är *bob@domainservicespreview.onmicrosoft.com*.
 
-   * **SAMAccountName format**: du kan ange kontonamnet i formatet SAMAccountName format. I det här exemplet är användaren *bob* skulle behöva ange *CONTOSO100\bob*.
+   * **SAMAccountName format**: Du kan ange kontonamnet i formatet SAMAccountName format. I det här exemplet är användaren *bob* skulle behöva ange *CONTOSO100\bob*.
 
      > [!TIP]
      > **Vi rekommenderar att du använder UPN-formatet för att ange autentiseringsuppgifter.**

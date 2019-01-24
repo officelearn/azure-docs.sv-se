@@ -3,19 +3,19 @@ title: Migrera användare med sociala identiteter i Azure Active Directory B2C |
 description: Diskutera grundläggande begrepp om migrering av användare med sociala identiteter till Azure AD B2C med Graph API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b9378face28b4d053dcd5f01b8f87126457cf339
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ca73b8bfaca481d3e0404d068a74e1a6b0e4dcb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445151"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846565"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migrera användare med sociala identiteter
 När du planerar att migrera din identitetsprovider till Azure AD B2C kan du också behöva Migrera användare med sociala identiteter. Den här artikeln beskrivs hur du migrerar befintliga konton i sociala identiteter, till exempel: Facebook, LinkedIn, Microsoft och Google-konton till Azure AD B2C. Den här artikeln gäller även för federerade identiteter, men dessa migreringar är mindre vanliga.
@@ -50,7 +50,7 @@ Du skapar Azure AD B2C-användarkonto via [Graph API](https://docs.microsoft.com
 
 ## <a name="required-properties"></a>Nödvändiga egenskaper
 I följande lista visas de egenskaper som krävs när du skapar en användare.
-* **accountEnabled** – SANT
+* **accountEnabled** - true
 * **displayName** -namnet ska visas i adressboken för användaren.
 * **passwordProfile** -lösenordsprofil för användaren. 
 
@@ -236,4 +236,4 @@ Skicka följande formulär-data:
 > [!NOTE]
 > Om du inte uppdaterar filen UsersData.json i exemplet med dina data, du kan logga in med autentiseringsuppgifterna för exemplet lokalt konto men inte med exemplen sociala kontot. Om du vill migrera dina konton i sociala medier, ger verkliga data.
 
-Mer information hur du använder exempelappen finns i [Azure Active Directory B2C: användarmigrering](active-directory-b2c-user-migration.md)
+Mer information hur du använder exempelappen finns i [Azure Active Directory B2C: Användarmigrering](active-directory-b2c-user-migration.md)

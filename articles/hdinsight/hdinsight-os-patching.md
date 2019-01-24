@@ -8,15 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 30ad0c5ee069df4cd58cb76b779f611d0272d571
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0f8d6290e779872d73b0cf7a9d0d820d2ea5e007
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741597"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848163"
 ---
 # <a name="os-patching-for-hdinsight"></a>OS-korrigering för HDInsight 
-Som en hanterad Apache Hadoop-tjänst hand HDInsight tar om uppdatering av Operativsystemet för de underliggande virtuella datorer som används av HDInsight-kluster. Från och med 1 augusti 2016, har vi ändrat guest OS uppdatering principen för Linux-baserade HDInsight-kluster (version 3.4 och senare). Målet med den nya principen är att avsevärt minska antalet omstarter på grund av korrigeringar. Den nya principen fortsätter att korrigera virtuella datorer (VM) i Linux-kluster varje måndag eller torsdag kl. 12: 00 UTC på ett successiva sätt över noder i alla kluster. En viss virtuell dator startas dock endast högst en gång var 30: e dag på grund av guest OS-korrigering. Dessutom kan sker den första omstarten för ett nyskapat kluster inte tidigare än 30 dagar från det datum då skapa klustret. Korrigeringar börjar gälla när de virtuella datorerna startas om.
+
+> [!IMPORTANT]
+> Ubuntu-avbildningar blir tillgängliga för nya HDInsight-klustret skapas inom 3 månader att publiceras. Från och med januari 2019 körs kluster är **inte** korrigeras automatiskt. Kunder måste använda skriptåtgärder eller andra mekanismer för att korrigera ett aktivt kluster.
 
 ## <a name="how-to-configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Så här konfigurerar du den OS-korrigering schema för Linux-baserade HDInsight-kluster
 De virtuella datorerna i ett HDInsight-kluster måste startas om ibland så att viktiga säkerhetsuppdateringar kan installeras. Från och med 1 augusti 2016 kommer nya Linux-baserade HDInsight-kluster (version 3.4 och senare,) startas om med hjälp av följande schema:

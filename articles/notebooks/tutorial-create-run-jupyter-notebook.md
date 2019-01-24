@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 110ba7f13b2a0d44277c881d67f0c794c8658cd1
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: dcee7df0b5da53bd7014a26f1f09695fe874833d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244601"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849671"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
 
@@ -128,7 +128,7 @@ Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt milj�
 1. Eftersom du har en *requirements.txt* filen i miljöinställningarna för visas meddelandet ”väntar på din behållare till Slutför förbereds”. Du kan välja **OK** att stänga meddelandet och fortsätta arbeta i anteckningsboken; du kan inte köra kod celler, men tills miljön är fullständigt konfigurerad.
 1. Anteckningsboken öppnas i Jupyter-gränssnitt med en enda tom kodcell som standard.
 
-    [![](media/tutorial/tutorial-new-notebook.png "Inledande vy av en ny anteckningsbok i Azure-anteckningsböcker")](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Inledande vy av en ny anteckningsbok i Azure-anteckningsböcker](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Tour bärbar dator-gränssnitt
 
@@ -144,7 +144,7 @@ Med den bärbara datorn körs, kan du lägga till kod och Markdown-celler kör c
 (F) indikator för om anteckningsboken är betrodd (standardvärdet är **ej betrodd**).
 (G) kernel som används för att köra anteckningsboken tillsammans med en indikator för aktiviteten.
 
-[![](media/tutorial/tutorial-notebook-ui.png "Delar av Användargränssnittet för Jupyter-gränssnittet")](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Delar av Användargränssnittet för Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter innehåller en inbyggd genomgång av de primära UI-element. Starta den guidade visningen genom att välja den **hjälpa** > **användaren gränssnittet rundtur** kommando och klicka på via de popup-fönster.
 

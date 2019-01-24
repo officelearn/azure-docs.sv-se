@@ -3,18 +3,19 @@ title: Bästa praxis för att förbättra prestanda med hjälp av Azure Service 
 description: Beskriver hur du använder Service Bus för att optimera prestanda när du skickar asynkrona meddelanden.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: cfce11546249310ce00e5f19ba81520cc9dd78cf
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392643"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848588"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Metodtips för prestandaförbättringar med hjälp av Service Bus-meddelanden
 
@@ -36,7 +37,7 @@ AMQP och SBMP är mer effektivt eftersom de upprätthåller anslutningen till Se
 
 ## <a name="reusing-factories-and-clients"></a>Återanvända fabriker och klienter
 
-Service Bus-klienten objekt, till exempel [QueueClient] [ QueueClient] eller [MessageSender][MessageSender], skapas via en [ MessagingFactory] [ MessagingFactory] -objektet, vilket också ger interna hantering av anslutningar. Vi rekommenderar att du inte stänger meddelanden fabriker eller kön, ämnet och prenumerationen klienter när du skickar ett meddelande och sedan återskapa dem när du skickar nästa meddelande. Stänga en meddelandefabrik tar bort anslutningen till Service Bus-tjänsten och en ny anslutning upprättas när återskapa fabriken. Upprätta en anslutning är en kostsam åtgärd som du kan undvika genom att återanvända samma factory och klientobjekt för flera åtgärder. Du kan på ett säkert sätt att använda den [QueueClient] [ QueueClient] objekt för att skicka meddelanden från samtidiga asynkrona åtgärder och flera trådar. 
+Service Bus-klienten objekt, till exempel [QueueClient] [ QueueClient] eller [MessageSender][MessageSender], skapas via en [ MessagingFactory] [ MessagingFactory] -objektet, vilket också ger interna hantering av anslutningar. Vi rekommenderar att du inte stänger meddelanden fabriker eller kön, ämnet och prenumerationen klienter när du skickar ett meddelande och sedan återskapa dem när du skickar nästa meddelande. Stänga en meddelandefabrik tar bort anslutningen till Service Bus-tjänsten och en ny anslutning upprättas när återskapa fabriken. Upprätta en anslutning är en kostsam åtgärd som du kan undvika genom att återanvända samma factory och klientobjekt för flera åtgärder. Du kan på ett säkert sätt att använda dessa klientobjekt för samtidiga asynkrona åtgärder och från flera trådar. 
 
 ## <a name="concurrent-operations"></a>Samtidiga åtgärder
 
@@ -71,7 +72,7 @@ Klienten schemalägger samtidiga åtgärder genom att utföra asynkrona åtgärd
 
 ## <a name="receive-mode"></a>Ta emot läge
 
-När du skapar en kö eller prenumeration klient kan du ange en receive-läge: *Peek-lock* eller *ta emot och ta bort*. Standard mottagningsläge är [PeekLock][PeekLock]. Vid användning i det här läget, skickar klienten en begäran att ta emot ett meddelande från Service Bus. När klienten har tagit emot meddelandet, skickar en begäran om att komplettera meddelandet.
+När du skapar en kö eller prenumeration klient kan ange du en receive-läge: *Peek-lock* eller *ta emot och ta bort*. Standard mottagningsläge är [PeekLock][PeekLock]. Vid användning i det här läget, skickar klienten en begäran att ta emot ett meddelande från Service Bus. När klienten har tagit emot meddelandet, skickar en begäran om att komplettera meddelandet.
 
 När du ställer in receive-läge [ReceiveAndDelete][ReceiveAndDelete], båda stegen kombineras i en enskild begäran. De här stegen minska det totala antalet åtgärder och kan förbättra det övergripande meddelandedataflödet. Den här prestandaökningen kommer dess risk att förlora meddelanden.
 
@@ -127,38 +128,9 @@ Egenskapen time to live (TTL) för ett meddelande som kontrolleras av servern n�
 
 Förhämtar, påverkar inte antalet faktureringsbara meddelanden åtgärder och är endast tillgänglig för Service Bus-klientprotokollet. HTTP-protokollet stöder inte förhämtar. Förhämtar, är tillgänglig för både synkron och asynkron ta emot.
 
-## <a name="express-queues-and-topics"></a>Express-köer och ämnen
-
-Expressenheter högt dataflöde och minskad fördröjning scenarier och stöds bara i Standard messaging-nivån. Entiteter som skapats i [Premium-namnområden](service-bus-premium-messaging.md) stöder inte alternativet express. Med expressenheter, om ett meddelande skickas till en kö eller ämne, lagras meddelandet omedelbart inte i meddelandearkivet. I stället cachelagras i minnet. Om meddelandet är kvar i kön i mer än ett par sekunder, skrivs den automatiskt till stabil lagring, vilket skyddar mot dataförlust på grund av ett avbrott. Skriva meddelandet till en minnescache ökar dataflödet och minskar latens eftersom det finns ingen åtkomst till stabil lagring när meddelandet har skickats. Meddelanden som används inom några sekunder skrivs inte till meddelandearkivet. I följande exempel skapas en uttrycklig avsnittet.
-
-```csharp
-TopicDescription td = new TopicDescription(TopicName);
-td.EnableExpress = true;
-namespaceManager.CreateTopic(td);
-```
-
-Om ett meddelande som innehåller viktig information som inte får vara förlorad skickas till en uttrycklig entitet, avsändaren kan tvinga Service Bus att direkt spara meddelandet att stabil lagring genom att ange den [ForcePersistence] [ ForcePersistence] egenskap **SANT**.
-
-> [!NOTE]
-> Expressenheter stöder inte transaktioner.
-
-## <a name="partitioned-queues-or-topics"></a>Partitionerade köer och ämnen
-
-Internt, Service Bus använder samma nod och meddelanden lagra att bearbeta och lagra alla meddelanden för en meddelandeentitet (kö eller ämne). En [partitionerad kö eller ämne](service-bus-partitioning.md), å andra sidan ska distribueras över flera noder och meddelanden butiker. Partitionerade köer och ämnen inte bara att ge ett högre dataflöde än vanlig köer och ämnen, de också uppvisar överlägsen tillgänglighet. Så här skapar du en partitionerad entitet i [EnablePartitioning] [ EnablePartitioning] egenskap **SANT**, enligt följande exempel. Mer information om partitionerade enheter finns i [partitionerade meddelandeentiteter][Partitioned messaging entities].
-
-> [!NOTE]
-> Partitionerade enheter stöds inte i den [Premium-SKU](service-bus-premium-messaging.md). 
-
-```csharp
-// Create partitioned queue.
-QueueDescription qd = new QueueDescription(QueueName);
-qd.EnablePartitioning = true;
-namespaceManager.CreateQueue(qd);
-```
-
 ## <a name="multiple-queues"></a>Flera köer
 
-Om det går inte att använda en partitionerad kö eller ett ämne eller den förväntade belastningen kan inte hanteras av en enda partitionerad kö eller ett ämne, måste du använda flera meddelandeentiteter. När du använder flera entiteter kan du skapa en dedikerad klient för varje entitet, istället för att använda samma klient för alla entiteter.
+Om den förväntade belastningen inte kan hanteras av en enda partitionerad kö eller ett ämne, måste du använda flera meddelandeentiteter. När du använder flera entiteter kan du skapa en dedikerad klient för varje entitet, istället för att använda samma klient för alla entiteter.
 
 ## <a name="development-and-testing-features"></a>Utveckling och testning funktioner
 

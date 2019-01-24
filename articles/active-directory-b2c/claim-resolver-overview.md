@@ -3,19 +3,19 @@ title: Om anspråk matchare i anpassade principer för Azure Active Directory B2
 description: Läs mer om hur anspråk matchare används i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/08/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dccb597cda1f5aba30d18b0f71371caa6ceee9b4
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 6b7f3dc79e3b4c06b2b974e0cdca0bf20221c3ad
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51852392"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845024"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
@@ -47,43 +47,43 @@ Följande avsnitt listar tillgängliga anspråk matchare.
 
 | Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Kultur: LanguageName} | De två enhetsbokstaven ISO-kod för språket. | sv-SE |
-| {Kultur: LCID}   | LCID för språkkod. | 29 |
-| {Kultur: RegionName} | De två enhetsbokstaven ISO-kod för regionen. | USA |
-| {Kultur: RFC5646} | Språkkoden RFC5646. | sv-SE |
+| {Kultur: LanguageName} | De två enhetsbokstaven ISO-kod för språket. | en |
+| {Culture:LCID}   | LCID för språkkod. | 29 |
+| {Culture:RegionName} | De två enhetsbokstaven ISO-kod för regionen. | USA |
+| {Culture:RFC5646} | Språkkoden RFC5646. | en-US |
 
 ### <a name="policy"></a>Princip
 
 | Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Princip: PolicyId} | Förlitande part principens namn. | B2C_1A_signup_signin |
-| {Princip: RelyingPartyTenantId} | Klient-ID för förlitande part. | din tenant.onmicrosoft.com |
-| {Princip: TenantObjectId} | Det objekt-ID för innehavare för förlitande part. | 00000000-0000-0000-0000-000000000000 |
-| {Princip: TrustFrameworkTenantId} | Klient-ID för ramen förtroende. | din tenant.onmicrosoft.com |
+| {Policy:PolicyId} | Förlitande part principens namn. | B2C_1A_signup_signin |
+| {Policy:RelyingPartyTenantId} | Klient-ID för förlitande part. | din tenant.onmicrosoft.com |
+| {Policy:TenantObjectId} | Det objekt-ID för innehavare för förlitande part. | 00000000-0000-0000-0000-000000000000 |
+| {Policy:TrustFrameworkTenantId} | Klient-ID för ramen förtroende. | din tenant.onmicrosoft.com |
 
 ### <a name="openid-connect"></a>OpenID Connect
 
 | Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |Den `acr_values` frågesträngparametern. | SAKNAS |
+| {OIDC:AuthenticationContextReferences} |Den `acr_values` frågesträngparametern. | Gäller inte |
 | {OIDC:ClientId} |Den `client_id` frågesträngparametern. | 00000000-0000-0000-0000-000000000000 |
-| {OIDC:DomainHint} |Den `domain_hint` frågesträngparametern. | Facebook.com |
+| {OIDC:DomainHint} |Den `domain_hint` frågesträngparametern. | facebook.com |
 | {OIDC:LoginHint} |  Den `login_hint` frågesträngparametern. | someone@contoso.com |
-| {OIDC:MaxAge} | Den `max_age`. | SAKNAS |
+| {OIDC:MaxAge} | Den `max_age`. | Gäller inte |
 | {OIDC:Nonce} |Den `Nonce` frågesträngparametern. | defaultNonce |
 | {OIDC:Prompt} | Den `prompt` frågesträngparametern. | inloggning |
-| {OIDC:Resource} |Den `resource` frågesträngparametern. | SAKNAS |
+| {OIDC:Resource} |Den `resource` frågesträngparametern. | Gäller inte |
 | {OIDC:scope} |Den `scope` frågesträngparametern. | openid |
 
 ### <a name="context"></a>Kontext
 
 | Begäran | Beskrivning | Exempel |
 | ----- | ----------- | --------|
-| {Kontext: BuildNumber} | Identitetsramverk versionen (build-nummer).  | 1.0.507.0 |
-| {Kontext: CorrelationId} | Korrelations-ID  | 00000000-0000-0000-0000-000000000000 |
-| {Kontext: DateTimeInUtc} |Datum-tid i UTC.  | 10/10/2018 12:00:00 PM |
-| {Kontext: DeploymentMode} |Distributionsläge för principen.  | Produktion |
-| {Kontext: IP-adress} | Användaren IP-adressen. | 11.111.111.11 |
+| {Context:BuildNumber} | Identitetsramverk versionen (build-nummer).  | 1.0.507.0 |
+| {Context:CorrelationId} | Korrelations-ID  | 00000000-0000-0000-0000-000000000000 |
+| {Context:DateTimeInUtc} |Datum-tid i UTC.  | 10/10/2018 12:00:00 PM |
+| {Context:DeploymentMode} |Distributionsläge för principen.  | Produktion |
+| {Context:IPAddress} | Användaren IP-adressen. | 11.111.111.11 |
 
 
 ### <a name="non-protocol-parameters"></a>Parametrar för icke-protokoll
@@ -92,10 +92,10 @@ Alla parameternamn som en del av ett OIDC eller OAuth2-begäran kan mappas till 
 
 | Begäran | Beskrivning | Exempel |
 | ----- | ----------------------- | --------|
-| {OAUTH-KV:campaignId} | En frågesträngsparameter. | Hawaii |
+| {OAUTH-KV:campaignId} | En frågesträngsparameter. | hawaii |
 | {OAUTH-KV:app_session} | En frågesträngsparameter. | A3C5R |
 | {OAUTH-KV:loyalty_number} | En frågesträngsparameter. | 1234 |
-| {OAUTH-KV: alla anpassade frågesträngen} | En frågesträngsparameter. | SAKNAS |
+| {OAUTH-KV: alla anpassade frågesträngen} | En frågesträngsparameter. | Gäller inte |
 
 
 ## <a name="how-to-use-claim-resolvers"></a>Hur du använder anspråk matchare

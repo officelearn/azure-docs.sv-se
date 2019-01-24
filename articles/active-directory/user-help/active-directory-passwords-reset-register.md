@@ -3,7 +3,7 @@ title: Registrera dig för lösenordsåterställning via självbetjäning – Az
 description: Registrera autentiseringsdata för Azure AD-självbetjäning lösenord återställa
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
 ms.service: active-directory
@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
-ms.openlocfilehash: f8b4fb8861760d2b5b10f61b3ab6a8c718f849b6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 2a9e65e36e31f4b2b382fac2bd9898580be18900
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107126"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821676"
 ---
 # <a name="register-for-self-service-password-reset"></a>Registrera för återställning av lösenord med självbetjäning
 
@@ -31,10 +31,10 @@ Du kan återställa ditt lösenord eller låsa upp kontot själv om du använder
 1. Öppna webbläsaren på din enhet och gå till den [registreringssidan för lösenordsåterställning](https://aka.ms/ssprsetup).
 2. Ange ditt användarnamn och lösenord som din administratör.
 3. Beroende på hur din IT-avdelning har konfigurerat saker, är en eller flera av följande alternativ tillgängliga för dig att konfigurera och verifiera. Om din administratör har din behörighet att använda din information, de kan fylla i en del av information för dig.
-    * **Arbetstelefon**: endast administratören kan ställa in det här alternativet.
-    * **Telefon för autentisering**: Ange det här alternativet till ett annat telefonnummer som du har åtkomst till. Ett exempel är en mobiltelefon som kan ta emot en text eller ett anrop.
-    * **E-post för autentisering**: Ange det här alternativet till en alternativ e-postadress som du kan komma åt utan att använda lösenord som du vill återställa.
-    * **Säkerhetsfrågor**: din administratör har godkänt den här listan med frågor att besvara. Du kan inte använda samma fråga eller svara på mer än en gång.
+    * **Arbetstelefon**: Endast administratören kan ange detta alternativ.
+    * **Telefon för autentisering**: Ange det här alternativet om du till ett annat telefonnummer som du har åtkomst till. Ett exempel är en mobiltelefon som kan ta emot en text eller ett anrop.
+    * **E-post för autentisering**: Ange det här alternativet om du till en alternativ e-postadress som du kan komma åt utan att använda lösenord som du vill återställa.
+    * **Säkerhetsfrågor**: Din administratör har godkänt den här listan med frågor att besvara. Du kan inte använda samma fråga eller svara på mer än en gång.
 4. Ange och kontrollera informationen som din administratör kräver. Om mer än ett alternativ är tillgängliga, föreslår vi att du registrerar flera metoder. Detta ger dig flexibilitet när någon av metoderna är inte tillgänglig. Ett exempel är när du reser och det inte går att komma åt din Arbetstelefon.
 
     ![Registrera autentiseringsmetoder och välj Slutför][Register]

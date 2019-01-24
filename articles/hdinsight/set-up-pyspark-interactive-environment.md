@@ -8,84 +8,51 @@ author: jejiang
 ms.author: jejiang
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 10/27/2017
-ms.openlocfilehash: bf47915ba93a4a3a7dec338395cfe0ce6aa3cdf6
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 1/17/2019
+ms.openlocfilehash: ef33d8962848636ee53ac6fd3f084b9c2a59e29d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53993849"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820588"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Ställ in interaktiv PySpark-miljö för Visual Studio Code
 
-Följande steg visar hur du installerar Python-paket genom att köra **HDInsight: Interaktiv PySpark**.
+Följande steg visar hur du ställer in interaktiv PySpark-miljö i VS Code.
 
-## <a name="set-up-the-pyspark-interactive-environment-on-macos-and-linux"></a>Ställ in interaktiv PySpark-miljö på macOS och Linux
-Om du använder **python 3.x**, måste du använda kommandot **pip3** för följande steg:
+Vi använder **python-pip** kommando för att skapa virtuell miljö i din Home-sökväg. Om du vill använda en annan version, måste du ändra standardversionen av **python-pip** kommandot manuellt. Mer information finns i [uppdatering alternativ](https://linux.die.net/man/8/update-alternatives).
 
-1. Se till att **Python** och **pip** är installerade.
+1. Installera [Python](https://www.python.org/) och [pip](https://pip.pypa.io/en/stable/installing/).
+   
+   + Installera Python från [ https://pip.pypa.io/en/stable/installing ](https://www.python.org/).
+   + Installera pip från [ https://pip.pypa.io/en/stable/installing ](https://pip.pypa.io/en/stable/installing/). (Om det inte installeras från Python-installationen)
+   + Kontrollera Python och pip är installerade med följande kommandon. (Valfritt)
  
-    ![Python-pip-version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
+        ![Python-pip-version](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 
-2.  Installera Jupyter.
-    ```
-    sudo pip install jupyter
-    ```
-   Du kan se ett felmeddelande på Linux och macOS:
+    > [!NOTE]
+    > Vi rekommenderar att manuellt installera Python istället för att använda standardversionen MacOS.
 
-   ![Fel 1](./media/set-up-pyspark-interactive-environment/error1.png)
 
-   ```Resolve:
-    sudo pip uninstall asyncio
-    sudo pip install trollies
-    ```
+2. Installera **virtuell miljö** genom att köra kommandot nedan.
+   
+   ```
+   pip install virtualenv
+   ```
 
-3. Installera **libkrb5 dev** (för Linux). Du kan se följande felmeddelande visas:
-
-   ![Fel 2](./media/set-up-pyspark-interactive-environment/error2.png)
+3. Installera de nödvändiga paketen för Linux, genom att köra kommandona nedan om du får ett felmeddelande.
+   
+    ![Python-pip-version](./media/set-up-pyspark-interactive-environment/install-libkrb5-package.png)
        
-   ```Resolve:
+   ```
    sudo apt-get install libkrb5-dev 
    ```
 
-3. Installera **sparkmagic**.
    ```
-   sudo pip install sparkmagic
-   ```
-
-4. Se till att **ipywidgets** har installerats korrekt genom att köra följande:
-   ```
-   sudo jupyter nbextension enable --py --sys-prefix widgetsnbextension
-   ```
-   ![Installera wrapper-kärnor](./media/set-up-pyspark-interactive-environment/ipywidget-enable.png)
- 
-
-5. Installera wrapper-kärnor. Kör **pip visa sparkmagic**. Utdata visar sökvägen för den **sparkmagic** installation. 
-
-    ![sparkmagic plats](./media/set-up-pyspark-interactive-environment/sparkmagic-location.png)
-   
-6. Gå till platsen och kör:
-
-   ```Python2
-   sudo jupyter-kernelspec install sparkmagic/kernels/pysparkkernel   
-   ```
-   ```Python3
-   sudo jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel
+   sudo apt-get install python-dev
    ```
 
-   ![jupyter kernelspec installation](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-install.png)
-7. Kontrollera installationsstatus för.
-
-    ```
-    jupyter-kernelspec list
-    ```
-    ![jupyter kernelspec lista](./media/set-up-pyspark-interactive-environment/jupyter-kernelspec-list.png)
-
-    För kernlar som är tillgängliga: 
-    - **python2** och **pysparkkernel** motsvarar **python 2.x**. 
-    - **python3** och **pyspark3kernel** motsvarar **python 3.x**. 
-
-8. Starta om VS Code och gå sedan tillbaka till Skriptredigeraren med **HDInsight: Interaktiv PySpark**.
+4. Starta om VS Code och gå sedan tillbaka till Skriptredigeraren med **HDInsight: Interaktiv PySpark**.
 
 ## <a name="next-steps"></a>Nästa steg
 

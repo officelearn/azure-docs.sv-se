@@ -3,19 +3,20 @@ title: Azure Service Bus-brandväggsregler | Microsoft Docs
 description: Hur du använder brandväggsregler för att tillåta anslutningar från specifika IP-adresser till Azure Service Bus.
 services: service-bus
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: clemensv
-ms.openlocfilehash: b08540787fc61b9bb38ed921bd42e0f3065cf8f4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: a8d29e7cae20c37adfeccaef01e1625b6ab3e0d0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653840"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852688"
 ---
 # <a name="use-firewall-rules"></a>Använd brandväggsregler
 
@@ -48,7 +49,7 @@ IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adr
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub vägar
+> - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 > - Azure-datautforskaren
 >

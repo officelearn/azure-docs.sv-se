@@ -3,19 +3,19 @@ title: Ställ in logga in med ett Amazon-konto med hjälp av anpassade principer
 description: Ställ in logga in med ett Amazon-konto i Azure Active Directory B2C med anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc762a4cf500713a09ba325e8b4e41c4cc2b8f15
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 0ab08dd33625ff97a4a3dc6e897c341d54d1ee77
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848952"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850101"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Ställ in logga in med ett Amazon-konto med hjälp av anpassade principer i Azure Active Directory B2C
 

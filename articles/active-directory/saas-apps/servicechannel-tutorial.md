@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med ServiceChannel | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med ServiceChannel | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och ServiceChannel.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c3546eab-96b5-489b-a309-b895eb428053
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.openlocfilehash: 22e72d454626941b932cef2750cba008da20a214
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 974149fdad8e8f5a617c428c6513f30930ff596b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114968"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815964"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Självstudier: Azure Active Directory-integration med ServiceChannel
+# <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Självstudier: Azure Active Directory-integrering med ServiceChannel
 
 I den här självstudien får du lära dig hur du integrerar ServiceChannel med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera ServiceChannel med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på ServiceChannel (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med ServiceChannel, behöver du föl
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av ServiceChannel i Azure AD, som du behöver l
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **ServiceChannel**.
 
@@ -114,12 +114,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     a. I den **identifierare** textrutan Ange värdet som: `http://adfs.<domain>.com/adfs/service/trust`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer domain>.servicechannel.com/saml/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer domain>.servicechannel.com/saml/acs`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du för att använda det unika värdet av strängen i identifierare. Kontakta [ServiceChannel supportteamet](https://servicechannel.zendesk.com/hc/en-us) att hämta dessa värden.
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [ServiceChannel supportteamet](https://servicechannel.zendesk.com/hc/en-us) att hämta dessa värden.
 
-1. Programmets ServiceChannel förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. **NameIdentifier (användaridentifierare)** är bara obligatoriskt anspråket och standardvärdet är **user.userprincipalname** men ServiceChannel förväntar sig detta mappas med **user.mail**. Om du planerar att aktivera etablering av Just-In-Time-användare, bör du till följande anspråk som visas nedan. **Rollen** anspråk måste mappas till **user.assignedroles** som innehåller rollen för användaren.  
+1. Programmets ServiceChannel förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel på detta. **NameIdentifier (användaridentifierare)** är bara obligatoriskt anspråket och standardvärdet är **user.userprincipalname** men ServiceChannel förväntar sig detta mappas med **user.mail**. Om du planerar att aktivera etablering av Just-In-Time-användare, bör du till följande anspråk som visas nedan. **Rollen** anspråk måste mappas till **user.assignedroles** som innehåller rollen för användaren.  
 
     Du kan läsa ServiceChannel guide [här](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) för mer information om anspråk.
     
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     | Attributnamn | Attributvärde |
     | --- | --- |    
-    | Roll| User.assignedroles |
+    | Roll| user.assignedroles |
 
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -140,7 +140,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/servicechannel-tutorial/tutorial_servicechannel_05.png)
     
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
     
     c. Från den **värdet** anger attributvärdet som visas för den raden.
     
@@ -191,7 +191,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure Management
 
 ### <a name="creating-a-servicechannel-test-user"></a>Skapa en ServiceChannel testanvändare
 
-Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt. För fullständig användaretablering, kontakta [ServiceChannel support-teamet](https://servicechannel.zendesk.com/hc/en-us)
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. För fullständig användaretablering, kontakta [ServiceChannel support-teamet](https://servicechannel.zendesk.com/hc/en-us)
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

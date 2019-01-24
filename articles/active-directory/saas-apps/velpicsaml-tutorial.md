@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a8fe814801d00b3f27e52484d742cbe6c7b0770
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: eb59c61f89b3b23ce8b0a393ee1e0e842826e90b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114014"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811799"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Självstudier: Azure Active Directory-integrering med Velpic SAML
 
@@ -31,7 +31,7 @@ Integrera Velpic SAML med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på Velpic SAML (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Velpic SAML, behöver du följan
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Velpic SAML i Azure AD, som du behöver läg
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Velpic SAML**.
 
@@ -123,7 +123,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
     ![Konfigurera enkel inloggning](./media/velpicsaml-tutorial/tutorial_velpicsaml_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/velpicsaml-tutorial/tutorial_general_400.png)
 
@@ -133,23 +133,23 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
 1. Klicka på **hantera** fliken och gå till **integrering** avsnitt där du måste klicka på **plugin-program** för att skapa nya plugin-programmet för att logga In.
 
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_1.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_1.png)
 
 1. Klicka på den **”Lägg till plugin-program”** knappen.
     
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_2.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_2.png)
 
 1. Klicka på den **SAML** panelen på sidan Lägg till plugin-programmet.
     
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_3.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_3.png)
 
 1. Ange namnet på den nya SAML-plugin-programmet och klicka på den **”Lägg till”** knappen.
 
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_4.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_4.png)
 
 1. Ange information på följande sätt:
 
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_5.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_5.png)
 
     a. I den **namn** textrutan skriver du namnet på SAML-plugin-programmet.
 
@@ -214,7 +214,7 @@ Logga in på webbplatsen Velpic SAML företagets som administratör och utför f
 
     c. I den **användarnamn** textrutan skriver du användarnamnet för Britta Simon.
 
-    d. I den **e-post** textrutan skriver du e-postadressen för Britta Simon konto.
+    d. I textrutan **E-post** anger du e-postadressen för Britta Simon-kontot.
 
     e. Resten av informationen är valfri, så kan du fylla det om det behövs.
     
@@ -256,7 +256,7 @@ I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen
 
 1. När du klickar på panelen Velpic SAML i åtkomstpanelen bör du få inloggningssidan i Velpic SAML-programmet. Du bör se den **”logga in med Azure AD-** knappen på inloggningssidan.
 
-    ![Plugin-programmet](./media/velpicsaml-tutorial/velpic_6.png)
+    ![Plugin](./media/velpicsaml-tutorial/velpic_6.png)
 
 1. Klicka på den **”logga in med Azure AD-** knappen för att logga in på Velpic med hjälp av Azure AD-konto.
 

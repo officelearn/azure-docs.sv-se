@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 70370db841a08ae8ee62bda83bec4b1b9e2e7cf2
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54001540"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825161"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -21,7 +21,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 1. Kommentarer i den här artikeln.
 2. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
-3. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
+3. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 ## <a name="general"></a>Allmänt
@@ -98,7 +98,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="afs-conflict-resolution"></a>**Vad händer om samma fil ändras på två servrar på ungefär samma gång?**  
     Azure File Sync använder en enkel konfliktlösning-strategi: Vi lagrar både ändringar till filer som ändras på två servrar på samma gång. Nyligen skriftliga ändringen behåller det ursprungliga filnamnet. Den äldre filen har ”källdatorn” och antalet konflikt läggas till i namnet. Det följer den här taxonomi: 
    
-    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\< EXT\>  
+    \<FileNameWithoutExtension\>-\<MachineName\>\[-#\].\<ext\>  
 
     Första konflikter mellan CompanyReport.docx skulle bli CompanyReport CentralServer.docx om CentralServer är där det äldre Skriv inträffade. Andra konflikten namnet CompanyReport-CentralServer-1.docx.
 
@@ -129,7 +129,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="afs-files-excluded"></a>
 **Vilka filer och mappar undantas automatiskt av Azure File Sync?**  
     Som standard omfattar Azure File Sync inte följande filer:
-    * Desktop.ini
+    * desktop.ini
     * thumbs.DB
     * ehthumbs.DB
     * ~$\*.\*
@@ -139,7 +139,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
     Följande mappar undantas också som standard:
 
-    * \System volume Information
+    * \System Volume Information
     * \$PAPPERSKORGEN. BIN
     * \SyncShareState
 
@@ -298,7 +298,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
     
     Om du behöver en funktion för ögonblicksbild av filen kan berätta för oss på [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 
-* <a id="encypted-snapshots"></a>
+* <a id="encrypted-snapshots"></a>
 **Kan jag skapa ögonblicksbilder av en krypterad filresurs?**  
     Du kan ta en ögonblicksbild av Azure-filresurser som har kryptering i vila aktiverat. Du kan återställa filer från en ögonblicksbild av en resurs till en krypterad filresurs. Om din filresurs krypteras krypteras dina resursögonblicksbild också.
 

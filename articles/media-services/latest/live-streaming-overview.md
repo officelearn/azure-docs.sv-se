@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 6f7c6c2265fe13eb50aa900e9a51e11edfd90201
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 3be7ad84cf0d45276c136465d7247ec43621aceb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382088"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810966"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Liveuppspelning med Azure Media Services v3
 
@@ -34,17 +34,25 @@ Den här artikeln ger en detaljerad översikt vägledning, tillsammans med diagr
 
 Här följer stegen för en live arbetsflöde:
 
-1. Skapa en **direktsändning**.
-2. Skapa en ny **tillgången** objekt.
-3. Skapa en **Live utdata** och använda Tillgångsnamn som du skapade.
-4. Skapa en **Streaming princip** och **innehåll nyckeln** om du vill kryptera ditt innehåll med DRM.
-5. Om du inte använder DRM, skapar du en **Strömningspositionerare** med inbyggt **Streaming princip** typer.
-6. Sökvägarna i listan i **Streaming princip** att få tillbaka de URL: er för att använda (dessa är deterministisk).
-7. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från (Kontrollera att slutpunkten för direktuppspelning körs). 
-8. Kombinera URL: en från steg 6 med värdnamnet i steg 7 för att hämta den fullständiga URL: en.
-9. Om du vill stoppa att göra din **direktsänd händelse** kan visas, måste du stoppa strömning händelsen genom att ta bort den **Strömningspositionerare**.
+1. Kontrollera att den **StreamingEndpoint** körs. 
+2. Skapa en **LiveEvent**. 
+  
+    När du skapar händelsen, kan du ange att autostart den. Du kan också starta händelsen när du är redo att börja direktuppspelning.<br/> När autostart är satt till SANT, Live-händelsen kommer att startas rätt när du har skapat. Det innebär att, faktureringen startar när Live-händelsen körs. Du måste explicit anropa Stop på LiveEvent resursen för att stoppa ytterligare fakturering. Mer information finns i [LiveEvent tillstånd och](live-event-states-billing.md).
+3. Hämta URL: er för inmatning och konfigurera din lokala kodare för att använda Webbadressen för att skicka bidraget feed.<br/>Se [rekommenderas livekodare](recommended-on-premises-live-encoders.md).
+4. Få förhandsgransknings-URL och använda den för att kontrollera att indata från kodaren faktiskt tas emot.
+5. Skapa en ny **tillgången** objekt.
+6. Skapa en **LiveOutput** och använda Tillgångsnamn som du skapade.
 
-Mer information finns i en [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md) som baseras på den [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) exemplet.
+     Den **LiveOutput** arkiverar dataströmmen till den **tillgången**.
+7. Skapa en **StreamingLocator** med inbyggt **StreamingPolicy** typer.
+
+    Om du vill kryptera ditt innehåll, granska [Content protection översikt](content-protection-overview.md).
+8. Lista över sökvägar på den **Strömningspositionerare** att få tillbaka de URL: er för att använda (dessa är deterministisk).
+9. Hämta värdnamnet för den **Strömningsslutpunkt** du vill strömma från.
+10. Kombinera URL: en från steg 8 med värdnamnet i steg 9 för att hämta den fullständiga URL: en.
+11. Om du vill stoppa att göra din **LiveEvent** kan visas, måste du stoppa strömning händelse och ta bort den **StreamingLocator**.
+
+Mer information finns i den [Live direktuppspelning självstudien](stream-live-tutorial-with-api.md).
 
 ## <a name="overview-of-main-components"></a>Översikt över huvudkomponenterna
 
@@ -63,14 +71,7 @@ Media Services kan du leverera ditt innehåll dynamiskt krypterad (**dynamisk kr
 
 Om du vill kan använda du också dynamisk filtrering, som kan användas för att styra antalet spår, format, olika bithastigheter och presentation tidsfönster som skickas till spelarna. Mer information finns i [filter och dynamiska manifest](filters-dynamic-manifest-overview.md).
 
-### <a name="new-capabilities-for-live-streaming-in-v3"></a>Nya funktioner för liveuppspelning i v3
-
-Med den v3-API: er för Media Services kan dra du nytta av följande nya funktioner:
-
-- Nya läget för låg latens. Mer information finns i [svarstid](live-event-latency.md).
-- Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
-- RTMPS säker mata in.<br/>När du skapar en LiveEvent kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
-- Du kan strömma direktsända händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter. 
+Information om nya funktioner för liveuppspelning i v3 finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md).
 
 ## <a name="liveevent-types"></a>LiveEvent typer
 
@@ -109,7 +110,7 @@ En [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) låter di
 > [!NOTE]
 > **LiveOutput**s börjar vid skapandet och avbryts när tas bort. När du tar bort den **LiveOutput**, du inte tar bort den underliggande **tillgången** och innehåll i tillgången. 
 >
-> Om du har publicerat **Strömningspositionerare**s på tillgången för den **LiveOutput**, händelse (upp till DVR fönstret längd) fortsätter att vara synliga till sluttiden för den **Strömningspositionerare**  eller till när du tar bort lokaliseraren, beroende på vilket som inträffar först.   
+> Om du har publicerat den **LiveOutput** tillgången med hjälp av en **StreamingLocator**, **LiveEvent** (upp till DVR fönstret längd) fortsätter att vara synliga tills **StreamingLocator**'s slutar att gälla eller tas bort som inträffar först.
 
 Mer information finns i [med molnbaserade DVR](live-event-cloud-dvr.md).
 

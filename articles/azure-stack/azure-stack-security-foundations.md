@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: cd3aa913bd17498ddc58994196bc8faa96c4de51
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: fba4020c5e947c135d9e17cfb1d0b2a79ad8a502
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306462"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819347"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Säkerhetspositionen för Azure Stack-infrastruktur
 
@@ -41,7 +41,7 @@ Eftersom infrastrukturen körs på väldefinierad maskinvara och programvara, Az
 Eftersom Azure Stack levereras som ett integrerat system, har säkerhetspositionen för Azure Stack-infrastruktur definierats av Microsoft. Precis som i Azure ansvarar klienter för att definiera säkerhetspositionen för sina klienternas arbetsbelastningar. Det här dokumentet innehåller grundläggande kunskaper om säkerhetspositionen för Azure Stack-infrastruktur.
 
 ## <a name="data-at-rest-encryption"></a>Data för kryptering av vilande data
-Alla Azure Stack-infrastruktur- och klienttrafik data krypteras i vila med Bitlocker. Den här krypteringen skyddar mot fysisk förlust eller stöld av Azure Stack lagringskomponenter. Mer information finns i [data kryptering av vilande data i Azure Stack](azure-stack-security-bitlocker.md).
+Alla Azure Stack-infrastruktur- och klienttrafik data krypteras i vila med BitLocker. Den här krypteringen skyddar mot fysisk förlust eller stöld av Azure Stack lagringskomponenter. Mer information finns i [data kryptering av vilande data i Azure Stack](azure-stack-security-bitlocker.md).
 
 ## <a name="data-in-transit-encryption"></a>Data i rörelse kryptering
 Azure Stack-infrastrukturkomponenter kommunicera med kanaler som krypterats med TLS 1.2. Krypteringscertifikat hanteras själva av infrastrukturen. 

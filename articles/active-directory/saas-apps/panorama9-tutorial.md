@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Panorama9 | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Panorama9 | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Panorama9.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5e28d7fa-03be-49f3-96c8-b567f1257d44
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
-ms.openlocfilehash: ad2a9dba54df3ae7a3e2604437c8a65c88dcca94
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: aa4bf1208e4f588e6fe74f2d0ec157da9176b670
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52850898"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823376"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integration med Panorama9
+# <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Självstudier: Azure Active Directory-integrering med Panorama9
 
 I den här självstudien får du lära dig hur du integrerar Panorama9 med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Panorama9, behöver du följande
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Panorama9 i Azure AD, som du behöver lägga
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Panorama9**.
 
@@ -115,16 +115,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://dashboard.panorama9.com/saml/access/3262`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.panorama9.com/saml20/<tenant-name>`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.panorama9.com/saml20/<tenant-name>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Panorama9 klienten supportteamet](https://support.panorama9.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Panorama9 klienten supportteamet](https://support.panorama9.com) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet för certifikatet.
 
     ![Konfigurera enkel inloggning](./media/panorama9-tutorial/tutorial_panorama9_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/panorama9-tutorial/tutorial_general_400.png)
 
@@ -139,10 +139,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    ![Tillägg](./media/panorama9-tutorial/ic790023.png "tillägg")
 1. På den **tillägg** dialogrutan klickar du på **enkel inloggning**.
    
-   ![Enkel inloggning](./media/panorama9-tutorial/ic790024.png "enkel inloggning")
+   ![Enkel inloggning](./media/panorama9-tutorial/ic790024.png "Enkel inloggning")
 1. I den **inställningar** avsnittet, utför följande steg:
    
-   ![Inställningar för](./media/panorama9-tutorial/ic790025.png "inställningar")
+   ![Inställningar](./media/panorama9-tutorial/ic790025.png "Inställningar")
    
     a. I **-URL för identitetsprovider** textrutan klistra in värdet för **enkel inloggnings-URL för**, som du har kopierat från Azure-portalen.
    
@@ -151,11 +151,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Klicka på **Spara**.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -191,17 +191,17 @@ För att aktivera Azure AD-användare att logga in på Panorama9, måste de etab
 
 När det gäller Panorama9 är etablering en manuell aktivitet.
 
-**Utför följande steg för att konfigurera användaretablering:**
+**Utför följande steg för att konfigurera användarförsörjning:**
 
 1. Logga in på din **Panorama9** företagets plats som administratör.
 
 1. Klicka på menyn längst upp **hantera**, och klicka sedan på **användare**.
    
-  ![Användare](./media/panorama9-tutorial/ic790027.png "användare")
+  ![Användare](./media/panorama9-tutorial/ic790027.png "Användare")
 
 1. I avsnittet användare klickar du på **+** att lägga till nya användare.
 
- ![Användare](./media/panorama9-tutorial/ic790028.png "användare")
+ ![Användare](./media/panorama9-tutorial/ic790028.png "Användare")
 
 1. Gå till avsnittet användaren data, ange en giltig Azure Active Directory-användare som du vill etablera i e-postadress i **e-post** textrutan.
 
@@ -245,7 +245,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen Panorama9 i åtkomstpanelen du bör få automatiskt loggat in på Panorama9 program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

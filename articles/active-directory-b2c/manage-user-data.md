@@ -3,19 +3,19 @@ title: Hantera användardata i Azure Active Directory B2C | Microsoft Docs
 description: Lär dig ta bort eller exportera användardata i Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 49e9efa537ad1f2a1d7f06dd7f8a68a409c7d4e0
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fc49191fe6141470ddd5304bdd12cec1d40bd1ee
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061684"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854028"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Hantera användardata i Azure Active Directory B2C
 
@@ -46,8 +46,8 @@ Exportera kunddata från Azure AD B2C liknar borttagningsprocessen.
 
 Azure AD B2C-användardata är begränsat till:
 
-- **Data som lagras i Azure Active Directory**: du kan hämta data i en användarresa för Azure AD B2C-autentisering med hjälp av objekt-ID eller ett logga in namn, till exempel en e-postadress eller användarnamn. 
-- **Händelser för användarspecifika granskningsrapporten**: kan du indexera data med hjälp av objekt-ID.
+- **Data som lagras i Azure Active Directory**: Du kan hämta data i en användarresa för Azure AD B2C-autentisering med hjälp av objekt-ID eller ett logga in namn, till exempel en e-postadress eller användarnamn. 
+- **Händelser för användarspecifika granskningsrapporten**: Du kan indexera data med hjälp av objekt-ID.
 
 I följande exempel visar en export-dataflöde kan stegen som beskrivs som utförs av programmet också utföras av en backend-process eller en användare med administratörsroll i katalogen:
 

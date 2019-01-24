@@ -4,7 +4,7 @@ description: Lär dig att felsöka inloggning med Azure Active Directory-rapport
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -13,12 +13,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 47a89da808e2f53cf8dfc901c64eba3d78842d13
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f39557b21e8c54f565ddbb6764d697968d3bbee6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823777"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Anvisningar: Felsöka inloggning med Azure Active Directory-rapporter
 
@@ -35,7 +35,7 @@ Dessutom rapporten inloggningar kan också hjälpa dig att felsöka inloggningar
 
 Du behöver:
 
-* En Azure AD-klient med en premiumlicens (P1/P2). Se [komma igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) att uppgradera din Azure Active Directory-version.
+* En Azure AD-klient med en premiumlicens (P1/P2). Se [Kom igång med Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) för att uppgradera din Azure Active Directory-version.
 * En användare som har rollen **global administratör**, **säkerhetsadministratör**, **säkerhetsläsare**, eller **rapportläsare** för klienten. Dessutom kan alla användare komma åt sina egna inloggningar. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Felsöka inloggning med hjälp av rapporten inloggningar

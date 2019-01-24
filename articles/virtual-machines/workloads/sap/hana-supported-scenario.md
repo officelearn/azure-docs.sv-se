@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576501"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855463"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenarier som stöds för stora HANA-instanser
 Det här dokumentet beskriver scenarierna som stöds med arkitektur information för HANA stora instanser (HLI).
@@ -31,12 +31,12 @@ Verifiera design med SAP eller din implementationspartner för tjänsten innan d
 ## <a name="terms-and-definitions"></a>Termer och definitioner
 Låt oss se de termer och definitioner som används i dokumentet.
 
-- SID: Systemidentifierare för HANA-system.
-- HLI: Hana stora instanser.
-- Katastrofåterställning: En plats för katastrofåterställning.
-- Normal DR: en systeminställningarna med en dedikerade resurser för DR ändamål som endast används.
-- Multipurpose DR: Ett system på DR-plats som konfigurerats för att använda icke-produktionsmiljö tillsammans med produktion-instans som konfigurerats för att använda på DR-händelse. 
-- Enkel SID: Ett system med en instans installerad.
+- SID: System-ID för HANA-system.
+- HLI: Stora Hana-instanser.
+- DR: En plats för katastrofåterställning.
+- Normal DR: En system-installation med en dedikerad resurs för DR ändamål som endast används.
+- Flera syften DR: Ett system på DR-plats som konfigurerats för att använda icke-produktionsmiljö tillsammans med produktion-instans som konfigurerats för att använda på DR-händelse. 
+- Enkel SID:  Ett system med en instans installerad.
 - Multi-SID: Ett system med flera instanser som har konfigurerats. Kallas även en MCOS-miljö.
 
 
@@ -56,11 +56,11 @@ Det här dokumentet innehåller information om de båda komponenterna i varje ar
 
 Varje server som etablerats är förkonfigurerad med uppsättningar med Ethernet-gränssnitt. Här följer information om ethernet-gränssnitt som konfigurerats på varje HLI-enhet.
 
-- **En**: det här gränssnittet används för/av klientåtkomst.
-- **B**: det här gränssnittet används för nod till nod-kommunikation. Det här gränssnittet är konfigurerat på alla servrar (oavsett vilken topologi som begärs) men bara användas för den 
+- **A**: Det här gränssnittet används för/av klientåtkomst.
+- **B**: Det här gränssnittet används för nod till nod-kommunikation. Det här gränssnittet är konfigurerat på alla servrar (oavsett vilken topologi som begärs) men bara användas för den 
 - skalbara scenarier.
-- **C**: det här gränssnittet används för noden att storage-anslutning.
-- **D**: det här gränssnittet används för noden att ISCSI-enhetsanslutning för STONITH installation. Det här gränssnittet konfigureras bara när krävs HSR-inställningar.  
+- **C**: Det här gränssnittet används för noden att storage-anslutning.
+- **D**: Det här gränssnittet används för noden att ISCSI-enhetsanslutning för STONITH installation. Det här gränssnittet konfigureras bara när krävs HSR-inställningar.  
 
 | LOGISKA NIC-GRÄNSSNITT | SKU-TYP | Namn med SUSE-OS | Namn med RHEL-OS | Användningsfall|
 | --- | --- | --- | --- | --- |
@@ -68,10 +68,10 @@ Varje server som etablerats är förkonfigurerad med uppsättningar med Ethernet
 | B | TYP I | eth2.tenant | eno3.tenant | Nod till nod |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | STONITH |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nod till nod |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | STONITH |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Nod till nod |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
 
 Du kan använda de gränssnitt som baserat på topologin som konfigurerats på HLI-enhet. Till exempel ställs gränssnittet ”B” in för nod till nod-kommunikation, vilket är användbart när du har en skalbar-topologi som har konfigurerats. När det gäller nod skala upp konfigurationen används inte det här gränssnittet. Granska dina krävs scenarier (senare i det här dokumentet) om du vill ha mer information om hur gränssnittet. 
 
@@ -142,10 +142,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -153,8 +153,8 @@ Följande monteringspunkter är förkonfigurerade:
 | Monteringspunkt | Användningsfall | 
 | --- | --- |
 |/Hana/Shared/SID | HANA-installation | 
-|/Hana/data/SID/mnt00001 | Installera filer | 
-|/Hana/log/SID/mnt00001 | Installera loggfiler | 
+|/hana/data/SID/mnt00001 | Installera filer | 
+|/hana/log/SID/mnt00001 | Installera loggfiler | 
 |/Hana/logbackups/SID | Gör om loggar |
 
 ### <a name="key-considerations"></a>Viktiga överväganden
@@ -166,7 +166,7 @@ Den här topologin har stöd för en nod i en skala in konfiguration med flera S
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![Single-nod-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
+![single-node-mcos.png](media/hana-supported-scenario/single-node-mcos.png)
 
 ### <a name="ethernet"></a>Ethernet
 Följande nätverksgränssnitt är förkonfigurerade:
@@ -177,10 +177,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -188,12 +188,12 @@ Följande monteringspunkter är förkonfigurerade:
 | Monteringspunkt | Användningsfall | 
 | --- | --- |
 |/Hana/Shared/SID1 | HANA-installation för SID1 | 
-|/Hana/data/SID1/mnt00001 | Datafiler installerar för SID1 | 
-|/Hana/log/SID1/mnt00001 | Loggfiler installerar för SID1 | 
+|/hana/data/SID1/mnt00001 | Datafiler installerar för SID1 | 
+|/hana/log/SID1/mnt00001 | Loggfiler installerar för SID1 | 
 |/Hana/logbackups/SID1 | Gör om loggar för SID1 |
 |/Hana/Shared/SID2 | HANA-installation för SID2 | 
-|/Hana/data/SID2/mnt00001 | Datafiler installerar för SID2 | 
-|/Hana/log/SID2/mnt00001 | Loggfiler installerar för SID2 | 
+|/hana/data/SID2/mnt00001 | Datafiler installerar för SID2 | 
+|/hana/log/SID2/mnt00001 | Loggfiler installerar för SID2 | 
 |/Hana/logbackups/SID2 | Gör om loggar för SID2 |
 
 ### <a name="key-considerations"></a>Viktiga överväganden
@@ -217,10 +217,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -228,16 +228,16 @@ Följande monteringspunkter är förkonfigurerade:
 | Monteringspunkt | Användningsfall | 
 | --- | --- |
 |/Hana/Shared/SID | HANA-installation av SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installerar för SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installerar för SID | 
+|/hana/data/SID/mnt00001 | Datafiler installerar för SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installerar för SID | 
 |/Hana/logbackups/SID | Gör om loggar för SID |
 
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
-- Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information.
+- För MCOS: Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- Vid Katastrofåterställning: Volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
+- Vid Katastrofåterställning: De data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för mer information.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 
@@ -258,10 +258,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -270,24 +270,24 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På den primära platsen**|
 |/Hana/Shared/SID | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 |**På DR-plats**|
 |/Hana/Shared/SID | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
-|/Hana/Shared/QA-SID | HANA-installation för QA-SID | 
-|/Hana/data/QA-SID/mnt00001 | Datafiler installerar för QA SID | 
-|/Hana/log/QA-SID/mnt00001 | Loggfiler installerar för QA SID |
-|/Hana/logbackups/QA-SID | Gör om loggar för QA-SID |
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/shared/QA-SID | HANA-installation för QA-SID | 
+|/hana/data/QA-SID/mnt00001 | Datafiler installerar för QA SID | 
+|/hana/log/QA-SID/mnt00001 | Loggfiler installerar för QA SID |
+|/hana/logbackups/QA-SID | Gör om loggar för QA-SID |
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
-- Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
-- Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
+- För MCOS: Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- Vid Katastrofåterställning: Volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
+- Vid Katastrofåterställning: De data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för mer information. 
+- Vid Katastrofåterställning: Data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 ## <a name="5-hsr-with-stonith"></a>5. HSR med STONITH
@@ -299,7 +299,7 @@ Den här topologin stöder två noder för konfigurationen av HANA System Replic
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![HSR med STONITH.png](media/hana-supported-scenario/HSR-with-STONITH.png)
+![HSR-with-STONITH.png](media/hana-supported-scenario/HSR-with-STONITH.png)
 
 
 
@@ -312,10 +312,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Används för STONITH |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Används för STONITH |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -324,18 +324,18 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På den primära noden**|
 |/Hana/Shared/SID | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 |**På den sekundära noden**|
 |/Hana/Shared/SID | HANA installerar för sekundära SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installerar för sekundära SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installerar för sekundära SID | 
+|/hana/data/SID/mnt00001 | Datafiler installerar för sekundära SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installerar för sekundära SID | 
 |/Hana/logbackups/SID | Gör om loggar för sekundära SID |
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - STONITH: En uppstår har konfigurerats för STONITH-installationen. Men är en användning av STONITH valfritt.
 
 
@@ -349,7 +349,7 @@ I diagrammet, multipurpose scenariot illustreras då vid DR-plats, HLI enhet anv
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![HSR med DR.png](media/hana-supported-scenario/HSR-with-DR.png)
+![HSR-with-DR.png](media/hana-supported-scenario/HSR-with-DR.png)
 
 ### <a name="ethernet"></a>Ethernet
 Följande nätverksgränssnitt är förkonfigurerade:
@@ -360,10 +360,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Konfigurerats men inte används |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Används för STONITH |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Konfigurerats men inte används |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Används för STONITH |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Konfigurerats men inte används |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Används för STONITH |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -372,31 +372,31 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På den primära noden på den primära platsen**|
 |/Hana/Shared/SID | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 |**På den sekundära noden på den primära platsen**|
 |/Hana/Shared/SID | HANA installerar för sekundära SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installerar för sekundära SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installerar för sekundära SID | 
+|/hana/data/SID/mnt00001 | Datafiler installerar för sekundära SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installerar för sekundära SID | 
 |/Hana/logbackups/SID | Gör om loggar för sekundära SID |
 |**På DR-plats**|
 |/Hana/Shared/SID | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
-|/Hana/Shared/QA-SID | HANA-installation för QA-SID | 
-|/Hana/data/QA-SID/mnt00001 | Datafiler installerar för QA SID | 
-|/Hana/log/QA-SID/mnt00001 | Loggfiler installerar för QA SID |
-|/Hana/logbackups/QA-SID | Gör om loggar för QA-SID |
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/shared/QA-SID | HANA-installation för QA-SID | 
+|/hana/data/QA-SID/mnt00001 | Datafiler installerar för QA SID | 
+|/hana/log/QA-SID/mnt00001 | Loggfiler installerar för QA SID |
+|/hana/logbackups/QA-SID | Gör om loggar för QA-SID |
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- För MCOS: Baseras volymens storlek distribution av databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
+- För MCOS: Volymens storlek distribution bygger på databasens storlek i minnet. Finns det [översikt och arkitektur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) att ta reda på vilken databas storlekar i minnet stöds med multisid miljö.
 - STONITH: En uppstår har konfigurerats för STONITH-installationen. Men är en användning av STONITH valfritt.
-- Vid DR: **krävs två uppsättningar lagringsvolymer** för primära och sekundära noden replikering.
-- Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
-- Vid DR: data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
+- Vid Katastrofåterställning: **Två uppsättningar lagringsvolymer krävs** för primära och sekundära noden replikering.
+- Vid Katastrofåterställning: Volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
+- Vid Katastrofåterställning: De data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för mer information. 
+- Vid Katastrofåterställning: Data, logbackups, log, klusterdelade volymer för QA (markerade som ”QA instansinstallation”) är konfigurerade för installationen av QA-instans.
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 
@@ -408,7 +408,7 @@ Den här topologin stöder två noder i en redundanskonfiguration för värden a
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![SCA](media/hana-supported-scenario/scaleup-with-standby.png)
+![sca](media/hana-supported-scenario/scaleup-with-standby.png)
 
 ### <a name="ethernet"></a>Ethernet
 Följande nätverksgränssnitt är förkonfigurerade:
@@ -419,10 +419,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Nod till nod-kommunikation |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nod till nod-kommunikation |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Nod till nod-kommunikation |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -431,15 +431,15 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På noderna master och vänteläge**|
 |/ hana/delade | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 
 
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
-- I vänteläge: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för installationen av HANA-instansen på den vänteläge enheten.
+- I vänteläge: Volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för installationen av HANA-instansen på den vänteläge enheten.
  
 
 ## <a name="8-scale-out-with-standby"></a>8. Skala ut med vänteläge
@@ -460,10 +460,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Nod till nod-kommunikation |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nod till nod-kommunikation |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Nod till nod-kommunikation |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -472,8 +472,8 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På noderna master, arbetsroller och vänteläge**|
 |/ hana/delade | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 
 
@@ -496,10 +496,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Nod till nod-kommunikation |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nod till nod-kommunikation |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Nod till nod-kommunikation |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -508,8 +508,8 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På huvud- och worker-noder**|
 |/ hana/delade | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 
 
@@ -523,7 +523,7 @@ Den här topologin har stöd för flera noder i en skalbar med en DR. Med både 
 
 ### <a name="architecture-diagram"></a>Arkitekturdiagram  
 
-![skalning med dr.png](media/hana-supported-scenario/scaleout-with-dr.png)
+![scaleout-with-dr.png](media/hana-supported-scenario/scaleout-with-dr.png)
 
 
 ### <a name="ethernet"></a>Ethernet
@@ -535,10 +535,10 @@ Följande nätverksgränssnitt är förkonfigurerade:
 | B | TYP I | eth2.tenant | eno3.tenant | Nod till nod-kommunikation |
 | C | TYP I | eth1.tenant | eno2.tenant | Noden lagring |
 | D | TYP I | eth4.tenant | eno4.tenant | Konfigurerats men inte används |
-| A | TYP II | VLAN<tenantNo> | team0.tenant | Klient till HLI |
-| B | TYP II | VLAN < tenantNo + 2 > | team0.tenant + 2 | Nod till nod-kommunikation |
-| C | TYP II | VLAN < tenantNo + 1 > | team0.tenant + 1 | Noden lagring |
-| D | TYP II | VLAN < tenantNo + 3 > | team0.tenant + 3 | Konfigurerats men inte används |
+| A | TYP II | vlan<tenantNo> | team0.tenant | Klient till HLI |
+| B | TYP II | vlan<tenantNo+2> | team0.tenant+2 | Nod till nod-kommunikation |
+| C | TYP II | vlan<tenantNo+1> | team0.tenant + 1 | Noden lagring |
+| D | TYP II | vlan<tenantNo+3> | team0.tenant+3 | Konfigurerats men inte används |
 
 ### <a name="storage"></a>Storage
 Följande monteringspunkter är förkonfigurerade:
@@ -547,19 +547,19 @@ Följande monteringspunkter är förkonfigurerade:
 | --- | --- |
 |**På den primära noden**|
 |/ hana/delade | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 |/Hana/logbackups/SID | Gör om loggar för produktion SID |
 |**På noden DR**|
 |/ hana/delade | HANA installera för produktion SID | 
-|/Hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
-|/Hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
+|/hana/data/SID/mnt00001 | Datafiler installera för produktion SID | 
+|/hana/log/SID/mnt00001 | Loggfiler installera för produktion SID | 
 
 
 ### <a name="key-considerations"></a>Viktiga överväganden
 - /usr/SAP/SID är en symbolisk länk till /hana/shared/SID.
--  Vid DR: volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
-- Vid DR: de data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) för mer information. 
+-  Vid Katastrofåterställning: Volymer och monteringspunkter konfigureras (markerade som ”krävs för installation av HANA”) för produktion HANA-instansen installationen på DR HLI-enhet. 
+- Vid Katastrofåterställning: De data, logbackups och klusterdelade volymer (markerade som ”Lagringsreplikering”) replikeras via ögonblicksbild från produktionsplatsen. Volymerna är monterade under failover-tid. Mer information finns i dokumentet [redundans för katastrofåterställning](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) för mer information. 
 - Startvolym för **SKU-typ som jag klassen** replikeras till DR-nod.
 
 

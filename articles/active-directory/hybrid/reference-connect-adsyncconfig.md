@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 015823ee9674c2c704cdea13e44ced06e5b9644c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463532"
+ms.locfileid: "54813592"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell-referens
 Följande dokumentation innehåller information för ADSyncConfig.psm1 PowerShell-modul som ingår i Azure AD Connect.
@@ -1367,7 +1367,7 @@ Show-ADSyncADObjectPermissions [-ADobjectDN] <String> [<CommonParameters>]
 ```
 
 ### <a name="description"></a>BESKRIVNING
-Den här funktionen retuns AD-behörigheter för närvarande inställd för en viss AD-objekt som angetts i parametern - ADobjectDN.
+Den här funktionen returnerar alla AD-behörigheter som ställts in för ett angivet AD-objekt som angetts i parametern - ADobjectDN.
 ADobjectDN måste anges i formatet DistinguishedName.
 
 ### <a name="examples"></a>EXEMPEL

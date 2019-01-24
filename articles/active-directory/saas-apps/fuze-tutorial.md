@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Fuze | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Fuze | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Fuze.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9780b4bf-1fd1-48c1-9ceb-f750225ae08a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.openlocfilehash: 6a3fa8db14f2b155a471fd42d0d20ccf543fdbba
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2fdad7df43310132684eae983eae2278629a9b63
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115763"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810201"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Självstudier: Azure Active Directory-integration med Fuze
+# <a name="tutorial-azure-active-directory-integration-with-fuze"></a>Självstudier: Azure Active Directory-integrering med Fuze
 
 I den här självstudien får du lära dig hur du integrerar Fuze med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera Fuze med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på Fuze (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,10 +45,10 @@ Om du vill konfigurera Azure AD-integrering med Fuze, behöver du följande obje
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,11 +69,11 @@ För att konfigurera integrering av Fuze i Azure AD, som du behöver lägga till
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Fuze**.
 
@@ -119,7 +119,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
     
     I den **inloggnings-URL** textrutan typ i inloggnings-URL: en som: `https://www.thinkingphones.com/jetspeed/portal/`
 
-1.  Klicka på **spara** knappen.
+1.  Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/fuze-tutorial/tutorial_general_400.png)
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b9fed56746f5b26269f6a70aeedd06ba9b19548f
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 2ff08b0f155be54ee57d2d9999c47aa56a366d09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018833"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852209"
 ---
 # <a name="how-to-find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hur du hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 Det här avsnittet beskriver hur du använder Azure CLI för att hitta VM-avbildningar på Azure Marketplace. Använd informationen för att ange en Marketplace-avbildning när du skapar en virtuell dator via programmering med CLI, Resource Manager-mallar eller andra verktyg.
@@ -128,7 +128,7 @@ Debian   credativ     8                  credativ:Debian:8:8.0.201706210        
 ```
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna 
-Ett annat sätt att hitta en bild på en plats är att köra den [az vm list-avbildningsutgivare](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm list-avbildningserbjudanden](/cli/azure/vm/image#az_vm_image_list_offers), och [az vm-avbildning lista-SKU: er](/cli/azure/vm/image#az_vm_image_list_skus) kommandon i sekvens. Med följande kommandon kan du bestämma dessa värden.
+Ett annat sätt att hitta en bild på en plats är att köra den [az vm list-avbildningsutgivare](/cli/azure/vm/image#az_vm_image_list_publishers), [az vm list-avbildningserbjudanden](/cli/azure/vm/image), och [az vm-avbildning lista-SKU: er](/cli/azure/vm/image#az_vm_image_list_skus) kommandon i sekvens. Med följande kommandon kan du bestämma dessa värden.
 
 1. Visa en lista över avbildningsutgivare.
 2. Visa en lista över erbjudanden från en viss utgivare.
@@ -177,7 +177,7 @@ Använd den här informationen för att hitta erbjudanden från en viss utgivare
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-Resultat:
+Utdata:
 
 ```
 Location    Name
@@ -194,7 +194,7 @@ Du ser att regionen West US Canonical och publicerar den *UbuntuServer* erbjudan
 az vm image list-skus --location westus --publisher Canonical --offer UbuntuServer --output table
 ```
 
-Resultat:
+Utdata:
 
 ```
 Location    Name
@@ -249,7 +249,7 @@ UbuntuServer  Canonical    16.04-LTS  Canonical:UbuntuServer:16.04-LTS:16.04.201
 
 Du kan nu välja exakt den avbildning som du vill använda genom att anteckna URN-värdet. Skicka det här värdet med den `--image` parameter när du skapar en virtuell dator med den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. Kom ihåg att du kan ersätta versionsnumret i URN med ”senaste”. Den här versionen är alltid den senaste versionen av avbildningen. 
 
-Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange parametrarna bild individuellt i den `imageReference` egenskaper. Se den [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
+Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange parametrarna bild individuellt i den `imageReference` egenskaper. Se [mallreferensen](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
@@ -263,7 +263,7 @@ Till exempel Canonical Ubuntu Server 16.04 LTS-avbildning inte har ytterligare v
 az vm image show --location westus --urn Canonical:UbuntuServer:16.04-LTS:latest
 ```
 
-Resultat:
+Utdata:
 
 ```
 {
@@ -284,7 +284,7 @@ Köra en liknande kommando för RabbitMQ certifierats av Bitnami-avbildningen vi
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-Resultat:
+Utdata:
 
 ```
 {

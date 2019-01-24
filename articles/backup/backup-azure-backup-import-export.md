@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 9d91ccd04ed06fb6c256a2d9911202d7df6d08a5
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 94931546f3b8ddb18a5381de3baa31d66376badb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188308"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810728"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Arbetsflöde för säkerhetskopiering offline i Azure Backup
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att överföra offline säkerhetskopierade data till Azure.
@@ -63,7 +63,7 @@ Uppfyll följande krav innan du påbörjar arbetsflöde för Offlinesäkerhetsko
     ![När du registrerar resursprovidern](./media/backup-azure-backup-import-export/registerimportexport.png)
 * En mellanlagringsplats som kan vara en nätverksresurs eller eventuella ytterligare en enhet på datorn, interna eller externa, med tillräckligt med diskutrymme för att rymma den inledande kopian har skapats. Om du vill se till att säkerhetskopiera en filserver med 500 GB är mellanlagringsområdet minst 500 GB. (Färre används på grund av komprimering.)
 * När du skickar diskar till Azure, använda endast 2,5 tums SSD eller 2,5 tum eller 3,5-tums SATA II/III interna hårddiskar. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [dokumentation om Azure Import/Export service](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen av enheter som har stöd för tjänsten.
-* SATA-enheter måste vara ansluten till en dator (kallas en *kopia datorn*) varifrån kopia av säkerhetskopieringsdata från den *mellanlagringsplatsen* till SATA-enheter är klar. Kontrollera att Bitlocker är aktiverat på den *kopia datorn*.
+* SATA-enheter måste vara ansluten till en dator (kallas en *kopia datorn*) varifrån kopia av säkerhetskopieringsdata från den *mellanlagringsplatsen* till SATA-enheter är klar. Kontrollera att BitLocker är aktiverat på den *kopia datorn*.
 
 ## <a name="workflow"></a>Arbetsflöde
 Det här avsnittet beskrivs arbetsflödet för säkerhetskopiering offline så att dina data kan levereras till ett Azure-datacenter och överförs till Azure Storage. Om du har frågor om tjänsten Import eller någon aspekt av processen, se den [importera dokumentation om service-översikt](../storage/common/storage-import-export-service.md).

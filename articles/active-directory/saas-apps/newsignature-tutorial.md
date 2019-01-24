@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4ea9f47c-25ca-42b0-a878-9e7aa6f34973
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: jeedes
-ms.openlocfilehash: 0cd14a308758701e207e0b1ee6d3591c4b0347bd
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 896a40bf9358d446eb7d02666d8ec956f9623e91
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427643"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822016"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cloud-management-portal-for-microsoft-azure"></a>Självstudier: Azure Active Directory-integrering med Cloud Management Portal för Microsoft Azure
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Cloud Management Portal för Mic
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ Om du vill konfigurera integreringen av Cloud Management Portal för Microsoft A
 
 **Utför följande steg för att lägga till Cloud Management Portal för Microsoft Azure från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Cloud Management Portal för Microsoft Azure**.
 
@@ -112,14 +112,14 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/newsignature-tutorial/tutorial_newsignature_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: 
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: 
     
     | |
     |--|
     | `https://portal.newsignature.com/<instancename>` |   
     | `https://portal.igcm.com/<instancename>` |
     
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: 
     
     | |
     |--|
@@ -135,13 +135,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     | `https://<subdomain>.newsignature.com/<instancename>` |
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktiska inloggnings-URL, identifierare och svars-URL. Kontakta [Cloud Management Portal för Microsoft Azure-Client-supportteamet](mailto:jczernuszka@newsignature.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska inloggnings-URL:en, identifieraren och svars-URL:en. Kontakta [Cloud Management Portal för Microsoft Azure-Client-supportteamet](mailto:jczernuszka@newsignature.com) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/newsignature-tutorial/tutorial_newsignature_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/newsignature-tutorial/tutorial_general_400.png)
 
@@ -149,13 +149,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/newsignature-tutorial/tutorial_newsignature_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Cloud Management Portal för Microsoft Azure** sida, som du behöver skicka de hämtade **certifikat**, **URL: en för utloggning**,  **Enkel inloggning för tjänsten URL för SAML** och **SAML entitets-ID** till [Cloud Management Portal för Microsoft Azure-supportteamet](mailto:jczernuszka@newsignature.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Cloud Management Portal för Microsoft Azure** sida, som du behöver skicka de hämtade **certifikat**, **URL: en för utloggning**,  **Enkel inloggning för tjänsten URL för SAML** och **SAML entitets-ID** till [Cloud Management Portal för Microsoft Azure-supportteamet](mailto:jczernuszka@newsignature.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -225,7 +225,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 När du klickar på Cloud Management Portal för Microsoft Azure-panel i åtkomstpanelen du bör få automatiskt loggat in på din Cloud Management-Portal för Microsoft Azure-program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

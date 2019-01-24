@@ -3,19 +3,19 @@ title: Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azu
 description: Lär dig hur du konfigurerar resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1b07825bd3ff46267764467bba815c1097278084
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726295"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845885"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -26,14 +26,14 @@ Resursägarens lösenord autentiseringsuppgifter (ROPC) flöde är en flöde fö
 
 I Azure Active Directory (Azure AD) B2C stöds följande alternativ:
 
-- **Native Client**: interaktion från användaren under autentiseringen sker när koden körs på en enhet för användaren sida. Enheten kan vara ett mobilt program som körs i ett operativsystem, till exempel Android, eller körs i en webbläsare, till exempel JavaScript.
-- **Offentliga klientflödet**: endast användarens autentiseringsuppgifter, samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
+- **Native Client**: Interaktion från användaren under autentiseringen sker när koden körs på en enhet för användaren sida. Enheten kan vara ett mobilt program som körs i ett operativsystem, till exempel Android, eller körs i en webbläsare, till exempel JavaScript.
+- **Offentliga klientflödet**: Endast användarens autentiseringsuppgifter samlas in av ett program, skickas i API-anrop. Autentiseringsuppgifterna för programmet skickas inte.
 - **Lägga till nya anspråk**: ID-token innehållet kan ändras för att lägga till nya anspråk. 
 
 Följande flöden stöds inte:
 
-- **Server-till-server**: identity protection systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (intern klient) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids kan identity protection systemet identifiera en upprepad IP-adress som en angripare.
-- **Konfidentiellt klientflödet**: programmets klient-ID har verifierats, men programhemlighet har inte verifierats.
+- **Server-to-server**: Identity protection systemet behöver en tillförlitlig IP-adress som samlats in från anroparen (intern klient) som en del av interaktionen. I ett API-anrop för serversidan används bara serverns IP-adress. Om ett dynamiskt tröskelvärde för misslyckade autentiseringar överskrids kan identity protection systemet identifiera en upprepad IP-adress som en angripare.
+- **Konfidentiellt klientflödet**: Programmets klient-ID har verifierats, men programhemlighet har inte verifierats.
 
 ##  <a name="create-a-resource-owner-user-flow"></a>Skapa ett användarflöde för resurs-ägare
 
@@ -75,7 +75,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 | lösenord | Passxword1 |
 | _typ av beviljande | lösenord |
 | omfång | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > offline_access |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | token id_token |
 
 *Client_id* är det värde som du antecknade tidigare som program-ID *Offline_access* är valfritt om du vill få en uppdateringstoken. Användarnamnet och lösenordet som du använder måste vara autentiseringsuppgifter från en befintlig användare i din Azure AD B2C-klient.
@@ -113,8 +113,8 @@ Skapa en POST-anrop som den som visas här med informationen i följande tabell 
 | --- | ----- |
 | _typ av beviljande | refresh_token |
 | response_type | id_token |
-| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
-| resurs | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3 > |
+| client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
+| resurs | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | refresh_token | eyJraWQiOiJacW9pQlp2TW5pYVc2MUY0TnlfR3... |
 
 *Client_id* och *resource* är de värden som du antecknade tidigare som program-ID *Refresh_token* är token som du fick i authentication-samtal som tidigare nämnts.

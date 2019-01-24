@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: juliako
-ms.openlocfilehash: 666be9c2ebba9dc9607e4188b2390fff49fd59b9
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: e83b634c11d0349f4917c063cde54e03fa1cac40
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53554664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810711"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Granska Video Indexer-utdata som genereras av v2 API
 
@@ -166,7 +166,7 @@ Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en list
 |audioEffects|Den [audioEffects](#audioEffects) dimension.|
 |sentiment|Den [sentiment](#sentiments) dimension.|
 |visualContentModeration|Den [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualConentModeration|Den [textualConentModeration](#textualconentmoderation) dimension.|
+|textualContentModeration|Den [textualContentModeration](#textualcontentmoderation) dimension.|
 |känslor| Den [känslor](#emotions) dimension.|
 |ämnen|Den [ämnen](#topics) dimension.|
 
@@ -187,7 +187,7 @@ Exempel:
   "audioEffects": ...,
   "sentiments": ...,
   "visualContentModeration": ...,
-  "textualConentModeration": ...
+  "textualContentModeration": ...
 }
 ```
 
@@ -334,9 +334,9 @@ Exempel:
 |namn|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
 |beskrivning|En beskrivning av kändisar. |
-|thumbnalId|ID för miniatyrbilden för den sida.|
+|thumbnailId|ID för miniatyrbilden för den sida.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
-|Tjänsten|Om det är en Bing kändisar, dess Bing-ID.|
+|referenceId|Om det är en Bing kändisar, dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
 |rubrik|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
 |imageUrl|Om det är en kändisar, dess bild-url.|
@@ -495,7 +495,7 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 |---|---|
 |id|Varumärke-ID.|
 |namn|Namnet varumärken.|
-|Tjänsten | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceId | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
 |referenceUrl | Varumärket är Wikipedias url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
 |beskrivning|Varumärken beskrivning.|
 |tags|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
@@ -592,7 +592,7 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 |Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
-|Medel |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
+|averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
 |instanser|En lista över tidsintervall där den här sentiment visades.|
 |sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
 
@@ -662,7 +662,7 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 ] 
 ```
 
-#### <a name="textualconentmoderation"></a>textualConentModeration 
+#### <a name="textualcontentmoderation"></a>textualContentModeration 
 
 |Namn|Beskrivning|
 |---|---|
@@ -767,8 +767,8 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 |Namn|Beskrivning|
 |---|---|
 |id|Avsnittet-ID.|
-|namn|Ämnesnamnet, till exempel: ”Pharmaceuticals”.|
-|Tjänsten|Spår återger ämnen-hierarkin. Exempel: ”Hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
+|namn|Ämnesnamnet, till exempel: "Pharmaceuticals".|
+|referenceId|Spår återger ämnen-hierarkin. Exempel: ”Hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
 |förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|
 |language|Språket som används i avsnittet.|
 |iptcName|IPTC media koda namn, om identifieras.|
@@ -807,7 +807,7 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Video Indexer Developer-portalen](https://api-portal.videoindexer.ai)
+[Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
 
 Information om hur du bäddar in widgetar i ditt program finns i [bädda in Video Indexer widgetar i dina program](video-indexer-embed-widgets.md). 
 

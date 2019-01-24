@@ -3,19 +3,19 @@ title: Allmänna anspråk omvandling exempel för den identiteten upplevelse Fra
 description: Allmänna anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8ff418c24e9171d452bca873c4b8f66ada2adb7c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 8cae6ec9693c0fadba059e641fb75e68bbbaec92
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431334"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853110"
 ---
 # <a name="general-claims-transformations"></a>Allmän anspråksomvandlingar
 
@@ -29,8 +29,8 @@ Kontrollerar om den **inputClaim** finns eller inte och anger **outputClaim** ti
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim |Alla | Det inkommande anspråket vars förekomst behöver verifieras. |
-| outputClaim | outputClaim | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
+| InputClaim | inputClaim |Alla | Det inkommande anspråket vars förekomst behöver verifieras. |
+| OutputClaim | outputClaim | boolesk | ClaimType som skapas när den här ClaimsTransformation har anropats. |
 
 Använd detta omvandling för att kontrollera om ett anspråk finns eller innehåller ett värde av anspråk. Returvärdet är ett booleskt värde som anger om anspråket finns. Följande exempel kontrollerar om e-postadressen finns.
 
@@ -58,10 +58,10 @@ Hash-den angivna oformaterad text med hjälp av saltet och en hemlighet.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | oformaterad text | sträng | Inkommande anspråk som ska krypteras |
+| InputClaim | plaintext | sträng | Inkommande anspråk som ska krypteras |
 | InputClaim | salt | sträng | Parametern salt. Du kan skapa ett slumpmässigt värde, med hjälp av `CreateRandomString` omvandling av anspråk. |
-| Indataparametrar | randomizerSecret | sträng | Pekar på en befintlig Azure AD B2C **Principnycklar**. Skapa en ny: I din Azure AD B2C-klient väljer **B2C-Inställningar > Identitetsramverk**. Välj **Principnycklar** att visa de nycklar som är tillgängliga i din klient. Välj **Lägg till**. För **alternativ**väljer **manuell**. Ange ett namn (prefixet B2C_1A_ kan läggas till automatiskt.). I rutan hemliga anger du eventuella hemlighet som du vill använda, till exempel 1234567890. Nyckelanvändning, Välj **hemlighet**. Välj **Skapa**. |
-| outputClaim | Hash | sträng | ClaimType som skapas när detta omvandling av anspråk har anropats. Det anspråk som konfigurerats i den `plaintext` inputClaim. |
+| InputParameter | randomizerSecret | sträng | Pekar på en befintlig Azure AD B2C **Principnycklar**. Skapa ett nytt lösenord: I din Azure AD B2C-klient väljer **B2C-Inställningar > Identitetsramverk**. Välj **Principnycklar** att visa de nycklar som är tillgängliga i din klient. Välj **Lägg till**. För **alternativ**väljer **manuell**. Ange ett namn (prefixet B2C_1A_ kan läggas till automatiskt.). I rutan hemliga anger du eventuella hemlighet som du vill använda, till exempel 1234567890. Nyckelanvändning, Välj **hemlighet**. Välj **Skapa**. |
+| OutputClaim | Hash | sträng | ClaimType som skapas när detta omvandling av anspråk har anropats. Det anspråk som konfigurerats i den `plaintext` inputClaim. |
 
 ```XML
 <ClaimsTransformation Id="HashPasswordWithEmail" TransformationMethod="Hash">
@@ -81,11 +81,11 @@ Hash-den angivna oformaterad text med hjälp av saltet och en hemlighet.
 ### <a name="example"></a>Exempel
 
 - Inkommande anspråk:
-    - **klartext**: MyPass@word1
+    - **plaintext**: MyPass@word1
     - **salt**: 487624568
     - **randomizerSecret**: B2C_1A_AccountTransformSecret
 - Utgående anspråk: 
-    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U =
+    - **outputClaim**: CdMNb/KTEfsWzh9MR1kQGRZCKjuxGMWhA5YQNihzV6U=
 
 
 

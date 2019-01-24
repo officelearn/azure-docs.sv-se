@@ -3,9 +3,9 @@ title: Hur du använder AMQP 1.0 med Service Bus-API för Java | Microsoft Docs
 description: Hur du använder Java Message Service (JMS) med Azure Service Bus och AMQP Advanced Message Queuing Protocol () 1.0.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: be766f42-6fd1-410c-b275-8c400c811519
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 08/10/2018
-ms.author: spelluru
-ms.openlocfilehash: fbd74b227afd2191616100d74c7864eacf015add
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.author: aschhab
+ms.openlocfilehash: f0c3aac95b1d19dc3f217cc146532254d8740ca0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52308078"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853297"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Hur du använder Java Message Service (JMS) API med Service Bus och AMQP 1.0
 AMQP Advanced Message Queuing Protocol () 1.0 är ett effektivt, pålitligt meddelandeprotokoll på trådnivå som du kan använda för att skapa robusta och plattformsöverskridande meddelandeprogram.
@@ -41,8 +41,8 @@ Information om var du kan hämta den senaste versionen av Apache Qpid JMS AMQP 1
 
 Du måste lägga till följande fyra JAR-filer från arkivet för Apache Qpid JMS AMQP 1.0-distribution Java-KLASSÖKVÄGEN när du bygger och kör JMS program med Service Bus:
 
-* geronimo jms\_1.1\_spec 1.0.jar
-* qpid-jms - client-[version] .jar
+* geronimo-jms\_1.1\_spec-1.0.jar
+* qpid-jms-client-[version].jar
 
 > ! [OBS] JMS JAR namn och versioner kan ha ändrats. Mer information finns i [Qpid JMS - AMQP 1.0](https://qpid.apache.org/maven.html#qpid-jms-amqp-10).
 

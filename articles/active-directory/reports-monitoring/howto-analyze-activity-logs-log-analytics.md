@@ -4,7 +4,7 @@ description: Lär dig hur du analyserar Azure Active Directory-aktivitetsloggar 
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4535ae65-8591-41ba-9a7d-b7f00c574426
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2f0f5341ba6818f375d463638979c68689519227
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 759a0da93544e2a17b71d762924981f05c3ea322
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624207"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810794"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-log-analytics-preview"></a>Analysera Azure AD-aktivitetsloggar med Log Analytics (förhandsversion)
 
@@ -93,9 +93,9 @@ Du kan också ställa in aviseringar på din fråga. Om du vill konfigurera en a
 
 Du kan också hämta färdiga Log Analytics-vyerna för Azure AD activity logs. Vyerna tillhandahåller flera rapporter som rör vanliga scenarier som omfattar gransknings- och inloggningshändelser. Du kan även meddela på någon av informationen i rapporterna, genom att följa anvisningarna i föregående avsnitt.
 
-* **Azure AD-konto etablering händelser**: den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare enhetstiden och motsvarande fel.    
-* **Inloggningar händelser**: den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
-* **Användare utför godkänna**: den här vyn visar rapporter som rör användargodkännande, t.ex. samtycke ger av användaren, inloggningar efter användare som givit medgivande samt inloggningar av program för alla medgivande-baserade program. 
+* **Azure AD-konto etablering händelser**: Den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare som avetableras och motsvarande fel.    
+* **Inloggningar händelser**: Den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
+* **Användare som utför medgivande**: Den här vyn visar rapporter som rör användargodkännande, t.ex. samtycke ger av användaren, inloggningar efter användare som givit medgivande samt inloggningar av program för alla medgivande-baserade program. 
 
 Lär dig hur du [installerar och använder Log Analytics-vyer för Azure AD-aktivitetsloggar](howto-install-use-log-analytics-views.md). 
 

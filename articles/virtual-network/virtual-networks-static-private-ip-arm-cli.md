@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0ffcf483b2852ec87c263573a97b4508d5b5d39c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a6e217194508feae3b227b5ef65b02d0305a22a7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997479"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852906"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Konfigurera privata IP-adresser för en virtuell dator med hjälp av Azure CLI
 
@@ -44,7 +44,7 @@ Skapa en virtuell dator med namnet *DNS01* i den *klientdel* undernät i ett vir
 
 1. Om du inte har gjort det ännu, installerar och konfigurerar senast [Azure CLI](/cli/azure/install-azure-cli) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
-2. Skapa en offentlig IP-adress för den virtuella datorn med den [az nätverket offentliga ip-skapa](/cli/azure/network/public-ip#az_network_public_ip_create) kommando. Listan som visas efter utdatan beskriver de parametrar som används.
+2. Skapa en offentlig IP-adress för den virtuella datorn med den [az nätverket offentliga ip-skapa](/cli/azure/network/public-ip) kommando. Listan som visas efter utdatan beskriver de parametrar som används.
 
     > [!NOTE]
     > Om du vill ha eller behöver använda olika värden för dina argument i det här och efterföljande steg beroende på din miljö.

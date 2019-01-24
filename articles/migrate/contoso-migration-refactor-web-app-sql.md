@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: dec58b2bb82eeab8b95c59e2775d21d58e18cac4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450429"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808467"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Contoso-migrering: Omstrukturera en lokal app till en Azure Web App och Azure SQL-databas
 
@@ -347,7 +347,7 @@ Contoso-administratörer kan nu konfigurera Azure DevOps för att skapa build-ve
 
     ![Distribuera app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-18. I **Välj en fil eller mapp**, de lokalisera den **SmartHotel.Registration.Wcf.zip** -filen som skapades under build och clilck **spara**.
+18. I **Välj en fil eller mapp**, de lokalisera den **SmartHotel.Registration.Wcf.zip** filen som skapas under bygget och klicka på **spara**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 

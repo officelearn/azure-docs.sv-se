@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: willzhan;juliako;johndeu
-ms.openlocfilehash: d9d1fa7d8cf25057339e560c371deb939997b578
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 17c25181709e6c75de2d23fb02fd55c0e6e41ae3
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945085"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818040"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-azure-media-services-api-with-rest"></a>Använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API med REST
 
@@ -50,7 +50,7 @@ I den här guiden får du lära dig att:
 - Granska den [åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md) artikeln.
 - Installera den [Postman](https://www.getpostman.com/) REST-klient för att köra REST API: er i den här artikeln. 
 
-    I den här självstudien är vi er **Postman** men alla REST-verktyget skulle vara lämplig. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
+    I den här självstudien använder vi **Postman** men alla REST-verktyget skulle vara lämplig. Andra alternativ är: **Visual Studio Code** med plugin-programmet för REST eller **Telerik Fiddler**. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Hämta autentiseringsinformation om från Azure portal
 
@@ -60,7 +60,7 @@ Du behöver samla in följande datapunkter för att komma åt Media Services-API
 
 |Inställning|Exempel|Beskrivning|
 |---|-------|-----|
-|Azure Active Directory-klientorganisationsdomän|Microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
+|Azure Active Directory-klientorganisationsdomän|microsoft.onmicrosoft.com|Azure AD som en säker säkerhetstokentjänst (STS)-slutpunkt skapas med hjälp av följande format: https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token. Azure AD utfärdar en JWT för att komma åt resurser (en åtkomsttoken).|
 |REST API-slutpunkt|https://amshelloworld.restv2.westus.media.azure.net/api/|Detta är den slutpunkt mot vilken alla Media Services REST API-anrop i ditt program har utförts.|
 |Klient-ID (program-ID)|f7fbbb29-a02d-4d91-bbc6-59a2579259d2|Azure AD-program (klient)-ID. Klient-ID krävs för att hämta åtkomsttoken. |
 |Klienthemlighet|+mUERiNzVMoJGggD6aV1etzFGa1n6KeSlLjIq+Dbim0=|Azure AD programnycklar (klienthemlighet). Klienthemlighet krävs för att hämta åtkomsttoken.|
@@ -79,7 +79,7 @@ Följ dessa steg för att hämta information:
 5. Välj en befintlig **Azure AD-program** eller skapa en ny (se nedan).
 
     > [!NOTE]
-    > För Azure Media REST-begäranden ska lyckas, den anropande användaren måste ha en **deltagare** eller **ägare** för Media Services-kontot som försöker komma åt. Om du får ett undantag där det står ”fjärrservern returnerade ett fel: (401) Ej behörig”, se [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control).
+    > För Azure Media REST-begäranden ska lyckas, den anropande användaren måste ha en **deltagare** eller **ägare** för Media Services-kontot som försöker komma åt. Om du får ett undantag där det står ”fjärrservern returnerade ett fel: (401) Ej behörig ”, se [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control).
 
     Följ dessa steg om du vill skapa en ny AD-app:
     
@@ -118,7 +118,7 @@ Du kan lägga till värden för parametrarna för AD-anslutningen i filen web.co
 
 ## <a name="get-the-access-token-using-postman"></a>Hämta åtkomsttoken med hjälp av Postman
 
-Det här avsnittet visar hur du använder **Postman** att köra ett REST-API som returnerar en JWT ägar-Token (åtkomsttoken). För att anropa alla Media Services REST-API kan du behöva lägga till rubriken ”Authorization” anrop och lägga till värdet för ”ägar *your_access_token*” för varje anrop (som visas i nästa avsnitt av den här kursen). 
+Det här avsnittet visar hur du använder **Postman** att köra ett REST-API som returnerar en JWT ägar-Token (åtkomsttoken). För att anropa alla Media Services REST-API kan du behöva lägga till rubriken ”Authorization” anrop och lägga till värdet för ”ägar *your_access_token*” för varje anrop (som visas i nästa avsnitt av den här kursen). 
 
 1. Öppna **Postman**.
 2. Välj **POST**.
@@ -188,5 +188,5 @@ Returnerade svaret innehåller de resurser som finns i ditt konto.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Prova den här exempelkoden i [Azure AD-autentisering för Azure Media Services-åtkomst: både via REST-API](https://github.com/willzhan/WAMSRESTSoln)
+* Prova den här exempelkoden i [Azure AD-autentisering för Azure Media Services-åtkomst: Både via REST-API](https://github.com/willzhan/WAMSRESTSoln)
 * [Ladda upp filer med .NET](media-services-dotnet-upload-files.md)

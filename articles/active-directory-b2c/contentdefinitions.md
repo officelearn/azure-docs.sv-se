@@ -3,19 +3,19 @@ title: ContentDefinitions - Azure Active Directory B2C | Microsoft Docs
 description: Ange det ContentDefinitions elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f51b058b14525cc5a4af312696330a3a39ea44e1
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 1fa5688b5895ed7418161234f6af06fecace631c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381768"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849387"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -61,9 +61,9 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** lokal verifieringsvillkor
 
 Den **ContentDefinition** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för en innehållsdefinition. Värdet är som har angetts i den **innehåll definition ID: N** längre fram i den här sidan. |
+| Id | Ja | En identifierare för en innehållsdefinition. Värdet är som har angetts i den **innehåll definition ID: N** längre fram i den här sidan. |
 
 Den **ContentDefinition** elementet innehåller följande element:
 
@@ -71,11 +71,11 @@ Den **ContentDefinition** elementet innehåller följande element:
 | ------- | ----------- | ----------- |
 | LoadUri | 1:1 | En sträng som innehåller Webbadressen till sidan HTML5 för innehållsdefinitionen. |
 | RecoveryUri | 0:1 | En sträng som innehåller URL: en för HTML-sidan för att visa ett fel som rör innehållsdefinitionen. | 
-| dataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som innehåller användarupplevelsen att anropa för steget. |  
+| DataUri | 1:1 | En sträng som innehåller den relativa URL: en för en HTML-fil som innehåller användarupplevelsen att anropa för steget. |  
 | Metadata | 1:1 | En samling nyckel/värde-par som innehåller metadata som används av innehållsdefinitionen. | 
 | LocalizedResourcesReferences | 0:1 | En samling med lokaliserade resurser referenser. Anpassa lokaliseringen av ett användarattribut för gränssnittet och anspråk med hjälp av det här elementet. |
 
-### <a name="datauri"></a>dataUri
+### <a name="datauri"></a>DataUri
 
 Den **DataUri** elementet används för att ange ID för sidan. Azure AD B2C använder sidan-identifierare för att läsa in och initiera UI-element och JavaScript på klientsidan. Formatet för värdet är `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I följande tabell visas sidan identifierare som du kan använda.
 
@@ -95,11 +95,11 @@ Den **LocalizedResourcesReferences** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedResourcesReference | 1: n | En lista över referenser för lokaliserad resurs för innehållsdefinitionen. | 
+| LocalizedResourcesReference | 1:n | En lista över referenser för lokaliserad resurs för innehållsdefinitionen. | 
 
 Den **LocalizedResourcesReferences** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646 - taggar för identifiering av språk. |
 | LocalizedResourcesReferenceId | Ja | Identifierare för den **LocalizedResources** element. |
@@ -143,14 +143,14 @@ Attributet ID för den **ContentDefinition** elementet anger vilken typ av sida 
 
 | ID | Standardmall | Beskrivning | 
 | -- | ---------------- | ----------- |
-| **api.error** | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** – visar sidan ett fel när ett undantag eller ett fel påträffas. |
-| **API.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sida för val av identitet** – visar en lista över identitetsleverantörer som användare kan välja bland under inloggning. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
-| **API.idpselections.Signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identitets-provider-markeringen för registrering** – visar en lista över identitetsleverantörer som användare kan välja bland under registreringen. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** – visar sidan ett fel när ett undantag eller ett fel påträffas. |
+| **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sida för val av identitet** – visar en lista över identitetsleverantörer som användare kan välja bland under inloggning. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identitets-provider-markeringen för registrering** – visar en lista över identitetsleverantörer som användare kan välja bland under registreringen. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
 | **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sida för glömt lösenord** – visar ett formulär som användare måste slutföra för att initiera en lösenordsåterställning. |
-| **API.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokalt konto på inloggningssidan** – visar ett formulär för att logga in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
-| **API.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för lokalt konto** – visar ett formulär för att registrera dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel: indata i en text box, en lösenordsruta, en alternativknapp, flervals-listrutorna och markera kryssrutorna. |
-| **API.phonefactor** | [multifaktoråtkomstkontroll 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multifaktorautentiseringssidan** -verifierar telefonnummer, med hjälp av text eller röst, under registrering eller inloggning. |
+| **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokalt konto på inloggningssidan** – visar ett formulär för att logga in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
+| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för lokalt konto** – visar ett formulär för att registrera dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel: indata i en text box, en lösenordsruta, en alternativknapp, flervals-listrutorna och markera kryssrutorna. |
+| **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multifaktorautentiseringssidan** -verifierar telefonnummer, med hjälp av text eller röst, under registrering eller inloggning. |
 | **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för socialt konto** – visar ett formulär som användare måste slutföra när de registrerar sig med hjälp av ett befintligt konto från en social identitetsprovider. Den här sidan liknar det föregående sociala Kontoregistrering, förutom inmatningsfält för lösenord. |
 | **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Uppdatera profilsida** – visar ett formulär som användarna kan nå för att uppdatera sina profiler. Den här sidan liknar den sociala Kontoregistrering, förutom inmatningsfält för lösenord. |
-| **API.signuporsignin** | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Sida för enhetlig registrering eller inloggning** -hanterar processen för användare registrera dig och logga in. Användare kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton. |
+| **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Sida för enhetlig registrering eller inloggning** -hanterar processen för användare registrera dig och logga in. Användare kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton. |
  

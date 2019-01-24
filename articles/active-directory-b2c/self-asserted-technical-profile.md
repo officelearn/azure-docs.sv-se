@@ -3,19 +3,19 @@ title: Definiera en självkontrollerad tekniska profilen i en anpassad princip i
 description: Definiera en självkontrollerad tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 262c4e622d7ef915e59f29c8f4272e488acaeccf
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7a783e496b7bb6fcdf2c80247baad2bfc901d857
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166919"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851002"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en självkontrollerad tekniska profilen i en anpassad princip för Azure Active Directory B2C
 

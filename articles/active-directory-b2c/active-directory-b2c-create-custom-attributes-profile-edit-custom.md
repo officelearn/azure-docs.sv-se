@@ -3,19 +3,19 @@ title: Lägga till egna attribut i anpassade principer i Azure Active Directory 
 description: En genomgång av hur du använder tilläggsegenskaper och anpassade attribut och inkludera dem i användargränssnittet.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5513e0ff434862ea7eee42cb94ff2a0f67f6d390
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338752"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854062"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Använd anpassade attribut i en anpassad profil Redigera princip
 
@@ -53,14 +53,14 @@ Instruktioner finns i den **nästa steg** i den här artikeln.
 2. Välj **Azure Active Directory** på den vänstra navigeringsmenyn. Du kan behöva hitta den genom att välja **fler tjänster**.
 3. Välj **Appregistreringar**. Välj **Ny programregistrering**.
 4. Ange följande poster:
-    * Ett namn för webbprogrammet: **WebApp-GraphAPI-DirectoryExtensions**.
+    * Ett namn för det webbaserade programmet: **WebApp-GraphAPI-DirectoryExtensions**.
     * Programtyp: **Web app/API**.
     * Inloggnings URL: **https://{tenantName}.onmicrosoft.com/WebApp-GraphAPI-DirectoryExtensions**.
 5. Välj **Skapa**.
 6. Välj det nyligen skapade webbprogrammet.
 7. Välj **inställningar** > **behörigheter som krävs för**.
 8. Välj API **Windows Azure Active Directory**.
-9. Markera det programbehörigheter: **läsa och skriva katalogdata**. Välj sedan **Spara**.
+9. Markera det behörigheter för programmet: **Läsa och skriva katalogdata**. Välj sedan **Spara**.
 10. Välj **bevilja** och bekräfta **Ja**.
 11. Kopiera följande identifierare till Urklipp och spara dem:
     * **Program-ID**. Exempel: `103ee0e6-f92d-4183-b576-8c3739027780`.

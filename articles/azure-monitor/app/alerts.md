@@ -11,14 +11,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2017
+ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: fe63813220d526536a31efb48b6ec29b6ae383e8
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121149"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843522"
 ---
 # <a name="set-alerts-in-application-insights"></a>Ställa in aviseringar i Application Insights
 [Azure Application Insights] [ start] kan varna dig om ändringar i mått för prestanda och användning i din webbapp. 
@@ -89,7 +89,20 @@ Populära aviseringar innehåller:
 * **Svarstid för servern** för serversidan webbprogram. Håll ett öga på det här måttet att se om det beror oproportionerligt hög begäranhastigheter samt ställa in aviseringar: variationen kan tyda på att din app är igång tillräckligt med resurser. 
 * **Serverundantagen** – om du vill se dem, du behöver göra några [ytterligare inställningar](../../azure-monitor/app/asp-net-exceptions.md).
 
-Glöm inte att [hastighet för proaktiv feldiagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md) automatiskt övervaka den hastighet med vilken din app svarar på begäranden med felkoder. 
+Glöm inte att [hastighet för proaktiv feldiagnostik](../../azure-monitor/app/proactive-failure-diagnostics.md) automatiskt övervaka den hastighet med vilken din app svarar på begäranden med felkoder.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
+
+Det här avsnittet gäller för klassiska aviseringar endast och hjälper dig att optimera dina aviseringar till att säkerställa att endast dina önskade mottagare får meddelanden. Vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md) och det nya aviseringsgränssnittet referera till den [aviseringar översikten](../platform/alerts-overview.md). För att styra avisering meddelande i de nya aviseringarna uppstår Använd [åtgärdsgrupper](../platform/action-groups.md).
+
+* Vi rekommenderar användning av specifika mottagare för klassiska aviseringar.
+
+* För aviseringar i alla Application Insights-mått (inklusive mått på tillgänglighet), den **grupp/grupp** kryssrutan alternativet, om aktiverad, skickar till användare med ägare, deltagare eller läsare roller i prenumerationen. I praktiken _alla_ användare med åtkomst till prenumerationen Application Insights-resursen omfattas och ska ta emot meddelanden. 
+
+> [!NOTE]
+> Om du använder den **grupp/grupp** kryssrutan alternativet, och inaktivera det, kommer du inte kunna återställa ändringen.
+
+Använd de nya upplevelse nära realtid/aviseringarna om du vill meddela användare baserat på deras roller. Med [åtgärdsgrupper](../platform/action-groups.md), du kan konfigurera e-postaviseringar till användare med någon av rollerna deltagare och ägare/läsare (inte kombineras tillsammans som ett alternativ).
 
 ## <a name="automation"></a>Automation
 * [Använd PowerShell för att automatisera konfigurationen av aviseringar](../../azure-monitor/app/powershell-alerts.md)

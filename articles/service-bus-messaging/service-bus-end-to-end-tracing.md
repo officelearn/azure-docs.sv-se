@@ -3,22 +3,22 @@ title: Azure Service Bus-slutpunkt till slutpunkt-spårning och diagnostik | Mic
 description: Översikt över Service Bus klientdiagnostik och slutpunkt till slutpunkt-spårning
 services: service-bus-messaging
 documentationcenter: ''
-author: lmolkova
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: lmolkova
-ms.openlocfilehash: 12f9f55544f46bc9c88cab7234f78ad7ee7de2d2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 2330e395244f33653af415b5db896fdc2aa2024d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790902"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852991"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation via Service Bus-meddelanden
 
@@ -32,8 +32,8 @@ Protokollet som baseras på den [korrelation av HTTP-protokollet](https://github
 
 | Namn på egenskap        | Beskrivning                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostik-Id       | Unik identifierare för ett externt anrop från producent till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för sker, överväganden och format |
-|  Korrelations-kontexten | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden utförs. Mer information finns i [Korrelations-kontexten i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
+|  Diagnostic-Id       | Unik identifierare för ett externt anrop från producent till kön. Referera till [Request-Id i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) för sker, överväganden och format |
+|  Correlation-Context | Åtgärden kontext som sprids över alla tjänster som ingår i åtgärden utförs. Mer information finns i [Korrelations-kontexten i HTTP-protokollet](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context) |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET-klient automatiskt-spårning
 

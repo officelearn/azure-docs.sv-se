@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Tangoe kommandot Premium mobil | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Tangoe kommandot Premiumenheter för mobila | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Tangoe kommandot Premium Mobile.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 2b0b544c-9c2c-49cd-862b-ec2ee9330126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 2a477d8e10b9be4aa90cc80341c787facaabc520
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 5d26c75bb4eecdafe8bcfe2a81e5842e1cb0a25c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438757"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tangoe-command-premium-mobile"></a>Självstudier: Azure Active Directory-integrering med Tangoe kommandot Premium Mobile
 
@@ -44,39 +44,39 @@ Om du vill konfigurera Azure AD-integrering med Tangoe kommandot Premium Mobile,
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
 1. Lägg till Tangoe kommandot Premiumenheter för mobila från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+1. Konfigurera och testa enkel inloggning med Azure AD
 
 ## <a name="add-tangoe-command-premium-mobile-from-the-gallery"></a>Lägg till Tangoe kommandot Premiumenheter för mobila från galleriet
 För att konfigurera integrering av Tangoe kommandot Premiumenheter för mobila i Azure AD, som du behöver lägga till Tangoe kommandot Premiumenheter för mobila från galleriet i din lista över hanterade SaaS-appar.
 
 **Utför följande steg för att lägga till Tangoe kommandot Premiumenheter för mobila från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Tangoe kommandot Premiumenheter för mobila**väljer **Tangoe kommandot Premiumenheter för mobila** resultatet panelen klickar **Lägg till** för att lägga till programmet.
 
     ![Lägg till Tangoe kommandot Premiumenheter för mobila från galleriet ](./media/tangoe-tutorial/tutorial_tangoe_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Tangoe kommandot Premiumenheter för mobila baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Tangoe kommandot Premium Mobile är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Tangoe kommandot Premiumenheter för mobila upprättas.
@@ -85,13 +85,13 @@ I Tangoe kommandot Premium Mobile, tilldela värdet för den **användarnamn** i
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Tangoe kommandot Premium Mobile, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Tangoe kommandot Premiumenheter för mobila](#create-a-tangoe-command-premium-mobile-test-user)**  – du har en motsvarighet för Britta Simon i Tangoe kommandot Premiumenheter för mobila som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Tangoe kommandot Premiumenheter för mobila program.
 
@@ -109,9 +109,9 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Tangoe kommandot Premium mobila domän och URL: er](./media/tangoe-tutorial/tutorial_tangoe_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<tenant issuer>&TARGET=<target page url>`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://sso.tangoe.com/sp/startSSO.ping?PartnerIdpId=<tenant issuer>&TARGET=<target page url>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://sso.tangoe.com/sp/ACS.saml2`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://sso.tangoe.com/sp/ACS.saml2`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL och inloggnings-URL. Kontakta [Tangoe kommandot Premium mobila klienten supportteamet](https://www.tangoe.com/contact-us/) att hämta dessa värden. 
@@ -120,7 +120,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Avsnittet för SAML-signeringscertifikat](./media/tangoe-tutorial/tutorial_tangoe_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Knappen Spara](./media/tangoe-tutorial/tutorial_general_400.png)
     
@@ -136,11 +136,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
    - Den **utloggnings-URL**
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 

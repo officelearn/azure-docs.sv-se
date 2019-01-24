@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Bambu av brysselkål sociala | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Bambu av brysselkål sociala | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bambu av brysselkål sociala.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d2b9ddbc-cab7-40d6-aca1-5b171cab4199
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 317fb1dd1235793d31ab39f5cb2a99766ca33150
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 3cc4e4c6908823e6f76151f689a57f476c9d03ff
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116167"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819517"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Självstudier: Azure Active Directory-integration med Bambu av brysselkål sociala
+# <a name="tutorial-azure-active-directory-integration-with-bambu-by-sprout-social"></a>Självstudier: Azure Active Directory-integrering med Bambu av brysselkål sociala
 
 I den här självstudien får du lära dig hur du integrerar Bambu av brysselkål sociala med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera Bambu av brysselkål sociala med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på Bambu av brysselkål sociala (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Bambu av brysselkål sociala, be
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Bambu av brysselkål sociala i Azure AD, som
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **nytt program** knappen överst i dialogrutan för att lägga till nytt program.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Bambu av brysselkål sociala**.
 
@@ -116,7 +116,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/bambubysproutsocial-tutorial/tutorial_bambubysproutsocial_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/bambubysproutsocial-tutorial/tutorial_general_400.png)
     
@@ -127,7 +127,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 1. Att konfigurera enkel inloggning på **Bambu av brysselkål sociala** sida, som du behöver skicka de hämtade **XML-Metadata för** och **SAML enkel inloggning för tjänst-URL** till [ Bambu av brysselkål sociala support](mailto:support@getbambu.com). De kommer har konfigurerat för att få SAML SSO-anslutningen korrekt inställda på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 <!--### Next steps
@@ -144,7 +144,7 @@ To ensure users can sign-in to Bambu by Sprout Social after it has been configur
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-bambu-by-sprout-social-test-user"></a>Skapa en Bambu av brysselkål sociala testanvändare
 
-Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt.
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -212,7 +212,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på Bambu av brysselkål sociala panel i åtkomstpanelen du bör få automatiskt loggat in på ditt Bambu av brysselkål sociala program. Mer information om åtkomstpanelen finns i [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på Bambu av brysselkål sociala panel i åtkomstpanelen du bör få automatiskt loggat in på ditt Bambu av brysselkål sociala program. Mer information om åtkomstpanelen finns i [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

@@ -3,19 +3,19 @@ title: Översikt över användare som har konton i Azure Active Directory B2C | 
 description: Läs mer om användarkonton i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f517754a8076fc18ed29f7db49f6ff9bfc6c7b3d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4bd3eba54d70ae065ce16845dd4fb9351c069f2d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725768"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853314"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användarkonton i Azure Active Directory B2C
 
@@ -29,7 +29,7 @@ Följande typer av konton är tillgängliga:
 
 ## <a name="work-account"></a>Arbetskonto
 
-Ett arbetskonto skapas på samma sätt för alla klienter baserat på Azure AD. Om du vill skapa ett arbetskonto kan du använda informationen i [Snabbstart: lägga till nya användare till Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Ett arbetskonto skapas med hjälp av den **ny användare** choice i Azure-portalen.
+Ett arbetskonto skapas på samma sätt för alla klienter baserat på Azure AD. Om du vill skapa ett arbetskonto kan du använda informationen i [snabbstarten: Lägga till nya användare i Azure Active Directory](../active-directory/fundamentals/add-users-azure-active-directory.md). Ett arbetskonto skapas med hjälp av den **ny användare** choice i Azure-portalen.
 
 När du lägger till ett nytt arbetskonto, måste du tänka på följande konfigurationsinställningar:
 

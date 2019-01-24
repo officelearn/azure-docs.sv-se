@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/23/2019
 ms.author: jowargo
-ms.openlocfilehash: f52900d06049623a0a81e509abdc5e9ef76f95e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 31a22aabc7b0f1d51a673ef8642037103badcc02
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451484"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828170"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
 
@@ -29,8 +29,7 @@ Tagguttryck kan du target specifika uppsättningar enheter eller mer specifikt r
 
 ## <a name="targeting-specific-registrations"></a>Riktar in sig på specifika registreringar
 
-Det enda sättet att målet specifikt meddelande registreringar är att associera taggar med dem, rikta taggarna. Enligt beskrivningen i [Registreringshantering](notification-hubs-push-notification-registration-management.md)för att ta emot push-meddelanden som en app har att registrera en enhet som hanteras på en notification hub. När en registrering har skapats på en notification hub kan kan serverdelen för programmet skicka push-meddelanden till den.
-Serverdelen för programmet kan välja registreringar till målet med ett specifikt meddelande på följande sätt:
+Det enda sättet att målet specifikt meddelande registreringar är att associera taggar med dem, rikta taggarna. Enligt beskrivningen i [Registreringshantering](notification-hubs-push-notification-registration-management.md)för att ta emot push-meddelanden som en app har att registrera en enhet som hanteras på en notification hub. När en registrering har skapats på en notification hub kan kan serverdelen för programmet skicka push-meddelanden till den. Serverdelen för programmet kan välja registreringar till målet med ett specifikt meddelande på följande sätt:
 
 1. **Skicka**: alla registreringar i meddelandehubben tar emot meddelandet.
 2. **Taggen**: alla registreringar som innehåller den angivna taggen tar emot meddelandet.
@@ -71,6 +70,9 @@ Alice är intresserade av uppdateringar för Beatles på den här bilden och Bob
 Medan du kan koda flera frågor i taggar (till exempel ”band_Beatles” eller ”follows_Charlie”), är taggar enkla strängar och inte egenskaper med värden. En registrering matchas endast på närvaron eller frånvaron av en viss tagg.
 
 En fullständig stegvis självstudiekurs om hur du använder taggar för att skicka till intressegrupper, se [större nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
+
+> [!NOTE]
+> Azure Notification Hubs stöder högst 60 taggar per registrering.
 
 ## <a name="using-tags-to-target-users"></a>Med hjälp av taggar till målanvändare
 

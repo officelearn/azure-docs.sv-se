@@ -3,23 +3,23 @@ title: Översikt över AMQP 1.0 i Azure Service Bus | Microsoft Docs
 description: Lär dig mer om hur du använder AMQP Advanced Message Queuing Protocol () 1.0 i Azure.
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 0e8d19cc-de36-478e-84ae-e089bbc2d515
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: b43cdfa0b5f9e5bf6a94f4f59034e07f59ddb163
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 70a0463094f98612169e78e4bcdd4eac9c8ebf24
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393340"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844712"
 ---
 # <a name="amqp-10-support-in-service-bus"></a>Stöd för AMQP 1.0 i Service Bus
 Både Azure Service Bus-Molntjänsten och lokala [Service Bus för Windows Server (Service Bus 1.1)](https://msdn.microsoft.com/library/dn282144.aspx) stöd för AMQP Advanced Message Queueing Protocol () 1.0. AMQP gör det möjligt för dig att skapa plattformsöverskridande hybridprogram med ett öppet standardprotokoll. Du kan skapa program med hjälp av komponenter som är byggda med olika språk och ramverk och som körs på olika operativsystem. Alla dessa komponenter kan ansluta till Service Bus och sömlöst utbyter strukturerade meddelanden effektivt och fullständig återgivning.
@@ -36,10 +36,10 @@ Utveckling av Message Queuing Protocol AMQP (Advanced) 1.0 har motiveras av de h
 ## <a name="amqp-10-technical-features"></a>Tekniska funktioner för AMQP 1.0
 AMQP 1.0 är ett effektivt, pålitligt meddelandeprotokoll på trådnivå som du kan använda för att skapa robusta och plattformsöverskridande meddelandeprogram. Protokollet som har ett enkelt mål: definiera säkerhetsnivån säker, tillförlitlig och effektiv överföring av meddelanden mellan två parter. Själva meddelandena kodas med hjälp av en bärbar datarepresentation som gör det möjligt för heterogena sändare och mottagare att utbyta strukturerade meddelanden med fullständig exakthet. Här följer en sammanfattning av de viktigaste funktionerna:
 
-* **Effektiv**: AMQP 1.0 är en anslutning inriktad protokoll som används som en binär kodning protocol-instruktioner och business-meddelanden överförs den. Avtalet omfattar också avancerade flödeskontroll scheman för att maximera användningen av nätverket och anslutna komponenter. Det finns dock protokollet som har utformats för att göra en avvägning mellan effektivitet, flexibilitet och samverkan.
-* **Tillförlitlig**: The AMQP 1.0-protokollet gör att meddelanden kan skickas med en mängd tillförlitlighet garantier från fire-and-forget till pålitlig exakt – en gång bekräftas leverans.
+* **Effektiv**: AMQP 1.0 är ett protokoll för anslutningar som använder en binär kodning protocol-instruktioner och business-meddelanden överförs över den. Avtalet omfattar också avancerade flödeskontroll scheman för att maximera användningen av nätverket och anslutna komponenter. Det finns dock protokollet som har utformats för att göra en avvägning mellan effektivitet, flexibilitet och samverkan.
+* **Tillförlitlig**: AMQP 1.0-protokollet gör att meddelanden kan skickas med en mängd tillförlitlighet garantier från fire-and-forget till pålitlig exakt – en gång bekräftas leverans.
 * **Flexibla**: AMQP 1.0 är ett flexibelt protokoll som kan användas för att stödja olika topologier. Samma protokoll kan användas för klient-till-klient och klient-till-broker broker-broker-kommunikation.
-* **Broker-modell oberoende**: The AMQP 1.0-specifikation inte göra några krav på meddelanden modellen som en koordinator. Det innebär att det är möjligt att enkelt lägga till stöd för AMQP 1.0 i befintliga asynkrona meddelandeköer.
+* **Broker-modell oberoende**: AMQP 1.0-specifikation gör inte några krav på meddelanden modellen som en koordinator. Det innebär att det är möjligt att enkelt lägga till stöd för AMQP 1.0 i befintliga asynkrona meddelandeköer.
 
 ## <a name="amqp-10-is-a-standard-with-a-capital-s"></a>AMQP 1.0 är en Standard (med en versal ”)
 AMQP 1.0 är en internationell standard godkänd av ISO och IEC som ISO/IEC 19464:2014.
@@ -49,7 +49,7 @@ AMQP 1.0 har varit i utveckling sedan 2008 av en core-grupp med fler än 20 för
 I oktober 2011 släpptes utvecklingsarbete som gått över till en tekniska kommittén inom organisationen för den karriärmöjligheter av Structured Information Standards (OASIS) och Standard OASIS AMQP 1.0 i oktober 2012. Följande företag har deltagit i den tekniska kommittén under utvecklingen av standarden:
 
 * **Teknikleverantörer**: Axway programvara, Huawei Technologies, IIT programvara, INETCO system, Kaazing, Microsoft, Mitre Corporation, Primeton tekniker, förloppet programvara, Red Hat, SITA, Software AG, Solace system, VMware, WSO2, Zenika.
-* **Användaren företag**: Bank America, kredit Suisse, Deutsche Boerse, Goldman Sachs, JPMorgan Chase.
+* **Användaren företag**: Bank för Sydamerika, kredit Suisse Deutsche Boerse, Goldman Sachs, JPMorgan skott.
 
 Några av de vanligaste åberopas fördelarna med öppna standarder är:
 
@@ -73,11 +73,11 @@ Just nu är följande klientbibliotek kända för att arbeta med Service Bus:
 
 | Språk | Bibliotek |
 | --- | --- |
-| Java |Apache Qpid Java Message Service JMS ()-klient<br/>IIT programvara SwiftMQ Java-klient |
+| Java |Apache Qpid Java Message Service JMS ()-klient<br/>IIT Software SwiftMQ Java client |
 | C |Apache Qpid Proton-C |
 | PHP |Apache Qpid Proton – PHP |
 | Python |Apache Qpid Proton – Python |
-| C# |AMQP .net Lite |
+| C# |AMQP .Net Lite |
 
 **Bild 2: Tabell med AMQP 1.0-klientbibliotek**
 

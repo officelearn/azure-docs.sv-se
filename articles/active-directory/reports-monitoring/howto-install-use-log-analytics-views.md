@@ -4,7 +4,7 @@ description: Lär dig hur du installerar och använder Log Analytics-vyer för A
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 2290de3c-2858-4da0-b4ca-a00107702e26
 ms.service: active-directory
@@ -16,19 +16,19 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 7f3db8b16e275ff130cc3d8cb162780d595a7f32
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: fbe5515f05c66fb0763943c20ed8aaa4374e3d87
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51624649"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825212"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Installera och använda Log Analytics-vyer för Azure Active Directory
 
 Azure Active Directory Log Analytics-vyer kan du analysera och sökning med Azure AD-aktivitetsloggar i Azure AD-klienten. Azure AD-aktivitetsloggar loggar innehåller:
 
-* Granskningsloggar: den [granskningsloggar](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet som utförs i din klient.
-* Logga in loggar: med den [inloggningsaktivitet rapporten](concept-sign-ins.md), du kan bestämma vem som utfört de uppgifter som rapporteras i granskningsloggarna.
+* Granskningsloggar: Den [granskningsloggar](concept-audit-logs.md) ger dig tillgång till historiken för varje aktivitet som utförs i din klient.
+* Logga in loggar: Med den [inloggningsaktivitet rapporten](concept-sign-ins.md), du kan bestämma vem som utfört de uppgifter som rapporteras i granskningsloggarna.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -50,8 +50,8 @@ Om du vill använda Log Analytics-vyer, behöver du:
 
 2. När du arbetar i arbetsytan, väljer **arbetsytan Sammanfattning**. Du bör se följande tre vyer:
 
-    * **Azure AD-konto etablering händelser**: den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare enhetstiden och motsvarande fel.    
-    * **Inloggningar händelser**: den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
+    * **Azure AD-konto etablering händelser**: Den här vyn visar rapporter som rör granskning etableringsaktivitet, till exempel hur många nya användare etableras och konfigurationsfel, antal användare uppdateras och uppdatera fel och antalet användare som avetableras och motsvarande fel.    
+    * **Inloggningar händelser**: Den här vyn visar de mest relevanta rapporter som rör övervakning inloggningsaktivitet, till exempel inloggningar efter program, användare, enhet, samt en sammanfattningsvy spåra antalet inloggningar över tid.
 
 3. Välj något av dessa vyer för att komma igång till enskilda rapporter. Du kan också ställa in aviseringar på någon av rapportparametrarna. Nu ska vi ange till exempel en avisering för varje gång det finns ett inloggningsfel. Om du vill göra detta måste först välja den **inloggningar händelser** väljer **inloggningsfel över tid** rapportera och välj sedan **Analytics** att öppna informationssidan om med den faktiska frågan bakom rapporten. 
 

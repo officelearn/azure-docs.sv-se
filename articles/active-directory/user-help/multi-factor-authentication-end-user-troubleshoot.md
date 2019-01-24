@@ -3,7 +3,7 @@ title: Felsöka tvåstegsverifiering - Azure Active Directory | Microsoft Docs
 description: Innehåller instruktioner för användarna vad du kan göra om de stöter på ett problem med Azure Multi-Factor Authentication och tvåstegsverifiering.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.workload: identity
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: lizross
 ms.reviewer: kexia
-ms.openlocfilehash: fd722da236f3e1fff18e2561756635cd95f098e0
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6cf794d36db865f553c0a4db16506305dab2f4fc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810184"
 ---
 # <a name="get-help-with-two-step-verification"></a>Få hjälp med tvåstegsverifiering
 
-Tvåstegsverifiering är en säkerhetsfunktion som din organisation använder för att skydda dina konton. Tvåstegsverifiering är säkrare än bara ett lösenord eftersom den är beroende av två typer av autentisering: något du känner och något du har med dig. Något du känner är lösenordet, medan något du har med dig är din telefon eller en enhet. Använda tvåstegsverifiering kan hjälpa till att hindra illasinnade hackare att logga in som du, även om de komma åt ditt lösenord.
+Tvåstegsverifiering är en säkerhetsfunktion som din organisation använder för att skydda dina konton. Tvåstegsverifiering är säkrare än bara ett lösenord eftersom den består av två typer av autentisering: något du känner till och något du har med dig. Något du känner är lösenordet, medan något du har med dig är din telefon eller en enhet. Använda tvåstegsverifiering kan hjälpa till att hindra illasinnade hackare att logga in som du, även om de komma åt ditt lösenord.
 
 Microsoft erbjuder tvåstegsverifiering, men det är din organisation som avgör om du använder funktionen. Du kan inte välja om din organisation kräver det, precis som du inte kan välja bort med ett lösenord för att skydda ditt konto.
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 3b49d568b1ca19a99359314bb181712f56ca5615
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: ecde1c19a56a7f99284fe738a19eac07322c2dae
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54201065"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826181"
 ---
 # <a name="control-access-to-iot-hub"></a>Styra åtkomst till IoT Hub
 
@@ -136,10 +136,10 @@ Här är de förväntade värdena:
 
 | Värde | Beskrivning |
 | --- | --- |
-| {signatur} |En HMAC-SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: Nyckeln är avkodas från base64 och används som nyckel för att utföra HMAC-SHA256-beräkningen. |
+| {signature} |En HMAC-SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: Nyckeln är avkodas från base64 och används som nyckel för att utföra HMAC-SHA256-beräkningen. |
 | {resourceURI} |URI-prefix (efter segment) för slutpunkter som kan användas med denna token från och med värdnamnet för IoT hub (inga protocol). Till exempel, `myHub.azure-devices.net/devices/device1` |
 | {expiry} |UTF8-strängar för antal sekunder sedan epoch 00:00:00 UTC på 1 januari 1970. |
-| {URL-kodade resurs} |Lägre fall URL-kodning av gemen resurs-URI |
+| {URL-encoded-resourceURI} |Lägre fall URL-kodning av gemen resurs-URI |
 | {policyName} |Namnet på den princip för delad åtkomst som denna token refererar. Inte fram om token som refererar till autentiseringsuppgifter för registrering av enheter. |
 
 **Observera angående prefix**: URI-prefix beräknas efter segment och inte tecken. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
@@ -160,7 +160,7 @@ var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMi
     hmac.update(toSign);
     var base64UriEncoded = encodeURIComponent(hmac.digest('base64'));
 
-    // Construct autorization string
+    // Construct authorization string
     var token = "SharedAccessSignature sr=" + resourceUri + "&sig="
     + base64UriEncoded + "&se=" + expires;
     if (policyName) token += "&skn="+policyName;
@@ -438,8 +438,8 @@ I följande tabell visas de behörigheter som du kan använda för att styra åt
 
 | Behörighet | Anteckningar |
 | --- | --- |
-| **registryRead** |Ger läsåtkomst till identitetsregistret. Mer information finns i [identitetsregistret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av backend-molntjänster. |
-| **registryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av backend-molntjänster. |
+| **RegistryRead** |Ger läsåtkomst till identitetsregistret. Mer information finns i [identitetsregistret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av backend-molntjänster. |
+| **RegistryReadWrite** |Ger Läs- och skrivåtkomst till identitetsregistret. Mer information finns i [identitetsregistret](iot-hub-devguide-identity-registry.md). <br/>Den här behörigheten används av backend-molntjänster. |
 | **ServiceConnect** |Beviljar åtkomst till tjänsten webbservergrupper kommunikation och övervaka slutpunkter i molnet. <br/>Ger behörighet att ta emot meddelanden från enheten till molnet, skicka meddelanden från moln till enhet och hämta motsvarande leverans bekräftelser. <br/>Ger behörighet att hämta leverans bekräftelser för filen laddas upp. <br/>Ger behörighet till åtkomst twins att uppdatera taggar och önskade egenskaper, rapporterade egenskaper att hämta och köra frågor. <br/>Den här behörigheten används av backend-molntjänster. |
 | **DeviceConnect** |Beviljar åtkomst till enheten-slutpunkter. <br/>Ger behörighet att skicka meddelanden från enheten till molnet och ta emot meddelanden från molnet till enheten. <br/>Ger behörighet att utföra ladda upp filer från en enhet. <br/>Ger behörighet att ta emot enhetsmeddelanden enhetstvillingens egenskapen och uppdatera enhetstvillingen rapporterade egenskaper. <br/>Ger behörighet att utföra fil laddas upp. <br/>Den här behörigheten används av enheter. |
 

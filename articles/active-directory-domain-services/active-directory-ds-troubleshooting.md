@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Felsökningsguide | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Felsökningsguide för | Microsoft Docs'
 description: Felsökningsguide för Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
-ms.openlocfilehash: e2b7eb4f5be5e73e70f883f9510e7fc6a13d6bea
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 8b752585fc72b7f4be8e7b9320290f8ad56f53c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156094"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844661"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services - felsökningsguide
 Den här artikeln innehåller tips för felsökning för problem som kan uppstå när du konfigurerar eller administrera domäntjänster för Azure Active Directory (AD).
@@ -128,7 +128,7 @@ Aktivera det här programmet och försök sedan aktivera Domain Services för di
 ## <a name="users-are-unable-to-sign-in-to-the-azure-ad-domain-services-managed-domain"></a>Användarna kan inte logga in på den hanterade domänen för Azure AD Domain Services
 Om en eller flera användare i Azure AD-klienten inte kan logga in på den nyligen skapade hanterade domänen, utför du följande felsökningssteg:
 
-* **Logga in med UPN-format:** försöker logga in med UPN-formatet (till exempel ”joeuser@contoso.com”) i stället för formatet SAMAccountName format (”CONTOSO\joeuser”). SAMAccountName kan genereras automatiskt för användare vars UPN-prefix är alltför långa eller är samma som en annan användare i den hanterade domänen. UPN-formatet är säkert att vara unika inom en Azure AD-klient.
+* **Logga in med UPN-format:** Försök logga in med UPN-formatet (till exempel ”joeuser@contoso.com”) istället för formatet SAMAccountName format (”CONTOSO\joeuser”). SAMAccountName kan genereras automatiskt för användare vars UPN-prefix är alltför långa eller är samma som en annan användare i den hanterade domänen. UPN-formatet är säkert att vara unika inom en Azure AD-klient.
 
 > [!NOTE]
 > Vi rekommenderar att du använder UPN-formatet för att logga in på den hanterade domänen i Azure AD Domain Services.
@@ -136,8 +136,8 @@ Om en eller flera användare i Azure AD-klienten inte kan logga in på den nylig
 >
 
 * Kontrollera att du har [aktiverat lösenordssynkronisering](active-directory-ds-getting-started-password-sync.md) i enlighet med anvisningarna i guiden Komma igång.
-* **Externa konton:** se till att det berörda användarkontot inte är ett externt konto i Azure AD-klient. Exempel på externa konton är Microsoft-konton (till exempel ”joe@live.com”) eller användarkonton från en extern Azure AD-katalog. Eftersom Azure AD Domain Services inte har autentiseringsuppgifter för sådana användarkonton kan kan inte dessa användare logga in till den hanterade domänen.
-* **Konton har synkroniserats:** om de berörda användarkontona synkroniseras från en lokal katalog, kontrollerar du att:
+* **Externa konton:** Kontrollera att det användarkonto som påverkas inte är ett externt konto i Azure AD-klienten. Exempel på externa konton är Microsoft-konton (till exempel ”joe@live.com”) eller användarkonton från en extern Azure AD-katalog. Eftersom Azure AD Domain Services inte har autentiseringsuppgifter för sådana användarkonton kan kan inte dessa användare logga in till den hanterade domänen.
+* **Synkroniserade konton:** Om de berörda användarkontona synkroniseras från en lokal katalog, kontrollerar du att:
 
   * Du har distribuerat eller uppdaterats till den [senaste rekommenderade versionen av Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
   * Du har konfigurerat Azure AD Connect för [utför en fullständig synkronisering](active-directory-ds-getting-started-password-sync.md).
@@ -146,7 +146,7 @@ Om en eller flera användare i Azure AD-klienten inte kan logga in på den nylig
 
     1. net stop ”Microsoft Azure AD Sync”
     2. net start ”Microsoft Azure AD Sync”
-* **Endast molnbaserad konton**: om det berörda användarkontot är ett molnbaserad användarkonto, kontrollerar du att användaren har ändrat sitt lösenord när du har aktiverat Azure AD Domain Services. Det här steget gör att de autentiseringshashvärden som krävs för Azure AD Domain Services genereras.
+* **Endast molnbaserad konton**: Om det berörda användarkontot är ett molnbaserad användarkonto, kontrollerar du att användaren har ändrat sitt lösenord när du har aktiverat Azure AD Domain Services. Det här steget gör att de autentiseringshashvärden som krävs för Azure AD Domain Services genereras.
 
 ## <a name="there-are-one-or-more-alerts-on-your-managed-domain"></a>Det finns en eller flera aviseringar på din hanterade domän
 

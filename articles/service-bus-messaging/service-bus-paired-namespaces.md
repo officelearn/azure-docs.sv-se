@@ -3,9 +3,9 @@ title: Azure Service Bus har parats ihop namnområden | Microsoft Docs
 description: Information om implementering av kopplat namnområde och kostnader
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: ac663cc382fcacd4960843c25aa6c95191210116
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: 35c643b9bb4f348b790577e560eaf14d3a19802f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395210"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848352"
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Länkad implementeringsdetaljer för namnområde och kostnaden effekter
 
@@ -58,7 +58,7 @@ Den [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOp
 | Sökväg | [primärt namnområde] / x-servicebus-överföra / [index] där [index] är ett värde i [0, BacklogQueueCount) |
 | --- | --- |
 | MaxSizeInMegabytes |5120 |
-| MaxDeliveryCount |int. MaxValue |
+| MaxDeliveryCount |int.MaxValue |
 | DefaultMessageTimeToLive |TimeSpan.MaxValue |
 | AutoDeleteOnIdle |TimeSpan.MaxValue |
 | LockDuration |1 minut |
@@ -69,7 +69,7 @@ Till exempel den första för eftersläpning i kön skapas för namnområde **co
 
 När du skapar köer, kontrollerar koden först om det finns sådan kö. Om kön inte finns, skapas i kön. Koden inte rensa ”extra” eftersläpning köer. Mer specifikt om programmet som det primära namnområdet **contoso** begär fem eftersläpning köer men en eftersläpning kö med sökvägen `contoso/x-servicebus-transfer/7` finns, extra för eftersläpning i kön är kvar men används inte. Systemet kan uttryckligen extra eftersläpning köer finns som inte används. Du är ansvarig för att rensa eventuella oanvända/oönskad eftersläpning för köer som ägare till namnområdet. Orsaken till det här beslutet är att Service Bus inte kan vet vilket syfte som finns för alla köer i namnområdet. Dessutom, om en kö med det angivna namnet finns men inte uppfyller den antagen [QueueDescription][QueueDescription], och sedan din orsakerna är ditt eget för Ändra standardbeteende. Inga garantier görs efter ändringar av köer eftersläpning av din kod. Se till att testa ändringarna noggrant.
 
-## <a name="custom-messagesender"></a>Anpassade MessageSender
+## <a name="custom-messagesender"></a>Custom MessageSender
 När du skickar, alla meddelanden går igenom en intern [MessageSender] [ MessageSender] objekt som fungerar sedan normalt när allt fungerar och omdirigerar till eftersläpningen köer när saker ”bryta”. När tas emot ett icke tillfälliga fel, startar en timer. När du har en [TimeSpan] [ TimeSpan] period som består av den [FailoverInterval] [ FailoverInterval] egenskapsvärdet då skickas inga meddelanden som skickats, redundansen är engagerade. Följande saker händer nu för varje entitet:
 
 * En ping-aktivitet körs varje [PingPrimaryInterval] [ PingPrimaryInterval] att kontrollera om enheten är tillgänglig. När den här uppgiften har slutförts startar alla klientkod som använder entiteten omedelbart skicka nya meddelanden till det primära namnområdet.

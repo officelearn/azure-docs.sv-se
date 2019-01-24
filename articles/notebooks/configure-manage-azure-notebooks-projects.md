@@ -11,28 +11,53 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: d948be88fd75202dea010520d3531f151d6934b0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104092"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54847551"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
 Ett projekt i Azure-datorer är i grunden en konfiguration av den underliggande Linux-datorn som kör Jupyter-anteckningsböcker tillsammans med en filmapp och beskrivande metadata. Instrumentpanelen för projektet i Azure-datorer kan du hantera filer och konfigurera projektets egenskaper:
 
-- Projekt-metadata innehåller ett namn, beskrivning, en identifierare som används när du delar projektet och om projektet är offentlig eller privat.
-- Du hanterar i projektets anteckningsboken, data och andra filer som du gör med ett annat filsystem.
-- Du konfigurerar ett projekts miljö via startskript eller direkt via terminalen.
-- Du har åtkomst till loggar via terminalen.
+- Den Beräkningsnivån som projektet körs, vilket kan vara den kostnadsfria nivån eller en Azure-dator.
+- Projekt-metadata, som innehåller ett namn, beskrivning, en identifierare som används när du delar projektet och om projektet är offentlig eller privat.
+- Projektets anteckningsboken, data och andra filer som du hanterar som alla andra filsystem.
+- Ett projekts miljö som du hanterar via startskript eller direkt via terminalen.
+- Loggar som du kommer åt via terminalen.
 
 > [!Note]
-> Du kan inte hantera projekt som du äger inte om inte projektägare har gjort en medarbetare. Annars är hanterings- och funktioner som beskrivs här inte tillgängliga för dig.
+> Hanterings- och funktioner som beskrivs här är endast tillgängligt för projektägare som har skapat projektet först. Du kan dock klona projektet till ditt eget konto i vilket fall du bli ägare och kan konfigurera projektet som du vill.
 
 Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar dator eller en annan fil. Servern sparar filer automatiskt och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med den **avstängning** kommando (kortkommandot: h).
+
+## <a name="compute-tier"></a>Beräkningsnivån
+
+Den **kör** listrutan på instrumentpanelen för projektet är här du väljer Beräkningsnivån som projektet körs. Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk:
+
+![Compute nivån listrutan på instrumentpanelen för projektet](media/project-compute-tier-list.png)
+
+Du kan kringgå dessa begränsningar med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Du måste också installera Jupyter på den virtuella datorn. Data Science Virtual Machine-avbildningar är bra val eftersom de innehåller Jupyter som standard.
+
+Du kan ansluta till alla lämpligt konfigurerad virtuell Azure-dator med den **direkt Compute** alternativ i den nedrullningsbara listan. Det här alternativet frågar du efter ett namn (som visas i listan), den Virtuella datorns IP-adress och port (vanligtvis 8000, standardporten till vilken JupyterHub lyssnar) och autentiseringsuppgifter för VM:
+
+![Uppmaning om att samla in informationen för direkta beräkningsalternativet i server](media/project-compute-tier-direct.png)
+
+Om följande villkor är uppfyllda, visar den nedrullningsbara listan även [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine) instanser. (Om någon av dessa villkor inte uppfylls, du kan fortfarande ansluta till DSVM använda Direct Compute-alternativet och ange de värden som erhålls från Azure-portalen.)
+
+- Du har loggat in Azure-anteckningsböcker med ett konto som använder Azure Active Directory (AAD), till exempel ett företagskonto.
+- Ditt konto är ansluten till en Azure-prenumeration.
+- Du har en eller flera virtuella datorer i prenumerationen, med minst läsåtkomst som använder den virtuella datorn för datavetenskap för Linux (Ubuntu)-avbildning.
+
+![Data Science Virtual Machine-instanser i listrutan på instrumentpanelen för projektet](media/project-compute-tier-dsvm.png)
+
+När du väljer en DSVM-instans, kan Azure-datorer efterfrågas specifik dator-autentiseringsuppgifterna som används när du skapade den virtuella datorn.
+
+Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du *måste* använder den **Data Science Virtual Machine för Linux (Ubuntu)** bild eftersom Azure-datorer inte visas Dsvm som använder Windows eller CentOS bilder.
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 
@@ -66,7 +91,7 @@ Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du 
 
 ### <a name="upload-files"></a>Överföra filer
 
-Den **överför** kommandot ger två alternativ för att importera data från andra platser: **från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
+Den **överför** kommandot ger två alternativ för att importera data från andra platser: **Från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Välj fil-fil
 
@@ -186,5 +211,5 @@ Du kan även använda kommandot från en kodcell i en Python notebook:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Så här: arbeta med data projektfiler](work-with-project-data-files.md)
+- [Anvisningar: Arbeta med data projektfiler](work-with-project-data-files.md)
 - [Åtkomst till molndata på en bärbar dator](access-data-resources-jupyter-notebooks.md)

@@ -1,6 +1,6 @@
 ---
 title: Identifiera rörelser med Azure Media Analytics | Microsoft Docs
-description: Azure Media rörelsedetektor medieprocessor (HP) kan du effektivt identifiera avsnitt av intresse i ett annat långa och primärdomänkontrollant video.
+description: Rörelseidentifiering för Azure Media-mediebearbetare (MP) gör det möjligt för dig att effektivt identifiera avsnitt av intresse i ett annat sätt långa och primärdomänkontrollant video.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,39 +13,39 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/09/2017
 ms.author: milanga;juliako;
-ms.openlocfilehash: 8488b968fe2ab823479d70a98ba86be97b28f67d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12af87ab0a8b15528acbd9ce8a1bc92f478aba28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788804"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820979"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Identifiera rörelser med Azure Media Analytics
 ## <a name="overview"></a>Översikt
-Den **Azure Media rörelsedetektor** medieprocessor (HP) kan du effektivt identifiera avsnitt av intresse i ett annat långa och primärdomänkontrollant video. Rörelseidentifiering kan användas på statisk övervakningskameror för att identifiera avsnitt av videon där rörelse inträffar. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den omgivande region där händelsen inträffade.
+Den **Rörelseidentifiering för Azure Media** mediebearbetare (MP) hjälper dig att effektivt identifiera avsnitt av intresse i ett annat sätt långa och primärdomänkontrollant video. Rörelser kan användas på statisk övervakningskameror för att identifiera avsnitt av videon där rörelse inträffar. Den genererar en JSON-fil som innehåller en metadata med tidsstämplar och den omgivande regionen där händelsen inträffade.
 
-Riktad mot säkerhet video feeds kan den här tekniken kategorisera rörelse i relevanta händelser och falska positiva identifieringar som skuggor och andra ändringar. På så sätt kan du skapa säkerhetsaviseringar från kameran feeds utan som skräppost med oändlig irrelevanta händelser när kunna extrahera stund intressanta från lång övervakning videor.
+Riktade mot security video flöden, kan den här tekniken kategorisera rörelse i relevanta händelser och falska positiva identifieringar som skuggor och ljusförändringar. På så sätt kan du generera säkerhetsaviseringar från kameran feeds utan som skräppost med oändliga irrelevanta händelser samtidigt kunna extrahera stund intressanta från lång övervakning videor.
 
-Den **Azure Media rörelsedetektor** MP är för närvarande under förhandsgranskning.
+Den **Rörelseidentifiering för Azure Media** MP förhandsvisas just nu.
 
-Den här artikeln innehåller information om **Azure Media rörelsedetektor** och visar hur du använder det med Media Services SDK för .NET
+Den här artikeln innehåller information om **Rörelseidentifiering för Azure Media** och visar hur du använder det med Media Services SDK för .NET
 
 ## <a name="motion-detector-input-files"></a>Rörelse detektor inkommande filer
-Videofiler. För närvarande stöds följande format: MP4, MOV och WMV.
+Videofiler. För närvarande stöds följande format: MP4 MOV och WMV.
 
-## <a name="task-configuration-preset"></a>Uppgiftskonfigurationen (förinställda)
-När du skapar en uppgift med **Azure Media rörelsedetektor**, måste du ange en konfiguration förinställning. 
+## <a name="task-configuration-preset"></a>Uppgiftskonfiguration (förinställning)
+När du skapar en uppgift med **Rörelseidentifiering för Azure Media**, måste du ange en förinställning för konfigurationen. 
 
 ### <a name="parameters"></a>Parametrar
 Du kan använda följande parametrar:
 
 | Namn | Alternativ | Beskrivning | Standard |
 | --- | --- | --- | --- |
-| sensitivityLevel |Sträng: låg, 'medium', 'hög' |Anger hur känsliga på vilka rörelser rapporteras. Justera det här alternativet om du vill justera antalet falska positiva identifieringar. |-medium' |
-| frameSamplingValue |Positivt heltal |Anger frekvensen vid vilken algoritm körs. 1 är lika med varje ram, 2: alla andra ramen och så vidare. |1 |
-| detectLightChange |Booleskt: 'true', 'false' |Anger om lätta ändringar rapporteras i resultaten |'False' |
-| mergeTimeThreshold |Tid för xs:: Mm: ss<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelse händelser där 2 händelser är kombineras och rapporteras som 1. |00:00:00 |
-| detectionZones |En matris med identifiering zoner:<br/>-Identifiering zonen är en matris med 3 eller fler punkter<br/>-Platsen är en x och y koordinaten från 0 till 1. |Beskrivs i listan över identifiering av polygona zoner som ska användas.<br/>Resultatet rapporteras med zonerna som ett ID med först en som ”id”: 0 |Zon, som omfattar hela ramen. |
+| sensitivityLevel |Sträng: ”låg”, ”medel”, ”hög” |Anger hur känsliga på vilka rörelser rapporteras. Justera detta om du vill justera antalet falska positiva identifieringar. |'medium' |
+| frameSamplingValue |positivt heltal |Anger frekvensen som algoritmen körs. 1 är lika med varje ram, 2 innebär att alla andra ramen och så vidare. |1 |
+| detectLightChange |Boolean:'true', 'false' |Anger om ljusförändringar rapporteras i resultaten |'False' |
+| mergeTimeThreshold |Xs-time: : Mm: ss<br/>Exempel: 00:00:03 |Anger tidsfönstret mellan rörelsehändelser där 2 händelser är kombineras och rapporteras som 1. |00:00:00 |
+| detectionZones |En matris med identifiering av zoner:<br/>-Identifiering zon är en matris med 3 eller fler punkter<br/>-Platsen är en x- och y koordinaten från 0 till 1. |Beskriver en förteckning över mångsidig identifiering zoner som ska användas.<br/>Resultatet rapporteras med zonerna som ett-ID, och först en som ”id”: 0 |Samma zon som omfattar hela ramen. |
 
 ### <a name="json-example"></a>JSON-exempel
 
@@ -79,38 +79,38 @@ Du kan använda följande parametrar:
     }
 ```
 
-## <a name="motion-detector-output-files"></a>Videofiler detektor utdata
-Ett jobb för identifiering av rörelse returnerar en JSON-fil i utdatatillgången som beskriver rörelse aviseringar och deras kategorier i videon. Filen innehåller information om starttid och varaktighet rörelse upptäcktes i videon.
+## <a name="motion-detector-output-files"></a>Rörelse detektor utdatafiler
+Ett jobb för identifiering av rörelse returnerar en JSON-fil i utdatatillgången, som beskriver rörelse aviseringar och deras kategorier i videon. Filen innehåller information om starttid och varaktighet för den rörelse har identifierats i videon.
 
-Rörelse detektor API innehåller indikatorer när det finns objekt i rörelse i en fast bakgrund video (till exempel övervakning av video). Den rörelsedetektor utbildade att minska falsklarm, till exempel ljus och shadow ändringar. Aktuella begränsningar av algoritmerna är natt vision videor, delvis transparenta objekt och små objekt.
+Rörelse detektor API innehåller indikatorer när det finns objekt i rörelse i en fast bakgrund video (till exempel en övervakning som video). Den Rörelseidentifiering tränas att minska antalet falsklarm, till exempel belysning och shadow ändringar. Aktuella begränsningar av algoritmerna innehåller natten vision videor, delvis transparent objekt och små objekt.
 
 ### <a id="output_elements"></a>Element i JSON-filen för utdata
 > [!NOTE]
-> I den senaste versionen utdata-JSON-formatet har ändrats och kan utgöra en ny ändring för vissa kunder.
+> I den senaste versionen utdata-JSON-format har ändrats och kan innebära en stor förändring för vissa kunder.
 > 
 > 
 
-I följande tabell beskrivs element i utdata-JSON-fil.
+I följande tabell beskriver elementen i JSON-filen för utdata.
 
 | Element | Beskrivning |
 | --- | --- |
 | Version |Detta refererar till versionen av Video-API. Den aktuella versionen är 2. |
-| tidsrymd |”Tick” per sekund i videon. |
-| Offset |Tidsförskjutningen för tidsstämplar i ”tick”. I version 1.0 av API: er för Video att detta alltid vara 0. I framtiden scenarier som vi stöder det här värdet kan ändras. |
-| ramhastighet |Bildrutor per sekund av videon. |
-| Bredd, höjd |Refererar till bredden och höjden av video i bildpunkter. |
-| Start |Starta tidsstämpeln i ”tick”. |
-| Varaktighet |Längden på händelsen i ”tick”. |
-| Intervall |Intervall för varje post i händelsen i ”tick”. |
-| Händelser |Varje händelse fragment innehåller rörelse identifieras inom den varaktigheten. |
-| Typ |I den aktuella versionen är det alltid '2' för allmän rörelse. Den här etiketten ger Video-API: er möjlighet att kategorisera rörelser i framtida versioner. |
-| RegionID |Detta kommer alltid att 0 i den här versionen som beskrivs ovan. Den här etiketten ger Video API möjlighet att hitta rörelse i olika områden i framtida versioner. |
-| Regioner |Refererar till området i videon där du är intresserad rörelse. <br/><br/>-”id” representerar region – i den här versionen finns bara en, ID 0. <br/>-”typ” representerar formen för den region som intresserar dig för rörelse. För närvarande stöds ”rektangel” och ”polygon”.<br/> Om du har angett ”rektangel”, har regionen dimensioner i X, Y, bredd och höjd. X och Y-koordinaterna representerar övre vänstra Xyserver koordinaterna för region i intervallet 0,0 till 1,0 normaliserade skalan. Visar storleken på regionen i en normaliserade skala med 0,0 till 1,0 bredd och höjd. I den aktuella versionen korrigeras alltid X, Y, bredd och höjd på 0, 0 och 1, 1. <br/>Om du har angett ”polygon”, har regionen dimensioner i punkter. <br/> |
-| fragment |Metadata är chunked upp till olika segment som kallas fragment. Varje avsnitt innehåller en start, varaktighet, antalet och händelse(r). Ett fragment med inga händelser innebär att inga rörelse identifierades under den starttid och varaktighet. |
-| Hakparenteserna] |Varje hakparentes representerar ett intervall i händelsen. Tomma parenteser för intervallet innebär att inga rörelse upptäcktes. |
-| Platser |Den nya posten under händelser visar platsen där rörelse inträffade. Det här är mer specifik än identifiera zoner. |
+| Tidsskala |”Ticken” per sekund av videon. |
+| Offset |Tidsförskjutningen för tidsstämplar i ”ticken”. Det kommer alltid ske 0 i version 1.0 av Video-API: er. I framtiden scenarier som vi har stöd för det här värdet kan ändras. |
+| Bildfrekvens |Bildrutor per sekund i videon. |
+| Bredd, höjd |Refererar till bredden och höjden för videon i bildpunkter. |
+| Start |Starta tidsstämpeln i ”ticken”. |
+| Varaktighet |Längden på händelsen i ”ticken”. |
+| Intervall |Intervall för varje post i händelsen i ”ticken”. |
+| Händelser |Händelsen i varje fragment innehåller rörelse identifieras inom den varaktigheten. |
+| Typ |I den aktuella versionen är det alltid ”2” för allmän rörelse. Den här etiketten ger Video-API: er flexibiliteten att kategorisera rörelser i framtida versioner. |
+| RegionID |Enligt beskrivningen ovan, är det här alltid 0 i den här versionen. Den här etiketten kan Video-API att hitta rörelse i olika regioner i framtida versioner. |
+| Regioner |Refererar till området i din video där du bryr dig om rörelse. <br/><br/>-”id” representerar området region – i den här versionen finns bara en, ID 0. <br/>-”type” representerar formen på den region som intresserar dig för rörelse. För närvarande stöds ”rektangel” och ”polygon”.<br/> Om du har angett ”rektangel” regionen har dimensioner i X, Y, bredd och höjd. X- och Y-koordinaterna representerar de övre vänstra XY-koordinaterna för regionen i en normaliserad skala på 0,0 till 1,0. Bredd och höjd representerar storleken på regionen i en normaliserad skala på 0,0 till 1,0. I den aktuella versionen fasta X, Y, bredd och höjd alltid på 0, 0 och 1, 1. <br/>Om du har angett ”polygon” har regionen dimensioner i punkter. <br/> |
+| Fragment |Metadata är segmentvis upp i olika segment som kallas fragment. Varje fragment innehåller en start, varaktighet, intervallnummer och händelser. Ett fragment med inga händelser anger att ingen rörelse identifierades under den starttid och varaktighet. |
+| Hakparenteser] |Varje hakparentes representerar ett intervall i händelsen. Tom hakparenteser för det här intervallet innebär att inga rörelse har identifierats. |
+| platser |Den nya posten under händelser visar platsen där rörelsen ägde. Det här är mer specifik än zonerna identifiering. |
 
-JSON-exemplet nedan visar utdata:
+I följande JSON-exempel visar utdata:
 
 ```json
     {
@@ -157,16 +157,16 @@ JSON-exemplet nedan visar utdata:
 ```
 
 ## <a name="limitations"></a>Begränsningar
-* Inkommande video format som stöds omfattar MP4, MOV och WMV.
-* Rörelseidentifiering är optimerad för stilla bakgrund videor. Algoritmen fokuserar på att minska falsklarm, till exempel ljusförändringar och skuggor.
-* Vissa rörelse kanske inte identifieras på grund av tekniska utmaningar; natt vision videor, delvis transparenta objekt och små objekt.
+* De video indataformat som stöds är MP4, MOV och WMV.
+* Identifiera rörelser är optimerat för stillastående bakgrund videor. Algoritmen som fokuserar på att minska falsklarm t.ex ljusförändringar, skuggor.
+* Vissa rörelse identifieras inte på grund av tekniska utmaningar; till exempel natten vision videor, delvis transparent objekt och små objekt.
 
-## <a name="net-sample-code"></a>Exempelkod för .NET
+## <a name="net-sample-code"></a>.NET-exempelkod
 
 Följande program visar hur du:
 
 1. Skapa en tillgång och överför en mediefil till tillgången.
-2. Skapa ett jobb med en aktivitet för identifiering av video rörelse baserat på en konfigurationsfil som innehåller följande json-förinställda: 
+2. Skapa ett jobb med en aktivitet för identifiering av video rörelse baserat på en konfigurationsfil som innehåller följande json-förinställningen: 
    
     ```json
             {
@@ -280,7 +280,7 @@ namespace VideoMotionDetection
             task.InputAssets.Add(asset);
 
             // Add an output asset to contain the results of the job.
-            task.OutputAssets.AddNew("My Video Motion Detectoion Output Asset", AssetCreationOptions.None);
+            task.OutputAssets.AddNew("My Video Motion Detection Output Asset", AssetCreationOptions.None);
 
             // Use the following event handler to check job progress.  
             job.StateChanged += new EventHandler<JobStateChangedEventArgs>(StateChanged);
@@ -382,9 +382,9 @@ namespace VideoMotionDetection
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-links"></a>Relaterade länkar
-[Azure Media Services rörelsedetektor blogg](https://azure.microsoft.com/blog/motion-detector-update/)
+[Azure Media Services Rörelseidentifiering-bloggen](https://azure.microsoft.com/blog/motion-detector-update/)
 
-[Azure Media Services Analytics-översikt](media-services-analytics-overview.md)
+[Azure Media Services Analytics Overview](media-services-analytics-overview.md)
 
-[Azure Media Analytics demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
+[Azure Medieanalys-demonstrationer](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
 

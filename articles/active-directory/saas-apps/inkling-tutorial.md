@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Inkling | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Inkling | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Inkling.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 64c7ee45-ee8a-42f7-bf04-fd0e00833ea9
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 339c924fc03faddae6326b79cc376b59c567829e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 31e00c5810e33433d58820f4db300b935ad7baaf
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116563"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811289"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Självstudier: Azure Active Directory-integration med Inkling
+# <a name="tutorial-azure-active-directory-integration-with-inkling"></a>Självstudier: Azure Active Directory-integrering med Inkling
 
 I den här självstudien får du lära dig hur du integrerar Inkling med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera Inkling med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på Inkling (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,10 +45,10 @@ Om du vill konfigurera Azure AD-integrering med Inkling, behöver du följande o
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,11 +69,11 @@ För att konfigurera integrering av Inkling i Azure AD, som du behöver lägga t
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Inkling**.
 
@@ -117,12 +117,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
     
     ![Konfigurera enkel inloggning](./media/inkling-tutorial/tutorial_inkling_01.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://api.inkling.com/saml/v2/metadata/<user-id>`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://api.inkling.com/saml/v2/metadata/<user-id>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://api.inkling.com/saml/v2/acs/<user-id>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://api.inkling.com/saml/v2/acs/<user-id>`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Inkling supportteamet](mailto:press@inkling.com) att hämta dessa värden.
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [Inkling supportteamet](mailto:press@inkling.com) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Skapa nytt certifikat**.
 

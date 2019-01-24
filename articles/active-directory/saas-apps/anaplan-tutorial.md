@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Anaplan | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Anaplan | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Anaplan.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 4a9c2914-6c8c-4a88-93e3-3753afb40e6b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/25/2017
 ms.author: jeedes
-ms.openlocfilehash: 4936e8d3c48486247677cf072513b7e450f1bf17
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c2a7e6654d1bae1cb8db56d33e1bd7856c1c4257
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044041"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812632"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Självstudier: Azure Active Directory-integration med Anaplan
+# <a name="tutorial-azure-active-directory-integration-with-anaplan"></a>Självstudier: Azure Active Directory-integrering med Anaplan
 
 I den här självstudien får du lära dig hur du integrerar Anaplan med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Anaplan, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av Anaplan i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Anaplan från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 4. I sökrutan skriver **Anaplan**.
 
@@ -112,18 +112,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/anaplan-tutorial/tutorial_anaplan_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://sdp.anaplan.com/frontdoor/saml/<tenant name>`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.anaplan.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.anaplan.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Anaplan klienten supportteamet](mailto:support@anaplan.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Anaplan klienten supportteamet](mailto:support@anaplan.com) att hämta dessa värden. 
  
 4. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/anaplan-tutorial/tutorial_anaplan_certificate.png) 
 
-5. Klicka på **spara** knappen.
+5. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/anaplan-tutorial/tutorial_general_400.png)
 
@@ -131,13 +131,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/anaplan-tutorial/tutorial_anaplan_configure.png) 
 
-7. Att konfigurera enkel inloggning på **Anaplan** sida, som du behöver skicka de hämtade **XML-Metadata för**, **SAML entitets-ID**, **SAML enkel inloggning för tjänst-URL** och **URL: en för utloggning** till [Anaplan supportteamet](mailto:support@anaplan.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **Anaplan** sida, som du behöver skicka de hämtade **XML-Metadata för**, **SAML entitets-ID**, **SAML enkel inloggning för tjänst-URL** och **URL: en för utloggning** till [Anaplan supportteamet](mailto:support@anaplan.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -207,7 +207,7 @@ I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen
 
 När du klickar på panelen Anaplan i åtkomstpanelen du bör få automatiskt loggat in på ditt Anaplan program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

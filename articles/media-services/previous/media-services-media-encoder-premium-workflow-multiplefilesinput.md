@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: xpouyat;anilmur;juliako
-ms.openlocfilehash: 31bd3d54b085922de0ec822731eae79fe9a9943b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e2a856dbc3bdf72ad03601618a9d48bb54665f7b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262105"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812071"
 ---
 # <a name="using-multiple-input-files-and-component-properties-with-premium-encoder"></a>Med flera indatafiler och egenskaperna för komponenten med Premium-kodare
 ## <a name="overview"></a>Översikt
@@ -274,7 +274,7 @@ Med ytterligare RAM exakta optimering:
 Tar ett exempel där du vill täcka över en logotyp på indatavideo även om videon kodas. I det här exemplet indatavideon har namnet ”Microsoft_HoloLens_Possibilities_816p24.mp4” och logotypen som heter ”logo.png”. Du bör utföra följande steg:
 
 * Skapa en tillgång i arbetsflödet med arbetsflödesfilen (se exemplet nedan).
-* Skapa en tillgång för Media som innehåller två filer: MyInputVideo.mp4 som den primära filen och MyLogo.png.
+* Skapa en tillgång med Media, som innehåller två filer: MyInputVideo.mp4 som den primära filen och MyLogo.png.
 * Skicka en uppgift till mediebearbetare Media Encoder Premium Workflow med ovanstående inkommande tillgångar och ange följande konfigurationssträngen.
 
 Konfiguration:
@@ -428,9 +428,9 @@ När jobbet har slutförts, visar MP4-fil i utdatatillgången överlägget!
 
 Du kan hämta Exempelarbetsflöde från [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/).
 
-## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: Flera språk-kodning
+## <a name="example-2--multiple-audio-language-encoding"></a>Exempel 2: Kodning för flera språk
 
-Ett exempel på flera språk kodning workfkow är tillgänglig i [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
+Ett exempel på flera språk kodningsarbetsflöden är tillgänglig i [GitHub](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/MultilanguageAudioEncoding).
 
 Den här mappen innehåller ett Exempelarbetsflöde som kan användas för att koda en MXF-fil till en tillgång med flera MP4-filer med flera ljudspår.
 

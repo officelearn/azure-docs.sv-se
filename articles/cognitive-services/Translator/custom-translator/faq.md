@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 38ebde9179d79c091edb269c1be4c9c956f34006
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 415866bc4ef396a1b9397c4996d65cf10d78400b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627584"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854793"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -46,7 +46,7 @@ Distribuerade system kan nås via Microsoft Translator Text API V3 genom att ang
 
 ## <a name="how-do-i-skip-alignment-and-sentence-breaking-if-my-data-is-already-sentence-aligned"></a>Hur jag hoppa över justering och meningen som större om Mina data redan mening justerad?
 
-Anpassad Translator hoppar över mening justering och de senaste mening för TMX filer och textfiler med den `.align` tillägget. `.align` filer ge användarna ett alternativ till anpassad Translator meningen större och justeringen för filer som är perfekt justerad och behöver ingen ytterligare bearbetning. Vi rekommenderar att du använder `.align` filnamnstillägget endast för filer som är perfekt justerad.
+Anpassad Translator hoppar över mening justering och de senaste mening för TMX filer och textfiler med den `.align` tillägget. `.align` filer som ger användarna en möjlighet att hoppa över anpassade Translator mening större och justering process för de filer som är perfekt justerad och behöver ingen ytterligare bearbetning. Vi rekommenderar att du använder `.align` filnamnstillägget endast för filer som är perfekt justerad.
 
 Om antalet extraherade meningar inte matchar de två filerna med samma grundläggande namn, anpassade Translator fortfarande körs mening aligner `.align` filer.
 

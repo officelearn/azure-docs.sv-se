@@ -1,5 +1,5 @@
 ---
-title: Avanced Media Encoder Premium Workflow självstudier
+title: Avancerade självstudier för Media Encoder Premium Workflow
 description: Det här dokumentet innehåller genomgångar som visar hur du utför avancerade åtgärder med Media Encoder Premium Workflow och hur du skapar komplexa arbetsflöden med Workflow Designer.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: christoc;xpouyat;juliako
-ms.openlocfilehash: 0a20f7629fbc102ae05c51c7388bbfd6915d6204
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 15393f8e10fcda99820d0279d46edf88c7781ff8
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51257392"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811982"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Avancerade självstudier för Media Encoder Premium Workflow
 ## <a name="overview"></a>Översikt
@@ -116,9 +116,9 @@ En okomprimerad Video och flera okomprimerat ljud utdata PIN-koder som är tillg
 
 Lägg till komponenten AVC videokodare till designytan för att koda videoströmmen till H.264. Den här komponenten tar en Expandera videoströmmen som indata och levererar en AVC komprimerade videoströmmen på dess utdata PIN-kod.
 
-![Är anslutna AVC-kodare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
+![Unconnected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-avc-encoder.png)
 
-*Är anslutna AVC-kodare*
+*Unconnected AVC Encoder*
 
 Egenskaperna avgör hur kodningen exakt händer. Låt oss ta en titt på några av de viktigaste inställningarna:
 
@@ -133,14 +133,14 @@ Egenskaperna avgör hur kodningen exakt händer. Låt oss ta en titt på några 
 
 Om du vill flöde AVC kodaren eller ansluta du okomprimerade Video utdata PIN-koden från komponenten Media filen indata till okomprimerade Video inkommande PIN-koden från AVC kodaren.
 
-![Anslutna AVC-kodare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
+![Connected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-connected-avc-encoder.png)
 
 *Anslutna AVC Main-kodare*
 
 ### <a id="MXF_to_MP4_audio"></a>Kodning i ljudström
 Nu måste fortfarande den ursprungliga okomprimerade ljudströmmen ska komprimeras. Lägga till ett AAC-kodningskomponent (Dolby) i arbetsflödet för komprimering av ljud dataströmmen.
 
-![Är anslutna AVC-kodare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
+![Unconnected AVC Encoder](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-unconnected-aac-encoder.png)
 
 *Är anslutna AAC-kodare*
 
@@ -293,7 +293,7 @@ Skapa en tredje filen utdata komponenten utdata utgående dataströmmen från mu
 *Ljud Muxer skapa filen utdata*
 
 ### <a id="MXF_to_MP4_with_dyn_packaging_ism_file"></a>Att lägga till den. ISM SMIL-fil
-Att arbeta i kombination med både MP4-filer (och enbart ljud MP4) i vår tillgång med Media Services dynamisk paketering måste vi även en manifestfil (kallas även en ”SMIL”-fil: synkronisera Multimedia Integration språk). Den här filen anger till Azure Media Services vilka MP4-filer är tillgängliga för dynamisk paketering och vilka av dessa att tänka på för den strömning av ljud. En typisk manifestfil för en uppsättning MP4's med en enda ljudström ser ut så här:
+Att arbeta i kombination med både MP4-filer (och endast ljud MP4) i vår tillgång med Media Services dynamisk paketering måste vi även en manifestfil (kallas även en ”SMIL”-fil: Synkronisera Multimedia Integration Language). Den här filen anger till Azure Media Services vilka MP4-filer är tillgängliga för dynamisk paketering och vilka av dessa att tänka på för den strömning av ljud. En typisk manifestfil för en uppsättning MP4's med en enda ljudström ser ut så här:
 
 ```xml
     <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -421,7 +421,7 @@ Helt i linje med våra miniatyrbilder kommer att komponenten JPG-kodare kunna JP
 
 ![JPG-kodare](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-jpg-encoder.png)
 
-*JPG-kodare*
+*JPG Encoder*
 
 Vi kan inte ansluta vår okomprimerade videoström men direkt från den Media-fil som indata till JPG-kodaren. I stället förväntar sig att lämnas enskilda bildrutor. Detta kan vi göra via Video ramens Gate-komponenten.
 
@@ -692,8 +692,8 @@ Innan vi kan skriva om cliplist XML-filen som genereras under starten av arbetsf
 
 Vi måste först ett sätt att bestämma från vilken punkt tills återautentiseras vi vill trimma videon. Om du vill göra detta praktiskt för tekniskt användare av arbetsflödet, publicera två egenskaper till roten i diagrammet. Gör detta genom att högerklicka på designytan och välj ”Lägg till egenskap”:
 
-* Första egenskapen: ”ClippingTimeStart” av typen: ”TIDSKOD”
-* Andra egenskapen: ”ClippingTimeEnd” av typen: ”TIDSKOD”
+* Första egenskap: ”ClippingTimeStart” av typen: ”TIDSKOD”
+* Andra egenskap: ”ClippingTimeEnd” av typen: ”TIDSKOD”
 
 ![Lägg till egenskapsdialogrutan för urklippet starttid](./media/media-services-media-encoder-premium-workflow-tutorials/media-services-clip-start-time.png)
 

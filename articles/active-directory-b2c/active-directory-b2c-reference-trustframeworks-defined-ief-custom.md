@@ -3,19 +3,19 @@ title: Referens – förtroende ramverk i Azure Active Directory B2C | Microsoft
 description: Ett avsnitt om Azure Active Directory B2C anpassade principer och den Identitetsramverk.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 00d2f37068c5bedb17ba9a4064d1f5058f5ab72c
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 694d463c158f8c8beb0396edf22ac749c03e9e97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185794"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845698"
 ---
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definiera förtroende ramverk med Azure AD B2C för Identitetsupplevelse
 
@@ -52,10 +52,10 @@ TFs är linchpins av den öppna identitet Exchange (OIX) lita Framework-modellen
 - **Beskrivning av digitala ID-information som har erbjuds/krävs av deltagare**.
 
 - **De tekniska principerna för produktion och förbrukning av digitala ID-information och därmed för att mäta Kompilera och LOP. Dessa skriftliga principer omfattar vanligtvis följande typer av principer:**
-    - Identitet språkverktyg principer, till exempel: *hur starkt är en persons identitetsinformation som du vet att dess?*
-    - Säkerhetsprinciper, till exempel: *är hur starkt information och sekretess som skyddas?*
-    - Sekretessprinciper, till exempel: *vilka kontroll en användare har över personligt identifierbar information (PII)*?
-    - Överlevnads principer, till exempel: *om en provider upphör åtgärder, hur fungerar och skydd av personligt identifierbar information funktion?*
+    - Identitet språkverktyg principer, till exempel: *Hur starkt är en persons identitetsinformation som du vet att dess?*
+    - Säkerhetsprinciper, till exempel: *Hur starkt skyddas information och sekretess?*
+    - Sekretessprinciper, till exempel: *Vilka kontroll en användare har över personligt identifierbar information (PII)*?
+    - Överlevnads principer, till exempel: *Om en provider upphör åtgärder, hur fungerar och skydd av personligt identifierbar information funktion?*
 
 - **Tekniska profiler för produktion och förbrukning av digitala ID-information. Dessa profiler innehåller:**
     - Scope-gränssnitt som digitala ID-information är tillgänglig på en angiven Kompilera.

@@ -3,19 +3,19 @@ title: Booleskt värde anspråk omvandling exempel för den identiteten upplevel
 description: Booleskt värde anspråk omvandling exempel för den identiteten upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: c6e9337fb5e336c506fc43e13eeb7fdbfaf636a7
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 1afbf8e8473e12992b7f031ac9835a58e1089b0d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432570"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853280"
 ---
 # <a name="boolean-claims-transformations"></a>Booleska anspråksomvandlingar
 
@@ -23,7 +23,7 @@ ms.locfileid: "47432570"
 
 Den här artikeln innehåller exempel för att använda booleskt anspråksomvandlingar av Identitetsramverk schemat i Azure Active Directory (Azure AD) B2C. Mer information finns i [ClaimsTransformations](claimstransformations.md).
 
-## <a name="andclaims"></a>Skadeståndsansvar
+## <a name="andclaims"></a>AndClaims
 
 Utförs av två booleskt inputClaims och ställer in outputClaim med resultatet av åtgärden.
 
@@ -31,7 +31,7 @@ Utförs av två booleskt inputClaims och ställer in outputClaim med resultatet 
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
 | InputClaim | inputClaim2  | boolesk | Andra ClaimType att utvärdera. |
-|outputClaim | outputClaim | boolesk | ClaimTypes som skapas när detta omvandling av anspråk har anropats (SANT eller FALSKT). |
+|OutputClaim | outputClaim | boolesk | ClaimTypes som skapas när detta omvandling av anspråk har anropats (SANT eller FALSKT). |
 
 Följande anspråkstransformering visar hur du och två booleskt ClaimTypes: `isEmailNotExist`, och `isSocialAccount`. Utdata-anspråket `presentEmailSelfAsserted` är inställd på `true` om värdet för båda inkommande anspråk är `true`. I ett orchestration-steg kan du använda ett villkor för att ange en självkontrollerad sida, bara om ett e-postmeddelande för socialt konto är tom.
 
@@ -62,8 +62,8 @@ Kontrollerar att booleska värden för två anspråk är likvärdiga och utlöse
 
 | Objekt | TransformationClaimType  | Datatyp  | Anteckningar |
 | ---- | ------------------------ | ---------- | ----- |
-| InputClaim | InputClaim | boolesk | ClaimType verifieringsvillkor som ska kontrolleras. |
-| Indataparametrar |valueToCompareTo | boolesk | Värde att jämföra (SANT eller FALSKT). |
+| inputClaim | inputClaim | boolesk | ClaimType verifieringsvillkor som ska kontrolleras. |
+| InputParameter |valueToCompareTo | boolesk | Värde att jämföra (SANT eller FALSKT). |
 
 Den **AssertBooleanClaimIsEqualToValue** anspråkstransformering utförs alltid från en [teknisk verifieringsprofil](validation-technical-profile.md) som anropas av en [lokal verifieringsvillkor tekniska profilen](self-asserted-technical-profile.md). Den **UserMessageIfClaimsTransformationBooleanValueIsNotEqual** självkontrollerad tekniska profilens metadata styr det felmeddelande som den tekniska profilen som visas för användaren.
 
@@ -111,7 +111,7 @@ Den tekniska profilen självkontrollerad anropar verifieringen **inloggning utan
 - Inkommande anspråk:
     - **inputClaim**: false
     - **valueToCompareTo**: true
-- Resultat: Fel som utlöstes
+- Resultat: Fel uppstod
 
 ## <a name="notclaims"></a>NotClaims
 
@@ -119,8 +119,8 @@ Utför en inte av boolesk inputClaim och ställer in outputClaim med resultatet 
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | InputClaim | boolesk | Anspråk att vara i drift. |
-| outputClaim | outputClaim | boolesk | ClaimTypes som genereras när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
+| InputClaim | inputClaim | boolesk | Anspråk att vara i drift. |
+| OutputClaim | outputClaim | boolesk | ClaimTypes som genereras när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
 
 Använda den här anspråksomvandling för att utföra logisk negation på ett anspråk.
 
@@ -149,7 +149,7 @@ Beräknar en Or av två booleskt inputClaims och ställer in outputClaim med res
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolesk | Första ClaimType att utvärdera. |
 | InputClaim | inputClaim2 | boolesk | Andra ClaimType att utvärdera. |
-| outputClaim | outputClaim | boolesk | ClaimTypes som skapas när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
+| OutputClaim | outputClaim | boolesk | ClaimTypes som skapas när den här ClaimsTransformation har anropats (SANT eller FALSKT). |
 
 Följande anspråkstransformering visar hur du `Or` två booleskt ClaimTypes. I orchestration-steg du kan använda ett villkor för att ange en självkontrollerad sida om värdet för ett av anspråken är `true`.
 

@@ -3,19 +3,19 @@ title: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad 
 description: Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ae9f55943d4b178096230269215ac771ee1d20a1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413510"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856128"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska profilen för en JWT tokenutfärdare i en anpassad princip för Azure Active Directory B2C
 
@@ -48,7 +48,7 @@ Den **InputClaims**, **OutputClaims**, och **PersistClaims** element är tom ell
 | --------- | -------- | ----------- |
 | issuer_refresh_token_user_identity_claim_type | Ja | Anspråk som ska användas som användar-ID anspråk i OAuth2-auktoriseringskoder och uppdateringstoken. Som standard ska du ange den till `objectId`, såvida du inte anger en annan SubjectNamingInfo Anspråkstypen. | 
 | SendTokenResponseBodyWithJsonNumbers | Nej | Alltid inställt `true`. För äldre format där numeriska värden anges som strängar i stället för JSON-nummer, inställt på `false`. Det här attributet krävs för klienter som har tagit ett beroende på en tidigare implementering som returnerade egenskaper, till exempel som strängar. | 
-| token_lifetime_secs | Nej | Tokenlivslängder för åtkomst. Livslängden för den OAuth 2.0-ägartoken som används för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Högsta (inklusivt) är 86 400 sekunder (24 timmar). | 
+| token_lifetime_secs | Nej | Tokenlivslängder för åtkomst. Livslängden för den OAuth 2.0-ägartoken som användes för att få åtkomst till en skyddad resurs. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Högsta (inklusivt) är 86 400 sekunder (24 timmar). | 
 | id_token_lifetime_secs | Nej | ID tokenlivslängder. Standardvärdet är 3 600 sekunder (1 timme). Minst (inklusivt) är 300 sekunder (fem minuter). Max (inklusivt) är sekunder 86,400 (24 timmar). | 
 | refresh_token_lifetime_secs | Nej | Uppdatera livslängd för token. Den maximala tidsperiod innan vilken en uppdateringstoken kan användas till att skaffa en ny åtkomsttoken om programmet har beviljats offline_access omfånget. Standardvärdet är 120,9600 sekunder (14 dagar). Minimivärdet (inklusivt) är 86 400 sekunder (24 timmar). Max (inklusivt) är 7,776,000 sekunder (90 dagar). | 
 | rolling_refresh_token_lifetime_secs | Nej | Uppdatera token livslängd för skjutfönster. När den här tidsperioden har gått ut måste tvingas användaren att autentiseras på nytt, oavsett giltighetsperioden hos den senaste uppdateringstoken som införskaffats av programmet. Om du inte vill att framtvinga en livslängd för skjutfönster, ange värdet för allow_infinite_rolling_refresh_token till `true`. Standardvärdet är 7,776,000 sekunder (90 dagar). Minimivärdet (inklusivt) är 86 400 sekunder (24 timmar). Max (inklusivt) är 31,536,000 sekunder (365 dagar). | 

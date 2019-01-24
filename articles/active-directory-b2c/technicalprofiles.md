@@ -3,19 +3,19 @@ title: TechnicalProfiles | Microsoft Docs
 description: Ange det TechnicalProfiles elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 45ea2a28b4b2fb3d55d7ae949152e6f51b5d3162
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c17159e1fa901e8219d1727769d234719c4321c6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51566541"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856561"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -133,7 +133,7 @@ Den **CryptographicKeys** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Nyckel | 1: n | En kryptografisk nyckel som används i den här tekniska profilen. |
+| Nyckel | 1:n | En kryptografisk nyckel som används i den här tekniska profilen. |
 
 #### <a name="key"></a>Nyckel
 
@@ -150,7 +150,7 @@ Den **InputClaimsTransformations** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaimsTransformation | 1: n | Identifierare för en omvandling av anspråk som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
+| InputClaimsTransformation | 1:n | Identifierare för en omvandling av anspråk som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
 
 #### <a name="inputclaimstransformation"></a>InputClaimsTransformation
 
@@ -166,7 +166,7 @@ Den **InputClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaim | 1: n | Förväntade indata Anspråkstypen. |
+| InputClaim | 1:n | Förväntade indata Anspråkstypen. |
 
 #### <a name="inputclaim"></a>InputClaim 
 
@@ -184,7 +184,7 @@ Den **PersistedClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| PersistedClaim | 1: n | Anspråkstyp ska sparas. |
+| PersistedClaim | 1:n | Anspråkstyp ska sparas. |
 
 #### <a name="persistedclaim"></a>PersistedClaim 
 
@@ -202,9 +202,9 @@ Den **OutputClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| outputClaim | 1: n | Förväntad utdata Anspråkstypen. |
+| OutputClaim | 1:n | Förväntad utdata Anspråkstypen. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>OutputClaim 
 
 Den **OutputClaim** elementet innehåller följande attribut:
 
@@ -221,7 +221,7 @@ Den **OutputClaimsTransformations** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| OutputClaimsTransformation | 1: n | Identifierare för anspråksomvandlingar som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
+| OutputClaimsTransformation | 1:n | Identifierare för anspråksomvandlingar som ska köras innan några anspråk skickas till anspråksleverantören eller den förlitande parten. En anspråkstransformering kan användas för att ändra befintliga ClaimsSchema anspråk eller skapa nya. |
 
 #### <a name="outputclaimstransformation"></a>OutputClaimsTransformation
 
@@ -237,7 +237,7 @@ Den **ValidationTechnicalProfiles** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| ValidationTechnicalProfile | 1: n | Identifierare för tekniska profiler som används för att verifiera några eller alla utgående anspråk på den refererande tekniska profilen. Alla inkommande anspråk för den refererade tekniska profilen måste visas i utdataanspråk för den refererande tekniska profilen. |
+| ValidationTechnicalProfile | 1:n | Identifierare för tekniska profiler som används för att verifiera några eller alla utgående anspråk på den refererande tekniska profilen. Alla inkommande anspråk för den refererade tekniska profilen måste visas i utdataanspråk för den refererande tekniska profilen. |
 
 #### <a name="validationtechnicalprofile"></a>ValidationTechnicalProfile
 

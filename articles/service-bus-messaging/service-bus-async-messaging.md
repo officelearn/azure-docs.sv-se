@@ -3,23 +3,23 @@ title: Asynkrona Service Bus-meddelanden | Microsoft Docs
 description: Beskrivning av Azure Service Bus asynkrona meddelanden.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: 9bacce96e65a7aef611bec3ddae8b1872d5f9fae
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 0ecc277e1b9bd94558c54b1c808fdc24f47c402e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845086"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Asynkrona meddelandemönster och hög tillgänglighet
 
@@ -75,9 +75,9 @@ I båda fallen kan en fysisk eller syntetiska katastrof som orsakade problemet. 
 ## <a name="paired-namespaces"></a>Kopplade namnområden
 Den [ihop namnområden] [ paired namespaces] funktionen stöder scenarier där en Service Bus-entiteten eller distribution inom ett datacenter blir otillgänglig. Medan den här händelsen inträffar sällan, måste distribuerade system fortfarande förberedas för att hantera sämsta användningsfall. Den här händelsen inträffar normalt eftersom vissa element som Service Bus är beroende av upplever ett kortsiktiga problem. Om du vill upprätthålla tillgänglighet under ett avbrott, kan Service Bus-användare använda två separata namnområden noggrannhet på olika datacenter, som värd för sina enheter för meddelanden. Resten av det här avsnittet använder följande termer:
 
-* Primärt namnområde: det namnområde som samverkar för skicka och ta emot för dina program.
-* Sekundärt namnområde: det namnområde som fungerar som en reserv till det primära namnområdet. Programlogiken interagerar inte med det här namnområdet.
-* Intervall för redundans: hur lång tid att godkänna normala fel innan programmet växlar från det primära namnområdet till det sekundära namnområdet.
+* Primärt namnområde: Det namnområde som samverkar för skicka och ta emot för dina program.
+* Sekundärt namnområde: Det namnområde som fungerar som en reserv till det primära namnområdet. Programlogiken interagerar inte med det här namnområdet.
+* Intervall för redundans: Hur lång tid att godkänna normala fel innan programmet växlar från det primära namnområdet till det sekundära namnområdet.
 
 Länkad namnområden support *skicka tillgänglighet*. Skicka tillgänglighet bevarar möjligheten att skicka meddelanden. För att använda Skicka tillgänglighet, måste programmet uppfylla följande krav:
 
@@ -109,10 +109,10 @@ public SendAvailabilityPairedNamespaceOptions(
 
 Dessa parametrar har följande:
 
-* *secondaryNamespaceManager*: ett initierat [NamespaceManager] [ NamespaceManager] instansen för det sekundära namnområdet som den [PairNamespaceAsync] [ PairNamespaceAsync] metod kan använda för att konfigurera det sekundära namnområdet. Namespace manager används för att erhålla en lista över köer i namnområdet och för att kontrollera att nödvändiga eftersläpning köer finns. Om dessa köer inte finns, skapas de. [NamespaceManager] [ NamespaceManager] kräver möjligheten att skapa en token med den **hantera** anspråk.
-* *messagingFactory*: den [MessagingFactory] [ MessagingFactory] instansen för det sekundära namnområdet. Den [MessagingFactory] [ MessagingFactory] objektet används för att skicka och, om den [EnableSyphon] [ EnableSyphon] är inställd på **SANT**, ta emot meddelanden från köer med kvarvarande uppgifter.
-* *backlogQueueCount*: antalet köer för att skapa. Det här värdet måste vara minst 1. När du skickar meddelanden till eftersläpningen, väljs en av dessa köer slumpmässigt. Om du ställer in värdet till 1 kan endast en kö skulle användas. När detta sker och en för eftersläpning i kön genererar fel, klienten har inte möjlighet att prova en annan för eftersläpning i kö och kan misslyckas med att skicka meddelandet. Vi rekommenderar att ange värdet till vissa större värde och standard värdet till 10. Du kan ändra detta till ett högre eller lägre värde beroende på hur mycket data ditt program skickar per dag. Varje eftersläpning kö kan innehålla upp till 5 GB av meddelanden.
-* *failoverInterval*: hur lång tid under vilken du kan acceptera fel på det primära namnområdet innan du växlar en enskild person till det sekundära namnområdet. Redundansväxlingar sker regelbundet en entitet av entiteten. Entiteter i en enda namnrymd som ofta live på olika noder i Service Bus. Ett fel i en entitet innebär inte ett fel i en annan. Du kan ange ett värde [System.TimeSpan.Zero] [ System.TimeSpan.Zero] att redundansväxla till sekundärt omedelbart efter din första och icke tillfälliga fel. Fel som utlöser redundans timern finns några [MessagingException] [ MessagingException] där den [IsTransient] [ IsTransient] egenskapen är false eller till en [ System.TimeoutException][System.TimeoutException]. Andra undantag, till exempel [UnauthorizedAccessException] [ UnauthorizedAccessException] inte orsakar redundans så att de anger att klienten är felaktigt konfigurerad. En [ServerBusyException] [ ServerBusyException] har inte orsak redundans eftersom rätt mönster är att vänta 10 sekunder sedan skicka meddelandet igen.
+* *secondaryNamespaceManager*: Ett initierat [NamespaceManager] [ NamespaceManager] instansen för det sekundära namnområdet som den [PairNamespaceAsync] [ PairNamespaceAsync] metod kan använda för att ange Konfigurera det sekundära namnområdet. Namespace manager används för att erhålla en lista över köer i namnområdet och för att kontrollera att nödvändiga eftersläpning köer finns. Om dessa köer inte finns, skapas de. [NamespaceManager] [ NamespaceManager] kräver möjligheten att skapa en token med den **hantera** anspråk.
+* *messagingFactory*: Den [MessagingFactory] [ MessagingFactory] instansen för det sekundära namnområdet. Den [MessagingFactory] [ MessagingFactory] objektet används för att skicka och, om den [EnableSyphon] [ EnableSyphon] är inställd på **SANT**, ta emot meddelanden från köer med kvarvarande uppgifter.
+* *backlogQueueCount*: Antalet köer för att skapa. Det här värdet måste vara minst 1. När du skickar meddelanden till eftersläpningen, väljs en av dessa köer slumpmässigt. Om du ställer in värdet till 1 kan endast en kö skulle användas. När detta sker och en för eftersläpning i kön genererar fel, klienten har inte möjlighet att prova en annan för eftersläpning i kö och kan misslyckas med att skicka meddelandet. Vi rekommenderar att ange värdet till vissa större värde och standard värdet till 10. Du kan ändra detta till ett högre eller lägre värde beroende på hur mycket data ditt program skickar per dag. Varje eftersläpning kö kan innehålla upp till 5 GB av meddelanden.
+* *failoverInterval*: Hur lång tid under vilken du kan acceptera fel på det primära namnområdet innan du växlar en enskild person till det sekundära namnområdet. Redundansväxlingar sker regelbundet en entitet av entiteten. Entiteter i en enda namnrymd som ofta live på olika noder i Service Bus. Ett fel i en entitet innebär inte ett fel i en annan. Du kan ange ett värde [System.TimeSpan.Zero] [ System.TimeSpan.Zero] att redundansväxla till sekundärt omedelbart efter din första och icke tillfälliga fel. Fel som utlöser redundans timern finns några [MessagingException] [ MessagingException] där den [IsTransient] [ IsTransient] egenskapen är false eller till en [ System.TimeoutException][System.TimeoutException]. Andra undantag, till exempel [UnauthorizedAccessException] [ UnauthorizedAccessException] inte orsakar redundans så att de anger att klienten är felaktigt konfigurerad. En [ServerBusyException] [ ServerBusyException] har inte orsak redundans eftersom rätt mönster är att vänta 10 sekunder sedan skicka meddelandet igen.
 * *enableSyphon*: Anger att den här specifika parkoppling bör också syphon meddelanden från det sekundära namnområdet tillbaka till det primära namnområdet. I allmänhet program som skickar meddelanden ska ange ett värde och **FALSKT**; program som tar emot meddelanden ska ange ett värde och **SANT**. Anledningen är att ofta, det finns färre meddelande mottagare än avsändare. Beroende på antalet mottagare, kan du ha en enda programinstans som hanterar syphon uppgifter. Med hjälp av många mottagare har fakturering konsekvenser för varje för eftersläpning i kö.
 
 För att använda koden, skapar du en primär [MessagingFactory] [ MessagingFactory] instans, en sekundär [MessagingFactory] [ MessagingFactory] instans, en sekundär [ NamespaceManager] [ NamespaceManager] instansen och en [SendAvailabilityPairedNamespaceOptions] [ SendAvailabilityPairedNamespaceOptions] instans. Anropet kan vara så enkla som följande:

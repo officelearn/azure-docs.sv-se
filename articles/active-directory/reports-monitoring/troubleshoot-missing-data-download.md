@@ -1,10 +1,10 @@
 ---
-title: 'Felsökning: Saknade data i de nedladdade Azure Active Directory-aktivitetsloggarna | Microsoft Docs'
+title: 'Felsökning: Saknade data i nedladdade Azure Active Directory-aktivitetsloggarna | Microsoft Docs'
 description: Ger en lösning till saknade data i nedladdade Azure Active Directory-aktivitetsloggar.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: ffce7eb1-99da-4ea7-9c4d-2322b755c8ce
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2607c5dacf6f261f27e7805e02df189a2753404c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: ea7ef4eb75cc7ffdf951e8d8799e898bfc31948b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625664"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818208"
 ---
 # <a name="i-cant-find-all-the-data-in-the-azure-active-directory-activity-logs-i-downloaded"></a>Jag kan inte hitta alla data i Azure Active Directory-aktivitetsloggarna som jag har hämtat
 

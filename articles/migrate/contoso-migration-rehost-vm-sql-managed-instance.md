@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 3564288c55716a9c64ae2460048cb255a60dcc02
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 6e15d4376fae576f615cac7c094f53dfcc22618e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469584"
+ms.locfileid: "54826623"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Contoso-migrering: Ange ny värd för en lokal app på en virtuell Azure-dator och SQL Database Managed Instance
 
@@ -432,7 +432,7 @@ Om du vill konfigurera källan gör Contoso miljöadministratörer du följande:
 
 Nu kan konfigurera Contoso administratörer målmiljön för replikeringen:
 
-1. I **Förbered infrastruktur** > **Target**, de selecs målinställningarna.
+1. I **Förbered infrastruktur** > **Target**, de väljer målinställningarna.
 2. Site Recovery kontrollerar att det är ett lagringskonto och nätverk i det angivna målet.
 
 ### <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
@@ -473,7 +473,7 @@ Contoso-administratörer kan nu börja replikera WebVM.
 
     ![Aktivera replikering – Välj den virtuella datorn](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. De kontrollera att rätt replikeringsprincip har valts och aktivera replikering för **WEBVM**. De tracs Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
+5. De kontrollera att rätt replikeringsprincip har valts och aktivera replikering för **WEBVM**. De spåra Replikeringsförlopp på **jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 6. I **Essentials** i Azure-portalen kan de se status för de virtuella datorer som replikeras till Azure:
 
     ![Infrastruktur-vy](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
@@ -519,7 +519,7 @@ Contoso-administratörer måste du skapa ett projekt med Database Migration Serv
         ![Database Migration Service – konfigurera migreringsinställningar för](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
 5. De spara migreringsinställningarna för och kör sedan migreringen.
-6. I **översikt**, de monitos Migreringsstatus för.
+6. I **översikt**, de övervaka Migreringsstatus för.
 
     ![Database Migration Service - Övervakare](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 

@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med eDigitalResearch | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med eDigitalResearch | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och eDigitalResearch.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: c6b66ea0-16ba-45b4-b550-e81c56262b1f
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.openlocfilehash: d5c86186cd6ee02d83800c6483a2e35d8f1fb3c7
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: e7333e2530ae3174f3d94478e496f0883764409c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848722"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817528"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Självstudier: Azure Active Directory-integration med eDigitalResearch
+# <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Självstudier: Azure Active Directory-integrering med eDigitalResearch
 
 I den här självstudien får du lära dig hur du integrerar eDigitalResearch med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera eDigitalResearch med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till eDigitalResearch.
 - Du kan aktivera användarna att automatiskt få loggat in på eDigitalResearch (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med eDigitalResearch, behöver du f�
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -68,7 +68,7 @@ För att konfigurera integrering av eDigitalResearch i Azure AD, som du behöver
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av eDigitalResearch i Azure AD, som du behöver
 
     ![eDigitalResearch i resultatlistan](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med eDigitalResearch baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +86,13 @@ I eDigitalResearch, tilldela värdet för den **användarnamn** i Azure AD som v
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med eDigitalResearch, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare eDigitalResearch](#create-a-edigitalresearch-test-user)**  – du har en motsvarighet för Britta Simon i eDigitalResearch som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  att kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt eDigitalResearch program.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **eDigitalResearch** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -110,31 +110,31 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![eDigitalResearch domän och URL: er enkel inloggning för information](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<company-name>.edigitalresearch.com`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<company-name>.edigitalresearch.com`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<company-name>.edigitalresearch.com/login/consume`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare och svars-URL. Kontakta [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Kontakta [eDigitalResearch supportteamet](https://www.maruedr.com/contact) att hämta dessa värden.
  
 
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat Base(64)** och spara certifikatfilen på datorn.
 
-    !![Länk för hämtning av certifikat](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_certificate.png) 
+    !![Länk för nedladdning av certifikatet](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/edigitalresearch-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/edigitalresearch-tutorial/tutorial_general_400.png)
 
 1. På den **eDigitalResearch Configuration** klickar du på **konfigurera eDigitalResearch** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID** från den **Snabbreferens avsnittet.**
 
     ![eDigitalResearch konfiguration](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_configure.png) 
 
-1. Att konfigurera enkel inloggning på **eDigitalResearch** sida, som du behöver skicka de hämtade **certifikatfil (Base64)**, **SAML entitets-ID**, och **utloggning URL: en** till [eDigitalResearch supportteamet](https://www.maruedr.com/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **eDigitalResearch** sida, som du behöver skicka de hämtade **certifikatfil (Base64)**, **SAML entitets-ID**, och **utloggning URL: en** till [eDigitalResearch supportteamet](https://www.maruedr.com/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

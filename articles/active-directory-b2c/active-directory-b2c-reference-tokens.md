@@ -3,21 +3,21 @@ title: Token-referens i Azure Active Directory B2C | Microsoft Docs
 description: Vilka typer av token som utfärdas i Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: d1c9101f10342f98803a4ace420abbed5d49ba23
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52880122"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848945"
 ---
-# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token-referens
+# <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Tokenreferens
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -81,8 +81,8 @@ Observera att anspråk i ID-token inte returneras i någon särskild ordning. De
 | Kod hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En kod hash ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-auktoriseringskod. En kod hash kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).  |
 | Åtkomst-token-hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |En åtkomst-token-hash som ingår i en ID-token endast när token utfärdas tillsammans med en OAuth 2.0-åtkomsttoken. En åtkomst-token-hash kan användas för att bekräfta en åtkomst-token är äkta. Mer information om hur du utför den här verifieringen finns i den [OpenID Connect-specifikation](https://openid.net/specs/openid-connect-core-1_0.html)  |
 | nonce |`nonce` |`12345` |En nonce är en strategi för att åtgärda token repetitionsattacker. Din app kan ange en nonce i en begäran om godkännande med hjälp av den `nonce` frågeparameter. Värdet du anger i begäran kommer avges ska ändras i den `nonce` anspråk för en endast ID-token. På så sätt kan din app för att kontrollera värden mot det värde som det angetts på begäran, som associerar appens session med en viss ID-token. Din app ska utföra den här verifieringen under verifieringsprocessen för ID-token. |
-| Subjekt |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Det här är huvudnamn som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
-| Referens för autentisering kontext-klass |`acr` |Inte tillämpligt |Inte används för närvarande, utom när det gäller äldre principer. Mer information finns i [Azure Active Directory B2C: Token, session och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
+| Subjekt |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |Det här är huvudnamn som token kontrollerar information, t.ex användare av en app. Det här värdet kan inte ändras och det går inte att tilldela om eller återanvänds. Det kan användas för att utföra auktoriseringskontroller på ett säkert sätt, till exempel när token används för att komma åt en resurs. Som standard fylls anspråk för ämne med objekt-ID för användaren i katalogen. Mer information finns i [Azure Active Directory B2C: Token-, sessions- och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
+| Referens för autentisering kontext-klass |`acr` |Inte tillämpligt |Inte används för närvarande, utom när det gäller äldre principer. Mer information finns i [Azure Active Directory B2C: Token-, sessions- och konfiguration för enkel inloggning](active-directory-b2c-token-session-sso.md). |
 | Lita på framework-princip |`tfp` |`b2c_1_sign_in` |Det här är namnet på den princip som användes för att hämta ID-token. |
 | Autentisering |`auth_time` |`1438535543` |Det här kravet är den tid då en användare senast angivna autentiseringsuppgifter, som representeras i epoktid. |
 
@@ -139,9 +139,9 @@ En beskrivning av hur du utför signaturverifiering ligger utanför omfånget f�
 När din app eller API får du en ID-token, bör det också utföra flera kontroller mot anspråken i ID-token. Dessa inkludera, men är inte begränsade till:
 
 * Den **målgrupp** anspråk: Detta verifierar att ID-token ska tilldelas till din app.
-* Den **inte före** och **förfallotid** anspråk: dessa Kontrollera att ID-token inte har gått ut.
+* Den **inte före** och **förfallotid** anspråk: Dessa Kontrollera att ID-token inte har gått ut.
 * Den **utfärdare** anspråk: Detta verifierar att token har utfärdats till din app av Azure AD.
-* Den **nonce**: det här är en strategi för token repetitionsattacker nätverksattacker.
+* Den **nonce**: Det här är en strategi för token repetitionsattacker nätverksattacker.
 
 En fullständig lista över verifieringar som din app ska utföra, finns det [OpenID Connect-specifikationen](https://openid.net). Information om de förväntade värdena för dessa anspråk som ingår i det föregående [token avsnittet](#types-of-tokens).  
 

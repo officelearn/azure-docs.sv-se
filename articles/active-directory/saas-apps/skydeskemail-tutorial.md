@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a9d0bbcb-ddb5-473f-a4aa-028ae88ced1a
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jeedes
-ms.openlocfilehash: 4dc34a390303ffe5e4bafc6b71d77a19e554374c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 29e1fd9999c70ed4a599cbc65d43402088d876e2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052197"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818888"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skydesk-email"></a>Självstudier: Azure Active Directory-integrering med SkyDesk e-post
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med SkyDesk e-postadress, behöver d
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här [– prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -115,13 +115,13 @@ I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen
     I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://mail.skydesk.jp/portal/<companyname>`
 
     > [!NOTE] 
-    > Värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [SkyDesk e-postklient supportteamet](https://www.skydesk.jp/apps/support/) att hämta värdet. 
+    > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [SkyDesk e-postklient supportteamet](https://www.skydesk.jp/apps/support/) att hämta värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_skydeskemail_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/skydeskemail-tutorial/tutorial_general_400.png)
 
@@ -172,7 +172,7 @@ I det här avsnittet ska du aktiverar Azure AD enkel inloggning i Azure-portalen
 
     d. Klicka på **hämta nyckeln från filen** välja nedladdade certifikatet från Azure-portalen och klicka sedan på **öppna** att ladda upp.
 
-    e. Som **algoritmen**väljer **RSA**.
+    e. Som **Algoritm** väljer du **RSA**.
 
     f. Klicka på **Ok** att spara ändringarna.
 

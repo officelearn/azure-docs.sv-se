@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d30a6446f40105985388d3c2ee077b36af32f208
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: eb344d6da15a8faf8f05720ae9b1fd49bd42db2f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412214"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808212"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Vad är ”cognitive search” i Azure Search?
 
@@ -98,12 +98,14 @@ Index som ska genereras från ett indexschema som definierar fälten, attribut, 
 + Södra centrala USA
 + Östra USA
 + USA, östra 2
++ Västra USA
 + Västra USA 2
 + Centrala Kanada
 + Västra Europa
 + Storbritannien, södra
 + Norra Europa
 + Södra Brasilien
++ Östasien
 + Sydostasien
 + Indien, centrala
 + Östra Australien

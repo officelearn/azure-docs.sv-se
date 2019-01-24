@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 128e389a8d6928f9f133fe9d649d0fc7e982e4df
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 57d52412648cbe8a0791aa306075018a2092bf51
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402376"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827337"
 ---
 # <a name="about-azure-vm-backup"></a>Om säkerhetskopiering av Azure virtuella datorer
 
@@ -40,7 +40,7 @@ Här är hur Azure Backup är klar en säkerhetskopiering för virtuella Azure-d
 
 Azure Backup krypterar inte data som en del av säkerhetskopieringen. Azure Backup stöder säkerhetskopiering av virtuella Azure-datorer som är krypterade med Azure Disk Encryption.
 
-- Säkerhetskopiering av virtuella datorer krypteras med Bitlocker-kryptering Key(BEK) endast och BEK tillsammans med nyckel kryptering Key(KEK) stöds för hanterade och ohanterade virtuella Azure-datorer.
+- Säkerhetskopiering av virtuella datorer krypteras med BitLocker-kryptering Key(BEK) endast och BEK tillsammans med nyckel kryptering Key(KEK) stöds för hanterade och ohanterade virtuella Azure-datorer.
 - BEK(secrets) och KEK(keys) säkerhetskopieras krypteras så att de kan läsa och används endast när återställas tillbaka till nyckelvalvet genom behöriga användare.
 - Eftersom BEK också säkerhetskopieras, i scenarier där BEK går förlorad, kan behöriga användare återställa BEK till Nyckelvalvet och återställa krypterade virtuella datorn. Nycklar och hemligheter för krypterade virtuella datorer säkerhetskopieras i krypterad form, så varken obehöriga användare eller Azure kan läsa eller Använd säkerhetskopieras nycklar och hemligheter. Endast användare med rätt nivå av behörigheter kan säkerhetskopiera och återställa krypterade virtuella datorer, samt nycklar och hemligheter.
 

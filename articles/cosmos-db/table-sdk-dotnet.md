@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: f2492e3d49f9b7e965c33ed4419f566e81dd62ed
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 469faeee4706c33b09f89bfbed1bb229a6aea20e
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043472"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848384"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB-tabell .NET API: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -37,6 +37,9 @@ ms.locfileid: "54043472"
 
 ## <a name="release-notes"></a>Viktig information
 
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Felkorrigeringar
+
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
 * Stöd har lagts till flera regioner skrivning
 * Fast NuGet-paketberoenden på Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
@@ -51,7 +54,7 @@ ms.locfileid: "54043472"
 * Synkron API: er kan nu köra på trådpoolen med SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
-* Lägga till TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism och TableQueryContinuationTokenLimitInKb i TableRequestOptions
+* Add TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism, and TableQueryContinuationTokenLimitInKb to TableRequestOptions
 * Felkorrigeringar
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
@@ -72,6 +75,8 @@ Alla begäranden till Azure Cosmos DB med hjälp av en pensionerad SDK avvisas a
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |Den 22 januari 2019|--- |
+| [2.0.0](#2.0.0) |Den 26 september 2018|--- |
 | [1.1.3](#1.1.3) |17 juli 2018|--- |
 | [1.1.1](#1.1.1) |26 mars 2018|--- |
 | [1.1.0](#1.1.0) |21 februari 2018|--- |

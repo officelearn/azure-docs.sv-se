@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/19/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: 94d574d16b1b9951ab91a09023f9193723f850a7
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4490db0c479abdda19957be98335edeefc08bb59
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583373"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808756"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Lägga till eller ändra Azure-prenumerationsadministratörer
 
@@ -67,14 +67,14 @@ Endast [ägare](../role-based-access-control/built-in-roles.md#owner) kan lägga
 
 ### <a name="adding-a-guest-user-as-a-co-administrator"></a>Att lägga till en gästanvändare som en medadministratör
 
-Gästanvändare som har tilldelats rollen delad administratör kan se några skillnader jämfört med användare med rollen delad administratör. Föreställ dig följande:
+[Gästanvändare](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md) som har tilldelats medadministratörerna rollen kan se några skillnader jämfört med användare med rollen delad administratör. Föreställ dig följande:
 
 - Användare A med ett Azure AD arbets- eller skolkonto är tjänstadministratör för en Azure-prenumeration.
 - Användare B har ett Microsoft-konto.
 - Användare A tilldelar rollen som medadministratör till användaren B.
 - Användare B kan göra nästan allt, men inte kan registrera program eller leta upp användare i Azure AD-katalog.
 
-Du kan förvänta dig som användare B kan hantera allt. Orsaken till den här skillnaden är att Microsoft-kontot har lagts till prenumerationen som gästanvändare i stället för en medlemsanvändare. Gästanvändare har olika standardbehörigheter i Azure AD jämfört med användare. Till exempel användare kan läsa andra användare i Azure AD och det går inte att gästanvändare. Användare kan registrera nya tjänstens huvudnamn i Azure AD och det går inte att gästanvändare. Om en gästanvändare behöver för att kunna utföra dessa uppgifter, en möjlig lösning är att tilldela specifikt Azure AD-administratörsroller gästanvändaren behöver. Till exempel i scenariot ovan tilldelar du den [Katalogläsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) roll att läsa andra användare och tilldela den [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) roll för att kunna skapa tjänstens huvudnamn. Läs mer om medlemmar och gästanvändare och deras behörigheter, [vad är standardbehörigheterna för användare i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md).
+Du kan förvänta dig som användare B kan hantera allt. Orsaken till den här skillnaden är att Microsoft-kontot har lagts till prenumerationen som gästanvändare i stället för en medlemsanvändare. Gästanvändare har olika standardbehörigheter i Azure AD jämfört med användare. Till exempel användare kan läsa andra användare i Azure AD och det går inte att gästanvändare. Användare kan registrera nya tjänstens huvudnamn i Azure AD och det går inte att gästanvändare. Om en gästanvändare behöver för att kunna utföra dessa uppgifter, en möjlig lösning är att tilldela specifikt Azure AD-administratörsroller gästanvändaren behöver. Till exempel i scenariot ovan tilldelar du den [Katalogläsare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) roll att läsa andra användare och tilldela den [programutvecklare](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) roll för att kunna skapa tjänstens huvudnamn. Läs mer om medlemmar och gästanvändare och deras behörigheter, [vad är standardbehörigheterna för användare i Azure Active Directory?](../active-directory/fundamentals/users-default-permissions.md). 
 
 Observera att den [inbyggda roller för Azure-resurser](../role-based-access-control/built-in-roles.md) skiljer sig från den [Azure AD-administratörsroller](../active-directory/users-groups-roles/directory-assign-admin-roles.md). De inbyggda rollerna bevilja inte åtkomst till Azure AD. Mer information finns i [förstå de olika rollerna](../role-based-access-control/rbac-and-directory-admin-roles.md).
 

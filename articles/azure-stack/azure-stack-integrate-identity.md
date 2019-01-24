@@ -2,20 +2,20 @@
 title: Integrering med Azure Stack datacenter - identitet
 description: Lär dig hur du integrerar Azure Stack AD FS med ditt datacenter AD FS
 services: azure-stack
-author: jeffgilb
+author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 01/08/19
-ms.author: jeffgilb
-ms.reviewer: wfayed
+ms.date: 01/23/19
+ms.author: patricka
+ms.reviewer: thoroet
 keywords: ''
-ms.openlocfilehash: 63ac30728cceae76f869f5529905cd6d3dde9ae2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263806"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852770"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -193,16 +193,21 @@ För att följande åtgärder måste du använda en dator som är ansluten till 
 
 Använda en dator som kan kommunicera med privilegierad slutpunkt i Azure Stack och har åtkomst till metadatafilen som du skapade i föregående steg i den här proceduren.
 
-1. Öppna en upphöjd Windows PowerShell-session.
+1. Öppna en upphöjd Windows PowerShell-session och Anslut till privilegierad slutpunkt.
 
    ```PowerShell  
    $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
-   Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
    ```
 
-2. Kör följande kommando för att uppdatera ägaren till providerprenumeration standard med hjälp av parametrarna som är lämpliga för din miljö:
+2. Nu när du är ansluten till privilegierad slutpunkt, kör du följande kommando med parametrar som är lämpliga för din miljö:
+
+    ```PowerShell
+    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
+    ```
+
+3. Kör följande kommando för att uppdatera ägaren till providerprenumeration standard med hjälp av parametrarna som är lämpliga för din miljö:
 
    ```PowerShell  
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"

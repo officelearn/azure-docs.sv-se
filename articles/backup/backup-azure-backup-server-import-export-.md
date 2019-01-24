@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 5/8/2018
 ms.author: saurse
-ms.openlocfilehash: 1a0e196f4d96494aca1c19a7527ac7d81837fb5c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 01b90d6bb18addd6a0235101f86b9d51953cc096
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34606485"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818565"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>Arbetsflöde för säkerhetskopiering offline för DPM och Azure Backup Server
 Azure Backup har flera inbyggda effektiviteten som sparar kostnader för lagring och nätverk under en första fullständig säkerhetskopiering av data till Azure. Inledande fullständiga säkerhetskopieringar vanligtvis överföra stora mängder data och kräver mer bandbredd i nätverket jämfört med efterföljande säkerhetskopieringar som överför bara deltan/varje. Azure Backup komprimerar första säkerhetskopieringarna. Genom processen för att ange startvärden offline, kan Azure Backup använda diskar för att ladda upp den komprimerade första säkerhetskopiera informationen offline till Azure.
@@ -59,7 +59,7 @@ Kontrollera att följande krav är uppfyllda innan du påbörjar arbetsflöde f�
 
 * En mellanlagringsplats som kan vara en nätverksresurs eller eventuella ytterligare en enhet på datorn, interna eller externa, med tillräckligt med diskutrymme för att rymma den inledande kopian har skapats. Om du vill se till att säkerhetskopiera en filserver med 500 GB är mellanlagringsområdet minst 500 GB. (Färre används på grund av komprimering.)
 * Kontrollera som endast 2,5 tums SSD eller 2,5 tum eller 3,5-tums SATA II/III interna hårddiskar som används för diskar som ska skickas till Azure. Du kan använda hårddiskar upp till 10 TB. Kontrollera den [dokumentation om Azure Import/Export service](../storage/common/storage-import-export-requirements.md#supported-hardware) för den senaste uppsättningen av enheter som har stöd för tjänsten.
-* SATA-enheter måste vara ansluten till en dator (kallas en *kopia datorn*) varifrån kopia av säkerhetskopieringsdata från den *mellanlagringsplatsen* till SATA-enheter är klar. Kontrollera att Bitlocker är aktiverat på den *kopia dator* 
+* SATA-enheter måste vara ansluten till en dator (kallas en *kopia datorn*) varifrån kopia av säkerhetskopieringsdata från den *mellanlagringsplatsen* till SATA-enheter är klar. Kontrollera att BitLocker är aktiverat på den *kopia dator* 
 
 ## <a name="workflow"></a>Arbetsflöde
 Informationen i det här avsnittet hjälper dig att slutföra arbetsflöde för säkerhetskopiering offline så att dina data kan levereras till ett Azure-datacenter och överförs till Azure Storage. Om du har frågor om tjänsten Import eller någon aspekt av processen, se den [Import tjänstöversikt](../storage/common/storage-import-export-service.md) dokumentationen refererar till tidigare.
@@ -74,12 +74,12 @@ Informationen i det här avsnittet hjälper dig att slutföra arbetsflöde för 
 
     Beskrivning av indata är följande:
 
-    * **Mellanlagringsplatsen**: temporär lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
-    * **Azure Importjobbets namn**: det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
-    * **Azure Publiceringsinställningar**: Ange den lokala sökvägen till filen publicera.
-    * **Azure prenumerations-ID**: Azure-prenumerations-ID för prenumerationen från där du laddade ned filen med Azure publicera. 
-    * **Azure Storage-konto**: namnet på storage-konto i Azure-prenumeration som är associerade med filen publicera i Azure.
-    * **Azure Storage-behållare**: namnet på målblobben för lagring i Azure storage-konto där dina säkerhetskopierade data har importerats.
+    * **Mellanlagringsplatsen**: Den tillfälliga lagringsplats som den första säkerhetskopian skrivs. Mellanlagringsplatsen kan vara på en nätverksresurs eller en lokal dator. Om kopiera dator och källdatorn skiljer sig, rekommenderar vi att du anger den fullständiga nätverkssökvägen på mellanlagringsplatsen.
+    * **Namnet på Azure-importjobbet**: Det unika namnet genom vilka Azure-Import-tjänsten och Azure Backup spåra överföringen av data som skickas på diskar till Azure.
+    * **Azure-Publiceringsinställningar**: Ange den lokala sökvägen till filen publicera.
+    * **Azure-prenumerations-ID**: Azure prenumerations-ID för prenumerationen från där du laddade ned filen publicera i Azure. 
+    * **Azure Storage-konto**: Namnet på storage-konto i Azure-prenumeration som är associerade med filen publicera i Azure.
+    * **Azure-lagringsbehållare**: Namnet på målblobben för lagring i Azure storage-konto där dina säkerhetskopierade data har importerats.
 
      Spara den *mellanlagringsplatsen* och *Azure Importjobbets namn* du angav som det krävs för att förbereda diskarna.  
      
@@ -98,7 +98,7 @@ Informationen i det här avsnittet hjälper dig att slutföra arbetsflöde för 
 ### <a name="prepare-sata-drives-and-ship-to-azure"></a>Förbered SATA-enheter och skicka till Azure
 Den *AzureOfflineBackupDiskPrep* verktyget används för att förbereda SATA-enheter som skickas till den närmaste Azure-Datacenter. Det här verktyget finns i installationskatalogen för Recovery Services-agenten på följande sökväg:
 
-   *\Microsoft* *azure* *Recovery* *Services* * Agent\Utils\*
+   *\Microsoft* *Azure* *Recovery* *Services* *Agent\Utils\*
 
 1. Gå till katalogen och kopiera den **AzureOfflineBackupDiskPrep** katalogen till en kopia-dator där SATA-enheter att vara förberedd är ansluten. Så här för kopiera datorn:
 

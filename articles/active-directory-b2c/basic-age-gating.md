@@ -3,24 +3,24 @@ title: Aktivera åldershantering i Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om hur du identifierar minderåriga använder programmet.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a9220349249315d807a9dba675f6b074ddd385fa
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: ddc4b7b899385eb7388198973460386a4a0af10c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52291104"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845783"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Aktivera åldershantering i Azure Active Directory B2C
 
 >[!IMPORTANT]
->Den här funktionen är i offentlig förhandsversion. Använd inte funktionen för program i produktion. 
+>Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen för program i produktion. 
 >
 
 Åldershantering i Azure Active Directory (Azure AD) B2C kan du identifiera minderåriga som vill använda ditt program. Du kan välja att blockera mindre från att logga in i programmet. Användare kan också gå tillbaka till programmet och identifiera deras åldersgrupp och deras medgivandenivå status. Azure AD B2C kan blockera minderåriga utan föräldrars tillstånd. Azure AD B2C kan också konfigureras att tillåta program att avgöra vad du gör med minderåriga.

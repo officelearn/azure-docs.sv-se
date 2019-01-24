@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 4b844fe50623782f23c1819c14eb7626eb9506cf
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: df701c6b3131686d5b3b4c093b23de2f6d22bdbc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614961"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827473"
 ---
 # <a name="use-azure-files-with-linux"></a>Använda Azure Files med Linux
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan monteras i Linux-distributioner som använder den [SMB kernel-klienten](https://wiki.samba.org/index.php/LinuxCIFS). Den här artikeln visar två sätt att montera en Azure-filresurs: på begäran med den `mount` kommandot och på Start genom att skapa en post i `/etc/fstab`.
@@ -24,7 +24,7 @@ ms.locfileid: "51614961"
 ## <a name="prerequisites-for-mounting-an-azure-file-share-with-linux-and-the-cifs-utils-package"></a>Krav för att montera en Azure-filresurs med Linux och cifs-utils-paketet
 <a id="smb-client-reqs"></a>
 * **Välj en Linux-distribution som passar dina behov för montering.**  
-      Azure Files kan monteras via SMB 2.1 och SMB 3.0. Azure Files avvisar för anslutningar från klienter på lokala eller i andra Azure-regioner, SMB 2.1 (eller SMB 3.0 utan kryptering). Om *säker överföring krävs* har aktiverats för ett lagringskonto kan endast Azure Files-anslutningar som använder SMB 3.0 med kryptering.
+      Azure Files kan monteras via SMB 2.1 och SMB 3.0. För anslutningar från klienter på lokala eller i andra Azure-regioner, måste du använda SMB 3.0; Azure Files avvisar SMB 2.1 (eller SMB 3.0 utan kryptering). Om du försöker komma åt Azure-filresursen från en virtuell dator i samma Azure-region, du kan komma åt din filresursen med SMB 2.1 om och bara om *säker överföring krävs* har inaktiverats för det lagringskonto som är värd för Azure-filresursen. Vi rekommenderar alltid kräva säker överföring och använder endast SMB 3.0 med kryptering.
     
     Stöd för SMB 3.0-kryptering har introducerades i Linux-kernel-version 4.11 och anpassats till äldre kernel-versioner för populära Linux-distributioner. Vid tidpunkten för publiceringen av det här dokumentet stöder de följande distributionerna från Azure-galleriet montering alternativ som angetts i tabellrubriker. 
 
@@ -32,12 +32,12 @@ ms.locfileid: "51614961"
     
     |   | SMB 2.1 <br>(Monterar på virtuella datorer i samma Azure-region) | SMB 3.0 <br>(Monterar från lokalt och över olika regioner) |
     | --- | :---: | :---: |
-    | Ubuntu Server | 14.04 + | 16.04 + |
-    | RHEL | 7 + | 7.5 + |
-    | CentOS | 7 + |  7.5 + |
-    | Debian | 8 + |   |
-    | openSUSE | 13.2 + | 42.3 + |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3 + |
+    | Ubuntu Server | 14.04+ | 16.04+ |
+    | RHEL | 7+ | 7.5+ |
+    | CentOS | 7+ |  7.5+ |
+    | Debian | 8+ |   |
+    | openSUSE | 13.2+ | 42.3+ |
+    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
     
     Om din Linux-distribution inte visas här kan kontrollera du den Linux-kernel-versionen med följande kommando:    
 
@@ -75,12 +75,12 @@ ms.locfileid: "51614961"
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Kontrollera att port 445 är öppen**: SMB kommunicerar via TCP-port 445 – Kontrollera att se om brandväggen inte blockerar TCP-portarna 445 från klientdatorn.
+* **Se till att port 445 är öppen**: SMB kommunicerar via TCP-port 445. Kontrollera om din brandvägg blockerar TCP-port 445 från klientdatorn.
 
 ## <a name="mount-the-azure-file-share-on-demand-with-mount"></a>Montera den Azure-filen resursen på begäran med `mount`
 1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)**.
 
-2. **Skapa en mapp för monteringspunkten**: kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Exempel:
+2. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Exempel:
 
     ```bash
     mkdir /mnt/MyAzureFileShare
@@ -98,7 +98,7 @@ ms.locfileid: "51614961"
 ## <a name="create-a-persistent-mount-point-for-the-azure-file-share-with-etcfstab"></a>Skapa en beständig monteringspunkt för Azure-filresursen med `/etc/fstab`
 1. **[Installera cifs-utils-paketet för din Linux-distribution](#install-cifs-utils)**.
 
-2. **Skapa en mapp för monteringspunkten**: kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Observera den absoluta sökvägen till mappen där du skapar. Till exempel följande kommando skapar en ny mapp under `/mnt` (sökvägen är en absolut sökväg).
+2. **Skapa en mapp för monteringspunkten**: Kan skapa en mapp för en monteringspunkt var som helst i filsystemet, men det är vanliga konventionen att skapa den här under de `/mnt` mapp. Observera den absoluta sökvägen till mappen där du skapar. Till exempel följande kommando skapar en ny mapp under `/mnt` (sökvägen är en absolut sökväg).
 
     ```bash
     sudo mkdir /mnt/MyAzureFileShare

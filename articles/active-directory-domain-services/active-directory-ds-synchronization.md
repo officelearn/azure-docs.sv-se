@@ -4,7 +4,7 @@ description: Förstå synkronisering i en Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 57cbf436-fc1d-4bab-b991-7d25b6e987ef
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: ergreenl
-ms.openlocfilehash: e0fc1b64514adb710ebcbdd417f65e9e3b3b3d66
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 40b66b85f88cde28cc6a1c52cb456157d8acd68c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155566"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846959"
 ---
 # <a name="synchronization-in-an-azure-ad-domain-services-managed-domain"></a>Synkronisering i en Azure AD Domain Services-hanterad domän
 Följande diagram illustrerar hur synkroniseringen fungerar i Azure AD Domain Services hanterade domäner.
@@ -50,12 +50,12 @@ Azure AD-klienten är däremot ett mycket enklare och fast namnområde. Om du vi
 ## <a name="exclusions---what-isnt-synchronized-to-your-managed-domain"></a>Undantag – vad är inte synkroniserat till din hanterade domän
 Följande objekt och attribut synkroniseras inte till Azure AD-klienten eller till din hanterade domän:
 
-* **Exkluderade attribut:** du undanta vissa attribut synkroniseras till Azure AD-klienten från din lokala domän med Azure AD Connect. Dessa exkluderade attribut är inte tillgängliga i den hanterade domänen.
-* **Grupprinciper:** grupprinciper som konfigurerats i din lokala domän synkroniseras inte till din hanterade domän.
-* **SYSVOL-resursen:** på samma sätt kan innehållet i Sysvol-resursen på din lokala domän synkroniseras inte till din hanterade domän.
-* **Datorobjekt:** datorobjekt för datorer som är anslutna till din lokala domän inte är synkroniseras till din hanterade domän. De här datorerna inte har en förtroenderelation med den hanterade domänen och hör till din lokala domän. I den hanterade domänen hitta datorobjekt endast för datorer som du har uttryckligen domänansluten till den hanterade domänen.
-* **SidHistory-attribut för användare och grupper:** primär användare och primära grupp-SID från din lokala domän synkroniseras till din hanterade domän. Dock synkroniseras inte befintliga SidHistory-attribut för användare och grupper från din lokala domän till din hanterade domän.
-* **Enheter (OU) organisationsstrukturer:** organisationsenheter som definierats i din lokala domän synkroniseras inte till din hanterade domän. Det finns två inbyggda organisationsenheter i din hanterade domän. Den hanterade domänen har en fast organisationsenhetsstruktur som standard. Du kan dock välja att [skapa en anpassad Organisationsenhet i den hanterade domänen](active-directory-ds-admin-guide-create-ou.md).
+* **Exkluderade attribut:** Du kan välja att exkludera vissa attribut synkroniseras till Azure AD-klienten från din lokala domän med Azure AD Connect. Dessa exkluderade attribut är inte tillgängliga i den hanterade domänen.
+* **Grupprinciper:** Grupprinciper som konfigurerats i din lokala domän synkroniseras inte till din hanterade domän.
+* **SYSVOL-resursen:** På samma sätt kan synkroniseras innehållet i Sysvol-resursen på din lokala domän inte till din hanterade domän.
+* **Datorobjekt:** Datorobjekt för datorer som är anslutna till din lokala domän synkroniseras inte till din hanterade domän. De här datorerna inte har en förtroenderelation med den hanterade domänen och hör till din lokala domän. I den hanterade domänen hitta datorobjekt endast för datorer som du har uttryckligen domänansluten till den hanterade domänen.
+* **SidHistory-attribut för användare och grupper:** Primär användare och primära grupp-SID från din lokala domän synkroniseras till din hanterade domän. Dock synkroniseras inte befintliga SidHistory-attribut för användare och grupper från din lokala domän till din hanterade domän.
+* **Organisationsstrukturer för enheter (OU):** Organisationsenheter som definierats i din lokala domän synkroniseras inte till din hanterade domän. Det finns två inbyggda organisationsenheter i din hanterade domän. Den hanterade domänen har en fast organisationsenhetsstruktur som standard. Du kan dock välja att [skapa en anpassad Organisationsenhet i den hanterade domänen](active-directory-ds-admin-guide-create-ou.md).
 
 ## <a name="how-specific-attributes-are-synchronized-to-your-managed-domain"></a>Hur specifika attribut som synkroniseras till din hanterade domän
 I följande tabell visas några vanliga attribut och beskriver hur de ska synkroniseras till din hanterade domän.
@@ -69,7 +69,7 @@ I följande tabell visas några vanliga attribut och beskriver hur de ska synkro
 | SID-historik för användare och grupper |Lokal primär användare och grupp-SID |Attributet SidHistory för användare och grupper i din hanterade domän har angetts så att de matchar motsvarande primära användare eller grupp-SID i din lokala domän. Den här funktionen hjälper till att underlätta lift and shift av lokala program till den hanterade domänen, eftersom du inte behöver re ACL-resurser. |
 
 > [!NOTE]
-> **Logga in på den hanterade domänen med UPN-formatet:** The SAMAccountName-attribut kan vara autogenererade för vissa användarkonton i din hanterade domän. Om flera användare har samma mailNickname-attributet eller om användarna har alltför långa UPN-prefix, vara SAMAccountName för dessa användare automatiskt genererade. Därför är SAMAccountName-format (till exempel CONTOSO100\joeuser) inte alltid ett tillförlitligt sätt att logga in på domänen. Användarnas automatiskt genererade SAMAccountName kan skilja sig från sina UPN-prefix. Använda UPN-formatet (till exempel ”joeuser@contoso100.com”) att logga in på den hanterade domänen på ett tillförlitligt sätt.
+> **Logga in på den hanterade domänen med UPN-formatet:** Attributet SAMAccountName kanske autogenererade för vissa användarkonton i din hanterade domän. Om flera användare har samma mailNickname-attributet eller om användarna har alltför långa UPN-prefix, vara SAMAccountName för dessa användare automatiskt genererade. Därför är SAMAccountName-format (till exempel CONTOSO100\joeuser) inte alltid ett tillförlitligt sätt att logga in på domänen. Användarnas automatiskt genererade SAMAccountName kan skilja sig från sina UPN-prefix. Använda UPN-formatet (till exempel ”joeuser@contoso100.com”) att logga in på den hanterade domänen på ett tillförlitligt sätt.
 >
 >
 
@@ -81,7 +81,7 @@ I följande tabell visas hur specifika attribut för användare som har objekt i
 | accountEnabled |userAccountControl (anger eller tar bort ACCOUNT_DISABLED-bitars) |
 | city |L |
 | Land |CO |
-| Avdelning |Avdelning |
+| avdelning |avdelning |
 | displayName |displayName |
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
@@ -91,7 +91,7 @@ I följande tabell visas hur specifika attribut för användare som har objekt i
 | mailNickname |SAMAccountName (kan ibland vara automatiskt genererade) |
 | mobila |mobila |
 | objekt-ID |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID-historik |
+| onPremiseSecurityIdentifier |SID-historik |
 | passwordPolicies |userAccountControl (anger eller tar bort DONT_EXPIRE_PASSWORD-bitars) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
 | Postnummer |Postnummer |
@@ -112,7 +112,7 @@ I följande tabell visas hur specifika attribut för en grupp objekt i din Azure
 | e-post |e-post |
 | mailNickname |msDS-AzureADMailNickname |
 | objekt-ID |msDS-AzureADObjectId |
-| OnPremiseSecurityIdentifier |SID-historik |
+| onPremiseSecurityIdentifier |SID-historik |
 | securityEnabled |groupType |
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>Lösenord hash-synkronisering och säkerhetsaspekter

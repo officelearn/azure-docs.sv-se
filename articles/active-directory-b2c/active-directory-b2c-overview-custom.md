@@ -3,19 +3,19 @@ title: Anpassade principer för Azure Active Directory B2C | Microsoft Docs
 description: Läs mer om Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a1457b2aa571b58502b7d819eb3bcf142c10dac1
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: ca9408c8c7103e99556cf4853c214f59ec6372b9
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725071"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853008"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Anpassade principer i Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Anpassade principer är konfigurationsfiler som definierar beteendet för din Az
 | Attributanpassning | Standardentiteter och anpassade attribut. | Samma |
 | Hantering av token och sessionen | Anpassade token och flera sessionsalternativ för. | Samma |
 | Identitetsprovidrar | Fördefinierade lokal eller sociala provider. | Standardbaserad OIDC, OAUTH och SAML. |
-| Identity-uppgifter | Registrera dig eller logga in med lokal eller många konton i sociala medier.<br><br>Återställning av lösenord.<br><br>Profilredigering.<br><br>Multifaktorautentisering.<br><br>Anpassa token och sessioner.<br><br>Åtkomst-token flöden. | Utföra samma åtgärder som användarflöden med hjälp av anpassade identitetsprovidrar eller använda anpassade omfattningar.<br><br>Etablera ett användarkonto på ett annat system vid tidpunkten för registrering.<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör.<br><br>Använd en användararkivet utanför Azure AD B2C.<br><br>Validera användaren tillhandahållit information med en betrodd dator med hjälp av ett API. |
+| Identity-uppgifter | Registrera dig eller logga in med lokal eller många konton i sociala medier.<br><br>Återställning av lösenord.<br><br>Profilredigering.<br><br>Multi-Factor Authentication.<br><br>Anpassa token och sessioner.<br><br>Åtkomst-token flöden. | Utföra samma åtgärder som användarflöden med hjälp av anpassade identitetsprovidrar eller använda anpassade omfattningar.<br><br>Etablera ett användarkonto på ett annat system vid tidpunkten för registrering.<br><br>Skicka ett välkomstmeddelande med din egen e-post-leverantör.<br><br>Använd en användararkivet utanför Azure AD B2C.<br><br>Validera användaren tillhandahållit information med en betrodd dator med hjälp av ett API. |
 
 ## <a name="policy-files"></a>Principfiler
 

@@ -1,10 +1,10 @@
 ---
-title: 'Azure Active Directory Domain Services: Pausats domäner | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Uppehåll domäner | Microsoft Docs'
 description: Hanterade domänen inaktivering och borttagning
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 95e1d8da-60c7-4fc1-987d-f48fde56a8cb
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
-ms.openlocfilehash: 161a9f1ac517d372884e7606dbd2ef30c910bf6b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 1f548fefe1d28e3ca70de12911cb492d78c78629
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968108"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854844"
 ---
 # <a name="suspended-domains"></a>Avbrutna domäner
 När Azure Active Directory Domain Services (Azure AD DS) är inte hantera en hanterad domän för en längre tidsperiod, placerar den hanterade domänen i ett väntetillstånd. Den här artikeln förklarar varför hanterade domäner pausas och hur du åtgärdar en pausad domän.
@@ -67,7 +67,7 @@ I vissa fall (t.ex, om du har en ogiltig konfiguration) kanske domänkontrollant
 En hanterad domän placeras i den **pausad** tillstånd av följande skäl:
 
 * En eller flera kritiska varningar inte har lösts i 15 dagar. Kritiska aviseringar kan ha orsakats av en felkonfiguration som blockerar åtkomsten till resurser som krävs av Azure AD DS.
-    * Till exempel aviseringen [AADDS104: nätverksfel](active-directory-ds-troubleshoot-nsg.md) har varit ogiltiga i mer än 15 dagar i den hanterade domänen.
+    * Till exempel aviseringen [AADDS104: Nätverksfelet](active-directory-ds-troubleshoot-nsg.md) har varit ogiltiga i mer än 15 dagar i den hanterade domänen.
 * Det finns ett fakturering problem med din Azure-prenumeration eller din Azure-prenumeration har upphört att gälla.
 
 Hanterade domäner gör uppehåll när Microsoft inte kan hantera, övervaka, uppdatera eller säkerhetskopiera domänen med jämna mellanrum.

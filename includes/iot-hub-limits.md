@@ -4,12 +4,12 @@ ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: e1618ded270cddca13145195522d7b42a00d6585
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964628"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841459"
 ---
 I följande tabell visas begränsningar för olika tjänstnivåer (S1, S2, S3, F1). Information om kostnaden för varje *enhet* i respektive nivå finns [Prisinformation för IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -33,7 +33,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 | Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1000 |
 | Maximal kvarhållning av IoT Hub-meddelanden för enhet-till-moln-meddelanden |7 dagar |
 | Maximal storlek för enhet-till-moln-meddelande |256 kB |
-| Maximal storlek för enhet-till-moln-batch |AMQP och http-: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |
+| Maximal storlek för enhet-till-moln-batch |AMQP och HTTP: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |
 | Maximalt antal meddelanden för enhet-till-moln-batch |500 |
 | Maximal storlek för moln-till-enhet-meddelande |64 kB |
 | Maximalt TTL-värde för moln-till-enhet-meddelanden |2 dagar |
@@ -48,6 +48,8 @@ I följande tabell visas de begränsningar som gäller för IoT Hub-resurser:
 | Maximalt antal samtidiga jobb | 10 (för S3), 5 (för S2), 1 (för S1) |
 | Maximalt antal ytterligare slutpunkter | 10 (för S1, S2 och S3) |
 | Maximalt antal regler för meddelandedirigering | 100 (för S1, S2 och S3) |
+| Maximalt antal samtidigt ansluten enhet strömmar | 50 (för S1, S2, S3 och endast F1) |
+| Maximal enhet stream-dataöverföring | 300 MB per dag (för S1, S2, S3 och endast F1) |
 
 
 > [!NOTE]
@@ -72,3 +74,4 @@ Tjänsten IoT Hub begränsar begärandena om följande kvoter överskrids:
 | Uppdateringar för enhetstvilling | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1) |
 | Jobbåtgärder <br/> (skapa, uppdatera, visa, ta bort) | 83.33/sec/Unit (5000/minut/enhet) (för S3), 1.67/sec/unit (100 per minut per enhet) (för S2), 1.67/sec/unit (100 per minut per enhet) (för S1) |
 | Jobb per enhetsåtgärd, dataflöde | 50 per sekund och enhet (för S3), maximalt 10 per sekund eller 1 per sekund och enhet (för S2), 10 per sekund (för S1) |
+| Enheten initiation dataströmshastighet | 5 nya dataströmmar/sek (för S1, S2, S3 och endast F1) |

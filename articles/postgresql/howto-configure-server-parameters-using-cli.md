@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: d566f317595e314c91cf510ba2459638e624d8c3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: fb9123d792c3b522debb3b1c8d539cbd6cd24f59
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539747"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843643"
 ---
 # <a name="customize-server-configuration-parameters-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med Azure CLI
 Du kan lista, visa och uppdatera konfigurationsparametrar för en Azure PostgreSQL-server med hjälp av kommandoradsgränssnittet (Azure CLI). En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
@@ -30,7 +30,7 @@ Du kan visa konfigurationsparametrar för server för servern **mydemoserver.pos
 az postgres server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
 ## <a name="show-server-configuration-parameter-details"></a>Visa serverkonfiguration parameterinformation
-För att visa information om en specifik konfigurationsparameter för en server, kör den [az postgres server configuration show](/cli/azure/postgres/server/configuration#az_postgres_server_configuration_show) kommando.
+För att visa information om en specifik konfigurationsparameter för en server, kör den [az postgres server configuration show](/cli/azure/postgres/server/configuration) kommando.
 
 Det här exemplet visar information om den **log\_min\_meddelanden** server konfigurationsparametrar för server **mydemoserver.postgres.database.azure.com** under resursgrupp **myresourcegroup.**
 ```azurecli-interactive

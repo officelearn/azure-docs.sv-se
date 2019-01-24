@@ -4,7 +4,7 @@ description: Förstå och lösa felmatchad katalogfel för befintliga Azure AD D
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/11/2017
 ms.author: ergreenl
-ms.openlocfilehash: b73739ca6d392af191d1a51eca2d646a8a5cd4c4
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7f69214304161c091a4550aff770b6333656972c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955080"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844219"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös Felmatchade katalogfel för befintliga Azure AD Domain Services hanterade domäner
 Du har en befintlig Azure AD Domain Services-hanterad domän. När du navigerar du till Azure-portalen och visa den hanterade domänen, visas följande felmeddelande visas:
@@ -37,11 +37,11 @@ Nya Azure portal (och mer specifikt Azure AD Domain Services-tillägget) bygger 
 
 Kort sagt så kan inte du aktivera en hanterad domän för en Azure AD-klient ”contoso.com” i ett virtuellt nätverk som hör till en Azure-prenumeration som ägs av en annan Azure AD-klient ”fabrikam.com”. 
 
-**Giltiga konfigurationen**: I det här distributionsscenariot hanterade Contoso-domänen är aktiverat för Contoso Azure AD-klient. Den hanterade domänen visas i ett virtuellt nätverk som hör till en Azure-prenumeration som ägs av Contoso Azure AD-klienten. Därför tillhör såväl den hanterade domänen som det virtuella nätverket samma Azure AD-klienten. Den här konfigurationen är giltig och stöds fullt ut.
+**Giltiga konfigurationen**: I det här distributionsscenariot har hanterade Contoso-domänen aktiverats för Contoso Azure AD-klienten. Den hanterade domänen visas i ett virtuellt nätverk som hör till en Azure-prenumeration som ägs av Contoso Azure AD-klienten. Därför tillhör såväl den hanterade domänen som det virtuella nätverket samma Azure AD-klienten. Den här konfigurationen är giltig och stöds fullt ut.
 
 ![Giltigt klientkonfiguration](./media/getting-started/valid-tenant-config.png)
 
-**Felmatchade configuration**: I det här distributionsscenariot hanterade Contoso-domänen är aktiverat för Contoso Azure AD-klient. Dock exponeras den hanterade domänen i ett virtuellt nätverk som hör till en Azure-prenumeration som ägs av Fabrikam Azure AD-klient. Därför kan den hanterade domänen och det virtuella nätverket tillhör två olika Azure AD-klienter. Den här konfigurationen är felmatchade konfigurationen och stöds inte. Det virtuella nätverket måste flyttas till samma Azure AD-klient (det vill säga Contoso) som den hanterade domänen. Se den [lösning](#resolution) information.
+**Felmatchade configuration**: I det här distributionsscenariot har hanterade Contoso-domänen aktiverats för Contoso Azure AD-klienten. Dock exponeras den hanterade domänen i ett virtuellt nätverk som hör till en Azure-prenumeration som ägs av Fabrikam Azure AD-klient. Därför kan den hanterade domänen och det virtuella nätverket tillhör två olika Azure AD-klienter. Den här konfigurationen är felmatchade konfigurationen och stöds inte. Det virtuella nätverket måste flyttas till samma Azure AD-klient (det vill säga Contoso) som den hanterade domänen. Se den [lösning](#resolution) information.
 
 ![Felmatchade konfiguration](./media/getting-started/mismatched-tenant-config.png)
 

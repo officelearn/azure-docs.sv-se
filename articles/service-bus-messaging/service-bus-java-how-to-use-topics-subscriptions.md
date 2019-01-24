@@ -3,9 +3,9 @@ title: Hur du använder Azure Service Bus-ämnen med Java | Microsoft Docs
 description: Använd Service Bus-ämnen och prenumerationer i Azure.
 services: service-bus-messaging
 documentationcenter: java
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 63d6c8bd-8a22-4292-befc-545ffb52e8eb
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: spelluru
-ms.openlocfilehash: 501d15ebbb373c100dd735e97bebf2f085a9579e
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.author: aschhab
+ms.openlocfilehash: cd2d5812d1b61e1d8fcc00fbc824be8ceac696de
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241327"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849965"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-java"></a>Hur du använder Service Bus-ämnen och prenumerationer med Java
 
 [!INCLUDE [service-bus-selector-topics](../../includes/service-bus-selector-topics.md)]
 
-I den här snabbstarten kan du utföra följande steg: 
+I den här snabbstarten gör du följande: 
 
 - Skapa ett ämne med hjälp av Azure portal
 - Skapa tre prenumerationer för ämnet med hjälp av Azure-portalen
@@ -67,7 +67,7 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 1. Klicka på **Alla resurser**, sedan klickar du på den nyligen skapade namnrymden.
 2. I namnområdesfönstret, klickar du på **Principer för delad åtkomst**.
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
-4. I fönstret **Princip: RootManageSharedAccessKey**, klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. I **principen: I fönstret RootManageSharedAccessKey** klickar du på knappen **Kopiera** bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
 
     ![connection-string](./media/service-bus-tutorial-topics-subscriptions-portal/connection-string.png)
 5. Upprepa föregående steg, kopiera och klistra in värdet för **Primärnyckeln** till en tillfällig plats för senare användning.

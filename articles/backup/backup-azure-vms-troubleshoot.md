@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/7/2018
 ms.author: trinadhk
-ms.openlocfilehash: e658124dc6db2761fb475597a32e663949edfccf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 1714a29e4b27f6363d748ceb180f56ba98c713bb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470757"
+ms.locfileid: "54809538"
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Felsöka säkerhetskopiering av virtuell Azure-dator
 Du kan felsöka fel vid användning av Azure Backup med informationen som visas i följande tabell:
@@ -57,6 +57,7 @@ Du kan felsöka fel vid användning av Azure Backup med informationen som visas 
 | Det gick inte att avbryta jobbet säkerhetskopiering: <br>Vänta tills jobbet har slutförts. |Ingen |
 
 ## <a name="restore"></a>Återställ
+
 | Felinformation | Lösning |
 | --- | --- |
 | Återställningen misslyckades med ett internt fel i molnet. |<ol><li>Molntjänsten som du försöker återställa har konfigurerats med DNS-inställningarna. Du kan kontrollera: <br>**$deployment = get-AzureDeployment - ServiceName ”ServiceName”-fack ”produktion” Get-AzureDns - DnsSettings $deployment. DnsSettings**.<br>Om **adress** konfigureras, och sedan DNS-inställningarna har konfigurerats.<br> <li>Molntjänsten som du försöker återställa har konfigurerats med **ReservedIP**, och befintliga virtuella datorer i Molntjänsten som är i ett stoppat tillstånd. Du kan kontrollera att en tjänst i molnet har reserverat en IP-adress med hjälp av följande PowerShell-cmdlets: **$deployment = Get-AzureDeployment - ServiceName ”servicename”-fack ”produktion” $dep. ReservedIPName**. <br><li>Du försöker återställa en virtuell dator med följande särskilda nätverkskonfigurationer i samma molntjänst: <ul><li>Virtuella datorer under konfigurationen för belastningsutjämnaren, interna och externa.<li>Virtuella datorer med flera reserverade IP-adresser. <li>Virtuella datorer med flera nätverkskort. </ul><li>Välj en ny molntjänst i Användargränssnittet eller se [återställa överväganden](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) för virtuella datorer med särskilda nätverkskonfigurationer.</ol> |
@@ -100,7 +101,7 @@ Vanligtvis finns VM-agenten redan i virtuella datorer som skapas från Azure-gal
 * Om du vill uppdatera VM-agenten för Linux, följer du anvisningarna i artikeln [uppdaterar VM-agenten för Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
     > [!NOTE]
-    > Använd alltid distribution databasen för att uppdatera agenten. 
+    > Använd alltid distribution databasen för att uppdatera agenten.
 
     Hämta agent-kod från GitHub. Om den senaste agenten inte är tillgängliga för din distribution, kontaktar du distributionsplatsen stöd för instruktionerna för att hämta den senaste agenten. Du kan också kontrollera senast [Windows Azure Linux-agent](https://github.com/Azure/WALinuxAgent/releases) information i GitHub-lagringsplatsen.
 

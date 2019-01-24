@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 983c2e6d03735ba26f7660fc07dcf1a05ef88189
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 291bcec5a2a3d1ed2d49816b0ed7317bcfb07995
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960404"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851870"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>Ändra OS-disken som används av en Azure-dator med hjälp av CLI
 
@@ -34,7 +34,7 @@ Kontrollera att typ av virtuell dator och är kompatibla med den disk du vill bi
 Den här artikeln kräver Azure CLI version 2.0.25 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
-Använd [az disk list](/cli/azure/disk#list) att hämta en lista över diskarna i resursgruppen.
+Använd [az disk list](/cli/azure/disk) att hämta en lista över diskarna i resursgruppen.
 
 ```azurecli-interactive
 az disk list \

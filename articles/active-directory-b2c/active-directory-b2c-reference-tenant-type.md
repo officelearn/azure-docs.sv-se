@@ -3,21 +3,21 @@ title: Region regionstillgänglighet och dataplacering i Azure Active Directory 
 description: Ett avsnitt om vilka typer av Azure Active Directory B2C-klienter.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7c0348dad507b118af542c1bbc47f6ceb88ae7be
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6e7e687ba1b1d67dd43b8f47a8efcb8136c65ab5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443060"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849948"
 ---
-# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Region regionstillgänglighet och dataplacering
+# <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Regionstillgänglighet och dataplacering
 Tillgänglighet för regioner och dataplacering är två helt olika begrepp som gäller på olika sätt för Azure AD B2C från resten av Azure. Den här artikeln förklarar skillnaderna mellan dessa två begrepp och jämför hur de används Azure jämfört med Azure AD B2C.
 
 ## <a name="summary"></a>Sammanfattning

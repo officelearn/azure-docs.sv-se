@@ -3,9 +3,9 @@ title: Hur du använder Service Bus-köer i Node.js | Microsoft Docs
 description: Lär dig hur du använder Service Bus-köer i Azure från en Node.js-app.
 services: service-bus-messaging
 documentationcenter: nodejs
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
 ms.service: service-bus-messaging
 ms.workload: tbd
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 09/10/2018
-ms.author: spelluru
-ms.openlocfilehash: 99cf1b8e95e2a07d6ade2e73c097c59fed0d4f56
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: b8036c373541d76ecaaec7664e3bfc3ad3e35703
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394343"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853107"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Hur du använder Service Bus-köer med Node.js
 
@@ -174,7 +174,7 @@ Service Bus innehåller funktioner som hjälper dig att återställa fel i progr
 
 Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i kön. Om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (t.ex. Om programmet kraschar), kommer Service Bus så låser upp meddelandet automatiskt och göra det tillgängligt att tas emot igen.
 
-I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `deleteMessage` metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här kallas ofta *minst Processing*, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av den **MessageId** egenskapen för meddelandet som förblir konstant under alla leveransförsök.
+I händelse av att programmet kraschar efter behandlingen av meddelandet men innan den `deleteMessage` metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här kallas ofta *minst Processing*, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av egenskapen **MessageId** för meddelandet. Detta är och förblir konstant under alla leveransförsök.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om köer finns i följande resurser.

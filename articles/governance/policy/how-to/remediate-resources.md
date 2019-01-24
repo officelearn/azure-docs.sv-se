@@ -4,21 +4,23 @@ description: Den här anvisningen vägleder dig genom reparation av resurser som
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 093b49bea167efb12b941f8f0baff6fbdae5be25
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 054ce3d3483c3515e89c36eafc5d9a771e8e608d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312654"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844151"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
 Resurser som är icke-kompatibla till en **deployIfNotExists** princip kan placeras i ett kompatibelt tillstånd via **reparation**. Reparation åstadkoms genom att uppmana körs den **deployIfNotExists** tilldelade policyns effekt på dina befintliga resurser. Den här artikeln visar de steg som krävs för att förstå och utföra åtgärder med principen.
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="how-remediation-security-works"></a>Hur fungerar säkerheten för reparation
 
@@ -51,7 +53,7 @@ az role definition list --name 'Contributor'
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmRoleDefinition -Name 'Contributor'
+Get-AzRoleDefinition -Name 'Contributor'
 ```
 
 ## <a name="manually-configure-the-managed-identity"></a>Konfigurera manuellt hanterad identitet
@@ -70,23 +72,23 @@ När du skapar en uppgift med hjälp av portalen princip både genererar den han
 Skapa en hanterad identitet vid tilldelningen av principen, **plats** måste definieras och **AssignIdentity** används. I följande exempel hämtas definitionen av den inbyggda principen **distribuera SQL DB transparent datakryptering**anger målresursgruppen och skapar sedan tilldelningen.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-Azccount if not using Cloud Shell
 
 # Get the built-in "Deploy SQL DB transparent data encryption" policy definition
-$policyDef = Get-AzureRmPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
+$policyDef = Get-AzPolicyDefinition -Id '/providers/Microsoft.Authorization/policyDefinitions/86a912f6-9a06-4e26-b447-11b16ba8659f'
 
 # Get the reference to the resource group
-$resourceGroup = Get-AzureRmResourceGroup -Name 'MyResourceGroup'
+$resourceGroup = Get-AzResourceGroup -Name 'MyResourceGroup'
 
 # Create the assignment using the -Location and -AssignIdentity properties
-$assignment = New-AzureRmPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
+$assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL DB transparent data encryption' -Scope $resourceGroup.ResourceId -PolicyDefinition $policyDef -Location 'westus' -AssignIdentity
 ```
 
 Den `$assignment` variabeln innehåller nu ägar-ID för den hanterade identitet tillsammans med de standardvärden som returneras när du skapar en principtilldelning. Den kan nås via `$assignment.Identity.PrincipalId`.
 
 ### <a name="grant-defined-roles-with-powershell"></a>Bevilja definierat roller med PowerShell
 
-Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar, i följande exempel itererar principdefinitionen i `$policyDef` för den **roleDefinitionIds** och använder [New-AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) att ge den nya hanterade identitet rollerna.
+Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar, i följande exempel itererar principdefinitionen i `$policyDef` för den **roleDefinitionIds** och använder [New AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) att ge den nya hantera identiteten den roller.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -96,7 +98,7 @@ if ($roleDefinitionIds.Count -gt 0)
 {
     $roleDefinitionIds | ForEach-Object {
         $roleDefId = $_.Split("/") | Select-Object -Last 1
-        New-AzureRmRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
+        New-AzRoleAssignment -Scope $resourceGroup.ResourceId -ObjectId $assignment.Identity.PrincipalId -RoleDefinitionId $roleDefId
     }
 }
 ```

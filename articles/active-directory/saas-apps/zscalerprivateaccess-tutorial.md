@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 83711115-1c4f-4dd7-907b-3da24b37c89e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: jeedes
-ms.openlocfilehash: 5858ab1846ccdc2e2b78f2be4173ea3cc17a3605
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 5610316fdadb9a169c90e7e7761d9ddd2a74dcbe
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116580"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819126"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-zpa"></a>Självstudier: Azure Active Directory-integrering med Zscaler privat åtkomst (ZPA)
 
@@ -31,7 +31,7 @@ Integrera Zscaler privat åtkomst (ZPA) med Azure AD ger dig följande fördelar
 - Du kan aktivera användarna att automatiskt få loggat in till Zscaler privat åtkomst (ZPA) (enkel inloggning) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,10 +45,10 @@ Om du vill konfigurera Azure AD-integrering med Zscaler privat åtkomst (ZPA), b
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,11 +69,11 @@ För att konfigurera integrering av Zscaler privat åtkomst (ZPA) till Azure AD,
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Zscaler privat åtkomst (ZPA)**.
 
@@ -122,7 +122,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
     b. I den **identifierare** textrutan typ: `https://samlsp.private.zscaler.com/auth/metadata`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med faktiska logga på URL och identifierare. Här föreslår vi att du för att använda det unika värdet av URL: en i identifierare. Kontakta [Zscaler privat åtkomst (ZPA) supportteamet](https://help.zscaler.com/zpa-submit-ticket) att hämta dessa värden.
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med faktiska logga på URL och identifierare. Här föreslår vi att du för att använda det unika värdet av URL: en i identifierare. Kontakta [Zscaler privat åtkomst (ZPA) supportteamet](https://help.zscaler.com/zpa-submit-ticket) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Skapa nytt certifikat**.
 
@@ -148,19 +148,19 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
 1. Gå till **administratör** och klicka sedan på **Idp-konfigurationen**.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_04.png)
 
 1. I den **Idp-konfigurationen** klickar du på **lägga till nya IDP-konfigurationen**.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_05.png)
 
 1. I den **nya IDP-konfigurationen** avsnittet, utför följande steg:
 
-    ![Konfigurera enkel inloggning på App-sida](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/zscalerprivateaccess-tutorial/tutorial_zscalerprivateaccess_06.png)
 
     a. Klicka på **Välj fil** och ladda upp din hämtade metadatafilen.
 
-    b. Klicka på **spara** knappen.
+    b. Klicka på knappen **Spara**.
     
 
 

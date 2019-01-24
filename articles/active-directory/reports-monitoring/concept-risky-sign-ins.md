@@ -3,7 +3,7 @@ title: Rapporten om riskfyllda inloggningar i Azure Active Directory-portalen | 
 description: Lär dig mer om rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 services: active-directory
 author: priyamohanram
-manager: mtillman
+manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 8e92288883a7779130e3b7f7a8433b61f76aa18c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 402aae15ae4fe8e6961fbc76a4ddaa470b8c797a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244723"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807770"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Rapporten över riskfyllda inloggningar i Azure Active Directory-portalen
 
@@ -61,9 +61,9 @@ Alla utgåvor av Azure AD ger rapporter över riskfyllda inloggningar. Nivån av
 
 De kostnadsfria och grundläggande versionerna av Azure AD ger dig en lista över riskfyllda inloggningar som har identifierats för dina användare. Varje post innehåller följande attribut:
 
-- **Användare** – Namnet på användaren som användes vid inloggningen.
-- **IP-adress** – IP-adressen för enheten som användes för att ansluta till Azure Active Directory.
-- **Plats** – Platsen som används för att ansluta till Azure Active Directory.
+- **Användaren** -namnet på den användare som har använts under åtgärden logga in.
+- **IP** -IP-adressen för den enhet som användes för att ansluta till Azure Active Directory.
+- **Plats** -plats som används för att ansluta till Azure Active Directory. Det här är en bra arbete uppskattning baserat på spårningar, registerdata, omvänd sökningar och annan information.
 - **Inloggningstid** – Tidpunkten för inloggningen.
 - **Status** – Inloggningens status.
 
@@ -106,6 +106,9 @@ När du väljer en riskhändelse kan få en detaljerad rapportvy för den här r
 - Stänga riskhändelser manuellt. 
 
 ![Riskfyllda inloggningar](./media/concept-risky-sign-ins/457.png)
+
+> [!IMPORTANT]
+> Ibland, kan du hitta en riskhändelse utan en motsvarande inloggning transaktion i den [rapporten inloggningar](concept-sign-ins.md). Detta beror på att Identity Protection utvärderar risken för både **interaktiva** och **icke-interaktiv** inloggningar, medan den inloggningar rapporten visas endast de interaktiva inloggningarna.
 
 När du väljer en användare får du en detaljerad rapportvy för den här användaren som du kan använda för att göra följande:
 

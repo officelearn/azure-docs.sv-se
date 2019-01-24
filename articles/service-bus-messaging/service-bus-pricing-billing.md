@@ -3,9 +3,9 @@ title: Service Bus priser och fakturering | Microsoft Docs
 description: Översikt över Service Bus prissättningsstruktur.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
-ms.author: spelluru
-ms.openlocfilehash: db5f4bc7cc62c61f13258b919226efbf63165371
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 5b9aae979a25a1f175b3d5a5e24960d6f392b9b4
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406847"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852940"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus priser och fakturering
 
@@ -32,8 +32,8 @@ Azure Service Bus är tillgängligt i Standard och [Premium](service-bus-premium
 
 Service Bus använder följande taxor för 2 för köer och ämnen/prenumerationer:
 
-1. **Meddelandefunktionsåtgärder**: definieras som API-anrop mot köer eller ämnen/prenumerationer tjänstslutpunkter. Den här mätaren ersätter meddelanden skickas eller tas emot som den primära arbetsenheten fakturerbara användning för köer och ämnen/prenumerationer.
-2. **Asynkrona anslutningar**: definierade som det högsta antalet beständiga anslutningar öppnas mot köer, ämnen eller prenumerationer under en viss insamlingsperioden i en timme. Den här mätaren gäller bara i Standard-nivån, där du kan öppna ytterligare anslutningar (tidigare anslutningar var begränsade till 100 per kö/ämne/prenumeration) mot en nominell anslutningsspecifika avgift.
+1. **Meddelandefunktionsåtgärder**: Definieras som API-anrop mot köer eller ämnen/prenumerationer tjänstslutpunkter. Den här mätaren ersätter meddelanden skickas eller tas emot som den primära arbetsenheten fakturerbara användning för köer och ämnen/prenumerationer.
+2. **Asynkrona anslutningar**: Definierade som det högsta antalet beständiga anslutningar öppnas mot köer, ämnen eller prenumerationer under en viss insamlingsperioden i en timme. Den här mätaren gäller bara i Standard-nivån, där du kan öppna ytterligare anslutningar (tidigare anslutningar var begränsade till 100 per kö/ämne/prenumeration) mot en nominell anslutningsspecifika avgift.
 
 Den **Standard** nivån introducerar graderad priserna för åtgärder som utförs med köer och ämnen/prenumerationer, vilket resulterar i volymbaserad rabatter på upp till 80% på högsta användning nivåer. Det finns också en Standard-nivån basavgift på $10 per månad, där du kan utföra upp till 12,5 miljoner åtgärder per månad utan extra kostnad.
 
@@ -95,8 +95,8 @@ Service Bus-avgifter för det högsta antalet samtidiga brokered connections som
 
 Exempel:
 
-1. Var och en av 10 000 enheter ansluts via en enkel AMQP-anslutning och tar emot kommandon från ett Service Bus-ämne. Enheterna skickar telemetrihändelser till ett Händelsenav. Om alla enheter är anslutna i 12 timmar varje dag, det gäller följande anslutningsavgifter (utöver andra Service Bus avsnittet-avgifter): 10 000 anslutningar * 12 timmar * 31 dagar / 744 = 5 000 brokered connections. Efter månadskvoten på 1 000 brokered connections skulle du debiteras för 4 000 brokered connections enligt taxan $0.03 per brokered connection, sammanlagt $120.
-2. 10 000 enheter tar emot meddelanden från en Service Bus-kö via HTTP, med en tidsgräns som inte är noll. Om alla enheter är anslutna i 12 timmar varje dag, så ser du följande anslutningsavgifter (utöver andra Service Bus-avgifter): 10 000 HTTP tar emot anslutningar * 12 timmar per dag * 31 dagar / 744 timmar = 5 000 brokered connections.
+1. Var och en av 10 000 enheter ansluts via en enkel AMQP-anslutning och tar emot kommandon från ett Service Bus-ämne. Enheterna skickar telemetrihändelser till ett Händelsenav. Om alla enheter är anslutna i 12 timmar varje dag, gäller följande anslutningsavgifter (utöver andra Service Bus avsnittet-avgifter): 10 000 anslutningar * 12 timmar * 31 dagar / 744 = 5 000 brokered connections. Efter månadskvoten på 1 000 brokered connections skulle du debiteras för 4 000 brokered connections enligt taxan $0.03 per brokered connection, sammanlagt $120.
+2. 10 000 enheter tar emot meddelanden från en Service Bus-kö via HTTP, med en tidsgräns som inte är noll. Om alla enheter är anslutna i 12 timmar varje dag, ser du följande anslutningsavgifter (utöver andra Service Bus-avgifter): 10 000 HTTP tar emot anslutningar * 12 timmar per dag * 31 dagar / 744 timmar = 5 000 brokered connections.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Gäller Brokered Connection-avgifter för köer och ämnen/prenumerationer?
 

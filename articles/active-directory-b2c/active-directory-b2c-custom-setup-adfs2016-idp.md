@@ -3,19 +3,19 @@ title: Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i
 description: Konfigurera AD FS 2016 med SAML-protokoll och anpassade principer i Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7f74da682c72f9effb4dbac49b316ff17f03b534
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 6a371bbe34368e5373589575f367d4b352320ecd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275895"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856459"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Lägg till AD FS som en SAML-identitetsprovider med anpassade principer i Azure Active Directory B2C
 
@@ -169,10 +169,10 @@ Ersätt följande värden:
 
     | LDAP-attrubute | Typ av utgående anspråk |
     | -------------- | ------------------- |
-    | Användarens huvudnamn | userPricipalName |
+    | User-Principal-Name | userPricipalName |
     | Efternamn | family_name |
     | Angivna namn | given_name |
-    | E-post-adress | e-post |
+    | E-Mail-Address | e-post |
     | Visningsnamn | namn |
     
 12.  Baserat på din typ av certifikat kan behöva du ange HASH-algoritmen. I egenskapsfönstret förlitande part förtroende (B2C Demo) väljer den **Avancerat** fliken och ändra den **säkra hash-algoritm** till `SHA-256`, och klicka på **Ok**.  

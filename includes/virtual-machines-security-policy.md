@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 4887dbcc89180c54b8e991e6fa152463476c5ce9
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226697"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841461"
 ---
 Det är viktigt för att skydda din virtuella dator (VM) för de program som du kör. Skydda dina virtuella datorer kan innehålla en eller flera Azure-tjänster och funktioner som täcker säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som hjälper dig att skydda dina virtuella datorer och program.
 
@@ -23,7 +23,7 @@ Moderna hotbilden i grunden för molnmiljöer är dynamiskt öka trycket att upp
 
 ## <a name="encryption"></a>Kryptering
 
-För förbättrad [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) och [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) säkerhet och efterlevnad, virtuella diskar i Azure kan krypteras. Virtuella diskar på Windows virtuella datorer krypteras i vila med Bitlocker. Virtuella diskar på virtuella Linux-datorer krypteras i vila med dm-crypt. 
+För förbättrad [Windows VM](../articles/virtual-machines/windows/encrypt-disks.md) och [Linux VM](../articles/virtual-machines/linux/encrypt-disks.md) säkerhet och efterlevnad, virtuella diskar i Azure kan krypteras. Virtuella diskar på Windows virtuella datorer krypteras i vila med BitLocker. Virtuella diskar på virtuella Linux-datorer krypteras i vila med dm-crypt. 
 
 Det är kostnadsfritt för att kryptera virtuella diskar i Azure. Kryptografiska nycklar lagras i Azure Key Vault med hjälp av software protection eller kan du importera eller generera dina nycklar i Maskinvarusäkerhetsmoduler (HSM) som är certifierade enligt standarderna FIPS 140-2 nivå 2-standarder. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du kan behålla kontrollen över dessa kryptografiska nycklar och kan granska deras användning. En Azure Active Directory-tjänstens huvudnamn är en säker mekanism för att utfärda dessa kryptografiska nycklar som virtuella datorer tillhandahålls av och sätts på.
 

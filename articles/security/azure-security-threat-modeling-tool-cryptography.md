@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 79803a749b6d08c94bcbf5f3ca66aac8b7294fa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: be702571d178fc67eeb92de4e52a48d5bef72b18
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844659"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824634"
 ---
 # <a name="security-frame-cryptography--mitigations"></a>Security ram: Kryptografi | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -27,9 +27,9 @@ ms.locfileid: "52844659"
 | **Webbprogram** | <ul><li>[Använd endast godkända symmetriska blockchiffer och nyckellängder](#cipher-length)</li><li>[Använd godkända block chiffer lägen och initiering angreppsmetoderna symmetriska chiffer](#vector-ciphers)</li><li>[Använd godkända asymmetriska algoritmer, nyckellängder och utfyllnad](#padding)</li><li>[Använd godkända slumpmässigt nummer generatorer](#numgen)</li><li>[Använd inte symmetriska stream-chiffer](#stream-ciphers)</li><li>[Använd godkända MAC/HMAC/registreras hash-algoritmer](#mac-hash)</li><li>[Använd endast godkända kryptografiska hash-funktioner](#hash-functions)</li></ul> |
 | **Databas** | <ul><li>[Använda stark krypteringsalgoritmer för att kryptera data i databasen](#strong-db)</li><li>[SSIS-paket ska krypteras och digitalt signerade](#ssis-signed)</li><li>[Lägg till digital signatur i kritiska databasen skyddbara objekt](#securables-db)</li><li>[Använda SQLServer EKM för att skydda krypteringsnycklar](#ekm-keys)</li><li>[Använda AlwaysEncrypted funktionen om krypteringsnycklar inte ska lämnas ut till databasmotorn](#keys-engine)</li></ul> |
 | **IoT-enheter** | <ul><li>[Store kryptografiska nycklar på ett säkert sätt på IoT-enheter](#keys-iot)</li></ul> | 
-| **IoT-molnet Gateway** | <ul><li>[Generera en slumpmässig symmetrisk nyckel med tillräckligt med längden för autentisering till IoT Hub](#random-hub)</li></ul> | 
+| **IoT Cloud Gateway** | <ul><li>[Generera en slumpmässig symmetrisk nyckel med tillräckligt med längden för autentisering till IoT Hub](#random-hub)</li></ul> | 
 | **Dynamics CRM mobila klienten** | <ul><li>[Se till att en princip för hantering av enheter som kräver en PIN-kod för användning och tillåter fjärråtkomst rensas](#pin-remote)</li></ul> | 
-| **Dynamics CRM Outlook-klienten** | <ul><li>[Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. Bitlocker)](#bitlocker)</li></ul> | 
+| **Dynamics CRM Outlook Client** | <ul><li>[Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. BitLocker)](#bitlocker)</li></ul> | 
 | **Identitetsserver** | <ul><li>[Se till att Signeringsnycklar har flyttats över när du använder Identity Server](#rolled-server)</li><li>[Se till att kryptografiskt stark klient-ID, klienthemlighet är används i Identity Server](#client-server)</li></ul> | 
 
 ## <a id="cipher-length"></a>Använd endast godkända symmetriska blockchiffer och nyckellängder
@@ -139,7 +139,7 @@ ms.locfileid: "52844659"
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
-| **Referenser**              | [Lägg till en SIGNATUR (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
+| **Referenser**              | [ADD SIGNATURE (Transact-SQL)](https://msdn.microsoft.com/library/ms181700) |
 | **Steg** | I fall där integriteten hos en kritisk databas skyddbara måste verifieras ska digitala signaturer användas. Databasen skyddbara objekt, till exempel en lagrad procedur, funktion, sammansättningen eller utlösare kan signeras digitalt. Nedan visas ett exempel på när det kan vara användbart: Låt oss anta att en ISV (oberoende programvaruleverantör) har lagt till stöd för en programvara som levereras till en av sina kunder. Innan den ger stöd för kan ISV: er Se till att en databas som skyddas i programvaran inte har ändrats av misstag eller genom att en angripare. Om den aktuella digitalt signerade ISV verifiera den digitala signaturen och verifiera dess integritet.| 
 
 ## <a id="ekm-keys"></a>Använda SQLServer EKM för att skydda krypteringsnycklar
@@ -191,7 +191,7 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-molnet Gateway | 
+| **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gateway - valet i Azure IoT Hub |
@@ -202,23 +202,23 @@ Se, finns inte den primära nyckeln för enheten i koden. I stället lagras i TP
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Dynamics CRM mobila klienten | 
+| **Komponent**               | Dynamics CRM Mobile Client | 
 | **SDL fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
 | **Steg** | Se till att en princip för hantering av enheter som kräver en PIN-kod för användning och tillåter fjärråtkomst rensas |
 
-## <a id="bitlocker"></a>Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. Bitlocker)
+## <a id="bitlocker"></a>Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. BitLocker)
 
 | Titel                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Dynamics CRM Outlook-klienten | 
+| **Komponent**               | Dynamics CRM Outlook Client | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg** | Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. Bitlocker) |
+| **Steg** | Se till att en princip för hantering av enheten är på plats som kräver en PIN-kod/lösenord/Autolås och krypterar alla data (t.ex. BitLocker) |
 
 ## <a id="rolled-server"></a>Se till att Signeringsnycklar har flyttats över när du använder Identity Server
 

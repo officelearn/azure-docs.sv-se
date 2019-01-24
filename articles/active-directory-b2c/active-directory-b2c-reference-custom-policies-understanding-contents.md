@@ -3,19 +3,19 @@ title: Förstå anpassade principer för start-paket i Azure Active Directory B2
 description: Ett ämne på Azure Active Directory B2C anpassade principer.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ebcd7a677acde12558b0f566bce9172a0d00233b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cfb3894b98ea562eede4c223ca6125abce65b0d3
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442482"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845579"
 ---
 # <a name="understanding-the-custom-policies-of-the-azure-ad-b2c-custom-policy-starter-pack"></a>Förstå anpassade principer för Azure AD B2C anpassad princip-startpaket
 
@@ -51,27 +51,27 @@ Följande anspråk krävs för användaren resor ska fungera korrekt:
 |-------------|-------------|
 | *Användar-ID* | Användarnamn |
 | *signInName* | Logga in namn |
-| *TenantId* | Klient-ID (ID) för användarobjektet i Azure AD B2C |
-| *objekt-ID* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
+| *tenantId* | Klient-ID (ID) för användarobjektet i Azure AD B2C |
+| *objectId* | Objekt-ID (ID) för användarobjektet i Azure AD B2C |
 | *Lösenord* | Lösenord |
-| *nytt lösenord* | |
+| *newPassword* | |
 | *reenterPassword* | |
 | *passwordPolicies* | Lösenordsprinciper som används av Azure AD B2C för att fastställa lösenordssäkerhet, förfallodatum, osv. |
-| *Sub* | |
+| *sub* | |
 | *alternativeSecurityId* | |
 | *identityProvider* | |
 | *displayName* | |
 | *strongAuthenticationPhoneNumber* | Användarens telefonnummer |
 | *Verified.strongAuthenticationPhoneNumber* | |
-| *E-post* | E-postadress som kan användas för att kontakta användaren |
+| *email* | E-postadress som kan användas för att kontakta användaren |
 | *signInNamesInfo.emailAddress* | E-postadress som användaren kan använda för att logga in |
 | *otherMails* | E-postadresser som kan användas för att kontakta användaren |
 | *userPrincipalName* | Användarnamnet som lagras i Azure AD B2C |
 | *upnUserName* | Användarnamn för att skapa användarens huvudnamn |
 | *mailNickName* | Användarens e-post-smeknamn som lagras i Azure AD B2C |
-| *ny användare* | |
-| *körs SelfAsserted-inmatning* | Anspråk som anger om attribut har samlats in från användaren |
-| *körs PhoneFactor-inmatning* | Anspråk som anger om ett nytt telefonnummer har samlats in från användaren |
+| *newUser* | |
+| *executed-SelfAsserted-Input* | Anspråk som anger om attribut har samlats in från användaren |
+| *executed-PhoneFactor-Input* | Anspråk som anger om ett nytt telefonnummer har samlats in från användaren |
 | *authenticationSource* | Anger om användaren har autentiserats på Social identitetsprovider, login.microsoftonline.com eller lokalt konto |
 
 ### <a name="claims-required-for-query-string-parameters-and-other-special-parameters"></a>Anspråk som krävs för frågesträngsparametrar och andra särskilda parametrar
@@ -81,10 +81,10 @@ Följande anspråk krävs för att skicka vidare särskilda parametrar (inklusiv
 | Typ av anspråk | Beskrivning |
 |-------------|-------------|
 | *nux* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *NCA* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
+| *nca* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
 | *fråga* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
 | *mkt* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
-| *LC* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
+| *lc* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
 | *_typ av beviljande* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
 | *Omfång* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
 | *client_id* | Särskilda parameter som överförs för lokalt konto för autentisering till login.microsoftonline.com |
@@ -98,7 +98,7 @@ Följande anspråk är ytterligare anspråk som kan samlas in från användarna,
 | Typ av anspråk | Beskrivning |
 |-------------|-------------|
 | *givenName* | Användarens förnamn (även kallat Förnamn) |
-| *Efternamn* | Användarens efternamn (även kallat Familjenamn eller efternamn) |
+| *surname* | Användarens efternamn (även kallat Familjenamn eller efternamn) |
 | *Extension_picture* | Användarens bild från sociala |
 
 ## <a name="claim-transformations"></a>Anspråksomvandlingar
@@ -145,21 +145,21 @@ Det här avsnittet beskrivs de tekniska profiler som redan deklarerats per anspr
 
 | Tekniska profilen | Beskrivning |
 |-------------------|-------------|
-| *Inloggning utan interaktivitet* | |
+| *Login-NonInteractive* | |
 
 ### <a name="technical-profiles-for-phone-factor"></a>Tekniska profiler för Phonefactor
 
 | Tekniska profilen | Beskrivning |
 |-------------------|-------------|
-| *PhoneFactor-indata* | |
+| *PhoneFactor-Input* | |
 | *PhoneFactor-InputOrVerify* | |
-| *Kontrollera PhoneFactor* | |
+| *PhoneFactor-Verify* | |
 
 ### <a name="technical-profiles-for-azure-active-directory"></a>Tekniska profiler för Azure Active Directory
 
 | Tekniska profilen | Beskrivning |
 |-------------------|-------------|
-| *AAD – vanligt* | Tekniska profil inkluderas med de andra AAD-xxx tekniska profilerna |
+| *AAD-Common* | Tekniska profil inkluderas med de andra AAD-xxx tekniska profilerna |
 | *AAD-UserWriteUsingAlternativeSecurityId* | Tekniska profilen för sociala inloggningar |
 | *AAD-UserReadUsingAlternativeSecurityId* | Tekniska profilen för sociala inloggningar |
 | *AAD-UserReadUsingAlternativeSecurityId-NoError* | Tekniska profilen för sociala inloggningar |
@@ -174,8 +174,8 @@ Det här avsnittet beskrivs de tekniska profiler som redan deklarerats per anspr
 
 | Tekniska profilen | Beskrivning |
 |-------------------|-------------|
-| *SelfAsserted Social* | |
-| *SelfAsserted ProfileUpdate* | |
+| *SelfAsserted-Social* | |
+| *SelfAsserted-ProfileUpdate* | |
 
 ### <a name="technical-profiles-for-local-account"></a>Tekniska profiler för lokalt konto
 
@@ -209,7 +209,7 @@ Det här avsnittet visar de användare körningar som har redan deklarerats i de
 
 | Användarresa | Beskrivning |
 |--------------|-------------|
-| *Registrera dig* | |
+| *SignUp* | |
 | *Inloggning från* | |
 | *SignUpOrSignIn* | |
 | *EditProfile* | |

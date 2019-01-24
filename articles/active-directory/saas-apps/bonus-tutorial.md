@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Bonusly | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Bonusly | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Bonusly.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 29fea32a-fa20-47b2-9e24-26feb47b0ae6
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 175c00d36491fbf43149aef9a590219b330581c1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 181577c6a170d28679e1ca486dc2a8c5a596f20d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39422985"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812139"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integration med Bonusly
+# <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Självstudier: Azure Active Directory-integrering med Bonusly
 
 I den här självstudien får du lära dig hur du integrerar Bonusly med Azure Active Directory (AD Azure).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Bonusly, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ För att konfigurera integrering av Bonusly i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Bonusly från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ För att konfigurera integrering av Bonusly i Azure AD, som du behöver lägga t
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av Bonusly i Azure AD, som du behöver lägga t
 
     ![Bonusly i resultatlistan](./media/bonus-tutorial/tutorial_bonusly_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Bonusly baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i Bonusly är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i Bonusly upprättas.
@@ -85,13 +85,13 @@ I Bonusly, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Bonusly, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en Bonusly testanvändare](#create-a-bonusly-test-user)**  – du har en motsvarighet för Britta Simon i Bonusly som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Bonusly program.
 
@@ -109,18 +109,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Bonusly domän och URL: er med enkel inloggning för information](./media/bonus-tutorial/tutorial_bonusly_url.png)
 
-    I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://Bonus.ly/saml/<tenant-name>`
+    I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://Bonus.ly/saml/<tenant-name>`
 
     > [!NOTE] 
-    > Värdet är inte verkliga. Uppdatera värdet med faktiska svars-URL. Kontakta [Bonusly supportteamet](https://bonus.ly/contact) att hämta värdet.
+    > Värdet är inte verkligt. Uppdatera värdet för med den faktiska svars-URL:en. Kontakta [Bonusly supportteamet](https://bonus.ly/contact) att hämta värdet.
  
 1. På den **SAML-signeringscertifikat** avsnittet, kopiera den **TUMAVTRYCK** värdet från certifikatet.
 
-    ![Länk för hämtning av certifikat](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/bonus-tutorial/tutorial_bonusly_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/bonus-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/bonus-tutorial/tutorial_general_400.png)
 
 1. På den **Bonusly Configuration** klickar du på **konfigurera Bonusly** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -143,12 +143,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     c. I den **inloggnings-URL för IDP: N** textrutan klistra in värdet för **SAML enkel inloggning för tjänst-URL**, som du har kopierat från Azure-portalen.
 
-    d. Klistra in den **tumavtryck** värdet som har kopierats från Azure-portalen till den **Cert fingeravtryck** textrutan.
+    d. Klistra in den **tumavtryck** värdet som har kopierats från Azure-portalen till den **Cert fingeravtryck** textrutan.
    
 1. Klicka på **Spara**.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
@@ -164,7 +164,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/bonus-tutorial/create_aaduser_02.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/bonus-tutorial/create_aaduser_02.png) 
 
 1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
@@ -172,7 +172,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. På den **användaren** dialogrutan utför följande steg:
  
-    ![Dialogrutan användare](./media/bonus-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](./media/bonus-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textrutan typ **BrittaSimon**.
 
@@ -190,13 +190,13 @@ För att aktivera Azure AD-användare att logga in på Bonusly, måste de etable
 >Du kan använda alla andra Bonusly användare konto verktyg för att skapa eller API: er som tillhandahålls av Bonusly att etablera AAD-användarkonton.
 >  
 
-**Utför följande steg för att konfigurera användaretablering:**
+**Utför följande steg för att konfigurera användarförsörjning:**
 
 1. Logga in på din Bonusly klient i ett webbläsarfönster.
 
-1. Klicka på **inställningar**.
+1. Klicka på **Inställningar**.
  
-    ![Inställningar för](./media/bonus-tutorial/ic781041.png "inställningar")
+    ![Inställningar](./media/bonus-tutorial/ic781041.png "Inställningar")
 
 1. Klicka på den **användare och bonus** fliken.
    
@@ -206,19 +206,19 @@ För att aktivera Azure AD-användare att logga in på Bonusly, måste de etable
    
     ![Hantera användare](./media/bonus-tutorial/ic781043.png "hantera användare")
 
-1. Klicka på **lägga till användare**.
+1. Klicka på **Lägg till användare**.
    
-    ![Lägg till användare](./media/bonus-tutorial/ic781044.png "lägga till användare")
+    ![Lägg till användare](./media/bonus-tutorial/ic781044.png "Lägg till användare")
 
 1. På den **Lägg till användare** dialogrutan utför följande steg:
    
-    ![Lägg till användare](./media/bonus-tutorial/ic781045.png "lägga till användare")  
+    ![Lägg till användare](./media/bonus-tutorial/ic781045.png "Lägg till användare")  
 
     a. I den **Förnamn** textrutan Ange först namnet på användaren som **Britta**.
 
     b. I den **efternamn** textrutan Ange efternamn för användaren som **Simon**.
  
-    c. I den **e-post** textrutan Ange e-postadress för användaren som **brittasimon@contoso.com**.
+    c. I textrutan **E-post** anger du e-postadressen för användaren, t.ex. **brittasimon@contoso.com**.
 
     d. Klicka på **Spara**.
    

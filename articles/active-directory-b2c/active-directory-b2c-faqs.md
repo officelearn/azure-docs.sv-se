@@ -3,21 +3,21 @@ title: Vanliga frågor om Azure Active Directory B2C | Microsoft Docs
 description: Vanliga frågor (och svar FAQ) om Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6957a18440dfc225c63a1b1843e2b47af8b841bf
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 8e5e688fe741fdc4a83ae1a3cf13a6c722064407
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842959"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856306"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor (och svar FAQ) 
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Vanliga frågor och svar (FAQ) 
 Den här sidan får du svar på vanliga frågor om Azure Active Directory (Azure AD) B2C. Kontrollera tillbaka för uppdateringar.
 
 ### <a name="why-cant-i-access-the-azure-ad-b2c-extension-in-the-azure-portal"></a>Varför kan jag inte använda Azure AD B2C-tillägget i Azure-portalen?
@@ -46,10 +46,10 @@ Kom igång med anpassade principer genom att läsa vår [anpassad princip startp
 ### <a name="can-i-configure-scopes-to-gather-more-information-about-consumers-from-various-social-identity-providers"></a>Kan jag konfigurera omfång för att samla in mer information om användare från olika leverantörer via sociala?
 Nej. Standard-omfattningar som används för vår uppsättning sociala identitetsleverantörer som stöds är:
 
-* Facebook: e-post
+* Facebook: email
 * Google +: e-post
 * Microsoft-konto: openid e-postprofil
-* Amazon: profil
+* Amazon: profile
 * LinkedIn: r_emailaddress, r_basicprofile
 
 ### <a name="does-my-application-have-to-be-run-on-azure-for-it-work-with-azure-ad-b2c"></a>Har mitt program att köras på Azure för att den fungerar med Azure AD B2C?
@@ -61,8 +61,8 @@ Innan du öppnar ”Azure AD-B2C” i menyn till vänster på Azure-portalen, m�
 ### <a name="how-do-i-customize-verification-emails-the-content-and-the-from-field-sent-by-azure-ad-b2c"></a>Hur anpassar jag verifiering e-postmeddelanden (innehållet och ”från”: fält) skickas av Azure AD B2C?
 Du kan använda den [funktionen för företagsanpassning](../active-directory/fundamentals/customize-branding.md) att anpassa innehållet i e-postmeddelanden för verifiering. Mer specifikt kan du anpassa dessa två element för e-postmeddelandet:
 
-* **Banderoll logotyp**: visas längst ned till höger.
-* **Bakgrundsfärg**: visas högst upp.
+* **Banderoll logotyp**: Visas längst ned till höger.
+* **Bakgrundsfärg**: Visas längst upp.
 
     ![Skärmbild av ett anpassat bekräftelsemeddelande](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 

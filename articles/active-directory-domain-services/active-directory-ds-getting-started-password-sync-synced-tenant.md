@@ -1,10 +1,10 @@
 ---
-title: 'Azure AD Domain Services: Aktivera lösenordssynkronisering | Microsoft Docs'
+title: 'Azure AD Domain Services: Aktivera Lösenordssynkronisering | Microsoft Docs'
 description: Komma igång med Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8731f2b2-661c-4f3d-adba-2c9e06344537
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: be947e2867f00c34e5a0b66893765647349c7eeb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234212"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854215"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Aktivera lösenordssynkronisering med Azure Active Directory Domain Services
 I föregående uppgifter aktiverade du Azure Active Directory Domain Services för din Azure Active Directory-klient (Azure AD). Nästa uppgift är att aktivera synkronisering av autentiseringshasher som krävs för NT LAN Manager (NTLM)- och Kerberos-autentisering till Azure AD Domain Services. När du har konfigurerat synkroniseringen av autentiseringsuppgifter kan användarna logga in till den hanterade domänen med sina företagsuppgifter.
@@ -52,7 +52,7 @@ Installera den senaste rekommenderade versionen av Azure AD Connect på en domä
 
 **[Ladda ned Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
-Rekommenderad version: **1.1.614.0** – publicerad den 5 september 2017.
+Rekommenderad version: **1.1.614.0** – publicerad den 5 September 2017.
 
 > [!WARNING]
 > Du MÅSTE installera den senaste rekommenderade versionen av Azure AD Connect för att den äldre lösenordsinformationen (som krävs för NTLM- och Kerberos-autentisering) ska kunna synkroniseras till din Azure AD-klient. Den här funktionen är inte tillgänglig i tidigare versioner av Azure AD Connect eller med det äldre DirSync-verktyget.

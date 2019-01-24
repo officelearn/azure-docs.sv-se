@@ -3,19 +3,19 @@ title: Lösenordskomplexitet i Azure Active Directory B2C | Microsoft Docs
 description: Så här konfigurerar du komplexitetskrav för lösenord som anges av användare i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 88609f4daac176f082e7f4962d557267946ab98c
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: e728fb037895908882bbe6dc7e8414457ccf273f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724442"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845562"
 ---
 # <a name="azure-ad-b2c-configure-complexity-requirements-for-passwords"></a>Azure AD B2C: Konfigurera komplexitetskrav för lösenord
 
@@ -70,9 +70,9 @@ Låter dig styra längdkraven av lösenordet.
 
 Låter dig styra vilka olika teckenuppsättningar som används i lösenordet.
 
-* **2 av 4: gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal och en gemen.
-* **3 av 4: gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal, en gemen bokstav och en versal.
-* **4 av 4: gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller alla för teckentyper.
+* **2 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal och en gemen.
+* **3 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller minst två teckentyper. Till exempel ett tal, en gemen bokstav och en versal.
+* **4 av 4: Gemen, en versal bokstav, siffra (0-9), en Symbol** säkerställer lösenordet innehåller alla för teckentyper.
 
     > [!NOTE]
     > Kräver **4 av 4** kan resultera i slutanvändarens frustrationen. Vissa studier har visat att det här kravet inte förbättrar lösenord entropi. Se [NIST: S riktlinjer för lösenord](https://pages.nist.gov/800-63-3/sp800-63b.html#appA)

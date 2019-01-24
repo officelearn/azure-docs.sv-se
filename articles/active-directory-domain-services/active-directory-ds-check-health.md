@@ -4,7 +4,7 @@ description: Kontrollera hälsotillståndet för din hanterade domän via sidan 
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 8999eec3-f9da-40b3-997a-7a2587911e96
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: aee8492c73ace608abaeca9d833494e041d2b9dd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: fe5776dad4c4b9ae96484ac266a23e87658cf578
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969012"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852839"
 ---
 # <a name="check-the-health-of-an-azure-ad-domain-services-managed-domain"></a>Kontrollera hälsotillståndet för en Azure AD Domain Services-hanterad domän
 
@@ -32,7 +32,7 @@ Med hjälp av sidan health på Azure portal, går det att hålla dig uppdaterad 
 2. Klicka på den domän du vill visa hälsotillståndet för.
 3. I det vänstra navigeringsfönstret klickar du på **hälsotillstånd**.
 
-Följande bild illustrerar en exempelsida för hälsotillstånd: ![exempelsida för hälsotillstånd](./media/active-directory-domain-services-alerts/health-page.png)
+Följande bild illustrerar en exempelsida för hälsotillstånd: ![Exempelsida för hälsotillstånd](./media/active-directory-domain-services-alerts/health-page.png)
 
 >[!NOTE]
 > Den hanterade domänen hälsotillstånd utvärderas för varje timme. Vänta tills nästa utvärderingscykel för att visa uppdaterade hälsotillståndet för din hanterade domän när du har gjort ändringar till din hanterade domän. ”Senast utvärderad” tidsstämpeln i övre högra hörnet visar när hälsotillståndet för din hanterade domän senast utvärderades.

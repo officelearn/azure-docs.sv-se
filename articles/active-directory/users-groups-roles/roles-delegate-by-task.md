@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: bd63e8379051864a19c473779625a925446185f2
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 1e679a1d26ce219f7c0248e27d7f9cfffc5fdb4e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52445029"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813856"
 ---
 # <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Administratörsroller för identiteten aktiviteten i Azure Active Directory
 
@@ -75,7 +75,7 @@ Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
 Direktautentisering | Global administratör | 
 Läsa alla konfigurationen | Global administratör | 
-Sömlös enkel inloggning | Global administratör | 
+Smidig enkel inloggning | Global administratör | 
 
 ## <a name="connect-health"></a>Connect Health
 
@@ -117,7 +117,7 @@ Aktivitet | Minst Privilegierade roller | Ytterligare roller
 Inaktivera enheten | Molnenhetsadministratör | 
 Aktivera enheten | Molnenhetsadministratör | 
 Läs grundläggande konfiguration | Standard-användarrollen ([finns i dokumentationen till](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Läs Bitlocker-nycklar | Säkerhetsläsare | För lösenordsadministratör, säkerhetsadministratör
+Läs BitLocker-nycklar | Säkerhetsläsare | För lösenordsadministratör, säkerhetsadministratör
 
 ## <a name="enterprise-applications"></a>Företagsprogram
 
@@ -242,7 +242,7 @@ Konfigurera egenskaper för återställning av lösenord | Global administratör
 Konfigurera registrering | Global administratör | 
 Läsa alla konfigurationen | Säkerhetsadministratör administratör användare | 
 
-## <a name="privileged-identity-management"></a>Privileged identity management
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 Aktivitet | Minst Privilegierade roller | Ytterligare roller
 ---- | --------------------- | ----------------
@@ -320,11 +320,11 @@ Skapa gästanvändare | Gästinbjudare | Användarkonto-administratör
 Skapa användare | Användarkonto-administratör | 
 Ta bort användare | Användarkonto-administratör | 
 Ogiltigförklara uppdateringstoken för begränsade administratörer (se dokumentationen) | Användarkonto-administratör | 
-Ogiltigförklara uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadministratör | Användarkonto-administratör
+Ogiltigförklara uppdateringstoken för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användarkonto-administratör
 Ogiltigförklara uppdateringstoken för privilegierade administratörer (se dokumentationen) | Global administratör | 
 Läs grundläggande konfiguration | Standard-användarrollen ([finns i dokumentationen](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | 
 Återställa lösenord för begränsade administratörer (se dokumentationen) | Användarkonto-administratör | 
-Återställa lösenord för icke-administratörer (se dokumentationen) | Lösenordsadministratör | Användarkonto-administratör
+Återställa lösenord för icke-administratörer (se dokumentationen) | Lösenordsadminitratör | Användarkonto-administratör
 Återställa lösenord för privilegierade administratörer | Global administratör | 
 Återkalla licens | Licensadministratör | Användarkonto-administratör
 Uppdatera alla egenskaper utom User Principal Name | Användarkonto-administratör | 

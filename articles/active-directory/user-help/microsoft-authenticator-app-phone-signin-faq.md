@@ -3,7 +3,7 @@ title: Microsoft Authenticator telefoninloggning – Azure och Microsoft-konton 
 description: Använd din telefon för att logga in på ditt Microsoft-konto i stället för att skriva ditt lösenord. Den här artikeln får du svar på vanliga frågor och svar om den här funktionen.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/12/2017
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 3df4be80e1a979590a05ff10601485e950de54bd
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962225"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822543"
 ---
 # <a name="sign-in-with-your-phone-not-your-password"></a>Logga in med telefonen, inte med ditt lösenord
 Microsoft Authenticator-appen inte bara kan du skydda dina konton genom att utföra tvåstegsverifiering när du ange ditt lösenord, men nu den kan ändra lösenordet för ditt Microsoft-konto helt och hållet.

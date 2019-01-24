@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2d4b395abefd25d7e187ae3a15943e53f1aed27b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 4d8e5cb577eb7b3eecc800e7a74b1ddcbbc2c76c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472541"
+ms.locfileid: "54813380"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>Problem med att spara autentiseringsuppgifter när du konfigurerar användaretablering för ett program för Azure Active Directory-galleri 
 
@@ -30,7 +30,7 @@ När du använder Azure-portalen för att konfigurera [automatisk användaretabl
 
 Om SAML-baserad enkel inloggning har konfigurerats för samma program, den mest troliga orsaken till felet är att Azure AD internt, programspecifika lagringsgränsen för certifikat och autentiseringsuppgifter har överskridits.
 
-Azure AD för närvarande har en maximala lagringskapaciteten för en kilobyte för alla certifikat, hemlig token, autentiseringsuppgifter och tillhörande konfigurationsdata som är associerade med en enda instans av ett program (kallas även en service principal-post i Azure AD).
+Azure AD för närvarande har en maximal lagringskapacitet på 1 024 byte för alla certifikat, hemlig token, autentiseringsuppgifter och tillhörande konfigurationsdata som är associerade med en enda instans av ett program (kallas även en service principal-post i Azure AD).
 
 När SAML-baserad enkel inloggning konfigureras certifikatet som används för att signera SAML-token lagras här och ofta förbrukar över 50 procent av utrymmet.
 

@@ -4,7 +4,7 @@ description: Konfigurera säkert LDAP (LDAPS) för en Azure AD Domain Services-h
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 850b721cfa78dde23ebc11944bf023de8798cec9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5bc40d5be5b41000ababa35386bcdda6bf3f83f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236961"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854267"
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Konfigurera säker LDAP (LDAPS) för en Azure AD Domain Services-hanterad domän
 Den här artikeln visar hur du kan aktivera säker Lightweight Directory Access Protocol (LDAPS) för din hanterade domän i Azure AD Domain Services. Säkert LDAP kallas även ”Lightweight Directory Access Protocol (LDAP) över Secure Sockets Layer (SSL) / Transport Layer Security (TLS)”.

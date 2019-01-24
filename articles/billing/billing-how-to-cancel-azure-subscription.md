@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 1/23/2019
 ms.author: cwatson
-ms.openlocfilehash: de5fd6e52ab93132920b1c98188cbea92b9900b5
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 88ea3a5daa1a740ab545201bc48b612ea6a56a44
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584357"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810337"
 ---
 # <a name="cancel-your-subscription-for-azure"></a>Avbryta din prenumeration för Azure
 
@@ -37,10 +37,11 @@ Om du avbryter ett betalt supportavtal för Azure faktureras du fortfarande för
 ## <a name="cancel-subscription-using-the-azure-portal"></a>Avbryt prenumeration med hjälp av Azure-portalen
 
 1. Välj din prenumeration från den [prenumerationssidan i Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj den prenumeration som du vill avbryta och klickar på **Avbryt prenumeration**.
+2. Välj den prenumeration som du vill avbryta.
+3. Välj **översikt**, och välj sedan **Avbryt prenumeration**.
 
     ![Skärmbild som visar knappen Avbryt](./media/billing-how-to-cancel-azure-subscription/cancel_ibiza.png)
-1. Följ anvisningarna och slutför annullering.
+3. Följ anvisningarna och slutför annullering.
 
 ## <a name="what-happens-after-i-cancel-my-subscription"></a>Vad händer när jag säga upp min prenumeration?
 

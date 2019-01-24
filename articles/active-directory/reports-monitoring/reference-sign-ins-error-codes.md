@@ -4,7 +4,7 @@ description: Referens för felkoder för inloggningsaktivitet.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b6f8d3c3017a914f261c7e4f8bbe0e42d1edf8a9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 0de3ced9974941399875ca98991430f10d4f8525
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51622439"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820163"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggningsaktivitet rapport 
 
@@ -43,7 +43,7 @@ Filtrera rapporten för att visa alla misslyckade inloggningar genom att välja 
 
 ![Inloggningsaktivitet](./media/reference-sign-ins-error-codes/06.png "inloggningsaktivitet")
 
-Om du väljer ett objekt i den filtrerade listan öppnas den **aktivitetsinformation: inloggningar** bladet. Den här vyn ger dig ytterligare information om den misslyckade inloggning händelsen, inklusive den **felkod för inloggning** och **felorsak**.
+Om du väljer ett objekt i den filtrerade listan öppnas den **aktivitetsinformation: Inloggningar** bladet. Den här vyn ger dig ytterligare information om den misslyckade inloggning händelsen, inklusive den **felkod för inloggning** och **felorsak**.
 
 ![Inloggningsaktivitet](./media/reference-sign-ins-error-codes/05.png "inloggningsaktivitet")
 
@@ -135,7 +135,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |53002|Programmet som används är inte ett godkänt program för villkorlig åtkomst. Användaren måste använda en av apparna i listan över godkända program för att få åtkomst.|
 |53003|Åtkomsten har blockerats på grund av principer för villkorsstyrd åtkomst.|
 |53004|Användaren måste slutföra registreringen för multifaktorautentisering innan personen får åtkomst till innehållet. Användaren bör registrera sig för multifaktorautentisering.|
-|65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en auktoriseringsbegäran till din klientadministratör som gäller i appens ställe: Y för resursen: Z.|
+|65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Send en auktoriseringsbegäran till din klientadministratör för att appens: Y för resursen: Z.|
 |65004|Användaren nekade samtycke till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|
 |65005|Resursåtkomstlistan som krävs av programmet innehåller inte program som kan upptäckas av resursen, eller så har klientprogrammet begärt åtkomst till en resurs som inte har angetts i listan över resurser med åtkomst, eller så returnerade diagramtjänsten en ogiltig begäran, eller så hittades inte resursen. Om programmet stöder SAML har du kanske konfigurerat programmet med fel identifierare (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list)|
 |70000|Ogiltigt beviljande på grund av följande skäl:<ul><li>Den begärda SAML 2.0-försäkran har en ogiltig ämnesbekräftelsemetod</li><li>Flödet i appen OnBehalfOf stöds inte på V2</li><li>Den primära uppdateringstoken är inte signerad med en sessionsnyckel</li><li>Ogiltig extern uppdateringstoken</li><li>Åtkomstbeviljandet hämtades för en annan klientorganisation.</li></ul>|
@@ -160,7 +160,7 @@ Du kan även programmässigt komma åt inloggningsdata med hjälp av den [report
 |80001|Det gick inte att ansluta autentiseringsagenten till Active Directory. Kontrollera att autentiseringsagenten är installerad på en domänansluten dator som har åtkomst till en DC som kan hantera inloggningen av användaren.|
 |80002|Internt fel. Tidsgränsen uppnåddes för begäran av lösenordsverifiering. Det gick inte att skicka autentiseringsbegäran till den interna Hybrid Identity-tjänsten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
 |80003|Ogiltigt svar har tagits emot av autentiseringsagenten. Ett okänt fel uppstod vid autentiseringen mot Active Directory lokalt. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
-|80005|Autentiseringsagent: Ett okänt fel uppstod under bearbetningen av svaret från autentiseringsagenten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
+|80005|Autentiseringsagent: Ett okänt fel uppstod under bearbetningen av svaret från den Autentiseringsagenten. [Skapa ett supportärende](../fundamentals/active-directory-troubleshooting-support-howto.md) för att få mer information om felet.|
 |80007|Autentiseringsagenten kunde inte verifiera användarens lösenord.|
 |80010|Autentiseringsagenten kan inte dekryptera lösenordet. |
 |80011|Autentiseringsagenten kunde inte hämta krypteringsnyckeln.|

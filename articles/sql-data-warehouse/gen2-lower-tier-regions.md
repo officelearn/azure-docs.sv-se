@@ -9,12 +9,12 @@ ms.component: design
 ms.date: 12/03/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: d3c42c13e58156013167b8570a8845ce9de08b3b
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2aa513617f24201dfb341f9ab72ab9e3a221450d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52883350"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819364"
 ---
 # <a name="azure-sql-data-warehouse-gen2-support-for-lower-compute-tiers"></a>Support för Azure SQL Data Warehouse Gen2 för lägre beräkningsnivåer
 
@@ -29,7 +29,7 @@ Portalen stöder för närvarande inte distributionen av eller skala till de lä
 Kunder kan välja att distribuera en ny Gen2-instans eller uppgradera en befintlig Gen1 data warehouse-instans för att uppleva flexibiliteten och prestandan för nästa generations data informationslager. 
 
 Försök [Azure SQL Data Warehouse Beräkningsnivån optimerad Gen2.](https://azure.microsoft.com/services/sql-data-warehouse/?v=17.44)
-Uppgradera [Azure SQL Warehouse Compute Optimized Gen1 till Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) titta på Azure SQL Data Warehouse Gen2 i praktiken i den här [videon om Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
+Uppgradera [Azure SQL Data Warehouse Compute Optimized Gen1 till Gen2](https://docs.microsoft.com/azure/sql-data-warehouse/upgrade-to-latest-generation) titta på Azure SQL Data Warehouse Gen2 i praktiken i den här [videon om Microsoft Mechanics.](https://www.youtube.com/watch?v=Ap8I3UZonzI&feature=youtu.be)
 
 
 ## <a name="supported-regions-for-lower-compute-tiers"></a>Regioner som stöds för lägre beräkningsnivåer
@@ -52,4 +52,4 @@ Uppgradera [Azure SQL Warehouse Compute Optimized Gen1 till Gen2](https://docs.m
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Läs mer](upgrade-to-latest-generation.md) om optimera prestanda genom att uppgradera SQL Data Warehouse. 
+- [Läs mer](upgrade-to-latest-generation.md) om Compute Optimized prestanda genom att uppgradera SQL Data Warehouse. 

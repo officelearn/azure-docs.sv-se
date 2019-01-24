@@ -3,21 +3,21 @@ title: Självstudiekurs – anpassa användargränssnittet för dina program i A
 description: Lär dig hur du anpassar användargränssnittet i dina program i Azure Active Directory B2C med Azure portal.
 services: B2C
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f8ebb282d3f6abbc37739891c0f7228bef110d82
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 5d97a313c347aefbdda14b70e78aa09188da59ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842687"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855796"
 ---
-# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Självstudie: Anpassa användargränssnittet i dina program i Azure Active Directory B2C
+# <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Självstudier: Anpassa användargränssnittet för dina program i Azure Active Directory B2C
 
 För allt vanligare användarupplevelser, som registrering, inloggning och profilredigering, du kan använda [användarflöden](active-directory-b2c-reference-policies.md) i Azure Active Directory (Azure AD) B2C. Informationen i den här självstudien hjälper dig att lära dig hur du [anpassa användargränssnittet (UI)](customize-ui-overview.md) av dessa upplevelser med din egen HTML och CSS-filer.
 
@@ -158,7 +158,7 @@ Kommunikation med Azure AD B2C sker via ett program som du skapar i din klient. 
 Om du vill testa din anpassningsfiler kan du skapa ett användarflöde för inbyggda registrerings- eller logga in som använder det program som du skapade tidigare.
 
 1. I din Azure AD B2C-klient väljer **användarflöden**, och klicka sedan på **nytt användarflöde**.
-2. På den **rekommenderas** fliken **logga och logga in**.
+2. På fliken **Rekommenderat** klickar du på **Sign up and sign in** (Registrera och logga in).
 3. Ange ett namn för användarflödet. Till exempel *signup_signin*. Prefixet *B2C_1* läggs automatiskt till i namnet när användarflödet har skapats.
 4. Under **identitetsprovidrar**väljer **e-post registrering**.
 5. Under **användarattribut och anspråk**, klickar du på **visa fler**.

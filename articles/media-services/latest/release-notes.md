@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: bf80f78cc464fe274e83eca2f8afa420c2a8c453
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: a1d52e0c6f87b9075d73508c97bd270d67d3ecf5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229974"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817630"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 viktig information
 
@@ -33,6 +33,14 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 > För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
 
 Mer information finns i [riktlinjer för att flytta från Media Services v2 till v3](migrate-from-v2-to-v3.md#known-issues).
+
+## <a name="january-2019"></a>Januari 2019
+
+### <a name="media-encoder-standard-and-mpi-files"></a>Media Encoder Standard och MPI-filer 
+
+När du encoding med Media Encoder Standard till producerar MP4-filer, en ny .mpi-fil och lagts till i utdata tillgången. Den här MPI-filen är avsedd att förbättra prestanda för dynamisk paketering och strömning scenarier.
+
+Du bör inte ändra eller ta bort filen MPI eller ta alla beroenden i din tjänst med befintliga (eller inte) av sådan fil.
 
 ## <a name="december-2018"></a>December 2018
 
@@ -166,7 +174,7 @@ Om du har skapat tillgångar eller kontofilter mellan 09/28 och 10/12 med Media 
 
 ## <a name="may-2018---preview"></a>Maj 2018 - förhandsversion
 
-### <a name="net-sdk"></a>.NET SDK
+### <a name="net-sdk"></a>.Net SDK
 
 Följande funktioner finns i .net SDK:
 

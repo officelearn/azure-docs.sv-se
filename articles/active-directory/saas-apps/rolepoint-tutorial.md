@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med RolePoint | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med RolePoint | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och RolePoint.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: 1cefb855e089f540946dbd11005f384c33027df7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d16e2ebf6f2a170a65d9e471f0c4a19a3a31ded2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439704"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827847"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Självstudier: Azure Active Directory-integration med RolePoint
+# <a name="tutorial-azure-active-directory-integration-with-rolepoint"></a>Självstudier: Azure Active Directory-integrering med RolePoint
 
 I den här självstudien får du lära dig hur du integrerar RolePoint med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med RolePoint, behöver du följande
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av RolePoint i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till RolePoint från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **RolePoint**.
 
@@ -112,18 +112,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/rolepoint-tutorial/tutorial_rolepoint_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.rolepoint.com/login`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.rolepoint.com/login`
     
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://app.rolepoint.com/<instancename>`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://app.rolepoint.com/<instancename>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Här vi föreslår att du för att använda det unika värdet av strängen i Identifier.Contact [RolePoint supportteamet](mailto:info@rolepoint.com) att hämta värdet. 
+    > De här värdena är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Här vi föreslår att du för att använda det unika värdet av strängen i Identifier.Contact [RolePoint supportteamet](mailto:info@rolepoint.com) att hämta värdet. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/rolepoint-tutorial/tutorial_rolepoint_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/rolepoint-tutorial/tutorial_general_400.png)
 
@@ -131,11 +131,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Att konfigurera enkel inloggning på **RolePoint** sida, som du behöver skicka de hämtade **XML-Metadata för** till [RolePoint supportteamet](mailto:info@rolepoint.com).
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 

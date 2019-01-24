@@ -3,19 +3,19 @@ title: Autentisering, registrering för, Redigera profil i Azure Active Director
 description: Hur du skapar ett Windows-skrivbordsprogram som innehåller inloggning, registrering, och profilhantering med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fc32cf40266bdad1aa5365b30a27210ad735f299
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 96cdbca1b0a5a75c24b9d0e75eaf1fc861bf764a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354390"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843131"
 ---
 # <a name="azure-ad-b2c-build-a-windows-desktop-app"></a>Azure AD B2C: Skapa en Windows-skrivbordsapp
 Med hjälp av Azure Active Directory (Azure AD) B2C kan du lägga till kraftfulla självbetjäning Identitetshantering till din skrivbordsapp i några korta steg. Den här artikeln visar hur du skapar en app för .NET Windows Presentation Foundation (WPF) ”uppgiftslista” som innehåller användarens registrering och inloggning och profilhantering. Appen innehåller stöd för registrering och inloggning med ett användarnamn eller e-post. Det omfattar även stöd för registrering och inloggning med konton i sociala medier, till exempel Facebook och Google.

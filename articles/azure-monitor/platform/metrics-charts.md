@@ -5,15 +5,15 @@ author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/20/2018
+ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0e204e945960ddaf452db1907568e4102631c28f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2b6d982f514f347dc2a59f9ca8f3c33b8c24849b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467595"
+ms.locfileid: "54827456"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
 
@@ -112,7 +112,7 @@ Du kommer att tas till fönstret varningsregel skapas med de underliggande mått
 
 ![Skapa aviseringsregel](./media/metrics-charts/016.png)
 
-Kolla in det här [artikeln](alerts-metric.md) mer information om hur du konfigurerar aviseringar för mått.
+Titta i den här [artikeln](alerts-metric.md) mer information om hur du konfigurerar aviseringar för mått.
 
 ## <a name="lock-boundaries-of-chart-y-axis"></a>Lås gränserna för y-axeln i diagrammet
 
@@ -138,6 +138,16 @@ Att fästa ett diagram som är konfigurerade på en instrumentpanel:
 När du har konfigurerat schemat klickar du på den **diagram åtgärder** menyn i högra viktigaste hörnet i diagrammet och klicka på **fäst på instrumentpanelen**.
 
 ![mått-avbildning](./media/metrics-charts/00013.png)
+
+## <a name="troubleshooting"></a>Felsökning
+
+*Jag ser några data i diagrammet.*
+
+* Filtren gäller för alla diagram i fönstret. Se till att även om du vill fokusera på ett diagram, ställa in ett filter som inte omfattar alla data på en annan.
+
+* Om du vill definiera olika filter för olika diagram, skapa dem i olika bladen kan du spara dem som separata Favoriter. Om du vill kan fästa du dem på instrumentpanelen så att du kan se dem tillsammans med varandra.
+
+* Om du segmentera ett diagram av en egenskap som inte har definierats för måttet sedan debiteras ingenting i diagrammet. Försök rensa segmentering (dela) eller välj en annan egenskap.
 
 ## <a name="next-steps"></a>Nästa steg
 

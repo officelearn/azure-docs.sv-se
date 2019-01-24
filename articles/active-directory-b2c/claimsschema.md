@@ -1,21 +1,21 @@
 ---
-title: ClaimsSchema - Azure Active Directory B2C | Microsoft Docs
+title: ClaimsSchema  - Azure Active Directory B2C | Microsoft Docs
 description: Ange det ClaimsSchema elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2d11283ccf58fdc356742d6f4042afd15bf6faab
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: a49553941b83e323f23f20b794a464f47ef31981
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51568650"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849098"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -71,7 +71,7 @@ Den **protokollet** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed eller WsTrust. |
+| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden:  OAuth1, OAuth2, SAML2, OpenIdConnect, WsFed, or WsTrust. |
 | PartnerClaimType | Ja | Anspråk typnamn som ska användas. |
 
 I följande exempel, när den Identitetsramverk interagerar med en identitetsprovider för SAML2 eller förlitande partsprogram den **efternamn** anspråk har mappats till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, med OpenIdConnect och OAuth2 anspråket är mappad till `family_name`.
@@ -152,7 +152,7 @@ Den **begränsning** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Uppräkning | 1: n | De tillgängliga alternativen i användargränssnittet för att användaren väljer för ett anspråk, till exempel ett värde i en listruta. |
+| Uppräkning | 1:n | De tillgängliga alternativen i användargränssnittet för att användaren väljer för ett anspråk, till exempel ett värde i en listruta. |
 | Mönster | 1:1 | Det reguljära uttrycket att använda. |
 
 ### <a name="enumeration"></a>Uppräkning
@@ -191,7 +191,7 @@ Den **mönstret** element kan innehålla följande attribut:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltiga. |
-| Hjälptext | Nej | Mönster eller reguljärt uttryck för denna begäran. |
+| HelpText | Nej | Mönster eller reguljärt uttryck för denna begäran. |
 
 I följande exempel konfigureras en **e-post** anspråket med det reguljära uttrycket verifiering och hjälp indatatext:
 

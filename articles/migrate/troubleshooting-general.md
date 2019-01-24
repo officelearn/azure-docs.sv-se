@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: raynew
-ms.openlocfilehash: f91f6386df01050cc67968d05a1e1562e0f9ed01
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0c7d0980c928ecefebeabff555378230453c742f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261238"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827949"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -175,7 +175,7 @@ Om du vill skydda Azure Migrate-installation, måste du undanta följande mappar
 
 - Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
   %ProgramFiles%\ProfilerService  
-- Azure Migrate Web hemsidan. Undanta alla undermappar.
+- Azure Migrate webbprogram. Undanta alla undermappar.
   %SystemDrive%\inetpub\wwwroot
 - Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
   %SystemDrive%\Profiler
@@ -286,7 +286,7 @@ Om du vill samla in Event Tracing för Windows, gör du följande:
 | 751       | UnableToConnectToServer        | Det gick inte att ansluta till vCenter Server %Name; på grund av felet: %ErrorMessage;     | Läs felmeddelandet om du vill ha mer information.                                                             | Åtgärda problemet och försök igen.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | Servern %Name; är inte en vCenter Server.                                  | Ange vCenter Server-information.                                                                       | Försök åtgärden igen med korrekt vCenter Server-information.                                                                                   |
 | 753       | InvalidLoginCredentials        | Det gick inte att ansluta till vCenter Server %Name; på grund av felet %ErrorMessage; | Det gick inte att ansluta till vCenter Server eftersom autentiseringsuppgifterna för inloggning är ogiltiga.                             | Kontrollera att de autentiseringsuppgifter för inloggning som angetts stämmer.                                                                                    |
-| 754       | NoPerfDataAvaialable           | Prestandadata är inte tillgängliga.                                               | Kontrollera statistiknivån i vCenter Server. Det ska ställas in som 3 om prestandadata ska vara tillgängliga. | Ändra statistiknivån till 3 (med 5 minuters, 30 minuters och 2 timmars varaktighet) och försök igen efter att ha väntat minst en dag.                   |
+| 754       | NoPerfDataAvailable           | Prestandadata är inte tillgängliga.                                               | Kontrollera statistiknivån i vCenter Server. Det ska ställas in som 3 om prestandadata ska vara tillgängliga. | Ändra statistiknivån till 3 (med 5 minuters, 30 minuters och 2 timmars varaktighet) och försök igen efter att ha väntat minst en dag.                   |
 | 756       | NullInstanceUUID               | En dator med null InstanceUUID påträffades                                  | vCenter Server kan ha ett olämpligt objekt.                                                      | Åtgärda problemet och försök igen.                                                                                                           |
 | 757       | VMNotFound                     | Det gick inte att hitta den virtuella datorn                                                  | Den viirtuella datorn kan tas bort: %VMID;                                                                | Se till att de virtuella datorer som valdes när vCenter-lagret omfångsdefinierades finns under identifieringen                                      |
 | 758       | GetPerfDataTimeout             | VCenter-begäran uppnådde sin tidsgräns. Meddelande % Message;                                  | vCenter Server-autentiseringsuppgifterna är felaktiga                                                              | Kontrollera autentiseringsuppgifter för vCenter Server och se till att vCenter Server kan nås. Försök igen. Kontakta supporten om problemet kvarstår. |

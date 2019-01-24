@@ -3,9 +3,9 @@ title: Hur du använder Azure Service Bus-köer med Python | Microsoft Docs
 description: Lär dig hur du använder Azure Service Bus-köer från Python.
 services: service-bus-messaging
 documentationcenter: python
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 08/30/2018
-ms.author: spelluru
-ms.openlocfilehash: cc8fc62811fe019dcaf613a1c0b50d89183e6555
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: 3ef2c07888afbc4b640c79e7d442b9b69b63503a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406200"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852736"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Hur du använder Service Bus-köer med Python
 
@@ -106,7 +106,7 @@ Service Bus innehåller funktioner som hjälper dig att återställa fel i progr
 
 Det finns också en tidsgräns som är associerade med ett meddelande som ligger låst i kön. Om programmet inte kan bearbeta meddelandet innan timeout för lås går ut (t.ex. Om programmet kraschar), kommer Service Bus så låser upp meddelandet automatiskt och göra det tillgängligt att tas emot igen.
 
-I händelse av att programmet kraschar efter behandlingen av meddelandet men innan de **ta bort** metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här kallas ofta **minst Processing**, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av den **MessageId** egenskapen för meddelandet som förblir konstant under alla leveransförsök.
+I händelse av att programmet kraschar efter behandlingen av meddelandet men innan de **ta bort** metoden anropas sedan meddelandet att levereras till programmet när den startas om. Det här kallas ofta **minst Processing**, det vill säga varje meddelande bearbetas minst en gång men i vissa situationer kan samma meddelande kan levereras. Om scenariot inte tolererar duplicerad bearbetning, bör programutvecklarna lägga till ytterligare logik i sina program för att hantera duplicerad meddelandeleverans. Detta uppnås ofta med hjälp av egenskapen **MessageId** för meddelandet. Detta är och förblir konstant under alla leveransförsök.
 
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har lärt dig grunderna i Service Bus-köer, se följande artiklar om du vill veta mer.

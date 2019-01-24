@@ -2,18 +2,19 @@
 title: Isolering av Azure Service Bus-program mot avbrott och katastrofer | Microsoft Docs
 description: Tekniker för att skydda mot potentiella avbrott i ett Service Bus-program.
 services: service-bus-messaging
-author: spelluru
+author: axisc
 manager: timlt
+editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: 85481deceeadaf4154659d35fccf777f489bd782
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.author: aschhab
+ms.openlocfilehash: e9fb1795ecb26fc87fd8f3ff000d125d71e9d594
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393715"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846718"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Metodtips för isolering av program mot Service Bus-avbrott och katastrofer
 
@@ -69,7 +70,7 @@ I allmänhet är passiva replikeringen mer ekonomiskt än aktiv replikering efte
 
 När du använder passiva replikering, i följande scenarier kan meddelanden vara tappas bort eller tas emot två gånger:
 
-* **Meddeladefördröjning eller förlust**: förutsätter att avsändaren har skickat ett meddelande m1 till den primära kön och sedan kön blir otillgänglig innan mottagaren tar emot m1. Avsändaren skickar ett statusmeddelande m2 till den sekundära kön. Om den primära kön är inte tillgänglig för tillfället, får mottagaren m1 när kön blir tillgänglig igen. Vid en katastrof får mottagaren m1.
+* **Meddeladefördröjning eller förlust**: Anta att avsändaren har skickat ett meddelande m1 till den primära kön och sedan kön blir otillgänglig innan mottagaren tar emot m1. Avsändaren skickar ett statusmeddelande m2 till den sekundära kön. Om den primära kön är inte tillgänglig för tillfället, får mottagaren m1 när kön blir tillgänglig igen. Vid en katastrof får mottagaren m1.
 * **Duplicera mottagningen**: Anta att avsändaren skickar ett meddelande m till den primära kön. Service Bus har bearbetar m men misslyckas med att skicka ett svar. När åtgärden Skicka tidsgränsen skickar avsändaren en identisk kopia av m till den sekundära kön. Om mottagaren är kan ta emot den första kopian av m innan den primära kön blir otillgänglig, får mottagaren bägge m vid ungefär samma tillfälle. Om mottagaren inte kan ta emot den första kopian av m innan den primära kön blir otillgänglig, mottagaren får inledningsvis endast den andra kopian av m, men de tar emot en andra kopia av m när den primära kön blir tillgänglig.
 
 Den [Geo-replikering med Service Bus om asynkrona meddelanden] [ Geo-replication with Service Bus Brokered Messages] exempel visar passiva replikering av meddelandeentiteter.

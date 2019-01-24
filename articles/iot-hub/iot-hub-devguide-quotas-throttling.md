@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: b7ef5d2853cdf4a7b09aa52c510c268cb42a245f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49395164"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827388"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -21,7 +21,7 @@ ms.locfileid: "49395164"
 
 Varje Azure-prenumeration kan ha högst 50 IoT-hubbar och högst 1 kostnadsfri hub.
 
-Varje IoT-hubb har etablerats med ett visst antal enheter i en specifik nivå. Avgör maximal daglig kvot på meddelanden som du kan skicka nivå och antal enheter. Meddelandestorlek som används för att beräkna den dagliga kvoten är 0,5 KB för en kostnadsfri nivå-hubb och 4KB för alla andra nivåer. Mer information finns i [prisinformation för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
+Varje IoT-hubb etableras med ett visst antal enheter på en specifik nivå. Avgör maximal daglig kvot på meddelanden som du kan skicka nivå och antal enheter. Meddelandestorlek som används för att beräkna den dagliga kvoten är 0,5 KB för en kostnadsfri nivå-hubb och 4KB för alla andra nivåer. Mer information finns i [prisinformation för Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 På nivån avgör också de begränsningar gränser som IoT Hub tillämpar på alla åtgärder.
 
@@ -47,9 +47,12 @@ I följande tabell visas de tvingande begränsningar. Värden finns i en enskild
 | Jobb operations<sup>1,3</sup> <br/> (skapa, uppdatera, visa, ta bort) | 1.67/sec/Unit (100 per minut per enhet) | 1.67/sec/Unit (100 per minut per enhet) | 83.33/sec/Unit (5000 per minut per enhet) |
 | Jobb åtgärder<sup>1</sup> <br/> (uppdatera twin, anropa direkt metod) | 10 per sekund | Högre av 10 per sekund eller 1 per sekund och enhet | 50 per sekund och enhet |
 | Konfigurationer och edge-distributioner<sup>1</sup> <br/> (skapa, uppdatera, visa, ta bort) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) | 0.33/sec/Unit (20 per minut per enhet) |
+| Enheten initiation dataströmshastighet<sup>4</sup> | 5 nya dataströmmar/sek | 5 nya dataströmmar/sek | 5 nya dataströmmar/sek |
+| Maximalt antal samtidigt ansluten enhet strömmar<sup>4</sup> | 50 | 50 | 50 |
+| Maximal enhet stream dataöverföring<sup>4</sup> (aggregera volym per dag) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB. <br/><sup>3</sup>kan du bara ha en aktiv enhet import/export-jobb i taget.
+<sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md). <br/><sup>2</sup>begränsning mätaren storlek är 8 KB. <br/><sup>3</sup>kan du bara ha en aktiv enhet import/export-jobb i taget. <br/><sup>4</sup>strömmar för IoT Hub-enheter är bara tillgängliga för S1, S2, S3 och F1 SKU: er.
 
 Den *enhetsanslutningar* begränsning styr den hastighet som den nya enhetsanslutningar kan upprättas med en IoT-hubb. Den *enhetsanslutningar* reglerar inte begränsa det maximala antalet samtidigt anslutna enheter. Den *enhetsanslutningar* rate begränsning beror på hur många enheter som har etablerats för IoT-hubben.
 

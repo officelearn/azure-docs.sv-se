@@ -3,19 +3,19 @@ title: UserJourneys | Microsoft Docs
 description: Ange det UserJourneys elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 231a3e87692e47ec33f8a613832acf5102257c96
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.openlocfilehash: c6933a3d50807f38c0704f41dff7c9bcb3351949
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850647"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -31,7 +31,7 @@ Den **UserJourneys** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| UserJourney | 1: n | En användarresa som definierar alla konstruktionerna som krävs för en fullständig användarflödet. | 
+| UserJourney | 1:n | En användarresa som definierar alla konstruktionerna som krävs för en fullständig användarflödet. | 
 
 Den **UserJourney** elementet innehåller följande attribut:
 
@@ -43,7 +43,7 @@ Den **UserJourney** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| OrchestrationSteps | 1: n | En orchestration-sekvens som måste följas för en lyckad transaktion. Varje användarresa består av en sorterad lista över orchestration-steg som utförs i följd. Om ett steg misslyckas, misslyckas transaktionen. |
+| OrchestrationSteps | 1:n | En orchestration-sekvens som måste följas för en lyckad transaktion. Varje användarresa består av en sorterad lista över orchestration-steg som utförs i följd. Om ett steg misslyckas, misslyckas transaktionen. |
 
 ## <a name="orchestrationsteps"></a>OrchestrationSteps
 
@@ -57,7 +57,7 @@ Den **OrchestrationSteps** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| OrchestrationStep | 1: n | En ordnad orchestration-steg. | 
+| OrchestrationStep | 1:n | En ordnad orchestration-steg. | 
 
 Den **OrchestrationStep** elementet innehåller följande attribut:
 
@@ -99,7 +99,7 @@ Den **Förhandsvillkoret** element innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Värde | 1: n | En ClaimTypeReferenceId ska efterfrågas för. Ett annat värde element innehåller värdet som ska kontrolleras.</li></ul>|
+| Värde | 1:n | En ClaimTypeReferenceId ska efterfrågas för. Ett annat värde element innehåller värdet som ska kontrolleras.</li></ul>|
 | Åtgärd | 1:1 | Den åtgärd som ska utföras om villkor som kontrollerar inom en orkestreringssteget är true. Om värdet för den `Action` är inställd på `SkipThisOrchestrationStep`, den associerade `OrchestrationStep` inte ska köras. | 
 
 ### <a name="preconditions-examples"></a>Exempel på villkor

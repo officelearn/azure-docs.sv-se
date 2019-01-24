@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: caa877a265fb8665e062cc0069247bca0994c4bf
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041188"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857105"
 ---
 # <a name="embed-a-report-in-power-bi-workspace-collections"></a>Bädda in en rapport i Power BI-Arbetsytesamlingar
 
@@ -84,7 +84,7 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 
 Power BI-Arbetsytesamlingar Använd inbäddningstokens som HMAC signeras JSON Web token. Token är signerade med åtkomstnyckeln från din Power BI-Arbetsytesamling. Inbäddningstokens som standard, som används för att ge skrivskyddad åtkomst till en rapport för att bädda in i ett program. Bädda in token utfärdas för en viss rapport och ska associeras med en inbäddad URL.
 
-Åtkomsttoken ska skapas på servern som åtkomstnycklar används för att logga/kryptera token. Information om hur du skapar en åtkomst-token finns i [autentisering och auktorisering med Power BI-Arbetsytesamlingar](app-token-flow.md). Du kan också granska den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) metod. Här är ett exempel på hur detta skulle se ut med .NET SDK för Power BI.
+Åtkomsttoken ska skapas på servern som åtkomstnycklar används för att logga/kryptera token. Information om hur du skapar en åtkomst-token finns i [autentisering och auktorisering med Power BI-Arbetsytesamlingar](app-token-flow.md). Du kan också granska den [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN) metod. Här är ett exempel på hur detta skulle se ut med .NET SDK för Power BI.
 
 Du kan använda rapport-ID som du hämtade tidigare. När en inbäddningstoken har skapats använder du sedan snabbtangenten för att generera token som du kan använda javascript-perspektiv. Den *PowerBIToken klass* kräver att du installerar den [Power BI Core NuGut paketet](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -147,12 +147,12 @@ Rapporten bäddas automatiskt baserat på storleken på dess behållare. Om du v
 
 [Komma igång med exemplet](get-started-sample.md)  
 [Autentisering och auktorisering i Power BI-arbetsytesamlingar](app-token-flow.md)  
-[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_)  
+[CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN)  
 [Inbäddat exempel med JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 [Power BI JavaScript-paketet](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet-paketet](https://www.nuget.org/profiles/powerbi)
 [Power BI Core NuGut paketet](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
-[Power BI-CSharp Git-lagringsplats](https://github.com/Microsoft/PowerBI-CSharp)  
+[PowerBI-CSharp Git Repo](https://github.com/Microsoft/PowerBI-CSharp)  
 [Power BI-noden Git-lagringsplats](https://github.com/Microsoft/PowerBI-Node)  
 
 Fler frågor? [Försök med Power BI Community](http://community.powerbi.com/)

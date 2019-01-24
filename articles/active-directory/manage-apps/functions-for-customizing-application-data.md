@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
-ms.openlocfilehash: 61aeb6a80d492a82dffa66491742899df0acc237
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.date: 01/21/2019
+ms.author: chmutali
+ms.openlocfilehash: 05be48817334dacac803eeccf2dc08e5a4bbd407
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470060"
+ms.locfileid: "54823684"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Skriva uttryck för attributmappningar i Azure Active Directory
 När du konfigurerar etablering till ett SaaS-program, är en av typerna av attributmappningar som du kan ange mappningen för en uttryck. För dessa, måste du skriva ett skript-liknande uttryck som hjälper dig att omvandla dina användares data till format som kan användas mer för SaaS-program.
@@ -37,7 +37,7 @@ Syntaxen för uttryck för attributmappningar är påminner om Visual Basic för
 * För strängkonstanter, om du behöver ett omvänt snedstreck (\) eller citattecken (”) i strängen är måste den föregås symbolen omvänt snedstreck (\). Exempel: ”Företagsnamn: \"Contoso\""
 
 ## <a name="list-of-functions"></a>Lista över funktioner
-[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch)
+[Lägg till](#append) &nbsp; &nbsp; &nbsp; &nbsp; [FormatDateTime](#formatdatetime) &nbsp; &nbsp; &nbsp; &nbsp; [ansluta](#join) &nbsp; &nbsp; &nbsp; &nbsp; [Mid](#mid) &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; [NormalizeDiacritics](#normalizediacritics) [inte](#not) &nbsp; &nbsp; &nbsp; &nbsp; [Ersätt](#replace) &nbsp; &nbsp; &nbsp; &nbsp; [SelectUniqueValue](#selectuniquevalue) &nbsp; &nbsp; &nbsp; &nbsp; [SingleAppRoleAssignment](#singleapproleassignment) &nbsp; &nbsp; &nbsp; &nbsp; [StripSpaces](#stripspaces) &nbsp; &nbsp; &nbsp; &nbsp; [Växel](#switch) &nbsp; &nbsp; &nbsp; &nbsp; [ToLower](#tolower) &nbsp; &nbsp; &nbsp; &nbsp; [ToUpper](#toupper)
 
 - - -
 ### <a name="append"></a>Lägg till
@@ -209,6 +209,32 @@ Ersätter värden i en sträng. Den fungerar på olika sätt beroende på parame
 | **nyckel** |Krävs |Sträng |**Nyckeln** att jämföra **källa** värde med. |
 | **värde** |Krävs |Sträng |Ersättningsvärdet för den **källa** matchar nyckeln. |
 
+- - -
+### <a name="tolower"></a>toLower
+**Funktionen:**<br> ToLower (källa, kultur)
+
+**Beskrivning:**<br> Tar en *källa* string-värdet och konverterar den till gemener med hjälp av kulturen regler som har angetts. Om det finns inga *kultur* information anges, och sedan använder den Invarianta kulturen.
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **kultur** |Valfri |Sträng |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
+
+- - -
+### <a name="toupper"></a>ToUpper
+**Funktionen:**<br> ToUpper (källa, kultur)
+
+**Beskrivning:**<br> Tar en *källa* string-värdet och konverterar den till versal med hjälp av kulturen regler som har angetts. Om det finns inga *kultur* information anges, och sedan använder den Invarianta kulturen.
+
+**Parametrar:**<br> 
+
+| Namn | Obligatoriskt / upprepande | Typ | Anteckningar |
+| --- | --- | --- | --- |
+| **Källa** |Krävs |Sträng |Vanligtvis namnet på attributet från källobjektet |
+| **kultur** |Valfri |Sträng |Formatet för kulturnamn baserat på RFC 4646 är *languagecode2-land/regioncode2*, där *languagecode2* är språkkod för två bokstäver och *land/regioncode2*är två bokstäver subkultur koden. Exempel är ja-JP för japanska (Japan) och en-US för engelska (USA). I fall där en språkkod för två bokstäver inte är tillgänglig används en kod med tre bokstäver härleds från ISO 639-2.|
+
 ## <a name="examples"></a>Exempel
 ### <a name="strip-known-domain-name"></a>Remsans kända domännamn
 Du måste ta bort ett känt domännamn från en användares e-post att hämta ett användarnamn. <br>
@@ -283,6 +309,18 @@ Om delstatskod inte matchar någon av de fördefinierade alternativ, använder d
 
 * **INDATA** (tillstånd): "QLD"
 * **OUTPUT**: ”Australien/Brisbane”
+
+### <a name="convert-generated-userprincipalname-upn-value-to-lower-case"></a>Konvertera genererade userPrincipalName (UPN) värdet till gemener
+
+I exemplet nedan UPN-värdet genereras genom att sammanfoga källfälten PreferredFirstName och PreferredLastName och ToLower-funktionen fungerar på genererade strängen att konvertera alla tecken till gemener. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Exempel indata/utdata:**
+
+* **INDATA** (PreferredFirstName): "John"
+* **INDATA** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Generera unikt värde för attributet userPrincipalName (UPN)
 

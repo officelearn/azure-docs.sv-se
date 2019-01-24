@@ -3,23 +3,23 @@ title: Begär åtkomsttoken i Azure Active Directory B2C | Microsoft Docs
 description: Den här artikeln visar hur du konfigurera ett klientprogram och hämta en åtkomsttoken.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2043e0fc9fa63903073311856e7e8d31fb34c506
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f3db56c7ce61960fca0e5347b2385bcc65a88354
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015357"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845154"
 ---
-# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomsttoken
+# <a name="azure-ad-b2c-requesting-access-tokens"></a>Azure AD B2C: Begär åtkomsttokens
 
-En åtkomsttoken (betecknas som **åtkomst\_token** i svar från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att få åtkomst till resurser som skyddas av en [auktoriseringsservern](active-directory-b2c-reference-protocols.md), till exempel ett webb-API. Åtkomsttoken visas i form av [JWTs](active-directory-b2c-reference-tokens.md) och innehåller information om den avsedda resursservern och beviljade behörigheter till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
+Ett åtkomsttoken (betecknas som **åtkomst\_token** i svaret från Azure AD B2C) är en typ av säkerhetstoken som en klient kan använda för att få åtkomst till resurser som skyddas av en [auktoriseringsserver](active-directory-b2c-reference-protocols.md), till exempel ett webb-API. Åtkomsttoken visas i form av flera [JWT](active-directory-b2c-reference-tokens.md) och innehåller information om den avsedda resursservern och beviljade behörigheter till servern. När du anropar resursservern måste åtkomsttoken finnas i HTTP-begäran.
 
 Den här artikeln beskriver hur du konfigurerar ett klientprogram och ett webb-API för att få ett **åtkomst\_token**.
 
@@ -73,7 +73,7 @@ När ett API har konfigurerats för att publicera scopes, måste klientprogramme
 
 ## <a name="requesting-a-token"></a>Begära ett token
 
-När du begär en åtkomsttoken klientprogrammet måste ange de önskade behörigheterna i den **omfång** parameter för begäran. Till exempel vill ange den **Omfattningsvärde** ”läsa” för API som har den **Appidentitets-URI** av `https://contoso.onmicrosoft.com/notes`, omfattningen skulle vara `https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om godkännande för kod till den `/authorize` slutpunkt.
+När du begär ett åtkomsttoken måste klientprogrammet ange de önskade behörigheterna i begärans **scope** parameter. För att exempelvis ange **Scope value** ”läsa” för ett API som har en **App ID URI** som är `https://contoso.onmicrosoft.com/notes`, skulle scopet vara`https://contoso.onmicrosoft.com/notes/read`. Nedan visas ett exempel på en begäran om en auktorisationskod till endpointen `/authorize`.
 
 > [!NOTE]
 > Anpassade domäner stöds för närvarande inte tillsammans med åtkomsttoken. Du måste använda domänen tenantName.onmicrosoft.com i fråge-URL:et.
@@ -105,19 +105,19 @@ Du kan begära fler områden (behörigheter) för en resurs än vad som har bevi
 
 OpenID Connect-standarden specificerar flera särskilda "scope"-värden. Följande särskilda scopes representerar behörigheten ”åtkomst till användarens profil”:
 
-* **openid**: detta begär en ID-token
-* **offline\_åtkomst**: detta kräver ett uppdateringstoken (med hjälp av [Auth kod flöden](active-directory-b2c-reference-oauth-code.md)).
+* **openid**: Detta begär en ID-token
+* **offline\_åtkomst**: Detta begär en uppdateringstoken (med hjälp av [Auth kod flödar](active-directory-b2c-reference-oauth-code.md)).
 
 Om den `response_type` parameter i en `/authorize` begäran innehåller `token`, `scope` parameter måste innehålla minst en resurs omfång (annat än `openid` och `offline_access`) som kommer att beviljas. I annat fall den `/authorize` förfrågan avslutas med ett fel.
 
 ## <a name="the-returned-token"></a>Den returnerade token
 
-I en har minted **åtkomst\_token** (antingen från den `/authorize` eller `/token` slutpunkt), följande anspråken kommer att finnas:
+Följande begäran kommer att finnas tillgängliga vid ett lyckat nyskapande av **åtkomst\_token** (antingen från `/authorize` eller `/token` enpointen):
 
 | Namn | Begäran | Beskrivning |
 | --- | --- | --- |
 |Målgrupp |`aud` |Det **application ID** för den enda resurs som detta token ger åtkomst till. |
-|Omfång |`scp` |Behörigheterna för resursen. Flera beviljade behörigheter ska avgränsas med blanksteg. |
+|Scope |`scp` |Behörigheterna för resursen. Flera beviljade behörigheter kommer att avgränsas med blanksteg. |
 |Behörig part |`azp` |Det **program-ID** hos klientprogrammet som initierade begäran. |
 
 När ditt API tar emot ett **åtkomst\_token**, måste det [Validera detta token](active-directory-b2c-reference-tokens.md) för att bevisa att detta token är autentiskt och har rätt att göra anspråk (claims).

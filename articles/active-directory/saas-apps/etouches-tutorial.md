@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med etouches | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med etouches | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och etouches.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 76cccaa8-859c-4c16-9d1d-8a6496fc7520
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: 6850763aa13e30265ca055482917edd28e4759d6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7e4dcc91ecafab6fc0b7864658b0f7724ec04bf2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425045"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813924"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Självstudier: Azure Active Directory-integration med etouches
+# <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Självstudier: Azure Active Directory-integrering med etouches
 
 I den här självstudien får du lära dig hur du integrerar etouches med Azure Active Directory (AD Azure).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med etouches, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ För att konfigurera integrering av etouches i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till etouches från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ För att konfigurera integrering av etouches i Azure AD, som du behöver lägga 
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av etouches i Azure AD, som du behöver lägga 
 
     ![etouches i resultatlistan](./media/etouches-tutorial/tutorial_etouches_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med etouches baserat på en testanvändare som kallas ”Britta Simon”.
 
 För enkel inloggning att fungera, behöver Azure AD du veta vad användaren motsvarighet i etouches är till en användare i Azure AD. Med andra ord måste en länk relationen mellan en Azure AD-användare och relaterade användaren i etouches upprättas.
@@ -85,13 +85,13 @@ I etouches, tilldela värdet för den **användarnamn** i Azure AD som värde f�
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med etouches, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare etouches](#create-an-etouches-test-user)**  – du har en motsvarighet för Britta Simon i etouches som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt etouches program.
 
@@ -109,15 +109,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![etouches domän och URL: er med enkel inloggning för information](./media/etouches-tutorial/tutorial_etouches_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://www.eiseverywhere.com/saml/accounts/?sso&accountid=<ACCOUNTID>`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.eiseverywhere.com/<instance name>`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.eiseverywhere.com/<instance name>`
 
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du kan uppdatera värdet med faktiska inloggnings-URL och identifierare som beskrivs senare i självstudien.
     > 
 
-1. etouches program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** av programmet. Följande skärmbild visar ett exempel för detta. 
+1. etouches program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **användarattribut** av programmet. Följande skärmbild visar ett exempel på detta. 
 
     ![Användarattribut](./media/etouches-tutorial/tutorial_etouches_attribute.png) 
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |
-    | E-post | User.Mail |    
+    | E-post | user.mail |    
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Lägg till attribut-dialogrutan](./media/etouches-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     c. Från den **värdet** anger attributvärdet som visas för den raden.
     
@@ -145,7 +145,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/etouches-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/etouches-tutorial/tutorial_general_400.png)
 
 1. Utför följande steg för att få SSO konfigurerats för ditt program i etouches programmet: 
 
@@ -170,7 +170,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     i. Kopiera den **URL för enkel inloggning / ACS** värde och klistra in den i den **inloggnings-URL** textrutan, som finns i **etouches domän och URL: er** avsnittet på Azure-portalen.
    
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
@@ -186,7 +186,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/etouches-tutorial/create_aaduser_02.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/etouches-tutorial/create_aaduser_02.png) 
 
 1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
@@ -194,7 +194,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. På den **användaren** dialogrutan utför följande steg:
  
-    ![Dialogrutan användare](./media/etouches-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](./media/etouches-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textrutan typ **BrittaSimon**.
 

@@ -4,7 +4,7 @@ description: Administratörshandboken att använda Atlassians Jira och växer sa
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 65649c3fdc11d74b5888b26b81ae85e10f2788bd
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 77aba012d4e8d333d6f57f8f6a7a12927e6a35ec
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426884"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820554"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Atlassians Jira och växer samman administratörshandboken för Azure Active Directory
 
@@ -67,23 +67,23 @@ Observera följande innan du installerar plugin-programmet:
 
 Plugin-programmet stöder följande versioner av Jira och växer samman:
 
-* Jira Core- och programvara: 6.0 7,12
-* Jira-supporten: 3.0.0 till 3.5.0
-* JIRA stöder också 5.2. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Antal samverkande: 5.0 till 5.10
-* Antal samverkande: 6.0.1
-* Antal samverkande: 6.1.1
-* Antal samverkande: 6.2.1
-* Antal samverkande: 6.3.4
-* Antal samverkande: 6.4.0
-* Antal samverkande: 6.5.0
-* Antal samverkande: 6.6.2
-* Antal samverkande: 6.7.0
-* Antal samverkande: 6.8.1
-* Antal samverkande: 6.9.0
-* Antal samverkande: 6.10.0
-* Antal samverkande: 6.11.0
-* Antal samverkande: 6.12.0
+* Jira Core- och programvara: 6.0 till 7.12
+* Jira-supporten: 3.0.0 3.5.0
+* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
+* Confluence: 5.0 till 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ## <a name="installation"></a>Installation
 
@@ -109,39 +109,39 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
 ![Plugin-programmet konfigurationsskärmen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata-URL**: URL: en att hämta federationsmetadata från Azure AD.
+*   **Metadata-URL**: URL till hämta federationsmetadata från Azure AD.
 
-*   **Identifierare**: URL: en Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/.
+*   **Identifierare**: Den URL som Azure AD använder för att verifiera källan för begäran. Det mappas till den **identifierare** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/.
 
-*   **Svars-URL**: svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+*   **Svars-URL**: Svars-URL i din identitetsprovider (IdP) som initierar SAML-inloggningen. Det mappas till den **svars-URL** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
 
-*   **Inloggning på URL: en**: inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
+*   **Inloggnings-URL**: Inloggnings-URL: en i IDP: N som initierar SAML-inloggningen. Det mappas till den **inloggning** element i Azure AD. Plugin-programmet automatiskt kommer den här URL: en som https://*< domän: port >*/plugins/servlet/saml/auth.
 
-*   **IdP entitets-ID**: entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
+*   **IdP entitets-ID**: Entitets-ID som IDP: N använder. Den här rutan fylls när metadata-URL har åtgärdats.
 
 *   **Inloggnings-URL**: Logga in URL: en från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
 *   **URL för utloggning**: URL för utloggning från IDP: N. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
-*   **X.509-certifikat**: Your IdP X.509-certifikat. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
+*   **X.509-certifikat**: Din IdP X.509-certifikat. Den här rutan är ifylld från Azure AD när metadata-URL har åtgärdats.
 
-*   **Knappen inloggningsnamn**: namnet på knappen Logga in som organisationen vill att användarna ska se på sidan logga in.
+*   **Knappen inloggningsnamn**: Namnet på knappen Logga in som organisationen vill att användarna ska se på sidan logga in.
 
-*   **SAML-ID användarplatser**: den plats där användar-ID Jira eller växer samman förväntas i SAML-svar. Det kan vara i **NameID** eller i en anpassade attributets namn.
+*   **SAML-ID användarplatser**: Den plats där användar-ID Jira eller växer samman förväntas i SAML-svar. Det kan vara i **NameID** eller i en anpassade attributets namn.
 
-*   **Attributnamn**: namnet på det attribut som där användar-ID förväntas.
+*   **Attributnamn**: Namnet på attributet som där användar-ID förväntas.
 
-*   **Aktivera identifiering av startsfär**: alternativet att göra om företaget använder Active Directory Federation Services (AD FS) - baserad inloggning - i.
+*   **Aktivera Start sfär identifiering**: Valet att göra om företaget använder Active Directory Federation Services (AD FS) - baserad inloggning - i.
 
-*   **Domännamn**: domännamnet om inloggningen är AD FS-baserade.
+*   **Domännamn**: Domännamnet är om inloggning AD FS-baserade.
 
-*   **Aktivera enkel utloggning**: valet för att göra om du vill logga ut från Azure AD när en användare loggar ut från Jira eller växer samman.
+*   **Aktivera enkel utloggning**: Valet för att göra om du vill logga ut från Azure AD när en användare loggar ut från Jira eller växer samman.
 
 ## <a name="troubleshooting"></a>Felsökning
 
 * **Du får flera certifikatfel**: Logga in på Azure AD och ta bort flera certifikat som är tillgängliga mot appen. Kontrollera att bara ett certifikat finns.
 
-* **Ett certifikat som snart upphör att gälla i Azure AD**: tillägg tar hand om automatisk förnyelse av certifikatet. När ett certifikat upphör snart att gälla, ett nytt certifikat ska markeras som aktiv och bör tas bort oanvända certifikat. När en användare försöker logga in på Jira i det här scenariot, plugin-programmet hämtar och sparar det nya certifikatet.
+* **Ett certifikat som snart upphör att gälla i Azure AD**: Tillägg hand tar om automatisk förnyelse av certifikatet. När ett certifikat upphör snart att gälla, ett nytt certifikat ska markeras som aktiv och bör tas bort oanvända certifikat. När en användare försöker logga in på Jira i det här scenariot, plugin-programmet hämtar och sparar det nya certifikatet.
 
 * **Vill du inaktivera WebSudo (inaktivera säker administratör-session)**:
 
@@ -155,13 +155,13 @@ Följande bild visar konfigurationsskärmen i både Jira och växer samman:
 
   * Ange URL: en i en webbläsare och se om du får federationsmetadata XML.
 
-* **Det finns ett internt serverfel**: granska loggarna i loggkatalogen av installationen. Om du får felet när användaren försöker logga in med enkel inloggning för Azure AD, kan du dela loggarna med supporten.
+* **Det finns ett internt serverfel**: Granska loggarna i loggkatalogen av installationen. Om du får felet när användaren försöker logga in med enkel inloggning för Azure AD, kan du dela loggarna med supporten.
 
-* **Det finns ett ”användar-ID hittades inte”-fel när användaren försöker att logga in**: skapa användar-ID i Jira eller växer samman.
+* **Det finns ett ”användar-ID hittades inte”-fel när användaren försöker att logga in**: Skapa användar-ID i Jira eller växer samman.
 
-* **Det finns ett ”appen kan inte hittas”-fel i Azure AD**: se om lämplig Webbadress är mappad till appen i Azure AD.
+* **Det finns ett ”appen kan inte hittas”-fel i Azure AD**: Se om lämplig Webbadress är mappad till appen i Azure AD.
 
-* **Du behöver support**: Kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Teamet svarar i 24 – 48 kontorstid.
+* **Du behöver support**: Nå ut till den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Teamet svarar i 24 – 48 kontorstid.
 
   Du kan också medföra ett supportärende hos Microsoft via Azure portal-kanalen.
 
@@ -185,23 +185,23 @@ Nej. Plugin-programmet stöder endast lokala versioner av Jira och växer samman
 
 Plugin-programmet stöder följande versioner:
 
-* Jira Core- och programvara: 6.0 7,12
-* Jira-supporten: 3.0.0 till 3.5.0
-* JIRA stöder också 5.2. Mer information klickar du på [Microsoft Azure Active Directory enkel inloggning för JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)
-* Antal samverkande: 5.0 till 5.10
-* Antal samverkande: 6.0.1
-* Antal samverkande: 6.1.1
-* Antal samverkande: 6.2.1
-* Antal samverkande: 6.3.4
-* Antal samverkande: 6.4.0
-* Antal samverkande: 6.5.0
-* Antal samverkande: 6.6.2
-* Antal samverkande: 6.7.0
-* Antal samverkande: 6.8.1
-* Antal samverkande: 6.9.0
-* Antal samverkande: 6.10.0
-* Antal samverkande: 6.11.0
-* Antal samverkande: 6.12.0
+* Jira Core- och programvara: 6.0 till 7.12
+* Jira-supporten: 3.0.0 3.5.0
+* JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
+* Confluence: 5.0 till 5.10
+* Confluence: 6.0.1
+* Confluence: 6.1.1
+* Confluence: 6.2.1
+* Confluence: 6.3.4
+* Confluence: 6.4.0
+* Confluence: 6.5.0
+* Confluence: 6.6.2
+* Confluence: 6.7.0
+* Confluence: 6.8.1
+* Confluence: 6.9.0
+* Confluence: 6.10.0
+* Confluence: 6.11.0
+* Confluence: 6.12.0
 
 ### <a name="is-the-plug-in-free-or-paid"></a>Är plugin-programmet kostnadsfri eller betald?
 

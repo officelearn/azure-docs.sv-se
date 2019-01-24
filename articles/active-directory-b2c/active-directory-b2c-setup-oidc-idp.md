@@ -3,24 +3,24 @@ title: Konfigurera registrering och inloggning med OpenID Connect med hjälp av 
 description: Konfigurera registrering och inloggning med OpenID Connect med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6fc9ded2b3509f9505d88f0ae7ccc790e47b0f2
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 9f6b65a4253b9cc7c04f397dde7ecab9a64d5ae0
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52842772"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845987"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med hjälp av Azure Active Directory B2C
 
 >[!NOTE]
-> Den här funktionen är i offentlig förhandsversion. Använd inte funktionen i produktionsmiljöer.
+> Den här funktionen är en allmänt tillgänglig förhandsversion. Använd inte funktionen i produktionsmiljöer.
 
 
 [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) är ett autentiseringsprotokoll som bygger på OAuth 2.0, som kan användas för säker inloggning av användare. De flesta identitetsleverantörer som använder detta protokoll, exempelvis [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), stöds i Azure AD B2C. Den här artikeln förklarar hur du kan lägga till anpassad OpenID Connect Identitetsproviders i dina användarflöden.
@@ -48,13 +48,13 @@ Omfång definierar den information och behörigheter som du vill samla in från 
 Svarstypen beskriver vilken typ av information skickas tillbaka i det första anropet till den `authorization_endpoint` för den anpassade identitetsprovidern. Du kan använda följande svarstyper av:
 
 - `code`: Enligt den [auktoriseringskodflödet](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth), returneras en kod till Azure AD B2C. Azure AD B2C fortsätter att anropa den `token_endpoint` att byta ut koden för token.
-- `token`: En åtkomst-token returneras från den anpassade identitetsprovidern tillbaka till Azure AD B2C.
+- `token`: Tillbaka till Azure AD B2C returneras en åtkomsttoken från den anpassade identitetsprovidern.
 - `id_token`: Ett ID-token som returneras från den anpassade identitetsprovidern tillbaka till Azure AD B2C.
 
 Svarsläget definierar den metod som ska användas för att skicka data från den anpassade identitetsprovidern till Azure AD B2C. Du kan använda följande svar lägen:
 
-- `form_post`: Det här Svarsläge rekommenderas för bästa säkerhet. Svaret skickas via HTTP `POST` metod med kod eller token som kodas i brödtexten med den `application/x-www-form-urlencoded` format.
-- `query`: Den kod eller token returneras som en frågeparameter.
+- `form_post`: Den här Svarsläge rekommenderas för bästa säkerhet. Svaret skickas via HTTP `POST` metod med kod eller token som kodas i brödtexten med den `application/x-www-form-urlencoded` format.
+- `query`: Kod eller token returneras som en frågeparameter.
 
 Tips för domänen kan användas för att gå direkt till inloggningssidan för den angivna identitetsprovidern, i stället för att användaren gör ett val i listan över tillgängliga identitetsprovidrar. Om du vill tillåta den här typen av beteende, ange ett värde för tips för domänen. Om du vill gå direkt till den anpassade identitetsprovidern, lägger du till parametern `domain_hint=<domain hint value>` i slutet av din begäran när du anropar Azure AD B2C för inloggning.
 

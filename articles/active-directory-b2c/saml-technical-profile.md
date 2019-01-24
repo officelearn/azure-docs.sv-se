@@ -3,19 +3,19 @@ title: Definiera en tekniska SAML-profilen i en anpassad princip i Azure Active 
 description: Definiera en tekniska SAML-profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff9d51a96335af110aa0377c7db57ae665c44893
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0efe78fa994353e7fd64d9954d07a0731685fa60
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970533"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856539"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en tekniska SAML-profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ ms.locfileid: "53970533"
 
 Azure Active Directory (Azure AD) B2C har stöd för SAML 2.0-identitetsprovider. Den här artikeln beskriver specifika för den tekniska profilen för att interagera med en anspråksprovider som stöder detta standardiserade protokoll. Med tekniska SAML-profilen du federera med en SAML-baserad identitetsprovider som [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) och [Salesforce](active-directory-b2c-setup-sf-app-custom.md). Den här federationstjänsten kan användarna logga in med sina befintliga sociala eller företagsidentiteter.
 
-## <a name="metadata-exchange"></a>Metadata för exchange
+## <a name="metadata-exchange"></a>Metadata exchange
 
 Metadata är information som används i SAML-protokoll för att exponera konfigurationen av en SAML-part, till exempel en tjänstleverantör eller identitetsprovider. Metadata definierar platsen för tjänster, till exempel inloggning och utloggning, certifikat och inloggningsmetod. Identitetsprovidern använder metadata kunna kommunicera med Azure AD B2C. Metadata har konfigurerats i XML-format och kan signeras digitalt så att den andra parten kan validera integriteten för metadata. När Azure AD B2C federerar med en SAML-identitetsprovider, fungerar den som en tjänsteleverantör initiera en SAML-begäran och väntar på en SAML-svar. Och i vissa fall, accepterar du oombedda SAML-autentisering, som även kallas identitetsprovider initieras. 
 

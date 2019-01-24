@@ -1,11 +1,11 @@
 ---
-title: 'Självstudiekurs: Konfigurera GitHub för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera GitHub för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till GitHub.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: cf66a257ef176ab6f8d58ab558d2582a811609a4
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 7d24e11a0361e5f01e688179680587131eedc01a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166565"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823818"
 ---
-# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudiekurs: Konfigurera GitHub för automatisk användaretablering
+# <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>Självstudier: Konfigurera GitHub för automatisk användaretablering
 
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i GitHub och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till GitHub. 
@@ -80,7 +80,7 @@ Det här avsnittet hjälper dig att ansluta din Azure AD till GitHub-användarko
 
     ![Dialogrutan för auktorisering](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Azure-portalen anger **klient-URL** och klicka på **Testanslutningen** att se till att Azure AD kan ansluta till din GitHub-app. Om anslutningen misslyckas se till att ditt GitHub-konto har administratörsbehörighet och **klient-URl** är inputted korrekt och försök igen ”auktorisera” steg (du kan utgöra **klient-URL** av regel: `https://api.github.com/scim/v2/organizations/<Organization_name>` , du kan hitta din organisationer under ditt GitHub-konto: **Inställningar för** > **organisationer**).
+7. Azure-portalen anger **klient-URL** och klicka på **Testanslutningen** att se till att Azure AD kan ansluta till din GitHub-app. Om anslutningen misslyckas se till att ditt GitHub-konto har administratörsbehörighet och **klient-URl** är inputted korrekt och försök igen ”auktorisera” steg (du kan utgöra **klient-URL** av regel: `https://api.github.com/scim/v2/organizations/<Organization_name>` , du kan hitta din organisationer under ditt GitHub-konto: **Settings** > **Organizations**).
 
     ![Dialogrutan för auktorisering](./media/github-provisioning-tutorial/GitHub3.png)
 

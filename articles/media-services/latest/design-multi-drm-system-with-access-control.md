@@ -1,5 +1,5 @@
 ---
-title: Designen av ett system med multi-DRM innehållsskydd med fjärråtkomst - kontroll i Azure Media Services | Microsoft Docs
+title: Designen av ett system med multi-DRM innehållsskydd med access control - Azure Media Services | Microsoft Docs
 description: Läs mer om licensiering av Microsoft Smooth Streaming-klienten porta Kit.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 3e9909de5ec05710214279357134112804ab4ceb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 40e7f257df41fa4836b9df692be48a4b6c57fc80
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54191249"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813006"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Designen av ett system med multi-DRM innehållsskydd med åtkomstkontroll 
 
@@ -145,7 +145,7 @@ I följande tabell visar mappningen.
 | **Nyckelhantering** |Inte behövs för referensimplementering |
 | **Innehållshantering** |En C#-konsolprogram |
 
-Med andra ord tillhandahålls både IDP och STS av Azure AD. Den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Azure Media Services och Azure Media Player stöd för CENC över DASH, FairPlay med HLS, PlayReady med smooth streaming och AES-128-kryptering för DASH, HLS och smooth.
+Med andra ord tillhandahålls både IDP och STS av Azure AD. Den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/) används för spelaren. Både Azure Media Services och Azure Media Player stöder CENC över DASH, FairPlay med HLS, PlayReady med smooth streaming och AES-128-kryptering för DASH, HLS och smooth.
 
 Följande diagram visar övergripande struktur och flödet med föregående teknik mappningen:
 
@@ -247,7 +247,7 @@ Använd följande felsökningsinformation om du behöver hjälp med problem med 
 
 * Bevilja gruppmedlemskap anspråk privilegier. Kontrollera att följande finns i Azure AD program-manifestfilen: 
 
-    ”groupMembershipClaims”: ”Alla” (standardvärdet är null)
+    "groupMembershipClaims": ”Alla” (standardvärdet är null)
 
 * Ange rätt TokenType när du skapar begränsning av krav.
 

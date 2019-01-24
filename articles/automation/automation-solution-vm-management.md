@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 10/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f1ed355e7df6a58096743fd57ca1cbc65578d285
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439144"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846191"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -59,7 +59,7 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
    ![Lösning för virtuell dator lägger du till sidan](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
 4. På den **lägga till lösning** väljer **arbetsytan**. Välj en Log Analytics-arbetsyta som är länkad till samma Azure-prenumeration som Automation-kontot. Om du inte har en arbetsyta, väljer **Skapa ny arbetsyta**. På den **Log Analytics-arbetsytan** utför följande steg:
-   - Ange ett namn för den nya **Log Analytics-arbetsytan**.
+   - Ange ett namn för den nya **Log Analytics-arbetsytan**, till exempel ”ContosoLAWorkspace”.
    - Välj en **prenumeration** att länka till genom att välja från listrutan om standardvalet inte är lämpligt.
    - För **resursgrupp**, du kan skapa en ny resursgrupp eller välj en befintlig.
    - Välj en **Plats**. För närvarande endast tillgängliga regionerna är **Australien, sydöstra**, **centrala**, **centrala Indien**, **USA, östra**, **Östra japan**, **Sydostasien**, **Storbritannien, södra**, och **Västeuropa**.

@@ -4,7 +4,7 @@ description: Beskriv de Azure AD-inloggningen log-schemat för användning i Azu
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0c44501a483b9a988c3ef048d12455eb3e5ae337
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2957cd12fb6ef37b3e120b90b1500c6a43bb3e04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546407"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813431"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Tolka Azure AD-inloggningen loggar schemat i Azure Monitor (förhandsversion)
 
@@ -153,16 +153,16 @@ Den här artikeln beskrivs Azure Active Directory (Azure AD)-inloggningen log sc
 | Fältnamn | Beskrivning |
 |------------|-------------|
 | Tid | Datum och tid i UTC. |
-| Resurs-ID | Det här värdet är omappade och du kan ignorera det här fältet.  |
+| ResourceId | Det här värdet är omappade och du kan ignorera det här fältet.  |
 | OperationName | För inloggningar, det här värdet är alltid *inloggningsaktivitet*. |
-| operationVersion | REST API-versionen som begärs av klienten. |
+| OperationVersion | REST API-versionen som begärs av klienten. |
 | Kategori | För inloggningar, det här värdet är alltid *inloggning från*. | 
 | TenantId | Klient-GUID som är associerat med loggarna. |
 | resultType | Resultatet av åtgärden logga in kan vara *lyckades* eller *fel*. | 
-| resultSignature | Innehåller felkoden för inloggning igen. |
+| ResultSignature | Innehåller felkoden för inloggning igen. |
 | ResultDescription | Innehåller felbeskrivningen för logga in igen. |
 | . durationMs |  Det här värdet är omappade och du kan ignorera det här fältet.|
-| callerIpAddress | IP-adressen för klienten som gjorde begäran. | 
+| CallerIpAddress | IP-adressen för klienten som gjorde begäran. | 
 | CorrelationId | Valfritt GUID som skickades av klienten. Det här värdet kan hjälpa att korrelera klientsidan åtgärder med serversidan operations och det är användbart när du följer upp loggar som sträcker sig över tjänster. |
 | Identitet | Identiteten från den token som angavs när du gjorde begäran. Det kan vara ett användarkonto, system-kontot eller tjänstens huvudnamn. |
 | Nivå | Tillhandahåller typ av meddelande. För granskning, är det alltid *information*. |

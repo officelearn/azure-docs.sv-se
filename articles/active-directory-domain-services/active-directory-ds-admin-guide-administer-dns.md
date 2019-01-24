@@ -4,7 +4,7 @@ description: Administrera DNS på hanterade domäner i Azure Active Directory Do
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 0fd6058e95b941591f5cc71bf916c7d201fcfa54
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155311"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855932"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Administrera DNS på en Azure AD Domain Services-hanterad domän
 Azure Active Directory Domain Services innehåller en DNS (Domain Name Resolution)-server som tillhandahåller DNS-matchning för den hanterade domänen. Ibland kan behöva du konfigurera DNS på den hanterade domänen. Du kan behöva skapa DNS-poster för datorer som inte är anslutna till domänen, konfigurera den virtuella IP-adresser för belastningsutjämnare eller konfigurera externa DNS-vidarebefordrare. Därför måste beviljas användare som tillhör gruppen ”AAD DC-administratörer” DNS administratörsbehörighet för den hanterade domänen.

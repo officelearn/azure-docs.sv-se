@@ -3,29 +3,29 @@ title: Azure Storage-köer och Service Bus-köer jämförelser och skillnader | 
 description: Analyserar skillnader och likheter mellan två olika sorters köerna som erbjuds av Azure.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 09/05/2018
-ms.author: spelluru
-ms.openlocfilehash: 0254762de49f37c591a7847fe9b40b3ecbabe1bd
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: c59d79a7c6ac0590861c99daa01438b184cd71ff
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261068"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852804"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Storage-köer och Service Bus-köer – jämförelser och skillnader
 Den här artikeln analyserar både skillnader och likheter mellan de två typerna av köer som erbjuds av Microsoft Azure idag: Storage-köer och Service Bus-köer. Med hjälp av informationen kan du jämföra de olika teknikerna och fatta klokare beslut när du ska avgöra vilken lösning som passar dig bäst.
 
 ## <a name="introduction"></a>Introduktion
-Azure stöder två typer av kön mekanismer: **lagringsköer** och **Service Bus-köer**.
+Azure stöder två typer av kön mekanismer: **Lagringsköer** och **Service Bus-köer**.
 
 **Lagringsköer**, vilket är en del av den [Azure storage](https://azure.microsoft.com/services/storage/) infrastruktur, funktionen ett enkelt REST-baserad GET/PUT/PEEK-gränssnitt för att tillhandahålla pålitlig, beständig meddelandetrafik inom och mellan tjänster.
 
@@ -152,9 +152,9 @@ Det här avsnittet jämför hanteringsfunktionerna som tillhandahålls av Storag
 | Management-protokollet |**REST-via HTTP/HTTPS** |**REST-över HTTPS** |
 | Runtime-protokollet |**REST-via HTTP/HTTPS** |**REST-över HTTPS**<br/><br/>**AMQP 1.0 Standard (TCP med TLS)** |
 | .NET-API |**Ja**<br/><br/>(.NET Lagringsklient-API) |**Ja**<br/><br/>(.NET Service Bus API) |
-| Interna C++ |**Ja** |**Ja** |
+| Native C++ |**Ja** |**Ja** |
 | Java-API |**Ja** |**Ja** |
-| PHP-API |**Ja** |**Ja** |
+| PHP API |**Ja** |**Ja** |
 | Node.js API |**Ja** |**Ja** |
 | Stöd för valfria metadata |**Ja** |**Nej** |
 | Regler för namngivning av kön |**Upp till 63 tecken**<br/><br/>(Bokstäver i ett könamn måste vara versaler.) |**Upp till 260 tecken**<br/><br/>(Kö sökvägar och namn är skiftlägesokänsliga.) |

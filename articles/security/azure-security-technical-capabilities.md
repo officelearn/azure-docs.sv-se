@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c74c208e77539833c2bc5e1323713191e29aec64
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249038"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820248"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 
@@ -41,7 +41,7 @@ Med Microsoft Azure kan du:
 
 - Skydda sin verksamhet.
 
-## <a name="scope"></a>Omfång
+## <a name="scope"></a>Scope
 
 I centrum av detta White Paper gäller säkerhetsfunktioner och funktioner som stöder kärnkomponenterna i Microsoft Azure, nämligen [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [ Modellen för Microsoft Azure VM](https://docs.microsoft.com/azure/virtual-machines/), och de verktyg och infrastruktur som hanterar allt. Den här vitboken fokus på Microsoft Azure tekniska funktioner tillgängliga för dig som kunder att uppfylla deras roll i att skydda säkerheten och sekretessen för sina data.
 
@@ -91,7 +91,7 @@ Här följer kärnfunktioner Azure Identity management:
 
 - Enhetsregistrering
 
-- Privileged identity management
+- Privileged Identity Management
 
 - Identitetsskydd
 
@@ -139,7 +139,7 @@ När du använder Azure Active Directory B2C kan kan dina användare registrera 
 
 När de kombineras med en [hantering av mobilenheter (MDM)](https://www.microsoft.com/itshowcase/Article/Content/588/Mobile-device-management-at-Microsoft) lösning, till exempel Intune, enhetens egenskaper i Azure Active Directory har uppdaterats med ytterligare information om enheten. På så sätt kan du skapa regler för villkorlig åtkomst som säkerställer att åtkomsten från enheter uppfyller dina säkerhets- och efterlevnadskrav.
 
-#### <a name="privileged-identity-management"></a>Privileged identity management
+#### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 [Azure Active Directory (AD) Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) kan du hantera, styr, och övervaka Privilegierade identiteter och åtkomst till resurser i Azure AD samt andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.
 
@@ -179,9 +179,9 @@ Med hjälp av RBAC kan du hålla isär uppgifter i ditt team och bevilja endast 
 
 En av nycklarna för dataskydd i molnet redovisning för möjliga tillstånd som kan uppstå i dina data och vilka kontroller som finns för det aktuella tillståndet. Azure data säkerhet och kryptering Metodtips för vara rekommendationerna kring följande data tillstånd.
 
-- I vila: Detta innehåller all information som lagringsobjekt, behållare och typer som statiskt finns på fysiska media som ska vara den magnetiska eller optisk disk.
+- At-rest: Detta omfattar all information som lagringsobjekt, behållare och typer som statiskt finns på fysiska media som ska vara den magnetiska eller optisk disk.
 
-- Under överföring: När data överförs mellan komponenter, platser eller program, till exempel som över nätverket, i en service bus (från lokal plats till molnet och tvärtom, inklusive hybridanslutningar, till exempel ExpressRoute), eller under en in-/ utdata-process , det är betraktas som i rörelse.
+- Under överföring: När data överförs mellan komponenter, platser eller program, till exempel över nätverket, i ett service bus (från lokal plats till molnet och tvärtom, inklusive hybridanslutningar, till exempel ExpressRoute), eller under en in-/ utdata-process är det ansedda av som i rörelse.
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
@@ -248,7 +248,7 @@ Om du stöder Kundhanterade nycklar, måste du tillhandahålla en UX för kunden
 
 Kryptering i vila innebär krypteringen av värden, infrastruktur- och klienttrafik data, förlust av nycklar på grund av systemfel eller skadlig aktivitet kan innebära alla krypterade data förloras. Det är därför viktigt att din kryptering i Rest-lösningen har en omfattande disaster recovery historia motståndskraftig mot systemfel och skadlig aktivitet.
 
-Tjänster som implementerar kryptering i vila är vanligtvis fortfarande sårbara för krypteringsnycklarna eller data som lämnas okrypterade på värdenheten (till exempel i växlingsfilen för värdoperativsystemet.) Tjänsterna måste därför kontrollera värdvolym för sina tjänster är krypterad. Team har aktiverat distributionen av värden kryptering, som använder för att underlätta den här beräkningen [Bitlocker](https://technet.microsoft.com/library/dn306081.aspx) NKP och tillägg till DCM-tjänsten och agenten att kryptera värdvolymen.
+Tjänster som implementerar kryptering i vila är vanligtvis fortfarande sårbara för krypteringsnycklarna eller data som lämnas okrypterade på värdenheten (till exempel i växlingsfilen för värdoperativsystemet.) Tjänsterna måste därför kontrollera värdvolym för sina tjänster är krypterad. Team har aktiverat distributionen av värden kryptering, som använder för att underlätta den här beräkningen [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP och tillägg till DCM-tjänsten och agenten att kryptera värdvolymen.
 
 De flesta tjänster är implementerade på Azure VM: ar. Dessa tjänster bör få [värden kryptering](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) automatiskt när beräkning gör det möjligt. För tjänster som körs i beräkning är hanterade kluster värd kryptering aktiverat automatiskt som Windows Server 2016 distribueras.
 
@@ -370,7 +370,7 @@ Microsoft Antimalware för Azure Cloud Services och virtuella datorer är en rea
 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) hjälper till att dirigera replikering, redundans och återställning av arbetsbelastningar och appar så att de är tillgängliga från en sekundär plats om din primära plats kraschar.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Kontrollera efterlevnad: molntjänster på grund av noggrannhet checklista (skydda)
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist-protect"></a>Kontrollera efterlevnad: Molntjänster på grund av noggrannhet checklista (skydda)
 
 Microsoft har utvecklat [Cloud Services förfaller noggrannhet checklista](https://aka.ms/cloudchecklist.download) hjälper organisationer att utöva sistone de överväger att flytta till molnet. Det finns en struktur för en organisation med valfri storlek och typ, privata företag och offentliga organisationer, inklusive myndigheter på alla nivåer och ideella organisationer – att identifiera sina egna prestanda, tjänst, datahantering och styrning mål och krav. Detta innebär att de ska jämföras erbjudanden av olika molntjänstleverantörer, slutligen som utgör basen för ett serviceavtal för molnet.
 
@@ -452,7 +452,7 @@ Molnprogram är komplexa med alla rörliga delar. Övervakning ger data så att 
 
 Det är viktigt för att identifiera säkerhetsproblem i nätverket och att säkerställa efterlevnad med din IT-säkerhet och föreskrifter styrning modell granskning nätverkssäkerheten. Du kan hämta den konfigurerade Nätverkssäkerhetsgrupp och säkerhetsregler samt gällande säkerhetsregler med säkerhetsgruppen vy. Du kan fastställa vilka portar som är öppna och ss network säkerhetsproblem med listan över regler som tillämpas.
 
-### <a name="network-watcher"></a>Nätverksbevakaren
+### <a name="network-watcher"></a>Nätverksbevakare
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#network-watcher) är en regional tjänst som hjälper dig att övervaka och diagnostisera villkor på nätverksnivå i, till och från Azure. Nätverksdiagnostik- och visualiseringsverktyg för Network Watcher hjälper dig att förstå, diagnostisera och få information om ditt nätverk i Azure. Den här tjänsten innefattar paketinsamling, nästa hopp, IP-flöde verifiera säkerhetsgruppvy, NSG-flödesloggar. Scenariot på övervakning ger en heltäckande vy av nätverksresurser, till skillnad från enskilda resource nätverksövervakning.
 

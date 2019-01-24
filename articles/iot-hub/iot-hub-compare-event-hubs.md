@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: kgremban
-ms.openlocfilehash: 830052341c4f0e3488c8e63da59cbef1f72e158a
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 20bb0cb6982bcbea6b18989099322cfd3389b0b0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42061488"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819653"
 ---
 # <a name="connecting-iot-devices-to-azure-iot-hub-and-event-hubs"></a>Ansluta IoT-enheter till Azure: IoT Hub och Event Hubs
 
@@ -31,12 +31,13 @@ I följande tabell innehåller information om hur de två nivåerna av IoT Hub j
 | --- | --- | --- | --- |
 | Enhet-till-moln-meddelanden | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
 | Protokoll: HTTPS, AMQP, AMQP via webSockets | ![Markera][checkmark] | ![Markera][checkmark] | ![Markera][checkmark] |
-| Protokoll: MQTT, MQTT via webSockets | ![Markera][checkmark] | ![Markera][checkmark] |  |
+| Protokoll: MQTT MQTT via webSockets | ![Markera][checkmark] | ![Markera][checkmark] |  |
 | Identitet per enhet | ![Markera][checkmark] | ![Markera][checkmark] |  |
 | Ladda upp filer från enheter | ![Markera][checkmark] | ![Markera][checkmark] |  |
 | Enhetsetableringstjänst | ![Markera][checkmark] | ![Markera][checkmark] |  |
 | Meddelanden från moln till enhet | ![Markera][checkmark] |  |  |
 | Enhetstvillingen och enhetshantering | ![Markera][checkmark] |  |  |
+| Enheten strömmar (förhandsversion) | ![Markera][checkmark] |  |  |
 | IoT Edge | ![Markera][checkmark] |  |  |
 
 Även om endast användningsfall är enhet till moln för datainmatning, rekommenderar vi använda IoT Hub eftersom det ger dig en tjänst som är utformad för IoT-enhetsanslutning. 

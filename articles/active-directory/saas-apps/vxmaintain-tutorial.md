@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med vxMaintain | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med vxMaintain | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och vxMaintain.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 841a1066-593c-4603-9abe-f48496d73d10
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 7e444692dfeab5ca14fbd896043cc28e2cbd8717
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 590c7961444a36c8958fd82aaf67b05ee2213e74
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434002"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819908"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integration med vxMaintain
+# <a name="tutorial-azure-active-directory-integration-with-vxmaintain"></a>Självstudier: Azure Active Directory-integrering med vxMaintain
 
 I den här självstudien får du lära dig hur du integrerar vxMaintain med Azure Active Directory (AD Azure).
 
@@ -45,7 +45,7 @@ Om du vill konfigurera Azure AD-integrering med vxMaintain, behöver du följand
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -81,7 +81,7 @@ Om du vill lägga till vxMaintain från galleriet, gör du följande:
 
     ![Länken vxMaintain](./media/vxmaintain-tutorial/tutorial_vxmaintain_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa enkel inloggning för Azure AD med hjälp av vxMaintain, baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD behöver veta vxMaintain motsvarigheten till Azure AD-användare för SSO ska fungera. Det vill säga måste du upprätta en relation med länken mellan Azure AD-användare och motsvarande vxMaintain användaren.
@@ -149,7 +149,7 @@ I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom 
 
 1. I den **användaren** dialogrutan Gör följande:
  
-    ![Dialogrutan användare](./media/vxmaintain-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](./media/vxmaintain-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** skriver **BrittaSimon**.
 
@@ -161,7 +161,7 @@ I det här avsnittet skapar du testanvändare Britta Simon i Azure portal genom 
  
 ### <a name="create-a-vxmaintain-test-user"></a>Skapa en vxMaintain testanvändare
 
-I det här avsnittet skapar du testanvändare Britta Simon i vxMaintain. Om du vill lägga till användare i vxMaintain-plattformen, arbeta med den [vxMaintain supportteamet](https://www.hubspot.com/company/contact). Innan du använder SSO, skapa och aktivera användarna.
+I det här avsnittet skapar du testanvändare Britta Simon i vxMaintain. Om du vill lägga till användare i vxMaintain-plattformen, arbeta med den [vxMaintain supportteamet](https://www.hubspot.com/company/contact). Innan du använder SSO, skapa och aktivera användarna.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -179,11 +179,11 @@ I det här avsnittet ska aktivera du testanvändare Britta Simon att använda en
 
 1. I den vänstra rutan väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”][202] 
+    ![Länken ”Användare och grupper”][202] 
 
 1. Välj **Lägg till** och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”][203]
+    ![Länken ”Användare och grupper”][203]
 
 1. I den **användare och grupper** i dialogrutan den **användare** väljer **Britta Simon**, och välj sedan den **Välj** knappen.
 

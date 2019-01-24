@@ -4,7 +4,7 @@ description: Aktivera kerberos-begränsad delegering i Azure Active Directory Do
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: da7909853d47f680726464d6d646ca87028fd311
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: fe0b5224bc266b7990e2f7b6a4b3fa6a1b19190d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158790"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854827"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-on-a-managed-domain"></a>Konfigurera Kerberos-begränsad delegering (KCD) på en hanterad domän
 Många program behöver åtkomst till resurser i kontexten för användaren. Active Directory stöder en mekanism som heter Kerberos-delegering, vilket gör att det här användningsfallet. Dessutom kan du begränsa delegering så att endast specifika resurser kan användas i kontexten för användaren. Azure AD Domain Services-hanterade domäner skiljer sig från traditionella Active Directory-domäner, eftersom de säkrare är låsta.

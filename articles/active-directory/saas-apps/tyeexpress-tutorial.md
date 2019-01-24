@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med d & E Express | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med d & E Express | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och T & E Express.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: B42374E5-2559-4309-8EF2-820BEE7EBB0C
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-ms.openlocfilehash: ff4d634fb7f6f8057e5f370a694e46ca5e0d772d
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67cc50f3b6812abc566620396369b195d106f2be
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815182"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudier: Azure Active Directory-integration med d & E Express
+# <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Självstudier: Azure Active Directory-integrering med d & E Express
 
 I den här självstudien får du lära dig hur du integrerar d & E Express med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera d & E Express med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på d & E Express (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med d & E Express, behöver du följ
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av d & E Express i Azure AD, som du behöver l�
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **d & E Express**.
 
@@ -114,16 +114,16 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
 
     a. I den **identifierare** textrutan Ange värdet som: `https://<domain>.tyeexpress.com`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<domain>.tyeexpress.com/authorize/samlConsume.aspx`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du för att använda det unika värdet av strängen i identifierare. Kontakta [d & E Express supportteam](http://www.tyeexpress.com/contacto.aspx) att hämta dessa värden.
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [d & E Express supportteam](http://www.tyeexpress.com/contacto.aspx) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
     ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tutorial_tyeexpress_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/tyeexpress-tutorial/tutorial_general_400.png)
 
@@ -176,23 +176,23 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure Management
 För att aktivera Azure AD-användare att logga in på d & E Express, måste de etableras i T & E Express.  
 När det gäller T & E Express är etablering en manuell aktivitet.
 
-**Utför följande steg för att tillhandahålla en användarkonton:**
+**Utför följande steg för att etablera ett användarkonto:**
 
 1. Logga in på webbplatsen d & E Express företagets som administratör.
 
 1. Under Admin-tagg, klickar du på användare att öppna sidan som användare.
 
-    ![Lägg till medarbetare](./media/tyeexpress-tutorial/tye-adminusers.png)
+    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-adminusers.png)
 
 1. På startsidan klickar du på **+** att lägga till användarna.
 
-    ![Lägg till medarbetare](./media/tyeexpress-tutorial/tye-usershome.png)
+    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usershome.png)
 
 1. Ange all obligatorisk information som och svar i formuläret och klicka på knappen Spara för att spara information.
 
-    ![Lägg till medarbetare](./media/tyeexpress-tutorial/tye-usersadd.png)
+    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-usersadd.png)
 
-    ![Lägg till medarbetare](./media/tyeexpress-tutorial/tye-userssave.png)
+    ![Lägga till medarbetare](./media/tyeexpress-tutorial/tye-userssave.png)
 
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare

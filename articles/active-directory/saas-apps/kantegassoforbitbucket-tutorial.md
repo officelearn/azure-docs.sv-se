@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Kantega SSO för Bitbucket | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Kantega SSO för Bitbucket | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Kantega SSO för Bitbucket.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c41cdaaf-0441-493c-94c7-569615b7b1ab
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 6dee106d688d9f9a6ebc6dc26caa6a46db3f6850
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 8d8d42671a46465a32e3702f4839131bbf998883
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51823902"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810142"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Självstudier: Azure Active Directory-integration med Kantega SSO för Bitbucket
+# <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Självstudier: Azure Active Directory-integrering med Kantega SSO för Bitbucket
 
 I den här självstudien får du lära dig hur du integrerar Kantega SSO för Bitbucket med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Kantega SSO för Bitbucket, beh�
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -65,11 +65,11 @@ För att konfigurera integrering av Kantega SSO för Bitbucket i Azure AD, som d
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Kantega SSO för Bitbucket**.
 
@@ -112,24 +112,24 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url1.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
 1. I **SP** initierad läge, kontrollera **visa avancerade URL-inställningar** och utföra följande steg:
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_url2.png)
     
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Dessa värden tas emot under konfigurationen av Bitbucket-plugin-programmet som beskrivs senare i självstudien.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Dessa värden tas emot under konfigurationen av Bitbucket-plugin-programmet som beskrivs senare i självstudien.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/tutorial_kantegassoforbitbucket_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/tutorial_general_400.png)
 
@@ -155,7 +155,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/addon34.png)
     
-1. Klicka på **konfigurera** att konfigurera nya plugin-programmet. 
+1. Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet. 
 
     ![Konfigurera enkel inloggning](./media/kantegassoforbitbucket-tutorial/addon35.png)
 
@@ -218,11 +218,11 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
     c. Klicka på **Spara**.  
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -262,31 +262,31 @@ Om du vill aktivera Azure AD-användare att logga in på Bitbucket, måste de et
 
 1. Klicka på ikonen för inställningar.
 
-    ![Lägg till medarbetare](./media/kantegassoforbitbucket-tutorial/user1.png) 
+    ![Lägga till medarbetare](./media/kantegassoforbitbucket-tutorial/user1.png) 
 
 1. Under **Administration** fliken avsnittet **användare**.
 
-    ![Lägg till medarbetare](./media/kantegassoforbitbucket-tutorial/user2.png)
+    ![Lägga till medarbetare](./media/kantegassoforbitbucket-tutorial/user2.png)
 
-1. Klicka på **skapa användare**.
+1. Klicka på **Skapa användare**.
 
-    ![Lägg till medarbetare](./media/kantegassoforbitbucket-tutorial/user3.png)   
+    ![Lägga till medarbetare](./media/kantegassoforbitbucket-tutorial/user3.png)   
 
 1. På den **Create User** dialogrutan utför följande steg:
 
-    ![Lägg till medarbetare](./media/kantegassoforbitbucket-tutorial/user4.png) 
+    ![Lägga till medarbetare](./media/kantegassoforbitbucket-tutorial/user4.png) 
 
-    a. I den **användarnamn** textrutan typ e-postmeddelandet av användare som Brittasimon@contoso.com.
+    a. Skriv e-postadressen för användaren i textrutan **Användarnamn** som Brittasimon@contoso.com.
     
-    b. I den **fullständigt namn** textrutan fullständiga namn för användaren som Britta Simon.
+    b. Skriv det fullständiga namnet för användaren, t.ex. Britta Simon, i textrutan **Fullständigt namn**.
     
-    c. I den **e-postadress** textrutan typ e-postadressen för användaren som Brittasimon@contoso.com.
+    c. I textrutan för **e-postadress** skriver du användarens e-postadress som Brittasimon@contoso.com.
 
-    d. I den **lösenord** textrutan skriver du lösenordet för användaren.  
+    d. I textrutan **Password** (Lösenord) skriver du lösenordet för användaren.  
 
     e. I den **Bekräfta lösenord** textrutan, ange lösenordet för användaren.
 
-    f. Klicka på **skapa användare**.   
+    f. Klicka på **Skapa användare**.   
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

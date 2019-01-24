@@ -12,12 +12,12 @@ manager: cgronlun
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91323ac904ee7a806283673a1f98c46c1c211f7f
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 0f53b3cec843ca8016c61a360025b5e731b96f55
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413132"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815879"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Konfigurera en utvecklingsmiljö för Azure Machine Learning
 
@@ -55,7 +55,7 @@ Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen f
 
 - På Windows måste du Kommandotolken eller Anaconda kommandotolk (installerad som Anaconda och Miniconda).
 
-## <a id="anotebooks"></a>Azure-anteckningsböcker
+## <a id="aznotebooks"></a>Azure-anteckningsböcker
 
 [Azure anteckningsböcker](https://notebooks.azure.com) (förhandsversion) är en interaktiv utvecklingsmiljö i Azure-molnet. Det är det enklaste sättet att komma igång med Azure Machine Learning-utveckling.
 
@@ -63,6 +63,8 @@ Om du redan har en Python 3-miljö eller bara vill ha de grundläggande stegen f
 * När du skapar en arbetsyta för Azure Machine Learning-tjänsten i Azure-portalen klickar du på en knapp för att automatiskt konfigurera din Azure-anteckningsbok miljö att arbeta med arbetsytan.
 
 Kom igång med att utveckla med Azure-datorer, se [Kom igång med Azure Machine Learning-tjänsten](quickstart-get-started.md).
+
+Som standard använder en kostnadsfri tjänst-nivå som är begränsad till 4GB minne och 1GB data i Azure-anteckningsböcker. Du kan dock ta bort dessa begränsningar genom att koppla en virtuell dator för datavetenskap-instans i Azure-anteckningsböcker-projektet. Mer information finns i [hantera och konfigurera Azure anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a id="dsvm"></a>Virtuell dator för datavetenskap
 

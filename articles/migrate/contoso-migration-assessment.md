@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 292a9ecd012be030df8cf792f9991591d43c8db9
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 18e8b7699a388dabbf0e4f5cff7d4fb927e549c2
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383071"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853824"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Contoso-migrering: Utvärdera lokala arbetsbelastningar för migrering till Azure
 
@@ -206,7 +206,7 @@ Resultatet visas så fort de är tillgängliga. Om Contoso åtgärdar problem, d
 > [!NOTE]
 > För storskaliga utvärderingar:
 > - Köra flera utvärderingar samtidigt och visa tillståndet för utvärderingarna på den **alla utvärderingar** sidan.
-> - Konsolidera utvärderingarna till en [SQL Server-databas](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017#import-assessment-results-into-a-sql-server-database).
+> - Konsolidera utvärderingarna till en [SQL Server-databas](https://docs.microsoft.com/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Konsolidera utvärderingarna till en [Power BI-rapport](https://docs.microsoft.com/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
 ## <a name="step-3-prepare-for-vm-assessment-by-using-azure-migrate"></a>Steg 3: Förbereda för VM-utvärdering genom att använda Azure Migrate

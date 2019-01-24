@@ -4,17 +4,17 @@ description: Azure Policy-utvärderingar och effekterna avgör efterlevnad. Lär
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 71911c3e196a05b9e10c719afe8f3b44522e6b02
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: cc5d59d523f87cac6ec8533d6af1342c58ba45f7
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437920"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54853637"
 ---
 # <a name="getting-compliance-data"></a>Hämta data för efterlevnad
 
@@ -29,6 +29,8 @@ Innan du tittar på metoder för att rapportera om efterlevnad, låt oss titta p
 
 > [!WARNING]
 > Om kompatibilitetsstatusen rapporteras som **inte registrerad**, kontrollerar du att den **Microsoft.PolicyInsights** Resource Provider är registrerad och att användaren har rätt rollbaserad åtkomst kontroll () RBAC) behörigheter enligt [här](../overview.md#rbac-permissions-in-azure-policy).
+
+[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Utvärderingen utlösare
 
@@ -145,9 +147,9 @@ Samma information som finns i portalen kan hämtas med REST API (inklusive med [
 Om du vill använda i följande exempel i Azure PowerShell skapar du en autentiseringstoken med den här koden för exemplet. Ersätt sedan $restUri med strängen i exemplen för att hämta en JSON-objekt som sedan kan parsas.
 
 ```azurepowershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+# Login first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -283,29 +285,33 @@ Mer information om hur du frågar Principhändelser finns i den [Principhändels
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Azure PowerShell-modulen för principen är tillgänglig på PowerShell-galleriet som [AzureRM.PolicyInsights](https://www.powershellgallery.com/packages/AzureRM.PolicyInsights). Med PowerShellGet kan du installera modulen med hjälp av `Install-Module -Name AzureRM.PolicyInsights` (Kontrollera att du har senast [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) installerat):
+Azure PowerShell-modulen för principen är tillgänglig på PowerShell-galleriet som [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights). Med PowerShellGet kan du installera modulen med hjälp av `Install-Module -Name Az.PolicyInsights` (Kontrollera att du har senast [Azure PowerShell](/powershell/azure/install-az-ps) installerat):
 
 ```azurepowershell-interactive
 # Install from PowerShell Gallery via PowerShellGet
-Install-Module -Name AzureRM.PolicyInsights
+Install-Module -Name Az.PolicyInsights
 
 # Import the downloaded module
-Import-Module AzureRM.PolicyInsights
+Import-Module Az.PolicyInsights
 
-# Login with Connect-AzureRmAccount if not using Cloud Shell
-Connect-AzureRmAccount
+# Login with Connect-AzAccount if not using Cloud Shell
+Connect-AzAccount
 ```
 
-Modulen har tre cmdletar:
+Modulen har följande cmdletar:
 
-- `Get-AzureRmPolicyStateSummary`
-- `Get-AzureRmPolicyState`
-- `Get-AzureRmPolicyEvent`
+- `Get-AzPolicyStateSummary`
+- `Get-AzPolicyState`
+- `Get-AzPolicyEvent`
+- `Get-AzPolicyRemediation`
+- `Remove-AzPolicyRemediation`
+- `Start-AzPolicyRemediation`
+- `Stop-AzPolicyRemediation`
 
 Exempel: Hämta status sammanfattning för den översta tilldelade principen med det högsta antalet icke-kompatibla resurser.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyStateSummary -Top 1
+PS> Get-AzPolicyStateSummary -Top 1
 
 NonCompliantResources : 15
 NonCompliantPolicies  : 1
@@ -316,7 +322,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
 Exempel: Komma posten tillståndet för de nyligen utvärderat resurs (standard är efter tidsstämpel i fallande ordning).
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Top 1
+PS> Get-AzPolicyState -Top 1
 
 Timestamp                  : 5/22/2018 3:47:34 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -342,7 +348,7 @@ PolicyDefinitionCategory   : tbd
 Exempel: Hämtning av information om alla inkompatibla virtuella nätverksresurser.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
+PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
 
 Timestamp                  : 5/22/2018 4:02:20 PM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -368,7 +374,7 @@ PolicyDefinitionCategory   : tbd
 Exempel: Hämta händelser relaterade till icke-kompatibla virtuella nätverksresurser som inträffade efter ett visst datum.
 
 ```azurepowershell-interactive
-PS> Get-AzureRmPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
+PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
 
 Timestamp                  : 5/19/2018 5:18:53 AM
 ResourceId                 : /subscriptions/{subscriptionId}/resourceGroups/RG-Tags/providers/Mi
@@ -393,16 +399,16 @@ TenantId                   : {tenantId}
 PrincipalOid               : {principalOid}
 ```
 
-Den **PrincipalOid** fältet kan användas för att få en viss användare med Azure PowerShell-cmdlet `Get-AzureRmADUser`. Ersätt **{principalOid}** med de svar du får från föregående exempel.
+Den **PrincipalOid** fältet kan användas för att få en viss användare med Azure PowerShell-cmdlet `Get-AzADUser`. Ersätt **{principalOid}** med de svar du får från föregående exempel.
 
 ```azurepowershell-interactive
-PS> (Get-AzureRmADUser -ObjectId {principalOid}).DisplayName
+PS> (Get-AzADUser -ObjectId {principalOid}).DisplayName
 Trent Baker
 ```
 
 ## <a name="log-analytics"></a>Log Analytics
 
-Om du har en [Log Analytics](../../../log-analytics/log-analytics-overview.md) arbetsyta med den `AzureActivity` lösning som är kopplad till din prenumeration, du kan också visa inkompatibilitet resultaten från utvärderingscykel med hjälp av enkla Kusto-frågor och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Log Analytics.
+Om du har en [Log Analytics](../../../log-analytics/log-analytics-overview.md) arbetsyta med den `AzureActivity` lösning som är kopplad till din prenumeration, du kan också visa inkompatibilitet resultaten från utvärderingscykel med hjälp av enkla frågor i Datautforskaren i Azure och `AzureActivity` tabell. Aviseringar kan konfigureras om du vill titta för icke-kompatibilitet med information i Log Analytics.
 
 ![Principefterlevnad använda Log Analytics](../media/getting-compliance-data/compliance-loganalytics.png)
 

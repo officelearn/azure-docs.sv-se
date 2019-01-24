@@ -3,19 +3,19 @@ title: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Acti
 description: Definiera en RESTful-tekniska profilen i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 930cdddd8a9e039fa9c29a348a0a66eb25d254fe
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d9dfef68e35cc07d395bb247af3476e8b73da642
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381660"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843896"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful-tekniska profilen i en anpassad princip för Azure Active Directory B2C
 
@@ -83,10 +83,10 @@ Den tekniska profilen returnerar också anspråk som inte returnerade poskytovat
 
 ## <a name="metadata"></a>Metadata
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ServiceUrl | Ja | URL till REST API-slutpunkt. | 
-| authenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
+| AuthenticationType | Ja | Vilken typ av autentisering som utförs av RESTful anspråksprovidern. Möjliga värden: `None`, `Basic`, eller `ClientCertificate`. Den `None` värdet anger att REST-API inte är anonyma. Den `Basic` värdet anger att REST API skyddas med grundläggande HTTP-autentisering. Endast verifierad användare, inklusive Azure AD B2C kan komma åt ditt API. Den `ClientCertificate` (rekommenderas) värdet anger att REST-API begränsar åtkomst med hjälp av autentisering av klientcertifikat. Endast de tjänster som har rätt certifikat, såsom Azure AD B2C kan komma åt tjänsten. | 
 | SendClaimsIn | Nej | Anger hur de inkommande anspråken skickas till RESTful anspråksprovidern. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är den inkommande anspråk som skickas i begärandetexten i JSON-format. Den `Form` värdet är den inkommande anspråk som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är den inkommande anspråk som skickas i rubriken. Den `QueryString` värdet är den inkommande anspråk som skickas i frågesträngen begäran. | 
 | ClaimsFormat | Nej | Anger formatet för utdataanspråk. Möjliga värden: `Body` (standard), `Form`, `Header`, eller `QueryString`. Den `Body` värdet är utdata-anspråket som skickas i begärandetexten i JSON-format. Den `Form` värdet är utdata-anspråket som skickas i begärandetexten i ett et-tecken ' och ' avgränsade nyckelvärdet format. Den `Header` värdet är utdata-anspråket som skickas i rubriken. Den `QueryString` värdet är utdata-anspråket som skickas i frågesträngen begäran. | 
 | DebugMode | Nej | Kör den tekniska profilen i felsökningsläge. I felsökningsläge och kan REST-API returnera mer information. Se meddelandeavsnittet returnerar fel. | 
@@ -109,7 +109,7 @@ Om typ av autentisering är inställt på `None`, **CryptographicKeys** elemente
 
 Om typ av autentisering är inställt på `Basic`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | BasicAuthenticationUsername | Ja | Det användarnamn som används för att autentisera. | 
 | BasicAuthenticationPassword | Ja | Det lösenord som används för att autentisera. |
@@ -134,7 +134,7 @@ I följande exempel visas en tekniska profilen med basic-autentisering:
 
 Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKeys** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ClientCertificate | Ja | X509 certifikat (RSA nyckeluppsättning) som ska användas för att autentisera. | 
 
@@ -157,12 +157,12 @@ Om typ av autentisering är inställt på `ClientCertificate`, **CryptographicKe
 
 REST-API kan behöva returnera ett felmeddelande som ”användaren inte hittades i CRM-systemet”. Ett fel inträffar, REST-API ska returnera felmeddelandet HTTP 409 (konflikt svarsstatuskod) med följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | version | Ja | 1.0.0 | 
 | status | Ja | 409 | 
 | Kod | Nej | Felkoden från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
-| begärande-ID | Nej | En identifierare för begäran från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
+| requestId | Nej | En identifierare för begäran från leverantören RESTful-slutpunkt, vilket är visas när `DebugMode` är aktiverat. | 
 | userMessage | Ja | Ett felmeddelande som visas för användaren. | 
 | developerMessage | Nej | Utförlig beskrivning av problemet och hur du åtgärdar det, vilket är visas när `DebugMode` är aktiverat. | 
 | moreInfo | Nej | En URI som pekar på ytterligare information som visas när `DebugMode` är aktiverat. | 
@@ -171,13 +171,13 @@ I följande exempel visar ett REST-API som returnerar ett felmeddelande som form
 
 ```JSON
 {
-  "version": "1.0.0",
-  "status": 409,
-  "code": "API12345",
-  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
-  "userMessage": "Message for the user", 
-  "developerMessage": "Verbose description of problem and how to fix it.", 
-  "moreInfo": "https://restapi/error/API12345/moreinfo" 
+  "version": "1.0.0",
+  "status": 409,
+  "code": "API12345",
+  "requestId": "50f0bd91-2ff4-4b8f-828f-00f170519ddb",
+  "userMessage": "Message for the user", 
+  "developerMessage": "Verbose description of problem and how to fix it.", 
+  "moreInfo": "https://restapi/error/API12345/moreinfo" 
 }
 ```
 
@@ -200,7 +200,7 @@ public class ResponseContent
 - [Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren](active-directory-b2c-custom-rest-api-netfw.md) 
 - [Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 - [Skydda RESTful-tjänst med hjälp av klientcertifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Genomgång: Integrera utbyten av REST API-anspråk i din Azure AD B2C-användarresan som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md)
+- [Genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering på indata från användaren](active-directory-b2c-rest-api-validation-custom.md)
 
  
 

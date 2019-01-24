@@ -3,21 +3,21 @@ title: REST API-anspråk utbyten som en orkestreringssteg i Azure Active Directo
 description: Ett ämne på Azure Active Directory B2C anpassade principer som kan integreras med ett API.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5102f2b43819c279d0087754b29a616812e5a5f2
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 7d62e0044d91af72ac8fea0271d7fc131e9c0a03
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556568"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852532"
 ---
-# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Steg-för-steg-beskrivning: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg
+# <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-an-orchestration-step"></a>Genomgång: Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som ett orchestration-steg
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -233,8 +233,8 @@ När du lägger till nytt anspråk den tekniska profilen ser ut så här:
 
 Skriv över de befintliga versionerna av principen.
 
-1.  (Valfritt:) Spara den befintliga versionen (genom att ladda ned) i din tillägg fil innan du fortsätter. Om du vill behålla inledande komplexiteten med låg, rekommenderar vi att du inte ladda upp flera versioner av tilläggsfilen.
-2.  (Valfritt:) Byt namn på den nya versionen av princip-ID för att redigera filen genom att ändra `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
+1.  (Optional:) Spara den befintliga versionen (genom att ladda ned) i din tillägg fil innan du fortsätter. Om du vill behålla inledande komplexiteten med låg, rekommenderar vi att du inte ladda upp flera versioner av tilläggsfilen.
+2.  (Optional:) Byt namn på den nya versionen av princip-ID för att redigera filen genom att ändra `PolicyId="B2C_1A_TrustFrameworkProfileEdit"`.
 3.  Ladda upp tilläggsfilen.
 4.  Ladda upp principen redigera RP-fil.
 5.  Använd **kör nu** att testa principen. Granska den token som IEF tillbaka till programmet.

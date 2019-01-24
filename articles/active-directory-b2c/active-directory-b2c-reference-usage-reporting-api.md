@@ -3,19 +3,19 @@ title: Användning reporting API-exempel och definitioner i Azure Active Directo
 description: Guiden och exempel på att få rapporter för Azure AD B2C-klientorganisation, användare, autentiseringar och multifaktorautentiseringar.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 544b0618f9135b684846c42bb7edeb37cf599883
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: cce6d71864d1c3e957937e374e90ee95a99e9f3c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445542"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844365"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Åtkomst till användningsrapporter i Azure AD B2C via rapporterings-API
 
@@ -97,16 +97,16 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>Användning-rapportdefinitioner
-* **tenantUserCount**: antalet användare i klienten efter typ av identitetsprovider per dag under de senaste 30 dagarna. (Du kan också en `TimeStamp` -filtret innehåller antalet användare från ett visst datum till aktuellt datum). Rapporten innehåller:
-  * **TotalUserCount**: antalet alla användarobjekt.
-  * **OtherUserCount**: Azure Active Directory-användare (inte Azure AD B2C-användare).
-  * **LocalUserCount**: antal användarkonton för Azure AD B2C skapas med autentiseringsuppgifter för lokal till Azure AD B2C-klient.
+* **tenantUserCount**: Antalet användare i klienten efter typ av identitetsprovider per dag under de senaste 30 dagarna. (Du kan också en `TimeStamp` -filtret innehåller antalet användare från ett visst datum till aktuellt datum). Rapporten innehåller:
+  * **TotalUserCount**: Antal alla användarobjekt.
+  * **OtherUserCount**: Antalet Azure Active Directory-användare (inte Azure AD B2C-användare).
+  * **LocalUserCount**: Antalet Azure AD B2C-användarkonton som skapats med autentiseringsuppgifter för lokal till Azure AD B2C-klient.
 
-* **AlternateIdUserCount**: Azure AD B2C-användare som har registrerats med externa indentitetsprovidrar (till exempel Facebook, ett Microsoft-konto eller en annan Azure Active Directory-klient, kallas även en `OrgId`).
+* **AlternateIdUserCount**: Antalet Azure AD B2C-användare som har registrerats med externa indentitetsprovidrar (till exempel Facebook, ett Microsoft-konto eller en annan Azure Active Directory-klient, kallas även en `OrgId`).
 
 * **b2cAuthenticationCountSummary**: Sammanfattning av det dagliga antalet fakturerbara autentiseringar under de senaste 30 dagarna, per dag och typ av autentiseringsflödet.
 
-* **b2cAuthenticationCount**: antalet autentiseringar inom en tidsperiod. Standardvärdet är de senaste 30 dagarna.  (Valfritt: början och slutet `TimeStamp` parametrar definiera en viss tidsperiod.) Utdata innehåller `StartTimeStamp` (tidigaste datum för aktivitet för den här klienten) och `EndTimeStamp` (senaste uppdatering).
+* **b2cAuthenticationCount**: Antalet autentiseringar inom en tidsperiod. Standardvärdet är de senaste 30 dagarna.  (Valfritt: Början och slutet `TimeStamp` parametrar definiera en viss tidsperiod.) Utdata innehåller `StartTimeStamp` (tidigaste datum för aktivitet för den här klienten) och `EndTimeStamp` (senaste uppdatering).
 
 * **b2cMfaRequestCountSummary**: Sammanfattning av det dagliga antalet multifaktorautentiseringar per dag och typ (SMS eller röst).
 

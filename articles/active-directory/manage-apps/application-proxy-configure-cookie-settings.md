@@ -11,12 +11,12 @@ ms.topic: concept
 ms.date: 01/16/2019
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 5929d591b745992143ee2441759943af15b932d9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c5979357532bb29f8e3545db57aa32603763dc1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479550"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855609"
 ---
 # <a name="cookie-settings-for-accessing-on-premises-applications-in-azure-active-directory"></a>Cookie-inställningar för att komma åt lokala program i Azure Active Directory
 
@@ -24,12 +24,12 @@ Azure Active Directory (Azure AD) har åtkomst- och sessionsprinciper cookies f�
 
 ## <a name="what-are-the-cookie-settings"></a>Vad är cookie-inställningar?
 
-[Programproxy](application-proxy.md) använder följande åtkomst- och sessionsprinciper cookie-inställningar för att ange flaggor i dess HTTP-Svarsrubrik. 
+[Programproxy](application-proxy.md) använder följande inställningar för åtkomst och sessions-cookie.
 
 | Cookie-inställning | Standard | Beskrivning | Rekommendationer |
 | -------------- | ------- | ----------- | --------------- |
-| Använd endast HTTP-cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera flaggan HTTPOnly i HTTP-svarshuvuden. Den här flaggan innehåller ytterligare säkerhetsfördelarna, till exempel förhindras klientsidan scripting (CSS) kopiera eller ändrar cookies.<br></br><br></br>Innan vi stöds endast HTTP-inställningen Application Proxy krypteras och överförs cookies via en säker TLS-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.<br></br><br></br>Använd **nr** för klienter eller användaragenter som kräver åtkomst till sessions-cookie. Till exempel använda **nr** för en RDP- eller MTSC-klient som ansluter till en Remote Desktop Gateway-server via programproxy.|
-| Använd säker cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera Secure flaggan i HTTP-svarshuvuden. Säkra Cookies ökar säkerheten genom att överföra cookies via en säker TLS-kanal, till exempel HTTPS. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.<br></br><br></br>Undvika **nr** eftersom den tillåter överföring av cookies via okrypterat HTTP-begäranden där obehöriga personer kan visa dem.|
+| Använd endast HTTP-cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera flaggan HTTPOnly i HTTP-svarshuvuden. Den här flaggan innehåller ytterligare säkerhetsfördelarna, till exempel förhindras klientsidan scripting (CSS) kopiera eller ändrar cookies.<br></br><br></br>Innan vi stöds endast HTTP-inställningen Application Proxy krypteras och överförs cookies via en säker SSL-kanal för att skydda mot ändring. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.<br></br><br></br>Använd **nr** för klienter eller användaragenter som kräver åtkomst till sessions-cookie. Till exempel använda **nr** för en RDP- eller MTSC-klient som ansluter till en Remote Desktop Gateway-server via programproxy.|
+| Använd säker cookie | **Nej** | **Ja** tillåter Application Proxy att inkludera Secure flaggan i HTTP-svarshuvuden. Säkra Cookies ökar säkerheten genom att överföra cookies via en säker TLS-kanal, till exempel HTTPS. Detta förhindrar att cookies som observeras obehöriga personer på grund av överföring av cookien i klartext. | Använd **Ja** på grund av de ytterligare säkerhetsfördelarna.|
 | Använd beständig cookie | **Nej** | **Ja** tillåter Application Proxy att ange dess åtkomst cookies för att inte upphör att gälla när webbläsaren stängs. Persistence varar tills den åtkomst-token upphör att gälla eller tills användaren manuellt tar bort beständiga cookies. | Använd **nr** på grund av säkerhetsrisk som är associerade med gör att användare som autentiseras.<br></br><br></br>Vi föreslår att du endast använder **Ja** för äldre program som inte kan dela cookies mellan processer. Är det bättre att uppdatera programmet ska hantera delning cookies mellan processer istället för att använda beständiga cookies. Du kanske till exempel behöver beständiga cookies för att tillåta användare att öppna Office-dokument i explorer-vy från en SharePoint-webbplats. Utan beständiga cookies kan den här åtgärden misslyckas om cookies som åtkomst inte delas mellan webbläsaren, explorer-processen och Office-process. |
 
 ## <a name="set-the-cookie-settings---azure-portal"></a>Ange cookie-inställningar – Azure-portalen

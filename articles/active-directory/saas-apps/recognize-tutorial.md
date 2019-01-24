@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med identifiera | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med identifiera | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och identifiera.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: cfad939e-c8f4-45a0-bd25-c4eb9701acaa
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: b2d5acfcb722845d7f346668597c073319f273f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49d501a07f2efa6e9c6e20dfe2a026badf13f624
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39448792"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824158"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Självstudier: Azure Active Directory-integration med identifiera
+# <a name="tutorial-azure-active-directory-integration-with-recognize"></a>Självstudier: Azure Active Directory-integrering med identifiera
 
 Lär dig hur du integrerar identifiera med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med identifiera, behöver du följan
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här: [– prova](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du få en tre månaders kostnadsfri utvärdering här: [Utvärderingserbjudande](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av identifiera i Azure AD, som du behöver läg
 
 **Utför följande steg för att lägga till identifiera från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **identifiera**.
 
@@ -112,18 +112,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/recognize-tutorial/tutorial_recognize_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://recognizeapp.com/<your-domain>/saml/sso`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://recognizeapp.com/<your-domain>/saml/sso`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://recognizeapp.com/<your-domain>`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://recognizeapp.com/<your-domain>`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [identifiera klienten supportteamet](mailto:support@recognizeapp.com) att hämta inloggnings-URL och du kan hämta ID-värde genom att öppna URL: en för Service Provider Metadata från avsnittet Inställningar för enkel inloggning som beskrivs senare i självstudien. . 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [identifiera klienten supportteamet](mailto:support@recognizeapp.com) att hämta inloggnings-URL och du kan hämta ID-värde genom att öppna URL: en för Service Provider Metadata från avsnittet Inställningar för enkel inloggning som beskrivs senare i självstudien. . 
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/recognize-tutorial/tutorial_recognize_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/recognize-tutorial/tutorial_general_400.png)
 
@@ -161,16 +161,16 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     ![Konfigurera enkel inloggning på App-sida](./media/recognize-tutorial/tutorial_recognize_003.png)
 
-1. Öppna den **Metadata-URL-länk** under en tom webbläsare för att hämta för Metadatadokumentet. Kopiera sedan EntityDescriptor value(entityID) från filen och klistra in det i **identifierare** -textrutan i **identifiera domän och URL: er avsnittet** på Azure-portalen.
+1. Öppna den **Metadata-URL-länk** under en tom webbläsare för att hämta för Metadatadokumentet. Kopiera sedan EntityDescriptor value(entityID) från filen och klistra in det i **identifierare** -textrutan i **identifiera domän och URL: er avsnittet** på Azure-portalen.
     
     ![Konfigurera enkel inloggning på App-sida](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -216,7 +216,7 @@ Den här appen har inte stöd för SCIM-etablering men har en annan användare s
 
 1. Utför följande steg på **användaren synkronisering** avsnittet.
    
-   ![Ny användare](./media/recognize-tutorial/tutorial_recognize_005.png "ny användare")
+   ![Ny användare](./media/recognize-tutorial/tutorial_recognize_005.png "Ny användare")
    
    a. Som **aktiverad för synkronisering av**väljer **på**.
    
@@ -258,7 +258,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 Målet med det här avsnittet är att prova Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på panelen identifiera i åtkomstpanelen du bör få automatiskt loggat in på identifiera programmet. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+När du klickar på panelen identifiera i åtkomstpanelen du bör få automatiskt loggat in på identifiera programmet. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

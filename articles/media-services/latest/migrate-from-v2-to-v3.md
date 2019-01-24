@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 8a680f1c745bed7745691ad337ed887cc4fc05c5
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53716624"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808739"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -43,15 +43,16 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 
 ### <a name="new-features"></a>Nya funktioner
 
-* Du kan använda en HTTP (S)-URL för filbaserade jobb bearbetning, som indata.
-    Du behöver inte ha innehåll som redan lagras i Azure, inte heller att skapa tillgångar.
+* Du kan använda en HTTP (S)-URL för filbaserade jobb bearbetning, som indata.<br/>Du behöver inte ha innehåll som redan lagras i Azure, inte heller att skapa tillgångar.
 * Introducerar begreppet [omvandlar](transforms-jobs-concept.md) för filbaserade Jobbearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer för att skapa Azure Resource Manager-mallar och isolera bearbetning av inställningar mellan flera kunder eller klienter.
 * En tillgång kan ha [flera StreamingLocators](streaming-locators-concept.md) med olika inställningar för dynamisk paketering och dynamisk kryptering.
 * [Innehållsskydd](content-key-policy-concept.md) har stöd för flera viktiga funktioner.
 * Du kan strömma direktsända händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter.
-* Ny låg latens live direktuppspelning support på LiveEvents.
+* Ny låg latens live direktuppspelning support på LiveEvents. Mer information finns i [svarstid](live-event-latency.md).
 * LiveEvent Preview stöder dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
 * LiveOutput är enklare att använda än programmet entiteten i v2-API: er. 
+* Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
+* RTMPS säker mata in.<br/>När du skapar en LiveEvent kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
 * Du har rollbaserad åtkomstkontroll (RBAC) över dina entiteter. 
 
 ## <a name="changes-from-v2"></a>Ändringar från v2
@@ -92,11 +93,11 @@ V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor ä
 
 I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier.
 
-|Scenario|V2 API|V3-API|
+|Scenario|V2 API|V3 API|
 |---|---|---|
 |Skapa en tillgång och överföra en fil |[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Skicka ett jobb|[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Visar hur du först skapa en transformering och sedan skicka ett jobb.|
-|Publicera en tillgång med AES-kryptering |1. Skapa ContentKeyAuthorizationPolicyOption<br/>2. Skapa ContentKeyAuthorizationPolicy<br/>3. Skapa AssetDeliveryPolicy<br/>4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången<br/>5. Associera AssetDeliveryPolicy med tillgången<br/>6. Skapa ContentKey<br/>7. Koppla ContentKey till tillgången<br/>8. Skapa AccessPolicy<br/>9. Skapa positionerare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa innehåll viktiga princip<br/>2. Skapa tillgång<br/>3. Ladda upp innehåll eller använder tillgången som JobOutput<br/>4. Skapa StreamingLocator<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Publicera en tillgång med AES-kryptering |1. Create ContentKeyAuthorizationPolicyOption<br/>2. Create ContentKeyAuthorizationPolicy<br/>3. Create AssetDeliveryPolicy<br/>4. Skapa tillgång och överföra innehåll eller skicka jobb och Använd utdatatillgången<br/>5. Associera AssetDeliveryPolicy med tillgången<br/>6. Skapa ContentKey<br/>7. Koppla ContentKey till tillgången<br/>8. Skapa AccessPolicy<br/>9. Skapa positionerare<br/><br/>[v2 .NET-exempel](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Skapa innehåll viktiga princip<br/>2. Skapa tillgång<br/>3. Ladda upp innehåll eller använder tillgången som JobOutput<br/>4. Skapa StreamingLocator<br/><br/>[v3 .NET-exempel](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 
 ## <a name="known-issues"></a>Kända problem
 

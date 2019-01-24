@@ -10,12 +10,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/15/2018
-ms.openlocfilehash: cd9f2df7987f033b4d4c234109cf712b8291d1b7
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cd7c4014752fb5fa014fd8b5204206cd4efbfdce
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382850"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818531"
 ---
 # <a name="use-azure-hdinsight-tools-for-visual-studio-code"></a>Använd Azure HDInsight Tools för Visual Studio Code
 
@@ -50,11 +50,11 @@ När du har installerat kraven kan installera du Azure HDInsight Tools för VS C
 
    ![HDInsight Visual Studio Code Python-installation](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-## <a name="open-hdinsight-workspace"></a>Öppna HDInsight-arbetsyta
+## <a name="open-hdinsight-work-folder"></a>Öppna arbetsmapp för HDInsight
 
-Skapa en arbetsyta i VS Code innan du kan ansluta till Azure.
+Skapa en arbetsmapp i VS Code innan du kan ansluta till Azure.
 
-### <a name="to-open-a-workspace"></a>Öppna en arbetsyta
+### <a name="to-open-a-work-folder"></a>Öppna en arbetsmapp
 
 1. På den **filen** menyn och välj **Öppna mapp**. Sedan ange en befintlig mapp som mappen arbete eller skapa en ny. Mappen visas i den vänstra rutan.
 
@@ -77,7 +77,7 @@ Innan du kan skicka skript till HDInsight-kluster från VS Code, måste du anslu
     ![HDInsight Tools för Visual Studio Code-inloggning](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
 3. För att logga in, följer du anvisningarna logga in i den **utdata** fönstret.
-    + För global miljö HDInsight inloggning ska utlösa Azure logga i processen.
+    + För globala Azure-miljön, **HDInsight: Logga in** kommandot utlöser **logga in på Azure** åtgärd i HDInsight explorer och vice versa.
 
         ![Inloggningsinstruktioner för azure](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-signin.png)
 
@@ -140,7 +140,7 @@ Du kan länka ett normalt kluster med hjälp av en [Apache Ambari](https://ambar
 Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
 
 ### <a name="to-list-hdinsight-clusters-under-your-azure-subscription"></a>Visa en lista över HDInsight-kluster under din Azure-prenumeration
-1. Öppnar en arbetsyta och sedan ansluta till Azure. Mer information finns i [öppna HDInsight-arbetsyta](#open-hdinsight-workspace) och [Anslut till Azure](#connect-to-hdinsight-cluster).
+1. Öppna en arbetsmapp och sedan ansluta till Azure. Mer information finns i [öppna HDInsight fungerar mappen](#open-hdinsight-work-folder) och [Anslut till Azure](#connect-to-hdinsight-cluster).
 
 2. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Klustret visas** på snabbmenyn. 
 
@@ -149,7 +149,7 @@ Om du vill testa anslutningen, kan du lista dina HDInsight-kluster:
     ![Ange en standardkonfiguration för kluster](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## <a name="set-a-default-cluster"></a>Ange ett standardkluster
-1. Öppna en arbetsyta och Anslut till Azure. Se [öppna HDInsight-arbetsyta](#open-hdinsight-workspace) och [Anslut till Azure](#connect-to-hdinsight-cluster).
+1. Öppna en arbetsmapp och Anslut till Azure. Se [öppna HDInsight arbetsmapp](#open-hdinsight-work-folder) och [Anslut till Azure](#connect-to-hdinsight-cluster).
 
 2. Högerklicka på skriptredigeraren och välj sedan **HDInsight: Ange Standardkluster**. 
 
@@ -195,7 +195,12 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
 
 ### <a name="to-submit-interactive-pyspark-queries-to-hdinsight-spark-clusters"></a>Att skicka interaktiv PySpark-frågor till HDInsight Spark-kluster.
 
-1. Skapa en ny arbetsmapp och en ny skriptfil med filnamnstillägget .py om inte redan har.
+1. Skapa en ny arbetsmapp för och en ny .py-fil om du inte redan har.
+
+    > [!NOTE]
+    > VSCode rekommenderar att du installerar Python-tillägg för .py-fil. Du kan installera tillägget eller stänga dialogrutan.
+    > 
+    >![HDInsight Visual Studio Code Python-installation](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
 
 2. Ansluta till ditt Azure-konto om du inte gjort det ännu.
 
@@ -213,36 +218,19 @@ Med HDInsight Tools för VS Code, kan du skicka interaktiva Hive-frågor, Hive b
    for i in range(0, 5):
         print(sortedCollection[i])
    ```
-4. Markera det här skriptet. Högerklicka Skriptredigeraren och välj **HDInsight: Interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
+4. Installera Python-miljö om du inte gjort det, se [konfigurera interaktiv PySpark-miljö för Visual Studio Code](set-up-pyspark-interactive-environment.md).
 
-5. Om du inte redan har installerat den **Python** tillägg i VS Code, Välj den **installera** knappen som du ser i följande bild:
+5. Markera det här skriptet. Högerklicka Skriptredigeraren och välj **HDInsight: Interaktiv PySpark**, eller använder genväg **Ctrl + Alt + I**.
 
-    ![HDInsight Visual Studio Code Python-installation](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
-6. Installera Python-miljön i systemet om du inte redan har gjort. 
-   - Windows, hämta och installera [Python](https://www.python.org/downloads/). Kontrollera `Python` och `pip` finns i systemet sökväg.
-
-   - Anvisningar för macOS och Linux finns i [konfigurera interaktiv PySpark-miljö för Visual Studio Code](set-up-pyspark-interactive-environment.md).
-
-7. Välja ett kluster som du vill skicka din PySpark-fråga. Snart därefter visas frågeresultatet i den nya rätta fliken:
+6. Välja ett kluster som du vill skicka din PySpark-fråga. Snart därefter visas frågeresultatet i den nya rätta fliken:
 
    ![Skicka resultat för Python-jobb](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
-8. Verktyget stöder också den **SQL-satsen** fråga.
+7. Verktyget stöder också den **SQL-satsen** fråga.
 
    ![Skicka Python jobb resultatet](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) status för ansökan visas till vänster i nedre statusfältet när du kör frågor. Inte skicka andra frågor när statusen är **PySpark-Kernel (upptagen)**. 
 
 >[!NOTE]  
 >Klustren kan underhålla sessionsinformation. Definierad variabel, funktionen och motsvarande värden hålls i sessionen, så att de kan refereras över flera tjänstanrop för samma kluster. 
-
-### <a name="to-disable-environment-check"></a>Inaktivera kontroll av miljö
-
-Som standard HDInsight-verktyg kontrollerar miljö och installera beroende paket när skicka interaktiv PySpark-frågor. Om du vill inaktivera kontroll av miljön, ange den **hdinsight.disablePysparkEnvironmentValidation** till **Ja** under **ANVÄNDARINSTÄLLNINGAR**.
-
-   ![Ange kontrollen miljö från inställningar](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check.png)
-
-Alternativt klickar du på **inaktivera verifiering** knappen när dialogrutan visas.
-
-   ![Ange kontrollen miljö från dialogrutan](./media/hdinsight-for-vscode/hdi-azure-hdinsight-environment-check-dialog.png)
 
 ### <a name="pyspark3-is-not-supported-with-spark2223"></a>PySpark3 stöds inte med Spark2.2/2.3
 

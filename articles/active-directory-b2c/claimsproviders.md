@@ -3,19 +3,19 @@ title: ClaimsProviders - Azure Active Directory B2C | Microsoft Docs
 description: Ange det ClaimsProvider elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b226aeac86084c56a49d00c2a2f8deddaf7b0f68
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 543b6818709e88ef575516de663d97af9e2a724a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068782"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855881"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders 
 
@@ -44,7 +44,7 @@ Den **ClaimsProviders** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| ClaimsProvider | 1: n | En auktoriserad anspråksleverantören som kan användas i olika användare resor. |
+| ClaimsProvider | 1:n | En auktoriserad anspråksleverantören som kan användas i olika användare resor. |
 
 ## <a name="claimsprovider"></a>ClaimsProvider
 

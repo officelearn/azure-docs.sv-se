@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfa8ea0c9e469d09cef7ddbd1c7edda4484b47
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 43da365a6424fa9d489db1f5cd74ff6aeb8f0d7c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444637"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819891"
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Överföra filer till ett Media Services-konto med hjälp av .NET
 > [!div class="op_single_selector"]
-> * [.NET](media-services-dotnet-upload-files.md)
+> * [NET](media-services-dotnet-upload-files.md)
 > * [REST](media-services-rest-upload-files.md)
 > * [Portal](media-services-portal-upload-files.md)
 > 
@@ -54,9 +54,9 @@ När du skapar resurser kan ange du följande alternativ för kryptering:
   
     Om tillgången är krypterad, måste du konfigurera tillgångsleveransprincip. Mer information finns i [konfigurera tillgångsleveransprincip](media-services-dotnet-configure-asset-delivery-policy.md).
 
-Om du anger för din tillgång krypteras med en **CommonEncrypted** alternativet, eller en **EnvelopeEncypted** alternativet, måste du koppla tillgången med en **ContentKey**. Mer information finns i [så här skapar du en ContentKey](media-services-dotnet-create-contentkey.md). 
+Om du anger för din tillgång krypteras med en **CommonEncrypted** alternativet, eller en **EnvelopeEncrypted** alternativet, måste du koppla tillgången med en **ContentKey**. Mer information finns i [så här skapar du en ContentKey](media-services-dotnet-create-contentkey.md). 
 
-Om du anger för din tillgång krypteras med en **StorageEncrypted** alternativ, Media Services SDK för .NET skapar en **StorateEncrypted** **ContentKey** för tillgången.
+Om du anger för din tillgång krypteras med en **StorageEncrypted** alternativ, Media Services SDK för .NET skapar en **StorageEncrypted** **ContentKey** för tillgången.
 
 Den här artikeln visar hur du använder Media Services .NET SDK samt Media Services .NET SDK-tillägg för att överföra filer till en tillgång med Media Services.
 

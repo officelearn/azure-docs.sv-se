@@ -1,10 +1,10 @@
 ---
-title: 'Självstudie: Konfigurera Box för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Rutan Konfigurera för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Box.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 1c959595-6e57-4954-9c0d-67ba03ee212b
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 58ab80b9cdf6fbcfa8aebeeac837687ded41ae39
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51625359"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821856"
 ---
-# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Box för automatisk användaretablering
+# <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Självstudier: Rutan Konfigurera för automatisk användaretablering
 
 Målet med den här självstudien är att visa steg du måste utföra i rutan och Azure AD att automatiskt etablera och användares användarkonton från Azure AD till Box.
 
@@ -30,7 +30,7 @@ Målet med den här självstudien är att visa steg du måste utföra i rutan oc
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med, behöver du följande objekt:
+Du behöver följande saker för att konfigurera Azure AD-integrering med Box:
 
 - En Azure AD-klient
 - En ruta verksamhetsplan eller bättre
@@ -40,8 +40,8 @@ Om du vill konfigurera Azure AD-integrering med, behöver du följande objekt:
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assigning-users-to-box"></a>Tilldela användare till Box 
 

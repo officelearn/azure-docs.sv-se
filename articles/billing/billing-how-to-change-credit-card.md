@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: cwatson
-ms.openlocfilehash: 69c24e08ce2434c39b8bb67cb53173f9ceaee51b
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 7c856a076a3958cdd3aef4134c703128194fcc5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581451"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849795"
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Lägga till, uppdatera eller ta bort ett kreditkort eller bankkort kort för Azure
 
@@ -32,7 +32,7 @@ I Kontocenter, kan du lägga till ett nytt kreditkort, uppdatera ett befintligt 
 
 ## <a name="add-a-new-credit-or-debit-card"></a>Lägg till ett nytt kreditkort eller bankkort-kort
 
-1. Logga in på den [Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
+1. Logga in på den [Kontocenter](https://account.windowsazure.com/Subscriptions) som den [kontoadministratör](billing-subscription-transfer.md#whoisaa).
 1. Välj en prenumeration.
 1. Välj **Hantera betalningssätt** till höger på sidan.
 
@@ -49,7 +49,7 @@ Om du får ett felmeddelande när du lägger till kreditkortet [kreditkort avvis
 
 Om ditt kreditkort hämtar förnyas och hur många densamma, uppdatera den befintliga informationen kreditkort som förfallodatumet. Om ändringarna för kreditkort eftersom kortet går förlorad, stulits eller upphört att gälla, följer du stegen i den [lägga till ett kreditkort som betalningssätt](#addcard) avsnittet. Du behöver inte uppdatera CVV.
 
-1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
+1. Logga in på den [Azures Kontocenter](https://account.windowsazure.com/Subscriptions) som den [kontoadministratör](billing-subscription-transfer.md#whoisaa).
 1. Välj den prenumeration som är länkad till kortet.
 1. Välj **hantera betalningsmetoder**.
 1. Välj **redigera** bredvid det kortet som du vill uppdatera.
@@ -58,14 +58,14 @@ Om ditt kreditkort hämtar förnyas och hur många densamma, uppdatera den befin
 
 ## <a name="use-a-different-credit-card-for-the-azure-subscription"></a>Använd ett annat kreditkort för Azure-prenumeration
 
-1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
+1. Logga in på den [Azures Kontocenter](https://account.windowsazure.com/Subscriptions) som den [kontoadministratör](billing-subscription-transfer.md#whoisaa).
 1. Välj den prenumeration som är länkad till kortet.
 1. Välj **Hantera betalningssätt** till höger på sidan.
 1. Klicka på **Använd i stället** bredvid det kortet som du vill använda. Det här uppdaterar även andra prenumerationer som för närvarande är associerade med det här kortet. 
 
 ## <a name="remove-a-credit-or-debit-card-from-the-account"></a>Ta bort ett kreditkort eller bankkort kort från kontot
 
-1. Logga in på den [Azure Kontocenter](https://account.windowsazure.com/Subscriptions) som kontoadministratör.
+1. Logga in på den [Azures Kontocenter](https://account.windowsazure.com/Subscriptions) som den [kontoadministratör](billing-subscription-transfer.md#whoisaa).
 1. Välj den prenumeration som är länkad till kortet.
 3. Välj **Hantera betalningssätt** till höger på sidan.
 4. Klicka på **ta bort** för kreditkort som du vill ta bort.

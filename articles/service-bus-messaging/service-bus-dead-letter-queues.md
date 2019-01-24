@@ -3,23 +3,23 @@ title: Service Bus-köer för obeställbara | Microsoft Docs
 description: Översikt över Azure Service Bus-köer för obeställbara meddelanden
 services: service-bus-messaging
 documentationcenter: .net
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2018
-ms.author: spelluru
-ms.openlocfilehash: eb4057b4cfc6a68fb3489a7ab6fb1ee6b5f41d7d
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: aaeebb200197ba6ef15fbcfe02f262a3840197b5
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338470"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856136"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus-köer för obeställbara meddelanden
 
@@ -46,13 +46,13 @@ Program kan definiera egna koder för den `DeadLetterReason` egenskapen, men sys
 | Tillstånd | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
 | Alltid |HeaderSizeExceeded |Storlekskvot för den här strömmen har överskridits. |
-| ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing och SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |undantag. Meddelande |
+| !TopicDescription.<br />EnableFilteringMessagesBeforePublishing och SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
 | EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Meddelandet har gått ut och har död lettered. |
 | SubscriptionDescription.RequiresSession |Sessions-id är null. |Sessionen aktiverat entitet tillåter inte att ett meddelande som vars sessions-ID är null. |
 | ! kö för obeställbara |MaxTransferHopCountExceeded |Null |
 | Programmet explicit död oljekategori |Anges av program |Anges av program |
 
-## <a name="exceeding-maxdeliverycount"></a>Överstiger MaxDeliveryCount
+## <a name="exceeding-maxdeliverycount"></a>Exceeding MaxDeliveryCount
 
 Köer och prenumerationer har en [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) och [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) egenskap standardvärdet är 10. När ett meddelande har levererats under ett lås ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), men har antingen uttryckligen övergivna eller låset har upphört att gälla, meddelandet [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) är stegvis. När [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) överskrider [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), meddelandet flyttas till DLQ, ange den `MaxDeliveryCountExceeded` orsakskod.
 

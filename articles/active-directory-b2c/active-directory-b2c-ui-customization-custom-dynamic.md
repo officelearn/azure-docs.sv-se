@@ -3,19 +3,19 @@ title: Anpassa Azure Active Directory B2C-användargränssnittet (UI) dynamiskt 
 description: Stöd för flera företagsanpassning upplevelser med HTML5/CSS-innehåll som ändras dynamiskt vid körning.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f078c1389e36b82f95b011ca1fbd7fbd1c4f895e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 87634539b9709e057c0e51297569c1005a7bea1f
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834246"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852107"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: Konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer
 
@@ -41,16 +41,16 @@ Den `ContentDefinitions` avsnittet innehåller en serie `ContentDefinition` XML-
 
 | Innehållsdefinition-ID | Standardmall för HTML5| Beskrivning | 
 |-----------------------|--------|-------------|
-| *api.error* | [Exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel har påträffats. |
-| *API.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sida för val av identitet**. Den här sidan visar en lista över identitetsleverantörer som användare kan välja bland under inloggning. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
-| *API.idpselections.Signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identitets-provider-markeringen för registrering**. Den här sidan visar en lista över identitetsleverantörer som användare kan välja bland under registreringen. Alternativen är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida**. Den här sidan visas när ett undantag eller ett fel har påträffats. |
+| *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sida för val av identitet**. Den här sidan visar en lista över identitetsleverantörer som användare kan välja bland under inloggning. Alternativen är vanligtvis enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
+| *api.idpselections.signup* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Identitets-provider-markeringen för registrering**. Den här sidan visar en lista över identitetsleverantörer som användare kan välja bland under registreringen. Alternativen är enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook och Google + eller lokala konton. |
 | *api.localaccountpasswordreset* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Sida för glömt lösenord**. Den här sidan innehåller ett formulär som användare måste slutföra för att initiera en lösenordsåterställning.  |
-| *API.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokalt konto på inloggningssidan**. Den här sidan innehåller ett formulär för att logga in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
-| *API.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för lokalt konto**. Den här sidan innehåller ett formulär för att registrera dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel: indata i en text box, en lösenordsruta, en alternativknapp, flervals-listrutorna och markera kryssrutorna. |
-| *API.phonefactor* | [multifaktoråtkomstkontroll 1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multifaktorautentiseringssidan**. På den här sidan verifiera användare sina telefonnummer (med hjälp av text eller röst) under registrering eller inloggning. |
+| *api.localaccountsignin* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Lokalt konto på inloggningssidan**. Den här sidan innehåller ett formulär för att logga in med ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla ett textinmatningsrutan och lösenordsruta. |
+| *api.localaccountsignup* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för lokalt konto**. Den här sidan innehåller ett formulär för att registrera dig för ett lokalt konto som är baserad på en e-postadress eller ett användarnamn. Formuläret kan innehålla olika indatakontroller, till exempel: indata i en text box, en lösenordsruta, en alternativknapp, flervals-listrutorna och markera kryssrutorna. |
+| *api.phonefactor* | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **Multifaktorautentiseringssidan**. På den här sidan verifiera användare sina telefonnummer (med hjälp av text eller röst) under registrering eller inloggning. |
 | *api.selfasserted* | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **Registreringssida för socialt konto**. Den här sidan innehåller ett formulär som användare måste slutföra när de registrerar sig med hjälp av ett befintligt konto från en social identitetsprovider. Den här sidan liknar föregående socialt konto registreringssidan, förutom inmatningsfält för lösenord. |
 | *api.selfasserted.profileupdate* | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **Uppdatera profilsida**. Den här sidan innehåller ett formulär som användarna kan nå för att uppdatera sina profiler. Den här sidan liknar socialt konto registreringssidan, förutom inmatningsfält för lösenord. |
-| *API.signuporsignin* | [Unified.HTML](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Sida för enhetlig registrering eller inloggning**. Den här sidan hanterar processen för användare registrera dig och logga in. Användare kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.  |
+| *api.signuporsignin* | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **Sida för enhetlig registrering eller inloggning**. Den här sidan hanterar processen för användare registrera dig och logga in. Användare kan använda enterprise identitetsleverantörer, sociala identitetsleverantörer, till exempel Facebook eller Google + eller lokala konton.  |
 
 ## <a name="serving-dynamic-content"></a>Betjänar dynamiskt innehåll
 I den [konfigurera anpassningar i en anpassad princip](active-directory-b2c-ui-customization-custom.md) artikeln får du överföra HTML5-filer till Azure Blob storage. Filerna HTML5 är statiska och återge samma HTML innehåll för varje begäran. 
@@ -83,7 +83,7 @@ I den här genomgången ska du:
 6. Klicka på **OK** för att skapa projektet.
 
 ## <a name="step-2-create-mvc-view"></a>Steg 2: Skapa MVC-vy
-### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Steg 2.1: Ladda ned mallen B2C inbyggda HTML5
+### <a name="step-21-download-the-b2c-built-in-html5-template"></a>Steg 2.1: Hämta B2C-inbyggd HTML5-mall
 Din anpassade HTML5-mall baseras på den inbyggda HTML5-mallen för Azure AD B2C. Du kan ladda ned den [unified.html filen](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) eller hämta en mall från [startpaket](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip). Du kan använda den här HTML5-filen för att skapa en enhetlig sida för registrering eller inloggning.
 
 ### <a name="step-22-add-the-mvc-view"></a>Steg 2.2: Lägg till MVC-vy
@@ -259,7 +259,7 @@ Lägg till den `ContentDefinitionParameters` element genom att göra följande:
     </UserJourneyBehaviors>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Steg 8.2: Ändra koden för att godkänna en frågesträngsparameter och Ersätt bakgrundsbild
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>Steg 8.2: Ändringar i koden för att godkänna en frågesträngsparameter och Ersätt bakgrundsbild
 Ändra HomeController `unified` metod för att godkänna parametern campaignId. Metoden kontrollerar sedan parametern är värdet och anger den `ViewData["background"]` variabeln därefter.
 
 1. Öppna den *Controllers\HomeController.cs* filen och ändra sedan den `unified` metoden genom att lägga till följande kodavsnitt:
@@ -292,7 +292,7 @@ Lägg till den `ContentDefinitionParameters` element genom att göra följande:
 
     ![Ändra sidbakgrund](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-dynamic-background.png)
 
-### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: överföra ändringarna och publicera principen
+### <a name="83-upload-the-changes-and-publish-your-policy"></a>8.3: Överföra ändringarna och publicera principen
 1. Publicera Visual Studio-projektet till Azure App Service.
 
 2. Ladda upp den *SignUpOrSignin.xml* principen till Azure AD B2C.

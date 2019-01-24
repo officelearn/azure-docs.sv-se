@@ -3,9 +3,9 @@ title: Hur du använder Service Bus-ämnen med PHP | Microsoft Docs
 description: Lär dig hur du använder Service Bus-ämnen med PHP i Azure.
 services: service-bus-messaging
 documentationcenter: php
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
 ms.service: service-bus-messaging
 ms.workload: na
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 09/06/2018
-ms.author: spelluru
-ms.openlocfilehash: 8b2cd62d9f1c2010956604a9f3c753d893f7c2ad
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.author: aschhab
+ms.openlocfilehash: efcc5b1f05cb2065d4cc9a3fda64e78dd6d5957b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407288"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849320"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Hur du använder Service Bus-ämnen och prenumerationer med PHP
 
@@ -244,7 +244,7 @@ for($i = 0; $i < 5; $i++){
 Service Bus-ämnena stöder en maximal meddelandestorlek på 256 kB på [standardnivån](service-bus-premium-messaging.md) och 1 MB på [premiumnivån](service-bus-premium-messaging.md). Rubriken, som inkluderar standardprogramegenskaperna och de anpassade programegenskaperna, kan ha en maximal storlek på 64 kB. Det finns ingen gräns för antalet meddelanden som kan finnas i ett ämne men det finns ett tak för den totala storleken för de meddelanden som ligger i ett ämne. Den här ämnesstorleken övre gräns är 5 GB. Mer information om kvoter finns i [Service Bus-kvoter][Service Bus quotas].
 
 ## <a name="receive-messages-from-a-subscription"></a>Ta emot meddelanden från en prenumeration
-Det bästa sättet att ta emot meddelanden från en prenumeration är att använda en `ServiceBusRestProxy->receiveSubscriptionMessage` metod. Meddelanden kan tas emot i två olika lägen: [ *ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** är standard.
+Det bästa sättet att ta emot meddelanden från en prenumeration är att använda en `ServiceBusRestProxy->receiveSubscriptionMessage` metod. Meddelanden kan tas emot i två olika lägen: [*ReceiveAndDelete* och *PeekLock*](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode). **PeekLock** är standard.
 
 När du använder läget [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) är inleveransen en engångsåtgärd, det vill säga, när Service Bus tar emot en läsbegäran för ett meddelande i en prenumeration så markerar den meddelandet som förbrukat och skickar tillbaka det till programmet. [ReceiveAndDelete](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.receivemode) * läge är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera icke-bearbetning av ett meddelande när ett fel uppstår. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som Förbrukat, har sedan när programmet startas om och börjar förbruka meddelanden igen, det missat meddelandet som förbrukades innan kraschen.
 

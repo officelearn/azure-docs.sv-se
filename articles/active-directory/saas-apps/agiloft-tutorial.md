@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Agiloft | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Agiloft | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Agiloft.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: aca13814-cdbd-46b8-93dc-1578099c5ee4
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: jeedes
-ms.openlocfilehash: f11d705cceb05c9e9cd0b340a680684eecf4f5d9
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f851bd260c18509a3233bb3401383e0e04ba6259
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054207"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813669"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudier: Azure Active Directory-integration med Agiloft
+# <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Självstudier: Azure Active Directory-integrering med Agiloft
 
 I den här självstudien får du lära dig hur du integrerar Agiloft med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Agiloft med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Agiloft.
 - Du kan aktivera användarna att automatiskt få loggat in på Agiloft (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Agiloft, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ För att konfigurera integrering av Agiloft i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Agiloft från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ För att konfigurera integrering av Agiloft i Azure AD, som du behöver lägga t
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av Agiloft i Azure AD, som du behöver lägga t
 
     ![Agiloft i resultatlistan](./media/agiloft-tutorial/tutorial_agiloft_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Agiloft baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +86,13 @@ I Agiloft, tilldela värdet för den **användarnamn** i Azure AD som värde fö
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Agiloft, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare Agiloft](#create-an-agiloft-test-user)**  – du har en motsvarighet för Britta Simon i Agiloft som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Agiloft program.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Agiloft** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -110,13 +110,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Agiloft domän och URL: er med enkel inloggning för information](./media/agiloft-tutorial/tutorial_agiloft_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: 
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: 
     | |
     |-|-|
     | `https://<subdomain>.saas.enterprisewizard.com/project/<KB_NAME>` |
     | `https://<subdomain>.agiloft.com/project/<KB_NAME>` |
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster:
     | |
     |-|-|
     | `https://<subdomain>.saas.enterprisewizard.com:443/gui2/spsamlsso?project=<KB_NAME>` |
@@ -126,22 +126,22 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Agiloft domän och URL: er med enkel inloggning för information](./media/agiloft-tutorial/tutorial_agiloft_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: 
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: 
     | |
     |-|-|
     | `https://<subdomain>.saas.enterprisewizard.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
     | `https://<subdomain>.agiloft.com/gui2/samlssologin.jsp?project=<KB_NAME>` |
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Agiloft klienten supportteamet](https://www.agiloft.com/support-login.htm) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Agiloft klienten supportteamet](https://www.agiloft.com/support-login.htm) att hämta dessa värden. 
 
 5. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/agiloft-tutorial/tutorial_agiloft_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/agiloft-tutorial/tutorial_agiloft_certificate.png) 
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/agiloft-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/agiloft-tutorial/tutorial_general_400.png)
     
 7. På den **Agiloft Configuration** klickar du på **konfigurera Agiloft** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -161,19 +161,19 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     ![Agiloft konfiguration](./media/agiloft-tutorial/setup4.png) 
 
-    a. I **IdP entitets-Id / utfärdare** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
+    a. I **IdP entitets-Id / utfärdare** textrutan klistra in värdet för **SAML entitets-ID**, som du har kopierat från Azure-portalen.
 
-    b. I **inloggnings-URL för IDP: N** textrutan klistra in värdet för **enkel inloggnings-URL för**, som du har kopierat från Azure-portalen.
+    b. I **inloggnings-URL för IDP: N** textrutan klistra in värdet för **enkel inloggnings-URL för**, som du har kopierat från Azure-portalen.
 
-    c. I **utloggnings-URL för IDP: N** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
+    c. I **utloggnings-URL för IDP: N** textrutan klistra in värdet för **URL: en för utloggning**, som du har kopierat från Azure-portalen.
 
-    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **IdP tillhandahålls X.509-certifikat innehållet** textrutan.
+    d. Öppna din **Base64-kodade certifikat** i anteckningar som hämtats från Azure-portalen, kopierar du innehållet i den till Urklipp och klistra in den till den **IdP tillhandahålls X.509 certifikatinnehåll**  textrutan.
 
     e. Klicka på **Slutför**.
 
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-an-agiloft-test-user"></a>Skapa en Agiloft testanvändare
 
-Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt. Det finns inga åtgärder åt dig i det här avsnittet.
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet. Det finns ingen åtgärd för dig i det här avsnittet.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

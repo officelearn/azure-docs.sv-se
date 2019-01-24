@@ -3,19 +3,19 @@ title: Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering 
 description: Skydda dina anpassade REST API anspråk Utbytena i din Azure AD B2C med hjälp av grundläggande HTTP-autentisering.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e6cff4e2daf86b63bc0db0d4f2d537322d2841df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dcabcbbce78b83c0d4328e0f5b1088c172bcfedb
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409311"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850692"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda RESTful-tjänster med hjälp av grundläggande HTTP-autentisering
 
@@ -186,7 +186,7 @@ Lägg till den `ClientAuthMiddleware.cs` klassen den *App_Start* mapp. Gör så 
     }
     ```
 
-### <a name="step-14-add-an-owin-startup-class"></a>Steg 1.4: Lägg till en OWIN-startklass
+### <a name="step-14-add-an-owin-startup-class"></a>Steg 1.4: Lägga till en OWIN-startklass
 Lägg till en OWIN-startklass med namnet `Startup.cs` -API: et. Gör så här:
 1. Högerklicka på projektet, Välj **Lägg till** > **nytt objekt**, och söker sedan efter **OWIN**.
 

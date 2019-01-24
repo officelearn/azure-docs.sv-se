@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med LinkedIn höjer | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med LinkedIn höjer | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och LinkedIn höjer.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 2ad9941b-c574-42c3-bd0f-5d6ec68537ef
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8b11b5e3e420577590e95c6839673f54c52d078b
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 209f87a77ff6e18fa08943385d9cf61bbf915089
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116184"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54822645"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Självstudier: Azure Active Directory-integration med LinkedIn höjer
+# <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Självstudier: Azure Active Directory-integrering med LinkedIn höjer
 
 I den här självstudien får lära du att integrera LinkedIn höjer med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera LinkedIn höjer med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på LinkedIn höjer (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med LinkedIn höjer, behöver du fö
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
@@ -66,11 +66,11 @@ Om du vill konfigurera integreringen av LinkedIn utöka till Azure AD, som du be
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
 
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **LinkedIn höjer**. I resultatrutan, klickar du på **LinkedIn höjer** att lägga till programmet.
 
@@ -107,7 +107,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
 1. I ett annat webbläsarfönster inloggning till LinkedIn höjer-klienten som administratör.
 
-1. I **Kontocenter**, klickar du på **globala inställningar** under **inställningar**. Markera också **utöka - höjer AAD Test** från den nedrullningsbara listan.
+1. Klicka på **Globala inställningar** under **Inställningar** i **Kontocenter**. Markera också **utöka - höjer AAD Test** från den nedrullningsbara listan.
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_01.png)
 
@@ -129,7 +129,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_signon_02.png) 
 
-1. LinkedIn utöka programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel för detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men LinkedIn höjer förväntar sig detta mappas med användarens e-postadress. Som du kan använda **user.mail** attribut i listan eller Använd rätt attribut-värde baserat på konfigurationen för din organisation.
+1. LinkedIn utöka programmet förväntar sig SAML-intyg i ett visst format, vilket kräver att du kan lägga till anpassade attributmappningar i SAML-tokenattribut konfigurationen. Följande skärmbild visar ett exempel på detta. Standardvärdet för **användaridentifierare** är **user.userprincipalname** men LinkedIn höjer förväntar sig detta mappas med användarens e-postadress. Till det kan du använda **user.mail**-attributet från listan eller rätt attributvärde baserat på organisationens konfiguration.
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/updateusermail.png)
 
@@ -137,7 +137,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     | Attributnamn | Attributvärde |
     | --- | --- |
-    | Avdelning| User.Department |
+    | avdelning| user.department |
 
       ![Skapa en Azure AD-användare för testning](./media/linkedinelevate-tutorial/userattribute.png)
 
@@ -157,11 +157,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-hanteringsportal
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_general_400.png)
 
-1. Gå till **LinkedIn administratörsinställningar** avsnittet. Ladda upp XML-filen som du precis har laddat ned från Azure portal genom att klicka på alternativet ladda upp XML-fil.
+1. Gå till avsnittet **LinkedIn-administratörsinställningar**. Ladda upp XML-filen som du precis har laddat ned från Azure portal genom att klicka på alternativet ladda upp XML-fil.
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_metadata_03.png)
 
-1. Klicka på **på** att aktivera enkel inloggning. SSO status kommer att ändras från **inte ansluten** till **ansluten**
+1. Aktivera enkel inloggning genom att klicka på **På**. SSO status kommer att ändras från **inte ansluten** till **ansluten**
 
     ![Konfigurera enkel inloggning](./media/linkedinelevate-tutorial/tutorial_linkedin_admin_05.png)
 
@@ -240,10 +240,10 @@ När du klickar på panelen LinkedIn höjer i åtkomstpanelen, bör du få sidan
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Självstudie: Konfigurera LinkedIn höjer för automatisk användarförsörjning med Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
+* [Självstudier: Konfigurera LinkedIn höjer för automatisk användaretablering med Azure Active Directory](linkedinelevate-provisioning-tutorial.md)
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](linkedinelevate-provisioning-tutorial.md)
+* [Konfigurera användarförsörjning](linkedinelevate-provisioning-tutorial.md)
 
 <!--Image references-->
 

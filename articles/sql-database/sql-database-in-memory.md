@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: d2602b79db0950043cc84bbd1626f7c8ec6f402a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714397"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813363"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
@@ -70,7 +70,7 @@ Mer information finns i:
 
 ## <a name="in-memory-oltp"></a>Minnesintern OLTP
 
-Minnesintern OLTP-teknik ger mycket snabba åtgärder för dataåtkomst genom att behålla alla data i minnet. Den använder också specialiserade index, interna kompileringen av frågor och oreglerad data-fjärråtkomst kan förbättra prestanda vid OLTP-arbetsbelastning. Det finns två sätt att organisera dina In-Memory OLTP-data:
+Minnesintern OLTP-teknik ger mycket snabba åtgärder för dataåtkomst genom att behålla alla data i minnet. Den använder också specialiserade index, interna kompileringen av frågor och oreglerad dataåtkomst kan förbättra prestanda vid OLTP-arbetsbelastning. Det finns två sätt att organisera dina In-Memory OLTP-data:
 - **Minnesoptimerade rowstore** format där varje rad är ett minnesutrymme-objekt. Det här är ett klassiska InMemory-OLTP-format som är optimerat för OLTP-arbetsbelastningar med höga prestanda. Det finns två typer av minnesoptimerade tabeller som kan användas i minnesoptimerade rowstore-format:
   - *Hållbar tabeller* (SCHEMA_AND_DATA) där de rader som placeras i minnet bevaras när servern startas om. Den här typen av tabeller fungerar som en traditionell rowstore-tabell med de ytterligare fördelarna med InMemory-optimeringar.
   - *Icke-beständiga tabeller* (SCEMA_ONLY) där raderna är inte bevaras efter omstart. Den här typen av tabellen har utformats för tillfälliga data (till exempel byte av temporära tabeller), eller tabeller där du behöver för att snabbt läsa in data innan du flyttar den till vissa beständiga tabell (så kallade mellanlagringstabellerna).

@@ -3,9 +3,9 @@ title: Azure Service Bus åtkomstkontroll med signaturer för delad åtkomst | M
 description: Översikt över Service Bus åtkomstkontroll med signaturer för delad åtkomst – översikt, information om SAS-auktorisering med Azure Service Bus.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2018
-ms.author: spelluru
-ms.openlocfilehash: daefb07761217ff4bb0800dfd9f1f05b6e22c1e1
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.author: aschhab
+ms.openlocfilehash: 3e2fa51bcf6040eb94a9d270a7f5f375f726e62a
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284922"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846344"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomstkontroll med signaturer för delad åtkomst
 
@@ -96,13 +96,13 @@ En SAS-token är giltig för alla resurser som föregås av den `<resourceURI>` 
 
 Vi rekommenderar att du regelbundet återskapar nycklarna som används i den [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) objekt. De primära och sekundära nyckeln fack finns så att du kan rotera nycklar gradvis. Om programmet använder vanligtvis den primära nyckeln, kan du kopiera den primära nyckeln till det sekundära nyckeln facket och endast sedan återskapa den primära nyckeln. Ny primärnyckelvärdet kan sedan konfigureras i klientprogram som ha fortsatt åtkomst med hjälp av den gamla primära nyckeln på den sekundära platsen. När alla klienter har uppdaterats kan återskapa du den sekundära nyckeln för att slutligen Dra tillbaka den gamla primära nyckeln.
 
-Om du vet eller misstänker att en nyckel har komprometterats och du behöver återkalla nycklarna kan du återskapa både den [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) och [sekundär nyckel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_SecondaryKey) av en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), ersätta dem med nya nycklar. Den här proceduren upphäver alla token som signerats med de gamla nycklarna.
+Om du vet eller misstänker att en nyckel har komprometterats och du behöver återkalla nycklarna kan du återskapa både den [PrimaryKey](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule#Microsoft_ServiceBus_Messaging_SharedAccessAuthorizationRule_PrimaryKey) och [sekundär nyckel](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) av en [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule), ersätta dem med nya nycklar. Den här proceduren upphäver alla token som signerats med de gamla nycklarna.
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autentisering med delad Åtkomstsignatur med Service Bus
 
 De scenarier som beskrivs nedan omfattar konfiguration av auktoriseringsregler, generering av SAS-token och klientautentisering.
 
-För en fullständig fungerande exempel på ett Service Bus-program som visar konfiguration och använder SAS auktorisering finns i [autentisering med signatur för delad åtkomst med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterade exempel som illustrerar användningen av SAS-auktoriseringsregler som konfigureras i namnområden eller avsnitt för att skydda Service Bus-prenumerationer finns här: [autentisering med signatur för delad åtkomst (SAS) med Service Bus-prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
+För en fullständig fungerande exempel på ett Service Bus-program som visar konfiguration och använder SAS auktorisering finns i [autentisering med signatur för delad åtkomst med Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). Ett relaterade exempel som illustrerar användningen av SAS-auktoriseringsregler som konfigureras i namnområden eller avsnitt för att skydda Service Bus-prenumerationer finns här: [Med signatur för delad åtkomst (SAS)-autentisering med Service Bus-prenumerationer](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Åtkomstregler för auktorisering för delad åtkomst på en entitet
 
@@ -257,7 +257,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 | --- | --- | --- |
 | **Namespace** | | |
 | Konfigurera auktoriseringsregeln för ett namnområde |Hantera |Alla adresser för namnområde |
-| **Tjänstregister** | | |
+| **Service Registry** | | |
 | Räkna upp principer som privat |Hantera |Alla adresser för namnområde |
 | Tar emot ett namnområde |Lyssna |Alla adresser för namnområde |
 | Skicka meddelanden till en lyssnare på ett namnområde |Skicka |Alla adresser för namnområde |
@@ -275,7 +275,7 @@ I följande tabell visas de behörigheter som krävs för olika åtgärder på S
 | Hämta parametrarnas tillstånd som associeras med en message queue-session |Lyssna |En giltig kö-adress |
 | Ställa in tillståndet som är associerade med en message queue-session |Lyssna |En giltig kö-adress |
 | Schemalägga ett meddelande för senare leverans. till exempel [ScheduleMessageAsync()](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) |Lyssna | En giltig kö-adress
-| **Avsnittet** | | |
+| **Ämne** | | |
 | Skapa ett ämne |Hantera |Alla adresser för namnområde |
 | Ta bort ett ämne |Hantera |En giltig avsnittet adress |
 | Räkna upp avsnitt |Hantera |$ Resurser/ämnen |

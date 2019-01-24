@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Hightail | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Hightail | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Hightail.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: e15206ac-74b0-46e4-9329-892c7d242ec0
 ms.service: active-directory
 ms.workload: identity
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 1151044d5c1002c808ae1214086aff5fad84a55e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 59342aa95e50b29e58035892967be6d0407aae91
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431342"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812972"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Självstudier: Azure Active Directory-integration med Hightail
+# <a name="tutorial-azure-active-directory-integration-with-hightail"></a>Självstudier: Azure Active Directory-integrering med Hightail
 
 I den här självstudien får du lära dig hur du integrerar Hightail med Azure Active Directory (AD Azure).
 
@@ -42,10 +42,10 @@ Om du vill konfigurera Azure AD-integrering med Hightail, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -58,17 +58,17 @@ För att konfigurera integrering av Hightail i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Hightail från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Hightail**.
 
@@ -126,7 +126,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_certificate.png) 
 
-1. Hightail program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”attributet”** fliken av programmet. Följande skärmbild visar ett exempel för detta. 
+1. Hightail program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den **”attributet”** fliken av programmet. Följande skärmbild visar ett exempel på detta. 
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_hightail_attribute.png) 
 
@@ -134,10 +134,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |
-    | FirstName | User.givenName |
-    | LastName | User.surname |
-    | E-post | User.Mail |    
-    | UserIdentity | User.Mail |
+    | FirstName | user.givenname |
+    | LastName | user.surname |
+    | E-post | user.mail |    
+    | UserIdentity | user.mail |
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -145,15 +145,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_officespace_05.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     c. Från den **värdet** anger attributvärdet som visas för den raden.
 
-    d. Lämna den **Namespace** tom.
+    d. Lämna **Namnrymd** tom.
 
     e. Klicka på **OK**.
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/hightail-tutorial/tutorial_general_400.png)
 
@@ -187,7 +187,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     d. Klicka på **spara konfigurationer**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -221,7 +221,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Hightail. 
 
-Det finns inga uppgift åt dig i det här avsnittet. Hightail stöder just-in-time-användaretablering baserat på de anpassade anspråk. Om du har konfigurerat anpassade anspråk som visas i avsnittet **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)** ovan, en användare skapas automatiskt i programmet som det inte finns ännu. 
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. Hightail stöder just-in-time-användaretablering baserat på de anpassade anspråk. Om du har konfigurerat anpassade anspråk som visas i avsnittet **[konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)** ovan, en användare skapas automatiskt i programmet som det inte finns ännu. 
 
 >[!NOTE]
 >Om du vill skapa en användare manuellt kan du behöva kontakta den [Hightail supportteamet](mailto:support@hightail.com). 

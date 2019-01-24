@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b1010b5376a26a4d33c026be27ce363959954ca2
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 18b698861a791174f2e254543d5d3b7a54052574
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53078879"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854181"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Din profil och användar-ID för Azure-anteckningsböcker
 
 Inom Azure anteckningsböcker kraftfulla, samarbetsfunktioner utrymme anger din användarprofil offentliga avbildningen till andra:
 
-[![](media/accounts/profile-page.png "En sida för Azure-anteckningsböcker")](media/accounts/profile-page.png#lightbox)
+[![En sida för Azure-anteckningsböcker](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 Ditt användar-ID är en del av URL: er som du använder för att dela projekt och anteckningsböcker. I följande lista beskrivs de olika URL-mönster:
 
 - `https://notebooks.azure.com/<user_id>`: Din profilsida.
-- `https://notebooks.azure.com/<user_id>/projects`: Ditt projekt. Du ser alla projekt. andra användare ser bara dina offentliga projekt.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Project-filer.
+- `https://notebooks.azure.com/<user_id>/projects`: Dina projekt. Du ser alla projekt. andra användare ser bara dina offentliga projekt.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>`: Projektfiler.
 - `https://notebooks.azure.com/<user_id>/projects/<project_id>/clones`: Kloner med ett specifikt projekt.
-- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: Den HTML-förhandsgranskningen av en specifik anteckningsboken eller fil.
+- `https://notebooks.azure.com/<user_id>/projects/<project_id>/html/<notebook>.ipynb`: HTML-förhandsgranskning av en specifik anteckningsboken eller fil.
 
 ## <a name="your-user-id"></a>Ditt användar-ID
 
@@ -63,8 +63,8 @@ Redigera din profil genom att använda den **redigera profilinformation** på di
 | Kontoinformation | Visningsnamn, användar-ID och offentlig e-postkonto. Det här e-postkontot och ger andra användare en medelvärde att kontakta dig och kan skilja sig från den [konto](azure-notebooks-user-account.md) du använder för att logga in på Azure-datorer själva. |
 | Profilinformation | Din plats, företag, befattning, webbplats och en kort beskrivning av själv. |
 | Sociala profiler | GItHub, Twitter och Facebook-ID, om du vill dela dem. |
-| Sekretessinställningar | Innehåller två kommandon:<ul><li>**Exportera min profil**: skapas och hämtas en *.zip* -fil som innehåller all information som Azure anteckningsböcker sparar i din profil, inklusive foto, profilinformation och säkerhetsloggar.</li><li>**Ta bort mitt konto**: tar bort din personliga information som lagras i Azure-anteckningsböcker.</li></ul> |
-| Aktivera funktioner | Gör att du kan styra beteendet för Azure-datorer:<ul><li>**Enhetlig klientdel för bärbara datorer**: möjliggör snabbare notebook-start och bättre persistence.</li><li>**Kör i JupyterLab som standard**: som standard Azure-anteckningsböcker ger ett enkelt användargränssnitt som passar för de flesta användare. JupyterLab tillhandahåller en mer omfattande men mer komplicerad gränssnitt för erfarna användare.</li><li>**VNext webbplats**: aktiverar modernare Webblayout som visas i den här dokumentationen.</li></ul> |
+| Sekretessinställningar | Innehåller två kommandon:<ul><li>**Exportera min profil**: skapas och hämtas en *.zip* -fil som innehåller all information som Azure anteckningsböcker sparar i din profil, inklusive foto, profilinformation och säkerhetsloggar.</li><li>**Ta bort mitt konto**: Tar bort din personliga information som lagras i Azure-anteckningsböcker.</li></ul> |
+| Aktivera funktioner | Gör att du kan styra beteendet för Azure-datorer:<ul><li>**Enhetlig klientdel för bärbara datorer**: möjliggör snabbare notebook-start och bättre persistence.</li><li>**Kör i JupyterLab som standard**: Som standard ger ett enkelt användargränssnitt som passar för de flesta användare i Azure-anteckningsböcker. JupyterLab tillhandahåller en mer omfattande men mer komplicerad gränssnitt för erfarna användare.</li><li>**VNext webbplats**: aktiverar modernare Webblayout som visas i den här dokumentationen.</li></ul> |
 
 ## <a name="next-steps"></a>Nästa steg  
 

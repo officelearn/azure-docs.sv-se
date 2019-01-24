@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: dea12d7188b716b4a832a33bb173201e68dbe20f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8fd523b50ec5d7161da5d9d778386914136097dc
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189752"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828204"
 ---
 # <a name="configuring-asset-delivery-policies"></a>Konfigurera tillgångsleveransprinciper
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
@@ -37,7 +37,7 @@ Du kan tillämpa olika principer för samma tillgång. Du kan till exempel till�
 
 Om du vill att leverera en krypterad tillgång för lagring, måste du konfigurera den tillgångsleveransprincip. Innan du kan strömma din tillgång, kommer servern för strömning tar bort lagringskryptering och strömmar ditt innehåll med den angivna principen. Till exempel för att leverera din tillgång som krypterats med Advanced Encryption Standard (AES) kuvert krypteringsnyckeln, anger du principtypen **DynamicEnvelopeEncryption**. Om du vill ta bort lagringskryptering och strömma tillgången i klartext, anger du principtypen **NoDynamicEncryption**. Exempel som visar hur du konfigurerar dessa principtyper följer.
 
-Beroende på hur du konfigurerar tillgångsleveransprincip skulle du kunna dynamiskt paketera dynamiskt kryptera och strömma följande strömningsprotokoll: Smooth Streaming, HLS, MPEG DASH-strömmar.
+Beroende på hur du konfigurerar tillgångsleveransprincip skulle du kunna dynamiskt paketera dynamiskt kryptera och strömma följande strömningsprotokoll: Smooth Streaming, HLS, MPEG DASH streams.
 
 I följande lista visas format som du använder till stream Smooth, HLS, DASH.
 
@@ -355,7 +355,7 @@ Följande enum beskriver värden som du kan använda för att konfigurera levera
         None = 0,
 
         /// <summary>
-        /// Use PlayReady License acquistion protocol
+        /// Use PlayReady License acquisition protocol
         ///
         </summary>
         PlayReadyLicense = 1,
@@ -367,7 +367,7 @@ Följande enum beskriver värden som du kan använda för att konfigurera levera
         BaselineHttp = 2,
 
         /// <summary>
-        /// Use Widevine License acquistion protocol
+        /// Use Widevine License acquisition protocol
         ///
         </summary>
         Widevine = 3

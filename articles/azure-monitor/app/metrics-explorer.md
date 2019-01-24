@@ -10,17 +10,20 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/08/2017
+ms.date: 01/22/2019
 ms.author: mbullwin
-ms.openlocfilehash: 752f28eed3a6be5f7f136999c66e405bf7785a42
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 5c659ca2f40d47450227d16963499a6b27c9e313
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120979"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817125"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Utforska mått i Application Insights
 Mått i [Programinsikter] [ start] är mätvärden och antalet händelser som skickas i telemetri från ditt program. De hjälper dig att identifiera problem med prestanda och se trender i hur ditt program används. Det finns en mängd olika standardmått och du kan också skapa egna anpassade mått och händelser.
+
+> [!NOTE]
+> Den här artikeln beskriver klassiska metrics explorer-upplevelse som för närvarande är inaktuell och kommer så småningom att dras tillbaka. Vi rekommenderar att du kontrollerar ut den nya upplevelsen som beskrivs i [i den här artikeln](../platform/metrics-charts.md).
 
 Antal mått och händelse visas i diagram över sammanställda värden, till exempel summor, medelvärden eller antal.
 

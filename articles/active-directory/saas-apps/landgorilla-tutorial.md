@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: jeedes
-ms.openlocfilehash: e93c4721f34b06fec853d876543e9939220efd9f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e4ff5b3fd7797296761ba025dc54d15c491dea06
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116444"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827695"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Självstudier: Azure Active Directory-integrering med mark Gorilla-klienten
+# <a name="tutorial-azure-active-directory-integration-with-land-gorilla-client"></a>Självstudier: Azure Active Directory-integrering med mark Gorilla klienten
 
 I den här självstudien får du lära dig hur du integrerar mark Gorilla klienten med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera mark Gorilla klienten med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på mark Gorilla klienten (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -46,10 +46,10 @@ Om du vill konfigurera Azure AD-integrering med mark Gorilla klienten behöver d
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,11 +70,11 @@ Om du vill konfigurera integreringen av mark Gorilla klient till Azure AD, som d
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **mark Gorilla klienten**.
 
@@ -135,13 +135,13 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-hantering
     `https://www.<customer domain>.landgorilla.com/simplesaml/module.php/saml/sp/saml2-acs.php/default-sp`
 
     > [!NOTE] 
-    > Observera att detta inte är det verkliga värdet. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du för att använda det unika värdet av strängen i identifierare. Kontakta [mark Gorilla klienten team](https://www.landgorilla.com/support/) att hämta dessa värden. 
+    > Observera att detta inte är de verkliga värdena. Du måste uppdatera dessa värden med de faktiska identifierare och svars-URL. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta [mark Gorilla klienten team](https://www.landgorilla.com/support/) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
     ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_landgorilla_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/landgorilla-tutorial/tutorial_general_400.png) 
 

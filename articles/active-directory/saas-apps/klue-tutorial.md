@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Klue | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Klue | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Klue.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 08341008-980b-4111-adb2-97bbabbf1e47
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: jeedes
-ms.openlocfilehash: 4afe11d6d241e86b57ebb40d54e4c2dceb63a46c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 9312006af84e74aa039d762abdfc6edba79a47fb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123064"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824804"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Självstudier: Azure Active Directory-integration med Klue
+# <a name="tutorial-azure-active-directory-integration-with-klue"></a>Självstudier: Azure Active Directory-integrering med Klue
 
 I den här självstudien får du lära dig hur du integrerar Klue med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Klue, behöver du följande obje
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
@@ -67,11 +67,11 @@ För att konfigurera integrering av Klue i Azure AD, som du behöver lägga till
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 4. I sökrutan skriver **Klue**.
 
@@ -115,15 +115,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/klue-tutorial/tutorial_klue_url1.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `urn:klue:<Customer ID>`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `urn:klue:<Customer ID>`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/callback`
 
 4. Kontrollera **visa avancerade URL-inställningar**. Om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Konfigurera enkel inloggning](./media/klue-tutorial/tutorial_klue_url2.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://app.klue.com/account/auth/saml/<Customer UUID>/`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska svars-URL, identifierare och inloggnings-URL. Kontakta [Klue klienten supportteamet](mailto:support@klue.com) att hämta dessa värden.
@@ -136,9 +136,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     | Attributnamn      | Attributvärde      |
     | ------------------- | -------------------- |
-    | Förnamn          | User.givenName |
-    | Efternamn           | User.surname |
-    | e-post               | User.userPrincipalName|
+    | first_name          | user.givenname |
+    | last_name           | user.surname |
+    | e-post               | user.userprincipalname|
 
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -146,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/klue-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     c. Från den **värdet** anger attributvärdet som visas för den raden.
 
@@ -159,7 +159,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/klue-tutorial/tutorial_klue_certificate.png) 
 
-8. Klicka på **spara** knappen.
+8. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/klue-tutorial/tutorial_general_400.png)
 
@@ -171,7 +171,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -203,10 +203,10 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-a-klue-test-user"></a>Skapa en Klue testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Klue. Klue stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Klue om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Klue. Klue stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Klue om det inte finns ännu.
 
 > [!Note]
-> Om du vill skapa en användare manuellt, kontakta [Klue supportteamet](mailto:support@klue.com).
+> Om du vill skapa en användare manuellt, kontakta [Klue supportteamet](mailto:support@klue.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

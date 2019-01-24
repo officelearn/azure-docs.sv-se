@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services – Smooth Streaming-protokollet (MS-SSTR)-tillägg för – HEVC | Microsoft Docs
-description: Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade direktsänd strömning med – HEVC i Azure Media Services. Det här är en ändring av Smooth Streaming-protokollet documentaiton (MS-SSTR) att inkludera stöd för – HEVC mata in och strömning. Endast de ändringar som krävs för att leverera – HEVC har angetts i den här artikeln, förutom har ”(ingen ändring)” anger text kopieras för endast information.
+description: Den här specifikationen beskriver protokollet och format för fragmenterad MP4-baserade direktsänd strömning med – HEVC i Azure Media Services. Det här är en ändring av Smooth Streaming-protokollet dokumentation (MS-SSTR) att inkludera stöd för – HEVC mata in och strömning. Endast de ändringar som krävs för att leverera – HEVC har angetts i den här artikeln, förutom har ”(ingen ändring)” anger text kopieras för endast information.
 services: media-services
 documentationcenter: ''
 author: cenkdin
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2018
 ms.author: johndeu;
-ms.openlocfilehash: 038eee18adf94f34a2e10d9ff7be76409c8c4322
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c87795c1203a8639ba224a646f8f0c5f5515b840
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53317431"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812768"
 ---
 # <a name="smooth-streaming-protocol-ms-sstr-amendment-for-hevc"></a>Jämn direktuppspelning Protocol (MS-SSTR)-tillägg för – HEVC
 
@@ -48,9 +48,9 @@ Följande villkor är specifika för det här dokumentet:
 
 **fragment:** En oberoende nedladdningsbara enhet **media** som består av en eller flera **exempel**.
 
->   **– HEVC:** Hög effektivitet Video kodning enligt definitionerna i [ISO/IEC 23008 2]
+>   **HEVC:** Hög effektivitet Video kodning enligt definitionerna i [ISO/IEC 23008 2]
 
->   **manifest:** Metadata om den **presentation** som gör det möjligt för en klient att göra begäranden **media**. **medium:** Komprimerade data för ljud, video och text som används av klienten för att spela upp en **presentation**. **Mediaformat:** Ett väldefinierat format för att representera ljud- eller videoklipp som en komprimerad **exempel**.
+>   **manifest:** Metadata om den **presentation** som gör det möjligt för en klient att göra begäranden **media**. **media:** Komprimerade data för ljud, video och text som används av klienten för att spela upp en **presentation**. **Mediaformat:** Ett väldefinierat format för att representera ljud- eller videoklipp som en komprimerad **exempel**.
 
 >   **presentation:** Uppsättningen med alla **strömmar** och tillhörande metadata som behövs för att spela upp en enda film. **Begäran:** Ett HTTP-meddelande som skickats från klienten till servern, enligt definitionen i [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372) **Svar:** Ett HTTP-meddelande som skickats från servern till klienten, enligt definitionen i [[RFC2616].](https://go.microsoft.com/fwlink/?LinkId=90372)
 
@@ -88,7 +88,7 @@ Följande villkor är specifika för det här dokumentet:
 
 >   [RFC3548] Josefsson, S., Ed. ”den Base16 Base32 och Base64 Data kodningar”, RFC 3548, juli 2003 [http://www.ietf.org/rfc/rfc3548.txt   ](https://go.microsoft.com/fwlink/?LinkId=90432)
 
->   [RFC5234] Crocker, D., Ed., och Overell, P. ”, förstärkta BNF för Syntax specifikationer: ABNF ”, STD 68, RFC 5234, januari 2008   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
+>   [RFC5234] Crocker, D., Ed., och Overell, P. ”, förstärkta BNF för Syntax specifikationer: ABNF", STD 68, RFC 5234, January 2008,   [http://www.rfc-editor.org/rfc/rfc5234.txt   ](https://go.microsoft.com/fwlink/?LinkId=123096)
 
 
 ## <a name="13-overview"></a>1.3-översikt 
@@ -155,7 +155,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 
 >   Den **CodecPrivateData** fältet bör innehålla en hex-kodad sträng som innehåller den följande byte-sekvens som anges i ABNF [[RFC5234]:](https://go.microsoft.com/fwlink/?LinkId=123096) (ingen ändring av MS-SSTR)
 
->   * %x 00 %x 00 %x 00 %x 01 SPSField %x 00 %x 00 %x 00 %x 01 PPSField
+>   * %x00 %x00 %x00 %x01 SPSField %x00 %x00 %x00 %x01 PPSField
 
 >   * SPSField innehåller sekvens Parameter angetts (Service Pack).
 
@@ -173,7 +173,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 
 ### <a name="223-fragment-request"></a>2.2.3 fragment begäran 
 
->   **Obs**: Standardformat för media som begärdes för **LägreVersion** 2 och ”hev1” är ”iso8” varumärke ISO Base Media filformatet anges i [ISO/IEC 14496 – 12] ISO Base Media File Format fjärde utgåvan och [ISO/IEC 23001 7] Common Encryption andra Utgåva.
+>   **Obs!** Standardformat för media som begärdes för **LägreVersion** 2 och ”hev1” är ”iso8” varumärke ISO Base Media filformatet anges i [ISO/IEC 14496 – 12] ISO Base Media File Format fjärde utgåvan och [ISO/IEC 23001 7] Common Encryption andra Utgåva.
 
 ### <a name="224-fragment-response"></a>2.2.4 fragment svar 
 
@@ -187,7 +187,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 
 >   Den **TfxdBox** är inaktuell och dess funktion som har ersatts av spåra Fragment avkoda rutan tid (tfdt) [ISO/IEC 14496 – 12]-avsnitt 8.8.12.
 
->   **Obs**: En klient kan beräkna varaktigheten för ett fragment genom att summera exempel varaktigheterna visas i spåra rutan Kör (trun) eller multiplicera antalet exempel som exempel standardlängden. BaseMediaDecodeTime 'tfdt' plus fragment varaktigheten är lika med parametern URL tiden för nästa fragment.
+>   **Obs!** En klient kan beräkna varaktigheten för ett fragment genom att summera exempel varaktigheterna visas i spåra rutan Kör (trun) eller multiplicera antalet exempel som exempel standardlängden. BaseMediaDecodeTime 'tfdt' plus fragment varaktigheten är lika med parametern URL tiden för nästa fragment.
 
 >   En producent referens tid ruta (prft) som ska infogas innan en film Fragment ruta (moof) efter behov, för att ange UTC-tid som motsvarar spåra Fragment avkoda tidpunkten för första exemplet refererar till rutan film Fragment som anges i [ISO/IEC 14496 – 12] avsnittet 8.16.5.
 
@@ -195,7 +195,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 
 >   Den **TfrfBox** är inaktuell och dess funktion som har ersatts av spåra Fragment avkoda rutan tid (tfdt) [ISO/IEC 14496 – 12]-avsnitt 8.8.12.
 
->   **Obs**: En klient kan beräkna varaktigheten för ett fragment genom att summera exempel varaktigheterna visas i spåra rutan Kör (trun) eller multiplicera antalet exempel som exempel standardlängden. BaseMediaDecodeTime 'tfdt' plus fragment varaktigheten är lika med parametern URL tiden för nästa fragment. Söka framåt adresser är föråldrade eftersom de fördröjning direktsänd strömning.
+>   **Obs!** En klient kan beräkna varaktigheten för ett fragment genom att summera exempel varaktigheterna visas i spåra rutan Kör (trun) eller multiplicera antalet exempel som exempel standardlängden. BaseMediaDecodeTime 'tfdt' plus fragment varaktigheten är lika med parametern URL tiden för nästa fragment. Söka framåt adresser är föråldrade eftersom de fördröjning direktsänd strömning.
 
 #### <a name="2246-tfhdbox"></a>2.2.4.6 TfhdBox 
 
@@ -245,7 +245,7 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
     MinorVersion = STRING_UINT32
     CompatibleBrands = "ccff" "iso8" 0\*(STRING_UINT32)
 
-**Obs**: Kompatibilitet varumärken 'ccff' och 'iso8' tyda på att fragment överensstämmer med ”filformatet vanliga behållare” och Common Encryption [ISO/IEC 23001 7] och ISO Base Media filen Format version 4 [ISO/IEC 14496 – 12].
+**Obs!** Kompatibilitet varumärken 'ccff' och 'iso8' tyda på att fragment överensstämmer med ”filformatet vanliga behållare” och Common Encryption [ISO/IEC 23001 7] och ISO Base Media filen Format version 4 [ISO/IEC 14496 – 12].
 
 #### <a name="2272-streammanifestbox"></a>2.2.7.2 StreamManifestBox 
 
@@ -277,8 +277,8 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 >   Presentation Metadata: En uppsättning metadata som är gemensamma för alla dataströmmar i presentationen. Presentation Metadata består av följande fält som anges i avsnitt *2.2.2.1*:
 
 >   * **MajorVersion**
->   * **LägreVersion**
->   * **Tidsskalan**
+>   * **MinorVersion**
+>   * **TimeScale**
 >   * **Varaktighet**
 >   * **IsLive**
 >   * **LookaheadCount**
@@ -350,9 +350,9 @@ ProtectionElement skall vara närvarande när gemensam kryptering (CENC) har kop
 
 ## <a name="51-security-considerations-for-implementers"></a>5.1 säkerhetsöverväganden för implementerare
 
->   En Content Protection System bör användas för att förhindra obehörig användning av innehållet om innehållet transporteras med detta protokoll har hög kommersiella värde. Den **ProtectionElement** kan användas för att utföra metadata som hör till användning av ett Content Protection-System. Skyddade ljud- och videoinnehåll skall krypteras som angetts i MPEG gemensam kryptering, andra utgåvan: 2015 [ISO/IEC 23001 7].
+>   En Content Protection System bör användas för att förhindra obehörig användning av innehållet om innehållet transporteras med detta protokoll har hög kommersiella värde. Den **ProtectionElement** kan användas för att utföra metadata som hör till användning av ett Content Protection-System. Skyddade ljud- och videoinnehåll skall krypteras som angetts i MPEG gemensam kryptering, andra utgåvan: 2015 [ISO/IEC 23001-7].
 
->   **Obs**: – HEVC video krypteras utsnittsdata i VCL NALs. Sektorn rubriker och andra NALs är tillgängliga för presentation program innan dekryptering. i en säker video sökväg är inte krypterad information tillgänglig till presentationen program.
+>   **Obs!** – HEVC video krypteras utsnittsdata i VCL NALs. Sektorn rubriker och andra NALs är tillgängliga för presentation program innan dekryptering. i en säker video sökväg är inte krypterad information tillgänglig till presentationen program.
 
 ## <a name="52-index-of-security-parameters"></a>5.2 Index för parametrar 
 

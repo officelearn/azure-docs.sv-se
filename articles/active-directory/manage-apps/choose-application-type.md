@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: barbkess
-ms.openlocfilehash: 10f2b30addd874d39a6193c810ccbdf4ac1a06e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ab68c8f73d4b53f441b8f46f466371cd1d03ad41
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473324"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846820"
 ---
 # <a name="choosing-the-application-type-when-adding-an-application-in-azure-active-directory"></a>Välja vilken typ av program när du lägger till ett program i Azure Active Directory
 Läs mer om de fyra typerna av program som du kan lägga till Azure Active Directory (AD Azure). När du lägger till ett program i Azure Active Directory, uppmanas du att välja en av fyra programtypen. 
@@ -68,11 +68,11 @@ Följande är de stöds **enkel inloggning** lägen för Azure AD-program.
 
 -   **Azure AD enkel inloggning inaktiverad** – Välj Azure AD enkel inloggning inaktiverad **läge för enkel inloggning** om du ännu inte är redo att integrera programmet med enkel inloggning med Azure AD, eller också kan du bara testar det.
 
--   **Länkad inloggning** – Välj den [inloggning länkade](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **läge för enkel inloggning** om du har ett program som redan är kopplad till en befintlig enkel inloggning lösning, eller om du bara vill Publicera en enkel länk för dina användare i deras [Programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) eller [startprogrammet för Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
+-   **Länkad inloggning** – Välj den [inloggning länkade](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **läge för enkel inloggning** om du har ett program som redan är kopplad till en befintlig enkel inloggning lösning, eller om du bara vill Publicera en enkel länk för dina användare i deras [Programåtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) eller [startprogrammet för Office 365](https://login.microsoftonline.com/common/oauth2/authorize?response_mode=form_post&response_type=id_token&scope=openid&nonce=d508a995-f6d6-4b8a-81b8-825c71f1be46.636253878097046923&state=https%3a%2f%2fsupport.office.com%2farticle%2fMeet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a%3fui%3den-US%26rs%3den-US%26ad%3dUS&client_id=4b233688-031c-404b-9a80-a4f3f2351f90&redirect_uri=https%3a%2f%2fsupport.office.com%2fauth%2fsignin&login_hint=asteen%40microsoft.com&prompt=none)
 
--   **Lösenordsbaserad inloggning** – Välj den [lösenordsbaserad inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) **läge för enkel inloggning** om ditt program visas med ett HTML-användarnamn och lösenord fält och du vill lagra det aktuella användarnamnet och lösenord på ett säkert sätt som ska återupprepas till programmet senare
+-   **Lösenordsbaserad inloggning** – Välj den [lösenordsbaserad inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) **läge för enkel inloggning** om ditt program visas med ett HTML-användarnamn och lösenord fält och du vill lagra det aktuella användarnamnet och lösenord på ett säkert sätt som ska återupprepas till programmet senare
 
--   **SAML-baserad inloggning** – Välj den [SAML-baserad inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#how-does-single-sign-on-with-azure-active-directory-work) enkel inloggning om ditt program har stöd för SAML- eller OpenID Connect-protokoll eller om du vill för att kunna mappa användare till specifika programroller baserat på regler Du definierar i SAML-anspråk *
+-   **SAML-baserad inloggning** – Välj den [SAML-baserad inloggning](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis) enkel inloggning om ditt program har stöd för SAML- eller OpenID Connect-protokoll eller om du vill för att kunna mappa användare till specifika programroller baserat på regler Du definierar i SAML-anspråk *
 
    >[!NOTE]
    >Det här alternativet är inte tillgängligt när application proxy har konfigurerats för ett program.

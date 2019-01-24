@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ca266df563cb7e50463548dd0e786cec8e886ec4
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: d3127b7f9bea9a35d9ac25d0724700cad72fa509
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359705"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857156"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Övervaka tillgänglighet och svarstider på valfri webbplats
 När du har distribuerat din webbapp eller webbplats till en server kan du konfigurera tester för att övervaka appens tillgänglighet och svarstider. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) skickar begäranden till ditt program med jämna mellanrum från platser över hela världen. Den varnar dig om programmet inte svarar eller svarar långsamt.
@@ -186,15 +186,15 @@ Klicka på en röd punkt.
 Från ett tillgänglighetstestresultat kan du se transaktionsinformation för alla komponenter. Här kan du:
 
 * Kontrollera de svar som mottas från servern.
-* Diagnostisera fel med korrelerad telemetri på serversidan som samlats in under bearbetning av misslyckade tillgänglighetstestet.
+* Diagnostisera fel med korrelerade serversidan telemetri som samlas in under bearbetning av misslyckade tillgänglighetstestet.
 * Logga ett problem eller arbetsuppgift i Git eller Azure-system för att spåra problemet. Buggen innehåller en länk till den här händelsen.
 * Öppna resultatet av webbtestet i Visual Studio.
 
 Lär dig mer om från slutpunkt till slutpunkt-transaktionsdiagnostik uppleva [här](../../azure-monitor/app/transaction-diagnostics.md).
 
-Klicka på raden undantag om du vill se information om server sida undantaget som orsakade syntetiska tillgänglighetstestet misslyckas. Du kan också hämta den [felsökning för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md) rikare kod på diagnostik.
+Klicka på raden undantag om du vill se information om serversidan undantaget som orsakade syntetiska tillgänglighetstestet misslyckas. Du kan också hämta den [felsökning för ögonblicksbilder](../../azure-monitor/app/snapshot-debugger.md) rikare kod på diagnostik.
 
-![Diagnostik för Server-sida](./media/monitor-web-app-availability/open-instance-4.png)
+![Diagnostik för serversidan](./media/monitor-web-app-availability/open-instance-4.png)
 
 ## <a name="alerts"></a> Tillgänglighet aviseringar
 Du kan ha följande typer av Varningsregler på tillgänglighetsdata via den klassiska aviseringar:
@@ -203,7 +203,7 @@ Du kan ha följande typer av Varningsregler på tillgänglighetsdata via den kla
 3. Genomsnittlig varaktighet ökar utöver ett tröskelvärde
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Avisera om X av Y-platser som rapporterar fel
-X utanför Y platser varningsregel är aktiverat som standard i den [nya aviseringar för enhetlig upplevelse](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), när du skapar en ny tillgänglighetstestet. Du kan välja bort genom att välja alternativet ”klassiska” eller välja att inaktivera varningsregeln.
+X utanför Y platser varningsregel är aktiverat som standard i den [nya aviseringar för enhetlig upplevelse](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), när du skapar en ny tillgänglighetstestet. Du kan avanmäla dig genom att välja alternativet ”klassiska” eller välja att inaktivera varningsregeln.
 
 ![Skapa upplevelse](./media/monitor-web-app-availability/appinsights-71webtestUpload.png)
 
@@ -297,9 +297,9 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 
     * Har testet ”parsa beroende begäranden om” aktiverat? Som resulterar i en strikt kontroll på resurser, till exempel skript, bilder osv. Dessa typer av fel kanske inte är märkbar i en webbläsare. Kontrollera alla bilder, skript, formatmallar och andra filer som lästs in av sidan. Om någon av komponenterna inte kunde läsas in rapporteras testet som misslyckat, även om HTML-huvudsidan kan läsas in korrekt. Om du vill minska känsligheten för testet till dessa resursfel, avmarkerar du helt enkelt ”parsa beroende begäranden om” från testkonfigurationen. 
 
-    * Kontrollera att konfigurationen ”aktivera återförsök för misslyckade test” är markerad för att minska sannolikheten för brus från tillfälliga nätverkssignaler o.s.v. Du kan också testa från fler platser och hantera tröskelvärden för varningsregeln i enlighet för att förhindra platsspecifika problem som orsakar onödiga aviseringar.
+    * Kontrollera att konfigurationen ”aktivera återförsök för misslyckade test” är markerad för att minska sannolikheten för brus från tillfälliga nätverkssignaler o.s.v. Du kan också testa från fler platser och hantera tröskelvärden för varningsregeln i enlighet med detta att förhindra platsspecifika problem som orsakar onödiga aviseringar.
 
-    * Klicka på någon av de röda punkterna från tillgänglighet-upplevelsen eller underlåtenhet tillgänglighet från Sökutforskaren för att se information om varför vi rapporterade felet. Testresultat för tillsammans med den korrelerad telemetrin på serversidan (om aktiverat) bör att förstå varför testet misslyckades. Vanliga orsaker till problem är problem med nätverket eller anslutning. 
+    * Klicka på någon av de röda punkterna från tillgänglighet-upplevelsen eller underlåtenhet tillgänglighet från Sökutforskaren för att se information om varför vi rapporterade felet. Testresultat för tillsammans med serversidan korrelerad telemetri (om aktiverat) bör att förstå varför testet misslyckades. Vanliga orsaker till problem är problem med nätverket eller anslutning. 
 
     * Gjorde timeout för test? Vi avbryta testerna efter två minuter. Om din ping eller test med flera steg tar längre tid än två minuter kan rapporterar vi det som ett fel. Kan du dela testet till flera värden som kan utföra i kortare varaktighet.
 
@@ -356,6 +356,22 @@ När testet är klart visas svarstiderna och slutförandefrekvens.
 * *Hur kan jag köra ett test med klientcertifikat?*
 
     Det stöds tyvärr inte.
+
+## <a name="who-receives-the-classic-alert-notifications"></a>Vem som får aviseringar (klassisk)?
+
+Det här avsnittet gäller för klassiska aviseringar endast och hjälper dig att optimera dina aviseringar till att säkerställa att endast dina önskade mottagare får meddelanden. Vill veta mer om skillnaden mellan [klassiska aviseringar](../platform/alerts-classic.overview.md)och det nya aviseringsgränssnittet referera till den [aviseringar översikten](../platform/alerts-overview.md). För att styra avisering meddelande i de nya aviseringarna uppstår Använd [åtgärdsgrupper](../platform/action-groups.md).
+
+* Vi rekommenderar användning av specifika mottagare för klassiska aviseringar.
+
+* För aviseringar i fel från X utanför Y platser, den **grupp/grupp** kryssrutan alternativet, om aktiverad, skickar till användare med administratör/medadministratör roller.  I stort sett _alla_ administratörer av den _prenumeration_ får meddelanden.
+
+* För aviseringar i tillgänglighet mått (eller några Application Insights-mått för den delen) den **grupp/grupp** -alternativet om aktiverad, skickar till användare med ägare, deltagare eller läsare roller i prenumerationen. I praktiken _alla_ användare med åtkomst till prenumerationen Application Insights-resursen omfattas och ska ta emot meddelanden. 
+
+> [!NOTE]
+> Om du använder den **grupp/grupp** kryssrutan alternativet, och inaktivera det, kommer du inte kunna återställa ändringen.
+
+Använd de nya upplevelse nära realtid/aviseringarna om du vill meddela användare baserat på deras roller. Med [åtgärdsgrupper](../platform/action-groups.md), du kan konfigurera e-postaviseringar till användare med någon av rollerna deltagare och ägare/läsare (inte kombineras tillsammans som ett alternativ).
+
 
 
 ## <a name="next"></a>Nästa steg

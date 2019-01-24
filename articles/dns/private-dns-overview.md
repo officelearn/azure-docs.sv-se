@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/23/2019
 ms.author: victorh
-ms.openlocfilehash: e426e38ce5366f7c0d8b8bc20a639d827ea9e261
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 4b5b98b5695901ca6d136682e454f059f157b743
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826487"
 ---
 # <a name="use-azure-dns-for-private-domains"></a>Använda Azure DNS för privata domäner
 
@@ -32,7 +32,7 @@ Azure DNS ger följande fördelar:
 
 * **Eliminerar behovet av anpassade DNS-lösningar**. Många kunder skapade tidigare, anpassade DNS-lösningar för att hantera DNS-zoner i sina virtuella nätverk. Du kan nu utföra hantering av DNS-zon med hjälp av interna Azure-infrastrukturen, vilket tar bort bördan med att skapa och hantera anpassade DNS-lösningar.
 
-* **Använd alla vanliga DNS-posttyper**. Azure DNS stöder A, AAAA, CNAME, MX, NS, PTR, SOA, SRV och TXT-poster.
+* **Använd alla vanliga DNS-posttyper**. Azure DNS supports A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT records.
 
 * **Automatisk värdnamn Posthantering**. Tillsammans med som är värd för din anpassade DNS-poster, bibehålla Azure automatiskt värddatorposter för de virtuella datorerna i de angivna virtuella nätverken. I det här scenariot kan du optimera de domännamn som du använder utan att skapa anpassade DNS-lösningar eller ändra de program.
 
@@ -61,12 +61,12 @@ Azure DNS tillhandahåller följande funktioner:
 
 ## <a name="limitations"></a>Begränsningar
 
-Azure DNS innehåller följande begränsningar:
+Azure DNS har följande begränsningar:
 
 * Endast ett virtuellt registreringsnätverk tillåts per privat zon.
-* Upp till 10 lösningar tillåts virtuella nätverk per privat zon.
+* Upp till 10 lösningar tillåts virtuella nätverk per privat zon. Den här gränsen tas bort när den här funktionen blir allmänt tillgänglig.
 * Ett specifikt virtuellt nätverk kan länkas till endast en privat zon som ett virtuellt nätverk för registrering.
-* Ett specifikt virtuellt nätverk kan länkas till upp till 10 privata zoner som ett virtuellt nätverk för matchning.
+* Ett specifikt virtuellt nätverk kan länkas till upp till 10 privata zoner som ett virtuellt nätverk för matchning. Den här gränsen tas bort när den här funktionen blir allmänt tillgänglig.
 * Om du anger ett virtuellt nätverk för registrering är DNS-posterna för de virtuella datorer från det virtuella nätverket som är registrerade på den privata zonen inte kan visas eller hämtas från Azure Powershell och Azure CLI-API: er. VM-poster verkligen har registrerats och löser har.
 * Omvänd DNS fungerar endast för privat IP-adressutrymme i det virtuella nätverket för registrering.
 * Omvänd DNS för en privat IP-adress som inte är registrerade i den privata zonen (t.ex, en privat IP-adress för en virtuell dator i ett virtuellt nätverk som länkas som ett virtuellt nätverk för lösning till ett privat zon) returnerar *internal.cloudapp.net* som DNS-suffix. Detta suffix är dock inte matchas.

@@ -13,19 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 01/23/2019
 ms.author: cwatson
-ms.openlocfilehash: b9b1496c71e61fce815d225310c8beb57e8f9b19
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: e1d9c348f83600b48f4b202c8660d9387dfc5484
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584578"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856383"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Förstå fakturan för Microsoft Azure
 Jämför din faktura med detaljerade dagliga användningsfil och kostnadshanteringsrapporter i Azure-portalen för att förstå fakturan för Azure.
 
 Den här artikeln gäller inte för Azure-kunder med ett Enterprise-avtal (EA-kunder). Om du är en EA-kund, se [förstå fakturan för Azure-kunder med ett Enterprise Agreement](billing-understand-your-bill-ea.md).  
+
+En beskrivning av hur fakturering fungerar i Azure Cloud Solution Provider (Azure CSP)-program, inklusive fakturering cykel, priser och användning, se [fakturering översikt över Azure CSP](/azure/cloud-solution-provider/billing/azure-csp-billing-overview/).
 
 ## <a name="charges"></a>Granska dina kostnader
 
@@ -104,7 +106,7 @@ En enskild virtuell dator (VM) skapas i Azure kan till exempel ha följande taxo
 - IP-Adresstimmar
 - Dataöverföring in
 - Dataöverföring ut
-- Hanterade standarddiskar
+- Standard Managed Disk
 - Hanterade standarddiskar åtgärder
 - Standard IO-Disk
 - Standard-i/o-Block Blob Läs

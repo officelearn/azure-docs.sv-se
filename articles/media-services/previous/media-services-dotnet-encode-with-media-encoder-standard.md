@@ -1,6 +1,6 @@
 ---
 title: Koda en tillgång med Media Encoder Standard med hjälp av .NET | Microsoft Docs
-description: Den här artikeln visar hur du använder .NET för att koda en tillgång med Media Encoder Strandard.
+description: Den här artikeln visar hur du använder .NET för att koda en tillgång med Media Encoder Standard.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: e557b7220077be7fcca418f0c2cf8aceeace1eb5
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241097"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809589"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Koda en tillgång med Media Encoder Standard med hjälp av .NET 
 Kodningsjobb är en av de vanligaste bearbetningsuppgifterna i Media Services. Du skapar kodningsjobb för att konvertera mediefiler från en kodning till en annan. När du kodar kan du använda den inbyggda medietjänster Media Encoder. Du kan också använda en kodare som tillhandahålls av Media Services partner; kodare från tredje part är tillgängliga via Azure Marketplace. 
@@ -64,7 +64,7 @@ I följande kodexempel använder Media Services .NET SDK för att utföra följa
 * Ange indatatillgången som ska kodas.
 * Skapa en utdata-tillgång som innehåller den kodade tillgången.
 * Lägg till en händelsehanterare för att kontrollera jobbförloppet för.
-* Skicka jobbet.
+* Skicka in jobbet.
 
 #### <a name="create-and-configure-a-visual-studio-project"></a>Skapa och konfigurera ett Visual Studio-projekt
 

@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Jive | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Jive | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Jive.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: jeedes
-ms.openlocfilehash: cebcfb4614d1f685697bed6914f80237e175fb7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: fa802e137f9fb76c531814f6128cabfc11a44f0f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436564"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812343"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Självstudier: Azure Active Directory-integration med Jive
+# <a name="tutorial-azure-active-directory-integration-with-jive"></a>Självstudier: Azure Active Directory-integrering med Jive
 
 I den här självstudien får du lära dig hur du integrerar Jive med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Jive, behöver du följande obje
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö.
@@ -60,17 +60,17 @@ Om du vill konfigurera integreringen av Jive i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till Jive från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
 
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Jive**.
 
@@ -113,18 +113,18 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/jive-tutorial/tutorial_jive_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<instance name>.jivecustom.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<instance name>.jivecustom.com`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<instance name>.jiveon.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<instance name>.jiveon.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkligt. Uppdatera dessa värden med faktiska inloggnings-URL och identifierare. Kontakta [Jive klienten supportteamet](https://www.jivesoftware.com/services-support/) att hämta dessa värden.
+    > De här värdena är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Jive klienten supportteamet](https://www.jivesoftware.com/services-support/) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara XML-filen på datorn.
 
     ![Konfigurera enkel inloggning](./media/jive-tutorial/tutorial_jive_certificate.png)
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/jive-tutorial/tutorial_general_400.png)
 
@@ -132,13 +132,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på menyn längst upp ”**Saml**”.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/jive-tutorial/tutorial_jive_002.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_002.png)
 
     a. Välj **aktiverat** under den **Allmänt** fliken b. Klicka på ”**spara alla saml-inställningar**” knappen.
 
 1. Navigera till den ”**Idp Metadata**” fliken.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Kopiera innehållet i den hämtade XML-fil och sedan klistra in den i den **identitet Provider (IDP) Metadata** textrutan.
 
@@ -146,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Gå till den ”**attributet användarmappning**” fliken.
 
-    ![Konfigurera enkel inloggning på App-sida](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Konfigurera enkel inloggning på appsidan](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. I den **e-post** textrutan, kopiera och klistra in attributnamnet för **e** värde.
 
@@ -155,7 +155,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     c. I den **efternamn** textrutan, kopiera och klistra in attributnamnet för **efternamn** värde.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -187,7 +187,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-a-jive-test-user"></a>Skapa en Jive testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Jive. Jive stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information om [här](jive-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Jive. Jive stöder automatisk användaretablering, vilket är som standard aktiverat. Du hittar mer information [här](jive-provisioning-tutorial.md) om hur du konfigurerar automatisk användaretablering.
 
 Om du vill skapa användare manuellt kan arbeta med [Jive klienten supportteamet](https://www.jivesoftware.com/services-support/) att lägga till användare i Jive-plattformen.
 
@@ -231,7 +231,7 @@ När du klickar på panelen Jive i åtkomstpanelen du bör få automatiskt logga
 
 * [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Konfigurera Användaretablering](jive-provisioning-tutorial.md)
+* [Konfigurera användarförsörjning](jive-provisioning-tutorial.md)
 
 <!--Image references-->
 

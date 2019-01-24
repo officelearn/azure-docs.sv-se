@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 0d58a384a6ca7c249a3b0e8b690095202fe373a2
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8a5c25cd5836c3bde630684eff24da7dc8b62fc6
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413625"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855813"
 ---
 # <a name="diagnostics-and-error-recovery-for-azure-importexport-jobs"></a>Diagnostik och felåterställning för Azure Import/Export-jobb
-Tjänsten Azure Import/Export skapar en fellogg i det associerade lagringskontot för varje enhet som bearbetas. Du kan också aktivera utförlig loggning genom att ange den `LogLevel` egenskap `Verbose` när du anropar den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs#Jobs_Update) åtgärder.
+Tjänsten Azure Import/Export skapar en fellogg i det associerade lagringskontot för varje enhet som bearbetas. Du kan också aktivera utförlig loggning genom att ange den `LogLevel` egenskap `Verbose` när du anropar den [placera jobbet](/rest/api/storageimportexport/jobs) eller [uppdatering jobbegenskaper](/rest/api/storageimportexport/jobs) åtgärder.
 
  Som standard, loggarna skrivs till en behållare med namnet `waimportexport`. Du kan ange ett annat namn genom att ange den `DiagnosticsPath` egenskapen när du anropar den `Put Job` eller `Update Job Properties` åtgärder. Loggfilerna lagras som blockblobar med följande namngivningskonvention: `waies/jobname_driveid_timestamp_logtype.xml`.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Självstudie: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 4d6f06dd-a798-4c22-b84f-8a11f1b8592a
 ms.service: active-directory
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: b3ef6e2a6b9b51c271372aa3c9342b52a4260788
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 7ee10bcd06877b33669b79e104f0d32f87301c28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348114"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813278"
 ---
-# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudie: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
+# <a name="tutorial-configure-servicenow-for-automatic-user-provisioning-with-azure-active-directory"></a>Självstudier: Konfigurera ServiceNow för automatisk användaretablering med Azure Active Directory
 
 Målet med den här självstudien är att visa dig de steg du måste utföra i ServiceNow och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till ServiceNow.
 
@@ -31,26 +31,26 @@ Målet med den här självstudien är att visa dig de steg du måste utföra i S
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill konfigurera Azure AD-integrering med ServiceNow, behöver du följande objekt:
+För att konfigurera Azure AD-integrering med ServiceNow behöver du följande:
 
 - En Azure AD-prenumeration
-- För ServiceNow, en instans eller klient för ServiceNow Calgary versionen eller senare
-- För ServiceNow Express, en instans av ServiceNow uttryckliga, Helsingfors versionen eller senare
+- För ServiceNow, en instans eller klientorganisation för ServiceNow, Calgary-versionen eller senare
+- För ServiceNow Express, en instans av ServiceNow Express, Helsingfors-versionen eller senare
 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="assigning-users-to-servicenow"></a>Tilldela användare till ServiceNow
 
 Azure Active Directory använder ett begrepp som kallas ”tilldelningar” för att avgöra vilka användare får åtkomst till valda appar. I samband med automatisk användarkontoetablering, synkroniseras de användare och grupper som är ”kopplade” till ett program i Azure AD.
 
-Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din ServiceNow-app. När du valt, du kan tilldela dessa användare till din ServiceNow-app genom att följa instruktionerna här: [tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+Innan du konfigurerar och aktiverar etableringstjänsten, måste du bestämma vilka användare och/eller grupper i Azure AD representerar de användare som behöver åtkomst till din ServiceNow-app. När du valt, kan du tilldela dessa användare till din ServiceNow-app genom att följa instruktionerna här: [Tilldela en användare eller grupp till en företagsapp](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 
 > [!IMPORTANT]

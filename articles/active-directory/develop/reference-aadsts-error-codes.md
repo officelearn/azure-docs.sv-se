@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 01/11/2019
+ms.date: 01/23/2019
 ms.author: celested
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
-ms.openlocfilehash: 1e3dc984de15fa2c94fc5150020f1af1579e2c5c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e550eeba9b154e271cdad9df5cdfe9a308efbbe9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434112"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820316"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Autentisering och felkoder vid autentisering
 
@@ -79,7 +79,7 @@ Letar du efter information om felkoder AADSTS som returneras från Azure Active 
 | AADSTS50058 | UserInformationNotProvided – detta innebär att användaren inte är inloggad. Det här är ett vanligt fel som kan förväntas när en användare är oautentiserad och ännu inte har loggat in.</br>Om det här felet rekommenderas i en SSO-kontext där användaren har tidigare loggat in, innebär det som SSO-session har antingen inte finns eller är ogiltig.</br>Det här felet kan returneras till programmet om fråga = inget har angetts. |
 | AADSTS50059 | MissingTenantRealmAndNoUserInformationProvided - klient-identifieringsinformation kunde inte hittas i antingen begäran eller underförstådda med angivna autentiseringsuppgifter. Användaren kan kontakta en administratör för att hjälpa dig att lösa problemet. |
 | AADSTS50061 | SignoutInvalidRequest - utloggning begäran är ogiltig. |
-| AADSTS50064 | CredentialAuthenticationError - autentiseringsuppgift verifieringen misslyckades. |
+| AADSTS50064 | CredentialAuthenticationError - verifiering av autentiseringsuppgifter på användarnamn eller lösenord har misslyckats. |
 | AADSTS50068 | SignoutInitiatorNotParticipant - utloggning misslyckades. Appen som initierade utloggning är inte en deltagare i den aktuella sessionen. |
 | AADSTS50070 | SignoutUnknownSessionIdentifier - utloggning misslyckades. Utloggning begäran angav en namnidentifierare som inte matchade den befintliga spårningssession. |
 | AADSTS50071 | SignoutMessageExpired - utloggningsbegäran har upphört att gälla. |

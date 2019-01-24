@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5835e8275bedebaca01d585a992930d6856edfd7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: edf99f57fe2166e5ea7f91817dde978015af9348
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53553480"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54841460"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om virtuella Azure IaaS-datorer och hanterade och ohanterade premiumdiskar
 
@@ -101,6 +101,10 @@ Kunder kan ta en ögonblicksbild av deras hanterade diskar och sedan använda ö
 
 Ja, både ohanterade och hanterade diskar stöds. Vi rekommenderar att du använder hanterade diskar för nya arbetsbelastningar och migrera dina aktuella arbetsbelastningar till hanterade diskar.
 
+**Kan jag placera ohanterade och hanterade diskar på samma virtuella dator?**
+
+Nej.
+
 **Om jag skapar en 128 GB-disk och sedan öka storleken till 130 GiB, debiteras jag för nästa diskstorleken (256 GB)?**
 
 Ja.
@@ -124,10 +128,6 @@ Nej. Du kan inte uppdatera egenskapen name för datorn. Den nya virtuella datorn
 **Var hittar jag exempel Azure Resource Manager-mallar för att skapa virtuella datorer med hanterade diskar?**
 * [Lista över mallar med Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
-
-**Kan jag placera ohanterade och hanterade diskar på samma virtuella dator?**
-
-Nej.
 
 **När du skapar en disk från en blob finns det någon kontinuerligt befintlig relation med den källbloben?**
 

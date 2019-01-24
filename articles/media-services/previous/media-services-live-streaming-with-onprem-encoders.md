@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: b0a047c4bf2c0c95896699e50e943277a138ecca
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262241"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809043"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Direktsänd strömning med lokala kodare som skapar strömmar med flera bithastigheter
 
@@ -39,8 +39,8 @@ I Azure Media Services, en *kanal* representerar en pipeline för bearbetning av
 
 Från och med Media Services 2.10-versionen när du skapar en kanal kan ange du hur du vill att din kanal tar emot Indataströmmen. Du kan också ange om du vill att kanalen för att utföra live encoding av strömmen. Du kan välja mellan två alternativ:
 
-* **Gå igenom**: Ange det här värdet om du planerar att använda en lokal livekodare som har en dataström med multibithastighet (en direkt stream) som utdata. I det här fallet passerar den inkommande dataströmmen genom att utdata utan kodning. Det här är beteendet för en kanal innan 2,10 utgåvan. Den här artikeln innehåller information om hur du arbetar med kanaler för den här typen.
-* **Live Encoding**: Välj det här värdet om du planerar att använda Media Services för att koda din direktsänd dataström med enkel bithastighet till en dataström med multibithastighet. Lämna en direktsänd kodning kanal i en **kör** tillstånd medför debiterade avgifterna. Vi rekommenderar att du omedelbart stoppa dina kanaler som körs när din live-streaming event är klar att undvika extra debitering. Media Services ger strömmen till kunder som begär den.
+* **Passera**: Ange det här värdet om du planerar att använda en lokal livekodare som har en dataström med multibithastighet (en direkt stream) som utdata. I det här fallet passerar den inkommande dataströmmen genom att utdata utan kodning. Det här är beteendet för en kanal innan 2,10 utgåvan. Den här artikeln innehåller information om hur du arbetar med kanaler för den här typen.
+* **Direktsänd kodning**: Välj det här värdet om du planerar att använda Media Services för att koda din direktsänd dataström med enkel bithastighet till en dataström med multibithastighet. Lämna en direktsänd kodning kanal i en **kör** tillstånd medför debiterade avgifterna. Vi rekommenderar att du omedelbart stoppa dina kanaler som körs när din live-streaming event är klar att undvika extra debitering. Media Services ger strömmen till kunder som begär den.
 
 > [!NOTE]
 > Den här artikeln beskrivs attributen för kanaler som inte har aktiverats att utföra live encoding. Information om hur du arbetar med kanaler som är aktiverade för att utföra live encoding finns i [direktsänd strömning med Azure Media Services för att skapa dataströmmar med flera bithastigheter](media-services-manage-live-encoder-enabled-channels.md).
@@ -115,7 +115,7 @@ Du kan hämta URL: er för inmatning när du skapar kanalen. Om du vill få dess
 Du har en möjlighet att mata in en fragmenterad MP4 (Smooth Streaming) live stream via en SSL-anslutning. För att mata in via SSL, se till att uppdatera URL: en inmatning till HTTPS. För närvarande kan du mata in RTMP via SSL.
 
 #### <a id="keyframe_interval"></a>Bildrutan intervall
-När du använder en lokal livekodare för att generera med flera bithastigheter stream anger intervallet bildrutan varaktighet för gruppen med bilder (GOP) som används av den externa kodaren. När kanalen har hämtat den här inkommande strömmen kommer du kan leverera din liveuppspelning för uppspelning av klientprogram i någon av följande format: Smooth Streaming, Dynamic Adaptive Streaming över HTTP (DASH) och HTTP Live Streaming (HLS). När du utför direktsänd strömning är HLS alltid paketerat dynamiskt. Som standard beräknar Media Services automatiskt HLS segment paketering förhållandet (fragment per segment) baserat på det bildrutan intervall som tas emot från live-kodare.
+När du använder en lokal livekodare för att generera med flera bithastigheter stream anger intervallet bildrutan varaktighet för gruppen med bilder (GOP) som används av den externa kodaren. När kanalen har hämtat den här inkommande strömmen kommer kan du leverera din liveuppspelning för uppspelning av klientprogram i någon av följande format: Smooth Streaming, Dynamic Adaptive Streaming via HTTP (DASH) och HTTP Live Streaming (HLS). När du utför direktsänd strömning är HLS alltid paketerat dynamiskt. Som standard beräknar Media Services automatiskt HLS segment paketering förhållandet (fragment per segment) baserat på det bildrutan intervall som tas emot från live-kodare.
 
 I följande tabell visar hur segment varaktighet beräknas:
 
@@ -127,7 +127,7 @@ I följande tabell visar hur segment varaktighet beräknas:
 
 Du kan ändra förhållandet fragment per segment genom att konfigurera kanalens utdata och inställningen FragmentsPerSegment på ChannelOutputHls.
 
-Du kan också ändra värdet för intervallet bildrutan genom att ange egenskapen KeyFrameInterval på ChanneInput. Om du uttryckligen anger KeyFrameInterval segmentera HLS paketering förhållandet FragmentsPerSegment beräknas via de regler som beskrivs tidigare.  
+Du kan också ändra värdet för intervallet bildrutan genom att ange egenskapen KeyFrameInterval på ChannelInput. Om du uttryckligen anger KeyFrameInterval segmentera HLS paketering förhållandet FragmentsPerSegment beräknas via de regler som beskrivs tidigare.  
 
 Om du uttryckligen ställa in både KeyFrameInterval och FragmentsPerSegment använder Media Services de värden som du anger.
 
@@ -176,11 +176,11 @@ Om du vill ta bort arkiverat innehåll, stoppa och ta bort programmet och sedan 
 ## <a id="states"></a>Kanaltillstånd och fakturering
 Möjliga värden för det aktuella tillståndet för en kanal är:
 
-* **Stoppad**: det här är starttillståndet för kanalen när den har skapandet. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
-* **Startar**: kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till den **stoppad** tillstånd.
-* **Kör**: kanalen kan bearbeta direktsända strömmar.
-* **Stoppa**: kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
-* **Tar bort**: kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Stoppad**: Det här är starttillståndet för kanalen när den har skapats. I det här tillståndet kan kanalegenskaperna uppdateras, men strömning är inte tillåtet.
+* **Startar**: Kanalen startas. Inga uppdateringar eller strömning tillåts i det här tillståndet. Om ett fel inträffar återgår kanalen till den **stoppad** tillstånd.
+* **Körning**: Kanalen kan bearbeta direktsända strömmar.
+* **Stoppa**: Kanalen stoppas. Inga uppdateringar eller strömning tillåts i det här tillståndet.
+* **Tar bort**: Kanalen tas bort. Inga uppdateringar eller strömning tillåts i det här tillståndet.
 
 Följande tabell visar hur kanaltillstånd mappas till faktureringsläget.
 
@@ -197,7 +197,7 @@ I följande tabell visar stöds standarder för dold textning och ad-insättning
 | Standard | Anteckningar |
 | --- | --- |
 | CEA-708 och EIA 608 (708/608) |CEA-708 och EIA 608 är textning standarder för USA och Kanada.<p><p>Textning är för närvarande endast om transporteras i kodat Indataströmmen. Du måste använda en live media encoder som kan infoga 608 eller 708-undertexter i kodat dataströmmen som skickas till Media Services. Media Services levererar innehåll med infogad textning till användarna. |
-| TTML inuti .ismt (Smooth Streaming textspår) |Media Services dynamisk paketering gör det möjligt för dina klienter att spela upp innehåll i någon av följande format: DASH, HLS och Smooth Streaming. Men om du inmatning av fragmenterad MP4 (Smooth Streaming) med bildtexter inuti .ismt (Smooth Streaming textspår) kan du leverera dataströmmen till endast Smooth Streaming-klienter. |
+| TTML inuti .ismt (Smooth Streaming textspår) |Media Services dynamisk paketering gör det möjligt för dina klienter att spela upp innehåll i någon av följande format: DASH, HLS eller Smooth Streaming. Men om du inmatning av fragmenterad MP4 (Smooth Streaming) med bildtexter inuti .ismt (Smooth Streaming textspår) kan du leverera dataströmmen till endast Smooth Streaming-klienter. |
 | SCTE-35 |SCTE 35 är ett digitalt signaling system som fungerar som en utlösare reklam infogning. Underordnade mottagare använda signalen för att splice reklam i dataströmmen för den tilldelade tiden. SCTE 35 måste skickas som ett null-optimerade spår i Indataströmmen.<p><p>För närvarande endast stöds Indataströmmen formatera de innehåller ad signaler är fragmenterad MP4 (Smooth Streaming). Det går endast att utdata formatet är också Smooth Streaming. |
 
 ## <a id="considerations"></a>Att tänka på

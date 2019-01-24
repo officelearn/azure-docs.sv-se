@@ -3,7 +3,7 @@ title: Återställa lösenordet med hjälp av säkerhetsinformation - Azure Acti
 description: Så här att återställa ditt eget lösenord om du glömmer det, med hjälp av din säkerhetskontroll för information och tvåstegsverifiering.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: a95d5adb4ee0eb8aa71f7759e3f2b5520bda5ff4
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 6bf8c548d81b3cade487f3188cdafae82b5776d9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348528"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815947"
 ---
 # <a name="reset-your-work-or-school-password"></a>Återställa lösenordet för arbets- eller skolkonto
 
-Om du har glömt ditt lösenord aldrig fick en från företagets support, eller har blivit utelåst från ditt konto kan använda du din säkerhetsinformation och din mobila enhet för att återställa ditt lösenord.
+Om du har glömt ditt lösenord, inte har fått något från företagets support eller har blivit utelåst från ditt konto kan du använda din säkerhetsinformation och din mobila enhet för att återställa lösenordet.
 
 >[!NOTE]
 >Om du vet ditt lösenord och bara vill ändra den, går du till den [ändra ditt lösenord](#how-to-change-your-password) stegen i den här artikeln.<br><br>
@@ -159,7 +159,7 @@ Här följer några vanliga fel och sina lösningar:
 |Det uppstår ett fel när jag försöker ändra mitt lösenord. |Ditt lösenord innehåller ett ord, en fras eller ett mönster som gör det enkelt att gissa ditt lösenord.| Försök igen med ett starkare lösenord.|
 |När jag anger mitt användar-ID, gå jag till en sida med texten ”Kontakta din administratör”.|Microsoft har fastställt att lösenordet till ditt användarkonto hanteras av administratören i en lokal miljö. Därför kan återställa du inte lösenordet från länken ”det går inte att komma åt ditt konto”. |Kontakta administratören om du behöver mer hjälp.|
 |När jag anger mitt användar-ID, uppstår ett fel med texten ”ditt konto har inte aktiverats för återställning av lösenord”.|Din administratör har inte konfigurerat ditt konto så att du kan återställa ditt eget lösenord.|Administratören har inte aktiverat återställning av lösenord för din organisation från länken ”det går inte att komma åt ditt konto” eller har inte licensierats du om du vill använda funktionen.<br><br> Om du vill återställa ditt lösenord, måste du välja ”kontakta en administratör länken” att skicka ett e-postmeddelande till ditt företags administratör och informera dem om du vill återställa ditt lösenord.|
-|När jag anger mitt användar-ID, uppstår ett fel med texten ”vi kunde inte verifiera ditt konto”.|Det gick inte att kontrollera din kontoinformation logga in igen.|Det finns två skäl som du kan se det här meddelandet.<br><br>1. Administratören aktiverat återställning av lösenord för din organisation, men du har inte registrerats för användning av tjänsten. Om du vill registrera för återställning av lösenord finns i följande artiklar, baserat på din verifieringsmetod: [konfigurera säkerhetsinformation för att använda en autentiseringsapp (förhandsversion)](security-info-setup-auth-app.md), [konfigurera säkerhetsinformation för att använda ett telefonsamtal (förhandsversion)](security-info-setup-phone-number.md), [Konfigurera säkerhetsinformation för att använda textmeddelanden (förhandsversion)](security-info-setup-text-msg.md), [konfigurera säkerhetsinformation för att använda e-post (förhandsversion)](security-info-setup-email.md), eller [konfigurera säkerhetsinformation kan använda säkerhetsfrågor (förhandsversion) ](security-info-setup-questions.md).<br><br>2. Administratören har inte aktiverat återställning av lösenord för din organisation. I så fall måste du välja ”kontakta en administratör länken” att skicka ett e-postmeddelande till din administratör om att återställa ditt lösenord.|
+|När jag anger mitt användar-ID, uppstår ett fel med texten ”vi kunde inte verifiera ditt konto”.|Det gick inte att kontrollera din kontoinformation logga in igen.|Det finns två skäl som du kan se det här meddelandet.<br><br>1. Administratören aktiverat återställning av lösenord för din organisation, men du har inte registrerats för användning av tjänsten. Om du vill registrera för återställning av lösenord finns i följande artiklar, baserat på din verifieringsmetod: [Konfigurera säkerhetsinformation för att använda en autentiseringsapp (förhandsversion)](security-info-setup-auth-app.md), [konfigurera säkerhetsinformation för att använda ett telefonsamtal (förhandsversion)](security-info-setup-phone-number.md), [konfigurera säkerhetsinformation för att använda textmeddelanden (förhandsversion)](security-info-setup-text-msg.md), [ Konfigurera säkerhetsinformation för att använda e-post (förhandsversion)](security-info-setup-email.md), eller [konfigurera säkerhetsinformation kan använda säkerhetsfrågor (förhandsversion)](security-info-setup-questions.md).<br><br>2. Administratören har inte aktiverat återställning av lösenord för din organisation. I så fall måste du välja ”kontakta en administratör länken” att skicka ett e-postmeddelande till din administratör om att återställa ditt lösenord.|
 
 ## <a name="next-steps"></a>Nästa steg
 

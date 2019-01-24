@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 56c0d5b4ab1fae5812b1730e5a4d3aab0dfbde5e
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 4d62885743a4e50ece1c032c7b3405d8766d95cd
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448202"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850594"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuera modeller med Azure Machine Learning-tjänsten
 
@@ -245,7 +245,7 @@ Om du vill distribuera till Azure Container Instances, använder du följande st
     **Uppskattad tidsåtgång**: Ca 3 minuter.
 
     > [!TIP]
-    > Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa loggar för AKS-tjänsten. Loggade informationen kan tyda på orsaken till felet.
+    > Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
 
 Mer information finns i referensdokumentationen för den [AciWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice?view=azure-ml-py) klasser.
 
@@ -335,7 +335,7 @@ print(service.state)
 **Uppskattad tidsåtgång**: Ca 3 minuter.
 
 > [!TIP]
-> Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa loggar för AKS-tjänsten. Loggade informationen kan tyda på orsaken till felet.
+> Om det uppstår fel under distributionen kan du använda `service.get_logs()` att visa tjänstloggar. Loggade informationen kan tyda på orsaken till felet.
 
 Mer information finns i referensdokumentationen för den [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) och [webbtjänsten](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) klasser.
 

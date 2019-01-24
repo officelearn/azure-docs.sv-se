@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Teamphoria | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Teamphoria | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Teamphoria.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d569c705-6f0f-4ec1-b485-ba82526b5d32
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2018
 ms.author: jeedes
-ms.openlocfilehash: 554930b18a271a677aeb5e82c3e62a94965a8e7f
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8232af95cf8414df67343f5004975b11df4488a0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439617"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54826725"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Självstudier: Azure Active Directory-integration med Teamphoria
+# <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Självstudier: Azure Active Directory-integrering med Teamphoria
 
 I den här självstudien får du lära dig hur du integrerar Teamphoria med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera Teamphoria med Azure AD ger dig följande fördelar:
 - Du kan aktivera användarna att automatiskt få loggat in på Teamphoria (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats – Azure portal
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med Teamphoria, behöver du följand
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -66,11 +66,11 @@ För att konfigurera integrering av Teamphoria i Azure AD, som du behöver lägg
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Teamphoria**.
 
@@ -120,7 +120,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_teamphoria_certificate.png)
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/teamphoria-tutorial/tutorial_general_400.png)
 
@@ -144,11 +144,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. **VISNINGSNAMN**: Ange visningsnamnet för plugin-programmet på sidan.
 
-    b. **KNAPPNAMN**: namnet på fliken som visas på inloggningssidan för att logga in via enkel inloggning.
+    b. **KNAPPNAMN**: Namnet på fliken som visas på inloggningssidan för att logga in via enkel inloggning.
 
-    c. **CERTIFIKATET**: öppna certifikatet tidigare hämtade från Azure-portalen i anteckningar, kopiera innehållet i samma och klistra in det här i rutan.
+    c. **CERTIFIKATET**: Öppna certifikatet hämtade tidigare från Azure-portalen i anteckningar, kopiera innehållet i samma och klistra in det här i rutan.
 
-    d. **STARTPUNKTEN**: klistra in den **SAML enkel inloggning för tjänst-URL** kopierade tidigare från Azure-portalen.
+    d. **STARTPUNKTEN**: Klistra in den **SAML enkel inloggning för tjänst-URL** kopierade tidigare från Azure-portalen.
 
     e. Växla kan **på** och klicka på **spara**.
 
@@ -193,7 +193,7 @@ För att aktivera Azure AD-användare att logga in på Teamphoria, måste de eta
 
 1. Klicka på **ADMIN** inställningar i det vänstra verktygsfältet och under den **hantera** fliken klickar du på på **användare** att öppna sidan för användare.
 
-    ![Lägg till medarbetare](./media/teamphoria-tutorial/admin_manage_users.png)
+    ![Lägga till medarbetare](./media/teamphoria-tutorial/admin_manage_users.png)
 
 1. Klicka på den **manuell bjuda in** alternativet.
 
@@ -245,7 +245,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-Öppna panelen om du vill testa dina inställningar för enkel inloggning. Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Öppna panelen om du vill testa dina inställningar för enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

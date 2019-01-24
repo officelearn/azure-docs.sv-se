@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: c7aac6da-f4bf-419e-9e1a-16b460641a52
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 6828617e0ae61a3784e4db3d1c2ecf4ce9862ce2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d8027aca628185b1e3d2e80323c9f83e6832a913
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449517"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823937"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ibm-kenexa-survey-enterprise"></a>Självstudier: Azure Active Directory-integrering med IBM Kenexa undersökningen Enterprise
 
@@ -45,7 +45,7 @@ Om du vill konfigurera Azure AD-integrering med IBM Kenexa undersökningen Enter
 
 Följ dessa rekommendationer för att testa stegen i den här självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -65,7 +65,7 @@ Om du vill lägga till IBM Kenexa undersökningen Enterprise från galleriet, g�
 
 1. Välj **företagsprogram**, och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram][2]
     
 1. Lägg till ett program, klicka på den **nytt program** knappen.
 
@@ -79,7 +79,7 @@ Om du vill lägga till IBM Kenexa undersökningen Enterprise från galleriet, g�
 
     ![IBM Kenexa undersökningen Enterprise i resultatlistan](./media/kenexasurvey-tutorial/tutorial_kenexasurvey_addfromgallery.png)
 
-##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+##  <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med IBM Kenexa undersökningen Enterprise baserat på en testanvändare som kallas ”Britta Simon”.
 
 Azure AD måste identifiera IBM Kenexa undersökningen Enterprise användaren motsvarigheten i Azure AD för SSO ska fungera. Azure AD måste alltså upprätta en länk relation mellan Azure AD-användare och en tillhörande användare i IBM Kenexa undersökningen företag.
@@ -192,7 +192,7 @@ Om du vill tilldela användaren Britta Simon IBM Kenexa undersökningen Enterpri
 
 1. I den vänstra rutan klickar du på **användare och grupper**.
 
-    ![Länken ”användare och grupper”][202] 
+    ![Länken ”Användare och grupper”][202] 
 
 1. Klicka på den **Lägg till** knappen och klicka sedan på **Lägg till tilldelning** väljer **användare och grupper**.
 

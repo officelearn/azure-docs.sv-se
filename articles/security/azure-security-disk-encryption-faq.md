@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3afe60e7a00cb4fc4aca5046da8e26aaf3c77a29
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198821"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815242"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -63,7 +63,7 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | SLES | 12 SP1 | Datadisk |
 | SLES | Prioritet: 12-SP1 | Datadisk |
 | SLES | HPC 12 | Datadisk |
-| SLES | Prioritet: 11 SP4 | Datadisk |
+| SLES | Prioritet: 11-SP4 | Datadisk |
 | SLES | 11 SP4 | Datadisk |
 
 
@@ -137,7 +137,7 @@ Om det här arbetsflödet inte är möjligt, förlitar sig på [Lagringstjänstk
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Vilken krypteringsmetod som använder Azure Disk Encryption?
 
-På Windows, ADE använder Bitlocker AES256 krypteringsmetod (AES256WithDiffuser på versioner före Windows Server 2012). På Linux använder ADE plain64-xts-aes dmcrypt standardvärdet med en 256-bitars volymens huvudnyckel.
+På Windows, ADE använder BitLocker AES256 krypteringsmetod (AES256WithDiffuser på versioner före Windows Server 2012). På Linux använder ADE plain64-xts-aes dmcrypt standardvärdet med en 256-bitars volymens huvudnyckel.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Om jag använder EncryptFormatAll och anger alla volymtyper av, kommer den att radera data på dataenheter som vi redan har krypterat?
 Nej, inte data raderas från enheter som redan är krypterade med Azure Disk Encryption. Liknande hur EncryptFormatAll inte kryptera operativsystemenheten, den kommer inte att kryptera enheten redan krypterade data. Mer information finns i den [EncryptFormatAll kriterier](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        

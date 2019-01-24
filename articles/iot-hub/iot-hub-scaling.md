@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 8ff99b8c5cf839afb8c8e73c18c2c413998ba64a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 30b83613637d97bfe265c4f5a9c911d14da50c4f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52261726"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810915"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välja rätt nivå för IoT Hub för din lösning
 
@@ -43,6 +43,7 @@ Endast en typ av [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Moln-till-enhet-meddelanden](iot-hub-devguide-c2d-guidance.md) |   | Ja |
 | [Enhetstvillingar](iot-hub-devguide-device-twins.md), [modultvillingar](iot-hub-devguide-module-twins.md), och [enhetshantering](iot-hub-device-management-overview.md) |   | Ja |
+| [Enheten strömmar (förhandsversion)](iot-hub-device-streams-overview.md) |   | Ja |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT Hub erbjuder också en kostnadsfri nivå som är avsedd för testning och utvärdering. Den har alla funktioner i standard-nivån, men begränsad meddelanden tilldelningar. Du kan inte uppgradera från den kostnadsfria nivån till basic eller standard. 
@@ -76,7 +77,7 @@ Skillnaden i funktioner som stöds mellan nivåerna basic och standard för IoT 
 | [Hämta statistik för tjänster](https://docs.microsoft.com/rest/api/iothub/service/getservicestatistics) | Ja | Ja |
 | [Skapa eller uppdatera enhet](https://docs.microsoft.com/rest/api/iothub/service/createorupdatedevice) | Ja | Ja |
 | PUT-modulen | Ja | Ja |
-| [Fråga IoT-hubb](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Ja | Ja |
+| [Query IoT Hub](https://docs.microsoft.com/rest/api/iothub/service/queryiothub) | Ja | Ja |
 | Fråga moduler | Ja | Ja |
 | [Skapa filöverföringen SAS-URI](https://docs.microsoft.com/rest/api/iothub/device/createfileuploadsasuri) | Ja | Ja |
 | [Ta emot meddelande om enheten som är bunden](https://docs.microsoft.com/rest/api/iothub/device/receivedeviceboundnotification) | Ja | Ja |
@@ -111,7 +112,7 @@ Som ett exempel på varje nivå trafikfunktioner Tänk meddelanden från enheten
 
 | Nivå | Varaktig genomströmning | Varaktiga överföringshastighet |
 | --- | --- | --- |
-| B1 S1 |Upp till 1 111 KB per minut per enhet<br/>(1,5 GB per dag per enhet) |Medelvärde för 278 meddelanden per minut per enhet<br/>(400 000 meddelanden per dag per enhet) |
+| B1, S1 |Upp till 1 111 KB per minut per enhet<br/>(1,5 GB per dag per enhet) |Medelvärde för 278 meddelanden per minut per enhet<br/>(400 000 meddelanden per dag per enhet) |
 | B2, S2 |Upp till 16 MB per minut per enhet<br/>(22,8 GB per dag per enhet) |Medelvärde för 4,167 meddelanden per minut per enhet<br/>(6 miljoner meddelanden per dag per enhet) |
 | B3, S3 |Upp till 814 MB per minut per enhet<br/>(1144.4 GB per dag per enhet) |Medelvärde för 208,333 meddelanden per minut per enhet<br/>(300 miljoner meddelanden per dag per enhet) |
 

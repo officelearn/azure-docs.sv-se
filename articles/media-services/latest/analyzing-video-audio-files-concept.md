@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: juliako
-ms.openlocfilehash: 95d3f0aac4acdfbd70dcadd8db5c13456e83a7e7
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 20aef7f971b4c4bf8dcff98c633aa0b0aa69811a
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53344320"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828187"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analysera video-och ljudfiler
 
-Azure Media Services v3 kan du extrahera insikter från din video och ljud filer med Video Indexer via AMS v3 analyzer förinställningar (beskrivs i den här artikeln). Använd Video Indexer direkt om du vill få mer detaljerade insikter. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
+Azure Media Services v3 kan du extrahera insikter från din video och ljud filer med Video Indexer via AMS v3 analyzer förinställningar (beskrivs i den här artikeln). Använd Video Indexer direkt för att indexera mer detaljerad information. Mer information om när du bör använda analysförinställningar för Video Indexer eller Media Services finns i [jämförelsedokumentet](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
 Om du vill analysera ditt innehåll med Media Services v3 förinställningar kan du skapa en **transformera** och skicka en **jobbet** som använder en av dessa förinställningar: **AudioAnalyzerPreset** eller **VideoAnalyzerPreset**. I följande artikel visar hur du använder **VideoAnalyzerPreset**: [Självstudie: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md).
 
@@ -55,7 +55,7 @@ Förinställningen kan du extrahera flera ljud- och insikter från en videofil. 
 * Visual innehållsmoderering – delen av videor som har flaggats som vuxet eller olämpligt sin natur
 * Anteckningens – ett resultat av att kommentera videor baserat på en fördefinierad objektmodell
 
-##  <a name="insightsjson-elements"></a>Insights.JSON element
+##  <a name="insightsjson-elements"></a>insights.json elements
 
 Utdata innehåller en JSON-fil (insights.json) med alla de insikter som hittades i video eller ljud. Json kan innehålla följande element:
 
@@ -148,9 +148,9 @@ Exempel:
 |namn|Ansikts-namnet. Det kan vara ”okänt #0”, en identifierade kändisar eller en kund utbildad person.|
 |förtroende|Face ID förtroende.|
 |beskrivning|En beskrivning av kändisar. |
-|thumbnalId|ID för miniatyrbilden för den sida.|
+|thumbnailId|ID för miniatyrbilden för den sida.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
-|Tjänsten|Om det är en Bing kändisar, dess Bing-ID.|
+|referenceId|Om det är en Bing kändisar, dess Bing-ID.|
 |referenceType|För närvarande bara Bing.|
 |rubrik|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
 |imageUrl|Om det är en kändisar, dess bild-url.|
@@ -260,7 +260,7 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 |Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
-|Medel |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
+|averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
 |instanser|En lista över tidsintervall där den här sentiment visades.|
 |sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
 
@@ -437,4 +437,4 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 ```
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudiekurs: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)
+[Självstudier: Analysera videoklipp med Azure Media Services](analyze-videos-tutorial-with-api.md)

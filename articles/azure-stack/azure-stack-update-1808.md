@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/12/2019
+ms.date: 01/24/2019
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 8d477997e71843307f6c756a6974a23267842015
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: b91da771587dea60048a83471ec1f585690f2a33
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244978"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848622"
 ---
 # <a name="azure-stack-1808-update"></a>Uppdatering av Azure Stack 1808
 
@@ -268,7 +268,7 @@ Här följer efter installation kända problem för den här build-versionen.
 
    1. Om prenumerationen har skapats innan uppdateringen gjordes 1808, distribution av virtuella datorer med Managed Disks misslyckas med felmeddelandet internt. Följ dessa steg för varje prenumeration för att lösa problemet:
       1. I klient-portalen går du till **prenumerationer** och hitta prenumerationen. Klicka på **Resursprovidrar**, klicka sedan på **Microsoft.Compute**, och klicka sedan på **Omregistrera**.
-      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att **Azure Stack – hanterad Disk** visas.
+      2. Under samma prenumeration, gå till **åtkomstkontroll (IAM)**, och kontrollera att den **AzureStack-DiskRP-klient** roll visas.
    2. Om du har konfigurerat en miljö med flera organisationer kan misslyckas distribuera virtuella datorer i en prenumeration som är associerade med en gästkatalogen med ett internt felmeddelande. Följ dessa steg för att lösa problemet:
       1. Tillämpa den [1808 Azure Stack snabbkorrigering](https://support.microsoft.com/help/4481066/).
       2. Följ stegen i [i den här artikeln](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) att konfigurera om var och en av dina gäst-kataloger.

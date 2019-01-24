@@ -1,11 +1,11 @@
 ---
-title: 'Självstudie: Konfigurera Cerner Central för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Cerner Central för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera användare till en lista i Cerner Central.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
 writer: asmalser-msft
-manager: mtillman
+manager: daveba
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: bc215061d5f2f139c5912f29f709346cb681ee86
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: eb34a6e7ded4c31c623031104aabbee16b5c4f1c
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346639"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819483"
 ---
-# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Cerner Central för automatisk användaretablering
+# <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Cerner Central för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig vad du behöver för att utföra i Cerner Central och Azure AD för att automatiskt etablera och avetablera användarkonton från Azure AD till en lista med användare i Cerner Central. 
 
@@ -129,8 +129,8 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Cerner centrala: Publicering av identitetsdata med hjälp av Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
-* [Självstudie: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
+* [Cerner centrala: Publicera identitetsdata med hjälp av Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
+* [Självstudier: Konfigurera Cerner Central för enkel inloggning med Azure Active Directory](cernercentral-tutorial.md)
 * [Hantering av användarkontoetablering för Företagsappar](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 

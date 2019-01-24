@@ -4,7 +4,7 @@ description: Anslut en Windows Server-dator till en hanterad domän med hjälp a
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: a083bd2fe730f9723330abf9bce03d760b7442d8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157266"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856646"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ansluta en Windows Server-dator till en hanterad domän med en Resource Manager-mall
 Den här artikeln visar hur du kopplar en Windows Server-dator till en Azure AD Domain Services-hanterad domän med hjälp av Resource Manager-mallar.
@@ -38,12 +38,12 @@ Om du vill utföra åtgärderna i den här artikeln behöver du:
 
 ## <a name="install-and-configure-required-tools"></a>Installera och konfigurera verktyg som krävs
 Du kan använda något av följande alternativ för att utföra de steg som beskrivs i det här dokumentet:
-* **Azure PowerShell**: [installera och konfigurera](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure CLI**: [installera och konfigurera](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure PowerShell**: [Installera och konfigurera](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
+* **Azure CLI**: [Installera och konfigurera](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## <a name="option-1-provision-a-new-windows-server-vm-and-join-it-to-a-managed-domain"></a>Alternativ 1: Etablera en ny Windows Server VM och ansluta den till en hanterad domän
-**Snabbstart mallnamn**: [201-vm-domänanslutning](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
+**Snabbstart mallnamn**: [201-vm-domain-join](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 
 Om du vill distribuera en Windows Server-datorn och ansluta den till en hanterad domän, utför du följande steg:
 1. Navigera till den [Snabbstart mallen](https://azure.microsoft.com/resources/templates/201-vm-domain-join/).
@@ -73,8 +73,8 @@ Om du vill distribuera en Windows Server-datorn och ansluta den till en hanterad
 När distributionen är klar är din nyetablerade virtuella Windows-dator ansluten till den hanterade domänen.
 
 
-## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Alternativ 2: Ansluta till en befintlig Windows Server-dator till en hanterad domän
-**Snabbstart för mallen**: [201-vm-domain-join-existerande](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
+## <a name="option-2-join-an-existing-windows-server-vm-to-a-managed-domain"></a>Alternativ 2: Ansluta en befintlig Windows Server-dator till en hanterad domän
+**Snabbstart för mallen**: [201-vm-domain-join-existing](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 
 Utför följande steg för att ansluta till en befintlig Windows Server-dator till en hanterad domän:
 1. Navigera till den [Snabbstart mallen](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/).

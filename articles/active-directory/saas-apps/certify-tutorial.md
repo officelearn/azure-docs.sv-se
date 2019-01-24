@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Certify | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Certify | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och certifiera.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 0b36e020-175a-4534-b341-85260739f889
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68f1863ed8a901a93a1fe0626671a429adc96e61
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 49f6f1044e3a29b2d81a70f0ed3b9c6468bd2e72
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433493"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812853"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-certify"></a>Självstudier: Azure Active Directory-integration med Certify
+# <a name="tutorial-azure-active-directory-integration-with-certify"></a>Självstudier: Azure Active Directory-integrering med Certify
 
 Lär dig hur du integrerar Certify med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Certify, behöver du följande o
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av Certify i Azure AD, som du behöver lägga t
 
 **Utför följande steg för att lägga till Certify från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Certify**.
 
@@ -118,7 +118,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/certify-tutorial/tutorial_certify_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/certify-tutorial/tutorial_general_400.png)
 
@@ -126,14 +126,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/certify-tutorial/tutorial_certify_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Certify** sida, som du behöver skicka de hämtade **Certificate(Raw)** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** att [Certify supportteamet](mailto:support@certify.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Certify** sida, som du behöver skicka de hämtade **Certificate(Raw)** och **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** att [Certify supportteamet](mailto:support@certify.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -167,7 +167,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Certify. Certifiera stöder just-in-time etablering, som är som standard aktiverat.
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt certifiera om det inte finns ännu.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid ett försök att komma åt certifiera om det inte finns ännu.
 
 >[!NOTE]
 >Om du vill skapa en användare manuellt kan du behöva kontakta den [Certify supportteamet](mailto:support@certify.com). 

@@ -4,7 +4,7 @@ description: Aktivera Azure Active Directory Domain Services med Azure portal
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: 70dee552ec575f4969593eac4e91fdbb18b426f1
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: d73d9d269ce4c78c87e718aed752206f88276770
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156195"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857046"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 
@@ -44,14 +44,14 @@ Nästa konfigurationsåtgärd är att skapa ett Azure-nätverk och ett dedikerat
   > **Du kan inte flytta den hanterade domänen till ett annat virtuellt nätverk när du har aktiverat Azure AD Domain Services.** Välj rätt virtuellt nätverk för att aktivera din hanterade domän. När du har skapat en hanterad domän kan du flytta den till ett annat virtuellt nätverk utan att ta bort den hanterade domänen. Vi rekommenderar att du granskar den [Nätverksöverväganden för Azure Active Directory Domain Services](active-directory-ds-networking.md) innan du fortsätter.  
   >
 
-4. **Skapa virtuellt nätverk:** klickar du på **Skapa nytt** att skapa ett nytt virtuellt nätverk. Använd ett dedikerat undernät för Azure AD Domain Services. Till exempel skapa ett undernät med namnet DomainServices, vilket gör det enkelt för andra administratörer att förstå vad som har distribuerats i undernätet. Klicka på **OK** när du är klar.
+4. **Skapa virtuellt nätverk:** Klicka på **Skapa nytt** att skapa ett nytt virtuellt nätverk. Använd ett dedikerat undernät för Azure AD Domain Services. Till exempel skapa ett undernät med namnet DomainServices, vilket gör det enkelt för andra administratörer att förstå vad som har distribuerats i undernätet. Klicka på **OK** när du är klar.
 
     ![Välj virtuellt nätverk](./media/getting-started/domain-services-blade-network-pick-vnet.png)
 
   > [!WARNING]
   > Se till att välja ett adressutrymme som ligger inom det privata IP-adressutrymmet. IP-adresser som du inte äger som finns i offentligt adressutrymme orsaka fel i Azure AD Domain Services.
 
-5. **Befintligt virtuellt nätverk:** om du planerar att välja ett befintligt virtuellt nätverk, [skapa ett dedikerat undernät med hjälp av tillägget för virtuella nätverk](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), och välj sedan det undernätet. Klicka på **virtuellt nätverk** att välja det befintliga virtuella nätverket. Klicka på **undernät** att välja dedikerat undernät i det befintliga virtuella nätverket i som du vill aktivera den nya hanterade domänen. Klicka på **OK** när du är klar.
+5. **Befintligt virtuellt nätverk:** Om du planerar att välja ett befintligt virtuellt nätverk, [skapa ett dedikerat undernät med hjälp av tillägget för virtuella nätverk](../virtual-network/virtual-network-manage-subnet.md#add-a-subnet), och välj sedan det undernätet. Klicka på **virtuellt nätverk** att välja det befintliga virtuella nätverket. Klicka på **undernät** att välja dedikerat undernät i det befintliga virtuella nätverket i som du vill aktivera den nya hanterade domänen. Klicka på **OK** när du är klar.
 
     ![Välj undernät i det virtuella nätverket](./media/getting-started/domain-services-blade-network-pick-subnet.png)
 

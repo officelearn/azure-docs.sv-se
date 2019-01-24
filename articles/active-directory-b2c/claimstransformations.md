@@ -3,19 +3,19 @@ title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Definition av ClaimsTransformations-elementet i den identitet upplevelse Framework Schema för Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b569fe6a354bed315fd2136cafdade667b6f3a8b
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 152149f94bba9077909d5b5c6bf92f3706b31b8c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432825"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848452"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -62,7 +62,7 @@ Den **ClaimsTransformation** elementet innehåller följande element:
 | Element | Förekomster | Beskrivning |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | En lista över **InputClaim** element som anger anspråkstyper som används som indata för anspråkstransformering. Var och en av de här elementen innehåller en referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema i principen. |
-| Indataparametrar | 0:1 | En lista över **indataparametrar** element som anges som indata till anspråkstransformering.  
+| InputParameters | 0:1 | En lista över **indataparametrar** element som anges som indata till anspråkstransformering.  
 | OutputClaims | 0:1 | En lista över **OutputClaim** element som anger anspråk typer som genereras när ClaimsTransformation har anropats. Var och en av de här elementen innehåller en referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema. |
 
 ### <a name="inputclaims"></a>InputClaims
@@ -71,7 +71,7 @@ Den **InputClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| InputClaim | 1: n | Förväntade indata Anspråkstypen. |
+| InputClaim | 1:n | Förväntade indata Anspråkstypen. |
 
 #### <a name="inputclaim"></a>InputClaim
 
@@ -82,15 +82,15 @@ Den **InputClaim** elementet innehåller följande attribut:
 | ClaimTypeReferenceId |Ja | En referens till en ClaimType som redan har definierats i avsnittet ClaimsSchema i principen. |
 | TransformationClaimType |Ja | En identifierare för att referera till en transformation Anspråkstypen. Varje anspråksomvandling har en egen uppsättning egenskapsvärden. Se den [anspråk Omvandlingsreferens](#Claims-transformations-reference) för en fullständig lista över de tillgängliga värdena. |
 
-### <a name="inputparameters"></a>Indataparametrar
+### <a name="inputparameters"></a>InputParameters
 
 Den **indataparametrar** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Indataparametrar | 1: n | En förväntad indataparameter. |
+| InputParameter | 1:n | En förväntad indataparameter. |
 
-#### <a name="inputparameter"></a>Indataparametrar
+#### <a name="inputparameter"></a>InputParameter
 
 | Attribut | Krävs |Beskrivning |
 | --------- | ----------- |----------- |
@@ -104,9 +104,9 @@ Den **OutputClaims** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| outputClaim | 0: n | Förväntad utdata Anspråkstypen. |
+| OutputClaim | 0: n | Förväntad utdata Anspråkstypen. |
 
-#### <a name="outputclaim"></a>outputClaim 
+#### <a name="outputclaim"></a>OutputClaim 
 
 Den **OutputClaim** elementet innehåller följande attribut:
 
@@ -159,12 +159,12 @@ Du kan till exempel lagra den senaste versionen av tjänster som användaren har
 
 Exempel på anspråksomvandlingar finns på följande referenssidor:
 
-- [Booleskt värde](boolean-transformations.md)
+- [Boolesk](boolean-transformations.md)
 - [datum](date-transformations.md)
 - [heltal](integer-transformations.md)
 - [JSON](json-transformations.md)
 - [Allmänt](general-transformations.md)
 - [Socialt konto](social-transformations.md)
-- [sträng](string-transformations.md)
-- [stringCollection](stringcollection-transformations.md)
+- [Sträng](string-transformations.md)
+- [StringCollection](stringcollection-transformations.md)
 

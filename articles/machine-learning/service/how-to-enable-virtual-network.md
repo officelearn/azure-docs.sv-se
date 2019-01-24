@@ -1,7 +1,7 @@
 ---
-title: Kör experiment och inferensjobb i ett virtuellt nätverk
+title: Kör experiment & inferens i ett virtuellt nätverk
 titleSuffix: Azure Machine Learning service
-description: Lär dig hur du kör säkert machine learning-experiment- och inferensjobb i ett virtuellt Azure-nätverk. Den här artikeln lär du dig hur du skapar beräkningsmål som används för att skapa modeller och utföra inferensjobb i ett virtuellt Azure-nätverk. Den behandlar också kraven för skyddade virtuella nätverk, till exempel kräver inkommande och utgående portarna.
+description: Köra machine learning-experiment och inferensjobb skydda i ett virtuellt Azure-nätverk. Lär dig hur du skapar beräkningsmål för modellträning och hur du inferens inom ett Azure-nätverk. Den behandlar också kraven för skyddade virtuella nätverk, till exempel kräver inkommande och utgående portarna.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 1890f830f9b2a4b108328de056636335fd3746e3
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54248902"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856289"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure Virtual Network
 
@@ -149,7 +149,7 @@ Om du vill använda en virtuell dator eller ett HDInsight-kluster i ett virtuell
 
     * __Källa__: Välj __Service Tag__ (tjänsttagg)
 
-    * __Källtjänsttagg__: Välj __AzureMachineLearning__
+    * __Källtjänsttagg__: Select __AzureMachineLearning__
 
     * __Käll-portintervall__: Välj __*__
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/22/2018
 ms.author: manayar
-ms.openlocfilehash: f15b2154c1bac4d699af91980a4bc2a7192bb0c9
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 5d92aa78b132b661af3cdc53b47c0340a0758dd8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740883"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54855320"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Förstå VM-skaluppsättning instans-ID: N för Azure VM-skalningsuppsättning
 Den här artikeln beskriver instans-ID: N för skalningsuppsättningar och de olika sätt som de Surface-enheter.
@@ -41,7 +41,7 @@ REST API: `GET https://management.azure.com/subscriptions/{subscriptionId}/resou
 
 PowerShell: `Get-AzureRmVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (Mer information finns i den [Powershell-dokumentationen](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest#az_vmss_list_instances)).
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (Mer information finns i den [CLI-dokumentationen](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest)).
 
 Du kan också använda [resources.azure.com](https://resources.azure.com) eller [Azure SDK: er](https://azure.microsoft.com/downloads/) lista de virtuella datorerna i en skalningsuppsättning.
 

@@ -1,10 +1,10 @@
 ---
-title: 'Självstudie: Konfigurera G Suite för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera G Suite för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du automatiskt etablera och avetablera användarkonton från Azure AD till G Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 6dbd50b5-589f-4132-b9eb-a53a318a64e5
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 48a835bf8c63ffa5512173b600fb85abd5c6cb45
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 856fc4416bde6022693cf8250b84854f66a269fd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840358"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820350"
 ---
-# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användaretablering
+# <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudier: Konfigurera G Suite för automatisk användaretablering
 
 Målet med den här självstudien är att visa dig hur du automatiskt etablera och avetablera användarkonton från Azure Active Directory (AD Azure) till G Suite.
 
@@ -33,16 +33,16 @@ Målet med den här självstudien är att visa dig hur du automatiskt etablera o
 Om du vill konfigurera Azure AD-integrering med G Suite, behöver du följande objekt:
 
 - En Azure AD-prenumeration
-- En G Suite enkel inloggning aktiverat prenumeration
-- En prenumeration för Google Apps eller Google Cloud Platform-prenumeration.
+- En prenumeration med enkel inloggning med G Suite aktiverat
+- En Google Apps-prenumeration eller Google Cloud Platform-prenumeration.
 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du [få en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="assign-users-to-g-suite"></a>Tilldela användare till G Suite
 
@@ -131,11 +131,11 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
        
 1. I den [Google Apps-administratörskonsolen](https://admin.google.com/)väljer **Administratörsrollerna**.
    
-     ![Välj Google Apps][26]
+     ![Select Google Apps][26]
 
 1. Avgör vilket administratörskonto som du vill använda för att hantera etableringen av användare. För den **administratörsroll** för kontot, redigera den **privilegier** för rollen. Se till att aktivera alla **API administratörsprivilegier** så att det här kontot kan användas för etablering.
    
-     ![Välj Google Apps][27]
+     ![Select Google Apps][27]
    
     > [!NOTE]
     > Om du konfigurerar en produktionsmiljö är det bästa sättet att skapa ett administratörskonto i G Suite specifikt för det här steget. Dessa konton måste ha en administratörsroll som är associerade med dem som har de nödvändiga privilegierna för API: et.
@@ -160,7 +160,7 @@ Det här avsnittet vägleder dig genom processen för att ansluta din Azure AD t
 
 1. Ange e-postadress för en person eller grupp som ska få meddelanden om etablering fel i den **e-postmeddelande** fält. Markera sedan kryssrutan.
 
-1. Välj **spara.**
+1. Välj **Spara.**
 
 1. Under den **mappningar** väljer **synkronisera Azure Active Directory-användare till Google Apps**.
 

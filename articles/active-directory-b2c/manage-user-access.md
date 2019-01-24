@@ -3,19 +3,19 @@ title: Hantera användarnas åtkomst i Azure Active Directory B2C | Microsoft Do
 description: Lär dig att identifiera minderåriga, samla in datum födelsedatum och land data och få godkännande av villkor för användning i ditt program med hjälp av Azure AD B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6709fb8ae328f749b367c58f95b8a9ef8da9bc65
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 982587fa7da41ea1de5fd11bb054f87039596da1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055629"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852039"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användarnas åtkomst i Azure Active Directory B2C
 
@@ -34,11 +34,11 @@ Program och organisationer kan välja att blockera minderåriga från att använ
 
 Om en användare identifieras som en mindre, kan du ange användarflödet i Azure AD B2C till något av tre alternativ:
 
-- **Skicka en signerad JWT-id_token tillbaka till programmet**: användaren har registrerats i katalogen och en token returneras till programmet. Sedan fortsätter genom att använda affärsregler. Exempelvis kan programmet fortsätta med en medgivandenivå process. Om du vill använda den här metoden måste du välja att ta emot den **ageGroup** och **consentProvidedForMinor** anspråk från programmet.
+- **Skicka en signerad JWT-id_token tillbaka till programmet**: Användaren har registrerats i katalogen och en token returneras till programmet. Sedan fortsätter genom att använda affärsregler. Exempelvis kan programmet fortsätta med en medgivandenivå process. Om du vill använda den här metoden måste du välja att ta emot den **ageGroup** och **consentProvidedForMinor** anspråk från programmet.
 
 - **Skicka en osignerad JSON-token till programmet**: Azure AD B2C meddelar programmet att användaren är en mindre och som visar status för användarens föräldrars tillstånd. Sedan fortsätter genom att använda affärsregler. En JSON-token inte att slutföra en lyckad autentisering med programmet. Programmet måste bearbeta oautentiserad användare enligt de anspråk som ingår i JSON-token som kan innehålla **namn**, **e-post**, **ageGroup**, och **consentProvidedForMinor**.
 
-- **Blockera användaren**: om en användare är en mindre och föräldrars tillstånd har inte angetts, Azure AD B2C kan meddela användaren att han eller hon är blockerad. Ingen token utfärdas, blockeras åtkomsten och användarkontot har inte skapats under en registrerings-resa. För att implementera det här meddelandet, kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
+- **Blockera användaren**: Om en användare är en mindre och föräldrars tillstånd har inte angetts, meddela Azure AD B2C användaren att han eller hon är blockerad. Ingen token utfärdas, blockeras åtkomsten och användarkontot har inte skapats under en registrerings-resa. För att implementera det här meddelandet, kan du ange en lämplig HTML/CSS-innehållssida för att informera användaren och finns lämpliga alternativ. Ingen ytterligare åtgärd krävs av programmet för nya registreringar.
 
 ## <a name="get-parental-consent"></a>Hämta föräldrars tillstånd
 

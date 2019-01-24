@@ -8,17 +8,17 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 10/05/2018
-ms.openlocfilehash: 19e6693de673eae6fe0b885580975c4cefc35d60
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.date: 01/22/2019
+ms.openlocfilehash: a22512a960426cc21f4f012e06b9df4fa86e637e
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725156"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807277"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autentisera och få åtkomst till resurser med hanterade identiteter i Azure Logic Apps
 
-För att komma åt resurser i andra Azure Active Directory (Azure AD)-klienter och verifiera din identitet utan att logga in, logikappen kan använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat hanterad tjänstidentitet eller MSI), snarare än autentiseringsuppgifter och hemligheter. Azure hanterar den här identiteten för dig och hjälper dig att skydda dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Den här artikeln visar hur du kan skapa och använda en automatiskt genererad hanterad identitet för din logikapp. Läs mer om hanterade identiteter [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
+För att komma åt resurser i andra Azure Active Directory (Azure AD)-klienter och verifiera din identitet utan att logga in, logikappen kan använda en [hanterad identitet](../active-directory/managed-identities-azure-resources/overview.md) (tidigare kallat hanterad tjänstidentitet eller MSI), snarare än autentiseringsuppgifter och hemligheter. Azure hanterar den här identiteten för dig och hjälper dig att skydda dina autentiseringsuppgifter eftersom du inte behöver ange eller rotera hemligheter. Den här artikeln visar hur du kan konfigurera och använda en automatiskt genererad hanterad identitet för din logikapp. Läs mer om hanterade identiteter [vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
 > Du kan för närvarande har upp till 10 logikapparbetsflöden med systemtilldelade hanterade identiteter i varje Azure-prenumeration.
@@ -29,40 +29,42 @@ För att komma åt resurser i andra Azure Active Directory (Azure AD)-klienter o
 
 * Logikappen där du vill använda den systemtilldelade hanterad identitet. Om du inte har en logikapp kan se [skapa ditt första logikapparbetsflöde](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-<a name="create-identity"></a>
+<a name="enable-identity"></a>
 
-## <a name="create-managed-identity"></a>Skapa hanterad identitet
+## <a name="enable-managed-identity"></a>Aktivera hanterad identitet
 
-Du kan skapa eller aktivera en automatiskt genererad hanterad identitet för din logikapp via Azure-portalen, Azure Resource Manager-mallar eller Azure PowerShell. 
+För systemtilldelade hanterade identiteter har du inte manuellt skapa den identiteten. Om du vill konfigurera en automatiskt genererad hanterad identitet för din logikapp kan du använda följande sätt: 
+
+* [Azure Portal](#azure-portal) 
+* [Azure Resource Manager-mallar](#template) 
+* [Azure PowerShell](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md) 
+
+<a name="azure-portal"></a>
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Om du vill aktivera en automatiskt genererad hanterad identitet för din logikapp via Azure portal, aktivera den **registreras med Azure Active Directory** i inställningar för logikappens arbetsflöde.
+Om du vill aktivera en automatiskt genererad hanterad identitet för din logikapp via Azure portal, aktivera den **systemtilldelad** i inställningarna för din logikapp.
 
 1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer.
 
-1. Följ de här stegen: 
+1. På logikappmenyn, under **inställningar**väljer **identitet**. 
 
-   1. På logikappmenyn, under **inställningar**väljer **arbetsflödesinställningarna**. 
+1. Under **systemtilldelad** > **Status**, Välj **på**. Välj **spara** > **Ja**.
 
-   1. Under **hanterad tjänstidentitet** > 
-    **registreras med Azure Active Directory**, Välj **på**.
+   ![Aktivera hanterad identitet inställning](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
 
-   1. När du är klar väljer **spara** i verktygsfältet.
+   Logikappen har nu en automatiskt genererad hanterad identitet i Azure Active Directory:
 
-      ![Aktivera hanterad identitet inställning](./media/create-managed-service-identity/turn-on-managed-service-identity.png)
+   ![GUID för objekt-ID](./media/create-managed-service-identity/object-id.png)
 
-      Logikappen har nu en automatiskt genererad hanterad identitet registrerad i Azure Active Directory med dessa egenskaper och värden:
+   | Egenskap  | Värde | Beskrivning | 
+   |----------|-------|-------------| 
+   | **Objekt-ID** | <*identity-resource-ID*> | En globalt unik identifierare (GUID) som representerar den systemtilldelade hanterad identitet för din logikapp i en Azure AD-klient | 
+   ||| 
 
-      ![GUID för ägar-ID och klient-ID](./media/create-managed-service-identity/principal-tenant-id.png)
+<a name="template"></a>
 
-      | Egenskap  | Värde | Beskrivning | 
-      |----------|-------|-------------| 
-      | **Ägar-ID** | <*huvudkonto-ID*> | En globalt unik identifierare (GUID) som representerar logikappen i en Azure AD-klient | 
-      | **Klient-ID** | <*Azure-AD-klient-ID*> | En globalt unik identifierare (GUID) som representerar den Azure AD-klient där logikappen är nu medlem. Tjänstens huvudnamn har samma namn som den logic app-instansen i Azure AD-klient. | 
-      ||| 
-
-### <a name="deployment-template"></a>Distributionsmall
+### <a name="azure-resource-manager-template"></a>Azure Resource Manager-mall
 
 När du vill automatisera skapa och distribuera Azure-resurser, till exempel logikappar kan du använda [Azure Resource Manager-mallar](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md). När du skapar en automatiskt genererad hanterad identitet för din logikapp via en mall till den `"identity"` element och `"type"` egenskap logic app-arbetsflödesdefinitionen i mallen för distribution: 
 
@@ -109,8 +111,8 @@ När Azure skapar din logikapp kan innehåller den logikapp arbetsflödesdefinit
 
 | Egenskap  | Värde | Beskrivning | 
 |----------|-------|-------------|
-| **principalId** | <*huvudkonto-ID*> | En globalt unik identifierare (GUID) som representerar logikappen i Azure AD-klient | 
-| **TenantId** | <*Azure-AD-klient-ID*> | En globalt unik identifierare (GUID) som representerar den Azure AD-klient där logikappen är nu medlem. Tjänstens huvudnamn har samma namn som den logic app-instansen i Azure AD-klient. | 
+| **principalId** | <*principal-ID*> | En globalt unik identifierare (GUID) som representerar logikappen i Azure AD-klient och ibland visas som ”objekt-ID” eller `objectID` | 
+| **tenantId** | <*Azure-AD-tenant-ID*> | En globalt unik identifierare (GUID) som representerar den Azure AD-klient där logikappen är nu medlem. Tjänstens huvudnamn har samma namn som den logic app-instansen i Azure AD-klient. | 
 ||| 
 
 <a name="access-other-resources"></a>
@@ -150,11 +152,23 @@ När du har konfigurerat din logikapp med en automatiskt genererad hanterad iden
 
 1. Ange informationen som krävs för åtgärden, till exempel begäran **metoden** och **URI** platsen för den resursen som du vill anropa.
 
+   Anta exempelvis att du använder Azure Active Directory (Azure AD)-autentisering med [något av dessa Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   I den **URI** anger slutpunkts-URL för den Azure-tjänsten. 
+   Så om du använder Azure Resource Manager, anger du det här värdet i den **URI** egenskapen:
+
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+
 1. I HTTP-åtgärd väljer **visa avancerade alternativ**. 
 
-1. Från den **autentisering** väljer **hanterad tjänstidentitet**, som sedan visar den **målgrupp** egenskapen för hur du:
+1. Från den **autentisering** väljer **hanterade identiteter**. När du har valt den här autentiseringen i **målgrupp** egenskap visas med standardvärdet för resurs-ID:
 
-   ![Välj ”hanterad tjänstidentitet”](./media/create-managed-service-identity/select-managed-service-identity.png)
+   ![Välj ”hanterad identitet”](./media/create-managed-service-identity/select-managed-service-identity.png)
+
+   > [!IMPORTANT]
+   > 
+   > I den **målgrupp** egenskapen, resurs-ID-värdet måste vara en exakt matchning Azure AD förväntar sig, inklusive alla som krävs för avslutande snedstreck. 
+   > Du hittar dessa resurs-ID-värden i den här [tabell över Azure-tjänster som stöder Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication). 
+   > Till exempel om du använder Azure resurs Manager resurs-ID, kontrollera att URI: N har ett avslutande snedstreck.
 
 1. Fortsätt att skapa logikappen som du vill.
 
@@ -162,23 +176,21 @@ När du har konfigurerat din logikapp med en automatiskt genererad hanterad iden
 
 ## <a name="remove-managed-identity"></a>Ta bort hanterad identitet
 
-Om du vill inaktivera en automatiskt genererad hanterad identitet i logikappen kan du följa stegen liknar hur du skapade identitet via Azure-portalen, Azure Resource Manager-mallar för distribution eller Azure PowerShell. 
+Om du vill inaktivera en automatiskt genererad hanterad identitet i logikappen kan du följa stegen liknar hur du ställer in Identitetshantering via Azure-portalen, Azure Resource Manager-mallar för distribution eller Azure PowerShell. 
 
 När du tar bort logikappen Azure automatiskt att ta bort din logikapp systemtilldelade identiteter från Azure AD.
 
 ### <a name="azure-portal"></a>Azure Portal
 
-1. Öppna logikappen i Logic App Designer.
+Om du vill ta bort en automatiskt genererad hanterad identitet för din logikapp via Azure portal måste stänga av den **systemtilldelad** i inställningarna för din logikapp.
 
-1. Följ de här stegen: 
+1. I den [Azure-portalen](https://portal.azure.com), öppna logikappen i Logic App Designer.
 
-   1. På logikappmenyn, under **inställningar**väljer **arbetsflödesinställningarna**. 
-   
-   1. Under **hanterad tjänstidentitet**, Välj **av** för den **registreras med Azure Active Directory** egenskapen.
+1. På logikappmenyn, under **inställningar**väljer **identitet**. 
 
-   1. När du är klar väljer **spara** i verktygsfältet.
+1. Under **systemtilldelad** > **Status**, Välj **av**. Välj **spara** > **Ja**.
 
-      ![Inaktivera inställningen för hanterad identitet](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
+   ![Inaktivera inställningen för hanterad identitet](./media/create-managed-service-identity/turn-off-managed-service-identity.png)
 
 ### <a name="deployment-template"></a>Distributionsmall
 
@@ -194,4 +206,3 @@ Om du har skapat den logikapp systemtilldelade hanterad identitet med en Distrib
 
 * Om du har frågor kan du besöka [forumet för Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Om du vill skicka in eller rösta på förslag på funktioner besöker du [webbplatsen för Logic Apps-användarfeedback](https://aka.ms/logicapps-wish).
-

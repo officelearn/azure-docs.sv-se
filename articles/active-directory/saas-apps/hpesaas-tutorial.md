@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 314003d6-ca66-4456-88c3-934254d4a9a2
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2017
 ms.author: jeedes
-ms.openlocfilehash: c8932714f9a9ebcbda82177be2fde37497f71d7b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 19d98ec8157d6e2ce748a5cc95ee46c40c16c562
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445067"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54814706"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hpe-saas"></a>Självstudier: Azure Active Directory-integrering med HPE SaaS
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med HPE SaaS, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här: [– prova](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en testmiljö för Azure AD kan du få en tre månaders kostnadsfri utvärdering här: [Utvärderingserbjudande](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av HPE SaaS i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till HPE SaaS från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **HPE SaaS**.
 
@@ -114,26 +114,26 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     a. I den **inloggnings-URL** textrutan anger du ett URL: en som: `https://login.saas.hpe.com/msg`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.saas.hpe.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.saas.hpe.com`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [HPE SaaS klienten supportteamet](https://saas.hpe.com/en-us/contact) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [HPE SaaS klienten supportteamet](https://saas.hpe.com/en-us/contact) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/hpesaas-tutorial/tutorial_hpesaas_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/hpesaas-tutorial/tutorial_general_400.png)
 
-1. Att konfigurera enkel inloggning på **HPE SaaS** sida, som du behöver skicka de hämtade **XML-Metadata för** till [HPE SaaS supportteam](https://saas.hpe.com/en-us/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **HPE SaaS** sida, som du behöver skicka de hämtade **XML-Metadata för** till [HPE SaaS supportteam](https://saas.hpe.com/en-us/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -202,7 +202,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen HPE SaaS i åtkomstpanelen du bör få automatiskt loggat in på ditt HPE SaaS-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

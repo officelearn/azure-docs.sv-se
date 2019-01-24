@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 01/23/2019
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: b6ec3283121a3403afb80ccad81f313decf16c88
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a74fb749e130b565c44c637bfc16ff09e3314a05
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957648"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857173"
 ---
 # <a name="microsoft-azure-stack-troubleshooting"></a>Felsökning av Microsoft Azure Stack
 
@@ -32,11 +32,31 @@ Det här dokumentet innehåller vanliga felsökningsinformation för Azure Stack
 Rekommendationer för att felsöka problem som beskrivs i det här avsnittet härleds från flera källor och kan eller inte kan lösa ditt problem. Kodexempel som tillhandahålls som de är och kan inte garanteras önskat resultat. Det här avsnittet är föremål för frekventa ändringar och uppdateringar som förbättringar av produkten implementeras.
 
 ## <a name="deployment"></a>Distribution
-### <a name="deployment-failure"></a>Distributionsfel
+### <a name="general-deployment-failure"></a>Allmän distributionsfel
 Om det uppstår ett fel under installationen kan du starta om distributionen från det felande steget med hjälp av kör alternativet - av distributionsskriptet.  
 
 ### <a name="at-the-end-of-asdk-deployment-the-powershell-session-is-still-open-and-doesnt-show-any-output"></a>I slutet av ASDK distribution PowerShell-session är fortfarande öppen och visar inte inga utdata.
 Detta är förmodligen bara resultatet av en PowerShell-kommandofönster standardbeteende när den har valts. Development kit distributionen har slutförts men skriptet pausades när du väljer fönstret. Du kan kontrollera att installationen har slutförts genom att leta efter ordet ”Välj” i kommandofönstret namnlist.  Tryck på ESC för att avmarkera det och Slutförandemeddelande som ska visas efter den.
+
+### <a name="deployment-fails-due-to-lack-of-external-access"></a>Distributionen misslyckas på grund av bristande extern åtkomst
+När distributionen misslyckas i led där extern åtkomst krävs returneras ett undantag som i följande exempel:
+
+```
+An error occurred while trying to test identity provider endpoints: System.Net.WebException: The operation has timed out.
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.GetResponse(WebRequest request)
+   at Microsoft.PowerShell.Commands.WebRequestPSCmdlet.ProcessRecord()at, <No file>: line 48 - 8/12/2018 2:40:08 AM
+```
+Om det här felet uppstår, kontrollera att alla krav på minsta nätverk har uppfyllts genom att granska den [distribution network traffic-dokumentationen](deployment-networking.md). En network checker är också tillgängliga för partner som en del av Partner Toolkit.
+
+Fel vid distribution med ovanstående undantag är vanligtvis på grund av problem med att ansluta till resurser på Internet
+
+Verifiera det här är problemet, kan du utföra följande steg:
+
+1. Öppna Powershell
+2. Enter-PSSession till WAS01 eller de ERCs virtuella datorer
+3. Kör cmdleten: Test-NetConnection login.windows.net -port 443
+
+Om kommandot misslyckas kontrollerar du TOR-växeln och andra nätverksenheter som är konfigurerade för [tillåta nätverkstrafik](azure-stack-network.md).
 
 ## <a name="virtual-machines"></a>Virtuella datorer
 ### <a name="default-image-and-gallery-item"></a>Bild- och galleriet standardobjekt

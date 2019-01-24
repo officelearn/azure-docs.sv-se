@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 656f749fd2a930c51bfd7d1a99642fae87694846
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 600651b6c9140aba178bf073675c49957987d10d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096633"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54844746"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Förstå övervakning av Stream Analytics-jobb och övervaka frågor
 
-## <a name="introduction-the-monitor-page"></a>Introduktion: Övervaka sidan
+## <a name="introduction-the-monitor-page"></a>Introduktion: Sidan Övervakare
 Azure portal både lyfta fram viktiga prestandamått som kan användas för att övervaka och felsöka din fråga och jobbet prestanda. Om du vill se de här måtten, bläddra till Stream Analytics-jobbet du är intresserad av att se mått för och visa den **övervakning** avsnitt på sidan Översikt.  
 
 ![Stream Analytics-jobbet övervakning länk](./media/stream-analytics-monitoring/02-stream-analytics-monitoring-block.png)
@@ -30,17 +30,17 @@ I fönstret visas som visas:
 ## <a name="metrics-available-for-stream-analytics"></a>Mått som är tillgängliga för Stream Analytics
 | Mått                 | Definition                               |
 | ---------------------- | ---------------------------------------- |
-| Eftersläpande inmatningshändelser       | Antal inkommande händelser som är eftersläpande. |
-| Datakonverteringsfel | Antalet utdata-händelser som inte kan konverteras till schemat för utdata som förväntas. |
-| Tidiga indatahändelser       | Antal händelser som tagits emot tidigt. |
+| Eftersläpande inmatningshändelser       | Antal inkommande händelser som är eftersläpande. Ett annat värde än noll för det här måttet innebär att ditt jobb inte kan hålla jämna steg med antalet inkommande händelser. Om värdet är långsamt ökar eller konsekvent noll, bör du skala ut ditt jobb. Du kan lära dig mer genom att besöka [förstå och justera Direktuppspelningsenheter](stream-analytics-streaming-unit-consumption.md). |
+| Datakonverteringsfel | Antalet utdata-händelser som inte kan konverteras till schemat för utdata som förväntas. Felprincip kan ändras till ”släppa” för att ta bort händelser som stöta på det här scenariot. |
+| Tidiga indatahändelser       | Händelser vars Programtidsstämpel är tidigare än ankomsttid med mer än 5 minuter. |
 | Misslyckade funktionsförfrågningar | Antal misslyckade Azure Machine Learning-funktionsanrop (om tillgängligt). |
 | Funktionshändelser        | Antalet händelser som skickas till Azure Machine Learning-funktionen (om tillgängligt). |
 | Funktionsförfrågningar      | Antal anrop till funktionen Azure Machine Learning (om tillgängligt). |
-| Fel vid deserialisering av indata       | Antal händelser som inte kunde deserialiseras.  |
+| Fel vid deserialisering av indata       | Antal inkommande händelser som inte kunde deserialiseras.  |
 | Indatahändelsebyte      | Mängden data som tas emot av Stream Analytics-jobb i byte. Detta kan användas för att verifiera att händelser skickas till Indatakällan. |
-| Indatahändelser           | Mängden data som tas emot av Stream Analytics-jobb i antalet händelser. Detta kan användas för att verifiera att händelser skickas till Indatakällan. |
-| Indatakällorna har tagits emot       | Antal händelser som kommer från en indatakälla. |
-| Sena indatahändelser      | Antalet händelser som kommer sent från källan som har antingen tagits bort eller deras tidsstämpel har baserat på händelse ordning princip konfigurationen av inställningen sent ankomst tolerans fönster justerats. |
+| Indatahändelser           | Antalet poster som har deserialiserats från inkommande händelser. |
+| Indatakällorna har tagits emot       | Antal händelser som tagits emot av jobbet. Detta kan användas för att verifiera att händelser skickas till Indatakällan. |
+| Sena indatahändelser      | Händelser som anlänt senare än det konfigurera sent ankomst tolerans fönstret. Läs mer om [Azure Stream Analytics händelse ordning överväganden](stream-analytics-out-of-order-and-late-events.md) . |
 | Out ordning händelser    | Antal händelser som tagits emot fel ordning som antingen släpptes eller får en justerade tidsstämpel, baserat på händelse ordning principen. Detta kan påverkas av konfigurationen av inställningen ordning för Out of Tolerance fönster. |
 | Utdatahändelser          | Mängden data som skickas av Stream Analytics-jobb till utdatamål, i antal händelser. |
 | Körningsfel         | Totalt antal fel som rör frågebearbetning (exklusive fel hittades när mata in händelser eller outputing resultat) |

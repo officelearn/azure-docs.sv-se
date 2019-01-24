@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med QuickHelp | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med QuickHelp | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och QuickHelp.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 655c9ad3-2076-4e2c-8e47-9ed3bf04be56
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: jeedes
-ms.openlocfilehash: c99be60301085dddfd5c658ee1eed81b88238e54
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: cbc25218079f8e8529777dd8e169a2e689eabc6b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421602"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824226"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Självstudier: Azure Active Directory-integration med QuickHelp
+# <a name="tutorial-azure-active-directory-integration-with-quickhelp"></a>Självstudier: Azure Active Directory-integrering med QuickHelp
 
 I den här självstudien får du lära dig hur du integrerar QuickHelp med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med QuickHelp, behöver du följande
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av QuickHelp i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till QuickHelp från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **QuickHelp**.
 
@@ -112,24 +112,24 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/quickhelp-tutorial/tutorial_quickhelp_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://quickhelp.com/<ROUTEURL>`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://quickhelp.com/<ROUTEURL>`
 
     b. I den **identifierare** textrutan anger du ett URL: `https://auth.quickhelp.com`
 
     > [!NOTE] 
-    > Inloggnings-URL-värdet är inte verkliga. Uppdatera värdet med faktiska inloggnings-URL: en. Kontakta din organisations QuickHelp administratören eller chefen Kreativitet klienten lyckades för att hämta värdet.
+    > Inloggnings-URL-värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta din organisations QuickHelp administratören eller chefen Kreativitet klienten lyckades för att hämta värdet.
  
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/quickhelp-tutorial/tutorial_quickhelp_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/quickhelp-tutorial/tutorial_general_400.png) 
 
 1. Inloggning till webbplatsen QuickHelp företag som administratör.
 
-1. Klicka på menyn längst upp **Admin**.
+1. På menyn längst upp klickar du på **Admin**.
    
     ![Konfigurera enkel inloggning][21]
 
@@ -147,7 +147,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
    
     b. Om du vill ladda upp din hämtade Azure metadatafilen, klickar du på **Bläddra**genom att navigera till filen, end klickar **överföra Metadata**.
    
-    c. I den **e-post** textrutan typ `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. I textrutan **E-post** skriver du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
     d. I den **Förnamn** textrutan `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
@@ -156,7 +156,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     f. I den **åtgärdsfält**, klickar du på **spara**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -193,7 +193,7 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 QuickHelp har stöd för just-in-time-etablering. Det här innebär att, om det behövs, skapas automatiskt ett användarkonto i QuickHelp och kontot är länkat till Azure AD-kontot.
 
-Det finns inga uppgift åt dig i det här avsnittet.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

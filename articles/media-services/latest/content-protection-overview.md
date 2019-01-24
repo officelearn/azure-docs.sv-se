@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2018
+ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 2a5383952f64edb08717b1a100c74352c9b4246f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187985"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828272"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -39,9 +39,9 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
 1. Azure Media Services-kod
   
-  * Licens mallar för PlayReady, Widevine och FairPlay. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er
-  * Auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT
-  * Innehållsnycklar, strömningsprotokoll och motsvarande DRMs tillämpas, definierar DRM-kryptering
+  * Konfigurera licens mallar för PlayReady, Widevine och FairPlay. Mallarna kan du konfigurera rättigheter och behörigheter för var och en av de använda DRM: er.
+  * Definiera auktorisering för leverans av licens, att ange logik för auktorisering baserat på anspråk i JWT.
+  * Konfigurera DRM kryptering genom att ange nycklar för multiinnehåll och protokoll som ska användas för direktuppspelning.
 
   > [!NOTE]
   > Du kan kryptera varje tillgång med flera krypteringstyper (AES-128, PlayReady, Widevine, FairPlay). I dokumentationen om [direktuppspelningsprotokoll och krypteringstyper](#streaming-protocols-and-encryption-types) ser du vad som är bra att kombinera.
@@ -53,7 +53,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
 2. Spelare med AES eller DRM-klienten. En videospelare app baserat på en spelare SDK (intern eller webbläsarbaserade) måste uppfylla följande krav:
   * Player SDK stöder de nödvändiga DRM-klienterna
-  * Player SDK stöder de nödvändiga protokollen med direktuppspelning: Smooth, DASH eller HLS
+  * Player SDK stöder de nödvändiga protokollen med direktuppspelning: Smooth, DASH, and/or HLS
   * Player SDK behöver kunna hantera Skicka en JWT-token i begäran för licens-förvärv
   
     Du kan skapa en spelare med hjälp av den [Azure Media Player API](http://amp.azure.net/libs/amp/latest/docs/). Använd den [Azure Media Player ProtectionInfo API](http://amp.azure.net/libs/amp/latest/docs/) att ange vilka DRM-teknik för att använda på olika DRM-plattformar.

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/07/2018
+ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: 69aa2cbcaa6861b1d5c5c71769be2fb8046d9ea5
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0733b4179793e88759ca1c3330880546650fbe09
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53188527"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856391"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>Vad är Azure Monitor för virtuella datorer (förhandsversion)?
 
@@ -50,7 +50,7 @@ Du kan visa dessa data i en enda virtuell dator från den virtuella datorn direk
 
 ![Virtuell dator insikter perspektiv i Azure portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
-Azure DevOps kan leverera förutsägbar prestanda och tillgänglighet för viktiga program. Den identifierar kritiska operativsystemhändelser flaskhalsar i prestanda och nätverksproblem. Azure DevOps kan också hjälpa dig att förstå om ett problem är relaterat till andra beroenden.  
+Azure Monitor för virtuella datorer kan leverera förutsägbar prestanda och tillgänglighet för viktiga program. Den identifierar kritiska operativsystemhändelser flaskhalsar i prestanda och nätverksproblem. Azure Monitor för virtuella datorer kan också hjälpa dig att förstå om ett problem är relaterat till andra beroenden.  
 
 ## <a name="data-usage"></a>Dataanvändning 
 

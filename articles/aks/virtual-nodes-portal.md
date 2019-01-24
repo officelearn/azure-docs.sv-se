@@ -6,12 +6,12 @@ author: iainfoulds
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: 3b99afe82f77b6bd89b5afa458179abee4c98e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: a47910083083787000b749a0b5b3256df5e702c8
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52999134"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845409"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera en Azure Kubernetes Services kluster (AKS) för att använda virtuella noder i Azure portal
 
@@ -126,6 +126,9 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 
 Poden tilldelas en intern IP-adress från Azure-nätverksundernät delegerad för användning med virtuella noder.
 
+> [!NOTE]
+> Om du använder avbildningar som lagras i Azure Container Registry, [konfigurerar och använder en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning i virtuella noder förhandsversionen är att du inte kan använda integrerad autentisering av Azure AD tjänstens huvudnamn. Om du inte använder en hemlighet poddar som schemalagts på virtuella noder gick inte att starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+
 ## <a name="test-the-virtual-node-pod"></a>Testa virtuell nod pod
 
 Bläddra till demoprogram med en webbklient för att testa pod körs på virtuella noden. Eftersom en intern IP-adress tilldelas i en pod, kan du snabbt testa den här anslutningen från en annan pod på AKS-klustret. Skapa en test-pod och bifogas en terminalsession:
@@ -183,3 +186,5 @@ Virtuella noder är en komponent i en skalning lösning i AKS. Mer information o
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
+[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
+

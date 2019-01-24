@@ -4,7 +4,7 @@ description: Skapa en organisationsenhet (OU) i Azure AD Domain Services hantera
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: 52602ad8-2b93-4082-8487-427bdcfa8126
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: cd4964939aa9b9ebd96a2fb29e1a6f7bf422d477
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 49b915242ca0a4775236da3314eed816fde7ea6b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50154836"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856272"
 ---
 # <a name="create-an-organizational-unit-ou-on-an-azure-ad-domain-services-managed-domain"></a>Skapa en organisationsenhet (OU) i en Azure AD Domain Services-hanterad domän
 Azure AD Domain Services-hanterade domäner omfattar två inbyggda behållarna som heter ”AADDC-datorer” och ”AADDC-användare” respektive. Behållaren AADDC-datorer har datorobjekt för alla datorer som är anslutna till den hanterade domänen. ”AADDC-användare”-behållaren innehåller användare och grupper i Azure AD-klient. Ibland kan vara det nödvändigt att skapa tjänstkonton i den hanterade domänen att distribuera arbetsbelastningar. Du kan skapa en anpassad organisationsenhet (OU) i den hanterade domänen och skapa tjänstkonton i denna Organisationsenhet för detta ändamål. Den här artikeln visar hur du skapar en Organisationsenhet i den hanterade domänen.

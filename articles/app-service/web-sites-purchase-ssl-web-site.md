@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78b7668dee892841ced1a06626ff09a534a88b69
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 784cb5248dab2b9554c67347e1b9b848e1a9e985
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714308"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820792"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Köp och konfigurera ett SSL-certifikat för Azure App Service
 
@@ -50,7 +50,7 @@ Använd följande tabell för att konfigurera certifikatet. Klicka på **Skapa**
 | Inställning | Beskrivning |
 |-|-|
 | Namn | Ett eget namn för din App Service-certifikat. |
-| Värdnamnets domän utan www | Det här steget är en av de viktigaste delarna i inköpsprocessen. Använd rotdomännamn som du har mappat till din app. Gör _inte_ åtkomstgruppen för domännamnet med `www`. |
+| Värdnamnets domän utan www | Om du anger här rotdomänen, får du ett certifikat som skyddar *både* rotdomän och `www` underdomänen. Att säkra en underdomän, ange det fullständigt kvalificerade domännamnet för underdomänen här (till exempel `mysubdomain.contoso.com`). |
 | Prenumeration | Datacenter som är värd för webbappen. |
 | Resursgrupp | Den resursgrupp som innehåller certifikatet. Du kan använda en ny resursgrupp eller Välj samma resursgrupp som din App Service-app, till exempel. |
 | Certifikat-SKU | Avgör vilken typ av certifikat för att skapa, om ett standardcertifikat eller en [jokerteckencertifikat](https://wikipedia.org/wiki/Wildcard_certificate). |
@@ -77,7 +77,7 @@ I den **Key Vault-Status** klickar du på **Key Vault-lagret** att skapa ett nyt
 | Åtkomstprinciper| Definierar program och kunna komma till valvet-resurser. Du kan konfigurera den senare, följa stegen i [bevilja flera program åtkomst till key vault](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network-åtkomst | Begränsa vault åtkomsten till vissa Azure-nätverk. Du kan konfigurera den senare, följa stegen i [konfigurera Azure Key Vault brandväggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
-När du har valt valvet, Stäng den **Key Vault-lagret** sidan. Den **Store** alternativet ska visa en grön bock för att lyckas. Låt sidan öppet för nästa steg.
+När du har valt valvet kan stänga den **Key Vault-lagret** sidan. Den **Store** alternativet ska visa en grön bock för att lyckas. Låt sidan öppet för nästa steg.
 
 ## <a name="verify-domain-ownership"></a>Verifiera domänägarskap
 
@@ -115,7 +115,7 @@ Använd följande tabell när du konfigurerar bindningen i den **SSL-bindningar*
 |-|-|
 | Värdnamn | Att lägga till SSL-bindning för domännamn. |
 | Tumavtryck för privat certifikat | Certifikat för att binda. |
-| SSL-typ | <ul><li>**SNI SSL** -flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När konfigurerade bindningen, följer du stegen i [mappa om en post för IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
+| SSL-typ | <ul><li>**SNI SSL** -flera SNI-baserad SSL-bindningar kan läggas till. Med det här alternativet kan flera SSL-certifikat skydda flera domäner på samma IP-adress. De flesta moderna webbläsare (inklusive Internet Explorer, Chrome, Firefox och Opera) stöder SNI (mer information om webbläsare som stöds finns i [Servernamnindikator](https://wikipedia.org/wiki/Server_Name_Indication)).</li><li>**IP-baserad SSL** – Det går bara att lägga till en IP-baserad SSL-bindning. Med det här alternativet tillåts endast ett SSL-certifikat för att skydda en dedikerad offentlig IP-adress. När du konfigurerar bindningen, följer du stegen i [mappa om en post för IP SSL](app-service-web-tutorial-custom-ssl.md#remap-a-record-for-ip-ssl). </li></ul> |
 
 ## <a name="verify-https-access"></a>Kontrollera åtkomst till HTTPS
 

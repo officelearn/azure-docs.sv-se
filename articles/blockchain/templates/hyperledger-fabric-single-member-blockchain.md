@@ -1,5 +1,5 @@
 ---
-title: Konsortium för Hyperledger Fabric
+title: Hyperledger Fabric Consortium medlem
 description: Använd lösningsmallen Hyperledger Fabric Consortium att distribuera och konfigurera ett enda medlem nätverk
 services: azure-blockchain
 keywords: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: a6aa6d925d47ad9d24de68342f4a6e76a1d9d81f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231380"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828238"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Hyperledger Fabric medlem nätverk
 
@@ -36,9 +36,9 @@ Den här mallen distribuerar en topologi för att testa och simulera produktion 
 
 Nätverket består av tre typer av noder:
 
-1. **Medlem noden**: en nod som kör tjänsten Fabric medlemskap som registrerar och hanterar medlemmar i nätverket. Den här noden kan grupperas för skalbarhet och hög tillgänglighet. Men i den här övningen, en enda medlem nod används.
-2. **Orderer noder**: en nod som kör kommunikationstjänsten implementera garanterad leverans som totalt order broadcast eller atomiska transaktioner.
-3. **Peer-noder**: en nod som genomför transaktioner och underhåller tillståndet och en kopia av det distribuerade transaktionsregister.
+1. **Medlem noden**: En nod som kör tjänsten Fabric medlemskap som registrerar och hanterar medlemmar i nätverket. Den här noden kan grupperas för skalbarhet och hög tillgänglighet. Men i den här övningen, en enda medlem nod används.
+2. **Orderer noder**: En nod som kör kommunikationstjänsten implementera garanterad leverans, till exempel total ordning sändning eller atomiska transaktioner.
+3. **Peer-noder**: En nod som genomför transaktioner och underhåller tillståndet och en kopia av det distribuerade transaktionsregister.
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -47,7 +47,7 @@ Om du vill börja, måste en Azure-prenumeration som har stöd för distribution
 De flesta typer av prenumerationer stöder en liten distributionstopologi utan att behöva öka kvoten som standard. Minsta möjliga distributionen för en medlem måste:
 
 - 5 virtuella datorer (5 kärnor)
-- 1 virtuellt nätverk
+- 1 VNet
 - 1 belastningsutjämnare
 - 1 offentlig IP-adress
 
@@ -59,7 +59,7 @@ När du har en prenumeration går du till den [Azure-portalen](https://portal.az
 
 För att starta, markerar den **Hyperledger Fabric enskild medlem Blockchain** och klicka på **skapa** att öppna den **grunderna** bladet i guiden.
 
-Malldistributionen vägleder dig genom att konfigurera nätverk på flera noder. Distributionsflödet är uppdelad i tre steg: grundläggande konfiguration och infrastrukturresurskonfigurationen.
+Malldistributionen vägleder dig genom att konfigurera nätverk på flera noder. Distributionsflödet är uppdelad i tre steg: Grunderna, nätverkskonfiguration och infrastrukturresurskonfigurationen.
 
 ### <a name="basics"></a>Grundläggande inställningar
 
@@ -90,9 +90,9 @@ Parameternamn| Beskrivning| Tillåtna värden|Standardvärde
 ---|---|---|---
 **Antalet noder för medlemskap**|Antalet noder som kör tjänsten medlemskap. Mer information om tjänsten medlemskap titta på säkerhet och Medlemskapstjänster under Hyperledger [dokumentation](https://media.readthedocs.org/pdf/hyperledger-fabric/latest/hyperledger-fabric.pdf).<br /><br />Det här värdet är för närvarande begränsade till 1 nod, men vi planerar att stödja skalbar via klustring i nästa version.|1| 1
 **Antalet Orderer noder** |Antalet noder som beställer (organisera) transaktioner i block.--> den här instruktionen är mångordig och förvirrande. Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/release-1.1/ordering-service-faq.html).<br /><br />Det här värdet är för närvarande begränsad till 1 nod. |1 |1
-**Antalet Peer-noder**| Noder som ägs av medlemmarna som utför transaktioner och underhåller tillståndet och en kopia av huvudboken.<br /><br />Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 – 9
+**Antalet Peer-noder**| Noder som ägs av medlemmarna som utför transaktioner och underhåller tillståndet och en kopia av huvudboken.<br /><br />Ytterligare information om tjänsten skrivordning på Hyperledger [dokumentation](https://hyperledger-fabric.readthedocs.io/en/latest/glossary.html).|3| 3 - 9
 **Lagringsprestanda**|Typ av säkerhetskopiering av var och en av de distribuerade noderna. Läs mer om storage [introduktion till Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) och [Premiumlagring](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage).|Standard- eller Premium|Standard
-**Storlek på virtuell dator** |Storleken på virtuella datorn som används för alla noder i nätverket|Standard A<br />Standard D<br />Standard D-v2<br />Standard F-serien<br />Standard DS<br />och Standard FS|Standard D1_v2
+**Storlek på virtuell dator** |Storleken på virtuella datorn som används för alla noder i nätverket|Standard A,<br />Standard D<br />Standard D-v2,<br />Standard F-serien<br />Standard DS<br />and Standard FS|Standard D1_v2
 
 ### <a name="fabric-specific-settings"></a>Fabric-specifika inställningar
 
@@ -102,7 +102,7 @@ Slutligen går **Infrastrukturinställningarna**, ange Infrastrukturresurser-rel
 
 Parameternamn| Beskrivning| Tillåtna värden|Standardvärde
 ---|---|---|---
-**Bootstrap användarnamn**| Den inledande behöriga användare som ska registreras med tjänsten medlem i det distribuerade nätverket.|9 eller färre tecken|Admin
+**Bootstrap användarnamn**| Den inledande behöriga användare som ska registreras med tjänsten medlem i det distribuerade nätverket.|9 eller färre tecken|admin
 **Bootstrap användarlösenord för Fabric CA**|Administratörslösenordet som används för att skydda den Fabric CA-konto som har importerats till noden medlemskap.<br /><br />Lösenordet måste innehålla en versal, en gemen bokstav och en siffra.|minst 12 tecken|Ej tillämpligt
 
 ### <a name="deploy"></a>Distribuera
@@ -137,7 +137,7 @@ Informationsskärmen visar en sammanfattning av distributionen, följt av tre an
 - Den _PREFIX_ , kallas även _distribution prefix_ , unikt identifierar dina resurser och din distribution. Den används när du använder de kommandoradsbaserade verktyg.
 - Den _SSH till första VM_ ger dig förväg monterade ssh-kommando med alla rätt parametrar som krävs för att ansluta till den första virtuella datorn i nätverket. För Hyperledger Fabric blir det Fabric-CA-nod.
 
-Du kan fjärransluta till de virtuella datorerna för varje nod via SSH med ditt angivna admin användarnamn och lösenord/SSH-nyckel. Eftersom noden virtuella datorer inte har sina egna offentliga IP-adresser, behöver du gå igenom belastningsutjämnaren och ange portnumret. SSH-kommando för att få åtkomst till den första noden i transaktionen är den tredje mallutdata ** SSH till första VM (för exempeldistribution: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Gå till ytterligare transaktionsloggar noder genom att öka portnumret med ett (till exempel den första noden i transaktionen är på port 3000, andra på 3001 är tredje på 3002, osv.).
+Du kan fjärransluta till de virtuella datorerna för varje nod via SSH med ditt angivna admin användarnamn och lösenord/SSH-nyckel. Eftersom noden virtuella datorer inte har sina egna offentliga IP-adresser, behöver du gå igenom belastningsutjämnaren och ange portnumret. SSH-kommando för att få åtkomst till den första noden i transaktionen är den tredje mallutdata *SSH till första VM* (för exempeldistribution: `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Gå till ytterligare transaktionsloggar noder genom att öka portnumret med ett (till exempel den första noden i transaktionen är på port 3000, andra på 3001 är tredje på 3002, osv.).
 
 ## <a name="next-steps"></a>Nästa steg
 

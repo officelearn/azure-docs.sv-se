@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med PagerDuty | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med PagerDuty | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och PagerDuty.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
 ms.service: active-directory
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 0e571880d9893c0027c200c6f49dc704fea09ead
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 703bc11ec7b0de0e8b0cfe3b99b7516afe8cac0b
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443706"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810031"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integration med PagerDuty
+# <a name="tutorial-azure-active-directory-integration-with-pagerduty"></a>Självstudier: Azure Active Directory-integrering med PagerDuty
 
 I den här självstudien får du lära dig hur du integrerar PagerDuty med Azure Active Directory (AD Azure).
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med PagerDuty, behöver du följande
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,7 +59,7 @@ För att konfigurera integrering av PagerDuty i Azure AD, som du behöver lägga
 
 **Utför följande steg för att lägga till PagerDuty från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
     ![Azure Active Directory-knappen][1]
 
@@ -67,7 +67,7 @@ För att konfigurera integrering av PagerDuty i Azure AD, som du behöver lägga
 
     ![Bladet för Enterprise-program][2]
 
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +75,7 @@ För att konfigurera integrering av PagerDuty i Azure AD, som du behöver lägga
 
     ![Skapa en Azure AD-användare för testning](./media/pagerduty-tutorial/tutorial_pagerduty_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med PagerDuty baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -85,13 +85,13 @@ I PagerDuty, tilldela värdet för den **användarnamn** i Azure AD som värde f
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med PagerDuty, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en PagerDuty-testanvändare](#create-a-pagerduty-test-user)**  – du har en motsvarighet för Britta Simon i PagerDuty som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt PagerDuty-program.
 
@@ -99,7 +99,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **PagerDuty** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -109,20 +109,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![PagerDuty domän och URL: er med enkel inloggning för information](./media/pagerduty-tutorial/tutorial_pagerduty_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.pagerduty.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<tenant-name>.pagerduty.com`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<tenant-name>.pagerduty.com`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<tenant-name>.pagerduty.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [PagerDuty klienten supportteamet](https://www.pagerduty.com/support/) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [PagerDuty klienten supportteamet](https://www.pagerduty.com/support/) att hämta dessa värden.
 
 1. På den **SAML-signeringscertifikat** klickar du på **Certificate(Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/pagerduty-tutorial/tutorial_pagerduty_certificate.png)
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/pagerduty-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/pagerduty-tutorial/tutorial_general_400.png)
 
 1. På den **PagerDuty Configuration** klickar du på **konfigurera PagerDuty** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -134,9 +134,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Kontoinställningar](./media/pagerduty-tutorial/ic778535.png "kontoinställningar")
 
-1. Klicka på **enkel inloggning**.
+1. Klicka på **Enkel inloggning**.
 
-    ![Enkel inloggning](./media/pagerduty-tutorial/ic778536.png "enkel inloggning")
+    ![Single sign-on (Enkel inloggning)](./media/pagerduty-tutorial/ic778536.png "Single sign-on (Enkel inloggning)")
 
 1. På den **aktivera enkel inloggning (SSO)** utför följande steg:
 
@@ -152,7 +152,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     e. Välj **kräver exakt autentisering kontext jämförelse** kryssrutan.
 
-    f. Klicka på **spara ändringar**.
+    f. Klicka på **Spara ändringar**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -168,7 +168,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Om du vill visa en lista över användare, gå till **användare och grupper** och klicka på **alla användare**.
     
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/pagerduty-tutorial/create_aaduser_02.png) 
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/pagerduty-tutorial/create_aaduser_02.png) 
 
 1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i dialogrutan.
  
@@ -176,7 +176,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. På den **användaren** dialogrutan utför följande steg:
  
-    ![Dialogrutan användare](./media/pagerduty-tutorial/create_aaduser_04.png) 
+    ![Dialogrutan Användare](./media/pagerduty-tutorial/create_aaduser_04.png) 
 
     a. I den **namn** textrutan typ **BrittaSimon**.
 
@@ -253,7 +253,7 @@ I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen
 
 När du klickar på panelen PagerDuty åtkomst Panelyou bör hämta automatiskt loggat in på ditt PagerDuty-program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

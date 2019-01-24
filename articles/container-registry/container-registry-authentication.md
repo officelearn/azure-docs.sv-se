@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 12/21/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a68e4f70dac7aace9d49a41ecf282525ce6b1fd6
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53752885"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851733"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
 
@@ -26,13 +26,15 @@ Azure Container Registry har inte stöd för oautentiserad Docker-åtgärder ell
 
 ## <a name="individual-login-with-azure-ad"></a>Enskilda inloggning med Azure AD
 
-När du arbetar med registret direkt, till exempel hämtar avbildningar till och push-överför avbildningar från utvecklingsdatorn, autentisera genom att använda den [docker login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) i den [Azure CLI](/cli/azure/install-azure-cli):
+När du arbetar med registret direkt, till exempel hämtar avbildningar till och skickar bilder från en arbetsstation för utveckling, autentisera genom att använda den [docker login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) i den [Azure CLI](/cli/azure/install-azure-cli):
 
 ```azurecli
 az acr login --name <acrName>
 ```
 
 När du loggar in med `az acr login`, CLI använder token skapas när du körde [az-inloggning](/cli/azure/reference-index#az-login) att sömlöst autentisera din session med ditt register. När du har loggat in på så sätt kan dina autentiseringsuppgifter är cachelagrat och efterföljande `docker` kommandon kräver inte något användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras på nytt. Med hjälp av `az acr login` med Azure-identiteter tillhandahåller [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md).
+
+För vissa scenarier kan du logga in till ett register med din egen individuell identitet i Azure AD. För scenarier för cross-tjänst eller för att hantera behov i en arbetsgrupp där du inte vill hantera enskilda åtkomst, du kan också logga in med en [hanterad identitet för Azure-resurser](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
@@ -52,7 +54,7 @@ CLI-skript att skapa ett huvudnamn app-ID och lösenord för att autentisera med
 
 Tjänstens huvudnamn aktivera fjärradministrerad anslutning till ett register i både pull och push-scenarier som följande:
 
-  * *Hämta*: Distribuera behållare från ett register till orchestration-system, inklusive Kubernetes, DC/OS och Docker Swarm. Du kan också hämta från behållarregister till relaterade Azure-tjänster som [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), med mera.
+  * *Pull*: Distribuera behållare från ett register till orchestration-system, inklusive Kubernetes, DC/OS och Docker Swarm. Du kan också hämta från behållarregister till relaterade Azure-tjänster som [Azure Kubernetes Service](container-registry-auth-aks.md), [Azure Container Instances](container-registry-auth-aci.md), [Apptjänst](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), med mera.
 
   * *Push-*: Skapa behållaravbildningar och skicka dem till ett register med kontinuerlig integrering och distribution av lösningar som Azure Pipelines eller Jenkins.
 

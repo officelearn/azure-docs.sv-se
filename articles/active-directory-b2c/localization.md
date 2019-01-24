@@ -1,21 +1,21 @@
 ---
-title: Lokalisering – Azure Active Directory B2C | Microsoft Docs
+title: Localization - Azure Active Directory B2C | Microsoft Docs
 description: Ange det lokalisering elementet i en anpassad princip i Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9442302b8d15a3a6a4c9fe148b48845b3535204
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a0abf2fd3502238af0e0f02cb8f9917cfb90b586
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381703"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854989"
 ---
 # <a name="localization"></a>Lokalisering
 
@@ -39,22 +39,22 @@ Den **lokalisering** elementet kan du stöd för flera språk eller språk i pri
 
 Den **lokalisering** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Aktiverade | Nej | Möjliga värden: `true` eller `false`. |
+| Enabled | Nej | Möjliga värden: `true` eller `false`. |
 
 Den **lokalisering** elementet innehåller följande XML-element
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| SupportedLanguages | 1: n | Lista över språk som stöds. | 
+| SupportedLanguages | 1:n | Lista över språk som stöds. | 
 | LocalizedResources | 0: n | Lista över lokaliserade resurser. |
 
 ## <a name="supportedlanguages"></a>SupportedLanguages
 
 Den **SupportedLanguages** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | DefaultLanguage | Ja | Språk som ska användas som standard för lokaliserade resurser. |
 | MergeBehavior | Nej | En uppräkningsvärdena med värden som slås samman tillsammans med eventuella ClaimType finns i en överordnad-princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som angetts i basprincipen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. Den `Append` värdet anger att mängden data som finns ska läggas till slutet av den samling som anges i den överordnade principen. Den `Prepend` värdet anger att mängden data som finns bör läggas innan den samling som anges i den överordnade principen. Den `ReplaceAll` värdet anger att insamlingen av data som definierats i den överordnade principen ska ignoreras, i stället använda de data som definieras i den aktuella principen. |
@@ -65,15 +65,15 @@ Den **SupportedLanguages** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| SupportedLanguage | 1: n | Visar innehåll som överensstämmer med en språktagg per RFC 5646 - taggar för identifiering av språk. | 
+| SupportedLanguage | 1:n | Visar innehåll som överensstämmer med en språktagg per RFC 5646 - taggar för identifiering av språk. | 
 
 ## <a name="localizedresources"></a>LocalizedResources
 
 Den **LocalizedResources** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för att unikt identifiera lokaliserade resurser. |
+| Id | Ja | En identifierare som används för att unikt identifiera lokaliserade resurser. |
 
 Den **LocalizedResources** elementet innehåller följande element:
 
@@ -88,13 +88,13 @@ Den **LocalizedCollections** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedCollection | 1: n | Lista över språk som stöds. |
+| LocalizedCollection | 1:n | Lista över språk som stöds. |
 
 #### <a name="localizedcollection"></a>LocalizedCollection
 
 Den **LocalizedCollection** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ElementType | Ja | Refererar till ett ClaimType element eller en användargränssnittselement i policyfilen. |
 | ElementId | Ja | En sträng som innehåller en referens till en Anspråkstyp redan definierats i avsnittet ClaimsSchema som används om **ElementType** är inställd på en ClaimType. |
@@ -108,7 +108,7 @@ Den **LocalizedCollection** elementet innehåller följande element:
 
 Den **objekt** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Användarvänligt visningssträngen som ska visas för användaren i användargränssnittet för det här alternativet. |
 | Värde | Ja | Strängen anspråksvärde som är associerade med det här alternativet. |
@@ -140,11 +140,11 @@ Den **LocalizedStrings** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| LocalizedString | 1: n | En lokaliserad sträng. |
+| LocalizedString | 1:n | En lokaliserad sträng. |
 
 Den **LocalizedString** elementet innehåller följande attribut:
 
-| Attribut | Obligatoriskt | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | ElementType | Ja | En referens till ett anspråk typen element eller en användargränssnittselement i principen. Möjliga värden: `ClaimType`, `UxElement`, `ErrorMessage`, `Predicate`, eller. Den `ClaimType` värde används för att lokalisera ett av attributen anspråk som anges i StringId. Den `UxElement` värde används för att lokalisera en av användargränssnittselement som anges i StringId. Den `ErrorMessage` värdet används för att hitta något av system-felmeddelanden som anges i StringId. Den `Predicate` värde används för att lokalisera en av de [predikat](predicates.md) felmeddelanden som anges i StringId. Den `InputValidation` värde används för att lokalisera en av de [PredicateValidation](predicates.md) gruppen felmeddelanden som anges i StringId. |
 | ElementId | Ja | Om **ElementType** är inställd på `ClaimType`, `Predicate`, eller `InputValidation`, det här elementet innehåller en referens till en Anspråkstyp som redan har definierats i avsnittet ClaimsSchema. | 
@@ -222,7 +222,7 @@ Lägg till **LocalizedResources** elementen i den **lokalisering** element efter
 
 Varje **LocalizedResources** elementet innehåller alla de nödvändiga **LocalizedStrings** element med flera **LocalizedString** element och  **LocalizedCollections** element med flera **LocalizedCollection** element.  I följande exempel lägger du till registreringssidan för engelska lokalisering: 
 
-Obs: Det här exemplet gör en referens till `Gender` och `City` anspråkstyper. Om du vill använda det här exemplet, kontrollera att du definierar dessa krav. Mer information finns i [ClaimsSchema](claimsschema.md).
+Obs! Det här exemplet gör en referens till `Gender` och `City` anspråkstyper. Om du vill använda det här exemplet, kontrollera att du definierar dessa krav. Mer information finns i [ClaimsSchema](claimsschema.md).
 
 ```XML
 <LocalizedResources Id="api.localaccountsignup.en">

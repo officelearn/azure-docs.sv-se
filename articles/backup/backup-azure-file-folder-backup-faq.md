@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: 5262c99fae965201d4f9519495163d0e16836a7a
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726550"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827422"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Frågor om Azure Backup-agenten
 Den här artikeln innehåller svar på vanliga frågor så att du snabbt kan förstå Azure Backup-agentkomponenterna. I vissa svar finns det länkar till artiklar som har omfattande information. Du kan också ställa frågor om Azure Backup-tjänsten i [diskussionsforumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -30,9 +30,9 @@ Ja, valvautentiseringsuppgifterna upphör att gälla efter 48 timmar. Om filen g
 Du kan inte säkerhetskopiera följande enheter/volymer:
 
 * Flyttbart medium: Alla källor för säkerhetskopieringsobjekt måste rapporteras som fasta.
-* Skrivskyddade volymer: Volymen måste vara skrivbar för att VSS-tjänsten (Volume Shadow Copy) ska fungera.
+* Skrivskyddade volymer: Volymen måste vara skrivbar för tjänsten volume shadow copy (VSS) för att fungera.
 * Offlinevolymer: Volymen måste vara online för att VSS ska fungera.
-* Nätverksresurs: Volymen måste vara lokal på servern för att kunna säkerhetskopieras med onlinesäkerhetskopiering.
+* Nätverksresurs: Volymen måste vara lokal på servern som ska säkerhetskopieras med onlinesäkerhetskopiering.
 * BitLocker-skyddade volymer: Volymen måste vara upplåst innan säkerhetskopieringen kan utföras.
 * Identifiering av filsystem: NTFS är det enda filsystem som stöds.
 
@@ -46,8 +46,8 @@ Följande typer stöds:
 * Hårda länkar: Stöds inte, hoppas över
 * Referenspunkt: Stöds inte, hoppas över
 * Krypterade + utspridda: Stöds inte, hoppas över
-* Komprimerad dataström: Stöds inte, hoppas över
-* Utspridd dataström: Stöds inte, hoppas över
+* Komprimerade Stream: Stöds inte, hoppas över
+* Null-optimerade Stream: Stöds inte, hoppas över
 
 ### <a name="can-i-install-the-azure-backup-agent-on-an-azure-vm-already-backed-by-the-azure-backup-service-using-the-vm-extension-br"></a>Kan jag installera Azure Backup-agenten på en virtuell dator i Azure som redan har säkerhetskopierats av Azure Backup-tjänsten med hjälp av VM-tillägget? <br/>
 Absolut. Azure Backup stöder säkerhetskopiering på VM-nivå för virtuella datorer i Azure med hjälp av VM-tillägget. Installera Azure Backup-agenten i Windows-gästoperativsystemet för att skydda filer och mappar i gästoperativsystemet.

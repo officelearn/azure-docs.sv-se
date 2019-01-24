@@ -3,19 +3,19 @@ title: Konfigurera registrering och inloggning med ett Microsoft-konto med hjäl
 description: Tillhandahålla registrera dig och logga in till kunder med Microsoft-konton i dina program med Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e9c42429a8feb60ade27afe998cb9a267f1603dd
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 1f9deaf29982c4bd753336f51e10a06ced6586f1
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180912"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54842538"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med ett Microsoft-konto med hjälp av Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Om du vill använda ett Microsoft-konto som identitetsprovider i Azure Active Di
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Konfigurera ett Microsoft-konto som identitetsprovider
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) som global administratör för din Azure AD B2C-klient.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 2. Kontrollera att du använder den katalog som innehåller din Azure AD B2C-klient genom att klicka på den **katalog- och prenumerationsfilter** i den översta menyn och välja den katalog som innehåller din klient.
 3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. Välj **identitetsprovidrar**, och välj sedan **Lägg till**.

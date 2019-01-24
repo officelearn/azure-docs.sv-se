@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med 123ContactForm | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med 123ContactForm | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och 123ContactForm.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: 5211910a-ab96-4709-959a-524c4d57c43e
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: ecbe627697fc4f8b5fbfecf96c3cb65d9ffe4607
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 450fc8df69eb5ffb99cb6548e80cd4d3628e7419
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054360"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819449"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Självstudier: Azure Active Directory-integration med 123ContactForm
+# <a name="tutorial-azure-active-directory-integration-with-123contactform"></a>Självstudier: Azure Active Directory-integrering med 123ContactForm
 
 I den här självstudien får du lära dig hur du integrerar 123ContactForm med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med 123ContactForm, behöver du föl
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av 123ContactForm i Azure AD, som du behöver l
 
 **Utför följande steg för att lägga till 123ContactForm från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 2. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 4. I sökrutan skriver **123ContactForm**.
 
@@ -112,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/123contactform-tutorial/url1.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/metadata`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.123contactform.com/saml/azure_ad/<tenant_id>/acs`
 
 4. Om du vill konfigurera programmet i **SP initierade läge**, utför följande steg:
 
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_123contactform_certificate.png) 
 
-6. Klicka på **spara** knappen.
+6. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/123contactform-tutorial/tutorial_general_400.png)
 
@@ -156,11 +156,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     c. Om du vill konfigurera programmet i **SP initierade läge**, kopiera den **inloggning på URL: en** för din instans och klistra in den i **inloggning på URL: en** -textrutan i  **123ContactForm domän och URL: er** avsnittet på Azure-portalen.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -192,7 +192,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="creating-a-123contactform-test-user"></a>Skapa en 123ContactForm testanvändare
 
-Programmet stöder bara i tid användaretablering och -autentiserade användare kommer att skapas i programmet automatiskt.
+Programmet stöder just-in-time-användaretablering, och efter autentiseringen skapas användare automatiskt i programmet.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

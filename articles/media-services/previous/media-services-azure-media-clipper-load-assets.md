@@ -1,35 +1,35 @@
 ---
-title: Läsa in tillgångar i Azure Media Clipper | Microsoft Docs
+title: Läsa in tillgångar till Azure Media Clipper | Microsoft Docs
 description: Steg för att läsa in tillgångar i Azure Media Clipper
 services: media-services
-keywords: Clip; underklipp; kodning; media
+keywords: Clip, underklipp, kodning, media
 author: dbgeorge
 manager: jasonsue
 ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6a479218ff8bd5addf4273b23c06380859e0ea08
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 415f58d9c6880bc7ef9ba6b6ba3f575fae382f04
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788300"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806903"
 ---
 # <a name="loading-assets-into-azure-media-clipper"></a>Läsa in tillgångar i Azure Media Clipper
 Tillgångar kan läsas in i Azure Media Clipper av två metoder:
-1. Skicka statiskt i ett bibliotek med resurser
-2. Dynamiskt Generera en lista över resurser via API
+1. Statiskt skicka i ett bibliotek med tillgångar
+2. Dynamiskt Generera en lista över tillgångar via API: et
 
-## <a name="statically-load-videos-into-clipper"></a>Läs in videor statiskt till Clipper
-Läs in videor statiskt i Clipper så att användarna att skapa klipp utan att välja videor från panelen tillgången val.
+## <a name="statically-load-videos-into-clipper"></a>Statiskt läsa in videor i Clipper
+Läs in videor i Clipper så att användarna kan skapa klipp utan att välja videor från panelen för val av tillgången statiskt.
 
-I så fall måste skicka du i en statisk uppsättning tillgångar till Clipper. Varje tillgång innehåller en AMS tillgången/filter-ID, namn, publicerade strömnings-URL. Om tillämpligt, en innehållsskydd autentiseringstoken eller en matris med miniatyr URL: er kan överföras. Om skickades i fylls miniatyrerna i gränssnittet. I scenarier där resursbiblioteket är statiska och liten, kan du överföra i tillgångsinformation kontraktet för varje resurs i biblioteket.
+I det här fallet skicka du in en statisk uppsättning tillgångar till Clipper. Varje tillgång innehåller en AMS tillgången/filter-ID, namn, publicerade strömnings-URL. Om så är tillämpligt, en Autentiseringstoken för innehållsskydd eller en matris med miniatyr URL: er kan också skickas. Om du i, fylls miniatyrbilderna i inloggningsgränssnittet. I scenarier där resursbiblioteket är statiska och små, kan du skicka tillgången kontraktet för varje resurs i biblioteket.
 
 > [!NOTE]
-> När du läser in tillgångar statiskt till Clipper tillgångar läggs **direkt till en tidslinje** och **tillgången fönstret återges inte**. Första tillgången har lagts till i tidslinjen och resten av tillgångar är staplade på höger sida av tidslinjen).
+> Vid inläsning av tillgångar statiskt till Clipper tillgångar läggs **direkt till tidslinjen** och **tillgången fönstret återges inte**. Den första tillgången har lagts till i tidslinjen och resten av resurserna som staplats på höger sida av tidslinjen).
 
-Om du vill läsa in en statisk resursbiblioteket, Använd den **ladda** metod för att skicka in en JSON-representation av varje tillgång. Följande kodexempel illustrerar JSON-representation för en tillgång.
+Läs in en statisk resursbiblioteket genom att använda den **läsa in** metod för att skicka in en JSON-representation för varje tillgång. Följande kodexempel visar JSON-representation för en tillgång.
 
 ```javascript
 var assets = [
@@ -98,10 +98,10 @@ subclipper.ready(function () {
 ```
 
 > [!NOTE]
-> Det rekommenderas att kedjan load ()-metoden anropar med metoden ready(handler) som visas i föregående exempel. Föregående exempel garanterar att widgeten är klar innan du läser in tillgångar.
+> Vi rekommenderar att kedja load ()-metod som anropar med metoden ready(handler) som visas i föregående exempel. I föregående exempel garanterar att widgeten är klar innan du läser in tillgångar.
 
 > [!NOTE]
-> För miniatyren URL: er som fungerar som förväntat i tidslinjen Clipper de måste vara jämnt fördelad över videon (baserat på varaktigheten) och i kronologisk ordning i matrisen. Du kan använda följande JSON förinställda kodavsnitt som exempel referens för att skapa bilder med processorn ”Media Encoder Standard”:
+> För miniatyrbilden URL: er som fungerar som förväntat på tidslinjen för Clipper som de måste jämnt fördelad över videon (baserat på) och i kronologisk ordning inom matrisen. Du kan använda följande förinställda JSON-kodfragment som en exempel-referens för att skapa avbildningar med processorn ”Media Encoder Standard”:
 
 ```json
 {
@@ -120,12 +120,12 @@ subclipper.ready(function () {
 ```
 
 ## <a name="dynamically-load-videos-in-clipper"></a>För att läsa in videor i Clipper
-Läs in videor dynamiskt i Clipper så att användarna att välja videor från panelen tillgången valet att Beskär mot.
+Läs in videor i Clipper så att användarna att välja videor från panelen för val av tillgången till clip mot dynamiskt.
 
-Alternativt kan du läsa in tillgångar dynamiskt via ett återanrop. I scenarier där tillgångar genereras dynamiskt eller biblioteket är stort, bör du läsa via återanropet. Om du vill läsa in tillgången dynamiskt, måste du implementera Återanropsfunktionen valfria onLoadAssets. Den här funktionen har skickats till Clipper vid initieringen. Löst tillgångar bör följa samma kontrakt som läses in statiskt tillgångar. Följande kodexempel illustrerar Metodsignaturen, förväntade indata och utdata som förväntas.
+Du kan också läsa in tillgångar dynamiskt via en motringning. I scenarier där tillgångar genereras dynamiskt eller biblioteket är stor, bör du läsa in via motringningen. För att läsa in tillgången dynamiskt, måste du implementera den valfria onLoadAssets Återanropsfunktionen. Den här funktionen skickas till Clipper vid initieringen. Löst tillgångar bör följa samma kontraktet som läses in statiskt tillgångar. Följande kodexempel illustrerar de Metodsignaturen, förväntade indata och utdata som förväntas.
 
 > [!NOTE]
-> När dynamiskt vill läsa in tillgångar i Clipper tillgångar återges i den **tillgången markeringen panelen**.
+> Vid inläsning av tillgångar dynamiskt till Clipper tillgångar återges i den **tillgången panelen för val av**.
 
 ```javascript
 // Video Assets Pane Callback
@@ -136,7 +136,7 @@ Alternativt kan du läsa in tillgångar dynamiskt via ett återanrop. I scenarie
     // - take: int value used for pagination in the back-end that allows defining the number of assets to include in the response.
     // - type: ('filter', 'asset') value that will be used in the back-end to filter assets by type.
     //
-    // Returns: a Promise object that, when resolved, retuns an object containing an array of assets (input contract)
+    // Returns: a Promise object that, when resolved, returns an object containing an array of assets (input contract)
     //          that satisfies the filter parameters, plus optionally the total types of files available:
     // {
     //  total: 100,

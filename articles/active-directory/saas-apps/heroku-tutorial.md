@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Heroku | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Heroku | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Heroku.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: d7d72ec6-4a60-4524-8634-26d8fbbcc833
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.openlocfilehash: c78d1207c724622fe16fa8d0a0717d71fbb6d37c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f1e329690c940c2afe9f42f5c8ba60b3ddbff629
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443689"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807413"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Självstudier: Azure Active Directory-integration med Heroku
+# <a name="tutorial-azure-active-directory-integration-with-heroku"></a>Självstudier: Azure Active Directory-integrering med Heroku
 
 I den här självstudien får du lära dig hur du integrerar Heroku med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Heroku, behöver du följande ob
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av Heroku i Azure AD, som du behöver lägga ti
 
 **Utför följande steg för att lägga till Heroku från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Heroku**.
 
@@ -113,20 +113,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:    
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster:    
     `https://sso.heroku.com/saml/<company-name>/init`
 
     b. I den **URL-identifieraren** textrutan anger du ett URL med hjälp av följande mönster:            
     `https://sso.heroku.com/saml/<company-name>`
 
     > [!NOTE]
-    >Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Du kan hämta dessa värden från Heroku-teamet, som beskrivs i senare avsnitt av den här artikeln. 
+    >Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Du kan hämta dessa värden från Heroku-teamet, som beskrivs i senare avsnitt av den här artikeln. 
         
 1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
 
     ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_heroku_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/heroku-tutorial/tutorial_general_400.png)
 
@@ -149,12 +149,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Klicka på **Nästa**.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory-företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du lägger till den här appen från den **Active Directory-företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -188,7 +188,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 I det här avsnittet skapar du en användare som kallas Britta Simon i Heroku. Heroku stöder just-in-time-etablering, som är aktiverat som standard.
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare skapas vid åtkomst till Heroku om användaren inte finns ännu. När kontot har etablerats användaren får ett bekräftelsemeddelande och behöver klickar du på länken bekräftelse.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare skapas vid åtkomst till Heroku om användaren inte finns ännu. När kontot har etablerats användaren får ett bekräftelsemeddelande och behöver klickar du på länken bekräftelse.
 
 >[!NOTE]
 >Om du vill skapa en användare manuellt kan du behöva kontakta den [Heroku klienten supportteamet](https://www.heroku.com/support).

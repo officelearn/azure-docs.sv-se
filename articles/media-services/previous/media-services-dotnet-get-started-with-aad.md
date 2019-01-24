@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: e36673c7baa03e1bcf36c149851e6455cea798fe
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 6e829d617aa978f94b99cc9d018b5ca863eaaef0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945577"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807328"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Använda Azure AD-autentisering för att få åtkomst till Azure Media Services-API med .NET
 
@@ -80,7 +80,7 @@ För att ansluta till Azure Media Service-API med alternativet användare autent
 
 Värdena för dessa parametrar finns i **AzureEnvironments.AzureCloudEnvironment**. Den **AzureEnvironments.AzureCloudEnvironment** konstant är en hjälp i .NET SDK för att hämta rätt miljö varierande inställningarna för en offentlig Azure-datacenter. 
 
-Den innehåller fördefinierade miljöinställningar för att komma åt Media Services i offentlig Datacenter endast. Du kan använda för suveräna eller government cloud-regioner, **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvrionment**, eller **AzureGermanCloudEnvironment** respektive.
+Den innehåller fördefinierade miljöinställningar för att komma åt Media Services i offentlig Datacenter endast. Du kan använda för suveräna eller government cloud-regioner, **AzureChinaCloudEnvironment**, **AzureUsGovernmentEnvironment**, eller **AzureGermanCloudEnvironment** respektive.
 
 I följande kodexempel skapas en token:
     
@@ -122,7 +122,7 @@ I följande exempel visas hur du skapar Azure AD-token och kontexten:
     }
 
 >[!NOTE]
->Om du får ett undantag där det står ”fjärrservern returnerade ett fel: (401) Ej behörig”, se den [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnitt av åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering.
+>Om du får ett undantag där det står ”fjärrservern returnerade ett fel: (401) Ej behörig ”, se den [åtkomstkontroll](media-services-use-aad-auth-to-access-ams-api.md#access-control) avsnitt av åtkomst till Azure Media Services-API med översikt över Azure AD-autentisering.
 
 ## <a name="use-service-principal-authentication"></a>Använd autentisering av tjänstens huvudnamn
     

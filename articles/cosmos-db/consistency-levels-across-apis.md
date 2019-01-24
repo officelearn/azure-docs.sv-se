@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.reviewer: sngun
-ms.openlocfilehash: a506c696cdb9ca6c6221b54c63d2446b7cb86a69
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 4d2994ea6ab6d6472ec56f0f2e378062590c8920
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430577"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807005"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>Konsekvensnivåer och API:er för Azure Cosmos DB
 
@@ -26,196 +26,46 @@ I följande avsnitt visas mappningen mellan datakonsekvens som begärts av en kl
 
 Den här tabellen visar konsekvens mappningen mellan Apache Cassandra och konsekvensnivåer i Azure Cosmos DB. För var och en av Cassandra läsning och skrivning konsekvensnivåer motsvarande konsekvensnivå för Cosmos-DB tillhandahåller starkare, d.v.s. striktare garantier.
 
+I följande tabell visas de **skriva konsekvens mappning** mellan Azure Cosmos DB och Cassandra:
 
-<table>
-<tr> 
-  <th rowspan="2">Cassandra-konsekvensnivå</th> 
-  <th rowspan="2">Cosmos DB-konsekvensnivå</th> 
-  <th colspan="3">Skriva konsekvens mappning</th> 
-  <th colspan="3">Läs konsekvens mappning</th> 
-</tr> 
+| Cassandra | Azure Cosmos DB | Garanti |
+| - | - | - |
+|Alla|Stark  | Lineariserbarhet |
+| EACH_QUORUM   | Stark    | Lineariserbarhet | 
+| KVORUM ÄR SERIELL |  Stark |    Lineariserbarhet |
+| LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, ALLA | Konsekvent prefix |Global konsekvent Prefix |
+| EACH_QUORUM   | Stark    | Lineariserbarhet |
+| KVORUM ÄR SERIELL |  Stark |    Lineariserbarhet |
+| LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, ALLA | Konsekvent prefix | Global konsekvent Prefix |
+| KVORUM ÄR SERIELL | Stark   | Lineariserbarhet |
+| LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, ALLA | Konsekvent prefix | Global konsekvent Prefix |
+| LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE    | Begränsad föråldring | <ul><li>Begränsad föråldring.</li><li>I de flesta K versioner eller tiden t bakom.</li><li>Läs senaste allokerade värdet i regionen.</li></ul> |
+| EN LOCAL_ONE, ALLA   | Konsekvent prefix | Per region konsekvent Prefix |
 
+I följande tabell visas de **läsa konsekvens mappning** mellan Azure Cosmos DB och Cassandra:
 
- 
- <tr> 
-  <th>Cassandra</th> 
-  <th>Cosmos DB</th> 
-  <th>Garanti</th> 
-  <th>Från Cassandra</th> 
-  <th>To Cosmos DB</th> 
-  <th>Garanti</th> 
- </tr> 
- 
-  <tr> 
-  <td rowspan="6">Alla</td> 
-  <td rowspan="6">Stark</td> 
-  <td>Alla</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
-  <td>ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ, EN, LOCAL_ONE</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Stark</td> 
-  <td rowspan="2">Lineariserbarhet</td> 
-  <td>ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ</td> 
-  <td>Stark</td> 
-  <td >Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
+| Cassandra | Azure Cosmos DB | Garanti |
+| - | - | - |
+| ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ, EN, LOCAL_ONE | Stark  | Lineariserbarhet|
+| ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ   |Stark |   Lineariserbarhet |
+|LOCAL_ONE, EN | Konsekvent prefix | Global konsekvent Prefix |
+| ALLA, KVORUM, SERIE   | Stark    | Lineariserbarhet |
+| LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE |  Konsekvent prefix   | Global konsekvent Prefix |
+| LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM |    Konsekvent prefix   | Global konsekvent Prefix |
+| ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ   |Stark |   Lineariserbarhet |
+| LOCAL_ONE, EN    | Konsekvent prefix | Global konsekvent Prefix|
+| ALLA KVORUM är seriell stark Linjärbarhetsgaranti
+LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE  |Konsekvent prefix  | Global konsekvent Prefix |
+|Alla    |Stark |Lineariserbarhet |
+| LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM  |Konsekvent prefix  |Global konsekvent Prefix|
+|ALLA KVORUM är seriell stark Linjärbarhetsgaranti
+LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE  |Konsekvent prefix  |Global konsekvent Prefix |
+|Alla    |Stark | Lineariserbarhet |
+| LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM  | Konsekvent prefix | Global konsekvent Prefix |
+| KVORUM, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE |  Begränsad föråldring   | <ul><li>Begränsad föråldring.</li><li>I de flesta K versioner eller tiden t bakom. </li><li>Läs senaste allokerade värdet i regionen.</li></ul>
+| LOCAL_ONE, EN |Konsekvent prefix | Per region konsekvent Prefix |
+| LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM  | Konsekvent prefix | Per region konsekvent Prefix |
 
- <tr> 
-  <td rowspan="2">KVORUM ÄR SERIELL</td> 
-  <td rowspan="2">Stark</td> 
-  <td rowspan="2">Lineariserbarhet</td> 
-  <td>ALLA, KVORUM, SERIE</td> 
-  <td>Stark</td> 
-  <td >Lineariserbarhet</td> 
- </tr> 
-
- <tr>
-   <td>LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE</td>
-   <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
- 
- <tr> 
- <td>LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, <b>ANY</b></td> 
-  <td>Konsekvent prefix</td> 
-  <td>Global konsekvent Prefix</td> 
-  <td>LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM</td> 
-  <td>Konsekvent prefix</td> 
-  <td>Global konsekvent Prefix</td>
- </tr> 
- 
- 
-  <tr> 
-  <td rowspan="6">EACH_QUORUM</td> 
-  <td rowspan="6">Stark</td> 
-  <td rowspan="2">EACH_QUORUM</td> 
-  <td rowspan="2">Stark</td> 
-  <td rowspan="2">Lineariserbarhet</td> 
-  <td>ALLA KVORUM, SERIENUMMER, LOCAL_QUORUM, LOCAL_SERIAL, TRE, TVÅ</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
- 
- 
- <tr> 
-  <td rowspan="2">KVORUM ÄR SERIELL</td> 
-  <td rowspan="2">Stark</td> 
-  <td rowspan="2">Lineariserbarhet</td> 
-  <td>ALLA, KVORUM, SERIE</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
- 
-  <tr> 
-  <td rowspan="2">LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, ALLA</td> 
-  <td rowspan="2">Konsekvent prefix</td> 
-  <td rowspan="2">Global konsekvent Prefix</td> 
-  <td>Alla</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
-
-
-  <tr> 
-  <td rowspan="4">QUORUM</td> 
-  <td rowspan="4">Stark</td> 
-  <td rowspan="2">KVORUM ÄR SERIELL</td> 
-  <td rowspan="2">Stark</td> 
-  <td rowspan="2">Lineariserbarhet</td> 
-  <td>ALLA, KVORUM, SERIE</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
- 
- <tr> 
-  <td rowspan="2">LOCAL_QUORUM, TRE, TVÅ, EN, LOCAL_ONE, ALLA</td> 
-  <td rowspan="2">Konsekvent prefix </td> 
-  <td rowspan="2">Global konsekvent Prefix </td> 
-  <td>Alla</td> 
-  <td>Stark</td> 
-  <td>Lineariserbarhet</td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM</td>
-  <td>Konsekvent prefix</td>
-   <td>Global konsekvent Prefix</td>
- </tr>
- 
- <tr> 
-  <td rowspan="4">LOCAL_QUORUM, TRE, TVÅ</td> 
-  <td rowspan="4">Begränsad föråldring</td> 
-  <td rowspan="2">LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE</td> 
-  <td rowspan="2">Begränsad föråldring</td> 
-  <td rowspan="2">Begränsad föråldring.<br/>
-I de flesta K versioner eller tiden t bakom.<br/>
-Läs senaste allokerade värdet i regionen. 
-</td> 
-  
-  <td>KVORUM, LOCAL_QUORUM, LOCAL_SERIAL, TVÅ, TRE</td> 
-  <td>Begränsad föråldring</td> 
-  <td>Begränsad föråldring.<br/>
-I de flesta K versioner eller tiden t bakom. <br/>
-Läs senaste allokerade värdet i regionen. </td> 
- </tr> 
- 
- <tr>
- <td>LOCAL_ONE, EN</td>
-  <td>Konsekvent prefix</td>
-   <td>Per region konsekvent Prefix</td>
- </tr>
- 
- 
- <tr> 
-  <td>EN LOCAL_ONE, ALLA</td> 
-  <td>Konsekvent prefix </td> 
-  <td >Per region konsekvent Prefix </td> 
-  <td>LOCAL_ONE, EN, TVÅ, TRE, LOCAL_QUORUM, KVORUM</td> 
-  <td>Konsekvent prefix</td> 
-  <td>Per region konsekvent Prefix</td> 
- </tr> 
-</table>
 
 ## <a id="mongo-mapping"></a>Mappning mellan MongoDB 3.4 och Azure Cosmos DB-konsekvensnivåer
 

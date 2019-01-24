@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 675dca98-f119-4463-8350-d6a45d5601e3
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: cbf58f7e5553f10087c854428a6a369cbb8c3bf9
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: f43c3072660ce4b9ca68c2bc58d1c752ce474e28
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195112"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54821915"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Självstudie: Azure Active Directory-katalogintegrering med Cisco Umbrella
 
@@ -78,8 +78,8 @@ För att konfigurera och testa enkel inloggning med Azure AD med [Programnamn] b
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Cisco Umbrella](#configure-cisco-umbrella-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa Cisco Umbrella-testanvändare](#create-cisco-umbrella-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Umbrella som är länkad till Azure AD-representationen för användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Cisco Umbrella-testanvändare](#create-cisco-umbrella-test-user)** – för att ha en motsvarighet till Britta Simon i Cisco Umbrella som är länkad till Azure AD-representationen för användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -110,7 +110,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     c. I rutan **Inloggnings-URL** anger du en URL: `https://login.umbrella.com/sso`
 
-4. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Metadata XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 1. I ett annat webbläsarfönster loggar du in på företagswebbplatsen Cisco Umbrella som administratör.
 
-2.  Till vänster i menyn klickar du på **Administratör** och går till **Autentisering** och klickar sedan på **SAML**.
+2. Till vänster i menyn klickar du på **Administratör** och går till **Autentisering** och klickar sedan på **SAML**.
 
     ![Administratören](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
@@ -144,7 +144,6 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
     ![Nästa](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-
 6. I **Alternativ A: Ladda upp XML-filen**, ladda upp filen **Federation Metadata XML** som du laddade ned från Azure-portalen. När du har laddat upp metadata fylls värdena nedan i automatiskt. Klicka sedan på **NÄSTA**.
 
     ![Choosefile ](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
@@ -155,7 +154,7 @@ Konfigurera enkel inloggning med Azure AD med [Programnamn] genom att utföra f�
 
 8. Klicka på **SPARA**.
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
@@ -215,7 +214,7 @@ När det gäller Cisco Umbrella sker etablering manuellt.
 
 1. I ett annat webbläsarfönster loggar du in på företagswebbplatsen Cisco Umbrella som administratör.
 
-2.  Till vänster i menyn klickar du på **Administratör** och går till **Konton**.
+2. Till vänster i menyn klickar du på **Administratör** och går till **Konton**.
 
     ![Kontot](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
@@ -237,7 +236,7 @@ När det gäller Cisco Umbrella sker etablering manuellt.
 
     g. Klicka på **SKAPA**.
 
-### <a name="test-single-sign-on"></a>Testa enkel inloggning 
+### <a name="test-single-sign-on"></a>Testa enkel inloggning
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
@@ -250,4 +249,3 @@ När du klickar på Cisco Umbrella-panelen i åtkomstpanelen bör du automatiskt
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

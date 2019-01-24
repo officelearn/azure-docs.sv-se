@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/09/2017
 ms.author: allclark
 ms.custom: mvc
-ms.openlocfilehash: 271390757b7e79eb29c5a3c14ca9ee1b38b53e29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 6963a7d8541897940316d0fdfbea06f265884249
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41919234"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478322"
 ---
 # <a name="create-a-vm-with-a-virtual-hard-disk"></a>Skapa en virtuell dator med virtuell hårddisk
 
@@ -56,12 +56,12 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account list](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_list) | Visar en lista med lagringskonton |
 | [az storage account check-name](https://docs.microsoft.com/cli/azure/storage/account#az_storage_account_check_name) | Kontrollerar att namnet på ett lagringskonto är giltigt och att det inte redan finns |
-| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys#az_storage_account_keys_list) | Visar en lista över lagringskontonas nycklar |
+| [az storage account keys list](https://docs.microsoft.com/cli/azure/storage/account/keys) | Visar en lista över lagringskontonas nycklar |
 | [az storage blob exists](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_exists) | Kontrollerar om blobben finns |
 | [az storage container create](https://docs.microsoft.com/cli/azure/storage/container#az_storage_container_create) | Skapar en container i ett lagringskonto. |
 | [az storage blob upload](https://docs.microsoft.com/cli/azure/storage/blob#az_storage_blob_upload) | Skapar en blobb i containern genom att ladda upp den virtuella hårddisken. |
 | [az vm list](https://docs.microsoft.com/cli/azure/vm#az_vm_list) | Används med `--query` för att kontrollera om namnet på den virtuella datorn är i bruk. | 
-| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set#az_vm_availability_set_create) | Skapar de virtuella datorerna. |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm/availability-set) | Skapar de virtuella datorerna. |
 | [az vm list-ip-addresses](https://docs.microsoft.com/cli/azure/vm#az_vm_list-ip-addresses) | Hämtar IP-adressen till den virtuella dator som har skapats. |
 
 ## <a name="next-steps"></a>Nästa steg

@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c025cdeb-786c-4aab-abd1-132907007f7e
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
-ms.openlocfilehash: 75cf02d48f7175f47d6fb69e09d527024491e7c3
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 29420b22623d5295c45aa602620d1cd5eef9bd33
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53981319"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54825042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Självstudier: Azure Active Directory-katalogintegrering med Workable
 
@@ -28,7 +28,7 @@ Du får följande fördelar när du integrerar Workable med Azure AD:
 
 * Du kan styra i Azure AD vilka som har åtkomst till Workable.
 * Du kan göra så att dina användare automatiskt loggas in på Workable (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure Portal.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
@@ -53,7 +53,7 @@ För att kunna konfigurera integreringen av Workable i Azure AD måste du lägga
 
 **Gör följande för att lägga till Workable från galleriet:**
 
-1. I **[Azure Portal](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -85,7 +85,7 @@ För att kunna konfigurera och testa enkel inloggning med test Azure AD med Work
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure Portal.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
 Gör följande för att konfigurera enkel inloggning med Azure AD med Workable:
 
@@ -114,7 +114,7 @@ Gör följande för att konfigurera enkel inloggning med Azure AD med Workable:
     I rutan **Inloggnings-URL** anger du en URL:  `https://www.workable.com/sso/signin`
 
     > [!NOTE]
-    > Värdet för svars-URL är inte verkligt. Uppdatera värdet för svars-URL med den faktiska svars-URL:en. Kontakta [Workable-kundsupporten](mailto:support@workable.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure Portal.
+    > Värdet för svars-URL är inte verkligt. Uppdatera värdet för svars-URL med den faktiska svars-URL:en. Kontakta [Workable-kundsupporten](mailto:support@workable.com) för att få värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 6. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -144,9 +144,9 @@ När enkel inloggning har aktiverats får du ett meddelande av Workable-kontoans
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure Portal med namnet Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. Gå till den vänstra rutan i Azure Portal och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 

@@ -3,7 +3,7 @@ title: Översikt över portalen Mina appar – Azure Active Directory | Microsof
 description: Lär dig mer om portalen Mina appar och felsöka potentiella problem.
 services: active-directory
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: b3c5a81fe6572498ab2d4502225af24702a60cba
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: fdfb917a925352d0be58f8fc66c379291dad3195
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42024267"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815131"
 ---
 # <a name="my-apps-portal-overview"></a>Översikt över portalen Mina appar
 

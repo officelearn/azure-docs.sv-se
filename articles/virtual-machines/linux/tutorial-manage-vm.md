@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: bc548ea23249f89fadcec481cc97b6ca3ed2b909
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613434"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54466864"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
 Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs den grundläggande distributionen av virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
@@ -211,7 +211,7 @@ az vm create \
 
 ### <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
 
-När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen. Kommandot [az vm show](/cli/azure/vm#az_vm_show) visar den virtuella datorns aktuella storlek:
+När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen. Kommandot [az vm show](/cli/azure/vm) visar den virtuella datorns aktuella storlek:
 
 ```azurecli-interactive
 az vm show --resource-group myResourceGroupVM --name myVM --query hardwareProfile.vmSize
@@ -228,7 +228,7 @@ Om önskad storlek är tillgänglig kan storleken på den virtuella datorn ändr
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-Om önskad storlek inte finns i det aktuella klustret måste den virtuella datorn frigöras innan åtgärden för att ändra storlek kan utföras. Använd kommandot [az vm deallocate]( /cli/azure/vm#az_vm_deallocate) för att stoppa och frigöra den virtuella datorn. När den virtuella datorn startas igen kan alla data på den temporära disken tas bort. Den offentliga IP-adressen ändras också om inte en statisk IP-adress används. 
+Om önskad storlek inte finns i det aktuella klustret måste den virtuella datorn frigöras innan åtgärden för att ändra storlek kan utföras. Använd kommandot [az vm deallocate]( /cli/azure/vm) för att stoppa och frigöra den virtuella datorn. När den virtuella datorn startas igen kan alla data på den temporära disken tas bort. Den offentliga IP-adressen ändras också om inte en statisk IP-adress används. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

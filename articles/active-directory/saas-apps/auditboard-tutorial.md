@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 072724b9-d1c8-4c22-9571-d1d0d7eb5ea2
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/18/2018
 ms.author: jeedes
-ms.openlocfilehash: cb8eb2b13f82deb5f0146d413a917362301fc8a1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 0d8ee0049a12d18c95736fc7d7b2589a2b41e702
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53797183"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54820384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Självstudier: Azure Active Directory-integrering med AuditBoard
 
@@ -104,7 +104,7 @@ Konfigurera enkel inloggning i Azure AD med AuditBoard genom att göra följande
 
     ![Information om AuditBoard-domänen och URL:er för enkel inloggning](common/idp-intiated.png)
 
-    a. Skriv en URL med följande mönster i textrutan **Identifierare**: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/metadata.xml`
 
     b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<SUBDOMAIN>.auditboardapp.com/api/v1/sso/saml/assert`
 
@@ -117,7 +117,7 @@ Konfigurera enkel inloggning i Azure AD med AuditBoard genom att göra följande
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Skaffa dess värden genom att kontakta [supportteamet för AuditBoard-klienten](mailto:support@auditboard.com). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Klicka på kopieringsknappen i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** om du vill kopiera **URL:en för federationsmetadata** och spara den på datorn.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på kopieringsknappen för att kopiera **App Federation Metadata-URL** och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: juliako
-ms.openlocfilehash: 7b742840f461744e0be8c7a4ab4d9b392238de4e
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 9558a924ee151f47033178b0762a39e2d1e1f538
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232693"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828323"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Hur du skapar ett Smooth Streaming Windows Store-program
 
@@ -47,7 +47,7 @@ Den färdiga lösningen för varje lektion kan laddas ned från kodexempel för 
 * [Lektion 3](https://code.msdn.microsoft.com/A-Windows-8-Smooth-883c3b44) – en Windows 8-Smooth Streaming-Media Player har Stream-alternativet  
 * [Lektion 4](https://code.msdn.microsoft.com/A-Windows-8-Smooth-aa9e4907) – en Windows 8-Smooth Streaming-mediaspelare med spåra valet.
 
-## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lektion 1: Skapa ett grundläggande jämn direktuppspelning Store-program
+## <a name="lesson-1-create-a-basic-smooth-streaming-store-application"></a>Lesson 1: Skapa ett grundläggande jämn direktuppspelning Store-program
 
 I den här lektionen skapar du ett Windows Store-program med en MediaElement kontroll att spela upp Smooth Stream innehåll.  Det ser ut som programmet som körs:
 
@@ -142,7 +142,7 @@ När du lägger till referenser, måste du välja den aktuella plattformen (x64 
    Kontrollen MediaElement används för att spela upp media. Kontroll för skjutreglage med namnet sliderProgress används i nästa kurs för att kontrollera förloppet media.
 3. Tryck på **CTRL + S** att spara filen.
 
-MediaElement-kontrollen stöder inte Smooth Streaming innehåll out-of-box. Om du vill aktivera stöd för Smooth Streaming, måste du registrera Smooth Streaming byte-ström hanteraren av filnamnstillägg och MIME-typen.  Om du vill registrera, kan du använda metoden MediaExtensionManager.RegisterByteStremHandler i namnområdet Windows.Media.
+MediaElement-kontrollen stöder inte Smooth Streaming innehåll out-of-box. Om du vill aktivera stöd för Smooth Streaming, måste du registrera Smooth Streaming byte-ström hanteraren av filnamnstillägg och MIME-typen.  Om du vill registrera, kan du använda metoden MediaExtensionManager.RegisterByteStreamHandler i namnområdet Windows.Media.
 
 Vissa händelsehanterare är associerade med kontroller i XAML-filen.  Du måste definiera dessa händelsehanterare.
 
@@ -221,7 +221,7 @@ Den färdiga koden bakom filen bör se ut så här:
 
 Du har slutfört lesson1.  I den här lektionen använder du en MediaElement kontroll att spela upp Smooth Streaming-innehåll.  I nästa kurs, ska du lägga till ett skjutreglage för att kontrollera förloppet för Smooth Streaming-innehåll.
 
-## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Lektion 2: Lägg till en skjutreglaget för att styra Media-förlopp
+## <a name="lesson-2-add-a-slider-bar-to-control-the-media-progress"></a>Lesson 2: Lägg till en skjutreglaget för att styra Media-förlopp
 
 Lektion 1 skapade du ett Windows Store-program med en MediaElement XAML-kontroll för att spela upp Smooth Streaming medieinnehåll.  Det gäller vissa grundläggande media-funktioner som starta, stoppa, pausa.  I den här lektionen ska du lägga till ett skjutreglage för fältet till programmet.
 
@@ -821,7 +821,7 @@ Du har slutfört lektion 3.  Lägg till funktioner för att välja strömmar i d
 En Smooth Streaming-presentation kan innehålla flera videofiler kodad med olika kvalitetsnivå (bithastigheter) och lösningar. I den här lektionen kan användarna välja spår. Den här lektionen innehåller följande procedurer:
 
 1. Ändra XAML-filen
-2. Ändra behand kodfilen
+2. Ändra koden bakom filen
 3. Kompilerar och testar programmet
 
 **Att ändra XAML-filen**

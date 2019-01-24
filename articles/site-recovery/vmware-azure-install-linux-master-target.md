@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: befc979b84c5ace3b8c787b184e52f09ada9ea2b
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321433"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811867"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -185,7 +185,7 @@ Azure Site Recovery-huvudmålservern kräver en viss version av Ubuntu, se till 
 #### <a name="download-and-install-additional-packages"></a>Ladda ned och installera ytterligare paket
 
 > [!NOTE]
-> Se till att du har Internetanslutning för att ladda ned och installera ytterligare paket. Om du inte har Internetanslutning kan behöva du hitta dessa RPM-paket och installera dem manuellt.
+> Se till att du har Internetanslutning för att ladda ned och installera ytterligare paket. Om du inte har Internetanslutning kan behöva du hitta dessa Deb-paket och installera dem manuellt.
 
  `apt-get install -y multipath-tools lsscsi python-pyasn1 lvm2 kpartx`
 

@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 9fe9952c3885e0e6145141bac7db13694dcdbd11
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259673"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54426853"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Snabbstart: Använda Azure PowerShell för att skapa en Service Bus-kö
 Microsoft Azure Service Bus är en asynkron meddelandekö för företagsintegrering som erbjuder säkra meddelanden och absolut tillförlitlighet. Ett typiskt Service Bus-scenario innefattar vanligen frikoppling av två eller flera program, tjänster eller processer från varandra och överföring av status- eller dataförändringar. Sådana scenarier kan handla om schemaläggning av flera batchjobb i ett annat program eller tjänster eller att utlösa beställningsuppfyllelse. En butikskedja kanske skickar sina försäljningsdata till ett backoffice eller regionalt distributionscenter för påfyllning och lageruppdateringar. I det här scenariot, skickar klientappen och tar emot meddelanden från en Service Bus-kö.
@@ -263,4 +263,4 @@ I den här artikeln skapade du ett Service Bus-namnområde och andra resurser so
 > [Uppdatera lagringsplatsen med Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Installera och konfigurera Azure PowerShell]: /powershell/azure/install-azurerm-ps
+[Installera och konfigurera Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps

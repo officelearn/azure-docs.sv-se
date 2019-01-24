@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
-ms.openlocfilehash: f238a97b7b6e8e9bcbbdc1be60789982face1ac7
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3140b3851d1429c6d6a99f9c109725b5f09338c0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063904"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813839"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory-integrering med Confluence SAML SSO från Microsoft
 
@@ -186,7 +186,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Confl
     d. I **SAML User ID Locations** (Platser för SAML-användar-ID) väljer du antingen **User ID is in the NameIdentifier element of the Subject statement** (Användar-ID finns i elementet NameIdentifieri instruktionen Ämne) eller **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element).  Detta ID måste vara användar-ID för Confluence. Om användar-ID inte matchas tillåter systemet inte att användare loggar in. 
 
     > [!Note]
-    > Standardplatsen för SAML-användar-ID är Name Identifier (Namnidentifierare). Du kan ändra den till ett attributalternativ och ange lämpligt attributetnamn.
+    > Standardplatsen för SAML-användar-ID är Name Identifier (Namnidentifierare). Du kan ändra den till ett attributalternativ och ange lämpligt attributnamn.
     
     e. Om du väljer alternativet **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element) skriver du i textrutan **Attribute name** (Attributnamn) namnet på det attribut där användar-ID förväntas. 
 

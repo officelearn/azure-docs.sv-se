@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/11/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fe6a1db295bc8fb1ab8e6c9d2d149be62871e733
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 9695c3d40ee85cf1a46e078776c88ad2f61ed839
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629823"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465419"
 ---
 # <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Skapa en .NET Core- och SQL Database-app i Azure App Service i Linux
 
@@ -368,7 +368,7 @@ Klicka på **App Services** på menyn till vänster och klicka sedan på din Azu
 
 ![Portalnavigering till Azure-app](./media/tutorial-dotnetcore-sqldb-app/access-portal.png)
 
-Portalen visar som standard sidan **Översikt** för dina appar. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
+Portalen visar som standard dina webbappar på sidan **Översikt**. På den här sidan får du en översikt över hur det går för appen. Här kan du också utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort. På flikarna till vänster på sidan kan du se olika konfigurationssidor som du kan öppna.
 
 ![App Service-sidan på Azure Portal](./media/tutorial-dotnetcore-sqldb-app/web-app-blade.png)
 

@@ -3,19 +3,19 @@ title: Översikt över Azure Automation
 description: Lär dig hur du använder Azure Automation för att automatisera livscykeln för infrastruktur och program.
 services: automation
 ms.service: automation
-ms.component: process-automation
+ms.subservice: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: f91464ebdd29c082fd721e9e4b2e029de991cc1e
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b14550d0e03382a6709924ca5671cb26d09fcc35
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958711"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434061"
 ---
 # <a name="an-introduction-to-azure-automation"></a>En introduktion till Azure Automation
 
@@ -87,3 +87,4 @@ Du kan granska priset för Azure Automation på [sidan med priser](https://azure
 
 > [!div class="nextstepaction"]
 > [Skapa ett Automation-konto](automation-quickstart-create-account.md)
+

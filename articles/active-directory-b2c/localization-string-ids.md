@@ -3,19 +3,19 @@ title: 'Lokalisering sträng ID: N – Azure Active Directory B2C | Microsoft Do
 description: 'Ange ID: N för en innehållsdefinition med Id api.signuporsignin i en anpassad princip i Azure Active Directory B2C.'
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7619ebf038e164c9e586118c70e34955ca7c4767
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 72ed1f7f6d9fe9958bbd78b001d727feb5f8861c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222683"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848418"
 ---
 # <a name="localization-string-ids"></a>Lokalisering sträng ID: N
 
@@ -33,7 +33,7 @@ Följande-ID som används för en innehållsdefinitionen vid ID `api.signuporsig
 | **logonIdentifier_email** | E-postadress |
 | **requiredField_email** | Ange din e-postadress |
 | **invalid_email** | Ange en giltig e-postadress |
-| **email_pattern** | ^ [a-öA-Z0-9.! #$% &'' * +/ =? ^ _'{|} ~-]+@[a-zA-Z0-9-]+ (?:\\. [ ett-a-Z0 - 9 –] +) * $ |
+| **email_pattern** | ^[a-zA-Z0-9.!#$%&’'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$ |
 | **local_intro_username** | Logga in med ditt användarnamn |
 | **logonIdentifier_username** | Användarnamn |
 | **requiredField_username** | Ange ditt användarnamn |
@@ -163,7 +163,7 @@ Följande är de ID: N för en innehållsdefinition med ID `api.phonefactor`.
 | **country_code_label** | Landskod |
 | **cancel_message** | Användaren har avbrutit multifaktorautentisering |
 | **text_button_send_second_code** | skicka en ny kod |
-| **code_pattern** | \\D{6} |
+| **code_pattern** | \\d{6} |
 | **intro_mixed** | Vi har följande numret på posten för dig. Vi kan skicka en kod via SMS eller telefonnummer för att autentisera dig. |
 | **intro_mixed_p** | Vi har följande nummer på posten för dig. Välj ett tal att vi kan phone eller skicka en kod via SMS för att autentisera dig. |
 | **button_verify_code** | Verifiera koden |
@@ -176,7 +176,7 @@ Följande är de ID: N för en innehållsdefinition med ID `api.phonefactor`.
 | **intro_phone_p** | Vi har följande nummer på posten för dig. Välj ett tal som vi kan telefonnummer för att autentisera dig. |
 | **intro_phone** | Vi har följande numret på posten för dig. Vi kommer telefonnummer för att autentisera dig. |
 | **enter_code_text_intro** | Ange verifieringskoden nedan eller  |
-| **intro_entry_phone** | Ange ett nummer nedan att vi kan ringa upp för att autentisera dig. |
+| **intro_entry_phone** | Ange ett nummer nedan så att vi kan ringa upp för att autentisera dig. |
 | **intro_entry_sms** | Ange ett nummer nedan, så att vi kan autentisera dig genom att skicka en kod via SMS. |
 | **button_send_code** | Skicka kod |
 | **invalid_number** | Ange ett giltigt telefonnummer |
@@ -187,7 +187,7 @@ Följande är de ID: N för en innehållsdefinition med ID `api.phonefactor`.
 | **requiredField_countryCode** | Välj din landskod |
 | **requiredField_number** | Ange ditt telefonnummer |
 | **country_code_input_placeholder_text** |Land eller region |
-| **antal_etikett** | Telefonnummer |
+| **number_label** | Telefonnummer |
 | **error_tryagain** | Det angivna telefonnumret är upptagen eller otillgänglig. Kontrollera numret och försök igen. |
 | **error_incorrect_code** | Den Verifieringskod du angett matchar inte våra poster. Försök igen eller begära en ny kod. |
 | **countryList** | {\"Standard\":\"Land/Region\",\"AF\":\"Afghanistan\",\"AX\":\"Åland Islands\",\"AL\":\"Albanien\",\"DZ\":\"Algeriet\",\"AS\":\" Amerikanska Samoa\",\"AD\":\"Andorra\",\"AO\":\"Angola\",\"AI\": \"Anguilla\",\"AQ\":\"Antarktis\",\"AG\":\"Antigua och Barbuda\",\"AR\":\"Argentina\",\"AM\":\"Armenien\",\"AW\":\"Aruba \",\"AU\":\"Australien\",\"på\":\"Österrike\",\" AZ\":\"Azerbajdzjan\",\"BS\":\"Bahamas\",\"BH\":\" Bahrain\",\"BD\":\"Bangladesh\",\"BB\":\"Barbados\",\" GENOM att\":\"Vitryssland\",\"BE\":\"Belgien\",\"BZ\":\" Belize\",\"BJ\":\"Benin\",\"BM\":\"Bermudaöarna\",\"BT\":\"Bhutan\",\"BO\":\"Bolivia\",\"BQ\":\" Bonaire\",\"BA\":\"Bosnien och Hercegovina\",\"BW\":\"Botswana<span class="notransla class=""></span class="notransla> : S yttre öar\",\"VI\":\"USA Jungfruöarna\",\"UG\":\"Uganda\",\"UA\":\"Ukraina\",\"AE\":\" Förenade Arabemiraten\",\"GB\":\"Storbritannien\",\"USA\":\"USA\",\"UY \":\"Uruguay\",\"UZ\":\"Uzbekistan\",\"Anteckning\":\"Vanuatu\", \"VA\":\"Vatikanstaten\",\"Stött\":\"Venezuela\",\"VN\":\"Vietnam \",\"WF\":\"Wallis och Futuna\",\"YE\":\"Jemen\",\"ZM\":\"Zambia\",\"ZW\":\"Zimbabwe\"} |

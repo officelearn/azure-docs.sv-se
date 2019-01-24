@@ -1,327 +1,320 @@
-items:
 - name: Dokumentation om Azure Policy
   href: index.yml
 - name: Översikt
   items:
-  - name: Översikt över Azure Policy
-    displayName: rbac, assign, initiative, parameters, count
-    href: overview.md
+    - name: Översikt över Azure Policy
+      displayName: 'rbac, assign, initiative, parameters, count'
+      href: overview.md
 - name: Snabbstarter
-  items:
-  - name: Tilldela en princip – Portal
-    displayName: assign, compliance
-    href: assign-policy-portal.md
-  - name: Tilldela en princip – PowerShell
-    displayName: assign, compliance
-    href: assign-policy-powershell.md
-  - name: Tilldela en princip – Azure CLI
-    displayName: assign, compliance
-    href: assign-policy-azurecli.md
   expanded: true
+  items:
+    - name: Tilldela en princip – Portal
+      displayName: 'assign, compliance'
+      href: assign-policy-portal.md
+    - name: Tilldela en princip – PowerShell
+      displayName: 'assign, compliance'
+      href: assign-policy-powershell.md
+    - name: Tilldela en princip – Azure CLI
+      displayName: 'assign, compliance'
+      href: assign-policy-azurecli.md
 - name: Självstudier
   items:
-  - name: Skapa och hantera Azure Policy
-    displayName: assign, definition, compliance, exempt, exclusion
-    href: ./tutorials/create-and-manage.md
-  - name: Praktiska labbövningar – Utforska Azure Policy
-    displayName: create, policy, training, learn
-    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
+    - name: Skapa och hantera Azure Policy
+      displayName: 'assign, definition, compliance, exempt, exclusion'
+      href: ./tutorials/create-and-manage.md
+    - name: Praktiska labbövningar – Utforska Azure Policy
+      displayName: 'create, policy, training, learn'
+      href: 'https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy'
 - name: Exempel
   items:
-  - name: Index
-    displayName: list, examples
-    href: ./samples/index.md
-  - name: Allmänt
-    items:
-    - name: Namngivning
+    - name: Index
+      displayName: 'list, examples'
+      href: ./samples/index.md
+    - name: Allmänt
       items:
-      - name: Tillåt flera namnmönster
-        displayName: deny, indexed
-        href: samples/allow-multiple-name-patterns.md
-      - name: Kräv like-mönster
-        displayName: deny, indexed
-        href: samples/enforce-like-pattern.md
-      - name: Kräv matchningsmönster
-        displayName: deny, indexed
-        href: samples/enforce-match-pattern.md
-      - name: Kräv taggmatchningsmönster
-        displayName: deny, all
-        href: samples/enforce-tag-match-pattern.md
-    - name: Taggar
+        - name: Namngivning
+          items:
+            - name: Tillåt flera namnmönster
+              displayName: 'deny, indexed'
+              href: samples/allow-multiple-name-patterns.md
+            - name: Kräv like-mönster
+              displayName: 'deny, indexed'
+              href: samples/enforce-like-pattern.md
+            - name: Kräv matchningsmönster
+              displayName: 'deny, indexed'
+              href: samples/enforce-match-pattern.md
+            - name: Kräv taggmatchningsmönster
+              displayName: 'deny, all'
+              href: samples/enforce-tag-match-pattern.md
+        - name: Taggar
+          items:
+            - name: Använd taggen och dess standardvärde
+              displayName: 'append, builtin, concat'
+              href: samples/apply-tag-default-value.md
+            - name: Principinitiativ för faktureringstaggar
+              href: samples/billing-tags-policy-initiative.md
+            - name: Framtvinga tagg och dess värde
+              displayName: 'deny, concat, builtin'
+              href: samples/enforce-tag-value.md
+            - name: Lägg till tagg och dess värde i resursgrupper
+              displayName: 'deny, concat'
+              href: samples/enforce-tag-on-resource-groups.md
+        - name: Platser
+          items:
+            - name: Tillåtna platser
+              displayName: 'deny, builtin, location'
+              href: samples/allowed-locations.md
+        - name: Resurstyper
+          items:
+            - name: Tillåtna resurstyper
+              displayName: 'deny, builtin, resourceTypes'
+              href: samples/allowed-resource-types.md
+            - name: Otillåtna resurstyper
+              displayName: 'deny, builtin, resourceTypes'
+              href: samples/not-allowed-resource-types.md
+    - name: Compute
       items:
-      - name: Använd taggen och dess standardvärde
-        displayName: append, builtin, concat
-        href: samples/apply-tag-default-value.md
-      - name: Principinitiativ för faktureringstaggar
-        href: samples/billing-tags-policy-initiative.md
-      - name: Framtvinga tagg och dess värde
-        displayName: deny, concat, builtin
-        href: samples/enforce-tag-value.md
-      - name: Lägg till tagg och dess värde i resursgrupper
-        displayName: deny, concat
-        href: samples/enforce-tag-on-resource-groups.md
-    - name: Platser
+        - name: Virtuella datorer
+          items:
+            - name: Tillåt anpassad avbildning av virtuell dator från en resursgrupp
+              displayName: 'deny, concat, ExistingResourceGroups'
+              href: samples/allow-custom-vm-image.md
+            - name: 'Tillåtna SKU:er för lagringskonton och virtuella datorer'
+              displayName: 'initiative, vmSKUs, storageSKUs'
+              href: samples/allowed-skus-storage.md
+            - name: Godkända VM-avbildningar
+              displayName: deny
+              href: samples/allowed-custom-images.md
+            - name: Granska om ej tillgängligt tillägg
+              displayName: auditIfNotExists
+              href: samples/audit-extension-not-exist.md
+            - name: Otillåtna VM-tillägg
+              displayName: deny
+              href: samples/not-allowed-vm-extension.md
+        - name: Skalningsuppsättningar för virtuella datorer
+          items:
+            - name: Granska när VM inte använder hanterad disk
+              displayName: audit
+              href: samples/create-vm-managed-disk.md
+            - name: Skapa VM med hanterad disk
+              displayName: deny
+              href: samples/use-managed-disk-vm.md
+            - name: Neka Hybrid Use Benefit
+              displayName: deny
+              href: samples/deny-hybrid-use.md
+            - name: Endast tillåta en viss VM-plattformsavbildning
+              displayName: deny
+              href: samples/allow-certain-vm-image.md
+    - name: Data Lake
       items:
-      - name: Tillåtna platser
-        displayName: deny, builtin, location
-        href: samples/allowed-locations.md
-    - name: Resurstyper
+        - name: Kräv kryptering för Data Lake Store
+          displayName: deny
+          href: samples/enforce-data-lake-store-encryption.md
+    - name: Övervakning
       items:
-      - name: Tillåtna resurstyper
-        displayName: deny, builtin, resourceTypes
-        href: samples/allowed-resource-types.md
-      - name: Otillåtna resurstyper
-        displayName: deny, builtin, resourceTypes
-        href: samples/not-allowed-resource-types.md
-  - name: Compute
-    items:
-    - name: Virtuella datorer
+        - name: Granska diagnostikinställning
+          displayName: 'auditIfNotExists, resourceTypes'
+          href: samples/audit-diagnostic-setting.md
+    - name: Nätverk
       items:
-      - name: Tillåt anpassad avbildning av virtuell dator från en resursgrupp
-        displayName: deny, concat, ExistingResourceGroups
-        href: samples/allow-custom-vm-image.md
-      - name: Tillåtna SKU:er för lagringskonton och virtuella datorer
-        displayName: initiative, vmSKUs, storageSKUs
-        href: samples/allowed-skus-storage.md
-      - name: Godkända VM-avbildningar
-        displayName: deny
-        href: samples/allowed-custom-images.md
-      - name: Granska om ej tillgängligt tillägg
-        displayName: auditIfNotExists
-        href: samples/audit-extension-not-exist.md
-      - name: Otillåtna VM-tillägg
-        displayName: deny
-        href: samples/not-allowed-vm-extension.md
-    - name: Skalningsuppsättningar för virtuella datorer
+        - name: Nätverksgränssnitt
+          items:
+            - name: NSG X på varje nätverkskort
+              displayName: deny
+              href: samples/nsg-on-nic.md
+            - name: Använda godkända undernät för VM-nätverksgränssnitt
+              displayName: deny
+              href: samples/use-approved-subnet-vm-nics.md
+            - name: Använda godkända vNet för VM-nätverksgränssnitt
+              displayName: 'deny, concat'
+              href: samples/use-approved-vnet-vm-nics.md
+        - name: Virtuella nätverk
+          items:
+            - name: 'Tillåtna SKU:er för programgateway'
+              displayName: deny
+              href: samples/allowed-app-gateway-sku.md
+            - name: 'Tillåtna vNet-gateway SKU:er'
+              displayName: deny
+              href: samples/allowed-vnet-gateway-sku.md
+            - name: 'Tillåtna SKU:er för lastbalanserare'
+              displayName: deny
+              href: samples/allowed-load-balancer-skus.md
+            - name: Ingen nätverkspeering till ER-nätverk
+              displayName: 'deny, all, concat, ExistingResourceGroups'
+              href: samples/no-peering-express-route-network.md
+            - name: Ingen användardefinierad routningstabell
+              displayName: 'deny, all'
+              href: samples/no-user-defined-route-table.md
+            - name: NSG x i varje undernät
+              displayName: 'deny, all'
+              href: samples/nsg-on-subnet.md
+            - name: Använda godkända undernät för VM-nätverksgränssnitt
+              displayName: deny
+              href: samples/use-approved-subnet-vm-nics.md
+            - name: Använda godkända vNet för VM-nätverksgränssnitt
+              displayName: deny
+              href: samples/use-approved-vnet-vm-nics.md
+        - name: Nätverkssäkerhetsgrupper
+          items:
+            - name: NSG X på varje nätverkskort
+              displayName: deny
+              href: samples/nsg-on-nic.md
+            - name: NSG x i varje undernät
+              displayName: 'deny, all'
+              href: samples/nsg-on-subnet.md
+        - name: Express Routes
+          items:
+            - name: Tillåten ExpressRoute-bandbredd
+              displayName: deny
+              href: samples/allowed-express-route-bandwidth.md
+            - name: 'Tillåtna ExpressRoute-SKU:er'
+              displayName: deny
+              href: samples/allowed-express-route-skus.md
+            - name: Tillåtna Express Route-peeringplatser
+              displayName: 'deny, Location'
+              href: samples/allowed-express-route-peering.md
+        - name: Nätverksbevakare
+          items:
+            - name: Granska om Network Watcher inte är aktiverat för regionen
+              displayName: 'auditIfNotExists, Location'
+              href: samples/network-watcher-not-enabled.md
+        - name: Programgateways
+          items:
+            - name: 'Tillåtna SKU:er för programgateway'
+              displayName: deny
+              href: samples/allowed-app-gateway-sku.md
+    - name: SQL
       items:
-      - name: Granska när VM inte använder hanterad disk
-        displayName: audit
-        href: samples/create-vm-managed-disk.md
-      - name: Skapa VM med hanterad disk
-        displayName: deny
-        href: samples/use-managed-disk-vm.md
-      - name: Neka Hybrid Use Benefit
-        displayName: deny
-        href: samples/deny-hybrid-use.md
-      - name: Endast tillåta en viss VM-plattformsavbildning
-        displayName: deny
-        href: samples/allow-certain-vm-image.md
-  - name: Data Lake
-    items:
-    - name: Kräv kryptering för Data Lake Store
-      displayName: deny
-      href: samples/enforce-data-lake-store-encryption.md
-  - name: Övervakning
-    items:
-    - name: Granska diagnostikinställning
-      displayName: auditIfNotExists, resourceTypes
-      href: samples/audit-diagnostic-setting.md
-  - name: Nätverk
-    items:
-    - name: Nätverksgränssnitt
+        - name: SQL Servrar
+          items:
+            - name: Granska när det saknas Azure AD-administratör
+              displayName: auditIfNotExists
+              href: samples/audit-no-aad-admin.md
+            - name: Granska inställningar för hotidentifiering på servernivå
+              displayName: auditIfNotExists
+              href: samples/audit-sql-server-threat-detection-setting.md
+            - name: Granska granskningsinställningar för SQL Server
+              displayName: 'auditIfNotExists, builtin'
+              href: samples/sql-server-audit.md
+            - name: Granska granskningsinställningar på SQL-servernivå
+              displayName: auditIfNotExists
+              href: samples/audit-sql-server-audit-setting.md
+            - name: Kräv SQL Server version 12.0
+              displayName: 'deny, builtin'
+              href: samples/require-sql-12.md
+        - name: SQL Databases
+          items:
+            - name: 'Tillåtna SKU:er för SQL DB'
+              displayName: deny
+              href: samples/allowed-sql-db-skus.md
+            - name: Granska SQL DB-nivå för hotidentifiering på servernivå
+              displayName: auditIfNotExists
+              href: samples/audit-db-threat-detection-setting.md
+            - name: Granska SQL DB-kryptering
+              displayName: 'auditIfNotExists, disabled, indexed, builtin'
+              href: samples/sql-database-encryption-audit.md
+            - name: Granska granskningsinställning på SQL DB-nivån
+              displayName: auditIfNotExists
+              href: samples/audit-sql-db-audit-setting.md
+    - name: Storage
       items:
-      - name: NSG X på varje nätverkskort
-        displayName: deny
-        href: samples/nsg-on-nic.md
-      - name: Använda godkända undernät för VM-nätverksgränssnitt
-        displayName: deny
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Använda godkända vNet för VM-nätverksgränssnitt
-        displayName: deny, concat
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Virtuella nätverk
-      items:
-      - name: Tillåtna SKU:er för programgateway
-        displayName: deny
-        href: samples/allowed-app-gateway-sku.md
-      - name: Tillåtna vNet-gateway SKU:er
-        displayName: deny
-        href: samples/allowed-vnet-gateway-sku.md
-      - name: Tillåtna SKU:er för lastbalanserare
-        displayName: deny
-        href: samples/allowed-load-balancer-skus.md
-      - name: Ingen nätverkspeering till ER-nätverk
-        displayName: deny, all, concat, ExistingResourceGroups
-        href: samples/no-peering-express-route-network.md
-      - name: Ingen användardefinierad routningstabell
-        displayName: deny, all
-        href: samples/no-user-defined-route-table.md
-      - name: NSG x i varje undernät
-        displayName: deny, all
-        href: samples/nsg-on-subnet.md
-      - name: Använda godkända undernät för VM-nätverksgränssnitt
-        displayName: deny
-        href: samples/use-approved-subnet-vm-nics.md
-      - name: Använda godkända vNet för VM-nätverksgränssnitt
-        displayName: deny
-        href: samples/use-approved-vnet-vm-nics.md
-    - name: Nätverkssäkerhetsgrupper
-      items:
-      - name: NSG X på varje nätverkskort
-        displayName: deny
-        href: samples/nsg-on-nic.md
-      - name: NSG x i varje undernät
-        displayName: deny, all
-        href: samples/nsg-on-subnet.md
-    - name: Express Routes
-      items:
-      - name: Tillåten ExpressRoute-bandbredd
-        displayName: deny
-        href: samples/allowed-express-route-bandwidth.md
-      - name: Tillåtna ExpressRoute-SKU:er
-        displayName: deny
-        href: samples/allowed-express-route-skus.md
-      - name: Tillåtna Express Route-peeringplatser
-        displayName: deny, Location
-        href: samples/allowed-express-route-peering.md
-    - name: Nätverksbevakare
-      items:
-      - name: Granska om Network Watcher inte är aktiverat för regionen
-        displayName: auditIfNotExists, Location
-        href: samples/network-watcher-not-enabled.md
-    - name: Programgateways
-      items:
-      - name: Tillåtna SKU:er för programgateway
-        displayName: deny
-        href: samples/allowed-app-gateway-sku.md
-  - name: SQL
-    items:
-    - name: SQL Servrar
-      items:
-      - name: Granska när det saknas Azure AD-administratör
-        displayName: auditIfNotExists
-        href: samples/audit-no-aad-admin.md
-      - name: Granska inställningar för hotidentifiering på servernivå
-        displayName: auditIfNotExists
-        href: samples/audit-sql-server-threat-detection-setting.md
-      - name: Granska granskningsinställningar för SQL Server
-        displayName: auditIfNotExists, builtin
-        href: samples/sql-server-audit.md
-      - name: Granska granskningsinställningar på SQL-servernivå
-        displayName: auditIfNotExists
-        href: samples/audit-sql-server-audit-setting.md
-      - name: Kräv SQL Server version 12.0
-        displayName: deny, builtin
-        href: samples/require-sql-12.md
-    - name: SQL Databases
-      items:
-      - name: Tillåtna SKU:er för SQL DB
-        displayName: deny
-        href: samples/allowed-sql-db-skus.md
-      - name: Granska SQL DB-nivå för hotidentifiering på servernivå
-        displayName: auditIfNotExists
-        href: samples/audit-db-threat-detection-setting.md
-      - name: Granska SQL DB-kryptering
-        displayName: auditIfNotExists, disabled, indexed, builtin
-        href: samples/sql-database-encryption-audit.md
-      - name: Granska granskningsinställning på SQL DB-nivån
-        displayName: auditIfNotExists
-        href: samples/audit-sql-db-audit-setting.md
-  - name: Storage
-    items:
-    - name: Tillåtna SKU:er för lagringskonto och virtuella datorer
-      displayName: initiative, vmSKUs, storageSKUs
-      href: samples/allowed-skus-storage.md
-    - name: Tillåtna SKU:er för lagringskonto
-      displayName: deny, builtin, storageSKUs
-      href: samples/allowed-storage-account-skus.md
-    - name: Neka lågfrekvent åtkomstnivå för lagringskonton
-      displayName: deny, all
-      href: samples/deny-cool-access-tiering.md
-    - name: Garantera endast HTTPS-trafik för lagringskonto
-      displayName: deny, all
-      href: samples/ensure-https-storage-account.md
-    - name: Garantera kryptering för lagringsfil
-      displayName: deny, all
-      href: samples/ensure-storage-file-encryption.md
-    - name: Kräver kryptering för lagringskonto
-      displayName: deny, builtin
-      href: samples/require-storage-account-encryption.md
+        - name: 'Tillåtna SKU:er för lagringskonto och virtuella datorer'
+          displayName: 'initiative, vmSKUs, storageSKUs'
+          href: samples/allowed-skus-storage.md
+        - name: 'Tillåtna SKU:er för lagringskonto'
+          displayName: 'deny, builtin, storageSKUs'
+          href: samples/allowed-storage-account-skus.md
+        - name: Neka lågfrekvent åtkomstnivå för lagringskonton
+          displayName: 'deny, all'
+          href: samples/deny-cool-access-tiering.md
+        - name: Garantera endast HTTPS-trafik för lagringskonto
+          displayName: 'deny, all'
+          href: samples/ensure-https-storage-account.md
+        - name: Garantera kryptering för lagringsfil
+          displayName: 'deny, all'
+          href: samples/ensure-storage-file-encryption.md
+        - name: Kräver kryptering för lagringskonto
+          displayName: 'deny, builtin'
+          href: samples/require-storage-account-encryption.md
 - name: Begrepp
   items:
-  - name: Azure Policy-definitionsstruktur
-    displayName: parameters, location, rule, alias, initiatives
-    href: ./concepts/definition-structure.md
-  - name: Förstå Policy-effekter
-    displayName: order, evaluation
-    href: ./concepts/effects.md
-  - name: Granska virtuella datorer med gästkonfiguration
-    displayName: provider, tools, definition
-    href: ./concepts/guest-configuration.md
+    - name: Azure Policy-definitionsstruktur
+      displayName: 'parameters, location, rule, alias, initiatives'
+      href: ./concepts/definition-structure.md
+    - name: Förstå Policy-effekter
+      displayName: 'order, evaluation'
+      href: ./concepts/effects.md
+    - name: Granska virtuella datorer med gästkonfiguration
+      displayName: 'provider, tools, definition'
+      href: ./concepts/guest-configuration.md
 - name: Instruktionsguider
   items:
-  - name: Skapa principer programmässigt
-    displayName: assign, definition
-    href: ./how-to/programmatically-create.md
-  - name: Hämta data för efterlevnad
-    displayName: evaluation, scan, summarize, query, events, log analytics
-    href: ./how-to/get-compliance-data.md
-  - name: Åtgärda icke-kompatibla resurser
-    displayName: managed identity, task, definition, roleDefinitionIds
-    href: ./how-to/remediate-resources.md
+    - name: Skapa principer programmässigt
+      displayName: 'assign, definition'
+      href: ./how-to/programmatically-create.md
+    - name: Hämta data för efterlevnad
+      displayName: 'evaluation, scan, summarize, query, events, log analytics'
+      href: ./how-to/get-compliance-data.md
+    - name: Åtgärda icke-kompatibla resurser
+      displayName: 'managed identity, task, definition, roleDefinitionIds'
+      href: ./how-to/remediate-resources.md
 - name: Referens
   items:
-  - name: Azure CLI
-    href: /cli/azure/policy
-  - name: Azure PowerShell
-    items:
-    - name: Princip
-      href: /powershell/module/azurerm.resources/#policies
-    - name: Gästkonfiguration (förhandsversion)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: REST-API
-    items:
-    - name: Händelser
-      href: /rest/api/policy-insights/policyevents
-    - name: Tillstånd
-      href: /rest/api/policy-insights/policystates
-    - name: Tilldelningar
-      href: /rest/api/resources/policyassignments
-    - name: Principdefinitioner
-      href: /rest/api/resources/policydefinitions
-    - name: Initiativdefinitioner
-      href: /rest/api/resources/policysetdefinitions
-    - name: Principspårade resurser
-      href: /rest/api/policy-insights/policytrackedresources
-    - name: Reparationer
-      href: /rest/api/policy-insights/remediations
-    - name: Gästkonfiguration (förhandsversion)
-      href: /rest/api/guestconfiguration/
-  - name: Mallar för Resurshanteraren
-    items:
-    - name: Tilldelningar
-      href: /azure/templates/microsoft.authorization/policyassignments
-    - name: Principdefinitioner
-      href: /azure/templates/microsoft.authorization/policydefinitions
-    - name: Initiativdefinitioner
-      href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Azure CLI
+      href: /cli/azure/policy
+    - name: Azure PowerShell
+      items:
+        - name: Princip
+          href: '/powershell/module/az.resources/#policies'
+        - name: Gästkonfiguration (förhandsversion)
+          href: 'https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration'
+    - name: REST-API
+      items:
+        - name: Händelser
+          href: /rest/api/policy-insights/policyevents
+        - name: Tillstånd
+          href: /rest/api/policy-insights/policystates
+        - name: Tilldelningar
+          href: /rest/api/resources/policyassignments
+        - name: Principdefinitioner
+          href: /rest/api/resources/policydefinitions
+        - name: Initiativdefinitioner
+          href: /rest/api/resources/policysetdefinitions
+        - name: Principspårade resurser
+          href: /rest/api/policy-insights/policytrackedresources
+        - name: Reparationer
+          href: /rest/api/policy-insights/remediations
+        - name: Gästkonfiguration (förhandsversion)
+          href: /rest/api/guestconfiguration/
+    - name: Mallar för Resurshanteraren
+      items:
+        - name: Tilldelningar
+          href: /azure/templates/microsoft.authorization/policyassignments
+        - name: Principdefinitioner
+          href: /azure/templates/microsoft.authorization/policydefinitions
+        - name: Initiativdefinitioner
+          href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resurser
   items:
-  - name: GitHub – Azure Policy-exempel
-    href: https://github.com/Azure/azure-policy
-  - name: Video – Build 2018
-    href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Styrning av YouTube-kanal
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Gästkonfigurationsvideor
-    items:
-    - name: Komma igång
-      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
-    - name: Förstå initiativ
-      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
-    - name: Tilldela princip
-      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
-    - name: Reparationsåtgärd
-      href: https://www.youtube.com/watch?v=URE4DUYMgmg
-  - name: Azure-översikt
-    href: https://azure.microsoft.com/roadmap/
-  - name: Priskalkylator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance
-ms.openlocfilehash: b4dd12a4428813d506dbb036afea397c824ccfcf
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401019"
+    - name: GitHub – Azure Policy-exempel
+      href: 'https://github.com/Azure/azure-policy'
+    - name: Video – Build 2018
+      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: Styrning av YouTube-kanal
+      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+    - name: Gästkonfigurationsvideor
+      items:
+        - name: Komma igång
+          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+        - name: Förstå initiativ
+          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+        - name: Tilldela princip
+          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+        - name: Reparationsåtgärd
+          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
+    - name: Azure-översikt
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Priskalkylator
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: UserVoice
+      href: 'https://feedback.azure.com/forums/915958-azure-governance'

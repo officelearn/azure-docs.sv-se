@@ -3,23 +3,23 @@ title: AMQP 1.0 i Azure Service Bus-begäran-svar-baserade åtgärder | Microsof
 description: Lista över Microsoft Azure Service Bus-begäran/svar-baserade åtgärder.
 services: service-bus-messaging
 documentationcenter: na
-author: spelluru
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 ms.assetid: ''
 ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
-ms.author: spelluru
-ms.openlocfilehash: 6ba3d8e4273d0f2ce2626d8876c386a3714d5355
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.date: 01/23/2019
+ms.author: aschhab
+ms.openlocfilehash: 113ed80910e396361396a9c1298fc04a55ac4800
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50159102"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852485"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 i Microsoft Azure Service Bus: begäran-svar-baserade åtgärder
 
@@ -154,7 +154,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av ett avsnitt för amqp-värde som innehåller en karta med följande poster:  
   
@@ -188,8 +188,8 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Nej innehåll – inga fler meddelanden|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
@@ -226,10 +226,10 @@ Kartan som representerar ett meddelande måste innehålla följande poster:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|meddelande-id|sträng|Ja|`amqpMessage.Properties.MessageId` som sträng|  
+|message-id|sträng|Ja|`amqpMessage.Properties.MessageId` som sträng|  
 |sessions-id|sträng|Nej|`amqpMessage.Properties.GroupId as string`|  
 |partitionsnyckel|sträng|Nej|`amqpMessage.MessageAnnotations.”x-opt-partition-key"`|
-|via partitionsnyckel|sträng|Nej|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
+|via-partition-key|sträng|Nej|`amqpMessage.MessageAnnotations."x-opt-via-partition-key"`|
 |meddelande|matris med byte|Ja|AMQP 1.0 wire-kodat meddelande.|  
   
 #### <a name="response"></a>Svar  
@@ -239,7 +239,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en karta med följande poster:  
   
@@ -273,7 +273,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades.|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en karta med följande poster:  
   
@@ -308,8 +308,8 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Nej innehåll – inga fler meddelanden|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en karta med följande poster:  
   
@@ -344,8 +344,8 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Nej innehåll – inga fler meddelanden|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en karta med följande poster:  
   
@@ -386,7 +386,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="get-session-state"></a>Get-sessionstillstånd  
 
@@ -414,7 +414,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
@@ -439,7 +439,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|senast uppdaterad tid|tidsstämpel|Ja|Filtrera om du vill inkludera endast sessioner som har uppdaterats efter en viss tid.|  
+|last-updated-time|tidsstämpel|Ja|Filtrera om du vill inkludera endast sessioner som har uppdaterats efter en viss tid.|  
 |hoppa över|int|Ja|Hoppa över ett antal sessioner.|  
 |längst upp|int|Ja|Maximalt antal sessioner.|  
   
@@ -449,8 +449,8 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Nej innehåll – inga fler meddelanden|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – har fler meddelanden<br /><br /> 204: Inget innehåll – inga fler meddelanden|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
@@ -477,15 +477,15 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |namn|sträng|Ja|Regelnamn inkluderar inte prenumerationen och avsnittet namn.|  
-|Beskrivning av regel|map|Ja|Beskrivning av regel som anges i nästa avsnitt.|  
+|rule-description|map|Ja|Beskrivning av regel som anges i nästa avsnitt.|  
   
 Den **beskrivning av regel** karta måste innehålla följande poster där **sql-filter** och **korrelationsfiltret** kan inte anges samtidigt:  
   
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |sql-filter|map|Ja|`sql-filter`, som angetts i nästa avsnitt.|  
-|Korrelations-filter|map|Ja|`correlation-filter`, som angetts i nästa avsnitt.|  
-|SQL-Regelåtgärd|map|Ja|`sql-rule-action`, som angetts i nästa avsnitt.|  
+|correlation-filter|map|Ja|`correlation-filter`, som angetts i nästa avsnitt.|  
+|sql-rule-action|map|Ja|`sql-rule-action`, som angetts i nästa avsnitt.|  
   
 Sql-filter kartan måste innehålla följande poster:  
   
@@ -498,7 +498,7 @@ Den **korrelationsfiltret** karta måste innehålla minst en av följande poster
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |Korrelations-id|sträng|Nej||  
-|meddelande-id|sträng|Nej||  
+|message-id|sträng|Nej||  
 |till|sträng|Nej||  
 |Svara till|sträng|Nej||  
 |etikett|sträng|Nej||  
@@ -520,7 +520,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="remove-rule"></a>Ta bort regel  
   
@@ -546,7 +546,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 ### <a name="get-rules"></a>Hämta regler
 
@@ -579,7 +579,7 @@ Varje post i matrisen innehåller följande egenskaper:
 
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
-|Beskrivning av regel|matris med beskrivs objekt|Ja|`com.microsoft:rule-description:list` Beskrivningen kod 0x0000013700000004 med AMQP| 
+|rule-description|matris med beskrivs objekt|Ja|`com.microsoft:rule-description:list` Beskrivningen kod 0x0000013700000004 med AMQP| 
 
 `com.microsoft.rule-description:list` är en matris med objekt som beskrivs. Matrisen innehåller följande:
 
@@ -647,7 +647,7 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |sekvensnummer|matris med långa|Ja|Sekvensnummer.|  
-|mottagare löser in läge|ubyte|Ja|**Mottagare löser in** läge som anges i AMQP core v1.0.|  
+|receiver-settle-mode|ubyte|Ja|**Mottagare löser in** läge som anges i AMQP core v1.0.|  
   
 #### <a name="response"></a>Svar  
 
@@ -656,7 +656,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|  
+|statusDescription|sträng|Nej|Beskrivning av status.|  
   
 Svarets meddelandetext måste bestå av en **amqp-värdet** avsnitt som innehåller en **kartan** med följande poster:  
   
@@ -690,8 +690,8 @@ Meddelandetexten begäran måste bestå av en **amqp-värdet** avsnitt som inneh
 |---------|----------------|--------------|--------------------|  
 |disposition-status|sträng|Ja|completed<br /><br /> övergivna<br /><br /> Har pausats|  
 |Lås token|matris med uuid|Ja|Meddelandet Lås token för att uppdatera disposition status.|  
-|obeställbara orsak|sträng|Nej|Kan anges om disposition status anges till **pausats**.|  
-|obeställbara beskrivning|sträng|Nej|Kan anges om disposition status anges till **pausats**.|  
+|deadletter-reason|sträng|Nej|Kan anges om disposition status anges till **pausats**.|  
+|deadletter-description|sträng|Nej|Kan anges om disposition status anges till **pausats**.|  
 |Egenskaper för att ändra|map|Nej|Lista över Service Bus brokered meddelandeegenskaper som ska ändras.|  
   
 #### <a name="response"></a>Svar  
@@ -701,7 +701,7 @@ Svarsmeddelandet måste innehålla följande egenskaper för program:
 |Nyckel|Värdetyp|Krävs|Värdet innehållet|  
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Ja|HTTP-svarskoden [RFC2616]<br /><br /> 200: OK – lyckades, annars misslyckades|  
-|Statusbeskrivning|sträng|Nej|Beskrivning av status.|
+|statusDescription|sträng|Nej|Beskrivning av status.|
 
 ## <a name="next-steps"></a>Nästa steg
 

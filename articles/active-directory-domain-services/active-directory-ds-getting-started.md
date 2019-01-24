@@ -4,7 +4,7 @@ description: Aktivera Azure Active Directory Domain Services med Azure portal
 services: active-directory-ds
 documentationcenter: ''
 author: eringreenlee
-manager: mtillman
+manager: daveba
 editor: curtand
 ms.assetid: ace1ed4a-bf7f-43c1-a64a-6b51a2202473
 ms.service: active-directory
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: ergreenl
-ms.openlocfilehash: a795691959c744f5358966d62449882e514eb8eb
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 07dbc96e94c736b4e4c80dd212f0674bfeffce45
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155090"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54850424"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Aktivera Azure Active Directory Domain Services med Azure portal
 Den här artikeln visar hur du aktiverar Azure Active Directory Domain Services (Azure AD DS) med Azure portal.
@@ -61,11 +61,11 @@ I den **grunderna** sidan i guiden anger du DNS-domännamnet för den hanterade 
 
    > [!NOTE]
    > **Riktlinjer för att välja ett DNS-domännamn**
-   > * **Inbyggda domännamn:** som standard i guiden anger standard/inbyggda-i domännamnet för katalogen (med en **. onmicrosoft.com** suffix) åt dig. Om du väljer att aktivera åtkomst med säkert LDAP till den hanterade domänen via internet, räkna med problem med att skapa en offentlig DNS-post eller skaffa en säker LDAP-certifikat från en offentlig Certifikatutfärdare för det här domännamnet. Microsoft äger den *. onmicrosoft.com* domän och certifikatutfärdare utfärdar inte certifikat som ansvarar för den här domänen.
-   * **Anpassade domännamn:** du kan också skriva i ett anpassat domännamn. I det här exemplet är det anpassade domännamnet *contoso100.com*.
-   * **Icke-dirigerbara domänsuffix:** i allmänhet rekommenderar vi att undvika ett icke-dirigerbara domän namnsuffix. Exempelvis är det bättre att undvika att skapa en domän med DNS-domän namn ”contoso.local”. DNS-suffixet ”Local” är inte dirigerbart och kan orsaka problem med DNS-matchning.
-   * **Domänbegränsningar för prefix:** prefixet för det angivna domännamnet (till exempel *contoso100* i den *contoso100.com* domännamn) får innehålla högst 15 tecken. Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken.
-   * **Nätverks-namnet står i konflikt:** Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
+   > * **Inbyggda domännamn:** Som standard i guiden anger standard/inbyggda-i domännamnet för katalogen (med en **. onmicrosoft.com** suffix) åt dig. Om du väljer att aktivera åtkomst med säkert LDAP till den hanterade domänen via internet, räkna med problem med att skapa en offentlig DNS-post eller skaffa en säker LDAP-certifikat från en offentlig Certifikatutfärdare för det här domännamnet. Microsoft äger den *. onmicrosoft.com* domän och certifikatutfärdare utfärdar inte certifikat som ansvarar för den här domänen.
+   * **Anpassade domännamn:** Du kan också skriva i ett anpassat domännamn. I det här exemplet är det anpassade domännamnet *contoso100.com*.
+   * **Icke-dirigerbara domänsuffix:** I allmänhet rekommenderar vi att undvika ett icke-dirigerbara domän namnsuffix. Exempelvis är det bättre att undvika att skapa en domän med DNS-domän namn ”contoso.local”. DNS-suffixet ”Local” är inte dirigerbart och kan orsaka problem med DNS-matchning.
+   * **Domänbegränsningar för prefix:** Prefixet för det angivna domännamnet (till exempel contoso100 i domännamnet *contoso100.com*) kan innehålla upp till 15 tecken. Du kan inte skapa en hanterad domän med ett prefix som är längre än 15 tecken.
+   * **Nätverket namnet står i konflikt:** Kontrollera att DNS-domännamnet som du har valt för den hanterade domänen inte redan finns i det virtuella nätverket. Kontrollera särskilt om:
        * Du har redan en Active Directory-domän med samma DNS-domännamnet i det virtuella nätverket.
        * Det virtuella nätverket där du planerar att aktivera den hanterade domänen har en VPN-anslutning med det lokala nätverket. I det här scenariot, se till att du inte har en domän med samma DNS-domännamnet i ditt lokala nätverk.
        * Du har en befintlig molntjänst med det namnet i det virtuella nätverket.

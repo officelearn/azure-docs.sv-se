@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: 6238d3d7a64816df01be69458d784114368d9e17
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141347"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54827507"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Metodtips för att skydda och hantera arbetsbelastningar migreras till Azure
 
@@ -26,14 +26,14 @@ Som du planerar och utformar för migrering, förutom att tänka på migreringen
 Efter migreringen är den mest kritiska uppgiften att skydda migrerade arbetsbelastningar från interna och externa hot. Dessa metodtips hjälper dig att göra det:
 
 - [Arbeta med Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Lär dig hur du arbetar med övervakning, utvärderingar och rekommendationer som tillhandahålls av Azure Security Center
-- [Kryptera dina data](#best-practice-encrypt-data): få metodtips för att kryptera dina data i Azure.
-- [Konfigurera program mot skadlig kod](#best-practice-protect-vms-with-antimalware): skydda dina virtuella datorer mot skadlig kod och skadliga attacker.
-- [Skydda webbappar](#best-practice-secure-web-apps): Behåll känslig information säker migreras webbappar.
+- [Kryptera dina data](#best-practice-encrypt-data): Få metodtips för att kryptera dina data i Azure.
+- [Konfigurera program mot skadlig kod](#best-practice-protect-vms-with-antimalware): Skydda dina virtuella datorer mot skadlig kod och skadliga attacker.
+- [Skydda webbappar](#best-practice-secure-web-apps): Skydda känslig information i migrerade web apps.
 - [Granska prenumerationer](#best-practice-review-subscriptions-and-resource-permissions): Kontrollera vem som kan komma åt din Azure-prenumerationer och resurser efter migreringen.
-- [Arbeta med loggar](#best-practice-review-audit-and-security-logs): granska dina Azure-granskningen och security loggar regelbundet.
+- [Arbeta med loggar](#best-practice-review-audit-and-security-logs): Granska dina Azure gransknings- och loggar regelbundet.
 - [Granska andra säkerhetsfunktioner](#best-practice-evaluate-other-security-features): Förstå och utvärdera avancerade säkerhetsfunktioner som Azure erbjuder.
 
-## <a name="best-practice-follow-azure-security-center-recommendations"></a>Bästa praxis: Följ Azure Security Center-rekommendationer
+## <a name="best-practice-follow-azure-security-center-recommendations"></a>Rekommendation: Följ Azure Security Center-rekommendationer
 
 Microsoft arbetar hårt för att säkerställa att Azure innehavaradministratörer har information som behövs för att aktivera funktioner för att skyddar arbetsbelastningar från attacker.  Azure Security Center erbjuder enhetlig säkerhetshantering. I Security Center kan du tillämpa säkerhetsprinciper i arbetsbelastningarna, begränsa exponeringen för hot, och identifiera och svara på attacker. Security Center analyserar resurser och konfigurationer över Azure-klienter och gör säkerhetsrekommendationer, inklusive:
 
@@ -44,14 +44,14 @@ Microsoft arbetar hårt för att säkerställa att Azure innehavaradministratör
 
 Förutom bedömningar och rekommendationerna tillhandahåller i Security Center ett antal andra säkerhetsfunktioner som kan aktiveras för specifika resurser.
 
-- **Precis i tid JIT-åtkomst**: minska din nätverkskontakter med just-in-time och kontrollerad åtkomst till hanteringsportar på virtuella Azure-datorer.
+- **Precis i tid JIT-åtkomst**: Minska dina nätverkskontakter med just-in-time, kontrollerad åtkomst till hanteringsportar på virtuella Azure-datorer.
     - Med VM RDP-porten 3389 öppen på internet visar virtuella datorer till kontinuerliga obehörig aktivitet. Azure IP-adresser är välkänd och hackare avsökning kontinuerligt dem för attacker på Öppna 3389 portar. 
     - Just-in-time använder nätverkssäkerhet grupper (NSG) och inkommande regler som gräns för hur lång tid som en specifik port är öppen.
     - Med just-in-aktiveringen, kontrollerar Security Center att en användare har rollbaserad åtkomstkontroll (RBAC) skrivåtkomst åtkomstbehörigheter för en virtuell dator. Dessutom kan ange regler för hur användare kan ansluta till virtuella datorer. Om behörigheterna är OK, en åtkomstbegäran har godkänts och konfigurerar Security Center NSG: er för att tillåta inkommande trafik till de markerade portarna för den tid anger du. NSG: er kan gå tillbaka till föregående tillstånd när tiden upphör att gälla.
-- **Anpassningsbara programkontroller**: Håll programvara och skadlig kod av virtuella datorer genom att styra vilka appar som körs på dem. med dynamiska app listan över tillåtna program.
+- **Anpassningsbara programkontroller**: Håll programvara och skadlig kod av virtuella datorer genom att styra vilka appar som körs på dem. med hjälp av dynamisk app listan över tillåtna program.
     - Anpassningsbara programkontroller kan du lista för tillåten appar och förhindra att obehöriga användare eller administratörer från att installera icke-godkända eller veta appar på dina virtuella datorer.
     - Du kan blockera eller avisering försöker köra skadliga program, undvika oönskade eller skadliga appar och säkerställa efterlevnad med din organisations säkerhetsprincip för appen.
-- **Övervakning av filintegritet**: skydda integriteten för filer som körs på virtuella datorer.
+- **Övervakning av filintegritet**: Kontrollera integriteten för filer som körs på virtuella datorer.
     - Du behöver inte installera programvara för att göra med virtuella datorer.  Ändra en fil kan även orsaka försämring av VM-fel eller prestanda.  Filen integritet övervakning undersöker systemfiler och registerinställningar för ändringar och meddelar dig om det har uppdaterats.
     - Security Center rekommenderar som du bör övervaka.
 
@@ -64,18 +64,18 @@ Förutom bedömningar och rekommendationerna tillhandahåller i Security Center 
 - [Kom igång](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring) med Filintegritetsövervakning.
 
 
-## <a name="best-practice-encrypt-data"></a>Bästa praxis: kryptera data 
+## <a name="best-practice-encrypt-data"></a>Rekommendation: Kryptera data 
 
 Kryptering är en viktig del av Azure säkerhetsrutiner. Säkerställer att kryptering är aktiverat på alla nivåer förhindrar att obehöriga personer får åtkomst till känsliga data, inklusive data under överföring och i vila. 
 
 ### <a name="encryption-for-iaas"></a>Kryptering för IaaS
 
-- **Virtuella datorer**: för virtuella datorer du kan använda Azure Disk Encryption för att kryptera din Windows- och Linux IaaS VM-diskar.
-    - Diskkryptering använder Bitlocker för Windows och DM-Crypt i Linux för volymkryptering för operativsystem och datadiskar.
+- **Virtuella datorer**: Du kan använda Azure Disk Encryption för virtuella datorer för att kryptera din Windows- och Linux IaaS VM-diskar.
+    - Diskkryptering använder BitLocker för Windows och DM-Crypt i Linux för volymkryptering för operativsystem och datadiskar.
     - Du kan använda en krypteringsnyckel som skapats av Azure eller ange egna krypteringsnycklar, skyddas i Azure Key Vault. 
     - Med Disk Encryption, IaaS VM-data är skyddade i vila (på disk) och under VM start. 
     - Azure Security Center varnar dig om du har virtuella datorer som inte är krypterade.
-- **Storage**: skydda vilande data som lagras i Azure storage.
+- **Storage**: Skydda vilande data som lagras i Azure storage.
     - Data som lagras i Azure storage-konton kan krypteras med Microsoft-genererade AES-nycklar som är FIPS 140-2-kompatibel eller du kan använda dina egna nycklar.
     - Kryptering av lagringstjänst är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras.
 
@@ -84,11 +84,11 @@ Kryptering är en viktig del av Azure säkerhetsrutiner. Säkerställer att kryp
 
 Till skillnad från IaaS där du hanterar dina egna virtuella datorer och infrastruktur, i en PaaS hanteras modellen plattform och infrastruktur av providern så att du kan fokusera på appen kärnlogik och funktioner. Med så många olika typer av PaaS-tjänster, kommer varje tjänst att utvärderas individuellt av säkerhetsskäl. Exempelvis kan du nu ska vi se hur vi kan aktivera kryptering för Azure SQL Database.
 
-- **Alltid krypterad**: använder alltid krypterad guiden i SQL Server Management Studio för att skydda data i vila.
+- **Alltid krypterad**: Använd alltid krypterad guiden i SQL Server Management Studio för att skydda data i vila.
     - Du skapar alltid krypterad nyckel för att kryptera enskilda kolumndata.
     - Alltid krypterad nycklar kan lagras krypterade i databasmetadata eller lagras i betrodda viktiga butiker, till exempel Azure Key Vault.
     - Appändringar krävs förmodligen för att använda den här funktionen.
-- **Transparent datakryptering (TDE)**: skydda Azure SQL Database med i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande.
+- **Transparent datakryptering (TDE)**: Skydda Azure SQL Database med i realtid kryptering och dekryptering av databasen, tillhörande säkerhetskopior och transaktionsloggfiler vilande.
     - TDE kan krypteringsaktiviteter ska kunna utföras utan att göra ändringar i appnivån.
     - TDE kan använda krypteringsnycklar som tillhandahålls av Microsoft eller du kan ange dina egna nycklar med stöd för Bring Your Own Key.
 
@@ -101,7 +101,7 @@ Till skillnad från IaaS där du hanterar dina egna virtuella datorer och infras
 - [Läs mer om](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-2017) transparent Datakryptering för Azure SQL Database.
 - [Lär dig mer om](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql) transparent Datakryptering med Bring Your Own Key.
 
-## <a name="best-practice-protect-vms-with-antimalware"></a>Bästa praxis: skydda virtuella datorer med program mot skadlig kod
+## <a name="best-practice-protect-vms-with-antimalware"></a>Rekommendation: Skydda virtuella datorer med program mot skadlig kod
 
 I synnerhet kanske äldre Azure migrerade virtuella datorer inte har en lämplig nivå av program mot skadlig kod installerats.  Azure tillhandahåller en kostnadsfri lösning som hjälper dig att skydda virtuella datorer från virus, spionprogram och annan skadlig kod.
 - Microsoft Antimalware för Azure genererar varningar när känd skadlig eller oönskad programvara försöker installera sig själv.
@@ -115,7 +115,7 @@ I synnerhet kanske äldre Azure migrerade virtuella datorer inte har en lämplig
 
 - [Lär dig mer om](https://docs.microsoft.com/azure/security/azure-security-antimalware) Microsoft program mot skadlig kod.
 
-## <a name="best-practice-secure-web-apps"></a>Bästa praxis: skydda webbappar
+## <a name="best-practice-secure-web-apps"></a>Rekommendation: Skydda webbappar
 
 Migrerade webbappar står inför ett antal problem:
 
@@ -125,14 +125,14 @@ Migrerade webbappar står inför ett antal problem:
 
 Azure tillhandahåller ett antal lösningar:
 
-- **Azure Key Vault**: idag app webbutvecklare vidtar åtgärder för att säkerställa att känslig information inte sprids från dessa filer. En metod för att skydda information är att extrahera från filer och placerar den i ett Azure Key Vault.
+- **Azure Key Vault**: Idag tar appen webbutvecklare åtgärder för att säkerställa att känslig information inte sprids från dessa filer. En metod för att skydda information är att extrahera från filer och placerar den i ett Azure Key Vault.
     - Du kan använda Key Vault för att centralisera lagring av apphemligheter och styra spridningen. Så sätt undviker du att behöva lagra säkerhetsinformation i appfiler.
     - Appar kan åtkomst säkerhetsinformation i valvet med hjälp av URI: er, utan att behöva anpassad kod.
     - Azure Key Vault kan du låsa åtkomst via Azures säkerhetskontroller och smidigt implementera ”nycklar”. Microsoft varken ser eller extraherar dina data.
-- **App Service Environment**: om en app som du migrerar behöver extra skydd kan du överväga att lägga till en App Service-miljö och en brandvägg för webbaserade program för att skydda appens resurser.
+- **App Service Environment**: Om en app som du migrerar behöver extra skydd kan överväga du att lägga till en App Service-miljö och en brandvägg för webbaserade program för att skydda appens resurser.
     - Azure App Service Environment är en helt isolerad och dedikerad miljö där att köra App Service-appar som Windows och Linux-webbappar, Docker-behållare, mobila appar och funktioner.
     - Det är användbart för appar som är mycket hög skala, kräver isolering och säkert nätverk komma åt eller har hög minnesanvändning
-- **Brandvägg för webbaserade program**: en funktion i Application Gateway som ger ett centraliserat skydd för web apps.
+- **Brandvägg för webbaserade program**: En funktion i Application Gateway som ger ett centraliserat skydd för web apps.
     - Det skyddar webbappar utan att kodändringar i serverdelen.
     - Det skyddar flera webbprogram samtidigt bakom en Programgateway.
     - Brandvägg för webbaserade program kan övervakas med Azure Monitor och är integrerat i Azure Security Center.
@@ -150,7 +150,7 @@ Azure tillhandahåller ett antal lösningar:
 - [Lär dig hur du](https://docs.microsoft.com/azure/key-vault/tutorial-web-application-keyvault) konfigurera en webbapp för att läsa hemligheter från Nyckelvalvet.
 - [Lär dig mer om](https://docs.microsoft.com/azure/application-gateway/waf-overview) Brandvägg för webbaserade program
 
-## <a name="best-practice-review-subscriptions-and-resource-permissions"></a>Bästa praxis: granska prenumerationer och resursbehörigheter
+## <a name="best-practice-review-subscriptions-and-resource-permissions"></a>Rekommendation: Granska prenumerationer och resursbehörigheter
 
 När du migrerar dina arbetsbelastningar och kör dem i Azure, personal tillgång arbetsbelastning flyttas runt. Ditt säkerhetsteam bör granska åtkomst till din Azure-klient och resursgrupper med jämna mellanrum. Azure tillhandahåller ett antal erbjudanden för Identitetshantering och säkerhet för åtkomstkontroll, inklusive rollbaserad åtkomstkontroll (RBAC) för att ge behörighet att komma åt Azure-resurser.
 
@@ -168,7 +168,7 @@ När du migrerar dina arbetsbelastningar och kör dem i Azure, personal tillgån
 - [Lär dig](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) att hantera åtkomst med RBAC och Azure-portalen.
 - [Lär dig mer om](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) anpassade roller.
 
-## <a name="best-practice-review-audit-and-security-logs"></a>Bästa praxis: granska loggarna för gransknings- och säkerhet
+## <a name="best-practice-review-audit-and-security-logs"></a>Rekommendation: Granska loggarna för gransknings- och säkerhet
 
 Azure Active Directory (AD) innehåller aktivitetsloggar som visas i Azure Monitor. Loggarna avbilda de åtgärder som utförs i Azure innehavare, när de inträffar och vem som utfört dem. 
 
@@ -186,14 +186,14 @@ Azure Active Directory (AD) innehåller aktivitetsloggar som visas i Azure Monit
 - [Lär dig mer om](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor) Azure AD-aktivitetsloggar i Azure Monitor.
 - [Lär dig hur du](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) granska aktivitetsrapporter i Azure AD-portalen.
 
-## <a name="best-practice-evaluate-other-security-features"></a>Bästa praxis: Utvärdera andra säkerhetsfunktioner
+## <a name="best-practice-evaluate-other-security-features"></a>Rekommendation: Utvärdera andra säkerhetsfunktioner
 
 Azure tillhandahåller ett antal andra säkerhetsfunktioner som tillhandahåller alternativ för avancerad säkerhet. Vissa av dessa bästa metoder kräver premium-alternativ och tilläggslicenser.
 
-- **Implementera Azure AD administrativa enheter (AU)**: delegera administrativa uppgifter för supportpersonal kan det vara svår med bara grundläggande Azure access control.  Ge stöd för personal tillgång till att administrera alla grupper i Azure AD kanske inte är det perfekta sättet för företagssäkerhet.  Med hjälp av automatiska uppdateringar kan du särskilja Azure-resurser i behållare på ett liknande sätt till lokala organisationsenheter (OU).  Om du vill använda Australien måste AU-administratören ha en Azure AD premium-licens. [Läs mer](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+- **Implementera Azure AD administrativa enheter (AU)**: Delegera administrativa uppgifter för supportpersonal kan vara svårt med bara grundläggande Azure access control.  Ge stöd för personal tillgång till att administrera alla grupper i Azure AD kanske inte är det perfekta sättet för företagssäkerhet.  Med hjälp av automatiska uppdateringar kan du särskilja Azure-resurser i behållare på ett liknande sätt till lokala organisationsenheter (OU).  Om du vill använda Australien måste AU-administratören ha en Azure AD premium-licens. [Läs mer](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
 - **Använd multifaktorautentisering (MFA)**: Om du har en premium Azure AD-licens kan du aktivera och använda MFA på din administratörskonton. Nätfiske är det vanligaste sättet att konton autentiseringsuppgifter har komprometterats.  När någon obehörig har administratörsautentiseringsuppgifter för kontot, finns det ingen stoppar dem från omvälvande åtgärder, till exempel ta bort alla resursgrupper. Du kan konfigurera MFA på flera olika sätt, t.ex. med e-post, authenticator-appen och phone textmeddelanden. Som administratör kan du välja alternativet minst påträngande. MFA kan integreras med hotanalys och principer för villkorlig åtkomst till slumpmässigt kräver en MFA-kontrollen svara. Läs mer om [säkerhetsvägledning](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices), och [hur du ställer in](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication-security-best-practices) MFA.
-- **Implementera villkorlig åtkomst**: I de flesta små och medelstora organisationer Azure-administratörer och supporten förmodligen finns i ett enda geografiskt område. I det här fallet kommer de flesta inloggningar från samma områden. Om det är ganska statiska IP-adresserna för de här platserna kan det vara bra att du inte nog administratör inloggningar från utanför dessa områden. Även i en händelse som en fjärransluten obehörig komprometterar autentiseringsuppgifter som en administratör, kan du implementera säkerhetsfunktioner, t.ex. villkorlig åtkomst i kombination med MFA för att förhindra att inloggningen från fjärranslutna platser eller från falska platser från slumpmässiga IP-adresser. [Läs mer](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) om villkorlig åtkomst och [metodtips](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices) för villkorlig åtkomst i Azure AD.
-- **Granska företagsprogram behörigheter**: med tiden kan administratörer klickar du på Microsoft och tredje parts länkar utan att känna till deras inverkan på organisationen. Länkar kan ge samtycke skärmar som tilldela behörigheter till Azure-appar och kan tillåta åtkomst till läsa Azure AD-data, eller till och med fullständig åtkomst till att hantera hela Azure-prenumerationen. Du bör regelbundet läsa de appar som dina administratörer och användare har åtkomst till Azure-resurser. Du bör se till att de här apparna har de behörigheter som krävs. Dessutom kvartalsvis eller årligen semikolonavgränsade kan e-användare med en länk till appen sidor så att de är medvetna om de appar som de har åtkomst till sina organisationsdata. [Läs mer](https://docs.microsoft.com/azure/active-directory/manage-apps/application-types) om programtyper, och [kontrollerar](https://docs.microsoft.com/azure/active-directory/manage-apps/remove-user-or-group-access-portal) apptilldelningar i Azure AD.
+- **Implementera villkorlig åtkomst**: I de flesta små och medelstora organisationer finns förmodligen Azure administratörer och supporten i ett enda geografiskt område. I det här fallet kommer de flesta inloggningar från samma områden. Om det är ganska statiska IP-adresserna för de här platserna kan det vara bra att du inte nog administratör inloggningar från utanför dessa områden. Även i en händelse som en fjärransluten obehörig komprometterar autentiseringsuppgifter som en administratör, kan du implementera säkerhetsfunktioner, t.ex. villkorlig åtkomst i kombination med MFA för att förhindra att inloggningen från fjärranslutna platser eller från falska platser från slumpmässiga IP-adresser. [Läs mer](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) om villkorlig åtkomst och [metodtips](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices) för villkorlig åtkomst i Azure AD.
+- **Granska företagsprogram behörigheter**: Framöver kommer administratörer klickar du på Microsoft och tredje parts länkar utan att känna till deras inverkan på organisationen. Länkar kan ge samtycke skärmar som tilldela behörigheter till Azure-appar och kan tillåta åtkomst till läsa Azure AD-data, eller till och med fullständig åtkomst till att hantera hela Azure-prenumerationen. Du bör regelbundet läsa de appar som dina administratörer och användare har åtkomst till Azure-resurser. Du bör se till att de här apparna har de behörigheter som krävs. Dessutom kvartalsvis eller årligen semikolonavgränsade kan e-användare med en länk till appen sidor så att de är medvetna om de appar som de har åtkomst till sina organisationsdata. [Läs mer](https://docs.microsoft.com/azure/active-directory/manage-apps/application-types) om programtyper, och [kontrollerar](https://docs.microsoft.com/azure/active-directory/manage-apps/remove-user-or-group-access-portal) apptilldelningar i Azure AD.
 
 
 
@@ -201,18 +201,18 @@ Azure tillhandahåller ett antal andra säkerhetsfunktioner som tillhandahåller
 
 I det här avsnittet rekommenderar vi några Metodtips för hantering av Azure, inklusive:
 
-- [Hantera resurser](#best-practice-name-resource-groups): Metodtips för Azure-resursgrupper och resurser, inklusive smart namngivning, förhindrar oavsiktlig borttagning, hantera resursbehörighet och effektiva resurstaggning.
-- [Använda skisser](#best-practice-implement-blueprints): få en snabb översikt om hur du använder skisser för att skapa och hantera dina distributionsmiljöer.
-- [Granska arkitekturer](#best-practice-review-azure-reference-architectures): granska exempel på Azure-arkitekturer att lära sig från när du skapar distributionen efter migreringen.
+- [Hantera resurser](#best-practice-name-resource-groups): Metodtips för Azure-resursgrupper och resurser, inklusive smarta namngivning, förhindrar oavsiktlig borttagning, hantera resursbehörighet och effektiva resurstaggning.
+- [Använda skisser](#best-practice-implement-blueprints): Få en snabb översikt över med skisser för att skapa och hantera dina distributionsmiljöer.
+- [Granska arkitekturer](#best-practice-review-azure-reference-architectures): Granska exempel på Azure-arkitekturer att lära sig från när du skapar distributionen efter migreringen.
 - [Konfigurera hanteringsgrupper](#best-practice-manage-resources-with-management-groups): Om du har flera prenumerationer kan du samla in dem i hanteringsgrupper och tillämpa inställningar för styrning i dessa grupper.
-- [Konfigurera åtkomstprinciper](#best-practice-deploy-azure-policy): tillämpa efterlevnadsprinciper för dina Azure-resurser.
-- [Implementera en BCDR-strategi](#best-practice-implement-a-bcdr-strategy): sätta ihop en disaster recovery (BCDR) strategi för affärskontinuitet och att skydda data, din miljö som är elastiska, och resurser upp och körs vid avbrott.
-- [Hantera virtuella datorer](#best-practice-use-managed-disks-and-availability-sets): gruppera virtuella datorer i Tillgänglighetsgrupper för ökad flexibilitet och hög tillgänglighet. Använda hanterade diskar för att underlätta disk och hanteringen av virtuella datorer.
-- [Övervaka Resursanvändning](#best-practice-monitor-resource-usage-and-performance): aktivera Diagnostisk loggning för Azure-resurser, skapa aviseringar och spelböcker för proaktiv felsökning och använda instrumentpanelen för Azure för en enhetlig vy över din distribution hälsa och status.
+- [Konfigurera åtkomstprinciper](#best-practice-deploy-azure-policy): Tillämpa efterlevnadsprinciper för dina Azure-resurser.
+- [Implementera en BCDR-strategi](#best-practice-implement-a-bcdr-strategy): Sätta ihop en disaster recovery (BCDR) strategi för affärskontinuitet och att data skyddas, din miljö som är flexibel och resurser och körs vid avbrott.
+- [Hantera virtuella datorer](#best-practice-use-managed-disks-and-availability-sets): Gruppera virtuella datorer i Tillgänglighetsgrupper för ökad flexibilitet och hög tillgänglighet. Använda hanterade diskar för att underlätta disk och hanteringen av virtuella datorer.
+- [Övervaka Resursanvändning](#best-practice-monitor-resource-usage-and-performance): Aktivera Diagnostisk loggning för Azure-resurser, skapa aviseringar och spelböcker för proaktiv felsökning och använda Azure-instrumentpanelen för en enhetlig vy över din distribution hälsa och status.
 - [Hantera support och uppdateringar](#best-practice-manage-updates): Förstå din Azure-supportplan och hur du implementerar den, få metodtips för att hålla datorer uppdaterade och put processer för ändringshantering.
 
 
-## <a name="best-practice-name-resource-groups"></a>Bästa praxis: namnge resursgrupper
+## <a name="best-practice-name-resource-groups"></a>Rekommendation: Namn på resursgrupper
 
 Att säkerställa att dina resursgrupper har meningsfulla namn som administratörer och supportteamets medlemmar kan enkelt identifiera och navigera förbättrar drastiskt produktiviteten och effektiviteten.
 - Vi rekommenderar att du följer namngivningskonventionerna Azure.
@@ -226,7 +226,7 @@ Att säkerställa att dina resursgrupper har meningsfulla namn som administratö
 
 - [Lär dig mer om](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) namngivningskonventioner
 
-## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>Bästa praxis: Implementera ta bort lås för resursgrupper
+## <a name="best-practice-implement-delete-locks-for-resource-groups"></a>Rekommendation: Implementera ta bort lås för resursgrupper
 
 Det är det sista du behöver för en resursgrupp att försvinna eftersom den togs bort av misstag. Vi rekommenderar att du implementera ta bort lås så att det inte inträffar.
 
@@ -239,7 +239,7 @@ Det är det sista du behöver för en resursgrupp att försvinna eftersom den to
 - [Lär dig mer om](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) låsa resurser för att förhindra oväntade ändringar.
 
 
-## <a name="best-practice-understand-resource-access-permissions"></a>Bästa praxis: Förstå åtkomstbehörigheter för resursen 
+## <a name="best-practice-understand-resource-access-permissions"></a>Rekommendation: Förstå resource åtkomstbehörigheter 
 
 En Prenumerationens ägare har åtkomst till alla resursgrupper och resurser i din prenumeration.
 - Lägg till personer sparsamt i den här värdefulla tilldelningen. Det är viktigt i att skydda din miljö, säkra och stabila att förstå konsekvenserna av dessa typer av behörigheter.
@@ -251,7 +251,7 @@ En Prenumerationens ägare har åtkomst till alla resursgrupper och resurser i d
 
 - [Lär dig mer om](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/) ordna prenumerationer och resursgrupper.
 
-## <a name="best-practice-tag-resources-effectively"></a>Bästa praxis: tagga resurser effektivt
+## <a name="best-practice-tag-resources-effectively"></a>Rekommendation: Tagga resurser effektivt
 
 Ofta, finns med bara ett Resursgruppsnamn rör resurser inte tillräckligt med metadata för effektiv implementering av mekanismer som t.ex interna fakturering eller hantering inom en prenumeration.
 - Som bästa praxis bör du använda Azure taggar för att lägga till användbara metadata som kan efterfrågas och rapporteras. 
@@ -270,7 +270,7 @@ Ofta, finns med bara ett Resursgruppsnamn rör resurser inte tillräckligt med m
 - [Läs](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) Azure taggning bästa praxis.
 
 
-## <a name="best-practice-implement-blueprints"></a>Bästa praxis: Implementera skisser
+## <a name="best-practice-implement-blueprints"></a>Rekommendation: Implementera skisser
 
 Precis som när skissen tillåter ingenjörer och arkitekter att skiss ett projekts design parametrar, aktivera Azure skisser molnarkitekter och centrala IT-grupper att definiera en upprepningsbara uppsättning Azure-resurser som implementerar och tillämpar en organisations standarder mönster och krav. Med hjälp av Azure skisser utvecklingsteam kan snabbt skapa och skapa nya miljöer som uppfyller företagets efterlevnadskrav, och som har en uppsättning inbyggda komponenter, till exempel nätverk, för att påskynda utvecklingen och leverans.
 
@@ -282,7 +282,7 @@ Precis som när skissen tillåter ingenjörer och arkitekter att skiss ett proje
 - [Läs](https://docs.microsoft.com/azure/governance/blueprints/overview) om skisser.
 - [Granska](https://azure.microsoft.com/blog/customizing-azure-blueprints-to-accelerate-ai-in-healthcare/) en skiss exempel som används för att påskynda AI inom hälsovården.
 
-## <a name="best-practice-review-azure-reference-architectures"></a>Bästa praxis: granska Azure-referensarkitekturer
+## <a name="best-practice-review-azure-reference-architectures"></a>Rekommendation: Granska Azure-referensarkitekturer
 
 Att skapa säkra, skalbara och hanterbara arbetsbelastningar i Azure kan kännas avskräckande.  Med kontinuerliga ändringar kan det vara svårt att hålla jämna steg med olika funktioner för en optimal miljö. En referens till Lär dig från kan vara till hjälp när du utformar och migrera dina arbetsbelastningar.  Azure och Azure partner har skapat flera exempel referensarkitekturer för olika typer av miljöer. De här exemplen är utformad att ge förslag som du kan läsa från och bygger på. 
 
@@ -293,7 +293,7 @@ Azure App Service Environment ger en helt isolerad och dedikerad miljö där du 
 - [Lär dig mer om](https://docs.microsoft.com/azure/architecture/reference-architectures/) Azure-referensarkitekturer.
 - [Granska](https://docs.microsoft.com/azure/architecture/example-scenario/) exempel på Azure-scenarier.
 
-## <a name="best-practice-manage-resources-with-management-groups"></a>Bästa praxis: hantera resurser med Hanteringsgrupper
+## <a name="best-practice-manage-resources-with-management-groups"></a>Rekommendation: Hantera resurser med Hanteringsgrupper
 
 Om din organisation har flera prenumerationer, som du behöver hantera åtkomst, principer och efterlevnad för dessa. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån.
 
@@ -311,7 +311,7 @@ Följande diagram visar ett exempel på att skapa en hierarki för styrning med 
 **Lära sig mer:**
 - [Läs mer](https://docs.microsoft.com/azure/governance/management-groups/index) om att ordna resurser till hanteringsgrupper.
 
-## <a name="best-practice-deploy-azure-policy"></a>Bästa praxis: distribuera Azure Policy
+## <a name="best-practice-deploy-azure-policy"></a>Rekommendation: Distribuera Azure Policy
 
 Azure Policy är en tjänst i Azure som används för att skapa, tilldela och hantera principer.
 
@@ -329,20 +329,20 @@ Azure Policy är en tjänst i Azure som används för att skapa, tilldela och ha
 - [Lär dig mer om](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage) skapa och hantera principer för att tvinga kompatibilitet.
 
 
-## <a name="best-practice-implement-a-bcdr-strategy"></a>Bästa praxis: Implementera en BCDR-strategi
+## <a name="best-practice-implement-a-bcdr-strategy"></a>Rekommendation: Implementera en BCDR-strategi
 
 Planera för affärskontinuitet och haveriberedskap (BCDR) är en kritisk Övning som du måste utföra när du planerar för migrering till Azure. I juridiska villkor innehåller en force majeure-instruktion som orsak skyldigheterna gentemot en större kraft, till exempel orkaner eller jordbävningar i ditt avtal. Du kan dock också skyldigheter runt en möjlighet att se till att tjänster fortsätter att köra och återställa vid behov om haveriberedskap bankerna. Du kan göra detta kan se eller dela ditt företags framtid.
 
 Brett, din BCDR-strategi måste tänka på:
-- **Säkerhetskopiering av data**: hur du skyddar dina data så att du kan återställa den enkelt om avbrott inträffar.
-- **Haveriberedskap**: hur du behåller dina appar, flexibla och tillgängliga om avbrott inträffar. 
+- **Säkerhetskopiering av data**: Hur du skyddar dina data så att du kan återställa den enkelt om avbrott inträffar.
+- **Haveriberedskap**: Så här att hålla dina appar, flexibla och tillgängliga om avbrott inträffar. 
 
-### <a name="azure-resiliency-features"></a>Azure-återhämtningskapacitet funktioner
+### <a name="azure-resiliency-features"></a>Återhämtningsfunktioner i Azure
 Azure-plattformen innehåller ett antal återhämtningsfunktioner.
 
 - **Regionen parkoppling**: Azure-par regioner för att skydda regionala inom gränserna för datahemvist av data. Azure säkerställer fysisk isolering mellan regionpar, prioriterar återställning av en av regionerna i paret vid avbrott i, distribuerar systemuppdateringar separat i varje region och gör att funktioner, till exempel Azure geo-redundant lagring att replikeras till den regionala par.
-- **Tillgänglighetszoner**: tillgänglighetszoner skydd mot fel på ett helt Azure datacenter genom att etablera fysiska separata zoner med en Azure-region. Varje zon har ett tydligt programvarusystem strömkälla, nätverkets infrastruktur och kylning mekanism.
-- **Tillgänglighetsuppsättningar**: tillgänglighetsuppsättningar skydd mot fel på ett datacenter. Du kan gruppera virtuella datorer i tillgänglighetsuppsättningar för att hålla dem med hög tillgänglighet. I varje tillgänglighetsuppsättning implementerar Azure flera feldomäner gruppen tillsammans underliggande maskinvara med en gemensam strömkälla och nätverksswitch uppdateringsdomäner som grupperar underliggande maskinvara som kan underhållas eller startas om, på samma gång. Till exempel när en arbetsbelastning fördelas mellan virtuella Azure-datorer kan du placera två eller flera virtuella datorer för varje app-nivå i en uppsättning. Du kan till exempel placera klientdelens virtuella datorer i en uppsättning och datanivå virtuella datorer i en annan. Eftersom endast en uppdateringsdomän är varje startas om samtidigt i en mängd och Azure ser till att virtuella datorer i en uppsättning fördelade över feldomäner kan du se till att inte alla virtuella datorer i en uppsättning ansluts inte på samma gång.
+- **Tillgänglighetszoner**: Tillgänglighetszoner skydd mot fel på ett helt Azure datacenter genom att etablera fysiska separata zoner med en Azure-region. Varje zon har ett tydligt programvarusystem strömkälla, nätverkets infrastruktur och kylning mekanism.
+- **Tillgänglighetsuppsättningar**: Tillgänglighetsuppsättningar skydd mot fel på ett datacenter. Du kan gruppera virtuella datorer i tillgänglighetsuppsättningar för att hålla dem med hög tillgänglighet. I varje tillgänglighetsuppsättning implementerar Azure flera feldomäner gruppen tillsammans underliggande maskinvara med en gemensam strömkälla och nätverksswitch uppdateringsdomäner som grupperar underliggande maskinvara som kan underhållas eller startas om, på samma gång. Till exempel när en arbetsbelastning fördelas mellan virtuella Azure-datorer kan du placera två eller flera virtuella datorer för varje app-nivå i en uppsättning. Du kan till exempel placera klientdelens virtuella datorer i en uppsättning och datanivå virtuella datorer i en annan. Eftersom endast en uppdateringsdomän är varje startas om samtidigt i en mängd och Azure ser till att virtuella datorer i en uppsättning fördelade över feldomäner kan du se till att inte alla virtuella datorer i en uppsättning ansluts inte på samma gång.
 
 ### <a name="set-up-bcdr"></a>Konfigurera BCDR
 
@@ -352,7 +352,7 @@ När du migrerar till Azure, är det viktigt att veta att du behöver skapa din 
 - En gång på plats, din BCDR-lösningar bör testas regelbundet kontrollera att din strategi för ska vara användbara.
 
 
-## <a name="best-practice-back-up-your-data"></a>Bästa praxis: säkerhetskopiera dina data
+## <a name="best-practice-back-up-your-data"></a>Rekommendation: Säkerhetskopiera data
 
 I de flesta fall en lokal arbetsbelastning har dragits tillbaka efter migreringen och din lokala strategi för säkerhetskopiering av data måste förlängas eller ersatts. Om du migrerar hela ditt datacenter till Azure måste du utforma och implementera en lösning för fullständig säkerhetskopiering med hjälp av Azure-tekniker eller tredje parts integrerade lösningar. 
 
@@ -361,8 +361,8 @@ I de flesta fall en lokal arbetsbelastning har dragits tillbaka efter migreringe
 
 Överväg att dessa säkerhetskopieringslösningar för arbetsbelastningar som körs på virtuella Azure IaaS-datorer:
 
-- **Azure Backup**: innehåller programkonsekventa säkerhetskopior för Azure Windows och Linux-datorer.
-- **Ögonblicksbilder av lagring**: ta ögonblicksbilder av blob-lagring.
+- **Azure Backup**: Innehåller programkonsekventa säkerhetskopior för Azure Windows och Linux-datorer.
+- **Ögonblicksbilder av lagring**: Ta ögonblicksbilder av blob-lagring.
 
 #### <a name="azure-backup"></a>Azure Backup
 
@@ -370,9 +370,9 @@ Azure Backup säkerhetskopierar skapar återställningspunkter för data som lag
    
 Du kan använda Azure Backup för att säkerhetskopiera virtuella datorer i ett par olika sätt.
 
-- **Direkt säkerhetskopiering från inställningar för virtuell dator**: du kan säkerhetskopiera virtuella datorer med Azure Backup direkt från VM-alternativ i Azure-portalen. Du kan säkerhetskopiera den virtuella datorn en gång och dag och återställa den Virtuella datordisken efter behov. Azure Backup har tagit app-medvetna dataögonblicksbilder (VSS), ingen agent är installerad på den virtuella datorn.
-- **Direkt säkerhetskopiering i Recovery Services-valvet**: du kan säkerhetskopiera dina virtuella IaaS-datorer genom att distribuera ett Azure Backup Recovery Services-valv. Detta ger en enda plats för att spåra och hantera säkerhetskopior och innehåller detaljerade alternativ för säkerhetskopiering och återställning. Säkerhetskopiering har upp till tre gånger per dag, fil/mapp-nivå. Det är inte medveten om app och Linux stöds inte. Du måste målsessionen Microsoft Azure Recovery Services MARS-agenten på varje virtuell dator som du vill säkerhetskopiera.
-- **Azure Backup Server: Skydda den virtuella datorn på Azure Backup Server**: Azure Backup Server tillhandahålls kostnadsfritt med Azure Backup. Den virtuella datorn har säkerhetskopierats till lokal lagring i Azure Backup Server. Du sedan säkerhetskopiera Azure Backup Server till Azure i ett valv. Backup är app-medveten, med fullständig granularitet över ofta säkerhetskopiering och kvarhållning. Du kan säkerhetskopiera på appnivå. Till exempel genom att säkerhetskopiera SQL Server eller SharePoint.
+- **Direkt säkerhetskopiering från inställningar för virtuell dator**: Du kan säkerhetskopiera virtuella datorer med Azure Backup direkt från VM-alternativ i Azure-portalen. Du kan säkerhetskopiera den virtuella datorn en gång och dag och återställa den Virtuella datordisken efter behov. Azure Backup har tagit app-medvetna dataögonblicksbilder (VSS), ingen agent är installerad på den virtuella datorn.
+- **Direkt säkerhetskopiering i Recovery Services-valvet**: Du kan säkerhetskopiera dina virtuella IaaS-datorer genom att distribuera ett Azure Backup Recovery Services-valv. Detta ger en enda plats för att spåra och hantera säkerhetskopior och innehåller detaljerade alternativ för säkerhetskopiering och återställning. Säkerhetskopiering har upp till tre gånger per dag, fil/mapp-nivå. Det är inte medveten om app och Linux stöds inte. Du måste installera Microsoft Azure Recovery Services MARS-agenten på varje virtuell dator som du vill säkerhetskopiera.
+- **Azure Backup Server: Skydda den virtuella datorn till Azure Backup Server**: Azure Backup Server tillhandahålls kostnadsfritt med Azure Backup. Den virtuella datorn har säkerhetskopierats till lokal lagring i Azure Backup Server. Du sedan säkerhetskopiera Azure Backup Server till Azure i ett valv. Backup är app-medveten, med fullständig granularitet över ofta säkerhetskopiering och kvarhållning. Du kan säkerhetskopiera på appnivå. Till exempel genom att säkerhetskopiera SQL Server eller SharePoint.
 
 För säkerhet, Azure Backup krypterar data pågående med hjälp av AES-256 och skickar dem via HTTPS till Azure. Säkerhetskopierade data i vila i Azure krypteras med [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), och data för överföring och lagring.
 
@@ -440,7 +440,7 @@ Eftersom Azure Functions fungerar mer eller mindre som kod, bör du säkerhetsko
 
 - [Dataskydd](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) för Azure DevOps.
 
-## <a name="best-practice-set-up-disaster-recovery"></a>Bästa praxis: Ställ in katastrofåterställning 
+## <a name="best-practice-set-up-disaster-recovery"></a>Rekommendation: Konfigurera haveriberedskap 
 
 Utöver att skydda data, betrakta BCDR planera så att appar och arbetsbelastningar som är tillgängliga i händelse av katastrof. 
 
@@ -448,7 +448,7 @@ Utöver att skydda data, betrakta BCDR planera så att appar och arbetsbelastnin
 
 Överväg att dessa lösningar för arbetsbelastningar som körs på virtuella Azure IaaS-datorer och Azure storage:
 
-- **Azure Site Recovery**: arrangerar replikeringen av virtuella Azure-datorer i en primär till en sekundär region. Vid avbrott så växlar du över från den primära regionen till sekundärt och användarna kan fortsätta att komma åt appar. När saker är tillbaka till normal kan växla du tillbaka till den primära regionen.
+- **Azure Site Recovery**: Arrangerar replikeringen av virtuella Azure-datorer i en primär till en sekundär region. Vid avbrott så växlar du över från den primära regionen till sekundärt och användarna kan fortsätta att komma åt appar. När saker är tillbaka till normal kan växla du tillbaka till den primära regionen.
 - **Azure storage**: Azure tillhandahåller i build ökad flexibilitet och hög tillgänglighet för olika typer av lagring:
 
 #### <a name="azure-site-recovery"></a>Azure Site Recovery 
@@ -467,13 +467,13 @@ Azure Site Recovery är den primära Azure-tjänst för att säkerställa som vi
 
 Azure-lagringsutrymmet replikeras för inbyggda ökad flexibilitet och hög tillgänglighet.
 
--   **GEO-redundant lagring (GRS)**: skyddar mot avbrott i ett regionomfattande, med minst 99,99999999999999% (16 9) objektshållbarhet under ett givet år.
+-   **GEO-redundant lagring (GRS)**: Skyddar mot avbrott i ett regionomfattande, med minst 99,99999999999999% (16 9) objektshållbarhet under ett givet år.
     - Storage-data replikeras till den sekundära regionen som din primära region paras ihop.
     - Om den primära regionen slutar fungera och Microsoft initierar en växling till den sekundära regionen, kommer du ha läsbehörighet till dina data.
-- **Geo-redundant lagring med läsbehörighet (RA-GRS)**: skyddar mot avbrott i ett inom hela regionen.
+- **Geo-redundant lagring med läsbehörighet (RA-GRS)**: Skyddar mot avbrott i ett inom hela regionen.
     - Storage-data replikeras till den sekundära regionen.
     - Du har säkert läsåtkomst till replikerade data i den andra regionen, oavsett om huruvida Microsoft initierar en redundansväxling. där data som minst två datacenter i samma region kan ha problem än dina data finns kvar i en annan region.
--   **Zonredundant lagring (ZRS)**: skyddar mot datacenterfel.
+-   **Zonredundant lagring (ZRS)**:  Skyddar mot datacenterfel.
     - ZRS replikerar data synkront i tre lagringskluster i en enda region. Kluster och fysiskt avgränsade och var och en finns i sin egen tillgänglighetszon.
     - Om en katastrof inträffar, kan din lagring fortfarande tillgängliga. ZRS ska vara det lägsta målet för verksamhetskritiska arbetsbelastningar.
 
@@ -494,10 +494,10 @@ Det finns ett antal olika alternativ, påverkar var och en förlust av data, tid
 
 Du kan använda redundansgrupper och aktiv geo-replikering för att ge elasticitet mot regionala avbrott och kritiska fel
 
-- **Aktiv geo-replikering**: distribuera aktiv geo-replikering för snabb katastrofåterställning om ett datacenter-avbrott inträffar, eller om det går inte att upprätta en anslutning till en primär databas.
+- **Aktiv geo-replikering**: Distribuera aktiv geo-replikering för snabb katastrofåterställning om ett datacenter-avbrott inträffar, eller om det går inte att upprätta en anslutning till en primär databas.
     - GEO-replikering skapar kontinuerligt läsbara repliker av databasen i upp till fyra sekundära databaser i samma eller olika regioner.
     - I ett avbrott växla över till en av de sekundära regionerna och ta databasen online igen.
-- **Automatisk redundans grupper**: automatisk redundans grupper utöka aktiv geo-replikering med transparent redundans för flera databaser.
+- **Automatisk redundans grupper**: Automatisk redundans grupper utöka aktiv geo-replikering med transparent redundans för flera databaser.
     - En automatisk redundans-gruppen ger en kraftfull abstraktion av aktiv geo-replikering med en databas på replikering och automatisk redundans.
     - Du kan skapa en redundansgrupp som innehåller en primär server som är värd för en eller flera primära, en sekundär server som är värd för skrivskyddade repliker av de primära databaserna, lyssnare som pekar på varje server och en princip för automatisk redundans.
     - De angivna lyssnaren slutpunkterna ta bort behovet av att ändra SQL-anslutningssträng efter en redundansväxling.
@@ -540,7 +540,7 @@ Om det inte går att datainfrastruktur i Azure, kan Azure Functions-app bli otil
 - [Lär dig mer om](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) haveriberedskap och geo-replikering för varaktiga funktioner i Azure.
 
 
-## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Bästa praxis: Använd hanterade diskar och tillgänglighetsuppsättningar
+## <a name="best-practice-use-managed-disks-and-availability-sets"></a>Rekommendation: Använda hanterade diskar och tillgänglighetsuppsättningar
 
 Azure använder tillgänglighetsuppsättningar att gruppera virtuella datorer och för att isolera virtuella datorer i en mängd från andra resurser. Virtuella datorer i en tillgänglighetsuppsättning är fördelade på flera feldomäner med olika delsystem som skydd mot lokala fel, och även är fördelade på flera uppdateringsdomäner så att inte alla virtuella datorer i en uppsättning startas om samtidigt.
 
@@ -560,7 +560,7 @@ Azure-hanterade diskar förenklar Diskhantering för virtuella Azure IaaS-datore
 - [Lär dig hur du](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) hantera tillgängligheten av Windows-datorer i Azure.
 
 
-## <a name="best-practice-monitor-resource-usage-and-performance"></a>Rekommendation: Övervaka Resursanvändning och prestanda 
+## <a name="best-practice-monitor-resource-usage-and-performance"></a>Rekommendation: Övervaka användning och prestanda 
 
 Du kanske har flyttat dina arbetsbelastningar till Azure för stora skalning. Flytta din arbetsbelastning betyder inte dock att Azure automatiskt implementerar skalning utan kommentarer. Som exempel:
 
@@ -583,7 +583,7 @@ Båda fallen har olika lösningar, men båda du behöver du en överblick över 
 - [Lär dig mer om](https://docs.microsoft.com/azure/architecture/best-practices/auto-scaling) automatisk skalning.
 - [Lär dig hur du](https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem) dirigera data från Azure till ett SIEM-verktyg.
 
-## <a name="best-practice-enable-diagnostic-logging"></a>Bästa praxis: aktivera Diagnostisk loggning
+## <a name="best-practice-enable-diagnostic-logging"></a>Rekommendation: Aktivera diagnostikloggning
 
 Azure-resurser genererar ett verkligt antal loggningsdata mått och telemetri.
 
@@ -601,7 +601,7 @@ Azure-resurser genererar ett verkligt antal loggningsdata mått och telemetri.
 - [Lär dig vad som stöds](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-diagnostic-logs-schema) för Diagnostisk loggning.
 
 
-## <a name="best-practice-set-up-alerts-and-playbooks"></a>Bästa praxis: konfigurera aviseringar och spelböcker
+## <a name="best-practice-set-up-alerts-and-playbooks"></a>Rekommendation: Konfigurera varningar och spelböcker
 
 Med diagnostisk loggning har aktiverats för Azure-resurser, kan du börja använda loggningsdata för att skapa anpassade varningar.
 
@@ -618,7 +618,7 @@ Med diagnostisk loggning har aktiverats för Azure-resurser, kan du börja anvä
 - [Lär dig mer om](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-alerts) aviseringar.
 - [Lär dig mer om](https://docs.microsoft.com/azure/security-center/security-center-playbooks) strategiböcker för säkerhet som svarar på aviseringar i Security Center.
 
-## <a name="best-practice-use-the-azure-dashboard"></a>Bästa praxis: använda Azure-instrumentpanelen
+## <a name="best-practice-use-the-azure-dashboard"></a>Rekommendation: Använd instrumentpanelen för Azure
 
 Azure-portalen är en webbaserad enhetlig konsol som hjälper dig att skapa, hantera och övervaka allt från enkla webbappar till komplexa molnprogram. Den innehåller en anpassningsbar instrumentpanel och hjälpmedelsalternativ.
 - Du kan skapa flera instrumentpaneler och dela dem med andra som har åtkomst till dina Azure-prenumerationer.
@@ -634,7 +634,7 @@ Azure-portalen är en webbaserad enhetlig konsol som hjälper dig att skapa, han
 - [Lär dig mer om](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-structure) instrumentpanelen struktur.
 
 
-## <a name="best-practice-understand-support-plans"></a>Bästa praxis: Förstå support planer
+## <a name="best-practice-understand-support-plans"></a>Rekommendation: Förstå supportavtal
 
 Någon gång behöver du samarbeta med supportpersonalen eller Microsoft supportpersonal. Det är viktigt att ha en uppsättning principer och procedurer för support under scenarier, till exempel haveriberedskap. Dessutom bör personalen administratörer och support utbildas på att implementera dessa principer.
 
@@ -649,7 +649,7 @@ Någon gång behöver du samarbeta med supportpersonalen eller Microsoft support
 - [Få en översikt](https://azure.microsoft.com/support/options/) av Azure-supportavtal.
 - [Lär dig mer om](https://azure.microsoft.com/support/legal/sla/) serviceavtal (SLA).
 
-## <a name="best-practice-manage-updates"></a>Bästa praxis: hantera uppdateringar
+## <a name="best-practice-manage-updates"></a>Rekommendation: Hantera uppdateringar
 
 Att hålla virtuella Azure-datorer uppdaterade med det senaste operativsystemet och programuppdateringar är en omfattande börda. Möjligheten att ansluta alla virtuella datorer om du vill ta reda på vilka uppdateringar som de behöver och att skicka den automatiskt dessa uppdateringar är mycket användbart.
 

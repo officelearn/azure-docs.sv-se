@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: pbutlerm
-ms.openlocfilehash: deab8298d09972a4e60be5c72d6d7e43dc2683e6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329998"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54828102"
 ---
 # <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
 
@@ -36,7 +36,7 @@ I följande tabell listar och beskriver hur publicering och ger en Uppskattad ti
 |  **Publiceringen**           | **Time**    | **Beskrivning**                                                            |
 |  -------------------           | --------    | ---------------                                                            |
 | Verifiera förutsättningar         | < 15 min    | Ger information och erbjuder inställningarna verifieras.                        |
-| Verifiera inställningar som har påverkat intäkter | < 15 min  |      |
+| Verifiera inställningar som har påverkat intäkter | < 15 min  | Azure-resurs användning attribution för erbjudandet kontrolleras.             |
 | Certifiering                  | < 1 dag     | Erbjudandet analyseras av Azure-certifiering-teamet. Erbjudandet genomsöks efter virus, skadlig kod, säkerhet och säkerhetsproblem. Erbjudandet kontrolleras för att se att den uppfyller alla urvalskriterier. Mer information finns i [krav](./cpp-prerequisites.md). Feedback tillhandahålls om ett problem hittas. |
 | Test Drive-verifiering          | < 2 timmar   | (Valfritt) Om en Test Drive finns verifierar Microsoft att den kan distribueras och replikeras.  |
 | Paketering och registrering för lead-generering | < 1 timme  | Erbjudandets tekniska resurser som är packade för kundens användning och lead-system konfigureras och distribueras. |

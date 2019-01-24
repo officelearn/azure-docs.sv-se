@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: 2efa450b6b0cfa299370df3941224f4f64e91b4b
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230772"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54812547"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -71,8 +71,8 @@ Du behöver undanta följande mappar i tillämpning för viruskontroll:
 
 - Mapp som innehåller binärfilerna för Azure Migrate-tjänsten. Undanta alla undermappar.
   %ProgramFiles%\ProfilerService  
-- Azure Migrate Web hemsidan. Undanta alla undermappar.
-  %SystemDrive%\Inetpub\Wwwroot
+- Azure Migrate webbprogram. Undanta alla undermappar.
+  %SystemDrive%\inetpub\wwwroot
 - Lokal Cache för databasen och loggfiler. Azure migrate ha RW åtkomst till den här mappen.
   %SystemDrive%\Profiler
 
@@ -159,11 +159,11 @@ Azure Migrate stöder för närvarande inte kostnadsuppskattning för [erbjudand
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Vad är skillnaden mellan som lokalt storlek och prestandabaserad storleksändring?
 
-När du anger storlekskriteriet vara som lokalt storlek, Azure Migrate beräknar inte prestandadata för de virtuella datorerna och storlekar på virtuella datorer baserat på den lokala konfigurationen. Om storlekskriteriet är prestandabaserat, görs utskriftsserverns storlek baserat på användningsdata. Exempel: om det finns en lokal virtuell dator med 4 kärnor och 8 GB minne med 50% processoranvändning och minnesanvändning på 50%. Om storlekskriteriet är som lokala ändrar storlek på en Azure VM-SKU med 4 kärnor och 8GB minne rekommenderas, men om storlekskriteriet är prestandabaserat som VM-SKU på 2 kärnor och 4 GB skulle rekommenderas eftersom utnyttjandeprocent anses medan rekommendera storleken. Diskar beror på samma sätt, disk-storlek på två utvärderingsegenskaperna – ändra storlek på kriterium och lagringstyp. Om storlekskriteriet är prestandabaserat och lagringstyp är automatisk, IOPS och dataflöden värdena för disken är att identifiera disktyp (Standard eller Premium). Om storlekskriteriet är prestandabaserat och lagringstyp är premium, en premiumdisk rekommenderas, premiumdisk SKU: N i Azure är valt baserat på storleken på den lokala disken. Samma logik används för att disk storlek om storlekskriteriet är som lokala storlek och lagringstyp är antingen standard eller premium.
+När du anger storlekskriteriet vara som lokalt storlek, Azure Migrate beräknar inte prestandadata för de virtuella datorerna och storlekar på virtuella datorer baserat på den lokala konfigurationen. Om storlekskriteriet är prestandabaserat, görs utskriftsserverns storlek baserat på användningsdata. Exempel: om det finns en lokal virtuell dator med 4 kärnor och 8 GB minne med 50% processoranvändning och minnesanvändning på 50%. Om storlekskriteriet är som lokala ändrar storlek på en Azure VM-SKU med 4 kärnor och 8GB minne rekommenderas, men om storlekskriteriet är prestandabaserat som VM-SKU på 2 kärnor och 4 GB skulle rekommenderas eftersom utnyttjandeprocent anses medan rekommendera storleken. Diskar beror på samma sätt, disk-storlek på två utvärderingsegenskaperna – ändra storlek på kriterium och lagringstyp. Om storlekskriteriet är prestandabaserat och lagringstypen är automatisk, tas diskens IOPS- och dataflödesvärden i beaktande för att identifiera disktypen (Standard eller Premium). Om storlekskriteriet är prestandabaserat och lagringstypen är Premium, rekommenderas en premiumdisk. SKU för premiumdiskar i Azure väljs baserat på storleken på den lokala disken. Samma logik används för att bestämma diskstorleken när storlekskriteriet är lokal storleksändring och lagringstypen är Standard eller Premium.
 
 ### <a name="what-impact-does-performance-history-and-percentile-utilization-have-on-the-size-recommendations"></a>Vilken effekt har prestanda historik och percentil belastningen på storleksrekommendationer som?
 
-Dessa egenskaper gäller endast för prestandabaserade storleksändringar. Azure Migrate samlar in prestandahistoriken för lokala datorer och använder den för att rekommendera VM-storlek och disk-typ i Azure. Insamlingsprogrammet profiler kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20: e sekund. Installationen samlar in 20 sekunder exemplen och skapar en enskild datapunkt för varje kvart. Om du vill skapa den enda datapunkten installationen väljer det högsta värdet 20 sekunder exemplen och skickar det till Azure. När du skapar en utvärdering i Azure, baserat på prestanda, varaktighet och historik: e percentilen prestandavärde, Azure Migrate beräknar effektivt utnyttjande värde och använder den för storleksändringar. Till exempel om du har angett varaktigheten ska vara 1 dag och percentilvärdet till 95: e percentilen, använder Azure Migrate exemplet 15 min punkter skickats av insamlaren för den sista dagen, sorterade i stigande ordning och hämtar det 95-procentigt percentilvärdet som den effektiva ut ilization. 95-procentigt percentilvärde säkerställer att du ignorerar några avvikare som kan komma om du väljer den 99: e percentilen. Om du vill välja den högsta användningen för perioden och inte vill missa några avvikare, bör du välja den 99: e percentilen.
+Dessa egenskaper gäller endast för prestandabaserad storleksändring. Azure Migrate samlar in prestandahistorik för lokala datorer och använder den för att rekommendera VM-storleken och disktypen i Azure. Insamlingsprogrammet profilerar kontinuerligt den lokala miljön för att samla in användningsdata i realtid var 20:e sekund. Programmet samlar in stickprov var 20:e sekund och skapar en enskild datapunkt för varje kvart. För att skapa den enskilda datapunkten väljer programmet det högsta värdet från alla 20-sekundersstickprov och skickar det till Azure. När du skapar en utvärdering i Azure, baserat på percentilen för prestandavaraktighet och prestandahistorik, beräknar Azure Migrate det effektiva användningsvärdet och använder det för storleksändring. Till exempel om du har angett varaktigheten ska vara 1 dag och percentilvärdet till 95: e percentilen, använder Azure Migrate exemplet 15 min punkter skickats av insamlaren för den sista dagen, sorterade i stigande ordning och hämtar det 95-procentigt percentilvärdet som den effektiva ut ilization. 95-procentigt percentilvärde säkerställer att du ignorerar några avvikare som kan komma om du väljer den 99: e percentilen. Om du vill välja den högsta användningen för perioden och inte vill missa några avvikande värden bör du välja den 99:e percentilen.
 
 ## <a name="dependency-visualization"></a>Visualisering av beroenden
 

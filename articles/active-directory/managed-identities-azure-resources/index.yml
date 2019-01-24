@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 7afcb190a1abeb053342a061e9513e32ce19fd79
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
-ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430067"
 documentType: LandingData
 title: Dokumentation om Azure AD-hanterade identiteter för Azure-resurser
 metadata:
-  document_id: 
+  document_id: null
   title: Dokumentation om Azure AD-hanterade identiteter för Azure-resurser
   description: Lär dig hur du använder hanterade identiteter för Azure-resurser för att autentisera säkert till Azure-molntjänster utan att behöva ha autentiseringsuppgifterna i källkoden.
   services: active-directory
@@ -25,55 +19,55 @@ abstract:
   description: Med hanterade identiteter för Azure-resurser får Azure-tjänsterna en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering utan att behöva ha några autentiseringsuppgifter i koden.  Lär dig hur du skapar och hanterar hanterade identiteter för Azure-resurser med våra snabbstarter och självstudier.
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
     title: Introduktion till hanterade identiteter för Azure-resurser
-    href: https://www.youtube.com/embed/bBi1bll2928
+    href: 'https://www.youtube.com/embed/bBi1bll2928'
     width: 200
 sections:
-- title: Snabbstarter på fem minuter
-  items:
-  - type: paragraph
-    text: Lär dig hur du använder hanterade identiteter för Azure-resurser för att få åtkomst till API:et för Azure Resource Manager
-  - type: list
-    style: unordered
+  - title: Snabbstarter på fem minuter
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Windows Azure-dator</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Linux Azure-dator</a>
-- title: Stegvisa självstudier
-  items:
-  - type: paragraph
-    text: Lär dig hur du använder hanterade identiteter för Azure-resurser för att få säker åtkomst till Azure-resurser
-  - type: paragraph
-    text: Windows VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Lär dig hur du använder hanterade identiteter för Azure-resurser för att få åtkomst till API:et för Azure Resource Manager'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Windows Azure-dator</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager från en virtuell Linux Azure-dator</a>
+  - title: Stegvisa självstudier
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Få åtkomst till Azure SQL</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
-  - type: paragraph
-    text: Linux VM/VMSS
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Lär dig hur du använder hanterade identiteter för Azure-resurser för att få säker åtkomst till Azure-resurser
+      - type: paragraph
+        text: Windows VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-storage">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-sql">Få åtkomst till Azure SQL</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-windows-vm-ua-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
+      - type: paragraph
+        text: Linux VM/VMSS
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
+          - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
+  - title: Referens
     items:
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-datalake">Få åtkomst till Azure Data Lake Store</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-storage-access-key">Få åtkomst till Azure Storage med en åtkomstnyckel</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-nonaad">Få åtkomst till Azure Key Vault</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/tutorial-linux-vm-access-cosmos-db">Få åtkomst till Azure Cosmos DB</a>
-    - html: <a href="/azure/active-directory/managed-service-identity/msi-tutorial-linux-vm-access-arm">Få åtkomst till Azure Resource Manager med en användartilldelad identitet</a>
-- title: Referens
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Kommandorad
-      html: <p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>
-    - title: Språk
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication#azure-dotnet">NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Kommandorad
+            html: '<p><a href="/powershell/module/azurerm.managedserviceidentity#managed_service_identity">Azure PowerShell</a></p><p><a href="/cli/azure/identity">Azure CLI</a></p>'
+          - title: Språk
+            html: '<p><a href="/dotnet/api/microsoft.azure.management.resourcemanager.fluent.authentication">NET</a></p><p><a href="https://github.com/Azure/azure-libraries-for-java#ready-to-run-code-samples-for-virtual-machines">Java</a></p><p><a href="/javascript/api/ms-rest-azure">Node.js</a></p><p><a href="/python/api/azure.mgmt.msi">Python</a></p></p><a href="https://rubygems.org/gems/azure_mgmt_msi">Ruby</a></p></p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/msi/mgmt/2015-08-31-preview/msi">Go</a></p>'

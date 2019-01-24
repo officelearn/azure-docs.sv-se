@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d72e4da0-0123-409b-96c2-e613f3f83fb1
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/14/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 293c08a81ba675d42cd0e9f715e988b2186deb3d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 07385089e64977243929de15ab53f84520029495
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794081"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54806899"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-innoverse"></a>Självstudier: Azure Active Directory-integrering med Innoverse
 
@@ -79,8 +79,8 @@ Du behöver slutföra följande byggstenar för att konfigurera och testa enkel 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Innoverse](#configure-innoverse-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa Innoverse-testanvändare](#create-innoverse-test-user)** – för att ha en motsvarighet till Britta Simon i Innoverse som är länkad till en Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Innoverse-testanvändare](#create-innoverse-test-user)** – för att ha en motsvarighet till Britta Simon i Innoverse som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -114,7 +114,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för In
     ![Innoverse-domän och information om URL:er för enkel inloggning](common/metadata_upload_additional_signon.png)
 
     I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<domainname>.innover.se/auth/saml2/login`
-    
+
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för Innoverse-klienten ](mailto:support@readify.net) för att hämta de här värdena. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 

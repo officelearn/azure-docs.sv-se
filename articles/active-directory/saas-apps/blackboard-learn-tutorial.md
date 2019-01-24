@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 0b8ca505-61ea-487c-9a3e-fa50c936df0c
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 9aa03146608796f1a2d26d44b4e76b0331f8c5be
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 3b57bea85b76b69b1826a81aa582f5326db588cb
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063564"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-blackboard-learn"></a>Självstudier: Azure Active Directory-integrering med Blackboard Learn
 
@@ -79,8 +79,8 @@ För att konfigurera och testa enkel inloggning för Azure AD med Blackboard Lea
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Blackboard Learn](#configure-blackboard-learn-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa Blackboard Learn-testanvändare](#create-blackboard-learn-test-user)** – för att ha en motsvarighet för Britta Simon i Blackboard Learn som är länkad till en Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa Blackboard Learn-testanvändare](#create-blackboard-learn-test-user)** – för att ha en motsvarighet för Britta Simon i Blackboard Learn som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -117,7 +117,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Black
     ![image](common/edit-attribute.png)
 
 6. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** konfigurerar du SAML-tokenattributet på det sätt som visas i bilden och utför följande steg. Vi har mappat Userprincipalname som det unika användarattributet här, men du kan mappa det till det lämpliga värdet, som unikt särskiljer användaren i organisationen och som mappar till användarnamnfältet för Blackboard Learn.
-    
+
     | Namn | Källattribut|
     | ---------------| --------------- |
     | urn:oid:1.3.6.1.4.1.5923.1.1.1.6 | user.userprincipalname |
@@ -140,11 +140,11 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Black
 
     g. Klicka på **Spara**.
 
-4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+7. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-6. I avsnittet **Konfigurera Blackboard Learn** kopierar du lämpliga URL:er efter behov.
+8. I avsnittet **Konfigurera Blackboard Learn** kopierar du lämpliga URL:er efter behov.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -226,4 +226,3 @@ När du klickar på Blackboard Learn-panelen i åtkomstpanelen bör du automatis
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

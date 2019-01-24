@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f84be4dffb601d3748d951da15050e381e1cecc1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2c8c8233e8d471b0f1934df9ff7e0f2b4b3e3860
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464858"
+ms.locfileid: "54819143"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-status-monitor"></a>Instrumentera webbappar vid körning med Application Insights Status Monitor
 
@@ -36,6 +36,7 @@ Du kan välja mellan två vägar kan tillämpa Application Insights på dina .NE
 
 * **Byggtid:** [Lägg till Application Insights SDK] [ greenbrown] till webbappens kod.
 * **Körtid:** Instrumentera webbappen på servern, som beskrivs nedan, utan att bygga om och omdistribuera koden.
+
 > [!NOTE]
 > Om du använder version tid instrumentation körningstiden instrumention inte kommer att fungera även om den är påslagen.
 

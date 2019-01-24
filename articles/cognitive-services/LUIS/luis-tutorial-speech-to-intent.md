@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 8e664e26a2cafc2f0b32ebea0f019918426d956c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2d212ae8f5a12c06f40e025a7a8d786a44194a92
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53714588"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438741"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integrera Speech-tjänsten med din Language Understanding-app
 Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kan du använda en enskild begäran för att ta emot ljud och returnera LUIS JSON-förutsägelseobjekt. I den här artikeln laddar du ned och använder ett C#-projekt i Visual Studio för att tala in ett yttrande i en mikrofon och ta emot LUIS-förutsägelseinformation. Projektet använder Speech [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/)-paketet, som redan ingår som referens. 
@@ -24,7 +24,7 @@ Med [Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/Speec
 För den här artikeln behöver du ett kostnadsfritt [LUIS][LUIS]-webbplatskonto för att importera programmet.
 
 ## <a name="create-luis-endpoint-key"></a>Skapa LUIS-slutpunktsnyckel
-I Azure-portalen [skapar](luis-how-to-azure-subscription.md#create-luis-endpoint-key) du en **Language Understanding**-nyckel (LUIS). 
+I Azure-portalen [skapar](luis-how-to-azure-subscription.md) du en **Language Understanding**-nyckel (LUIS). 
 
 ## <a name="import-human-resources-luis-app"></a>Importera LUIS-appen Human Resources
 Avsikterna och yttrandena för den här artikeln kommer från LUIS-appen Human Resources, som är tillgänglig från GitHub-lagringsplatsen [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Ladda ned filen [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), spara den med `.json`-tillägget och [importera](luis-how-to-start-new-app.md#import-new-app) den i LUIS. 

@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3df3d73e-80a4-4b35-bd3d-90bc4f6f6afd
 ms.service: Azure-Active-Directory
@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/6/2018
+ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 04874eff4375ac57a8c8e15a11399ca650bd5c15
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: aa5c8a69422c74efad74926cfaec544d5ee2f126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53020775"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811068"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-expiration-reminder"></a>Självstudie: Azure Active Directory-integrering med Expiration Reminder
 
@@ -78,8 +78,8 @@ Om du vill konfigurera och testa enkel inloggning med Azure AD med Expiration Re
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för Expiration Reminder](#configure-expiration-reminder-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Skapa testanvändare för Expiration Reminder](#create-expiration-reminder-test-user)** – du har en motsvarighet till Britta Simon i Expiration Reminder som är länkad till en Azure AD-representation av användaren.
-5. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa testanvändare för Expiration Reminder](#create-expiration-reminder-test-user)** – du har en motsvarighet till Britta Simon i Expiration Reminder som är länkad till en Azure AD-representation av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Expir
 
     ![Information om Expiration Reminder-domänen och webbadresser med enkel inloggning](common/sp-signonurl.png)
 
-    I rutan **Inloggnings-URL** anger du en URL:  `https://app.expirationreminder.net/account/sso`.
+    I rutan **Inloggnings-URL** anger du en URL: `https://app.expirationreminder.net/account/sso`
 
 5. På sidan **Konfigurera enkel inloggning med SAML**, i avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (RAW)** från de angivna alternativen enligt dina behov och spara den på datorn.
 

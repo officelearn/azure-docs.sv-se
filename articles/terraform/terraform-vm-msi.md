@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 6c9bef108c2f272c678879124ae2cd4f9ae093ba
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54076237"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54852549"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Använda en Azure Marketplace-avbildning till att skapa en virtuell Terraform Linux-dator med hanterade identiteter för Azure-resurser
 
@@ -85,7 +85,7 @@ Med deltagarbehörighet kan Hanterad tjänstidentitet på den virtuella datorn a
 
 `. ~/tfEnv.sh`
 
-Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest#interactive-log-in) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för hanterad identitet för hela prenumerationen. 
+Det föregående skriptet använder mekanismen [interaktiv inloggning med AZ CLI v 2.0](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest) för att autentisera med Azure och tilldela den virtuella datorn deltagarbehörighet för hanterad identitet för hela prenumerationen. 
 
  Den virtuella datorn ha en serverdel med Terraform Remote State. Om du vill aktivera den på Terraform-distributionen kopierar du filen remoteState.tf från katalogen tfTemplate till roten för Terraform-skripten.  
 

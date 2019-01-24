@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active D
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
 ms.service: Azure-Active-Directory
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: 81c66e73698f210c9ef364a8b328642f78e3012b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 1326dbfc4257f0b6634976ca76a0667c908f951f
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973986"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54810592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Självstudier: Azure Active Directory-integrering med Ariba
 
@@ -110,7 +110,7 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD för Ar
     | `https://<subdomain>.sourcing.ariba.com` |
     | `https://<subdomain>.supplier.ariba.com` |
 
-    b. I textrutan **Identifierare (entitets-ID)** skriver du in en URL enligt följande mönster: `http://<subdomain>.procurement-2.ariba.com`
+    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://<subdomain>.procurement-2.ariba.com`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Här föreslår vi att du använder det unika värdet för strängen i identifieraren. Kontakta supportteamet för Ariba-klienten på **1-866-218-2155** för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

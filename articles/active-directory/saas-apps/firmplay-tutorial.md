@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med FirmPlay - medarbetare kundstöd för rekrytering | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med FirmPlay - medarbetare kundstöd för rekrytering | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och FirmPlay - medarbetare kundstöd för rekrytering.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.component: saas-app-tutorial
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: jeedes
-ms.openlocfilehash: abc29480e5f5531857cbf973d5386727c3d7f2ac
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 929494d5d802dbc545c750386a286029c4bf962d
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54809810"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Självstudier: Azure Active Directory-integration med FirmPlay - medarbetare kundstöd för rekrytering
+# <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Självstudier: Azure Active Directory-integrering med FirmPlay - medarbetare kundstöd för rekrytering
 
 I den här självstudien får du lära dig hur du integrerar FirmPlay - medarbetare kundstöd för rekrytering med Azure Active Directory (AD Azure).
 
@@ -31,7 +31,7 @@ Integrera FirmPlay - medarbetare kundstöd för rekrytering med Azure AD ger dig
 - Du kan aktivera användarna att automatiskt få loggat in på FirmPlay - medarbetare kundstöd för rekrytering (Single Sign-On) med sina Azure AD-konton
 - Du kan hantera dina konton på en central plats - Azure-hanteringsportalen
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -45,10 +45,10 @@ Om du vill konfigurera Azure AD-integrering med FirmPlay - medarbetare kundstöd
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
 - Du bör inte använda din produktionsmiljö såvida inte detta är nödvändigt.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -69,11 +69,11 @@ Om du vill konfigurera integreringen av FirmPlay - medarbetare kundstöd för re
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
 1. Klicka på **Lägg till** knappen överst i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **FirmPlay - medarbetare kundstöd för rekrytering**.
 
@@ -95,7 +95,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med FirmPlay - medarb
 
 1. **[Konfigurera Azure AD enkel inloggning](#configuring-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
 1. **[Skapa en Azure AD-testanvändare](#creating-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en FirmPlay - medarbetare kundstöd för rekrytering testanvändare](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  – du har en motsvarighet för Britta Simon i FirmPlay: anställd kundstöd för rekrytering som är länkad till en Azure AD-representation av henne.
+1. **[Skapa en FirmPlay - medarbetare kundstöd för rekrytering testanvändare](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**  – du har en motsvarighet för Britta Simon i FirmPlay: Medarbetaren kundstöd för rekrytering som är länkad till en Azure AD-representation av henne.
 1. **[Tilldela Azure AD-testanvändare](#assigning-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. **[Testa enkel inloggning](#testing-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 

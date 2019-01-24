@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 11/28/2018
 ms.author: douglasl
-ms.openlocfilehash: 5e0d13593fb807f95ba024d527b6720b6abb4a86
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 90f9ffeba2871aaa96a4da4cdbdf949a8e7db1bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306156"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436441"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Självstudier: Skapa en Azure-datafabrik med hjälp av en Azure Resource Manager-mall
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ I den här snabbstarten får du se hur du skapar en Azure Data Factory med en Az
 [!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)]
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-azurerm-ps).
+Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 Se [Skapa Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md) om du vill lära dig mer om Azure Resource Manager-mallar i allmänhet.
@@ -463,7 +463,7 @@ Den distribuerade utlösaren har stoppats. Ett sätt att starta utlösaren är a
 Följande Data Factory-entiteter har definierats i JSON-mallen:
 
 - [Länkad Azure Storage-tjänst](#azure-storage-linked-service)
-- [Indatauppsättning för Azure-blob](#azure-blob-input-dataset)
+- [Indatauppsättning för Azure-blobb](#azure-blob-input-dataset)
 - [Utdatauppsättning för Azure-blob](#azure-blob-output-dataset)
 - [Datapipeline med en kopieringsaktivitet](#data-pipeline)
 - [Utlösare](#trigger)
@@ -494,8 +494,8 @@ AzureStorageLinkedService länkar ditt Azure Storage-konto till datafabriken. Du
 
 connectionString använder parametrarna storageAccountName och storageAccountKey. Värdena för dessa parametrar skickades med hjälp av en konfigurationsfil. Definitionen använder också variablerna azureStorageLinkedService och dataFactoryName, som definieras i mallen.
 
-#### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blob
-Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Du anger namnen på blobcontainer, mapp och fil som innehåller indata i Azure-blobuppsättningsdefinitionen. Se [Egenskaper för Azure-blobdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobdatauppsättning.
+#### <a name="azure-blob-input-dataset"></a>Indatauppsättning för Azure-blobb
+Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory-tjänsten använder vid körning för att ansluta till ditt Azure storage-konto. Du anger namnen på blobcontainer, mapp och fil som innehåller indata i Azure-blobuppsättningsdefinitionen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.
 
 ```json
 {
@@ -522,7 +522,7 @@ Den länkade Azure storage-tjänsten anger anslutningssträngen som Data Factory
 ```
 
 #### <a name="azure-blob-output-dataset"></a>Utdatauppsättning för Azure-blob
-Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data från indatamappen. Se [Egenskaper för Azure-blobdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobdatauppsättning.
+Du anger namnet på mappen i Azure Blob Storage som innehåller kopierade data från indatamappen. Se [Egenskaper för Azure-blobbdatauppsättning](connector-azure-blob-storage.md#dataset-properties) om du vill ha information om JSON-egenskaper som används för att definiera en Azure-blobbdatauppsättning.
 
 ```json
 {
@@ -640,4 +640,4 @@ Observera att det första kommandot använder parameterfilen för utvecklingsmil
 Du kan även återanvända mallen för att utföra upprepade uppgifter. Skapa till exempel många datafabriker med en eller flera pipelines som implementerar samma logik, men alla datafabriker använder olika konton för Azure Storage. I det här scenariot använder du samma mall i samma miljö (utvecklings-, test- eller produktionsmiljö) med olika parameterfiler för att skapa datafabriker.
 
 ## <a name="next-steps"></a>Nästa steg
-Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudierna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier.
+Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Gå igenom [självstudiekurserna](tutorial-copy-data-dot-net.md) om du vill lära dig hur du använder Data Factory i fler scenarier.

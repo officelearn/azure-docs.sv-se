@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 5e36a41c1678ac38c7ebee5b47fd88076fa3fb70
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 4f9225f319eb4a2bbcbb5a79379fc46675ff4c04
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629704"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54854743"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Använda en Azure-filresurs med Windows
 [Azure Files](storage-files-introduction.md) är Microsofts lättanvända filsystem i molnet. Azure-filresurser kan användas smidigt i Windows och Windows Server. Den här artikeln beskriver överväganden för att använda en Azure-filresurs med Windows och Windows Server.
@@ -40,14 +40,12 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 > [!Note]  
 > Vi rekommenderar alltid den senaste uppdateringen för din version av Windows.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
 ## <a name="prerequisites"></a>Nödvändiga komponenter 
 * **Lagringskontonamn**: Om du vill montera en Azure-filresurs behöver du namnet på lagringskontot.
 
 * **Lagringskontonyckel**: Om du vill montera en Azure-filresurs behöver du den primära (eller sekundära) lagringsnyckeln. SAS-nycklar stöds inte för montering.
 
-* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Följande PowerShell-kod förutsätter att du har AzureRM PowerShell-modulen är installerad. Mer information finns på sidan om att [installera Azure PowerShell-modulen](/powershell/azure/install-azurerm-ps). Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
+* **Se till att port 445 är öppen**: SMB-protokollet kräver att TCP-port 445 är öppen; anslutningar misslyckas om port 445 är blockerad. Du kan kontrollera om din brandvägg blockerar port 445 med `Test-NetConnection`-cmdleten. Följande PowerShell-kod förutsätter att du har AzureRM PowerShell-modulen är installerad. Mer information finns på sidan om att [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps). Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -55,12 +53,12 @@ Du kan använda Azure-filresurser i en Windows-installation som körs antingen i
 
     # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
     # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
+    $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
     # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
     ```
 
     Om en anslutning upprättades bör du se följande utdata:

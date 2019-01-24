@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4ca8d42c1b2eece82fa31283b0df0d450e2f5afc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3036c53fa95b40ac0bfc7dbe5bed69581236918d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978887"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411891"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Windows-dator med Azure CLI
 
@@ -105,7 +105,7 @@ När IIS har installerats och port 80 är öppen på den virtuella datorn från 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group#az_group_delete) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
+När de inte längre behövs kan du använda kommandot [az group delete](/cli/azure/group) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser:
 
 ```azurecli-interactive
 az group delete --name myResourceGroup

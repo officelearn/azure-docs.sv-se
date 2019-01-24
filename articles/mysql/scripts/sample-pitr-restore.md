@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 02/28/2018
-ms.openlocfilehash: 8506e6eaac51730cb3d7a20f1d21f1c8bce03bee
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 74f187cff5abd54780d064e9e74c33901aa9fb82
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540035"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410752"
 ---
 # <a name="restore-an-azure-database-for-mysql-server-using-azure-cli"></a>Återställa en Azure Database for MySQL-server med Azure CLI
 Det här CLI-exempelskriptet återställer en enda Azure Database for MySQL-server till en tidigare tidpunkt.
@@ -38,7 +38,7 @@ Det här skriptet använder följande kommandon. Varje kommando i tabellen länk
 | [az group create](/cli/azure/group#create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az mysql server create](/cli/azure/mysql/server#create) | Skapar en MySQL-server som är värd för databaserna. |
 | [az mysql server restore](/cli/azure/mysql/server#restore) | Återställ en server från en säkerhetskopia. |
-| [az group delete](/cli/azure/group#delete) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
+| [az group delete](/cli/azure/group) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om Azure CLI: [Azure CLI-dokumentation](/cli/azure).

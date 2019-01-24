@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: 55a8d44e34b8b0b6b238c5ada3d6065d86caca15
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9995308806567e46e5b4c17193c9e03670f00ea1
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34654546"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411653"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Belastningsutjämna trafiken mellan virtuella datorer med hög tillgänglighet
 
@@ -44,14 +44,14 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, belastningsutjämnare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
+I det här skriptet används följande kommandon för att skapa en resursgrupp, virtuell dator, tillgänglighetsuppsättning, lastbalanserare och alla relaterade resurser. Varje kommando i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#az_network_vnet_create) | Skapar ett virtuellt Azure-nätverk och undernät. |
-| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#az_network_public_ip_create) | Skapar en offentlig IP-adress med en statisk IP-adress och ett tillhörande DNS-namn. |
-| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | Skapar en Azure NLB (nätverksbelastningsutjämnare). |
+| [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip) | Skapar en offentlig IP-adress med en statisk IP-adress och ett tillhörande DNS-namn. |
+| [az network lb create](https://docs.microsoft.com/cli/azure/network/lb#az_network_lb_create) | Skapar en Azure NLB (nätverkslastbalanserare). |
 | [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#az_network_lb_probe_create) | Skapar en NLB-probe. En NLB-probe används för att övervaka de enskilda virtuella datorerna i NLB-uppsättningen. Om en virtuell dator blir otillgänglig dirigeras trafiken förbi den. |
 | [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#az_network_lb_rule_create) | Skapar en NLB-regel. I det här exemplet skapas en regel för port 80. När HTTP-trafik kommer in till NLB dirigeras den till port 80 på någon av de virtuella datorerna i NLB-uppsättningen. |
 | [az network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#az_network_lb_inbound_nat_rule_create) | Skapar en NAT-regel (Network Address Translation) för NLB.  NAT-reglerna mappar en port från NLB till en port på en virtuell dator. I det här exemplet skapas en NAT-regel för SSH-trafik till varje virtuell dator i NLB-uppsättningen.  |

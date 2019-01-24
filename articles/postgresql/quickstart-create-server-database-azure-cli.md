@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/09/2019
 ms.custom: mvc
-ms.openlocfilehash: 2fd60aa635fdea078a2b5c4b724318798d57573d
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 533120bd13d9aad48e62b7799e5f1167b6098d37
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359601"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413812"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Snabbstart: Skapa en Azure Database för PostgreSQL med hjälp av Azure-CLI:n
 Azure Database för PostgreSQL är en hanterad tjänst som låter dig köra, hantera och skala högtillgängliga PostgreSQL-databaser i molnet. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. Den här snabbstarten visar hur du skapar en Azure Database för PostgreSQL-server i en [Azure-resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) med hjälp av Azure-CLI:n.
@@ -209,7 +209,7 @@ Rensa upp alla resurser du skapade i snabbstarten genom att ta bort [Azure-resur
 az group delete --name myresourcegroup
 ```
 
-Om du endast vill ta bort den nyss skapade servern kan du köra kommandot [az postgres server delete](/cli/azure/postgres/server#az_postgres_server_delete).
+Om du endast vill ta bort den nyss skapade servern kan du köra kommandot [az postgres server delete](/cli/azure/postgres/server).
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ```

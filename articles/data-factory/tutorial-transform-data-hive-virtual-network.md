@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: douglasl
-ms.openlocfilehash: e062495b9a16474cef70e9a19bdd62b6e9e13752
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e643dc2167457b9dc3183e101e816b3a1eb8f052
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013907"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422469"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Transformera data i Azure Virtual Network med en Hive-aktivitet i Azure Data Factory
 I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som transformerar data med en Hive-aktivitet på ett HDInsight-kluster som finns i Azure Virtual Network (VNet). I den här självstudiekursen får du göra följande:
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 - **HDInsight-kluster.** Skapa ett HDInsight-kluster och anslut det till det virtuella nätverk som du skapade i föregående steg genom att följa stegen i den här artikeln: [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight/hdinsight-extend-hadoop-virtual-network.md) (Utöka HDInsight med ett Azure Virtual Network). Här är en exempelkonfiguration av HDInsight i ett virtuellt nätverk. 
 
     ![HDInsight i ett virtuellt nätverk](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/install-azurerm-ps).
+- **Azure PowerShell**. Följ instruktionerna i [Så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Överföra Hive-skriptet till ditt Blob Storage-konto
 

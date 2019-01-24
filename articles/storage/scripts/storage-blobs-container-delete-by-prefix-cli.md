@@ -1,6 +1,6 @@
 ---
-title: Exempel på Azure CLI-skript – Ta bort behållare efter prefix | Microsoft Docs
-description: Ta bort Azure Storage-blobbehållare baserat på behållarens namnprefix.
+title: Exempel på Azure CLI-skript – Ta bort containrar efter prefix | Microsoft Docs
+description: Ta bort Azure Storage-blobcontainrar baserat på containerns namnprefix.
 services: storage
 documentationcenter: na
 author: tamram
@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram
-ms.openlocfilehash: 9e93dc14a4729011f74c5eafe94528608b89116f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 41f026da8b961cec0ae200e6182a7baa7a849af7
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29848295"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54411789"
 ---
-# <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort behållare baserat på behållarens namnprefix
+# <a name="delete-containers-based-on-container-name-prefix"></a>Ta bort containrar baserat på containerns namnprefix
 
-Det här skriptet skapar först några exempelbehållare i Azure Blob-lagring och tar sedan bort några av behållarna baserat på ett prefix i behållarnamnet.
+Det här skriptet skapar först några exempelcontainrar i Azure Blob-lagring och tar sedan bort några av containrarna baserat på ett prefix i containernamnet.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -36,7 +36,7 @@ Det här skriptet skapar först några exempelbehållare i Azure Blob-lagring oc
 
 ## <a name="clean-up-deployment"></a>Rensa distribution 
 
-Kör följande kommando för att ta bort resursgruppen, återstående behållare och alla relaterade resurser.
+Kör följande kommando för att ta bort resursgruppen, återstående containrar och alla relaterade resurser.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
@@ -44,15 +44,15 @@ az group delete --name myResourceGroup
 
 ## <a name="script-explanation"></a>Förklaring av skript
 
-Det här skriptet använder följande kommandon för att ta bort behållare baserat på behållarens namnprefix. Varje post i tabellen länkar till kommandospecifik dokumentation.
+Det här skriptet använder följande kommandon för att ta bort containrar baserat på containerns namnprefix. Varje post i tabellen länkar till kommandospecifik dokumentation.
 
 | Kommando | Anteckningar |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
+| [az group create](/cli/azure/group) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Skapar ett Azure Storage-konto i den angivna resursgruppen. |
-| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Skapar en behållare i Azure Blob-lagring. |
-| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Visar en lista över behållarna i ett Azure Storage-konto. |
-| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Tar bort behållare i ett Azure Storage-konto. |
+| [az storage container create](/cli/azure/storage/container#az_storage_container_create) | Skapar en container i Azure Blob-lagring. |
+| [az storage container list](/cli/azure/storage/container#az_storage_container_list) | Visar en lista över containrarna i ett Azure Storage-konto. |
+| [az storage container delete](/cli/azure/storage/container#az_storage_container_delete) | Tar bort containrar i ett Azure Storage-konto. |
 
 ## <a name="next-steps"></a>Nästa steg
 

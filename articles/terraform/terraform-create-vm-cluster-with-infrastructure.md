@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: 9870eac87204f24993ab71e373dcab3a8ead3e89
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54075369"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410378"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Skapa ett VM-kluster med Terraform och HCL
 
@@ -32,7 +32,7 @@ I den här kursen för du göra följande:
 ## <a name="1-set-up-azure-authentication"></a>1. Konfigurera Azure-autentisering
 
 > [!NOTE]
-> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), eller kör den här självstudiekursen i [Azure Cloud Shell](terraform-cloud-shell.md) kan du hoppa över det här avsnittet.
+> Om du [använder Terraform-miljövariabler](/azure/virtual-machines/linux/terraform-install-configure), eller kör den här självstudiekursen i [Azure Cloud Shell](terraform-cloud-shell.md) kan du hoppa över det här avsnittet.
 
 I det här avsnittet skapar du ett huvudnamn för Azure-tjänsten och två Terraform-konfigurationsfiler som innehåller autentiseringsuppgifterna från säkerhetsobjektetet.
 

@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a58644deb8d1325fd466d2a4d3a1fc927c83b685
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0db867b31776f19aa3fef28f1e8b5c8798ff958a
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720262"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54410578"
 ---
 # <a name="overview-of-windows-virtual-machines-in-azure"></a>Översikt över virtuella Windows-datorer i Azure
 
@@ -49,7 +49,7 @@ Det finns alltid en rad [överväganden vid utformning](/azure/architecture/refe
 * Relaterade resurser som krävs för den virtuella datorn
 
 ### <a name="naming"></a>Namngivning
-En virtuell dator har ett tilldelat [namn](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
+En virtuell dator har ett tilldelat [namn](/azure/architecture/best-practices/naming-conventions) och ett datornamn som konfigurerats som en del av operativsystemet. En virtuell dators namn kan bestå av upp till 15 tecken.
 
 Om du använder Azure för att skapa operativsystemsdisken är datornamnet och namnet på den virtuella datorn detsamma. Om du [laddar upp och använder en egen avbildning](upload-generalized-managed.md) som innehåller ett tidigare konfigurerat operativsystem, och du använder den för att skapa en virtuell dator, kan namnen bli olika. Vi rekommenderar att du ger datorn samma namn i operativsystemet som i den virtuella datorn när du laddar upp en egen avbildningsfil.
 

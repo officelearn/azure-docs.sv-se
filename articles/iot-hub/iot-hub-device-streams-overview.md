@@ -8,22 +8,22 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 7ffe4a087ae94d6c96019cc045d3d7ff071780d4
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 426c8995e5c3d98e42d0ad334b8ae52171556dce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830356"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884970"
 ---
 # <a name="iot-hub-device-streams-preview"></a>IoT Hub Device dataströmmar (förhandsversion)
 
 ## <a name="overview"></a>Översikt
-Azure IoT Hub *enheten strömmar* enklare att skapa säkra dubbelriktad TCP-tunnlar för en mängd olika scenarier med moln-till-enhet-kommunikation. En dataström med enhet genom med en IoT-hubb *slutpunkt för direktuppspelning* som fungerar som proxy mellan slutpunkterna för din tjänst och enhet. Den här konfigurationen visas i diagrammet nedan, vilket är användbart espcially när enheterna finns bakom en brandvägg eller finns i ett privat nätverk. IoT Hub device dataströmmar hjälper därför adress kunders behov att nå IoT-enheter på ett brandväggsvänligt sätt och utan att behöva brett att nätverksportar öppnas inkommande eller utgående brandvägg.
+Azure IoT Hub *enheten strömmar* enklare att skapa säkra dubbelriktad TCP-tunnlar för en mängd olika scenarier med moln-till-enhet-kommunikation. En dataström med enhet genom med en IoT-hubb *slutpunkt för direktuppspelning* som fungerar som proxy mellan slutpunkterna för din tjänst och enhet. Den här konfigurationen kan visas i diagrammet nedan, är särskilt användbart när enheter är bakom en brandvägg eller finns i ett privat nätverk. IoT Hub device dataströmmar hjälper därför adress kunders behov att nå IoT-enheter på ett brandväggsvänligt sätt och utan att behöva brett att nätverksportar öppnas inkommande eller utgående brandvägg.
 
 ![Alternativ text](./media/iot-hub-device-streams-overview/iot-hub-device-streams-overview.png "IoT Hub device strömmar översikt")
 
 
-Med IoT Hub device strömmar enheter förblir säkra och behöver bara öppna utgående TCP-anslutningar till slutpunkten för direktuppspelning av IoT hub via port 443. När en dataström har upprättats har på tjänstsidan och enhetssidan program var och en programmatisk åtkomst till en WebSocket-klientobjekt skicka och ta emot rå byte till varandra. Tillförlitlighet och ordning garantier som tillhandahålls av den här tunneln är likvärdigt TCP.
+Med IoT Hub device strömmar enheter förblir säkra och behöver bara öppna utgående TCP-anslutningar till slutpunkten för direktuppspelning av IoT hub via port 443. När en dataström har upprättats har på tjänstsidan och enhetssidan program var och en programmatisk åtkomst till en WebSocket-klientobjekt skicka och ta emot byte till varandra. Tillförlitlighet och ordning garantier som tillhandahålls av den här tunneln är likvärdigt TCP.
 
 ## <a name="benefits"></a>Fördelar
 Strömmar för IoT Hub-enhet ger följande fördelar:
@@ -33,14 +33,14 @@ Strömmar för IoT Hub-enhet ger följande fördelar:
 
 - **Kryptering:** Som standard använder IoT Hub device strömmar TLS-aktiverade anslutningar. Detta säkerställer att trafiken krypteras alltid oavsett om programmet använder kryptering eller inte.
 
-- **Enkelheten med anslutning:** Enheten strömmar inga behov av komplicerad konfiguration av virtuella privata nätverk genom att aktivera anslutning till IoT-enheter.
+- **Enkelheten med anslutning:** I många fall inga enheten strömmar behov av komplicerad konfiguration av virtuella privata nätverk genom att aktivera anslutning till IoT-enheter.
 
 - **Kompatibilitet med TCP/IP-stack:** IoT Hub device strömmar kan hantera TCP/IP-programtrafik. Det innebär att en stor mängd upphovsrättsskyddad samt standardbaserade protokoll kan dra nytta av den här funktionen.
 
-- **Användarvänlighet i privat nätverk inställningar:** Tjänsten kan nå en enhet genom att referera till dess enhets-ID i stället för IP-adress. Detta är användbart i situationer där en enhet finns i ett privat nätverk och har en privat IP-adress eller IP-adressen tilldelas dynamiskt och är okända för serversidan.
+- **Användarvänlighet i privat nätverk inställningar:** Tjänsten kan kommunicera med en enhet genom att referera till dess enhets-ID i stället för enhetens IP-adress. Detta är användbart i situationer där en enhet finns i ett privat nätverk och har en privat IP-adress eller IP-adressen tilldelas dynamiskt och är okända för serversidan.
 
 ## <a name="device-stream-workflows"></a>Enheten Stream arbetsflöden
-En enhet dataström initieras när tjänstbegäranden för att ansluta till en enhet med dess enhets-ID. Det här arbetsflödet är särskilt passar in i mönstret för klient/server-kommunikation, inklusive SSH och RDP där en användare har för avsikt att fjärransluta till SSH eller RDP-servern som körs på den enhet som använder en SSH eller RDP-klientprogram.
+En enhet dataström initieras när tjänstbegäranden för att ansluta till en enhet med dess enhets-ID. Det här arbetsflödet är särskilt passar in i en klient/server-kommunikation modell, inklusive SSH och ansluter via RDP, där en användare har för avsikt att fjärransluta till SSH eller RDP-servern som körs på den enhet som använder en SSH eller RDP-klientprogram.
 
 Enheten stream skapandeprocessen innebär en förhandling mellan enheten, tjänst, IoT-hubbens main och slutpunkter för direktuppspelning. När IoT-hubbens huvudsakliga slutpunkten styr skapandet av en enhet-dataström, hanterar slutpunkten för direktuppspelning trafik som flödar mellan tjänster och enheter.
 
@@ -58,14 +58,14 @@ Programmässig skapandet av en enhet-dataström med hjälp av SDK omfattar följ
 
 4. Enheten skapar en säker utgående TCP-anslutning till slutpunkten för direktuppspelning via port 443 och uppgraderas anslutningen till en WebSocket. URL: en för slutpunkten för direktuppspelning, samt autentiseringsuppgifterna som du använder för att autentisera både som enheten av IoT Hub som en del av begäran som skickats i steg 3.
 
-5. Tjänsten är aviseras om resultatet av enhet som tar emot dataströmmen och fortsätter att skapa en egen WebSocket till slutpunkten för direktuppspelning. På samma sätt kan den tar emot strömmande URL och autentisering information om slutpunkten från IoT Hub.
+5. Tjänsten är aviseras om resultatet av enhet som tar emot dataströmmen och fortsätter att skapa en egen WebSocket-klient till slutpunkten för direktuppspelning. På samma sätt kan den tar emot strömmande URL och autentisering information om slutpunkten från IoT Hub.
 
 I handskakningsprocessen ovan:
 - Handskakningsprocessen måste slutföras inom 60 sekunder (steg 2 till 5), annars handskakningen misslyckades med en tidsgräns och tjänsten kommer att meddelas.
 
 - När stream skapa flödet ovan är klar slutpunkten för direktuppspelning fungerar som proxy och överföra trafik mellan tjänsten och enheten via sina respektive WebSockets.
 
-- Enheten och tjänsten måste du utgående anslutning till IoT Hub huvudsakliga slutpunkten samt slutpunkten för direktuppspelning via port 443. Webbadressen till dessa slutpunkter finns på översiktsfliken i IoT-hubbens portal.
+- Enheten och tjänsten måste du utgående anslutning till IoT Hub huvudsakliga slutpunkten samt slutpunkten för direktuppspelning via port 443. Webbadressen till dessa slutpunkter finns på *översikt* fliken på IoT-hubbens portal.
 
 - Tillförlitlighet och ordning garantier för en etablerad dataström är likvärdigt TCP.
 
@@ -85,9 +85,20 @@ Du kan också slutpunkter information kan använda hämtas med hjälp av Azure C
 az iot hub show --name <YourIoTHubName>
 ```
 
+## <a name="whitelist-device-streaming-endpoints"></a>Lista över tillåtna enheter-slutpunkter för direktuppspelning
+
+Som vi redan nämnt [tidigare](#Overview), enheten skapar en utgående anslutning till slutpunkten för direktuppspelning av IoT Hub under enheten strömmar initiation process. Dina brandväggar på enheten eller nätverket måste tillåta utgående anslutning till strömmande gatewayen via port 443 (Observera att kommunikationen sker via en WebSocket-anslutning som har krypterats med TLS).
+
+Värdnamnet för slutpunkten för direktuppspelning av enheten finns på Azure IoT Hub-portalen under fliken Översikt. ![Alternativ text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "enheten stream slutpunkter")
+
+Du kan också hitta den här informationen med hjälp av Azure CLI:
+```cmd/sh
+az iot hub show --name <YourIoTHubName>
+```
+
 ## <a name="troubleshoot-via-device-streams-activity-logs"></a>Felsök via enheten strömmar aktivitetsloggar
 
-Du kan konfigurera Azure Log Analytics för att samla in aktivitetsloggen för enheten strömmar i din IoT-hubb. Det kan vara mycket användbart vid felsökning av scenarier.
+Du kan ställa in Azure Log Analytics för att samla in aktivitetsloggen på strömmar av enheten i IoT Hub. Det kan vara mycket användbart vid felsökning av scenarier.
 
 Följ stegen nedan för att konfigurera Azure Log Analytics för IoT-hubbens enheten stream aktiviteter:
 
@@ -105,64 +116,65 @@ Följ stegen nedan för att konfigurera Azure Log Analytics för IoT-hubbens enh
     <p>
 Identiteten för målenheten och resultatet av åtgärden är också tillgängliga i loggarna som visas nedan.
     ![Alternativ text](./media/iot-hub-device-streams-overview/device-streams-log-analytics.PNG "komma åt enheten strömningsloggar")
-    
 
-## <a name="whitelist-device-streaming-endpoints"></a>Lista över tillåtna enheter-slutpunkter för direktuppspelning
 
-Som vi redan nämnt [tidigare](#Overview), enheten skapar en utgående anslutning till slutpunkten för direktuppspelning av IoT Hub under enheten strömmar initiation process. Dina brandväggar på enheten eller nätverket måste tillåta utgående anslutning till strömmande gatewayen via port 443 (detta är en WebSocket-anslutning som har krypterats med TLS).
+## <a name="regional-availability"></a>Regional tillgänglighet
 
-Värdnamnet för slutpunkten för direktuppspelning av enheten finns på Azure IoT Hub-portalen under fliken Översikt. ![Alternativ text](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "enheten stream slutpunkter")
+Allmänt tillgängliga förhandsversionen är strömmar för IoT Hub-enhet tillgängliga i regionerna centrala USA och centrala USA – EUAP. Kontrollera att du skapar din hubb i någon av dessa regioner. 
 
-Du kan också hitta den här informationen med hjälp av Azure CLI:
-```cmd/sh
-az iot hub show --name tcpstreaming-preview
-```
 
 ## <a name="sdk-availability"></a>SDK-tillgänglighet
+
 Två sidor av varje dataström (på enheten och tjänsten sida) använder IoT Hub-SDK för att upprätta tunneln. Allmänt tillgängliga förhandsversionen kan kunder välja mellan följande SDK språk:
 - C och C# SDK: er stöder enheten strömmar på enheten.
 
 - NodeJS och C# SDK har stöd för enheten strömmar på serversidan.
 
+
 ## <a name="iot-hub-device-stream-samples"></a>IoT Hub Device Stream-exempel
-Vi har tagit med två exempel för att demonstrera hur enheten strömmar av program. Den *echo* exempel visar programatic användning av enheten strömmar (genom att anropa API SDK: er). Den *lokal proxy* prov, demonstrerar användningen av SDK-funktioner till tunnel startklara programtrafik (till exempel SSH, RDP eller web) via enheten strömmar.
+
+Vi har publicerat två [Snabbstart exempel](/azure/iot-hub) till demonstrerar användningen av enheten strömmar av program.
+* Den *echo* exempel visar programatic användning av enheten strömmar (genom att anropa API SDK: er direkt).
+* Den *lokal proxy* exempel visar tunneling trafiktyper startklara klient/server-program (till exempel SSH, RDP eller web) via enheten strömmar.
+
+De här exemplen beskrivs mer i detalj nedan.
 
 ### <a name="echo-sample"></a>Echo-exempel
-Echo-exempel visar programmässig användning av enheten strömmar för att skicka och ta emot byte mellan tjänsten och program. Använd länkarna nedan för att komma åt snabbstartguider (du kan använda tjänsten och program i olika språk, t.ex. C enhetsprogram kan arbeta med C# serviceprogram):
+Echo-exempel visar programmässig användning av enheten strömmar för att skicka och ta emot byte mellan tjänsten och program. Använd länkarna nedan för att få åtkomst till snabbstartguider. Observera att du kan använda tjänsten och program i olika språk, t.ex. C enhetsprogram kan arbeta med C# serviceprogram.
 
 | SDK    | Tjänstprogrammet                                          | Enhetsprogram                                           |
 |--------|----------------------------------------------------------|----------------------------------------------------------|
 | C#     | [Länk](quickstart-device-streams-echo-csharp.md) | [Länk](quickstart-device-streams-echo-csharp.md) |
-| NodeJS | [Länk](quickstart-device-streams-echo-nodejs.md) | -                                                        |
+| Node.js | [Länk](quickstart-device-streams-echo-nodejs.md) | -                                                        |
 | C      | -                                                        | [Länk](quickstart-device-streams-echo-c.md)      |
 
 ### <a name="local-proxy-sample-for-ssh-or-rdp"></a>Exempel på lokal Proxy (för SSH eller RDP)
 Lokal proxy-exempel visar ett sätt att aktivera tunnlar för trafik i ett befintligt program som omfattar kommunikation mellan en klient och en serverprogram. Den här konfigurera fungerar för klient/server-protokoll som SSH och ansluter via RDP, där tjänstsidan fungerar som en klient (SSH eller RDP-klientprogram som körs), och enheten sida som fungerar som servern (som kör daemon för SSH eller RDP-serverprogram). 
 
-Det här avsnittet beskriver användningen av enheten strömmar för att aktivera SSH-scenarier för att en enhet över enheten strömmar (fallet med RDP eller andra klient/server-protokoll är liknande med hjälp av det protokoll motsvarande port).
+Det här avsnittet beskriver användningen av enheten strömmar för att låta användarna SSH till en enhet över enheten strömmar (fallet med RDP eller annat klient/server-program är liknande med hjälp av det protokoll motsvarande port).
 
-Installationen använder två *lokal proxy* program visas i bilden nedan, nämligen *enhet-lokal proxy* och *service-lokal proxy*. Lokala proxyservrar ansvarar för att utföra den [enheten stream initiation handskakning](#Device-stream-creation-flow) med IoT Hub och interagera med SSH-klient och SSH-daemon med hjälp av vanliga klient/server socket-programmering.
+Installationen använder två *lokal proxy* program visas i bilden nedan, nämligen *enhet-lokal proxy* och *service-lokal proxy*. Lokal proxy-program är ansvarig för att utföra den [enheten stream initiation handskakning](#device-stream-creation-flow) med IoT Hub och interagera med SSH-klient och SSH-daemon med hjälp av vanliga klient/server sockets.
 
 ![Alternativ text](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png "Enhetsinställningar stream proxy för SSH/RDP")
 
 1. Användaren kör service-lokal proxy för att initiera en enhet ström till enheten.
 
-2. Enheten godkänner stream initiation och tunneln har upprättats till slutpunkten för direktuppspelning av IoT Hub (som beskrivs ovan).
+2. Proxy för lokal enhet accepterar initiation strömningsbegäran och tunneln har upprättats till slutpunkten för direktuppspelning av IoT Hub (som beskrivs ovan).
 
 3. Proxy för lokal enhet ansluter till SSH-daemon-slutpunkten lyssnar på port 22 på enheten.
 
-4. Service-lokal proxy lyssnar på en avsedda port som väntar på ny SSH-anslutningar från användaren (port 2222 som används i exemplet är en godtycklig port). Användaren pekar proxyporten lokal tjänst på localhost SSH-klienten.
+4. Service-lokal proxy lyssnar på en avsedda port som väntar på ny SSH-anslutningar från användaren (port 2222 som används i exemplet, men detta kan konfigureras att någon annan port). Användaren pekar proxyporten lokal tjänst på localhost SSH-klienten.
 
 ### <a name="notes"></a>Anteckningar
-- En slutpunkt till slutpunkt-tunnel mellan SSH-klient (till höger) till SSH-daemon (till vänster) för att slutföra stegen ovan. 
+- En slutpunkt till slutpunkt-tunnel mellan SSH-klient (till höger) till SSH-daemon (till vänster) för att slutföra stegen ovan. En del av den här slutpunkt till slutpunkt-anslutning innebär att skicka trafik via en dataström med enheten till IoT Hub.
 
 - Pilarna i bilden anger riktningen där anslutningar upprättas mellan slutpunkter. Observera särskilt att det finns inga inkommande anslutningar kommer att enheten (detta är ofta blockeras av en brandvägg).
 
-- Välja att använda port `2222` på service-lokal proxy är ett godtyckligt val. Proxyn kan konfigureras för att använda någon annan port.
+- Välja att använda port 2222 på service-lokal proxy är ett godtyckligt val. Proxyn kan konfigureras för att använda någon annan port.
 
-- Valet av port `22` i det här fallet är procotocol-beroende och specifikt för SSH. Om RDP, porten `3389` måste användas. Detta kan konfigureras i de angivna exempelprogram.
+- Valet av port 22 är i det här fallet procotocol-beroende och specifikt för SSH. I fallet med RDP måste port 3389 användas. Detta kan konfigureras i de angivna exempelprogram.
 
-Använd länkarna nedan för instruktioner om hur du kör lokal proxy-program i valfritt språk. Liknar echo-exempel, du kan köra proxyservrar för enheten och tjänsten lokalt i olika språk, som de är helt kompatibelt.
+Använd länkarna nedan för instruktioner om hur du kör lokal proxy-program i valfritt språk. Liknar den [echo exemplet](#echo-sample), du kan köra enheten och tjänsten lokal proxy-program på olika språk som de är helt kompatibelt.
 
 | SDK    | Service-lokal Proxy                                       | Enhet-lokal Proxy                                |
 |--------|-----------------------------------------------------------|---------------------------------------------------|

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 99491fdc9758c5ec930db5f584f009eb6705f789
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e9c2bf52cb1999381d7d1cde3a8f62710514b915
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231262"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884528"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Storlekar för virtuella datorer stöds i Azure Stack
 
@@ -134,14 +134,14 @@ Allmänna storlekar för Virtuella datorer ger ett balanserat förhållande för
 ### <a name="fsv2-series"></a>Fsv2-serien
 *Kräver Azure Stack-version 1804 eller senare* 
 
-|Storlek     |Virtuell processor     |Minne (GiB) | Temporär lagring (GiB)  | Max OS diskgenomflödet (IOPS) | Maximalt genomflöde för temporär lagring (IOPS) | Maximalt antal datadiskar / dataflöde (IOPS) | Maximalt antal nätverkskort / förväntade nätverksbandbredd (Mbit/s) |
-|---------------------|----|----|-----|-----|-------|--------------|---------|
-|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |Mellan |
-|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |Mellan |
-|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |Hög     |
-|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |Hög     |
-|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |Hög  |
-|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |Extremt hög  |
+|Storlek     |Virtuell processor     |Minne (GiB) | Temporär lagring (GiB)  | Max OS diskgenomflödet (IOPS) | Maximalt genomflöde för temporär lagring (IOPS) | Maximalt antal datadiskar / dataflöde (IOPS) |
+|---------------------|----|----|-----|-----|-------|--------------|
+|**Standard_F2s_v2**  |2   |4   |16   |1000 |4000   |4 / 4 x 2300    |
+|**Standard_F4s_v2**  |4   |8   |32   |1000 |8000   |8 / 8 x 2300    |
+|**Standard_F8s_v2**  |8   |16  |64   |1000 |16000  |16 / 16 x 2300  |
+|**Standard_F16s_v2** |16  |32  |128  |1000 |32000  |32 / 32 x 2300  |
+|**Standard_F32s_v2** |32  |64  |256  |1000 |64000  |32 / 32 x 2300  |
+|**Standard_F64s_v2** |64  |128 |512  |1000 |128000 |32 / 32 x 2300  |
 
 
 ## <a name="memory-optimized"></a>Minnesoptimerad

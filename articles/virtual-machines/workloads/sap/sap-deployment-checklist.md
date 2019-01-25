@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/18/2019
+ms.date: 01/24/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78599a350aff4d0aba5603e8ad7959c945f1aca
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 67083a8214724659765922047c1f0ccd6da87b9d
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439161"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884936"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure checklista för planering och distribution 
 
@@ -47,7 +47,7 @@ I den här fasen planeras en migrering av SAP-arbetsbelastningar till offentliga
     3.  Arkitektur för affärskontinuitet och Haveriberedskap
     4.  Detaljerad OS, DB, Kernel och SAP stöd för pack-versioner. Det är inte en tanke på att någon OS-version som stöds av SAP NetWeaver och S/4HANA stöds i Azure virtuella datorer. Detsamma gäller för DBMS-versioner. Det är obligatoriskt att checkas följande källor för att justera och om det behövs uppgradera SAP-versioner, utgåvor av DBMS och versioner för att vara i ett SAP och fönstret stöds av Azure. Det är obligatoriskt att du befinner dig i SAP och Azure versionen kombinationer för att få fullständig support av SAP och Microsoft som stöds. Om det behövs, måste du planera för uppgradering av några av programvarukomponenter. Mer information om vilka program som stöds SAP-, OS- och DBMS dokumenteras på följande platser:
         1.  Stöd för SAP-kommentar [#1928533](https://launchpad.support.sap.com/#/notes/1928533). Den här anteckningen definierar de lägsta OS-versioner som stöds i Azure virtuella datorer. Den definierar även minsta databas-versioner som krävs för de flesta icke HANA-databas. Anmärkning presenterar även SAP-storlek SAP stöds Azure VM-typer.
-        2.  Stöd för SAP-kommentar [#2039619](https://launchpad.support.sap.com/#/notes/2039619). Anmärkning definierar stödmatris Oracle på Azure. Tänk på att Oracle stöder endast Windows- och Oracle Linux som gästoperativsystem i Azure för SAP-arbetsbelastningar. Den här kompatibilitetsinformationen gäller för SAP-programnivån kör SAP-instanser. Oracle stöder dock inte hög tillgänglighet för SAP Central Services i Oracle Linux. För Windows, SAP som stöds Windows Failover-kluster redundanslösning för SAP Central Services stöds tillsammans med Oracle som DBMS-lager. 
+        2.  Stöd för SAP-kommentar [#2039619](https://launchpad.support.sap.com/#/notes/2039619). Anmärkning definierar stödmatris Oracle på Azure. Tänk på att Oracle stöder endast Windows- och Oracle Linux som gästoperativsystem i Azure för SAP-arbetsbelastningar. Den här kompatibilitetsinformationen gäller för SAP-programnivån kör SAP-instanser. Oracle stöder dock inte hög tillgänglighet för SAP Central Services i Oracle Linux via Pacemaker. Om du behöver hög tillgänglighet för ASCS på Oracle Linux kan behöva du utnyttja SIOS säkerhetspaket för Linux. För detaljerade data för SAP-certifiering, kontrollera SAP support-kommentar [#1662610 - information om Support för SIOS säkerhetspaket för Linux](https://launchpad.support.sap.com/#/notes/1662610). För Windows, SAP som stöds Windows Failover-kluster redundanslösning för SAP Central Services stöds tillsammans med Oracle som DBMS-lager. 
         3.  Stöd för SAP-kommentar [#2235581](https://launchpad.support.sap.com/#/notes/2235581) hämta av stödmatrisen för SAP HANA på olika OS-versioner
         4.  SAP HANA stöds virtuella Azure-datorer och [HANA stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) visas [här](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
         5.  [SAP produkten tillgänglighet matris](https://support.sap.com/en/)
@@ -196,7 +196,7 @@ I det här steget som du vill samla in alla upplevelser och erfarenheter av dina
     2.  Använd säkerhetskopiering/återställning för mindre databaser
     3.  Använd SAP migrering övervakaren implementerats till SAP SWPM verktyg för heterogena migreringar
     4.  Använd den [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) bearbeta om du vill kombinera med en uppgradering för SAP-versionen. Tänk på att inte alla kombinationer av mellan källa och mål-DBMS stöds. Mer information finns i den specifika informationen för SAP för de olika versionerna av DMO. Till exempel [databasen migrering alternativet DMO () av SUMMAN 2.0 SP04](https://launchpad.support.sap.com/#/notes/2644872)
-    5.  Testa om dataöverföring via internet eller via ExpressRoute passar bättre i dataflödet om du behöver flytta säkerhetskopior eller SAP exportera filer. Tänk på att för till exempel flyttar data via internet, du kan behöva ändra några av dina NSG/ASG säkerhetsregler som du behöver för framtida produktionssystem
+    5.  Testa om dataöverföring via internet eller via ExpressRoute passar bättre i dataflödet om du behöver flytta säkerhetskopior eller SAP exportera filer. För till exempel flyttar data via internet, kan du behöva ändra några av dina NSG/ASG säkerhetsregler som du behöver för framtida produktionssystem
 3.  Innan du flyttar system från den gamla plattformen Azure samla in resursdata förbrukning som CPU-användning, genomflödet och IOPS-data. Särskilt från de DBMS layer enheterna, utan även från application layer-enheter. Mät också nätverks- och svarstid.
 4.  Verifiera resurserna på SAP support anteckningar, SAP HANA maskinvara directory och SAP PAM igen för att se till att det fanns inga ändringar i virtuella datorer som stöds för Azure, stöds OS-versionerna på dessa virtuella datorer och stöds SAP och DBMS versioner 
 4.  Anpassa distributionsskript som de senaste ändringarna som du valt VM-typer och Azure-funktioner
@@ -224,7 +224,7 @@ I det här steget som du vill samla in alla upplevelser och erfarenheter av dina
     
 
 ## <a name="go-live-phase"></a>Go Live Phase
-Du måste se till att följa dina spelböcker som du har utvecklat i tidigare faser för Go-Live-fasen. Kör de steg som du har testat och tränas. Inte acceptera sista ändringar i konfigurationer och processen. Förutom som gäller följande:
+Du måste se till att följa dina spelböcker som du har utvecklat i tidigare faser för Go-Live-fasen. Kör de steg som du har testat och tränas. Inte acceptera sista ändringar i konfigurationer och processen. Förutom som gäller följande åtgärder:
 
 1. Kontrollera att Azure-portalen övervakning och andra övervakningsverktyg fungerar.  Rekommenderade verktyg är Perfmon (Windows) eller SAR (Linux): 
     1.  CPU-räknare 

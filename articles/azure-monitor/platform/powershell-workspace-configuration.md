@@ -14,12 +14,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/21/2016
 ms.author: richrund
-ms.openlocfilehash: a77406fd6a466ed92f6eb3ed3401e987831e3da0
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e34d45d2d7c81ec5f15a5441ce2bb0f082c65155
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267307"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884120"
 ---
 # <a name="manage-log-analytics-using-powershell"></a>Hantera Log Analytics med PowerShell
 Du kan använda den [Log Analytics PowerShell-cmdletar](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) att utföra olika funktioner i Log Analytics från en kommandorad eller som en del av ett skript.  Exempel på de uppgifter du kan utföra med PowerShell:
@@ -228,7 +228,7 @@ För övervakning utan Agent för Azure-resurser, måste resurserna som har Azur
 
 Information för tillgängliga mått i [stöds mått med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
 
-Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/tutorial-dashboards.md).
+Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

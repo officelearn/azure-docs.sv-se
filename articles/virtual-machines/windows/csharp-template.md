@@ -3,7 +3,7 @@ title: Distribuera en virtuell dator med C# och Resource Manager-mall | Microsof
 description: Lär dig hur du använder C# och Resource Manager-mall för att distribuera en Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: zarhoads
-ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: cynthn
+ms.openlocfilehash: 005b0e74084325606a9a07df6b36b9100cad1750
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953696"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885956"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Distribuera en Azure-dator med C# och Resource Manager-mall
 Den här artikeln visar hur du distribuerar en Azure Resource Manager-mall med C#. Mallen som du skapar distribuerar en virtuell dator som kör Windows Server i ett nytt virtuellt nätverk med ett enda undernät.

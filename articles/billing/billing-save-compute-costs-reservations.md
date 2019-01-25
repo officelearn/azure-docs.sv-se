@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 27b31b6dec480fee417bf9ccb241199204f28f96
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 4133d78ccff1fa4eb712d8928cefa604ca2f52ca
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582657"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902082"
 ---
 # <a name="what-are-azure-reservations"></a>Vad är Azure Reservations?
 
@@ -37,8 +37,8 @@ Om du har virtuella datorer, Azure Cosmos DB eller SQL-databaser som körs under
 ## <a name="what-charges-does-a-reservation-cover"></a>Vilka avgifter fungerar en reservation cover?
 
 - Reserverade VM-instans: En reservation täcker endast beräkningskostnader för virtuell dator. Det täcker inte ytterligare kostnader för programvara, nätverk och lagring.
-- SQL Database reserverade vCore: endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
-- Azure Cosmos DB reserverad kapacitet: en reservation omfattar dataflödet som etableras för dina resurser, de täcker inte avgifter för lagring och nätverk. 
+- SQL Database reserverade vCore: Endast beräkningskostnaderna ingår i en reservation. Licensen faktureras separat.
+- Azure Cosmos DB reserverad kapacitet: En reservation omfattar dataflödet som etableras för dina resurser, de täcker inte avgifter för lagring och nätverk. 
 
 För Windows-datorer och SQL-databas, kan du täcker licensieringskostnaderna med [Azure Hybrid-förmånen](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -78,9 +78,9 @@ I slutet av reservationsperioden fakturering rabatten upphör att gälla och den
 När du köper en reservation gälla rabatten andra instanser med attribut som tillhör storleksgruppen samma. Flexibiliteten i rabatt täckning beror på vilken typ av reservation och de attribut som du väljer när du köper reservationen.
 
 - Reserverade VM-instanser: När du köper reservationen, om du väljer **optimerade för**: **instans storlek flexibilitet**, rabatt täckning beror på virtuella datorstorlek som du väljer. Reservationen kan använda för storlekar för virtuella datorer (VM) i gruppen för serien av samma storlek. Mer information finns i [VM-storlek flexibilitet med reserverade VM-instanser](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
-- SUSE Linux Enterprise programvaruplanen: rabatt täckning är beroende av vcpu: er för de virtuella datorerna där du kör SUSE-programvara. Mer information finns i [förstå hur SUSE Linux Enterprise software plan rabatten](billing-understand-suse-reservation-charges.md).
-- SQL Database reserverad kapacitet: den rabatt täckningen beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
-- Azure Cosmos DB reserverad kapacitet: den rabatt täckningen beror på det etablerade dataflödet. Mer information finns i [förstå hur ett Azure Cosmos DB-reservationsrabatten tillämpas](billing-understand-cosmosdb-reservation-charges.md).
+- Plan för SUSE Linux Enterprise programvara: Rabatt-täckning är beroende av vcpu: er för de virtuella datorerna där du kör SUSE-programvara. Mer information finns i [förstå hur SUSE Linux Enterprise software plan rabatten](billing-understand-suse-reservation-charges.md).
+- SQL Database reserverad kapacitet: Rabatt täckning beror på den prestandanivå som du väljer. Mer information finns i [förstå hur ett Azure reservationsrabatten tillämpas](billing-understand-reservation-charges.md).
+- Azure Cosmos DB reserverad kapacitet: Rabatt-täckning är beroende av det etablerade dataflödet. Mer information finns i [förstå hur ett Azure Cosmos DB-reservationsrabatten tillämpas](billing-understand-cosmosdb-reservation-charges.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

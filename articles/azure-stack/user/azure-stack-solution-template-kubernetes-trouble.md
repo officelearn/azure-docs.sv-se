@@ -1,6 +1,6 @@
 ---
-title: Felsöka din distribution till Kubernetes i Azure Stack | Microsoft Docs
-description: Lär dig hur du felsöker din distribution till Kubernetes i Azure Stack.
+title: Felsöka ditt Kubernetes-distribution till Azure Stackk | Microsoft Docs
+description: Lär dig hur du felsöker ditt Kubernetes-distribution till Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 844feb7999f88f63c9406c9f430d1d076cd032df
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 8a67ae74f753fdbe3c5301c543e5a57544695922
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390676"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904224"
 ---
-# <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Felsöka din distribution till Kubernetes i Azure Stack
+# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Felsöka ditt Kubernetes-distribution till Azure Stack
 
 *Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 

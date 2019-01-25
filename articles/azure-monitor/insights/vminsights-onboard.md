@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2019
 ms.author: magoedte
-ms.openlocfilehash: e97ac849fa0e590dd2462d8e64b761da23576833
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 1f6be45e7f53aff7f9b8957ca88efe7605e4a984
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845970"
+ms.locfileid: "54889050"
 ---
 # <a name="deploy-azure-monitor-for-vms-preview"></a>Distribuera Azure Monitor för virtuella datorer (förhandsversion)
 Den här artikeln beskriver hur du ställer in Azure Monitor för virtuella datorer. Tjänsten övervakar operativsystemet hälsotillståndet för dina Azure-datorer (VM) och VM-skalningsuppsättningar och de virtuella datorerna i din miljö. Den här övervakning innefattar identifierings- och mappningen av programberoenden som kan finnas på dem. 
@@ -325,8 +325,9 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         az login
         az account set --subscription "Subscription Name"
         az group deployment create --name DeploySolutions --resource-group <ResourceGroupName> --template-file InstallSolutionsForVMInsights.json --parameters WorkspaceName=<workspaceName> WorkspaceLocation=<WorkspaceLocation - example: eastus>
+        ```
 
-        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
+        Konfigurationsändringen kan ta några minuter att slutföra. När det är klart visas ett meddelande som liknar följande och som innehåller resultatet:
 
         ```azurecli
         provisioningState       : Succeeded

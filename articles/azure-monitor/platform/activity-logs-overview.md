@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f5d09600829a3efa2682721bf4aedbed7e5cf969
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a1ffb3b7a0f154b1d74ca7a8789e5fdadadec31
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439076"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883780"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Övervaka aktivitet om prenumeration med Azure-aktivitetsloggen
 
@@ -45,7 +45,7 @@ Aktivitetsloggen innehåller flera kategorier av data. Mer information om schema
 * **Automatisk skalning** – den här kategorin innehåller en post för alla händelser relaterade till driften av motorn för automatisk skalning baserat på alla inställningarna för automatisk skalning som du har definierat i din prenumeration. Ett exempel på typen av händelse som du ser i den här kategorin är ”autoskalning uppåt åtgärden misslyckades”. Med automatisk skalning kan du automatiskt skala ut eller skala antalet instanser i en resurstyp som stöds som är baserade på tid på dagen och/eller belastningen (mått) data med hjälp av en autoskalningsinställning. När villkoren uppfylls att skala upp eller ned, start- och lyckade eller misslyckade händelser registreras i den här kategorin.
 * **Rekommendationen** – den här kategorin innehåller rekommendationshändelser från Azure Advisor.
 * **Security** – den här kategorin innehåller en post för alla aviseringar som genereras av Azure Security Center. Ett exempel på typen av händelse som du ser i den här kategorin är ”misstänkt dubbelt filnamnstillägg fil körs”.
-* **Principen** – den här kategorin innehåller inte några händelser; den är reserverad för framtida användning. 
+* **Principen** – den här kategorin innehåller poster för alla gälla åtgärd åtgärder som utförs av Azure Policy. Exempel på typer av händelser som visas i den här kategorin är gransknings- och neka. Varje åtgärd som principen modelleras som en åtgärd på en resurs.
 
 ## <a name="event-schema-per-category"></a>Händelseschema per kategori
 [Se den här artikeln för att förstå Händelseschema för aktivitetslogg per kategori.](../../azure-monitor/platform/activity-log-schema.md)

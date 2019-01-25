@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/15/2018
 ms.author: aljo
-ms.openlocfilehash: 75ba2ee378e9eddfeaeb2346b4d5bb584844afe2
-ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
+ms.openlocfilehash: 691995d0aa426766caed2f5e2458399b32332c9d
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51636684"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903510"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
@@ -33,7 +33,7 @@ Vi har skapat en uppsättning Windows PowerShell-skript för att förenkla vissa
 > [!NOTE]
 > Du måste slutföra följande steg innan du skapar klustret. Eftersom skripten förväntar dig klusternamn och slutpunkter, värdena bör planeras och värden inte att du redan har skapat.
 
-1. [Ladda ned skripten] [ sf-aad-ps-script-download] till datorn.
+1. [Ladda ned skripten](https://github.com/robotechredmond/Azure-PowerShell-Snippets/tree/master/MicrosoftAzureServiceFabric-AADHelpers/AADTool) till datorn.
 2. Högerklicka på zipfilen, Välj **egenskaper**väljer den **avblockera** och klicka sedan på **tillämpa**.
 3. Extrahera zip-filen.
 4. Kör `SetupApplications.ps1`, och ange TenantId, klusternamn och WebApplicationReplyUrl som parametrar. Exempel:
@@ -51,7 +51,7 @@ Klusternamn används som prefix i Azure AD-program som skapas av skriptet. Det b
 
 WebApplicationReplyUrl är den standardslutpunkt som Azure AD returnerar till användarna när de Slutför inloggningen. Ange den här slutpunkten som Service Fabric Explorer-slutpunkt för ditt kluster, vilket som standard är:
 
-https://&lt;cluster_domain&gt;: 19080/Explorer
+https://&lt;cluster_domain&gt;:19080/Explorer
 
 Du uppmanas att logga in på ett konto som har administratörsbehörighet för Azure AD-klient. När du har loggat in skapar skriptet webb- och interna program som motsvarar ditt Service Fabric-kluster. Om du tittar på klientens program i den [Azure-portalen][azure-portal], bör du se två nya poster:
 
@@ -108,16 +108,16 @@ Användaren är inte tilldelad en roll i Azure AD-programmet för klustret. Azur
 #### <a name="solution"></a>Lösning
 Följ anvisningarna för att konfigurera Azure AD och tilldela användarroller. Dessutom rekommenderar vi att du aktiverar ”Användartilldelning krävs för att få åtkomst till appen”, som `SetupApplications.ps1` har.
 
-### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Anslutningen med PowerShell misslyckas med ett fel: ”de angivna autentiseringsuppgifterna är ogiltiga”
+### <a name="connection-with-powershell-fails-with-an-error-the-specified-credentials-are-invalid"></a>Anslutning med PowerShell misslyckas med felmeddelandet: ”De angivna autentiseringsuppgifterna är ogiltiga”
 #### <a name="problem"></a>Problem
-När du använder PowerShell för att ansluta till klustret med hjälp av läget för ”AzureActiveDirectory” säkerhet när du loggar in har till Azure AD, om anslutningen misslyckas med ett fel: ”de angivna autentiseringsuppgifterna är ogiltiga”.
+När du använder PowerShell för att ansluta till klustret med hjälp av läget för ”AzureActiveDirectory” säkerhet när du loggar in har till Azure AD, misslyckas om anslutningen med felmeddelandet: ”De angivna autentiseringsuppgifterna är ogiltiga”.
 
 #### <a name="solution"></a>Lösning
 Den här lösningen är samma som det föregående.
 
-### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer returnerar ett fel när du loggar in: ”AADSTS50011”
+### <a name="service-fabric-explorer-returns-a-failure-when-you-sign-in-aadsts50011"></a>Service Fabric Explorer returnerar ett fel när du loggar in: "AADSTS50011"
 #### <a name="problem"></a>Problem
-När du försöker logga in på Azure AD i Service Fabric Explorer sidan returnerar ett fel ”: AADSTS50011: svarsadressen &lt;url&gt; matchar inte svars-adresser som har konfigurerats för programmet: &lt;guid&gt;”.
+När du försöker logga in på Azure AD i Service Fabric Explorer returnerar sidan ett fel: "AADSTS50011: Svarsadressen &lt;url&gt; matchar inte svars-adresser som har konfigurerats för programmet: &lt;guid&gt;”.
 
 ![SFX svarsadressen matchar inte][sfx-reply-address-not-match]
 

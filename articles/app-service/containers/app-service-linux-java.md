@@ -1,7 +1,7 @@
 ---
 title: Java developer's guide för App Service på Linux – Azure | Microsoft Docs
 description: Lär dig hur du konfigurerar Java-appar som körs i Azure App Service på Linux.
-keywords: Azure apptjänst, webbapp, linux, oss, java
+keywords: azure app service, web app, linux, oss, java
 services: app-service
 author: rloutlaw
 manager: angerobe
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 6f6dac37d1114e8a9faa16c07fd5c14a90a5b0fb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 653d88aafc683b8a67e93945c62a99bbcf8c92fc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976740"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900682"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Java developer's guide för App Service på Linux
 
@@ -139,7 +139,7 @@ Appautentisering i Azure-portalen med den **autentisering och auktorisering** al
 
 Om du vill aktivera flera inloggning providers, följ instruktionerna i den [anpassa App Service-autentisering](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to) artikeln.
 
- Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er.
+Spring Boot-utvecklare kan använda den [Azure Active Directory Spring Boot starter](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?view=azure-java-stable) att skydda program med hjälp av välbekanta Spring Security anteckningar och API: er. Se till att öka den högsta huvudstorlek i din `application.properties` fil. Vi rekommenderar ett värde på `16384`. 
 
 ### <a name="configure-tlsssl"></a>Konfigurera TLS/SSL
 

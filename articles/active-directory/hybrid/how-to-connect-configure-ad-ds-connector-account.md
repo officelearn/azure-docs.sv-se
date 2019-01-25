@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a23561e082736b7dfae6205e75fd1e9ccfab5f6c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: bae80a63db480d6399c7d192561435494e183844
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463397"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900654"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -205,21 +205,21 @@ Denna cmdlet kommer att ange följande behörigheter:
 Om du vill ange behörigheter för AD DS-anslutningskontot när du använder tillbakaskrivning av grupp, kör du: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 Eller; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 Denna cmdlet kommer att ange följande behörigheter: 
 
 |Typ |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
-|Tillåt |Kontot för AD DS-koppling |Allmän Läs/Skriv |Underordnad grupp objekt| 
-|Tillåt |Kontot för AD DS-koppling |Skapa/ta bort underordnade objekt |Det här objektet och alla underordnade objekt| 
-|Tillåt |Kontot för AD DS-koppling |Skapa/ta bort ett objekt och alla dess underordnade objekt |Det här objektet och alla underordnade objekt|
+|Tillåt |Kontot för AD DS-koppling |Allmän Läs/Skriv |Alla attribut för grupp av objekt och underobjekt| 
+|Tillåt |Kontot för AD DS-koppling |Skapa/ta bort underordnade objekt |Alla attribut för grupp av objekt och underobjekt| 
+|Tillåt |Kontot för AD DS-koppling |Ta bort/ta bort trädet objekt|Alla attribut för grupp av objekt och underobjekt|
 
 ### <a name="permissions-for-exchange-hybrid-deployment"></a>Behörigheter för Exchange-Hybridinstallation 
 Om du vill ange behörigheter för AD DS-anslutningskontot när du använder Exchange-hybridinstallation, kör du: 

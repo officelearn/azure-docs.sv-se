@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3c809638cef89d111a032e5876b1f2f1b2c1eb7b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602354"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884359"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
-Azure SQL Database hanteras automatiskt och flexibla datatjänst där du kan enkelt övervaka användning, lägga till eller ta bort resurser (processor, minne och I/O), hitta rekommendationer som kan förbättra databasens prestanda eller låt databasen som anpassas efter din arbetsbelastning och automatiskt optimera prestanda.
+Azure SQL Database är ett automatiskt hanterade och flexibel tjänst där du kan enkelt övervaka användning, lägga till eller ta bort resurser (till exempel processor, minne, i/o), hitta rekommendationer som kan förbättra databasens prestanda eller låt databasen anpassas efter din arbetsbelastning och automatiskt optimera prestanda.
 
 ## <a name="monitoring-database-performance"></a>Övervaka databasprestanda
 

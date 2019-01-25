@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: cwatson
-ms.openlocfilehash: 0328f90eb1cb9c316eea76a0f36c123fd556d25e
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: de2aee36f20bd5142f398de7edb301e53ab42cae
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584427"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902677"
 ---
 # <a name="windows-software-costs-not-included-with-azure-reserved-vm-instances"></a>Kostnader för Windows-programvara ingår inte i Azure Reserved VM Instances
 
@@ -30,7 +30,7 @@ Om du inte har en Azure Hybrid Use Benefit på dina reserverade VM-instanser kan
 | Mätar-ID | MeterName i användningsfil | Används av en virtuell dator |
 | ------- | ------------------------| --- |
 | e7e152ac-f29c-4cce-ad6e-026192c01ef2 | Reserverade Windows Server-instanser Burst (1 kärna) | B-serien |
-| cac255a2-9f0f-4c62-8BD6-f0fa449c5f76 | Reserverade Windows Server-instanser Burst (2 kärnor) | B-serien |
+| cac255a2-9f0f-4c62-8bd6-f0fa449c5f76 | Reserverade Windows Server-instanser Burst (2 kärnor) | B-serien |
 | 09756b58-3fb5-4390-976d-9ddd14f9ed18 | Reserverade Windows Server-instanser Burst (4 kärnor) | B-serien |
 | e828cb37-5920-4dc7-b30f-664e4dbcb6c7 | Reserverade Windows Server-instanser Burst (8 kärnor) | B-serien |
 | f65a06cf-c9c3-47a2-8104-f17a8542215a | Reserverade Windows Server-instanser (1 kärna) | Alla utom B-serien |

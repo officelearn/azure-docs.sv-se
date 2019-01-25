@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: douglasl
-ms.openlocfilehash: 80b594eb8d926465f37771e2e6911f9ab3e63f1f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0d7c8640cb2a3f6d4d1a32a555c03dc2eca48b9a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423824"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901232"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory
 
@@ -853,7 +853,7 @@ Du kan definiera anpassade parametrar för Resource Manager-mallen. Du behöver 
 
 Här följer några riktlinjer för att använda när du redigerar filen anpassade parametrar. Om du vill se exempel på den här syntaxen finns i följande avsnitt [anpassade parametrar exempelfilen](#sample).
 
-1. När du anger matris i definitionsfilen anger du att egenskapen matchande i mallen är en matris. Data Factory går igenom alla objekt i matrisen med definition som anges i fIntegration Runtimest objekt i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn på parametern för varje iteration.
+1. När du anger matris i definitionsfilen anger du att egenskapen matchande i mallen är en matris. Data Factory går igenom alla objekt i matrisen med definition som angetts i Integration Runtime-objektet i matrisen. Det andra objektet, en sträng, blir namnet på egenskapen, som används som namn på parametern för varje iteration.
 
     ```json
     ...

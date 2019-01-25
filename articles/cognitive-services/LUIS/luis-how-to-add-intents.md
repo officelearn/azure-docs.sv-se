@@ -8,15 +8,15 @@ manager: cgronlun
 ms.custom: seodec18
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: c8bcbe011dc4ff9841a06b914a90ae7f9a14ee74
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: d353f37b89f9932827a07fc8079aa606d425ed38
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598510"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882879"
 ---
 # <a name="add-intents-to-determine-user-intention-of-utterances"></a>Lägg till avsikter att fastställa användarens avsikt är att yttranden
 
@@ -24,19 +24,7 @@ Lägg till [avsikter](luis-concept-intent.md) till din LUIS-app för att identif
 
 Avsikter hanteras från övre navigeringsfältet i **skapa** avsnittet sedan från den vänstra panelen **avsikter**. 
 
-## <a name="create-an-app"></a>Skapa en app
-
-1. Logga in på den [LUIS](https://www.luis.ai) portal.
-
-1. Välj **Create new app** (Skapa ny app). 
-
-1. Namnge den nya appen `MyHumanResourcesApp`. Välj den **engelska** kultur. Beskrivningen är valfri. 
-
-1. Välj **Done** (Klar). 
-
 ## <a name="add-intent"></a>Lägga till avsikt
-
-1. Appen öppnas på den **avsikter** lista.
 
 1. På sidan **Intents** (Avsikter) väljer du **Create new intent** (Skapa ny avsikt).
 

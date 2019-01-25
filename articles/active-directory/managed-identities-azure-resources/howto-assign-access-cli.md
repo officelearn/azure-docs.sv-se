@@ -3,7 +3,7 @@ title: Så här tilldelar du en hanterad identitet åtkomst till en Azure-resurs
 description: Steg för steg åtkomst instruktioner för att tilldela en hanterad identitet på en enda resurs, till en annan resurs, med hjälp av Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2017
-ms.author: daveba
-ms.openlocfilehash: ffed9e388b41b6c19ae8ed22b9c843f5ac8ceb3e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 7ec0ac679e8d815eddac29877b95d34d5e4fc966
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54430423"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888336"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Tilldela en hanterad identitet åtkomst till en resurs med hjälp av Azure CLI
 

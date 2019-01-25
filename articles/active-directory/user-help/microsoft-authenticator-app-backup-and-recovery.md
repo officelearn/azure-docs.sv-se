@@ -8,15 +8,15 @@ ms.component: user-help
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 49cc5114106336f41d119b00db1bfa472f09d2d5
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bd15189a9aa70ab99971be9da1bcd1ff243c60d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54821710"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904360"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Säkerhetskopiera och återställa kontoautentiseringsuppgifter med Microsoft Authenticator-appen
 
@@ -39,11 +39,11 @@ Innan du kan säkerhetskopiera dina autentiseringsuppgifter måste ha både:
 Kräver att du att logga in på båda kontona som tillsammans ger bättre säkerhet för din säkerhetskopieringsinformation.
 
 **Aktivera Cloud backup**
--   På iOS-enheten, Välj **inställningar**väljer **säkerhetskopiering**, och sedan aktivera **automatisk säkerhetskopiering**.
+-   På iOS-enheten, Välj **inställningar**väljer **säkerhetskopiering**, och sedan aktivera **iCloud-säkerhetskopiering**.
 
     Autentiseringsuppgifterna för ditt konto säkerhetskopieras till iCloud-konto.
 
-    ![skärmen för iOS-inställningar, som visar platsen för automatiskt inställningar för säkerhetskopiering](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
+    ![skärmen för iOS-inställningar, som visar platsen för iCloud inställningar för säkerhetskopiering](./media/microsoft-authenticator-app-backup-and-recovery/backup-and-recovery-turn-on.png)
 
 ## <a name="recover-your-account-credentials-on-your-new-device"></a>Återställa autentiseringsuppgifterna för ditt konto på den nya enheten
 Du kan återställa autentiseringsuppgifterna för ditt konto från ditt iCloud-konto med hjälp av samma Microsoft recovery kontot som du ställer in när du har säkerhetskopierat din information.
@@ -101,7 +101,6 @@ Nu när du har säkerhetskopierat och återställt autentiseringsuppgifterna fö
 
 ## <a name="related-topics"></a>Relaterade ämnen
 - [Kom igång med Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md)  
-
 - [Vanliga frågor och svar om Microsoft Authenticator-appen](microsoft-authenticator-app-faq.md)
 
 - [Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/)

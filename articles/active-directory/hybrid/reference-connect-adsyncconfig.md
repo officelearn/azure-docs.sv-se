@@ -5,15 +5,15 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.date: 10/19/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1d2d921e02b56e951b4239c15471995eaf3cd0d1
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 723a02c529718ea17750fa72fe568aec6e963118
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813592"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901300"
 ---
 # <a name="azure-ad-connect--adsyncconfig-powershell-reference"></a>Azure AD Connect:  ADSyncConfig PowerShell-referens
 Följande dokumentation innehåller information för ADSyncConfig.psm1 PowerShell-modul som ingår i Azure AD Connect.
@@ -1215,7 +1215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
 ### <a name="description"></a>BESKRIVNING
 Funktionen Set-ADSyncUnifiedGroupWritebackPermissions ger behörigheter som krävs för AD-synkronisering, bland annat följande:
 1.
-Allmän Läs/Skriv, ta bort, ta bort trädet och Create\Delete underordnade för alla typer av objekt och underobjekt
+Allmän Läs/Skriv, ta bort, ta bort trädet och Create\Delete underordnade för alla gruppen objekttyper och underobjekt
 
 Dessa behörigheter som tillämpas på alla domäner i skogen.
 Du kan också ange ett unikt namn i ADobjectDN-parametern för att ange dessa behörigheter för AD objektet endast (inklusive arv till underordnade objekt).

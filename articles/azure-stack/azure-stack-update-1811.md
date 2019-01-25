@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.openlocfilehash: 0c681e7406f5c0c6e205f9dc54ee5eea63b40252
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bdc9a9a01a96ee34c5cf6cfa737be09661364bc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853246"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904428"
 ---
 # <a name="azure-stack-1811-update"></a>Uppdatering av Azure Stack 1811
 
@@ -353,6 +353,8 @@ Här följer efter installation kända problem för den här build-versionen.
     De andra alternativen stöds inte som källkod i Azure Stack. På samma sätt, om du lägger till en utgående säkerhetsregel och välj **Tjänsttagg** som mål, samma lista över alternativ för **Källtagg** visas. De enda giltiga alternativ är desamma som för **Källtagg**, enligt beskrivningen i föregående lista.
 
 - Den **New-AzureRmIpSecPolicy** PowerShell-cmdleten stöder inte inställningen **DHGroup24** för den `DHGroup` parametern.
+
+- Nätverkssäkerhetsgrupper (NSG) fungerar inte i Azure Stack på samma sätt som globala Azure. I Azure, kan du ställa in flera portar på en NSG-regel (med hjälp av portal, PowerShell och Resource Manager-mallar). Du kan inte ange flera portar på en NSG-regel via portalen i Azure Stack. Undvik problemet genom att använda Resource Manager-mall för att ange dessa ytterligare regler.
 
 ### <a name="infrastructure-backup"></a>Infrastruktur för säkerhetskopiering
 

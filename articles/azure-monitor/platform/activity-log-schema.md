@@ -8,15 +8,15 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9ad3ca2233237c9cb4aea0a7bd0c476f48613a9c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 2f7d671dd70571ce167d9c5abd632cdebff329da
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438243"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888149"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure Händelseschema för aktivitetslogg
-Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./tutorial-dashboards.md) tillhandahålls i slutet av artikeln.
+Den **Azure-aktivitetsloggen** är en logg som ger insikt i alla händelser på prenumerationsnivå som har inträffat i Azure. Den här artikeln beskriver Händelseschema per kategori av data. Schemat för data skiljer sig beroende på om du läser data i portalen, PowerShell, CLI, eller direkt via REST API jämfört med [strömmande data till lagring eller Event Hubs med en Loggprofil](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Exemplen nedan visar schemat som gjorts tillgängliga via portalen, PowerShell, CLI och REST API. En mappning av dessa egenskaper så att den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md) tillhandahålls i slutet av artikeln.
 
 ## <a name="administrative"></a>Administrativ
 Den här kategorin innehåller en post för alla skapa, uppdatera och ta bort åtgärden åtgärder som utförs via Resource Manager. Exempel på typer av händelser som visas i den här kategorin är ”Skapa virtuell dator” och ”ta bort nätverkssäkerhetsgruppen” varje åtgärd som en användare eller program med hjälp av Resource Manager är utformat som en åtgärd på en viss resurstyp. Om åtgärdstypen är skriva, ta bort eller åtgärden, registreras poster i start- och lyckas eller misslyckas av åtgärden i den administrativa kategorin. Den administrativa kategorin omfattar även ändringar av rollbaserad åtkomstkontroll i en prenumeration.
@@ -274,8 +274,8 @@ Den här kategorin innehåller en post för eventuella resource health-händelse
 | submissionTimestamp |Tidsstämpel när händelsen blev tillgängliga för frågor. |
 | subscriptionId |Azure-prenumerations-Id. |
 | properties |Uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver informationen om händelsen.|
-| Properties.title | En användarvänlig-sträng som beskriver resursen hälsostatus. |
-| Properties.details | En användarvänlig-sträng som innehåller ytterligare information om händelsen. |
+| Properties.title | Ett användarvänligt sträng som beskriver resursen hälsostatus. |
+| Properties.details | Ett användarvänligt sträng som innehåller ytterligare information om händelsen. |
 | properties.currentHealthStatus | Aktuellt tillstånd för resursen. En av följande värden: ”Tillgänglig”, ”ej tillgänglig”, ”försämrad” och ”okänt”. |
 | properties.previousHealthStatus | Föregående hälsostatus för resursen. En av följande värden: ”Tillgänglig”, ”ej tillgänglig”, ”försämrad” och ”okänt”. |
 | properties.type | En beskrivning av typen av resource health händelse. |
@@ -356,9 +356,9 @@ Den här kategorin innehåller en post för alla Azure-aviseringar-aktiveringar.
 | beskrivning |Statisk textbeskrivning av händelsen avisering. |
 | eventDataId |Unik identifierare för händelsen avisering. |
 | nivå |Nivån på händelsen. En av följande värden: ”Kritisk”, ”Error”, ”varning” och ”information” |
-| resourceGroupName |Namnet på resursgruppen för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här namnet på resursgruppen som innehåller aviseringen själva. |
-| resourceProviderName |Namnet på resursprovidern för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här namnet på resursprovidern för aviseringen själva. |
-| resourceId | Namn på resurs-ID för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper kan är det här resurs-ID för själva avisering resursen. |
+| resourceGroupName |Namnet på resursgruppen för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper är det namnet på resursgruppen som innehåller aviseringen själva. |
+| resourceProviderName |Namnet på resursprovidern för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper är det namnet på resursprovidern för aviseringen själva. |
+| resourceId | Namn på resurs-ID för resursen som påverkas om det är en metrisk varning. För andra aviseringstyper är det resurs-ID för själva avisering resursen. |
 | operationId |Ett GUID som delas mellan de händelser som motsvarar en enda åtgärd. |
 | operationName |Åtgärdens namn. |
 | properties |Uppsättning `<Key, Value>` par (det vill säga en ordlista) som beskriver informationen om händelsen. |
@@ -570,7 +570,7 @@ Den här kategorin innehåller posten några aviseringar som genereras av Azure 
 | subscriptionId |Azure-prenumerations-ID. |
 
 ## <a name="recommendation"></a>Rekommendation
-Den här kategorin innehåller en post för alla nya rekommendationer som har genererats för dina tjänster. Ett exempel på en rekommendation är ”Använd tillgänglighetsuppsättningar för ökad feltolerans”. Det finns 4 typer av rekommendationshändelser som kan genereras: Hög tillgänglighet, prestanda, säkerhet och kostnad optimering. 
+Den här kategorin innehåller en post för alla nya rekommendationer som har genererats för dina tjänster. Ett exempel på en rekommendation är ”Använd tillgänglighetsuppsättningar för ökad feltolerans”. Det finns fyra typer av rekommendationshändelser som kan genereras: Hög tillgänglighet, prestanda, säkerhet och kostnad optimering. 
 
 ### <a name="sample-event"></a>Exempelhändelse
 ```json
@@ -757,7 +757,7 @@ Den här kategorin innehåller poster för alla gälla åtgärd åtgärder som u
 | ResourceType | Det är den typ som utvärderas för nya resurser. För befintliga resurser, returnerar ”Microsoft.Resources/checkPolicyCompliance”. |
 | resourceId | Resurs-ID för den utvärderade resursen. |
 | status | Sträng som anger status för utvärderingsresultat principen. De flesta princip utvärderingar returnerar ”Succeeded”, men en nekandeeffekt returnerar ”misslyckades”. Fel i auditIfNotExists eller deployIfNotExists också returnera ”misslyckades”. |
-| subStatus | Det här fältet är tomt efter Principhändelser. |
+| subStatus | Fältet är tomt efter Principhändelser. |
 | submissionTimestamp | Tidsstämpel när händelsen blev tillgängliga för frågor. |
 | subscriptionId | Azure-prenumerations-ID. |
 | properties.isComplianceCheck | Returnerar ”FALSKT” när en ny resurs har distribuerats eller Resource Manager-egenskaper för en befintlig resurs uppdateras. Alla andra [utvärdering utlösare](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) leda till ”True”. |
@@ -768,7 +768,7 @@ Den här kategorin innehåller poster för alla gälla åtgärd åtgärder som u
 
 ## <a name="mapping-to-diagnostic-logs-schema"></a>Mappa till diagnostikloggar schema
 
-Vid direktuppspelning av Azure-aktivitetsloggen till ett lagringskonto eller Event Hubs-namnområdet, data följer den [Azure diagnostisk loggar schemat](./tutorial-dashboards.md). Här är mappningen av egenskaper från schemat ovan i diagnostikloggar schemat:
+Vid direktuppspelning av Azure-aktivitetsloggen till ett lagringskonto eller Event Hubs-namnområdet, data följer den [Azure diagnostisk loggar schemat](./diagnostic-logs-schema.md). Här är mappningen av egenskaper från schemat ovan i diagnostikloggar schemat:
 
 | Diagnostikloggar schemaegenskap | Aktivitetsegenskap Log REST API-schemat | Anteckningar |
 | --- | --- | --- |

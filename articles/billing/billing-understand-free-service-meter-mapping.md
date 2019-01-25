@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
-ms.author: cwatson
-ms.openlocfilehash: 89abf64e6b47700bb16aaf6d4d4c0efbbbd9f520
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 8a6993f19f32e1bdb0bd10013f8f7e3dde844edd
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52581598"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903935"
 ---
 # <a name="understand-free-service-to-meter-mapping"></a>Förstå kostnadsfria tjänsten för mätningsmappning
 
@@ -30,7 +30,7 @@ Varje Azure-tjänst genererar användning mot mätare som Azure faktureringssyst
 |    Tjänst   | Mätarnamn på Azure portal | Mätarnamn i filen/API-användning | Mätar-ID |
 | ------------ | -------------------------- | -------------------------| -------- |
 | B1S virtuell Linux-dator | Beräkningstimmar: Standard_B1 VM | Beräkningstimmar – kostnadsfri | 8260cba2-4437-47d1-a31e-2561cd370f50
-| B1S Windows VM | Beräkningstimmar: Standard_B1 VM (Windows) | Beräkningstimmar – kostnadsfri | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
+| B1S Windows VM | Compute Hours - Standard_B1 VM (Windows) | Beräkningstimmar – kostnadsfri | ff3e6fa5-ee46-478e-8d0e-b629f4f8a8ac
 | B1S VM - offentliga IP-adresser  | IP-Adresstimmar – offentliga IP-adresser | IP-Adresstimmar – kostnadsfria | ae56b367-2708-4454-a3d9-2be7b2364ea1
 | CosmosDB | Lagring (GB) – Cosmos DB | Lagring (GB) – kostnadsfri | 59c78b09-08e2-466a-9f3b-57a94c9e2f31
 | CosmosDB | 100 enheter för programbegäran (timmar) - Cosmos DB | 100 enheter för programbegäran (timmar) – kostnadsfri | 5d638a6f-e221-41cf-ae3f-0f81d368cef6 
@@ -44,7 +44,7 @@ Varje Azure-tjänst genererar användning mot mätare som Azure faktureringssyst
 | Frekvent Blockblob-lagring | Standard I/O – skrivåtgärder för frekvent Blockblob (i 10 000-tal) | Standard IO - frekventa skrivåtgärder Blockblob (i 10 000-tal) – kostnadsfritt | b34bbb76-edce-4c2d-a288-81a2db1fea53
 | Frekvent Blockblob-lagring  | Standard I/O – frekvent Blockblob Skriv/Liståtgärder på Blockblob (i 10 000-tal) | Standard IO - varm Blockblob Skriv/Liståtgärder på Blockblob (i 10 000-tal) – kostnadsfritt | 7e68cf36-1198-4d3b-baa7-86a74c5b3079
 | Hanterad Disk *  | Standard – hanterad Disk/ögonblicksbilder (GB) – lokalt Redundant | Standard – hanterad Disk/ögonblicksbilder (GB) – kostnadsfri | ad94c237-52a5-4804-ae65-38c5bf85ef42
-| Hanterad Disk *  | Hanterade standarddiskar åtgärder (i 10 000-tal) | Hanterade standarddiskar åtgärder (i 10 000-tal) – kostnadsfri | 82cc6ea4-0abd-43ac-ACC0-ec34edf0f14c
+| Hanterad Disk *  | Hanterade standarddiskar åtgärder (i 10 000-tal) | Hanterade standarddiskar åtgärder (i 10 000-tal) – kostnadsfri | 82cc6ea4-0abd-43ac-acc0-ec34edf0f14c
 | Hanterad Disk *  | Premium-lagring – Sidblob/P6 (enheter) – lokalt Redundant | Premium-lagring – Sidblob/P6 (enheter) – kostnadsfri | 2b98c168-27ca-4cc1-b509-e887dec87657
 | SQL Database | Standard S0 Databasdagar – SQL-databas | Standard S0 Databasdagar – kostnadsfri | dd6b69d3-9be0-4a91-abff-2c58bbcafd1d
 | Delad – bandbredd ** | Dataöverföring ut (GB) | Utgående dataöverföring (GB) – kostnadsfri | 0fc067a1-65d2-46da-b24b-7a9cbe2c69bd

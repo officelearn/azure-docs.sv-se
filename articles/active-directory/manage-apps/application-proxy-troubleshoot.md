@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: b440965fa3acb6c08c4827dce941247b8921b98b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 11508c1f65ddfc7e43ef2301f32d67da3f0a4584
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473477"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904275"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Felsöka problem med Application Proxy och felmeddelanden
 Om fel uppstår i komma åt ett publicerat program eller publicera program kontrollerar du följande alternativ för att se om Microsoft Azure AD-programproxyn fungerar korrekt:
@@ -54,7 +54,7 @@ När du har hittat Connector-fel från händelseloggen, kan du använda den här
 | Det gick inte att registreringen av anslutningsappen: Kontrollera att du har aktiverat Application Proxy i Azure-hanteringsportalen och att du angett ditt Active Directory-användarnamn och lösenord korrekt. Fel: 'AADSTS50059: Ingen information om identifiering av klient finns i antingen begäran eller underförstådda på valfri angivna autentiseringsuppgifter och Sök efter service principal URI har misslyckats. | Du försöker logga in med ett Account och inte en domän som är en del av organisations-ID för den katalog som du försöker komma åt. Se till att administratören är en del av samma domännamn som klient-domänen, till exempel om Azure AD-domänen är contoso.com ska administratören vara admin@contoso.com. |
 | Det gick inte att hämta aktuella körningsprincipen för att köra PowerShell-skript. | Om anslutningen misslyckas, kontrollera att PowerShell-körningsprincipen inte är inaktiverat. <br><br>1. Öppna redigeraren.<br>2. Gå till **Datorkonfiguration** > **Administrationsmallar** > **Windows-komponenter**  >   **Windows PowerShell** och dubbelklicka på **aktivera körning av skript**.<br>3. Körningsprincipen kan vara inställd på antingen **inte konfigurerad** eller **aktiverad**. Om inställd **aktiverad**, se till att under Alternativ, körningsprincipen är inställd på antingen **Tillåt lokala skript och remote signerade skript** eller **Tillåt alla skript**. |
 | Det gick inte att hämta konfigurationen av anslutningen. | Kopplingens klientcertifikat som används för autentisering, upphört att gälla. Detta kan också inträffa om du har anslutningstjänsten installerad bakom en proxyserver. I det här fallet anslutningstjänsten inte kan komma åt Internet och kan inte tillhandahålla program till fjärranslutna användare. Förnya manuellt med hjälp av den `Register-AppProxyConnector` cmdlet i Windows PowerShell. Om din Anslutningsapp finns bakom en proxyserver, är det nödvändigt att bevilja Internetåtkomst till Connector konton ”nätverkstjänster” och ”lokalt system”. Detta kan åstadkommas genom att ge dem åtkomst till proxyservern eller genom att ange att kringgå proxyn. |
-| Det gick inte att registreringen av anslutningsappen: Kontrollera att du är en Global administratör i din Active Directory för att registrera anslutningsverktyget. Fel: ”Registreringsbegäran nekades”. | Det alias som du försöker logga in med är inte en administratör på den här domänen. Din Anslutningsapp är alltid installerad för den katalog som äger användarens domän. Se till att det administratörskonto som du försöker logga in med har globala behörigheter till Azure AD-klient. |
+| Det gick inte att registreringen av anslutningsappen: Kontrollera att du är en administratör för programmet i din Active Directory för att registrera anslutningsverktyget. Fel: ”Registreringsbegäran nekades”. | Det alias som du försöker logga in med är inte en administratör på den här domänen. Din Anslutningsapp är alltid installerad för den katalog som äger användarens domän. Se till att det administratörskonto som du försöker logga in med har administratörsbehörighet för minst program till Azure AD-klient. |
 
 ## <a name="kerberos-errors"></a>Kerberos-fel
 

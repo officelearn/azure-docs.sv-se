@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ae0fdb17680f415a1dacce1738fa53fcda943788
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: cff9a17b488363ce6acd80cd90f15c58c6fe6cb5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135006"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885769"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Hur du lägger till mönster för att förbättra förutsägelsefunktionen
 När en LUIS-app tar emot endpoint yttranden, använda den [konceptet](luis-concept-patterns.md) av mönster förbättra prognosens noggrannhet för yttranden som avslöjar ett mönster i ordföljden och word valet. Mönster Använd [entiteter](luis-concept-entity-types.md) och deras roller för att extrahera data med hjälp av specifika mönstret syntax. 

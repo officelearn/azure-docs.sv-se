@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 157d7776cc9a8eff485bd18658527bc8d30f4df0
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/24/2019
+ms.openlocfilehash: 3a567bd3656ad31157d51bedcd866290b232af2c
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602981"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884630"
 ---
 # <a name="create-readable-secondary-databases-using-active-geo-replication"></a>Skapa läsbara sekundära databaser med aktiv geo-replikering
 
 Aktiv geo-replikering är Azure SQL Database-funktion som låter dig skapa läsbara sekundära databaser för enskilda databaser på en logisk server i samma eller olika datacenter (region).
 
 > [!NOTE]
-> Aktiv geo-replikering stöds inte av Managed Instance.
+> Aktiv geo-replikering stöds inte av Managed Instance. Geografisk redundans för hanterade instanser använder [automatisk redundans grupper](sql-database-auto-failover-group.md).
 
 Aktiv geo-replikering är utformad som en företagslösning för verksamhetskontinuitet som tillåter programmet att utföra snabb haveriberedskap för enskilda databaser vid ett regionalt haveri eller avbrott i stor skala. Om geo-replikering är aktiverad, kan programmet initiera redundans till en sekundär databas i en annan Azure-region. Upp till fyra sekundära databaser stöds i samma eller olika regioner och de sekundära databaser kan också användas för skrivskyddad åtkomst frågor. Redundansväxlingen måste initieras manuellt av programmet eller användaren. Efter redundansväxlingen har den nya primärt slutpunkt för en annan anslutning. Följande diagram illustrerar en typisk konfiguration av ett geo-redundant molnprogram med aktiv geo-replikering.
 

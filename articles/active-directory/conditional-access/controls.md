@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/22/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 39d49a223fb02d00af2309922ccd98a764264b4d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 57290384b31b868deb9e285fb05fec8ebe10a53f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452521"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902745"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Vad är åtkomstkontroller i Azure Active Directory villkorlig åtkomst?
 
@@ -71,9 +71,15 @@ Multi-Factor Authentication hjälper till att skydda resurser från används av 
 
 ### <a name="compliant-device"></a>Kompatibel enhet
 
-Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med principer för enhetsbaserad villkorlig åtkomst är att ge åtkomst till de Konfigurera resurserna enbart från [hanterade enheter](require-managed-devices.md). Kräver en kompatibel enhet är ett alternativ måste du definiera en hanterad enhet är. Om det här alternativet väljs, principer för villkorlig åtkomst beviljar åtkomst till åtkomstförsök med enheter som är [registrerad](../devices/overview.md) till din Azure Active Directory och är markerad som kompatibel av Intune (för alla enheter OS) eller genom ditt tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte.
+Du kan konfigurera principer för villkorlig åtkomst som baseras på enheten. Målet med principer för enhetsbaserad villkorlig åtkomst är att endast bevilja åtkomst till de valda molnapparna från [hanterade enheter](require-managed-devices.md). Kräver en enheten är markerad som kompatibel är ett alternativ som du har för att begränsa åtkomsten till hanterade enheter. En enhet kan markeras som kompatibel av Intune (för alla enhetens operativsystem) eller av tredje parts MDM-systemet för Windows 10-enheter. Tredje parts MDM-system för enhetstyper operativsystem än Windows 10 stöds inte. 
 
-Mer information finns i [ställa in principer för Azure Active Directory-enhetsbaserad villkorlig åtkomst](require-managed-devices.md).
+Enheten behöver registreras med Azure AD innan den kan vara markerad som kompatibel. Om du vill registrera en enhet har tre alternativ: 
+
+- [Azure AD-registrerade enheter](../devices/overview.md#azure-ad-registered-devices)
+- [Azure AD-anslutna enheter](../devices/overview.md#azure-ad-joined-devices)  
+- [Hybrid Azure AD-anslutna enheter](../devices/overview.md#hybrid-azure-ad-joined-devices)
+
+Mer information finns i [kräva hanterade enheter för åtkomst till molnet appen med villkorlig åtkomst](require-managed-devices.md).
 
 ### <a name="hybrid-azure-ad-joined-device"></a>Hybrid Azure AD-domänansluten enhet
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: 3313d7490ed9a2f51831c76148a54b7ecf19d3b3
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: c14267f6fc7f8c6be9199b9f25b6430b5f1aa5dd
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338812"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887418"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>VMware Monitoring (förhandsversion) lösningen i Log Analytics
 
@@ -34,13 +34,13 @@ Lösningen använder inbyggda syslog-funktioner för ESXi-värd att skicka data 
 ## <a name="install-and-configure-the-solution"></a>Installera och konfigurera lösningen
 Använd följande information för att installera och konfigurera lösningen.
 
-* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [installera en lösning för](../../azure-monitor/insights/solutions.md#install-a-management-solution).
+* Lägga till VMware Monitoring-lösning för din prenumeration med hjälp av metoden som beskrivs i [installera en lösning för](../insights/solutions.md#install-a-management-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>VMware ESXi-värdar som stöds
 vSphere ESXi-värd 5.5, 6.0 och 6.5
 
 #### <a name="prepare-a-linux-server"></a>Förbereda en Linux-server
-Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](../../azure-monitor/learn/quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
+Skapa en Linux-operativsystem virtuell dator tar emot alla syslog-data från ESXi-värdar. Den [Log Analytics Linux-agenten](../learn/quick-collect-linux-computer.md) är den samling för alla ESXi-värd syslog-data. Du kan använda flera ESXi-värdar för att vidarebefordra loggar till en enda Linux-server, som i följande exempel.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]  
 
@@ -129,7 +129,7 @@ I den **VMware** instrumentpanelsvyn blad är ordnade efter:
 
 Klicka på ett blad för att öppna Log Analytics search fönstret som visar detaljerad information för bladet.
 
-Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+Härifrån kan redigera du frågan om du vill ändra det efter något mer specifikt. Mer information om hur du skapar loggsökningar, finns i [hitta data med loggsökningar i Log Analytics](../log-query/log-query-overview.md).
 
 #### <a name="find-esxi-host-events"></a>Hitta händelser för ESXi-värd
 En enda ESXi-värd genererar flera loggar, utifrån sina processer. VMware Monitoring-lösningen centraliserar dem och sammanfattar antalet händelser. Den här centraliserade vyn hjälper dig att förstå vilka ESXi-värden har ett stort antal händelser och vilka händelser inträffar oftast i din miljö.
@@ -158,12 +158,12 @@ Lösningen innehåller andra användbara frågor som kan hjälpa dig att hantera
 
 
 #### <a name="save-queries"></a>Spara frågor
-Spara sökfrågor är en funktion som standard i Log Analytics och hjälper dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som användbara kan du spara det genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare i den [min instrumentpanel](../../azure-monitor/platform/dashboards.md) sidan där du kan skapa dina egna anpassade instrumentpaneler.
+Spara sökfrågor är en funktion som standard i Log Analytics och hjälper dig att hålla alla frågor som du har hittat användbart. När du skapar en fråga som användbara kan du spara det genom att klicka på den **Favoriter**. En sparad fråga kan du enkelt återanvända det senare i den [min instrumentpanel](../learn/tutorial-logs-dashboards.md) sidan där du kan skapa dina egna anpassade instrumentpaneler.
 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Skapa aviseringar från frågor
-När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../../azure-monitor/platform/alerts-overview.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
+När du har skapat dina frågor, kanske du vill använda frågorna för att meddela dig när specifika händelser äger rum. Se [aviseringar i Log Analytics](../platform/alerts-overview.md) information om hur du skapar aviseringar. Exempel på aviseringar frågor och andra fråga-exempel finns i [övervaka VMware med Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) blogginlägg.
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Vad behöver jag göra på ESXi värd inställningen? Vilken effekt det har på min aktuella miljön?
@@ -204,6 +204,6 @@ Det kan finnas flera anledningar:
     d. Om filen inte finns eller är fel, användare och grupp-inställning vidta åtgärder med [förbereda en Linux-server](#prepare-a-linux-server).
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md) ha data i Log Analytics för att visa detaljerad VMware.
-* [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) som visar data för VMware-värd.
-* [Skapa aviseringar](../../azure-monitor/platform/alerts-overview.md) när specifika händelser för VMware-värd inträffar.
+* Använd [logga frågor](../log-query/log-query-overview.md) ha data i Log Analytics för att visa detaljerad VMware.
+* [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) som visar data för VMware-värd.
+* [Skapa aviseringar](../platform/alerts-overview.md) när specifika händelser för VMware-värd inträffar.

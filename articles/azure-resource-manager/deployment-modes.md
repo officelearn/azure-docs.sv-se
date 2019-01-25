@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 105a836f609859825c273ed9fba9dd46237bcaa9
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447946"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903901"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
@@ -24,14 +24,11 @@ När du distribuerar dina resurser kan ange du att distributionen är en inkreme
 
 ## <a name="incremental-and-complete-deployments"></a>Inkrementella och fullständiga distributioner
 
-När du distribuerar resurser:
+Resource Manager försöker skapa alla resurser som angetts i mallen för båda lägena. Om resursen finns redan i resursgruppen och dess inställningar har inte ändrats, tas ingen åtgärd för den resursen. Om du ändrar egenskapsvärden för en resurs uppdateras resursen med de nya värdena. Om du försöker uppdatera plats eller typ av en befintlig resurs misslyckas distributionen med ett fel. I stället distribuera en ny resurs med platsen eller ange att du behöver.
 
-* I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men inte anges i mallen. De resurser som fortfarande har angetts, men distribueras inte på grund av ett villkor som utvärderas för att vara falsk, tas inte bort, men.
-* I Resource Manager-inkrementella läge **lämnar oförändrade** resurser som finns i resursgruppen men inte anges i mallen.
+I Resource Manager-fullständig läge **tar bort** resurser som finns i resursgruppen men inte anges i mallen. Resurser som har angetts i mallen, men inte distribueras eftersom en [villkor](resource-manager-templates-resources.md#condition) utvärderas till false, tas inte bort.
 
-Resource Manager försöker skapa alla resurser som angetts i mallen för båda lägena. Om resursen finns redan i resursgruppen och dess inställningar har inte ändrats, resulterar åtgärden i ingen ändring. Om du ändrar egenskapsvärden för en resurs uppdateras resursen med de nya värdena. Om du försöker uppdatera plats eller typ av en befintlig resurs misslyckas distributionen med ett fel. I stället distribuera en ny resurs med platsen eller ange att du behöver.
-
-När du distribuerar om en resurs i inkrementella läge, anger du alla egenskapsvärden för resurs, inte bara de som du uppdaterar. Om du inte anger vissa egenskaper, tolkar uppdateringen som skriver över dessa värden i Resource Manager.
+I Resource Manager-inkrementella läge **lämnar oförändrade** resurser som finns i resursgruppen men inte anges i mallen. När du distribuerar om en resurs i inkrementella läge, anger du alla egenskapsvärden för resurs, inte bara de som du uppdaterar. Om du inte anger vissa egenskaper, tolkar uppdateringen som skriver över dessa värden i Resource Manager.
 
 ## <a name="example-result"></a>Exempelresultat
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: victorh
-ms.openlocfilehash: 5afb607f0410b428d8e67fdff043a4e376dd60a5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 37dd51a60d9ec6e018f58e2cfd593490d126670b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956361"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888659"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importera och exportera en DNS-zonfil med Azure CLI 
 
@@ -68,10 +68,10 @@ Följande information ger ytterligare teknisk information om zonen importprocess
 * Den `$TTL` direktiv är valfritt och stöds. När ingen `$TTL` direktiv ges, utan en explicit TTL-poster är importerade inställd på en standard-TTL på 3 600 sekunder. När två poster i samma postuppsättningen anger olika TTL: er, används det lägre värdet.
 * Den `$ORIGIN` direktiv är valfritt och stöds. När ingen `$ORIGIN` har angetts används standardvärdet är zonnamnet som anges på kommandoraden (plus det avslutande ””.).
 * Den `$INCLUDE` och `$GENERATE` direktiv stöds inte.
-* Dessa typer av poster som stöds: A, AAAA, CNAME, MX, NS, SOA, SRV och TXT.
+* Dessa typer av poster stöds: A, AAAA, CAA, CNAME, MX, NS, SOA, SRV, and TXT.
 * SOA-posten skapas automatiskt av Azure DNS när en zon skapas. När du importerar en zonfil alla SOA-parametrar är hämtade från zonfilen *utom* den `host` parametern. Den här parametern används värdet som tillhandahålls av Azure DNS. Det beror på att den här parametern måste referera till den primära namnservern som tillhandahålls av Azure DNS.
 * Namn på server posten i basdomänen skapas också automatiskt av Azure DNS när zonen skapas. Endast TTL-värdet för den här uppsättningen av poster har importerats. De här posterna innehåller namnservernamnen som tillhandahålls av Azure DNS. Postdata skrivs inte över med de värden som finns i importerade zonfilen.
-* Allmänt tillgängliga förhandsversionen stöder Azure DNS endast single-string TXT-poster. Flersträngiga TXT-poster är sammanfogade och trunkeras till 255 tecken.
+* During Public Preview, Azure DNS supports only single-string TXT records. Flersträngiga TXT-poster är sammanfogade och trunkeras till 255 tecken.
 
 ### <a name="cli-format-and-values"></a>CLI-format och värden
 

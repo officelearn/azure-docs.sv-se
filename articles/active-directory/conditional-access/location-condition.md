@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/11/2018
+ms.date: 01/21/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 998a2dac8332ea88f7cee308299ce5a1f90765a4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 6f522f7ff216a407e4ba901672f6b5e172952bcb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449750"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883440"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Vad är platsvillkoret för villkorlig åtkomst i Azure Active Directory? 
 
@@ -58,7 +58,7 @@ En namngiven plats har följande komponenter:
 
 - **Namn på** – visningsnamnet för en namngiven plats.
 
-- **IP-intervall** - minst en IPv4-adressintervall i CIDR-format. Om du anger en Ipv6-adress ringsaviseringskvot stöds inte.
+- **IP-intervall** - minst en IPv4-adressintervall i CIDR-format. Finns inte stöd för att ange en Ipv6-adressintervall.
 
 - **Markera som betrodd plats** – en flagga som du kan ange för en namngiven plats att ange en betrodd plats. Betrodda platser är oftast nätverksområden som kontrolleras av IT-avdelningen. Förutom villkorlig åtkomst, betrodda namngivna platser används också av Azure Identity Protection och Azure AD-säkerhetsrapporter för att minska [falska positiva identifieringar](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 

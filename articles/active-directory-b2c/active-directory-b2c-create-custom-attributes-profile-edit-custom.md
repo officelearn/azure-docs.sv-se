@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 7ebce84e6d8d3e7b1b8d3852951127ce954f9019
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 22abc89660c66e503f0dc0bb6d381d1e5ccd76a3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54854062"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900637"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Använd anpassade attribut i en anpassad profil Redigera princip
 
@@ -46,7 +46,6 @@ Tilläggsegenskaper finns bara i samband med ett registrerat program i klienten.
 >Azure AD B2C-katalogen innehåller vanligen en webbapp med namnet `b2c-extensions-app`. Det här programmet används främst av B2C inbyggda principer för de anpassade anspråk som skapats via Azure portal. Vi rekommenderar att endast avancerade användare registrerar tillägg för anpassade B2C-principer med hjälp av det här programmet.  
 Instruktioner finns i den **nästa steg** i den här artikeln.
 
-
 ## <a name="create-a-new-application-to-store-the-extension-properties"></a>Skapa ett nytt program för att lagra tilläggsegenskaper
 
 1. Öppna en webbläsarsession och navigera till den [Azure-portalen](https://portal.azure.com). Logga in med administratörsbehörighet för B2C-katalog som du vill konfigurera.
@@ -66,8 +65,6 @@ Instruktioner finns i den **nästa steg** i den här artikeln.
     * **Program-ID**. Exempel: `103ee0e6-f92d-4183-b576-8c3739027780`.
     * **Objekt-ID**. Exempel: `80d8296a-da0a-49ee-b6ab-fd232aa45201`.
 
-
-
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>Ändra en anpassad princip för att lägga till den **ApplicationObjectId**
 
 När du har följt stegen i [Azure Active Directory B2C: Kom igång med anpassade principer](active-directory-b2c-get-started-custom.md), du hämtade och ändrade [exempelfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) med namnet **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml**, och **PasswordReset.xml**. I det här steget ska göra du fler ändringar i filerna.
@@ -76,31 +73,31 @@ När du har följt stegen i [Azure Active Directory B2C: Kom igång med anpassad
 
     ```xml
     <ClaimsProviders>
-        <ClaimsProvider>
-          <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfile Id="AAD-Common">
           <DisplayName>Azure Active Directory</DisplayName>
           <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-              
+
           <!-- Provide objectId and appId before using extension properties. -->
           <Metadata>
             <Item Key="ApplicationObjectId">insert objectId here</Item>
             <Item Key="ClientId">insert appId here</Item>
           </Metadata>
           <!-- End of changes -->
-              
+
           <CryptographicKeys>
             <Key Id="issuer_secret" StorageReferenceId="TokenSigningKeyContainer" />
           </CryptographicKeys>
           <IncludeInSso>false</IncludeInSso>
           <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop" />
         </TechnicalProfile>
-        </ClaimsProvider>
+      </ClaimsProvider>
     </ClaimsProviders>
     ```
 
 > [!NOTE]
-> När den **TechnicalProfile** skriver för första gången till den nyligen skapade tilläggsegenskapen ett enstaka fel kan uppstå. Tilläggsegenskapen skapas första gången den används.  
+> När den **TechnicalProfile** skriver för första gången till den nyligen skapade tilläggsegenskapen ett enstaka fel kan uppstå. Tilläggsegenskapen skapas första gången den används.
 
 ## <a name="use-the-new-extension-property-or-custom-attribute-in-a-user-journey"></a>Använd den nya tilläggsegenskapen eller anpassat attribut i en användarresa
 
@@ -130,13 +127,13 @@ När du har följt stegen i [Azure Active Directory B2C: Kom igång med anpassad
 
     ```xml
     <BuildingBlocks>
-      <ClaimsSchema> 
-        <ClaimType Id="extension_loyaltyId"> 
-          <DisplayName>Loyalty Identification Tag</DisplayName> 
-          <DataType>string</DataType> 
-          <UserHelpText>Your loyalty number from your membership card</UserHelpText> 
-          <UserInputType>TextBox</UserInputType> 
-        </ClaimType> 
+      <ClaimsSchema>
+        <ClaimType Id="extension_loyaltyId">
+          <DisplayName>Loyalty Identification Tag</DisplayName>
+          <DataType>string</DataType>
+          <UserHelpText>Your loyalty number from your membership card</UserHelpText>
+          <UserInputType>TextBox</UserInputType>
+        </ClaimType>
       </ClaimsSchema>
     </BuildingBlocks>
     ```
@@ -157,7 +154,7 @@ När du har följt stegen i [Azure Active Directory B2C: Kom igång med anpassad
         <InputClaim ClaimTypeReferenceId="alternativeSecurityId" />
         <InputClaim ClaimTypeReferenceId="userPrincipalName" />
         <InputClaim ClaimTypeReferenceId="givenName" />
-            <InputClaim ClaimTypeReferenceId="surname" />
+        <InputClaim ClaimTypeReferenceId="surname" />
 
         <!-- Add the loyalty identifier -->
         <InputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
@@ -167,7 +164,7 @@ När du har följt stegen i [Azure Active Directory B2C: Kom igång med anpassad
         <OutputClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" DefaultValue="true" />
         <OutputClaim ClaimTypeReferenceId="givenName" />
         <OutputClaim ClaimTypeReferenceId="surname" />
-        
+
         <!-- Add the loyalty identifier -->
         <OutputClaim ClaimTypeReferenceId="extension_loyaltyId"/>
         <!-- End of changes -->
@@ -279,15 +276,15 @@ ID-token som skickas tillbaka till ditt program innehåller den nya tilläggsege
   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
-              <DisplayName>Azure Active Directory</DisplayName>
-            <TechnicalProfile Id="AAD-Common">
-                <DisplayName>Azure Active Directory</DisplayName>
-                <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-                <!-- Provide objectId and appId before using extension properties. -->
-                <Metadata>
-                  <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
-                  <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
-                </Metadata>
+          <DisplayName>Azure Active Directory</DisplayName>
+          <TechnicalProfile Id="AAD-Common">
+            <DisplayName>Azure Active Directory</DisplayName>
+            <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+            <!-- Provide objectId and appId before using extension properties. -->
+            <Metadata>
+              <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
+              <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
+            </Metadata>
   ```
 
 3. Håll konsekvent med en Portal. Skapa dessa attribut med hjälp av portalens användargränssnitt innan du använder dem i dina anpassade principer. När du skapar ett attribut **ActivationStatus** i portalen, du måste referera till den på följande sätt:
@@ -296,7 +293,6 @@ ID-token som skickas tillbaka till ditt program innehåller den nya tilläggsege
   extension_ActivationStatus in the custom policy.
   extension_<app-guid>_ActivationStatus via Graph API.
   ```
-
 
 ## <a name="reference"></a>Referens
 

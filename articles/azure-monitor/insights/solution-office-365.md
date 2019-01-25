@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: 3eb1228ed9d15fb976f94df114f8725a8c41599d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230466"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886160"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -29,7 +29,7 @@ Hanteringslösning för Office 365 kan du övervaka din Office 365-miljö i Log 
 - Övervaka administratöraktiviteter för att spåra konfigurationsändringar eller Privilegierade åtgärder.
 - Upptäck och undersök oönskad användarnas beteende och som kan anpassas efter organisationens behov.
 - Visa gransknings- och kompatibilitetskontroller. Du kan till exempel övervaka åtkomst filåtgärder på konfidentiella filer, som kan hjälpa dig med processen gransknings- och kompatibilitetskontroller.
-- Utföra operativa felsökning med hjälp av [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
+- Utföra operativa felsökning med hjälp av [loggsökningar](../log-query/log-query-overview.md) ovanpå Office 365 aktivitetsdata för din organisation.
 
 ## <a name="prerequisites"></a>Förutsättningar
 Följande krävs innan den här lösningen som den installeras och konfigureras.
@@ -40,7 +40,7 @@ Följande krävs innan den här lösningen som den installeras och konfigureras.
  
 
 ## <a name="management-packs"></a>Hanteringspaket
-Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../../azure-monitor/platform/om-agents.md).
+Den här lösningen installerar inte alla hanteringspaket i [anslutna hanteringsgrupper](../platform/om-agents.md).
   
 ## <a name="install-and-configure"></a>Installera och konfigurera
 Starta genom att lägga till den [Office 365-lösningen till din prenumeration](solutions.md#install-a-management-solution). När den har lagts till, måste du utföra konfigurationsstegen i det här avsnittet för att ge åtkomst till din Office 365-prenumeration.
@@ -476,7 +476,7 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
 
 ## <a name="data-collection"></a>Datainsamling
 ### <a name="supported-agents"></a>Agenter som stöds
-Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../../azure-monitor/platform/agent-data-sources.md).  Den hämtar data direkt från Office 365.
+Office 365-lösningen inte hämta data från någon av de [Log Analytics-agenter](../platform/agent-data-sources.md).  Den hämtar data direkt från Office 365.
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 Det kan ta några timmar innan data inledningsvis samlas in. När den börjar samla in, Office 365 skickar en [webhook-meddelande](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) med detaljerade data till Log Analytics varje gång en post skapas. Den här posten finns i Log Analytics inom ett par minuter efter mottagandet.
@@ -514,7 +514,7 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
 | OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
 | Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
-| Organisations-ID | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
+| OrganizationId | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded eller PartiallySucceeded misslyckades. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
 | UserId | UPN (User Principal Name) för den användare som utförde den åtgärd som resulterade i posten loggades, till exempel my_name@my_domain_name. Observera att poster för aktiviteter som utförs av Systemkonton (som SHAREPOINT\system eller NTAUTHORITY\SYSTEM) ingår också. | 
@@ -592,7 +592,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 | Parametrar | Namn och värde för alla parametrar som användes med cmdlet: en som identifieras i Operations-egenskapen. |
 
 
-### <a name="exchange-mailbox"></a>Exchange-postlåda
+### <a name="exchange-mailbox"></a>Exchange Mailbox
 Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådor.
 
 | Egenskap  | Beskrivning |
@@ -662,7 +662,7 @@ Dessa egenskaper är gemensamma för alla poster i SharePoint.
 | UserAgent | Information om användarens klient eller webbläsare. Den här informationen tillhandahålls av klienten eller webbläsare. |
 
 
-### <a name="sharepoint-schema"></a>SharePoint-Schema
+### <a name="sharepoint-schema"></a>SharePoint Schema
 Dessa poster skapas när ändringar görs i SharePoint.
 
 | Egenskap  | Beskrivning |
@@ -702,12 +702,12 @@ Följande tabell innehåller exempel på sökningar i loggen för uppdateringspo
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl | Sortera efter antal asc|
 |Filåtgärder för åtkomst efter användartyp|Sök i (OfficeActivity) OfficeWorkload = ~ ”azureactivedirectory” och ”MyTest”|
-|Sök med ett specifikt nyckelord|Typ = OfficeActivity OfficeWorkload = azureactivedirectory ”MyTest”|
+|Sök med ett specifikt nyckelord|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |Övervaka externa åtgärder på Exchange|OfficeActivity &#124; där OfficeWorkload = ~ ”exchange” och ExternalAccess == true|
 
 
 
 ## <a name="next-steps"></a>Nästa steg
-* Använd loggsökningar i [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) för att visa detaljerad uppdateringsinformation.
-* [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) att visa dina favorit Office 365-sökfrågor.
-* [Skapa aviseringar](../../azure-monitor/platform/alerts-overview.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  
+* Använd loggsökningar i [Log Analytics](../log-query/log-query-overview.md) för att visa detaljerad uppdateringsinformation.
+* [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) att visa dina favorit Office 365-sökfrågor.
+* [Skapa aviseringar](../platform/alerts-overview.md) för att proaktivt aviseras om viktiga Office 365-aktiviteter.  

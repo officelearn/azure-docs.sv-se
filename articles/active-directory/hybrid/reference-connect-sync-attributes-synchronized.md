@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/05/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 30ed7ff2026c64c7e40d43597a2747f1144ae125
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 13ff2c817e13337da51bb9ad40ce16838af601d9
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468636"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901385"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect-synkronisering: Attribut som synkroniseras till Azure Active Directory
 Det här avsnittet listas de attribut som synkroniseras av Azure AD Connect-synkronisering.  
@@ -45,6 +45,7 @@ I det här fallet utgå från listan med attribut i det här avsnittet och ident
 | displayName |X | |
 | objectSID |X |mekanisk egenskap. AD användar-ID som används för att upprätthålla synkronisering mellan Azure AD och AD. |
 | pwdLastSet |X |mekanisk egenskap. Används för att veta när du upphäver redan utfärdade token. Används av hash-synkronisering av lösenord, direktautentisering och federation. |
+|samAccountName|X| |
 | sourceAnchor |X |mekanisk egenskap. Oföränderligt ID att upprätthålla relationen mellan ADDS och Azure AD. |
 | usageLocation |X |mekanisk egenskap. Användarens land. Används för licensuppgifter. |
 | userPrincipalName |X |UPN är inloggnings-ID för användaren. Oftast det samma som [e] värdet. |

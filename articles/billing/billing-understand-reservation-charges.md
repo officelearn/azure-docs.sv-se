@@ -12,13 +12,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
-ms.author: cwatson
-ms.openlocfilehash: 176e282a53c19e303fd06629a0045a79fd200dea
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: b39c56e8dcae6cdac45160240a6b0f12a1ac0f2e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580379"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902558"
 ---
 # <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Förstå hur ett Azure reservationsrabatten tillämpas på SQL-databaser
 
@@ -32,11 +32,11 @@ Reserverade instanser av virtuella datorer, se [förstå Azure Reserved VM Insta
 
 I följande exempel visas hur SQL-databas reserverad kapacitet rabatten gäller baserat på antalet kärnor som du köpt och när de körs.
 
-- Scenario 1: Du köpa en SQL-databas som reserverad kapacitet för en SQL-databas med 8 kärnor. Du kör en SQL-databas som matchar resten av reservationen attribut med 16 kärnor. Du debiteras användningsbaserade priset för 8 kärnor i SQL Database beräkning användning. Du får rabatten för en timmes 8 kärnor SQL Database beräkning användning.
+- Scenario 1: Du köper en SQL-databas som reserverad kapacitet för en SQL-databas med 8 kärnor. Du kör en SQL-databas som matchar resten av reservationen attribut med 16 kärnor. Du debiteras användningsbaserade priset för 8 kärnor i SQL Database beräkning användning. Du får rabatten för en timmes 8 kärnor SQL Database beräkning användning.
 
 I resten av de här exemplen förutsätter att du köper reserverade SQL-databas kapaciteten är för en SQL-databas med 16 kärnor och resten av reservation-attribut matchar de som kör SQL-databaser.
 
-- Scenario 2: Du har kört två SQL-databaser med 8 kärnor i en timme. 16 kärnor reservationsrabatten tillämpas för att beräkna användning för både till 8 kärnor SQL-databaser.
+- Scenario 2: Du kan köra två SQL-databaser med 8 kärnor i en timme. 16 kärnor reservationsrabatten tillämpas för att beräkna användning för både till 8 kärnor SQL-databaser.
 - Scenario 3: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:30 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Båda omfattas av reservationsrabatten.
 - Scenario 4: Du kör ett 16-kärnig SQL-databas från 1 pm till 1:45 pm. Du kör en annan 16 kärnor SQL-databas från 1:30 till 14: 00. Du debiteras användningsbaserad priset för den 15 minuters överlappar varandra. Rabatten gäller för den beräkning användningen av resten av tiden.
 

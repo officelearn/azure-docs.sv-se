@@ -3,7 +3,7 @@ title: Virtuella datorer för autoskalning anger i Azure portal | Microsoft Docs
 description: Hur du skapar regler för automatisk skalning för VM-skalningsuppsättning som anger i Azure portal
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: zarhoads
-ms.openlocfilehash: ceb3f1da742c79d80398b87b9c4880781175690c
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.author: cynthn
+ms.openlocfilehash: 648bc0295cd5435e9c3e44f33b7ae80522fa8e0e
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321519"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888557"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Skala automatiskt en VM-skalningsuppsättning i Azure portal
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app.

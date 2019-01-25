@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad27a7eaf88ae57f730609e2b0f43a2f5ea182a1
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e5ab6651503766844b2aeef1849bffff9cf4d7bb
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653517"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901793"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funktioner för operativsystemet på Azure App Service
 Den här artikeln beskriver de funktioner för vanliga baslinje operativsystemet som är tillgänglig för alla Windows-appar som körs på [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Den här funktionen innehåller filen, nätverk, och åtkomst till behållarregistret, och diagnostikloggar och händelser. 
@@ -128,6 +128,10 @@ Diagnostik och spårning som inte är tillgängliga appar visas Windows ETW-hän
 Appar som har skrivskyddad åtkomst till många (även om inte alla) i registret på den virtuella datorn som de körs på. I praktiken innebär detta registernycklar för att tillåter skrivskyddad åtkomst till den lokala gruppen användare som är tillgängliga för appar. En del av registret som inte stöds för närvarande för Läs- eller skrivbehörighet är HKEY\_aktuella\_användaren hive.
 
 Skrivåtkomst till registret är blockerad, inklusive åtkomst till några registernycklar för per användare. Från appens perspektiv skrivåtkomst till registret bör aldrig förlita sig på i Azure-miljön eftersom appar kan (och göra) migreras mellan olika virtuella datorer. Endast beständig skrivbart lagring som kan vara beroende av en app är per app innehåll katalogstrukturen lagras på App Service-UNC-resurser. 
+
+## <a name="remote-desktop-access"></a>Fjärrskrivbordsåtkomst
+
+App Service ger inte fjärrskrivbordsåtkomst till de Virtuella datorinstanserna.
 
 ## <a name="more-information"></a>Mer information
 

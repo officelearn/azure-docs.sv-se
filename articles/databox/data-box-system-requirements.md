@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 12/27/2018
+ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: af7bcf2a83259b9d883a824b05312316f9f1f4f8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794013"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886220"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
-Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box och för klienter som ansluter till Data Box. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data box-enhet och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
+Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box och för klienter som ansluter till Data Box. Vi rekommenderar att du har läst informationen noggrant innan du distribuerar din Data box-enhet och sedan refererar tillbaka till det som behövs under distributionen och efterföljande driften.
 
 Systemkraven är:
 
@@ -48,13 +48,18 @@ Här är en lista över operativsystem som stöds för själva Datakopieringen v
 
 ### <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Här är en lista över typerna som stöds för Data Box-enhet.
+Här är en lista över lagringskontona som stöds och lagringstyper för Data Box-enhet. En fullständig lista över alla olika typer av lagringskonton och deras fullständiga funktioner Se [typer av lagringskonton](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
-| **Lagringskonto** | **Anteckningar** |
-| --- | --- |
-| Klassisk | Standard |
-| Generellt syfte  |Standard. både V1 och V2 stöds. |
-| Blob |Frekvent och lågfrekvent stöds. |
+| **Storage-konto / stöds lagringstyper** | **Blockblob** |**Sidblob*** |**Azure Files** |**Anteckningar**|
+| --- | --- | -- | -- | -- |
+| Klassiska Standard | Y | Y | Y |
+| General-Purpose v1-Standard  | Y | Y | Y | Frekvent och lågfrekvent stöds.|
+| General-Purpose v1 Premium  |  | Y| | |
+| Gpv2 Standard  | Y | Y | Y | Frekvent och lågfrekvent stöds.|
+| Generell användning v2 Premium  |  |Y | | |
+| BLOB-lagring Standard |Y | | |Frekvent och lågfrekvent stöds. |
+
+\* *-Data som överförs till sidblobar måste vara 512 byte justerad, till exempel virtuella hårddiskar.*
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2-konton stöds inte.
@@ -85,7 +90,7 @@ Här är en lista över webbläsare som stöds för det lokala webbgränssnittet
 
 ## <a name="networking-requirements"></a>Nätverkskrav
 
-Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig en 1 GbE-datalänk kan användas för att kopiera data men kopia hastighet som påverkas.
+Datacentret måste ha höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE-anslutning inte är tillgänglig användas en 1 GbE-datalänk för att kopiera data men kopian hastighet som påverkas.
 
 ## <a name="next-step"></a>Nästa steg
 

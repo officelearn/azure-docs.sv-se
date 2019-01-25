@@ -12,14 +12,14 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 0fad0cd32e8df38c5a9c06ecf01a14340f1bc9ef
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 87ffc4619f2ad864113db3b3aed42aa23535cb83
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165083"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900332"
 ---
-# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell och CLI: aktivera Transparent datakryptering med hjälp av en egen nyckel från Azure Key Vault
+# <a name="powershell-and-cli-enable-transparent-data-encryption-using-your-own-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera Transparent datakryptering med hjälp av en egen nyckel från Azure Key Vault
 
 Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för Transparent datakryptering (TDE) på en SQL-databas eller datalager. Läs mer om transparent Datakryptering med stöd för ta med din egen nyckel (BYOK) [TDE Bring Your Own Key till Azure SQL](transparent-data-encryption-byok-azure-sql.md). 
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault fö
    - [PowerShell-instruktioner från Key Vault](../key-vault/key-vault-get-started.md)
    - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Så här använder du Key Vault mjuk borttagning med PowerShell](../key-vault/key-vault-soft-delete-powershell.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
@@ -186,8 +186,8 @@ Kontrollera följande om ett problem inträffar:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du rotera TDE-skydd för en server för att uppfylla krav på säkerhet: [rotera Transparent datakryptering skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
-- Om en säkerhetsrisk, lär du dig hur du tar bort ett potentiellt komprometterade TDE-skydd: [tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
+- Lär dig mer om att rotera TDE-skydd för en server för att uppfylla krav på säkerhet: [Rotera Transparent datakryptering skydd med hjälp av PowerShell](transparent-data-encryption-byok-azure-sql-key-rotation.md).
+- Lär dig hur du tar bort ett potentiellt komprometterade TDE-skydd i händelse av en säkerhetsrisk: [Tar bort en potentiellt komprometterade nyckel](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md). 
 
 ## <a name="prerequisites-for-cli"></a>Krav för CLI
 
@@ -198,7 +198,7 @@ Kontrollera följande om ett problem inträffar:
    - [Hantera Nyckelvalv med hjälp av CLI 2.0](../key-vault/key-vault-manage-with-cli2.md)
    - [Anvisningar för att använda en maskinvarusäkerhetsmodul (HSM) och Key Vault](../key-vault/key-vault-get-started.md#HSM)
  - Nyckelvalvet måste ha följande egenskap som ska användas för transparent Datakryptering:
-   - [Mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md)
+   - [soft-delete](../key-vault/key-vault-ovw-soft-delete.md)
    - [Så här använder du Key Vault mjuk borttagning med CLI](../key-vault/key-vault-soft-delete-cli.md) 
 - Nyckeln måste ha följande attribut som ska användas för transparent Datakryptering:
    - Inga upphör att gälla
@@ -208,7 +208,7 @@ Kontrollera följande om ett problem inträffar:
 ## <a name="step-1-create-a-server-and-assign-an-azure-ad-identity-to-your-server"></a>Steg 1. Skapa en server och tilldela en Azure AD-identitet till din server
       cli
       # create server (with identity) and database
-      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -I 
+      az sql server create -n "ServerName" -g "ResourceGroupName" -l "westus" -u "cloudsa" -p "YourFavoritePassWord99@34" -i 
       az sql db create -n "DatabaseName" -g "ResourceGroupName" -s "ServerName" 
       
 

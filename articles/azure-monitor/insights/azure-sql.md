@@ -11,12 +11,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: f12aed12138b1b16fcce90401ea0d65bd083675f
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 02832ee84e02251239ab4364aac9ad0894c681b9
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546732"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884789"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Övervaka Azure SQL Database med Azure SQL Analytics (förhandsversion)
 
@@ -37,10 +37,10 @@ Azure SQL Analytics är ett moln endast övervakning lösning stödjande strömn
 
 | Ansluten källa | Stöds | Beskrivning |
 | --- | --- | --- |
-| [Azure Diagnostics](../../azure-monitor/platform/collect-azure-metrics-logs.md) | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
-| [Azure Storage-konto](../../azure-monitor/platform/collect-azure-metrics-logs.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
-| [Windows-agenter](../../azure-monitor/platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
-| [Linux-agenter](../../azure-monitor/learn/quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
+| [Azure Diagnostics](../platform/collect-azure-metrics-logs.md) | **Ja** | Azure mått och loggfiler data skickas till Log Analytics direkt av Azure. |
+| [Azure Storage-konto](../platform/collect-azure-metrics-logs.md) | Nej | Log Analytics läsa inte data från ett lagringskonto. |
+| [Windows-agenter](../platform/agent-windows.md) | Nej | Direkta Windows-agenter används inte av lösningen. |
+| [Linux-agenter](../learn/quick-collect-linux-computer.md) | Nej | Direct Linux-agenter används inte av lösningen. |
 | [System Center Operations Manager-hanteringsgrupp](../platform/om-agents.md) | Nej | En direktanslutning från Operations Manager-agenten till Log Analytics används inte av lösningen. |
 
 ## <a name="configuration"></a>Konfiguration
@@ -185,7 +185,7 @@ Automatiserade aviseringar i lösningen baseras på skriva en Log Analytics-frå
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Skapa aviseringar för Azure SQL Database
 
-Du kan enkelt [skapa aviseringar](../../azure-monitor/platform/alerts-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [logga frågor](../../azure-monitor/log-query/log-query-overview.md) som du kan använda med en logg-avisering:
+Du kan enkelt [skapa aviseringar](../platform/alerts-metric.md) med data från Azure SQL Database-resurser. Här är några användbara [logga frågor](../log-query/log-query-overview.md) som du kan använda med en logg-avisering:
 
 #### <a name="high-cpu-on-azure-sql-database"></a>Hög CPU i Azure SQL-databas
 
@@ -297,6 +297,6 @@ Medan lösningen kostar ingenting att använda gäller förbrukning av diagnosti
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Använd [Loggsökningar](../../azure-monitor/log-query/log-query-overview.md) i Log Analytics för att visa detaljerad Azure SQL-data.
-- [Skapa dina egna instrumentpaneler](../../azure-monitor/platform/dashboards.md) visar Azure SQL-data.
-- [Skapa aviseringar](../../azure-monitor/platform/alerts-overview.md) när specifika Azure SQL-händelser inträffar.
+- Använd [Loggsökningar](../log-query/log-query-overview.md) i Log Analytics för att visa detaljerad Azure SQL-data.
+- [Skapa dina egna instrumentpaneler](../learn/tutorial-logs-dashboards.md) visar Azure SQL-data.
+- [Skapa aviseringar](../platform/alerts-overview.md) när specifika Azure SQL-händelser inträffar.

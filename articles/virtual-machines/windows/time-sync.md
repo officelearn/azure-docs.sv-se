@@ -3,7 +3,7 @@ title: Tid synkronisering för Windows-datorer i Azure | Microsoft Docs
 description: Tidssynkronisering för Windows-datorer.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
-ms.author: zarhoads
-ms.openlocfilehash: ad5ceeef170e38bf6368c54894b20245d10b74ee
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.author: cynthn
+ms.openlocfilehash: d03a4146137cec3ba6e32f9d843c8f915ce58954
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51578203"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885667"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Tidssynkronisering för Windows-datorer i Azure
 
@@ -180,7 +180,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 Nedan finns länkar till mer information om synkroniseringen:
 
 - [Windows Time serviceverktyg och inställningar](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings)
-- [Förbättringar i Windows Server 2016 ](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
+- [Windows Server 2016 Improvements ](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements)
 - [Korrekt tid för Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time)
 - [Gränsen för support som konfigurerar Windows tidstjänst för miljöer med hög precision](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary)
 

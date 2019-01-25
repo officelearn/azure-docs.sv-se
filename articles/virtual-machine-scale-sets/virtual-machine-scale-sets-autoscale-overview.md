@@ -3,7 +3,7 @@ title: Översikt över automatisk skalning med Azure VM scale sets | Microsoft D
 description: Lär dig mer om de olika sätten att du automatiskt kan skala en Azure VM-skalningsuppsättning in baserat på prestanda eller enligt ett fast schema
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5386e56bffd9a9789fe431aae8ed13df8ffae13
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 610f3073594f73f04a68865593be6bfb4188d4f1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117443"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883304"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Översikt över automatisk skalning med Azure-datorer anger
 En Azure VM-skalningsuppsättning kan automatiskt öka eller minska antalet Virtuella datorinstanser som kör programmet. Detta automatiserad och elastiska minskar hanteringsomkostnaderna för att övervaka och optimera prestanda för ditt program. Du kan skapa regler som definierar acceptabel prestanda för en positiv kundupplevelse. När de definierade tröskelvärdena är uppfyllda, regler för automatisk skalning att vidta åtgärder för att justera kapaciteten för din skalningsuppsättning. Du kan även schemalägga händelser att automatiskt öka eller minska kapaciteten för din skalningsuppsättning på fast gånger. Den här artikeln innehåller en översikt över vilka mått som är tillgängliga och vilka åtgärder som automatisk skalning kan utföra.

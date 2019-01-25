@@ -3,7 +3,7 @@ title: Hur du använder hanterade identiteter för Azure-resurser på en Azure v
 description: Steg för steg-anvisningar och exempel för att använda en Azure-dator hanterade identiteter för Azure-resurser tjänstens huvudnamn för skriptet klienten inloggning och åtkomst till.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,24 +13,26 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
-ms.author: daveba
-ms.openlocfilehash: ce25c05d2b3de3fcf6b7318b90590b84f3ee9c52
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: fd62bd74f0200ffca2926879e76744be0dfe68d0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423195"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900229"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för inloggning 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 Den här artikeln innehåller PowerShell och CLI-exempelskript för att logga in med hjälp av hanterade identiteter för tjänstobjektet i Azure-resurser och vägledning om viktiga ämnen som felhantering.
 
+[!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-Om du planerar att använda Azure PowerShell eller Azure CLI-exempel i den här artikeln, måste du installera den senaste versionen av [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Om du planerar att använda Azure PowerShell eller Azure CLI-exempel i den här artikeln, måste du installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps) eller [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 > [!IMPORTANT]
 > - Alla exempelskriptet i den här artikeln förutsätter att kommandoradsklienten körs på en virtuell dator med hanterade identiteter för Azure-resurser aktiverat. Använd funktionen ”ansluta” virtuell dator i Azure-portalen för att fjärransluta till den virtuella datorn. Mer information om hur du aktiverar hanterade identiteter för Azure-resurser på en virtuell dator finns i [konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med Azure portal](qs-configure-portal-windows-vm.md), eller någon av varianten artiklar (med PowerShell, CLI, en mall eller en Azure SDK). 
@@ -67,10 +69,10 @@ Följande skript visar hur du:
 2. Anropa en Azure Resource Manager-cmdlet för att få information om den virtuella datorn. PowerShell tar hand om hanteringen token används åt dig automatiskt.  
 
    ```azurepowershell
-   Add-AzureRmAccount -identity
+   Add-AzAccount -identity
 
    # Call Azure Resource Manager to get the service principal ID for the VM's managed identity for Azure resources. 
-   $vmInfoPs = Get-AzureRMVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
+   $vmInfoPs = Get-AzVM -ResourceGroupName <RESOURCE-GROUP> -Name <VM-NAME>
    $spID = $vmInfoPs.Identity.PrincipalId
    echo "The managed identity for Azure resources service principal ID is $spID"
    ```

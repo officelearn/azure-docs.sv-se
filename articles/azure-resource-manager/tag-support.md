@@ -4,14 +4,14 @@ description: Visar vilka Azure-resurstyper stöder taggar. Innehåller informati
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 1/11/2019
+ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4899409b225298c521935f2eeaf5e8e59a6833b3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267461"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884953"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md).
@@ -584,7 +584,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | Kluster | Ja | 
-| Namnområden | Ja | 
+| namnrymder | Ja | 
 | namnområden/authorizationrules | Nej | 
 | namespaces/disasterrecoveryconfigs | Nej | 
 | namnområden/eventhubs | Nej | 
@@ -898,7 +898,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Namnområden | Ja | 
+| namnrymder | Ja | 
 | namespaces/notificationHubs | Ja | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
@@ -959,7 +959,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Namnområden | Ja | 
+| namnrymder | Ja | 
 | namnområden/authorizationrules | Nej | 
 | namnområden/hybridconnections | Nej | 
 | namnområden/hybridconnections/authorizationrules | Nej | 
@@ -1063,7 +1063,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| Namnområden | Ja | 
+| namnrymder | Ja | 
 | namnområden/authorizationrules | Nej | 
 | namespaces/disasterrecoveryconfigs | Nej | 
 | namespaces/eventgridfilters | Nej | 
@@ -1107,6 +1107,16 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 ## <a name="microsoftsql"></a>Microsoft.SQL
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
+| managedInstances | Ja |
+| managedInstances/databaser | Ja |
+| managedInstances/databases/backupShortTermRetentionPolicies | Nej |
+| managedInstances/databases/schemas/tables/columns/sensitivityLabels | Nej |
+| managedInstances/databaser/vulnerabilityAssessments | Nej |
+| managedInstances/databaser/vulnerabilityAssessments/regler/baslinjer | Nej |
+| managedInstances/encryptionProtector | Nej |
+| managedInstances/keys | Nej |
+| managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | Nej |
+| managedInstances/vulnerabilityAssessments | Nej |
 | servrar | Ja | 
 | servrar/administratörer | Nej | 
 | servers/communicationLinks | Nej | 

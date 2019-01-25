@@ -5,15 +5,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/17/2019
-ms.openlocfilehash: 6c1a0a4a13a70daec157ede98f850f87150f8d93
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/23/2019
+ms.openlocfilehash: bf6e9947c21e5b07b2adc99de585c77444447c04
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54383530"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902669"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-the-azure-portal"></a>Hur du skapar och hanterar läsa repliker i Azure portal
+
+> [!IMPORTANT]
+> Läs replica-funktionen är i offentlig förhandsversion.
+
+
 I den här artikeln får lära du dig att skapa och hantera skrivskyddade repliker i tjänsten Azure Database for PostgreSQL med Azure portal. Mer information om skrivskyddade repliker [dokumentationen begrepp](concepts-read-replicas.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -41,6 +46,7 @@ Den **azure.replication_support** parametern måste anges till REPLIKEN på huvu
    ![Azure Database för PostgreSQL – spara meddelande](./media/howto-read-replicas-portal/parameter-save-notification.png)
 
 6. Starta om servern för att tillämpa ändringen när det sparats. Se [omstart dokumentationen](howto-restart-server-portal.md) att lära dig hur du startar om en server.
+
 
 ## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Läs repliker kan skapas med följande steg:

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 3a20884dedf2d0f197cd73f0e67f412633736686
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a7c823493369735df23360645004b0bec85dbd7
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421583"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885515"
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Konfigurera insamling av mätvärden för Azure PaaS-resurs med Log Analytics
 
@@ -67,7 +67,7 @@ Utför följande steg för att ladda ned och kör skriptet.
 
 Skriptet körs mot varje resurs som matchar valda villkoren och aktivera insamling av mått för dem. När den har slutförts visas ett meddelande om konfigurationen är klar.  
 
-Inom kort när du har slutfört börjar du se data från Azure PaaS-resurs i Log Analytics-lagringsplatsen.  En post med typen `AzureMetrics` skapas och analysera dessa poster stöds av den [Azure SQL Analytics](../../azure-monitor/insights/azure-sql.md) och [Azure Web Apps-analys](../../azure-monitor/insights/azure-web-apps-analytics.md) hanteringslösningar.   
+Inom kort när du har slutfört börjar du se data från Azure PaaS-resurs i Log Analytics-lagringsplatsen.  En post med typen `AzureMetrics` skapas och analysera dessa poster stöds av den [Azure SQL Analytics](../insights/azure-sql.md) och [Azure Web Apps-analys](../insights/azure-web-apps-analytics.md) hanteringslösningar.   
 
 ## <a name="update-a-resource-to-send-data-to-another-workspace"></a>Uppdatera en resurs för att skicka data till en annan arbetsyta
 Om du har en resurs som redan skickar data till Log Analytics-arbetsytan och du senare vill konfigurera om den för att referera till en annan arbetsyta, kan du köra skriptet med den `-Update` parametern.  
@@ -79,8 +79,8 @@ Du uppmanas att svara på samma information som när du körde skriptet att kör
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [loggsökningar](../../azure-monitor/log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
+* Lär dig mer om [loggsökningar](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar. 
 
-* Använd [anpassade fält](../../azure-monitor/platform/custom-fields.md)(för att parsa händelseposter till enskilda fält.
+* Använd [anpassade fält](custom-fields.md)(för att parsa händelseposter till enskilda fält.
 
-* Granska [skapa en anpassad instrumentpanel för användning i Log Analytics](../../azure-monitor/platform/dashboards.md) vill lära dig att visualisera din logg söker på ett meningsfullt sätt för organisationen.
+* Granska [skapa och dela instrumentpaneler med Log Analytics-data](../learn/tutorial-logs-dashboards.md) vill lära dig att visualisera din logg söker på ett meningsfullt sätt för organisationen.

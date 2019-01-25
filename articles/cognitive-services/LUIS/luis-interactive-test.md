@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d355e14d15dc6a393a6fabb90418cb3949fe0cf5
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 76db86f8ddaee43654689e78437d3cdbd1c211f6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601975"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883032"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Testa LUIS-appen i LUIS-portalen
 <a name="train-your-app"></a>
@@ -26,6 +26,7 @@ ms.locfileid: "53601975"
 <a name="test-your-app"></a>
 <a name="access-the-test-page"></a>
 <a name="luis-interactive-testing"></a>
+
 ## <a name="test-an-utterance"></a>Testa ett uttryck
 
 1. Få åtkomst till din app genom att välja dess namn på den **Mina appar** sidan. 
@@ -40,13 +41,8 @@ ms.locfileid: "53601975"
 
     ![Interaktiv testning identifierar fel avsikten](./media/luis-how-to-interactive-test/test-weather-1.png)
 
-## <a name="clear-test-panel"></a>Rensa test panelen
-Om du vill ta bort alla angivna test-yttranden och resultaten från test-konsolen, Välj **börja om från början** i det övre vänstra hörnet av den **Test panelen**. 
-
-## <a name="close-test-panel"></a>Stäng test panelen
-Stäng den **Test** fönstret väljer den **Test** igen.
-
 ## <a name="inspect-score"></a>Granska resultatet
+
 Du kan se mer information om testresultat i den **granska** panelen. 
  
 1. Med den **Test** bild ut panelen öppen, väljer **granska** för ett uttryck som du vill jämföra. 
@@ -72,9 +68,11 @@ Om **attitydanalys** har konfigurerats på den **[publicera](luis-how-to-publish
 ![Bild av Testfönster med attitydanalys](./media/luis-how-to-interactive-test/sentiment.png)
 
 ## <a name="correct-matched-patterns-intent"></a>Korrigera matchat mönster avsikt
+
 Om du använder [mönster](luis-concept-patterns.md) och uttryck som matchar ett mönster, men fel avsikten var förutse, Välj den **redigera** länka efter användningsmönster, och väljer sedan rätt avsikten.
 
 ## <a name="compare-with-published-version"></a>Jämför med publicerad version
+
 Du kan testa den aktiva versionen av din app med det publicerade [endpoint](luis-glossary.md#endpoint) version. I den **granska** fönstret väljer **Jämför med publicerade**. All testning mot publicerade modellen dras från din kvot saldo för Azure-prenumeration. 
 
 ![Jämför med publiceras](./media/luis-how-to-interactive-test/inspect-panel-compare.png)
@@ -88,12 +86,14 @@ Du kan visa den slutpunkt som JSON returneras för jämförelsen genom att välj
 ## <a name="additional-settings-in-test-panel"></a>Ytterligare inställningar i panelen för testning
 
 ### <a name="luis-endpoint"></a>LUIS-slutpunkt
+
 Om du har flera LUIS-slutpunkter kan använda den **ytterligare inställningar** länk på testet s publicerade fönstret om du vill ändra den slutpunkt som används för testning. Om du inte är säker på vilken slutpunkt som ska användas, väljer du standard **Starter_Key**. 
 
 ![Testa panelen med ytterligare inställningar med länken markerad](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 
 ### <a name="view-bing-spell-check-corrections-in-test-panel"></a>Visa ändringar för stavningskontroll i Bing i test-panelen
+
 Krav för att visa stavningskorrigeringar: 
 
 * Publicerad app
@@ -124,6 +124,7 @@ Använd följande procedur för att inkludera den [stavningskontroll i Bing v7](
 <a name="view single-point utterance data"></a>
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## <a name="batch-testing"></a>Batch-testning
 Se batch testning [begrepp](luis-concept-batch-test.md) och lär dig [så](luis-how-to-batch-test.md) testa en batch med yttranden.
 

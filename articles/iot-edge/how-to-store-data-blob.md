@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 01/04/2018
+ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: b5dcc4295467aee82547bc2a0894320bd110998f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 9faed53540d449f8658655ff7285b38aa20bee6c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065825"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901827"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)
 
@@ -61,17 +61,17 @@ Azure Marketplace är IoT Edge-moduler som kan distribueras direkt till din IoT 
 
    ![Skapa modul från Marketplace-sökning](./media/how-to-store-data-blob/marketplace-module.png)
 
-2. Välj en IoT Edge-enhet för att ta emot den här modulen. På den **målenheter för IoT Edge-modul** anger du följande information:
+2. Välj vilken IoT Edge-enhet som ska ta emot modulen. På sidan **Målenheter för IoT Edge-enheter** anger du följande information:
 
    1. Välj den **prenumeration** som innehåller IoT-hubben som du använder.
 
    2. Välj din **IoT-hubb**.
 
-   3. Om du vet att din **IoT Edge-enhetsnamn**, ange som i textrutan. Eller välj **hitta enhet** att välja från en lista med IoT Edge-enheter i IoT hub. 
+   3. Om du vet att din **IoT Edge-enhetsnamn**, ange som i textrutan. Eller välj **Hitta enhet** för att välja från en lista över IoT Edge-enheter i IoT-hubben. 
    
    4. Välj **Skapa**.
 
-   Nu när du har valt en IoT Edge-modul från Azure Marketplace och valt en IoT Edge-enhet för att ta emot modulen, kommer du till en tre steg-guide som hjälper dig att definiera exakt hur modulen ska distribueras.
+   När du har valt en IoT Edge-modul från Azure Marketplace, samt valt den IoT Edge-enhet som ska ta emot modulen, kommer du till en trestegsguide som hjälper dig att definiera exakt hur modulen ska distribueras.
 
 3. I den **Lägg till moduler** steg i guiden ange moduler och Observera att den **AzureBlobStorageonIoTEdge** modulen finns redan under **distribution moduler**. 
 
@@ -120,7 +120,7 @@ Azure Marketplace är IoT Edge-moduler som kan distribueras direkt till din IoT 
 
    4. Välj **Spara**.
 
-4. Välj **nästa** ska fortsätta till nästa steg i guiden.
+4. Välj **Nästa** för att fortsätta till nästa steg i guiden.
 5. I den **ange vägar** steg i guiden väljer **nästa**.
 6. I steget **Granska distribution** i guiden väljer du **Skicka**.
 7. När du skickar in distributionen ska du gå tillbaka till den **IoT Edge** sidan för din IoT hub. Välj IoT Edge-enhet som du angett med distributionen att öppna dess egenskaper. 

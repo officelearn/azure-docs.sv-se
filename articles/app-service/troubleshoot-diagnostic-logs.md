@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d5a94258e8c17d13e15f22f9fa96ef0647105abe
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53807881"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904462"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Aktivera diagnostikloggning för appar i Azure App Service
 ## <a name="overview"></a>Översikt
@@ -29,13 +29,13 @@ Azure har inbyggd diagnostik som hjälper till med felsökning av en [App Servic
 Den här artikeln används den [Azure-portalen](https://portal.azure.com) och Azure CLI för att arbeta med diagnostikloggar. Information om hur du arbetar med diagnostikloggar med Visual Studio finns i [felsökning Azure i Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web serverdiagnostik- och programdiagnostik
-App Service ger diagnostisk funktionalitet för att logga information från både webbservern och webbprogrammet. Dessa logiskt är indelade i **web serverdiagnostik** och **programdiagnostik**.
+App Service tillhandahåller diagnostisk funktionalitet för att logga information från både webbservern och webbprogrammet. Dessa logiskt är indelade i **web serverdiagnostik** och **programdiagnostik**.
 
 ### <a name="web-server-diagnostics"></a>Web serverdiagnostik
 Du kan aktivera eller inaktivera följande typer av loggar:
 
 * **Detaljerad felloggning** -detaljerad information om fel för HTTP-statuskoder som indikerar ett fel (statuskod 400 eller större). Den kan innehålla information som kan hjälpa dig att avgöra varför servern returnerade felkoden.
-* **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill öka platsprestanda eller isolera vad som orsakar ett specifikt HTTP-fel som ska returneras.
+* **Det gick inte att begäran om spårning av** -detaljerad information om misslyckade förfrågningar, inklusive en spårning av IIS-komponenter som används för att bearbeta begäran och den tid det tar i varje komponent. Det är användbart om du vill förbättra webbplatsernas prestanda eller isolera ett specifikt HTTP-fel.
 * **Web Server-loggning** -Information om HTTP-transaktioner med hjälp av den [W3C utökat loggfilsformat](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Det är användbart när du fastställer övergripande platsmått, till exempel antalet begäranden som hanteras eller hur många begäranden som kommer från en specifik IP-adress.
 
 ### <a name="application-diagnostics"></a>Programdiagnostik
@@ -45,7 +45,7 @@ Programdiagnostik kan du samla in information som genereras av ett webbprogram. 
 
 Vid körning, kan du hämta dessa loggar för felsökning. Mer information finns i [felsökning av Azure App Service i Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-App Service kan du också logga information om programdistribution när du publicerar innehåll till en app. Det sker automatiskt och det finns inga konfigurationsinställningar för distribution av loggning. Distribution loggning kan du fastställa varför en distribution misslyckades. Om du använder ett anpassat distributionsskript kan du till exempel använda distribution loggning för att avgöra varför skriptet inte fungerar.
+App Service loggar också information om programdistribution när du publicerar innehåll till en app. Det sker automatiskt och det finns inga konfigurationsinställningar för distribution av loggning. Distribution loggning kan du fastställa varför en distribution misslyckades. Om du använder ett anpassat distributionsskript kan du till exempel använda distribution loggning för att avgöra varför skriptet inte fungerar.
 
 ## <a name="enablediag"></a>Så här aktiverar du diagnostik
 Aktivera diagnostik i den [Azure-portalen](https://portal.azure.com), gå till sidan för din app och klicka på **Inställningar > diagnostikloggar**.
@@ -53,12 +53,16 @@ Aktivera diagnostik i den [Azure-portalen](https://portal.azure.com), gå till s
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![En del loggar](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-När du aktiverar **programdiagnostik**, du också välja den **nivå**. Den här inställningen kan du filtrera den information som hämtas till **endast i informationssyfte**, **varning**, eller **fel** information. Ange värdet till **utförlig** loggar all information som genereras av programmet.
+När du aktiverar **programdiagnostik**, du också välja den **nivå**. I följande tabell visas olika kategorier av loggar varje nivå innehåller:
 
-> [!NOTE]
-> Till skillnad från ändra filen web.config, aktiverar programdiagnostik eller ändrar diagnostiklogg nivåer inte att återanvända den app-domän som programmet körs inom.
->
->
+| Nivå| Inkluderade loggkategorier |
+|-|-|
+|**Inaktiverad** | Ingen |
+|**Fel** | Fel, kritiska |
+|**Varning** | Varning, kritiskt fel|
+|**Information** | Info, varning, kritiskt fel|
+|**utförlig** | Spårning, Avbugga, Info, varning, fel, kritiskt (alla kategorier) |
+|-|-|
 
 För **programloggning**, du kan aktivera system filalternativet tillfälligt för felsökning. Det här alternativet inaktiverar automatiskt i 12 timmar. Du kan också aktivera alternativet blob för att välja en blobbehållare loggfiler ska skrivas i.
 
@@ -165,7 +169,7 @@ För att filtrera specifika loggtyper, till exempel HTTP, använder den **--sök
 ### <a name="application-diagnostics-logs"></a>Program-diagnostikloggar
 Programdiagnostik lagrar information i ett visst format för .NET-program, beroende på om du vill lagra loggarna till file system- eller blob storage. 
 
-Den grundläggande uppsättningen med data som lagras är samma för både lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet. Det är praktiskt att använda filsystemet för logglagringsutrymme när du behöver omedelbar åtkomst till att felsöka ett problem Eftersom loggfilerna har uppdaterats nästan omedelbart. BLOB storage är för arkiveringsändamål eftersom filerna cachelagras och sedan rensade lagringsbehållare enligt ett schema.
+Den grundläggande uppsättningen med data som lagras är samma för både lagringstyper - datum och tid som händelsen inträffade, process-ID som producerade händelsen, händelsetyp (information, varning, fel) och händelsemeddelandet. Det är praktiskt att använda filsystemet för logglagringsutrymme när du behöver omedelbar åtkomst till att felsöka ett problem Eftersom loggfilerna har uppdaterats nästan omedelbart. BLOB storage används för arkivering eftersom filerna cachelagras och sedan rensade lagringsbehållare enligt ett schema.
 
 **Filsystem**
 
@@ -191,7 +195,7 @@ När du loggar till blob storage lagras data i fil med kommaavgränsade värden 
 | Instans-ID |Instans av appen som händelsen inträffade på |
 | EventTickCount |Datum och tid då händelsen inträffade i Skalstreckets format (större precision) |
 | EventId |Händelse-ID för den här händelsen<p><p>Standardvärdet är 0 om inget anges |
-| Process-ID |Process-ID |
+| Pid |Process-ID |
 | tid |Tråd-ID för tråden som producerade händelsen |
 | Meddelande |Detalj händelsemeddelande |
 

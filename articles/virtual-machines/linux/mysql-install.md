@@ -3,7 +3,7 @@ title: Konfigurera MySQL på en Linux-VM i Azure | Microsoft Docs
 description: Lär dig att installera MySQL-stacken på en Linux-dator (Ubuntu eller Red Hat-familjen OS) i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
-ms.author: zarhoads
-ms.openlocfilehash: f7120decd4a5d43f88b55e7d7e20992af34cadc4
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.author: cynthn
+ms.openlocfilehash: c8043064ac1df40eaa31ae56e9ec31c0152e0130
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469579"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888438"
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Så installerar du MySQL på Azure
 I den här artikeln får lära du dig att installera och konfigurera MySQL på Azure-datorer som kör Linux.
@@ -143,7 +143,7 @@ Vi använder Linux VM med CentOS eller Oracle Linux här.
 ### <a name="how-to-install-mysql-on-suse-linux"></a>Så här installerar du MySQL på SUSE Linux
 Vi använder Linux VM med OpenSUSE här.
 
-* Steg 1: Hämta och installera MySQL-Server
+* Steg 1: Ladda ned och installera MySQL-Server
   
     Växla till `root` användaren med kommandot nedan:  
   

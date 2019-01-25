@@ -3,7 +3,7 @@ title: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst 
 description: En självstudie som visar hur du använder en Windows-VM systemtilldelade hanterade identitet för att få åtkomst till Azure Storage, med hjälp av SAS-autentiseringsuppgifter i stället för en åtkomstnyckel för lagringskontot.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: daveba
-ms.openlocfilehash: 6997812565e5e797e65d8e833a7f0f83db593923
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 44f89e00333db8170f25392051e18f895f31e139
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423892"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887750"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 

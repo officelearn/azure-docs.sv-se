@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 4c8fcc403b274d161893194109dee4bc8d0cb369
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 433718c19e0df5fac87273f2b46f8ae090ed7510
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974380"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888574"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Filformat som stöds och komprimering codec-enheter i Azure Data Factory
 
@@ -93,7 +93,7 @@ Om du vill parsa JSON-filerna eller skriva data i JSON-format anger den `type` -
 | filePattern |Ange mönstret för de data som lagras i varje JSON-fil. Tillåtna värden är: **setOfObjects** och **arrayOfObjects**. **Standardvärdet** är **setOfObjects**. Detaljerad information om dessa mönster finns i avsnittet om [JSON-filmönster](#json-file-patterns). |Nej |
 | jsonNodeReference | Om du vill iterera och extrahera data från objekten i ett matrisfält med samma mönster anger du JSON-sökvägen för matrisen. Den här egenskapen stöds endast när du kopierar data **från** JSON-filer. | Nej |
 | jsonPathDefinition | Ange JSON-sökvägsuttrycket för varje kolumnmappning med ett anpassat kolumnnamn (inled med liten bokstav). Den här egenskapen stöds endast när du kopierar data **från** JSON-filer, och du kan extrahera data från objekt eller matriser. <br/><br/> För fält under rotobjektet börjar du med $; för fält inuti matrisen som väljs av egenskapen `jsonNodeReference` börjar du från matriselementet. Konfigurationsinformation finns i avsnittet med [JsonFormat-exempel](#jsonformat-example). | Nej |
-| encodingName |Ange kodningsnamnet. Lista över giltiga kodningsnamn finns i: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) egenskapen. Exempel: windows-1250 or shift_jis. Den **standard** värdet är: **UTF-8**. |Nej |
+| encodingName |Ange kodningsnamnet. Lista över giltiga kodningsnamn finns i: [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx) Property. Exempel: windows-1250 or shift_jis. Den **standard** värdet är: **UTF-8**. |Nej |
 | nestingSeparator |Tecken som används för att avgränsa kapslingsnivåer. Standardvärdet är ”.” (punkt). |Nej |
 
 ### <a name="json-file-patterns"></a>JSON-filmönster
@@ -414,15 +414,19 @@ Om du vill parsa Parquet-filer eller skriva data i Parquet-format anger du egens
 }
 ```
 
-> [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Observera följande punkter:
 
 * Komplexa typer stöds inte (MAP, LIST).
 * Tomt utrymme i kolumnnamn stöds inte.
 * Parquet-filer har följande komprimeringsrelaterade alternativ: NONE, SNAPPY, GZIP och LZO. Data Factory stöder läsning av data från Parquet-filer i någon av dessa komprimerade format utom LZO – den använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en Parquet-fil väljer Data Factory SNAPPY, som är standard för Parquet-formatet. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+
+> [!IMPORTANT]
+> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar Parquet-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK** på IR-datorn. Se följande stycke med mer information.
+
+För kopiering som körs på lokal IR med Parquet-fil serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK. 
+
+- **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Datatypen mappning för Parquet-filer
 
@@ -460,15 +464,19 @@ Om du vill parsa ORC-filerna eller skriva data i ORC-format ange du egenskapen `
 }
 ```
 
-> [!IMPORTANT]
-> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som-är**, måste du installera JRE 8 (Java Runtime Environment) på IR-datorn. En 64-bitars IR kräver 64-bitars JRE. Du hittar båda versionerna [här](https://go.microsoft.com/fwlink/?LinkId=808605).
->
-
 Observera följande punkter:
 
 * Komplexa typer stöds inte (STRUCT, MAP, LIST, UNION).
 * Tomt utrymme i kolumnnamn stöds inte.
 * ORC-filen har tre [komprimeringsrelaterade alternativ](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB OCH SNAPPY. Data Factory stöder läsning av data från ORC-filer i alla dessa komprimerade format. Data Factory använder komprimerings-codec i metadata för att läsa data. Men vid skrivning till en ORC-fil väljer Data Factory ZLIB, som är standard för ORC. För närvarande finns det inget alternativ för att åsidosätta det här beteendet.
+
+> [!IMPORTANT]
+> För att kopiera möjligheter med lokal Integration Runtime t.ex. mellan lokala och molnbaserade datalager, om du inte kopierar ORC-filer **som – är**, måste du installera den **64-bitars JRE 8 (Java Runtime Environment) eller OpenJDK**  på IR-datorn. Se följande stycke med mer information.
+
+För kopiering som körs på lokal IR med ORC-filen serialisering/deserialisering ADF söker efter Java runtime genom att först kontrollera registret *`(SOFTWARE\JavaSoft\Java Runtime Environment\{Current Version}\JavaHome)`* för JRE, om inte hittas för det andra kontrollerar systemvariabeln *`JAVA_HOME`* för OpenJDK. 
+
+- **Att använda JRE**: 64-bitars IR kräver 64-bitars JRE. Du hittar den från [här](https://go.microsoft.com/fwlink/?LinkId=808605).
+- **Att använda OpenJDK**: den stöds sedan IR version 3.13. Paketet jvm.dll med alla andra krävs sammansättningar av OpenJDK i lokal IR-datorn och system för set-miljövariabeln JAVA_HOME därefter.
 
 ### <a name="data-type-mapping-for-orc-files"></a>Datatypen mappning för ORC-filer
 
@@ -511,7 +519,7 @@ Observera följande punkter:
 
 * [Komplexa datatyper](http://avro.apache.org/docs/current/spec.html#schema_complex) stöds inte (poster, uppräkningar, matriser, mappningar, unioner, och fasta).
 
-## <a name="compression-support"></a>Komprimeringsstöd för
+## <a name="compression-support"></a>Stöd för komprimering
 
 Azure Data Factory stöder compress/dekomprimera data vid kopiering. När du anger `compression` egenskapen i en indatauppsättning kopieringsaktiviteten läsa komprimerade data från källan och expandera den; och när du anger egenskapen i en utdatauppsättning kopieringsaktiviteten komprimera och sedan skriva data till mottagaren. Här följer några exempelscenarier:
 

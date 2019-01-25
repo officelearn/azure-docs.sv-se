@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
-ms.openlocfilehash: a50fca059331b28c46adb65903be4e7ba018a36c
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: b26a1fa3f61c7836bbe3466e4d95f406d16eb31e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052044"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902524"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med hjälp av MQTT-protokollet
 
@@ -198,20 +198,18 @@ Först måste en enhet prenumererar på `$iothub/twin/res/#`, för att få åtg�
 
 ID för förfrågan kan vara något giltigt värde för ett egenskapsvärde för meddelande enligt [IoT Hub messaging utvecklarhandboken][lnk-messaging], och status har verifierats som ett heltal.
 
-Svarstexten innehåller egenskapsavsnittet i enhetstvillingen. Följande utdrag visar till exempel brödtexten för registerposten identitet begränsad till ”egenskaper”-medlem:
+Svarstexten innehåller egenskapsavsnittet i enhetstvillingen, som visas i exemplet nedan svaret:
 
 ```json
 {
-    "properties": {
-        "desired": {
-            "telemetrySendFrequency": "5m",
-            "$version": 12
-        },
-        "reported": {
-            "telemetrySendFrequency": "5m",
-            "batteryLevel": 55,
-            "$version": 123
-        }
+    "desired": {
+        "telemetrySendFrequency": "5m",
+        "$version": 12
+    },
+    "reported": {
+        "telemetrySendFrequency": "5m",
+        "batteryLevel": 55,
+        "$version": 123
     }
 }
 ```
@@ -228,7 +226,7 @@ Mer information finns i [utvecklarguide för Device twins][lnk-devguide-twin].
 
 ### <a name="update-device-twins-reported-properties"></a>Uppdatera enhetstvillingens rapporterade egenskaper
 
-Om du vill uppdatera rapporterade egenskaper skickar enheten en begäran till IoT Hub via en publikation över ett avsedda MQTT-ämne. När begäran bearbetades, svarar IoT Hub lyckad eller misslyckad status för uppdateringsåtgärden via en publikation till ett annat avsnitt. Det här avsnittet går att prenumerera av enheten för att kunna meddela om resultatet av begäran om uppdatering av dess enhetstvilling. Implment den här typen av begäran/svar-interaktion i MQTT, vi dra nytta av id för förfrågan (`$rid`) ingår från början i enheten i dess begäran om uppdatering. Den här begäran-id ingår också i svaret från IoT Hub för att tillåta att enheten att korrelera svaret till viss tidigare begäran.
+Om du vill uppdatera rapporterade egenskaper skickar enheten en begäran till IoT Hub via en publikation över ett avsedda MQTT-ämne. När begäran bearbetades, svarar IoT Hub lyckad eller misslyckad status för uppdateringsåtgärden via en publikation till ett annat avsnitt. Det här avsnittet går att prenumerera av enheten för att kunna meddela om resultatet av begäran om uppdatering av dess enhetstvilling. För att implementera den här typen av begäranden och svar i MQTT, vi utnyttja begreppet id för förfrågan (`$rid`) ingår från början i enheten i dess begäran om uppdatering. Den här begäran-id ingår också i svaret från IoT Hub för att tillåta att enheten att korrelera svaret till viss tidigare begäran.
 
 Följande anvisningar beskriver hur en enhet uppdaterar rapporterade egenskaper i enhetstvillingen i IoT Hub:
 

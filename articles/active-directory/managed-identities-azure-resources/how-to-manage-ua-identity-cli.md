@@ -3,7 +3,7 @@ title: Så här hanterar du en Användartilldelad hanterad identitet med hjälp 
 description: Steg för steg-anvisningar om hur du skapar, lista och ta bort en Användartilldelad hanterad identitet med hjälp av Azure CLI.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: 34f1eaae85fd222be43624429570c77536691a2d
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: 4c5607a506ba392fbde0308d041ce79b08d04a3f
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435914"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882250"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Skapa, visa eller ta bort en Användartilldelad hanterad identitet med hjälp av Azure CLI
 

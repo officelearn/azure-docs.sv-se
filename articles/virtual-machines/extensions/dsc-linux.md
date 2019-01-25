@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 70280676453bd146102ca331daae038b947aab58
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ade066c08829181bc7d1ad5623934b98909e0310
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632865"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888999"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -54,7 +54,7 @@ DSC-Linux-tillägget har stöd för alla de [tillägget stöds operativsystem](h
  
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Tillägget DSCForLinux kräver att den virtuella måldatorn är ansluten till internet. Till exempel kräver registrera tillägget anslutning till Automation-tjänsten. För andra åtgärder, till exempel hämtning, hämta, kräver installera anslutning till azure detta/github. Det beror på inställningarna som tillhandahålls av kunden.
+Tillägget DSCForLinux kräver att den virtuella måldatorn är ansluten till internet. Till exempel kräver registrera tillägget anslutning till Automation-tjänsten. För andra åtgärder, till exempel hämtning, hämta, kräver installera anslutning till azure storage/github. Det beror på inställningarna som tillhandahålls av kunden.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -64,7 +64,7 @@ Här är parametrarna för offentliga konfiguration som stöds:
 
 * `FileUri`: (valfritt, string) URI: n i MOF-filen/metadata MOF-filen/anpassat resource ZIP-filen.
 * `ResourceName`: (valfritt, string) namnet på modulen anpassad resurs
-* `ExtensionAction`: (valfritt, sträng) anger vad som gör ett tillägg. Giltiga värden: registrera, skicka, hämta, installera, ta bort. Om inte anges, betraktas den som Push-åtgärd som standard.
+* `ExtensionAction`: (valfritt, sträng) anger vad som gör ett tillägg. Giltiga värden: Registrera, skicka, hämta, installera, ta bort. Om inte anges, betraktas den som Push-åtgärd som standard.
 * `NodeConfigurationName`: (valfritt, string) namnet på en nodkonfiguration tillämpas.
 * `RefreshFrequencyMins`: (valfritt, int) anger hur ofta (i minuter) DSC försöker att hämta konfigurationen från hämtningsservern. 
        Om det skiljer sig från den aktuella på målnoden konfigurationen på hämtningsservern, den kopieras till arkivet väntande och tillämpas.
@@ -88,14 +88,14 @@ Här är parametrarna för skyddade konfiguration som stöds:
 ## <a name="scenarios"></a>Scenarier
 
 ### <a name="register-to-azure-automation-account"></a>Registrera till Azure Automation-konto
-Protected.JSON
+protected.json
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
   "RegistrationKey": "<azure-automation-account-key>"
 }
 ```
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction" : "Register",
@@ -124,7 +124,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Tillämpa en MOF-konfigurationsfilen (i Azure Storage-konto) till den virtuella datorn
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -132,7 +132,7 @@ Protected.JSON
 }
 ```
 
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>",
@@ -156,7 +156,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>Tillämpa en MOF-konfigurationsfilen (i offentlig lagring) till den virtuella datorn
 
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<mof-file-uri>"
@@ -172,7 +172,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Tillämpa en meta MOF-konfigurationsfilen (i Azure Storage-konto) till den virtuella datorn
 
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -180,7 +180,7 @@ Protected.JSON
 }
 ```
 
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Pull",
@@ -202,7 +202,7 @@ $publicConfig = '{
 ```
 
 ### <a name="apply-a-meta-mof-configuration-file-in-public-storage-to-the-vm"></a>Tillämpa en meta MOF-konfigurationsfilen (i offentlig lagring) till den virtuella datorn
-Public.JSON
+public.json
 ```json
 {
   "FileUri": "<meta-mof-file-uri>",
@@ -218,14 +218,14 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>Installera en anpassad resurs-modul (ZIP-filen i Azure Storage-konto) till den virtuella datorn
-Protected.JSON
+protected.json
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
   "StorageAccountKey": "<storage-account-key>"
 }
 ```
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -247,7 +247,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>Installera en anpassad resurs-modul (ZIP-filen i offentlig lagring) till den virtuella datorn
-Public.JSON
+public.json
 ```json
 {
   "ExtensionAction": "Install",
@@ -263,7 +263,7 @@ $publicConfig = '{
 ```
 
 ### <a name="remove-a-custom-resource-module-from-the-vm"></a>Ta bort en anpassad resurs-modul från den virtuella datorn
-Public.JSON
+public.json
 ```json
 {
   "ResourceName": "<resource-name>",
@@ -425,7 +425,7 @@ Tillägget utförande-utdatan loggas till följande fil:
 ```
 
 Felkod: 51 representerar-distribution som stöds inte eller stöds inte tillägget åtgärd.
-I vissa fall kan finns DSC Linux tillägget kan inte installeras OMI när senare version av OMI redan på datorn. [felsvar: (000003) nedgradering är inte tillåtet]
+I vissa fall kan finns DSC Linux tillägget kan inte installeras OMI när senare version av OMI redan på datorn. [felsvar: (000003) Nedgradering är inte tillåtet]
 
 
 

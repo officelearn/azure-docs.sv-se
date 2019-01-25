@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/15/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: df8d337e7950400a86dcab14de4484f4811f43e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b8ce3cdb55d164cefc8b85314a2fa79b4f901a08
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025087"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887350"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-using-azure-data-factory"></a>Kopieringsdata till och från Azure SQL Database Managed Instance med Azure Data Factory
 
@@ -33,9 +33,13 @@ Mer specifikt stöder den här anslutningen för Azure SQL Database Managed Inst
 - Hämta data med SQL-fråga eller lagrad procedur som källan.
 - Som mottagare, data läggs till måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte nu. 
+
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda data från en Azure SQL Database Managed Instance som finns i det virtuella nätverket måste du konfigurera en lokal Integration Runtime i samma virtuella nätverk som har åtkomst till databasen. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+Om du vill använda data från en Azure SQL Database Managed Instance som finns i det virtuella nätverket måste du konfigurera en lokal Integration Runtime som har åtkomst till databasen. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
+
+Om du etablerar din lokal IR i samma virtuella nätverk som din hanterade instans kan du se till att din IR-dator är i ett annat undernät än din hanterade instans. Om du etablerar din lokal IR i ett annat virtuellt nätverk än din hanterade instans kan du använda en virtuell nätverkspeering eller i virtuella nätverk virtuell nätverksanslutning. Se [Anslut ditt program till Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
 
 ## <a name="getting-started"></a>Komma igång
 
@@ -47,7 +51,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för Azure SQL Database Managed Instance länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **SqlServer** | Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till den hanterade instansen med SQL-autentisering eller Windows-autentisering. Se följande exempel. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -502,7 +506,7 @@ När du kopierar data från/till Azure SQL Database Managed Instance, används f
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaltal |
-| sql_variant |Objektet * |
+| sql_variant |Objekt |
 | text |Sträng, Char] |
 | time |Tidsintervall |
 | tidsstämpel |Byte] |
@@ -511,6 +515,9 @@ När du kopierar data från/till Azure SQL Database Managed Instance, används f
 | varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> För typer mappas till decimaltyp tillfällig stöder för närvarande ADF precision upp till 28. Om du har data med precision som är större än 28, Överväg för att konvertera till en sträng i SQL-frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

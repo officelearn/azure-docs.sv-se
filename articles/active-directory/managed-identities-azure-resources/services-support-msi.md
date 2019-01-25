@@ -2,19 +2,19 @@
 title: Azure-tjänster som stöder hanterade identiteter för Azure-resurser
 description: Lista över tjänster som stöder hanterade identiteter för Azure-resurser och Azure AD-autentisering
 services: active-directory
-author: daveba
-ms.author: daveba
+author: priyamohanram
+ms.author: priyamo
 ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: daveba
-ms.openlocfilehash: 7591860d36a3d6472411321c60c608411ab4eb8b
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e27d1cf6cbff01ff3268e250ef2816a0b74b1a33
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437682"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889033"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Tjänster som stöder hanterade identiteter för Azure-resurser
 

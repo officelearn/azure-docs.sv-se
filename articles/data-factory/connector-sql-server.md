@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: 54db7cc65e05b383b251c21aa95569c6c2d58194
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 6da3a9bceaee67d0101abb0837580f4e35e160b3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306173"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885140"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Kopiera data till och från SQL Server med Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-sqlserver-connector.md)
 > * [Aktuell version](connector-sql-server.md)
 
@@ -37,6 +37,8 @@ Mer specifikt stöder den här SQL Server-anslutningen:
 - Hämta data med SQL-fråga eller lagrad procedur som källan.
 - Som mottagare, data läggs till måltabell eller anropa en lagrad procedur med anpassad logik vid kopiering.
 
+SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte nu.
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 Om du vill använda data från en SQL Server-databas som inte är allmänt tillgänglig, måste du konfigurera en lokal Integration Runtime. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information. Integreringskörningen innehåller en inbyggd drivrutin för SQL Server-databas, måste du därför inte installera några drivrutinen manuellt när du kopierar data från/till SQL Server-databas.
@@ -51,7 +53,7 @@ Följande avsnitt innehåller information om egenskaper som används för att de
 
 Följande egenskaper har stöd för SQL Server-länkade tjänsten:
 
-| Egenskap | Beskrivning | Krävs |
+| Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **SqlServer** | Ja |
 | connectionString |Ange connectionString information som behövs för att ansluta till SQL Server-databasen med hjälp av SQL-autentisering eller Windows-autentisering. Se följande exempel. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
@@ -506,7 +508,7 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaltal |
-| sql_variant |Objektet * |
+| sql_variant |Objekt |
 | text |Sträng, Char] |
 | time |Tidsintervall |
 | tidsstämpel |Byte] |
@@ -515,6 +517,9 @@ När du kopierar data från/till SQL Server, används följande mappningar från
 | varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> För typer mappas till decimaltyp tillfällig stöder för närvarande ADF precision upp till 28. Om du har data med precision som är större än 28, Överväg för att konvertera till en sträng i SQL-frågan.
 
 ## <a name="troubleshooting-connection-issues"></a>Felsöka anslutningsproblem
 

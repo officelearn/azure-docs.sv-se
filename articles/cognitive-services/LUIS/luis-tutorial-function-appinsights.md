@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: 0ab9e4a3d129243ec069031c5e7233f341b545e4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 0adaaffc1bf319c9a0d5f6c9b489c2a0c8fb2844
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53713972"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885448"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Lägga till LUIS resultaten till Application Insights och Azure functions
 Den här självstudien lägger till LUIS begäranden och svar information till [Application Insights](https://azure.microsoft.com/services/application-insights/) telemetri datalagring. När du har dessa data kan du fråga den med Kusto språk eller PowerBi aggregeras, om du vill analysera och rapportera om avsikter och entiteter av uttryck i realtid. Den här analysis hjälper dig att avgöra om du ska lägga till eller redigera avsikter och entiteter av LUIS-appen.

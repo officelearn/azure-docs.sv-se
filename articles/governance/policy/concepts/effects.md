@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fcb30132a83502b8ca5f58364d78129109b8a9d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: c84af250a9e8dbff578f58abc7e3558d95ecbe93
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310852"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904547"
 ---
 # <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
@@ -257,6 +257,11 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 - **roleDefinitionIds** [krävs]
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
+- **DeploymentScope** (valfritt)
+  - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
+  - Anger typ av distribution som ska utföras. _Prenumeration_ anger en [distribution på abonnemangsnivå]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ anger en distribution till en resursgrupp.
+  - En _plats_ egenskapen måste anges i den _distribution_ när du använder prenumeration på distributioner.
+  - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]
   - Den här egenskapen ska inkludera fullständig malldistributionen som den skulle skickas till den `Microsoft.Resources/deployments` PLACERA API. Mer information finns i den [distributioner REST API](/rest/api/resources/deployments).
 

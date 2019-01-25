@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 1/11/2019
 ms.author: victorh
-ms.openlocfilehash: 45751af66b1b050d4d36d1b8aee52dc6a5d8cc7b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: bd3711a88b14d7a24df7c20c72b49fca5953b568
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382412"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886475"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Vanliga frågor om Application Gateway
 
@@ -105,8 +105,6 @@ Application Gateway infogar också X-Original-värd-huvud som innehåller den ur
 Ny Programgateway v1 SKU-distributioner kan ta upp till 20 minuter att etablera. Ändringar i storlek/instansantal är inte störande och gatewayen förblir aktiv under den här tiden.
 
 V2-SKU-distributioner kan ta ungefär fem till sex minuter att etablera.
-
-Application Gateway har stöd för x-vidarebefordrade-för-huvuden?
 
 ## <a name="configuration"></a>Konfiguration
 

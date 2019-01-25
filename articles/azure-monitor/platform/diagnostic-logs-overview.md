@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 44950a467e99fb7968d838345d80c8e28aee62b9
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 55c1bc18422bc2be5172aebcd46b76ac6051a8a4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467476"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885855"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Samla in och använda loggdata från resurserna i Azure
 
@@ -31,7 +31,7 @@ Dessa loggar skiljer sig från den [aktivitetsloggen](activity-logs-overview.md)
 
 Dessa loggar är också skiljer sig från diagnostikloggar för gäst-OS-nivå. Gäst-OS-diagnostikloggar är dessa som samlats in av en agent som körs i en virtuell dator eller andra stöds resurstyp. Resursnivå diagnostikloggar kräver inga agenten och avbilda resurs-specifika data från Azure-plattformen, diagnostikloggar för gäst-OS-nivå samla in data från det operativsystem och program som körs på en virtuell dator.
 
-Inte alla tjänster som stöder diagnostikloggar som beskrivs här. [Den här artikeln innehåller en lista för avsnittet vilka tjänster stöder diagnostikloggar](./../../azure-monitor/platform/tutorial-dashboards.md).
+Inte alla tjänster som stöder diagnostikloggar som beskrivs här. [Den här artikeln innehåller en lista för avsnittet vilka tjänster stöder diagnostikloggar](./../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ## <a name="what-you-can-do-with-diagnostic-logs"></a>Vad du kan göra med diagnostikloggar
 Här följer några av de saker som du kan göra med diagnostikloggar:
@@ -229,7 +229,7 @@ Att lägga till en diagnostikinställning öppnar vyn diagnostikinställningar, 
 
 ## <a name="supported-services-categories-and-schemas-for-diagnostic-logs"></a>Tjänster som stöds, kategorier och scheman för diagnostikloggar
 
-[Se den här artikeln](../../azure-monitor/platform/tutorial-dashboards.md) för en fullständig lista över tjänster som stöds och loggkategorier och scheman som används av dessa tjänster.
+[Se den här artikeln](../../azure-monitor/platform/diagnostic-logs-schema.md) för en fullständig lista över tjänster som stöds och loggkategorier och scheman som används av dessa tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

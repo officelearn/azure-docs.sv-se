@@ -3,7 +3,7 @@ title: Så här hanterar du en Användartilldelad hanterad identitet med hjälp 
 description: Steg för steg instruktioner om hur du kan skapa, visa, ta bort och tilldela en roll till en hanterad Användartilldelad identitet.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
-ms.author: daveba
-ms.openlocfilehash: a8fd6fedb83d61541746ea4204e8fcab3d3d7bab
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: ea7a495fc7e39afeaab4e27c97b950704995e2db
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54428757"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886636"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Skapa, visa, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal
 

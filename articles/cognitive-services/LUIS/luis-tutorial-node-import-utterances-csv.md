@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ff030b9bb9158f3bac0e52a596a2054989301afd
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a0015b4ae42f2ce29c9cadd920dfa6bd8dbe62f3
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719617"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882565"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Skapa en LUIS-app via programmering med hjälp av Node.js
 

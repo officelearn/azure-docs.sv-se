@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
-ms.author: cwatson
+ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: cef34d4e22732c2d718daf7ce10c23b25ff4649d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c6a2f14900d3a0d6f9e16e9b0c6d0bdfff97d6b5
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081311"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54903844"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Inga prenumerationer hittades logga fel för Azure-portalen eller Azure-kontocenter
 
@@ -29,7 +29,7 @@ Du kan få ett meddelande om ”inga prenumerationer hittades” när du försö
 
 ## <a name="symptom"></a>Symtom
 
-När du försöker logga in på den [Azure-portalen](https://portal.azure.com/) eller [Azure kontocenter](https://account.windowsazure.com/Subscriptions), du får följande felmeddelande: ”inga prenumerationer hittades”.
+När du försöker logga in på den [Azure-portalen](https://portal.azure.com/) eller [Azure kontocenter](https://account.windowsazure.com/Subscriptions), du får följande felmeddelande visas: ”Inga prenumerationer hittades”.
 
 ## <a name="cause"></a>Orsak
 

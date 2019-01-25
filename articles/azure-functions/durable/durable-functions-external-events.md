@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 977123459bcf9bb10c6b7ecf5d7a364f60564c48
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 7e4b52f0a3ca5e924d9d41e38e51f0cba8b75690
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437086"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885821"
 ---
 # <a name="handling-external-events-in-durable-functions-azure-functions"></a>Hantera externa händelser i varaktiga funktioner (Azure Functions)
 
@@ -191,10 +191,10 @@ module.exports = async function(context, instanceId) {
 };
 ```
 
-Internt `RaiseEventAsync` (.NET) eller `raiseEvent` (JavaScript) placerar det i kö ett meddelande som hämtar slutpunktsstatus uppfattas av orchestrator-funktion för att vänta.
+Internt `RaiseEventAsync` (.NET) eller `raiseEvent` (JavaScript) placerar det i kö ett meddelande som hämtar slutpunktsstatus uppfattas av orchestrator-funktion för att vänta. Om instansen inte väntar på den angivna *händelsenamn,* händelsemeddelandet läggs till i en kö i minnet. Om orchestration-instans senare börjar lyssna efter som *händelsenamn,* det kontrollerar kön för händelsemeddelanden.
 
-> [!WARNING]
-> Om det finns ingen orchestration-instans med det angivna *instans-ID* eller om instansen inte väntar på den angivna *händelsenamn*, händelsemeddelandet ignoreras. Mer information om det här problemet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-extension/issues/29).
+> [!NOTE]
+> Om det finns ingen orchestration-instans med det angivna *instans-ID*, händelsemeddelandet ignoreras. Mer information om det här problemet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-extension/issues/29). 
 
 > [!WARNING]
 > När du utvecklar lokalt i JavaScript, behöver du ställa in miljövariabeln `WEBSITE_HOSTNAME` till `localhost:<port>`, t.ex. `localhost:7071` att använda metoder på `DurableOrchestrationClient`. Mer information om det här kravet finns i den [GitHub-ärende](https://github.com/Azure/azure-functions-durable-js/issues/28).

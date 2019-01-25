@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 668f14d491fe3e47a445e6d80efda69c017024e2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f6d875ee9bbc9d7a61ebca9dfa0726f50e2044d7
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470927"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904054"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använda portalen för att koppla en datadisk till en Linux VM 
 Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Linux-dator via Azure portal. Du kan också [ansluter en datadisk till en virtuell Windows-dator i Azure-portalen](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
@@ -99,7 +99,7 @@ Utdata ser ut ungefär så här:
 
 Här kan *sdc* är den disk som vi vill. 
 
-### <a name="partion-a-new-disk"></a>Partion en ny disk
+### <a name="partition-a-new-disk"></a>Partitionera en ny disk
 Om du använder en befintlig disk som innehåller data, kan du hoppa över att montera disken. Om du kopplar en ny disk kan behöva du partitionera disken.
 
 Använd `fdisk` blir primär disk på partition 1 om du vill partitionera disken och Godkänn andra standardinställningar. Följande exempel startar den `fdisk` på */dev/sdc*:

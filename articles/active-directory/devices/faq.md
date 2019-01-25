@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2010
+ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 916de2de6cdc19bfa1e3967661d40693d4be1e99
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852396"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904411"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -180,6 +180,19 @@ Det här beteendet gäller inte för alla användare som loggar in på enheten. 
 
 ---
 
+**Q: Vad är MS-organisation-P2P-Access-certifikat finns på vår Windows 10-enheter?**
+
+**A:** MS-organisation-P2P-Access-certifikat utfärdas av Azure AD för både Azure AD-anslutna och hybrid Azure AD-anslutna enheter. Dessa certifikat används för att aktivera förtroendet mellan enheter i samma klient för remote desktop scenarier. Ett certifikat har utfärdats till enheten och en annan utfärdas till användaren. Enhetens certifikat finns i `Local Computer\Personal\Certificates` och är giltig i en dag. Det här certifikatet förnyas (genom att utfärda ett nytt certifikat) om enheten är fortfarande är aktiv i Azure AD. Användarcertifikatet finns i `Current User\Personal\Certificates` och det här certifikatet gäller även för en dag, men det har utfärdats på begäran när en användare försöker en fjärrskrivbordssession till en annan Azure AD-domänansluten enhet. Det är inte förnya löper ut. Båda dessa certifikat utfärdas med MS-organisation-P2P-Access-certifikat finns i den `Local Computer\AAD Token Issuer\Certificates`. Det här certifikatet utfärdas av Azure AD vid enhetsregistrering. 
+
+---
+
+**Q:Why visas flera utgångna certifikat som utfärdats av MS-organisation-P2P-åtkomst på våra Windows 10-enheter? Hur kan jag ta bort dem?**
+
+**A:** Det uppstod ett problem som identifieras på Windows 10 version 1709 och lägre där utgångna certifikat för MS-organisation-P2P-åtkomst fortsätter finns på datorn på grund av kryptografiska problem. Användarna kunde stöter på problem med nätverksanslutningen, om du använder ingen VPN-klient (t.ex. Cisco AnyConnect) som inte kan hantera ett stort antal utgångna certifikat. Det här problemet har åtgärdats i Windows 10-1803 versionen automatiskt ta bort sådana utgångna certifikat MS-organisation-P2P-åtkomst. Du kan lösa det här problemet genom att uppdatera dina enheter till Windows 10-1803. Om det inte går att uppdatera kan du ta bort dessa certifikat utan någon negativ inverkan.  
+
+---
+
+
 ## <a name="hybrid-azure-ad-join-faq"></a>Hybrid Azure AD-anslutning vanliga frågor och svar
 
 **F: Var hittar jag felsökning information att diagnostisera hybrid Azure AD join fel?**
@@ -217,15 +230,3 @@ Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillst�
 
 - Under det första försöket för åtkomst uppmanas användarna att registrera enheten med hjälp av Företagsportalen.
 
----
-
-
-**Q: Vad är MS-organisation-P2P-Access-certifikat finns på vår Windows 10-enheter?**
-
-**A:** MS-organisation-P2P-Access-certifikat utfärdas av Azure AD för både Azure AD-anslutna och hybrid Azure AD-anslutna enheter. Dessa certifikat används för att aktivera förtroendet mellan enheter i samma klient för remote desktop scenarier. Ett certifikat har utfärdats till enheten och en annan utfärdas till användaren. Enhetens certifikat finns i `Local Computer\Personal\Certificates` och är giltig i en dag. Det här certifikatet förnyas (genom att utfärda ett nytt certifikat) om enheten är fortfarande är aktiv i Azure AD. Användarcertifikatet finns i `Current User\Personal\Certificates` och det här certifikatet gäller även för en dag, men det har utfärdats på begäran när en användare försöker en fjärrskrivbordssession till en annan Azure AD-domänansluten enhet. Det är inte förnya löper ut. Båda dessa certifikat utfärdas med MS-organisation-P2P-Access-certifikat finns i den `Local Computer\AAD Token Issuer\Certificates`. Det här certifikatet utfärdas av Azure AD vid enhetsregistrering. 
-
----
-
-**Q:Why visas flera utgångna certifikat som utfärdats av MS-organisation-P2P-åtkomst på våra Windows 10-enheter? Hur kan jag ta bort dem?**
-
-**A:** Det uppstod ett problem som identifieras på Windows 10 version 1709 och lägre där utgångna certifikat för MS-organisation-P2P-åtkomst fortsätter finns på datorn på grund av kryptografiska problem. Användarna kunde stöter på problem med nätverksanslutningen, om du använder ingen VPN-klient (t.ex. Cisco AnyConnect) som inte kan hantera ett stort antal utgångna certifikat. Det här problemet har åtgärdats i Windows 10-1803 versionen automatiskt ta bort sådana utgångna certifikat MS-organisation-P2P-åtkomst. Du kan lösa det här problemet genom att uppdatera dina enheter till Windows 10-1803. Om det inte går att uppdatera kan du ta bort dessa certifikat utan någon negativ inverkan.  

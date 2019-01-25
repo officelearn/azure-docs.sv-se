@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: e9f1b1a3df92c08b913a56aadc8eb8a9e80c7fdf
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: edc6e651c3ec352115e360e50f98a3e36cd287c0
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320063"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904088"
 ---
 # <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Status för migreringsscenarier som stöds av Azure Database Migration Service
 Azure Database Migration Service är utformad för att stödja olika Migreringsscenarier (källa/mål-par) för både offline (engångs-) och online (kontinuerlig synkronisering) migreringar. Scenario-täcks av Azure Database Migration Service utökas över tid. Nya scenarier läggs regelbundet. Den här artikeln identifierar migreringsscenarier som stöds av Azure Database Migration Service och status för närvarande (privat [eller begränsad] förhandsversioner, offentlig förhandsversion eller allmänt tillgänglig) eller varje scenario.
@@ -47,7 +47,7 @@ I följande tabell visas Azure Database Migration Service stöd för offline-mig
 |   | Oracle  | ✔  |
 | **Azure SQL VM**  | SQL Server | ✔ |
 |   | Oracle  |   |
-| **Cosmos DB**  | MongoDB | ✔ |
+| **Azure Cosmos DB**  | MongoDB | ✔ |
 | **Azure DB för MySQL**  | MySQL |  |
 |   | RDS MySQL  |  |
 | **Azure DB för PostgresSQL**  | PostgreSQL |  |
@@ -66,7 +66,7 @@ I följande tabell visas Azure Database Migration Service stöd för online migr
 |   | Oracle  | ✔  |
 | **Azure SQL VM**  | SQL Server  |   |
 |   | Oracle  | ✔  |
-| **Cosmos DB**  | MongoDB  | ✔ |
+| **Azure Cosmos DB**  | MongoDB  | ✔ |
 | **Azure DB för MySQL**  | MySQL | ✔ |
 |   | RDS MySQL  | ✔ |
 | **Azure DB för PostgresSQL**  | PostgreSQL | ✔ |

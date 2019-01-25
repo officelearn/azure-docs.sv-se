@@ -3,7 +3,7 @@ title: Hur du konfigurerar system- och användartilldelade hanterade identiteter
 description: Steg för steg instruktioner för att konfigurera ett system och användartilldelade hanterade identiteter på en Azure-VMSS med CURL för att göra REST API-anrop.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: daveba
-ms.openlocfilehash: 17c40fca9bb07a2da3fcd575d142c2e197d73bec
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: ba71e1af021188888bd9fbfe4a808c2ffcf10a4b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433296"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884545"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Konfigurera hanterade identiteter för Azure-resurser på en VM-skalningsuppsättning med hjälp av REST API-anrop
 

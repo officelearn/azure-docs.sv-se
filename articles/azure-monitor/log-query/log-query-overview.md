@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 47abb191383bd1ec1000c9fd1e0803a7d900c9bf
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: d3fc44456ac4f0df2bee35300c0f40728a40cb92
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117647"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882259"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analysera Log Analytics-data i Azure Monitor
 
@@ -30,7 +30,7 @@ Loggdata som samlas in av Azure Monitor lagras i en Log Analytics-arbetsyta som 
 
 ## <a name="log-queries"></a>Loggfrågor
 
-Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du är [analysera data i portalen](../../azure-monitor/log-query/portals.md), [konfigurera en varningsregel](../../azure-monitor/platform/alerts-metric.md) för att aviseras om ett visst villkor eller hämta data med hjälp av den [Log Analytics API](https://dev.loganalytics.io/), du använder en fråga för att ange de data du vill.  Den här artikeln beskriver hur du använder loggfrågor i Log Analytics och innehåller begrepp som du bör känna till innan du skapar en.
+Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du är [analysera data i portalen](../log-query/portals.md), [konfigurera en varningsregel](../platform/alerts-metric.md) för att aviseras om ett visst villkor eller hämta data med hjälp av den [Log Analytics API](https://dev.loganalytics.io/), du använder en fråga för att ange de data du vill.  Den här artikeln beskriver hur du använder loggfrågor i Log Analytics och innehåller begrepp som du bör känna till innan du skapar en.
 
 
 
@@ -38,18 +38,18 @@ Du behöver en loggfråga för att hämta alla data från Log Analytics.  Om du 
 
 Olika sätt som du ska använda frågor i Log Analytics är följande:
 
-- **Portaler.** Du kan utföra interaktiva analyser av loggdata i de [Azure-portalen](../../azure-monitor/log-query/portals.md).  På så sätt kan du redigera din fråga och analysera resultaten i olika format och visualiseringar.  
-- **Varningsregler.** [Aviseringsregler](../../azure-monitor/platform/alerts-overview.md) proaktivt identifiera problem från data i din arbetsyta.  Varje varningsregel baseras på en loggsökning som körs automatiskt med jämna mellanrum.  Resultatet är föremål för att avgöra om en avisering ska skapas.
-- **Instrumentpaneler.** Du kan fästa resultatet av en fråga till en [Azure-instrumentpanelen](../../azure-monitor/platform/dashboards.md) som gör att du kan visualisera loggen och mätdata tillsammans och du kan också dela med andra Azure-användare. 
-- **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i instrumentpaneler för användare med [Vydesigner](../../azure-monitor/platform/view-designer.md).  Loggfrågor tillhandahåller de data som används av [paneler](../../azure-monitor/platform/view-designer-tiles.md) och [visualisering delar](../../azure-monitor/platform/view-designer-parts.md) i varje vy.  
-- **Exportera.**  När du importerar data från Log Analytics-arbetsyta till Excel eller [Power BI](../../azure-monitor/platform/powerbi.md), skapar du en loggfråga för att definiera data som ska exporteras.
+- **Portaler.** Du kan utföra interaktiva analyser av loggdata i de [Azure-portalen](../log-query/portals.md).  På så sätt kan du redigera din fråga och analysera resultaten i olika format och visualiseringar.  
+- **Varningsregler.** [Aviseringsregler](../platform/alerts-overview.md) proaktivt identifiera problem från data i din arbetsyta.  Varje varningsregel baseras på en loggsökning som körs automatiskt med jämna mellanrum.  Resultatet är föremål för att avgöra om en avisering ska skapas.
+- **Instrumentpaneler.** Du kan fästa resultatet av en fråga till en [Azure-instrumentpanelen](../learn/tutorial-logs-dashboards.md) som gör att du kan visualisera loggen och mätdata tillsammans och du kan också dela med andra Azure-användare. 
+- **Vyer.**  Du kan skapa visualiseringar av data som ska ingå i instrumentpaneler för användare med [Vydesigner](../platform/view-designer.md).  Loggfrågor tillhandahåller de data som används av [paneler](../platform/view-designer-tiles.md) och [visualisering delar](../platform/view-designer-parts.md) i varje vy.  
+- **Exportera.**  När du importerar data från Log Analytics-arbetsyta till Excel eller [Power BI](../platform/powerbi.md), skapar du en loggfråga för att definiera data som ska exporteras.
 - **PowerShell.** Du kan köra ett PowerShell-skript från en kommandorad eller ett Azure Automation-runbook som använder [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) att hämta data från Log Analytics.  Denna cmdlet kräver en fråga för att fastställa data som ska hämtas.
-- **Log Analytics-API.**  Den [Log Analytics Logga API: et search](../../azure-monitor/platform/alerts-overview.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Log Analytics för att fastställa data som ska hämtas.
+- **Log Analytics-API.**  Den [Log Analytics Logga API: et search](../platform/alerts-overview.md) tillåter alla REST API-klient att hämta loggdata från arbetsytan.  API-begäran innehåller en fråga som körs mot Log Analytics för att fastställa data som ska hämtas.
 
 ![Loggsökningar](media/log-query-overview/queries-overview.png)
 
 ## <a name="write-a-query"></a>Skriv en fråga
-Logga Analytics använder [en version av Data Explorer frågespråk](../../azure-monitor/log-query/get-started-queries.md) att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
+Logga Analytics använder [en version av Data Explorer frågespråk](../log-query/get-started-queries.md) att hämta och analysera loggdata i en mängd olika sätt.  Du börjar vanligtvis med grundläggande frågor och sedan vidare om du vill använda mer avancerade funktionerna när behoven blir mer komplexa.
 
 Den grundläggande strukturen i en fråga är en källtabellen följt av en serie operatörer avgränsade med ett vertikaltecken `|`.  Du kan länka samman flera operatorer för att förfina data och utföra avancerade funktioner.
 
@@ -93,9 +93,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## <a name="how-log-analytics-data-is-organized"></a>Så här Log Analytics-data ordnas
-När du skapar en fråga kan börja du med att bestämma vilka tabeller innehåller de data som du letar efter. Olika typer av data är indelade i dedikerade tabeller i varje [Log Analytics-arbetsyta](../../azure-monitor/learn/quick-create-workspace.md).  Dokumentationen för olika datakällor som innehåller namnet på datatypen som skapas och en beskrivning av var och en av dess egenskaper.  Många frågor kräver endast data från en enskild tabell, men andra kan använda en mängd olika alternativ för att inkludera data från flera tabeller.
+När du skapar en fråga kan börja du med att bestämma vilka tabeller innehåller de data som du letar efter. Olika typer av data är indelade i dedikerade tabeller i varje [Log Analytics-arbetsyta](../learn/quick-create-workspace.md).  Dokumentationen för olika datakällor som innehåller namnet på datatypen som skapas och en beskrivning av var och en av dess egenskaper.  Många frågor kräver endast data från en enskild tabell, men andra kan använda en mängd olika alternativ för att inkludera data från flera tabeller.
 
-Medan [Application Insights](../../azure-monitor/app/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste använda den [Application Insights-konsolen](../../azure-monitor/app/analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](../../azure-monitor/log-query/cross-workspace-query.md) att kombinera Application Insights-data med andra data i Log Analytics.
+Medan [Application Insights](../app/app-insights-overview.md) butiker programdata som begäranden, undantag, spårningar och användning i Log Analytics, dessa data lagras i en annan partition än andra loggdata. Du använder samma frågespråk för att komma åt dessa data men måste använda den [Application Insights-konsolen](../app/analytics.md) eller [Application Insights REST API](https://dev.applicationinsights.io/) att komma åt den. Du kan använda [frågor över flera resurser](../log-query/cross-workspace-query.md) att kombinera Application Insights-data med andra data i Log Analytics.
 
 
 ![Tabeller](media/log-query-overview/queries-tables.png)
@@ -108,5 +108,5 @@ Medan [Application Insights](../../azure-monitor/app/app-insights-overview.md) b
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om den [portaler som du använder för att skapa och redigera loggsökningar](../../azure-monitor/log-query/portals.md).
-- Kolla in en [självstudiekurs om hur du skriver frågor](../../azure-monitor/log-query/get-started-queries.md) med hjälp av det nya frågespråket.
+- Lär dig mer om den [portaler som du använder för att skapa och redigera loggsökningar](../log-query/portals.md).
+- Kolla in en [självstudiekurs om hur du skriver frågor](../log-query/get-started-queries.md) med hjälp av det nya frågespråket.

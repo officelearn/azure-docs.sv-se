@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator telefoninloggning – Azure och Microsoft-konton | Microsoft Docs
-description: Använd din telefon för att logga in på ditt Microsoft-konto i stället för att skriva ditt lösenord. Den här artikeln får du svar på vanliga frågor och svar om den här funktionen.
+title: Logga in på dina konton med hjälp av Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
+description: Använd Microsoft Authenticator-appen för att logga in på ditt arbets eller skolkonto eller ditt personliga Microsoft och icke-Microsoft-konton med hjälp av två faktorer verifiering eller telefoninloggning.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -8,64 +8,86 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 08/12/2017
+ms.date: 01/24/2019
 ms.author: lizross
-ms.reviewer: librown
-ms.openlocfilehash: 39ad9beeb6e562a4487588967910efaf0cbe4d84
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.reviewer: olhaun
+ms.openlocfilehash: f6888df821a47f64c8f43a69f3cf863eb678a798
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54822543"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902048"
 ---
-# <a name="sign-in-with-your-phone-not-your-password"></a>Logga in med telefonen, inte med ditt lösenord
-Microsoft Authenticator-appen inte bara kan du skydda dina konton genom att utföra tvåstegsverifiering när du ange ditt lösenord, men nu den kan ändra lösenordet för ditt Microsoft-konto helt och hållet.
+# <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Logga in på dina konton med hjälp av Microsoft Authenticator-appen
+Microsoft Authenticator-appen kan du logga in på dina konton om du använder två faktorer verifiering. Verifiering av två faktorer hjälper dig att komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stulits eller komprometterats, två faktorer är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
 
-Den här funktionen är tillgänglig på iOS och Android-enheter med Android 6.0 eller senare.
- 
-## <a name="how-it-works"></a>Hur det fungerar
-Många av er Använd Microsoft Authenticator-appen för tvåstegsverifiering när du loggar in på ditt Microsoft-konto. Du skriver lösenordet och sedan gå till appen antingen godkänna ett meddelande eller för att hämta en Verifieringskod. Med telefoninloggning, hoppa över lösenordet och göra alla identitetsverifiering på din telefon. Eftersom telefoninloggning är en typ av tvåstegsverifiering kan behöver du fortfarande verifiera din identitet genom att tillhandahålla en sak som du vet och en sak som du har. Telefonen fortfarande är det som du har, men din telefon PIN-kod eller biometriska nyckeln nu är det som du vet.
+Du kan använda Microsoft Authenticator-appen på flera sätt, inklusive:
 
-## <a name="turn-on-phone-sign-in-for-your-work-or-school-account"></a>Aktivera phone inloggning för arbets-eller skolkonto 
-Om din organisation har aktiverat denna nya upplevelse, kommer du att kunna aktivera och använda telefoninloggning från Microsoft Authenticator-appen.
+- Att tillhandahålla en uppmaning för en andra verifieringsmetod när du har loggat in med ditt användarnamn och lösenord.
 
-### <a name="to-turn-on-phone-sign-in-for-your-account"></a>Aktivera phone logga in för ditt konto
+- Att tillhandahålla inloggning utan att kräva ett lösenord, med ditt användarnamn och din mobila enhet med ditt fingeravtryck, ett ansikte eller en PIN-kod.
 
-- **Om du har den här ikonen ![ikon som visar du har konfigurerat](media/microsoft-authenticator-app-phone-signin-faq/icon.png) på din telefon.** Du har redan konfigurerat telefoninloggning. Du kan bli ombedd att uppgradera ditt konto för att lägga till push-meddelanden, så att du kan bli meddelad om autentiseringsbegäranden utanför appen. 
+ >[!Important]
+ >Den här phone inloggningsmetod fungerar bara med ditt personliga Microsoft-konton. Ditt arbete eller skolkonto och icke-Microsoft-konton måste du använda standard tvåfaktors-verifieringen.
 
-- **Om du redan använder Microsoft Authenticator-appen för tvåstegsverifiering.** Gå till skärmen konton i appen, väljer du pilen för arbets-eller skolkonto och välj sedan **aktivera telefoninloggning**. 
+## <a name="prerequisites"></a>Förutsättningar
+Innan du kan använda Microsoft Authenticator-appen, måste du:
 
-- **Om du använder Microsoft Authenticator-appen för ditt personliga konto, men inte för arbets-eller skolkonto.** Följ organisationens tvåstegsverifiering verifieringsinstruktionerna, och sedan aktivera telefoninloggning. Mer information finns i [Kom igång med Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md).
+ 1. Hämta och installera Microsoft Authenticator-appen. Om du inte har gjort det redan finns i [ladda ned och installera appen](microsoft-authenticator-app-how-to.md).
 
-### <a name="to-use-phone-sign-in-to-sign-in-to-your-work-or-school-account"></a>Att använda telefoninloggning för att logga in på ditt arbets- eller skolkonto konto 
+ 2. Lägga till ditt arbete/skola personliga och tredjeparts-konton till Microsoft Authenticator-appen. Detaljerade anvisningar finns i [Lägg till ditt arbets- eller skolkonto](microsoft-authenticator-app-add-work-account.md), [lägga till dina personliga konton](microsoft-authenticator-app-add-personal-account.md), och [lägga till din personliga icke-Microsoft-konton](microsoft-authenticator-app-add-non-microsoft-account.md).
 
-1. Logga in på ditt arbets- eller skolkonto konto som vanligt. 
+## <a name="turn-on-and-use-phone-sign-in-for-your-work-or-school-account"></a>Aktivera och använda telefoninloggning för ditt arbets- eller skolkonto konto
+Telefoninloggning är en typ av tvåstegsverifiering. Du måste fortfarande verifiera din identitet genom att tillhandahålla en sak som du vet och en sak som du har, men phone inloggning kan du hoppa över att ange lösenordet för ditt konto och utför alla dina identitetsverifiering på din mobila enhet.
 
-    När du har skrivit ditt användarnamn, visas en sida med flera tvåsiffrig ber dig godkänna inloggningen via Microsoft Authenticator-appen. Om du inte vill använda den här inloggning i metoden kan du välja **Använd ditt lösenord istället**, och logga in med ditt lösenord.
+Innan du kan aktivera telefoninloggning, måste du aktivera tvåfaktorsautentisering verifiering. Mer information om hur du aktiverar tvåfaktorsautentisering verifiering för ett konto finns i [Lägg till ditt arbets- eller skolkonto](microsoft-authenticator-app-add-work-account.md) och [lägga till dina personliga konton](microsoft-authenticator-app-add-personal-account.md).
 
-    ![Godkänn inloggning box](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+Telefoninloggning är endast tillgänglig på iOS och Android-enheter med Android 6.0 eller senare.
 
-2. I Microsoft Authentication-appen, du får ett meddelande som ber dig **Godkänn inloggning**. Välj **Godkänn** om du känner igen inloggningsförsök. Annars väljer du **neka**. 
+### <a name="turn-on-phone-sign-in"></a>Aktivera telefoninloggning 
 
-3. Tryck på samma nummer som visas på den **Godkänn inloggning** skärmen. Använd din telefon PIN-kod eller biometriska nyckeln för att slutföra autentiseringen.
+- Öppna Microsoft Authenticator-appen, går du till ditt arbete eller skolkonto och aktivera telefoninloggning:
 
-    ![Godkänn inloggning box med för att välja](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+    - **Om du ser den här ikonen ![ikon som visar du har konfigurerat](media/microsoft-authenticator-app-phone-signin-faq/icon.png).** Om den här ikonen visas bredvid ditt arbete eller skola kontonamn, betyder det att du har ställt in telefoninloggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så du kan bli meddelad om autentiseringsbegäranden utanför appen.
 
-## <a name="turn-on-phone-sign-in-for-your-personal-account"></a>Aktivera phone inloggning för ditt personliga konto 
+    - **Om du har använt appen för verifiering av två faktorer.** Om du har redan använt appen och verifiering av två faktorer, du kan välja pilen bredvid namnet på kontot och sedan välja **aktivera telefoninloggning**.
+    
+    - **Om du inte hittar arbets-eller skolkonto.** Om du inte hittar ditt arbets- eller skolkonto konto på den **konton** skärmen i appen, betyder det att du inte har lagt till den i appen än. Lägg till ditt arbets- eller skolkonto genom att följa stegen i den [Lägg till ditt arbets- eller skolkonto](microsoft-authenticator-app-add-work-account.md) artikeln.
+
+### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Logga in på ditt konto med telefoninloggning
+När du har aktiverat telefoninloggning, kan du logga in med bara Microsoft Authenticator-appen.
+
+1. Logga in på ditt arbets- eller skolkonto konto.
+
+    När du har skrivit ditt användarnamn, en **Godkänn inloggning** skärm visas där du kan se två siffror och uppmanas att logga in via Microsoft Authenticator-appen. Om du inte vill använda den här inloggning i metoden kan du välja **Använd ditt lösenord istället**, och logga in med ditt lösenord.
+
+    ![Godkänn inloggning rutan på dator](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in.png)
+
+2. Öppna meddelandet eller Microsoft Authenticator-appen på din enhet och tryck sedan på det nummer som matchar det nummer du ser på din dator **Godkänn inloggning** skärmen.
+
+    ![Godkänn inloggning rutan på enheten](media/microsoft-authenticator-app-phone-signin-faq/microsoft-auth-app-sign-in-numbers.png)
+
+3. Välj **Godkänn** om du känner igen inloggningsförsök. Annars väljer du **neka**.
+
+4. Använd din telefon PIN-kod eller biometriska nyckeln för att slutföra autentiseringen.
+
+## <a name="turn-on-and-use-phone-sign-in-for-your-personal-microsoft-accounts"></a>Aktivera och använda telefoninloggning för ditt personliga Microsoft-konton
 Du kan aktivera telefoninloggning för ditt personliga Microsoft-konto, till exempel kontot som används för att logga in på Outlook.com, Xbox eller Skype.
 
-### <a name="to-turn-on-phone-sign-in-for-your-personal-account"></a>Aktivera phone inloggning för ditt personliga konto
+>[!NOTE]
+>För att skydda ditt konto, kräver Microsoft Authenticator-appen en PIN-kod eller biometriska lås på din enhet. Om du behåller din telefon låsas upp måste appen du ställa in ett security Lås innan du aktivera telefoninloggning.
 
-- **Om du inte använder Microsoft Authenticator-appen.** Ladda ned och installera Microsoft Authenticator-appen och Lägg sedan till ditt personliga Microsoft-konto genom att logga in till kontot från skärmen Lägg till konton i Microsoft Authenticator-appen. Mer information finns i [Kom igång med Microsoft Authenticator-appen](microsoft-authenticator-app-how-to.md).
+### <a name="turn-on-phone-sign-in"></a>Aktivera telefoninloggning 
 
-    Nya konton som är automatiskt aktiverad så att du kan omedelbart börja använda telefoninloggning. 
+- Öppna Microsoft Authenticator-appen, går du till ditt personliga Microsoft-konto och aktivera telefoninloggning:
 
-- **Om du redan använder Microsoft Authenticator-appen för tvåstegsverifiering.** Gå till den **konton** skärmen i appen, Välj listrutepilen för arbets-eller skolkonto och välj sedan **aktivera telefoninloggning**.
+    - **Om du ser den här ikonen ![ikon som visar du har konfigurerat](media/microsoft-authenticator-app-phone-signin-faq/icon.png).** Om den här ikonen visas bredvid namnet på ditt konto, innebär det att du har ställt in telefoninloggning för kontot. Du kan bli ombedd att lägga till push-meddelanden för ditt konto, så du kan bli meddelad om autentiseringsbegäranden utanför appen.
 
-    >[!NOTE]
-    >För att skydda ditt konto, kräver appen en PIN-kod eller biometriska lås på din enhet. Om du behåller din telefon låsas upp måste appen du ställa in ett security Lås innan du aktivera telefoninloggning.
+    - **Om du har använt appen för verifiering av två faktorer.** Om du har redan använt appen och verifiering av två faktorer, du kan välja pilen bredvid namnet på kontot och sedan välja **aktivera telefoninloggning**.
+    
+    - **Om du inte hittar ditt konto.** Om du inte hittar ditt konto på den **konton** skärmen i appen, betyder det att du inte har lagt till den i appen än. Lägg till ditt personliga Microsoft-konto genom att följa stegen i den [lägger du till ditt personliga Microsoft-konto](microsoft-authenticator-app-add-personal-account.md#add-your-personal-microsoft-account) artikeln.
 
-### <a name="to-use-phone-sign-in-to-sign-in-to-your-personal-account"></a>Att använda telefoninloggning för att logga in på ditt personliga konto 
+### <a name="sign-in-to-your-account-using-phone-sign-in"></a>Logga in på ditt konto med telefoninloggning
 
 1. Gå till ditt personliga Microsoft-konto på inloggningssidan och välj sedan i stället för att skriva ditt lösenord, den **Använd Microsoft Authenticator-appen i stället** länk. 
 
@@ -73,14 +95,22 @@ Du kan aktivera telefoninloggning för ditt personliga Microsoft-konto, till exe
 
 2. Godkänn meddelandet. 
 
-## <a name="phone-sign-in-faq"></a>Phone inloggning FAQ
+## <a name="sign-in-using-two-factor-verification-for-your-account"></a>Logga in med två faktorer verifiering för ditt konto
+Standard verifiering av två faktorer-metoden måste du ange ditt användarnamn och lösenord i enheten du har loggat in och välj sedan om Microsoft Authenticator-appen skickar ett meddelande eller om du vill kopiera den associera verifieringen kod från den **konton** skärmen i Microsoft Authenticator-appen. Du aktiverar tvåfaktorsautentisering verifiering för ditt konto som en del av processen för att lägga till kontot i Microsoft Authenticator-appen.
+
+>[!Note]
+>Om du inte ser ditt arbets- eller skolkonto eller ditt personliga konto på den **konton** skärm med Microsoft Authenticator-appen som det innebär att du inte har lagt till kontot till Microsoft Authenticator-appen. Om du vill lägga till ditt konto, se [Lägg till ditt arbets- eller skolkonto](microsoft-authenticator-app-add-work-account.md) eller [lägga till dina personliga konton](microsoft-authenticator-app-add-personal-account.md).
+
+Steg som krävs för att logga in på ditt arbets- eller Skol- eller ditt personliga konto, med de olika metoderna för verifiering av två faktorer, finns i [logga in med tvåstegsverifiering verifiering eller din säkerhetsinformation](user-help-sign-in.md).
+
+## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 |**Fråga**|**Lösning**|
 |--------------|-------------|
 |**Hur loggar in med telefonen säkrare än att skriva ett lösenord?**|Idag de flesta användare logga in på webbplatser och appar med ett användarnamn och lösenord. Tyvärr kan lösenord vara tappas bort, blir stulen eller gissa som hackare använder.<br><br>När du har konfigurerat Microsoft Authenticator-appen skapar en nyckel på din telefon för att låsa upp ditt konto som skyddas av din telefon PIN-kod eller biometriska Lås. Den här nyckeln används sedan för att verifiera din identitet när du loggar in.<br><br>**Viktigt**<br>Dina data används endast för att skydda din nyckel lokalt. Det har aldrig skickas till, eller lagras i molnet.|
-|**Ersätter tvåstegsverifiering? Bör jag stänga av den?**| Vi arbetar för att expandera omfattningen för telefoninloggning, men nu det fortfarande finns platser i Microsofts ekosystem som inte stöder den. På dessa platser använder vi fortfarande tvåstegsverifiering för säker inloggning. Därför finns inte, bör inte du inaktivera tvåstegsverifiering för ditt konto.|
+|**Telefoninloggning ersätter tvåstegsverifiering? Bör jag stänga av den?**|Telefoninloggning är en typ av två steg verifiering där de två stegen båda ske på den mobila enheten. Du bör ha två steg verifiering aktiveras för att ge ytterligare säkerhet för ditt konto.|
 |**Om jag behålla tvåstegsverifiering aktiverad för mitt konto, har jag godkänna två meddelanden?**| Nej. Logga in på ditt Microsoft-konto med din telefon också räknas som tvåstegsverifiering, så det finns inga andra godkännande krävs.|
 |**Vad händer om jag tappar bort min telefon eller inte har den med mig? Hur kommer jag åt mitt konto?**| Du kan alltid välja att använda ett lösenord i stället länken på sidan logga in för att växla tillbaka till ditt lösenord. Om du använder tvåstegsverifiering kommer du dock fortfarande behöver använda ett annat sätt för att verifiera din identitet.<br><br>**Viktigt**<br>Vi att starkt du kan kontrollera att du har mer än en uppdaterad verifieringsmetod som är associerat med ditt konto.<br><br>Du kan hantera din verifieringsmetoder för personliga konton från din [säkerhetsinställningar](https://account.live.com/proofs/manage) sidan. För konton för arbets- eller skolkonto, går du till din organisations [ytterligare säkerhetsverifiering](https://aka.ms/MFASetup) sidan eller **skydda ditt konto** om din administratör har aktiverat säkerhetsinformation. Läs mer om säkerhetsinformation [hantera din säkerhetsinformation](security-info-manage-settings.md).<br><br>Om du inte kan hantera din verifieringsmetoder, måste du kontakta din administratör.|
-|**Hur jag för att sluta använda den här funktionen och gå tillbaka till med mitt lösenord?**|För personliga konton väljer du den **använder ett lösenord i stället** länk när de loggar in. Senaste valfri sparas och erbjuds som standard nästa gång du loggar in. Om du vill gå tillbaka till att använda telefoninloggning, Välj den **använder en app i stället** länk när de loggar in.<br><br>För arbets- eller skolkonto-konton måste du ta bort kontot genom att öppna Microsoft Authenticator-appen att välja den **redigera konton** menyn och sedan ta bort ditt konto.|
+|**Hur jag för att sluta använda den här funktionen och gå tillbaka till med mitt lösenord?**|För personliga konton väljer du den **använder ett lösenord i stället** länk när de loggar in. Senaste valfri sparas och erbjuds som standard nästa gång du loggar in. Om du vill gå tillbaka till att använda telefoninloggning, Välj den **använder en app i stället** länk när de loggar in.<br><br>För arbets- eller skolkonto-konton måste du till din sida med ytterligare verifiering (t.ex, https://aka.ms/MFASetup) och ta bort Microsoft Authenticator-appen.|
 |**Varför kan jag inte använda fler än ett arbets- eller skolkonto konto för inloggning via mobilen?**| En telefon måste vara registrerade i en arbets- eller skolkonto. Om du vill aktivera telefoninloggning för en annan arbets- eller skolkonto, måste du först avregistrera gamla enheten via den **inställningar** sidan.|
 |**Kan jag logga in på datorn med hjälp av min telefon?**| För din dator rekommenderar vi loggar in med Windows Hello på Windows 10. Windows Hello kan du använda din ansiktsigenkänning eller fingeravtryck PIN-kod för att logga in.|
 |**Kan jag använda telefoninloggning med min Windows Phone?**| Nej. Den här funktionen stöds inte av Microsoft Authenticator-appen på Windows Phone.|

@@ -3,7 +3,7 @@ title: Exempel-guide för Azure-infrastrukturen | Microsoft Docs
 description: Läs mer om viktiga riktlinjer för utformning och implementering för distribution av en exempel-infrastruktur i Azure.
 documentationcenter: ''
 services: virtual-machines-linux
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 794182e3988a353b1e305a36da0475bacdea69b8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: d4b8cd07e50697139f68084f47c847ef8728c429
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469858"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888969"
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Exempel-guide för virtuella Linux-datorer på Azure-infrastrukturen
 Den här artikeln beskriver att bygga ut en exempel-infrastruktur för programmet. Vi förklarar vi utformar en infrastruktur för en enkel onlinebutik som sammanför alla riktlinjer och beslut om namngivningskonventioner, tillgänglighetsuppsättningar, virtuella nätverk och belastningsutjämnare och faktiskt distribuerar dina virtuella datorer (VM).
@@ -72,8 +72,8 @@ Eftersom det virtuella nätverket inte behöver pågående anslutning till det l
 
 De har skapat ett endast molnbaserat virtuellt nätverk med följande inställningar med hjälp av Azure portal:
 
-* Namn: AZOS-användning – VN01
-* Plats: Östra USA 2
+* Namn: AZOS-USE-VN01
+* Plats: USA, östra 2
 * Virtuella nätverkets adressutrymme: 10.0.0.0/8
 * Första undernät:
   * Namn: FrontEnd

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 114b6b0cc0fd4e8e51a9dbf2cdc8d9e2a2261754
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 57279a4e92b1f42505003f12d41c8203aa5603d4
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823495"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881877"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects-preview"></a>Skapa en CI/CD-pipeline för IoT Edge med Azure DevOps-projekt (förhandsgranskning)
 
@@ -38,7 +38,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure DevOps. Du kan skapa en ny Azur
 
    ![Välj språk för att skapa ett nytt program](./media/how-to-devops-project/select-language.png)
 
-2. Välj **enkla IoT (förhandsversion)** som ditt program framwork och välj sedan **nästa**.
+2. Välj **enkla IoT (förhandsversion)** som programramverk och välj sedan **nästa**.
 
    ![Välj enkla IoT-ramverk](media/how-to-devops-project/select-iot.png)
 
@@ -73,7 +73,7 @@ DevOps-projekt skapas en Git-lagringsplats för ditt projekt i Azure-databaser. 
 
 1. Gå till den lagringsplats som skapats för ditt projekt, välja **databaser** på menyn på instrumentpanelen för projektet.  
 
-   ![Visa databasen som genererats i i Azure-lagringsplatser](./media/how-to-devops-project/view-repositories.png)
+   ![Visa databasen som genereras i Azure-lagringsplatser](./media/how-to-devops-project/view-repositories.png)
 
 2. Följande steg beskriver göra kodändringar med hjälp av webbläsaren. Om du vill klona lagringsplatsen lokalt i stället väljer **klona** längst upp höger i fönstret. Använd den tillhandahållna URL: en för att klona Git-lagringsplats i Visual Studio Code eller din önskade utvecklingsverktyg. 
 
@@ -93,7 +93,7 @@ DevOps-projekt skapas en Git-lagringsplats för ditt projekt i Azure-databaser. 
 
 ## <a name="examine-the-cicd-pipeline"></a>Granska CI/CD-pipelinen
 
-I föregående avsnitt konfigureras automatiskt en fullständig CI/CD-pipeline för din IoT Edge-program i Azure DevOps-projekt. Sedan testat du som skapar pipelinen genom att bekräfta ändringar i en av filerna. Nu kan utforska och anpassa pipelinen efter behov. Bekanta dig med Azure DevOps-bygg- och versionspipelines genom att utföra följande steg.
+I föregående avsnitt konfigureras automatiskt en fullständig CI/CD-pipeline för din IoT Edge-program i Azure DevOps-projekt. Sedan testat du att skapa pipelinen genom att genomföra ändringarna till en av filerna. Nu kan utforska och anpassa pipelinen efter behov. Bekanta dig med Azure DevOps-bygg- och versionspipelines genom att utföra följande steg.
 
 1. Om du vill visa de skapandet av pipelines i din DevOps-projekt, Välj **skapa Pipelines** på menyn på instrumentpanelen för projektet. Länken öppnar en webbläsarflik och Azure DevOps-bygg-pipelinen för det nya projektet.
 

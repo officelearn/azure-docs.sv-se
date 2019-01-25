@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 6b5fc02e763b66f1d7d01643d1c9d6c971d6db84
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1d01755ae62843ad1f2f1728df046b767fe123ca
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434213"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886585"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Samla in Azure-tjänstloggar och mått för användning i Log Analytics
 
@@ -71,12 +71,12 @@ Azure-resurser som stöder [Azure monitor](../../azure-monitor/overview.md) kan 
 > [!NOTE]
 > Det går för närvarande inte att skicka flerdimensionella mätvärden till Log Analytics via diagnostikinställningarna. Mått med dimensioner exporteras som tillplattade endimensionella mått som aggregeras över dimensionsvärden.
 >
-> *Till exempel*: ”Inkommande meddelanden'-mått i en Händelsehubb kan utforskas och läggas till på en per kö-nivå. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
+> *Till exempel*: Måttet för inkommande meddelanden i en händelsehubb kan utforskas och visas för varje enskild kö. Men när exporteras via diagnostikinställningar mått representeras som alla inkommande meddelanden för alla köer i hubben.
 >
 >
 
 * Information för tillgängliga mått i [stöds mått med Azure Monitor](../../azure-monitor/platform/metrics-supported.md).
-* Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/tutorial-dashboards.md).
+* Information om tillgängliga loggar finns i [tjänster och -schemat stöds för diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 ### <a name="enable-diagnostics-with-powershell"></a>Aktivera diagnostik med PowerShell
 Du behöver i November 2016 (v2.3.0) eller senare versionen av [Azure PowerShell](/powershell/azure/overview).

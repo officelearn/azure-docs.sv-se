@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/08/2018
+ms.date: 01/23/2019
 ms.author: jingwang
-ms.openlocfilehash: fcf5b5d0064292c11abeb361b0c046b5a3388457
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 24fdfcb53e8f3cbf0e1bf4f7e567d9f768383ac1
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025699"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54884239"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Kopiera data till och från Azure SQL Database med hjälp av Azure Data Factory
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
 > * [Version 1](v1/data-factory-azure-sql-connector.md)
 > * [Aktuell version](connector-azure-sql-database.md)
 
@@ -35,6 +35,8 @@ Mer specifikt stöder den här anslutningen för Azure SQL Database dessa funkti
 - Kopiera data med hjälp av SQL-autentisering och autentisering med Azure Active Directory (Azure AD) Application-token med ett tjänstens huvudnamn eller hanterade identiteter för Azure-resurser.
 - Hämta data med hjälp av en SQL-fråga eller en lagrad procedur som en källa.
 - Som en mottagare, lägga till data till en måltabell eller anropa en lagrad procedur med anpassad logik under kopieringen.
+
+Azure SQL Database [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) stöds inte nu. 
 
 > [!IMPORTANT]
 > Om du kopierar data med hjälp av Azure Data Factory Integration Runtime kan du konfigurera en [Azure SQL-serverbrandvägg](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) så att Azure-tjänster har åtkomst till servern.
@@ -599,7 +601,7 @@ När du kopierar data från eller till Azure SQL Database, används följande ma
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |decimaltal |
-| sql_variant |Objektet * |
+| sql_variant |Objekt |
 | text |Sträng, Char] |
 | time |Tidsintervall |
 | tidsstämpel |Byte] |
@@ -608,6 +610,9 @@ När du kopierar data från eller till Azure SQL Database, används följande ma
 | varbinary |Byte] |
 | varchar |Sträng, Char] |
 | xml |Xml |
+
+>[!NOTE]
+> För typer mappas till decimaltyp tillfällig stöder för närvarande ADF precision upp till 28. Om du har data med precision som är större än 28, Överväg för att konvertera till en sträng i SQL-frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av Kopieringsaktivitet i Azure Data Factory finns i [datalager och format som stöds](copy-activity-overview.md##supported-data-stores-and-formats).

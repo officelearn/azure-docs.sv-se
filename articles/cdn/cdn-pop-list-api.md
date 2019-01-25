@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/22/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f703a934b0eaf4bff5be3811adeed8f0287bc658
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 2b34f6bcbf37a48fb49a2a64d727fc9330b0d735
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50237833"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882267"
 ---
 # <a name="retrieve-the-current-verizon-pop-list-for-azure-cdn"></a>Hämta den aktuella Verizon POP-listan för Azure CDN
 
@@ -30,7 +30,7 @@ Syntaxen för REST API-åtgärd för hämtning av POP-listan, se [Kantnoder - li
 
 ## <a name="typical-use-case"></a>Vanligt användningsfall
 
-Du kan använda den här IP-listan för att genomdriva att begäranden till ursprungsservern görs endast från en giltig Verizon POP av säkerhetsskäl. Om någon identifieras värdnamnet eller IP-adress för en CDN-slutpunkt ursprungsservern, göra någon till exempel begäranden direkt till ursprungsservern därför kringgår den skalning och säkerhetsfunktioner som tillhandahålls av Azure CDN. Det här scenariot kan förhindras genom att ange de IP-adresserna i den returnerade listan som den enda tillåtna IP-adresser på en ursprungsserver. Att kontrollera att de har du den senaste POP-listan, hämta minst en gång om dagen. 
+Du kan använda den här IP-listan för att genomdriva att begäranden till ursprungsservern görs endast från en giltig Verizon POP av säkerhetsskäl. Om någon identifieras värdnamnet eller IP-adress för en CDN-slutpunkt ursprungsservern, göra någon till exempel begäranden direkt till ursprungsservern därför kringgår den skalning och säkerhetsfunktioner som tillhandahålls av Azure CDN. Det här scenariot kan förhindras genom att ange de IP-adresserna i den returnerade listan som den enda tillåtna IP-adresser på en ursprungsserver. För att säkerställa att du har den senaste POP-listan, hämta minst en gång om dagen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

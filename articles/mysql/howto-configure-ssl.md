@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 075f20027153eb9adf5c0daedea7cf5c0b515ee4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: d938b4485dccc3b5be3d1af612b407a67e04f397
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537043"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902218"
 ---
 # <a name="configure-ssl-connectivity-in-your-application-to-securely-connect-to-azure-database-for-mysql"></a>Konfigurera SSL-anslutning i din app för säker anslutning till Azure Database for MySQL
 Azure Database för MySQL stöder anslutning av din Azure Database for MySQL-server till klientprogram som använder Secure Sockets Layer (SSL). Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet.
@@ -26,15 +26,19 @@ Konfigurera MySQL-arbetsstationen för att ansluta på ett säkert sätt via SSL
 ![Spara anpassade panel](./media/howto-configure-ssl/mysql-workbench-ssl.png) för befintliga anslutningar kan du binda SSL genom att högerklicka på ikonen för anslutningen och välj Redigera. Gå sedan till den **SSL** fliken och bind certifikat-fil.
 
 ### <a name="connecting-to-server-using-the-mysql-cli-over-ssl"></a>Ansluta till servern med hjälp av CLI MySQL via SSL
-Ett annat sätt att binda SSL-certifikat är att använda kommandoradsgränssnittet MySQL genom att köra följande kommando:
-```dos
-mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
+Ett annat sätt att binda SSL-certifikat är att använda kommandoradsgränssnittet MySQL genom att köra följande kommandon. 
+
+```bash
+mysql.exe -h mydemoserver.mysql.database.azure.com -u Username@mydemoserver -p --ssl-mode=REQUIRED --ssl-ca=c:\ssl\BaltimoreCyberTrustRoot.crt.pem
 ```
+
+> [!NOTE]
+> När du använder gränssnittet för MySQL-kommandorad i Windows, kan ett felmeddelande `SSL connection error: Certificate signature check failed`. Om detta inträffar, ersätter den `--ssl-mode=REQUIRED --ssl-ca={filepath}` parametrar med `--ssl`.
 
 ## <a name="step-3--enforcing-ssl-connections-in-azure"></a>Steg 3:  Att framtvinga SSL-anslutningar i Azure 
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 Med Azure-portalen, gå till din Azure Database for MySQL-server och klicka sedan på **anslutningssäkerhet**. Använd växlingsknappen för att aktivera eller inaktivera den **framtvinga SSL-anslutning** inställningen och klicka sedan på **spara**. Microsoft rekommenderar att du alltid lägga till den **framtvinga SSL-anslutning** för förbättrad säkerhet.
-![Aktivera ssl](./media/howto-configure-ssl/enable-ssl.png)
+![enable-ssl](./media/howto-configure-ssl/enable-ssl.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 Du kan aktivera eller inaktivera den **ssl tvingande** parameter med hjälp av aktiverad eller inaktiverad, värden respektive i Azure CLI.
@@ -129,7 +133,7 @@ properties.setProperty("user", 'myadmin@mydemoserver');
 properties.setProperty("password", 'yourpassword');
 conn = DriverManager.getConnection(url, properties);
 ```
-### <a name="javamariadb"></a>Java(MariaDB)
+### <a name="javamariadb"></a>JAVA(MariaDB)
 ```java
 # generate truststore and keystore in code
 String importCert = " -import "+

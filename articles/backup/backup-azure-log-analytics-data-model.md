@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/24/2017
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f4ecc87a0a7a0c74b02b72164fe129daa6530ea2
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 09f7d4c5e76d4f74d447f8e8760e1f348462c769
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877589"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54887027"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Log Analytics-datamodell för Azure Backup-data
 Använd Log Analytics-datamodell för att skapa rapporter. Med datamodellen, kan du skapa egna förfrågningar och instrumentpaneler eller anpassa Azure Backup-data, hur du vill.
@@ -43,7 +43,7 @@ Den här tabellen innehåller information om aviseringen relaterade fält.
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med aviseringen |
 | VaultUniqueId_s |Text |Unik identifierare för skyddade valvet som är associerade med aviseringen |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Unik identifierare för resursen om vilka data som samlas in. Till exempel ett Recovery Services-valv resurs-id |
+| ResourceId |Text |Unik identifierare för resursen om vilka data som samlas in. Till exempel ett Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -69,7 +69,7 @@ Den här tabellen innehåller information om säkerhetskopiering objekt-relatera
 | Kategori |Text |Kategori för diagnostikdata som skickas till Log Analytics. Alltid AzureBackupReport |
 | Resurs |Text |Resurs för vilka data som samlas in, exempelvis namn för Recovery Services-valv |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resurs-id för data som samlas in, till exempel Recovery Services-valv resurs-id |
+| ResourceId |Text |Resurs-id för data som samlas in, till exempel Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (för t.ex. Recovery Services-valv) för data som samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (för t.ex. Recovery Services-valv) för data som samlas in |
 | ResourceProvider |Text |Resource provider för data som samlas in, till exempel Microsoft.RecoveryServices |
@@ -92,7 +92,7 @@ Den här tabellen innehåller information om säkerhetskopieringsobjekt associat
 | ProtectedServerUniqueId_s |Text |Unik identifierare för den skyddade servern som är associerade med säkerhetskopieringsobjektet |
 | VaultUniqueId_s |Text |Unik identifierare för det valv som innehåller säkerhetskopieringsobjektet |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (för t.ex. Recovery Services-valv) för vilka data som samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (för t.ex. Recovery Services-valv) för vilka data som samlas in |
 | ResourceProvider |Text |Resource provider för data som samlas in, till exempel Microsoft.RecoveryServices |
@@ -122,7 +122,7 @@ Den här tabellen innehåller information om projektspecifika fält.
 | DataTransferredInMB_s | Tal |Data som överförs i MB för det här jobbet|
 | JobUniqueId_g |Text |Unikt Id för att identifiera jobbet |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id|
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id|
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -162,7 +162,7 @@ Den här tabellen innehåller information om principen-relaterade fält.
 | YearlyRetentionFormat_s |Text |Typen av konfiguration för årliga kvarhållning, till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
 | YearlyRetentionDaysOfTheMonth_s |Text |Datum i månaden som valts för kvarhållning av årlig |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -183,7 +183,7 @@ Den här tabellen innehåller information om principkopplingar med olika entitet
 | PolicyUniqueId_g |Text |Unikt Id för att identifiera principen |
 | VaultUniqueId_s |Text |Unikt Id för det valv som tillhör den här principen till |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -208,7 +208,7 @@ Den här tabellen innehåller information om skyddade server-relaterade fält.
 | ProtectedServerFriendlyName_s |Text |Eget namn på skyddad server |
 | AzureBackupAgentVersion_s |Text |Versionsnumret för Backup-Agentversion |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -229,7 +229,7 @@ Den här tabellen innehåller information om skyddade servern associationer med 
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern |
 | VaultUniqueId_s |Text |Unikt Id för det valv som den här skyddade servern tillhör |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -252,7 +252,7 @@ Den här tabellen innehåller information om storage-relaterade fält.
 | ProtectedServerUniqueId_s |Text |Unikt Id för den skyddade servern som lagring beräknas |
 | VaultUniqueId_s |Text |Unikt Id för valvet för lagring beräknas |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
@@ -274,11 +274,11 @@ Den här tabellen innehåller information om vault-relaterade fält.
 | AzureDataCenter_s |Text |Datacenter där valvet finns |
 | StorageReplicationType_s |Text |Typ av lagringsreplikering för valvet, till exempel GeoRedundant |
 | SourceSystem |Text |Källsystemet för det aktuella - Azure |
-| Resurs-ID |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
+| ResourceId |Text |Resursidentifieraren för data som samlas in. Exempel: Recovery Services-valv resurs-id |
 | SubscriptionId |Text |Prenumerations-ID för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceGroup |Text |Resursgruppen för resursen (t.ex. Recovery Services-valv) som data samlas in |
 | ResourceProvider |Text |Provider för nätverksresurser som data samlas in. Till exempel Microsoft.RecoveryServices |
 | ResourceType |Text |Resurstyp som data samlas in. Till exempel valv |
 
 ## <a name="next-steps"></a>Nästa steg
-När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../azure-monitor/platform/dashboards.md) i Log Analytics.
+När du granskar datamodellen för att skapa Azure Backup-rapporter kan du börja [skapar instrumentpanelen](../azure-monitor/learn/tutorial-logs-dashboards.md) i Log Analytics.

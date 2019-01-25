@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 4c8d14e01805ea66ff3a954c153d858bf4ecaba6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec61b179627702af7f2c4bc0fc0989230f5eca84
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467510"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54885804"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Använda övervakningsdata från Azure
 
@@ -29,7 +29,7 @@ I Azure-plattformen samman vi övervakningsdata i en enda plats med Azure Monito
 | Storage-mått | Mått | Azure Storage | <ul><li>**Storage-tabell:** [Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |
 | Faktureringsinformation | Mått | Alla Azure-tjänster | <ul><li>**REST-API:** [Azure-Resursanvändning och RateCard-API: er](../../billing/billing-usage-rate-card-overview.md)</li></ul> |
 | Aktivitetslogg | Händelser | Alla Azure-tjänster | <ul><li>**REST-API:** [Azure Monitor händelser API](https://docs.microsoft.com/rest/api/monitor/eventcategories)</li><li>**Storage blob eller event hub:** [Loggprofil](activity-logs-overview.md#export-the-activity-log-with-a-log-profile)</li></ul> |
-| Diagnostikloggar för Azure Monitor | Händelser | [Se listan här](tutorial-dashboards.md) | <ul><li>**Storage blob eller event hub:** [Diagnostikinställningar](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
+| Diagnostikloggar för Azure Monitor | Händelser | [Se listan här](diagnostic-logs-schema.md) | <ul><li>**Storage blob eller event hub:** [Diagnostikinställningar](diagnostic-logs-overview.md#diagnostic-settings)</li></ul> |
 | Compute-loggarna för gästoperativsystemet (t.ex.) IIS, ETW, syslogs) | Händelser | [Windows](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) och Linux-datorer (v2), [molntjänster](../../cloud-services/cloud-services-dotnet-diagnostics-trace-flow.md), [Service Fabric](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md) | <ul><li>**Storage-tabell eller blob:** [Windows eller Linux Azure-diagnostik](diagnostics-extension-to-storage.md)</li><li>**Händelsehubb:** [Windows Azure diagnostics](diagnostics-extension-stream-event-hubs.md)</li></ul> |
 | App Service-loggar | Händelser | App Services | <ul><li>**Fil, tabell eller blob-lagring:** [Webbprogramdiagnostik](../../app-service/troubleshoot-diagnostic-logs.md)</li></ul> |
 | Storage-loggar | Händelser | Azure Storage | <ul><li>**Storage-tabell:** [Lagringsanalys](https://docs.microsoft.com/rest/api/storageservices/storage-analytics)</li></ul> |

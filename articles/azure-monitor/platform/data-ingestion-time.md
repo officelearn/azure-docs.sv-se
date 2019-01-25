@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/08/2019
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 5db963b1ffea656455c06092c82ac95e85d87826
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 329472f3edee66db6b12e369ee8f944546ad4734
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213135"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900450"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tid för inmatning av data i Log Analytics
 Azure Log Analytics är en tjänst för hög skala i Azure Monitor som hanterar tusentals kunder skickar terabyte data varje månad i en växande takt. Det finns ofta frågor om den tid det tar innan data blir tillgängliga i Log Analytics när den har samlats in. Den här artikeln beskrivs de olika faktorer som påverkar den här fördröjningen.
@@ -45,8 +45,15 @@ Agenter och lösningar för hantering kan du använda olika strategier för att 
 ### <a name="agent-upload-frequency"></a>Överföringsfrekvensen för agenten
 För att säkerställa Log Analytics-agenten är enkel, agenten buffrar loggar och överför dem regelbundet till Log Analytics. Ladda upp frekvens varierar mellan 30 sekunder och 2 minuter beroende på vilken typ av data. De flesta data har överförts under 1 minut. Nätverksförhållanden kan negativt påverka svarstiden för dessa data för att nå inläsningspunkten för Log Analytics.
 
-### <a name="azure-logs-and-metrics"></a>Azure loggar och mått 
-Aktivitetsloggdata tar cirka 5 minuter ska bli tillgänglig i Log Analytics. Data från diagnostikloggar och mått kan det ta 1 – 15 minuter att bli tillgängliga för bearbetning, beroende på Azure-tjänsten. När den är tillgänglig, tar sedan en ytterligare mellan 30 och 60 sekunder för loggar och 3 minuter för mått för data som ska skickas till Log Analytics inläsningspunkten.
+### <a name="azure-activity-logs-diagnostic-logs-and-metrics"></a>Azure-aktivitetsloggar, diagnostikloggar och mått
+Azure data lägger till ytterligare tid ska bli tillgänglig i Log Analytics inläsningspunkten för bearbetning av:
+
+- Data från diagnostikloggar tar 2 – 15 minuter, beroende på Azure-tjänsten. Se den [frågan nedan](#checking-ingestion-time) att undersöka den här fördröjningen i din miljö
+- Azure-plattformen mått ta 3 minuter som ska skickas till Log Analytics inläsningspunkten.
+- Aktivitetsloggdata tar cirka 10 – 15 minuter som ska skickas till Log Analytics inläsningspunkten.
+
+När det är tillgängligt på inläsningspunkten, tar data ytterligare 2 – 5 minuter att vara tillgängliga för frågor.
+
 
 ### <a name="management-solutions-collection"></a>Hantering av lösningar samling
 Vissa lösningar samlar inte in data från en agent och använder en samling-metod som medför en ytterligare fördröjning. Vissa lösningar samla in data med jämna mellanrum utan försök nästan i realtid samling. Specifika exempel är följande:

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: f4d63d4ad0841244cf2548b0842eea880e27a152
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9465be92d2289bb174834cc856d6f20b6b64c81b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463039"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888132"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -99,7 +99,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Portalen instrumentpaneler
 * Powerbi – både Power BI Embedded och Power BI-Arbetsytesamling
 * Offentliga IP - Basic SKU offentlig IP-adress kan flyttas. Standard-SKU offentlig IP-adress kan inte flyttas.
-* Recovery Services-valv – registrera din prenumeration för [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+* Recovery Services-valv – registrera dig i en [privat förhandsgranskning](#recovery-services-limitations).
 * Azure Cache för Redis - om Azure Cache för Redis-instans som är konfigurerad med ett virtuellt nätverk, instansen kan inte flyttas till en annan prenumeration. Se [virtuella nätverk begränsningar](#virtual-networks-limitations).
 * Scheduler
 * Sök - du kan inte flytta flera Sök efter resurser i olika regioner i en enda åtgärd. I stället flyttar du dem i separata åtgärder.
@@ -307,7 +307,7 @@ Flytta klassiska resurser till en ny prenumeration genom att använda REST-åtg�
 
 ### <a name="recovery-services-limitations"></a>Recovery Services-begränsningar
 
- Om du vill flytta ett Recovery Services-valv, registrera din prenumeration för [begränsad offentlig förhandsversion](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault).
+ Om du vill flytta ett Recovery Services-valv, måste du registrera i privat förhandsgranskning. Om du vill testa den genom att skriva till AskAzureBackupTeam@microsoft.com.
 
 För närvarande kan du flytta ett Recovery Services-valv per region i taget. Du kan inte flytta valv som säkerhetskopiera Azure Files eller Azure File Sync SQL i IaaS-datorer.
 
@@ -335,6 +335,8 @@ När du flyttar ett HDInsight-kluster till en ny prenumeration först flytta and
 ## <a name="checklist-before-moving-resources"></a>Checklista för att flytta resurser
 
 Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel genom att verifiera dessa villkor.
+
+1. Käll- och målprenumerationer måste vara aktiv. Om du har problem med att aktivera ett konto som har inaktiverats, [skapa en Azure-supportbegäran](../azure-supportability/how-to-create-azure-support-request.md). Välj **prenumerationshantering** för typ av ärende.
 
 1. Käll- och målprenumerationer måste finnas inom samma [Azure Active Directory-klient](../active-directory/develop/quickstart-create-new-tenant.md). Om du vill kontrollera att båda prenumerationerna har samma klient-ID, använder du Azure PowerShell eller Azure CLI.
 

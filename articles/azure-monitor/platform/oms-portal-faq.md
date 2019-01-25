@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
-ms.openlocfilehash: 6b76249c85f9b8c64435043a75e39601d445ab0c
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: c4fab22513e42013a9dacf0b24b2d4b322ae09b6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53384725"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54883406"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Vanliga frågor för övergången från OMS-portalen till Azure-portalen för Log Analytics-användare
 Log Analytics används först en egen portal kallas OMS-portalen för att hantera konfigurationen och analysera insamlade data.  Alla funktioner från den här portalen har flyttats till Azure-portalen där den kommer att fortsätta att utvecklas.
@@ -111,7 +111,7 @@ I OMS-portalen kan du installera lösningar från lösningsgalleriet och bort de
 Varningsregler baserat på Log Analytics-frågor hanteras nu i den [unified avisering upplevelse](../../azure-monitor/platform/alerts-metric.md). Se [utöka aviseringar från Log Analytics i Azure Alerts](../../azure-monitor/platform/alerts-extend-tool.md) för information om hur du konfigurerar och använder aviseringar i Azure-portalen.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Hur kommer jag åt mina instrumentpaneler?
-Den [min instrumentpanel](dashboards.md) funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../learn/tutorial-logs-dashboards.md) till Azure-instrumentpaneler.
+Den **min instrumentpanel** funktionen i Log Analytics är inaktuell. Den här funktionen har tillåtit dig att ha en privat samling av Vydesigner delar och ersätts av den inbyggda funktionen för Azure-instrumentpanelen. Du kan fortsätta att visualisera data i Log Analytics med hjälp av [Vydesigner](view-designer.md) för delade vyer. Du kan även fästa visualiseringar från dessa vyer eller [enskilda frågor](../learn/tutorial-logs-dashboards.md) till Azure-instrumentpaneler.
 
 ## <a name="how-do-i-check-my-usage"></a>Hur kontrollerar jag min användning?
 Du kan nu enkelt visa och hantera din användning och kostnader för Log Analytics genom att välja **användning och uppskattade kostnader** i din arbetsyta.

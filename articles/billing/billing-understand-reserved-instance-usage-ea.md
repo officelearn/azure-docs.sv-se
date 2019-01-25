@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
-ms.author: cwatson
-ms.openlocfilehash: 87f6437f836d46fc24ae016823a1b091bcd81943
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.author: banders
+ms.openlocfilehash: 0f29544890fe10f4914de393a4b153cfe393a2ec
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582068"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904309"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Förstå användningen av Azure reservation för din Enterprise-registrering
 
@@ -59,7 +59,7 @@ Anta att du kör en SQL-databas Gen 4 i östra USA och din reservation informati
 
 | Fält | Värde |
 |---| --- |
-|ReservationId |8244e673-83e9-45ad-B54B-3f5295d37cae|
+|ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Kvantitet |2|
 |Produkt| SQL Database Gen 4 (2 kärnor)|
 |Region | usaöstra |
@@ -76,7 +76,7 @@ Filtrera på **ytterligare information** och skriver i din **reservations-ID**, 
 
 ## <a name="usage-summary-page-in-enterprise-portal"></a>Sammanfattningssida för användning i Enterprise portal
 
-Din användning av Azure reservation även visas i sammanfattningen för användning i Enterprise portal: ![Användningsöversikt för Enterprise Agreement (EA)](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
+Din användning av Azure reservation visas också i sammanfattningen för användning i Enterprise portal: ![Enterprise Agreement (EA) Användningsöversikt](./media/billing-understand-reserved-instance-usage-ea/billing-ea-reserved-instance-usagesummary.png)
 
 1. Du debiteras inte för maskinvarukomponent för den virtuella datorn eftersom de omfattas av reservation. För en SQL Database-reservation, visas en rad med **tjänstnamn** reserverad kapacitet som Azure SQL Database.
 2. I det här exemplet kan har du inte Azure Hybrid-förmånen så debiteras du för den Windows-programvara som används med den virtuella datorn.

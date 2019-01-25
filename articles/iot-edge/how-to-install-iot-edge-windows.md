@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 01/25/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c280410816bfb48f21c68fe5d57b6ae18af0e855
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 27478de68cde9a097dcc160a4553839aef9a018c
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970669"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902813"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge-körningen på Windows
 
@@ -26,7 +26,7 @@ Läs mer om IoT Edge-körningen i [förstå Azure IoT Edge-körningen och dess a
 Den här artikeln visar hur du installerar Azure IoT Edge-körningen på din Windows x64 (AMD/Intel) system. Windows support förhandsvisas just nu.
 
 >[!NOTE]
-Med Linux-behållare på Windows sytems är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
+Med hjälp av Linux-behållare på Windows-System är inte en rekommenderad eller stöds produktionskonfigurationen för Azure IoT Edge. Det kan dock användas för utveckling och testning.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -37,7 +37,7 @@ Använd det här avsnittet för att granska om din Windows-enhet kan ha stöd f�
 Azure IoT Edge stöder olika versioner av Windows, beroende på om du kör Windows-behållare eller Linux-behållare. 
 
 Den senaste versionen av Azure IoT Edge med Windows-behållare kan köras på följande versioner av Windows:
-* Windows 10 eller IoT Core med oktober 2018 update (version 17763)
+* Windows 10 eller IoT Core med uppdateringen från oktober 2018 (version 17763)
 * Windows Server 2019 (build 17763)
 
 Den senaste versionen av Azure IoT Edge med Linux-behållare kan köras på följande versioner av Windows: 
@@ -64,7 +64,7 @@ För Windows-enheter som kör IoT Edge i produktionsscenarier är Moby endast st
 
 Om du använder Windows för att utveckla och testa behållare för Linux enheter, kan du använda [Docker för Windows](https://www.docker.com/docker-windows) som din behållare. Docker kan konfigureras att [använder Linux-behållare](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). Du måste installera Docker och konfigurera den innan du installerar IoT Edge. Linux-behållare stöds inte på Windows-enheter i produktionen. 
 
-Om din IoT Edge-enhet är en Windows-dator, kontrollerar du att den uppfyller de [systemkrav](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) för Hyper-V. Om det är en virtuell dator, aktivera [kapslad virtualisering](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) och allokera minst 2 GB minne.
+Om din IoT Edge-enhet är en Windows-dator, kontrollerar du att den uppfyller de [systemkrav](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) för Hyper-V. Om det är en virtuell dator aktiverar du [kapslad virtualisering](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) och allokerar minst 2 GB minne.
 
 ## <a name="install-iot-edge-on-a-new-device"></a>Installera IoT Edge på en ny enhet
 

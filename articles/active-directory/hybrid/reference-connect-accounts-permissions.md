@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2018
+ms.date: 01/24/2019
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 403fd0679e0850d758dd0e2f65cec3fe2ff79965
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 784599d682ab05b599f32b3fb502ed840f031ce8
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478611"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902015"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -136,7 +136,7 @@ Vilka behörigheter som du behöver beror på de valfria funktionerna aktivera d
 | Offentlig mapp för Exchange-e-post |Läsbehörighet till de attribut som beskrivs i [offentlig mapp för Exchange-e-post](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) för gemensamma mappar. | 
 | Tillbakaskrivning av lösenord |Skrivbehörighet till de attribut som beskrivs i [komma igång med lösenordshantering](../authentication/howto-sspr-writeback.md) för användare. |
 | Tillbakaskrivning av enheter |Behörigheter som beviljas med ett PowerShell-skript enligt beskrivningen i [tillbakaskrivning av enhet](how-to-connect-device-writeback.md). |
-| Tillbakaskrivning av grupp |Läsa, skapa, uppdatera och ta bort grupp objekt för synkroniserade **Office 365-grupper**.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
+| Tillbakaskrivning av grupp |Gör det möjligt att tillbakaskrivning av **Office 365-grupper** i en skog med Exchange installerad.  Mer information finns i [tillbakaskrivning av grupp](how-to-connect-preview.md#group-writeback).|
 
 ## <a name="upgrade"></a>Uppgradera
 När du uppgraderar från en version av Azure AD Connect till en ny version, behöver du följande behörigheter:

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: kraigb
-ms.openlocfilehash: 31cbe2e62582ae810d165ddef5db6a20c52ff050
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 54b211584b170d6e2ee0bcaa6c80bcaed376814f
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847551"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904377"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
@@ -41,9 +41,9 @@ Den **kör** listrutan på instrumentpanelen för projektet är här du väljer 
 
 ![Compute nivån listrutan på instrumentpanelen för projektet](media/project-compute-tier-list.png)
 
-Du kan kringgå dessa begränsningar med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Du måste också installera Jupyter på den virtuella datorn. Data Science Virtual Machine-avbildningar är bra val eftersom de innehåller Jupyter som standard.
+Du kan kringgå dessa begränsningar med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Du måste installera och köra JupyterHub på den virtuella datorn. Data Science Virtual Machine-bilder (alla operativsystem) är bra val eftersom de inkluderar JupyterHub som standard.
 
-Du kan ansluta till alla lämpligt konfigurerad virtuell Azure-dator med den **direkt Compute** alternativ i den nedrullningsbara listan. Det här alternativet frågar du efter ett namn (som visas i listan), den Virtuella datorns IP-adress och port (vanligtvis 8000, standardporten till vilken JupyterHub lyssnar) och autentiseringsuppgifter för VM:
+När du har en lämpligt konfigurerade Azure-dator, väljer den **direkt Compute** alternativ i listrutan, där du uppmanas ange ett namn (som visas i listan), Virtuellt datorns IP-adress och port (vanligtvis 8000, standardporten som JupyterHub lyssnar), och VM-autentiseringsuppgifter:
 
 ![Uppmaning om att samla in informationen för direkta beräkningsalternativet i server](media/project-compute-tier-direct.png)
 
@@ -51,13 +51,13 @@ Om följande villkor är uppfyllda, visar den nedrullningsbara listan även [Dat
 
 - Du har loggat in Azure-anteckningsböcker med ett konto som använder Azure Active Directory (AAD), till exempel ett företagskonto.
 - Ditt konto är ansluten till en Azure-prenumeration.
-- Du har en eller flera virtuella datorer i prenumerationen, med minst läsåtkomst som använder den virtuella datorn för datavetenskap för Linux (Ubuntu)-avbildning.
+- Du har en eller flera virtuella datorer i prenumerationen, med minst läsåtkomst som använder den virtuella datorn för datavetenskap för Linux (Ubuntu)-avbildning.)
 
 ![Data Science Virtual Machine-instanser i listrutan på instrumentpanelen för projektet](media/project-compute-tier-dsvm.png)
 
 När du väljer en DSVM-instans, kan Azure-datorer efterfrågas specifik dator-autentiseringsuppgifterna som används när du skapade den virtuella datorn.
 
-Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Du *måste* använder den **Data Science Virtual Machine för Linux (Ubuntu)** bild eftersom Azure-datorer inte visas Dsvm som använder Windows eller CentOS bilder.
+Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Använd den **Data Science Virtual Machine för Linux (Ubuntu)** bild om du vill att DSVM ska visas i listrutan i Azure-anteckningsböcker.  Om av andra skäl måste du använda Windows- eller CentOS-avbildning, kan du använda den **direkt Compute** alternativet för att ansluta till DSVM manuellt.
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 

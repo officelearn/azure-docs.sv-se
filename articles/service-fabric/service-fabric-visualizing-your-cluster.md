@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2018
+ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 459dd86fd614cb185801b074cea70c36dc7f6ccb
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: dc979e4aa9882960b86d902266793910ce6fe8b3
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972340"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54902966"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualisera ditt kluster med Service Fabric Explorer
 
@@ -49,6 +49,11 @@ Använd följande länkar för att ladda ned Service Fabric Explorer som ett skr
 Service Fabric Explorer finns också i ett Service Fabric-kluster hanteringsslutpunkten för HTTP. Om du vill starta SFX i en webbläsare, bläddra till klustrets HTTP-hanteringsslutpunkten från valfri webbläsare – till exempel https://clusterFQDN:19080.
 
 För konfiguration för utvecklare arbetsstation, kan du starta Service Fabric Explorer i ditt lokala kluster genom att gå till https://localhost:19080/Explorer. Titta på den här artikeln att [Förbered din utvecklingsmiljö](service-fabric-get-started.md).
+
+> [!NOTE]
+> Om ditt kluster skyddas av ett självsignerat certifikat som du får ett felmeddelande från webbläsaren är ”den här platsen inte säker”. Du kan helt enkelt gå igenom de flesta moderna webbläsare genom att åsidosätta varningen. I en produktionsmiljö bör klustret skyddas med hjälp av eget namn och ett certifikat utfärdat certifikat. 
+>
+>
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Ansluta till ett Service Fabric-kluster
 Om du vill ansluta till ett Service Fabric-kluster, behöver du hanteringsslutpunkten för kluster (IP/FQDN) och HTTP-slutpunkt Hanteringsport (19080 som standard). Till exempel https://mysfcluster.westus.cloudapp.azure.com:19080. Använd kryssrutan ”Anslut till localhost” för att ansluta till ett lokalt kluster på din arbetsstation.
@@ -118,6 +123,18 @@ Du kan också använda Service Fabric Explorer för att skapa instanser av progr
 >
 >
 
+## <a name="event-store"></a>Händelsen Store
+EventStore är en funktion som erbjuds av plattformen som ger Service Fabric-plattformshändelser som är tillgängliga i Service Fabric Explorer och via REST-API. Du kan se en ögonblicksbild vy över vad som händer i klustret för varje entitet t.ex. nod, tjänst, program och utifrån händelsens tidpunkt. Du kan också läsa mer om EventStore på den [över EventStore](service-fabric-diagnostics-eventstore.md).   
+
+![EventStore][sfx-eventstore]
+
+>[!NOTE]
+>Från och med Service Fabric version 6.4. EventStore är inte aktiverad som standard och måste aktiveras i resource manager-mallen
+
+>[!NOTE]
+>Från och med Service Fabric version 6.4. the EventStore APIs är bara tillgängliga för Windows-kluster som körs på Azure endast. Vi arbetar på att porta den här funktionen på Linux, samt våra fristående kluster.
+
+
 ## <a name="next-steps"></a>Nästa steg
 * [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 * [Distribution av Service Fabric med hjälp av PowerShell](service-fabric-deploy-remove-applications.md)
@@ -129,3 +146,4 @@ Du kan också använda Service Fabric Explorer för att skapa instanser av progr
 [sfx-service-essentials]: ./media/service-fabric-visualizing-your-cluster/SfxServiceEssentials.png
 [sfx-delete-application]: ./media/service-fabric-visualizing-your-cluster/SfxDeleteApplication.png
 [sfx-create-app-instance]: ./media/service-fabric-visualizing-your-cluster/SfxCreateAppInstance.png
+[sfx-eventstore]: ./media/service-fabric-diagnostics-eventstore/eventstore.png

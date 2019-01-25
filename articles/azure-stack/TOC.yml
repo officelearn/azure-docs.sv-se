@@ -19,6 +19,8 @@ items:
       href: azure-stack-update-1807.md
 - name: Snabbstarter
   items:
+  - name: Utvärdera Azure Stack
+    href: azure-stack-deploy-overview.md
   - name: Använda portalen för enhetsadministration
     href: azure-stack-manage-portals.md
   expanded: true
@@ -129,8 +131,16 @@ items:
       href: azure-stack-registration.md
     - name: Regionshantering
       href: azure-stack-region-management.md
-    - name: Ansluta till Azure med ExpressRoute
-      href: azure-stack-connect-expressroute.md
+    - name: Anslut till Azure
+      items:
+      - name: Ansluta med hjälp av VPN
+        href: azure-stack-connect-vpn.md
+      - name: Om VPN gateway
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: VPN gateway-inställningar
+        href: azure-stack-vpn-gateway-settings.md
+      - name: Ansluta med ExpressRoute
+        href: azure-stack-connect-expressroute.md
     - name: Aktivera CLI för användare
       href: azure-stack-cli-admin.md
     - name: Konfigurera hanteringsmiljö
@@ -395,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Utbildning och certifiering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 91c476e8e65642e490c3a42de7d5a340964f3ae5
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: MT
+ms.openlocfilehash: 4d16a02c09ae801e44b0f3e4d5540a445d41fae6
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411721"
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54319146"

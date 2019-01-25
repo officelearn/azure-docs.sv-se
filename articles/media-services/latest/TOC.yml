@@ -29,10 +29,10 @@ items:
     href: cli-samples.md
 - name: Begrepp
   items:
+  - name: Migrera från v2 till v3
+    href: migrate-from-v2-to-v3.md
   - name: Konton
     items:
-    - name: Migrera från v2 till v3
-      href: migrate-from-v2-to-v3.md
     - name: Kvoter och begränsningar
       href: limits-quotas-constraints.md
     - name: Lagringskonton
@@ -44,9 +44,9 @@ items:
       href: filters-dynamic-manifest-overview.md
     - name: Tillgångar
       href: assets-concept.md
-    - name: Principer för innehållsnycklar
+    - name: Viktiga innehållsprinciper
       href: content-key-policy-concept.md
-    - name: LiveEvents och LiveOutputs
+    - name: Livehändelser och liveresultat
       href: live-events-outputs-concept.md
     - name: Slutpunkter för direktuppspelning
       href: streaming-endpoint-concept.md
@@ -66,9 +66,8 @@ items:
   - name: Hantera Event Grid-händelser
     href: reacting-to-media-services-events.md
   - name: Skydda innehåll
+    href: content-protection-overview.md
     items:
-    - name: Översikt
-      href: content-protection-overview.md
     - name: Multi-DRM-system med åtkomstkontroll
       href: design-multi-drm-system-with-access-control.md
   - name: Analysera innehåll
@@ -204,9 +203,9 @@ items:
     href: frequently-asked-questions.md
   - name: Azure-moln och -regioner
     href: azure-clouds-regions.md
-ms.openlocfilehash: ca6afadf1141e60d4436178ef45fccfdc48f97a5
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c30302fa289ade85870db3e89fa70f5e79f61a99
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382105"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881383"

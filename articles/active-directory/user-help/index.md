@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
-title: 'Användarhjälp för autentisering, appar och enhetshantering – Azure Active Directory | Microsoft Docs'
-description: 'Användarhjälpen är avsedd för personer som behöver hjälp med att konfigurera och använda säkerhetsinformation, tvåstegsverifiering, lösenordsåterställning med självbetjäning, enhetshantering, Microsoft Authenticator-appen och portalen Mina appar.'
+title: Användarhjälp för autentisering, appar och enhetshantering – Azure Active Directory | Microsoft Docs
+description: Användarhjälpen är avsedd för personer som behöver hjälp med att konfigurera och använda säkerhetsinformation, tvåstegsverifiering, lösenordsåterställning med självbetjäning, enhetshantering, Microsoft Authenticator-appen och portalen Mina appar.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,8 +10,13 @@ ms.component: user-help
 ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
+ms.openlocfilehash: c6fe14c9f67d6ce2f432b57b2cbbd0d026cebe85
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54901640"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Användarhjälp för autentisering, appar och enhetshantering
 
 Det här innehållet är avsett som hjälp att konfigurera och använda säkerhetsinformation, tvåstegsverifiering och för att lära dig återställa egna lösenord, konfigurera och ansluta Azure Active Directory-enheter och konfigurera och använda Microsoft Authenticator-appen samt portalen Mina appar.
@@ -81,7 +86,10 @@ Det här innehållet är avsett som hjälp att konfigurera och använda säkerhe
                     <div class="cardText">
                         <h3>Hjälp om Microsoft Authenticator-appen</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Kom igång</a><br/>
+                        <a href="/azure/active-directory/user-help/user-help-auth-app-overview">Översikt</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-how-to">Ladda ned och installera appen</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-add-accounts-overview">Lägga till konton</a><br/>
+                        <a href="/azure/active-directory/user-help/microsoft-authenticator-app-phone-signin-faq">Logga in med hjälp av appen</a><br/>
                         <a href="/azure/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery">Säkerhetskopiera och återställa kontoautentiseringsuppgifter</a>
                         </p>
                     </div>

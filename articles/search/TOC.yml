@@ -3,10 +3,8 @@ items:
   href: index.yml
 - name: Översikt
   items:
-  - name: Vad är Azure Search
+  - name: Om Azure Search
     href: search-what-is-azure-search.md
-  - name: Vad är kognitiv sökning
-    href: cognitive-search-concept-intro.md
 - name: Snabbstarter
   items:
   - name: Skapa en tjänst
@@ -54,6 +52,8 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Begrepp
   items:
+  - name: Kognitiv sökning (förhandsversion)
+    href: cognitive-search-concept-intro.md
   - name: Fulltextsökning
     href: search-lucene-query-architecture.md
 - name: Instruktionsguider
@@ -249,7 +249,7 @@ items:
       href: cognitive-search-skill-language-detection.md
     - name: Igenkänning av namngiven enhet
       href: cognitive-search-skill-named-entity-recognition.md
-    - name: Igenkänning av enhet
+    - name: Entitetsigenkänning
       href: cognitive-search-skill-entity-recognition.md
     - name: Textsammanslagning
       href: cognitive-search-skill-textmerger.md
@@ -289,9 +289,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: fe70b70005de7f70d00c505adbce4665e41981dd
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: cc618fc015cc3b6596d9e5fca84fe943ebae45ae
+ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412156"
+ms.lasthandoff: 01/10/2019
+ms.locfileid: "54199110"

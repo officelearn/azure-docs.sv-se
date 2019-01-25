@@ -47,12 +47,24 @@ items:
   items:
   - name: Översikt
     href: user-help-auth-app-overview.md
-  - name: Kom igång
+  - name: Ladda ned och installera appen
     href: microsoft-authenticator-app-how-to.md
-  - name: Säkerhetskopiering och återställning
-    href: microsoft-authenticator-app-backup-and-recovery.md
-  - name: Logga in med telefonen
+  - name: Översikt över att lägga till konton
+    href: microsoft-authenticator-app-add-accounts-overview.md
+    items:
+    - name: Lägga till ett arbets- eller skolkonto
+      href: microsoft-authenticator-app-add-work-account.md
+    - name: Lägga till ett personligt Microsoft-konto
+      href: microsoft-authenticator-app-add-personal-account.md
+    - name: Lägga till ett personligt icke-Microsoft-konto
+      href: microsoft-authenticator-app-add-non-microsoft-account.md
+    - name: Lägga till ett konto manuellt
+      href: microsoft-authenticator-app-add-account-manual.md
+    expanded: true
+  - name: Logga in med Microsoft Authenticator-appen
     href: microsoft-authenticator-app-phone-signin-faq.md
+  - name: Säkerhetskopiera och återställa konton
+    href: microsoft-authenticator-app-backup-and-recovery.md
   - name: VANLIGA FRÅGOR OCH SVAR
     href: microsoft-authenticator-app-faq.md
 - name: Hjälp om portalen Mina appar
@@ -73,9 +85,9 @@ items:
     href: user-help-register-device-on-network.md
   - name: Felsöka meddelande om att du inte får åtkomst
     href: user-help-device-remediation.md
-ms.openlocfilehash: 27d0d3300a19d4c27bec48ebf411c7ac3ee6ad87
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 9ccadb31ce331d3a9dc64aa26d5e8edab900cd1e
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649593"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904105"

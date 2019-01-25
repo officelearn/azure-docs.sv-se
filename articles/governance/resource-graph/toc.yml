@@ -1,50 +1,55 @@
+items:
 - name: Azure Resource Graph-dokumentation
   href: index.yml
 - name: Översikt
   items:
-    - name: Översikt över Azure Resource Graph
-      displayName: 'resource manager, query language, rbac, permissions'
-      href: overview.md
+  - name: Översikt över Azure Resource Graph
+    displayName: resource manager, query language, rbac, permissions
+    href: overview.md
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: Kör din första fråga – Azure CLI
-      displayName: 'extension, docker'
-      href: first-query-azurecli.md
-    - name: Kör din första fråga – PowerShell
-      displayName: 'module, docker, Az.ResourceGraph'
-      href: first-query-powershell.md
+  - name: Kör din första fråga – Azure CLI
+    displayName: extension, docker
+    href: first-query-azurecli.md
+  - name: Kör din första fråga – PowerShell
+    displayName: module, docker, Az.ResourceGraph
+    href: first-query-powershell.md
+  expanded: true
 - name: Exempel
-  expanded: true
   items:
-    - name: Startfrågor
-      displayName: 'query language, data explorer, count, list, show'
-      href: ./samples/starter.md
-    - name: Avancerade frågor
-      displayName: 'query language, data explorer, list, regex'
-      href: ./samples/advanced.md
+  - name: Startfrågor
+    displayName: query language, data explorer, count, list, show
+    href: ./samples/starter.md
+  - name: Avancerade frågor
+    displayName: query language, data explorer, list, regex
+    href: ./samples/advanced.md
+  expanded: true
 - name: Begrepp
-  expanded: true
   items:
-    - name: Förstå frågespråket
-      displayName: 'query language, data explorer, tabular, operators, functions'
-      href: ./concepts/query-language.md
-    - name: Utforska dina Azure-resurser med resursgrafer
-      displayName: 'vms, public ip'
-      href: ./concepts/explore-resources.md
+  - name: Förstå frågespråket
+    displayName: query language, data explorer, tabular, operators, functions
+    href: ./concepts/query-language.md
+  - name: Utforska dina Azure-resurser med resursgrafer
+    displayName: vms, public ip
+    href: ./concepts/explore-resources.md
+  expanded: true
 - name: Referens
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/az.resourcegraph/
-    - name: REST-API
-      href: /rest/api/azureresourcegraph/resources/resources
+  - name: REST-API
+    href: /rest/api/azureresourcegraph/resources/resources
 - name: Resurser
   items:
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance'
-    - name: Styrning av YouTube-kanal
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/915958-azure-governance
+  - name: Styrning av YouTube-kanal
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+ms.openlocfilehash: d49d7dbd8dc91099f794635ae08cb24bab385d27
+ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/15/2019
+ms.locfileid: "54320012"

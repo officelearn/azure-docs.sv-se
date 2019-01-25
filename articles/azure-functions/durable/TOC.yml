@@ -1,132 +1,139 @@
+items:
 - name: Dokumentation om Durable Functions
 - name: Översikt
   items:
-    - name: Om Azure Functions
-      href: ../functions-overview.md
-    - name: Om Durable Functions
-      href: durable-functions-overview.md
-    - name: Jämförelse utan server
-      href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Om Azure Functions
+    href: ../functions-overview.md
+  - name: Om Durable Functions
+    href: durable-functions-overview.md
+  - name: Jämförelse utan server
+    href: ../functions-compare-logic-apps-ms-flow-webjobs.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
 - name: Snabbstarter
-  expanded: true
   items:
-    - name: 'Skapa en bestående funktion – C#'
-      href: durable-functions-create-first-csharp.md
-      displayName: 'get started, chaining'
-    - name: Skapa en bestående funktion – JavaScript
-      displayName: 'get started, chaining'
-      href: quickstart-js-vscode.md
+  - name: Skapa en bestående funktion – C#
+    displayName: get started, chaining
+    href: durable-functions-create-first-csharp.md
+  - name: Skapa en bestående funktion – JavaScript
+    displayName: get started, chaining
+    href: quickstart-js-vscode.md
+  expanded: true
 - name: Självstudier
   items:
-    - name: Bläddra in/bläddra ut-scenarier
-      href: durable-functions-cloud-backup.md
-    - name: Övervakare
-      href: durable-functions-monitor.md
-    - name: Mänsklig interaktion
-      href: durable-functions-phone-verification.md
-    - name: Publicera på Event Grid
-      href: durable-functions-event-publishing.md
+  - name: Fan-in/fan-out-scenarier
+    href: durable-functions-cloud-backup.md
+  - name: Övervakare
+    href: durable-functions-monitor.md
+  - name: Mänsklig interaktion
+    href: durable-functions-phone-verification.md
+  - name: Publicera på Event Grid
+    href: durable-functions-event-publishing.md
 - name: Exempel
   items:
-    - name: Kodexempel
-      href: 'https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+'
-    - name: Azure CLI
-      href: ../functions-cli-samples.md
+  - name: Kodexempel
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions&sort=0&term=durable+
+  - name: Azure CLI
+    href: ../functions-cli-samples.md
 - name: Begrepp
   items:
-    - name: Mönster och begrepp
-      href: durable-functions-concepts.md
-    - name: Funktionstyper och funktioner
-      href: durable-functions-types-features-overview.md
-    - name: Bindningar
-      href: durable-functions-bindings.md
-    - name: Timers
-      href: durable-functions-timers.md
-    - name: Externa händelser
-      href: durable-functions-external-events.md
-    - name: Sub-orkestreringar
-      href: durable-functions-sub-orchestrations.md
-    - name: Uppgiftshubbar
-      href: durable-functions-task-hubs.md
-    - name: Tillförlitlig körning
-      href: durable-functions-checkpointing-and-replay.md
-    - name: Versionshantering
-      href: durable-functions-versioning.md
+  - name: Mönster och begrepp
+    href: durable-functions-concepts.md
+  - name: Funktionstyper och funktioner
+    href: durable-functions-types-features-overview.md
+  - name: Bindningar
+    href: durable-functions-bindings.md
+  - name: Timers
+    href: durable-functions-timers.md
+  - name: Externa händelser
+    href: durable-functions-external-events.md
+  - name: Sub-orkestreringar
+    href: durable-functions-sub-orchestrations.md
+  - name: Uppgiftshubbar
+    href: durable-functions-task-hubs.md
+  - name: Tillförlitlig körning
+    href: durable-functions-checkpointing-and-replay.md
+  - name: Versionshantering
+    href: durable-functions-versioning.md
 - name: Instruktionsguider
   items:
-    - name: Planera och designa
-      items:
-        - name: Funktionslänkning
-          href: durable-functions-sequence.md
-        - name: Eternal-orkestreringar
-          href: durable-functions-eternal-orchestrations.md
-        - name: Singleton-orkestreringar
-          href: durable-functions-singletons.md
-        - name: Prestanda och skalning
-          href: durable-functions-perf-and-scale.md
-        - name: Hög tillgänglighet
-          href: durable-functions-disaster-recovery-geo-distribution.md
-    - name: Utveckla
-      items:
-        - name: Skapa i Azure-portalen
-          href: durable-functions-create-portal.md
-        - name: Hantera anslutningar
-          href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Felhantering
-          href: durable-functions-error-handling.md
-        - name: Enhetstestning
-          href: durable-functions-unit-testing.md
-        - name: Skapa som WebJobs
-          href: durable-functions-webjobs-sdk.md
-    - name: Distribuera
-      items:
-        - name: Kontinuerlig distribution
-          href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Distribuera ZIP-filer
-          href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Kör från paketet
-          href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-    - name: Hantera
-      items:
-        - name: Instanshantering
-          href: durable-functions-instance-management.md
-    - name: Övervaka
-      items:
-        - name: Övervaka funktioner
-          href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
-        - name: Anpassad orkestreringsstatus
-          href: durable-functions-custom-orchestration-status.md
-    - name: Felsöka
-      items:
-        - name: Diagnostik
-          href: durable-functions-diagnostics.md
+  - name: Planera och designa
+    items:
+    - name: Funktionslänkning
+      href: durable-functions-sequence.md
+    - name: Eternal-orkestreringar
+      href: durable-functions-eternal-orchestrations.md
+    - name: Singleton-orkestreringar
+      href: durable-functions-singletons.md
+    - name: Prestanda och skalning
+      href: durable-functions-perf-and-scale.md
+    - name: Hög tillgänglighet
+      href: durable-functions-disaster-recovery-geo-distribution.md
+  - name: Utveckla
+    items:
+    - name: Skapa i Azure-portalen
+      href: durable-functions-create-portal.md
+    - name: Hantera anslutningar
+      href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Felhantering
+      href: durable-functions-error-handling.md
+    - name: Enhetstestning
+      href: durable-functions-unit-testing.md
+    - name: Skapa som WebJobs
+      href: durable-functions-webjobs-sdk.md
+  - name: Distribuera
+    items:
+    - name: Kontinuerlig distribution
+      href: ../functions-continuous-deployment.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Distribuera ZIP-filer
+      href: ../deployment-zip-push.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Kör från paketet
+      href: ../run-functions-from-deployment-package.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+  - name: Hantera
+    items:
+    - name: Instanshantering
+      href: durable-functions-instance-management.md
+  - name: Övervaka
+    items:
+    - name: Övervaka funktioner
+      href: ../functions-monitoring.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
+    - name: Anpassad orkestreringsstatus
+      href: durable-functions-custom-orchestration-status.md
+  - name: Felsöka
+    items:
+    - name: Diagnostik
+      href: durable-functions-diagnostics.md
 - name: Referens
   items:
-    - name: HTTP-API
-      href: durable-functions-http-api.md
+  - name: HTTP-API
+    href: durable-functions-http-api.md
 - name: Resurser
   items:
-    - name: Utveckla dina färdigheter med Microsoft Learn
-      href: /learn/browse/?products=azure-functions
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/functions/'
-    - name: Priskalkylator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regional tillgänglighet
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Videoklipp
-      href: 'https://www.youtube.com/c/AzureFunctions'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/azure-functions'
-    - name: Twitter
-      href: 'https://twitter.com/hashtag/DurableFunctions?src=hash'
-    - name: Ge produktfeedback
-      href: 'https://feedback.azure.com/forums/355860-azure-functions'
-    - name: GitHub-lagringsplats för Durable Functions
-      href: 'https://github.com/Azure/azure-functions-durable-extension'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=functions&updatetype=&platform='
+  - name: Utveckla dina färdigheter med Microsoft Learn
+    href: /learn/browse/?products=azure-functions
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/functions/
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/regions/services/
+  - name: Videoklipp
+    href: https://www.youtube.com/c/AzureFunctions
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-functions
+  - name: Twitter
+    href: https://twitter.com/hashtag/DurableFunctions?src=hash
+  - name: Ge produktfeedback
+    href: https://feedback.azure.com/forums/355860-azure-functions
+  - name: GitHub-lagringsplats för Durable Functions
+    href: https://github.com/Azure/azure-functions-durable-extension
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=
+ms.openlocfilehash: 1314f65afbbbc5371537ab3744a9431a30f8b274
+ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/04/2019
+ms.locfileid: "54044645"

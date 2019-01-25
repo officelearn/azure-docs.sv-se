@@ -63,9 +63,9 @@
 ### [DBMS-distribution för SAP-arbetsbelastning för SAP ASE på Azure Virtual Machines](dbms_guide_sapase.md)
 ### [Distribution av SAP MaxDB, liveCache och innehållsserver på Azure](dbms_guide_maxdb.md)
 ### SAP HANA-tillgänglighet i Azure Virtual Machines
-### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
-### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
-### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
+#### [Tillgänglighetsöversikt för SAP HANA på Azure](sap-hana-availability-overview.md)
+#### [Tillgänglighet för SAP HANA på Azure inom en Azure-region](sap-hana-availability-one-region.md)
+#### [Tillgänglighet för SAP HANA på Azure i flera Azure-regioner](sap-hana-availability-across-regions.md)
 ## [SAP Business One på Azure Virtual Machines](business-one-azure.md)
 ## [Distributionsguide för SAP IDES i Windows/SQL Server SAP CAL](cal-ides-erp6-erp7-sp3-sql.md)
 ## [SAP LaMa-anslutning för Azure](lama-installation.md)

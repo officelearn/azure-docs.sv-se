@@ -13,14 +13,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/24/2019
 ms.author: jowargo
-ms.openlocfilehash: afc3b0022056d529c69eeaabd229b809623e66ea
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7e31f4f229e722d51f5de6b133e70dfb1c013533
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478594"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888166"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: Vanliga frågor och svar
 
@@ -194,7 +194,7 @@ Det blir en tidsperiod när enheter med oöppnad appar inte ta emot meddelanden.
 
 ### <a name="is-there-audit-log-capability"></a>Finns det audit log funktionen?
 
-Alla hanteringsåtgärder för Meddelandehubbar går du till åtgärden loggarna, vilket visas i den [Azure Portal].
+Ja. Hantering av åtgärder av alla Meddelandehubbar-uppdatering som Azure-aktivitetsloggen som exponeras i den [Azure Portal]. Azure-aktivitetsloggen ger insikt i de åtgärder som utförts på resurser i dina prenumerationer. Med aktivitetsloggen kan du bestämma vad, vem, och när för alla skrivåtgärder (PUT, POST, ta bort) för resurser i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Men. Aktivitetsloggen inkluderar inte läsåtgärder (GET) igen.
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och felsökning
 

@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: bc00bd3b61398355c663d133c0c9a66c2a52aa8d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47048080"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54807464"
 ---
 # <a name="r-developers-guide-to-azure"></a>R utvecklarens guide till Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -40,7 +40,7 @@ Den här artikeln beskriver följande Azure-tjänster som har stöd för R-språ
 |[Azure Databricks](#azure-databricks)                            |Spark samarbetsmiljö har stöd för R och andra språk               |
 |[Azure Machine Learning Studio](#azure-machine-learning-studio)  |köra anpassade R-skript i Azure machine learning-experiment                      |
 |[Azure Batch](#azure-batch)                                      |erbjuder en mängd olika alternativ för att köra ekonomiskt R-kod på flera noder i ett kluster|
-|[Azure-anteckningsböcker](#azure-notebooks)                              |en kostnadsfri (men begränsad) molnbaserade version av Jupyter-anteckningsböcker                  |
+|[Azure Notebooks](#azure-notebooks)                              |en kostnadsfri molnbaserad version av Jupyter-anteckningsböcker                  |
 |[Azure SQL Database](#azure-sql-database)                        |köra R-skript i SQL Server-databasmotorn                            |
 
 ## <a name="data-science-virtual-machine"></a>Virtuell dator för datavetenskap
@@ -73,7 +73,7 @@ Den här möjligheten att skala gör ML-tjänster på HDInsight ett bra alternat
 En genomgång om hur du skapar ett kluster med ML-tjänster finns det [”Kom igång med ML-tjänster på Azure HDInsight”](https://docs.microsoft.com/azure/hdinsight/r-server/r-server-get-started) artikeln.
 
 ## <a name="azure-databricks"></a>Azure Databricks
-[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en Apache Spark-baserad analysplattform som optimerats för Microsoft Azure cloud services-plattformen.  Databricks har utformats med grundarna av Apache Spark och är integrerat med Azure för att tillhandahålla konfiguration med ett klick, effektiva arbetsflöden och en interaktiv arbetsyta som möjliggör samarbete mellan dataanalytiker, dataingenjörer och affärsanalytiker.
+[Azure Databricks](https://azure.microsoft.com/services/databricks/) är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster.  Databricks har utformats med grundarna av Apache Spark och är integrerat med Azure för att tillhandahålla konfiguration med ett klick, effektiva arbetsflöden och en interaktiv arbetsyta som möjliggör samarbete mellan dataanalytiker, dataingenjörer och affärsanalytiker.
 
 Samarbete i Databricks aktiveras av plattformens notebook system.  Användare kan skapa, dela och redigera anteckningsböcker med andra användare av systemen.  Dessa anteckningsböcker Tillåt användare att skriva kod som körs mot Spark-kluster som hanteras i Databricks-miljö.  Dessa anteckningsböcker fullständigt stöd för R och ge användare åtkomst till Spark via både den `SparkR` och `sparklyr` paket.
 
@@ -104,16 +104,17 @@ Det här paketet gör det mycket enklare att använda Azure ML som en plattform 
 ## <a name="azure-batch"></a>Azure Batch
 Du kan använda för storskaliga R-jobb [Azure Batch](https://azure.microsoft.com/services/batch/).  Den här tjänsten tillhandahåller jobbet jobbschemaläggning och beräkningshantering i molnskala så att du kan skala din R-arbetsbelastning till tiotals, hundratals eller tusentals virtuella datorer.  Eftersom det är en generaliserad databehandlingsplattform alternativ några det för att köra R-jobb på Azure Batch.
 
-Ett alternativ är att använda Microsofts <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> paketet.  Det här R-paketet är en parallell serverdel för den `foreach` paketet.  Det gör att varje iteration av den `foreach` loop parallell körning på en nod i klustret för Azure Batch.  En introduktion till paketet, kan du läsa den [”doAzureParallel: dra nytta av Azures flexibla beräkning direkt från din R-session”](https://azure.microsoft.com/blog/doazureparallel/) blogginlägg.
+Ett alternativ är att använda Microsofts <code>[doAzureParallel](https://github.com/Azure/doAzureParallel)</code> paketet.  Det här R-paketet är en parallell serverdel för den `foreach` paketet.  Det gör att varje iteration av den `foreach` loop parallell körning på en nod i klustret för Azure Batch.  En introduktion till paketet, kan du läsa den [”doAzureParallel: Dra nytta av Azures flexibla beräkning direkt från din R-session ”](https://azure.microsoft.com/blog/doazureparallel/) blogginlägg.
 
 Ett annat alternativ för att köra ett R-skript i Azure Batch är att paketera din kod med ”RScript.exe” som en Batch-App i Azure-portalen.  En detaljerad genomgång finns [”R arbetsbelastningar på Azure Batch”.](https://azure.microsoft.com/blog/r-workloads-on-azure-batch/)
 
 Ett tredje alternativ är att använda den [Azure distribuerade Data Engineering Toolkit](https://github.com/Azure/aztk) (AZTK), vilket gör att du kan etablera på begäran Spark-kluster med Docker-behållare i Azure Batch.  Detta ger ett ekonomiskt sätt att köra Spark-jobb i Azure.  Med hjälp av [SparklyR med AZTK](https://github.com/Azure/aztk/wiki/SparklyR-on-Azure-with-AZTK), R-skript kan skaländras ut i molnet enkelt och ekonomiskt.
 
 ## <a name="azure-notebooks"></a>Azure Notebooks
+
 [Azure anteckningsböcker](https://notebooks.azure.com) är en låg kostnad, smidig metod för R-utvecklare som föredrar att arbeta med bärbara datorer att ta med sin kod till Azure.  Det är en kostnadsfri tjänst för alla att utveckla och köra kod i sin webbläsare med hjälp av [Jupyter](https://jupyter.org/), vilket är ett projekt med öppen källkod som gör att nyhetsnotiser genomsöks markdown prose och körbar kod grafik på en enda arbetsyta.
 
-Azure-datorer är ett genomförbart alternativ för småskalig projekt, har vissa begränsningar som gör det olämpliga för storskaliga dataforskningsprojekt.  För närvarande begränsar varje notebook processen att 4 GB minne och datauppsättningar kan bara vara 1 GB.  För att publicera mindre analyser, är detta ett enkelt, kostnadsfria alternativ.
+Kostnadsfria tjänstenivå för Azure-datorer är ett genomförbart alternativ för småskalig projekt, eftersom det begränsar varje notebook processen till 4GB minne och 1GB datauppsättningar. Om du behöver beräknings- och power utöver dessa begränsningar, men kan du köra anteckningsböcker i en Data Science Virtual Machine-instans. Mer information finns i [hantera och konfigurera Azure anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) är databastjänst för Microsofts intelligent, fullt hanterad relationsdatabastjänst i molnet.  På så sätt kan du använda den fulla kraften hos SQL Server utan någon besväret med att konfigurera infrastrukturen.  Detta inkluderar [Maskininlärningstjänster](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), vilket är en av de nyare tillägg till SQL-tjänsten.

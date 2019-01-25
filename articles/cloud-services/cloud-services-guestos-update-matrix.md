@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 1/24/2019
 ms.author: raiye
-ms.openlocfilehash: e621d526aed3c4d98d964dfdcd7ba01e8c1fb830
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104870"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900858"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -43,6 +43,9 @@ Osäker på om hur du uppdaterar din gäst-OS? Kontrollera [detta] [ cloud updat
 
 ## <a name="news-updates"></a>Nyheter
 
+###### <a name="january-24-2019"></a>**24 januari 2019**
+Familj 6 gäst-OS (Windows Server 2019) har publicerat.
+
 ###### <a name="january-7-2019"></a>**7 januari 2019**
 Gäst-OS December har publicerat.
 
@@ -65,10 +68,25 @@ Gäst-OS juli har publicerat.
 Gäst-OS juni har publicerat.
 
 ## <a name="releases"></a>Versioner
+
+## <a name="family-6-releases"></a>Familj 6 versioner
+**Windows Server 2019**
+
+.NET framework installerat: 3.5, 4.7.2
+
+> [!NOTE]
+> Windows Azure SDK för .NET 3.0 kan laddas ned [här][Windows Azure SDK].
+>
+
+| Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
+| --- | --- | --- |
+| WA-GUEST-OS-6.2_201812-01 |24 januari 2019 |Post 6.4 |
+| WA-GUEST-OS-6.1_201811-01 |24 januari 2019 |Post 6.3 |
+
 ## <a name="family-5-releases"></a>Familj 5 versioner
 **Windows Server 2016**
 
-.NET framework installerat: 3,5-tums, 4.6.2 eller senare
+.NET framework installerat: 3.5, 4.6.2
 
 > [!NOTE]
 > RDP-lösenord för OS-familj 5 måste vara minst 10 tecken.
@@ -87,7 +105,7 @@ Gäst-OS juni har publicerat.
 ## <a name="family-4-releases"></a>Gästoperativsystemfamilj 4 versioner
 **Windows Server 2012 R2**
 
-.NET framework installerat: 3,5-tums, 4.5.1
+.NET framework installerat: 3.5, 4.5.1
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
@@ -102,7 +120,7 @@ Gäst-OS juni har publicerat.
 ## <a name="family-3-releases"></a>Familj 3 versioner
 **Windows Server 2012**
 
-.NET framework installerat: 3,5-tums, 4.5
+.NET framework installerat: 3.5, 4.5
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
 | --- | --- | --- |
@@ -139,9 +157,9 @@ Lista över korrigeringsprogram som ingår med varje månatlig gäst-OS-version 
 | --- | --- |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
-| 3 |Version 1.8 + |
-| 2 |Version 1.3 + |
-| 1 |Version 1.0 + |
+| 3 |Version 1.8+ |
+| 2 |Version 1.3+ |
+| 1 |Version 1.0+ |
 
 ## <a name="guest-os-release-information"></a>Versionsinformation för gäst-OS
 Det finns tre datum som är viktiga för gäst-OS-versioner: **viktig** datum, **inaktiverad** datum, och **upphör att gälla** datum. Ett Gästoperativsystem betraktas som tillgänglig när den är i portalen och kan väljas som mål gäst-OS. När ett Gästoperativsystem når den **inaktiverad** datum, tas den bort från Azure. Dock valfri molntjänst som riktar in sig på att Gästoperativsystemet kommer fortfarande att fungera som vanligt.
@@ -205,3 +223,4 @@ Principen för gäst-OS support och tillbakadragande förklaras [här][retirepol
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

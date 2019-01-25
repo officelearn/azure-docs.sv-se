@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 39229bbd120ca52f31a0bd54446e49990d952c9d
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b9029676df6a878a6d3d5796928cbad9c20cd685
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020140"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54889067"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Datakällor i Azure Monitor
 Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att övervaka hälsotillstånd och prestanda för dina resurser och program som körs på dem. Dessa resurser kan vara i Azure i en annan molnet eller lokalt.  Se [Data som samlas in av Azure Monitor](data-collection.md) mer information om hur dessa data lagras och hur du kan visa den.
@@ -26,7 +26,7 @@ Den här artikeln beskrivs datakällorna som samlas in av Azure Monitor för att
 
 ![Nivåer av övervakning av data](media/data-sources/monitoring-tiers.png)
 
-## <a name="azure-tenant"></a>Azure-klient
+## <a name="azure-tenant"></a>Azure Tenant
 Telemetri som är relaterade till din Azure-klient som samlas in från klienten som helhet tjänster som Azure Active Directory.
 
 ![Azure-klient-samling](media/data-sources/tenant-collection.png)
@@ -61,7 +61,7 @@ De flesta Azure services genererar [plattform mått](data-collection.md#metrics)
 
 
 ### <a name="resource-diagnostic-logs"></a>Resursdiagnostikloggar
-Medan aktivitetsloggen innehåller information om åtgärder som utförs på en Azure-resurser, resursnivå [diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) ge insikter om driften av själva resursen.   Krav och innehållet i de här loggarna [varierar beroende på resurstyp](../../azure-monitor/platform/tutorial-dashboards.md).
+Medan aktivitetsloggen innehåller information om åtgärder som utförs på en Azure-resurser, resursnivå [diagnostikloggar](../../azure-monitor/platform/diagnostic-logs-overview.md) ge insikter om driften av själva resursen.   Krav och innehållet i de här loggarna [varierar beroende på resurstyp](../../azure-monitor/platform/diagnostic-logs-schema.md).
 
 Du kan inte visa diagnostikloggar direkt i Azure-portalen, men du kan [skicka dem till Azure storage för arkivering](../../azure-monitor/platform/archive-diagnostic-logs.md) och exportera dem till [Händelsehubb](../../event-hubs/event-hubs-about.md) för omdirigering till andra tjänster eller [in Analytics](../../azure-monitor/platform/diagnostic-logs-stream-log-store.md) för analys. Vissa resurser kan skriva direkt till Log Analytics medan andra innan du kan skriva till ett lagringskonto [importeras till Log Analytics](../../azure-monitor/platform/azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).
 

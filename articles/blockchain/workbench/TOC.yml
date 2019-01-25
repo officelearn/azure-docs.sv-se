@@ -6,6 +6,13 @@ items:
   - name: Om Azure Blockchain Workbench
     href: overview.md
   expanded: true
+- name: Självstudier
+  items:
+  - name: Skapa en blockkedjeapp
+    href: create-app.md
+  - name: Använda en blockkedjeapp
+    href: use.md
+  expanded: true
 - name: Begrepp
   items:
   - name: Arkitektur
@@ -16,12 +23,8 @@ items:
   items:
   - name: Distribuera Workbench
     href: deploy.md
-  - name: Skapa en blockkedjeapp
-    href: create-app.md
   - name: Hantera Workbench-användare
     href: manage-users.md
-  - name: Använda en blockkedjeapp
-    href: use.md
   - name: Versionshantering av appar
     href: version-app.md
   - name: Använda Workbench-API
@@ -70,10 +73,12 @@ items:
   - name: Konsortium för bevis på arbete för Ethereum
     href: ../templates/ethereum-deployment.md
   - name: Konsortium för Hyperledger Fabric
+    href: ../templates/hyperledger-fabric-consortium-blockchain.md
+  - name: Hyperledger Fabric – enskild medlem
     href: ../templates/hyperledger-fabric-single-member-blockchain.md
-ms.openlocfilehash: fe5d3879dea89824207e213c31992d5f130d9967
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 5eb5ae905753fc69f1d1715040e6bccb1ad24f19
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107148"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54813210"

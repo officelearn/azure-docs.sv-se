@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 3363b0bbd98b125f0108ca842d5c0b6b9941bf9e
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330396"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079179"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -39,7 +39,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | Konflikt | Du ska få en åtgärd som inte är tillåtet i resursens aktuella tillstånd. Till exempel tillåts ändra storlek på disken endast när du skapar en virtuell dator eller när Virtuellt datorn frigörs. | |
 | DeploymentActive | Vänta tills samtidig distribuering till den här resursgruppen ska slutföras. | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte ger de information du behöver för att lösa felet. Titta i felinformationen för en felkod som innehåller mer information. | [Hitta felkoden](#find-error-code) |
-| DeploymentQuotaExceeded | Om du når gränsen på 800 distributioner per resursgrupp kan du ta bort distributioner från historiken som inte längre behövs. Du kan ta bort poster från historiken över med [az group deployment ta bort](/cli/azure/group/deployment#az-group-deployment-delete) för Azure CLI eller [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) i PowerShell. Ta bort en post från distributionshistoriken påverkar inte distribuera resurser. | |
+| DeploymentQuotaExceeded | Om du når gränsen på 800 distributioner per resursgrupp kan du ta bort distributioner från historiken som inte längre behövs. Du kan ta bort poster från historiken över med [az group deployment ta bort](/cli/azure/group/deployment#az-group-deployment-delete) för Azure CLI eller [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) i PowerShell. Ta bort en post från distributionshistoriken påverkar inte distribuera resurser. | |
 | DnsRecordInUse | DNS-postnamnet måste vara unikt. Ange ett annat namn eller ändra den befintliga posten. | |
 | ImageNotFound | Kontrollera inställningarna för VM-avbildning. |  |
 | InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, men begäran har bearbetats genom att ta bort och skapa resursen. Se till att ange värden för alla oförändrade. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -71,7 +71,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | RequestDisallowedByPolicy | Prenumerationen innehåller en resursprincip som förhindrar att en åtgärd som du försöker utföra under distributionen. Hitta den princip som blockerar åtgärden. Om möjligt ändra distributionen för att uppfylla begränsningarna från principen. | [Lösa principer](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Ange ett resursnamn som inte innehåller ett reserverat namn. | [Reserverade resursnamn](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Vänta tills borttagningen att slutföra. | |
-| ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste redan finnas i din prenumeration. Kontrollera din prenumerationskontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/azurerm.profile/set-azurermcontext) |
+| ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste redan finnas i din prenumeration. Kontrollera din prenumerationskontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
 | ResourceNotFound | Distributionen av refererar till en resurs som inte kan matchas. Kontrollera att din användning av den **referens** funktion innehåller de parametrar som krävs för ditt scenario. | [Åtgärda referenser](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | Distributionen försöker skapa resurser som överstiger kvoten för prenumerationen, resursgruppen eller region. Om möjligt ändra din infrastruktur för hålla dig inom kvoter. I annat fall du begär en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Välj SKU (till exempel VM-storlek) som är tillgänglig för den plats som du har valt. | [Lösa SKU](resource-manager-sku-not-available-errors.md) |
@@ -89,9 +89,9 @@ Det finns två typer av fel som du kan ta emot:
 * verifieringsfel
 * distributionsfel
 
-Verifieringsfel uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen, eller försök att distribuera resurser som din prenumerationskvoter överskrids. Distributionsfel uppkommer villkor som uppstår under distributionsprocessen. De inkluderar försöker få åtkomst till en resurs som distribueras parallellt.
+Verifieringsfel uppstår från scenarier som kan fastställas före distributionen. De innehåller syntaxfel i mallen eller försöker distribuera resurser som skulle överskrida prenumerationskvoterna. Distributionsfel uppkommer villkor som uppstår under distributionsprocessen. De omfattar försök att få åtkomst till en resurs som distribueras parallellt.
 
-Båda typerna av fel returnerar en felkod som används för att felsöka distributionen. Båda typerna av fel visas i den [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startats.
+Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i den [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
 ### <a name="validation-errors"></a>Verifieringsfel
 
@@ -110,7 +110,7 @@ När åtgärden godkänns vid, men inte fungerar under distributionen, kan du f�
 Om du vill se distribution felkoder och meddelanden med PowerShell, använder du:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
+(Get-AzResourceGroupDeploymentOperation -DeploymentName exampledeployment -ResourceGroupName examplegroup).Properties.statusMessage
 ```
 
 Om du vill se distribution felkoder och meddelanden med Azure CLI, använder du:
@@ -140,7 +140,7 @@ Ibland behöver du mer information om begäranden och svar för att lära dig va
 I PowerShell, ange den **DeploymentDebugLogLevel** parametern till alla, obsah ResponseContent eller RequestContent.
 
 ```powershell
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Name exampledeployment `
   -ResourceGroupName examplegroup `
   -TemplateFile c:\Azure\Templates\storage.json `
@@ -150,7 +150,7 @@ New-AzureRmResourceGroupDeployment `
 Granska begäran innehåll med följande cmdlet:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.request `
 | ConvertTo-Json
@@ -159,7 +159,7 @@ Granska begäran innehåll med följande cmdlet:
 Eller innehåll med svaret:
 
 ```powershell
-(Get-AzureRmResourceGroupDeploymentOperation `
+(Get-AzResourceGroupDeploymentOperation `
 -DeploymentName exampledeployment `
 -ResourceGroupName examplegroup).Properties.response `
 | ConvertTo-Json

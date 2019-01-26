@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 10/08/2018
+ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: ff4ccdf28be9d28798fff0e9f66bbb2c860166b7
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7a300826db512a813282eea71d2e898f0221a977
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424548"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077751"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Hitta Windows VM-avbildningar på Azure Marketplace med Azure PowerShell
 
@@ -33,17 +33,22 @@ Se till att du har installerat och konfigurerat senast [Azure PowerShell-modulen
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
 ## <a name="table-of-commonly-used-windows-images"></a>Tabell med vanliga Windows-avbildningar
+
+Den här tabellen visar en delmängd av tillgängliga SKU: er för angivna utgivare och erbjudanden.
+
 | Utgivare | Erbjudande | Sku |
 |:--- |:--- |:--- |:--- |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
+| MicrosoftWindowsServer |WindowsServer |2019 Datacenter med behållare |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016 Datacenter med behållare |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
-| MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
-| MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2017-WS2016 |Enterprise |
+| MicrosoftSharePoint |MicrosoftSharePointServer |2019 |
+| MicrosoftSQLServer |SQL2019-WS2016 |Enterprise |
 | MicrosoftRServer |RServer-WS2016 |Enterprise |
 
 ## <a name="navigate-the-images"></a>Navigera bland avbildningarna
@@ -76,14 +81,14 @@ Kör sedan följande för en vald SKU [Get-AzureRMVMImage](/powershell/module/az
     $offerName="<offer>"
     Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
     ```
-    
+
 4. Fyll i din valda SKU-namnet och hämta versionsnumret för avbildningen:
 
     ```powershell
     $skuName="<SKU>"
     Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
-    
+
 Från utdata från den `Get-AzureRMVMImage` kommandot, kan du välja en version bild för att distribuera en ny virtuell dator.
 
 I följande exempel visas kontosystem kommandon och deras utdata:
@@ -99,16 +104,21 @@ Delvisa utdata:
 PublisherName
 -------------
 ...
-a10networks
-aiscaler-cache-control-ddos-and-url-rewriting-
-alertlogic
-AlertLogic.Extension
-Barracuda.Azure.ConnectivityAgent
-barracudanetworks
-basho
-boxless
-bssw
-Canonical
+abiquo
+accedian
+accellion
+accessdata-group
+accops
+Acronis
+Acronis.Backup
+actian-corp
+actian_matrix
+actifio
+activeeon
+adgs
+advantech
+advantech-webaccess
+advantys
 ...
 ```
 
@@ -136,7 +146,7 @@ $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Utdata:
+Delvisa utdata:
 
 ```
 Skus
@@ -153,12 +163,17 @@ Skus
 2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
 2016-Datacenter-with-RDSH
+2019-Datacenter
+2019-Datacenter-Core
+2019-Datacenter-Core-smalldisk
+2019-Datacenter-Core-with-Containers
+...
 ```
 
-Sedan för den *2016-Datacenter* SKU:
+Sedan för den *2019 Datacenter* SKU:
 
 ```powershell
-$skuName="2016-Datacenter"
+$skuName="2019-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
@@ -175,22 +190,21 @@ Om du vill visa en bild Köpinformation för plan, kör den `Get-AzureRMVMImage`
 Till exempel den *Windows Server 2016 Datacenter* bilden inte har ytterligare villkor så `PurchasePlan` information är `null`:
 
 ```powershell
-$version = "2016.127.20170406"
+$version = "2019.0.20190115"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Utdata:
 
 ```
-Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/
-                   Versions/2016.127.20170406
+Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/Versions/2019.0.20190115
 Location         : westus
 PublisherName    : MicrosoftWindowsServer
 Offer            : WindowsServer
-Skus             : 2016-Datacenter
-Version          : 2016.127.20170406
+Skus             : 2019-Datacenter
+Version          : 2019.0.20190115
 FilterExpression :
-Name             : 2016.127.20170406
+Name             : 2019.0.20190115
 OSDiskImage      : {
                      "operatingSystem": "Windows"
                    }
@@ -202,21 +216,20 @@ DataDiskImages   : []
 Exemplet nedan visar ett liknande kommando för den *virtuella dator för datavetenskap – Windows 2016* avbildningen, som har följande `PurchasePlan` egenskaper: `name`, `product`, och `publisher`. Vissa bilder har också en `promotion code` egenskapen. Finns i följande avsnitt att acceptera villkoren och aktivera programdistribution för att distribuera den här avbildningen.
 
 ```powershell
-Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
+Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "19.01.14"
 ```
 
 Utdata:
 
 ```
-Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMIma
-                   ge/Offers/windows-data-science-vm/Skus/windows2016/Versions/0.2.02
+Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMImage/Offers/windows-data-science-vm/Skus/windows2016/Versions/19.01.14
 Location         : westus
 PublisherName    : microsoft-ads
 Offer            : windows-data-science-vm
 Skus             : windows2016
-Version          : 0.2.02
+Version          : 19.01.14
 FilterExpression :
-Name             : 0.2.02
+Name             : 19.01.14
 OSDiskImage      : {
                      "operatingSystem": "Windows"
                    }
@@ -243,12 +256,11 @@ Utdata:
 Publisher         : microsoft-ads
 Product           : windows-data-science-vm
 Plan              : windows2016
-LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DV
-                    M%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
+LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DVM%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
 PrivacyPolicyLink : https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx
 Signature         : 2UMWH6PHSAIM4U22HXPXW25AL2NHUJ7Y7GRV27EBL6SUIDURGMYG6IIDO3P47FFIBBDFHZHSQTR7PNK6VIIRYJRQ3WXSE6BTNUNENXA
 Accepted          : False
-Signdate          : 2/23/2018 7:43:00 PM
+Signdate          : 1/25/2019 7:43:00 PM
 ```
 
 Använd den [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) cmdlet för att godkänna eller avvisa villkoren. Du behöver bara godkänna villkoren en gång per prenumeration för avbildningen. Glöm inte att använda gemener i parametrarnas värden. 
@@ -302,7 +314,7 @@ $offerName = "windows-data-science-vm"
 
 $skuName = "windows2016"
 
-$version = "0.2.02"
+$version = "19.01.14"
 
 $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
@@ -310,6 +322,7 @@ $vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName
 Du kommer sedan skickar VM-konfigurationen tillsammans med network configuration-objekt till den `New-AzureRmVM` cmdlet.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Skapa en virtuell dator snabbt med den `New-AzureRmVM` cmdlet med basic-avbildningen information, se [skapa en Windows-dator med PowerShell](quick-create-powershell.md).
 
 Se ett exempel på PowerShell-skript till [skapa en fullständigt konfigurerad virtuell dator](../scripts/virtual-machines-windows-powershell-sample-create-vm.md).

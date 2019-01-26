@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 68027526fb98db4cb5b7eaf75f117692222c6039
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53549028"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910720"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Azure Database för PostgreSQL Avancerat skydd
 
@@ -22,6 +22,9 @@ Skydd mot hot är en del av erbjudandet avancerade Threat Protection (ATP), vilk
 > [!NOTE]
 > Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: US Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad Virginia, USA DoD, östra, US DoD, centrala, Tyskland-centrala, Tyskland Nord, Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
 >
+
+> [!NOTE]
+> Den här funktionen är tillgänglig i alla regioner där Azure där Azure Database for PostgreSQL distribueras för generell användning och Minnesoptimerad servrar.
 
 ## <a name="what-is-advanced-threat-protection"></a>Vad är Advanced Threat Protection?
 

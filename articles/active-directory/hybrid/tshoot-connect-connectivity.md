@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85c60cf25cd00826df6b48ed6714a646fa44a962
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c1a575c3a30dfe5923fc0026c6d41d1b20276e49
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474888"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076476"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.
@@ -167,17 +167,52 @@ Det gick inte att auktorisera användare att utföra åtgärden i Azure AD.
 ### <a name="authentication-cancelled"></a>Autentisering har avbrutits
 Multifaktorautentisering (MFA) utmaningen avbröts.
 
+<div id="connect-msolservice-failed">
+<!--
+  Empty div just to act as an alias for the "Connect To MS Online Failed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="connect-to-ms-online-failed"></a>Ansluta till MS Online misslyckades
 Autentiseringen lyckades, men Azure AD PowerShell har ett problem med autentisering.
+
+<div id="get-msoluserrole-failed">
+<!--
+  Empty div just to act as an alias for the "Azure AD Global Admin Role Needed" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="azure-ad-global-admin-role-needed"></a>Rollen som Global administratör i en Azure AD och behövs
 Användaren autentiserades har. Men användaren inte har tilldelats rollen som global administratör. Det här är [hur du kan tilldela rollen som global administratör](../users-groups-roles/directory-assign-admin-roles.md) för användaren. 
 
+<div id="privileged-identity-management">
+<!--
+  Empty div just to act as an alias for the "Privileged Identity Management Enabled" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="privileged-identity-management-enabled"></a>Privileged Identity Management-aktiverade
 Autentiseringen lyckades. Privileged identity management har aktiverats och du är för närvarande inte en global administratör. Mer information finns i [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md).
 
+<div id="get-msolcompanyinformation-failed">
+<!--
+  Empty div just to act as an alias for the "Company Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
+
 ### <a name="company-information-unavailable"></a>Företagsinformation som är inte tillgänglig
 Autentiseringen lyckades. Det gick inte att hämta företagets information från Azure AD.
+
+<div id="get-msoldomain-failed">
+<!--
+  Empty div just to act as an alias for the "Domain Information Unavailable" header
+  because we used the mentioned id in the code to jump to this section.
+-->
+</div>
 
 ### <a name="domain-information-unavailable"></a>Inte tillgänglig domäninformation
 Autentiseringen lyckades. Det gick inte att hämta domäninformation från Azure AD.

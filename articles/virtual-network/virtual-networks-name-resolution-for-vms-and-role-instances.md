@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: subsarma
-ms.openlocfilehash: 4a4a4c6a37e3c52054d7bc773ef04bf057709fdd
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 487bf54d80c9249e5ce69c4b5aeff942a21d5b48
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025104"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913172"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Namnmatchning för resurser i Azure-nätverk
 
@@ -44,7 +44,7 @@ Typ av namnmatchning som du använder beror på hur dina resurser behöver kommu
 | Upplösning på lokal dator- och tjänstnamn från virtuella datorer eller rollinstanser i Azure. |Kundhanterad DNS-servrar (den lokala domänkontrollanten, lokala skrivskyddade domänkontrollanten eller en sekundär DNS har synkroniserats med zonöverföringar, till exempel). Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Lösning av Azure värdnamn från lokala datorer. |Vidarebefordra frågor till en kundhanterad DNS-proxyserver i motsvarande virtuella nätverk proxyservern vidarebefordrar frågor till Azure för matchning. Se [namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Endast FQDN |
 | Omvänd DNS för interna IP-adresser. |[Namnmatchning med hjälp av DNS-servern](#name-resolution-that-uses-your-own-dns-server). |Inte tillämpligt |
-| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Ej tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
+| Namnmatchning mellan virtuella datorer eller rollinstanser i olika molntjänster, inte i ett virtuellt nätverk. |Inte tillämpligt. Anslutning mellan virtuella datorer och rollinstanser i olika molntjänster stöds inte utanför ett virtuellt nätverk. |Inte tillämpligt|
 
 ## <a name="azure-provided-name-resolution"></a>Azure-tillhandahållen namnmatchning
 
@@ -95,7 +95,7 @@ Det finns ett antal olika DNS-cachen paket som är tillgängliga (till exempel d
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`. 
   * Redigera **/etc/sysconfig/network/config**, och ändra *NETCONFIG_DNS_FORWARDER = ””* till *dnsmasq*.
   * Uppdatera resolv.conf med `netconfig update`, för att ställa in cachen som den lokala DNS-matchning.
-* **OpenLogic (använder NetworkManager)**:
+* **OpenLogic (uses NetworkManager)**:
   * Installera paketet dnsmasq med `sudo yum install dnsmasq`.
   * Aktivera tjänsten dnsmasq med `systemctl enable dnsmasq.service`.
   * Starta tjänsten dnsmasq med `systemctl start dnsmasq.service`.
@@ -195,6 +195,11 @@ När du använder en egen DNS-servrar, ger möjligheten att ange flera DNS-servr
 > 
 
 När du använder Azure Resource Manager-distributionsmodellen, anger du DNS-servrar för ett virtuellt nätverk och ett nätverksgränssnitt. Mer information finns i [hantera ett virtuellt nätverk](manage-virtual-network.md) och [hantera ett nätverksgränssnitt](virtual-network-network-interface.md).
+
+> [!NOTE]
+> Om du väljer för anpassad DNS-server för det virtuella nätverket måste du ange minst en DNS-serverns IP-adress; i annat fall ignoreras konfigurationen virtuellt nätverk och Använd Azure-tillhandahållna DNS i stället.
+> 
+> 
 
 När du använder den klassiska distributionsmodellen kan du ange DNS-servrar för det virtuella nätverket i Azure-portalen eller [nätverkskonfigurationsfilen](https://msdn.microsoft.com/library/azure/jj157100). För cloud services, kan du ange DNS-servrar via den [Service konfigurationsfilen](https://msdn.microsoft.com/library/azure/ee758710) eller med hjälp av PowerShell med [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm).
 

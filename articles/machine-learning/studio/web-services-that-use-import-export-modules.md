@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-ms.openlocfilehash: 0f438f59da079633fea54758261ce1bd93a8477b
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d17e4970636818eca14d2e750ec24135e64ddbb6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53251393"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078684"
 ---
 # <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>Distribuera Azure Machine Learning Studio-webbtjänster som använder moduler för dataimport och dataexport
 
@@ -44,9 +44,9 @@ Att läsa data från Azure SQL-tabell:
 5. I egenskapsfönstret väljer **Azure SQL Database** i den **datakälla** listrutan.
 6. I den **Databasservernamnet**, **databasnamn**, **användarnamn**, och **lösenord** fält, anger du informationen som krävs för din -databasen.
 7. Ange följande fråga i fältet Database-fråga.
-   
+
      Välj [ålder]
-   
+
         [workclass],
         [fnlwgt],
         [education],
@@ -68,17 +68,17 @@ Att läsa data från Azure SQL-tabell:
 Därefter konfigurerar du förutsägbart experiment som du distribuerar din webbtjänst.
 
 1. Längst ned på arbetsytan för experimentet klickar du på **konfigurera Web Service** och välj **förutsägande webbtjänst (rekommenderas)**.
-2. Ta bort den *Webbtjänstindata* och *Web Service utdata moduler* från förutsägbart experiment. 
+2. Ta bort den *Webbtjänstindata* och *Web Service utdata moduler* från förutsägbart experiment.
 3. Skriv i sökrutan komponenter export.
 4. Lägg till från listan med resultat en *exportera Data* modulen till experimentarbetsytan.
-5. Ansluta utdata från den *Poängmodell* modulen indata för den *exportera Data* modulen. 
+5. Ansluta utdata från den *Poängmodell* modulen indata för den *exportera Data* modulen.
 6. I egenskapsfönstret väljer **Azure SQL Database** i listrutan för data-mål.
 7. I den **Databasservernamnet**, **databasnamn**, **Server användarkontonamn**, och **Server lösenord** fält, anger du den rätt information för din databas.
 8. I den **kommaavgränsad lista över kolumner som ska sparas** skriver poängsatta etiketter.
 9. I den **Data tabell namnfältet**, Skriv dbo. ScoredLabels. Om tabellen inte finns skapas den när experimentet har körts eller webbtjänsten anropas.
 10. I den **kommaavgränsad lista över datatable kolumner** anger ScoredLabels.
 
-När du skriver ett program som anropar den slutliga webbtjänsten du anger en annan frågan eller måltabellen vid körning. Om du vill konfigurera dessa indata och utdata, använder du funktionen Webbtjänstparametrar att ställa in den *importera Data* modulen *datakälla* egenskapen och *exportera Data* läge data mål-egenskapen.  Mer information om Webbtjänstparametrar finns i den [AzureML Webbtjänstparametrar post](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) på Cortana Intelligence och Machine Learning Blog.
+När du skriver ett program som anropar den slutliga webbtjänsten du anger en annan frågan eller måltabellen vid körning. Om du vill konfigurera dessa indata och utdata, använder du funktionen Webbtjänstparametrar att ställa in den *importera Data* modulen *datakälla* egenskapen och *exportera Data* läge data mål-egenskapen.  Mer information om Webbtjänstparametrar finns i den [Azure Machine Learning studio Webbtjänstparametrar post](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) på Cortana Intelligence och Machine Learning Blog.
 
 Konfigurera Webbtjänstparametrar för import-frågan och måltabellen:
 
@@ -108,22 +108,22 @@ Du distribuerar som en klassiska webbtjänst och skapar ett program att använda
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs och ta bort alla referenser till blob-lagringen.
 8. Uppdatera värdet för den *apiKey* variabeln med API-nyckel som sparats tidigare.
 9. Leta reda på begäran-deklarationen och uppdaterar värdet för Webbtjänstparametrar som skickas till den *importdata* och *exportera Data* moduler. I det här fallet du använda den ursprungliga frågan, men definiera ett nytt tabellnamn.
-   
-        var request = new BatchExecutionRequest() 
-        {           
+
+        var request = new BatchExecutionRequest()
+        {
             GlobalParameters = new Dictionary<string, string>() {
                 { "Query", @"select [age], [workclass], [fnlwgt], [education], [education-num], [marital-status], [occupation], [relationship], [race], [sex], [capital-gain], [capital-loss], [hours-per-week], [native-country], [income] from dbo.censusdata" },
                 { "Table", "dbo.ScoredTable2" },
             }
         };
-10. Kör appen. 
+10. Kör appen.
 
 Körningen har slutförts, är en ny tabell läggs till i databasen som innehåller bedömnings resultatet.
 
 ### <a name="deploy-a-new-web-service"></a>Distribuera en ny webbtjänst
 
-> [!NOTE] 
-> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md). 
+> [!NOTE]
+> Om du vill distribuera en ny webbtjänst måste du ha tillräcklig behörighet i prenumerationen som du distribuerar webbtjänsten. Mer information finns i [hantera en webbtjänst med hjälp av Azure Machine Learning Web Services-portalen](manage-new-webservice.md).
 
 Distribuera som en ny webbtjänst och skapa ett program att använda den:
 
@@ -136,9 +136,9 @@ Distribuera som en ny webbtjänst och skapa ett program att använda den:
 7. Kopiera och klistra in den C# exempelkoden i filen Program.cs.
 8. Uppdatera värdet för den *apiKey* variabeln med den **primärnyckel** finns i den **grundläggande förbrukning info** avsnittet.
 9. Leta upp den *scoreRequest* deklarationen och uppdaterar värdet för Webbtjänstparametrar som skickas till den *importdata* och *exportera Data* moduler. I det här fallet du använda den ursprungliga frågan, men definiera ett nytt tabellnamn.
-   
+
         var scoreRequest = new
-        {       
+        {
             Inputs = new Dictionary<string, StringTable>()
             {
             },
@@ -147,5 +147,5 @@ Distribuera som en ny webbtjänst och skapa ett program att använda den:
                 { "Table", "dbo.ScoredTable3" },
             }
         };
-10. Kör appen. 
+10. Kör appen.
 

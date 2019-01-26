@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 777d976133f5b9bb1c97ea678e058f2dc398922d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2c2c06a222f3ac949f8e8e6b4aed1b00c0593b6d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135822"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080233"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
 
@@ -33,39 +33,39 @@ Varje post i den här datauppsättningen innehåller 40 kolumner:
 * bredvid 13 kolumner är numeriska, och
 * senaste 26 är kategoriska kolumner
 
-Kolumnerna är anonyma och använda en serie uppräknade namn: ”Kol1” (för etikettkolumnen) till ”Col40” (för den sista kategoriska kolumnen).            
+Kolumnerna är anonyma och använda en serie uppräknade namn: ”Kol1” (för etikettkolumnen) till ”Col40” (för den sista kategoriska kolumnen).
 
 Här är ett utdrag ur de första 20 kolumnerna i två observationer (rader) från den här datauppsättningen:
 
     Col1    Col2    Col3    Col4    Col5    Col6    Col7    Col8    Col9    Col10    Col11    Col12    Col13    Col14    Col15            Col16            Col17            Col18            Col19        Col20
 
-    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
-    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
+    0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb
+    0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb
 
 Det finns värden som saknas i både den numeriska och kategoriska kolumnerna i den här datauppsättningen. En enkel metod för att hantera dessa värden beskrivs. Ytterligare information om data prestandahantering när du sparar dem till Hive-tabeller.
 
-**Definition:** *klickningar (CTR):* detta är procentandelen av klick i data. I den här Criteo datauppsättningen är CTR cirka 3.3% eller 0.033.
+**Definition:** *Klickningar (CTR):* Detta är i procent klick i data. I den här Criteo datauppsättningen är CTR cirka 3.3% eller 0.033.
 
 ## <a name="mltasks"></a>Exempel på uppgifter för förutsägelse
 Två exempel förutsägelse problem åtgärdas i den här genomgången:
 
-1. **Binär klassificering**: förutsäger om en användare klickar på en Lägg till:
-   
-   * Klass 0: Ingen Klicka
+1. **Binär klassificering**: Beräknar om en användare klickar på en Lägg till:
+
+   * Klass 0: Inga klickar du på
    * Klass 1: Klicka på
-2. **Regression**: förutsäger sannolikheten för en ad klickar du på från funktioner.
+2. **Regression**: Förutsäger sannolikheten för en ad klickar du på från funktioner.
 
 ## <a name="setup"></a>Ange ett HDInsight Hadoop-kluster för datavetenskap
-**Obs:** detta är vanligtvis en **Admin** uppgift.
+**Obs!** Detta är vanligtvis en **Admin** uppgift.
 
 Konfigurera din Azure Data Science-miljö för att skapa lösningar för förutsägelseanalys med HDInsight-kluster i tre steg:
 
-1. [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md): det här lagringskontot används för att lagra data i Azure Blob Storage. Här lagras data som används i HDInsight-kluster.
-2. [Anpassa Azure HDInsight Hadoop-kluster för Data Science](customize-hadoop-cluster.md): det här steget skapar ett Azure HDInsight Hadoop-kluster med 64-bitars Anaconda Python 2.7 installerat på alla noder. Det finns två viktiga steg (som beskrivs i det här avsnittet) för att slutföra när du anpassar HDInsight-klustret.
-   
+1. [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md): Det här lagringskontot används för att lagra data i Azure Blob Storage. Här lagras data som används i HDInsight-kluster.
+2. [Anpassa Azure HDInsight Hadoop-kluster för datavetenskap](customize-hadoop-cluster.md): Det här steget skapar ett Azure HDInsight Hadoop-kluster med 64-bitars Anaconda Python 2.7 installerat på alla noder. Det finns två viktiga steg (som beskrivs i det här avsnittet) för att slutföra när du anpassar HDInsight-klustret.
+
    * Du måste koppla storage-konto som skapades i steg 1 med ditt HDInsight-kluster när den skapas. Det här lagringskontot används för att komma åt data som kan bearbetas i klustret.
    * Du måste aktivera fjärråtkomst till huvudnoden i klustret när den har skapats. Kom ihåg fjärråtkomst-autentiseringsuppgifter som du anger här (skiljer sig från de som angetts för klustret när skapades): du behöver dem för att slutföra följande procedurer.
-3. [Skapa en arbetsyta för Azure ML](../studio/create-workspace.md): den här Azure Machine Learning-arbetsyta används för att skapa machine learning-modeller efter en inledande datagranskning och ned sampling på HDInsight-kluster.
+3. [Skapa en Azure Machine Learning studio-arbetsyta](../studio/create-workspace.md): Den här Azure Machine Learning-arbetsyta används för att skapa machine learning-modeller efter en inledande datagranskning och ned sampling på HDInsight-kluster.
 
 ## <a name="getdata"></a>Hämta och använda data från en offentlig källa
 Den [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättning kan nås genom att klicka på länken, godkänna användningsvillkoren och att ange ett namn. En ögonblicksbild av det här ser det ut visas här:
@@ -74,10 +74,10 @@ Den [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) dat
 
 Klicka på **Fortsätt om du vill ladda ned** läsa mer om datauppsättningen och dess tillgänglighet.
 
-Data som finns i en offentlig [Azure blobblagring](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. ”Wasb” refererar till Azure Blob Storage-plats. 
+Data som finns i en offentlig [Azure blobblagring](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. ”Wasb” refererar till Azure Blob Storage-plats.
 
 1. Data i den här offentliga blob-storage består av tre undermappar uppzippade data.
-   
+
    1. Undermappen *raw-beräkning / /* innehåller de första 21 dagarna data – från dag\_00 dag\_20
    2. Undermappen *raw-tåg/* består av en dag och dag\_21
    3. Undermappen *raw/test/* består av två dagars data, dag\_22 och dag\_23
@@ -103,11 +103,11 @@ För att skapa Hive-tabeller för vår Criteo datauppsättningen, öppna den ***
 
 > [!NOTE]
 > Kör alla Hive-kommandon i den här genomgången från Hive bin / directory-fråga. Detta hand tar om eventuella problem med sökväg automatiskt. Du kan använda villkoren ”Hive directory prompten” ”, Hive bin / directory-fråga”, och ”Hadoop-kommandoraden” synonymt.
-> 
+>
 > [!NOTE]
 > Om du vill köra en Hive-fråga, kan en alltid använda följande kommandon:
-> 
-> 
+>
+>
 
         cd %hive_home%\bin
         hive
@@ -157,14 +157,14 @@ Dessa tabeller är externa så att du bara kan peka till deras platser i Azure B
 
 **Det finns två sätt att köra alla Hive-fråga:**
 
-1. **Med hjälp av kommandoradsverktyget registreringsdatafilen REPL**: först är att utfärda ett kommando ”hive” och kopiera och klistra in en fråga på registreringsdatafilen REPL kommandoraden. Om du vill göra detta, gör du:
-   
+1. **Med hjälp av kommandoradsverktyget Hive REPL**: Först är att utfärda ett kommando ”hive” och kopiera och klistra in en fråga på registreringsdatafilen REPL kommandoradsverktyget. Om du vill göra detta, gör du:
+
         cd %hive_home%\bin
         hive
-   
+
      Nu i REPL kommandoradsverktyget kör klippa och klistra in frågan den.
-2. **Spara frågor till en fil och kommandot**: andra är att spara frågorna till en .hql-fil ([exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan kör du följande kommando för att köra frågan:
-   
+2. **Spara frågor till en fil och kommandot**: Andra är att spara frågorna till en .hql-fil ([exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan kör du följande kommando för att köra frågan:
+
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>Bekräfta att skapa en databas och tabell
@@ -294,7 +294,7 @@ Detta ger:
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-Distributionen av percentiler är nära förknippat med histogrammet distributionen av alla numeriska variabler vanligtvis.         
+Distributionen av percentiler är nära förknippat med histogrammet distributionen av alla numeriska variabler vanligtvis.
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Hitta antalet unika värden för vissa kategoriska kolumner i datauppsättningen train
 Du kan fortsätta att utforska data, hitta, för vissa kategoriska kolumner, antalet unika värden som de tar. Gör detta genom att visa innehållet i [exempel&#95;hive&#95;criteo&#95;unika&#95;värden&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
@@ -424,7 +424,7 @@ Vår modell processen i Azure Machine Learning för att bygga följer de här st
 
 Nu är du redo att skapa modeller i Azure Machine Learning studio. Våra nedåt samplade data sparas som Hive-tabeller i klustret. Använda Azure Machine Learning **importdata** modulen att läsa dessa data. Autentiseringsuppgifter för åtkomst till lagringskontot för det här klustret finns i det som följer.
 
-### <a name="step1"></a> Steg 1: Hämta data från Hive-tabeller i Azure Machine Learning med hjälp av modulen importera Data och välj den för en machine learning-experiment
+### <a name="step1"></a> Steg 1: Hämtar data från Hive-tabeller till Azure Machine Learning med hjälp av modulen importera Data och välj den för en machine learning-experiment
 Starta genom att välja en **+ ny** -> **EXPERIMENT** -> **tomt Experiment**. Från den **Search** längst ned till vänster, Sök efter ”importera Data”-rutan. Dra och släpp den **importdata** modulen in experimentet arbetsytan (den mellersta delen av skärmen) till att använda-modulen för dataåtkomst.
 
 Det här är vad den **importdata** ser ut ungefär som när du hämtar data från Hive-tabellen:
@@ -435,13 +435,13 @@ För den **importdata** modulen, värdena för parametrarna som anges i bilden �
 
 1. Välj ”Hive-fråga” för **datakälla**
 2. I den **Hive databasfråga** , en enkel, MARKERAR du kryssrutan * FROM < din\_databasen\_name.your\_tabell\_namn >-räcker.
-3. **Hcatalog server URI**: om klustret är ”abc”, så det är bara: https://abc.azurehdinsight.net
-4. **Hadoop-användarkontonamnet**: användarnamn som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst användarnamnet!)
-5. **Hadoop lösenord**: lösenordet för användarnamnet som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst lösenordet!)
+3. **Hcatalog server URI**: Om klustret är ”abc”, är detta bara: https://abc.azurehdinsight.net
+4. **Hadoop-användarkontonamnet**: Användarnamnet som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst användarnamnet!)
+5. **Hadoop lösenord**: Lösenordet för användarnamnet som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst lösenordet!)
 6. **Platsen för utdata**: Välj ”Azure”
-7. **Azure storage-kontonamn**: lagringskontot som associerats med klustret
-8. **Azure storage-kontonyckel**: nyckeln för lagringskontot som är associerade med klustret.
-9. **Azure behållarnamn**: Om klusternamnet är ”abc”, så det är helt enkelt ”abc”, vanligtvis.
+7. **Azure storage-kontonamn**: Storage-konto som är kopplat till klustret
+8. **Azure storage-kontonyckel**: Nyckeln för lagringskontot som associerats med klustret.
+9. **Azure behållarnamn**: Om klustrets namn är ”abc”, är detta bara ”abc”, vanligtvis.
 
 När den **importdata** har slutförts hämtar data (du se grön skalstreck i modulen), spara dessa data som en datauppsättning (med ett valfritt namn). Hur detta ser ut:
 
@@ -455,11 +455,11 @@ Välj sparade datauppsättningen för användning i en machine learning-experime
 
 > [!NOTE]
 > Gör detta för både tåget och test-datauppsättningar. Kom också ihåg att använda databasens namn och tabellnamn som du gav för detta ändamål. De värden som används i bilden är enbart för illustration purposes.* *
-> 
-> 
+>
+>
 
 ### <a name="step2"></a> Steg 2: Skapa ett enkelt experiment i Azure Machine Learning för att förutsäga klick / inga klick
-Vår Azure ML-experiment ser ut så här:
+Vår Azure Machine Learning studio-experiment ser ut så här:
 
 ![Machine Learning-experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
@@ -481,9 +481,9 @@ Om du vill skapa antal funktioner, använda den **skapa räkna transformera** mo
 ![Skapa räkna transformera modulen egenskaper](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![skapa räkna transformera modul](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > I den **antal kolumner** anger du de kolumner som du vill utföra antalet på. Dessa är oftast (som tidigare nämnts) hög-dimensionell kategoriska kolumner. Kom ihåg att Criteo datauppsättningen har 26 kategoriska kolumner: från Col15 till Col40. Här kan räkna med alla och ge sina index (från 15 till 40 avgränsade med kommatecken enligt).
-> 
+>
 
 Använda modul i MapReduce-läge (lämplig för stora datauppsättningar), du behöver åtkomst till ett HDInsight Hadoop-kluster (den som används för funktionen utforskning kan återanvändas för detta ändamål samt) och dess autentiseringsuppgifter. Föregående bild illustrerar vilka ifyllda värdena ut (Ersätt de angivna värdena för bilden med de som är relevanta för din egen användningsfallet).
 
@@ -588,8 +588,8 @@ Steg zeroth eftersom tabellen count är stor, vidta några rader testdata och ge
 
 > [!NOTE]
 > För indata-formatet använder utdata från den **antal Featurizer** modulen. När detta experiment har slutförts kör, spara utdata från den **antal Featurizer** modulen som en datauppsättning. Den här datauppsättningen används för indata i webbtjänsten.
-> 
-> 
+>
+>
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Bedömning experiment för publicera webbtjänsten
 Först visas det hur detta ser ut. Den grundläggande strukturen är en **Poängmodell** modul som accepterar vår trained model-objektet och några rader av indata som har genererats i föregående steg med den **antal Featurizer** modulen. Använd ”Välj kolumner i datauppsättning” till projektet ut Scored etiketter och troliga poäng.

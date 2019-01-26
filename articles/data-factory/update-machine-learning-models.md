@@ -12,28 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: shlo
-ms.openlocfilehash: de3407b45fb82aa38bec7b84fef34c1654676122
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: e2aa82143b8e58e36509ee5d3adf99b34be89c69
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016223"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076623"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Uppdatera Azure Machine Learning-modeller med hjälp av resursuppdatering aktivitet
-Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln. 
+Den här artikeln kompletterar huvudsakliga Azure Data Factory - artikeln för Azure Machine Learning-integrering: [Skapa förutsägande pipelines med Azure Machine Learning och Azure Data Factory](transform-data-using-machine-learning.md). Om du inte redan gjort det, kan du läsa den huvudsakliga artikeln innan du läser igenom den här artikeln.
 
 ## <a name="overview"></a>Översikt
 Som en del av processen för att operationalisera Azure Machine Learning-modeller, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar.
 
-Modeller som du skapar med Machine Learning är vanligtvis inte statiska. När nya data blir tillgängliga eller när användaren av API: et har sina egna data måste vara modellkomponenten modellen. Referera till [träna en Maskininlärningsmodell](../machine-learning/machine-learning-retrain-machine-learning-model.md) mer information om hur du kan träna en modell i Azure Machine Learning. 
+Modeller som du skapar med Machine Learning är vanligtvis inte statiska. När nya data blir tillgängliga eller när användaren av API: et har sina egna data måste vara modellkomponenten modellen. Referera till [träna en Maskininlärningsmodell](../machine-learning/machine-learning-retrain-machine-learning-model.md) mer information om hur du kan träna en modell i Azure Machine Learning.
 
-Träna kan inträffa ofta. Med Batch-körningsaktivitet och resursuppdatering aktivitet kan driftsätta du modellen Azure Machine Learning retraining och uppdatera förutsägande webbtjänsten med Data Factory. 
+Träna kan inträffa ofta. Med Batch-körningsaktivitet och resursuppdatering aktivitet kan driftsätta du modellen Azure Machine Learning retraining och uppdatera förutsägande webbtjänsten med Data Factory.
 
-Följande bild visar förhållandet mellan upplärning och förutsägande webbtjänster. 
+Följande bild visar förhållandet mellan upplärning och förutsägande webbtjänster.
 
 ![Webbtjänster](./media/update-machine-learning-models/web-services.png)
 
-## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning-uppdateringsresursaktivitet 
+## <a name="azure-machine-learning-update-resource-activity"></a>Azure Machine Learning-uppdateringsresursaktivitet
 
 Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Execution-aktivitet.
 
@@ -73,37 +73,37 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning Batch Executio
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 
-Hela processen med att operationalisera träna en modell och uppdatera förutsägande webbtjänster omfattar följande steg: 
+Hela processen med att operationalisera träna en modell och uppdatera förutsägande webbtjänster omfattar följande steg:
 
-- Anropa den **utbildning webbtjänsten** med hjälp av den **batchkörningsaktivitet**. Anropar ett utbildnings-webbtjänsten är detsamma som att anropa en förutsägbar webbtjänst som beskrivs i [skapa förutsägande pipelines med Azure Machine Learning och Data Factory-batchkörning aktivitet](transform-data-using-machine-learning.md). Utdata från utbildning Web Service är en iLearner-fil som du kan använda för att uppdatera förutsägande webbtjänsten. 
-- Anropa den **uppdatera resursslutpunkt** av den **förutsägande webbtjänsten** med hjälp av den **aktivitet uppdatera resurs** att uppdatera webbtjänsten med den nyligen tränade modellen. 
+- Anropa den **utbildning webbtjänsten** med hjälp av den **batchkörningsaktivitet**. Anropar ett utbildnings-webbtjänsten är detsamma som att anropa en förutsägbar webbtjänst som beskrivs i [skapa förutsägande pipelines med Azure Machine Learning och Data Factory-batchkörning aktivitet](transform-data-using-machine-learning.md). Utdata från utbildning Web Service är en iLearner-fil som du kan använda för att uppdatera förutsägande webbtjänsten.
+- Anropa den **uppdatera resursslutpunkt** av den **förutsägande webbtjänsten** med hjälp av den **aktivitet uppdatera resurs** att uppdatera webbtjänsten med den nyligen tränade modellen.
 
 ## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning länkad tjänst
 
-Av ovan nämnda arbetsflödet slutpunkt till slutpunkt ska fungera måste du skapa två Azure Machine Learning länkade tjänster: 
+Av ovan nämnda arbetsflödet slutpunkt till slutpunkt ska fungera måste du skapa två Azure Machine Learning länkade tjänster:
 
-1. En Azure Machine Learning-länkad tjänst till webbtjänsten utbildning, den här länkade tjänsten används av Batch-körningsaktivitet på samma sätt som vad som nämns i [skapa förutsägande pipelines med Azure Machine Learning och Data Factory Batch Körningsaktivitet](transform-data-using-machine-learning.md). Skillnaden är utdata från webbtjänsten utbildning är en iLearner-fil som sedan används av aktivitet uppdatera resurs för att uppdatera förutsägbar webbtjänst. 
-2. En Azure Machine Learning länkad tjänst för att uppdatera resurs slutpunkten för förutsägbar webbtjänst. Den här länkade tjänsten används av aktivitet uppdatera resurs för att uppdatera den förutsägbar webbtjänst med hjälp av den iLearner-fil returneras ovanför steget. 
+1. En Azure Machine Learning-länkad tjänst till webbtjänsten utbildning, den här länkade tjänsten används av Batch-körningsaktivitet på samma sätt som vad som nämns i [skapa förutsägande pipelines med Azure Machine Learning och Data Factory Batch Körningsaktivitet](transform-data-using-machine-learning.md). Skillnaden är utdata från webbtjänsten utbildning är en iLearner-fil som sedan används av aktivitet uppdatera resurs för att uppdatera förutsägbar webbtjänst.
+2. En Azure Machine Learning länkad tjänst för att uppdatera resurs slutpunkten för förutsägbar webbtjänst. Den här länkade tjänsten används av aktivitet uppdatera resurs för att uppdatera den förutsägbar webbtjänst med hjälp av den iLearner-fil returneras ovanför steget.
 
-Konfigurationen är olika för andra Azure Machine Learning-länkade tjänsten, när din Azure Machine Learning-webbtjänsten är en klassisk webbtjänst eller en ny webbtjänst. Skillnaderna beskrivs separat i följande avsnitt. 
+Konfigurationen är olika för andra Azure Machine Learning-länkade tjänsten, när din Azure Machine Learning-webbtjänsten är en klassisk webbtjänst eller en ny webbtjänst. Skillnaderna beskrivs separat i följande avsnitt.
 
-## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Webbtjänsten är nya Azure Resource Manager-webbtjänst 
+## <a name="web-service-is-new-azure-resource-manager-web-service"></a>Webbtjänsten är nya Azure Resource Manager-webbtjänst
 
-Om webbtjänsten är den nya typen av webbtjänsten som Exponerar en Azure Resource Manager-slutpunkt, behöver du inte lägga till andra **avviker från standarden** slutpunkt. Den **updateResourceEndpoint** i den länkade tjänsten har följande format: 
+Om webbtjänsten är den nya typen av webbtjänsten som Exponerar en Azure Resource Manager-slutpunkt, behöver du inte lägga till andra **avviker från standarden** slutpunkt. Den **updateResourceEndpoint** i den länkade tjänsten har följande format:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
-Du kan hämta värden för platshållare i URL: en vid frågor till webbtjänsten på den [Azure Machine Learning Web Services-portalen](https://services.azureml.net/). 
+Du kan hämta värden för platshållare i URL: en vid frågor till webbtjänsten på den [Azure Machine Learning Web Services-portalen](https://services.azureml.net/).
 
 Den nya typen av slutpunkt för resursen kräver autentisering av tjänstens huvudnamn. Att använda autentisering av tjänstens huvudnamn, registrera ett program-entiteten i Azure Active Directory (Azure AD) och bevilja den **deltagare** eller **ägare** rollen för prenumerationen eller resursen gruppen where webbtjänsten tillhör. Se [skapa tjänstens huvudnamn och tilldela behörigheter för att hantera Azure-resurs](../active-directory/develop/howto-create-service-principal-portal.md). Anteckna följande värden som du använder för att definiera den länkade tjänsten:
 
 - Program-ID:t
-- Programnyckel 
+- Programnyckel
 - Klient-ID:t
 
-Här är en länkad tjänst exempeldefinition: 
+Här är en länkad tjänst exempeldefinition:
 
 ```json
 {
@@ -129,18 +129,18 @@ Här är en länkad tjänst exempeldefinition:
 }
 ```
 
-Följande scenario innehåller mer information. Den innehåller ett exempel för att träna och uppdatera Azure ML-modeller från en Azure Data Factory-pipeline.
+Följande scenario innehåller mer information. Den innehåller ett exempel för att träna och uppdatera Azure Machine Learning studio-modeller från en Azure Data Factory-pipeline.
 
 
 ## <a name="sample-retraining-and-updating-an-azure-machine-learning-model"></a>Exempel: Träna och uppdatera en Azure Machine Learning-modell
 
-Det här avsnittet innehåller ett exempel på pipeline som använder den **Azure ML-batchkörningsaktivitet** att träna en modell. Pipelinen använder också den **aktivitet för Azure ML uppdatera resurs** att uppdatera modellen i bedömning av webbtjänsten. Avsnittet ger också JSON-kodfragment för alla länkade tjänster, datauppsättningar och pipeline i det här exemplet.
+Det här avsnittet innehåller ett exempel på pipeline som använder den **Azure Machine Learning studio-batchkörningsaktivitet** att träna en modell. Pipelinen använder också den **Azure Machine Learning studio aktivitet uppdatera resurs** att uppdatera modellen i bedömning av webbtjänsten. Avsnittet ger också JSON-kodfragment för alla länkade tjänster, datauppsättningar och pipeline i det här exemplet.
 
 ### <a name="azure-blob-storage-linked-service"></a>Azure Blob storage-länkade tjänst:
 Azure Storage innehåller följande data:
 
-* träningsdata. Indata för webbtjänsten för Azure ML-utbildning.  
-* iLearner-fil. Utdata från webbtjänsten för Azure ML-utbildning. Den här filen är också indata till aktiviteten resursuppdatering.  
+* träningsdata. Indata för Azure Machine Learning-studio utbildning för webbtjänsten.
+* iLearner-fil. Utdata från Azure Machine Learning studio utbildning för webbtjänsten. Den här filen är också indata till aktiviteten resursuppdatering.
 
 Här är exempel JSON-definition för den länkade tjänsten:
 
@@ -156,11 +156,11 @@ Här är exempel JSON-definition för den länkade tjänsten:
 }
 ```
 
-### <a name="linked-service-for-azure-ml-training-endpoint"></a>Länkad tjänst för Azure ML-slutpunkten för utbildning
+### <a name="linked-service-for-azure-machine-learning-studio-training-endpoint"></a>Länkad tjänst för Azure Machine Learning studio utbildning-slutpunkt
 Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjänst som pekar på standardslutpunkten för webbtjänsten utbildning.
 
 ```JSON
-{    
+{
     "name": "trainingEndpoint",
       "properties": {
         "type": "AzureML",
@@ -172,16 +172,16 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjän
 }
 ```
 
-I **Azure ML Studio**, gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
+I **Azure Machine Learning studio**, gör du följande för att hämta värden för **mlEndpoint** och **apiKey**:
 
 1. Klicka på **WEBBTJÄNSTER** på den vänstra menyn.
 2. Klicka på den **utbildning webbtjänsten** i listan över webbtjänster.
 3. Klicka på Kopiera bredvid **API-nyckel** textrutan. Klistra in nyckeln i Urklipp i Data Factory JSON-redigerare.
-4. I den **Azure ML studio**, klickar du på **BATCHKÖRNING** länk.
-5. Kopiera den **begär URI** från den **begära** avsnittet och klistra in den i Data Factory JSON-redigerare.   
+4. I den **Azure Machine Learning studio**, klickar du på **BATCHKÖRNING** länk.
+5. Kopiera den **begär URI** från den **begära** avsnittet och klistra in den i Data Factory JSON-redigerare.
 
-### <a name="linked-service-for-azure-ml-updatable-scoring-endpoint"></a>Länkad tjänst för Azure ML uppdateras bedömnings-slutpunkten:
-Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjänst som pekar på uppdateras slutpunkten för bedömning av webbtjänsten.  
+### <a name="linked-service-for-azure-machine-learning-studio-updatable-scoring-endpoint"></a>Länkad tjänst för Azure Machine Learning studio uppdateras bedömnings slutpunkt:
+Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjänst som pekar på uppdateras slutpunkten för bedömning av webbtjänsten.
 
 ```JSON
 {
@@ -201,7 +201,7 @@ Följande JSON-kodfragmentet definierar en Azure Machine Learning-länkade tjän
 ```
 
 ### <a name="pipeline"></a>Pipeline
-Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Batch-körningsaktivitet tar träningsdata som indata och genererar en iLearner-fil som utdata. Uppdatera resurs-aktiviteten sedan tar den här iLearner-fil och använda den för att uppdatera förutsägbar webbtjänst. 
+Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Batch-körningsaktivitet tar träningsdata som indata och genererar en iLearner-fil som utdata. Uppdatera resurs-aktiviteten sedan tar den här iLearner-fil och använda den för att uppdatera förutsägbar webbtjänst.
 
 ```JSON
 {
@@ -222,25 +222,25 @@ Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateRes
                             "LinkedServiceName":{
                                 "referenceName": "StorageLinkedService",
                                 "type": "LinkedServiceReference"
-                            }, 
+                            },
                             "FilePath":"azuremltesting/input"
-                        }, 
+                        },
                         "input2": {
                             "LinkedServiceName":{
                                 "referenceName": "StorageLinkedService",
-                                "type": "LinkedServiceReference" 
-                            }, 
+                                "type": "LinkedServiceReference"
+                            },
                             "FilePath":"azuremltesting/input"
-                        }        
+                        }
                     },
                     "webServiceOutputs": {
                         "output1": {
                             "LinkedServiceName":{
                                 "referenceName": "StorageLinkedService",
-                                "type": "LinkedServiceReference"   
-                            }, 
+                                "type": "LinkedServiceReference"
+                            },
                             "FilePath":"azuremltesting/output"
-                        }        
+                        }
                     }
                 }
             },
@@ -260,10 +260,10 @@ Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateRes
                             },
                     "trainedModelFilePath": "azuremltesting/output/newModelForArm.ilearner"
                 },
-                "dependsOn": [ 
-                    { 
-                        "activity": "amlbeGetilearner", 
-                        "dependencyConditions": [ "Succeeded" ] 
+                "dependsOn": [
+                    {
+                        "activity": "amlbeGetilearner",
+                        "dependencyConditions": [ "Succeeded" ]
                     }
                  ]
 
@@ -273,7 +273,7 @@ Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateRes
 }
 ```
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 
+Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
 
 * [U-SQL-aktivitet](transform-data-using-data-lake-analytics.md)
 * [Hive-aktivitet](transform-data-using-hadoop-hive.md)

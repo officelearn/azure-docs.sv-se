@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 083a318f008799713f4d8d9aeacfe2e27f6ad195
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 6e6cd7f1677d8ae11f05c2a2bca4233603a29408
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085946"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075677"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Distribuera resurser med Resource Manager-mallar och Azure PowerShell
 
@@ -25,7 +25,7 @@ Den här artikeln förklarar hur du använder Azure PowerShell med Resource Mana
 
 Resource Manager-mallen som du distribuerar kan antingen vara en lokal fil på din dator eller en extern fil som finns i en databas som GitHub. Mallen som du distribuerar i den här artikeln är tillgänglig som [storage-konto mallen i GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
 
-Om det behövs installerar du Azure PowerShell-modulen med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om det behövs installerar du Azure PowerShell-modulen med hjälp av instruktionerna i [Azure PowerShell-guiden](/powershell/azure/overview) och kör sedan `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 <a id="deploy-local-template" />
 
@@ -42,12 +42,12 @@ En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du
 I följande exempel skapas en resursgrupp och distribuerar en mall från den lokala datorn:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 
-Select-AzureRmSubscription -SubscriptionName <yourSubscriptionName>
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
  
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
@@ -64,7 +64,7 @@ Istället för att lagra Resource Manager-mallar på den lokala datorn, kanske d
 Om du vill distribuera en mall för externa, använda den **TemplateUri** parametern. Använd URI: N i det här exemplet för att distribuera exempelmallen från GitHub.
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -storageAccountType Standard_GRS
 ```
@@ -76,8 +76,8 @@ I föregående exempel kräver en offentligt tillgänglig URI för den mall som 
 I Cloud Shell använder du följande kommandon:
 
 ```powershell
-New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "South Central US"
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroup -Name ExampleResourceGroup -Location "South Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri <copied URL> `
   -storageAccountType Standard_GRS
 ```
@@ -94,11 +94,11 @@ Du kan använda infogade parametrar eller en parameterfil för att ange paramete
 
 ### <a name="inline-parameters"></a>Infogad parametrar
 
-Om du vill skicka infogade parametrar, ange namnen på parametern med det `New-AzureRmResourceGroupDeployment` kommando. Till exempel om du vill skicka en sträng och en matris till en mall, använder du:
+Om du vill skicka infogade parametrar, ange namnen på parametern med det `New-AzResourceGroupDeployment` kommando. Till exempel om du vill skicka en sträng och en matris till en mall, använder du:
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString "inline string" `
   -exampleArray $arrayParam
@@ -108,7 +108,7 @@ Du kan också hämta innehållet i filen och ge innehållet som en infogad-param
 
 ```powershell
 $arrayParam = "value1", "value2"
-New-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\demotemplate.json `
   -exampleString $(Get-Content -Path c:\MyTemplates\stringcontent.txt -Raw) `
   -exampleArray $arrayParam
@@ -141,7 +141,7 @@ Kopiera i föregående exempel och spara det som en fil med namnet `storage.para
 Om du vill skicka en lokal parameterfil, använda den **TemplateParameterFile** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json `
   -TemplateParameterFile c:\MyTemplates\storage.parameters.json
 ```
@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName Ex
 Om du vill skicka en extern parameterfilen, använda den **TemplateParameterUri** parameter:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json `
   -TemplateParameterUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json
 ```
@@ -162,21 +162,21 @@ Men när du använder en extern parameterfilen, du kan inte skicka andra värden
 
 ### <a name="parameter-name-conflicts"></a>Parametern namnet står i konflikt
 
-Om mallen innehåller en parameter med samma namn som en av parametrarna i PowerShell-kommandot, PowerShell visar parametern från din mall med postfixen **från mall**. Till exempel en parameter med namnet **ResourceGroupName** i din mall är i konflikt med den **ResourceGroupName** parametern i den [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment) cmdlet. Du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. I allmänhet bör du undvika den här förvirring genom att namnge inte parametrar med samma namn som parametrar som används för distributionsåtgärder.
+Om mallen innehåller en parameter med samma namn som en av parametrarna i PowerShell-kommandot, PowerShell visar parametern från din mall med postfixen **från mall**. Till exempel en parameter med namnet **ResourceGroupName** i din mall är i konflikt med den **ResourceGroupName** parametern i den [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. Du uppmanas att ange ett värde för **ResourceGroupNameFromTemplate**. I allmänhet bör du undvika den här förvirring genom att namnge inte parametrar med samma namn som parametrar som används för distributionsåtgärder.
 
 ## <a name="test-a-template-deployment"></a>Testa en för malldistribution
 
-Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [Test-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/test-azurermresourcegroupdeployment). 
+Testa din mall- och parameterfilerna värden utan att faktiskt distribuera resurser med [Test-AzureRmResourceGroupDeployment](/powershell/module/az.resources/test-azresourcegroupdeployment). 
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
+Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType Standard_GRS
 ```
 
 Om inga fel identifieras måste kommandot har slutförts utan ett svar. Om ett fel upptäcks kan returnerar kommandot ett felmeddelande. Skicka ett felaktigt värde för lagringskontots SKU, returnerar exempelvis följande fel:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName testgroup `
+Test-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -TemplateFile c:\MyTemplates\storage.json -storageAccountType badSku
 
 Code    : InvalidTemplate
@@ -189,7 +189,7 @@ Details :
 Om mallen innehåller ett syntaxfel, returnerar kommandot ett felmeddelande om att det gick inte att parsa mallen. Meddelandet Anger radnumret och positionen för parsningsfel.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
+Test-AzResourceGroupDeployment : After parsing a value an unexpected character was encountered: 
   ". Path 'variables', line 31, position 3.
 ```
 

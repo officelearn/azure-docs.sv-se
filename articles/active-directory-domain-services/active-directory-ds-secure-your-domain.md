@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 1a9a8ee13145e6326c234a4eda053ed49faf33aa
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 6089b3500881809730bf6a2c9a9dc1a57c059aba
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856680"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911187"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Skydda din Azure AD Domain Services-hanterad domän
 Den här artikeln hjälper dig skydda din hanterade domän. Du kan inaktivera användningen av svaga krypteringssviter och inaktivera synkronisering av lösenordshash för NTLM autentiseringsuppgifter.
@@ -31,7 +31,7 @@ Den här artikeln hjälper dig skydda din hanterade domän. Du kan inaktivera an
 Följ instruktionerna i artikeln om du vill [installerar Azure AD PowerShell-modulen och ansluter till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="disable-weak-cipher-suites-and-ntlm-credential-hash-synchronization"></a>Inaktivera svaga chiffersviter och synkronisering av lösenordshash för NTLM autentiseringsuppgifter
@@ -42,10 +42,10 @@ Använd följande PowerShell-skript för att:
 
 ```powershell
 // Login to your Azure AD tenant
-Login-AzureRmAccount
+Login-AzAccount
 
 // Retrieve the Azure AD Domain Services resource.
-$DomainServicesResource = Get-AzureRmResource -ResourceType "Microsoft.AAD/DomainServices"
+$DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // 1. Disable NTLM v1 support on the managed domain.
 // 2. Disable the synchronization of NTLM password hashes from
@@ -54,7 +54,7 @@ $DomainServicesResource = Get-AzureRmResource -ResourceType "Microsoft.AAD/Domai
 $securitySettings = @{"DomainSecuritySettings"=@{"NtlmV1"="Disabled";"SyncNtlmPasswords"="Disabled";"TlsV1"="Disabled"}}
 
 // Apply the settings to the managed domain.
-Set-AzureRmResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $securitySettings -Verbose -Force
 ```
 
 ## <a name="next-steps"></a>Nästa steg

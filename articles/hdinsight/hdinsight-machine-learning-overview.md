@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: hrasheed
-ms.openlocfilehash: 7e5f56251e00b59a6e6d3be40612f4c8e381dff1
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 84ce13f78a9c597c780cb0dfa0fa5d16e6175b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743008"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077734"
 ---
 # <a name="machine-learning-on-hdinsight"></a>Maskininlärning på HDInsight
 
@@ -42,13 +42,13 @@ Azure Machine Learning tillhandahåller verktyg för att modellen förutsägande
 
 ![Att göra avancerade analyser som är tillgänglig för Hadoop med Microsoft Azure Machine Learning](./media/hdinsight-machine-learning-overview/hadoop-azure-ml.png)
 
-Skapa funktioner för data i ett HDInsight Hadoop-kluster med hjälp av [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktionstekniker* försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Du kan köra HiveQL frågor från Azure ML och komma åt data som bearbetas i Hive och lagras i blob storage med hjälp av den [importdata modulen](../machine-learning/studio/import-data.md).
+Skapa funktioner för data i ett HDInsight Hadoop-kluster med hjälp av [Hive-frågor](../machine-learning/team-data-science-process/create-features-hive.md). *Funktionstekniker* försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Du kan köra HiveQL frågor från Azure Machine Learning studio och komma åt data som bearbetas i Hive och lagras i blob storage med hjälp av den [importdata modulen](../machine-learning/studio/import-data.md).
 
 ## <a name="microsoft-cognitive-toolkit"></a>Microsoft Cognitive Toolkit
 
 [Djupinlärning](https://www.microsoft.com/en-us/research/group/dltc/) är en gren av machine learning som använder neurala nätverk, bli INSPIRERAD av bioteknik processer i den mänskliga hjärnan. Djupinlärning finns som en lovande metod för att utöka AI många forskare. Exempel på djupinlärning är talat språk översättare, bild av system och datorn resonemang.
 
-Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod på för att gå vidare sitt eget arbete i djupinlärning, [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Dessa verktyg används av en mängd olika Microsoft-produkter, företag över hela världen med ett behov av att distribuera djupinlärnings i stor skala och studenter som är intresserade av senaste algoritmer och tekniker. 
+Microsoft har utvecklat kostnadsfria, enkel att använda, öppen källkod på för att gå vidare sitt eget arbete i djupinlärning, [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/). Dessa verktyg används av en mängd olika Microsoft-produkter, företag över hela världen med ett behov av att distribuera djupinlärnings i stor skala och studenter som är intresserade av senaste algoritmer och tekniker.
 
 ## <a name="see-also"></a>Se också
 

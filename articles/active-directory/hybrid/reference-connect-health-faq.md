@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 101eeb89a44fbc28c831fefcdc6490495e0be7e8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 67523641ff9650a5b35a142147a2f69adcfb3b1c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470332"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077309"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Vanliga frågor och svar om Azure AD Connect Health
 Den här artikeln innehåller svar på vanliga frågor och svar (FAQ) om Azure Active Directory (Azure AD) Connect Health. Avsnittet täcker frågor om hur du använder tjänsten, inklusive fakturering modellen, funktioner, begränsningar och support.
@@ -62,7 +62,7 @@ Exempel:
 
 **F: Azure AD Connect Health har stöd för Azure-molnet för Tyskland?**
 
-Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [synkroniseringsfunktionen fel rapporten](how-to-connect-health-sync.md#object-level-synchronization-error-report). 
+Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [synkroniseringsfunktionen fel rapporten](how-to-connect-health-sync.md#object-level-synchronization-error-report).
 
 | Roller | Funktioner | Stöds i tyska molnet |
 | ------ | --------------- | --- |
@@ -71,7 +71,7 @@ Azure AD Connect Health stöds inte i molnet för Tyskland undantag för den [sy
 | Connect Health för AD FS | Övervaka / Insight / aviseringar / analys | Nej |
 | Connect Health för ADDS | Övervaka / Insight / aviseringar / analys | Nej |
 
-För att säkerställa agentanslutning över Connect Health för synkronisering, konfigurera den [installationskrav](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) därefter.   
+För att säkerställa agentanslutning över Connect Health för synkronisering, konfigurera den [installationskrav](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) därefter.
 
 ## <a name="installation-questions"></a>Installationsfrågor
 
@@ -163,7 +163,7 @@ Azure AD Connect Health-tjänsten genomsöks alla datorer som övervakas för at
 
 Du kan använda följande PowerShell-skript för att utföra den här kontrollen i manuellt. Den implementerar logiken som ovan.
 
-```
+```powershell
 Function CheckForMS17-010 ()
 {
     $hotfixes = "KB3205409", "KB3210720", "KB3210721", "KB3212646", "KB3213986", "KB4012212", "KB4012213", "KB4012214", "KB4012215", "KB4012216", "KB4012217", "KB4012218", "KB4012220", "KB4012598", "KB4012606", "KB4013198", "KB4013389", "KB4013429", "KB4015217", "KB4015438", "KB4015546", "KB4015547", "KB4015548", "KB4015549", "KB4015550", "KB4015551", "KB4015552", "KB4015553", "KB4015554", "KB4016635", "KB4019213", "KB4019214", "KB4019215", "KB4019216", "KB4019263", "KB4019264", "KB4019472", "KB4015221", "KB4019474", "KB4015219", "KB4019473"
@@ -190,7 +190,7 @@ CheckForMS17-010
 
 **F: Varför är min ADFS granskningar skapas?**
 
-Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggar inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Meddelande om det är avancerade granskningsinställningar som skickas till AD FS-servern, eventuella ändringar med auditpol.exe kommer att skrivas över (händelse om programmet genereras inte har konfigurerats). I det här fallet, ange den lokala säkerhetsprincipen logga programmet genererade fel och lyckades. 
+Använd PowerShell-cmdleten <i>Get-AdfsProperties - AuditLevel</i> att kontrollera granskningsloggar inte är i inaktiverat tillstånd. Läs mer om [AD FS-granskningsloggar](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server#auditing-levels-in-ad-fs-for-windows-server-2016). Meddelande om det är avancerade granskningsinställningar som skickas till AD FS-servern, eventuella ändringar med auditpol.exe kommer att skrivas över (händelse om programmet genereras inte har konfigurerats). I det här fallet, ange den lokala säkerhetsprincipen logga programmet genererade fel och lyckades.
 
 
 ## <a name="related-links"></a>Relaterade länkar

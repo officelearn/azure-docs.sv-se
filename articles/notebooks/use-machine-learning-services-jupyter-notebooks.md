@@ -13,23 +13,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: b6d3cbd56182b8dba3738f38798efa378c6b49d0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdfc9b3e981a1b88fbae7805785d9bb4c823bccb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53254834"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074470"
 ---
-# <a name="use-azure-machine-learning-services-in-a-notebook"></a>Använda Azure Machine Learning Services på en bärbar dator
+# <a name="use-azure-machine-learning-service-in-a-notebook"></a>Använda Azure Machine Learning-tjänsten på en bärbar dator
 
-Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure Machine Learning Services](/azure/machine-learning/service/). Du kan enkelt klona en exempelprojektet i ditt konto för bärbara datorer att utforska en mängd olika scenarier för Machine Learning.
+Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure Machine Learning-tjänsten](/azure/machine-learning/service/). Du kan enkelt klona en exempelprojektet i ditt konto för bärbara datorer att utforska en mängd olika scenarier för Machine Learning.
 
 ## <a name="clone-the-sample-into-your-account"></a>Klona exemplet till ditt konto
 
 1. Logga in på [Azure anteckningsböcker](https://notebooks.azure.com/).
 1. Välj **Mina projekt** att gå till instrumentpanelen för projekt.
 1. Välj den **överför GitHub-lagringsplatsen** (på uppåt-pilen) knappen Öppna den **överför GitHub-lagringsplatsen** popup-fönstret.
-1. I popup-fönstret anger du `Azure/MachineLearningNotebooks` i **GitHub-lagringsplatsen**, ange ett namn för projektet i **projektnamn** som ”Azure ML-tjänster”, ange en identifierare i **projekt-ID**avmarkerar **offentliga** om du vill välja **Import**.
+1. I popup-fönstret anger du `Azure/MachineLearningNotebooks` i **GitHub-lagringsplatsen**, ange ett namn för projektet i **projektnamn** som ”Azure Machine Learning-tjänsten” ange en identifierare i **projekt-ID** avmarkerar **offentliga** om du vill välja **Import**.
 
     ![Importera Azure Machine Learning Notebook exemplet till ditt konto för bärbara datorer](media/azureml-import-project.png)
 
@@ -48,8 +48,8 @@ Azure-datorer är förkonfigurerad med nödvändiga miljö att arbeta med [Azure
 Dokumentation för Azure Machine Learning Services innehåller en mängd andra resurser som hjälper dig att arbeta med Machine Learning-tjänsten i anteckningsböcker:
 
 - [Snabbstart: Använda Python för att komma igång med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Självstudie #1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Självstudie #2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [Självstudiekurs: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [Självstudie nr 1: Träna en modell för klassificering av avbildning med Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Självstudie 2: Distribuera en avbildning klassificeringsmodellen i Azure Container Instance (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Självstudier: Träna en modell för klassificering med automatiserade machine learning i Azure Machine Learning-tjänsten](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Även finns i dokumentationen för den [Azure Machine Learning-SDK för Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/24/2010
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: edb4e2b25e5fd7d6c59f07a02cc5d2f0630eac8e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 26133dbfe6b8e11128393957c377c1827e0d2a6e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904411"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076510"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory-enhetshantering vanliga frågor och svar
 
@@ -128,6 +128,12 @@ Har tagits bort eller är inaktiverad användare som inte har registrerat i tidi
 
 ---
 
+**F: Varför Mina användare har problem på Azure AD-anslutna enheter när du har ändrat deras UPN?**
+
+**A:** För närvarande stöds UPN ändringar inte helt på Azure AD-anslutna enheter. Så misslyckas autentiseringen med Azure AD efter deras UPN-ändringar. Därför kan användare använda enkel inloggning och villkorlig åtkomst utfärdar på sina enheter. Användare måste logga in på Windows via panelen ”andra användare” som använder sina nya UPN-namnet för att lösa det här problemet just nu. Vi arbetar med att lösa problemet. Användare som loggar in med Windows Hello för företag dock inte stöter på problemet. 
+
+---
+
 **F: Mina användare kan inte söka efter skrivare från Azure AD-anslutna enheter. Hur kan jag aktivera utskrift från dessa enheter?**
 
 **A:** Distribuera skrivare för Azure AD-anslutna enheter, se [distribuera Windows Server Hybrid Cloud utskrift med förautentisering](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy). Du behöver en lokal Windows Server att distribuera hybrid cloud utskrifts. Molnbaserad utskriftstjänster är för närvarande inte tillgängligt. 
@@ -209,7 +215,15 @@ Det här beteendet gäller inte för alla användare som loggar in på enheten. 
 
 Hybrid Azure AD-anslutning har företräde framför Azure AD-registrerad tillstånd. Så anses enheten vara hybrid Azure AD-anslutna för autentisering och utvärderingen av villkorlig åtkomst. Du kan ta bort posten för Azure AD-registrerad enhet från Azure AD-portalen. Lär dig hur du [undvika eller rensa den här dubbla tillstånd på Windows 10-dator](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan#review-things-you-should-know). 
 
+
 ---
+
+**F: Varför Mina användare har problem på Windows 10 hybrid Azure AD-anslutna enheter när du har ändrat deras UPN?**
+
+**A:** För närvarande UPN ändringar stöds fullständigt inte med hybrid Azure AD-anslutna enheter. Användare kan logga in på enheten och komma åt sina lokala program, misslyckas autentiseringen med Azure AD när ett UPN ändra. Därför kan användare använda enkel inloggning och villkorlig åtkomst utfärdar på sina enheter. För närvarande måste du frånkoppling från enheten från Azure AD (kör ”dsregcmd /leave” med utökade privilegier) och ansluta på nytt (sker automatiskt) att lösa problemet. Vi arbetar med att lösa problemet. Användare som loggar in med Windows Hello för företag dock inte stöter på problemet. 
+
+---
+
 
 ## <a name="azure-ad-register-faq"></a>Registrera dig av vanliga frågor om med Azure AD
 

@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Azure Monitor Application insights-dokumentation – självstudier, API-referens | Microsoft Docs
-description: TBD
+description: Azure Monitor Application Insights erbjuder djupgående kodnivå övervakning av programprestanda.
 services: application-insights
 author: mrbullwinkle
 manager: carmonmills
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/15/2019
 ms.author: mbullwin
-ms.openlocfilehash: 713368ab02e72ad0b8e51d0bb312a20bd2df690c
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6cdcea65fd91e7914bd868ad2472de11986916fa
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830433"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913282"
 ---
 <div id="main" class="v2">
     <div class="container">

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 88f0c64a-25f7-4974-aca2-2acadc9acbd8
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 07/24/2018
 ms.author: celested
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7d3796d8d4a5a2e292afaf9cd013ff04ffc082c5
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d9e877fd648c28564f5eccc46f9c20741fe446f8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578678"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076323"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>Autentiseringsuppgifter för certifikat för autentisering för programmet
 
@@ -33,7 +33,7 @@ En form av autentiseringsuppgifter som ett program kan använda för autentiseri
 ## <a name="assertion-format"></a>Assertion format
 Om du vill beräkna kontrollen, du kan använda en av många [JSON Web Token](https://jwt.ms/) bibliotek i valfritt språk. Den information som utförs av token är följande:
 
-### <a name="header"></a>Sidhuvud
+### <a name="header"></a>Huvud
 
 | Parameter |  Kommentar |
 | --- | --- |
@@ -50,7 +50,7 @@ Om du vill beräkna kontrollen, du kan använda en av många [JSON Web Token](ht
 | `iss` | Utgivare: bör vara client_id (program-ID för klienttjänsten) |
 | `jti` | GUID: JWT ID |
 | `nbf` | Inte före: det datum som token inte kan användas. Tiden representeras som hur många sekunder från 1 januari 1970 (1970-01-01T0:0:0Z) UTC tills token utfärdats. |
-| `sub` | Ämne: som för `iss`, ska vara client_id (program-ID för klienttjänsten) |
+| `sub` | Ämne: Som för `iss`, ska vara client_id (program-ID för klienttjänsten) |
 
 ### <a name="signature"></a>Signatur
 

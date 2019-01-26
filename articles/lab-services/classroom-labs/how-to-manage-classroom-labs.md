@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: spelluru
-ms.openlocfilehash: 5c1207b1b21e2d2ee229f5bea068b99f3b3218b1
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 9576854fbad88724f3d229d239b9d3e263fb7492
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389127"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912409"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Hantera klassrum labb i Azure Lab Services 
 Den här artikeln beskriver hur du skapar och tar bort ett klassrumslabb. Den också visar hur du visar alla klassrum-labb i ett labbkonto. 
@@ -32,7 +32,7 @@ Om du vill konfigurera ett klassrumslabb i ett labbkonto måste du vara medlem i
 2. Välj **logga in**. Välj eller ange en **användar-ID** som är medlem av den **Labbskaparen** roll i laboratoriet kontot och ange lösenord. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
 3. Utför följande i fönstret **Nytt labb**: 
     1. Ange ett **namn** på ditt labb. 
-    2. Ange **antalet användare som** åtkomst till labbet. 
+    2. Ange maximal **antal virtuella datorer** i laboratoriet. Du kan öka eller minska antalet virtuella datorer i labbet senare. 
     6. Välj **Spara**.
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)

@@ -7,7 +7,7 @@ services: active-directory
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0983c2235fba0cacbda53208e5dcad5b2878619c
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 7efac4138f21a3f8e9dae087991f97dabad61822
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345495"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077262"
 ---
-# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Så här: Ange valfria anspråk till din Azure AD-app (förhandsversion)
+# <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Anvisningar: Ange valfria anspråk till din Azure AD-app (förhandsversion)
 
 Den här funktionen används av programutvecklare för att ange vilka anspråk som de vill ha i token som skickas till sina program. Du kan använda valfria anspråk till:
 - Välj ytterligare anspråk ska ingå i token för ditt program.
@@ -37,7 +37,7 @@ Lista över standard anspråk och hur de används i token, finns i den [grundern
 
 Ett av målen med den [v2.0 Azure AD-slutpunkten](active-directory-appmodel-v2-overview.md) är token är mindre säkerställa optimala prestanda av klienter. Därför kan flera anspråk som tidigare ingår i åtkomst- och ID-token finns inte längre i v2.0-token och måste be dig om särskilt på basis av per program.
 
-**Tabell 1: tillämplighet**
+**Tabell 1: Tillämplighet**
 
 | Kontotyp | V1.0 slutpunkt | V2.0-slutpunkten  |
 |--------------|---------------|----------------|
@@ -82,7 +82,7 @@ Uppsättningen med valfria anspråk som är tillgängliga som standard att anvä
 
 De här anspråken är alltid är inkluderad i v1.0 token, men inte ingår i v2.0 token såvida inte begär. De här anspråken gäller endast för JWTs (ID-token och åtkomsttoken). 
 
-**Tabell 3: Endast V2.0 valfria anspråk**
+**Tabell 3: Endast v2.0 valfria anspråk**
 
 | JWT-anspråk     | Namn                            | Beskrivning                                | Anteckningar |
 |---------------|---------------------------------|--------------------------------------------------------------------------------------------------------------------------------|-------|
@@ -93,7 +93,7 @@ De här anspråken är alltid är inkluderad i v1.0 token, men inte ingår i v2.
 | `in_corp`     | Inifrån företagsnätverket        | Signaler om klienten inloggning från företagsnätverket. Om de inte är ingår inte anspråket.   |       |
 | `nickname`    | Smeknamn                        | Ytterligare ett namn för användaren, separat från förnamn eller efternamn. |       |                                                                                                                |       |
 | `family_name` | Efternamn                       | Innehåller senaste namn, efternamn eller namn för användaren som definieras i Azure AD-användarobjektet. <br>"family_name":"Miller" |       |
-| `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som Azure AD user-objektet.<br>”given_name”: ”Frank”                   |       |
+| `given_name`  | Förnamn                      | Innehåller först eller ”förnamn” för användaren som Azure AD user-objektet.<br>"given_name": ”Frank”                   |       |
 
 ### <a name="additional-properties-of-optional-claims"></a>Ytterligare egenskaper för valfria anspråk
 
@@ -166,7 +166,7 @@ Du kan konfigurera valfria anspråk för ditt program genom att ändra programma
 
 Anger de valfria anspråk som begärs av ett program. Ett program kan konfigurera valfria anspråk som ska returneras i var och en av tre typer av token (ID-token, token, SAML 2 åtkomsttoken) som kan tas emot från säkerhetstokentjänsten. Programmet kan konfigurera en annan uppsättning valfria anspråk som ska returneras i varje typ av token. Egenskapen OptionalClaims för entiteten program är ett OptionalClaims-objekt.
 
-**Tabell 5: OptionalClaims Typegenskaper**
+**Tabell 5: OptionalClaims egenskaper**
 
 | Namn        | Typ                       | Beskrivning                                           |
 |-------------|----------------------------|-------------------------------------------------------|
@@ -179,14 +179,14 @@ Anger de valfria anspråk som begärs av ett program. Ett program kan konfigurer
 Innehåller ett valfritt anspråk som är associerad med ett program eller ett huvudnamn för tjänsten. IdToken och accessToken saml2Token egenskaperna för den [OptionalClaims](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) typ är en samling OptionalClaim.
 Om det stöds av specifika anspråk, kan du också ändra beteendet för OptionalClaim med hjälp av fältet AdditionalProperties.
 
-**Tabell 6: OptionalClaim Typegenskaper**
+**Tabell 6: OptionalClaim egenskaper**
 
 | Namn                 | Typ                    | Beskrivning                                                                                                                                                                                                                                                                                                   |
 |----------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Namnet på det valfria anspråket.                                                                                                                                                                                                                                                                           |
 | `source`               | Edm.String              | Källan (directory object) för anspråket. Det finns fördefinierade anspråk och anpassade anspråk från tilläggsegenskaper. Om värdet för datakällan är null, är ett fördefinierat valfria anspråk i anspråket. Om värdet för datakällan är användare, är värdet i egenskapen name tilläggsegenskapen från användarobjektet. |
 | `essential`            | Edm.Boolean             | Om värdet är true, är anspråk som anges av klienten nödvändigt för att säkerställa en smidig auktorisering upplevelse för en viss aktivitet som begärts av användaren. Standardvärdet är FALSKT.                                                                                                             |
-| `additionalProperties` | Samling (Edm.String) | Ytterligare egenskaper för anspråket. Om en egenskap finns i den här samlingen, ändrar beteendet för den valfria anspråk som anges i egenskapen name.                                                                                                                                               |
+| `additionalProperties` | Collection (Edm.String) | Ytterligare egenskaper för anspråket. Om en egenskap finns i den här samlingen, ändrar beteendet för den valfria anspråk som anges i egenskapen name.                                                                                                                                               |
 ## <a name="configuring-custom-claims-via-directory-extensions"></a>Konfigurera anpassade anspråk via katalogtillägg
 
 Förutom uppsättningen standard valfria anspråk token också konfigureras för att inkludera directory-schemautökningar (se den [Directory schemaartikel tillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) för mer information). Den här funktionen är användbar för att bifoga ytterligare information som din app kan använda – till exempel, en ytterligare identifierare eller viktiga konfigurationsalternativ som användaren har angett. 
@@ -209,7 +209,7 @@ Det finns flera alternativ för att uppdatera egenskaperna på ett programs iden
 -   Du kan ändra programmanifestet. Exemplet nedan använder den här metoden för att utföra konfigurationen. Läs den [förstå Azure AD application manifest dokumentet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest) första en introduktion till manifestet.
 -   Det är också möjligt att skriva ett program som använder den [Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) att uppdatera ditt program. Den [entitet och komplex typreferens](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#optionalclaims-type) i Graph API-referensen handboken kan hjälpa dig med att konfigurera de valfria anspråk.
 
-**Exempel:** i exemplet nedan, ändrar du en programmets manifest för att lägga till anspråk till åtkomst-ID och SAML token är avsedda för programmet.
+**Exempel:** I exemplet nedan, ändrar du en programmets manifest för att lägga till anspråk till åtkomst-ID och SAML token är avsedda för programmet.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. När du har autentiserats kan du välja Azure AD-klienten genom att välja den från det övre högra hörnet på sidan.

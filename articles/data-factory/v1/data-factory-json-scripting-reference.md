@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 32e0be682d5d216df6741fa38bb0a16e4b323ef6
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 9f8ffe71743f4832d8ce633f050206d21f411276
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354203"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55082205"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON-skript referens
 > [!NOTE]
@@ -5387,7 +5387,7 @@ Observera följande punkter:
 - Den **typ** är inställd på **HDInsightSpark**.
 - Den **rootPath** är inställd på **adfspark\\pyFiles** där adfspark är Azure Blob-behållare och pyFiles är bra mapp i den behållaren. I det här exemplet är det som är associerad med Spark-kluster i Azure Blob Storage. Du kan överföra filen till en annan Azure-lagring. Om du gör det måste du skapa en länkad Azure Storage-tjänst för att länka det storage-kontot till datafabriken. Ange namnet på den länkade tjänsten som värde för den **sparkJobLinkedService** egenskapen. Se [Spark Aktivitetsegenskaper](#spark-activity-properties) mer information om den här egenskapen och andra egenskaper som stöds av Spark-aktivitet.
 - Den **entryFilePath** är inställd på den **test.py**, vilket är python-filen.
-- Den **getDebugInfo** är inställd på **alltid**, vilket innebär att loggfilerna är alltid genereras (lyckade eller misslyckade).  
+- Den **getDebugInfo** är inställd på **alltid**, vilket innebär att loggfilerna är alltid genereras (lyckade eller misslyckade).
 
     > [!IMPORTANT]
     > Vi rekommenderar att du inte anger den här egenskapen att alltid i en produktionsmiljö såvida inte du felsöker ett problem.
@@ -5396,13 +5396,13 @@ Observera följande punkter:
 Mer information om aktiviteten finns i [Spark-aktivitet](data-factory-spark.md) artikeln.
 
 ## <a name="machine-learning-batch-execution-activity"></a>Machine Learning Batch-körningsaktivitet
-Du kan ange följande egenskaper i en Azure ML Batch körning aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLBatchExecution:
+Du kan ange följande egenskaper i Azure Machine Learning-studio Batch körning aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLBatchExecution**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLBatchExecution:
 
 Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
-webServiceInput | Datauppsättningen som ska skickas som indata för Azure Machine Learning-webbtjänst. Den här datauppsättningen måste också inkluderas i indata för aktiviteten. |Använda webServiceInput eller webServiceInputs. |
-webServiceInputs | Ange datauppsättningar som ska skickas som indata för Azure Machine Learning-webbtjänst. Om webbtjänsten tar flera inmatningar kan du använda egenskapen webServiceInputs istället för att använda egenskapen webServiceInput. Datauppsättningar som refererar till den **webServiceInputs** måste också inkluderas i aktiviteten **indata**. | Använda webServiceInput eller webServiceInputs. |
-webServiceOutputs | De datauppsättningar som är tilldelad som utdata för Azure Machine Learning-webbtjänst. Webbtjänsten returnerar utdata i den här datauppsättningen. | Ja |
+webServiceInput | Datauppsättningen som ska skickas som indata för Azure Machine Learning studio-webbtjänst. Den här datauppsättningen måste också inkluderas i indata för aktiviteten. |Använda webServiceInput eller webServiceInputs. |
+webServiceInputs | Ange datauppsättningar som ska skickas som indata för Azure Machine Learning studio-webbtjänst. Om webbtjänsten tar flera inmatningar kan du använda egenskapen webServiceInputs istället för att använda egenskapen webServiceInput. Datauppsättningar som refererar till den **webServiceInputs** måste också inkluderas i aktiviteten **indata**. | Använda webServiceInput eller webServiceInputs. |
+webServiceOutputs | De datauppsättningar som är tilldelad som utdata för Azure Machine Learning studio-webbtjänst. Webbtjänsten returnerar utdata i den här datauppsättningen. | Ja |
 globalParameters | Ange värden för webbtjänstparametrar i det här avsnittet. | Nej |
 
 ### <a name="json-example"></a>JSON-exempel
@@ -5452,7 +5452,7 @@ I JSON-exemplet använder distribuerade Azure Machine Learning Web-tjänsten en 
 > Endast indata och utdata för aktiviteten AzureMLBatchExecution kan skickas som parametrar till webbtjänsten. I ovanstående JSON-kodfragmentet är till exempel MLSqlInput indata för aktiviteten AzureMLBatchExecution som skickas som indata till webbtjänsten via webServiceInput-parametern.
 
 ## <a name="machine-learning-update-resource-activity"></a>Machine Learning-uppdateringsresursaktivitet
-Du kan ange följande egenskaper i en Azure ML Update Resource aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLUpdateResource:
+Du kan ange följande egenskaper i Azure Machine Learning-studio Update Resource aktivitets-JSON-definition. Egenskapen type för aktiviteten måste vara: **AzureMLUpdateResource**. Du måste skapa en Azure Machine Learning-länkade tjänsten först och ange namnet på det som värde för den **linkedServiceName** egenskapen. Följande egenskaper stöds i den **typeProperties** avsnittet när du anger vilken typ av aktivitet till AzureMLUpdateResource:
 
 Egenskap  | Beskrivning | Krävs
 -------- | ----------- | --------
@@ -5460,7 +5460,7 @@ trainedModelName | Namnet på retrained modellen. | Ja |
 trainedModelDatasetName | Datauppsättning som pekar på den iLearner-fil som returneras av omtränings igen. | Ja |
 
 ### <a name="json-example"></a>JSON-exempel
-Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Azure ML-batchkörningsaktivitet tar träningsdata som indata och genererar en iLearner-fil som utdata. Aktiviteten anropar webbtjänsten utbildning (träningsexperiment visas som en webbtjänst) med utbildningsdata som indata och tar emot den ilearner-fil från webbtjänsten. PlaceholderBlob är bara en dummy utdata-datauppsättning som krävs av Azure Data Factory-tjänsten att köra en pipeline.
+Pipelinen har två aktiviteter: **AzureMLBatchExecution** och **AzureMLUpdateResource**. Azure Machine Learning studio-batchkörningsaktivitet tar träningsdata som indata och genererar en iLearner-fil som utdata. Aktiviteten anropar webbtjänsten utbildning (träningsexperiment visas som en webbtjänst) med utbildningsdata som indata och tar emot den ilearner-fil från webbtjänsten. PlaceholderBlob är bara en dummy utdata-datauppsättning som krävs av Azure Data Factory-tjänsten att köra en pipeline.
 
 
 ```json

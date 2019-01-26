@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/08/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 82ccbe8e57ff35904b7e763e838a81660ab13f88
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 8be4274f2f971202172b09bbab2e6529fd5a8070
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412826"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075694"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Aktivera tillbakaskrivning av enheter
 > [!NOTE]
@@ -89,7 +89,7 @@ Om kryssrutan för tillbakaskrivning av enhet inte aktiveras även om du har fö
 
 Första sakerna första:
 
-* Kontrollera att minst en skog har Windows Server 2012 R2. Typ av enhet objekt måste finnas.
+* Skogen där enheterna finns måste ha skogsschemat uppgraderas till Windows 2012 R2 nivå så att enhetsobjekt och tillhörande attribut finns.
 * Om installationsguiden körs redan, kommer alla ändringar inte identifieras. I det här fallet slutföra Installationsguiden och kör det igen.
 * Kontrollera att det konto som du anger i initieringsskriptet är faktiskt rätt användare används av Active Directory-koppling. Följ dessa steg om du vill kontrollera detta:
   * Start-menyn Öppna **synkroniseringstjänsten**.

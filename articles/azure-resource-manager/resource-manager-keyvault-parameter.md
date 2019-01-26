@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: e04ee6b74be0bb7ec81166f43295a8a9377f8cf8
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: 31be6b99d6c2ccc2c3f13484c409285ff85e12a0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381525"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078685"
 ---
 # <a name="use-azure-key-vault-to-pass-secure-parameter-value-during-deployment"></a>Använda Azure Key Vault för att skicka säkra parametervärdet under distributionen
 
@@ -84,7 +84,7 @@ Add-Type -AssemblyName System.Web
 [System.Web.Security.Membership]::GeneratePassword(16,3)
 ```
 
-För att använda Resource Manager-mall: Se [självstudien: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-the-key-vault).
+För att använda Resource Manager-mall: Se [självstudien: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md#prepare-a-key-vault).
 
 > [!NOTE]
 > Varje Azure-tjänst har specifika lösenordskrav. Till exempel krav för Azure virtuella datorer finns på [vilka är lösenordskraven för när du skapar en virtuell dator?](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).

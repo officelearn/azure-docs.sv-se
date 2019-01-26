@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 8a9fc299f620c7df87544b467cf52535addfe313
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651511"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913469"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Att tänka på när virtuella datorer i Azure Stack
 
@@ -55,16 +55,16 @@ I följande tabell visas de virtuella datorer som stöds på Azure Stack tillsam
 
 | Typ           | Storlek          | Rad stöds storlekar |
 | ---------------| ------------- | ------------------------ |
-|Generellt syfte |Basic A        |[A0 – A4](azure-stack-vm-sizes.md#basic-a)                   |
-|Generellt syfte |Standard A     |[A0 – A7](azure-stack-vm-sizes.md#standard-a)              |
+|Generellt syfte |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
+|Generellt syfte |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |
 |Generellt syfte |D-serien       |[D1 - D4](azure-stack-vm-sizes.md#d-series)              |
 |Generellt syfte |Dv2-serien     |[D1_v2 - D5_v2](azure-stack-vm-sizes.md#ds-series)        |
 |Generellt syfte |DS-serien      |[DS1 - DS4](azure-stack-vm-sizes.md#dv2-series)            |
 |Generellt syfte |DSv2-serien    |[DS1_v2 - DS5_v2](azure-stack-vm-sizes.md#dsv2-series)      |
-|Minnesoptimerad|D-serien       |[D11 – D14](azure-stack-vm-sizes.md#mo-d)            |
+|Minnesoptimerad|D-serien       |[D11 - D14](azure-stack-vm-sizes.md#mo-d)            |
 |Minnesoptimerad|DS-serien      |[DS11 - DS14](azure-stack-vm-sizes.md#mo-ds)|
-|Minnesoptimerad|Dv2-serien     |[D11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
-|Minnesoptimerad|DSv2-serien –  |[DS11_v2 – DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
+|Minnesoptimerad|Dv2-serien     |[D11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dv2)     |
+|Minnesoptimerad|DSv2-serien –  |[DS11_v2 - DS14_v2](azure-stack-vm-sizes.md#mo-dsv2)    |
 
 Storlekar för virtuella datorer och deras associerade resursen kvantiteter är konsekvent mellan Azure Stack och Azure. Detta inkluderar mängden minne, antal kärnor och antal/storleken på datadiskar som kan skapas. Prestanda för virtuella datorer med samma storlek beror dock på underliggande egenskaperna för en viss Azure Stack-miljö.
 
@@ -104,8 +104,8 @@ Listan över resurstyper som stöds och API-versioner kan variera om operatorn m
 
 Windows-produkter måste användas i enlighet med Microsoft-licensvillkoren och produktanvändningsrättigheterna. Azure Stack använder [automatisk aktivering av virtuell dator](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v%3dws.11)) (AVMA) för att aktivera Windows Server-datorer (VM).
 
-- Azure Stack-värden aktiverar Windows med AVMA-nycklar för Windows Server 2016. Alla virtuella datorer som kör Windows Server 2012 eller senare aktiveras automatiskt.
-- Virtuella datorer som kör Windows Server 2008 R2 aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx). Om du vill använda MAK-aktivering, måste du ange dina egna produktnyckeln.
+- Azure Stack-värden aktiverar Windows med AVMA-nycklar för Windows Server 2016. Alla virtuella datorer som kör Windows Server 2012 R2 eller senare aktiveras automatiskt.
+- Virtuella datorer som kör Windows Server 2012 eller tidigare aktiveras inte automatiskt och måste aktiveras med hjälp av [MAK-aktivering](https://technet.microsoft.com/library/ff793438.aspx). Om du vill använda MAK-aktivering, måste du ange dina egna produktnyckeln.
 
 Microsoft Azure använder KMS-aktivering för att aktivera Windows-datorer. Om du flyttar en virtuell dator från Azure Stack i Azure och stöter aktivera problem, se [felsöka Azure Windows VM aktiveringsproblem](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-activation-problems). Mer information finns på den [felsökning av Windows-aktivering fel på Azure Virtual Machines](https://blogs.msdn.microsoft.com/mast/2017/06/14/troubleshooting-windows-activation-failures-on-azure-vms/) Azures Teamblogg inlägget.
 

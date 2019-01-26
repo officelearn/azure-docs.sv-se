@@ -10,12 +10,12 @@ author: ericlicoding
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 12/18/2017
-ms.openlocfilehash: 69b085faf10b9e22618fa248460d269bd2efdb73
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d8ca316b9d2f87e2d5540c81b0865381109f889d
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264316"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080080"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-studio"></a>Machine learning-algoritmfacit för Azure Machine Learning Studio
 
@@ -48,7 +48,7 @@ Ladda ned och skriva Machine Learning Studio algoritmen facit ut i tabloidformat
 
   * I **oövervakad inlärning**, datapunkterna har inga etiketter. Målet med en oövervakad Inlärningsalgoritmen är istället att ordna data på något sätt eller för att beskriva dess struktur. Detta kan innebära att gruppera den i kluster, precis K-means eller hitta olika sätt att titta på komplexa data så att den visas enklare.
 
-  * I **förstärkande inlärning**, algoritmen hämtar att välja en åtgärd som svar på varje datapunkt. Det är en vanlig metod i robotteknik, där uppsättningen sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja den robot nästa åtgärd. Det är också en fysisk för IOT-program. Inlärningsalgoritmen får också en utmärkelse signal en kort tid senare, som anger hur bra beslutet var. Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta trafik. Det finns för närvarande inga förstärkt inlärningsmoduler algoritmen i Azure ML.
+  * I **förstärkande inlärning**, algoritmen hämtar att välja en åtgärd som svar på varje datapunkt. Det är en vanlig metod i robotteknik, där uppsättningen sensoravläsningar vid en punkt i tiden är en datapunkt och algoritmen måste välja den robot nästa åtgärd. Det är också en fysisk för IOT-program. Inlärningsalgoritmen får också en utmärkelse signal en kort tid senare, som anger hur bra beslutet var. Baserat på den här ändrar algoritmen sin strategi för att uppnå högsta trafik. Det finns för närvarande inga förstärkt inlärningsmoduler algoritmen i Azure Machine Learning studio.
 
 * **Bayesian metoder** förutsätter statistiskt oberoende datapunkter. Det innebär att unmodeled variationer i en datapunkt är uncorrelated med andra, dvs, det går inte att förutse. Om de data som registrerats är antalet minuter tills nästa subway tåget tas emot, är till exempel två mätningar som görs per dag från varandra statistiskt oberoende. Dock två mätningar som görs en minut ifrån varandra är inte statistiskt oberoende - värdet för ett är mycket förebyggande av värdet för den andra.
 

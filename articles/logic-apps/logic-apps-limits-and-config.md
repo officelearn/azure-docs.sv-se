@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/16/2018
-ms.openlocfilehash: c33952f893d5ef2cfb9020acbf813d30b6c105e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: d59bc20ea745412f8f2549e0359483d1dd3e608d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469758"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912790"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Begränsningar och konfigurationsinformation för Azure Logic Apps
 
@@ -119,9 +119,9 @@ Att gå över dessa gränser i normala bearbetningen eller köra belastningstest
 
 | Namn | Gräns | Anteckningar |
 |------|-------|-------|
-| FTP | 50 MB | Om du vill överskrida den här gränsen, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
-| SFTP | 50 MB | Om du vill överskrida den här gränsen, använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md) eller se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). Men kan vissa kopplingar och API: er inte stöd för storlekar eller även Standardgränsen. | 
-| SFTP-SSH | 1 GB | Den här anslutningen hanterar upp till 1 GB, men överför dessa data i 50 MB delar, inte 1 GB delar. | 
+| FTP | 50 MB | Om du vill överskrider denna gräns för åtgärder endast, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). <p>**Obs!** Dela upp gäller inte för utlösare. Dessutom kan vissa kopplingar och API: er inte dela upp eller även Standardgränsen. | 
+| SFTP | 50 MB | Om du vill överskrida den här gränsen för åtgärder endast använda den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md) eller se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). <p>**Obs!** Dela upp gäller inte för utlösare. Dessutom kan vissa kopplingar och API: er inte dela upp eller även Standardgränsen. | 
+| SFTP-SSH | 1 GB | Den här anslutningen hanterar upp till 1 GB, men överför dessa data i 50 MB delar, inte 1 GB delar. Om du vill överskrider denna gräns för åtgärder endast, se [hantera stora meddelanden med storlekar](../logic-apps/logic-apps-handle-large-messages.md). <p>**Obs!** Dela upp gäller inte för utlösare. | 
 |||| 
 
 <a name="request-limits"></a>

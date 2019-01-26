@@ -4,17 +4,17 @@ description: Azure principdefinitionen har olika effekter som bestämmer hur kom
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 12/06/2018
+ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: c84af250a9e8dbff578f58abc7e3558d95ecbe93
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 68abb5fd95823941bdb5d87d7ebc6675b0760850
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904547"
+ms.locfileid: "54912517"
 ---
 # <a name="understand-policy-effects"></a>Förstå Policy-effekter
 
@@ -259,7 +259,7 @@ Den **information** egenskapen för DeployIfNotExists effekterna har alla subege
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (valfritt)
   - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
-  - Anger typ av distribution som ska utföras. _Prenumeration_ anger en [distribution på abonnemangsnivå]((../../../azure-resource-manager/deploy-to-subscription)), _ResourceGroup_ anger en distribution till en resursgrupp.
+  - Anger typ av distribution som ska utföras. _Prenumeration_ anger en [distribution på abonnemangsnivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resursgrupp.
   - En _plats_ egenskapen måste anges i den _distribution_ när du använder prenumeration på distributioner.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]

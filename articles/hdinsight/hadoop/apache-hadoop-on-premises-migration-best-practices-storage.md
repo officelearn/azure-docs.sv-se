@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: ec67cb6b4bc1dd29dbbac4056d3365a74b31a24c
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8f22885d67537194342115f07e4d04bc4b5c66da
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53013718"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911752"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---storage-best-practices"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight - Metodtips för lagring
 
@@ -101,13 +101,13 @@ Tidigare hade molnbaserad analys att angripa i delar av prestanda, hantering och
 
 - **Hadoop-kompatibel åtkomst**: Azure Data Lake Storage Gen2 kan du hantera och komma åt data precis som med en [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Den nya [ABFS drivrutinen](../../storage/data-lake-storage/abfs-driver.md) är tillgängliga i alla Apache Hadoop-miljöer som ingår i [Azure HDInsight](../index.yml). Den här drivrutinen ger dig tillgång till data som lagras i Data Lake Storage Gen2.
 
-- **En överordnad uppsättning av behörigheter av POSIX**: säkerhetsmodellen för Data Lake Gen2 har fullständigt stöd för ACL och POSIX behörigheter tillsammans med vissa extra kornighet som är specifika för Data Lake Storage Gen2. Inställningarna kan konfigureras via Administrationsverktyg eller ramverk som Hive och Spark.
+- **En överordnad uppsättning av behörigheter av POSIX**: Säkerhetsmodellen för Data Lake Gen2 har fullständigt stöd för ACL och POSIX behörigheter tillsammans med vissa extra kornighet som är specifika för Data Lake Storage Gen2. Inställningarna kan konfigureras via Administrationsverktyg eller ramverk som Hive och Spark.
 
-- **Kostnadseffektiv**: Data Lake Storage Gen2 funktioner billigt lagringskapacitet och transaktioner. Som data övergångar via dess hela livscykel, faktureringstaxor ändras för att minimera kostnaderna via inbyggda funktioner som [livscykel för Azure Blob storage](../../storage/common/storage-lifecycle-management-concepts.md).
+- **Kostnadseffektiv**: Lagringskapacitet för data Lake Storage Gen2 funktioner billigt och transaktioner. Som data övergångar via dess hela livscykel, faktureringstaxor ändras för att minimera kostnaderna via inbyggda funktioner som [livscykel för Azure Blob storage](../../storage/common/storage-lifecycle-management-concepts.md).
 
 - **Fungerar med Blob storage-verktyg, ramverk och appar**: Data Lake Storage Gen2 fortsätter att fungera med en mängd olika verktyg, ramverk och program som finns i dag för Blob storage.
 
-- **Optimerad drivrutinen**: The Azure Blob-filsystem (ABFS) drivrutinenär [optimerats specifikt](../../storage/data-lake-storage/abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via dfs-slutpunkt, dfs.core.windows.net.
+- **Optimerad drivrutinen**: Azure Blob-filsystem-drivrutinen (ABFS) är [optimerats specifikt](../../storage/data-lake-storage/abfs-driver.md) för analys av stordata. De motsvarande REST-API: erna exponeras via dfs-slutpunkt, dfs.core.windows.net.
 
 Något av följande format kan användas för att komma åt data som lagras i ADLS Gen2:
 - `abfs:///`: Åtkomst till standard Data Lake-lagring för klustret.
@@ -115,8 +115,9 @@ Något av följande format kan användas för att komma åt data som lagras i AD
 
 Mer information finns i följande artiklar:
 
-- [Introduktion till Azure Data Lake Storage Gen2 förhandsversion](../../storage/data-lake-storage/introduction.md)
+- [Introduktion till Azure Data Lake Storage Gen2 – förhandsversion](../../storage/data-lake-storage/introduction.md)
 - [Azure Blob-filsystem-drivrutinen (ABFS.md)](../../storage/data-lake-storage/abfs-driver.md)
+- [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 ## <a name="secure-azure-storage-keys-within-on-premises-hadoop-cluster-configuration"></a>Skydda Azure Storage-nycklar i lokala Hadoop-klusterkonfiguration
 
@@ -157,7 +158,7 @@ HDInsight som standard har fullständig åtkomst till data i Azure Storage-konto
 
     |Token-egenskapen|Beskrivning|
     |---|---|
-    |principens_namn|Namnet du använder för lagrade principen för att skapa.|
+    |policy_name|Namnet du använder för lagrade principen för att skapa.|
     |storage_account_name|Namnet på ditt lagringskonto.|
     |storage_account_key|Nyckel för lagringskontot.|
     |storage_container_name|Behållare i lagringskontot som du vill begränsa åtkomst till.|
@@ -173,7 +174,7 @@ HDInsight som standard har fullständig åtkomst till data i Azure Storage-konto
 
 6. Använd följande värden för den **nyckel** och **värdet** fält:
 
-    **Nyckeln**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **värdet**: The SAS-nyckel som returneras av Python-program från steg 4 ovan.
+    **nyckeln**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **Värdet**: SAS-NYCKELN som returneras av Python-program från steg 4 ovan.
 
 7. Klicka på den **Lägg till** knappen för att spara den här nyckeln och värdet och klicka sedan på den **spara** för att spara konfigurationsändringarna. När du uppmanas, lägga till en beskrivning av ändringen (”att lägga till SAS-lagringsåtkomst” till exempel) och klicka sedan på **spara**.
 

@@ -3,19 +3,19 @@ title: Azure AD SSPR-datakrav | Microsoft Docs
 description: Uppgifter som krävs för Azure AD-lösenord via Självbetjäning för återställning och hur du uppfyller dem
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: f30a0d80b40626530ecebdb129daff4a0c5215fc
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7eff2ba229d939e4fa59dc56bce8c72da62983ed
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426207"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080318"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Distribuera lösenordsåterställning utan registrerad slutanvändare
 

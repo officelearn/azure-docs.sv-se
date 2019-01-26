@@ -16,12 +16,12 @@ ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ms.custom: mvc
-ms.openlocfilehash: 8dcc64350e25be0c8131dc75d96f2a8938944eaf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 314d40ba365f6dc9a279744ac3af874057fd2321
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962189"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076799"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Azure Stack compute-kapacitetsplanering
 Den [VM-storlekar som stöds på Azure Stack](./user/azure-stack-vm-sizes.md) är en delmängd av de som stöds på Azure. Azure tillämpar resursbegränsningar längs många vektorer att undvika överförbrukning av resurser (server lokalt och tjänstnivå). Klient-upplevelser blir lidande när andra klienter overconsume resurser utan att införa vissa begränsningar på klientförbrukningen. Det finns bandbredd caps på plats på Azure Stack som matchar Azure begränsningar för nätverk utgående data från den virtuella datorn. För lagringsresurser, har IOPs Lagringsgränser implementerats på Azure Stack för att undvika grundläggande överförbrukning av resurser av klienter för lagringsåtkomst.  
@@ -29,10 +29,7 @@ Den [VM-storlekar som stöds på Azure Stack](./user/azure-stack-vm-sizes.md) ä
 ## <a name="vm-placement-and-virtual-to-physical-core-overprovisioning"></a>Placering av virtuella datorer och skaffa stora resurser till fysisk kärna
 I Azure Stack finns det inget sätt för en klient att ange en specifik server ska användas för placering av virtuella datorer. Den enda faktor vid placerar VM: ar är om det finns tillräckligt med minne på värden för den typ av virtuell dator. Azure Stack överanstränga inte minne. men tillåts en overcommit av antalet kärnor. Eftersom placering algoritmer inte kan hitta på den befintliga virtuella till fysiska kärnor överetablering förhållande som en faktor, kan varje värd ha ett annat förhållande. 
 
-I Azure, för att uppnå hög tillgänglighet i ett system för produktion av flera virtuella datorer, virtuella datorer är placerade i en tillgänglighetsuppsättning sprids via flera feldomäner. Det betyder att virtuella datorer placeras i en tillgänglighetsuppsättning är fysiskt isolerade från varandra i en ställning att tillåta för återhämtning för fel som visas i följande diagram:
-
-![Fel- och uppdateringsdomäner](media/azure-stack-capacity-planning/domains.png)
-
+I Azure, för att uppnå hög tillgänglighet i ett system för produktion av flera virtuella datorer, virtuella datorer är placerade i en tillgänglighetsuppsättning sprids via flera feldomäner. I Azure Stack definieras en feldomän i en tillgänglighetsuppsättning som en nod i skalningsenheten.
 
 Infrastrukturen i Azure Stack är elastisk vid fel, medför den underliggande tekniken (redundanskluster) fortfarande vissa avbrott för virtuella datorer på en fysisk server som påverkas i händelse av ett maskinvarufel. För närvarande stöder Azure Stack med en tillgänglighetsuppsättning med högst tre feldomäner för att överensstämma med Azure. Virtuella datorer placeras i en tillgänglighetsuppsättning kommer att fysiskt isolerade från varandra genom att sprida dem så jämnt som möjligt via flera feldomäner (Azure Stack-noder). Om det finns ett maskinvarufel, kommer virtuella datorer från den misslyckade feldomänen att startas om på andra noder, men om möjligt sparas i separata feldomäner från andra virtuella datorer i samma tillgänglighetsuppsättning. När maskinvaran som är online igen, kommer du genomförs virtuella datorer för att upprätthålla hög tillgänglighet.
 

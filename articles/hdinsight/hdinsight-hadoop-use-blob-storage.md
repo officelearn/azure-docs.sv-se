@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/04/2019
-ms.openlocfilehash: a94f55449535faf0f4d061e3368f408843361063
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 05793afc5de8b6c8285c1f700929e4f110bdfc8d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051976"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912577"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -338,6 +338,7 @@ Mer information finns i:
 * [Använda Apache Hive med HDInsight][hdinsight-use-hive]
 * [Använda Apache Hive med HDInsight][hdinsight-use-pig]
 * [Använda signaturer för delad åtkomst i Azure Storage för att begränsa åtkomsten till data med HDInsight][hdinsight-use-sas]
+* [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)
 
 [hdinsight-use-sas]: hdinsight-storage-sharedaccesssignature-permissions.md
 [powershell-install]: /powershell/azureps-cmdlets-docs

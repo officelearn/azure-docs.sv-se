@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: de625e7cc394d1b292f9876a1b4cdd3fb0daeaa8
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 5f43dba09544d870d9cecc8de34abc4f60554104
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134802"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079128"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning-Avvikelseidentifiering API
 ## <a name="overview"></a>Översikt
@@ -24,9 +24,9 @@ ms.locfileid: "53134802"
 
 Detta API kan identifiera följande typer av avvikande mönster i tidsseriedata:
 
-* **Positiva och negativa trender**: till exempel när övervakning minnesanvändningen vid en uppåtgående trend kan vara av intresse som det kan tyda på en minnesläcka
-* **Ändringar i dynamiska värdeintervall**: till exempel när du övervakar undantag som utlöses av en tjänst i molnet, ändringar i dynamiska värdeintervall kan tyda på instabilitet i hälsotillståndet för tjänsten, och
-* **Toppar och dalar**: till exempel när du övervakar antalet misslyckade inloggningar i en tjänst eller antalet utcheckningar på en webbplats för e-handel, toppar och dalar kan tyda på onormalt beteende.
+* **Positiva och negativa trender**: Till exempel när du övervakar minnesanvändningen vid databehandling trenden kan vara av intresse som det kan tyda på en minnesläcka
+* **Ändringar i dynamiska värdeintervall**: Till exempel när du övervakar undantag som utlöses av en tjänst i molnet, ändringar i dynamiska värdeintervall kan tyda på instabilitet i hälsotillståndet för tjänsten, och
+* **Toppar och dalar**: Till exempel när du övervakar antalet misslyckade inloggningar i en tjänst eller antalet utcheckningar på en webbplats för e-handel, kan toppar och dalar tyda på onormalt beteende.
 
 Dessa machine learning detektorerna spåra ändringar i värden över tid och rapporten löpande ändringar i deras värden som avvikelseidentifiering resultat. De behöver inte ad hoc tröskelvärdet justering och deras resultat kan användas till att styra andel falska positiva identifieringar. Avvikelseidentifiering API är användbart i flera scenarier som tjänstövervakning genom att spåra KPI: er med tiden, övervakning av programanvändning via mått, till exempel antal sökningar, antal klick, prestandaövervakning via räknare t.ex. minne, CPU, filen läser osv. med tiden.
 
@@ -36,25 +36,25 @@ Avvikelseidentifiering erbjudandet kommer med bra verktyg för att komma igång.
 
 > [!NOTE]
 > Försök **insikter för IT-avvikelser lösning** drivs av [detta API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)
-> 
+>
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
---> 
+-->
 
 ## <a name="api-deployment"></a>API-distribution
-Om du vill använda API: et, måste du distribuera den till din Azure-prenumeration där det ska finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Det innebär distribueras två AzureML-webbtjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelseidentifiering med säsongsberoende identifiering och en utan säsongsberoende identifiering.  När distributionen är klar kommer du att kunna hantera dina API: er från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Från den här sidan kommer du att kunna hitta dina slutpunkter, API-nycklar, samt exempelkod för att anropa API: et.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
+Om du vill använda API: et, måste du distribuera den till din Azure-prenumeration där det ska finnas som en Azure Machine Learning-webbtjänst.  Du kan göra detta från den [Azure AI-galleriet](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Detta distribuerar två Azure Machine Learning studio-webbtjänster (och deras relaterade resurser) till din Azure-prenumeration – en för avvikelseidentifiering med säsongsberoende identifiering och en utan säsongsberoende identifiering.  När distributionen är klar kommer du att kunna hantera dina API: er från den [Azure Machine Learning studio-webbtjänster](https://services.azureml.net/webservices/) sidan.  Från den här sidan kommer du att kunna hitta dina slutpunkter, API-nycklar, samt exempelkod för att anropa API: et.  Mer detaljerade instruktioner finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Skalning av API: et
 Som standard har distributionen en kostnadsfri Dev/Test faktureringsplan som innehåller 1 000 transaktioner per månad och 2 beräkning timmar/månad.  Du kan uppgradera till en annan plan enligt dina behov.  Information om priser för olika planerna finns [här](https://azure.microsoft.com/pricing/details/machine-learning/) under ”Web API för produktion prissättningen”.
 
-## <a name="managing-aml-plans"></a>Hantera AML-planer 
+## <a name="managing-aml-plans"></a>Hantera AML-planer
 Du kan hantera din faktureringsplan [här](https://services.azureml.net/plans/).  Plannamnet baseras på resursgruppens namn du valde när du distribuerar API: et plus en sträng som är unik för din prenumeration.  Instruktioner om hur du uppgraderar din plan finns [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice) under avsnittet ”Hantera faktureringsplaner”.
 
 ## <a name="api-definition"></a>API-definition
 Webbtjänsten innehåller ett REST-baserad API via HTTPS som kan användas på olika sätt, inklusive ett webbprogram eller mobila program, R, Python, Excel, osv.  Du skickar din time series-data till den här tjänsten via ett REST API-anrop och den körs en kombination av de tre avvikelseidentifiering typer som beskrivs nedan.
 
 ## <a name="calling-the-api"></a>Anropa API
-För att anropa API behöver veta slutpunktens plats och API-nyckel.  Båda dessa tillsammans med exempelkod för att anropa API: et, är tillgängliga från den [AzureML-webbtjänster](https://services.azureml.net/webservices/) sidan.  Navigera till önskade API och klicka sedan på fliken ”förbruka” för att hitta dem.  Observera att du kan anropa API: et som Swagger-API (dvs. med URL-parameter `format=swagger`) eller som en icke - Swagger API (d.v.s. utan den `format` URL-parameter).  Exempelkoden använder Swagger-format.  Nedan visas ett exempel begäranden och svar i icke-Swagger-format.  Dessa exempel är till slutpunkten säsongsberoende.  Icke-säsongsberoende slutpunkten är liknande.
+För att anropa API behöver veta slutpunktens plats och API-nyckel.  Båda dessa tillsammans med exempelkod för att anropa API: et, är tillgängliga från den [Azure Machine Learning studio-webbtjänster](https://services.azureml.net/webservices/) sidan.  Navigera till önskade API och klicka sedan på fliken ”förbruka” för att hitta dem.  Observera att du kan anropa API: et som Swagger-API (dvs. med URL-parameter `format=swagger`) eller som en icke - Swagger API (d.v.s. utan den `format` URL-parameter).  Exempelkoden använder Swagger-format.  Nedan visas ett exempel begäranden och svar i icke-Swagger-format.  Dessa exempel är till slutpunkten säsongsberoende.  Icke-säsongsberoende slutpunkten är liknande.
 
 ### <a name="sample-request-body"></a>Exemplet Begärandetexten
 Begäran innehåller två objekt: `Inputs` och `GlobalParameters`.  I exemplet begäran nedan, vissa parametrar skickas uttryckligen medan andra inte (Rulla ned för en fullständig lista över parametrar för varje slutpunkt).  Parametrar som inte skickas uttryckligen i begäran ska använda standardvärdena som anges nedan.
@@ -100,7 +100,8 @@ Observera att om du vill se den `ColumnNames` fält, måste du inkludera `detail
 
 
 ## <a name="score-api"></a>Poäng API
-Poäng-API används för att köra identifiering av avvikelser på icke säsongsbundna time series-data. API: et kör ett antal avvikelseidentifiering detektorerna på data och returnerar sina avvikelseidentifiering poäng. Bilden nedan visar ett exempel på avvikelser som poäng API: et kan identifiera. Den här gången-serien har 2 distinkta ändras och 3 toppar. De röda punkterna visar den tid då nivån ändring identifieras, medan de svarta punkterna visa de identifierade toppar.
+Poäng-API används för att köra identifiering av avvikelser på icke säsongsbundna time series-data. API: et kör ett antal avvikelseidentifiering detektorerna på data och returnerar sina avvikelseidentifiering poäng.
+Bilden nedan visar ett exempel på avvikelser som poäng API: et kan identifiera. Den här gången-serien har 2 distinkta ändras och 3 toppar. De röda punkterna visar den tid då nivån ändring identifieras, medan de svarta punkterna visa de identifierade toppar.
 ![Poäng API][1]
 
 ### <a name="detectors"></a>Detektorerna
@@ -108,8 +109,8 @@ Avvikelseidentifiering API stöder detektorerna i 3 olika kategorier. Informatio
 
 | Detektor kategori | Detektor | Beskrivning | Indataparametrar | Utdata |
 | --- | --- | --- | --- | --- |
-| Topp detektorerna |TSpike detektor |Identifiera toppar och dalar baserat på mycket värdena kommer från första och tredje Kvartiler |*tspikedetector.sensitivity:* tar heltal i intervallet 1-10 standard: 3; Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |TSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars |
-| Topp detektorerna | ZSpike detektor |Identifiera toppar och dalar baserat på hur långt datapoints är medelvärdet för |*zspikedetector.sensitivity:* ta heltal i intervallet 1-10 standard: 3; Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |ZSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars | |
+| Topp detektorerna |TSpike detektor |Identifiera toppar och dalar baserat på mycket värdena kommer från första och tredje Kvartiler |*tspikedetector.sensitivity:* tar heltal i intervallet 1-10 standard: 3. Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |TSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars |
+| Topp detektorerna | ZSpike detektor |Identifiera toppar och dalar baserat på hur långt datapoints är medelvärdet för |*zspikedetector.sensitivity:* ta heltal i intervallet 1-10 standard: 3. Högre värden ska fånga upp mer extrema värden, vilket gör det mindre känsliga |ZSpike: binära värden – '1' om en topp/dip upptäcks, '0' annars | |
 | Långsam Trend detektor |Långsam Trend detektor |Identifiera långsamma positivt trend enligt set-känslighet |*trenddetector.sensitivity:* tröskelvärdet på detektor poäng (standard: 3,25, 3,25 – 5 är ett rimligt intervall att välja det från; Ju högre det mindre känsligt) |tscore: flytande tal som representerar avvikelsepoäng på trend |
 | Nivåändring detektorerna | Dubbelriktad nivå ändringen detektor |Identifiera både uppåt och nedåt nivåändring enligt set-känslighet |*bileveldetector.sensitivity:* tröskelvärdet på detektor poäng (standard: 3,25, 3,25 – 5 är ett rimligt intervall att välja det från; Ju högre det mindre känsligt) |rpscore: flytande tal som representerar avvikelsepoäng på uppåt och nedåt nivåändring | |
 
@@ -127,7 +128,7 @@ Mer detaljerad information om dessa indataparametrar visas i tabellen nedan:
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i utdataresultat |0 |heltal |0 (Håll alla datapunkter), eller ange många saker att resultat |Gäller inte |
 
 ### <a name="output"></a>Resultat
-API: et körs alla detektorerna på dina tidsseriedata och returnerar poängen för avvikelseidentifiering och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et. 
+API: et körs alla detektorerna på dina tidsseriedata och returnerar poängen för avvikelseidentifiering och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et.
 
 | Utdata | Beskrivning |
 | --- | --- |
@@ -141,7 +142,7 @@ API: et körs alla detektorerna på dina tidsseriedata och returnerar poängen f
 | talert |1/0-värde som anger det är ett positivt trend avvikelseidentifiering baserat på inkommande känslighet |
 
 ## <a name="scorewithseasonality-api"></a>ScoreWithSeasonality API
-ScoreWithSeasonality-API används för att köra identifiering av avvikelser på tidsserier som har säsongens mönster. Detta API är användbar för att identifiera avvikelser på säsongens mönster.  
+ScoreWithSeasonality-API används för att köra identifiering av avvikelser på tidsserier som har säsongens mönster. Detta API är användbar för att identifiera avvikelser på säsongens mönster.
 Följande bild visar ett exempel på avvikelser som har identifierats i en säsongens tidsserie. Tidsserien har en topp (i 1 svart punkt), två dalar (2 svart punkt och en i slutet) och en nivåändring (röd punkt). Observera att båda dip mitt i tidsserien och nivån ändringen endast går när säsongens komponenter har tagits bort från serien.
 ![Säsongsberoende API][2]
 
@@ -170,7 +171,7 @@ Mer detaljerad information om dessa indataparametrar visas i tabellen nedan:
 | postprocess.tailRows |Antal senaste datapunkter som ska behållas i utdataresultat |0 |heltal |0 (Håll alla datapunkter), eller ange många saker att resultat |Gäller inte |
 
 ### <a name="output"></a>Resultat
-API: et körs alla detektorerna på dina tidsseriedata och returnerar poängen för avvikelseidentifiering och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et. 
+API: et körs alla detektorerna på dina tidsseriedata och returnerar poängen för avvikelseidentifiering och binära topp indikatorer för varje punkt i tiden. I tabellen nedan visas utdata från API: et.
 
 | Utdata | Beskrivning |
 | --- | --- |

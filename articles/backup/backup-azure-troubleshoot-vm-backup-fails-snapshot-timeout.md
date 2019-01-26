@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 1ee45699040f58a1317009ab44bb5ac863323869
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54816763"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912572"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -59,7 +59,7 @@ Häv spärren för resursgruppen för den virtuella datorn för att lösa proble
 **Steg 1: [Ta bort låset från resursgruppen återställningspunkt](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Steg 2: [Rensa samling med återställningspunkter](#clean_up_restore_point_collection)**<br>
 
-## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - säkerhetskopiering har inte tillräckliga behörigheter till nyckelvalvet för säkerhetskopiering för krypterade virtuella datorer.
+## <a name="usererrorkeyvaultpermissionsnotconfigured---backup-doesnt-have-sufficient-permissions-to-the-key-vault-for-backup-of-encrypted-vms"></a>UserErrorKeyvaultPermissionsNotConfigured - säkerhetskopiering har inte tillräckliga behörigheter till nyckelvalvet för säkerhetskopiering för krypterade virtuella datorer
 
 **Felkod**: UserErrorKeyvaultPermissionsNotConfigured <br>
 **Felmeddelande**: Säkerhetskopiering har inte tillräckliga behörigheter till nyckelvalvet för säkerhetskopiering för krypterade virtuella datorer. <br>
@@ -105,7 +105,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Felmeddelande**: För närvarande har Azure Backup inte stöd för diskstorlekar som är större än 1023 GB <br>
 
-Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till omedelbar återställning. Uppgradera till omedelbar återställning ger stöd för upp till 4TB, finns i den här [artikeln](backup-instant-restore-capability.md).  
+Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till omedelbar återställning. Uppgradera till omedelbar återställning ger stöd för upp till 4TB, finns i den här [artikeln](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported – för närvarande Azure Backup stöder inte Standard SSD-diskar
 
@@ -114,7 +114,7 @@ Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella dator
 
 Azure Backup stöder för närvarande Standard SSD-diskar endast för valv som har uppgraderats till [omedelbar återställning](backup-instant-restore-capability.md).
 
-## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu.
+## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu
 
 **Felkod**: UserErrorBackupOperationInProgress <br>
 **Felmeddelande**: Det går inte att påbörja säkerhetskopieringen eftersom en annan säkerhetskopiering pågår just nu<br>
@@ -132,7 +132,6 @@ Senaste säkerhetskopieringsjobbet misslyckades eftersom det finns en befintlig 
 4. Försök att säkerhetskopiera igen.
 
 Om den schemalagda säkerhetskopieringen tar längre tid som är i konflikt med nästa säkerhetskopieringskonfigurationen granskar den [metodtips](backup-azure-vms-introduction.md#best-practices), [säkerhetskopieringsprestanda](backup-azure-vms-introduction.md#backup-performance) och [återställa beräkningen ](backup-azure-vms-introduction.md#restore-considerations).
-
 
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar

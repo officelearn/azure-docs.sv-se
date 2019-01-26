@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 848d6ffbccc809df1ab5c012c38174e13eacc391
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: bce28a2498793b7a1edb8aa0437a7d7c75a45ae9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828272"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911956"
 ---
 # <a name="content-protection-overview"></a>Content protection-översikt
 
@@ -60,7 +60,9 @@ För att slutföra utformningen ”content protection” system/program, måste 
 
     För testning AES eller CENC (Widevine och/eller PlayReady) krypterat innehåll, du kan använda [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Kontrollera att du klickar på ”Avancerat” och kontrollera dina alternativ för kryptering.
 
-    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, Microsoft Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
+    Om du vill testa FairPlay krypterat innehåll, använda [det här testet player](https://aka.ms/amtest). Media player stöder Widevine, PlayReady, och FairPlay DRM: er samt AES-128 Rensa nyckelkryptering. 
+    
+    Du måste välja rätt webbläsaren om du vill testa olika DRM: er: Chrome/Opera/Firefox för Widevine, Microsoft Edge/IE11 för PlayReady, Safari på macOS för FairPlay.
 
 3. Skydda säkerhetstokentjänst (STS), som utfärdar JSON Web Token (JWT) som åtkomsttoken för åtkomst till serverdelen. Du kan använda AMS-licensleveranstjänster som backend-resurs. En STS har du definiera följande:
 
@@ -69,7 +71,7 @@ För att slutföra utformningen ”content protection” system/program, måste 
   * Symmetriskt eller asymmetriskt verifiering för signaturverifiering
   * Stöd för nyckelförnyelse (vid behov)
 
-    Du kan använda [STS verktyget](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) till testet STS, som har stöd för alla 3 typer av verifieringsnyckel: symmetrisk, asymmetrisk, eller AAD med nyckelförnyelse. 
+    Du kan använda [STS verktyget](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) till testet STS, som har stöd för alla 3 typer av verifieringsnyckel: symmetrisk, asymmetrisk eller Azure AD med nyckelförnyelse. 
 
 > [!NOTE]
 > Vi rekommenderar starkt att fokusera och fullständigt Testa varje del (beskrivs ovan) innan du fortsätter till nästa del. Använd de verktyg som anges i listan ovan om du vill testa systemet ”content protection”.  

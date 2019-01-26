@@ -6,7 +6,7 @@ documentationcenter: ''
 author: MarkusVi
 manager: mtillman
 editor: ''
-ms.component: devices
+ms.subservice: devices
 ms.assetid: 6ae9df8b-31fe-4d72-9181-cf50cfebbf05
 ms.service: active-directory
 ms.workload: identity
@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: b1711b86042c74eba47fe1cfa41bbbd36ceaf127
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248766"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079077"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 
@@ -99,11 +99,11 @@ Följ stegen i checklistan om du vill aktivera och konfigurera Azure Active Dire
 | --- | --- |
 | Slutför del två av ”aktivera tillbakaskrivning av enheter i Azure AD Connect”. När du har det kan gå tillbaka till den här guiden. |[Aktivera tillbakaskrivning av enheter i Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
-## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Valfritt] Del 4: Aktivera Multi-Factor Authentication
+## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Valfritt] Del 4: Enable Multi-Factor Authentication
 
 Vi rekommenderar starkt att du konfigurerar ett av flera alternativ för Multifaktorautentisering. Om du vill kräva Multifaktorautentisering finns i [Välj Multi-Factor Authentication-säkerhetslösning för dig](authentication/concept-mfa-whichversion.md). Den innehåller en beskrivning av varje lösning och länkar om du vill konfigurera lösning för jobbschemaläggning.
 
-## <a name="part-5-verification"></a>Del 5: verifiering
+## <a name="part-5-verification"></a>Del 5: Verifiering
 
 Distributionen är nu klar och du kan prova några scenarier. Använd följande länkar för att experimentera med tjänsten och bekanta dig med dess funktioner.
 
@@ -158,7 +158,7 @@ Distributionen är nu klar och du kan prova några scenarier. Använd följande 
 
 ### <a name="prepare-azure-ad-connect-for-device-writeback"></a>Förbereda Azure AD Connect för tillbakaskrivning av enhet
 
-Slutför del 1: förbereda Azure AD Connect.
+Slutför del 1: Förbereda Azure AD Connect.
 
 ## <a name="join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service"></a>Anslut enheter till din arbetsplats med hjälp av enhetsregistreringstjänsten för Azure Active Directory
 
@@ -197,7 +197,7 @@ Som standard är enhetsobjekt som skrivs tillbaka från Azure Active Directory p
 
 ## <a name="create-an-application-access-policy-and-custom-access-denied-message"></a>Skapa en programåtkomstprincip och ett anpassat meddelande för nekad åtkomst
 
-Studera följande scenario: du skapar ett program förlitande Partsförtroendet i AD FS och konfigurerar en regel för auktorisering av utfärdande som tillåter endast registrerade enheter. Nu tillåts endast enheter som är registrerade åtkomst till programmet. 
+Föreställ dig följande: Du skapar ett program förlitande Partsförtroendet i AD FS och konfigurera en regel för auktorisering av utfärdande som tillåter endast registrerade enheter. Nu tillåts endast enheter som är registrerade åtkomst till programmet. 
 
 Om du vill göra det enklare för användarna att få åtkomst till programmet, kan du konfigurera ett anpassat nekad meddelande med instruktioner för hur du ansluter till sin enhet. Användarna har nu ett sömlöst sätt att registrera sina enheter så att de kan komma åt ett program.
 

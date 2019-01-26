@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: d57a80ec2a1ebfca173d7eaa165de4d344af2ccf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54391114"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913367"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -29,7 +29,7 @@ Med Azure Logic Apps och FTP-anslutningsappen kan skapa du automatiserade uppgif
 Du kan använda utlösare som få svar från FTP-servern och göra utdata som är tillgängliga för andra åtgärder. Du kan använda Kör åtgärder i dina logic apps för att hantera filer på FTP-servern. Du kan också ha andra åtgärder som använder utdata från FTP-åtgärder. Om du regelbundet får filer från FTP-servern kan skicka du e-postmeddelande om dessa filer och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning. Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
 > [!NOTE]
-> FTP-anslutningsappen stöder bara filer som är 50 MB eller mindre om du inte använder [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). 
+> FTP-anslutningsappen stöder bara filer som är 50 MB eller mindre om du inte använder [meddelande storlekar i åtgärder](../logic-apps/logic-apps-handle-large-messages.md). För närvarande kan använda du inte storlekar för utlösare.
 >
 > Dessutom FTP-anslutningsappen stöder bara explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS. 
 
@@ -66,13 +66,27 @@ Du kan använda utlösare som få svar från FTP-servern och göra utdata som ä
 
 1. Ange informationen som krävs för din valda utlösare eller åtgärd och fortsätt att utveckla logikappens arbetsflöde.
 
+När du begär filinnehåll hämta utlösaren inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret:
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Exempel
+
+<a name="file-added-modified"></a>
 
 ### <a name="ftp-trigger-when-a-file-is-added-or-modified"></a>FTP-utlösare: När en fil läggs till eller ändras
 
 Den här utlösaren startar en logikapparbetsflöde när utlösaren identifierar när en fil läggs till eller ändras på en FTP-server. Till exempel kan du lägga till ett villkor som kontrollerar dess innehåll och beslutar om att hämta innehållet, baserat på om innehållet uppfyller ett angivet villkor. Slutligen kan du lägga till en åtgärd som hämtar filens innehåll och placera innehållet i en mapp på SFTP-server. 
 
 **Enterprise exempel**: Du kan använda den här utlösaren för att övervaka en FTP-mapp för nya filer som beskriver kundorder. Du kan sedan använda en FTP-åtgärd som **hämta filinnehåll**, så du kan hämta den ordning innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
+
+När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
 
 En giltig och funktionella logikapp kräver en utlösare och minst en åtgärd. Kontrollera så att du lägger till en åtgärd när du lägger till en utlösare.
 
@@ -101,9 +115,19 @@ Här är ett exempel som visar den här utlösaren: **När en fil läggs till el
 
 Nu när logikappen har en utlösare, lägga till åtgärder som du vill köra när logikappen hittar en ny eller redigerad fil. Du kan lägga till en FTP-åtgärd som hämtar nya eller uppdaterade innehållet för det här exemplet.
 
+<a name="get-content"></a>
+
 ### <a name="ftp-action-get-content"></a>FTP-åtgärd: Hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en FTP-server när den filen läggs till eller uppdateras. Till exempel kan du lägga till utlösaren från exemplet ovan och en åtgärd som hämtar dess innehåll när den filen läggs till eller redigeras. 
+
+När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
+
+Här är ett exempel som visar den här åtgärden: **Hämta innehåll**
 
 1. Under utlösaren eller andra åtgärder, väljer **nytt steg**. 
 

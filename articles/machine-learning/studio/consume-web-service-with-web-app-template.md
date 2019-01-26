@@ -8,7 +8,7 @@ author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20
 
 Du kan utveckla en förutsägande modell och distribuera den som en Azure-webbtjänst med hjälp av:
 - Azure Machine Learning Studio.
-- Verktyg som R eller Python. 
+- Verktyg som R eller Python.
 
 Efter det kan du komma åt produktionsslutpunkt modellen med hjälp av ett REST-API.
 
@@ -23,10 +23,10 @@ Web appmallar som är tillgängliga på Azure Marketplace kan skapa ett anpassat
 
 Två mallar är tillgängliga:
 
-* [Azure ML-Request-Response Service Webbappmall](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
-* [Azure ML-Batch Execution Service Webbappmall](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
+* [Azure Machine Learning studio Request-Response Service Webbappmall](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlaspnettemplateforrrs/)
+* [Azure Machine Learning studio Batch Execution Service Webbappmall](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/)
 
-Varje mallen skapar ett exempelprogram för ASP.NET med hjälp av API-URI och nyckel för din webbtjänst. Mallen distribuerar sedan programmet som en webbplats till Azure. 
+Varje mallen skapar ett exempelprogram för ASP.NET med hjälp av API-URI och nyckel för din webbtjänst. Mallen distribuerar sedan programmet som en webbplats till Azure.
 
 Mallen Request-Response Service (RR) skapar en webbapp som du kan använda för att skicka en enda rad med data till webbtjänsten för att få ett enskilt resultat. BES Batch Execution Service ()-mallen skapar en webbapp som du kan använda för att skicka många rader med data för att få flera resultat.
 
@@ -51,33 +51,33 @@ Följ dessa steg om du vill använda mallen RRS web app som du ser i följande d
 <!--    ![API Key][image3] -->
 
 <!-- This value will look like this:
-   
+
         https://ussouthcentral.services.azureml.net/workspaces/<workspace-id>/services/<service-id>/execute?api-version=2.0&details=true
-   
+
     ![Request URI][image4] -->
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **New**, Sök efter och välj **Azure ML-Request-Response Service-Webbapp**, och välj sedan **skapa**. 
+2. Välj **New**, Sök efter och välj **Azure ML-Request-Response Service-Webbapp**, och välj sedan **skapa**.
 3. I den **skapa** fönstret:
-   
+
    * Ge ett unikt namn för din webbapp. URL: en för webbappen blir det här namnet följt av **. azurewebsites.net**. Ett exempel är **http://carprediction.azurewebsites.net**.
    * Välj de Azure-prenumeration och tjänster där webbtjänsten körs.
    * Välj **Skapa**.
-     
+
    ![Skapa webbapp][image5]
 
 4. När Azure har slutfört distributionen webbappen, väljer du den **URL** på webbappsinställningarna sidan i Azure eller ange URL: en i en webbläsare. Ange till exempel **http://carprediction.azurewebsites.net**.
 5. När webbappen körs första gången, uppmanas du för den **API post-URL** och **API-nyckel**. Ange de värden som du sparade tidigare (begärande-URI och API-nyckeln, respektive). Välj **skicka**.
-     
+
    ![Ange post URI och API-nyckeln][image6]
 
 6. Web app visar dess **Webbappkonfigurationen** sida med de aktuella inställningarna för web service. Här kan du ändra de inställningar som webbappen använder.
-   
+
    > [!NOTE]
    > Om du ändrar de här inställningarna endast ändras dem för det här webbprogrammet. Standardinställningarna för din webbtjänst ändras inte. Exempel: Om du ändrar texten i **beskrivning** här är den ändrar inte den beskrivning som visas på instrumentpanelen för webbtjänsten i Machine Learning Studio.
-   > 
-   > 
-   
+   >
+   >
+
     När du är klar väljer du **spara ändringar**, och välj sedan **gå till startsidan**.
 
 7. Du kan ange värden för att skicka till din webbtjänst från startsidan. Välj **skicka** när du är klar och resultatet returneras.
@@ -93,11 +93,11 @@ Indatavärden för en webbtjänst för batch-körningen kan komma från Azure St
 
 ![Processen för att använda mallen för BES-webb][image2]
 
-1. Följ samma procedur för att skapa webbappen BES för RRS-mallen. Men i det här fallet går du till [Webbappmall för Azure ML Batch Execution Service](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) öppna mallen för BES i Azure Marketplace. Välj **skapa Webbapp**.
+1. Följ samma procedur för att skapa webbappen BES för RRS-mallen. Men i det här fallet går du till [Azure Machine Learning studio Batch Execution Service Webbappmall](https://azure.microsoft.com/marketplace/partners/microsoft/azuremlbeswebapptemplate/) öppna mallen för BES i Azure Marketplace. Välj **skapa Webbapp**.
 
 2. För att ange var du vill att resultaten lagras, anger du information för mål-behållaren på webbappens startsida. Även ange där webbappen kan få indatavärdena: i en lokal fil eller i en Azure storage-behållare.
    Välj **skicka**.
-   
+
    ![Lagringsinformation][image7]
 
 Webbappen visar en sida med jobbstatus. När jobbet har slutförts visas platsen för resultaten i Azure Blob storage. Du har också möjlighet att hämta resultaten till en lokal fil.

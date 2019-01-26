@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.date: 10/20/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e00591338fd09cbba6d97e6affebc9dce2399f7c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6174dd210cf85bfa6a3daf38965d1da65801321c
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423770"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076340"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Signeringsnyckel i Azure Active Directory
 Den här artikeln beskriver vad du behöver veta om de offentliga nycklarna som används i Azure Active Directory (Azure AD) för att logga säkerhetstoken. Det är viktigt att Observera att dessa nycklar förnya regelbundet och, i nödfall, kan distribueras omedelbart. Alla program som använder Azure AD ska kunna programmässigt hantera nyckelförnyelse processen eller upprätta en process som regelbundet manuell förnyelse. Läs vidare för att förstå hur nycklarna fungerar, hur du kan utvärdera effekten av förnyelse för ditt program och hur du uppdaterar ditt program eller upprätta en regelbunden manuell förnyelse process för att hantera nyckelförnyelse om det behövs.
 
 ## <a name="overview-of-signing-keys-in-azure-ad"></a>Översikt över Signeringsnycklar i Azure AD
-Azure AD använder kryptografi med offentliga nycklar bygger på branschstandarder för att upprätta förtroende mellan själva och de program som använder den. I praktiken kan det här fungerar på följande sätt: Azure AD använder en signeringsnyckel som består av en offentlig och privat nyckel. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar en säkerhetstoken som innehåller information om användaren i Azure AD. Denna token är signerat av Azure AD med dess privata nyckel innan den skickas tillbaka till programmet. Om du vill verifiera att token är giltig och har sitt ursprung från Azure AD genom programmet måste validera token signatur med hjälp av den offentliga nyckeln som exponeras av Azure AD som finns i klientens [OpenID Connect discovery-dokumentet](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML / WS-Fed [federationsmetadatadokumentet](azure-ad-federation-metadata.md).
+Azure AD använder kryptografi med offentliga nycklar bygger på branschstandarder för att upprätta förtroende mellan själva och de program som använder den. I praktiken kan fungerar det här på följande sätt: Azure AD använder en signeringsnyckel som består av en offentlig och privat nyckel. När en användare loggar in till ett program som använder Azure AD för autentisering, skapar en säkerhetstoken som innehåller information om användaren i Azure AD. Denna token är signerat av Azure AD med dess privata nyckel innan den skickas tillbaka till programmet. Om du vill verifiera att token är giltig och har sitt ursprung från Azure AD genom programmet måste validera token signatur med hjälp av den offentliga nyckeln som exponeras av Azure AD som finns i klientens [OpenID Connect discovery-dokumentet](https://openid.net/specs/openid-connect-discovery-1_0.html) eller SAML / WS-Fed [federationsmetadatadokumentet](azure-ad-federation-metadata.md).
 
 Av säkerhetsskäl, kan Azure Active Directorys signering viktiga samlar regelbundet och, i nödfall, distribueras omedelbart. Alla program som kan integreras med Azure AD bör vara beredd att hantera en nyckelförnyelse händelse oavsett hur ofta kan det uppstå. Om inte, och programmet försöker använda en har upphört att gälla för att verifiera signaturen på en token, misslyckas inloggningsbegäranden.
 
@@ -286,7 +286,7 @@ Följ stegen nedan för att kontrollera att logiken som nyckelförnyelse fungera
           </keys>
    ```
 2. I den **<add thumbprint="">** ändra värdet för tumavtryck genom att ersätta alla tecken med ett annat namn. Spara den **Web.config** fil.
-3. Skapa programmet och sedan köra den. Om du kan slutföra inloggningsprocessen, uppdateras har nyckeln genom att hämta nödvändig information från din katalogs federationsmetadatadokumentet i ditt program. Om du har problem med inloggning, se till att ändringarna i ditt program är korrekta genom att läsa den [att lägga till inloggning till dina webb-program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikeln, eller hämta och granska följande kodexempel: [ Molnprogram med flera innehavare för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
+3. Skapa programmet och sedan köra den. Om du kan slutföra inloggningsprocessen, uppdateras har nyckeln genom att hämta nödvändig information från din katalogs federationsmetadatadokumentet i ditt program. Om du har problem med inloggning, se till att ändringarna i ditt program är korrekta genom att läsa den [att lägga till inloggning till dina webb-program med hjälp av Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) artikeln, eller hämta och granska följande kodexempel: [Molnprogram med flera innehavare för Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b).
 
 ### <a name="vs2010"></a>Webbprogram skyddar resurser och skapas med Visual Studio 2008 eller 2010 och Windows Identity Foundation (WIF) v1.0 för .NET 3.5
 Om du har byggt ett program på WIF v1.0 finns inga angivna mekanism för att automatiskt uppdatera konfigurationen för ditt program om du vill använda en ny nyckel.

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 01/24/2019
 ms.author: priyamo
-ms.openlocfilehash: 44f89e00333db8170f25392051e18f895f31e139
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 652fd8c8755d188b0f7971a576e46e1b99425a93
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54887750"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913044"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Självstudier: Använda en Windows VM systemtilldelade hanterad identitet för åtkomst till Azure Storage via SAS-autentiseringsuppgifter
 
@@ -37,6 +37,8 @@ En SAS för tjänst ger möjlighet att bevilja begränsad åtkomst till objekt i
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto 
 
@@ -150,17 +152,17 @@ PS C:\> $sasCred
 sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxqhTIuN0uiFBppdzhwHdehdYan1W%2F4O0E%3D
 ```
 
-Nu ska vi skapa en fil med namnet ”test.txt”. Använder SAS-autentiseringsuppgifter för att autentisera den `New-AzureStorageContent` cmdlet, ladda upp filen till vår blob-behållare och sedan ladda ned filen.
+Nu ska vi skapa en fil med namnet ”test.txt”. Använder SAS-autentiseringsuppgifter för att autentisera den `New-AzStorageContent` cmdlet, ladda upp filen till vår blob-behållare och sedan ladda ned filen.
 
 ```bash
 echo "This is a test text file." > test.txt
 ```
 
-Se till att installera alla Azure Storage-cmdlets först med hjälp av `Install-Module Azure.Storage`. Ladda upp bloben som du precis skapat med hjälp av PowerShell-cmdleten `Set-AzureStorageBlobContent`:
+Se till att installera alla Azure Storage-cmdlets först med hjälp av `Install-Module Azure.Storage`. Ladda upp bloben som du precis skapat med hjälp av PowerShell-cmdleten `Set-AzStorageBlobContent`:
 
 ```powershell
-$ctx = New-AzureStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
-Set-AzureStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
+$ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred
+Set-AzStorageBlobContent -File test.txt -Container <CONTAINER-NAME> -Blob testblob -Context $ctx
 ```
 
 Svar:
@@ -177,10 +179,10 @@ Context           : Microsoft.WindowsAzure.Commands.Storage.AzureStorageContext
 Name              : testblob
 ```
 
-Du kan också ladda ned bloben som du precis laddade upp med hjälp av PowerShell-cmdleten `Get-AzureStorageBlobContent`:
+Du kan också ladda ned bloben som du precis laddade upp med hjälp av PowerShell-cmdleten `Get-AzStorageBlobContent`:
 
 ```powershell
-Get-AzureStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
+Get-AzStorageBlobContent -Blob testblob -Container <CONTAINER-NAME> -Destination test2.txt -Context $ctx
 ```
 
 Svar:

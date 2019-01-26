@@ -9,23 +9,31 @@ author: prashanthyv
 ms.author: pryerram
 manager: mbaldwin
 ms.date: 10/03/2018
-ms.openlocfilehash: 3ee0d19c174490d558a8ff06d3f5e038ffff211f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: e9b9620c3c631a9984bc6d1d02dc792c592b6e69
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064448"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078397"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Azure Key Vault hanteras lagringskonto – CLI
 
 > [!NOTE]
-> [Azure storage stöder nu AAD auktorisering](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure Active Directory för autentisering och auktorisering till lagring som användarna inte behöver bekymra sig om roterar sina nycklar för Lagringskonto.
+> [Azure storage-integrering med Azure Active Directory (Azure AD) finns nu i förhandsversion](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). Vi rekommenderar att du använder Azure AD för autentisering och auktorisering, som ger OAuth2-tokenbaserad åtkomst till Azure storage, precis som Azure Key Vault. På så sätt kan du:
+> - Autentisera ditt klientprogram som använder en program- eller identitet, i stället för autentiseringsuppgifterna för lagringskontot. 
+> - Använd en [Azure AD-hanterad identitet](/azure/active-directory/managed-identities-azure-resources/) när körs på Azure. Hanterade identiteter ta bort behovet av klientautentisering som helhet och lagra autentiseringsuppgifter i eller med ditt program.
+> - Använd rollbaserad åtkomstkontroll (RBAC) för att hantera auktorisering, vilket även stöds av Key Vault.
 
 - Azure Key Vault hanterar nycklar för ett Azure Storage konto (ASA).
     - Azure Key Vault kan internt lista nycklar (sync) med Azure Storage-kontot.    
     - Genererar om Azure Key Vault (roterar) nycklarna regelbundet.
     - Nyckelvärden returneras aldrig i svaret till anroparen.
     - Azure Key Vault hanterar nycklarna för både Storage-konton och klassiska Lagringskonton.
+    
+> [!IMPORTANT]
+> En Azure AD-klient ger varje registrerade program med en  **[tjänstens huvudnamn](/azure/active-directory/develop/developer-glossary#service-principal-object)**, som fungerar som programmets identitet. Program-ID för tjänstens huvudnamn används när ger den behörighet att komma åt andra Azure-resurser via rollbaserad åtkomstkontroll (RBAC). Eftersom Key Vault är ett Microsoft-program, är den redan registrerad i alla Azure AD-klienter under samma program-ID, i varje Azure-molnet:
+> - Azure AD-klienter i Azure government-molnet använder program-ID `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - Azure AD-klienter i offentliga Azure-molnet och alla andra använda program-ID `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
 
 <a name="prerequisites"></a>Förutsättningar
 --------------

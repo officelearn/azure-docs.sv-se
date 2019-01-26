@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b120d50b6b0f72b5977d238866cfdf26fd9be5ff
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: d1d515786fde06f4622402f2c1d0c3add7cd8843
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436899"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913165"
 ---
 # <a name="an-introduction-to-apache-hadoop-security-with-enterprise-security-package"></a>En introduktion till Apache Hadoop-säkerhet med Enterprise Security Package
 
@@ -56,7 +56,7 @@ Ett HDInsight-kluster med ESP använder det välbekanta Apache Ranger-Användarg
 ## <a name="encryption"></a>Kryptering
 Skydda data är viktigt för att uppfylla organisationens säkerhets- och krav. Tillsammans med att begränsa åtkomsten till data från obehöriga anställda, bör du krypterar den. 
 
-Båda datalagren för HDInsight-kluster – Azure Blob storage och Azure Data Lake Storage Gen1 – stöd för transparent serversidan [kryptering av data](../../storage/common/storage-service-encryption.md) i vila. Skydda HDInsight-kluster fungerar sömlöst med den här funktionen för serversidan kryptering av data i vila.
+Båda datalagren för HDInsight-kluster – Azure Blob storage och Azure Data Lake Storage Gen1/Gen2 – stöd för transparent serversidan [kryptering av data](../../storage/common/storage-service-encryption.md) i vila. Skydda HDInsight-kluster fungerar sömlöst med den här funktionen för serversidan kryptering av data i vila.
 
 ## <a name="next-steps"></a>Nästa steg
 

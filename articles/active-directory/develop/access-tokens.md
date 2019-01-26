@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 164fc42d905c9354a58ea6f66a739ea05f12e601
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7dd2b60a985291311328407b07ef290e962f147b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157776"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080573"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Azure Active Directory-åtkomsttoken
 
@@ -75,7 +75,7 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 
 |Begäran | Format | Beskrivning |
 |--------|--------|-------------|
-| `typ` | Sträng - alltid ”JWT” | Anger att token är en JWT.|
+| `typ` | String - always "JWT" | Anger att token är en JWT.|
 | `nonce` | Sträng | En unik identifierare som används för att skydda mot token repetitionsattacker. Resursen kan registrera det här värdet för att skydda mot repetitioner. |
 | `alg` | Sträng | Anger den algoritm som användes för att signera token, till exempel ”RS256” |
 | `kid` | Sträng | Anger certifikatets tumavtryck för den offentliga nyckeln som används för att registrera den här token. Släpps i både v1.0 och v2.0-åtkomsttoken. |
@@ -87,7 +87,7 @@ Anspråk finns endast om ett värde för att fylla i. Appen ska därför inte sk
 |-----|--------|-------------|
 | `aud` | Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I åtkomst-token är målgruppen appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 | `iss` | Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om Utfärdad token är en v2.0-token (se den `ver` anspråk), URI: N går ut om `/v2.0`. Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
-|`idp`|Sträng, vanligtvis en STS-URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en orgnizational kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
+|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en orgnizational kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, en UNIX-tidsstämpel | ”Utfärdat till” anger när autentisering för den här token inträffade. |
 | `nbf` | int, en UNIX-tidsstämpel | ”Nbf” (inte före)-anspråket identifierar den tid som JWT inte måste godkännas för bearbetning. |
 | `exp` | int, en UNIX-tidsstämpel | ”Exp” (upphör att gälla)-anspråket identifierar den upphör att gälla på eller efter vilket JWT måste inte godkännas för bearbetning. Det är viktigt att Observera att en resurs kan avvisa token före denna tidpunkt, till exempel när en ändring i autentisering krävs eller en återkallningen av token har identifierats. |

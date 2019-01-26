@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: b26fd93ae4a06f66281e25302d02ad25920e97b4
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 2098a63322a0daf0fc6a051d2e89e7ed0fe3e7d8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856442"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912317"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-your-managed-domain"></a>Konfigurera begränsade synkronisering från Azure AD till din hanterade domän
 Den här artikeln visar hur du konfigurerar endast specifika användarkonton som ska synkroniseras från din Azure AD-katalog till din hanterade domän i Azure AD Domain Services.
@@ -89,7 +89,7 @@ Utför följande steg för att konfigurera gruppbaserad begränsade synkroniseri
   $AzureLocation = "westus"
 
   # Enable Azure AD Domain Services for the directory.
-  New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; "filteredSync" = "Enabled"; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -196,15 +196,15 @@ Använd följande PowerShell-skript för att inaktivera gruppbaserad begränsad 
 
 ```powershell
 // Login to your Azure AD tenant
-Login-AzureRmAccount
+Login-AzAccount
 
 // Retrieve the Azure AD Domain Services resource.
-$DomainServicesResource = Get-AzureRmResource -ResourceType "Microsoft.AAD/DomainServices"
+$DomainServicesResource = Get-AzResource -ResourceType "Microsoft.AAD/DomainServices"
 
 // Disable group-based scoped synchronization.
 $disableScopedSync = @{"filteredSync" = "Disabled"}
 
-Set-AzureRmResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
+Set-AzResource -Id $DomainServicesResource.ResourceId -Properties $disableScopedSync
 ```
 
 ## <a name="next-steps"></a>Nästa steg

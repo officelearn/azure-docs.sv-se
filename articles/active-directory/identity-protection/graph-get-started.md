@@ -8,40 +8,44 @@ author: MarkusVi
 manager: daveba
 ms.assetid: fa109ba7-a914-437b-821d-2bd98e681386
 ms.service: active-directory
-ms.component: conditional-access
+ms.component: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: nigu
 ms.custom: seohack1
-ms.openlocfilehash: d1703df524976bac4880975585e9d2e4f8af72fd
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 335d7638565512502b61c9d3227a85ff6137658f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475279"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912773"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Kom igång med Azure Active Directory Identity Protection och Microsoft Graph
-Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Den här artikeln kommer du igång fråga detta API. En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://developer.microsoft.com/graph/).
 
+Microsoft Graph är Microsofts enhetlig API-slutpunkt och hem för [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) API: er. Det finns tre API: er som visar information om riskfylld användare och inloggningar. Den första API **identityRiskEvents**, kan du fråga Microsoft Graph för en lista över [riskhändelser](../reports-monitoring/concept-risk-events.md) och tillhörande information. Andra API: et **riskyUsers**, kan du fråga Microsoft Graph för information om användare Identity Protection har identifierats som risk. Den tredje API **inloggning från**, kan du fråga Microsoft Graph information om Azure AD-inloggningar med specifika egenskaper som rör risktillstånd, information och nivå. Den här artikeln kommer du igång med [ansluter till Microsoft Graph](#Connect-to-Microsoft-Graph) och [frågor till dessa API: er](#Query-the-APIs). En djupgående introduktion, fullständig dokumentation och åtkomst till Graph-testaren finns i den [Microsoft Graph plats](https://graph.microsoft.io/) eller specifika referensdokumentationen för dessa API: er:
+
+* [identityRiskEvents API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/identityriskevent)
+* [riskyUsers API](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/riskyuser)
+* [inloggning från API: et](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/signin)
+
+
+## <a name="connect-to-microsoft-graph"></a>Ansluta till Microsoft graph
 
 Det finns fyra steg för att komma åt Identity Protection data via Microsoft Graph:
 
 1. Hämta ditt domännamn.
 2. Skapa en ny appregistrering. 
-2. Använd den här hemligheten och några andra typer av information för att autentisera till Microsoft Graph, där du får en autentiseringstoken. 
-3. Använd denna token för att göra begäranden till API-slutpunkt och får tillbaka Identity Protection-data.
+3. Använd den här hemligheten och några andra typer av information för att autentisera till Microsoft Graph, där du får en autentiseringstoken. 
+4. Använd denna token för att göra begäranden till API-slutpunkt och får tillbaka Identity Protection-data.
 
 Innan du börjar behöver du:
 
-- En Azure AD P2-klient
-
-- Administratörsbehörighet för att skapa programmet i Azure AD
-
-- Namnet på din klient-domänen (exempel: contoso.onmicrosoft.com)
+* Administratörsbehörighet för att skapa programmet i Azure AD
+* Namnet på din klient-domänen (exempel: contoso.onmicrosoft.com)
 
 
 ## <a name="retrieve-your-domain-name"></a>Hämta ditt domännamn 
@@ -52,14 +56,12 @@ Innan du börjar behöver du:
    
     ![Skapa ett program](./media/graph-get-started/41.png)
 
-3. Klicka på **anpassade domännamn**.
 
-    ![Egna domännamn](./media/graph-get-started/71.png)
+3. I den **hantera** klickar du på **egenskaper**.
 
-4. Kopiera det domännamn som flaggas som primär i listan över domännamn.
+    ![Skapa ett program](./media/graph-get-started/42.png)
 
-    ![Egna domännamn](./media/graph-get-started/72.png)
-
+4. Kopiera ditt domännamn.
 
 
 ## <a name="create-a-new-app-registration"></a>Skapa en ny appregistrering
@@ -77,9 +79,9 @@ Innan du börjar behöver du:
    
     ![Skapa ett program](./media/graph-get-started/44.png)
 
-    a. I den **namn** textrutan anger du ett namn för ditt program (t.ex.: AADIP Risk händelse-API-program).
+    a. I den **namn** textrutan anger du ett namn för ditt program (till exempel: AADIP Risk händelse-API-program).
    
-    b. Som **programtyp**väljer **webbprogram och / eller webb-API**.
+    b. Som **typ**väljer **webbprogram och / eller webb-API**.
    
     c. I den **inloggnings-URL** textrutan typ `http://localhost`.
 
@@ -161,7 +163,7 @@ Du bör nu ha:
 
 För att autentisera, skicka en post-begäran till `https://login.microsoft.com` med följande parametrar i texten:
 
-- grant_type: "**client_credentials**"
+- _typ av beviljande ”:**client_credentials**”
 
 -  resurs ”:**https://graph.microsoft.com**”
 
@@ -173,7 +175,7 @@ För att autentisera, skicka en post-begäran till `https://login.microsoft.com`
 Om detta lyckas, returneras en autentiseringstoken.  
 För att anropa API: et, skapar du ett huvud med följande parameter:
 
-    `Authorization`="<token_type> <access_token>"
+    `Authorization`=”<token_type> <access_token>"
 
 
 När du autentiserar, hittar tokentypen och åtkomst-token i den returnerade token.
@@ -213,13 +215,44 @@ Lägg till klient-ID, den hemliga nyckeln och klient-domänen.
         Write-Host "ERROR: No Access Token"
     } 
 
+## <a name="query-the-apis"></a>Fråga efter API: er
 
-## <a name="next-steps"></a>Nästa steg
+Dessa tre API: er ger en mängd möjligheter att hämta information om riskfylld användare och inloggningar i din organisation. Nedan visas några vanliga användningsområden för dessa API: er och de associerade exempelförfrågan. Du kan köra dessa frågor med hjälp av exempelkoden ovan eller med hjälp av [Graph-testaren](https://developer.microsoft.com/en-us/graph/graph-explorer).
+
+### <a name="get-the-high-risk-and-medium-risk-events-identityriskevents-api"></a>Hämta händelser (identityRiskEvents API) med hög risk och medel risk
+
+Medel och med hög risk händelser representerar de som kan ha möjlighet att utlösaren Identity Protection-inloggningen eller användarrisk principer. Eftersom de har medel eller hög sannolikhet att den användare som försöker logga in inte är ägare legitima identitet, ska åtgärda de här händelserna vara en prioritet. 
+
+```
+GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
+```
+
+### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>Hämta alla användare som har klarat en MFA-kontrollen som utlöses av princip för riskfyllda inloggningar (riskyUsers API)
+
+För att förstå effekten Identity Protection riskbaserade principer har på din organisation kan du fråga efter alla användare som har klarat en MFA-kontrollen som utlöses av en princip för riskfyllda inloggningar. Den här informationen kan hjälpa dig att förstå vilka användare Identity Protection kan har felaktigt har identifierats på som risker och vilka av dina behöriga användare kan utföra åtgärder som AI bedömer riskfyllda.
+
+```
+GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
+```
+
+### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Hämta alla riskfyllda inloggningar för en viss användare (inloggning från API: et)
+
+Du kan bättre förstå tillståndet för riskerna genom att hämta alla sina riskfyllda inloggningar när du tycker att en användare kan ha komprometterats. 
+```
+https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
+```
+
+
+
+
+# <a name="next-steps"></a>Nästa steg
 
 Grattis, du har skapat just ditt första anrop till Microsoft Graph!  
 Nu kan du fråga identitet riskhändelser och använda data men du vill.
 
-Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://developer.microsoft.com/graph/docs) och mycket mer på den [Microsoft Graph plats](https://developer.microsoft.com/graph/). Kontrollera också att lägga den [Azure AD Identity Protection API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root) sida som innehåller alla Identity Protection API: erna i Graph. När vi lägger till nya sätt att arbeta med Identity Protection via API: et ser dem på sidan.
+
+Om du vill veta mer om Microsoft Graph och hur du skapar program med Graph API kan ta en titt på [dokumentation](https://graph.microsoft.io/docs) och mycket mer på den [Microsoft Graph plats](https://graph.microsoft.io/). 
+
 
 Relaterad information finns i:
 
@@ -232,4 +265,3 @@ Relaterad information finns i:
 - [Översikt över Microsoft Graph](https://developer.microsoft.com/graph/docs)
 
 - [Azure AD Identity Protection Service Root](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)
-

@@ -1,7 +1,7 @@
 ---
 title: Använda flera HDInsight-kluster med ett Azure Data Lake Storage-konto – Azure
 description: Lär dig hur du använder mer än ett HDInsight-kluster med ett enda Data Lake Storage-konto
-keywords: hdinsight-lagring, hdfs, strukturerade data, Ostrukturerade data, data lake store
+keywords: hdinsight storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 982e92d02e17aaefe0b197562013704636e3065f
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 0760d850bdc6dab84722f00f1061d53f9b95cfcf
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743720"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912426"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Använda flera HDInsight-kluster med ett Azure Data Lake Storage-konto
 
@@ -37,9 +37,9 @@ Om du vill aktivera den här mappstrukturen som effektivt ska användas av HDIns
 
 |Mapp  |Behörigheter  |Ägande användare  |Ägande grupp  | Namngiven användare | Behörigheter för namngiven användare | Namngiven grupp | Behörigheter för namngiven grupp |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |Admin |Admin  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
-|/Clusters | rwxr-x--x |Admin |Admin |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
-|/ kluster/ekonomi | rwxr-x--t |Admin |FINGRP  |Tjänstens huvudnamn |rwx  |-  |-     |
+|/ | rwxr-x--x  |admin |admin  |Tjänstens huvudnamn |--x  |FINGRP   |r-x         |
+|/Clusters | rwxr-x--x |admin |admin |Tjänstens huvudnamn |--x  |FINGRP |r-x         |
+|/ kluster/ekonomi | rwxr-x--t |admin |FINGRP  |Tjänstens huvudnamn |rwx  |-  |-     |
 
 I tabellen
 
@@ -94,4 +94,4 @@ Ange Läs-körbehörighet för **andra** via hierarkin, till exempel på **/**, 
 ## <a name="see-also"></a>Se också
 
 * [Snabbstart: Konfigurera kluster i HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
+* [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](hdinsight-hadoop-use-data-lake-storage-gen2.md)

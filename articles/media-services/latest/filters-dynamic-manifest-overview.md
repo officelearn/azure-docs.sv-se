@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 01/24/2019
 ms.author: juliako
-ms.openlocfilehash: 7dc2136fe6ee28da0583ebdb2b2749ddf1c37049
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 5b666551ed47852fe8653fff174589acc4bff348
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728048"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912041"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
 
@@ -113,7 +113,7 @@ Du kan använda följande egenskaper för att beskriva filtren.
 |Namn|Beskrivning|
 |---|---|
 |firstQuality|Första kvalitet bithastigheten av filtret.|
-|PresentationTimeRange|Tidsintervallet för presentation. Den här egenskapen används för att filtrera manifest start-/ slutpunkter, presentation längd och live startpositionen. <br/>Mer information finns i [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|Tidsintervallet för presentation. Den här egenskapen används för att filtrera manifest start-/ slutpunkter, presentation längd och live startpositionen. <br/>Mer information finns i [PresentationTimeRange](#PresentationTimeRange).|
 |spår|Spårar val av villkor. Mer information finns i [spår](#tracks)|
 
 ### <a name="presentationtimerange"></a>PresentationTimeRange
@@ -124,8 +124,8 @@ Använd den här egenskapen med **tillgången filter**. Det rekommenderas inte a
 |---|---|
 |**endTimestamp**|Absolut slutet tid gräns. Gäller för Video på begäran (VoD). För Live-presentationen är det tyst ignoreras och tillämpas när det presentation upphört att gälla och dataströmmen blir VoD.<br/><br/>Värdet som representerar en absolut slutpunkt på dataströmmen. Den hämtar avrundas till närmaste nästa GOP början.<br/><br/>Använd StartTimestamp och EndTimestamp för att trimma listan (manifest). Till exempel StartTimestamp = 40000000 och EndTimestamp = 100000000 genererar en spellista som innehåller media mellan StartTimestamp och EndTimestamp. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.<br/><br/>Se även de **forceEndTimestamp** definition som följer.|
 |**forceEndTimestamp**|Gäller för direktfilter.<br/><br/>**forceEndTimestamp** är ett booleskt värde som indikerar huruvida **endTimestamp** har angetts till ett giltigt värde. <br/><br/>Om värdet är **SANT**, **endTimestamp** värdet ska anges. Om det inte anges returneras en felaktig begäran.<br/><br/>Om du vill definiera ett filter som börjar på 5 minuter in indata video, och gäller fram till slutet av strömmen, anger du **forceEndTimestamp** till FALSKT och utelämna inställningen **endTimestamp**.|
-|**liveBackoffDuration**|Gäller bara för Live. Egenskapen används för att definiera live uppspelning position. Med den här regeln, kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare. LiveBackoffDuration är i förhållande till den direktsända positionen. Den maximala live backoff varaktigheten är 60 sekunder.|
-|**presentationWindowDuration**|Gäller för Live. Använd **presentationWindowDuration** att tillämpa ett skjutfönster på listan. Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 120 sekunder.|
+|**liveBackoffDuration**|Gäller bara för Live. Egenskapen används för att definiera live uppspelning position. Med den här regeln, kan du fördröja live uppspelning position och skapa en buffert på serversidan för spelare. LiveBackoffDuration är i förhållande till den direktsända positionen. Den maximala live backoff varaktigheten är 300 sekunder.|
+|**presentationWindowDuration**|Gäller för Live. Använd **presentationWindowDuration** att tillämpa ett skjutfönster på listan. Till exempel presentationWindowDuration = 1200000000 för att tillämpa en glidande tvåminutersperiod. Media inom två minuter av live edge ska ingå i listan. Om ett fragment är gränsen, inkluderas hela fragment i listan. Minsta presentation fönstervaraktigheten är 60 sekunder.|
 |**startTimestamp**|Gäller för VoD eller Live strömmar. Värdet som representerar en absolut startpunkt på dataströmmen. Värdet hämtar avrundat till närmaste nästa GOP början.<br/><br/>Använd **startTimestamp** och **endTimestamp** att trimma listan (manifest). Till exempel startTimestamp = 40000000 och endTimestamp = 100000000 genererar en spellista som innehåller media mellan StartTimestamp och EndTimestamp. Om ett fragment är gränsen, inkluderas hela fragment i manifestet.|
 |**tidsskalan**|Gäller för VoD eller Live strömmar. Tidsskalan som används av tidsstämplarna och varaktigheter som anges ovan. Standard tidsskalan är 10000000. Du kan använda ett alternativt tidsskalan. Standardvärdet är 10000000 HNS (100 nanosekunder).|
 

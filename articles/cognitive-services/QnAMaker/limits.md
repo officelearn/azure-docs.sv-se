@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 01/24/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 772153040ac76f4b7bbee55c48527a841fc69037
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 51e494101b13b3020f79c9acfc4d853cee995d7b
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084796"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911430"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 Omfattande lista över gränserna över QnA Maker.
@@ -27,11 +27,13 @@ Omfattande lista över gränserna över QnA Maker.
 
 |**Azure Search-nivå** | **Kostnadsfri** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Publicerade kunskapsbaser maxantalet (högsta antal index--1 (reserverade för test)|2|14|49|199|199|2,999|
+|Maximalt antal publicerade kunskapsbaser tillåts|2|14|49|199|199|2,999|
+
+ Om din nivå har 15 tillåtna index, kan du publicera 14 kunskapsbaser (1 index per publicerade knowledge base). Femtonde indexet `testkb`, används för alla kunskapsbaser för redigering och testning. 
 
 ## <a name="extraction-limits"></a>Extrahering av gränser
-* Maximalt antal filer som kan extraheras och maximal filstorlek: se [QnAMaker priser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
-* Maximalt antal djup-länkar som kan crawlas för extrahering av kunskapsbaser från vanliga frågor och svar HTML-sidor: 20
+* Maximalt antal filer som kan extraheras och maximal filstorlek: Se [QnAMaker priser](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
+* Maximalt antal djup länkar som kan crawlas för extrahering av kunskapsbaser från vanliga frågor och svar HTML-sidor: 20
 
 ## <a name="metadata-limits"></a>Metadata-gränser
 * Maxantalet metadatafält per kunskapsbas utifrån [gränserna för nivån av Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
@@ -42,15 +44,15 @@ Omfattande lista över gränserna över QnA Maker.
 
 ## <a name="knowledge-base-content-limits"></a>Gränser för kunskapsbas
 Övergripande gränser för innehållet i kunskapsbasen:
-* Längden på svarstexten: 25 000
-* Längden på frågetexten: 1 000
+* Längden på svarstexten: 25,000
+* Längden på frågetext: 1,000
 * Textlängden metadata nyckel/värde: 100
-* Tecken som stöds för Metadatanamn: alfabet, siffror och _  
-* Tecken som stöds för metadatavärde: allt utom: och | 
-* Längden på filnamnet: 200
+* Tecken som stöds för Metadatanamn: Bokstäver, siffror och _  
+* Tecken som stöds för värde: Alla utom: och | 
+* Längden på filnamn: 200
 * Filformat som stöds: ”TSV”, ”.pdf”, ”.txt”, ”.docx”, ”.xlsx”.
 * Maximalt antal alternativa frågor: 100
-* Maximalt antal frågor svar-par: beror på den [Azure Search-nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) valt 
+* Maximalt antal frågor svar-par: Beror på den [Azure Search-nivå](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) valt 
 
 ## <a name="create-knowledge-base-call-limits"></a>Skapa kunskapsbas anrop begränsningar:
 Dessa representerar gränser för varje skapa kunskapsbas åtgärden. det vill säga att klicka på *skapa KB* eller anropa CreateKnowledgeBase API.
@@ -60,7 +62,15 @@ Dessa representerar gränser för varje skapa kunskapsbas åtgärden. det vill s
 
 ## <a name="update-knowledge-base-call-limits"></a>Uppdatera kunskapsbas anrop gränser
 Dessa representerar gränser för varje uppdateringsåtgärd; det vill säga att klicka på *spara och träna* eller anropa UpdateKnowledgeBase API.
-* Längden på varje källnamn: 300
+* Längden på varje namn på datakälla: 300
 * Maximalt antal alternativa frågor läggs till eller tas bort: 100
-* Maximalt antal metadatafält läggs till eller tas bort: 10
+* Maximalt antal fält med metadata läggs till eller tas bort: 10
 * Maximalt antal URL: er som kan uppdateras: 5
+
+## <a name="next-steps"></a>Nästa steg
+
+Se när och hur du ändrar tjänstnivåer:
+
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): när du behöver ha fler frågor och svar i kunskapsbasen, utanför din aktuella nivån uppgradera din prisnivå QnA Maker-tjänsten.
+* [Sök](how-to/upgrade-qnamaker-service.md#upgrade-app-service) – när din kunskapsbas behöver hantera flera begäranden från din klientapp måste du uppgradera din app service-prisnivå.
+* [Apptjänst](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): när du planerar att ha många kunskapsbaser uppgradera prisnivån Azure Search-tjänsten.

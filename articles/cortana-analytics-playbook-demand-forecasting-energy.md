@@ -10,29 +10,29 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: d327c649fcf0f42fd8618161c184fa4f572e2b90
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 40bff35c1136d55e968a287d259f2304252f5248
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306496"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078788"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence Solution mallen Spelboken för prognostisering av efterfrågan på energi
 ## <a name="executive-summary"></a>Sammanfattning
-Under de senaste åren, Internet of Things (IoT), alternativa energikällor och stordata har slagit samman för att skapa stora möjligheter i verktyget och energi domänen. På samma gång, har verktyget och hela energisektorn sett förbrukning förenkling med konsumenter krävande bättre sätt att styra hur används av energiförbrukning. Därför verktyget och smart grid företag som är i bra behovet av att förnya och förnya sig själva. Dessutom är blir många power och utility rutnät inaktuella och dyra att underhålla och hantera. Teamet har arbetat på ett antal engagemang inom domänen energi under det senaste året. Under dessa engagemang, har det uppstått många fall där verktyg eller ISV: er (oberoende programvaruleverantörer) har letat i prognoser för efterfrågan på energi för framtida. De här prognoserna spelar en viktig roll i sin nuvarande och framtida verksamhet och har blivit grunden för olika användningsfall. Dessa inkluderar kort och lång sikt power belastningen prognosen, handel, belastningsutjämning, grid optimering osv. Stordata och avancerad analys AA-metoder, till exempel Machine Learning (ML) är viktiga aktiverarna för att producera korrekta och tillförlitliga prognoser.  
+Under de senaste åren, Internet of Things (IoT), alternativa energikällor och stordata har slagit samman för att skapa stora möjligheter i verktyget och energi domänen. På samma gång, har verktyget och hela energisektorn sett förbrukning förenkling med konsumenter krävande bättre sätt att styra hur används av energiförbrukning. Därför verktyget och smart grid företag som är i bra behovet av att förnya och förnya sig själva. Dessutom är blir många power och utility rutnät inaktuella och dyra att underhålla och hantera. Teamet har arbetat på ett antal engagemang inom domänen energi under det senaste året. Under dessa engagemang, har det uppstått många fall där verktyg eller ISV: er (oberoende programvaruleverantörer) har letat i prognoser för efterfrågan på energi för framtida. De här prognoserna spelar en viktig roll i sin nuvarande och framtida verksamhet och har blivit grunden för olika användningsfall. Dessa inkluderar kort och lång sikt power belastningen prognosen, handel, belastningsutjämning, grid optimering osv. Stordata och avancerad analys AA-metoder, till exempel Machine Learning (ML) är viktiga aktiverarna för att producera korrekta och tillförlitliga prognoser.
 
 I den här spelbok kan vi sätta ihop affärs- och analytiska riktlinjer som behövs för en lyckad utveckling och distribution av efterfrågan på energi Prognostisera lösning. De här föreslagna riktlinjer hjälper verktyg, dataexperter och datatekniker biovetenskapskunder att upprätta fullständigt produktionsslutpunkt, molnbaserade och prognoser för efterfrågan lösningar. För företag som precis har börjat deras stordata och avancerad analys resa, kan en lösning representera inledande startvärdet i sina långsiktig strategi för smart rutnätet.
 
 > [!TIP]
-> För att ladda ned ett diagram som ger en översikt över arkitekturen i den här mallen [Cortana Intelligence-lösningsmallen arkitektur för prognostisering av efterfrågan på energi](cortana-analytics-architecture-demand-forecasting-energy.md).  
-> 
-> 
+> För att ladda ned ett diagram som ger en översikt över arkitekturen i den här mallen [Cortana Intelligence-lösningsmallen arkitektur för prognostisering av efterfrågan på energi](cortana-analytics-architecture-demand-forecasting-energy.md).
+>
+>
 
 ## <a name="overview"></a>Översikt
-Det här dokumentet beskriver de företag, data och tekniska aspekter av med Cortana Intelligence och i viss Azure Machine Learning (AML) för implementering och distribution av energi prognoser lösningar. Dokumentet består av tre delar:  
+Det här dokumentet beskriver de företag, data och tekniska aspekter av med Cortana Intelligence och i viss Azure Machine Learning (AML) för implementering och distribution av energi prognoser lösningar. Dokumentet består av tre delar:
 
-1. Förståelse för verksamheten  
-2. Förstå data  
+1. Förståelse för verksamheten
+2. Förstå data
 3. Teknisk implementering
 
 Den **förståelse för verksamheten** del beskriver företag aspekten som krävs för att förstå och tänka på innan du fattar ett beslut om investeringar. Den förklarar hur du kvalificera affärsproblem till hands så att förutsägelseanalys och machine learning är verkligen effektiva och tillämpliga. Dokumentet ytterligare förklarar grunderna i machine learning och hur de används för att åtgärda problem med prognoser energi. Den beskriver kraven och kompetenskrav av användningsfall. Vissa exempel använda fall och affärsfall scenarier ingår också.
@@ -43,7 +43,7 @@ Den tredje delen av dokumentet omfattar den **teknisk implementering** aspekt av
 
 Dokumentet innehåller dessutom referensmaterial som du kan använda för att få ytterligare förståelse för domänen och teknik.
 
-Det är viktigt att Observera att vi inte tänker upp i det här dokumentet djupare datavetenskapsprocess dess matematiska och tekniska aspekter. Dessa uppgifter finns i [dokumentation för Azure ML](https://azure.microsoft.com/services/machine-learning/) och [bloggar](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Det är viktigt att Observera att vi inte tänker upp i det här dokumentet djupare datavetenskapsprocess dess matematiska och tekniska aspekter. Dessa uppgifter finns i [dokumentation för Azure Machine Learning-tjänsten](https://azure.microsoft.com/services/machine-learning/) och [bloggar](https://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Målgrupp
 Målgruppen för det här dokumentet är både företags- och teknisk personal som vill få kunskap och förståelse för Machine Learning-baserade lösningar och hur de används specifikt inom domänen energi prognostisering.
@@ -87,7 +87,7 @@ Inom ramen för efterfrågan på energi definieras kort sikt läsa in prognostis
 * Belastningsutjämning och överbelasta dataförlustskydd
 * Långsiktigt belastningen prognoser
 * Fel och avvikelseidentifiering
-* Högsta reducering/Köbaserad 
+* Högsta reducering/Köbaserad
 
 STLF modellen huvudsakligen baseras på nära tidigare (senaste dagen eller veckan) förbrukningsdata och Använd prognostiserat temperatur som en viktig ge säkrare prognoser. Hämta korrekt temperatur prognos för nästa timme och upp till 24 timmar blir mindre en utmaning nu dagar. Dessa modeller är mindre känsliga för säsongens mönster eller trender för långsiktig användning.
 
@@ -189,9 +189,9 @@ Följande stycke beskrivs processen 4 steg:
 
 1. **Insamling av data** – alla avancerade baserat analyslösning förlitar sig på data (se **Data förstå**). Särskilt när det gäller förutsägelseanalys och prognoser, vi förlitar sig på pågående, dynamiska flödet av data. När det gäller energi prognoser för efterfrågan, dessa data kan hämtas direkt från smarta elmätare eller aggregeras redan i en lokal databas. Vi också beroende av andra externa datakällor, till exempel väder och temperatur. Den här pågående flödet av data måste samordnas, schemalagda och lagras. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) är vår största bestämmer hög grad för att utföra den här uppgiften.
 2. **Modellering** – för korrekta och tillförlitliga energi prognoser, måste en utveckla (train) och underhålla en bra modell att gör använder av historiska data och extraherar meningsfulla och förutsägande mönster i data. Området för Machine Learning (ML) har växt snabbt med mer avancerade algoritmer som utvecklas regelbundet. Azure ML Studio ger en bra användarupplevelse som hjälper dig att använda de mest avancerade ML-algoritmerna i en fullständig arbetsflöde. Det här arbetsflödet illustreras i en intuitiv flödesdiagram tillsammans med förberedelse av data, extrahering av funktionen, modellering och utvärdering av modellen. Du kan hämta hundratals olika modeller som ingår i den här miljön. I slutet av den här fasen har inom data Science en aktiv-modell som är fullständigt utvärderade och klar för distribution.
-   
+
    Följande diagram är en illustration av ett vanligt arbetsflöde:
-   
+
    ![Arbetsflöde för modellering](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
 3. **Distribution** – med en aktiv-modell, nästa steg är distribution. Här konverteras modellen till en webbtjänst som Exponerar en RESTful-API som samtidigt kan anropas från olika förbrukning klienter via Internet. Azure ML gör det enkelt att distribuera en modell direkt från Azure ML Studio med ett enda klick för en knapp. Hela distributionsprocessen sker under huven. Den här lösningen kan anpassas automatiskt efter nödvändiga förbrukningen.
 4. **Förbrukning** – i den här fasen vi faktiskt göra använder i prognosmodellen för att skapa förutsägelser. Förbrukningen kan också styras från en användarprogram (*t.ex.*, instrumentpanelen) eller direkt från ett operational system såsom/efterfrågan belastningsutjämning system eller en lösning för optimering av rutnät. Flera Användningsscenarier kan också styras från en enda modell.
@@ -321,8 +321,8 @@ Under de senaste åren har avancerade algoritmer utvecklats för att få plats m
 
 > [!NOTE]
 > Det här avsnittet är inte avsedd att användas som en machine learning och prognostisering översikt utan i stället som en kort översikt över modellering tekniker som ofta används för prognostisering av efterfrågan. Mer information och utbildningsmaterial om tidsserier rekommenderar vi starkt online boken [prognostisering: principer och praxis](https://www.otexts.org/).
-> 
-> 
+>
+>
 
 #### <a name="ma-moving-average"></a>**MA (glidande medelvärde)**
 Glidande medelvärde är en av de första analystekniker som har använts för tidsserier och det är fortfarande en av mest vanliga tekniker från och med dagens datum. Det är också grunden för mer avancerade prognoser tekniker. Med glidande medelvärde vi prognoser nästa datapunkt som medelvärdet över de senaste punkterna K, där K anger ordningen för glidande medelvärdet.

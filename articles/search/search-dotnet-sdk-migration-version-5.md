@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 01/24/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 743ac433418386281acc58ad1deef06ee75e38d9
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d7684aa79ac9f58c2a047b01a6d9f5263795221d
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316888"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912058"
 ---
 # <a name="upgrading-to-the-azure-search-net-sdk-version-5"></a>Uppgradera till Azure Search .NET SDK version 5
 Om du använder version 4.0-förhandsversion eller äldre av den [Azure Search .NET SDK](https://aka.ms/search-sdk), den här artikeln hjälper dig att uppgradera programmet att använda version 5.
@@ -44,17 +44,26 @@ Azure Search .NET SDK version 5 riktar sig mot senast allmänt tillgängliga ver
 ## <a name="steps-to-upgrade"></a>Steg för att uppgradera
 Först uppdatera dina NuGet-referens för `Microsoft.Azure.Search` med hjälp av NuGet Package Manager-konsolen eller genom att högerklicka på projektreferenserna och välja ”hantera NuGet-paket...” i Visual Studio.
 
-Återskapa ditt projekt när NuGet har laddats ned nya paket och deras beroenden. Om du inte använder en förhandsgranskningsfunktion som inte är i det nya GA-SDK, det bör återskapa har (om inte, låt oss veta på [GitHub](https://github.com/azure/azure-sdk-for-net/issues)). I så, fall är du redo att sätta igång!
+Återskapa ditt projekt när NuGet har laddats ned nya paket och deras beroenden. Beroende på hur din kod är strukturerade, kan den återskapa har. I så, fall är du redo att sätta igång!
+
+Om din version misslyckas, bör du se ett build-fel som liknar följande:
+
+    The name 'SuggesterSearchMode' does not exist in the current context
+
+Nästa steg är att åtgärda den här build-fel. Se [större ändringar i version 5](#ListOfChanges) mer information om vad som orsakar felet och hur du åtgärdar den.
 
 Tänk på att på grund av ändringar i Azure Search .NET SDK förpackningen, måste du bygga upp ditt program för att kunna använda version 5. Dessa ändringar finns beskrivna i [större ändringar i version 5](#ListOfChanges).
 
 Du kan se ytterligare build-varningar relaterade till föråldrade metoder eller egenskaper. Varningar innehåller information om vad du ska använda i stället för föråldrad funktion. Exempel: om programmet använder den `IndexingParametersExtensions.DoNotFailOnUnsupportedContentType` metoden bör du får ett varningsmeddelande som säger ”det här beteendet är nu aktiverad som standard så anropa den här metoden är inte längre nödvändigt”.
 
-När du har lösts alla build-varningar kan du ändra ditt program att kunna utnyttja nya funktioner om du vill. Nya funktioner i SDK finns beskrivna i [Nyheter i version 5](#WhatsNew).
+När du har lösts build-fel eller varningar kan du ändra ditt program att kunna utnyttja nya funktioner om du vill. Nya funktioner i SDK finns beskrivna i [Nyheter i version 5](#WhatsNew).
 
 <a name="ListOfChanges"></a>
 
 ## <a name="breaking-changes-in-version-5"></a>Större ändringar i version 5
+
+### <a name="new-package-structure"></a>Ny paketet struktur
+
 Den mest betydande stora ändringen i version 5 är att den `Microsoft.Azure.Search` sammansättning och dess innehåll har delats upp i fyra separata sammansättningar som nu har distribuerats som fyra separata NuGet-paket:
 
  - `Microsoft.Azure.Search`: Det här är ett meta-paket som innehåller alla andra Azure Search-paketen som beroenden. Om du uppgraderar från en tidigare version av SDK: N bör borde bara uppgradera det här paketet och att bygga om räcka att börja använda den nya versionen.
@@ -65,6 +74,10 @@ Den mest betydande stora ändringen i version 5 är att den `Microsoft.Azure.Sea
 Den här ändringen tekniskt sett större eftersom många typer flyttades mellan sammansättningar. Det är därför återskapa ditt program krävs för att uppgradera till version 5 av SDK: N.
 
 Ett litet antal andra avgörande förändringar i version 5 som kan kräva kod ändrar det förutom återskapa ditt program.
+
+### <a name="change-to-suggesters"></a>Ändra till förslagsställare 
+
+Den `Suggester` konstruktor har inte längre en `enum` parametern för `SuggesterSearchMode`. Den här uppräkningen endast hade ett värde och har därför redundant. Om du ser fel till följd av detta i bygge, helt enkelt ta bort referenser till den `SuggesterSearchMode` parametern.
 
 ### <a name="removed-obsolete-members"></a>Ta bort föråldrade medlemmar
 

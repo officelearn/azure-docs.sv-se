@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 0119e05ce5cb8d1c2e27936dc44896b7acef9312
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: a2731397ece833adcedc4ebab640fa1b3ab2fc05
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725974"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076834"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Utöka Azure HDInsight med hjälp av Azure Virtual Network
 
@@ -308,7 +308,7 @@ Mer information finns i den [styra nätverkstrafiken](#networktraffic) avsnittet
 
 ## <a id="hdinsight-ports"></a> Portar som krävs
 
-Om du tänker använda ett nätverk **virtuell installation brandväggen** för att skydda det virtuella nätverket måste du tillåta utgående trafik på följande portar:
+Om du tänker använda en **brandväggen** för att skydda det virtuella nätverket och få åtkomst till klustret på vissa portar, bör du tillåta trafik på portar som krävs för ditt scenario. Som standard behöver du inte godkänna dessa portar:
 
 * 53
 * 443

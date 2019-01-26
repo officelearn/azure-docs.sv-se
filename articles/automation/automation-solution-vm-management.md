@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/04/2018
+ms.date: 1/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9dfc70c7158c5f808367b8b2041725b03b9060d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: cc0ffc0a209dab0e8610966cb24596d95b7927c3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54846191"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913435"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Starta/stoppa virtuella datorer vid låg belastning på nätverket lösning i Azure Automation
 
@@ -34,7 +34,7 @@ Följande är begränsningar i den aktuella lösningen:
 > [!NOTE]
 > Om du använder lösningen för klassiska virtuella datorer kan kommer sedan alla dina virtuella datorer att behandlas sekventiellt per molntjänst. Virtuella datorer är fortfarande bearbetas parallellt över olika molntjänster.
 >
-> Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När lösningen Starta/Stoppa körs kan du få fel eftersom den innehåller cmdletar för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+> Azure Cloud Solution Provider (Azure CSP)-prenumerationer stöder endast Azure Resource Manager-modellen, icke - Azure Resource Manager-tjänster är inte tillgängliga i programmet. När lösningen Starta/Stoppa körs kan du få fel eftersom den innehåller cmdletar för att hantera klassiska resurser. Läs mer om CSP i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments). Om du använder en CSP-prenumeration kan du ändra den [ **External_EnableClassicVMs** ](#variables) variabeln **FALSKT** efter distributionen.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -90,6 +90,9 @@ Utför följande steg för att lägga till Starta/stoppa virtuella datorer vid l
 
 8. När du har konfigurerat de ursprungliga inställningarna som krävs för lösningen, klickar du på **OK** att Stäng den **parametrar** och välj **skapa**. När alla inställningar verifieras har lösningen distribuerats till din prenumeration. Den här processen kan ta flera sekunder att slutföra och du kan spåra förloppet under **meddelanden** på menyn.
 
+> [!NOTE]
+> Om du har en prenumeration för Azure Cloud Solution Provider (Azure CSP), när distributionen är klar, i ditt Automation-konto kan du gå till **variabler** under **delade resurser** och ange den [ **External_EnableClassicVMs** ](#variables) variabeln **FALSKT**. Detta stoppar lösningen från letar du efter resurser för klassiska VM.
+
 ## <a name="scenarios"></a>Scenarier
 
 Lösningen innehåller tre olika scenarier. De här scenarierna är:
@@ -108,8 +111,8 @@ Du kan aktivera inriktning på åtgärd mot en prenumeration och resursgrupp ell
 #### <a name="target-the-start-and-stop-actions-against-a-subscription-and-resource-group"></a>Rikta start och stopp åtgärder mot en grupp för prenumeration och resursgrupp
 
 1. Konfigurera den **External_Stop_ResourceGroupNames** och **External_ExcludeVMNames** variabler för att ange de virtuella måldatorerna.
-1. Aktivera och uppdatera den **schemalagd StartVM** och **schemalagd StopVM** scheman.
-1. Kör den **ScheduledStartStop_Parent** runbook med parametern åtgärd inställd **starta** och parametern WHATIF inställd **SANT** att förhandsgranska dina ändringar.
+2. Aktivera och uppdatera den **schemalagd StartVM** och **schemalagd StopVM** scheman.
+3. Kör den **ScheduledStartStop_Parent** runbook med parametern åtgärd inställd **starta** och parametern WHATIF inställd **SANT** att förhandsgranska dina ändringar.
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>Rikta instruktionen start och stopp av VM-lista
 
@@ -205,6 +208,7 @@ I följande tabell visas de variabler som skapats i ditt Automation-konto. Endas
 |External_AutoStop_Threshold | Tröskelvärdet för Azure varningsregeln har angett i variabeln _External_AutoStop_MetricName_. Procentandel värdena kan variera mellan 1 och 100.|
 |External_AutoStop_TimeAggregationOperator | Operatorn tid-aggregering, som tillämpas på den valda fönsterstorleken för att utvärdera villkoret. Godkända värden är **genomsnittliga**, **minsta**, **maximala**, **totala**, och **senaste**.|
 |External_AutoStop_TimeWindow | Fönsterstorleken då Azure analyserar valda mått för att utlösa en avisering. Den här parametern accepterar indata i timespan-format. Möjliga värden är från 5 minuter till 6 timmar.|
+|External_EnableClassicVMs| Anger om klassiska virtuella datorer som omfattas av lösningen. Standardvärdet är sant. Detta bör anges till falskt för CSP-prenumerationer.|
 |External_ExcludeVMNames | Ange namn på virtuella datorer som ska undantas, att avgränsa namnen med kommatecken utan blanksteg.|
 |External_Start_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för start-åtgärder.|
 |External_Stop_ResourceGroupNames | Anger en eller flera resursgrupper, att avgränsa värden med hjälp av ett kommatecken, avsedda för stop-åtgärder.|

@@ -1,8 +1,21 @@
 ---
-Rubrik: Hur en Machine Learning Studio-modell blir en web service titleSuffix: Beskrivning av Azure Machine Learning Studio: En översikt över hur din Azure Machine Learning model utvecklas från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 03/20/2017
+title: Hur en maskininlärningsmodell blir en webbtjänst
+titleSuffix: Azure Machine Learning Studio
+description: En översikt över hur din Azure Machine Learning model utvecklas från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån.
+services: machine-learning
+ms.service: machine-learning
+ms.component: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 03/20/2017
+ms.openlocfilehash: d084917f247aa20f59aea5179efa045838d7a2af
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076901"
 ---
 # <a name="how-a-machine-learning-studio-model-progresses-from-an-experiment-to-an-operationalized-web-service"></a>Hur en Machine Learning Studio-modell övergår från ett experiment till en produktionsslutpunkt webbtjänst
 Azure Machine Learning Studio tillhandahåller en interaktiv arbetsyta där du kan utveckla, köra, testa och iterera ett ***experimentera*** som representerar en prediktiv analysmodell. Det finns en mängd olika moduler som kan:
@@ -19,9 +32,9 @@ När du är nöjd med ditt experiment kan du distribuera den som en ***klassiska
 Vi ger en översikt över hur din modell utvecklas i Machine Learning från en utveckling experimentera till en produktionsslutpunkt webbtjänst säkerhetsnivån i den här artikeln.
 
 > [!NOTE]
-> Det finns andra sätt att utveckla och distribuera machine learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio. Till exempel en beskrivning av hur du skapar en klassiska webbtjänst förutsägande med R finns i blogginlägget [bygga och distribuera förutsägande Web Apps med hjälp av RStudio och Azure ML](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
-> 
-> 
+> Det finns andra sätt att utveckla och distribuera machine learning-modeller, men den här artikeln fokuserar på hur du använder Machine Learning Studio. Till exempel en beskrivning av hur du skapar en klassiska webbtjänst förutsägande med R finns i blogginlägget [skapa och distribuera förutsägande Web Apps med hjälp av RStudio och Azure Machine Learning studio](http://blogs.technet.com/b/machinelearning/archive/2015/09/25/build-and-deploy-a-predictive-web-app-using-rstudio-and-azure-ml.aspx).
+>
+>
 
 Azure Machine Learning Studio är utformat för att hjälpa dig att utveckla och distribuera en *prediktiv analysmodell*, det är möjligt att du använder Studio för att utveckla ett experiment som inte innehåller en prediktiv analysmodell. Ett experiment kan till exempel bara indata, ändra dem och sedan matar ut resultaten. Du kan distribuera den här icke-förutsägelseexperiment som en webbtjänst precis som ett experiment med förutsägande analys, men det är en enklare process eftersom experimentet inte utbildning eller bedömning en maskininlärningsmodell. Det är inte en typisk du använder Studio på det här sättet, kommer vi inkludera den i diskussionen så att vi kan ge en fullständig förklaring av hur Studio fungerar.
 
@@ -50,8 +63,8 @@ I den här konverteringen träningsexperimentet inte tas bort. När processen ä
 
 > [!NOTE]
 > När du klickar på **förutsägande webbtjänsten** du startar en automatisk process för att konvertera din träningsexperiment till ett förutsägelseexperiment och detta fungerar bra i de flesta fall. Om din träningsexperiment är komplex (exempel: du har flera sökvägar för utbildning som du ansluter till tillsammans), kanske du föredrar att göra den här konverteringen manuellt. Mer information finns i [hur du förbereder din modell för distribution i Azure Machine Learning Studio](convert-training-experiment-to-scoring-experiment.md).
-> 
-> 
+>
+>
 
 ### <a name="the-web-service"></a>Webbtjänsten
 När du är nöjd att din förutsägelseexperiment är klar, kan du distribuera din tjänst som antingen en klassisk webbtjänst eller en ny webbtjänst baserat på Azure Resource Manager. Att driftsätta modellen genom att distribuera den som en *klassiska Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [klassisk]**. Distribuera som *nya Machine Learning-webbtjänster*, klickar du på **distribuera webbtjänsten** och välj **distribuera webbtjänsten [nyhet]**. Användare kan nu skicka data till din modell med hjälp av webbtjänsten REST API och få tillbaka resultaten. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
@@ -84,7 +97,7 @@ Om du vill behålla dina machine learning-modell, men du vill att träna med nya
 
 1. **Träna modellen medan webbtjänsten körs** -om du vill att träna din modell medan förutsägande webbtjänsten körs, kan du göra detta genom att göra några ändringar träningsexperiment så att de blir en ***retraining Experimentera***, och du kan distribuera den som en  ***omtränings web* service**. Anvisningar för hur du gör detta finns i [träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md).
 2. **Gå tillbaka till det ursprungliga träningsexperimentet och använda olika utbildningsdata för att utveckla din modell** – din förutsägelseexperiment är länkad till webbtjänsten, men träningsexperimentet länkas inte direkt på det här sättet. Om du ändrar det ursprungliga träningsexperimentet och klicka på **konfigurera Web Service**, skapas en *nya* förutsägande experimentera som, när de distribueras, skapar en *nya* Web tjänsten. Uppdaterar den inte bara den ursprungliga webbtjänsten.
-   
+
    Om du vill ändra träningsexperimentet kan öppna den och klickar på **Spara som** att göra en kopia. Detta lämnar intakta ursprungliga träningsexperimentet, förutsägbart experiment och webbtjänsten. Du kan nu skapa en ny webbtjänst med ändringarna. När du har distribuerat den nya webbtjänsten som sedan kan du bestämma om du vill stoppa tidigare webbtjänsten eller att det ska fungera tillsammans med den nya servern.
 
 **Du vill skapa en annan modell**

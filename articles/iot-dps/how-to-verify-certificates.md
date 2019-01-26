@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6a6782c5e1cd7b5f42b619cd52470b640813a905
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055019"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913622"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Hur du gör bevis tillgång för X.509 CA-certifikat med Device Provisioning-tjänsten
 
@@ -54,7 +54,7 @@ Nu kan du behöva logga in på *Verifieringskod* med den privata nyckeln som är
 Microsoft tillhandahåller verktyg och exempel som kan hjälpa dig att skapa ett signerat verifieringscertifikat: 
 
 - Den **Azure IoT Hub C SDK** innehåller PowerShell (Windows) och Bash (Linux)-skript för att skapa certifikat för Certifikatutfärdaren och löv för utveckling och utföra med en Verifieringskod proof-för-tillgång. Du kan ladda ned den [filer](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) i systemet till en arbetsmapp och följ instruktionerna i den [hantera CA-certifikat readme](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) att utföra bevis på tillgång på ett CA-certifikat. 
-- Den **Azure IoT Hub C# SDK** innehåller den [exemplet för verifiering av certifikat i grupp](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample), som du kan använda för att göra bevis av tillgång.
+- Den **Azure IoT Hub C# SDK** innehåller den [exemplet för verifiering av certifikat i grupp](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample), som du kan använda för att göra bevis av tillgång.
  
 > [!IMPORTANT]
 > Förutom att utföra bevis på tillgång, kan PowerShell och Bash-skript som åberopade tidigare också du skapa rotcertifikat och mellanliggande certifikat löv-certifikat som kan användas för att autentisera och etablera enheter. Dessa certifikat ska användas för endast utveckling. De bör aldrig användas i en produktionsmiljö. 

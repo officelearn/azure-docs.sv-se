@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: da8fd886afa6028959247caa0c6e007df20fdd1b
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 66f850225faba8d45eaa07493a0817c9ed0ed52b
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077750"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075592"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure-partner kundens användning attribution
 
@@ -32,11 +32,17 @@ Som Microsoft-partner kan associera du Azure-användning med alla Azure-resurser
 - Azure Resource Manager-mallar: Resource Manager-mallar eller lösningsmallar att distribuera Azure-tjänster för att köra partnerns programvara. Partner kan skapa en Resource Manager-mall för att definiera infrastrukturen och konfigurationen av sina Azure-lösning. Resource Manager-mall kan du och dina kunder att distribuera din lösning under dess livscykel. Du kan vara säker på att resurserna distribueras i ett konsekvent tillstånd. 
 - Azure Resource Manager API: er: Partner kan anropa Resource Manager API: er direkt för att distribuera en Resource Manager-mall eller att generera API-anrop till direkt etablera Azure-tjänster. 
 
-Kundens användning attribution krävs på alla [lösningsmallar](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) publiceras på Azure Marketplace. 
+Kundens användning attribution krävs på [program för Azure-erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer) publiceras på Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Använda Resource Manager-mallar
 
-Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera den nya spårnings-metoden vara enkelt. Mer information finns i [skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+Många partnerlösningar distribueras på en kunds prenumeration med hjälp av Resource Manager-mallar. Om du har en Resource Manager-mall som är tillgänglig i Azure Marketplace, på GitHub eller som en Snabbstart ska processen för att ändra din mall för att aktivera den nya spårnings-metoden vara enkelt.
+
+Läs mer om att skapa och publicera Lösningsmallar
+
+* [Skapa och distribuera din första Resource Manager-mall](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+* [Azure Application-erbjudande](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer).
+* Video: [Att skapa mallar för lösningar och hanterade program för Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>Lägga till ett GUID i mallen
@@ -94,7 +100,7 @@ Inkludera ett GUID i användaren agent huvudet i begäran för den här spårnin
 > [!Note]
 > Formatet för strängen är viktigt. Om den **pid -** prefix är inte inkluderade, det går inte att fråga efter data. Olika SDK: er spåra på olika sätt. Granska stöd och spåra metoden för din önskade Azure SDK för att implementera den här metoden. 
 
-#### <a name="example-the-python-sdk"></a>Exempel: Python SDK
+#### <a name="example-the-python-sdk"></a>Exempel: The Python SDK
 
 För Python och använder den **config** attribut. Du kan bara lägga till attributet till en UserAgent. Här är ett exempel:
 

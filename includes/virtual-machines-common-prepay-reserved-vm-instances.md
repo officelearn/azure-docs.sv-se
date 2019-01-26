@@ -1,15 +1,15 @@
 ---
 author: yashesvi
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/30/2018
-ms.openlocfilehash: a35c3a9a6d914cf7e6620819b24e34d954f55c2d
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 1da2278eee6fcea5c013e9c2f5f4ad3e3013b590
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742425"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906349"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Förskottsbetala för virtuella datorer med Azure reserverade VM-instanser
 
@@ -33,10 +33,10 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
 - Rabatten gäller inte för följande virtuella datorer:
   - Klassiska virtuella datorer och molntjänster
   - VM-serie: A-serien, Av2-serien och G-serien
-  - Virtuella datorer i en förhandsversion: alla VM-serien och storlekar som är i förhandsversion
+  - Virtuella datorer i en förhandsversion: Alla VM-serien och storlekar som är i förhandsversion
 - Moln: Reservationer är inte tillgängligt att köpa i Tyskland eller Kina regioner.
-- Otillräcklig kvot: en reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 
-- Begränsningar för kapacitet: I sällsynta fall kan Azure-begränsningar inköp av ny reservationer för delmängd av VM-storlekar, på grund av låg kapacitet i en region.
+- Otillräcklig kvot: En reservation som är begränsad till en enda prenumeration måste ha vCPU-kvoten som är tillgängliga i prenumerationen för den nya RI. Till exempel om målprenumerationen har en kvot högst 10 virtuella processorer för D-serien, köpa sedan du inte en reservation för den 11 Standard_D1 instanser. Kvoten ingår för reservationer de virtuella datorerna som redan har distribuerats i prenumerationen. Till exempel om prenumerationen har en kvot på 10 virtuella processorer för D-serien och har två standard_D1 instanser som distribuerats kan köpa du en reservation för den 10 standard_D1 instanser i den här prenumerationen. 
+- Kapacitet begränsningar: I sällsynta fall kan Azure-begränsningar inköp av ny reservationer för delmängd av VM-storlekar, på grund av låg kapacitet i en region.
 
 ## <a name="buy-a-reserved-vm-instance"></a>Köp en reserverad VM-instans
 
@@ -48,7 +48,7 @@ Reserverade VM-instanser är tillgängliga för de flesta storlekar för Virtuel
     | Fält      | Beskrivning|
     |:------------|:--------------|
     |Namn        |Namnet på den här reservationen.| 
-    |Prenumeration|Den prenumeration som används för att betala för reservationen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
+    |Prenumeration|Den prenumeration som används för att betala för reservationen. Betalningsmetoden för prenumerationen debiteras startavgifter för reservationen. Prenumerationstypen måste vara ett enterprise-avtal (erbjudandets nummer: MS-AZR-0017P) eller betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
     |Scope       |Den reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - reservationsrabatten tillämpas på virtuella datorer i den här prenumerationen. </li><li>Delad – tillämpas reservationsrabatten på virtuella datorer som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
     |Region    |Azure-regionen som omfattas av reservationen.|    
     |Storlek på virtuell dator     |Storleken på de Virtuella datorinstanserna.|

@@ -3,19 +3,19 @@ title: Integrera VPN med Azure MFA med hjälp av NPS-tillägget | Microsoft Docs
 description: Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Microsoft Azure.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 30c5a3cf623a16395ad8c09c813d631c10e2dedf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: ed6cf5cff5ed2c132031a48606c8f5125fd93ba4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433498"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079434"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrera din VPN-infrastruktur med Azure MFA med hjälp av NPS-tillägget för Azure
 

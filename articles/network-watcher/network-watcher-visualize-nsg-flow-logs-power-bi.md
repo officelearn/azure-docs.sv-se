@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 1f8807094c6e93cf55467e76e0fa2b617ec3d5fb
-ms.sourcegitcommit: 8899e76afb51f0d507c4f786f28eb46ada060b8d
+ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2018
-ms.locfileid: "51822882"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913316"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizing Nätverkssäkerhetsgrupp flödesloggar med Power BI
 
@@ -46,7 +46,7 @@ Mallen som tillhandahölls redigeras så att du kan ändra den för att lägga t
 
 ## <a name="setup"></a>Konfiguration
 
-Du måste ha Network Security grupp Flow Logging har aktiverats på en eller flera Nätverkssäkerhetsgrupper i ditt konto innan du börjar. Mer information om hur du aktiverar Network Security flow loggar, finns i följande artikel: [introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
+Du måste ha Network Security grupp Flow Logging har aktiverats på en eller flera Nätverkssäkerhetsgrupper i ditt konto innan du börjar. Mer information om hur du aktiverar flödesloggar för nätverkssäkerhet finns i följande artikel: [Introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
 
 Du måste också ha Power BI Desktop klienten är installerad på din dator och tillräckligt med ledigt utrymme på din dator för att ladda ned och läsa in loggdata som finns i ditt storage-konto.
 
@@ -73,7 +73,7 @@ Du måste också ha Power BI Desktop klienten är installerad på din dator och 
 
 I mallen är en uppsättning visuell information som hjälper dig att göra uppfattning om loggdata NSG Flow. Följande bilder visar ett exempel på hur instrumentpanelen som ser ut när du har fyllts med data. Nedan närmare vi på varje visuellt objekt i större detalj 
 
-![Power BI][5]
+![powerbi][5]
  
 I visual visas på översta Talkers som angetts för IP-adresser som har initierat de flesta anslutningar under perioden. Storleken på rutorna motsvarar det relativa antalet anslutningar. 
 
@@ -89,7 +89,7 @@ Följande diagram visar flöden per nätverksgränssnitt, med upp till uppdelat 
 
 Följande hjul ringdiagrammet visar en sammanfattning av flöden per målport. Med den här informationen kan du visa de vanligaste mål-portarna som används inom den angivna perioden.
 
-![Ringdiagram][9]
+![donut][9]
 
 Följande stapeldiagrammet visar flödet genom NSG och regel. Med den här informationen kan se du ansvarar för de flesta trafiken och fördelningen av trafiken NSG: er på en NSG av regeln.
 
@@ -123,7 +123,7 @@ Passa på att anpassa den här mallen för dina behov. Det finns många olika s�
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att visualisera dina NSG-flödesloggar med Elastick Stack genom att besöka [visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
+Lär dig att visualisera dina NSG-flödesloggar med Elastic Stack genom att besöka [visualisera Azure Network Watcher NSG-flödesloggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

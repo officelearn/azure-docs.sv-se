@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.openlocfilehash: b11e1f35578eef07acb823081f0bbfdbaf467f9c
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 91e6c2d400fa7add33a6c8e8856a3b9f8cfef4a3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632475"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912841"
 ---
 # <a name="write-to-apache-hadoop-hdfs-from-apache-storm-on-hdinsight"></a>Skriva till Apache Hadoop HDFS från Apache Storm på HDInsight
 
@@ -136,7 +136,7 @@ Mer information om ramverket som finns i [ https://storm.apache.org/releases/cur
 Storm på HDInsight innehåller inte de komponenter som HdfsBolt använder för att kommunicera med Azure Storage eller Data Lake Storage i Storms klassökvägen som standard. Använd följande skriptåtgärd för att lägga till dessa komponenter i `extlib` katalogen för Storm i klustret:
 
 * Skript-URI: `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
-* Noder som gäller för: Nimbus, Övervakaren
+* Noder som gäller för: Nimbus, Supervisor
 * Parametrar: Ingen
 
 Information om hur du använder det här skriptet med ditt kluster finns i den [anpassa HDInsight-kluster med skriptåtgärder](./../hdinsight-hadoop-customize-cluster-linux.md) dokumentet.
@@ -221,3 +221,5 @@ Storm-topologier köra tills de stoppas eller klustret tas bort. Om du vill stop
 
 Nu när du har lärt dig hur du använder Apache Storm för att skriva till Azure Storage och Azure Data Lake Storage kan du identifiera andra [Apache Storm-exempel för HDInsight](apache-storm-example-topology.md).
 
+## <a name="see-also"></a>Se också
+* [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

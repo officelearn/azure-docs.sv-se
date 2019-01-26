@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/23/2018
+ms.date: 01/24/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 62bb9b6b4b0edd9e45b317c3c4e18872bae2eec4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: MT
+ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452844"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911939"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorsstyrd åtkomst i Azure Active Directory
 
@@ -55,6 +55,24 @@ För att göra principen fungerar, måste du konfigurera:
 
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
+
+
+
+### <a name="how-are-conditional-access-policies-applied"></a>Hur tillämpas principer för villkorlig åtkomst?
+
+Mer än en princip för villkorlig åtkomst kan tillkomma när en användare ansluter till ett program. I det här fallet måste vara uppfyllda alla principer som gäller. Till exempel om en principerna kräver för en användare MFA och andra kräver en kompatibel enhet användaren måste MFA och ha en kompatibel enhet. 
+
+Alla principer som tillämpas i två faser:
+
+- I den **första** fasen alla principer utvärderas och samlas alla åtkomstkontroller som inte är uppfyllda. 
+
+- I den **andra** fas, uppmanas du för att uppfylla kraven som du inte har uppfyllts. Om en av principerna blockerar, är du blockerad och inte uppmanas att uppfylla andra principkontroller. Om ingen av principerna som blockerar du uppmanas du att uppfylla andra principkontroller i följande ordning:
+
+    ![Beställa](./media/best-practices/06.png)
+    
+    Externa MFA-leverantörer och användningsvillkor kommer nästa.
+
+
 
 ### <a name="how-are-assignments-evaluated"></a>Hur utvärderas tilldelningar?
 
@@ -154,4 +172,7 @@ Mer information finns i [migrera klassiska principer i Azure-portalen](policy-mi
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+Om du vill veta:
+
+- Hur du konfigurerar principer för villkorlig åtkomst finns i [kräver MFA för specifika appar med villkorlig åtkomst i Azure Active Directory](app-based-mfa.md).
+- Hur du planerar principer för villkorlig åtkomst finns i [hur du planerar distributionen av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md).

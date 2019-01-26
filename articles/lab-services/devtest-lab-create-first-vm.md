@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 93ce9feaf52282b9477d49eaf270d6d89dca7811
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c72e10991e27f7d616703e635ee6e1a18122afc5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232536"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078084"
 ---
 # <a name="create-your-first-vm-in-a-lab-in-azure-devtest-labs"></a>Skapa din första virtuella dator i ett labb i Azure DevTest Labs
 
@@ -29,28 +29,35 @@ Den här självstudiekursen beskriver hur du använder Azure-portalen att lägga
 
 ## <a name="steps-to-add-your-first-vm-to-a-lab-in-azure-devtest-labs"></a>Hur du lägger till din första virtuella dator till ett labb i Azure DevTest Labs
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
+1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i den **DEVOPS** avsnittet. Om du väljer * (star) bredvid **DevTest Labs** i den **DEVOPS** avsnittet. Den här åtgärden lägger till **DevTest Labs** till menyn till vänster navigering så att du enkelt kan nå nästa gång. Välj sedan **DevTest Labs** på menyn till vänster navigering.
+
+    ![Alla tjänster – Välj DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
 1. I listan över labbar Välj labb där du vill skapa den virtuella datorn.  
-1. På testmiljön **översikt** bladet väljer **+ Lägg till**.  
+2. På testmiljön **översikt** väljer **+ Lägg till**.  
 
     ![Lägg till VM-knapp](./media/devtest-lab-add-vm/devtestlab-home-blade-add-vm.png)
+1. På den **väljer bas** väljer en marketplace-avbildning för den virtuella datorn.
+1. På den **grundinställningar** fliken den **VM** gör du följande åtgärder: 
+    1. Ange ett namn för den virtuella datorn i den **virtuellt datornamn** textrutan. Textrutan är förifylld åt dig med ett unikt namn för automatiskt genererade. Namnet motsvarar användarnamnet i din e-postadress som du har följt av ett unikt nummer 3 siffror. Den här funktionen sparar du tid att tänka på ett namn för datorn och ange det varje gång du skapar en dator. Du kan åsidosätta fältet fylls i automatiskt med ett valfritt namn om du vill. Om du vill åsidosätta det automatisk ifyllda namnet för den virtuella datorn, anger du ett namn i den **virtuellt datornamn** textrutan.
+    2. Ange en **användarnamn** som har beviljats administratörsbehörighet på den virtuella datorn. Den **användarnamn** för datorn är förifyllda med ett unikt namn för automatiskt genererade. Namnet motsvarar användarnamnet i din e-postadress. Den här funktionen sparar du tid att besluta om ett användarnamn varje gång du skapar en ny dator. Igen, kan du åsidosätta fältet fylls i automatiskt med ett användarnamn för ditt val om du vill. Om du vill åsidosätta det automatisk ifyllda värdet för användarnamn, ange ett värde i den **användarnamn** textrutan. Den här användaren beviljas **administratör** behörighet på den virtuella datorn.
+    3. Om du skapar första virtuella dator i labbet, anger du en **lösenord** för användaren. Spara lösenordet som standardlösenord i Azure key vault som är associerade med labbet, välja **Spara som standardlösenord**. Standardlösenordet sparas i nyckelvalvet med namnet: **VmPassword**. När du försöker skapa efterföljande virtuella datorer i labbet, **VmPassword** väljs automatiskt för den **lösenord**. Om du vill åsidosätta värdet, avmarkera de **använder en sparad hemlighet** kryssrutan och ange ett lösenord. 
 
-1. På den **väljer bas** bladet och välja en marketplace-avbildning för den virtuella datorn.
-1. På den **VM** bladet anger du ett namn för den nya virtuella datorn i den **virtuellt datornamn** textrutan.
+        Du kan också spara hemligheter i nyckelvalvet först och sedan använda den när du skapar en virtuell dator i labbet. Mer information finns i [Store hemligheter i key vault](devtest-lab-store-secrets-in-key-vault.md). Om du vill använda lösenord som lagras i nyckelvalvet, Välj **använder en sparad hemlighet**, och ange ett nyckelvärde som motsvarar din hemlighet (lösenord).
+    4. I den **fler alternativ** väljer **ändra storleken på**. Välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
+    5. Välj **lägga till eller ta bort artefakter**. Välj och konfigurera de artefakter som du vill lägga till i basavbildningen.
+    **Obs!** Om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
+2. Växla till den **avancerade inställningar** fliken högst upp och göra följande:
+    1. Om du vill ändra det virtuella nätverk som Virtuellt datorn, Välj **ändra VNet**. 
+    2. Om du vill ändra undernätet, Välj **ändra undernätet**. 
+    3. Ange om IP-adressen för den virtuella datorn är **offentliga, privata eller delade**. 
+    4. Ta automatiskt bort den virtuella datorn genom att ange den **utgångsdatum och utgångstid**. 
+    5. Om du vill göra den virtuella datorn tillgängliga av en lab-användare, Välj **Ja** för **gör till virtuell dator** alternativet. 
+    6. Ange hur många av de **instanser av Virtuella** att du vill göra den tillgänglig för dina labbanvändare. 
+3. Välj **skapa** att lägga till den angivna virtuella datorn till labbet.
 
-    ![Blad för labbet VM](./media/devtest-lab-add-vm/devtestlab-lab-add-first-vm.png)
-
-1. Ange en **användarnamn** som har beviljats administratörsbehörighet på den virtuella datorn.  
-1. Ange ett lösenord i textfältet märkta **skriver ett värde**.
-1. Den **disktyp för virtuell dator** avgör vilken typ av premiumlagring tillåts för virtuella datorer i labbet.
-1. Välj **VM-storlek** och välj en av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa.
-1. Välj **artefakter** och - från listan över artefakter - Välj och konfigurera de artefakter som du vill lägga till i basavbildningen.
-    **Obs:** om du är nybörjare på DevTest Labs eller konfigurera artefakter, referera till den [lägga till en befintlig artefakt i en virtuell dator](./devtest-lab-add-vm.md#add-an-existing-artifact-to-a-vm) avsnittet och återgå sedan här när du är klar.
-1. Välj **skapa** att lägga till den angivna virtuella datorn till labbet.
-
-   Blad för labbet visar status för den Virtuella datorns Skapa - först som **skapa**, sedan som **kör** när den virtuella datorn har startats.
+   Sidan labb visar status för den Virtuella datorns Skapa - först som **skapa**, sedan som **kör** när den virtuella datorn har startats.
 
 ## <a name="next-steps"></a>Nästa steg
-* När den virtuella datorn har skapats kan du ansluta till den virtuella datorn genom att välja **Connect** på bladet för den virtuella datorn.
+* När den virtuella datorn har skapats kan du ansluta till den virtuella datorn genom att välja **Connect** på sidan för den virtuella datorn.
 * Kolla in [lägga till en virtuell dator i en labb](devtest-lab-add-vm.md) fullständig information om att lägga till efterföljande virtuella datorer i labbet.
 * Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates).

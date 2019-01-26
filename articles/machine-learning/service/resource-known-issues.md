@@ -11,33 +11,33 @@ ms.component: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5634a1aae32b3e9895bf5c5b72837f29223bca27
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: cb79465bd5af0b3172b12b692a90c6b5d133f89a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381830"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078720"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
- 
-Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten. 
+
+Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod när du använder Azure Machine Learning-tjänsten.
 
 ## <a name="sdk-installation-issues"></a>SDK-installationsproblem
 
-**Felmeddelande: Det går inte att avinstallera 'PyYAML'** 
+**Felmeddelande: Det går inte att avinstallera 'PyYAML'**
 
 Azure Machine Learning-SDK för Python: PyYAML är ett distutils installerade projekt. Vi kan inte därför korrekt fastställa vilka filer som hör till den i händelse av en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
-```Python 
+```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
 
 ## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
 
-Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart. 
+Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart.
 
 ## <a name="image-building-failure"></a>Bild byggnad fel
 
-Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.  
+Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
 
 ## <a name="deployment-failure"></a>Distributionsfel
 
@@ -49,10 +49,10 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 ## <a name="databricks"></a>Databricks
 
 Databricks och Azure Machine Learning-problem.
- 
+
 1. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
 
-   Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte rör Azure ML SDK – du kan stöta på det med andra libs för. Exempel:
+   Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte Azure Machine Learning-tjänsten SDK – du kan stöta på det med andra libs för. Exempel:
    ```python
    pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
@@ -67,7 +67,8 @@ Databricks och Azure Machine Learning-problem.
 Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du vill visa en annan arbetsyta lösningen är att gå direkt till den [Azure-portalen](https://portal.azure.com) och Sök efter namnet på arbetsytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Här är där loggfilerna live:
+Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp.
+Här är där loggfilerna live:
 
 ## <a name="resource-quotas"></a>Resurskvoter
 

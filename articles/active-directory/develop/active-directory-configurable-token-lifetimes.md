@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 1fa5a2f9d63dfd9af006285beec256395d7ac668
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 5dd5920eae97399bae03c6917bb610103bd556c2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069513"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912722"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara tokenlivslängder i Azure Active Directory (förhandsversion)
 
@@ -85,8 +85,6 @@ En livslängd för token-princip är en typ av grupprincipobjekt som innehåller
 | Flera faktorer Session Token maximal ålder |MaxAgeSessionMultiFactor<sup>3</sup> |Session-token (permanent eller ickebeständig) |Fram till återkallas |10 minuter |Fram till återkallas<sup>1</sup> |
 
 * <sup>1</sup>365 dagar är maxlängden explicit som kan ställas in för dessa attribut.
-* <sup>2</sup>om **MaxAgeSessionSingleFactor** har inte angetts, det här värdet tar den **MaxAgeSingleFactor** värde. Om varken parameteruppsättning tar egenskapen standardvärdet (tills-återkallats).
-* <sup>3</sup>om **MaxAgeSessionMultiFactor** har inte angetts, det här värdet tar den **MaxAgeMultiFactor** värde. Om varken parameteruppsättning tar egenskapen standardvärdet (tills-återkallats).
 
 ### <a name="exceptions"></a>Undantag
 | Egenskap  | Påverkar | Standard |
@@ -114,7 +112,7 @@ Alla tidsintervallen som används här formateras enligt C# [TimeSpan](https://m
 > [!NOTE]
 > Här är ett exempelscenario.
 >
-> En användare vill få åtkomst till två webbprogram: A-webbprogram och Web Application B.
+> En användare vill få åtkomst till två webbprogram: Webbprogram A och Web Application B.
 > 
 > Faktorer:
 > * Båda webbprogram finns i samma överordnade organisation.
@@ -134,56 +132,56 @@ Alla tidsintervallen som används här formateras enligt C# [TimeSpan](https://m
 
 ## <a name="configurable-policy-property-details"></a>Konfigurerbara egenskapen principinformation
 ### <a name="access-token-lifetime"></a>Livslängd för åtkomst-Token
-**Sträng:** AccessTokenLifetime
+**sträng:** AccessTokenLifetime
 
-**Påverkar:** åtkomsttoken, ID-token
+**Påverkar:** Åtkomsttoken, ID-token
 
-**Sammanfattning:** den här principen styr hur länge åtkomst och ID-token för den här resursen anses giltiga. Minska egenskapen livslängd för åtkomst-Token minskar du risken för en åtkomst-token eller ID-token som används av en skadlig aktör under en längre tid. (Dessa token kan inte återkallas.) En kompromiss är att prestanda påverkas negativt, eftersom token som måste ersättas oftare.
+**Sammanfattning:** Den här principen styr hur länge åtkomst och ID-token för den här resursen anses giltiga. Minska egenskapen livslängd för åtkomst-Token minskar du risken för en åtkomst-token eller ID-token som används av en skadlig aktör under en längre tid. (Dessa token kan inte återkallas.) En kompromiss är att prestanda påverkas negativt, eftersom token som måste ersättas oftare.
 
 ### <a name="refresh-token-max-inactive-time"></a>Uppdatera Token inaktiva Maxtid
-**Sträng:** MaxInactiveTime
+**sträng:** MaxInactiveTime
 
-**Påverkar:** Uppdateringstoken
+**Påverkar:** Uppdatera token
 
-**Sammanfattning:** den här principen styr hur gammal en uppdateringstoken kan vara innan en klient inte längre använda den för att hämta ett nytt åtkomst/uppdatera token par när du försöker komma åt den här resursen. Eftersom en ny uppdateringstoken vanligtvis returneras när en uppdateringstoken används förhindrar den här principen åtkomst om klienten försöker komma åt en resurs med hjälp av den aktuella uppdateringstoken under den angivna tidsperioden.
+**Sammanfattning:** Den här principen styr hur gammal en uppdateringstoken kan vara innan en klient inte längre använda den för att hämta ett nytt åtkomst/uppdatera token par när du försöker komma åt den här resursen. Eftersom en ny uppdateringstoken vanligtvis returneras när en uppdateringstoken används förhindrar den här principen åtkomst om klienten försöker komma åt en resurs med hjälp av den aktuella uppdateringstoken under den angivna tidsperioden.
 
 Den här principen tvingar de användare som inte har varit aktiva på deras klient att autentiseras på nytt om du vill hämta en ny uppdateringstoken.
 
 Uppdatera Token inaktiva Maxtid-egenskapen måste anges till ett lägre värde än den enda faktor Token Max Age och Multi-Factor uppdatera Token Max Age-egenskaper.
 
 ### <a name="single-factor-refresh-token-max-age"></a>Single-Factor uppdatera Token maximal ålder
-**Sträng:** MaxAgeSingleFactor
+**sträng:** MaxAgeSingleFactor
 
-**Påverkar:** Uppdateringstoken
+**Påverkar:** Uppdatera token
 
-**Sammanfattning:** den här principen styr hur lång tid en användare kan använda en uppdateringstoken för att få ett nytt åtkomst/uppdatera token par när de senast autentiserade har genom att använda endast en enda faktor. När en användare autentiseras och tar emot en ny uppdateringstoken, kan användaren använda uppdatering tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella uppdateringstoken inte har återkallats och det inte inte används under längre tid än tid som inaktiva.) I det här läget tvingas om användaren att autentiseras på nytt för att ta emot en ny uppdateringstoken.
+**Sammanfattning:** Den här principen styr som hur lång tid en användare kan använda en uppdateringstoken för att få ett nytt åtkomst/uppdatera token par när de senast autentiserade har genom att använda endast en enda faktor. När en användare autentiseras och tar emot en ny uppdateringstoken, kan användaren använda uppdatering tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella uppdateringstoken inte har återkallats och det inte inte används under längre tid än tid som inaktiva.) I det här läget tvingas om användaren att autentiseras på nytt för att ta emot en ny uppdateringstoken.
 
 Minska maximal ålder tvingas användare att autentisera oftare. Eftersom single-factor authentication anses vara mindre säkert än multifaktorautentisering, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller mindre än egenskapen Multi-Factor uppdatera Token Max Age.
 
 ### <a name="multi-factor-refresh-token-max-age"></a>Uppdatering av flera faktorer Token maximal ålder
-**Sträng:** MaxAgeMultiFactor
+**sträng:** MaxAgeMultiFactor
 
-**Påverkar:** Uppdateringstoken
+**Påverkar:** Uppdatera token
 
-**Sammanfattning:** den här principen styr hur lång tid en användare kan använda en uppdateringstoken för att hämta ett nytt åtkomst/uppdatera token par efter de senaste autentiseras har med hjälp av flera faktorer. När en användare autentiseras och tar emot en ny uppdateringstoken, kan användaren använda uppdatering tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella uppdateringstoken inte har återkallats och det inte är oanvänd under längre tid än tid som inaktiva.) I det här läget tvingas användare att autentiseras på nytt för att ta emot en ny uppdateringstoken.
+**Sammanfattning:** Den här principen styr som hur lång tid en användare kan använda en uppdateringstoken för att hämta ett nytt åtkomst/uppdatera token par efter de senaste autentiseras har med hjälp av flera faktorer. När en användare autentiseras och tar emot en ny uppdateringstoken, kan användaren använda uppdatering tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella uppdateringstoken inte har återkallats och det inte är oanvänd under längre tid än tid som inaktiva.) I det här läget tvingas användare att autentiseras på nytt för att ta emot en ny uppdateringstoken.
 
 Minska maximal ålder tvingas användare att autentisera oftare. Eftersom single-factor authentication anses vara mindre säkert än multifaktorautentisering, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än egenskapen enda faktor uppdatera Token Max Age.
 
 ### <a name="single-factor-session-token-max-age"></a>Single-Factor Session Token maximal ålder
-**Sträng:** MaxAgeSessionSingleFactor
+**sträng:** MaxAgeSessionSingleFactor
 
-**Påverkar:** Session token (permanent eller ickebeständig)
+**Påverkar:** Session-token (permanent eller ickebeständig)
 
-**Sammanfattning:** den här principen styr hur lång tid en användare kan använda en sessionstoken få ett nytt ID och sessionstoken när de senast autentiserade har genom att använda endast en enda faktor. När en användare autentiseras och får en ny session-token, kan användaren använda session tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella sessionstoken inte har återkallats och inte har upphört att gälla.) Om användaren tvingas att autentiseras på nytt för att ta emot en ny sessionstoken efter den angivna tidsperioden.
+**Sammanfattning:** Den här principen styr som hur lång tid en användare kan använda en sessionstoken få ett nytt ID och sessionstoken när de senast autentiserade har genom att använda endast en enda faktor. När en användare autentiseras och får en ny session-token, kan användaren använda session tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella sessionstoken inte har återkallats och inte har upphört att gälla.) Om användaren tvingas att autentiseras på nytt för att ta emot en ny sessionstoken efter den angivna tidsperioden.
 
 Minska maximal ålder tvingas användare att autentisera oftare. Eftersom single-factor authentication anses vara mindre säkert än multifaktorautentisering, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller mindre än egenskapen Multi-Factor Session Token Max-Age.
 
 ### <a name="multi-factor-session-token-max-age"></a>Flera faktorer Session Token maximal ålder
-**Sträng:** MaxAgeSessionMultiFactor
+**sträng:** MaxAgeSessionMultiFactor
 
-**Påverkar:** Session token (permanent eller ickebeständig)
+**Påverkar:** Session-token (permanent eller ickebeständig)
 
-**Sammanfattning:** den här principen styr hur lång tid en användare kan använda en sessionstoken få ett nytt ID och sessionen token efter den senaste gången som de har autentiseras med hjälp av flera faktorer. När en användare autentiseras och får en ny session-token, kan användaren använda session tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella sessionstoken inte har återkallats och inte har upphört att gälla.) Om användaren tvingas att autentiseras på nytt för att ta emot en ny sessionstoken efter den angivna tidsperioden.
+**Sammanfattning:** Den här principen styr hur lång tid en användare kan använda en sessionstoken få ett nytt ID och sessionen token efter den senaste gången de har autentiseras med hjälp av flera faktorer. När en användare autentiseras och får en ny session-token, kan användaren använda session tokenflöde för den angivna tidsperioden. (Detta gäller så länge som den aktuella sessionstoken inte har återkallats och inte har upphört att gälla.) Om användaren tvingas att autentiseras på nytt för att ta emot en ny sessionstoken efter den angivna tidsperioden.
 
 Minska maximal ålder tvingas användare att autentisera oftare. Eftersom single-factor authentication anses vara mindre säkert än multifaktorautentisering, rekommenderar vi att du ställer in den här egenskapen till ett värde som är lika med eller större än egenskapen enda faktor Session Token Max-Age.
 
@@ -219,7 +217,7 @@ Utför följande steg för att komma igång:
     Get-AzureADPolicy
     ```
 
-### <a name="example-manage-an-organizations-default-policy"></a>Exempel: Hantera standardprincipen för en organisation
+### <a name="example-manage-an-organizations-default-policy"></a>Exempel: Hantera en organisations standardprincipen
 I det här exemplet skapar du en princip som gör att användare kan logga in mer sällan i hela organisationen. Gör detta genom att skapa en livslängd för token-princip för enda faktor uppdatera token, som används i hela organisationen. Principen tillämpas för varje program i din organisation och varje tjänstens huvudnamn som inte redan har en princip.
 
 1. Skapa en princip för livslängd för token.

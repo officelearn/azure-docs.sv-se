@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/13/2018
+ms.date: 01/24/2019
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a851d9cd4322f2460bfa7f74854c44e77a52e0a6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 6b5679a8d3f8cf449b9539e8595e14a87e882ac7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818191"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912892"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Referens över granskningsaktiviteter i Azure AD
 
@@ -43,34 +43,36 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Kataloghantering|Lägg till administrativ enhet|
-|Kataloghantering|Lägg till medlem till administrativ enhet|
-|Kataloghantering|Ta bort administrativ enhet|
-|Kataloghantering|Ta bort medlem från administrativ enhet|
-|Kataloghantering|Uppdatera administrativa enheter|
-|Kataloghantering|Administration|
-|Användarhantering|Katalogåtgärd|
-|Användarhantering|Exportera|
-|Användarhantering|Importera|
-|Användarhantering|Annat|
-|Användarhantering|Processdeponering|
-|Användarhantering|Synkroniseringsregelåtgärd|
-|Användarhantering|Lägga till ett program|
-|Användarhantering|Ta bort program|
-|Användarhantering|Uppdatera programmet|
-|Användarhantering|Uppdatera läge för enkel inloggning för program|
-|Användarhantering|Automatiserad förnyelse av lösenord|
-|Användarhantering|Lägga till V2-programbehörigheter|
-|Användarhantering|Skapa V1-program|
-|Användarhantering|Skapa V2-program|
-|Användarhantering|Ta bort V1-program|
-|Användarhantering|Ta bort V2-program|
-|Användarhantering|Ta bort behörighetsbeviljande för V2-program|
-|Användarhantering|Hämta V1- och V2-program|
-|Användarhantering|Hämta V1-program|
-|Användarhantering|Hämta V1-program|
-|Användarhantering|Hämta V2-program|
-|Användarhantering|Hämta V2-program|
+|Åtkomstgranskningar|Åtkomstgranskning avslutades|
+|Åtkomstgranskningar|Lägg till godkännare för begäran|
+|Åtkomstgranskningar|Lägg till granskare i åtkomstgranskning|
+|Åtkomstgranskningar|Tillämpa åtkomstgranskning|
+|Åtkomstgranskningar|Skapa åtkomstgranskning|
+|Åtkomstgranskningar|Skapa program|
+|Åtkomstgranskningar|Skapa godkännande av begäran|
+|Åtkomstgranskningar|Ta bort åtkomstgranskning|
+|Åtkomstgranskningar|Ta bort program|
+|Åtkomstgranskningar|Länka programkontroll|
+|Åtkomstgranskningar|Publicera till Azure AD-åtkomstgranskningar|
+|Åtkomstgranskningar|Ta bort granskare från åtkomstgranskning|
+|Åtkomstgranskningar|Begär granskningsstopp|
+|Åtkomstgranskningar|Begär tillämpning av granskningsresultat|
+|Åtkomstgranskningar|Granska medlemskap i Rbac-roller|
+|Åtkomstgranskningar|Granska apptilldelning|
+|Åtkomstgranskningar|Granska gruppmedlemskap|
+|Åtkomstgranskningar|Granska begäran om godkännande|
+|Åtkomstgranskningar|Ta bort länk till programkontroll|
+|Åtkomstgranskningar|Uppdatera åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera Azure AD Access granskningar Publiceringsstatus|
+|Åtkomstgranskningar|Uppdatera inställningar för e-postavisering om åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för antal upprepningar vid åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för varaktigheten i dagar för upprepning vid åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för sluttypen för upprepningar vid åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningen för typen av upprepning vid åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera inställningar för påminnelse om åtkomstgranskning|
+|Åtkomstgranskningar|Uppdatera program|
+|Åtkomstgranskningar|Uppdatera godkännande av begäran|
+|Åtkomstgranskningar|Användare som har inaktiverats|
 
 ## <a name="account-provisioning"></a>Kontoetablering
 
@@ -526,23 +528,27 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Rollhantering|Uppdatera inställningar för påminnelse om åtkomstgranskning|
-|Rollhantering|Uppdatera godkännande av begäran|
-|Rollhantering|Lägg till approlltilldelning som användare beviljats|
-|Rollhantering|Lägga till användare|
-|Rollhantering|Lägg till information för användare med telefonapp med stark autentisering|
-|Rollhantering|Ändra användarlicens|
-|Rollhantering|Ändra användarlösenord|
-|Rollhantering|Konvertera federerad användare till hanterad|
-|Rollhantering|Skapa programlösenord för användare|
-|Rollhantering|Ta bort programlösenord för användare|
-|Rollhantering|Ta bort användare|
-|Rollhantering|Avaktivera konto|
-|Rollhantering|Aktivera stark autentisering|
-|Rollhantering|Ta bort användare permanent|
-|Rollhantering|Ta bort approlltilldelning från användare|
-|Rollhantering|Ta bort information för användare med telefonapp med stark autentisering|
-
+|PIM|ActivationAborted|
+|PIM|ActivationAborted|
+|PIM|ActivationAborted|
+|PIM|ActivationDenied|
+|PIM|ActivationRequested|
+|PIM|Tillagt|
+|PIM|AddedOutsidePIM|
+|PIM|Tilldela|
+|PIM|DismissAlert|
+|PIM|Upphöj|
+|PIM|ReactivateAlert|
+|PIM|Borttaget|
+|PIM|RemovedOutsidePIM|
+|PIM|Begär granskningsstopp|
+|PIM|Ändringar av rollinställningar|
+|PIM|ScanAlertsNow|
+|PIM|Registrera|
+|PIM|Ta bort tilldelning|
+|PIM|Ta bort behörighet|
+|PIM|UpdateAlertSettings|
+|PIM|UpdateCurrentState|
 
 
 ## <a name="self-service-group-management"></a>Självbetjäning, grupphantering
@@ -580,13 +586,16 @@ I den här artikeln står vilka granskningsaktiviteter som kan loggas in dina gr
 
 |Granskningskategori|Aktivitet|
 |---|---|
-|Principhantering|Ändra lösenord (självbetjäning)|
-|Principhantering|Återställ lösenord (av administratör)|
-|Principhantering|Återställ lösenord (självbetjäning)|
-|Principhantering|Aktivitetsförlopp för lösenordsåterställningsflöde via självbetjäning|
-|Principhantering|Aktivitetsförlopp för lösenordsåterställningsflöde via självbetjäning|
-|Principhantering|Lås upp användarkonto (självbetjäning)|
-|Principhantering|Användare registrerad för lösenordsåterställning via självbetjäning|
+|Användningsvillkor|Godkänn användningsvillkoren|
+|Användningsvillkor|Skapa användningsvillkor|
+|Användningsvillkor|Ta bort användningsvillkor|
+|Användningsvillkor|Ta bort ditt medgivande|
+|Användningsvillkor|Ta bort användningsvillkor|
+|Användningsvillkor|Redigera användningsvillkoren|
+|Användningsvillkor|Upphör att gälla användningsvillkor|
+|Användningsvillkor|Hårda ta bort användningsvillkor|
+|Användningsvillkor|Publicera användningsvillkoren|
+|Användningsvillkor|Avpublicera användningsvillkoren|
 
 
 ## <a name="next-steps"></a>Nästa steg

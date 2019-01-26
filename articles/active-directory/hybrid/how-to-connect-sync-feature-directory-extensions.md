@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e96a7d88a2e30bbedd6c57f9a72dd92f63586dd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0d058dc1875c69fe3c582c4d68da81c09ab92fcb
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476911"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079715"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect-synkronisering: Katalogtillägg
 Du kan använda katalogtillägg utöka schemat i Azure Active Directory (Azure AD) med egna attribut från en lokal Active Directory. Den här funktionen kan du skapa LOB-appar genom att använda attribut som du fortsätta att hantera lokala. Dessa attribut kan användas via [Azure AD Graph API katalogtillägg](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) eller [Microsoft Graph](https://developer.microsoft.com/graph/). Du kan se tillgängliga attribut med hjälp av [Azure AD Graph-testaren](https://graphexplorer.azurewebsites.net/) och [Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)respektive.
@@ -42,7 +42,7 @@ Installationen visar följande attribut som är giltig kandidater:
 
 
 >[!NOTE]
-> Azure AD Connect har stöd för synkronisering med flera värden Active Directory-attribut till Azure AD som flera värden katalogtillägg. Men inga funktioner i Azure AD för närvarande stöd för användning av flera värden katalogtillägg.
+> Även om Azure AD Connect har stöd för synkronisering med flera värden Active Directory attribut till Azure AD som flera värden katalogtillägg, finns det för närvarande inget sätt att hämta/använder data laddades upp i flera värden directory tilläggsattribut.
 
 Lista över attribut som läses från schema-cacheminnet som skapas under installationen av Azure AD Connect. Om du har utökat Active Directory-schemat med ytterligare attribut, måste du [uppdatera schemat](how-to-connect-installation-wizard.md#refresh-directory-schema) innan dessa nya attribut är synliga.
 

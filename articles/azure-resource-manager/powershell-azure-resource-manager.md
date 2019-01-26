@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 933c7e5b73abf533250072680160d5a5caab6523
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 05dd112c3e2ac2ffde56dd7e355e1fe695968ed0
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435446"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078176"
 ---
 # <a name="manage-resources-with-azure-powershell"></a>Hantera resurser med Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "54435446"
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt läser du [Installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt läser du [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du kör PowerShell lokalt måste du också köra `Connect-AzAccount` för att skapa en anslutning till Azure.
 
 ## <a name="understand-scope"></a>Förstå omfång
 
@@ -38,8 +38,8 @@ I den här artikeln får tillämpa du alla inställningar till en resursgrupp s�
 Nu ska vi skapa resursgruppen.
 
 ```azurepowershell-interactive
-Set-AzureRmContext -Subscription <subscription-name>
-New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
+Set-AzContext -Subscription <subscription-name>
+New-AzResourceGroup -Name myResourceGroup -Location EastUS
 ```
 
 Resursgruppen är tom för närvarande.
@@ -65,7 +65,7 @@ $adgroup = New-AzureADGroup -DisplayName VMDemoContributors `
   -MailNickName vmDemoGroup `
   -MailEnabled $false `
   -SecurityEnabled $true
-New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
+New-AzRoleAssignment -ObjectId $adgroup.ObjectId `
   -ResourceGroupName myResourceGroup `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
@@ -77,7 +77,7 @@ Normalt upprepar du processen för **Nätverksdeltagare** och **Lagringskontodel
 [Azure Policy](../azure-policy/azure-policy-introduction.md) hjälper dig se till att alla resurser i prenumerationen uppfyller företagets standarder. Din prenumeration har redan flera principdefinitioner. Om du vill se tillgängliga principdefinitioner, använder du:
 
 ```azurepowershell-interactive
-(Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
+(Get-AzPolicyDefinition).Properties | Format-Table displayName, policyType
 ```
 
 De befintliga principdefinitionerna visas. Principtypen är antingen **BuiltIn** eller **Custom**. Titta igenom definitionerna och leta efter sådana som beskriver ett tillstånd som du vill tilldela. I den här artikeln tilldelar du principer som:
@@ -90,21 +90,21 @@ De befintliga principdefinitionerna visas. Principtypen är antingen **BuiltIn**
 $locations ="eastus", "eastus2"
 $skus = "Standard_DS1_v2", "Standard_E2s_v2"
 
-$rg = Get-AzureRmResourceGroup -Name myResourceGroup
+$rg = Get-AzResourceGroup -Name myResourceGroup
 
-$locationDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
-$skuDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
-$auditDefinition = Get-AzureRmPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
+$locationDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed locations"}
+$skuDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Allowed virtual machine SKUs"}
+$auditDefinition = Get-AzPolicyDefinition | where-object {$_.properties.displayname -eq "Audit VMs that do not use managed disks"}
 
-New-AzureRMPolicyAssignment -Name "Set permitted locations" `
+New-AzPolicyAssignment -Name "Set permitted locations" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $locationDefinition `
   -listOfAllowedLocations $locations
-New-AzureRMPolicyAssignment -Name "Set permitted VM SKUs" `
+New-AzPolicyAssignment -Name "Set permitted VM SKUs" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $skuDefinition `
   -listOfAllowedSKUs $skus
-New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
+New-AzPolicyAssignment -Name "Audit unmanaged disks" `
   -Scope $rg.ResourceId `
   -PolicyDefinition $auditDefinition
 ```
@@ -114,7 +114,7 @@ New-AzureRMPolicyAssignment -Name "Audit unmanaged disks" `
 Nu när du har tilldelat roller och principer är det dags att distribuera lösningen. Standardstorleken är Standard_DS1_v2, som är en av dina tillåtna SKU:er. När du kör det här steget uppmanas du att ange autentiseringsuppgifter. De värden som du anger konfigureras som användarnamn och lösenord för den virtuella datorn.
 
 ```azurepowershell-interactive
-New-AzureRmVm -ResourceGroupName "myResourceGroup" `
+New-AzVm -ResourceGroupName "myResourceGroup" `
      -Name "myVM" `
      -Location "East US" `
      -VirtualNetworkName "myVnet" `
@@ -135,12 +135,12 @@ När distributionen är klar kan du lägga till fler hanteringsinställningar f�
 Om du vill låsa den virtuella datorn och en nätverkssäkerhetsgrupp, använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-New-AzureRmResourceLock -LockLevel CanNotDelete `
+New-AzResourceLock -LockLevel CanNotDelete `
   -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
@@ -160,10 +160,10 @@ Den virtuella datorn kan bara tas bort om du uttryckligen tar bort låset. Det s
 Om du vill lägga till taggar till en virtuell dator, använder du:
 
 ```azurepowershell-interactive
-$r = Get-AzureRmResource -ResourceName myVM `
+$r = Get-AzResource -ResourceName myVM `
   -ResourceGroupName myResourceGroup `
   -ResourceType Microsoft.Compute/virtualMachines
-Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
+Set-AzResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentation" } -ResourceId $r.ResourceId -Force
 ```
 
 ### <a name="find-resources-by-tag"></a>Hitta resurser efter tagg
@@ -171,13 +171,13 @@ Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test"; Project="Documentatio
 Om du vill söka efter resurser med en taggnamnet och Taggvärdet, använder du:
 
 ```azurepowershell-interactive
-(Find-AzureRmResource -TagName Environment -TagValue Test).Name
+(Find-AzResource -TagName Environment -TagValue Test).Name
 ```
 
 Du kan använda de returnerade värdena för olika hanteringsuppgifter, t.ex. för att stoppa alla virtuella datorer med ett visst taggvärde.
 
 ```azurepowershell-interactive
-Find-AzureRmResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzureRmVM
+Find-AzResource -TagName Environment -TagValue Test | Where-Object {$_.ResourceType -eq "Microsoft.Compute/virtualMachines"} | Stop-AzVM
 ```
 
 ### <a name="view-costs-by-tag-values"></a>Visa kostnader efter taggvärden
@@ -199,20 +199,20 @@ Du kan även använda [API:er för Azure-fakturering](../billing/billing-usage-r
 Den låsta nätverkssäkerhetsgruppen kan inte tas bort förrän låset tagits bort. Ta bort låset med:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceLock -LockName LockVM `
+Remove-AzResourceLock -LockName LockVM `
   -ResourceName myVM `
   -ResourceType Microsoft.Compute/virtualMachines `
   -ResourceGroupName myResourceGroup
-Remove-AzureRmResourceLock -LockName LockNSG `
+Remove-AzResourceLock -LockName LockNSG `
   -ResourceName myNetworkSecurityGroup `
   -ResourceType Microsoft.Network/networkSecurityGroups `
   -ResourceGroupName myResourceGroup
 ```
 
-När den inte längre behövs du använda kommandot [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) för att ta bort resursgruppen, den virtuella datorn och alla relaterade resurser.
+När du inte längre behövs kan du använda den [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) att ta bort resursgruppen, den virtuella datorn, och alla relaterade resurser.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup
+Remove-AzResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Nästa steg

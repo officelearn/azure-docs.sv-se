@@ -4,13 +4,13 @@ tjänster: machine learning ms.service: machine learning ms.component: studio ms
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
 ---
-# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importera data till Azure Machine Learning Studio från online-datakällor 
+# <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importera data till Azure Machine Learning Studio från online-datakällor
 Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
 
 > [!NOTE]
 > Den här artikeln innehåller allmän information om den [importdata] [ import-data] modulen. Mer detaljerad information om vilka typer av data som du kan komma åt format, parametrar och svar på vanliga frågor finns i avsnittet med modulen referens för den [importdata] [ import-data] modulen.
-> 
-> 
+>
+>
 
 ## <a name="introduction"></a>Introduktion
 Med hjälp av den [importdata] [ import-data] modulen, du kan komma åt data från en av flera datakällor som online när experimentet körs i [Azure Machine Learning Studio](https://studio.azureml.net/Home):
@@ -29,14 +29,14 @@ Du kommer åt online-datakällor i Studio-experiment genom att lägga till den [
 Observera att eftersom den här träningsdata hämtas när experimentet körs, det är bara tillgängliga i försöket. Jämförelsevis har är data som lagrats i en datauppsättning till modulen tillgängliga för alla experiment på arbetsytan.
 
 > [!IMPORTANT]
-> För närvarande den [importdata] [ import-data] och [exportera Data] [ export-data] moduler kan läsa och skriva data endast från Azure storage som skapats med klassiskt distributionsmodell. Med andra ord stöds den nya Azure Blob Storage-kontotyp som erbjuder en frekvent åtkomstnivå eller lågfrekvent åtkomstnivå inte ännu. 
-> 
-> I allmänhet bör alla Azure storage-konton som du kan ha skapat innan det här alternativet om tjänsten blev tillgängliga bör inte påverkas. 
-> Om du vill skapa ett nytt konto kan du välja **klassiska** för distributionen modell, eller använda Resource manager och välj **generella** snarare än **Blob-lagring** för  **Typ av konto**. 
-> 
+> För närvarande den [importdata] [ import-data] och [exportera Data] [ export-data] moduler kan läsa och skriva data endast från Azure storage som skapats med klassiskt distributionsmodell. Med andra ord stöds den nya Azure Blob Storage-kontotyp som erbjuder en frekvent åtkomstnivå eller lågfrekvent åtkomstnivå inte ännu.
+>
+> I allmänhet bör alla Azure storage-konton som du kan ha skapat innan det här alternativet om tjänsten blev tillgängliga bör inte påverkas.
+> Om du vill skapa ett nytt konto kan du välja **klassiska** för distributionen modell, eller använda Resource manager och välj **generella** snarare än **Blob-lagring** för  **Typ av konto**.
+>
 > Mer information finns i [Azure Blob Storage: Frekvent och lågfrekvent lagringsnivå](../../storage/blobs/storage-blob-storage-tiers.md).
-> 
-> 
+>
+>
 
 ## <a name="supported-online-data-sources"></a>Online-datakällor som stöds
 Azure Machine Learning **importdata** modulen stöder följande datakällor:
@@ -53,7 +53,7 @@ Azure Machine Learning **importdata** modulen stöder följande datakällor:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Distribuera Azure ML-webbtjänster som använder moduler för dataimport och dataexport](web-services-that-use-import-export-modules.md)
+[Distribuera Azure Machine Learning studio-webbtjänster som använder moduler för dataimport och dataexport](web-services-that-use-import-export-modules.md)
 
 
 <!-- Module References -->

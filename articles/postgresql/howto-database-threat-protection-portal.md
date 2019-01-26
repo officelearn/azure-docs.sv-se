@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: b7c1f873d47be0f2ec0125f769a47a399e492662
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: bbc0eadebec849dde47cecaf6e3718eb6673a22f
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536159"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912824"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Avancerat skydd för Azure Database för PostgreSQL
 
@@ -22,6 +22,9 @@ Avancerat skydd är en del av erbjudandet avancerad säkerhet för Data, vilket 
 > [!NOTE]
 > Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: US Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad Virginia, USA DoD, östra, US DoD, centrala, Tyskland-centrala, Tyskland Nord, Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
 >
+
+> [!NOTE]
+> Den här funktionen är tillgänglig i alla regioner där Azure där Azure Database for PostgreSQL distribueras för generell användning och Minnesoptimerad servrar.
 
 ## <a name="set-up-threat-detection"></a>Konfigurera identifiering av hot
 1. Starta Azure-portalen på [ https://portal.azure.com ](https://portal.azure.com).

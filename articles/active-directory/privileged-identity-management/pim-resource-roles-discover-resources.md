@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 08/30/2018
+ms.date: 01/23/2019
 ms.author: rolyon
-ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: e81aab8268266c99c9f08e165a98df31f2106123
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306697"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912279"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Identifiera Azure-resurser du hanterar i PIM
 
@@ -28,7 +28,7 @@ När du först ställa in PIM för Azure-resurser, måste du identifiera och mar
 
 ## <a name="discover-resources"></a>Identifiera resurser
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -52,12 +52,16 @@ När du först ställa in PIM för Azure-resurser, måste du identifiera och mar
 
 1. Lägg till en bock bredvid eventuella ohanterade resurser som du vill hantera.
 
+1. Klicka på **hantera resurs** och börja hantera de markerade resurserna.
+
     > [!NOTE]
     > När en hanteringsgrupp eller prenumeration har angetts till hanterade, kan den inte ohanterade. Detta förhindrar att en annan resursadministratör tar bort PIM-inställningar.
 
     ![Identifiering – hantera resurs](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-1. Klicka på **hantera resurs** och börja hantera de markerade resurserna.
+1. Om du ser ett meddelande att bekräfta registrering av den markerade resursen för hantering, klickar du på **Ja**.
+
+    ![Identifiering av, hantera resursen visas](./media/pim-resource-roles-discover-resources/discovery-manage-resource-message.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

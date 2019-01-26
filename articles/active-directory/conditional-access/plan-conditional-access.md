@@ -6,18 +6,18 @@ author: MarkusVi
 manager: daveba
 tags: azuread
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/13/2018
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: martincoetzer
-ms.openlocfilehash: 1911dd189e21a6d29b2bf1ba3d179b41e948f469
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ca0dfcd9b776b6aea052e2569f9a5aec3ae50eca
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450515"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081032"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>Hur: Planera distributionen av villkorlig åtkomst i Azure Active Directory
 
@@ -32,7 +32,7 @@ Om ytterligare funktioner krävs, kan du också behöva hämta relaterade licens
 
 Det finns två typer av principer för villkorlig åtkomst: grundläggande och standard. En [baslinjeprincip](baseline-protection.md) är en fördefinierad villkorlig åtkomstprincip. Målet med dessa principer är att se till att du har minst baslinje-säkerhetsnivå aktiverat. Grundläggande principer. Grundläggande principer är tillgängliga i alla utgåvor av Azure AD och ger endast begränsade anpassningsalternativ. Om ett scenario kräver mer flexibilitet, inaktivera baslinje-principen och implementera dina krav i en anpassad princip för standard.
 
-I en princip för villkorlig åtkomst som standard kan du anpassa alla inställningar om du vill ändra principen så att dina affärsbehov. Standard principer kräver en Azure AD Premium P1-licens.
+Du kan anpassa alla inställningar om du vill ändra principen för ditt företags behov i en princip för villkorlig åtkomst som standard. Standard principer kräver en Azure AD Premium P1-licens.
 
 
 
@@ -54,9 +54,9 @@ Använd följande exempelmall för att skapa principer för villkorlig åtkomst 
 
 |När *detta* händer:|Gör sedan *detta*:|
 |-|-|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel inloggningsrisk)|Blockera åtkomst till programmet|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel inloggningsrisk)|Bevilja åtkomst med (AND):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
-|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel inloggningsrisk)|Bevilja åtkomst med (eller):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Blockera åtkomst till programmet|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (AND):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
+|Det görs ett åtkomstförsök:<br>– Om du vill en molnapp*<br>– användare och grupper*<br>Om du använder:<br>-Villkor 1 (till exempel utanför företagsnätverk)<br>-Villkor 2 (till exempel enhetsplattformar)|Bevilja åtkomst med (eller):<br>-Krav 1 (till exempel MFA)<br>-Krav 2 (till exempel enhetsefterlevnad)|
 
 Minst **om det här händer** definierar huvudkontot (**som**) som försöker få åtkomst till en molnapp (**vad**). Om nödvändigt, kan du även inkludera **hur** ett åtkomstförsök utförs. Villkorlig åtkomst elementen som definierar vem, vad och hur kallas villkor. Mer information finns i [vad är villkor i Azure Active Directory villkorlig åtkomst?](conditions.md) 
 
@@ -70,28 +70,42 @@ Kombinationen av villkor med dina åtkomstkontroller representerar en princip f�
 
 Mer information finns i [vad krävs för att göra en princip som fungerar](best-practices.md#whats-required-to-make-a-policy-work).
 
-Nu har är ett bra tillfälle att besluta om en namngivningsstandard för dina principer. Namnstandarden hjälper dig att hitta principer och förstå syftet utan att öppna dem i Azure-administrationsportalen. Du bör namnge din princip att visa:
+Nu är det dags att besluta om en namngivningsstandard för dina principer. Namnstandarden hjälper dig att hitta principer och förstå syftet utan att öppna dem i Azure-administrationsportalen. Du bör namnge din princip att visa:
 
 - Ett sekvensnummer
 - Molnappen som gäller för
 - Svaret
 - Vem som gäller för
-- När det gäller 
+- När det gäller (om tillämpligt)
  
 ![Namngivningsstandarden](./media/plan-conditional-access/11.png)
 
-
+Ett beskrivande namn hjälper dig att få överblick över implementeringen av villkorlig åtkomst, är sekvensnumret användbart om du vill referera till en princip i en konversation. Exempelvis kan du be honom att öppna princip EM063 att lösa ett problem om du prata med en andra administratör på telefonen.
 
 
 
 Till exempel anger följande namn att principen kräver MFA för Marknadsföringsanvändare på externa nätverk som använder appen Dynamics CRP:
 
-`CA01-Dynamics CRP: Require MFA For marketing When on external networks`
+`CA01 - Dynamics CRP: Require MFA For marketing When on external networks`
 
 
-Förutom din aktiva principer, bör du även implementera inaktiverad principer som fungerar som sekundär [elastiska åtkomstkontroller i avbrott/nödfall situationer](../authentication/concept-resilient-controls.md). Din namngivningsstandarden bör också innehålla det här syftet att göra det enklare att aktivera dem under ett avbrott. Exempel:
+Förutom din aktiva principer, är det lämpligt att även implementera inaktiverad principer som fungerar som sekundär [elastiska åtkomstkontroller i avbrott/nödfall situationer](../authentication/concept-resilient-controls.md). Din namngivningsstandarden för oförutsedda händelser principer bör innehålla några fler objekt: 
 
-`EM01-Finance app: Require MFA For Sales When on untrusted network`
+- `ENABLE IN EMERGENCY` i början göra namnet skilja sig från de andra principerna.
+
+- Namnet på avbrott som den ska tillämpas på.
+
+- Ett skrivordning sekvensnummer och hjälper administratören att veta i vilken ordning principer ska aktiveras. 
+
+
+Till exempel anger följande namn att den här principen är den första principen från fyra bör du aktivera när det gäller MFA avbrott:
+
+`EM01 - ENABLE IN EMERGENCY, MFA Disruption[1/4] - Exchange SharePoint: Require hybrid Azure AD join For VIP users`
+
+
+
+
+
 
 
 ## <a name="plan-policies"></a>Planera principer
@@ -118,12 +132,12 @@ Vanliga användningsområden för att kräva MFA är åtkomst:
 
 - [Av administratörer](baseline-protection.md#require-mfa-for-admins)
 - [Till specifika appar](app-based-mfa.md) 
-- [Från nätverksplatser du inte litar](untrusted-networks.md).
+- [Från nätverket, som du inte litar](untrusted-networks.md).
 
 
 ### <a name="respond-to-potentially-compromised-accounts"></a>Svara på potentiellt komprometterade konton
 
-Med villkorlig åtkomstprinciper, du kan implementera automatiska svar till inloggningar från potentiellt komprometterade identiteter. Sannolikheten att ett konto har komprometterats uttrycks i form av risknivåer. Det finns två risknivåer beräknas genom att identitetsskydd: inloggningsrisk och användarrisk. För att implementera ett svar till en inloggningsrisk, har du två alternativ:
+Du kan implementera automatiska svar till inloggningar från potentiellt komprometterade identiteter med principer för villkorlig åtkomst. Sannolikheten att ett konto har komprometterats uttrycks i form av risknivåer. Det finns två risknivåer beräknas genom att identitetsskydd: inloggningsrisk och användarrisk. För att implementera ett svar till en inloggningsrisk, har du två alternativ:
 
 - [Villkoret inloggningsrisk](conditions.md#sign-in-risk) i principen för villkorlig åtkomst
 - [Princip för inloggningsrisk](../identity-protection/howto-sign-in-risk-policy.md) i identity protection 
@@ -232,7 +246,7 @@ Rensningsproceduren består av följande steg:
 
 ## <a name="move-to-production"></a>Flytta till produktion
 
-När du är redo att distribuera en ny princip i din miljö, ska du göra i olika faser:
+När nya principer är redo för din miljö kan du distribuera dem i olika faser:
 
 - Ange intern ändring kommunikation till slutanvändare.
 

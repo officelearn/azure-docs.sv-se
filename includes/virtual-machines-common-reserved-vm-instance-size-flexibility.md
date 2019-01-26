@@ -1,15 +1,15 @@
 ---
 author: manish-shukla01
-ms.author: cwatson
+ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 044f735560eb7d57a90a16c1e3ce1255a9fe0d54
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52742533"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54906350"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>VM-storlek flexibilitet med reserverade VM-instanser
 
@@ -20,7 +20,7 @@ Med en reserverad VM-instans som har optimerats för instans storlek flexibilite
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-Men den reservationsrabatten avser inte storlekar för virtuella datorer som listas i olika tabeller som vad som finns i tabellen DSv2-serien extra minne: Standard_DS11_v2, Standard_DS12_v2, och så vidare.
+Men den reservationsrabatten avser inte storlekar för virtuella datorer som listas i olika tabeller som vad som finns i tabellen DSv2-serien extra minne: Standard_DS11_v2, Standard_DS12_v2 och så vidare.
 
 Hur många virtuella datorer rabatten gäller för beror på VM-storlek som du väljer när du köper en reservation i storleksgruppen för serien. Det beror också på storleken på de virtuella datorerna som du har som körs. Förhållandet mellan kolumnen som anges i tabellerna nedan jämförs relativa storleken för varje VM-storlek i gruppen. Använd förhållande värdet att beräkna hur rabatten gäller för de virtuella datorerna du har som körs.
 
@@ -30,7 +30,7 @@ I följande exempel används det för storlekar och förhållanden i tabellen DS
 
  Du köper en reserverad VM-instans med storlek Standard_DS4_v2 där förhållande eller relativa fotavtryck jämfört med andra storlekar i serien är 8.
 
-- Scenario 1: Köra åtta stora Standard_DS1_v2 virtuella datorer med ett förhållande på 1. Din reservationsrabatten gäller för alla åtta för dessa virtuella datorer.
+- Scenario 1: Kör åtta stora Standard_DS1_v2 virtuella datorer med ett förhållande på 1. Din reservationsrabatten gäller för alla åtta för dessa virtuella datorer.
 - Scenario 2: Kör två stora Standard_DS2_v2 virtuella datorer med ett förhållande på 2 vardera. Också köra storleksanpassas en Standard_DS3_v2 virtuell dator och ett förhållande på 4. Totala storleken är 2 + 2 + 4 = 8. Så att din reservationsrabatten gäller för alla tre av dessa virtuella datorer.
 - Scenario 3: Kör en Standard_DS5_v2 med ett förhållande på 16. Din reservationsrabatten avser halva den Virtuella datorns beräkningskostnad.
 
@@ -306,14 +306,14 @@ Mer information finns i [storlekar för virtuella datorer för den minnesoptimer
 | Storlek | Förhållandet mellan|
 |---|---|
 |Standard_M8ms|1|
-|Standard_M8 – 2 MS|1|
-|Standard_M8 4ms|1|
+|Standard_M8-2ms|1|
+|Standard_M8-4ms|1|
 |Standard_M16ms|2|
-|Standard_M16 4ms|2|
-|8 Standard_M16 MS|2|
+|Standard_M16-4ms|2|
+|Standard_M16-8ms|2|
 |Standard_M32ms|4|
-|8 Standard_M32 MS|4|
-|16 Standard_M32 MS|4|
+|Standard_M32-8ms|4|
+|Standard_M32-16ms|4|
 
 Mer information finns i [storlekar för virtuella datorer för den minnesoptimerade](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
@@ -331,7 +331,7 @@ Mer information finns i [storlekar för virtuella datorer för den minnesoptimer
 | Storlek | Förhållandet mellan|
 |---|---|
 | Standard_M64ms|1|
-|16 Standard_M64 MS|1|
+|Standard_M64-16ms|1|
 |Standard_M64-32ms|1|
 |Standard_M128ms|2|
 |Standard_M128-32ms|2|

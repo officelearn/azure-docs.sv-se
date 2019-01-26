@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: d6e4cc585c1239d6a1b81b371f39fc19e3ff37ea
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 7d567d01cef59a2402fa8cb9aecd35c68ae6c2bd
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157181"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077207"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Datavetenskap med en Linux virtuell dator för datavetenskap på Azure
 Den här genomgången visar hur du utför flera vanliga datavetenskapsuppgifter med den virtuella datorn datavetenskap för Linux. Linux Data Science Virtual Machine (DSVM) är en avbildning av virtuell dator som är tillgängliga på Azure som är förinstallerade med en uppsättning verktyg som ofta används för dataanalys och maskininlärning. Viktiga programkomponenterna är uppdelat i den [etablera Linux Data Science Virtual Machine](linux-dsvm-intro.md) avsnittet. VM-avbildning gör det enkelt att komma igång datavetenskap på några minuter, utan att behöva installera och konfigurera var och en av verktyg individuellt. Du kan enkelt skala upp den virtuella datorn, om det behövs och stoppa den när den inte används. Den här resursen är därför både elastisk och kostnadseffektiv.
@@ -180,10 +180,10 @@ Nu ska vi prova också en slumpmässig Skogsmodell. Slumpmässig skogar träna e
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-ml"></a>Distribuera en modell för Azure ML
-[Azure Machine Learning Studio](https://studio.azureml.net/) (AzureML) är en molnbaserad tjänst som gör det enkelt att skapa och distribuera modeller för förutsägelseanalys. En bra funktioner i AzureML är förmågan att publicera alla R-funktion som en webbtjänst. AzureML-R-paketet är det enkelt att göra direkt från våra R-session på DSVM distribution.
+## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Distribuera en modell i Azure Machine Learning studio
+[Azure Machine Learning Studio](https://studio.azureml.net/) är en molnbaserad tjänst som gör det enkelt att skapa och distribuera modeller för förutsägelseanalys. En bra funktioner i Azure Machine Learning studio är förmågan att publicera alla R-funktion som en webbtjänst. Azure Machine Learning studio R-paket är det enkelt att göra direkt från våra R-session på DSVM distribution.
 
-Du måste logga in på Azure Machine Learning Studio om du vill distribuera beslut trädet koden i föregående avsnitt. Du behöver arbetsyte-ID och en Autentiseringstoken för att logga in. Du hittar de här värdena och initiera AzureML-variabler med dem:
+Du måste logga in på Azure Machine Learning Studio om du vill distribuera beslut trädet koden i föregående avsnitt. Du behöver arbetsyte-ID och en Autentiseringstoken för att logga in. Du hittar de här värdena och initiera Azure Machine Learning-variabler med dem:
 
 Välj **inställningar** i den vänstra menyn. Obs din **ARBETSYTE-ID**. ![2](./media/linux-dsvm-walkthrough/workspace-id.png)
 
@@ -270,7 +270,7 @@ Anaconda Python-distributioner 2.7 och 3.5 har installerats i DSVM för utveckli
 Nu ska vi läsa en del av datauppsättningen spambase och klassificera e-postmeddelanden med support vector virtuella datorer i scikit-Läs:
 
     import pandas
-    from sklearn import svm    
+    from sklearn import svm
     data = pandas.read_csv("spambaseHeaders.data", sep = ',\s*')
     X = data.ix[:, 0:57]
     y = data.ix[:, 57]

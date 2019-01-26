@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 34c8a7d547acf023af442599708f9c183e5b9ae9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e5949016281b5f8ba5d8770403a146e52d279c73
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431205"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079995"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -40,17 +40,16 @@ Det finns två typer av kör som-konton:
 
 Om du vill skapa eller uppdatera en Kör som-konto, måste du ha specifika privilegier och behörigheter. En Global administratör/Medadministratör kan utföra alla aktiviteter. I en situation där du har uppdelning av uppgifter, visas i följande tabell en lista över aktiviteterna, motsvarande cmdlet och behörigheter som krävs:
 
-|Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |
-|---|---------|---------|
-|Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Programroll för utvecklare        |
-|Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör         |
-|Skapa och få en AD-tjänstens huvudnamn|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Programadministratör eller GLOBAL administratör        |
-|Tilldela eller hämta RBAC-rollen för det angivna huvudnamnet|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administratör för användaråtkomst eller ägare        |
-|Skapa eller ta bort ett Automation-certifikat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Deltagare i resursgrupp         |
-|Skapa eller ta bort en automationsanslutning|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Deltagare i resursgrupp |
+|Aktivitet|Cmdlet  |Minsta möjliga behörigheter  |Där du kan ange behörigheter|
+|---|---------|---------|---|
+|Skapa Azure AD-program|[New-AzureRmADApplication](/powershell/module/azurerm.resources/new-azurermadapplication)     | Developer Programroll<sup>1</sup>        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar |
+|Lägg till autentiseringsuppgift för programmet.|[New-AzureRmADAppCredential](/powershell/module/AzureRM.Resources/New-AzureRmADAppCredential)     | Programadministratör eller GLOBAL administratör<sup>1</sup>         |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar|
+|Skapa och få en AD-tjänstens huvudnamn|[New-AzureRMADServicePrincipal](/powershell/module/AzureRM.Resources/New-AzureRmADServicePrincipal)</br>[Get-AzureRmADServicePrincipal](/powershell/module/AzureRM.Resources/Get-AzureRmADServicePrincipal)     | Programadministratör eller GLOBAL administratör        |[Azure Active Directory](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)</br>Start > Azure Active Directory > App-registreringar|
+|Tilldela eller hämta RBAC-rollen för det angivna huvudnamnet|[New-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/New-AzureRmRoleAssignment)</br>[Get-AzureRMRoleAssignment](/powershell/module/AzureRM.Resources/Get-AzureRmRoleAssignment)      | Administratör för användaråtkomst eller ägare        | [Prenumeration](../role-based-access-control/role-assignments-portal.md)</br>Start > prenumerationer > \<prenumerationsnamn\> -åtkomstkontroll (IAM)|
+|Skapa eller ta bort ett Automation-certifikat|[New-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/New-AzureRmAutomationCertificate)</br>[Remove-AzureRmAutomationCertificate](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationCertificate)     | Deltagare i resursgrupp         |Resursgruppen för Automation-konto|
+|Skapa eller ta bort en automationsanslutning|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Deltagare i resursgrupp |Resursgruppen för Automation-konto|
 
-* En AD-användarkonto med behörigheter motsvarande deltagarrollen för Microsoft.Automation-resurser enligt beskrivningen i artikeln [rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md#contributor).  
-* Användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) om alternativet **Användare kan registrera program** för Azure AD-klienten har angetts till **Ja** på sidan **Användarinställningar**. Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD.
+<sup>1</sup> användare som inte är administratörer i din Azure AD-klient kan [registrera AD-program](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) om Azure AD-klient **användare kan registrera program** alternativet i **användarinställningar**sidan är inställd på **Ja**. Om **Nej** har angetts för inställningen Appregistreringar måste användaren som utför den här åtgärden vara global administratör i Azure AD.
 
 Om du inte är medlem i prenumerationens Active Directory-instans innan du läggs till global administratör/medadministratör rollen för prenumerationen läggs som gäst. I så fall kan du få en `You do not have permissions to create…` varning på den **Lägg till Automation-konto** sidan. Användare som har tilldelats rollen som global administratör/medadministratör kan tas bort från prenumerationens Active Directory-instans och sedan läggas till igen så att de blir fullständiga användare i Active Directory. Du kan kontrollera detta i rutan **Azure Active Directory** på Azure Portal genom att välja **Användare och grupper**, välja **Alla användare**, välja den specifika användaren och sedan välja **Profil**. Värdet för attributet **Användartyp** under användarens profil bör inte vara lika med **Gäst**.
 

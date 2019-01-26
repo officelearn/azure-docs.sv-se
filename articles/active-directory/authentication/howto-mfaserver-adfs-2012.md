@@ -3,19 +3,19 @@ title: Azure MFA Server med AD FS i Windows Server
 description: Den här artikeln beskriver hur du kommer igång med Azure Multi-Factor Authentication och AD FS i Windows Server 2012 R2 och 2016.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 6e5c85345939d23cb4fccf422c9e3f151e9fdbeb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c339032afee28c7c42519332d70ba52ee655f294
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425415"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081865"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-in-windows-server"></a>Konfigurera Azure Multi-Factor Authentication Server så att den fungerar med AD FS i Windows Server
 

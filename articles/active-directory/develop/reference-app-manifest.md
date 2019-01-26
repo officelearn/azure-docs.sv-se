@@ -17,12 +17,12 @@ ms.date: 12/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: d89a80ac6d6e81fd9cc68e1dc04d4461691994fd
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 77d1cf75017b369bb18aa890d63a45be49c0afb5
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157980"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912585"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Azure Active Directory-appmanifestet
 
@@ -65,7 +65,7 @@ Konfigurera applikationsmanifestet:
 | `name` | sträng | Visningsnamn för appen. | `MyRegisteredApp` |
 | `oauth2AllowImplicitFlow` | boolesk | Anger om det här webbprogrammet kan begära OAuth2.0 implicit flöde åtkomsttoken. Standardvärdet är FALSKT. Den här flaggan används för webbläsarbaserade appar som Javascript enkelsidiga appar. Mer information finns i Ange `OAuth 2.0 implicit grant flow` i innehållsförteckningen och finns i avsnitt om implicit flöde. | `false` |
 | `oauth2AllowIdTokenImplicitFlow` | boolesk | Anger om det här webbprogrammet kan begära OAuth2.0 implicit flöde ID-token. Standardvärdet är FALSKT. Den här flaggan används för webbläsarbaserade appar som Javascript enkelsidiga appar. | `false` |
-| `oauth2Permissions` | Typ av matris | Anger samlingen av OAuth 2.0 behörighetsomfattningar som webb-API (resurs)-app som visar på klientappar. De här behörighetsomfattningarna kan ges klientprogram under medgivande. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"u| Anger samlingen av OAuth 2.0 behörighetsomfattningar som webb-API (resurs)-app som visar på klientappar. De här behörighetsomfattningarna kan ges klientprogram under medgivande. ser_impersonation ”<br>&nbsp;&nbsp;}<br>]</code> |
+| `oauth2Permissions` | Typ av matris | Anger samlingen av OAuth 2.0 behörighetsomfattningar som webb-API (resurs)-app som visar på klientappar. De här behörighetsomfattningarna kan ges klientprogram under medgivande. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"adminConsentDescription":"Allow the app to access resources on behalf of the signed-in user.",<br>&nbsp;&nbsp;&nbsp;"adminConsentDisplayName":"Access resource1",<br>&nbsp;&nbsp;&nbsp;"id":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"type":"User",<br>&nbsp;&nbsp;&nbsp;"userConsentDescription":"Allow the app to access resource1 on your behalf.",<br>&nbsp;&nbsp;&nbsp;"userConsentDisplayName":"Access resources",<br>&nbsp;&nbsp;&nbsp;"value":"user_impersonation"<br>&nbsp;&nbsp;}<br>] </code>|
 | `oauth2RequiredPostResponse` | boolesk | Anger om, Azure AD som en del av OAuth 2.0-tokenbegäranden, ska tillåta POST-förfrågningar, till skillnad från GET-begäranden. Standardvärdet är FALSKT, som anger att GET-begäranden ska tillåtas. | `false` |
 | `parentalControlSettings` | sträng | `countriesBlockedForMinors` Anger de länder där appen är blockerad för minderåriga.<br>`legalAgeGroupRule` Anger den juridiska avdelningen ålder regel som gäller för användare av appen. Kan anges till `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids`, eller `BlockMinors`.  | <code>{<br>&nbsp;&nbsp;&nbsp;"countriesBlockedForMinors":[],<br>&nbsp;&nbsp;&nbsp;"legalAgeGroupRule":"Allow"<br>} </code> |
 | `passwordCredentials` | Typ av matris | Se beskrivningen av den `keyCredentials` egenskapen. | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"customKeyIdentifier":null,<br>&nbsp;&nbsp;&nbsp;"endDate":"2018-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"keyId":"\<guid>",<br>&nbsp;&nbsp;&nbsp;"startDate":"2016-10-19T17:59:59.6521653Z",<br>&nbsp;&nbsp;&nbsp;"value":null<br>&nbsp;&nbsp;&nbsp;}<br>] </code> |

@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/14/2018
+ms.date: 01/24/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 6ab2d92e2a3c62719af1c8ab6d6eda935fc49505
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: d6d1373a97b62d54d5bfc2595ee773a242af877a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53386782"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913461"
 ---
 # <a name="connect-storage-explorer-to-an-azure-stack-subscription-or-a-storage-account"></a>Anslut storage explorer till en Azure Stack-prenumeration eller ett lagringskonto
 
@@ -37,7 +37,10 @@ När du ansluter till en Azure Stack-prenumeration eller ett lagringskonto kan d
 
 Du behöver direkt åtkomst till Azure Stack eller en VPN-anslutning så att Lagringsutforskaren kan komma åt Azure Stack-prenumerationen. Information om hur du konfigurerar en VPN-anslutning till Azure Stack finns i [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) (Anslut till Azure Stack via VPN).
 
-Du måste exportera rotcertifikatet för Azure Stack-behörighet för Azure Stack Development Kit.
+För de Azure Stack Development Kit (ASDK), måste du exportera rotcertifikatet för Azure Stack-behörighet.
+
+> [!Note]  
+> För ASDK, om du ansluter till din ASDK via VPN, Använd inte rotcertifikatet (CA.cer) som skapades under installationen VPN.  Detta är en DER-kodat certifikat och tillåter inte att Lagringsutforskaren kan hämta Azure Stack-prenumerationer. Följ stegen nedan för att exportera en Base 64-kodat certifikat som ska användas med Storage Explorer.
 
 ### <a name="export-and-then-import-the-azure-stack-certificate"></a>Exportera och importera sedan certifikatet för Azure Stack
 

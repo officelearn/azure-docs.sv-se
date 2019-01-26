@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 017de43074d4b68c69526ddcc96f98ae826dcd65
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c9d35841620afa454ffddb5e3022f6160021998e
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808739"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912392"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Riktlinjer för att flytta från Media Services v2 till v3
 
@@ -35,7 +35,7 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 
 ### <a name="api-is-more-approachable"></a>API: et är mer programmera
 
-*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, LiveEvents med mera.
+*  v3 baseras på en enhetlig API-yta som innehåller funktioner för både hantering och åtgärder som skapats på Azure Resource Manager. Azure Resource Manager-mallar kan användas för att skapa och distribuera transformeringar, -slutpunkter för direktuppspelning, Live-händelser med mera.
 * [Öppna API (även kallat Swagger) specifikationen](https://aka.ms/ams-v3-rest-sdk) dokumentet.
     Visar schemat för alla tjänstkomponenter, inklusive filbaserade kodning.
 * SDK: er som är tillgängliga för [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Gå](https://aka.ms/ams-v3-go-ref), och Ruby.
@@ -45,14 +45,14 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 
 * Du kan använda en HTTP (S)-URL för filbaserade jobb bearbetning, som indata.<br/>Du behöver inte ha innehåll som redan lagras i Azure, inte heller att skapa tillgångar.
 * Introducerar begreppet [omvandlar](transforms-jobs-concept.md) för filbaserade Jobbearbetning. En transformering kan användas för att skapa återanvändbara konfigurationer för att skapa Azure Resource Manager-mallar och isolera bearbetning av inställningar mellan flera kunder eller klienter.
-* En tillgång kan ha [flera StreamingLocators](streaming-locators-concept.md) med olika inställningar för dynamisk paketering och dynamisk kryptering.
+* En tillgång kan ha flera [positionerare för direktuppspelning](streaming-locators-concept.md) med olika inställningar för dynamisk paketering och dynamisk kryptering.
 * [Innehållsskydd](content-key-policy-concept.md) har stöd för flera viktiga funktioner.
-* Du kan strömma direktsända händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter.
-* Ny låg latens live direktuppspelning support på LiveEvents. Mer information finns i [svarstid](live-event-latency.md).
-* LiveEvent Preview stöder dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
-* LiveOutput är enklare att använda än programmet entiteten i v2-API: er. 
+* Du kan strömma Live-händelser som är upp till 24 timmar lång när använder Media Services för transkodning ett bidrag, enkel bithastighet, skicka till en utdataström som har flera olika bithastigheter.
+* Nya med låg latens live direktuppspelning support för Live-händelser. Mer information finns i [svarstid](live-event-latency.md).
+* Dynamisk förhandsgranskning av händelse har stöd för dynamisk paketering och dynamisk kryptering. Detta gör det möjligt för innehållsskydd på förhandsversion som DASH och HLS paketering.
+* Live utdata är enklare att använda än programmet entiteten i v2-API: er. 
 * Förbättrad RTMP support (ökad stabilitet och mer käll-kodare stöder).
-* RTMPS säker mata in.<br/>När du skapar en LiveEvent kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
+* RTMPS säker mata in.<br/>När du skapar en direktsänd händelse kan du få 4 mata in URL: er. 4 mata in URL: er är nästan identiska, har samma strömmande token (AppId), bara den numeriska delen port är olika. Två av de URL: er är primär och sekundär för RTMPS.   
 * Du har rollbaserad åtkomstkontroll (RBAC) över dina entiteter. 
 
 ## <a name="changes-from-v2"></a>Ändringar från v2
@@ -67,11 +67,11 @@ Om du har en videotjänst som har utvecklats i dag ovanpå den [äldre Media Ser
 * ContentKeys är inte längre en entitet, är det nu en egenskap för StreamingLocator.
 * Event Grid stöd ersätter NotificationEndpoints.
 * Följande enheter har bytt namn
-    * JobOutput ersätter aktiviteten och ingår nu i ett jobb.
-    * StreamingLocator ersätter lokaliserare.
-    * LiveEvent ersätter kanal.<br/>LiveEvents fakturering baseras på livekanal mätare. Mer information finns i [Livestreaming översikt](live-streaming-overview.md#billing) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
-    * LiveOutput ersätter programmet.
-* LiveOutputs behöver inte uttryckligen startas, de börjar vid skapandet och avbryts när tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
+    * Jobbutdata ersätter aktiviteten och ingår nu i ett jobb.
+    * Positionerare för direktuppspelning ersätter lokaliserare.
+    * Live-händelse ersätter kanal.<br/>Live-händelser som fakturering baseras på livekanal mätare. Mer information finns i [Livestreaming översikt](live-streaming-overview.md#billing) och [priser](https://azure.microsoft.com/pricing/details/media-services/).
+    * Live utdata ersätter programmet.
+* Live utdata behöver inte uttryckligen startas, de börjar vid skapandet och avbryts när tas bort. Program som fungerade inte på samma sätt i v2-API: er som de hade startas när du har skapat.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Funktionen avstånd till v2 API: er
 
@@ -84,7 +84,7 @@ V3-API: et har följande funktion-avstånd till v2 API: et. De kunskapsluckor ä
     * Överlägg
     * Beskärning
     * Miniatyr spriter
-* LiveEvents med transkodning för närvarande stöder inte bakgrundsbild infogning mitten stream och ad insättning via API-anrop. 
+* Direktsända händelser med transkodning för närvarande stöder inte bakgrundsbild infogning mitten stream och ad insättning via API-anrop. 
 
 > [!NOTE]
 > Bokmärk den här artikeln och hålla sökning efter uppdateringar.
@@ -102,11 +102,11 @@ I följande tabell visas kodskillnaderna mellan v2 och v3 för vanliga scenarier
 ## <a name="known-issues"></a>Kända problem
 
 * För närvarande kan använda du inte Azure-portalen för att hantera v3-resurser. Använd den [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, eller någon av de stödda SDK: erna.
-* Du måste etablera Mediereserverade enheter (MRUs) i ditt konto om du vill styra samtidighet och prestanda för dina jobb, särskilt de som som involverar Video eller ljudanalys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2.0 för Media Services v3](media-reserved-units-cli-how-to.md)med hjälp av den [Azure-portalen](../previous/media-services-portal-scale-media-processing.md), eller med hjälp av den[ v2 API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3 API: er.
+* Du måste etablera Mediereserverade enheter (MRUs) i ditt konto om du vill styra samtidighet och prestanda för dina jobb, särskilt de som som involverar Video eller ljudanalys. Mer information finns i [Skala mediebearbetning](../previous/media-services-scale-media-processing-overview.md). Du kan hantera MRUs med [CLI 2.0 för Media Services v3](media-reserved-units-cli-how-to.md)med hjälp av den [Azure-portalen](../previous/media-services-portal-scale-media-processing.md), eller med hjälp av den [v2 API: er](../previous/media-services-dotnet-encoding-units.md). Du måste etablera MRUs, oavsett om du använder Media Services v2 eller v3 API: er.
 * Media Services-entiteter som skapats med v3 API inte kan hanteras av v2 API: et.  
 * Det rekommenderas inte att hantera enheter som har skapats med v2 API: er v3-API: er. Följande är exempel på skillnaderna gör entiteterna i två versioner inkompatibla:   
     * Jobb och aktiviteter som skapats i v2 visas inte i v3 eftersom de inte är associerade med en transformering. Rekommendationen är att växla till v3-transformeringar och jobb. Det blir en relativt kort tidsperiod för att övervaka den tillhörande v2 behöver jobb under övergången.
-    * Kanaler och program som skapats med v2 (som är mappade till LiveEvents och LiveOutputs i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att växla till v3 LiveEvents och LiveOutputs vid en lämplig kanal stoppa.<br/>För närvarande kan migrera du inte kanaler som körs kontinuerligt.  
+    * Kanaler och program som skapats med v2 (som är mappade till Live-händelser och Live-utdata i v3) kan inte fortsätta att hanteras med v3. Rekommendationen är att växla till v3 Live-händelser och Live utdata vid en lämplig kanal stoppa.<br/>För närvarande kan migrera du inte kanaler som körs kontinuerligt.  
 
 > [!NOTE]
 > Den här sidan bevaras som Media Services-teamet gör fortsatt förbättringar till v3-API: er och bemöta luckor mellan versionerna.

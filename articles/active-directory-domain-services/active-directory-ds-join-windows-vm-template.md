@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: 32b670a4b51c2dc60fe89bc2b9ad0ef18b0ac263
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c41af11ad4afe705ca2eb284619c917a6e87b562
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856646"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911973"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain-using-a-resource-manager-template"></a>Ansluta en Windows Server-dator till en hanterad domän med en Resource Manager-mall
 Den här artikeln visar hur du kopplar en Windows Server-dator till en Azure AD Domain Services-hanterad domän med hjälp av Resource Manager-mallar.
@@ -100,7 +100,7 @@ När distributionen är klar är de angivna Windows virtuella datorerna anslutna
 
 
 ## <a name="related-content"></a>Relaterat innehåll
-* [Översikt över Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.4.0)
+* [Översikt över Azure PowerShell](/powershell/azure/overview)
 * [Azure Snabbstart mall - ansluten till en ny virtuell dator](https://azure.microsoft.com/resources/templates/201-vm-domain-join/)
 * [Azure Snabbstart mall - ansluten till befintliga virtuella datorer](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)

@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: douglasl
 robots: noindex
-ms.openlocfilehash: 4ed919b76ddebde8337337c18c04093bc6072e82
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 25592f80abc8aea338679f199f03114c2d0785f6
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121268"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077496"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Use custom activities in an Azure Data Factory pipeline (Använda anpassade aktiviteter i en Azure Data Factory-pipeline)
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -93,7 +93,7 @@ Metoden tar fyra parametrar:
 - **linkedServices**. Den här egenskapen är en uppräkningsbara lista över Data Store länkade tjänster som refereras av datauppsättningar för indata/utdata för aktiviteten.
 - **datauppsättningar**. Den här egenskapen är en uppräkningsbara lista över datauppsättningar för indata/utdata för aktiviteten. Du kan använda den här parametern för att få de platser och scheman som definieras av in- och utdatauppsättningar.
 - **aktiviteten**. Denna egenskap representerar den aktuella aktiviteten. Den kan användas för att få åtkomst till utökade egenskaper som är associerade med den anpassade aktiviteten. Se [åtkomst utökade egenskaper](#access-extended-properties) mer information.
-- **loggaren**. Det här objektet kan du skriva debug kommentarer som surface i användarloggen för för pipelinen.
+- **logger**. Det här objektet kan du skriva debug kommentarer som surface i användarloggen för för pipelinen.
 
 Metoden returnerar en ordlista som kan användas för att länka anpassade aktiviteter tillsammans i framtiden. Den här funktionen har inte implementerats ännu, så returnerar en tom ordlista från metoden.
 
@@ -168,7 +168,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
     /// Execute method is the only method of IDotNetActivity interface you must implement.
     /// In this sample, the method invokes the Calculate method to perform the core logic.
     /// </summary>
-    
+
     public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -201,7 +201,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
 
         // get type properties from the dataset object
         inputTypeProperties = inputDataset.Properties.TypeProperties as AzureBlobDataset;
-    
+
         // log linked services passed in linkedServices parameter
         // you will see two linked services of type: AzureStorage
         // one for input dataset and the other for output dataset
@@ -239,7 +239,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
                                      continuationToken,
                                      null,
                                      null);
-    
+
             // Calculate method returns the number of occurrences of
             // the search term (“Microsoft”) in each blob associated
             // with the data slice. definition of the method is shown in the next step.
@@ -257,7 +257,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
         // get the folder path from the output dataset definition
         folderPath = GetFolderPath(outputDataset);
 
-        // log the output folder path   
+        // log the output folder path
         logger.Write("Writing blob to the folder: {0}", folderPath);
 
         // create a storage object for the output blob.
@@ -293,7 +293,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
             return null;
         }
 
-        // get type properties of the dataset   
+        // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
@@ -307,30 +307,30 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
     /// <summary>
     /// Gets the fileName value from the input/output dataset.
     /// </summary>
-    
+
     private static string GetFileName(Dataset dataArtifact)
     {
         if (dataArtifact == null || dataArtifact.Properties == null)
         {
             return null;
         }
-    
+
         // get type properties of the dataset
         AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
         if (blobDataset == null)
         {
             return null;
         }
-    
+
         // return the blob/file name in the type properties
         return blobDataset.FileName;
     }
-    
+
     /// <summary>
     /// Iterates through each blob (file) in the folder, counts the number of instances of search term in the file,
     /// and prepares the output text that is written to the output blob.
     /// </summary>
-    
+
     public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
     {
         string output = string.Empty;
@@ -379,7 +379,7 @@ Metoden returnerar en ordlista som kan användas för att länka anpassade aktiv
     > Alla filer i zip-filen för den anpassade aktiviteten måste vara på den **översta nivån** utan undermappar.
 
     ![Binär utdatafiler](./media/data-factory-use-custom-activities/Binaries.png)
-14. Skapa en blobbehållare med namnet **customactivitycontainer** om den inte redan finns. 
+14. Skapa en blobbehållare med namnet **customactivitycontainer** om den inte redan finns.
 15. Ladda upp MyDotNetActivity.zip som en blob till customactivitycontainer i en **allmänna** Azure blob storage (inte frekvent/lågfrekvent – Blob storage) som refereras av AzureStorageLinkedService.
 
 > [!IMPORTANT]
@@ -420,9 +420,9 @@ Här följer de steg du utför i det här avsnittet:
    1. Klicka på **skapa en resurs** på den vänstra menyn.
    2. Klicka på **Data och analys** i den **New** bladet.
    3. Klicka på **Data Factory** på bladet **Dataanalys**.
-   
+
     ![Meny för ny Azure Data Factory](media/data-factory-use-custom-activities/new-azure-data-factory-menu.png)
-2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får felet: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
+2. I den **ny datafabrik** bladet ange **CustomActivityFactory** för namnet. Namnet på Azure Data Factory måste vara globalt unikt. Om du får följande fel: **Datafabriksnamnet ”CustomActivityFactory” är inte tillgänglig**, ändra namnet på datafabriken (till exempel **yournameCustomActivityFactory**) och försöker skapa igen.
 
     ![Nytt Azure Data Factory-blad](media/data-factory-use-custom-activities/new-azure-data-factory-blade.png)
 3. Klicka på **RESURSGRUPPENS namn**, och välj en befintlig resursgrupp eller skapa en resursgrupp.
@@ -430,7 +430,7 @@ Här följer de steg du utför i det här avsnittet:
 5. Klicka på **Skapa** på bladet **Ny datafabrik**.
 6. Du ser att datafabriken skapas på den **instrumentpanelen** i Azure Portal.
 7. När datafabriken har skapats, visas Data Factory-blad som visar innehållet i datafabriken.
-    
+
     ![Bladet Datafabrik](media/data-factory-use-custom-activities/data-factory-blade.png)
 
 ### <a name="step-2-create-linked-services"></a>Steg 2: Skapa länkade tjänster
@@ -439,7 +439,7 @@ Länkade tjänster länkar datalager eller beräkningstjänster till en Azure-da
 #### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst
 1. Klicka på den **författare och distribuera** panel på den **DATA FACTORY** bladet för **CustomActivityFactory**. Du ser Data Factory Editor.
 2. Klicka på **Nytt datalager** på kommandoraden och välj **Azure storage**. Du bör se JSON-skriptet för att skapa en länkad Azure-lagringstjänst i redigeraren.
-    
+
     ![Nytt datalager - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
 3. Ersätt `<accountname>` med namnet på ditt Azure storage-konto och `<accountkey>` med åtkomstnyckeln för Azure storage-kontot. Information om hur du hämtar din lagringsåtkomstnyckel finns i [Visa, kopiera och återskapa lagringsåtkomstnycklar](../../storage/common/storage-account-manage.md#access-keys).
 
@@ -556,7 +556,7 @@ I det här steget skapar du datauppsättningar som representerar indata och utda
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    Kom ihåg att alla filer i en Indatamappen är en del av ett segment med starttider som nämns ovan. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av sökterm (”Microsoft”). Om det finns tre filer i inputfolder, finns det tre raderna i utdatafil för varje sektor som per timme: 2016-11-16-00.txt 2016-11-16:01:00:00.txt, osv.
+    Kom ihåg att alla filer i en Indatamappen är en del av ett segment med starttider som nämns ovan. När den här sektor bearbetas, den anpassade aktiviteten söker igenom varje fil och skapar en rad i filen med antalet förekomster av sökterm (”Microsoft”). Om det finns tre filer i inputfolder, finns det tre raderna i utdatafil för varje sektor som per timme: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt, etc.
 3. Att distribuera den **OutputDataset**, klickar du på **distribuera** i kommandofältet.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>Skapa och köra en pipeline som använder den anpassade aktiviteten
@@ -680,7 +680,7 @@ Felsökning består av några grundläggande metoder:
     ```
     Error in Activity: Job encountered scheduling error. Code: BlobDownloadMiscError Category: ServerError Message: Miscellaneous error encountered while downloading one of the specified Azure Blob(s).
     ```
-2. Om du ser följande fel kan du bekräfta att namnet på klassen i filen CS matchar det namn du angav för den **EntryPoint** egenskap i JSON-pipelinen. I den här genomgången är namnet på klassen: MyDotNetActivity och EntryPoint i JSON är: MyDotNetActivityNS. **MyDotNetActivity**.
+2. Om du ser följande fel kan du bekräfta att namnet på klassen i filen CS matchar det namn du angav för den **EntryPoint** egenskap i JSON-pipelinen. I den här genomgången är namnet på klassen: MyDotNetActivity och EntryPoint i JSON är: MyDotNetActivityNS.**MyDotNetActivity**.
 
     ```
     MyDotNetActivity assembly does not exist or doesn't implement the type Microsoft.DataFactories.Runtime.IDotNetActivity properly
@@ -722,7 +722,7 @@ Felsökning består av några grundläggande metoder:
 Om du uppdaterar koden för den anpassade aktiviteten, skapa och ladda upp zip-filen som innehåller nya binärfiler till blob storage.
 
 ## <a name="appdomain-isolation"></a>AppDomain isolering
-Se [mellan AppDomain exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) som visar hur du skapar en anpassad aktivitet som inte är begränsad till sammansättningen-versioner som används av Data Factory-startprogrammet (exempel: WindowsAzure.Storage verze 4.3.0, Newtonsoft.Json v6.0.x osv.).
+Se [mellan AppDomain exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) som visar hur du skapar en anpassad aktivitet som inte är begränsad till sammansättningen-versioner som används av Data Factory-startprogrammet (exempel: WindowsAzure.Storage v4.3.0, Newtonsoft.Json v6.0.x, etc.).
 
 ## <a name="access-extended-properties"></a>Åtkomst till utökade egenskaper
 Du kan deklarera utökade egenskaper i aktivitets-JSON som visas i följande exempel:
@@ -1025,7 +1025,7 @@ Den [Azure Data Factory - lokal miljö](https://github.com/gbrueckl/Azure.DataFa
 | Exempel | Vilka anpassade aktiviteten ska hantera |
 | --- | --- |
 | [Data om HTTP-Installationshämtaren](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/HttpDataDownloaderSample). |Hämtar data från en HTTP-slutpunkt till Azure Blob Storage med anpassad C#-aktivitet i Data Factory. |
-| [Exempel för Twitter-Attitydanalys](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure ML-modell och gör attitydanalys, bedömning, förutsägelse osv. |
+| [Exempel för Twitter-Attitydanalys](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TwitterAnalysisSample-CustomC%23Activity) |Anropar en Azure Machine Learning studio-modell och gör attitydanalys, bedömning, förutsägelse osv. |
 | [Köra R-skript](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample). |Anropar R-skriptet genom att köra RScript.exe i ditt HDInsight-kluster som redan finns R har installerats på datorn. |
 | [Mellan AppDomain .NET-aktivitet](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/CrossAppDomainDotNetActivitySample) |Använder olika paketversionerna från de som används av Data Factory-startprogram |
 | [Ombearbeta en modell i Azure Analysis Services](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample) |  Ombearbeta en modell i Azure Analysis Services. |

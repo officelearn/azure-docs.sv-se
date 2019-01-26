@@ -8,12 +8,12 @@ ms.date: 12/07/2018
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 5b418f28cb8cb48d8c9ee369289c899c7f6525bc
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: bb759c0b21287f8198f2f4e0dac10020a3b31d62
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331970"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913605"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide för utformning av Azure Storage-tabell: Utforma skalbara och högpresterande tabeller
 
@@ -252,7 +252,7 @@ Många design måste uppfylla kraven för att aktivera sökning efter enheter ba
 
 ### <a name="sorting-data-in-the-table-service"></a>Sortera data i Table service
 
-Frågeresultat som returneras av är sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**.
+Frågeresultat som returneras av tabelltjänsten är sorterade i stigande ordning baserat på **PartitionKey** och sedan efter **RowKey**.
 
 > [!NOTE]
 > Frågeresultat som returneras av Azure Table-API i Azure Cosmso DB sorteras inte som partitionsnyckel och radnyckel. En detaljerad lista över skillnaderna finns i [skillnaderna mellan tabell-API i Azure Cosmos DB och Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).

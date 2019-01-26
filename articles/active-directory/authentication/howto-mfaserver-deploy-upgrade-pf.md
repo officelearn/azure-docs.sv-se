@@ -3,19 +3,19 @@ title: Uppgradera PhoneFactor till Azure MFA Server | Microsoft Docs
 description: Kom igång med Azure MFA Server när du uppgraderar från den äldre PhoneFactor-agenten.
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: e2c3024b16a7ef2fc02abb8bbdb75c166a6962cd
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e7e34d3d90191889a87990ab5814e67d4359b8fc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432378"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078264"
 ---
 # <a name="upgrade-the-phonefactor-agent-to-azure-multi-factor-authentication-server"></a>Uppgradera PhoneFactor Agent till Azure Multi-Factor Authentication Server
 

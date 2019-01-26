@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: ff40ac0e5ab6176bcf192289c0506f57ebf04a11
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 81f9db7e90e2cef85d41561cc677db3d6422ef45
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755095"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079876"
 ---
 # <a name="use-cloudevents-schema-with-event-grid"></a>Använd CloudEvents-schema med Event Grid
 
@@ -21,7 +21,7 @@ Utöver dess [standard Händelseschema](event-schema.md), Azure Event Grid har i
 
 CloudEvents förenklar samverkan genom att tillhandahålla ett gemensamt Händelseschema för publicering och använder molnet baserat på händelser. Det här schemat kan enhetliga verktyg, standard sätt för Routning och hantera händelser och universal sätt att deserialisering av yttre händelseschemat. Du kan enkelt integrera arbete på plattformar med ett gemensamt schema.
 
-CloudEvents håller på att skapas av ett flertal [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna Compute Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
+CloudEvents håller på att skapas av ett flertal [medarbetare](https://github.com/cloudevents/spec/blob/master/community/contributors.md), inklusive Microsoft, via den [Cloud interna databehandling Foundation](https://www.cncf.io/). Det finns för närvarande som version 0.1.
 
 Den här artikeln beskriver hur du använder CloudEvents-schema med Event Grid.
 
@@ -62,16 +62,16 @@ CloudEvents v0.1 har följande egenskaper som är tillgängliga:
 
 | CloudEvents        | Typ     | Värdet för exempel-JSON             | Beskrivning                                                        | Event Grid-mappning
 |--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| Händelsetyp          | Sträng   | ”com.example.someevent”          | Typ av händelse som inträffade                                   | Händelsetyp
-| eventTypeVersion   | Sträng   | ”1.0”                            | Versionen av händelsetyp (valfritt)                            | dataVersion
-| cloudEventsVersion | Sträng   | ”0.1”                            | Versionen av CloudEvents-specifikationen händelsen använder        | *skickas via*
+| Händelsetyp          | Sträng   | "com.example.someevent"          | Typ av händelse som inträffade                                   | Händelsetyp
+| eventTypeVersion   | Sträng   | "1.0"                            | Versionen av händelsetyp (valfritt)                            | dataVersion
+| cloudEventsVersion | Sträng   | "0.1"                            | Versionen av CloudEvents-specifikationen händelsen använder        | *skickas via*
 | källa             | URI      | ”/ mycontext”                     | Beskriver producenten händelse                                       | avsnittet #subject
-| händelse-ID            | Sträng   | ”1234-1234-1234”                 | ID för händelsen                                                    | id
-| eventTime          | Tidsstämpel| ”2018-04-05T17:31:00Z”           | Tidsstämpel för när händelsen som inträffade (valfritt)                    | eventTime
+| eventID            | Sträng   | "1234-1234-1234"                 | ID för händelsen                                                    | id
+| eventTime          | Tidsstämpel| "2018-04-05T17:31:00Z"           | Tidsstämpel för när händelsen som inträffade (valfritt)                    | eventTime
 | schemaURL          | URI      | "https://myschema.com"           | En länk till det schema som dataattributet följer (valfritt) | *används inte*
-| contentType        | Sträng   | ”application/json”               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
-| Tillägg         | Karta      | {”Extra”: ”vA”, ”extB”, ”vB”}  | Alla ytterligare metadata (valfritt)                                 | *används inte*
-| data               | Objekt   | {”objA”: ”vA”, ”objB”, ”vB”}  | Händelsenyttolast (valfritt)                                       | data
+| contentType        | Sträng   | "application/json"               | Beskriv data Kodningsformatet (valfritt)                       | *används inte*
+| Tillägg         | Karta      | { "extA": "vA", "extB", "vB" }  | Alla ytterligare metadata (valfritt)                                 | *används inte*
+| data               | Objekt   | { "objA": "vA", "objB", "vB" }  | Händelsenyttolast (valfritt)                                       | data
 
 Mer information finns i den [CloudEvents-specifikationen](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes).
 

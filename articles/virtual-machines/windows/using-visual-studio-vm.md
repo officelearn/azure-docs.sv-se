@@ -17,12 +17,12 @@ ms.prod: vs-devops-alm
 ms.date: 09/12/2018
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: 49ed750a25c732b7f11ef5de2e545be2a5412fa8
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 1582cc7e48adcf895dc7c07e7ab485790650ac14
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437579"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54911919"
 ---
 # <a name="visual-studio-images-on-azure"></a>Visual Studio-avbildningar på Azure
 Med Visual Studio på en förkonfigurerad Azure-dator (VM) är ett snabbt, enkelt sätt att gå från inget till en upp-igång-utvecklingsmiljö. Systemavbildningar med olika konfigurationer för Visual Studio finns i den [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps?search=%22visual%20studio%202017%22&page=1).
@@ -34,7 +34,7 @@ Avbildningar för de senaste huvudversioner, Visual Studio 2017 och Visual Studi
 
 | Slutversionen                                              | Utgåvor                     |     Produktversion      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|    Visual Studio 2019: Förhandsversion (förhandsversion 1)                   |           Enterprise         | Version 16.0.0 Preview 1 |
+|    Visual Studio 2019: Förhandsversion (förhandsversion 2)                   |           Enterprise         | Version 16.0.0 Preview 2 |
 | Visual Studio 2017: Senaste (Version 15.9)                    |    Enterprise, Community     |      Version 15.9.4      |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Version 15.0.20     |
 |   Visual Studio 2015: Senaste (Aktualizace 3)                      |    Enterprise, Community     |  Version 14.0.25431.01   |
@@ -50,7 +50,7 @@ Varje avbildning innehåller rekommenderade funktionerna i den Visual Studio-ver
 
 * Alla tillgängliga arbetsbelastningar, inklusive varje arbetsbelastning rekommenderas valfria komponenter
 * .NET 4.6.2 och .NET 4.7 SDK: er och Målpaket utvecklarverktyg
-* VisualF#
+* Visual F#
 * GitHub-tillägget för Visual Studio
 * LINQ till SQL-verktyg
 

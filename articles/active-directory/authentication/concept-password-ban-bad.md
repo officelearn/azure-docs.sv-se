@@ -3,19 +3,19 @@ title: Lösenord som förbjuds dynamiskt i Azure AD
 description: Förbjud svaga lösenord från din miljö med Azure AD som förbjuds dynamiskt-lösenord
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 7cb1acace3dd8605d7506013a6f1c0273dafa32f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 430a0b3ade96019ae07c032fd9733562c981960e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421444"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075743"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 

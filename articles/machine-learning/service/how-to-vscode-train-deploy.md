@@ -10,12 +10,12 @@ ms.author: shwinne
 author: swinner95
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: e7df9086fa5ffc6273a6cb063bdee3cfdfa73e34
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 7852ff20a7f6528546063365ede10ad5536319a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013323"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079145"
 ---
 # <a name="use-visual-studio-code-to-train-and-deploy-machine-learning-models"></a>Använd Visual Studio Code för att träna och distribuera machine learning-modeller
 
@@ -45,15 +45,15 @@ Det här tillägget har stöd för flera olika remote beräkningsmål för Azure
 
 1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
-2. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. Prenumerationens namn är ”kostnadsfri utvärdering” i animerade avbildningen, och arbetsytan som är ”TeamWorkspace”. 
+2. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. Prenumerationens namn är ”kostnadsfri utvärdering” i animerade avbildningen, och arbetsytan som är ”TeamWorkspace”.
 
 3. Under noden arbetsyta högerklickar du på den **Compute** noden och välj **skapa Compute**.
 
-4. Välj Beräkningstyp för mål i listan. 
+4. Välj Beräkningstyp för mål i listan.
 
 5. I Kommandopaletten, väljer du en storlek på virtuell dator.
 
-6. I Kommandopaletten, anger du ett namn för beräkningsmål i fältet. 
+6. I Kommandopaletten, anger du ett namn för beräkningsmål i fältet.
 
 7. Ange avancerade egenskaper i JSON-konfigurationsfilen som öppnas i en ny flik. Du kan ange egenskaper, till exempel ett högsta antal noder...
 
@@ -63,12 +63,12 @@ Här är ett exempel för att skapa en Azure Machine Learning Compute (AMLComput
 
 #### <a name="the-run-configuration-file"></a>Filen ”kör configuration”
 
-VS Code-tillägg automatiskt skapar en lokal beräkningsmål och kör konfigurationer för dina **lokala** och **docker** miljöer på din lokala dator. Kör configuration-filer kan hittas under den associerade beräkningsmål. 
+VS Code-tillägg automatiskt skapar en lokal beräkningsmål och kör konfigurationer för dina **lokala** och **docker** miljöer på din lokala dator. Kör configuration-filer kan hittas under den associerade beräkningsmål.
 
 Det här är ett kodfragment från lokala kör standardkonfigurationsfilen. Som standard `userManagedDependencies: True` så måste du installera alla bibliotek/beroenden själv och sedan lokala experimentkörningar kommer att använda din standardmiljö Python som anges av VS Code Python-tillägg.
 
 ```yaml
-# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that AzureML will manage the user environment.
+# user_managed_dependencies = True indicates that the environment will be user managed. False indicates that Azure Machine Learning service will manage the user environment.
     userManagedDependencies: True
 # The python interpreter path
     interpreterPath: python
@@ -84,19 +84,19 @@ Det här är ett kodfragment från lokala kör standardkonfigurationsfilen. Som 
 
 ## <a name="train-and-tune-models"></a>Träna och finjustera modeller
 
-Använda Azure Machine Learning för VS Code (förhandsversion) för att snabbt iterera din kod, gå igenom och felsöka och använda källa kod kontroll lösning för jobbschemaläggning. 
+Använda Azure Machine Learning för VS Code (förhandsversion) för att snabbt iterera din kod, gå igenom och felsöka och använda källa kod kontroll lösning för jobbschemaläggning.
 
 **Att köra experimentet lokalt med Azure Machine Learning:**
 
 1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
-1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
+1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn.
 
-1. Under noden arbetsytan Expandera den **Compute** noden och högerklicka på den **Kör Config** av beräkning du vill använda. 
+1. Under noden arbetsytan Expandera den **Compute** noden och högerklicka på den **Kör Config** av beräkning du vill använda.
 
 1. Välj **kör Experiment**.
 
-1. Välj skriptet som ska köras från Utforskaren. 
+1. Välj skriptet som ska köras från Utforskaren.
 
 1. Klicka på **visa Experiment kör** att se den integrera Azure Machine Learning-portalen för att övervaka dina körningar och se dina tränade modeller.
 
@@ -120,13 +120,13 @@ name: project_environment
 dependencies:
   # The python interpreter version.
 
-  # Currently Azure ML only supports 3.5.2 and later.
+  # Currently Azure Machine Learning service only supports 3.5.2 and later.
 
 - python=3.6.2
 - tensorflow
 
 - pip:
-    # Required packages for AzureML execution, history, and data preparation.
+    # Required packages for Azure Machine Learning service execution, history, and data preparation.
 
   - --index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
   - --extra-index-url https://pypi.python.org/simple
@@ -138,15 +138,15 @@ dependencies:
 
 1. Klicka på ikonen Azure i Visual Studio Code Aktivitetsfältet. Azure Machine Learning-sidopanelen visas.
 
-1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn. 
+1. Expandera din Azure-prenumeration och Azure Machine Learning-tjänstens arbetsyta i trädvyn.
 
-1. Högerklicka på python-skriptet i fönstret redigeraren och välja **AML: Kör som-Experiment i Azure**. 
+1. Högerklicka på python-skriptet i fönstret redigeraren och välja **AML: Kör som-Experiment i Azure**.
 
-1. Välj målobjektet för beräkning i Kommandopaletten. 
+1. Välj målobjektet för beräkning i Kommandopaletten.
 
-1. I Kommandopaletten, anger du körningskonfiguration namn i fältet. 
+1. I Kommandopaletten, anger du körningskonfiguration namn i fältet.
 
-1. Redigera filen conda_dependencies.yml för att ange den experiment körningsberoenden och klicka sedan på **skicka** i det nedre högra hörnet på skärmen. 
+1. Redigera filen conda_dependencies.yml för att ange den experiment körningsberoenden och klicka sedan på **skicka** i det nedre högra hörnet på skärmen.
 
 1. Klicka på **visa Experiment kör** att se den integrera Azure Machine Learning-portalen för att övervaka dina körningar och se dina tränade modeller.
 
@@ -154,7 +154,7 @@ Här är ett exempel för att köra ett experiment på en fjärransluten beräkn
 
 
 ## <a name="deploy-and-manage-models"></a>Distribuera och hantera modeller
-Azure Machine Learning gör det möjligt att distribuera och hantera dina machine learning-modeller i molnet och på gränsen. 
+Azure Machine Learning gör det möjligt att distribuera och hantera dina machine learning-modeller i molnet och på gränsen.
 
 ### <a name="register-your-model-to-azure-machine-learning-from-vs-code"></a>Registrera din modell till Azure Machine Learning från VS Code
 
@@ -169,13 +169,13 @@ Registrerade modeller kan spåras och distribueras.
 
 1. Under noden arbetsyta högerklickar du på **modeller** och välj **registrera modellen**.
 
-1. I Kommandopaletten, anger du ett namn i fältet. 
+1. I Kommandopaletten, anger du ett namn i fältet.
 
-1. I listan, väljer om du vill ladda upp en **modellfilen** (för enskild modeller) en **modellen mappen** (för modeller med flera filer, till exempel Tensorflow). 
+1. I listan, väljer om du vill ladda upp en **modellfilen** (för enskild modeller) en **modellen mappen** (för modeller med flera filer, till exempel Tensorflow).
 
 1. Välj din mapp eller fil.
 
-1. När du är klar konfigurerar din modellegenskaper, klickar du på **skicka** i det nedre högra hörnet på skärmen. 
+1. När du är klar konfigurerar din modellegenskaper, klickar du på **skicka** i det nedre högra hörnet på skärmen.
 
 Här är ett exempel för att registrera din modell till AML: [![Registrera en AML-modell](./media/vscode-tools-for-ai/RegisteringAModel.gif)](./media/vscode-tools-for-ai/RegisteringAModel.gif#lightbox)
 
@@ -184,9 +184,9 @@ Här är ett exempel för att registrera din modell till AML: [![Registrera en A
 
 Med VS Code kan distribuera du din webbtjänst för att:
 + Azure Container Instance (ACI): för testning
-+ Azure Kubernetes Service (AKS): för produktion 
++ Azure Kubernetes Service (AKS): för produktion
 
-Du behöver inte skapa en ACI-behållare för att testa i förväg eftersom de har skapats i farten. AKS-kluster måste dock vara konfigurerad i förväg. 
+Du behöver inte skapa en ACI-behållare för att testa i förväg eftersom de har skapats i farten. AKS-kluster måste dock vara konfigurerad i förväg.
 
 Läs mer om [distribution med Azure Machine Learning](how-to-deploy-and-where.md) i allmänhet.
 
@@ -200,9 +200,9 @@ Läs mer om [distribution med Azure Machine Learning](how-to-deploy-and-where.md
 
 1. Högerklicka på modellen som du vill distribuera till och välj **distribuera tjänst från registrerade modellen** från snabbmenyn.
 
-1. I Kommandopaletten, välja beräkningsmål som ska distribueras i listan. 
+1. I Kommandopaletten, välja beräkningsmål som ska distribueras i listan.
 
-1. I Kommandopaletten, anger du ett namn för den här tjänsten i fältet.  
+1. I Kommandopaletten, anger du ett namn för den här tjänsten i fältet.
 
 1. Tryck på RETUR-tangenten på tangentbordet för att bläddra och välja skriptfilen i Kommandopaletten.
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 249d5068c38466bf8ac3820449bcf613a15c168a
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: ce1940d0b83e0713ce41d84e8d4bfeff6cb75954
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51288823"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075864"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
@@ -47,10 +47,10 @@ Om du vill börja använda Azure Active Directory Graph API, se den [Snabbstarts
 Azure AD Graph API: et tillhandahåller följande funktioner:
 
 * **REST API-slutpunkter**: Azure AD Graph API är en RESTful-tjänst som består av slutpunkter som nås med hjälp av standard HTTP-begäranden. Azure AD Graph API har stöd för XML- eller Javascript Object Notation (JSON) innehållstyper för begäranden och svar. Mer information finns i [Azure AD Graph REST API-referens](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* **Autentisering med Azure AD**: varje begäran till Azure AD Graph API: et måste autentiseras genom att lägga till en JSON Web Token (JWT) i auktoriseringshuvudet för begäran. Denna token förvärvas genom gör en begäran till tokenslutpunkten för Azure AD och ange giltiga autentiseringsuppgifter. Du kan använda OAuth 2.0 flödet eller Auktoriseringskoden bevilja flödet för att hämta en token för att anropa Graph. Mer information [OAuth 2.0 i Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* **Rollbaserad auktorisering (RBAC)**: säkerhetsgrupper som används för att utföra RBAC i Azure AD Graph API. Exempel: Om du vill fastställa om en användare har åtkomst till en specifik resurs, programmet kan anropa den [kontrollera medlemskap (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) åtgärd, som returnerar SANT eller FALSKT.
-* **Differentiell fråga**: differentiell fråga kan du spåra ändringar i en katalog mellan två tidsperioder utan att göra frekventa förfrågningar till Azure AD Graph API. Den här typen av begäran returnerar bara de ändringar som gjorts mellan tidigare differentiell fråga och den aktuella begäran. Mer information finns i [Azure AD Graph API differentiell fråga](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Katalogtillägg**: du kan lägga till anpassade egenskaper till katalogobjekt utan ett externa datalager. Om programmet kräver en Skype-ID-egenskap för varje användare kan du registrera den nya egenskapen i katalogen och den blir tillgänglig för användning på alla användarobjekt. Mer information finns i [Azure AD Graph API directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Autentisering med Azure AD**: Varje begäran till Azure AD Graph API: et måste autentiseras genom att lägga till en JSON Web Token (JWT) i auktoriseringshuvudet för begäran. Denna token förvärvas genom gör en begäran till tokenslutpunkten för Azure AD och ange giltiga autentiseringsuppgifter. Du kan använda OAuth 2.0 flödet eller Auktoriseringskoden bevilja flödet för att hämta en token för att anropa Graph. Mer information [OAuth 2.0 i Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* **Rollbaserad auktorisering (RBAC)**: Säkerhetsgrupper används för att utföra RBAC i Azure AD Graph API. Exempel: Om du vill fastställa om en användare har åtkomst till en specifik resurs, programmet kan anropa den [kontrollera medlemskap (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) åtgärd, som returnerar SANT eller FALSKT.
+* **Differentiell fråga**: Differentiell fråga kan du spåra ändringar i en katalog mellan två tidsperioder utan att göra frekventa förfrågningar till Azure AD Graph API. Den här typen av begäran returnerar bara de ändringar som gjorts mellan tidigare differentiell fråga och den aktuella begäran. Mer information finns i [Azure AD Graph API differentiell fråga](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
+* **Katalogtillägg**: Du kan lägga till anpassade egenskaper katalogobjekt utan ett externa datalager. Om programmet kräver en Skype-ID-egenskap för varje användare kan du registrera den nya egenskapen i katalogen och den blir tillgänglig för användning på alla användarobjekt. Mer information finns i [Azure AD Graph API directory-schemautökningar](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Skyddas av behörighetsomfattningar**: Azure AD Graph API exponerar behörighetsomfattningar som ger säker åtkomst till Azure AD-data med hjälp av OAuth 2.0. Det stöder en mängd olika apptyper som klienten, bland annat:
   
   * användargränssnitt som ges delegerad åtkomst till data via auktorisering från (delegerad) inloggad användare
@@ -62,7 +62,7 @@ Azure AD Graph API: et tillhandahåller följande funktioner:
 
 Azure AD Graph API gör det möjligt för många scenarier för programmet. Följande scenarion är de vanligaste:
 
-* **Verksamhetsspecifika affärsprogram (enskild klient)**: I det här scenariot företagsutvecklare fungerar för en organisation som har en Office 365-prenumeration. Utvecklaren är att skapa ett webbprogram som interagerar med Azure AD för att utföra uppgifter som att tilldela en licens till en användare. Den här uppgiften kräver åtkomst till Azure AD Graph API, så att utvecklare registreras enskild klient-programmet i Azure AD och konfigurerar Läs- och skrivbehörighet för Azure AD Graph API. Programmet konfigureras sedan för att använda sina egna autentiseringsuppgifter eller den av den för närvarande inloggning för att hämta en token för att anropa Azure AD Graph API.
+* **Affärsprogram (enskild klient)**: I det här scenariot fungerar företagsutvecklare för en organisation som har en Office 365-prenumeration. Utvecklaren är att skapa ett webbprogram som interagerar med Azure AD för att utföra uppgifter som att tilldela en licens till en användare. Den här uppgiften kräver åtkomst till Azure AD Graph API, så att utvecklare registreras enskild klient-programmet i Azure AD och konfigurerar Läs- och skrivbehörighet för Azure AD Graph API. Programmet konfigureras sedan för att använda sina egna autentiseringsuppgifter eller den av den för närvarande inloggning för att hämta en token för att anropa Azure AD Graph API.
 * **Programvara som en tjänst (flera innehavare)**: I det här scenariot en oberoende programvaruleverantör (ISV) utvecklingen av ett program för värdbaserade webbprogram för flera innehavare som tillhandahåller funktioner för användarhantering för andra organisationer som använder Azure AD. De här funktionerna kräver åtkomst till katalogobjekt, så programmet måste anropa Azure AD Graph API. Utvecklaren registrerar programmet i Azure AD konfigureras för kräver Läs- och skrivbehörighet för Azure AD Graph API och aktiverar sedan extern åtkomst så att andra organisationer kan godkänna att använda programmet i sin katalog. När en användare i en annan organisation autentiseras till programmet för första gången, visas en dialogruta för medgivande med de behörigheter som programmet begär. Ge ditt medgivande sedan ger programmet begärda de behörigheter till Azure AD Graph API i användarens katalog. Mer information om ramverket för medgivande finns [översikt över ramverket för medgivande](consent-framework.md).
 
 ## <a name="next-steps"></a>Nästa steg

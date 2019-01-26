@@ -3,19 +3,19 @@ title: Inaktivera konvergerade registreringen för Azure AD SSPR och MFA (offent
 description: Inaktivera Azure AD-Multifaktorautentisering och lösenordsåterställning via självbetjäning registrering (offentlig förhandsversion)
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 6a51b1a3050b37fdcc822006f9e25d6662c65fb2
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: c7cdd2e62c76011f2ff4ada33353b85dcf564ef5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426360"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076663"
 ---
 # <a name="disable-azure-ad-converged-registration-public-preview"></a>Inaktivera Azure AD konvergerat registrering (offentlig förhandsversion)
 

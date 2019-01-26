@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9465be92d2289bb174834cc856d6f20b6b64c81b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 8a5fd44f1122b682ee4e3b4c6fcf56408098cae1
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888132"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55080727"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -176,7 +176,7 @@ Om du vill flytta virtuella datorer som konfigurerats med Azure Backup, använde
 * Hitta platsen för den virtuella datorn.
 * Hitta en resursgrupp med följande namngivningsmönstret: `AzureBackupRG_<location of your VM>_1` exempelvis AzureBackupRG_westus2_1
 * Azure-portalen och sedan kontrollera om ”Visa dolda typer”
-* Om du är i PowerShell, använder de `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
+* Om du är i PowerShell, använder de `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1` cmdlet
 * Om du är i CLI, använder den `az resource list -g AzureBackupRG_<location of your VM>_1`
 * Hitta resursen med typen `Microsoft.Compute/restorePointCollections` som har namngivningsmönstret `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Ta bort den här resursen. Den här åtgärden tar bort bara de direkta återställningspunkterna, inte säkerhetskopierade data i valvet.
@@ -343,8 +343,8 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   Använd för Azure PowerShell:
 
   ```azurepowershell-interactive
-  (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
-  (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
+  (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
 
   Om du använder Azure CLI använder du:
@@ -364,14 +364,14 @@ Några viktiga steg måste utföras innan en resurs flyttas. Du kan undvika fel 
   Använd följande kommandon för att hämta registreringsstatus PowerShell:
 
   ```azurepowershell-interactive
-  Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
-  Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+  Set-AzContext -Subscription <destination-subscription-name-or-id>
+  Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Om du vill registrera en resursleverantör, använder du:
 
   ```azurepowershell-interactive
-  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+  Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
   För Azure CLI, använder du följande kommandon för att hämta registreringsstatus:
@@ -475,12 +475,12 @@ När den har slutförts meddelas du om resultatet.
 
 ### <a name="by-using-azure-powershell"></a>Med hjälp av Azure PowerShell
 
-Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) kommando. I följande exempel visas hur du flyttar flera resurser till en ny resursgrupp.
+Flytta befintliga resurser till en annan resursgrupp eller prenumeration genom att använda den [flytta AzResource](/powershell/module/az.resources/move-azresource) kommando. I följande exempel visas hur du flyttar flera resurser till en ny resursgrupp.
 
 ```azurepowershell-interactive
-$webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
-$plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
-Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
+$webapp = Get-AzResource -ResourceGroupName OldRG -ResourceName ExampleSite
+$plan = Get-AzResource -ResourceGroupName OldRG -ResourceName ExamplePlan
+Move-AzResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId
 ```
 
 Om du vill flytta till en ny prenumeration kan innehålla ett värde för den `DestinationSubscriptionId` parametern.

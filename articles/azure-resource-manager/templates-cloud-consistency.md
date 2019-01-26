@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 28542bb66fe1e523201967a9dd67fd7e41fed7a0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ab19baa1c10f329b5bbe3c14261434d7f8e2538f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135635"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076538"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -59,14 +59,14 @@ Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure f
 
 1. När du har en lokal klon av lagringsplatsen kan du ansluta till målet Azure Resource Manager med PowerShell.
 
-1. Importera modulen psm1 och kör cmdleten Test-AzureRmTemplateFunctions:
+1. Importera modulen psm1 och kör cmdleten Test-AzTemplateFunctions:
 
   ```powershell
   # Import the module
-  Import-module <path to local clone>\AzureRmTemplateFunctions.psm1
+  Import-module <path to local clone>\AzTemplateFunctions.psm1
 
-  # Execute the Test-AzureRmTemplateFunctions cmdlet
-  Test-AzureRmTemplateFunctions -path <path to local clone>
+  # Execute the Test-AzTemplateFunctions cmdlet
+  Test-AzTemplateFunctions -path <path to local clone>
   ```
 
 Skriptet etablerar flera minimeras mallar som innehåller endast unika Mallfunktioner. Utdata från skriptet rapporterar stöds och otillgängligt Mallfunktioner.
@@ -230,7 +230,7 @@ az provider list --query "[].{Provider:namespace, Status:registrationState}" --o
 Du kan också använda följande PowerShell-cmdlet för att se tillgängliga resursproviders:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 ### <a name="verify-the-version-of-all-resource-types"></a>Kontrollera vilken version av alla typer av resurser
@@ -248,7 +248,7 @@ az provider list --query "[].{namespace:namespace, resourceType:resourceType[]}"
 Du kan också använda följande PowerShell-cmdlet:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
+Get-AzResourceProvider | select-object ProviderNamespace -ExpandProperty ResourceTypes | ft ProviderNamespace, ResourceTypeName, ApiVersions
 ```
 
 ### <a name="refer-to-resource-locations-with-a-parameter"></a>Referera till resursplatser med en parameter
@@ -491,10 +491,10 @@ Om du vill hämta en lista över tillgängliga avbildningar av virtuella datorer
 az vm image list -all
 ```
 
-Du kan hämta samma lista med Azure PowerShell-cmdleten [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) och ange den plats du vill med den `-Location` parametern. Exempel:
+Du kan hämta samma lista med Azure PowerShell-cmdleten [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) och ange den plats du vill med den `-Location` parametern. Exempel:
 
 ```azurepowershell-interactive
-Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRMVMImage
+Get-AzVMImagePublisher -Location "West Europe" | Get-AzVMImageOffer | Get-AzVMImageSku | Get-AzureRMVMImage
 ```
 
 Det här kommandot tar ett par minuter att returnera alla tillgängliga avbildningar i regionen Europa, västra i globala Azure-molnet.
@@ -527,7 +527,7 @@ az vm list-sizes --location "West Europe"
 Använd för Azure PowerShell:
 
 ```azurepowershell-interactive
-Get-AzureRmVMSize -Location "West Europe"
+Get-AzVMSize -Location "West Europe"
 ```
 
 En fullständig lista över tillgängliga tjänster, se [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?cdn=disable).
@@ -594,10 +594,10 @@ Att hämta en lista över VM-tillägg som är tillgängliga för en viss region 
 az vm extension image list --location myLocation
 ```
 
-Du kan också köra Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) cmdlet och Använd `-Location` att ange platsen för avbildningen av virtuella datorn. Exempel:
+Du kan också köra Azure PowerShell [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet och Använd `-Location` att ange platsen för avbildningen av virtuella datorn. Exempel:
 
 ```azurepowershell-interactive
-Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version
+Get-AzVmImagePublisher -Location myLocation | Get-AzVMExtensionImageType | Get-AzVMExtensionImage | Select Type, Version
 ```
 
 #### <a name="ensure-that-versions-are-available"></a>Kontrollera att versioner är tillgängliga
@@ -615,16 +615,16 @@ Eftersom VM-tillägg är från första part Resource Manager-resurser, har de si
 
 API-versionen av resursen för VM-tillägget måste finnas på alla platser som du planerar att rikta in med din mall. Plats-beroendet fungerar som resursprovider API-versionen tillgänglighet nämnts tidigare i avsnittet ”verifiera version av alla typer av resurser”.
 
-Använd för att hämta en lista över de tillgängliga API-versionerna för VM-tillägg-resursen, den [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider) cmdlet med den **Microsoft.Compute** resursprovidern som visas:
+Använd för att hämta en lista över de tillgängliga API-versionerna för VM-tillägg-resursen, den [Get-AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider) cmdlet med den **Microsoft.Compute** resursprovidern som visas:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachines/extensions"}
 ```
 
 Du kan också använda VM-tillägg i VM-skalningsuppsättningar. På samma platsvillkor gäller. Kontrollera att API-versioner är tillgängliga på alla platser som du planerar att distribuera till för att utveckla din mall för att få konsekvens i molnet. För att hämta API-versioner av VM-tillägget resursen för skalningsuppsättningar, använder du samma cmdlet som innan, men ange VM-skalningsuppsättningen anger resurstyp som visas:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
+Get-AzResourceProvider -ProviderNamespace "Microsoft.Compute" | Select-Object -ExpandProperty ResourceTypes | Select ResourceTypeName, Locations, ApiVersions | where {$_.ResourceTypeName -eq "virtualMachineScaleSets/extensions"}
 ```
 
 Varje specifika tillägg är också en ny version. Den här versionen visas i den `typeHandlerVersion` egenskapen för VM-tillägget. Se till att versionen som anges i den `typeHandlerVersion` element i din mall VM-tillägg som är tillgängliga på platser där du planerar att distribuera mallen. Följande kod anger till exempel version 1.7:
@@ -645,13 +645,13 @@ Varje specifika tillägg är också en ny version. Den här versionen visas i de
         ...   
 ```
 
-Använd för att hämta en lista över tillgängliga versioner för en specifik VM-tillägget i [Get-AzureRmVMExtensionImage](/powershell/module/azurerm.compute/get-azurermvmextensionimage) cmdlet. I följande exempel hämtar tillgängliga versioner för PowerShell DSC (Desired State Configuration) VM-tillägget från **myLocation**:
+Använd för att hämta en lista över tillgängliga versioner för en specifik VM-tillägget i [Get-AzVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. I följande exempel hämtar tillgängliga versioner för PowerShell DSC (Desired State Configuration) VM-tillägget från **myLocation**:
 
 ```azurepowershell-interactive
-Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
+Get-AzVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-Hämta en lista över utgivare med den [Get-AzureRmVmImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) kommando. Om du vill begära typ, använder den [Get-AzureRmVMExtensionImageType](/powershell/module/azurerm.compute/get-azurermvmextensionimagetype) uppskattar.
+Hämta en lista över utgivare med den [Get-AzVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) kommando. Om du vill begära typ, använder den [Get-AzVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) uppskattar.
 
 ## <a name="tips-for-testing-and-automation"></a>Tips för att testa och automation
 

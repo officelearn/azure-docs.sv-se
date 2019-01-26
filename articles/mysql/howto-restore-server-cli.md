@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 6033dbbe6105968e5ef5839f0cfa560ac7f70fb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537791"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913486"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Hur du säkerhetskopierar och återställer en server i Azure Database for MySQL med Azure CLI
 
@@ -105,7 +105,7 @@ az mysql server georestore --resource-group newresourcegroup --name mydemoserver
 
 ```
 
-Den `az mysql server georestore` kommandot requies följande parametrar:
+Den `az mysql server georestore` kommandot kräver följande parametrar:
 
 | Inställning | Föreslaget värde | Beskrivning  |
 | --- | --- | --- |

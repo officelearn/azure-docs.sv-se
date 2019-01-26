@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 6a4dedc2478b2f8c5fa754e3736dbfb983cfb7a2
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715898"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079825"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Programmässigt skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -75,10 +75,10 @@ Azure svarar med en lista över alla registreringskonton som du har åtkomst til
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd den [Get-AzureRmEnrollmentAccount-kommandot](/powershell/module/azurerm.billing/get-azurermenrollmentaccount) för att lista alla registreringskonton du har åtkomst till.
+Använd den [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) cmdlet för att lista alla registreringskonton som du har åtkomst till.
 
 ```azurepowershell-interactive
-Get-AzureRmEnrollmentAccount
+Get-AzEnrollmentAccount
 ```
 
 Azure svarar med en lista med objekt-ID och e-postadresser av konton.
@@ -161,24 +161,24 @@ I svaret, få tillbaka en `subscriptionOperation` objekt för övervakning. När
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-För att använda den här förhandsversionsmodulen måste du installera det genom att köra `Install-Module AzureRM.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
+För att använda den här förhandsversionsmodulen måste du installera det genom att köra `Install-Module Az.Subscription -AllowPrerelease` första. Kontrollera `-AllowPrerelease` fungerar, installera en ny version av PowerShellGet från [hämta PowerShellGet-modul](/powershell/gallery/installing-psget).
 
-Använd den [New-AzureRmSubscription](/powershell/module/azurerm.subscription) tillsammans med `enrollmentAccount` objekt-ID som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
+Använd den [New-AzSubscription](/powershell/module/az.subscription) tillsammans med `enrollmentAccount` objekt-ID som den `EnrollmentAccountObjectId` parametern för att skapa en ny prenumeration. 
 
 ```azurepowershell-interactive
-New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
+New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
 | Elementnamn  | Krävs | Typ   | Beskrivning                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | Nej      | Sträng | Visningsnamnet för prenumerationen. Om inte anges, är den inställd på namnet på erbjudandet, som ”Microsoft Azure Enterprise”.                                 |
 | `OfferType`   | Ja      | Sträng | Erbjudande för prenumerationen. Två alternativ för EA är [MS-AZR - 0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (produktion) och [MS-AZR - 0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (utveckling/testning, måste vara [aktiverat EA-portalen](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
-| `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID för registreringskontot att prenumerationen har skapats under och faktureras till. Det här värdet är ett GUID som du får från `Get-AzureRmEnrollmentAccount`. |
+| `EnrollmentAccountObjectId`      | Ja       | Sträng | Objekt-ID för registreringskontot att prenumerationen har skapats under och faktureras till. Det här värdet är ett GUID som du får från `Get-AzEnrollmentAccount`. |
 | `OwnerObjectId`      | Nej       | Sträng | Objekt-ID för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas.  |
 | `OwnerSignInName`    | Nej       | Sträng | E-postadress för alla användare som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`.|
 | `OwnerApplicationId` | Nej       | Sträng | Program-ID för alla huvudnamn för tjänsten som du vill lägga till som ägare RBAC för prenumerationen när den skapas. Du kan använda den här parametern i stället för `OwnerObjectId`. När du använder den här parametern måste tjänstens huvudnamn måste ha [läsbehörighet till katalogen](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
-En fullständig lista över alla parametrar finns i [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
+En fullständig lista över alla parametrar finns i [New AzSubscription](/powershell/module/az.subscription.preview).
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 

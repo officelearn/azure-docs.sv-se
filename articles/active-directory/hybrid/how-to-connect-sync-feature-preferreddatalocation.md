@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2fde653c6520b743990ae837f1553004793fefa2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7b54d1b746467695b2c5e6a4ba634c74a3801d4f
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470706"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078737"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -31,7 +31,7 @@ Som standard finns Office 365-resurser för dina användare i samma geografiska 
 Genom att ange attributet **preferredDataLocation**, kan du definiera en användares geo. Du kan ha användarens Office 365 resurser, till exempel postlåda och OneDrive, i samma geografiska område som användare, och fortfarande har en klient för hela organisationen.
 
 > [!IMPORTANT]
-> Hjälpdokumentation för flera geografiska är nu tillgänglig för kunder med ett minimum av 5000 prenumerationer för Office 365-tjänster. Kontakta din Microsoft-representant för mer information.
+> Hjälpdokumentation för flera geografiska är för närvarande tillgängligt för kunder med minst 2 500 prenumerationer för Office 365-tjänster. Kontakta din Microsoft-representant för mer information.
 >
 >
 
@@ -53,7 +53,7 @@ Geografiska områden i Office 365 som är tillgängliga för flera Geo är:
 | USA | NAM |
 
 * Om ett geografiskt område inte visas i den här tabellen (till exempel Sydamerika) kan sedan den inte användas för Multi-GEO-replikering.
-* Geo Indien är endast tillgängligt för kunder med fakturerings-adress och licenser i den här område.
+
 * Inte alla Office 365-arbetsbelastningar stöd för användning av att ställa in en användares geo.
 
 ### <a name="azure-ad-connect-support-for-synchronization"></a>Support för Azure AD Connect för synkronisering

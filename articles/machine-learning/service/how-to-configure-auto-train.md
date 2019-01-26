@@ -11,12 +11,12 @@ ms.component: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 865d00d4a6608e422fdfca1297962913ee205827
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5bb9bfdc90c18ff044e73a61aaff9e95bdf28d25
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823444"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081627"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Konfigurera automatisk machine learning-experiment
 
@@ -35,7 +35,7 @@ Konfigurationsalternativ är tillgängliga i automatiserade machine learning:
 * Registrera och distribuera modellen
 
 ## <a name="select-your-experiment-type"></a>Väljer du typen av experimentet
-Innan du börjar experimentet måste bestämma du vilken typ av machine learning-problem som du vill lösa. Automatiserad maskininlärning stöder uppgift typer av klassificering, regression och prognostisering. 
+Innan du börjar experimentet måste bestämma du vilken typ av machine learning-problem som du vill lösa. Automatiserad maskininlärning stöder uppgift typer av klassificering, regression och prognostisering.
 
 När automatisk maskininlärningsförmågor är allmänt tillgängliga **prognoser är fortfarande i förhandsversion.**
 
@@ -59,7 +59,7 @@ Klassificering | Regression | Prognosticering
 ## <a name="data-source-and-format"></a>Datakällan och format
 Automatiserad maskininlärning har stöd för data som finns på din lokala dator eller i molnet, till exempel Azure Blob Storage. Data kan läsas in i scikit-Läs stöds dataformat. Du kan läsa data till:
 * Numpy matriser X (funktioner) och y (målvariabel eller så kallade etikett)
-* Pandas-dataframe 
+* Pandas-dataframe
 
 Exempel:
 
@@ -67,7 +67,7 @@ Exempel:
 
     ```python
     digits = datasets.load_digits()
-    X_digits = digits.data 
+    X_digits = digits.data
     y_digits = digits.target
     ```
 
@@ -75,9 +75,9 @@ Exempel:
 
     ```python
     import pandas as pd
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    df = df.drop(["Label"], axis=1) 
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```
 
@@ -88,18 +88,18 @@ Om du använder en fjärransluten beräkning för att köra experimentet Datahä
 Här är ett exempel på `get_data`:
 
 ```python
-%%writefile $project_folder/get_data.py 
-import pandas as pd 
-from sklearn.model_selection import train_test_split 
-from sklearn.preprocessing import LabelEncoder 
-def get_data(): # Burning man 2016 data 
-    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"') 
-    # get integer labels 
-    le = LabelEncoder() 
-    le.fit(df["Label"].values) 
-    y = le.transform(df["Label"].values) 
-    df = df.drop(["Label"], axis=1) 
-    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42) 
+%%writefile $project_folder/get_data.py
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import LabelEncoder
+def get_data(): # Burning man 2016 data
+    df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
+    # get integer labels
+    le = LabelEncoder()
+    le.fit(df["Label"].values)
+    y = le.transform(df["Label"].values)
+    df = df.drop(["Label"], axis=1)
+    df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     return { "X" : df, "y" : y }
 ```
 
@@ -117,7 +117,7 @@ X | Pandas-Dataframe eller Numpy matris | data_train, etikett, kolumner |  Alla 
 Y | Pandas-Dataframe eller Numpy matris |   etikett   | Märk data att träna med. Klassificering, bör vara en matris av heltal.
 X_valid | Pandas-Dataframe eller Numpy matris   | data_train, etikett | _Valfritt_ alla funktioner ska verifiera med. Om inte anges X delas mellan träna och validera
 y_valid |   Pandas-Dataframe eller Numpy matris | data_train, etikett | _Valfritt_ etikett data ska verifiera med. Om inte anges y delas mellan träna och validera
-sample_weight | Pandas-Dataframe eller Numpy matris |   data_train, etikett, kolumner| _Valfritt_ ett viktningsvärde för varje exempel. Använd när du vill tilldela olika vikter för din datapunkter 
+sample_weight | Pandas-Dataframe eller Numpy matris |   data_train, etikett, kolumner| _Valfritt_ ett viktningsvärde för varje exempel. Använd när du vill tilldela olika vikter för din datapunkter
 sample_weight_valid | Pandas-Dataframe eller Numpy matris | data_train, etikett, kolumner |    _Valfritt_ ett viktningsvärde för varje Verifieringsexempel. Om inte anges sample_weight delas mellan träna och validera
 data_train |    Pandas-Dataframe |  X, y, X_valid, y_valid |    Alla data (funktioner + etiketten) för att träna med
 etikett | sträng  | X, y, X_valid, y_valid |  Vilken kolumn i data_train representerar etiketten
@@ -136,7 +136,8 @@ Automatiserad maskininlärningsexperiment stöder inläsning av data och transfo
 >* Filtrering
 >* Anpassad Python-transformeringar
 
-Lär dig mer om data prep sdk finns den [hur du förbereder data för modellering av artikeln](how-to-load-data.md). Nedan visas ett exempel som läser in data med hjälp av data prep SDK: n. 
+Lär dig mer om data prep sdk finns den [hur du förbereder data för modellering av artikeln](how-to-load-data.md).
+Nedan visas ett exempel som läser in data med hjälp av data prep SDK: n.
 ```python
 # The data referenced here was pulled from `sklearn.datasets.load_digits()`.
 simple_example_data_root = 'https://dprepdata.blob.core.windows.net/automl-notebook-data/'
@@ -189,7 +190,7 @@ Några exempel är:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=2)
     ```
@@ -201,7 +202,7 @@ Några exempel är:
         max_time_sec=600,
         iterations=100,
         primary_metric='r2_score',
-        X=X, 
+        X=X,
         y=y,
         n_cross_validations=5)
     ````
@@ -223,7 +224,7 @@ Egenskap  |  Beskrivning | Standardvärde
 `enable_cache`  | SANT/FALSKT <br/>Inställningen detta till True aktiverar Förbearbeta en gång och återanvända samma förbearbetade data för alla iterationer. | True |
 `blacklist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera för att undanta vissa algoritmer från experimentet. Användbart om du är medveten om att algoritm(er) inte fungerar bra för din datauppsättning. Exkludera algoritmer kan spara beräkningsresurser och utbildning.<br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|   Ingen
 `whitelist_models`  | Automatiserad machine learning-experiment har många olika algoritmer som försök. Konfigurera om du vill inkludera vissa algoritmer för experimentet. Användbart om du är medveten om att algoritm(er) fungerar bra för din datauppsättning. <br/>Tillåtna värden för klassificering<br/><li>LogisticRegression</li><li>DESCENT</li><li>MultinomialNaiveBayes</li><li>BernoulliNaiveBayes</li><li>SVM</li><li>LinearSVM</li><li>KNN</li><li>DecisionTree</li><li>RandomForest</li><li>ExtremeRandomTrees</li><li>LightGBM</li><li>GradientBoosting</li><li>TensorFlowDNN</li><li>TensorFlowLinearClassifier</li><br/>Tillåtna värden för Regression<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li><br/>Tillåtna värden för prognostisering<br/><li>ElasticNet</li><li>GradientBoosting</li><li>DecisionTree</li><li>KNN</li><li>LassoLars</li><li>DESCENT </li><li>RandomForest</li><li>ExtremeRandomTree</li><li>LightGBM</li><li>TensorFlowLinearRegressor</li><li>TensorFlowDNN</li></li>|  Ingen
-`verbosity` |Styr loggningsnivå med information som är den mest utförliga och kritiska som minsta möjliga. Utförlighetsnivå tar samma värden som definierats i python-paketet för loggning. Tillåtna värden är:<br/><li>logging.INFO</li><li>loggning. VARNING</li><li>loggning. FEL</li><li>loggning. KRITISKA</li>  | logging.INFO</li> 
+`verbosity` |Styr loggningsnivå med information som är den mest utförliga och kritiska som minsta möjliga. Utförlighetsnivå tar samma värden som definierats i python-paketet för loggning. Tillåtna värden är:<br/><li>logging.INFO</li><li>loggning. VARNING</li><li>loggning. FEL</li><li>loggning. KRITISKA</li>  | logging.INFO</li>
 `X` | Alla funktioner för att träna med |  Ingen
 `y` |   Märk data att träna med. Klassificering, bör vara en matris av heltal.|  Ingen
 `X_valid`|_Valfritt_ alla funktioner ska verifiera med. Om inte anges X delas mellan träna och validera |   Ingen
@@ -233,7 +234,7 @@ Egenskap  |  Beskrivning | Standardvärde
 `run_configuration` |   RunConfiguration-objekt.  Används för fjärråtkomst körs. |Ingen
 `data_script`  |    Sökväg till en fil som innehåller get_data-metoden.  Krävs för remote körs.   |Ingen
 `model_explainability` | _Valfritt_ SANT/FALSKT <br/>  True aktiverar experimentera för att utföra funktionen vikten för varje iteration. Du kan också använda explain_model() metod på en viss iteration för att aktivera funktionen vikten på begäran som upprepas när experimentet har slutförts. | False
-`enable_ensembling`|Flagga för att aktivera en ensembling iteration när alla andra iterationer har slutfört.| True 
+`enable_ensembling`|Flagga för att aktivera en ensembling iteration när alla andra iterationer har slutfört.| True
 `ensemble_iterations`|Antal upprepningar som vi välja en monterad pipeline vara en del av den slutliga ensemble.| 15
 `experiment_timeout_minutes`| Begränsar mängden tid (minuter) som kan vidta för hela körningen av experimentet | Ingen
 
@@ -324,20 +325,20 @@ Det finns två sätt att skapa funktionen prioritet.
 
     ```python
     from azureml.train.automl.automlexplainer import explain_model
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         explain_model(fitted_model, X_train, X_test)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-*   Om du vill visa funktionen betydelse för alla iterationer, ange `model_explainability` flaggan till `True` i AutoMLConfig.  
+*   Om du vill visa funktionen betydelse för alla iterationer, ange `model_explainability` flaggan till `True` i AutoMLConfig.
 
     ```python
     automl_config = AutoMLConfig(task = 'classification',
@@ -346,7 +347,7 @@ Det finns två sätt att skapa funktionen prioritet.
                                  max_time_sec = 12000,
                                  iterations = 10,
                                  verbosity = logging.INFO,
-                                 X = X_train, 
+                                 X = X_train,
                                  y = y_train,
                                  X_valid = X_test,
                                  y_valid = y_test,
@@ -358,20 +359,20 @@ Det finns två sätt att skapa funktionen prioritet.
 
     ```python
     from azureml.train.automl.automlexplainer import retrieve_model_explanation
-    
+
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
-    
+
     #Overall feature importance
     print(overall_imp)
-    print(overall_summary) 
-    
+    print(overall_summary)
+
     #Class-level feature importance
     print(per_class_imp)
-    print(per_class_summary) 
+    print(per_class_summary)
     ```
 
-Du kan visualisera funktionen vikten diagrammet på din arbetsyta i Azure-portalen. Diagrammet visas också när du använder en Jupyter-widget på en bärbar dator. Lär dig mer om diagrammen finns på den [exemplet Azure ML-anteckningsböcker artikeln.](samples-notebooks.md)
+Du kan visualisera funktionen vikten diagrammet på din arbetsyta i Azure-portalen. Diagrammet visas också när du använder en Jupyter-widget på en bärbar dator. Lär dig mer om diagrammen finns på den [exemplet Azure Machine Learning-tjänsten anteckningsböcker artikeln.](samples-notebooks.md)
 
 ```python
 from azureml.widgets import RunDetails
@@ -383,4 +384,4 @@ RunDetails(local_run).show()
 
 Läs mer om [hur och var du vill distribuera en modell](how-to-deploy-and-where.md).
 
-Läs mer om [hur du tränar en modell för klassificering med automatisk machine learning](tutorial-auto-train-models.md) eller [hur du tränar med hjälp av automatisk machine learning i en fjärransluten resurs](how-to-auto-train-remote.md). 
+Läs mer om [hur du tränar en modell för klassificering med automatisk machine learning](tutorial-auto-train-models.md) eller [hur du tränar med hjälp av automatisk machine learning i en fjärransluten resurs](how-to-auto-train-remote.md).

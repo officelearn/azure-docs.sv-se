@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 10/26/2018
-ms.openlocfilehash: 3dbe40476757ba93f33d39f71c46bf58302b3570
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 5d328164ac8ad99db15a12d850327615a9ffd809
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50979462"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54910292"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Övervaka, skapa och hantera SFTP-filer med hjälp av Azure Logic Apps
 
@@ -27,7 +27,7 @@ Att automatisera uppgifter som att övervaka, skapa, skicka och ta emot filer p�
 * Hämta filinnehåll och metadata.
 * Extrahera Arkiv till mappar.
 
-Jämfört med den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md), SFTP-anslutningsappen kan läsa eller skriva filer upp till 50 MB i storlek om du inte använder [storlekar för att hantera stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). För filer upp till 1 GB i storlek, Använd den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md). För filer som är större än 1 GB, kan du använda den SFTP-SSH connector plus [storlekar för stora meddelanden](../logic-apps/logic-apps-handle-large-messages.md). 
+Jämfört med den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md), SFTP-anslutningsappen kan läsa eller skriva filer upp till 50 MB i storlek om du inte använder [meddelande storlekar i åtgärder](../logic-apps/logic-apps-handle-large-messages.md). För närvarande kan använda du inte storlekar för utlösare. För filer upp till 1 GB i storlek, Använd den [SFTP-SSH-anslutningen](../connectors/connectors-sftp-ssh.md). För filer som är större än 1 GB, kan du använda den SFTP-SSH connector plus [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md). 
 
 Du kan använda utlösare som övervakar händelser på din SFTP-server och se utdata som är tillgängliga för andra åtgärder. Du kan använda åtgärder som utför olika uppgifter på din SFTP-server. Du kan också ha andra åtgärder i din logikapp använda utdata från SFTP-åtgärder. Om du regelbundet hämta filer från din SFTP-server, kan du exempelvis skicka e-postaviseringar om filerna och sitt innehåll med hjälp av anslutningsappen Office 365 Outlook eller Outlook.com-anslutning.
 Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
@@ -40,7 +40,7 @@ Om du är nybörjare till logic apps, granska [vad är Azure Logic Apps?](../log
 
   > [!NOTE]
   > 
-  > SFTP-anslutningsappen stöder dessa privata nyckel format: OpenSSH, ssh.com och PuTTY
+  > SFTP-anslutningsappen stöder formaten för privat nyckel: OpenSSH och ssh.com PuTTY
   > 
   > När du skapar din logikapp när du lägger till SFTP-utlösaren eller åtgärden som du vill kan behöver du ange anslutningsinformation för din SFTP-server. 
   > Om du använder en SSH-privata nyckel, se till att du ***kopia*** nyckeln från din SSH fil för privat nyckel och ***klistra in*** nyckeln till anslutningsinformationen, ***inte manuellt ange eller redigera nyckeln***, vilket kan orsaka anslutning att misslyckas. 
@@ -102,17 +102,39 @@ SFTP utlöser arbete genom att avsöka SFTP-filsystemet och söker efter alla fi
 
 Om en ny fil upptäcks under en utlösare kan utlösaren söker du efter att den nya filen är komplett och inte delvis skriftliga. En fil kan till exempel ha ändringar pågår när utlösaren kontrollerar filservern. För att undvika att returnera en delvis skriftliga fil, noterar utlösaren tidsstämpel för den fil som har de senaste ändringarna, men inte direkt returnerar filen. Utlösaren returnerar filen bara när en avsökning görs servern igen. Det här beteendet kan ibland orsaka en fördröjning som upp till två gånger utlösarens avsökningsintervall. 
 
+När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
+
 ## <a name="examples"></a>Exempel
 
-### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-utlösare: när en fil läggs till eller ändras
+<a name="file-add-modified"></a>
+
+### <a name="sftp-trigger-when-a-file-is-added-or-modified"></a>SFTP-utlösare: När en fil läggs till eller ändras
 
 Den här utlösaren startar en logikappens arbetsflöde när en fil läggs till eller ändras på en SFTP-server. Du kan till exempel lägga till ett villkor som kontrollerar dess innehåll och hur du hämtar innehållet baserat på om innehållet uppfyller ett angivet villkor. Du kan sedan lägga till en åtgärd som hämtar filens innehåll och placerar innehållet i en mapp på SFTP-server. 
 
-**Enterprise exempel**: du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll** så att du hämta orderns innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
+**Enterprise exempel**: Du kan använda den här utlösaren för att övervaka en SFTP-mapp för nya filer som representerar kundorder. Du kan sedan använda en SFTP-åtgärd som **hämta filinnehåll** så att du hämta orderns innehåll för vidare bearbetning och lagra den ordningen i en order-databas.
 
-### <a name="sftp-action-get-content"></a>SFTP-åtgärd: hämta innehåll
+När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
+
+<a name="get-content"></a>
+
+### <a name="sftp-action-get-content"></a>SFTP-åtgärd: Hämta innehåll
 
 Den här åtgärden hämtar innehållet från en fil på en SFTP-server. Till exempel kan du lägga till utlösaren från föregående exempel och ett villkor som måste uppfylla dess innehåll. Om villkoret är sant, köra den åtgärd som hämtar innehållet. 
+
+När du begär innehåll, hämta utlösare inte filer större än 50 MB. Om du vill hämta filer större än 50 MB, så det här mönstret: 
+
+* Använda en utlösare som returnerar filegenskaper, till exempel **när en fil läggs till eller ändras (enbart egenskaper)**.
+
+* Följ utlösare med en åtgärd som läser den fullständiga filen, till exempel **hämta filinnehåll med hjälp av sökvägen**, och ha åtgärden som använder [meddelande storlekar](../logic-apps/logic-apps-handle-large-messages.md).
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 

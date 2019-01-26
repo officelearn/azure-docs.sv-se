@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 47699925f057aab25fe6f7c1c7d0b0620e7e4dbe
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228002"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55076442"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Hantera Azure DevTest Labs formler
 
@@ -44,39 +44,35 @@ Följande steg vägleder dig genom processen att skapa en formel från en anpass
 
 3. Listan över labbar, Välj önskade labbet.  
 
-4. På den labb-bladet och välj **formler (återanvändbara baser)**.
+4. På sidan för den testmiljön väljer **formler (återanvändbara baser)**.
    
     ![Formeln menyn](./media/devtest-lab-create-formulas/lab-settings-formulas.png)
 
-5. På den **formler** bladet väljer **+ Lägg till**.
+5. På den **formler** väljer **+ Lägg till**.
    
     ![Lägga till en formel](./media/devtest-lab-create-formulas/add-formula.png)
 
-6. På den **väljer bas** bladet välj base (anpassad avbildning, Marketplace-avbildning eller formel) där du vill kunna skapa formeln.
+6. På den **väljer bas** väljer base (anpassad avbildning, Marketplace-avbildning eller formel) där du vill skapa formeln.
    
     ![Grundläggande lista](./media/devtest-lab-create-formulas/base-list.png)
 
-7. På den **skapa formeln** bladet anger du följande värden:
+7. På den **grundinställningar** fliken den **skapa formeln** anger du följande värden:
    
     * **Formelnamnet** -ange ett namn för din formel. Det här värdet visas i listan över grundläggande avbildningar när du skapar en virtuell dator. Kontrollera namnet som du skriver den, och om det är inte giltigt, ett meddelande som anger kraven för ett giltigt namn.
-    * **Beskrivning av** – ange en beskrivning för din formel. Det här värdet är tillgängliga från snabbmenyn för formelns när du skapar en virtuell dator.
     * **Användarnamn** -ange ett användarnamn som har beviljats administratörsbehörighet.
     * **Lösenord** – ange - eller välj i listrutan - ett-värde som är associerad med den hemlighet (lösenord) som du vill använda för den angivna användaren. Läs om att spara hemligheter i key vault och använder dem när du skapar labbresurser i [Store hemligheter i Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
-    * **VM-disktyp** – ange antingen HDD (hårddiskenheten) eller SSD (solid-state drive) som anger vilken typ av premiumlagring tillåts för de virtuella datorerna etableras genom att använda basavbildningen.
-    * ** VM storlek ** – Välj något av de fördefinierade objekt som anger processorkärnor, RAM-storleken och storleken på hårddisken på den virtuella datorn för att skapa. 
-    * **Artefakter** – Välj för att öppna den **Lägg till artefakter** bladet, där du kan välja och konfigurera artefakter som du vill lägga till i basavbildningen. Läs mer om artefakter [skapa anpassade artefakter för din virtuella dator i Azure DevTest Labs](devtest-lab-artifact-author.md).
-    * **Avancerade inställningar** – Välj för att öppna den **Avancerat** bladet där du kan konfigurera följande inställningar:
-        * **Virtuellt nätverk** – ange det önskade virtuella nätverket.
-        * **Undernät** – ange det önskade undernätet.    
-        * **IP-adresskonfigurationen** – ange om du vill att de offentliga, privata eller delade IP-adresserna. Mer information om delade IP-adresser finns i [Förstå delade IP-adresser i Azure DevTest Labs](./devtest-lab-shared-ip.md).
-        * **Gör till virtuell dator** – att göra en dator ”tillgängliga” innebär att den inte tilldelas ägarskap vid tidpunkten för skapandet. I stället kan labbanvändare bli ägare (”anspråk”) datorn i den testmiljön bladet.     
-    * **Bild** -fältet visar namnet på den basavbildning som du valde på föregående bladet. 
-     
-       ![Skapa formeln](./media/devtest-lab-create-formulas/create-formula.png)
+    * **VM-storlek** – Välj **ändra storlek** ändrar storleken på den virtuella datorn. 
+    * **Artefakter** – Välj **lägga till eller ta bort artefakter** sidan där du kan välja och konfigurera artefakter som du vill lägga till i basavbildningen. Läs mer om artefakter [skapa anpassade artefakter för din virtuella dator i Azure DevTest Labs](devtest-lab-artifact-author.md).
+8. Växla till den **avancerade inställningar** fliken och ange följande värden:
+    - **Virtuellt nätverk** – om du vill ändra det virtuella nätverket genom att välja **ändra Vnet**. 
+    - **Undernät** – om du vill ändra undernätet, Välj **ändra undernätet**. 
+    - **IP-adresskonfigurationen** – ange om du vill att de offentliga, privata eller delade IP-adresserna. Mer information om delade IP-adresser finns i [Förstå delade IP-adresser i Azure DevTest Labs](./devtest-lab-shared-ip.md).
+    - **Utgångsdatum och utgångstid** – ange datumet och tiden för den virtuella datorn så att den virtuella datorn tas bort automatiskt. 
+    - **Gör till virtuell dator** – att göra en dator ”tillgängliga” innebär att den inte tilldelas ägarskap vid tidpunkten för skapandet. I stället kan labbanvändare bli ägare (”anspråk”) datorn i den testmiljön sidan.     
+    - **Antalet tillgängliga instanser** – ange hur många tillgängliga instacnes som du vill skapa. 
+8. Välj **skicka** att skapa formeln.
 
-8. Välj **skapa** att skapa formeln.
-
-9. När formeln har skapats visas den i listan på den **formler** bladet.
+9. När formeln har skapats visas den i listan på den **formler** sidan.
 
 ### <a name="create-a-formula-from-a-vm"></a>Skapa en formel från en virtuell dator
 Följande steg vägleder dig genom processen att skapa en formel som baseras på en befintlig virtuell dator. 
@@ -89,15 +85,15 @@ Följande steg vägleder dig genom processen att skapa en formel som baseras på
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 3. Listan över labbar, Välj önskade labbet.  
-4. På testmiljön **översikt** bladet Välj den virtuella datorn från vilken du vill skapa formeln.
+4. På testmiljön **översikt** väljer du den virtuella datorn från vilken du vill skapa formeln.
    
     ![Labs virtuella datorer](./media/devtest-lab-create-formulas/my-vms.png)
-5. På bladet för den virtuella datorn och välj **skapa formeln (återanvändbara base)**.
+5. På sidan för den Virtuella datorns väljer **skapa formeln (återanvändbara base)**.
    
     ![Skapa formeln](./media/devtest-lab-create-formulas/create-formula-menu.png)
-6. På den **skapa formeln** bladet anger du en **namn** och **beskrivning** för din nya formel.
+6. På den **skapa formeln** anger en **namn** och **beskrivning** för din nya formel.
    
-    ![Skapa formeln bladet](./media/devtest-lab-create-formulas/create-formula-blade.png)
+    ![Skapa formeln sida](./media/devtest-lab-create-formulas/create-formula-blade.png)
 7. Välj **OK** att skapa formeln.
 
 ## <a name="modify-a-formula"></a>Ändra en formel
@@ -106,11 +102,11 @@ Följ dessa steg om du vill ändra en formel:
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 3. Listan över labbar, Välj önskade labbet.  
-4. På den labb-bladet och välj **formler (återanvändbara baser)**.
+4. På sidan för den testmiljön väljer **formler (återanvändbara baser)**.
    
     ![Formeln menyn](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. På den **Lab formler** bladet Välj formeln som du vill ändra.
-6. På den **Aktualizovat vzorec** bladet gör önskade redigeringar och välj **uppdatering**.
+5. På den **Lab formler** väljer formeln som du vill ändra.
+6. På den **Aktualizovat vzorec** , göra önskade ändringar och välj **uppdatering**.
 
 ## <a name="delete-a-formula"></a>Ta bort en formel
 Följ dessa steg för att ta bort en formel:
@@ -118,10 +114,10 @@ Följ dessa steg för att ta bort en formel:
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
 3. Listan över labbar, Välj önskade labbet.  
-4. På labbet **inställningar** bladet väljer **formler**.
+4. På labbet **inställningar** väljer **formler**.
    
     ![Formeln menyn](./media/devtest-lab-manage-formulas/lab-settings-formulas.png)
-5. På den **Lab formler** bladet Välj de tre punkterna till höger om formeln som du vill ta bort.
+5. På den **Lab formler** väljer du de tre punkterna till höger om formeln som du vill ta bort.
    
     ![Formeln menyn](./media/devtest-lab-manage-formulas/lab-formulas-blade.png)
 6. På snabbmenyn för formelns väljer **ta bort**.

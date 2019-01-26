@@ -3,19 +3,19 @@ title: Lösenordsåterställning via självbetjäning rapporter – Azure Active
 description: Rapportering om Azure AD-självbetjäning lösenord återställa händelser
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: a936626301c8e1a866817264342cc2c84130e158
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 891ab7ce0218e3532b8e503bc9b06da04a13d2c4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54425918"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55074555"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Alternativ för Azure AD-lösenordshantering
 
@@ -97,7 +97,7 @@ I följande lista beskrivs den här aktiviteten i detalj:
 * **Mål för aktiviteten**: Den användare som har begränsade från att utföra ytterligare återställningsaktiviteter. Användaren kan vara en användare eller administratör.
 * **Aktivitetsstatus**:
   * _Lyckade_: Anger att en användare begränsades från utföra eventuella ytterligare återställningar, försök eventuella ytterligare autentiseringsmetoder eller verifieringen av eventuella ytterligare telefonnummer för nästkommande 24 timmar.
-* **Aktivitetens status felorsak**: Ej tillämpligt.
+* **Aktivitetens status felorsak**: Inte tillämpligt.
 
 ### <a name="activity-type-change-password-self-service"></a>Aktivitetstyp: Ändra lösenord (självbetjäning)
 

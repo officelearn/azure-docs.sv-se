@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 9bdd3060219907f95454bfc9248572f796afd72e
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78f00b00465b6d834f30411485a874d6d2116ea4
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437616"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081253"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrera Azure Active Directory med Azure Kubernetes Service
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du distribuerar förutsättningarna för AKS och Azu
 
 Följande begränsningar gäller:
 
-- Befintliga icke-RBAC aktiverat AKS-kluster kan för närvarande inte uppdateras för att använda RBAC.
+- Azure AD kan bara aktiveras när du skapar en ny, RBAC-aktiverade kluster. Du kan inte aktivera Azure AD i ett befintligt AKS-kluster.
 - *Gästen* användare i Azure AD, till exempel som om du använder en federerad inloggning från en annan katalog stöds inte.
 
 ## <a name="authentication-details"></a>Autentisering-information

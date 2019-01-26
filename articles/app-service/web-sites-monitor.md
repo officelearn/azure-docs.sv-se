@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 3a49b30caa087295bbdcffe8762796fdc92f154b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a5d4d13d8e60cd7f273363a9bc385098e15cbb71
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247280"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913180"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Övervaka appar i Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) innehåller inbyggda övervakningsfunktioner för web apps, mobila serverdelar och API-appar i den [Azure-portalen](https://portal.azure.com).
@@ -44,8 +44,8 @@ Kvoter för kostnadsfria eller delade appar är:
 | **CPU (kort)** | Hur mycket Processorkraft som tillåts för den här appen i en 5-minutersintervall. Den här kvoten återställer var femte minut. |
 | **CPU (dag)** | Den totala mängden CPU som tillåts för den här appen under en dag. Den här kvoten återställer var 24: e timme vid midnatt UTC. |
 | **Minne** | Den totala mängden minne som tillåts för den här appen. |
-| **Bandbredd** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställer var 24: e timme vid midnatt UTC. |
-| **Filsystem** | Den totala mängden lagring som är tillåtna. |
+| **Bandwidth** | Den totala mängden utgående bandbredd som tillåts för den här appen under en dag. Den här kvoten återställer var 24: e timme vid midnatt UTC. |
+| **Filesystem** | Den totala mängden lagring som är tillåtna. |
 
 Den enda kvoten som gäller för appar som finns i *grundläggande*, *Standard*, och *Premium* planer är filsystem.
 
@@ -73,19 +73,37 @@ För en app är tillgängliga mått:
 | --- | --- |
 | **Genomsnittlig svarstid** | Genomsnittlig tid för app som hanterar begäranden, i millisekunder. |
 | **Genomsnittligt arbetsminne** | Genomsnittlig mängden minne som används av appen, i megabyte (MiB). |
+| **Anslutningar** | Antalet bundna sockets finns i sandbox-miljön (w3wp.exe och dess underordnade processer).  En bunden socket skapas genom att anropa bind()/connect() API: er och finns kvar tills nämnda socket stängs med CloseHandle()/closesocket(). |
 | **CPU-tid** | Hur mycket Processorkraft som används av appen, i sekunder. Läs mer om det här måttet [vs CPU CPU-tid i procent](#cpu-time-vs-cpu-percentage). |
+| **Aktuellt antal sammansättningar** | Aktuellt antal sammansättningar läses in i alla AppDomains i det här programmet. |
 | **Data i** | Mängden inkommande bandbredd som används av appen i MiB. |
-| **Data ut** | Mängden utgående bandbredd som används av appen i MiB. |
-| **HTTP 2xx** | Totalt antal begäranden, vilket resulterar i minst en HTTP-statuskod 200 men < 300. |
-| **HTTP 3xx** | Totalt antal begäranden, vilket resulterar i en HTTP-statuskod minst 300 men < 400. |
-| **HTTP 401** | Totalt antal begäranden, vilket resulterar i HTTP 401-statuskod. |
-| **HTTP 403** | Totalt antal begäranden, vilket resulterar i HTTP 403-statuskod. |
-| **HTTP 404** | Totalt antal begäranden, vilket resulterar i HTTP 404-statuskod. |
-| **HTTP 406 Ogiltigt format** | Totalt antal begäranden, vilket resulterar i 406 Ogiltigt format för HTTP-statuskod. |
+| **Data Out** | Mängden utgående bandbredd som används av appen i MiB. |
+| **Generation 0-skräpinsamlingar** | Hur många gånger som generation 0-objekt har samlats in sedan början av app-processen. Högre generation generationer inkluderar alla lägre generation generationer.|
+| **Generation 1-skräpinsamlingar** | Hur många gånger som generation 1-objekt har samlats in sedan början av app-processen. Högre generation generationer inkluderar alla lägre generation generationer.|
+| **Generation 2-skräpinsamlingar** | Hur många gånger som generation 2-objekt har samlats in sedan början av app-processen.|
+| **Antal referenser** | Det totala antalet handtag som för tillfället är öppna av app-process.|
+| **Http 2xx** | Totalt antal begäranden, vilket resulterar i minst en HTTP-statuskod 200 men < 300. |
+| **Http 3xx** | Totalt antal begäranden, vilket resulterar i en HTTP-statuskod minst 300 men < 400. |
+| **Http 401** | Totalt antal begäranden, vilket resulterar i HTTP 401-statuskod. |
+| **Http 403** | Totalt antal begäranden, vilket resulterar i HTTP 403-statuskod. |
+| **Http 404** | Totalt antal begäranden, vilket resulterar i HTTP 404-statuskod. |
+| **Http 406** | Totalt antal begäranden, vilket resulterar i 406 Ogiltigt format för HTTP-statuskod. |
 | **HTTP 4xx** | Totalt antal begäranden, vilket resulterar i en HTTP-statuskod minst 400 men < 500. |
 | **HTTP-serverfel** | Totalt antal begäranden, vilket resulterar i en HTTP-statuskod minst 500 men < 600. |
+| **I/O övrigt byte Per sekund** | Den hastighet som app-processen skickar byte till i/o-åtgärder som inte inkluderar data, till exempel kontrollåtgärder.|
+| **I/O övriga åtgärder Per sekund** | Den hastighet med vilken processen app utfärdar i/o-åtgärder som varken är läs- eller skrivåtgärder.|
+| **I/O lästa byte Per sekund** | Den hastighet med vilken app-processen läser byte från i/o-åtgärder.|
+| **I/o-läsningsåtgärder Per sekund** | Den hastighet med vilken app-process begär Läs i/o-åtgärder.|
+| **I/O skrivna byte Per sekund** | Den hastighet med vilken app processen skriver byte till i/o-åtgärder.|
+| **I/o-skrivåtgärder Per sekund** | Den hastighet med vilken processen app utfärdar i/o-skrivåtgärder.|
 | **Arbetsminne** | Den aktuella mängden minne som används av appen i MiB. |
+| **Privata byte** | Privata byte är processens aktuella storlek i byte av minne som har allokerats till app-processen som inte kan delas med andra processer.|
 | **Begäranden** | Det totala antalet begäranden oavsett deras resulterande HTTP-statuskod. |
+| **Förfrågningar i programkö** | Antal begäranden i programbegärandekön.|
+| **Antal tråd** | Antal trådar som är aktiva i app-processen.|
+| **Totalt antal Appdomäner** | Det aktuella antalet AppDomains läses in i det här programmet.|
+| **Totalt antal Appdomäner som tas bort från minnet** | Det totala antalet AppDomains tas bort från minnet sedan programmet.|
+
 
 För en App Service-plan är tillgängliga mått:
 
@@ -98,9 +116,9 @@ För en App Service-plan är tillgängliga mått:
 | **CPU-procent** | Den genomsnittliga CPU som används i alla instanser av planen. |
 | **Minnesprocent** | Det genomsnittliga minne som används i alla instanser av planen. |
 | **Data i** | Den genomsnittliga inkommande bandbredd som används i alla instanser av planen. |
-| **Data ut** | Medelvärdet utgående bandbredd som används i alla instanser av planen. |
-| **Diskkölängd** | Det genomsnittliga antalet både läsa och skriva begäranden som har ställts i kö på lagring. En hög diskkölängd är en indikation på en app som kan långsammare på grund av hög diskens i/o. |
-| **HTTP-Kölängd** | Det genomsnittliga antalet HTTP-begäranden som hade direkt i kön innan uppfylls. En hög eller ökande HTTP-Kölängd är ett symtom på en plan vid hög belastning. |
+| **Data Out** | Medelvärdet utgående bandbredd som används i alla instanser av planen. |
+| **Disk Queue Length** | Det genomsnittliga antalet både läsa och skriva begäranden som har ställts i kö på lagring. En hög diskkölängd är en indikation på en app som kan långsammare på grund av hög diskens i/o. |
+| **Http Queue Length** | Det genomsnittliga antalet HTTP-begäranden som hade direkt i kön innan uppfylls. En hög eller ökande HTTP-Kölängd är ett symtom på en plan vid hög belastning. |
 
 ### <a name="cpu-time-vs-cpu-percentage"></a>Vs CPU CPU-tid i procent
 <!-- To do: Fix Anchor (#CPU-time-vs.-CPU-percentage) -->

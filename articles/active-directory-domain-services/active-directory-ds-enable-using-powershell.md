@@ -13,17 +13,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/06/2017
+ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 5ebb9f706d2e59b9c1227cec6fcc0e0619374069
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: c7de0b1dd00253d7318eb45473b6f6b7c668468a
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855014"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913265"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Aktivera Azure Active Directory Domain Services med hjälp av PowerShell
 Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Services med hjälp av PowerShell.
+
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
 ## <a name="task-1-install-the-required-powershell-modules"></a>Uppgift 1: Installera PowerShell-moduler som krävs
 
@@ -31,7 +33,7 @@ Den här artikeln visar hur du aktiverar Azure Active Directory (AD) Domain Serv
 Följ instruktionerna i artikeln om du vill [installerar Azure AD PowerShell-modulen och ansluter till Azure AD](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 ### <a name="install-and-configure-azure-powershell"></a>Installera och konfigurera Azure PowerShell
-Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
+Följ instruktionerna i artikeln om du vill [installera Azure PowerShell-modulen och ansluta till din Azure-prenumeration](https://docs.microsoft.com/powershell/azure/install-az-ps?toc=%2fazure%2factive-directory-domain-services%2ftoc.json).
 
 
 ## <a name="task-2-create-the-required-service-principal-in-your-azure-ad-directory"></a>Uppgift 2: Skapa nödvändiga tjänstens huvudnamn i Azure AD-katalogen
@@ -71,7 +73,7 @@ Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjec
 Skriv följande PowerShell-kommando för att registrera resursprovidern för Azure AD Domain Services:
 ```powershell
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
+Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 ```
 
 ## <a name="task-5-create-a-resource-group"></a>Uppgift 5: Skapa en resursgrupp
@@ -81,7 +83,7 @@ $ResourceGroupName = "ContosoAaddsRg"
 $AzureLocation = "westus"
 
 # Create the resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $AzureLocation
 ```
@@ -99,16 +101,16 @@ $ResourceGroupName = "ContosoAaddsRg"
 $VnetName = "DomainServicesVNet_WUS"
 
 # Create the dedicated subnet for AAD Domain Services.
-$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
 
-$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name Workloads `
   -AddressPrefix 10.0.1.0/24
 
 # Create the virtual network in which you will enable Azure AD Domain Services.
-$Vnet=New-AzureRmVirtualNetwork `
+$Vnet=New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location westus `
   -Name $VnetName `
@@ -128,7 +130,7 @@ $VnetName = "DomainServicesVNet_WUS"
 $AzureLocation = "westus"
 
 # Enable Azure AD Domain Services for the directory.
-New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -163,7 +165,7 @@ $AzureLocation = "westus"
 Connect-AzureAD
 
 # Login to your Azure subscription.
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
@@ -188,24 +190,24 @@ $UserObjectId = Get-AzureADUser `
 Add-AzureADGroupMember -ObjectId $GroupObjectId.ObjectId -RefObjectId $UserObjectId.ObjectId
 
 # Register the resource provider for Azure AD Domain Services with Resource Manager.
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AAD
+Register-AzResourceProvider -ProviderNamespace Microsoft.AAD
 
 # Create the resource group.
-New-AzureRmResourceGroup `
+New-AzResourceGroup `
   -Name $ResourceGroupName `
   -Location $AzureLocation
 
 # Create the dedicated subnet for AAD Domain Services.
-$AaddsSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
 
-$WorkloadSubnet = New-AzureRmVirtualNetworkSubnetConfig `
+$WorkloadSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name Workloads `
   -AddressPrefix 10.0.1.0/24
 
 # Create the virtual network in which you will enable Azure AD Domain Services.
-$Vnet=New-AzureRmVirtualNetwork `
+$Vnet=New-AzVirtualNetwork `
   -ResourceGroupName $ResourceGroupName `
   -Location $AzureLocation `
   -Name $VnetName `
@@ -213,7 +215,7 @@ $Vnet=New-AzureRmVirtualNetwork `
   -Subnet $AaddsSubnet,$WorkloadSubnet
 
 # Enable Azure AD Domain Services for the directory.
-New-AzureRmResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `

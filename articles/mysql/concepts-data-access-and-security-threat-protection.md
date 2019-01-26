@@ -5,13 +5,13 @@ author: bolzmj
 ms.author: mbolz
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/20/2018
-ms.openlocfilehash: 739e1637eaeef86028848e5b8c8a453fcbc6195e
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/24/2019
+ms.openlocfilehash: 7911f652341c4448a6fa5fbe88f5838389c228b2
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543815"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912443"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Azure Database för MySQL Avancerat skydd
 
@@ -22,6 +22,9 @@ Avancerat skydd är en del av erbjudandet avancerad säkerhet för Data, vilket 
 > [!NOTE]
 > Avancerat skydd-funktionen är **inte** finns i följande Azure government och nationellt molnregioner: US Gov Texas, USA-förvaltad region Arizona USA Gov Iowa, USA, förvaltad Virginia, USA DoD, östra, US DoD, centrala, Tyskland-centrala, Tyskland Nord, Kina, östra, Kina, östra 2. Besök [produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/) för allmän tillgänglighet.
 > 
+
+> [!NOTE]
+> Den här funktionen är tillgänglig i alla regioner där Azure där Azure Database for MySQL distribueras för generell användning och Minnesoptimerad servrar.
 
 ## <a name="what-is-advanced-threat-protection"></a>Vad är Advanced Threat Protection?
 

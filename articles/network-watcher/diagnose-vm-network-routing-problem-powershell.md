@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ace5901012c5bc66a560dafd3a403183d6ce8c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 81bbf2b69e0e492ea75e8cbbe980d7e83a86eae7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422840"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912858"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnostisera en virtuell dator problem med nätverksroutning – Azure PowerShell
 
@@ -127,7 +127,7 @@ Name State  Source  AddressPrefix           NextHopType NextHopIpAddress
      Active Default {172.16.0.0/12}         None        {}              
 ```
 
-Som du ser i föregående utdata vägen med den **AaddressPrefix** av **0.0.0.0/0** dirigerar all trafik som inte är avsedda för adresser inom annan väg adressprefix med ett nexthop för **Internet**. Som du ser också i utdata, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
+Som du ser i föregående utdata vägen med den **AddressPrefix** av **0.0.0.0/0** dirigerar all trafik som inte är avsedda för adresser inom annan väg adressprefix med ett nexthop för **Internet**. Som du ser också i utdata, men det finns en standardväg till 172.16.0.0/12 prefix, som innehåller 172.31.0.100 adressen, den **nextHopType** är **ingen**. Azure skapar en standardväg till 172.16.0.0/12 men anger inte en nästa hopptyp förrän det finns någon anledning till det. Om du till exempel att du lagt till adressintervallet 172.16.0.0/12 adressutrymmet för det virtuella nätverket, Azure ändras den **nextHopType** till **virtuellt nätverk** för vägen. En kontroll visas sedan **virtuellt nätverk** som den **nextHopType**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

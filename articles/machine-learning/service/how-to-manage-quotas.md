@@ -11,18 +11,18 @@ author: nishankgu
 ms.author: nigup
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6a08a5a79a8a072bd4621a7e200e84c2c71c9cd4
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 2f7eeab8f9d2265cf0f6cfa28499a078ba9cb108
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475075"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077377"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Hantera och begära kvoter för Azure-resurser
 
 Som med andra Azure-tjänster, det finns begränsningar för vissa resurser som är associerade med Azure Machine Learning-tjänsten. Dessa gränser mellan en gräns för antalet arbetsytor som du kan skapa gränserna på den faktiska förbrukningen av beräkningsresurser som får användas för utbildning eller inferensjobb dina modeller. Den här artikeln ger mer information om förkonfigurerade begränsningar i olika Azure-resurser för din prenumeration och innehåller också praktiska länkar på begäran kvot förbättringar för varje typ av resurs. Dessa gränser lagts in för att förhindra att budget över körs på grund av bedrägeri och Använd Azure-kapacitet villkor.
 
-Tänk på dessa kvoter du design- och skala upp dina Azure ML-resurser för produktionsarbetsbelastningar. Exempelvis om klustret inte når målantalet noder som du angav, kanske sedan du har nått en gräns för beräkning av Azure Machine Learning kärnor för prenumerationen. Om du vill höja gränsen eller kvot över gränsen som standard öppnar du en kundsupportärende utan kostnad. Gränserna kan inte höjas ovan maxgränsen värdet som visas i följande tabeller på grund av Azure-kapacitet. Om det finns ingen övre gräns-kolumn måste har inte resursen justerbara begränsningar. 
+Tänk på dessa kvoter som du design- och skala upp dina resurser med Azure Machine Learning-tjänsten för arbetsbelastningar under produktion. Exempelvis om klustret inte når målantalet noder som du angav, kanske sedan du har nått en gräns för beräkning av Azure Machine Learning kärnor för prenumerationen. Om du vill höja gränsen eller kvot över gränsen som standard öppnar du en kundsupportärende utan kostnad. Gränserna kan inte höjas ovan maxgränsen värdet som visas i följande tabeller på grund av Azure-kapacitet. Om det finns ingen övre gräns-kolumn måste har inte resursen justerbara begränsningar.
 
 ## <a name="special-considerations"></a>Att tänka på
 
@@ -34,12 +34,12 @@ Tänk på dessa kvoter du design- och skala upp dina Azure ML-resurser för prod
 
 ## <a name="default-resource-quotas"></a>Standard resurskvoter
 
-Här är en uppdelning av kvotgränser av olika typer av resurser i Azure-prenumerationen. 
+Här är en uppdelning av kvotgränser av olika typer av resurser i Azure-prenumerationen.
 
 > [!Important]
 > Gränserna kan komma att ändras. Den senaste versionen alltid finns på tjänstnivå kvoten [dokumentet](https://docs.microsoft.com/azure/azure-subscription-service-limits/) för hela Azure.
 
-### <a name="virtual-machines"></a>Virtuella datorer 
+### <a name="virtual-machines"></a>Virtuella datorer
 Det finns en gräns för antalet virtuella datorer som du kan etablera på en Azure-prenumeration över dina tjänster eller i ett fristående sätt. Den här gränsen är på regionsnivån på totalt antal kärnor och också på basis av per familj.
 
 Det är viktigt att betona att virtuella datorkärnor har en regional total gräns och en regional per storleksgränsen för serie (Dv2, F osv.) som tillämpas separat. Anta till exempel att en prenumeration i regionen USA, östra har en gräns för totalt antal VM-kärnor på 30, en gräns för antal kärnor i A-serien på 30 och en gräns för antal kärnor i D-serien på 30. Den här prenumerationen kan distribuera 30 virtuella datorer i A1-serien eller 30 virtuella datorer i D1-serien, eller en kombination av båda som inte överstiger sammanlagt 30 kärnor (t.ex. 10 virtuella datorer i A1-serien och 20 virtuella datorer i D1-serien).
@@ -91,8 +91,8 @@ Visa din kvot för olika resurser, till exempel virtuella datorer, lagring, nät
 
 1. Välj den prenumeration vars kvot som du letar efter listan över prenumerationer.
 
-   **Det finns ett villkor för**, särskilt för att visa Azure Machine Learning Compute-kvoten. Som nämnts ovan är är den kvoten separat från compute-kvoten för din prenumeration. 
-   
+   **Det finns ett villkor för**, särskilt för att visa Azure Machine Learning Compute-kvoten. Som nämnts ovan är är den kvoten separat från compute-kvoten för din prenumeration.
+
 1. I det vänstra fönstret, Välj **Machine Learning-tjänsten** och välj sedan en arbetsyta från listan som visas
 
 1. På nästa blad under den **Support och felsökning** Välj **användning + kvoter** att visa din aktuella kvotgränser och användning.

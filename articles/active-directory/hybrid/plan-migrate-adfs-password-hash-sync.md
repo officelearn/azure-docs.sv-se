@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 12/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c6c13d0e27edd5563f10df59ce7af585a345bfab
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fe28eda7571bf95d1e86419f5caf3cf65e4020b3
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463345"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078652"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från federation till synkronisering av lösenordshash för Azure Active Directory
 
@@ -30,7 +30,8 @@ Följande krävs för att migrera från med hjälp av AD FS att använda synkron
 
 ### <a name="update-azure-ad-connect"></a>Uppdatera Azure AD Connect
 
-För att slutföra de steg som krävs för att migrera till synkronisering av lösenordshash, måste du ha [Azure Active Directory Connect](https://www.microsoft.com/download/details.aspx?id=47594) (Azure AD Connect) 1.1.819.0 eller en senare version. I Azure AD Connect 1.1.819.0 utföra sätt logga in konvertering ändringar avsevärt. Den totala tid att migrera från AD FS till autentisering i molnet i den här versionen har minskats från potentiellt timmar till några minuter.
+Du bör ha minst ska kunna genomföra stegen för att migrera till synkronisering av lösenordshash [Azure AD connect](https://www.microsoft.com/download/details.aspx?id=47594) 1.1.819.0. Den här versionen innehåller betydande förändringar i hur inloggning konverteringen utförs och minskar den totala tid att migrera från Federation till autentisering i molnet från potentiellt timmar och minuter.
+
 
 > [!IMPORTANT]
 > Du kan läsa i inaktuella dokumentation, verktyg och bloggar att användarkonvertering krävs när du konverterar domäner från federerad identitet till hanterad identitet. *Konvertera användare* inte längre behövs. Microsoft arbetar med för att uppdatera dokumentation och verktyg för att ändringen visas.

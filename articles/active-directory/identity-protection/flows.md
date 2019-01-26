@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: a0c351df535a1f2463c14a4719eac0e4c4896c2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 5b330a8e0eebc2a6f3701534fbc25848296694b1
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464212"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912637"
 ---
 # <a name="sign-in-experiences-with-azure-ad-identity-protection"></a>Logga in upplevelser med Azure AD Identity Protection
 Med Azure Active Directory Identity Protection kan du:
@@ -57,18 +57,13 @@ Administratörer kan ange en princip som kräver att användare skapar sina kont
 
 1. I det första steget är att användaren får ett meddelande om kravet på att ange kontot för multifaktorautentisering. 
    
-    ![Reparation](./media/flows/301.png "reparation")
-
+    ![Reparation](./media/flows/140.png "reparation")
 2. Om du vill konfigurera multifaktorautentisering behöver så att systemet vet hur du vill bli kontaktad.
    
-    ![Reparation](./media/flows/302.png "reparation")
-
-3. Ge ditt nummer telefonnummer och hur du vill bli kontaktad systemet.
-
-    ![Reparation](./media/flows/303.png "reparation")
-
-För att slutföra registreringen måste måste du antingen svara på ett telefonsamtal eller ange en kod. 
-
+    ![Reparation](./media/flows/141.png "reparation")
+3. Systemet skickar en utmaning att du och du måste svara.
+   
+    ![Reparation](./media/flows/142.png "reparation")
 
 ## <a name="risky-sign-in-recovery"></a>Riskfylld inloggning återställning
 När en administratör har konfigurerat en princip för inloggning risker, meddelas de berörda användarna när de försöker logga in. 

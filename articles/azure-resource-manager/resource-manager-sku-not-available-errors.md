@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4688acbb2742579e0f9f3fbb2604ffd8ef12bfd5
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468695"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081049"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU: N inte tillgänglig
 
@@ -41,10 +41,10 @@ Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-s
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 
-Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku) kommando. Filtrera resultatet efter plats. Du måste ha den senaste versionen av PowerShell för det här kommandot.
+Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) kommando. Filtrera resultatet efter plats. Du måste ha den senaste versionen av PowerShell för det här kommandot.
 
 ```azurepowershell-interactive
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
+Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
 Resultatet innehåller en lista över SKU: er för platsen och eventuella begränsningar för SKU: N. Observera att en SKU kan stå som `NotAvailableForSubscription`.

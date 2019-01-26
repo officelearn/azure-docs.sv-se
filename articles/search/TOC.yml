@@ -3,8 +3,10 @@ items:
   href: index.yml
 - name: Översikt
   items:
-  - name: Om Azure Search
+  - name: Vad är Azure Search
     href: search-what-is-azure-search.md
+  - name: Vad är kognitiv sökning
+    href: cognitive-search-concept-intro.md
 - name: Snabbstarter
   items:
   - name: Skapa en tjänst
@@ -52,8 +54,6 @@ items:
     href: https://azure.microsoft.com/resources/samples/?service=search
 - name: Begrepp
   items:
-  - name: Kognitiv sökning (förhandsversion)
-    href: cognitive-search-concept-intro.md
   - name: Fulltextsökning
     href: search-lucene-query-architecture.md
 - name: Instruktionsguider
@@ -289,9 +289,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Videoklipp
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 04dddfa9cdf5688ca3b821cbfd8350fcb496933b
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: fe70b70005de7f70d00c505adbce4665e41981dd
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390636"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412156"

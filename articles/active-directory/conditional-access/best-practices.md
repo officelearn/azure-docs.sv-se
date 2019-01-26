@@ -9,20 +9,20 @@ manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
 ms.service: active-directory
-ms.component: conditional-access
+ms.subservice: conditional-access
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/25/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 3ed4d3874056eca93e5c94e225ba25d94e7826e3
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 8324b7bf97325c295fdf95819cc2b22fb0f3c14e
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911939"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078958"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Metodtips för villkorsstyrd åtkomst i Azure Active Directory
 
@@ -47,9 +47,9 @@ För att göra principen fungerar, måste du konfigurera:
 
 |Vad           | Så här                                  | Varför|
 |:--            | :--                                  | :-- |
-|**Molnappar** |Du måste välja en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan styra hur behöriga användare har åtkomst till molnappar.|
-| **Användare och grupper** | Du måste välja minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | Principer för villkorlig åtkomst som har inga användare och grupper som har tilldelats, utlöses aldrig. |
-| **Åtkomstkontroller** | Du måste välja minst en åtkomstkontroll. | Om dina villkor uppfylls, måste princip-processor veta vad du gör.|
+|**Molnappar** |Välj en eller flera appar.  | Målet med en princip för villkorlig åtkomst är så att du kan styra hur behöriga användare har åtkomst till molnappar.|
+| **Användare och grupper** | Välj minst en användare eller grupp som har behörighet att komma åt dina valda molnappar. | Principer för villkorlig åtkomst som har inga användare och grupper som har tilldelats, utlöses aldrig. |
+| **Åtkomstkontroller** | Välj minst en åtkomstkontroll. | Om dina villkor uppfylls, måste princip-processor veta vad du gör.|
 
 
 
@@ -60,11 +60,11 @@ För att göra principen fungerar, måste du konfigurera:
 
 ### <a name="how-are-conditional-access-policies-applied"></a>Hur tillämpas principer för villkorlig åtkomst?
 
-Mer än en princip för villkorlig åtkomst kan tillkomma när en användare ansluter till ett program. I det här fallet måste vara uppfyllda alla principer som gäller. Till exempel om en principerna kräver för en användare MFA och andra kräver en kompatibel enhet användaren måste MFA och ha en kompatibel enhet. 
+Mer än en princip för villkorlig åtkomst kan tillkomma när du använder en molnapp. I det här fallet måste vara uppfyllda alla principer som gäller. Till exempel om en princip kräver MFA och andra kräver en kompatibel enhet, måste du genomgå MFA och använda en kompatibel enhet. 
 
 Alla principer som tillämpas i två faser:
 
-- I den **första** fasen alla principer utvärderas och samlas alla åtkomstkontroller som inte är uppfyllda. 
+- I den **första** fasen alla principer utvärderas och samlas alla åtkomstkontroller som inte är uppfyllt. 
 
 - I den **andra** fas, uppmanas du för att uppfylla kraven som du inte har uppfyllts. Om en av principerna blockerar, är du blockerad och inte uppmanas att uppfylla andra principkontroller. Om ingen av principerna som blockerar du uppmanas du att uppfylla andra principkontroller i följande ordning:
 
@@ -88,7 +88,7 @@ Om du vill konfigurera en platsvillkor som gäller för alla anslutningar som g�
 
 Om du är utelåst från Azure AD-portalen på grund av en felaktig inställning i en princip för villkorlig åtkomst:
 
-- Kontrollera om det finns andra administratörer i organisationen som inte är spärrade ännu. En administratör med åtkomst till Azure-portalen kan inaktivera den princip som påverkar din inloggning. 
+- Kontrollera är att det finns andra administratörer i organisationen som inte är blockerad ännu. En administratör med åtkomst till Azure-portalen kan inaktivera den princip som påverkar din inloggning. 
 
 - Om ingen av administratörer i din organisation kan uppdatera principen, måste du skicka en supportförfrågan. Microsoft-supporten kan granska och uppdatera principer för villkorlig åtkomst som förhindrar åtkomst.
 
@@ -140,13 +140,13 @@ I din miljö, bör du undvika följande konfigurationer:
 
 Som ett första steg bör du utvärdera din princip med hjälp av den [konsekvensverktyg](what-if-tool.md).
 
-När du är redo att distribuera en ny princip i din miljö, ska du göra i olika faser:
+När nya principer är redo för din miljö kan du distribuera dem i olika faser:
 
 1. Tillämpa en princip till en liten uppsättning användare och kontrollera att den fungerar som förväntat. 
 
-2.  När du har expanderat en princip för att inkludera fler användare kan fortsätta att undanta alla administratörer från principen. Detta säkerställer att administratörer fortfarande har åtkomst och uppdatera en princip om en ändring krävs.
+2.  När du expanderar en princip för att inkludera fler användare. Fortsätta att undanta alla administratörer från principen så att de fortfarande har åtkomst och uppdatera en princip om en ändring krävs.
 
-3. Tillämpa en princip för alla användare bara om det verkligen behövs. 
+3. Tillämpa en princip för alla användare bara vid behov. 
 
 Skapa ett användarkonto som är ett bra tips är:
 

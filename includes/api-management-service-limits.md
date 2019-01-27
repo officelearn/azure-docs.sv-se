@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/22/2018
 ms.author: vlvinogr
 ms.custom: include file
-ms.openlocfilehash: e01eebe41010135d0dc0a2cb4170e6b6687ff546
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 646ebc79e3615b289b60e47c0a38595e7892d8cc
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292714"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55084887"
 ---
 | Resurs | Gräns |
 | --- | --- |
@@ -24,7 +24,7 @@ ms.locfileid: "52292714"
 | Maximal cachelagrade svarsstorlek | 2MB |
 | Princip för maximal storlek | 256KB<sup>5</sup> | 
 | Maximal anpassade gateway domäner per tjänstinstans<sup>6</sup> | 20 | 
-| Maximalt antal instanser av tjänsten per prenumeration<sup>7</sup> | 5 | 
+| Maximalt antal instanser av tjänsten per prenumeration<sup>7</sup> | 20 | 
 | Högsta antalet prenumerationer per tjänstinstans<sup>7</sup> | 500 |
 | Maximalt antal klientcertifikat per tjänstinstans<sup>7</sup> | 50 | 
 | Maximalt antal API: er per tjänstinstans<sup>7</sup> | 50 | 

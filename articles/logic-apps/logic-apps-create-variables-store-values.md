@@ -74,9 +74,9 @@ Du kan skapa en variabel och deklarera dess datatyp och ursprungsvärdet – all
 
    | Egenskap  | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
-   | Typ | Ja | <*typ av variabel*> | Datatypen för variabeln | 
-   | Värde | Nej | <*Start-värde*> | Det inledande värdet för variabeln <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet startvärdet för variabeln. | 
+   | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
+   | Type | Ja | <*typ av variabel*> | Datatypen för variabeln | 
+   | Value | Nej | <*Start-värde*> | Det inledande värdet för variabeln <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet startvärdet för variabeln. | 
    ||||| 
 
    ![Initiera variabel](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Att öka eller *ökningen* en variabel med ett konstant värde, lägga till den 
 
    | Egenskap  | Krävs | Värde |  Beskrivning |
    |----------|----------|-------|--------------|
-   | Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
-   | Värde | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
+   | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
+   | Value | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
    |||| 
 
    Exempel: 
@@ -330,8 +330,8 @@ Här följer egenskaperna för den **minska variabel** åtgärd:
 
 | Egenskap  | Krävs | Värde |  Beskrivning |
 |----------|----------|-------|--------------|
-| Namn | Ja | <*variabeln-name*> | Namnet på variabeln för att minska | 
-| Värde | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
+| Name | Ja | <*variabeln-name*> | Namnet på variabeln för att minska | 
+| Value | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
 ||||| 
 
 Om du växlar från designer till vyn Kodredigeraren här är sätt den **minska variabel** åtgärden visas i dina logic app-definition som är i JSON-format.
@@ -365,8 +365,8 @@ Här följer egenskaperna för den **ange variabel** åtgärd:
 
 | Egenskap  | Krävs | Värde |  Beskrivning | 
 |----------|----------|-------|--------------| 
-| Namn | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
-| Värde | Ja | <*nytt värde*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
+| Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
+| Value | Ja | <*nytt värde*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Här följer egenskaperna för den **läggas till...**  åtgärder:
 
 | Egenskap  | Krävs | Värde |  Beskrivning | 
 |----------|----------|-------|--------------| 
-| Namn | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
-| Värde | Ja | <*Lägg till värde*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 
+| Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
+| Value | Ja | <*Lägg till värde*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 
 |||||  
 
 Om du växlar från designer till vyn Kodredigeraren här är sätt den **Lägg till matrisvariabel** åtgärden visas i dina logic app-definition som är i JSON-format.

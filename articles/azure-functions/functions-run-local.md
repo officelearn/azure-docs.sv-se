@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: c99d5e9d64e9e9715589ecf2c0de57ce660917aa
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103697"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54913078"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -40,13 +40,13 @@ Om inget annat anges i exemplen i den här artikeln gäller för version 2.x.
 
 ### <a name="v2"></a>Version 2.x
 
-Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux).
+Version 2.x av verktygen använder Azure Functions-runtime 2.x som bygger på .NET Core. Den här versionen stöds för alla plattformar som .NET Core 2.x stöder, inklusive [Windows](#windows-npm), [macOS](#brew), och [Linux](#linux). Du måste först installera .NET Core 2.x SDK.
 
 #### <a name="windows-npm"></a>Windows
 
 Följande steg Använd npm för att installera Core Tools på Windows. Du kan också använda [Chocolatey](https://chocolatey.org/). Mer information finns i den [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Installera [.NET Core 2.1 för Windows](https://www.microsoft.com/net/download/windows).
+1. Installera [.NET Core 2.x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
 2. Installera [Node.js], vilket inkluderar npm. För version 2.x av verktyg, endast Node.js 8.5 och senare versioner stöds.
 
@@ -60,7 +60,7 @@ Följande steg Använd npm för att installera Core Tools på Windows. Du kan oc
 
 Följande steg använda Homebrew för att installera de viktigaste verktygen på macOS.
 
-1. Installera [.NET Core 2.1 för macOS](https://www.microsoft.com/net/download/macos).
+1. Installera [.NET Core 2.x SDK för macOS](https://www.microsoft.com/net/download/macos).
 
 2. Installera [Homebrew](https://brew.sh/), om det inte redan är installerat.
 
@@ -75,7 +75,7 @@ Följande steg använda Homebrew för att installera de viktigaste verktygen på
 
 I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera Core Tools på din Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i den [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Installera [.NET Core 2.1 för Linux](https://www.microsoft.com/net/download/linux).
+1. Installera [.NET Core 2.x SDK för Linux](https://www.microsoft.com/net/download/linux).
 
 2. Registrera Microsoft-produktnyckeln som tillförlitliga:
 
@@ -95,7 +95,7 @@ I följande anvisningar används [APT](https://wiki.debian.org/Apt) installera C
     | --------------- | ----------- |
     | Ubuntu 18.04    | `bionic`    |
     | Ubuntu 17.10    | `artful`    |
-    | Ubuntu nr 17.04 från    | `zesty`     |
+    | Ubuntu 17.04    | `zesty`     |
     | Ubuntu 16.04/Linux myntverket 18    | `xenial`  |
 
 4. Installera Core Tools-paketet:

@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef0bfc744e43491e6ac8c238904f4c1704cdeaba
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 516bd4c5edaaec2545be35032c4c87cb394ec0b3
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793350"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912021"
 documentType: LandingData
 title: Dokumentation om Bing-bildsöknings-API
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Dokumentation om API för bildsökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
-  description: Lär dig att använda API för bildsökning i Bing för att hämta resultat från webben som är relevanta för användarfrågor. Självstudier visar hur du skapar appar som använder tjänsten.
+  description: Lär dig hur du använder API:et för bildsökning i Bing för att söka efter bilder på webben.
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -19,10 +19,10 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  ms.date: 1/16/2019
   ms.author: nitinme
 abstract:
-  description: API för bildsökning i Bing ger funktioner som liknar Bing.com/images genom att returnera sökresultat som Bing bedömer som relevanta för användarens fråga.
+  description: Med API:et för bildsökning i Bing kan du integrera Bings bildsökningsfunktioner i dina program. Genom att skicka användarsökfrågor med API:et kan du söka efter och visa relevanta och högkvalitativa bilder på samma sätt som på bing.com/images.
 sections:
 - items:
   - type: list
@@ -34,35 +34,35 @@ sections:
       html: <p>Läs mer om API för bildsökning i Bing</p>
       image:
         src: ../media/index/i_overview.svg
-      title: Vad är bildsökning i Bing?
+      title: Vad är API:et för bildsökning i Bing?
     - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-      html: <p>Lär dig att skicka sökfrågor för bilder till Bing</p>
+      html: <p>Lär dig att skicka sökfrågor för bilder till API:et för bildsökning i Bing</p>
       image:
         src: ../media/index/i_guidelines.svg
       title: Bildsökfrågor
     - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-      html: <p>Förstå bildsökningssvaret</p>
+      html: <p>Förstå svaret från API:et för bildsökning i Bing</p>
       image:
         src: ../media/index/i_guidelines.svg
       title: Svar på bildsökning
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Kom igång med API för bildsökning i Bing genom att skapa en fråga och visa JSON-svaret:'
+    text: 'Sök efter bilder på webben med hjälp av:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: quickstarts/csharp
+      href: image-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: quickstarts/java
+      href: image-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: quickstarts/nodejs
+      href: image-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -70,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: quickstarts/python
+      href: image-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg

@@ -9,6 +9,8 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snabbstarter
   items:
+  - name: Snabbstartsguide för hanterad instans
+    href: sql-database-managed-instance-quickstart-guide.md
   - name: Skapa
     items:
     - name: Enskild databas
@@ -279,8 +281,6 @@ items:
       href: sql-database-elastic-query-overview.md
     - name: Elastiska transaktioner
       href: sql-database-elastic-transactions-overview.md
-    - name: Elastic Database-jobb
-      href: elastic-jobs-overview.md
   - name: Jämförelse av SQL-funktioner
     href: sql-database-features.md
   - name: Övervakning och justering
@@ -323,6 +323,8 @@ items:
       href: sql-database-in-memory.md
     - name: Temporala tabeller
       href: sql-database-temporal-tables.md
+    - name: Jobbautomation
+      href: sql-database-job-automation-overview.md
 - name: Instruktionsguider
   items:
   - name: Översikt
@@ -341,6 +343,8 @@ items:
       href: sql-database-threat-detection.md
     - name: Konfigurera kvarhållning av säkerhetskopior med Azure Blob Storage
       href: sql-database-long-term-backup-retention-configure.md
+    - name: Konfigurera Elastic Database-jobb
+      href: elastic-jobs-overview.md
     - name: Konfigurera dynamisk datamaskering
       href: sql-database-dynamic-data-masking-get-started-portal.md
     - name: Konfigurera geo-replikering – Portal
@@ -686,9 +690,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: 634018a1807e23700141ac11a961bd1b1411b8a8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a991b2f6a7ac90d38c653b4daf12948b1b800638
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331409"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55078210"

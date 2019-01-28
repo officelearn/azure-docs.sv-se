@@ -6,19 +6,19 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 8756809de4ec1a8150610027a8197f1bcae213f0
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53252539"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55077395"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
 Den här artikeln beskriver hur du skapar en grupp datorer för [Azure Migrate](migrate-overview.md) utvärdering genom att visualisera beroenden för datorer. Du använder vanligtvis den här metoden när du vill utvärdera grupper med virtuella datorer med högre förtroende genom att dubbelkontrollera datorberoenden innan du kör en utvärdering. Visualisering av beroenden kan hjälpa dig att effektivt planera din migrering till Azure. Det hjälper dig att se till att inget kvar och förvåning avbrott sker inte när du migrerar till Azure. Du kan identifiera alla beroende av varandra system som måste migrera tillsammans och identifiera om ett system som körs fortfarande fungerar som värd för användare eller är en kandidat för inaktivering av i stället för migrering.
 
 > [!NOTE]
-> Beroendevisualiseringsfunktionen är inte tillgänglig i Azure Government.
+> Funktionen för beroendevisualisering är inte tillgänglig i Azure Government.
 
 ## <a name="prepare-for-dependency-visualization"></a>Förbereda för visualisering av beroenden
 Azure Migrate använder Tjänstkarta-lösningen i Log Analytics för att aktivera beroendevisualisering av datorer.
@@ -50,6 +50,8 @@ När du konfigurerar en arbetsyta, måste du hämta och installera agenter på v
 
 ### <a name="install-the-mma"></a>Installera MMA
 
+#### <a name="install-the-agent-on-a-windows-machine"></a>Installera agenten på en Windows-dator
+
 Installera agenten på en Windows-dator:
 
 1. Dubbelklicka på den hämtade agenten.
@@ -58,7 +60,9 @@ Installera agenten på en Windows-dator:
 4. I **installationsalternativ för Agent**väljer **Azure Log Analytics** > **nästa**.
 5. Klicka på **Lägg till** att lägga till en ny Log Analytics-arbetsyta. Klistra in i arbetsytans ID och nyckel som du kopierade från portalen. Klicka på **Nästa**.
 
-[Läs mer](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) om listan över Windows operativsystem stöd av MMA.
+Du kan installera agenten från kommandoraden eller med hjälp av en automatiserad metod, till exempel Azure Automation DSC, System Center Configuration Manager eller med en Azure Resource Manager-mall om du har distribuerat Microsoft Azure Stack i ditt datacenter. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) om hur du använder dessa metoder för att installera MMA-agenten.
+
+#### <a name="install-the-agent-on-a-linux-machine"></a>Installera agenten på en Linux-dator
 
 Installera agenten på en Linux-dator:
 
@@ -94,6 +98,10 @@ Mer information om stöd för beroende-agenten för den [Windows](../azure-monit
       ![Visa datorberoenden](./media/how-to-create-group-machine-dependencies/machine-dependencies.png)
 
 4. Du kan titta på beroenden för olika tidsvaraktigheter genom att klicka på varaktighet i Intervalletikett tid. Intervallet är en timme som standard. Du kan ändra tidsintervallet eller ange start- och slutdatum och varaktighet.
+
+    > [!NOTE]
+      Beroendevisualisering Användargränssnittet stöder för närvarande inte valet av ett tidsintervall som är längre än en timme. Använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
+
 5. När du har identifierat beroende datorer som du vill gruppera kan använda Ctrl + klicka för att välja flera datorer på kartan Klicka på **gruppera datorer**.
 6. Ange ett gruppnamn. Kontrollera att de beroende datorerna identifieras av Azure Migrate.
 
@@ -104,6 +112,20 @@ Mer information om stöd för beroende-agenten för den [Windows](../azure-monit
 8. Klicka på **OK** ska sparas.
 
 När gruppen har skapats, rekommenderar vi att du installerar agenter på alla datorer i gruppen och sedan ändra gruppen genom att visualisera beroenden för hela gruppen.
+
+## <a name="query-dependency-data-from-log-analytics"></a>Fråga efter data för programberoende från Log Analytics
+
+Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
+
+Köra Log Analytics-frågor:
+
+1. När du har installerat agenterna, gå till portalen och klicka på **översikt**.
+2. I **översikt**går du till **Essentials** delen av projektet och klicka på arbetsytans namn tillhandahålls bredvid **OMS-arbetsyta**.
+3. På sidan Log Analytics-arbetsytan **Allmänt** > **loggar**.
+4. Skriv din fråga för att samla in data för programberoende med Log Analytics. Exempelfrågor för att samla in data för programberoende finns [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+5. Kör frågan genom att klicka på Kör. 
+
+[Läs mer](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) om hur du skriver Log Analytics-frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 

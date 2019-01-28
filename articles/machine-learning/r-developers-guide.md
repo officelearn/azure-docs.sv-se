@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 102191b885d2a4a9234b7783b0a51b09903d3abd
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54807464"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081117"
 ---
 # <a name="r-developers-guide-to-azure"></a>R utvecklarens guide till Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -82,24 +82,24 @@ Eftersom Databricks bygger på Spark och fokuserar på samarbete, används platt
 Artikeln [”vad är Azure Databricks”?](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
 kan ge mer information om plattformen och hjälp att komma igång.
 
-## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) är ett där flera användare kan dra och släpp verktyg som du kan använda för att bygga, testa och distribuera prediktiva Analyslösningar i molnet.  Det gör att nya dataexperter att skapa och distribuera maskininlärningsmodeller utan att behöva skriva mycket kod.
+## <a name="azure-machine-learning-studio"></a>Azure Machine Learning-studio
+[Azure Machine Learning-studio](https://azure.microsoft.com/services/machine-learning-studio/) är ett där flera användare kan dra och släpp verktyg som du kan använda för att bygga, testa och distribuera prediktiva Analyslösningar i molnet.  Det gör att nya dataexperter att skapa och distribuera maskininlärningsmodeller utan att behöva skriva mycket kod.
 
-ML Studio har stöd för både R och Python.  Du kan använda R med ML Studio på två sätt.
+Azure Machine Learning studio stöder både R och Python.  Du kan använda R med Azure Machine Learning studio på två sätt.
 
 ### <a name="custom-r-scripts-in-your-experiments"></a>Anpassade R-skript i dina experiment
 Först måste utöka du datamodifieringar och machine learning-funktionerna i ML Studio genom att skriva anpassade R-skript.
 Även om ML Studio innehåller en mängd olika moduler för att förbereda och analysera data, går inte att det matcha funktionerna i en mogen språk som R.  Därför att tjänsten har utformats för att presentera dina egna anpassade R-skript i fall där de angivna modulerna inte uppfyller dina behov.
 
-Om du vill använda den här funktionen, dra och släpp en ”kör R-skript”-modul i experimentet.  Använd sedan Kodredigeraren i fönstret ”Egenskaper” att skriva ett nytt R-skript eller klistra in ett befintligt skript.  Du kan referera till externa R-paket från skriptet.  Du kan använda skriptet att manipulera data eller för att skapa komplexa ML-modeller som inte är en del av standardbibliotek för ML Studio-modell.
+Om du vill använda den här funktionen, dra och släpp en ”kör R-skript”-modul i experimentet.  Använd sedan Kodredigeraren i fönstret ”Egenskaper” att skriva ett nytt R-skript eller klistra in ett befintligt skript.  Du kan referera till externa R-paket från skriptet.  Du kan använda skriptet att manipulera data eller för att skapa komplexa ML-modeller som inte är en del av standardbibliotek för Azure Machine Learning studio-modell.
 
-En mer omfattande introduktion om att använda R i ML Studio-experiment, ta en titt på [”snabbsjälvstudien till r-programmeringsspråket för Azure Machine Learning”.](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
+En mer omfattande introduktion om att använda R i ML Studio-experiment, ta en titt på [”snabbstartssjälvstudier R-programspråket för Azure Machine Learning studio”.](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart)
 
 ### <a name="create-manage-and-deploy-experiments-from-your-local-r-environment"></a>Skapa, hantera och distribuera experiment från den lokala R-miljön
-Det andra sättet att du kan använda R med ML Studio är att använda den
-<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> paket och övervaka och kontrollera hur experiment med R-programmeringsmiljö.  Det här paketet som underhålls av Microsoft, kan du ladda upp och ned datauppsättningar till och från Azure ML att förfråga experiment, om du vill publicera R-funktioner som Azure ML-webbtjänster, och köra R-data via befintliga webbtjänster och hämta utdata.
+Det andra sättet som du kan använda R med Azure Machine Learning studio är att använda den
+<code>[AzureML](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html)</code> paket och övervaka och kontrollera hur experiment med R-programmeringsmiljö.  Det här paketet som underhålls av Microsoft, kan du ladda upp och hämta datauppsättningar till och från Azure Machine Learning studio, för att förfråga experiment, om du vill publicera R fungerar som webbtjänster och för att köra R-data med hjälp av befintliga webbtjänster och hämta den utdata.
 
-Det här paketet gör det mycket enklare att använda Azure ML som en plattform för skalbar distribution för din R-kod.  I stället för att klicka och dra i Användargränssnittet, kan du automatisera hela distributionsprocessen med hjälp av verktyg du redan känner till.
+Det här paketet gör det mycket enklare att använda Azure Machine Learning studio som en plattform för skalbar distribution för din R-kod.  I stället för att klicka och dra i Användargränssnittet, kan du automatisera hela distributionsprocessen med hjälp av verktyg du redan känner till.
 
 ## <a name="azure-batch"></a>Azure Batch
 Du kan använda för storskaliga R-jobb [Azure Batch](https://azure.microsoft.com/services/batch/).  Den här tjänsten tillhandahåller jobbet jobbschemaläggning och beräkningshantering i molnskala så att du kan skala din R-arbetsbelastning till tiotals, hundratals eller tusentals virtuella datorer.  Eftersom det är en generaliserad databehandlingsplattform alternativ några det för att köra R-jobb på Azure Batch.

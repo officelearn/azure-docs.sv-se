@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 62bb4c70c2a5068c90196acc2a1898ceeaa6945c
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 337c48d96a2ee679eda24500d9cb1a8d2581b2c7
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53787689"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912909"
 documentType: LandingData
-title: Dokumentation om Bing Visual Search
+title: Dokumentation om API för visuell sökning i Bing
 metadata:
   document_id: 230494A6-34F9-416D-A6C0-57E69E1C2590
-  title: Dokumentation om visuell sökning i Bing – självstudier, API-referens
-  description: Lär dig att använda API för visuell sökning i Bing för att få insikter om en bild. Självstudier visar hur du skapar appar som använder tjänsten.
+  title: Dokumentation om API för visuell sökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
+  description: Lär dig att använda API:et för visuell sökning i Bing för att få insikter om en bild.
   services: cognitive-services
   author: swhite-msft
   manager: rosh
@@ -19,15 +19,36 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/24/2018
+  ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: API för visuell sökning i Bing ger en liknande upplevelse som Bing.com/images genom att returnera information om en bild, till exempel visuellt likartade bilder, shoppingkällor för produkter som fanns på bilden eller relaterade sökningar.
+  description: API:et för visuell sökning i Bing ger liknande avbildningsdetaljer som dem visas på Bing.com/images. Om du laddar upp en bild eller tillhandahåller URL:en till en bild kan API:et identifiera en mängd information om bilden, inklusive hitta snarlika bilder, shoppingkällor, webbsidor som innehåller bilden och mycket mer.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-visual-search/overview
+      html: <p>Läs mer om API:et för visuell sökning i Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är API:et för visuell sökning i Bing?
+    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+      html: <p>Lär dig hur du skickar sökförfrågningar till API:et för visuell sökning i Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Skicka sökfrågor
+    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+      html: <p>Använd en insiktstoken från API:et för bildsökning i Bing för att ladda upp en bild till API:et för visuell sökning i Bing</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Söka efter nyheter
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Kom igång med API för visuell sökning i Bing genom att skicka en bild till Bing och få information om bilden:'
+    text: 'Få information om en bild med hjälp av API:et för visuell sökning i Bing:'
   - type: table
     style: dataMatrix
     columns:
@@ -40,12 +61,12 @@ sections:
     - image:
         src: media/index/logo_python.svg
     rows:
-    - title: Din första fråga
+    - title: ''
       values:
-      - href: quickstarts/csharp
-      - href: quickstarts/java
-      - href: quickstarts/nodejs
-      - href: quickstarts/python
+      - href: visual-search-sdk-c-sharp
+      - href: java
+      - href: visual-search-sdk-node
+      - href: visual-search-sdk-python
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -53,7 +74,7 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Enkelsidig webbapp</a> | <a href="tutorial-bing-visual-search-single-page-app-source">Källkod</a>
+    - html: <a href="tutorial-bing-visual-search-single-page-app">Enkelsidig webbapp</a>
 - title: Referens
   items:
   - type: list

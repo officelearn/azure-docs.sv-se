@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: b2d834c5f9f46f2ebe3c997c75dc50f30ed4bda7
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558931"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55081236"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -37,6 +37,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Deltagare](#contributor) | Låter dig hantera allt, med undantag för åtkomst till resurser. |
 | [Läsare](#reader) | Låter dig visa allting, men låter dig inte göra några ändringar. |
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
+| [AcrPull](#acrpull) | ACR-pull |
+| [AcrPush](#acrpush) | ACR-push |
 | [AcrQuarantineReader](#acrquarantinereader) | acr-karantändataläsare |
 | [AcrQuarantineWriter](#acrquarantinewriter) | acr-karantändataskrivare |
 | [API Management-Tjänstdeltagare](#api-management-service-contributor) | Kan hantera tjänsten och samtliga API:er |
@@ -52,9 +54,9 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Azure Stack-registrering ägare](#azure-stack-registration-owner) | Låter dig hantera Azure Stack-registreringar. |
 | [Säkerhetskopieringsmedarbetare](#backup-contributor) | Låter dig hantera säkerhetskopieringstjänsten, men låter dig inte skapa valv eller ge åtkomst till andra |
 | [Ansvarig för säkerhetskopiering](#backup-operator) | Låter dig hantera säkerhetskopieringstjänster, med undantag för att ta bort säkerhetskopior, skapa valv eller ge åtkomst till andra |
-| [Säkerhetskopieringsläsare](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
+| [Backup Reader](#backup-reader) | Kan visa säkerhetskopieringstjänster, men inte göra några ändringar |
 | [Faktureringsläsare](#billing-reader) | Tillåter läsåtkomst till faktureringsdata |
-| [BizTalk-deltagare](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
+| [BizTalk Contributor](#biztalk-contributor) | Låter dig hantera BizTalk-tjänster, men ger dig inte tillgång till dem. |
 | [CDN-Slutpunktsdeltagare](#cdn-endpoint-contributor) | Kan hantera CDN-slutpunkter, men kan inte bevilja åtkomst till andra användare. |
 | [CDN-Slutpunktsläsare](#cdn-endpoint-reader) | Kan visa CDN-slutpunkter, men kan inte göra ändringar. |
 | [CDN-Profildeltagare](#cdn-profile-contributor) | Kan hantera CDN-profiler och deras slutpunkter, men kan inte bevilja åtkomst till andra användare. |
@@ -66,18 +68,19 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Cognitive Services-deltagare](#cognitive-services-contributor) | Låter dig skapa, läsa, uppdatera, ta bort och hantera nycklar för Cognitive Services. |
 | [Cognitive Services-användare](#cognitive-services-user) | Låter dig läsa och lista nycklar för Cognitive Services. |
 | [Läsarroll för cosmos DB-konto](#cosmos-db-account-reader-role) | Kan läsa data i Azure Cosmos DB-konto. Se [DocumentDB-Kontodeltagare](#documentdb-account-contributor) för att hantera Azure Cosmos DB-konton. |
+| [CosmosBackupOperator](#cosmosbackupoperator) | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
 | [Kostnadshantering deltagare](#cost-management-contributor) | Kan visa kostnader och hantera kostnadskonfiguration (t.ex. budgetar, exporter) |
 | [Kostnadshantering läsare](#cost-management-reader) | Kan visa kostnadsdata och konfiguration (t.ex. budgetar, exporter) |
 | [Data Box-deltagare](#data-box-contributor) | Låter dig hantera allt under Data Box-tjänsten förutom att ge åtkomst till andra. |
 | [Data Box-läsare](#data-box-reader) | Låter dig hantera Data Box-tjänsten förutom att skapa sortering eller redigera sortingsinformation och ge åtkomst till andra. |
-| [Data Factory-deltagare](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
+| [Data Factory Contributor](#data-factory-contributor) | Skapa och hantera datafabriker och deras underordnade resurser. |
 | [Data Lake Analytics-utvecklare](#data-lake-analytics-developer) | Låter dig skicka in, övervaka och hantera dina egna jobb, men inte skapa eller ta bort Data Lake Analytics-konton. |
 | [Data Purger](#data-purger) | Det går att rensa analysdata |
 | [DevTest Labs-användare](#devtest-labs-user) | Låter dig ansluta, starta, starta om och stänga av dina virtuella datorer i din Azure DevTest Labs. |
 | [DNS-Zondeltagare](#dns-zone-contributor) | Låter dig hantera DNS-zoner och postuppsättningar i Azure DNS, men låter dig inte kontrollera vem som har åtkomst till dem. |
 | [DocumentDB-Kontodeltagare](#documentdb-account-contributor) | Hantera Azure Cosmos DB-konton. Azure Cosmos DB är kallades DocumentDB. |
-| [EventGrid EventSubscription deltagare (förhandsgranskning)](#eventgrid-eventsubscription-contributor-preview) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
-| [EventGrid EventSubscription läsare (förhandsgranskning)](#eventgrid-eventsubscription-reader-preview) | Låter dig läsa EventGrid-händelseprenumerationer. |
+| [EventGrid EventSubscription Contributor](#eventgrid-eventsubscription-contributor) | Låter dig hantera åtgärder för EventGrid-händelseprenumeration. |
+| [EventGrid EventSubscription Reader](#eventgrid-eventsubscription-reader) | Låter dig läsa EventGrid-händelseprenumerationer. |
 | [HDInsight domäntjänster deltagare](#hdinsight-domain-services-contributor) | Kan läsa, skapa, ändra och ta bort domäntjänstrelaterade åtgärder som behövs för HDInsight Enterprise Security Package |
 | [Intelligent Systems-Kontodeltagare](#intelligent-systems-account-contributor) | Låter dig hantera Intelligent Systems-konton, men ger dig inte tillgång till dem. |
 | [Nyckelvalvsdeltagare](#key-vault-contributor) | Låter dig hantera nyckelvalv, men inte ha åtkomst till dem. |
@@ -98,23 +101,23 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 | [Nätverksdeltagare](#network-contributor) | Låter dig hantera nätverk, men ger dig inte tillgång till dem. |
 | [Nya Relic APM-Kontodeltagare](#new-relic-apm-account-contributor) | Låter dig hantera New Relic Application Performance Management-konton och program, men ger dig inte tillgång till dem. |
 | [Läsare och dataåtkomst](#reader-and-data-access) | Kan du visa allt, men inte kan du ta bort eller skapa ett lagringskonto eller en resurs. Det gör också att läs-/ skrivåtkomst till alla data i ett lagringskonto via åtkomst till lagringskontonycklarna. |
-| [Azure Cache för Redis-deltagare](#redis-cache-contributor) | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
+| [Redis Cache-deltagare](#redis-cache-contributor) | Kan du hantera Azure Cache för Redis, men inte åtkomst till dem. |
 | [Resursprincip (förhandsversion)](#resource-policy-contributor-preview) | (Förhandsversion) Användare från EA med behörighet att skapa/ändra resursprinciper, skapa supportbegäranden och läsa resurser/hierarkier. |
 | [Scheduler-Jobbsamlingsdeltagare](#scheduler-job-collections-contributor) | Låter dig hantera Scheduler-jobbsystem, men ger dig inte tillgång till dem. |
 | [Söktjänstdeltagare](#search-service-contributor) | Låter dig hantera söktjänster, men ger dig inte tillgång till dem. |
 | [Säkerhetsadministratör](#security-admin) | I Säkerhetscenter: Kan visa säkerhetsprinciper, security tillstånd, redigera säkerhetsprinciper, Visa aviseringar och rekommendationer, avvisa aviseringar och rekommendationer |
 | [Säkerhetshanteraren (bakåtkompatibel)](#security-manager-legacy) | Det här är en äldre roll. Använd säkerhetsadministratör istället |
-| [Säkerhetsläsare](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
+| [Security Reader](#security-reader) | I Säkerhetscenter: Visa rekommendationer och aviseringar, visa IPSec-principer security tillstånd, men det går inte att göra ändringar |
 | [Site Recovery-bidragsgivare](#site-recovery-contributor) | Låter dig hantera Site Recovery-tjänsten förutom att skapa valv och tilldela roller |
-| [Site Recovery-operatör](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
-| [Site Recovery-läsare](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
+| [Site Recovery Operator](#site-recovery-operator) | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
+| [Site Recovery Reader](#site-recovery-reader) | Låter dig se Site Recovery-status men inte utföra andra hanteringsåtgärder |
 | [SQL DB-deltagare](#sql-db-contributor) | Låter dig hantera SQL-databaser, men inte tillgång till dem. Dessutom kan inte hantera deras säkerhetsrelaterade principer eller deras överordnade SQL-servrar. |
-| [SQL-Säkerhetshanteraren](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
+| [SQL Security Manager](#sql-security-manager) | Tillåter dig att hantera säkerhetsrelaterade principer för SQL-servrar och databaser, men inte åtkomst till dem. |
 | [SQL Server-deltagare](#sql-server-contributor) | Tillåter dig att hantera SQL-servrar och databaser, men inte åtkomst till dem eller deras säkerhetsrelaterade principer. |
 | [Lagringskontodeltagare](#storage-account-contributor) | Låter dig hantera lagringskonton, men ger dig inte åtkomst till dem. |
 | [Tjänstroll som Storage-konto operatör av Lagringskontonyckel](#storage-account-key-operator-service-role) | Operatörer av lagringskontonycklar får lista och återskapa nycklar till lagringskonton |
 | [Storage Blob Data-deltagare (förhandsgranskning)](#storage-blob-data-contributor-preview) | Tillåter läs-, skriv- och borttagningsåtkomst till Azure Storage Blob-containers och data |
-| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
+| [Storage Blob Data-ägare (förhandsversion)](#storage-blob-data-owner-preview) | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
 | [Storage Blob Data-läsare (förhandsgranskning)](#storage-blob-data-reader-preview) | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 | [Lagringsködata-deltagare (förhandsgranskning)](#storage-queue-data-contributor-preview) | Tillåter läs-, skriv- och borttagningssåtkomst till Azure Storage-köer och kömeddelanden |
 | [Lagringsködata-läsare (förhandsgranskning)](#storage-queue-data-reader-preview) | Tillåter läsåtkomst till Azure Storage-köer och kömeddelanden |
@@ -142,7 +145,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig hantera allt, med undantag för åtkomst till resurser. |
-> | **Id** | b24988ac-6180-42A0-ab88-20f7382dd24c |
+> | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Åtgärder** |  |
 > | * | Skapa och hantera resurser för alla typer av |
 > | **NotActions** |  |
@@ -157,7 +160,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig visa allting, men låter dig inte göra några ändringar. |
-> | **Id** | acdd72a7-3385-48EF-bd42-f606fba81ae7 |
+> | **Id** | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
 > | **Åtgärder** |  |
 > | * / läsa | Läsa resurser av alla typer utom hemligheter. |
 
@@ -169,6 +172,25 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Id** | 6cef56e8-d556-48e5-a04f-b8e64114680f |
 > | **Åtgärder** |  |
 > | Microsoft.ContainerRegistry/registries/sign/write | Flyttningar innehåll förtroende metadata för ett behållarregister. |
+
+## <a name="acrpull"></a>AcrPull
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | ACR-pull |
+> | **Id** | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | **Åtgärder** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Hämta eller hämta avbildningar från ett behållarregister. |
+
+## <a name="acrpush"></a>AcrPush
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | ACR-push |
+> | **Id** | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | **Åtgärder** |  |
+> | Microsoft.ContainerRegistry/registries/pull/read | Hämta eller hämta avbildningar från ett behållarregister. |
+> | Microsoft.ContainerRegistry/registries/push/write | Push- eller skriva avbildningar till ett behållarregister. |
 
 ## <a name="acrquarantinereader"></a>AcrQuarantineReader
 > [!div class="mx-tableFixed"]
@@ -385,7 +407,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhetskopieringsjobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returnerar resultatet från Jobbexportåtgärd. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Skapa och hantera metadata som rör hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av åtgärder för hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Skapa och hantera principer för säkerhetskopiering |
@@ -445,8 +467,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållarlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhetskopieringsjobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returnerar resultatet från Jobbexportåtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Returnerar metadata för hantering av säkerhetskopiering för Recovery Services-valvet. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av åtgärder för hantering av säkerhetskopiering |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
@@ -506,8 +528,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Export-jobb |
-> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read | Returnerar resultatet från Jobbexportåtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read | Returnerar metadata för hantering av säkerhetskopiering för Recovery Services-valvet. |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/operationResults/read |  |
+> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returnerar resultat från säkerhetskopiering för Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
@@ -754,6 +776,16 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
+## <a name="cosmosbackupoperator"></a>CosmosBackupOperator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan skicka in återställningsbegäran för en Cosmos DB-databas eller en container för ett konto |
+> | **Id** | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | **Åtgärder** |  |
+> | Microsoft.DocumentDB/databaseAccounts/backup/action | Skicka en begäran om att konfigurera säkerhetskopiering |
+> | Microsoft.DocumentDB/databaseAccounts/restore/action | Skicka en begäran om återställning |
+
 ## <a name="cost-management-contributor"></a>Cost Management-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -816,7 +848,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Skapa och hantera datafabriker och deras underordnade resurser. |
-> | **Id** | 673868aa-7521-48A0-acc6-0f60742d39f5 |
+> | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rollen tilldelningar |
 > | Microsoft.DataFactory/dataFactories/* | Skapa och hantera datafabriker och underordnade resurser. |
@@ -940,7 +972,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributor (förhandsversion)
+## <a name="eventgrid-eventsubscription-contributor"></a>EventGrid EventSubscription deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -957,12 +989,12 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
-## <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Reader (förhandsversion)
+## <a name="eventgrid-eventsubscription-reader"></a>EventGrid EventSubscription Reader
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig läsa EventGrid-händelseprenumerationer. |
-> | **Id** | 2414bbcf-6497-4FAF-8c65-045460748405 |
+> | **Id** | 2414bbcf-6497-4faf-8c65-045460748405 |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.EventGrid/eventSubscriptions/read | Läsa en eventSubscription |
@@ -1097,7 +1129,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig läsa, aktivera och inaktivera logikapp. |
-> | **Id** | 515c2055-d9d4-4321-B1B9-bd0c9a0f79fe |
+> | **Id** | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Insights/alertRules/*/read | Läs insikter Varningsregler |
@@ -1142,7 +1174,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Skapa, läs, uppdatera och ta bort användartilldelad identitet |
-> | **Id** | e40ec5ca-96e0-45A2-b4ff-59039f2c2b59 |
+> | **Id** | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | **Åtgärder** |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/read |  |
 > | Microsoft.ManagedIdentity/userAssignedIdentities/*/write |  |
@@ -1201,6 +1233,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.AlertsManagement/alerts/* |  |
 > | Microsoft.AlertsManagement/alertsSummary/* |  |
 > | Microsoft.Insights/actiongroups/* |  |
+> | Microsoft.Insights/activityLogAlerts/* |  |
 > | Microsoft.Insights/AlertRules/* | Läs/Skriv/ta bort aviseringsregler. |
 > | Microsoft.Insights/components/* | Läs/Skriv/ta bort Application Insights-komponenter. |
 > | Microsoft.Insights/DiagnosticSettings/* | Läs/Skriv/ta bort diagnostikinställningar. |
@@ -1285,7 +1318,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Storage/storageAccounts/listKeys/action | Returnerar åtkomstnycklarna för det angivna lagringskontot. |
 > | Microsoft.Storage/storageAccounts/read | Returnerar listan med lagringskonton eller hämtar egenskaperna för det angivna lagringskontot. |
 
-## <a name="azure-cache-for-redis-contributor"></a>Azure Cache för Redis-deltagare
+## <a name="redis-cache-contributor"></a>Redis Cache-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1370,6 +1403,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Security/pricings/delete | Tar bort inställningarna för prissättning för detta scope |
 > | Microsoft.Security/securityContacts/delete | Tar bort säkerhetskontakt |
 > | Microsoft.Security/securityContacts/write | Uppdaterar säkerhetskontakt |
+> | Microsoft.Security/InformationProtectionPolicies/write | Uppdaterar informationsskyddsprinciper för resursen |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
 ## <a name="security-manager-legacy"></a>Säkerhetshanteraren (bakåtkompatibel)
@@ -1430,7 +1464,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/* | Skapa och hantera replikeringsprinciper |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/* | Skapa och hantera återställningsplaner |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/* | Skapa och hantera lagringskonfiguration för Recovery Services-valv |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returnerar tokeninformation för Recovery Services-valv. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Valvtokenåtgärden kan användas för att hämta Valvtoken för serverdelsåtgärder på valvnivå. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Läsa aviseringar för Recovery services-valvet |
@@ -1446,7 +1480,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig växla vid fel och återställa men inte utföra andra Site Recovery-hanteringsåtgärder |
-> | **Id** | 494ae006-db33-4328-BF46-533a6560a3ca |
+> | **Id** | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och rolltilldelningar |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera aviseringsregler |
@@ -1497,7 +1531,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Läsa aviseringar för Recovery services-valvet |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returnerar tokeninformation för Recovery Services-valv. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Valvtokenåtgärden kan användas för att hämta Valvtoken för serverdelsåtgärder på valvnivå. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighetsstatusarna för alla resurser i det angivna området |
@@ -1540,7 +1574,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Läsa alla principer |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Läsa alla Återställningsplaner |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
-> | Microsoft.RecoveryServices/Vaults/tokenInfo/read | Returnerar tokeninformation för Recovery Services-valv. |
+> | Microsoft.RecoveryServices/Vaults/tokenInfo/read |  |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | Valvtokenåtgärden kan användas för att hämta Valvtoken för serverdelsåtgärder på valvnivå. |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
@@ -1565,6 +1599,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Insights/metricDefinitions/read | Läs måttdefinitioner |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper |
 > | Microsoft.Sql/servers/databases/auditingSettings/* | Det går inte att redigera granskningsinställningar |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Hämta granskningsposter för databas-blob |
@@ -1578,6 +1613,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="sql-security-manager"></a>SQL-säkerhetshanteraren
 > [!div class="mx-tableFixed"]
@@ -1593,6 +1629,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Resources/deployments/* | Skapa och hantera distribution av resursgrupper |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resursgrupper. |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Skapa och hantera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Skapa och hantera granskning inställningen för SQL server |
 > | Microsoft.Sql/servers/extendedAuditingSettings/read | Hämta information om den utökade server blob granskningsprincip som konfigurerats på en viss server |
@@ -1616,6 +1653,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Sql/servers/firewallRules/* |  |
 > | Microsoft.Sql/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Skapa och hantera aviseringar principer för SQL server-säkerhet |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 > | Microsoft.Support/* | Skapa och hantera supportärenden |
 
 ## <a name="sql-server-contributor"></a>SQL Server-deltagare
@@ -1637,6 +1675,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Insights/metricDefinitions/read | Läs måttdefinitioner |
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
+> | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server |
 > | Microsoft.Sql/servers/auditingSettings/* | Det går inte att redigera granskningsinställningarna för SQL server |
 > | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server-databas |
@@ -1654,6 +1693,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/securityAlertPolicies/* | Det går inte att redigera avisering principer för SQL server-säkerhet |
+> | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Lagringskontodeltagare
 > [!div class="mx-tableFixed"]
@@ -1690,8 +1730,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Id** | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
 > | **Åtgärder** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobcontainer |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att put blob-behållare |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
@@ -1701,16 +1741,12 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Tillåter Läs-, Skriv-, delete- och POSIX superanvändare åtkomst till Azure Storage blob-behållare och data |
+> | **Beskrivning** | Tillåter fullständig åtkomst till Azure Storage blob-containrar och data, inklusive tilldelning av POSIX-åtkomstkontroll. |
 > | **Id** | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Returnerar resultatet av att ta bort en container |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/write | Returnerar resultatet av att placera eller låna blobcontainer |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en blob |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en blob |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/* |  |
 
 ## <a name="storage-blob-data-reader-preview"></a>Storage Blob Data-läsare (förhandsgranskning)
 > [!div class="mx-tableFixed"]
@@ -1719,7 +1755,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Beskrivning** | Tillåter läsåtkomst till Azure Storage Blob-containers och data |
 > | **Id** | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
 > | **Åtgärder** |  |
-> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar en container eller containerlista |
+> | Microsoft.Storage/storageAccounts/blobServices/containers/read | Returnerar lista över containrar |
 > | **DataActions** |  |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en blob eller bloblista |
 
@@ -1807,7 +1843,7 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | | |
 > | --- | --- |
 > | **Beskrivning** | Låter dig hantera virtuella datorer, men ger dig inte tillgång till dem eller till det virtuella nätverk eller lagringskonto som de är anslutna till. |
-> | **Id** | 9980e02c-c2be-4D73-94e8-173b1dc7cf3c |
+> | **Id** | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läsa auktorisering |
 > | Microsoft.Compute/availabilitySets/* | Skapa och hantera tillgänglighetsuppsättningar för beräkning |

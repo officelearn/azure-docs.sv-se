@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 0b934e7ac5b297b5c7349a9a9985f6c50d62d19f
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 17fac6455ca225363726b347c428d176e78a1ff9
+ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791956"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54912807"
 documentType: LandingData
 title: Dokumentation om API för nyhetssökning i Bing
 titleSuffix: Azure Cognitive Services
 metadata:
   title: Dokumentation om API för nyhetssökning i Bing – självstudier, snabbstarter, API-referenser | Microsoft Docs
-  description: Lär dig att använda API för nyhetssökning i Bing för att hämta nyheter från webben som är relevanta för användarfrågor. Självstudier visar hur du skapar appar som använder tjänsten.
+  description: Lär dig hur du använder API:et för nyhetssökning i Bing för att söka efter nyheter på webben.
   services: cognitive-services
   author: mikedodaro
   manager: rosh
@@ -19,29 +19,50 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/02/2017
+  ms.date: 01/16/2019
   ms.author: v-gedod
 abstract:
-  description: API för nyhetssökning i Bing har funktioner som liknar Bing genom att returnera listor med nyhetsartiklar som Bing bedömer som relevanta för användarens fråga.
+  description: Med API:et för nyhetssökning i Bing kan du integrera Bings nyhetssökningsfunktioner i dina program. Du kan söka efter relevanta nyhetsartiklar från flera kategorier och källor genom att skicka sökfrågor med API:et, på samma sätt som på bing.com/news.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/bing-news-search/search-the-web
+      html: <p>Läs mer om API:et för nyhetssökning i Bing</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Vad är API för nyhetssökning i Bing?
+    - href: /azure/cognitive-services/bing-news-search/concepts/send-search-queries
+      html: <p>Lär dig hur du skickar sökförfrågningar till API:et för nyhetssökning i Bing.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Skicka sökfrågor
+    - href: /azure/cognitive-services/bing-news-search/concepts/search-for-news
+      html: <p>Lär dig hur du söker efter flera olika typer och kategorier av nyheter.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Söka efter nyheter
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Kom igång med API för nyhetssökning i Bing genom att skapa en fråga och visa JSON-svaret:'
+    text: 'Sök efter nyheter på webben med hjälp av:'
   - type: list
     style: icon48
     items:
     - image:
         src: media/index/logo_csharp.svg
-      href: csharp
+      href: news-search-sdk-quickstart
       text: C&#35;
     - image:
         src: media/index/logo_java.svg
-      href: java
+      href: news-sdk-java-quickstart
       text: Java
     - image:
         src: media/index/logo_nodejs.svg
-      href: nodejs
+      href: news-search-sdk-node-quickstart
       text: Node.js
     - image:
         src: media/index/logo_php.svg
@@ -49,7 +70,7 @@ sections:
       text: PHP
     - image:
         src: media/index/logo_python.svg
-      href: python
+      href: news-sdk-python-quickstart
       text: Python
     - image:
         src: media/index/logo_ruby.svg
@@ -60,7 +81,7 @@ sections:
   - type: paragraph
     text: 'Utveckla program med hjälp av API för nyhetssökning i Bing:'
   - type: paragraph
-    text: <a href="tutorial-bing-news-search-single-page-app">Enkelsidig webbapp</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Källkod</a>
+    text: <a href="tutorial-bing-news-search-single-page-app">Enkelsidig webbapp</a>
 - title: Exempel
   items:
   - type: paragraph

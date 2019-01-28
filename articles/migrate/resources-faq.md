@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: snehaa
-ms.openlocfilehash: cc71aba3e884214b054e0ac4e888a52e38b1c390
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 619369972991bab0b23e7e9ae4e0a146f875e59a
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812547"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079264"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate – och vanliga frågor svar (FAQ)
 
@@ -33,7 +33,7 @@ Azure Migrate är en utvärdering av tjänst som hjälper dig att identifiera di
 
 ### <a name="whats-the-difference-between-using-azure-migrate-for-assessments-and-the-map-toolkit"></a>Vad är skillnaden mellan att använda Azure Migrate för utvärderingar och Map Toolkit?
 
-[Azure Migrate](migrate-overview.md) ger migreringsutvärdering specifikt för att hjälpa till med beredskapen för migrering och utvärdering av lokala arbetsbelastningar till Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) har andra funktioner. Till exempel migreringsplanering för nyare versioner av Windows klient- och operativsystem, programvara användning spåra osv. Dessa scenarier kan du fortsätta att använda MAP Toolkit.
+[Azure Migrate](migrate-overview.md) ger migreringsutvärdering specifikt för att hjälpa till med beredskapen för migrering och utvärdering av lokala arbetsbelastningar till Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/en-us/download/details.aspx?id=7826) har andra funktioner, till exempel migreringsplanering för nyare versioner av Windows-klient och serveroperativsystem och spåra användningen av programvara. Dessa scenarier kan du fortsätta att använda MAP Toolkit.
 
 
 ### <a name="how-is-azure-migrate-different-from-azure-site-recovery-deployment-planner"></a>Hur skiljer sig Azure Migrate från Distributionshanteraren för Azure Site Recovery?
@@ -198,7 +198,7 @@ Nej, beroendevisualiseringen kan inte exporteras. Men eftersom Azure Migrate anv
 
 ### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Hur kan jag automatisera installationen av Microsoft Monitoring Agent (MMA) och beroendeagenten?
 
-[Här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) är ett skript som du kan använda för installation av beroendeagenten. För MMA, [här](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) är ett skript som är tillgängliga på TechNet som du kan använda.
+[Här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) är ett skript som du kan använda för installation av beroendeagenten. [Här](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) anvisningar för hur du kan installera MMA med hjälp av kommandoraden eller automatiserade metoder. För MMA, kan du också använda ett skript som är tillgängliga [här](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) på Technet.
 
 Förutom skript, kan du även använda distributionsverktyg som System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) osv. för att distribuera agenter.
 
@@ -213,10 +213,10 @@ Lista över Windows-operativsystem som stöds av beroendeagenten är [här](http
 Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Kan jag visualisera beroenden i Azure Migrate för mer än en timme?
-Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme.
+Nej, Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, men maximal varaktighet för vilken du kan visualisera beroenden är upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
 
 ### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>Stöds visualisering av beroenden för grupper med fler än 10 virtuella datorer?
-Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
+Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer. Om du har en grupp med fler än 10 virtuella datorer rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.
 
 
 ## <a name="next-steps"></a>Nästa steg

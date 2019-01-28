@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/24/2019
+ms.date: 1/25/2019
 ms.author: raiye
-ms.openlocfilehash: 59afdd3bbb00dce6085ea76685768db3e8eec5cc
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 9d2fa8497ac773ba086f3a4550e20ac5f5f0d882
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900858"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55075473"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst-OS-versioner och SDK-kompatibilitetsöversikten
 Ger dig med uppdaterad information om den senaste Azure-Gästoperativsystem släpper för molntjänster. Den här informationen hjälper dig att planera din uppgraderingsväg innan en gäst-OS är inaktiverad. Om du konfigurerar dina roller att använda *automatisk* gäst-OS uppdateras enligt beskrivningen i [Azure Guest OS uppdateringsinställningar][Azure Guest OS Update Settings], inte är det viktigt att du läser den här sidan.
@@ -75,7 +75,7 @@ Gäst-OS juni har publicerat.
 .NET framework installerat: 3.5, 4.7.2
 
 > [!NOTE]
-> Windows Azure SDK för .NET 3.0 kan laddas ned [här][Windows Azure SDK].
+> Windows Azure SDK för .NET - 3.0 kan laddas ned [här][Windows Azure SDK].
 >
 
 | Konfigurationssträngen | Utgivningsdatum | Inaktivera datum |
@@ -155,6 +155,7 @@ Lista över korrigeringsprogram som ingår med varje månatlig gäst-OS-version 
 
 | Gästoperativsystemfamilj | Kompatibla SDK-versioner |
 | --- | --- |
+| 6 |Version 2.9.6+ |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
 | 3 |Version 1.8+ |

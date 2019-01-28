@@ -26,7 +26,7 @@ Azure ytterdörren-tjänst ger stora filer utan ett tak för filstorlek. Ytterd�
 
 </br>När segmentet anländer till ytterdörren-miljö, är det cachelagras och hanteras direkt av användaren. Ytterdörren hämtar sedan före nästa segment parallellt. Den här före hämtning säkerställer att innehållet förblir en segment före användaren, vilket minskar svarstider. Den här processen fortsätter tills hela filen hämtas (om så krävs), alla byte-intervall finns (om så krävs), eller klienten avslutar anslutningen.
 
-</br>Mer information om byte-intervall begäran [RFC 7233](https://web.archive.org/web/20171009165003/ http://www.rfc-base.org/rfc-7233.html).
+</br>Mer information om byte-intervall begäran [RFC 7233](https://web.archive.org/web/20171009165003/http://www.rfc-base.org/rfc-7233.html).
 Ytterdörren cachelagras alla segment när de tas emot och så hela filen inte behöver cachelagras på ytterdörren-cachen. Efterföljande begäranden om filen eller byte-intervall hämtas från cachen. Om inte alla segment cachelagras, förhämtning används för att begära segment från serverdelen. Denna optimering förlitar sig på serverdelen förmåga att byte-intervall supportförfrågningar; Om serverdelen inte stöder begäranden med byte-intervall kan inte denna optimering är effektivt.
 
 ## <a name="file-compression"></a>Filkomprimering

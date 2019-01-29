@@ -7,19 +7,19 @@ author: barbkess
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: cb477ccba648a15c88f2e216b39d4ba1676d43c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: fd677a34caa5a1871808b31477e91746ec9fdccb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464620"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170410"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Tilldela användare till program
 
@@ -55,9 +55,9 @@ För en användare att komma åt ett program, måste de först tilldelas till de
 
 8.  En administratör kopplar en licens till en grupp att användaren är medlem i en första partsprogram som [Microsoft Office 365](https://products.office.com/)
 
-9.  En [administratören godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) som ska användas av alla användare och sedan en användare loggar in till programmet
+9.  En [administratören godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) som ska användas av alla användare och sedan en användare loggar in till programmet
 
-10. En användare [godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) själva genom att logga in till programmet
+10. En användare [godkänner ett program](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) själva genom att logga in till programmet
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

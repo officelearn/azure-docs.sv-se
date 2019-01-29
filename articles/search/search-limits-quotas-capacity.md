@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 98902c7a27d769b59b20d4560b2cda21bfcff6c6
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 5187052316e229273aa49eb784bf200c0f16a0f7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53310271"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165395"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänstbegränsningar i Azure Search
 Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, dokument, och andra objekt är beroende av om du [etablera Azure Search](search-create-service-portal.md) på **kostnadsfri**, **grundläggande**, eller **Standard** prisnivåer.
@@ -42,7 +42,7 @@ Maximalt begränsar på lagring, arbetsbelastningar och kvantiteter av index, do
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resurs | Kostnadsfri | Grundläggande&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
+| Resurs | Kostnadsfri | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
 | -------- | ---- | ------------------- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |
 | Maximal fält per index |1000 |100 |1000 |1000 |1000 |1000 |
@@ -98,7 +98,7 @@ Grundläggande tjänster som skapats efter sent 2017 har en ökad gräns på 15 
 
 Resurskrävande åtgärder, till exempel bildanalys i Azure blob-indexering eller bearbetning av naturligt språk i kognitiv sökning har kortare maximala körs gånger så att andra indexerade jobb ryms. Om ett indexeringsjobb inte kan slutföras inom den maximala tiden som tillåts, kan du försöka köra det enligt ett schema. Scheduler håller reda på status för indexering. Om en schemalagd indexeringsjobb avbryts av någon anledning, kan indexeraren ta vid där det senast slutade vid nästa schemalagda körning.
 
-| Resurs | Kostnadsfria&nbsp;<sup>1</sup> | Grundläggande&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
+| Resurs | Kostnadsfria&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |
@@ -124,6 +124,10 @@ Resurskrävande åtgärder, till exempel bildanalys i Azure blob-indexering elle
 Frågor per sekund uppskattningar måste ha utvecklats oberoende av alla kunder. Indexstorlek och komplexitet, fråga storleken och komplexiteten och mängden trafik är primära faktorerna för frågor per sekund. Det går inte att erbjuda meningsfulla beräkningar när sådana faktorer är okänd.
 
 Uppskattningar är mer förutsägbar i tjänster som körs på dedikerade resurser (nivåerna Basic och Standard). Du kan beräkna Indexlagring mer noggrant eftersom du har kontroll över flera parametrar. Anvisningar om hur du metoden uppskattning finns [Azure Search-prestanda och optimering](search-performance-optimization.md).
+
+## <a name="data-limits-cognitive-search"></a>Databegränsningar (kognitiv sökning)
+
+En [kognitiv sökning pipeline](cognitive-search-concept-intro.md) som anropar en Text Analytics-resurs för [entitetsidentifiering](cognitive-search-skill-entity-recognition.md), [nyckeln diskussionsämne](cognitive-search-skill-keyphrases.md), [attitydanalys ](cognitive-search-skill-sentiment.md), och [språkidentifiering](cognitive-search-skill-language-detection.md) lyder under databegränsningar. Den maximala storleken för en post ska vara 50 000 tecken enligt `String.Length`. Om du vill dela upp dina data innan de skickas till sentiment analyzer, Använd den [Text dela färdighet](cognitive-search-skill-textsplit.md).
 
 ## <a name="api-request-limits"></a>API-begäran gränser
 * Högst 16 MB per begäran <sup>1</sup>

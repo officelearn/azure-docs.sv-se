@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 29b44e4b281ded635359148e251527c44efaa6d4
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 49c1c95cfd91c23547c07b6e9388ef366bde4ad3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214053"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174694"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Använda en Azure AD-identitet för åtkomst till Azure Storage med CLI eller PowerShell (förhandsversion)
 
@@ -25,7 +25,7 @@ När du loggar in till Azure CLI eller PowerShell med Azure AD-identitet, return
 
 ## <a name="supported-operations"></a>Åtgärder som stöds
 
-Tillägg för förhandsversionen har stöd för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-identitet som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Till exempel om en dataläsare roll tilldelas till identitet som kan du köra skriptkommandon som läser data från en behållare eller en kö. Om en Data deltagarbehörighet roll tilldelas till identiteten, kan du köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
+Tillägg för förhandsversionen har stöd för åtgärder på behållare och köer. Vilka åtgärder som du kan anropa beror på behörigheter till Azure AD-identitet som du loggar in på Azure CLI eller PowerShell. Behörigheter till Azure Storage-behållare eller de köer som har tilldelats via rollbaserad åtkomstkontroll (RBAC). Till exempel om en dataläsare roll tilldelas till identitet som kan du köra skriptkommandon som läser data från en behållare eller en kö. Om en Data-deltagare roll tilldelas till identiteten, kan du köra skriptkommandon som läsa, skriva eller ta bort en behållare eller kön eller den data de innehåller. 
 
 Mer information om de behörigheter som krävs för varje Azure Storage-åtgärd på en behållare eller kön finns [behörigheter för att anropa REST-åtgärder](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations).  
 

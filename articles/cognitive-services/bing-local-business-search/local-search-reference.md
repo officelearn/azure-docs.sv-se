@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b985521fdcfc5ca67b6410719ad72c0962004df6
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 22d83eb617c544a374f1f6b502803d4ead214492
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499606"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182242"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Lokala företag i Bing v7-referens
 
@@ -59,9 +59,9 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 |<a name="subscriptionkey" />Ocp-Apim-Subscription-Key|Begärandehuvud som krävs.<br /><br /> Prenumerationsnyckeln som du fick när du registrerade dig för den här tjänsten i [Cognitive Services](https://www.microsoft.com/cognitive-services/).|  
 |<a name="pragma" />Pragma|Valfritt begärandehuvud<br /><br /> Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
 |<a name="useragent" />User-Agent|Valfritt begärandehuvud.<br /><br /> Användaragenten som skapade begäran. Bing använder användaragenten för att ge mobila användare en optimerad upplevelse. Även om det är valfritt rekommenderar vi även att du alltid anger det här huvudet.<br /><br /> Användaragenten ska vara samma sträng som alla vanliga webbläsare skickar. Information om användaragenter finns i [RFC 2616](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).<br /><br /> Här följer några exempel på användaragentsträngar.<br /><ul><li>Windows Phone&mdash;Mozilla/5.0 (kompatibel; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 822)<br /><br /></li><li>Android&mdash;Mozilla/5.0 (Linux; U; Android 2.3.5; en-us; SCH-I500 Build/GINGERBREAD) AppleWebKit/533.1 (KHTML; som Gecko) Version/4.0 Mobile Safari/533.1<br /><br /></li><li>iPhone&mdash;Mozilla/5.0 (iPhone; CPU iPhone OS 6_1 som Mac OS X) AppleWebKit/536.26 (KHTML; som Gecko) Mobile/10B142 iPhone4;1 BingWeb/3.03.1428.20120423<br /><br /></li><li>PC&mdash;Mozilla/5.0 (Windows NT 6.3; WOW64; Trident/7.0; Touch; rv:11.0) som Gecko<br /><br /></li><li>iPad&mdash;Mozilla/5.0 (iPad; CPU OS 7_0 som Mac OS X) AppleWebKit/537.51.1 (KHTML, som Gecko) Version/7.0 Mobile/11A465 Safari/9537.53</li></ul>|
-|<a name="clientid" />X-MSEdge-ClientID|Valfritt huvud för begäran och svar.<br /><br /> Bing använder det här huvudet för att ge användarna konsekvent beteende i Bing API-anrop. Bing ger ofta förhandsversioner av nya funktioner och förbättringar och använder klient-ID som en nyckel för att tilldela trafik till olika förhandsversioner. Om du inte använder samma klient-ID för en användare vid flera förfrågningar kan sedan Bing tilldela användaren flera motstridiga förhandsversioner. Om du tilldelas flera motstridiga förhandsversioner kan det leda till en inkonsekvent användarupplevelse. Om till exempel den andra begäran har en annan förhandsversionstilldelning än den första kan upplevelsen vara oväntad. Bing kan också använda klient-ID för att skräddarsy webbresultatet för klient-ID:ts sökhistorik, vilket ger användaren en mer omfattande upplevelse.<br /><br /> Bing använder också det här huvudet för att förbättra resultatets rangordning genom att analysera aktiviteten som genererats av ett klient-ID. Relevansförbättringarna kan ge bättre resultat som levereras av Bing-API: er, vilka i sin tur möjliggör högre klickfrekvens för API-konsumenten.<br /><br /> **Viktigt!** Även om det är valfritt bör du överväga att använda det här huvudet som krävs. Bestående klient-ID för flera förfrågningar för samma slutanvändare och enhetskombination gör det möjligt 1) för API-konsumenten att få en konsekvent användarupplevelse och 2) att få högre klickfrekvens via resultat av högre kvalitet från Bing-API: er.<br /><br /> Följande är de grundläggande användningsregler som gäller för det här huvudet.<br /><ul><li>Varje användare som använder ditt program på enheten måste ha ett unikt, Bing-genererat klient-ID.<br /><br/>Om du inte använder det här huvudet i begäran genererar Bing ett ID och returnerar det i svarshuvudet X-MSEdge-ClientID. Den enda gången som du inte får inkludera det här huvudet i en begäran är första gången du använder din app på enheten.<br /><br/></li><li>Använd klient-ID för varje Bing API-begäran som din app gör för den här användaren på enheten.<br /><br/></li><li>**Observera:** måste du se till att detta klient-ID inte är linkable till alla authenticatable kontoinformation.</li><br/><li>Spara klient-ID:t. Om du vill bevara ID:t i en webbläsarapp ska du använda en beständig HTTP-cookie i alla sessioner. Använd inte en sessionscookie. För andra appar, till exempel mobilappar, använder du enhetens beständiga lagring för att bevara ID.<br /><br/>Nästa gång användaren använder appen på enheten ska du hämta klient-ID:t som du sparade.</li></ul><br /> **Obs!** Bing-svar kanske eller kanske inte omfattar det här huvudet. Om svaret innehåller det här huvudet ska du avbilda klient-ID:t och använda det för alla efterföljande Bing-begäranden för användaren på enheten.<br /><br /> **Obs!** Om du inkluderar X-MSEdge-ClientID får du inte ta med cookies i begäran.|  
-|<a name="clientip" />X-MSEdge-ClientIP|Valfritt begärandehuvud.<br /><br /> Klientenhetens IPv4- eller IPv6-adress. IP-adressen används för att identifiera användarens plats. Bing använder platsinformationen för att fastställa SafeSearch-beteende.<br /><br /> **Obs!** Även om det är valfritt rekommenderar vi att du alltid anger det här huvudet och huvudet X-Search-Location.<br /><br /> Förvräng inte adressen (till exempel genom att ändra den sista oktetten till 0). Om adressresultatet förvillas på en plats som inte är i närheten av enhetens verkliga plats kan det leda till att Bing presenterar felaktiga resultat.|  
-|<a name="location" />X-Search-Location|Valfritt begärandehuvud.<br /><br /> En semikolonavgränsad lista med nyckel/värde-par som beskriver klientens geografiska plats. Bing använder platsinformationen till att fastställa ett säkert sökbeteende och returnera relevant lokalt innehåll. Ange nyckel/värde-par som \<nyckel\>:\<värde\>. Följande är de nycklar som används för att ange användarens plats.<br /><br /><ul><li>lat&mdash;latitud för klientens plats i grader. Latituden måste vara större än eller lika med -90.0 och vara mindre än eller lika med +90.0. Negativa värden anger sydliga latituder och positiva värden anger nordliga latituder.<br /><br /></li><li>lång&mdash;longituden för klientens plats i grader. Longituden måste vara större än eller lika med -180.0 och vara mindre än eller lika med +180.0. Negativa värden anger västliga longituder och positiva värden anger östliga longituder.<br /><br /></li><li>RE&mdash; radius, i meter, som anger vågrät riktighet koordinaterna. Skicka värdet som returneras av enhetens platstjänst. Typiska värden kan vara 22 m för GPS/Wi-Fi, 380 m för mobiltornstriangulering och 18 000 m för omvänd IP-sökning.<br /><br /></li><li>TS&mdash; The UTC UNIX-tidsstämpel för när klienten har på plats. (UNIX-tidsstämpeln är antalet sekunder sedan den 1 januari 1970.)<br /><br /></li><li>head&mdash;Optional. Klientens relativa riktning eller färdriktning. Ange färdriktningen som grader från 0 till 360 där du räknar medurs i förhållande till norr. Ange endast den här nyckeln om nyckeln `sp` är nollskiljd.<br /><br /></li><li>SP&mdash; vågrät hastighet (hastighet) i meter per sekund som färdas klientenheten.<br /><br /></li><li>ALT&mdash; klientenheten i meter höjd.<br /><br /></li><li>are&mdash;Valfritt. Radien, i meter, som anger koordinaternas lodräta exakthet. RADIUS-standardvärdet är 50 kilometer. Ange den här nyckeln endast om du anger nyckeln `alt`.<br /><br /></li></ul> **Obs:** även om de här nycklarna är valfria, den information som du anger, desto mer exakta resultat för platsen är.<br /><br /> **Obs:** rekommenderar att alltid ange användarens geografiska plats. Det är särskilt viktigt att ange plats om klientens IP-adress inte exakt avspeglar användarens fysiska plats (till exempel om klienten använder VPN). För bästa resultat bör du inkludera det här huvudet och huvudet X-MSEdge-ClientIP, men du bör minst inkludera det här huvudet.|
+|<a name="clientid" />X-MSEdge-ClientID|Valfritt huvud för begäran och svar.<br /><br /> Bing använder det här huvudet för att ge användarna konsekvent beteende i Bing API-anrop. Bing ger ofta förhandsversioner av nya funktioner och förbättringar och använder klient-ID som en nyckel för att tilldela trafik till olika förhandsversioner. Om du inte använder samma klient-ID för en användare vid flera förfrågningar kan sedan Bing tilldela användaren flera motstridiga förhandsversioner. Om du tilldelas flera motstridiga förhandsversioner kan det leda till en inkonsekvent användarupplevelse. Om till exempel den andra begäran har en annan förhandsversionstilldelning än den första kan upplevelsen vara oväntad. Bing kan också använda klient-ID för att skräddarsy webbresultatet för klient-ID:ts sökhistorik, vilket ger användaren en mer omfattande upplevelse.<br /><br /> Bing använder också det här huvudet för att förbättra resultatets rangordning genom att analysera aktiviteten som genererats av ett klient-ID. Relevansförbättringarna kan ge bättre resultat som levereras av Bing-API: er, vilka i sin tur möjliggör högre klickfrekvens för API-konsumenten.<br /><br /> **VIKTIGT:** Även om det är valfritt, bör du den här rubriken som krävs. Bestående klient-ID för flera förfrågningar för samma slutanvändare och enhetskombination gör det möjligt 1) för API-konsumenten att få en konsekvent användarupplevelse och 2) att få högre klickfrekvens via resultat av högre kvalitet från Bing-API: er.<br /><br /> Följande är de grundläggande användningsregler som gäller för det här huvudet.<br /><ul><li>Varje användare som använder ditt program på enheten måste ha ett unikt, Bing-genererat klient-ID.<br /><br/>Om du inte använder det här huvudet i begäran genererar Bing ett ID och returnerar det i svarshuvudet X-MSEdge-ClientID. Den enda gången som du inte får inkludera det här huvudet i en begäran är första gången du använder din app på enheten.<br /><br/></li><li>Använd klient-ID för varje Bing API-begäran som din app gör för den här användaren på enheten.<br /><br/></li><li>**OBSERVERA:** Du måste se till att detta klient-ID inte är linkable till alla authenticatable kontoinformation.</li><br/><li>Spara klient-ID:t. Om du vill bevara ID:t i en webbläsarapp ska du använda en beständig HTTP-cookie i alla sessioner. Använd inte en sessionscookie. För andra appar, till exempel mobilappar, använder du enhetens beständiga lagring för att bevara ID.<br /><br/>Nästa gång användaren använder appen på enheten ska du hämta klient-ID:t som du sparade.</li></ul><br /> **OBS:** Bing svar kanske eller kanske inte omfattar den här rubriken. Om svaret innehåller det här huvudet ska du avbilda klient-ID:t och använda det för alla efterföljande Bing-begäranden för användaren på enheten.<br /><br /> **OBS:** Om du inkluderar X-MSEdge-ClientID, får inte innehålla cookies i begäran.|  
+|<a name="clientip" />X-MSEdge-ClientIP|Valfritt begärandehuvud.<br /><br /> Klientenhetens IPv4- eller IPv6-adress. IP-adressen används för att identifiera användarens plats. Bing använder platsinformationen för att fastställa SafeSearch-beteende.<br /><br /> **OBS:** Även om det är valfritt, uppmuntras du att alltid ange den här rubriken och X-Search-Location-huvudet.<br /><br /> Förvräng inte adressen (till exempel genom att ändra den sista oktetten till 0). Om adressresultatet förvillas på en plats som inte är i närheten av enhetens verkliga plats kan det leda till att Bing presenterar felaktiga resultat.|  
+|<a name="location" />X-Search-Location|Valfritt begärandehuvud.<br /><br /> En semikolonavgränsad lista med nyckel/värde-par som beskriver klientens geografiska plats. Bing använder platsinformationen till att fastställa ett säkert sökbeteende och returnera relevant lokalt innehåll. Ange nyckel/värde-par som \<nyckel\>:\<värde\>. Följande är de nycklar som används för att ange användarens plats.<br /><br /><ul><li>lat&mdash;latitud för klientens plats i grader. Latituden måste vara större än eller lika med -90.0 och vara mindre än eller lika med +90.0. Negativa värden anger sydliga latituder och positiva värden anger nordliga latituder.<br /><br /></li><li>lång&mdash;longituden för klientens plats i grader. Longituden måste vara större än eller lika med -180.0 och vara mindre än eller lika med +180.0. Negativa värden anger västliga longituder och positiva värden anger östliga longituder.<br /><br /></li><li>RE&mdash; radius, i meter, som anger vågrät riktighet koordinaterna. Skicka värdet som returneras av enhetens platstjänst. Typiska värden kan vara 22 m för GPS/Wi-Fi, 380 m för mobiltornstriangulering och 18 000 m för omvänd IP-sökning.<br /><br /></li><li>TS&mdash; The UTC UNIX-tidsstämpel för när klienten har på plats. (UNIX-tidsstämpeln är antalet sekunder sedan den 1 januari 1970.)<br /><br /></li><li>head&mdash;Optional. Klientens relativa riktning eller färdriktning. Ange färdriktningen som grader från 0 till 360 där du räknar medurs i förhållande till norr. Ange endast den här nyckeln om nyckeln `sp` är nollskiljd.<br /><br /></li><li>SP&mdash; vågrät hastighet (hastighet) i meter per sekund som färdas klientenheten.<br /><br /></li><li>ALT&mdash; klientenheten i meter höjd.<br /><br /></li><li>are&mdash;Valfritt. Radien, i meter, som anger koordinaternas lodräta exakthet. RADIUS-standardvärdet är 50 kilometer. Ange den här nyckeln endast om du anger nyckeln `alt`.<br /><br /></li></ul> **OBS:** Även om de här nycklarna är valfria, den information som du anger, desto mer exakta resultat för platsen är.<br /><br /> **OBS:** Du uppmuntras att alltid ange användarens geografiska plats. Det är särskilt viktigt att ange plats om klientens IP-adress inte exakt avspeglar användarens fysiska plats (till exempel om klienten använder VPN). För bästa resultat bör du inkludera det här huvudet och huvudet X-MSEdge-ClientIP, men du bör minst inkludera det här huvudet.|
 
 > [!NOTE] 
 > Kom ihåg att användningsvillkoren kräver efterlevnad med alla tillämpliga lagar, inklusive lagar om användande av dessa huvud. I till exempel vissa jurisdiktioner, som Europa, finns det krav på att skaffa användarens medgivande innan du placerar vissa spårningsenheter på användarenheter.
@@ -71,15 +71,15 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar.  
   
   
-|Namn|Värde|Typ|Krävs|  
+|Name|Value|Type|Krävs|  
 |----------|-----------|----------|--------------|
 |<a name="count" />Antal|Antalet resuts ska returneras från och med indexet anges av den `offset` parametern.|Sträng|Nej|   
 |<a name="localCategories" />localCategories|Lista med alternativ som definierar sökning efter kategori för företag.  Se [lokala företag kategorier Sök](local-categories.md)|Sträng|Nej|  
-|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i [marknaden koder](#market-codes).<br /><br /> **Obs:** lokala företag Search API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|Sträng|Ja|
-|<a name="offset"/>förskjutning|Indexet startar resultat som anges av den `count` parametern.|Integer|Nej|  
-|<a name="query" />frågor och|Användarens Twitter-referens.|Sträng|Nej|  
+|<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i [marknaden koder](#market-codes).<br /><br /> **OBS:** Lokala företag Search API: et stöder för närvarande endast en-us-marknaden och språk.<br /><br />|Sträng|Ja|
+|<a name="offset"/>offset|Indexet startar resultat som anges av den `count` parametern.|Integer|Nej|  
+|<a name="query" />q|Användarens Twitter-referens.|Sträng|Nej|  
 |<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />  Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|Sträng|Nej|  
-|<a name="safesearch" />safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbsidor med vuxet text, bilder eller videor.<br /><br/></li><li>Måttlig&mdash;returnera webbsidor med vuxet text, men inte vuxen bilder eller videofiler.<br /><br/></li><li>Strikt&mdash;inte returnerar webbsidor med vuxet text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **Obs:** om förfrågan kommer från en marknad som Bing vuxet principen kräver att `safeSearch` har angetts till strikt Bing ignorerar den `safeSearch` värde och använder Strict.<br/><br/>**Obs!** Beroende på om du använder frågeoperator `site:` finns det en risk att svaret har innehåll som är olämpligt för barn oberoende av vad frågeparametern `safeSearch` är inställd på. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |Sträng|Nej|  
+|<a name="safesearch" />safeSearch|Ett filter som används för att filtrera innehåll som är olämpligt för barn. Här följer de möjliga skiftlägeskänsliga filtervärdena.<br /><ul><li>Inaktivera&mdash;returnera webbsidor med vuxet text, bilder eller videor.<br /><br/></li><li>Måttlig&mdash;returnera webbsidor med vuxet text, men inte vuxen bilder eller videofiler.<br /><br/></li><li>Strikt&mdash;inte returnerar webbsidor med vuxet text, bilder eller videor.</li></ul><br /> Standardinställningen är Måttlig.<br /><br /> **OBS:** Om förfrågan kommer från en marknad som Bing vuxet principen kräver att `safeSearch` har angetts till strikt Bing ignorerar den `safeSearch` värde och använder Strict.<br/><br/>**OBS:** Om du använder den `site:` fråga-operator, finns risken att svaret kan innehålla vuxet innehåll, oavsett vad de `safeSearch` Frågeparametern är inställd. Använd endast `site:` om du är medveten om innehållet på webbplatsen och ditt scenario tillåter möjligheten att det förekommer innehåll som är olämpligt för barn. |Sträng|Nej|  
 |<a name="setlang" />setLang|Språket som ska användas för användargränssnittssträngar. Ange språk med hjälp av den tvåstaviga språkkoden ISO 639-1. Språkkoden för engelska är till exempel EN. Standardvärdet är EN (engelska).<br /><br /> Även om det är valfritt bör du alltid ange språket. Normalt anger du `setLang` på samma språk som anges av `mkt` om inte användaren vill att gränssnittets strängar ska visas på ett annat språk.<br /><br /> Den här parametern och [Accept-Language](#acceptlanguage)-huvudet utesluter varandra&mdash;ange inte båda två.<br /><br /> En användargränssnittssträng är en sträng som används som en etikett i ett användargränssnitt. Det finns några användargränssnittssträngar i JSON-svarsobjekt. Alla länkar till Bing.com-egenskaper i svarsobjekten använder det angivna språket.|Sträng|Nej| 
 
 
@@ -95,20 +95,20 @@ Här följer några svar JSON-objekt som svaret kan innehålla. Om begäran lyck
 ### <a name="error"></a>Fel  
 Definierar de fel som inträffat.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|Sträng|  
 |<a name="error-message" />meddelande|En beskrivning av felet.|Sträng|  
 |<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|Sträng|  
-|<a name="error-parameter" />Parametern|Frågeparametern i begäran som orsakade felet.|Sträng|  
-|<a name="error-subcode" />Obligatorisk|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|  
+|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|Sträng|  
+|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|  
 |<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|Sträng|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
 Det översta objekt som svaret innehåller när begäran misslyckas.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|Sträng|  
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|  
@@ -118,7 +118,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="license"></a>Licens  
 Definierar den licens som text eller foto kan användas.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |namn|Namnet på licensen.|Sträng|  
 |url|URL till en webbplats där användaren kan få mer information om licensen.<br /><br /> Använd namn och Webbadress för att skapa en hyperlänk.|Sträng|  
@@ -127,7 +127,7 @@ Definierar den licens som text eller foto kan användas.
 ### <a name="link"></a>Länk  
 Definierar komponenterna i en hyperlänk.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset.|Sträng|  
 |text|Texten som visas.|Sträng|  
@@ -141,7 +141,7 @@ Definierar en utgivare.
   
 Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |namn|Utgivarens namn.|Sträng|  
 |url|URL till utgivarens webbplats.<br /><br /> Observera att utgivaren inte kan innehålla en webbplats.|Sträng|  
@@ -151,11 +151,11 @@ Observera att en utgivare kan deras namn eller sin webbplats, eller bådadera.
 ### <a name="place"></a>Plats  
 Definierar information om en lokal företag, till exempel en restaurang eller hotell.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tips som kan anges till något av följande:<br /><br /><ul><li>Hotell</li><li>LocalBusiness<br /></li><li>Restaurang</ul><li>|Sträng|  
 |Adress|Postadress av där enheten är belägen.|[PostalAddress](#postaladdress)|  
-|entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|[entityPresentationInfo](#entitypresentationinfo)|  
+|entityPresentationInfo|Ytterligare information om entiteten, till exempel tips som du kan använda för att fastställa typen av entitetens. Till exempel om det är en restaurang eller hotell. Den `entityScenario` anges till ListItem.|[EntityPresentationInfo](#entitypresentationinfo)|  
 |namn|Entitetsnamn.|Sträng|  
 |Telefon|Enhetens telefonnummer.|Sträng|  
 |url|URL till dess webbplats.<br /><br /> Använder denna URL tillsammans med entitetsnamn att skapa en hyperlänk som när du klickar på tar användaren till dess webbplats.|Sträng|  
@@ -165,7 +165,7 @@ Definierar information om en lokal företag, till exempel en restaurang eller ho
 ### <a name="querycontext"></a>QueryContext  
 Definierar frågekontexten som Bing används för begäran.  
   
-|Element|Beskrivning|Typ|  
+|Element|Beskrivning|Type|  
 |-------------|-----------------|----------|  
 |adultIntent|Ett booleskt värde som anger om den angivna frågan innehåller vuxna. Värdet är **SANT** om frågan har vuxna; annars **FALSKT**.|Boolesk|  
 |alterationOverrideQuery|Frågesträngen du använder för att tvinga Bing för att använda den ursprungliga strängen. Om frågesträngen är till exempel *saling downwind*, frågesträng åsidosättning blir *+ saling downwind*. Kom ihåg att koda frågesträngen vilket resulterar i *% 2Bsaling + downwind*.<br /><br /> Det här fältet ingår endast om den ursprungliga frågesträngen innehåller en felstavning.|Sträng|  
@@ -174,19 +174,19 @@ Definierar frågekontexten som Bing används för begäran.
 |originalQuery|Frågesträngen som anges i begäran.|Sträng|  
 
 ### <a name="identifiable"></a>Identifierbar
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |id|Resurs-ID|Sträng|
  
 ### <a name="rankinggroup"></a>RankingGroup
 Definierar en sökresultat grupp, till exempel mainline.
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |objekt|En lista över sökresultaten till att visa i gruppen.|RankingItem|
 
 ### <a name="rankingitem"></a>RankingItem
 Definierar ett objekt med Sök resultat att visa.
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |-------------|-----------------|----------|
 |resultIndex|Ett Nollbaserat index för objekt i svaret ska visas. Om objektet inte innehåller det här fältet kan du visa alla objekt i svaret. Till exempel visa alla artiklar i Nyheter svaret.|Integer|
 |answerType|Svaret som innehåller objekt att visa. Till exempel nyheter.<br /><br />Använd typen för att hitta svaret i SearchResponse-objektet. Typen är namnet på ett SearchResponse fält.<br /><br /> Dock använda svarstypen endast om det här objektet innehåller värdefältet. Annars kan du ignorera det.|Sträng|
@@ -196,7 +196,7 @@ Definierar ett objekt med Sök resultat att visa.
 ### <a name="rankingresponse"></a>RankingResponse  
 Definierar där resultaten innehåll ska placeras på sökningen och i vilken ordning.  
   
-|Namn|Värde|  
+|Name|Value|  
 |----------|-----------|  
 |<a name="ranking-mainline" />mainline|Sökresultaten ska visas i den likriktade.|  
 |<a name="ranking-pole" />pol|Sökresultat som ska ges mest synliga behandling (till exempel visas ovanför den likriktade och sidopanelen).|  
@@ -207,11 +207,11 @@ Definierar det översta objektet som svaret innehåller när begäran lyckas.
   
 Observera att om tjänsten misstänker ett DoS-angrepp, lyckas begäran (HTTP-statuskoden är 200 OK); brödtexten i svaret ska dock vara tom.  
   
-|Namn|Värde|Typ|  
+|Name|Value|Type|  
 |----------|-----------|----------|  
 |_typ|Typ-tipset som har angetts till SearchResponse.|Sträng|  
 |Platser|En lista över entiteter som är relevanta för sökfrågan.|JSON-objekt|  
-|QueryContext|Ett objekt som innehåller frågesträngen som Bing används för begäran.<br /><br /> Det här objektet innehåller frågesträngen som har angetts av användaren. Det kan också innehålla en ändrad frågesträng som Bing används för frågan om frågesträngen innehöll en felstavning.|[QueryContext](#querycontext)|  
+|queryContext|Ett objekt som innehåller frågesträngen som Bing används för begäran.<br /><br /> Det här objektet innehåller frågesträngen som har angetts av användaren. Det kan också innehålla en ändrad frågesträng som Bing används för frågan om frågesträngen innehöll en felstavning.|[QueryContext](#querycontext)|  
 
 
 ## <a name="error-codes"></a>Felkoder
@@ -258,7 +258,7 @@ Om begäran misslyckas svaret innehåller en [ErrorResponse](#errorresponse) obj
 
 Här följer möjliga fel kod och underordnade fel kodvärden.
 
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Bing returnerar HttpNotAllowed om du använder HTTP-protokollet i stället för HTTPS och HTTP-statuskoden är 410.

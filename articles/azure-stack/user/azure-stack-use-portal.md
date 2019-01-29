@@ -10,19 +10,19 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 0bf725a20a7c030b0a835439c0f97f23b3cbef71
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50086513"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097910"
 ---
 # <a name="use-the-azure-stack-portal"></a>Använd Azure Stack-portalen
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan använda Azure Stack-portalen för att prenumerera offentliga och använda de tjänster som dessa erbjudanden tillhandahåller. Om du har använt den globala Azure-portalen kan är du redan bekant med hur webbplatsen fungerar.
 
@@ -60,7 +60,7 @@ Om du behöver vägledning för hur du använder tillgängliga tjänster kan fin
 
     I synnerhet föreslår vi att du läser följande artiklar för att komma igång:
 
-    - [Viktiga överväganden: med hjälp av tjänster eller att skapa appar för Azure Stack](azure-stack-considerations.md)
+    - [Viktiga överväganden: Med hjälp av tjänster eller att skapa appar för Azure Stack](azure-stack-considerations.md)
     - I den **anlita** avsnittet i dokumentationen, det finns en artikel för överväganden för varje tjänst. Att tänka på sidan beskriver skillnaderna mellan tjänsten erbjuds i Azure och samma tjänst som erbjuds i Azure Stack. Ett exempel finns i [överväganden för virtuella datorer](azure-stack-vm-considerations.md). Det kan finnas andra informationen i den **anlita** avsnitt som är unik för Azure Stack.
 
       Du kan använda Azure-dokumentationen som allmän referens för en tjänst, men du måste känna till dessa skillnader. Förstå att dokumentationen länkar på den **snabbstartsguider** panelen pekar på Azure-dokumentationen.
@@ -73,4 +73,4 @@ Om du använder Azure Stack Development Kit på [Azure Stack-forum](https://soci
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Viktiga överväganden: med hjälp av tjänster eller att skapa appar för Azure Stack](azure-stack-considerations.md)
+[Viktiga överväganden: Med hjälp av tjänster eller att skapa appar för Azure Stack](azure-stack-considerations.md)

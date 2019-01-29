@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/27/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 9be8ddb6869a4872ff3eae9b589584f850c7dc96
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 57ba89de9eeb69ee9c78ba2d3adef758134283b7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463628"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203614"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Fastställa identitetskrav för för din hybrididentitetslösning
 Det första steget i utforma en hybrididentitetslösning är att avgöra kraven för organisationen som kommer att utnyttja den här lösningen.  Hybrididentitet startas som en stödjande roll (stöds alla andra molnlösningar genom att tillhandahålla autentisering) och på att tillhandahålla nya och intressanta funktioner att låsa upp nya arbetsbelastningar för användare.  Dessa arbetsbelastningar eller tjänster som du vill använda för dina användare styr kraven för hybrid identity utformningen.  Dessa tjänster och arbetsbelastningar behöver använda hybrididentitet både lokalt och i molnet.  

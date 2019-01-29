@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: d0b455261649fad95a92f7ad75f7af26d633cf5a
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b1fb1166e05eba209eddf72d97d20011c9ee4b78
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476894"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103011"
 ---
 # <a name="replace-a-physical-disk-in-azure-stack"></a>Ersätta en fysisk disk i Azure Stack
 
@@ -54,27 +54,27 @@ När du ersätter disken identifieras den nya disken automatiskt i Azure Stack o
  När du ersätter disken kan du övervaka hälsostatus för virtuell disk och reparera jobbförlopp genom att använda privilegierad slutpunkt. Följ dessa steg från alla datorer som har en nätverksanslutning till privilegierad slutpunkt.
 
 1. Öppna en Windows PowerShell-session och Anslut till privilegierad slutpunkt.
-    ````PowerShell
+    ```PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-    ```` 
+    ``` 
   
 2. Kör följande kommando för att visa hälsotillstånd för virtuell disk:
-    ````PowerShell
+    ```PowerShell
         Get-VirtualDisk -CimSession s-cluster
-    ````
+    ```
    ![PowerShell-utdata från kommandot Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
 3. Kör följande kommando för att visa aktuell status för jobbet av lagring:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
-    ````
+    ```
       ![PowerShell-utdata från kommandot Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
 ## <a name="troubleshoot-virtual-disk-repair"></a>Felsöka virtuell disk reparation
 
 Om den virtuella disken reparera visas jobb har fastnat, kör följande kommando för att starta om jobbet:
-  ````PowerShell
+  ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
-  ```` 
+  ``` 

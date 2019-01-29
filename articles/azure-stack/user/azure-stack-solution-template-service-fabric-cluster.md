@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: 151f6fa7880db03909c522147d9c1f74508f51a1
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 6f67945bcd84eef5c332b92440afa3199429d365
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351857"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092123"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuera ett Service Fabric-kluster i Azure Stack
 
@@ -27,7 +27,7 @@ Använd den **Service Fabric-kluster** objekt från Azure Marketplace för att d
 
 Mer information om hur du arbetar med Service Fabric finns i [översikt av Azure Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview) och [säkerhetsscenarier för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security), i Azure-dokumentationen.
 
-Service Fabric-kluster i Azure Stack använder inte resursprovidern Microsoft.ServiceFabric. I Azure Stack som, är Service Fabric-klustret i stället en VM-skalningsuppsättning med i förväg installerad programvara som anges med Desired State Configuration (DSC).
+Service Fabric-kluster i Azure Stack använder inte resursprovidern Microsoft.ServiceFabric. I Azure Stack som, är Service Fabric-klustret i stället en VM-skalningsuppsättning med förinstallerade program uppsättning med hjälp av Desired State Configuration (DSC).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -210,7 +210,7 @@ Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric Explorer el
 
 1. När du har ändrat ordning på miljövariablerna, starta om PowerShell och kör sedan följande PowerShell-skript för att få åtkomst till Service Fabric-klustret:
 
-   ````PowerShell  
+   ```PowerShell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 
@@ -221,8 +221,11 @@ Du kan komma åt Service Fabric-kluster med hjälp av Service Fabric Explorer el
     0272251171BA32CEC7938A65B8A6A553AA2D3283 \`
 
     -StoreLocation CurrentUser -StoreName My -Verbose
-   ````
+   ```
    
    > [!NOTE]  
    > Det finns inga *https://* före namnet på klustret i skriptet. Port 19000 krävs.
- 
+
+## <a name="next-steps"></a>Nästa steg
+
+[Distribuera Kubernetes till Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

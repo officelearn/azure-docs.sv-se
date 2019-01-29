@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: cb754f903a871590716f245e9ed93f322e762522
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 45c01a2c1a652c72e589cd332198b71bb1dd2c76
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286800"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155620"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Användnings- och visningskrav för API:er för Bing-sökresultat
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

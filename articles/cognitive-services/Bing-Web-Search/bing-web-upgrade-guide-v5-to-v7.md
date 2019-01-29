@@ -7,16 +7,16 @@ author: swhite-msft
 manager: cgronlun
 ms.assetid: E8827BEB-4379-47CE-B67B-6C81AD7DAEB1
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: reference
 ms.date: 01/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: eb84c961d13c5abac7a0c9f426f099d21f034f20
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7c3e19fd809e442d58f7cb0e6922d4e565673fe2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129751"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188940"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Uppgradera från Bing Web Search API v5 till v7
 
@@ -39,7 +39,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 - Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
 
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -75,7 +75,7 @@ Blockerad|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Rubriker
 
-- Har lagts till det valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) huvudet i begäran. Bing returnerar cachelagrat innehåll om de är tillgängliga som standard. Om du vill förhindra att Bing returnera cachelagrat innehåll, ange rubriken Pragma till no cache (till exempel Pragma: no-cache).
+- Har lagts till det valfria [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#pragma) huvudet i begäran. Som standard returnerar Bing cachelagrat innehåll om det finns. Om du vill förhindra att Bing returnerar cachelagrat innehåll ska du ställa in huvudet Pragma på no-cache (till exempel Pragma: no-cache).
 
 ### <a name="query-parameters"></a>Frågeparametrar
 

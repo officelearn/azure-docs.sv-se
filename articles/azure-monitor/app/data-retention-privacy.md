@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 812478c13ef39b369471a731c52dc38ba6a4368c
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: 511937fde859f47af2b7bc273daaab88bb8809c3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54119755"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094537"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Datainsamling, kvarhållning och lagring i Application Insights
 
@@ -148,7 +148,7 @@ Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala
 
 
 Via konfigurationsfil:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -158,7 +158,7 @@ Via kod:
 
 - Ta bort ServerTelemetryChannel från konfigurationsfilen
 - Lägg till det här kodfragmentet i konfigurationen:
-```
+```csharp
 ServerTelemetryChannel channel = new ServerTelemetryChannel();
 channel.StorageFolder = @"D:\NewTestFolder";
 channel.Initialize(TelemetryConfiguration.Active);
@@ -171,7 +171,7 @@ Som standard `ServerTelemetryChannel` använder den aktuella användarens lokala
 
 Följande kodfragment visar hur du ställer in `ServerTelemetryChannel.StorageFolder` i den `ConfigureServices()`  -metoden för din `Startup.cs` klass:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -198,7 +198,7 @@ Vi rekommenderar inte uttryckligen ställa in ditt program att bara använda TLS
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
 | Azure App Services  | Stöd för behövas konfiguration. | Support lanserades i April 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure-Funktionsappar | Stöd för behövas konfiguration. | Support lanserades i April 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure Function Apps | Stöd för behövas konfiguration. | Support lanserades i April 2018. Läs meddelandet för [konfigurationsinformation](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Stöd för varierar konfigurationen beroende på version. | Detaljerad konfigurationsinformation för .NET 4.7 och tidigare versioner finns i [instruktionerna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
 |Statusövervakare | Konfigurationer som stöds, krävs | Statusövervakaren förlitar sig på [Operativsystemets konfiguration](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET Configuration](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) till support TLS 1.2.
 |Node.js |  Stöds i v10.5.0, behövas konfiguration. | Använd den [officiell Node.js TLS/SSL-dokumentation](https://nodejs.org/api/tls.html) för eventuella specifika programkonfiguration. |
@@ -244,7 +244,7 @@ SDK: erna kan variera mellan plattformar och det finns flera komponenter som du 
 | [Lägg till Application Insights SDK till en .NET-webbprojekt][greenbrown] |ServerContext<br/>Härledd<br/>Prestandaräknare<br/>Begäranden<br/>**Undantag**<br/>Session<br/>användare |
 | [Installera Status Monitor på IIS][redfield] |Beroenden<br/>ServerContext<br/>Härledd<br/>Prestandaräknare |
 | [Lägg till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härledd<br/>Förfrågan<br/>Session<br/>användare |
-| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sidan<br/>ClientPerf<br/>AJAX |
+| [Lägg till JavaScript SDK till webbsidan][client] |ClientContext <br/>Härledd<br/>Sidan<br/>ClientPerf<br/>Ajax |
 | [Definiera standardegenskaper][apiproperties] |**Egenskaper för** på alla standardentiteter och anpassade händelser |
 | [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
 | [Anropa spåra *][api] |Händelsenamn<br/>**Egenskaper** |
@@ -264,9 +264,9 @@ För [SDK: er för andra plattformar][platforms], finns i sina dokument.
 | Härledd |geoplats från IP-adress, tidsstämpel, operativsystem, webbläsare |
 | Mått |Tjänstmåttets namn och värde |
 | Händelser |Händelsenamn och värde |
-| Sidvisningar |URL- och eller inloggningsnamn |
+| PageViews |URL- och eller inloggningsnamn |
 | Klienten perf |URL-/ sidnamn, inläsningstid för webbläsare |
-| AJAX |HTTP-anrop från webbsida till servern |
+| Ajax |HTTP-anrop från webbsida till servern |
 | Begäranden |URL: en, varaktighet, svarskod |
 | Beroenden |Typ (SQL, HTTP,...), anslutningssträngen eller URI, synkronisering/async, varaktighet, lyckades, SQL-uttryck (med Status Monitor) |
 | **Undantag** |Typ, **meddelande**, anropa stackar, käll-fil- och rad number, tråd-id |

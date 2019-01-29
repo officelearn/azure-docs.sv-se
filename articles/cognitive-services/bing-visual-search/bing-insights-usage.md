@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-visual-search
+ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: scottwhi
-ms.openlocfilehash: 39468a4a143d184fcc964ae88f82ad7254e4f3b0
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: d3619521644a9d0d3f44715a92cfef178cda73c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53741750"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158731"
 ---
 # <a name="examples-of-bing-insights-usage"></a>Exempel på användning av Bing insikter
 
@@ -32,14 +32,14 @@ Nedan visas en länk till den första webbsidan och användaren kan expandera el
 
 Nedan visas hur Bing kan visas i källorna för produkter som visas i bild.
 
-![Shopping källor](./media/shopping-sources.PNG)
+![Shoppingkällor](./media/shopping-sources.PNG)
 
 
 ## <a name="visualsearch-insight-example"></a>VisualSearch insight-exempel
 
 Följande visar hur Bing kan visa visuellt likartade bilder (se **relaterade bilder** i det här exemplet).
 
-![Snarlika bilder](./media/similar-images.PNG)
+![Visuellt likartade bilder](./media/similar-images.PNG)
 
 ## <a name="recipes-insight-example"></a>Recept insight-exempel
 
@@ -83,7 +83,7 @@ Icke-standard-taggar är bland annat avgränsningsruta som identifierar intresse
 
 ## <a name="next-steps"></a>Nästa steg
 
-Kom igång snabbt med din första begäran, finns Snabbstart: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
+Kom igång snabbt med din första begäran genom att läsa snabbstarterna: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)
 
 
 

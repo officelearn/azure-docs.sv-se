@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med exakthet NetBenefits | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med exakthet NetBenefits | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och återgivning NetBenefits.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 77dc8a98-c0e7-4129-ab88-28e7643e432a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2018
 ms.author: jeedes
-ms.openlocfilehash: a1308035a8b758a9e2f824de3a78c03103c19931
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 00b90dae4acfae3f8250b94be1f8752aa72bcfe1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054745"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174898"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Självstudier: Azure Active Directory-integration med exakthet NetBenefits
+# <a name="tutorial-azure-active-directory-integration-with-fidelity-netbenefits"></a>Självstudier: Azure Active Directory-integrering med exakthet NetBenefits
 
 Lär dig hur du integrerar återgivning NetBenefits med Azure Active Directory (AD Azure) i den här självstudien.
 
@@ -30,7 +30,7 @@ Integrera återgivning NetBenefits med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till återgivning NetBenefits.
 - Du kan aktivera användarna att automatiskt få loggat in på exakthet NetBenefits (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med exakthet NetBenefits, behöver d
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -71,7 +71,7 @@ För att konfigurera integrering av återgivning NetBenefits i Azure AD, som du 
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -79,7 +79,7 @@ För att konfigurera integrering av återgivning NetBenefits i Azure AD, som du 
 
     ![Återgivning NetBenefits i resultatlistan](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med exakthet NetBenefits baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -89,13 +89,13 @@ I återgivning NetBenefits **användaren** mappning ska göras med **Azure AD-an
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med exakthet NetBenefits, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare återgivning NetBenefits](#create-a-fidelity-netbenefits-test-user)**  – du har en motsvarighet för Britta Simon i återgivning NetBenefits som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för återgivning NetBenefits.
 
@@ -103,7 +103,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **exakthet NetBenefits** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
 
@@ -134,13 +134,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/fidelitynetbenefits-tutorial/tutorial_general_400.png)
 
 7. På den **exakthet NetBenefits Configuration** klickar du på **konfigurera återgivning NetBenefits** att öppna **konfigurera inloggning** fönster. Kopiera den **SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Återgivning NetBenefits konfiguration](./media/fidelitynetbenefits-tutorial/tutorial_fidelitynetbenefits_configure.png)
 
-8. Att konfigurera enkel inloggning på **exakthet NetBenefits** sida, som du behöver skicka de hämtade **XML-Metadata för**, **SAML enkel inloggning för tjänst-URL** och  **SAML entitets-ID** till **tilldelade återgivning klienten Service Manager**. De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+8. Att konfigurera enkel inloggning på **exakthet NetBenefits** sida, som du behöver skicka de hämtade **XML-Metadata för**, **SAML enkel inloggning för tjänst-URL** och  **SAML entitets-ID** till **tilldelade återgivning klienten Service Manager**. De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 

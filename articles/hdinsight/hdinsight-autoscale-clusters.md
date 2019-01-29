@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 977466d77bee2d6fe49c0438aa1d9d4489f8eb5f
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888234"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101064"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 
@@ -22,7 +22,7 @@ Azure HDInsight-kluster Autoskala funktionen skalas automatiskt antalet arbetarn
 
 ## <a name="getting-started"></a>Komma igång
 
-### <a name="create-cluster-with-azure-portal"></a>Skapa kluster med Azure portal
+### <a name="create-a-cluster-with-the-azure-portal"></a>Skapa ett kluster med Azure-portalen
 
 > [!Note]
 > Automatisk skalning är för närvarande stöds endast för Azure HDInsight Hive, MapReduce och Spark-kluster version 3.6.
@@ -48,7 +48,7 @@ Din prenumeration har en kapacitet kvot för varje region. Det totala antalet k�
 > [!Note]  
 > Om du överskrider den totala grundkvoten får du ett felmeddelande om ”maximalt antal nod överskrider de tillgängliga kärnorna i den här regionen, Välj en annan region eller kontakta supporten för att öka kvoten”.
 
-### <a name="create-cluster-with-an-resource-manager-template"></a>Skapa kluster med en Resource Manager-mall
+### <a name="create-a-cluster-with-a-resource-manager-template"></a>Skapa ett kluster med en Resource Manager-mall
 
 Fullständig HDInsight-kluster i separata steg med hjälp av Resource Manager-mallar finns på [skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  När du skapar ett HDInsight-kluster med en Azure Resource Manager-mall kan behöva du lägga till följande inställningar i avsnittet ”computeProfile” ”workernode” och redigera den i enlighet med detta:
 
@@ -74,7 +74,7 @@ Fullständig HDInsight-kluster i separata steg med hjälp av Resource Manager-ma
 }
 ```
 
-### <a name="enable-and-disabling-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera automatisk skalning för ett kluster som körs
+### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera automatisk skalning för ett kluster som körs
 
 Aktiverar automatisk skalning för ett aktivt kluster stöds inte för privata förhandsversionen. Det måste vara aktiverat när klustret skapas.
 
@@ -82,7 +82,7 @@ Inaktivera automatisk skalning eller ändra inställningarna för automatisk ska
 
 ## <a name="monitoring"></a>Övervakning
 
-Du kan visa klustret skala upp och ned historik som en del av klustermått. Du kan lista alla skalningsåtgärder över tidigare dag, vecka eller längre tidsperiod.
+Du kan visa klustret skala upp och skala ned historik som en del av klustermått. Du kan också visa alla åtgärder för skalning över tidigare dag, vecka eller längre tidsperiod.
 
 ## <a name="how-it-works"></a>Hur det fungerar
 

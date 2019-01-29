@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/2/2018
 ms.author: rkarlin
-ms.openlocfilehash: 40f3275b2f16a80f1199afdc0d7965cbd4433f50
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 5150f782d13e198c59e8d79f09ba0ffead5426d3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082465"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100554"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Insamling av data i Azure Security Center
 Security Center samlar in data från dina virtuella Azure-datorer (VM) och icke-Azure-datorer för att övervaka säkerhetsproblem och hot. Data samlas in med Microsoft Monitoring Agent, som läser olika säkerhetsrelaterade konfigurationer och händelseloggar från datorn och kopierar data till din arbetsyta för analys. Exempel på sådana data är: driva systemtyp och version, operativsystemloggar (Windows-händelseloggar), kör processer, datornamn, IP-adresser och inloggad användare. Microsoft Monitoring Agent kopierar också kraschdumpfiler till din arbetsyta.
@@ -81,7 +81,7 @@ Välja den arbetsyta som skapats av Security Center:
 
 2. Klicka på **Spara**.<br>
     Security Center skapar en ny resurs och standardenhet arbetsyta i den geoplats och ansluter agenten till arbetsytan. Namngivningskonventionen för gruppen arbetsyta och resursen är:<br>
-**Arbetsyta: DefaultWorkspace-[prenumerations-ID]-[geo]<br> resursgrupp: DefaultResourceGroup-[geo]**
+**Arbetsyta: DefaultWorkspace-[subscription-ID]-[geo]<br> Resource Group: DefaultResourceGroup-[geo]**
 
    Om en prenumeration innehåller virtuella datorer från flera geolocations, skapar flera arbetsytor med Security Center. Flera arbetsytor skapas för att upprätthålla strängare data.
 -   Security Center aktiverar automatiskt en Security Center-lösning på arbetsytan per prisnivån för prenumerationen. 
@@ -279,7 +279,7 @@ Du kan installera Microsoft Monitoring Agent manuellt så att Security Center ka
      
             $PublicConf = '{
                 "workspaceId": "WorkspaceID value",
-                "MultipleConnectistopOnons": true
+                "MultipleConnections": true
             }' 
  
             $PrivateConf = '{

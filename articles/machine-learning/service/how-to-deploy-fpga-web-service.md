@@ -11,12 +11,12 @@ ms.author: tedway
 author: tedway
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3148d4d63ad1464dbd45c361237ac9cd4ffd485a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 7ebd25fe7b60cb3f8701793f222bbbc8bd4990e5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268248"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196777"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
@@ -24,7 +24,7 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 - En arbetsyta för Azure Machine Learning-tjänsten och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
  
@@ -165,7 +165,7 @@ registered_model.delete()
 
 ## <a name="secure-fpga-web-services"></a>Skydda FPGA-webbtjänster
 
-Azure Machine Learning-modeller som körs på FPGA ger stöd för SSL- och nyckel för autentisering. På så sätt kan du begränsa åtkomsten till din tjänst och säkra data som skickats av klienterna. [Lär dig hur du säkrar webbtjänsten](how-to-secure-web-service.md).
+Azure Machine Learning-tjänstmodeller som körs på FPGA ger stöd för SSL- och nyckel för autentisering. På så sätt kan du begränsa åtkomsten till din tjänst och säkra data som skickats av klienterna. [Lär dig hur du säkrar webbtjänsten](how-to-secure-web-service.md#fpga).
 
 
 ## <a name="next-steps"></a>Nästa steg

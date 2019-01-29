@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8f460b41cd2ce62b7a3e0138caa25f68e2fd22ad
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 57eac1dcc170e2ac7e35cab64b6980bbe053db39
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156501"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092766"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets
 Den här artikeln beskriver hur du skalar en Azure Service Fabric-kluster genom att lägga till en ny VM-skalningsuppsättning i ett befintligt kluster. Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Virtual machine scale sets är en Azure-beräkningsresurs som används för att distribuera och hantera en uppsättning virtuella datorer som en uppsättning. Varje nodtyp som definieras i ett Azure-kluster är [ställa in som en separat skalningsuppsättning](service-fabric-cluster-nodetypes.md). Varje nodtyp kan sedan hanteras separat. När du har skapat ett Service Fabric-kluster, kan du skala en klusternodstyp lodrätt (ändra resurser noder), uppgradera operativsystemet på nodtyp virtuella datorer eller Lägg till en ny VM-skalningsuppsättning i ett befintligt kluster.  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.
@@ -34,7 +34,7 @@ Den här artikeln beskriver hur du skalar en Azure Service Fabric-kluster genom 
 Här är en process för att uppdatera VM-storleken och operativsystemet på den primära nodtypen virtuella datorer.  Efter uppgraderingen är den primära nodtypen VMs storlek Standard D4_V2 och som kör Windows Server 2016 Datacenter med behållare.
 
 > [!WARNING]
-> Innan du försöker den här proceduren på ett produktionskluster rekommenderar vi att du studera exempelmallarna och verifiera processen mot ett testkluster. Klustret är också tillgänglig under en tid. Du kan inte ändra flera VMSS som deklarerats som samma NodeType i parrallel; Du behöver utföra avgränsas distributionsåtgärder för att tillämpa ändringar på varje NodeType VMSS individuellt.
+> Innan du försöker den här proceduren på ett produktionskluster rekommenderar vi att du studera exempelmallarna och verifiera processen mot ett testkluster. Klustret är också tillgänglig under en tid. Du kan inte göra ändringar på flera VMSS deklarerats som samma NodeType parallellt; Du behöver utföra avgränsas distributionsåtgärder för att tillämpa ändringar på varje NodeType VMSS individuellt.
 
 1. Distribuera det första klustret med två nodtyper och två skalningsuppsättningar (en skalningsuppsättning per nodtyp) med hjälp av dessa exempel [mall](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) och [parametrar](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) filer.  Båda skalningsuppsättningar är storlek Standard D2_V2 och som kör Windows Server 2012 R2 Datacenter.  Vänta tills klustret för att slutföra uppgraderingen baslinje.   
 2. Valfritt – distribuera en tillståndskänslig exemplet till klustret.

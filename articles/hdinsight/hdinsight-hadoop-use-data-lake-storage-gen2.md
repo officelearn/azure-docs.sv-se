@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 1d43c7b6dd1bdec0a2507d8ce1a3883f5ce31a39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9a1d0775c12d424c35e9e9d366f69e07ec9b1468
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479568"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096984"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -30,15 +30,15 @@ Azure Data Lake Storage Gen2 är tillgängligt som ett lagringsalternativ för n
 
 Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för lagring, Använd följande steg för att skapa ett Data Lake Storage Gen2-konto som har konfigurerats korrekt.
 
-1. Skapa en Användartilldelad hanterad identitet, om du inte redan har ett. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](/../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal#create-a-user-assigned-managed-identity.md).
+1. Skapa en Användartilldelad hanterad identitet, om du inte redan har ett. Se [skapa, lista, ta bort eller tilldela en roll till en Användartilldelad hanterad identitet med hjälp av Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
 
     ![Skapa en användartilldelad hanterad identitet](./media/hdinsight-hadoop-data-lake-storage-gen2/create-user-assigned-managed-identity-portal.png)
 
-1. Skapa ett Azure Data Lake Storage Gen2 storage-konto. Se till att den **hierarkiskt filsystem** är aktiverat. Gå till [Snabbstart: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](/../storage/blobs/data-lake-storage-quickstart-create-account.md) för mer information.
+1. Skapa ett Azure Data Lake Storage Gen2 storage-konto. Se till att den **hierarkiskt filsystem** är aktiverat. Gå till [Snabbstart: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-quickstart-create-account.md) för mer information.
 
-    ![Skärmbild som visar hur du skapar ett lagringskonto i Azure-portalen](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
+    ![Skärmbild som visar lagringskontot har skapats i Azure portal](./media/hdinsight-hadoop-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
  
-1. Tilldela den hantera identitet som den **Storage Blob Data-deltagare (förhandsgranskning)** rollen på lagringskontot. Se [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](/../storage/common/storage-auth-aad-rbac#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal.md)
+1. Tilldela den hantera identitet som den **Storage Blob Data-deltagare (förhandsgranskning)** rollen på lagringskontot. Se [hantera åtkomsträttigheter till Azure-Blob och kö data med RBAC (förhandsversion)](../storage/common/storage-auth-aad-rbac.md#assign-a-role-scoped-to-the-storage-account-in-the-azure-portal)
 
     1. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto.
     1. Välj ditt lagringskonto och sedan **åtkomstkontroll (IAM)** att visa inställningar för åtkomstkontroll för kontot. Välj den **rolltilldelningar** flik för att se en lista över rolltilldelningar.
@@ -71,16 +71,16 @@ Azure Data Lake Storage Gen2 implementerar en modell för åtkomstkontroll som s
 
 Azure rollbaserad åtkomstkontroll (RBAC) använder rolltilldelningar för att effektivt gäller uppsättningar av behörigheter för användare, grupper och tjänstens huvudnamn för Azure-resurser. Normalt, dessa Azure-resurser är begränsade till översta resurser (till exempel Azure Storage-konton). Azure Storage, och även Azure Data Lake Storage Gen2 finns har den här mekanismen utökats till system-filresurs.
 
- Läs mer på filbehörigheter med RBAC [Azure rollbaserad åtkomstkontroll (RBAC)](/../storage/blobs/data-lake-storage-access-control#azure-role-based-access-control-rbac.md).
+ Läs mer på filbehörigheter med RBAC [Azure rollbaserad åtkomstkontroll (RBAC)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac).
 
-Mer information om behörigheter med ACL: er finns i [åtkomstkontrollistor för filer och kataloger](/../storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories.md).
+Mer information om behörigheter med ACL: er finns i [åtkomstkontrollistor för filer och kataloger](../storage/blobs/data-lake-storage-access-control.md#access-control-lists-on-files-and-directories).
 
 
 ### <a name="how-do-i-control-access-to-my-data-in-gen2"></a>Hur jag för att kontrollera åtkomsten till Mina data i Gen2?
 
 Möjlighet för ditt HDInsight-kluster att få åtkomst till filer i Data Lake Storage Gen2 styrs via hanterade identiteter. En hanterad identitet är en identitet som registrerad i Azure AD vars autentiseringsuppgifter hanteras av Azure. Du behöver inte registrera tjänstens huvudnamn i Azure AD och upprätthålla autentiseringsuppgifter, till exempel certifikat.
 
-Det finns två typer av hanterade identiteter för Azure-tjänster: systemtilldelade och användaren tilldelas. Azure HDInsight använder användartilldelade hanterade identiteter för att komma åt Azure Data Lake Storage Gen2. En hanterad Användartilldelad identitet skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Mer information om hanterade identiteter finns [hur fungerar de hanterade identiteterna för Azure-resurser arbete](/../active-directory/managed-identities-azure-resources/overview#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka.md).
+Det finns två typer av hanterade identiteter för Azure-tjänster: systemtilldelade och användaren tilldelas. Azure HDInsight använder användartilldelade hanterade identiteter för att komma åt Azure Data Lake Storage Gen2. En hanterad Användartilldelad identitet skapas som en fristående Azure-resurs. När den skapas skapar Azure en identitet i den Azure AD-klientorganisation som är betrodd av den prenumeration som används. När identiteten har skapats kan den tilldelas till en eller flera tjänstinstanser i Azure. Livscykeln för en användartilldelad identitet hanteras separat från livscykeln för de Azure-tjänstinstanser som den är tilldelad till. Mer information om hanterade identiteter finns [hur fungerar de hanterade identiteterna för Azure-resurser arbete](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-worka-namehow-does-it-worka).
 
 ### <a name="how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-using-hive-or-other-services"></a>Hur ställer jag in behörigheter för Azure AD-användare att fråga data i Data Lake Storage Gen2 med Hive eller andra tjänster?
 
@@ -88,6 +88,6 @@ Använda Azure AD-säkerhetsgrupper som det tilldelade huvudnamnet i ACL: er. In
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster](/../storage/blobs/data-lake-storage-use-hdi-cluster.md)
+* [Använda Azure Data Lake Storage Gen2 förhandsversion med Azure HDInsight-kluster](../storage/blobs/data-lake-storage-use-hdi-cluster.md)
 * [Uppdatera Azure HDInsight-integrering med Data Lake Storage Gen2 förhandsgranskning - ACL och säkerhet](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/)
-* [Introduktion till Azure Data Lake Storage Gen2 – förhandsversion](/../storage/blobs/data-lake-storage-introduction.md)
+* [Introduktion till Azure Data Lake Storage Gen2 – förhandsversion](../storage/blobs/data-lake-storage-introduction.md)

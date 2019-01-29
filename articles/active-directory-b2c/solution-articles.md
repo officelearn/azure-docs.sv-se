@@ -7,23 +7,23 @@ ms.author: davidmu
 ms.date: 11/05/2018
 ms.topic: conceptual
 ms.service: active-directory
-ms.component: b2c
-ms.openlocfilehash: 886b2861a05d5d101bf9c399e3c39b31b2dc5ec8
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.subservice: b2c
+ms.openlocfilehash: 5f771e51a0114c321d1dfcbaf305dd9923040032
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52839759"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149043"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Lösningar och träning för Azure Active Directory B2C
 
 Azure Active Directory (Azure AD) B2C kan organisationer att implementera affärslösningar som hjälper dem att ansluta till sina kunder. Följande lösningsguider och utbildning är hämtningsbara dokument som vägleder dig genom dessa lösningar.
 
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 | ----- | ----------- |
 | [Kunden Identitetshantering med Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | I den här översikten av tjänsten, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)) från Azure AD B2C team ger oss en översikt över hur tjänsten fungerar, och visar också hur vi snabbt kan ansluta B2C till ett ASP.NET Core-program. |
 | [Fördelarna med att använda Azure AD B2C](https://aka.ms/b2coverview) | Förstå fördelarna och vanliga scenarier med Azure AD B2C och hur dina program kan utnyttja den här CIAM-tjänsten. |
-| [Få kunskap om Azure AD B2C: en kurs för utvecklare](https://aka.ms/learnAADB2C) | Den här slutpunkt till slutpunkt-kursen guidar utvecklare via en fullständig resa på utveckling av program med Azure AD B2C som autentiseringsmetod. Tio djupgående moduler med labs omfattar allt från hur du konfigurerar en Azure-prenumeration att skapa anpassade principer som definierar de utbildning som gör kunderna engagerade. |
+| [Få kunskap om Azure AD B2C: En kurs för utvecklare](https://aka.ms/learnAADB2C) | Den här slutpunkt till slutpunkt-kursen guidar utvecklare via en fullständig resa på utveckling av program med Azure AD B2C som autentiseringsmetod. Tio djupgående moduler med labs omfattar allt från hur du konfigurerar en Azure-prenumeration att skapa anpassade principer som definierar de utbildning som gör kunderna engagerade. |
 | [Aktivera partners, leverantörer och kunder att köra program med Azure active Directory](https://aka.ms/aadexternalidentities) | Varje organisation lyckas, oavsett dess storlek, bransch, eller efterlevnad och säkerhetsposition, är beroende av organisationens möjlighet att samarbeta med andra organisationer och kontakt med kunder.<br><br>Sammanför Azure AD, Azure AD B2C och Azure AD B2B-samarbete, den här guiden beskrivs affärsvärdet och säkerhetsnivån för att skapa en program- eller web upplevelse som tillhandahåller en konsoliderad autentisering skräddarsys för ramen för din anställda, affärspartner och leverantörer och kunder. |
 | [Migrera program autentisering till Azure AD B2C i en Hybridmiljö](https://aka.ms/MigratetoAADB2C) | I dagens moderna organisationer sker digitala omvandling och flytta till molnet i faser för att kräva att de flesta organisationer att åtminstone temporärt fungera i en hybridmiljö identitet.<br><br>Den här guiden fokuserar på att skapa migreringsplan för att flytta ditt första program till Azure AD B2C och täcker överväganden för att göra det i en hybridmiljö identitet. |
 | [Dataskydd för allmänna Dataskyddsförordning (GDPR) överväganden för som riktas mot kundprogram](https://aka.ms/AADB2CandGDPR) | För alla kunder som program som riktas mot måste GDPR beaktas av alla organisationer som sätta igång med projekt som innehåller personliga data och hantera EU medborgare.<br><br>Den här lösningsguiden fokuserar på hur Azure AD B2C kan användas som en flexibel del av din övergripande GDPR efterlevnad metoden, inklusive hur Azure AD B2C-komponenter stöder var och en av de viktiga GDPR-rättigheterna för enskilda användare. |

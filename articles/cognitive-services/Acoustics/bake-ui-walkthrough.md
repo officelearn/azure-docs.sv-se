@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f376b6bcb0238f96b4f5bb35d898cc600e108c65
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902254"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169764"
 ---
 # <a name="bake-acoustics"></a>Skapa Akustik
 
@@ -255,10 +255,10 @@ Installera och konfigurera Docker på den dator som kommer att bearbeta simuleri
 
 Det finns fyra datafiler som skapats av det här plugin-programmet vid olika tidpunkter. Endast en av dem krävs vid körning, de övriga tre är därför i mappar med namnet ”Editor” så att de inte kompileras till ditt projekt.
 
-* **Tillgångar och redigerare / [SceneName]\_AcousticsParameters.asset**: den här filen lagrar data som du anger i fälten i Användargränssnittet för Akustik. Platsen och namnet på den här filen kan inte ändras. Det finns andra värden som lagras i den här filen som påverkar ändamålet, men de är för avancerade användare och ska inte ändras.
-* **Tillgångar/AcousticsData/Akustik\_[SceneName].ace.bytes**: den här filen är vad skapas under ändamålet simuleringen och innehåller lookup-data som används av körningen för att återge Akustik av din scen. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
-* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: här lagras voxelized Akustik geometri och egenskaper för material. Beräknas med hjälp av den **Calculate...**  på fliken avsökningar. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
-* **Tillgångar/AcousticsData/redigeraren/Akustik\_[SceneName]\_config.xml**: här lagras parametrar som beräknas med hjälp av den **Calculate...**  knappen på den **avsökningar** fliken. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+* **Assets/Editor/[SceneName]\_AcousticsParameters.asset**: Den här filen lagrar du anger i fälten i Användargränssnittet för Akustik. Platsen och namnet på den här filen kan inte ändras. Det finns andra värden som lagras i den här filen som påverkar ändamålet, men de är för avancerade användare och ska inte ändras.
+* **Tillgångar/AcousticsData/Akustik\_[SceneName].ace.bytes**: Den här filen är vad skapas under ändamålet simuleringen och innehåller lookup-data som används av körningen för att återge Akustik av din scen. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+* **Assets/AcousticsData/Editor/Acoustics_[SceneName].vox**: Här lagras voxelized Akustik geometri och egenskaper för material. Beräknas med hjälp av den **Calculate...**  på fliken avsökningar. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
+* **Assets/AcousticsData/Editor/Acoustics\_[SceneName]\_config.xml**: Den här filen lagras parametrar som beräknas med hjälp av den **Calculate...**  knappen på den **avsökningar** fliken. Platsen och namnet på den här filen kan ändras utifrån fälten i den **avsökningar** fliken.
 
 Var försiktig så att inte ta bort den *. ace.bytes har laddat ned från ändamålet. Den här filen inte är återställningsbara utom vid rebaking scenen.
 

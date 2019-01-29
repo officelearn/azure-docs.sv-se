@@ -8,19 +8,19 @@ manager: daveba
 editor: curtand
 ms.assetid: 6b4665b5-4324-42ab-82c5-d36c01192c2a
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6089b3500881809730bf6a2c9a9dc1a57c059aba
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 3797c76f1537f86357f7ca68ffed4758eb1bdc9a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911187"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173770"
 ---
 # <a name="secure-your-azure-ad-domain-services-managed-domain"></a>Skydda din Azure AD Domain Services-hanterad domän
 Den här artikeln hjälper dig skydda din hanterade domän. Du kan inaktivera användningen av svaga krypteringssviter och inaktivera synkronisering av lösenordshash för NTLM autentiseringsuppgifter.

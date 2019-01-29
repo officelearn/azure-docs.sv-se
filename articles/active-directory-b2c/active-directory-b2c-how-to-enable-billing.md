@@ -1,5 +1,5 @@
 ---
-title: Så här länkar en Azure-prenumeration till Azure Active Directory B2C | Microsoft Docs
+title: Så här länkar du en Azure-prenumeration – Azure Active Directory B2C | Microsoft Docs
 description: Stegvis guide för att aktivera fakturering för Azure AD B2C-klient till en Azure-prenumeration.
 services: active-directory-b2c
 author: davidmu1
@@ -7,27 +7,29 @@ manager: daveba
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/07/2018
+ms.date: 01/24/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: e39b7472904e7635340327d311eb7d4b9123f51e
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: c914b3a3ab40971cf9318cafc787d358dab2faff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853195"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196182"
 ---
-# <a name="linking-an-azure-subscription-to-an-azure-ad-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure AD B2C-klient
+# <a name="link-an-azure-subscription-to-an-azure-active-directory-b2c-tenant"></a>Länka en Azure-prenumeration till en Azure Active Directory B2C-klient
 
 > [!IMPORTANT]
-> Den senaste informationen om fakturering och priser för Azure AD B2C finns på följande sida: [Azure AD B2C priser](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
+> Den senaste informationen om fakturering och priser för Azure Active Directory (Azure AD) B2C finns i [priser för Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
 
 Användningskostnader för Azure AD B2C debiteras till en Azure-prenumeration. När en Azure AD B2C-klient har skapats kan måste klientadministratören uttryckligen länka Azure AD B2C-klient till en Azure-prenumeration. Den här artikeln visar hur du gör.
 
 > [!NOTE]
 > En prenumeration som är länkad till en Azure AD B2C-klient kan användas för att faktureringen för Azure AD B2C användnings- eller andra Azure-resurser, inklusive ytterligare Azure AD B2C-resurser.  Det kan inte användas för att lägga till andra Azure-licens-baserade tjänster eller Office 365-licenser i Azure AD B2C-klient.
 
- Prenumerationslänken uppnås genom att skapa en Azure AD-B2C ”resurs” i Azure-målprenumerationen. Många Azure AD-B2C ”resurser” kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser (till exempel virtuella datorer, datalagring, LogicApps). Du kan se alla resurser i prenumerationen genom att gå till Azure AD-klient som prenumerationen är associerad till.
+Prenumerationslänken uppnås genom att skapa en Azure AD-B2C ”resurs” i Azure-målprenumerationen. Många Azure AD-B2C ”resurser” kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser (till exempel virtuella datorer, datalagring, LogicApps). Du kan se alla resurser i prenumerationen genom att gå till Azure AD-klient som prenumerationen är associerad till.
+
+Azure Cloud Solution Providers (CSP)-prenumerationer stöds i Azure AD B2C. Funktionen är tillgänglig i API: er eller Azure-portalen för Azure AD B2C och för alla Azure-resurser. CSP prenumerationens administratörer kan länka, flytta och ta bort relationer med Azure AD B2C på samma sätt som är klar för alla Azure-resurser. Hantering av Azure AD B2C med hjälp av rollbaserad åtkomstkontroll påverkas inte av kopplingen mellan Azure AD B2C-klient och en Azure CSP-prenumeration. Rollbaserad åtkomstkontroll uppnås med hjälp av klient-base roller, inte prenumerationsbaserade roller.
 
 En giltig Azure-prenumeration krävs för att fortsätta.
 
@@ -81,10 +83,6 @@ Du kan använda den här resursen till:
 ![Inställningar för B2C-resurs](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 ## <a name="known-issues"></a>Kända problem
-
-### <a name="csp-subscriptions"></a>CSP-prenumerationer
-
-För närvarande i en Azure AD B2C-klient **kan** länk till CSP-prenumerationer.
 
 ### <a name="self-imposed-restrictions"></a>Lokal begränsningsfel begränsningar
 

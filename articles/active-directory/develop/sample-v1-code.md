@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a242a5ff-7300-40c2-ba83-fb6035707433
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c6cf9681804f9576d6c13a52161843d64244b1e8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957782"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097698"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Kodexempel för Azure Active Directory (v1.0 slutpunkt)
 
@@ -45,7 +45,7 @@ Detta exempel visar hur du skriver ett enkelsidigt program som skyddas med Azure
 
  Plattform | En egen API-anrop | Anropar en annan webb-API
  -------- |  --------------------- | ------------------ | ----------------
-![JavaScript](media/sample-v2-code/logo_js.png) | [JavaScript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
+![JavaScript](media/sample-v2-code/logo_js.png) | [javascript-singlepageapp](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi) |
 ![Angular JS](media/sample-v2-code/logo_angular.png) | [angularjs-singlepageapp](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp) | [angularjs-singlepageapp-cors](https://github.com/Azure-Samples/active-directory-angularjs-singlepageapp-dotnet-webapi)
 
 ## <a name="web-applications"></a>Webbprogram
@@ -56,11 +56,11 @@ Följande exempel illustrerar webbprogram som registrerar användare. Vissa av d
 
  Plattform | Endast loggar in användare | Anropar Microsoft Graph eller AAD Graph| En annan ASP.NET eller ASP.NET Core 2.0 Web API-anrop
  -------- | ------------------- | --------------------- | -------------------------
-![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [DotNet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [WebApp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) <p/>(AAD Graph) | [DotNet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
-![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) <p/> [WebApp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) <p/> [DotNet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [DotNet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)<p/> (AAD Graph) |
-![Python](media/sample-v2-code/logo_python.png) | | [Python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
-![Java](media/sample-v2-code/logo_java.png)  | | [Java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
-![PHP](media/sample-v2-code/logo_php.png) | | [PHP-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
+![ASP.NET](media/sample-v2-code/logo_NETcore.png)<p/>ASP.NET Core 2.0 | [dotnet-webapp-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect-aspnetcore) | [webapp-webapi-multitenant-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-webapp-webapi-multitenant-openidconnect-aspnetcore/) <p/>(AAD Graph) | [dotnet-webapp-webapi-openidconnect-aspnetcore](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-openidconnect-aspnetcore)
+![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [webApp-openidconnect-dotnet](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp-v1) <p/> [webapp-WSFederation-dotNet](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation) <p/> [dotnet-webapp-webapi-oauth2-useridentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-useridentity) | [dotnet-webapp-multitenant-openidconnect](https://github.com/Azure-Samples/active-directory-dotnet-webapp-multitenant-openidconnect)<p/> (AAD Graph) |
+![Python](media/sample-v2-code/logo_python.png) | | [python-webapp-graphapi](https://github.com/Azure-Samples/active-directory-python-webapp-graphapi)  |
+![Java](media/sample-v2-code/logo_java.png)  | | [java-webapp-openidconnect](https://github.com/azure-samples/active-directory-java-webapp-openidconnect)  |
+![PHP](media/sample-v2-code/logo_php.png) | | [php-graphapi-web](https://github.com/Azure-Samples/active-directory-php-graphapi-web)  |
 
 ### <a name="web-applications-demonstrating-role-based-access-control-authorization"></a>Webbprogram som demonstrerar rollbaserad åtkomstkontroll (auktorisering)
 
@@ -68,7 +68,7 @@ Följande exempel visar hur du implementerar rollbaserad åtkomstkontroll (RBAC)
 
 Plattform | Exempel
  -------- | -------------------
-![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [DotNet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [DotNet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | En .NET 4.5 MVC-webbapp som använder Azure AD **roller** för auktorisering
+![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapp-groupclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims) <p/>  [dotnet-webapp-roleclaims](https://github.com/Azure-Samples/active-directory-dotnet-webapp-roleclaims) | En .NET 4.5 MVC-webbapp som använder Azure AD **roller** för auktorisering
 
 ## <a name="desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api"></a>Stationära och mobila offentliga klientprogram anropar Microsoft Graph eller ett webb-API
 
@@ -80,14 +80,14 @@ Följande exempel illustrerar offentliga klientprogram (desktop/mobila program) 
 
 Klientprogram | Plattform | Flow/bevilja | Anropar Microsoft Graph | Anropar en ASP.NET eller ASP.NET Core 2.x webb-API
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Desktop (WPF)           | ![.NET / C#](media/sample-v2-code/logo_NET.png)  | Interaktiv | En del av [dotnet-intern-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet-intern-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [aspnetcore-DotNet-intern](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [DotNet-webapi-manuell-jwt-verifiering](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
-Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interaktiv | [DotNet-intern-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Det här exemplet används [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager), inte [ADAL.NET](https://aka.ms/adalnet)|  [DotNet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (UWP-program med hjälp av ADAL.NET för att anropa en enda klient webb-API) </p> [DotNet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (UWP-program med hjälp av ADAL.NET för att anropa en webb-API med flera innehavare)|
-Mobil (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interaktiv | [DotNet-intern-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
-Mobil (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interaktiv |   [Android](https://github.com/Azure-Samples/active-directory-android) |
+Desktop (WPF)           | ![.NET/C#](media/sample-v2-code/logo_NET.png)  | Interaktiv | En del av [dotnet-intern-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) | [DotNet-intern-desktop](https://github.com/Azure-Samples/active-directory-dotnet-native-desktop) </p> [dotnet-native-aspnetcore](https://azure.microsoft.com/resources/samples/active-directory-dotnet-native-aspnetcore/)</p> [dotnet-webapi-manual-jwt-validation](https://github.com/azure-samples/active-directory-dotnet-webapi-manual-jwt-validation)
+Mobile (UWP)            | .![.NET/C#/UWP](media/sample-v2-code/logo_Windows.png)   | Interaktiv | [dotnet-native-uwp-wam](https://github.com/azure-samples/active-directory-dotnet-native-uwp-wam) </p> Det här exemplet används [WAM](https://docs.microsoft.com/windows/uwp/security/web-account-manager), inte [ADAL.NET](https://aka.ms/adalnet)|  [DotNet-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-windows-store) (UWP-program med hjälp av ADAL.NET för att anropa en enda klient webb-API) </p> [DotNet-webapi-multitenant-windows-store](https://github.com/Azure-Samples/active-directory-dotnet-webapi-multitenant-windows-store) (UWP-program med hjälp av ADAL.NET för att anropa en webb-API med flera innehavare)|
+Mobil (Android, iOS, UWP)   | ![.NET / C# (Xamarin)](media/sample-v2-code/logo_xamarin.png) | Interaktiv | [dotnet-native-multitarget](https://github.com/azure-samples/active-directory-dotnet-native-multitarget) |
+Mobile (Android)           | ![Android / Java](media/sample-v2-code/logo_Android.png) | Interaktiv |   [android](https://github.com/Azure-Samples/active-directory-android) |
 Mobile (iOS)           | ![iOS / Objective C eller swift](media/sample-v2-code/logo_iOS.png) | Interaktiv |   [nativeClient-iOS](https://github.com/azureadquickstarts/nativeclient-ios) |
-Fjärrskrivbord (konsol)          | ![.NET / C#](media/sample-v2-code/logo_NET.png) | Användarnamn / lösenord </p>  Integrerad Windows-autentisering | | [DotNet-intern-fjärradministrerad](https://github.com/azure-samples/active-directory-dotnet-native-headless)
-Fjärrskrivbord (konsol)          | ![Java-konsolen](media/sample-v2-code/logo_Java.png) | Användarnamn / lösenord | | [Java-intern-fjärradministrerad](https://github.com/Azure-Samples/active-directory-java-native-headless)
-Fjärrskrivbord (konsol)           | ![.NET core / C#](media/sample-v2-code/logo_NETcore.png) | Kodflöde för enhet | | [DotNet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
+Fjärrskrivbord (konsol)          | ![.NET/C#](media/sample-v2-code/logo_NET.png) | Användarnamn / lösenord </p>  Integrerad Windows-autentisering | | [DotNet-intern-fjärradministrerad](https://github.com/azure-samples/active-directory-dotnet-native-headless)
+Fjärrskrivbord (konsol)          | ![Java-konsolen](media/sample-v2-code/logo_Java.png) | Användarnamn / lösenord | | [java-native-headless](https://github.com/Azure-Samples/active-directory-java-native-headless)
+Fjärrskrivbord (konsol)           | ![.NET Core/C#](media/sample-v2-code/logo_NETcore.png) | Kodflöde för enhet | | [dotnet-deviceprofile](https://github.com/Azure-Samples/active-directory-dotnet-deviceprofile)
 
 ## <a name="daemon-applications-accessing-web-apis-with-the-applications-identity"></a>Daemon-program (åtkomst till webb-API: er med programmets identitet)
 
@@ -95,9 +95,9 @@ Följande exempel visar desktop eller web program som har åtkomst till Microsof
 
 Klientprogram | Plattform | Flow/bevilja | Ett ASP.NET eller ASP.NET Core 2.0 webb-API-anrop
 ------------------ | -------- | ---------- | -------------------- | -------------------------
-Daemon för app (konsol)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientens autentiseringsuppgifter med apphemlighet eller certifikat | [DotNet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [DotNet-daemon-certifikat-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
-Daemon för app (konsol)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Klientens autentiseringsuppgifter med certifikat| [dotnetcore-daemon-certifikat-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
-ASP.NET-Webbapp  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientautentiseringsuppgifter | [DotNet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
+Daemon för app (konsol)          | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientens autentiseringsuppgifter med apphemlighet eller certifikat | [dotnet-daemon](https://github.com/azure-samples/active-directory-dotnet-daemon)</p> [dotnet-daemon-certificate-credential](https://github.com/azure-samples/active-directory-dotnet-daemon-certificate-credential)
+Daemon för app (konsol)         | ![.NET](media/sample-v2-code/logo_NETcore.png) | Klientens autentiseringsuppgifter med certifikat| [dotnetcore-daemon-certificate-credential](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-certificate-credential)
+ASP.NET-Webbapp  | ![.NET](media/sample-v2-code/logo_NETframework.png) | Klientautentiseringsuppgifter | [dotnet-webapp-webapi-oauth2-appidentity](https://github.com/Azure-Samples/active-directory-dotnet-webapp-webapi-oauth2-appidentity)
 
 ## <a name="web-apis"></a>Webb-API:er
 
@@ -109,7 +109,7 @@ I föregående avsnitt i den här artikeln kan du också hitta andra exempel som
 
 Plattform | Exempel
  -------- | -------------------
-![PHP](media/sample-v2-code/logo_nodejs.png)  | [noden webapi](https://github.com/Azure-Samples/active-directory-node-webapi)
+![PHP](media/sample-v2-code/logo_nodejs.png)  | [node-webapi](https://github.com/Azure-Samples/active-directory-node-webapi)
 
 ### <a name="web-api-calling-microsoft-graph-or-another-web-api"></a>Webb-API att anropa Microsoft Graph eller en annan webb-API
 
@@ -117,7 +117,7 @@ Följande exempel visar ett webb-API som anropar en annan webb-API. Det andra ex
 
  Plattform |  Anropar Microsoft Graph | En annan ASP.NET eller ASP.NET Core 2.0 Web API-anrop
  -------- |  --------------------- | -------------------------
-![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [onbehalfof-webapi-DotNet](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [DotNet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[onbehalfof-webapi-DotNet](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [DotNet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
+![ASP.NET 4.5](media/sample-v2-code/logo_NETframework.png)<p/> ASP.NET 4.5 | [dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca) |[dotnet-webapi-onbehalfof](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof) <p/> [dotnet-webapi-onbehalfof-ca](https://github.com/azure-samples/active-directory-dotnet-webapi-onbehalfof-ca)
 
 ## <a name="other-microsoft-graph-samples"></a>Andra Microsoft Graph-exempel
 

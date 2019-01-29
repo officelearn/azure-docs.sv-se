@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f9389a7c0e80f075c01f2236fa1bdf9dc9544ac6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 968afcba8b0a6ab9d46c5582eecbb4901975257c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987449"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101160"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en app för .NET Desktop (WPF)
 
@@ -36,18 +36,18 @@ I den här snabbstarten får du lära dig hur du skapar ett att göra-lista för
 * Söker i en katalog för användare med en viss alias.
 * Användare loggar ut.
 
-Om du vill skapa klar fungerande-program, måste du:
+Om du vill skapa ett komplett, fungerande program måste du:
 
-1. Registrera ditt program med Azure AD.
+1. Registrera appen med Azure AD.
 2. Installera och konfigurera ADAL.
-3. Använd ADAL för att hämta token från Azure AD.
+3. Använda ADAL för att hämta token från Azure AD.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Kom igång genom att slutföra dessa krav:
+Kom igång genom att slutföra följande krav:
 
 * [Ladda ned stommen app](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) eller [hämta det färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip)
-* Har en Azure AD-klient där du kan skapa användare och registrera ett program. Om du inte redan har en klient, [Lär dig hur du skaffa ett](quickstart-create-new-tenant.md).
+* Har en Azure AD-klient där du kan skapa användare och registrera ett program. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
 ## <a name="step-1-register-the-directorysearcher-application"></a>Steg 1: Registrera DirectorySearcher-program
 
@@ -66,7 +66,7 @@ Aktivera din app för att hämta token, registrera din app i Azure AD-klienten o
 
 ## <a name="step-2-install-and-configure-adal"></a>Steg 2: Installera och konfigurera ADAL
 
-Nu när du har ett program i Azure AD kan du skriva koden identitetsrelaterade installera ADAL. Du måste tillhandahålla viss information om din appregistrering för ADAL att kommunicera med Azure AD.
+Nu när du har en app i Azure AD kan du installera ADAL och skriva din identitetsrelaterade kod. För att ADAL ska kunna kommunicera med Azure AD måste du ange viss information om appregistreringen.
 
 1. Börja genom att lägga till ADAL för att den `DirectorySearcher` projekt med Package Manager-konsolen.
 
@@ -75,12 +75,12 @@ Nu när du har ett program i Azure AD kan du skriva koden identitetsrelaterade i
     ```
 
 1. I den `DirectorySearcher` projektet öppnar `app.config`.
-1. Ersätt värdena för elementen i den `<appSettings>` avsnitt för att återspegla de värden som du anger i Azure-portalen. Koden kommer att använda dessa värden när den använder ADAL.
+1. Ersätt värdena för elementen i den `<appSettings>` avsnitt för att återspegla de värden som du anger i Azure-portalen. Koden kommer att referera till dessa värden när den använder ADAL.
   * Den `ida:Tenant` är domänen för din Azure AD-klient, till exempel contoso.onmicrosoft.com
   * Den `ida:ClientId` är klient-ID för ditt program som du kopierade från portalen.
   * Den `ida:RedirectUri` är omdirigerings-URL som du registrerade i portalen.
 
-## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Steg 3: Använda ADAL för att hämta token från Azure AD
+## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Steg 3: Använd ADAL för att hämta token från Azure AD
 
 Den grundläggande principen bakom ADAL är att varje gång som din app behöver en åtkomsttoken, appen anropar bara `authContext.AcquireTokenAsync(...)`, så ADAL resten.
 
@@ -99,7 +99,7 @@ Den grundläggande principen bakom ADAL är att varje gång som din app behöver
     }
     ```
 
-1. Leta upp den `Search(...)` metod som anropas när användaren väljer den **Search** knappen i appens användargränssnitt. Den här metoden gör en GET-begäran för Azure AD Graph-API för att fråga för användare vars UPN börjar med den angivna söktermen.
+1. Leta upp den `Search(...)` metod som anropas när användaren väljer den **Search** knappen i appens användargränssnitt. Den här metoden gör en GET-begäran till Azure AD Graph API för att fråga efter användare vars UPN börjar med den angivna söktermen.
 1. Om du vill fråga Graph API är en access_token i den `Authorization` huvudet i begäran, vilket är här ADAL kommer in.
 
     ```csharp
@@ -181,9 +181,9 @@ Den grundläggande principen bakom ADAL är att varje gång som din app behöver
     }
     ```
 
-Grattis! Nu har du en fungerande .NET WPF-program som kan autentisera användare, på ett säkert sätt anropa webb-API: er med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan gjort nu är det hög tid att fylla i din klient med vissa användare. Kör DirectorySearcher appen och logga in med något av dessa användare. Sök efter andra användare baserat på deras UPN. Stäng appen och köra den igen. Observera hur användarens session förblir intakta. Logga ut och logga in igen som en annan användare.
+Grattis! Nu har du en fungerande .NET WPF-program som kan autentisera användare, på ett säkert sätt anropa webb-API: er med hjälp av OAuth 2.0 och få grundläggande information om användaren. Om du inte redan har gjort det är det dags att fylla i klientorganisationen med några användare. Kör DirectorySearcher appen och logga in med något av dessa användare. Sök efter andra användare utifrån deras UPN. Stäng appen och köra den igen. Observera hur användarens session förblir intakta. Logga ut och logga in igen som en annan användare.
 
-ADAL gör det enkelt att införliva de här vanliga identitetsfunktioner i ditt program. Det hand tar om ändrad arbetet åt dig, inklusive hantering av cache, stöd för OAuth-protokoll, presentera användaren med ett användargränssnitt, uppdatera utgångna token och mycket mer. Allt du behöver veta är ett enda API-anrop `authContext.AcquireTokenAsync(...)`.
+ADAL gör det enkelt att införliva de här vanliga identitetsfunktioner i ditt program. Det hand tar om ändrad arbetet åt dig, inklusive hantering av cache, stöd för OAuth-protokoll, presentera användaren med ett användargränssnitt, uppdatera utgångna token och mycket mer. Allt du verkligen behöver veta är ett enda API-anrop, `authContext.AcquireTokenAsync(...)`.
 
 Referenser finns i det färdiga exemplet (utan dina konfigurationsvärden) [på GitHub](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).
 

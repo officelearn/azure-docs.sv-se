@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: v-gedod
-ms.openlocfilehash: 8fa70705d1dff5c3150fa5868938a3c50ef863fe
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 24b14c4f0ca185a7916aeb19671a22ff46a23ee2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815571"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194856"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Språk och din region stöd för API: et för Bing Custom Search
 
@@ -31,28 +31,28 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 
 |Land/region|Kod|
 |-------|----|
-|Argentina|KUNDRESKONTRA|
-|Australien|AUSTRALIEN|
+|Argentina|AR|
+|Australien|AU|
 |Österrike|AT|
-|Belgien|VARA|
+|Belgien|BE|
 |Brasilien|BR|
 |Kanada|CA|
 |Chile|CL|
 |Danmark|DK|
 |Finland|FI|
 |Frankrike|FR|
-|Tyskland|TYSKLAND|
+|Tyskland|DE|
 |Hongkong SAR|HK|
-|Indien|INDIEN|
+|Indien|IN|
 |Indonesien|ID|
 |Italien|IT|
 |Japan|JP|
-|Korea|KOREA|
-|Malaysia|MIN|
+|Korea|KR|
+|Malaysia|MY|
 |Mexiko|MX|
 |Nederländerna|NL|
 |Nya Zeeland|NZ|
-|Norge|NEJ|
+|Norge|NO|
 |Kina|CN|
 |Polen|PL|
 |Portugal|PT|
@@ -73,26 +73,26 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
-|Argentina|Spanska|ES AR|
+|Argentina|Spanska|es-AR|
 |Australien|Svenska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
-|Belgien|Nederländska|NL-vara|
-|Belgien|Franska|fr-vara|
+|Belgien|Nederländska|nl-BE|
+|Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
 |Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|ES – CL|
+|Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
 |Indien|Svenska|en Indien|
-|Indonesien|Svenska|SV-ID|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|IT-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en min|
+|Malaysia|Svenska|en-MY|
 |Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
 |Nya Zeeland|Svenska|en NZ|
@@ -100,7 +100,7 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|en f|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
 |Sydafrika|Svenska|en ZA|
@@ -111,5 +111,5 @@ Den `Accept-Language` rubrik och `setLang` Frågeparametern är ömsesidigt utes
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
-|USA|Spanska|ES-USA|
+|USA|Svenska|en-US|
+|USA|Spanska|es-US|

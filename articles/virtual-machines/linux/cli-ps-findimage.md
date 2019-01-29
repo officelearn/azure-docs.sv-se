@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6f3b9815b8e2836b3ee87f969efdc52aca5f5db6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5076c662390c9a28682930e8c5f06cfc79f7134b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169701"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Hitta Linux VM-avbildningar på Azure Marketplace med Azure CLI
 
@@ -286,7 +286,7 @@ Om du distribuerar en virtuell dator med Resource Manager-mall kan du ange param
 
 ### <a name="view-plan-properties"></a>Visa egenskaperna för energischemat
 
-Om du vill visa en bild Köpinformation för plan, kör den [az vm image show](/cli/azure/image#az_image_show) kommando. Om den `plan` -egenskapen i utdata är inte `null`, avbildningen har villkoren måste du godkänna innan programdistribution.
+Om du vill visa en bild Köpinformation för plan, kör den [az vm image show](/cli/azure/image) kommando. Om den `plan` -egenskapen i utdata är inte `null`, avbildningen har villkoren måste du godkänna innan programdistribution.
 
 Till exempel Canonical Ubuntu Server 18.04 LTS-avbildning inte har ytterligare villkor, eftersom den `plan` information är `null`:
 

@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 368fbf52642b1353b221ce6ebe6f6c40a517c3e6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 245e3d32bc546ae6f725ac6f7eb549d77119c956
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473426"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191524"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Avancerade alternativ i SAML-token för gallery-appar i Azure Active Directory för Certifikatsignering
 Idag stöd för tusentals förintegrerade program i Appgalleriet för Azure Active Directory i Azure Active Directory (AD Azure). Det här värdet innefattar fler än 500 program som stöder enkel inloggning med hjälp av SAML 2.0-protokollet. När en användare autentiseras till ett program via Azure AD med hjälp av SAML skickar Azure AD en token till programmet (via en HTTP-POST). Programmet validerar och använder token för att logga in användaren i stället för att fråga om ett användarnamn och lösenord. Dessa SAML-token har signerats med det unika certifikat som genereras i Azure AD och av specifika standard algoritmer.

@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ead99afaf0399c060424d310d8f4011b2a50aad2
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: eaf6890223526b213ac4ec1180288b95fe6eaa29
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473732"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149870"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attributmappningar för Användaretablering för SaaS-program i Azure Active Directory
 Microsoft Azure AD har stöd för användaretablering för SaaS-program från tredje part, till exempel Salesforce, Google Apps och andra. Om du har användaretablering för ett tredje parts SaaS-program som aktiverad, styr dess attributvärden i form av attributmappningar Azure-portalen.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 843feb83b8202d3ef8e2c6c8c60cb9b509048530
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: 114d71227e3cf3d0f235fc63135534b1030d4adc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52290781"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188351"
 ---
 # <a name="performance-metrics"></a>Prestandamått
 
@@ -41,10 +41,10 @@ Mått ska samlas in för att förstå prestanda för ditt kluster, samt de progr
 | Fysisk disk (per Disk) | Diskskrivningar/sek |
 | Fysisk disk (per Disk) | Disk – skrivna byte/sek |
 | Minne | Tillgängliga megabyte |
-| Växling fil | % Användning |
+| PagingFile | % Användning |
 | Processor(total) | Tid i procent för processor |
 | Process (per tjänst) | Tid i procent för processor |
-| Process (per tjänst) | Process-ID |
+| Process (per tjänst) | ID Process |
 | Process (per tjänst) | Privata byte |
 | Process (per tjänst) | Antal trådar |
 | Process (per tjänst) | Virtuella byte |
@@ -80,7 +80,7 @@ Samla in följande räknare om du distribuerar .NET-tjänster till ditt kluster.
 
 Service Fabric genererar en stor mängd anpassade prestandaräknare. Om du har installerat SDK kan du se en uttömmande lista på din Windows-dator i ditt program i Prestandaövervakaren (starta > Performance Monitor). 
 
-Program som du distribuerar till ditt kluster om du använder Reliable Actors, lägga till countes från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric tillförlitliga aktörer-diagnostik](service-fabric-reliable-actors-diagnostics.md)).
+I program som du distribuerar till ditt kluster om du använder Reliable Actors lägga till räknare från `Service Fabric Actor` och `Service Fabric Actor Method` kategorier (se [Service Fabric tillförlitliga aktörer-diagnostik](service-fabric-reliable-actors-diagnostics.md)).
 
 Om du använder Reliable Services eller Service Remoting, på samma sätt har vi `Service Fabric Service` och `Service Fabric Service Method` räknare kategorier som du bör samla in prestandaräknare från Se [övervakning med service remoting](service-fabric-reliable-serviceremoting-diagnostics.md) och [tillförlitlig Services prestandaräknare](service-fabric-reliable-services-diagnostics.md#performance-counters). 
 

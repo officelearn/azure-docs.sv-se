@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 1e2bdeeb8f2b59d69e761303176c36b26f47d4c8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189135"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165497"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure-resursroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst efter en [åtkomstgranskning har startats](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) för Azure-resurser skickar automatiskt ett e-postmeddelande som uppmanar användaren att granska åtkomsten. Om en användare inte får ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-resource-roles-perform-access-review.md).
@@ -63,4 +63,4 @@ Visa och Lägg till granskare till din befintliga åtkomstgranskning. Påminn gr
 ## <a name="next-steps"></a>Nästa steg
 
 - [Starta en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-start-access-review.md)
-- [Utför en åtkomstgranskning av min Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)
+- [Utför en åtkomstgranskning av mina Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)

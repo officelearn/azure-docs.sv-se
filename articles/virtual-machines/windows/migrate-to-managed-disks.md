@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/03/2018
 ms.author: cynthn
 ms.component: disks
-ms.openlocfilehash: 5e2a485630b7e3c9cc5977170d7e7e7eeb3e6ff5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b87e27ae914a01f03ce78eafe5792433d18e417f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474225"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193717"
 ---
 # <a name="migrate-azure-vms-to-managed-disks-in-azure"></a>Migrera virtuella Azure-datorer till Managed Disks i Azure
 
@@ -37,7 +37,7 @@ Du kan migrera till Managed Disks i följande scenarier:
 | Migrera...                                            | Länk till dokumentation                                                                                                                                                                                                                                                                  |
 |----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Konvertera fristående virtuella datorer och virtuella datorer i en tillgänglighetsuppsättning till managed disks   | [Konvertera virtuella datorer om du vill använda hanterade diskar](convert-unmanaged-to-managed-disks.md) |
-| En enskild virtuell dator från klassisk till Resource Manager på hanterade diskar     | [Migrera en enskild virtuell dator](migrate-single-classic-to-resource-manager.md)  | 
+| En enskild virtuell dator från klassisk till Resource Manager på hanterade diskar     | [Skapa en virtuell dator från en klassisk virtuell Hårddisk](create-vm-specialized-portal.md)  | 
 | Alla virtuella datorer i ett virtuellt nätverk från klassisk till Resource Manager på hanterade diskar     | [Migrera IaaS-resurser från klassisk till Resource Manager](migration-classic-resource-manager-ps.md) och sedan [konvertera en virtuell dator från ohanterade diskar till managed disks](convert-unmanaged-to-managed-disks.md) | 
 
 

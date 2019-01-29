@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 607104c5a8021107be9e343d71ade049712454f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55160057"
 ---
 # <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Starta en åtkomstgranskning för Azure-resursroller i PIM
 Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska risken som associeras med de här rolltilldelningarna som inaktuella, Privilegierade rolladministratörer bör regelbundet läsa igenom roller. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Privileged Identity Management (PIM) för Azure-resurser.
@@ -54,7 +54,7 @@ Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskn
 
 1. Välj något av alternativen:
    
-   * **Markerade användare**: Använd det här alternativet om du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
+   * **Markerade användare**: Använd det här alternativet när du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
    * **Tilldelad (själv)**: Använd det här alternativet för att be användarna granska sin egen rolltilldelningar.
    
 2. Gå till **Välj granskare**.
@@ -74,5 +74,5 @@ Tills granskningsperioden är över, kan du påminna användarna om att slutför
 ## <a name="next-steps"></a>Nästa steg
 
 - [Slutför en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-complete-access-review.md)
-- [Utför en åtkomstgranskning av min Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)
+- [Utför en åtkomstgranskning av mina Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)
 - [Starta en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-start-security-review.md)

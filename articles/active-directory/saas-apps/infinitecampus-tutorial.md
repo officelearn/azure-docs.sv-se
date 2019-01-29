@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med oändlig Campus | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med oändlig Campus | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och oändlig Campus.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 3995b544-e751-4e0f-ab8b-c9a3862da6ba
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
-ms.openlocfilehash: 9f4adbacf2749e8c8ff2da8f331a007e8dcaaea3
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 303d794e558a5e85b4dd2bca3d9bbb4c2a1ff5dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099961"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151812"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integration med oändlig Campus
+# <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Självstudier: Azure Active Directory-integrering med oändlig Campus
 
 I den här självstudien får du lära dig hur du integrerar oändlig Campus med Azure Active Directory (AD Azure).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med oändlig Campus, behöver du fö
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 - Du måste vara en Azure Active Directory-administratör för att slutföra konfigurationen minimum.
 
@@ -71,7 +71,7 @@ För att konfigurera integrering av oändlig Campus i Azure AD, som du behöver 
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -117,7 +117,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
         ![image](common/b9_saml.png)
 
-    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
     ![image](common/b9(1)_saml.png)
 
@@ -132,7 +132,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. Om du inte har **tjänstleverantör metadatafil**, utför följande steg (Observera att domänen varierar beroende på som är värd för modellen):
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<DOMAIN>.infinitecampus.com/campus/SSO/<DISTRICTNAME>/SIS`
 
     b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<DOMAIN>.infinitecampus.com/campus/<DISTRICTNAME>`
 
@@ -146,7 +146,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 7. På den **konfigurera oändlig Campus** använder följande värden för att verifiera när ladda upp och använda Azure-metadata fil-URL.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Microsoft Azure Active Directory-identifierare
 
@@ -194,9 +194,9 @@ Målet med det här avsnittet är att skapa en _enda_ testanvändare i Azure-por
 
     ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.

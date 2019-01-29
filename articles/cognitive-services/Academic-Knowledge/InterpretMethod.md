@@ -1,21 +1,21 @@
 ---
-title: Tolka metoden – Academic Knowledge API
+title: Interpret method - Academic Knowledge API
 titlesuffix: Azure Cognitive Services
 description: Använd metoden tolkningar för att returnera formaterade tolkningar av frågesträngar för användaren baserat på Academic Graph-data och akademiska grammatik i Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: d79e14fa48631ec6ce3cde42a7dbe300034782cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902577"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171668"
 ---
 # <a name="interpret-method"></a>tolka metod
 
@@ -29,28 +29,28 @@ Om du vill skapa en interaktiv upplevelse, kan du anropa den här metoden upprep
 
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Namn     | Värde | Krävs?  | Beskrivning
+Name     | Value | Krävs?  | Beskrivning
 ---------|---------|---------|---------
 **Fråga**    | Textsträngen | Ja | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
-**Modellen**    | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
+**model**    | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
 **Slutför** | 0 eller 1 | Nej<br>standard: 0  | 1 innebär att automatisk komplettering förslag genereras baserat på de grammatik och graph.         
-**Antal**    | Tal | Nej<br>standard: 10 | Maximalt antal tolkningar för att returnera.         
-**förskjutning**   | Tal | Nej<br>standard: 0  | Index för den första tolkningen ska returneras. Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
-**Timeout**  | Tal | Nej<br>standard: 1000 | Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
+**antal**    | Tal | Nej<br>standard: 10 | Maximalt antal tolkningar för att returnera.         
+**offset**   | Tal | Nej<br>standard: 0  | Index för den första tolkningen ska returneras. Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
+**timeout**  | Tal | Nej<br>standard: 1000 | Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
 <br>
   
 ## <a name="response-json"></a>Svar (JSON)
-Namn     | Beskrivning
+Name     | Beskrivning
 ---------|---------
 **Fråga** |Den *fråga* parametern från begäran.
 **tolkningar** |En matris med 0 eller fler olika sätt med matchande indata från användaren mot grammatik.
 **tolkningar [x] .logprob**  |Den relativa naturliga logg sannolikheten för tolkning. Större värden är mer troligt.
 **tolkningar [x] .parse**  |En XML-sträng som visar hur varje del av frågan har tolkas.
-**tolkningar [x] .rules**  |En matris med 1 eller flera regler som definierats i grammatik och som har utförts under tolkning. För Academic Knowledge API, kommer det alltid finnas 1 regel.
+**interpretations[x].rules**  |En matris med 1 eller flera regler som definierats i grammatik och som har utförts under tolkning. För Academic Knowledge API, kommer det alltid finnas 1 regel.
 **tolkningar [.rules [y] .name x]**  |namnet på regeln.
-**tolkningar [.rules [y] .output x]**  |Utdata från regeln.
+**interpretations[x].rules[y].output**  |Utdata från regeln.
 **tolkningar [.rules [y].output.type x]** |Datatypen för utdatan från regeln.  Academic Knowledge API är det här alltid ”query”.
-**tolkningar [.rules [y].output.value x]**  |Utdata från regeln. Det här är en frågesträng för uttryck som kan skickas till metoderna utvärdera och calchistogram för Academic Knowledge API.
+**interpretations[x].rules[y].output.value**  |Utdata från regeln. Det här är en frågesträng för uttryck som kan skickas till metoderna utvärdera och calchistogram för Academic Knowledge API.
 **avbröts** | SANT om uppnåddes för begäran.
 
 <br>

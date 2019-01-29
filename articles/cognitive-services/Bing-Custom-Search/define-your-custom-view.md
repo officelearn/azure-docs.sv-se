@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: aahi
-ms.openlocfilehash: ac5ba80740c47dd71a30bb20aab4a54829eac822
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 58830e3391cb6f794cfd8911e97b0c6dbb3cd2c1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53597808"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193649"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Konfigurera din Bing Custom Search
 
@@ -129,7 +129,7 @@ Som standard webbsidor är endast fästa högst upp i sökresultaten när en anv
 > [!NOTE]
 > Alla jämförelser mellan användarens sökfråga och pin-kodens sökfråga är skiftlägeskänsliga.
 
-| Värde | Beskrivning                                                                          |
+| Value | Beskrivning                                                                          |
 |---------------|----------------------------------------------------------------------------------|
 | Börjar med | PIN-koden finns en matchning om användarens frågesträngen som börjar med pin-kodens frågesträng |
 | Slutar med   | PIN-koden är en matchning om användarens frågesträngen som slutar med pin-kodens frågesträngen.  |

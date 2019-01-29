@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 04/17/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 3b60a659700b1e464f4d8f70516a2ceaa0f08b6b
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: b78d8a5bd5ebb0d7b2f3c2012ec2021e4f999c1f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423753"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100809"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Bevilja åtkomst till webbprogram med hjälp av OpenID Connect och Azure Active Directory
 
@@ -33,7 +33,7 @@ OpenID Connect är vår rekommendation om du skapar ett webbprogram som finns p�
 
 [!INCLUDE [active-directory-protocols-getting-started](../../../includes/active-directory-protocols-getting-started.md)] 
 
-## <a name="authentication-flow-using-openid-connect"></a>Autentiseringsflödet med OpenID Connect
+## <a name="authentication-flow-using-openid-connect"></a>Autentiseringsflöde med OpenID Connect
 
 Det mest grundläggande inloggning flödet innehåller följande steg – var och en av dem som beskrivs i detalj nedan.
 
@@ -144,7 +144,7 @@ I följande tabell beskrivs olika felkoder som kan returneras i de `error` -para
 | --- | --- | --- |
 | invalid_request |Protokollfel, till exempel en obligatorisk parameter saknas. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis påträffades under första testningen. |
 | unauthorized_client |Klientprogrammet har inte behörighet att begära en auktoriseringskod. |Detta inträffar vanligtvis när klientprogrammet inte har registrerats i Azure AD eller har inte lagts till användarens Azure AD-klient. Programmet kan uppmana användaren med instruktion för att installera programmet och lägga till den till Azure AD. |
-| ACCESS_DENIED |Resursägaren nekas godkännande |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
+| access_denied |Resursägaren nekas godkännande |Klientprogrammet kan meddela användaren om att det går inte att fortsätta om inte användaren godkänner. |
 | unsupported_response_type |Auktoriseringsservern stöder inte svarstypen i begäran. |Åtgärda och skicka begäran igen. Detta är ett utvecklingsfel och vanligtvis påträffades under första testningen. |
 | server_error |Ett oväntat fel inträffade på servern. |Gör om begäran. Dessa fel kan bero på tillfälliga förhållanden. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt fel. |
 | temporarily_unavailable |Servern är tillfälligt för upptagen för att hantera begäran. |Gör om begäran. Klientprogrammet kan förklara för användaren att svaret är försenad på grund av ett tillfälligt tillstånd. |

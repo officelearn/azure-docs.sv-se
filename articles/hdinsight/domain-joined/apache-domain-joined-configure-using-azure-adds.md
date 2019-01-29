@@ -9,14 +9,14 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 115604d9b2aa21018742bbedbc737405b52599e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 7ad494a3a1ce657951a0afab4d5ca838821927ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188954"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158833"
 ---
-# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security Package med hjälp av Azure Active Directory Domain Services
+# <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Konfigurera ett HDInsight-kluster med Enterprise Security-paket med hjälp av Azure Active Directory Domain Services
 
 Enterprise Security Package (ESP)-kluster tillhandahåller flera användare åtkomst i Azure HDInsight-kluster. HDInsight-kluster med hjälp av ESP är anslutna till en domän så att domänanvändare kan använda sina domänautentiseringsuppgifter för att autentisera med kluster och köra jobb för stordata. 
 
@@ -28,7 +28,11 @@ I den här artikeln får du lära dig hur du konfigurerar ett HDInsight-kluster 
 ## <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
 > [!NOTE]  
-> Endast klientadministratörer ha behörighet att aktivera Azure AD-DS. Om klusterlagring är Azure Data Lake Storage (ADLS) Gen1 och Gen2, inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret. Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
+> Endast klientadministratörer ha behörighet att aktivera Azure AD-DS. Om klusterlagring är Azure Data Lake Storage (ADLS) Gen1 och Gen2 måste du inaktivera Multi-Factor Authentication (MFA) för användare som behöver åtkomst till klustret med grundläggande Kerberose autentiseringar. Du kan använda [tillförlitliga IP-adresser](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-mfasettings#trusted-ips) eller [villkorlig åtkomst](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) att inaktivera MFA för specifika användare endast när de ansluter till HDInsight-klustret VNET IP-intervall. Om du använder villkorlig åtkomst kontrollerar du att den AD-tjänstslutpunkten i aktiverad på HDInsight VNET.
+>
+>Om klusterlagring är Azure Blob Storage (WASB) kan du inte inaktivera MFA.
+
+
 
 Aktivera AzureAD DS är en förutsättning innan du kan skapa ett HDInsight-kluster med ESP. Mer information finns i [aktivera Azure Active Directory Domain Services med Azure portal](../../active-directory-domain-services/active-directory-ds-getting-started.md). 
 
@@ -48,7 +52,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 ## <a name="check-azure-ad-ds-health-status"></a>Kontrollera status för Azure AD-DS-hälsa
 Visa hälsotillståndet för din Azure Active Directory Domain Services genom att välja **hälsotillstånd** under den **hantera** kategori. Kontrollera statusen för Azure AD DS-är grönt (körs) och synkroniseringen är klar.
 
-![Azure Active Directory Domain Services-hälsa](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
+![Azure Active Directory Domain Services health](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png)
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Skapa och auktorisera en hanterad identitet
 

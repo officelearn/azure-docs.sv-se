@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5d990d86124a7360dbc0398cf4250f9b088c183b
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 564517052796ee5dbc022ff92afcaa0216bdf8ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196846"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Konfigurera säkerhetsaviseringar för Azure-resursroller i PIM
 Privileged Identity Management (PIM) för Azure-resurser genererar aviseringar när det finns misstänkt eller osäkra aktivitet i din miljö. När en avisering utlöses visas den på sidan aviseringar. 
@@ -40,9 +40,9 @@ Välj en avisering om du vill se en rapport som visar den användare eller de ro
 
 
 ### <a name="severity"></a>Severity
-* **Hög**: kräver omedelbara åtgärder på grund av en Policyöverträdelse. 
-* **Medel**: inte kräver omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
-* **Låg**: inte kräver omedelbar åtgärd men en ändring av en prioriterad.
+* **Hög**: Kräver omedelbara åtgärder på grund av en Policyöverträdelse. 
+* **Medel**: Kräver inte omedelbar åtgärd men signalerar potentiella Policyöverträdelse.
+* **Låg**: Kräver inte omedelbar åtgärd men föreslår en önskad ändring.
 
 ## <a name="configure-security-alert-settings"></a>Konfigurera säkerhetsaviseringsinställningar
 Från sidan aviseringar går du till **inställningar**.

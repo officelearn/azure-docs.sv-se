@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: ad9e9e893dc831530b69a30cc3dd930e879e9d7b
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 05abc61da7af02c56dacd632175d6fbfa64cb9e1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39185126"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098569"
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Skapa anpassade artefakter för din virtuella dator för DevTest Labs
 
 Titta på följande videoklipp för en översikt över stegen som beskrivs i den här artikeln:
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/how-to-author-custom-artifacts/player]
-> 
-> 
+>
+>
 
 ## <a name="overview"></a>Översikt
 Du kan använda *artefakter* att distribuera och konfigurera ditt program när du etablerar en virtuell dator. En artefakt består av en artefakt-definitionsfil och andra filer som lagras i en mapp i en Git-lagringsplats. Artefakten definitionsfiler består av JSON och uttryck som du kan använda för att ange vad du vill installera på en virtuell dator. Du kan till exempel definiera namnet på en artefakt, kommandon och parametrar som är tillgängliga när kommandot körs. Du kan referera till andra skriptfiler i definitionsfilen för artefakten efter namn.
@@ -61,20 +61,20 @@ I följande exempel visas de avsnitt som utgör den grundläggande strukturen i 
 | iconUri |Nej |URI för den ikon som visas i laboratoriet. |
 | targetOsType |Ja |Operativsystemet på den virtuella datorn där artefakten är installerad. Alternativ som stöds är Windows och Linux. |
 | parameters |Nej |Värden som tillhandahålls när artefakt installationskommandot körs på en dator. På så sätt kan du anpassa din artefakten. |
-| Kör kommando |Ja |Artefakten installationskommando som körs på en virtuell dator. |
+| runCommand |Ja |Artefakten installationskommando som körs på en virtuell dator. |
 
-### <a name="artifact-parameters"></a>Artefakten parametrar
+### <a name="artifact-parameters"></a>Artefaktparametrar
 Ange vilka värden som en användare kan ange när de installerar en artefakt i avsnittet parametrar i definitionsfilen. Du kan hänvisa till dem i artefakten install-kommandot.
 
 För att definiera parametrar, använder du följande struktur:
 
     "parameters": {
-        "<parameterName>": {
-          "type": "<type-of-parameter-value>",
-          "displayName": "<display-name-of-parameter>",
-          "description": "<description-of-parameter>"
-        }
+      "<parameterName>": {
+        "type": "<type-of-parameter-value>",
+        "displayName": "<display-name-of-parameter>",
+        "description": "<description-of-parameter>"
       }
+    }
 
 | Elementnamn | Krävs? | Beskrivning |
 | --- | --- | --- |
@@ -96,13 +96,13 @@ Normalt kan använda du uttryck med functions för att konstruera ett värde. Pr
 
 I följande lista visas vanliga funktioner:
 
-* **parameters(parameterName)**: returnerar ett parametervärde som tillhandahålls när artefakt kommandot körs.
+* **parameters(parameterName)**: Returnerar ett parametervärde som tillhandahålls när artefakt kommandot körs.
 * **sammanfoga (arg1, arg2, arg3,...)** : Kombinerar flera strängvärden. Den här funktionen kan ta en mängd olika argument.
 
 I följande exempel visas hur du använder uttryck och funktioner för att konstruera ett värde:
 
     runCommand": {
-         "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
+        "commandToExecute": "[concat('powershell.exe -ExecutionPolicy bypass \"& ./startChocolatey.ps1'
     , ' -RawPackagesList ', parameters('packages')
     , ' -Username ', parameters('installUsername')
     , ' -Password ', parameters('installPassword'))]"
@@ -113,7 +113,7 @@ I följande exempel visas hur du använder uttryck och funktioner för att konst
 1. Installera en JSON-redigerare. Du behöver en JSON-redigerare för att arbeta med artefakt definitionsfiler. Vi rekommenderar att du använder [Visual Studio Code](https://code.visualstudio.com/), som är tillgängligt för Windows, Linux och OS X.
 2. Hämta en exempelfil artifactfile.json definition. Kolla in de artefakter som skapats av DevTest Labs-teamet i vår [GitHub-lagringsplatsen](https://github.com/Azure/azure-devtestlab). Vi har skapat ett omfattande bibliotek med artefakter som kan hjälpa dig skapa dina egna artefakter. Ladda ned en artefakt-definitionsfil och göra ändringar i det för att skapa dina egna artefakter.
 3. Genom att utnyttja IntelliSense. Använda IntelliSense för att se giltiga element som du kan använda för att konstruera en artefakt-definitionsfil. Du kan också se de olika alternativen för värden för ett element. Till exempel när du redigerar den **targetOsType** element, IntelliSense visar två alternativ för Windows eller Linux.
-4. Store artefakt i den [offentlig Git-lagringsplats för DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller [din egen Git-lagringsplats](devtest-lab-add-artifact-repo.md). I den offentliga databasen, kan du visa artefakter som delas av andra att du kan använda direkt eller anpassa dem efter dina behov. 
+4. Store artefakt i den [offentlig Git-lagringsplats för DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) eller [din egen Git-lagringsplats](devtest-lab-add-artifact-repo.md). I den offentliga databasen, kan du visa artefakter som delas av andra att du kan använda direkt eller anpassa dem efter dina behov.
    
    1. Skapa en separat katalog för varje artefakt. Katalognamnet bör vara samma som sammansättningsartefaktens namn.
    2. Store artefakt-definitionsfil (artifactfile.json) i den katalog som du skapade.
@@ -122,8 +122,7 @@ I följande exempel visas hur du använder uttryck och funktioner för att konst
       Här är ett exempel på hur en artefakt-mappen kan se ut:
       
       ![Artefakten mappen exempel](./media/devtest-lab-artifact-author/git-repo.png)
-5. Om du använder en egen databas för att lagra artefakter, lägga till databasen i labbet genom att följa instruktionerna i artikeln: [lägga till en Git-lagringsplats för artefakter och mallar](devtest-lab-add-artifact-repo.md).
-
+5. Om du använder en egen databas för att lagra artefakter, lägger du till lagringsplatsen till labbet genom att följa instruktionerna i artikeln: [Lägg till en Git-lagringsplats för artefakter och mallar](devtest-lab-add-artifact-repo.md).
 
 ## <a name="related-articles"></a>Relaterade artiklar
 * [Hur du diagnostisera fel i artefakter i DevTest Labs](devtest-lab-troubleshoot-artifact-failure.md)
@@ -131,4 +130,3 @@ I följande exempel visas hur du använder uttryck och funktioner för att konst
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig hur du [lägga till en Git-lagringsplats för artefakter i ett labb](devtest-lab-add-artifact-repo.md).
-

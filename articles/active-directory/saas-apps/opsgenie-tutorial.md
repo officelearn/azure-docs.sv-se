@@ -7,19 +7,19 @@ author: jeevansd
 manager: femila
 ms.assetid: 41b59b22-a61d-4fe6-ab0d-6c3991d1375f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 715035072ddc2ceb087d003dd5da5bc47572e9b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 52d976761ad5962f09f40565cfa04ae78386d1ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444359"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192401"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-opsgenie"></a>Självstudier: Azure Active Directory-integrering med OpsGenie
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med OpsGenie, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av OpsGenie i Azure AD, som du behöver lägga 
 
 **Utför följande steg för att lägga till OpsGenie från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **OpsGenie**.
 
@@ -116,9 +116,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länk för hämtning av certifikat](./media/opsgenie-tutorial/tutorial_opsgenie_certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/opsgenie-tutorial/tutorial_opsgenie_certificate.png)
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/opsgenie-tutorial/tutorial_general_400.png)
 
@@ -148,10 +148,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     
     b. I den **Metadata-Url:** textrutan klistra in **Appfederationsmetadata** värde som du har kopierat från Azure-portalen.
     
-    c. Klicka på **spara ändringar**.
+    c. Klicka på **Spara ändringar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -191,7 +191,7 @@ Målet med det här avsnittet är att skapa en användare som kallas Britta Simo
    
    ![Inställningar för OpsGenie](./media/opsgenie-tutorial/tutorial_opsgenie_10.png) 
 
-1. Klicka på **lägga till användare**.
+1. Klicka på **Lägg till användare**.
 
 1. På den **Lägg till användare** dialogrutan utför följande steg:
    

@@ -11,16 +11,19 @@ ms.workload: ''
 ms.topic: article
 ms.date: 01/16/2019
 ms.author: juliako
-ms.openlocfilehash: e286617897ecc9201c3880affd0a974f7330305a
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359652"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104584"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
-I Microsoft Azure Media Services (AMS), den [Strömningsslutpunkter](https://docs.microsoft.com/rest/api/media/streamingendpoints) entitet representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för ytterligare distribution. Den utgående dataströmmen från en slutpunkt för direktuppspelning-tjänst kan vara en direktsänd dataström eller en video på begäran-tillgång i Media Services-kontot. När du skapar ett Media Services-konto, en **standard** slutpunkt för direktuppspelning skapas åt dig i ett stoppat tillstånd. Du kan inte ta bort den **standard** slutpunkt för direktuppspelning. Du kan skapa ytterligare slutpunkter för direktuppspelning under kontot. Om du vill starta direktuppspelning av videor, måste du starta slutpunkt för direktuppspelning som du vill att strömma videon. 
+I Microsoft Azure Media Services (AMS), den [Strömningsslutpunkter](https://docs.microsoft.com/rest/api/media/streamingendpoints) entitet representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett CDN Content Delivery Network () för ytterligare distribution. Den utgående dataströmmen från en **Strömningsslutpunkt** tjänsten kan vara en direktsänd dataström eller en video på begäran-tillgång i Media Services-kontot. När du skapar ett Media Services-konto, en **standard** slutpunkt för direktuppspelning skapas åt dig i ett stoppat tillstånd. Du kan inte ta bort den **standard** slutpunkt för direktuppspelning. Du kan skapa ytterligare slutpunkter för direktuppspelning under kontot. 
+
+> [!NOTE]
+> Om du vill starta direktuppspelning av videor, måste du starta den **Strömningsslutpunkt** som du vill att strömma videon. 
 
 ## <a name="naming-convention"></a>Namngivningskonventioner
 
@@ -34,7 +37,7 @@ Det finns två **StreamingEndpoint** typer: **Standard** och **Premium**. Typen 
 
 Tabellen beskrivs typerna:  
 
-|Typ|Skalningsenheter|Beskrivning|
+|Type|Skalningsenheter|Beskrivning|
 |--------|--------|--------|  
 |**Standard-slutpunkt för direktuppspelning** (rekommenderas)|0|Den **Standard** typ är det rekommenderade alternativet för i stort sett alla strömmande scenarier och Publiker. Den **Standard** typ skalar utgående bandbredd automatiskt. <br/>För kunder med mycket stora krav för Media Services erbjuder **Premium** slutpunkter för direktuppspelning, som kan användas för att skala ut kapacitet för de största internet målgrupperna. Om du förväntar dig stora målgrupper och samtidiga läsare, kontaktar du oss på amsstreaming@microsoft.com anvisningar om du behöver flytta till den **Premium** typen. |
 |**Premium-slutpunkt för direktuppspelning**|>0|**Premium**-slutpunkter för direktuppspelning passar för avancerade arbetsbelastningar och tillhandahåller dedikerad och skalbar bandbreddskapacitet. Du flyttar till en **Premium** typ genom att justera `scaleUnits`. `scaleUnits` ger dig särskild egresskapacitet som kan köpas i steg om 200 Mbit/s. När du använder den **Premium** typ, varje aktiverad enhet tillhandahåller ytterligare bandbreddskapacitet till programmet. |

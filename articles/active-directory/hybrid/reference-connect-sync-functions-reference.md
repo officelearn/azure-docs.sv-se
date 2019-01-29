@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: cad9cec83ac5cc75ba5b4e5fc395e7f68f7d2770
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 54378876ed3f8326a19aafa4d71347d17f1c4bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471192"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162556"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
@@ -988,7 +988,7 @@ De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angi
 **Anmärkning:**
 
 * Om längden på strängen är mindre än längden, läggs upprepade gånger padCharacter i början (vänster) av sträng tills den har en längd lika med längden.
-* PadCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
+* padCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
 * Om längden på strängen är lika med eller större än längden, returneras sträng oförändrade.
 * Om strängen har en längd som är större än eller lika med längden, returneras en sträng som är identisk med sträng.
 * Om längden på strängen är mindre än längden, returneras en ny sträng med längden som innehåller strängen fylls ut med en padCharacter.

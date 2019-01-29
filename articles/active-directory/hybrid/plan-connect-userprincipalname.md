@@ -2,19 +2,19 @@
 title: Ifyllnad av UserPrincipalName för Azure AD
 description: Följande dokument beskriver så här fylls UserPrincipalName-attribut.
 author: billmath
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.date: 06/26/2018
 ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: daveba
-ms.openlocfilehash: da2ae0262ef8380f31f37bfbbe5ddca45c72ebd1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: b2043ae15cd99b50e33fa6cf896af73f03ef6b66
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197814"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Ifyllnad av UserPrincipalName för Azure AD
 
@@ -109,7 +109,7 @@ Användarobjektet med Azure AD-klient:
 ![Scenario2](./media/plan-connect-userprincipalname/example2.png)
 
 Lokala användarobjektet:
-- MailNickName: us4
+- mailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
 - userPrincipalName : us3@contoso.com
@@ -127,7 +127,7 @@ Användarobjektet med Azure AD-klient:
 ![Scenario3](./media/plan-connect-userprincipalname/example3.png)
 
 Lokala användarobjektet:
-- MailNickName: us4
+- mailNickName: us4
 - proxyAddresses: {SMTP:us1@contoso.com}
 - e-post: us2@contoso.com
 - userPrincipalName : us5@contoso.com
@@ -146,7 +146,7 @@ Användarobjektet med Azure AD-klient:
 ![Scenario4](./media/plan-connect-userprincipalname/example4.png)
 
 Lokala användarobjektet:
-- MailNickName: us4
+- mailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
 - userPrincipalName : us5@contoso.com
@@ -163,7 +163,7 @@ Användarobjektet med Azure AD-klient:
 ![Scenario5](./media/plan-connect-userprincipalname/example5.png)
 
 Lokala användarobjektet:
-- MailNickName: us4
+- mailNickName: us4
 - proxyAddresses: {SMTP:us6@contoso.com}
 - e-post: us7@contoso.com
 - userPrincipalName : us5@verified.contoso.com

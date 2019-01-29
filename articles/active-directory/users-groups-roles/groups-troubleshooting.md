@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e189fb8b2bc5079d1560d3b7a54fea2db7366fe7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ab5a3b00d063dfdd42e67247bb2cdc37866d0164
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46293987"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164137"
 ---
 # <a name="troubleshooting-dynamic-memberships-for-groups"></a>Felsöka dynamiska medlemskap för grupper
 
@@ -34,8 +34,8 @@ ms.locfileid: "46293987"
 | Regeln parsningsfel | Fel vid användning | Korrigerad användning |
 | --- | --- | --- |
 | Fel: Attributet stöds inte. |(user.invalidProperty - eq ”Value”) |(user.department - eq ”value”)<br/><br/>Kontrollera att attributet är på den [stöds egenskapslistan](groups-dynamic-membership.md#supported-properties). |
-| Fel: Operatorn stöds inte på attribut. |(user.accountEnabled-innehåller SANT) |(user.accountEnabled - eq SANT)<br/><br/>Den operator som används stöds inte för egenskapstypen (i det här exemplet-innehåller kan inte användas på Skriv booleskt värde). Använd rätt operatorer för egenskapstypen. |
-| Fel: Frågekompileringsfel. | 1. (user.department - eq ”försäljning”) (user.department - eq ”marknadsföring”)<br>2. (user.userPrincipalName-matchar ”*@domain.ext”) | 1. Operator saknas. Använd - och eller - eller två gå med i predikat<br>(user.department - eq ”försäljning”)- eller (user.department - eq ”marknadsföring”)<br>2. Fel i reguljärt uttryck som används med - matcha<br>(user.userPrincipalName-matchar ”. *@domain.ext”)<br>eller alternativt: (user.userPrincipalName-matchar ”@domain.ext$”) |
+| Fel: Operatorn stöds inte på attribut. |(user.accountEnabled-innehåller SANT) |(user.accountEnabled -eq true)<br/><br/>Den operator som används stöds inte för egenskapstypen (i det här exemplet-innehåller kan inte användas på Skriv booleskt värde). Använd rätt operatorer för egenskapstypen. |
+| Fel: Frågekompileringsfel. | 1. (user.department -eq "Sales") (user.department -eq "Marketing")<br>2.  (user.userPrincipalName -match "*@domain.ext") | 1. Operator saknas. Använd - och eller - eller två gå med i predikat<br>(user.department -eq "Sales") -or (user.department -eq "Marketing")<br>2. Fel i reguljärt uttryck som används med - matcha<br>(user.userPrincipalName -match ".*@domain.ext")<br>eller alternativt: (user.userPrincipalName-matchar ”@domain.ext$”) |
 
 ## <a name="next-steps"></a>Nästa steg
 

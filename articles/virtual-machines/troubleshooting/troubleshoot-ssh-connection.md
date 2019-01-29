@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 05/30/2017
 ms.author: genli
-ms.openlocfilehash: 2a17cf3aca439c40d187e06fb29b76e78a036ccc
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: 1454eb5dbf8c80dcf7024c150dbff6a2082dbd02
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976231"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100282"
 ---
 # <a name="troubleshoot-ssh-connections-to-an-azure-linux-vm-that-fails-errors-out-or-is-refused"></a>Felsök SSH-anslutningar till en virtuell Linux-dator som misslyckas, fel, eller nekas
-Det finns olika orsaker till att det uppstår fel för Secure Shell (SSH), SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Den här artikeln hjälper dig att hitta och korrigera problemet. Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
+Den här artikeln hjälper dig att hitta och åtgärda de problem som uppstår på grund av Secure Shell (SSH)-fel, SSH-anslutningsfel, eller SSH nekas när du försöker ansluta till en Linux-dator (VM). Du kan använda Azure-portalen, Azure CLI eller VM Access-tillägg för Linux för att felsöka och lösa problem med anslutning.
 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -32,16 +32,16 @@ Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azu
 ## <a name="quick-troubleshooting-steps"></a>Snabbsteg för felsökning
 Försök återansluta till den virtuella datorn efter varje steg i felsökningen.
 
-1. Återställa SSH-konfigurationen.
-2. Återställa autentiseringsuppgifterna för användaren.
+1. [Återställa SSH-konfigurationen](#reset-config).
+2. [Återställa autentiseringsuppgifterna](#reset-credentials) för användaren.
 3. Kontrollera den [nätverkssäkerhetsgrupp](../../virtual-network/security-overview.md) regler tillåta SSH-trafik.
-   * Kontrollera att det finns en regel för Nätverkssäkerhetsgrupp för att tillåta SSH-trafik (som standard, TCP-port 22).
+   * Se till att en [Nätverkssäkerhetsgrupp kopplad till regeln](#security-rules) finns för att tillåta SSH-trafik (som standard, TCP-port 22).
    * Du kan inte använda omdirigering av portar / mappning utan att använda en Azure load balancer.
 4. Kontrollera den [VM resurshälsa](../../resource-health/resource-health-overview.md). 
    * Se till att den virtuella datorn rapporterar är felfri.
-   * Om du har startdiagnostik aktiverat kan du kontrollera att den virtuella datorn inte rapporterar startfel i loggarna.
-5. Starta om den virtuella datorn.
-6. Distribuera om den virtuella datorn.
+   * Om du har [startdiagnostik aktiverat](boot-diagnostics.md), kontrollera den virtuella datorn inte rapporterar startfel i loggarna.
+5. [Starta om den virtuella datorn](#restart-vm).
+6. [Distribuera om den virtuella datorn](#redeploy-vm).
 
 Läs vidare för mer detaljerad felsökning och förklaringar.
 
@@ -49,7 +49,7 @@ Läs vidare för mer detaljerad felsökning och förklaringar.
 Du kan återställa autentiseringsuppgifter eller SSH-konfigurationen med någon av följande metoder:
 
 * [Azure-portalen](#use-the-azure-portal) – det är bra om du behöver snabbt återställa SSH-konfigurationen eller SSH-nyckeln och du inte har Azure-verktygen installerats.
-* [Azure CLI](#use-the-azure-cli) – om du redan är på kommandoraden, snabbt återställa SSH-konfigurationen eller autentiseringsuppgifter. Du kan också använda den [Azure CLI](#use-the-azure-classic-cli)
+* [Azure CLI](#use-the-azure-cli) – om du redan är på kommandoraden, snabbt återställa SSH-konfigurationen eller autentiseringsuppgifter. Om du arbetar med en klassisk virtuell dator kan du använda den [Azure klassiskt CLI](#use-the-azure-classic-cli).
 * [Azure VMAccessForLinux-tillägget](#use-the-vmaccess-extension) – skapa och återanvända json definitionsfiler för att återställa SSH-konfiguration eller autentiseringsuppgifter.
 
 När du har varje fel, försök att ansluta till den virtuella datorn igen. Om du fortfarande inte kan ansluta kan du försöka nästa steg.
@@ -57,19 +57,19 @@ När du har varje fel, försök att ansluta till den virtuella datorn igen. Om d
 ## <a name="use-the-azure-portal"></a>Använda Azure-portalen
 Azure-portalen kan du snabbt återställa SSH-konfiguration eller autentiseringsuppgifter utan att installera några verktyg på din lokala dator.
 
-Välj din virtuella dator i Azure-portalen. Rulla ned till den **stöd + felsökning** och väljer **Återställ lösenord** som i följande exempel:
+Välj den virtuella datorn i Azure-portalen. Rulla ned till den **stöd + felsökning** och väljer **Återställ lösenord** som i följande exempel:
 
 ![Återställa SSH-konfigurationen eller autentiseringsuppgifter i Azure portal](./media/troubleshoot-ssh-connection/reset-credentials-using-portal.png)
 
-### <a name="reset-the-ssh-configuration"></a>Återställ SSH-konfiguration
-Som ett första steg, Välj `Reset configuration only` från den **läge** nedrullningsbara menyn som i föregående skärmbild, och klicka på den **återställa** knappen. När den här åtgärden är klar försök komma åt den virtuella datorn igen.
+### <a name="a-idreset-config-reset-the-ssh-configuration"></a><a id="reset-config" />Återställ SSH-konfiguration
+Om du vill återställa SSH-konfigurationen, Välj `Reset configuration only` i den **läge** som i föregående skärmbild och sedan välja **uppdatering**. När den här åtgärden är klar försök komma åt den virtuella datorn igen.
 
-### <a name="reset-ssh-credentials-for-a-user"></a>Återställ SSH-autentiseringsuppgifter för en användare
-Om du vill återställa autentiseringsuppgifterna för en befintlig användare, väljer du antingen `Reset SSH public key` eller `Reset password` från den **läge** nedrullningsbara menyn som i föregående skärmbild. Ange användarnamnet och en SSH-nyckel eller ett nytt lösenord och klicka sedan på den **återställa** knappen.
+### <a name="a-idreset-credentials-reset-ssh-credentials-for-a-user"></a><a id="reset-credentials" />Återställ SSH-autentiseringsuppgifter för en användare
+Om du vill återställa autentiseringsuppgifterna för en befintlig användare, väljer du antingen `Reset SSH public key` eller `Reset password` i den **läge** avsnittet som i föregående skärmbild. Ange användarnamnet och en SSH-nyckel eller ett nytt lösenord och väljer sedan **uppdatering**.
 
-Du kan också skapa en användare med sudo-behörighet på den virtuella datorn från den här menyn. Ange ett nytt användarnamn och tillhörande lösenord eller SSH-nyckel och klicka sedan på den **återställa** knappen.
+Du kan också skapa en användare med sudo-behörighet på den virtuella datorn från den här menyn. Ange ett nytt användarnamn och tillhörande lösenord eller SSH-nyckel och välj sedan **uppdatering**.
 
-### <a name="check-security-rules"></a>Kontrollera säkerhetsregler
+### <a name="a-idsecurity-rules-check-security-rules"></a><a id="security-rules" />Kontrollera säkerhetsregler
 
 Använd [IP-flödesverifieringen](../../network-watcher/network-watcher-check-ip-flow-verify-portal.md) att bekräfta om en regel i en nätverkssäkerhetsgrupp blockerar trafik till eller från en virtuell dator. Du kan också granska reglerna för effektiva säkerhetsgrupper för att säkerställa att inkommande ”Tillåt” NSG-regeln finns och är prioriterad för SSH-porten (standard 22). Mer information finns i [använda effektiva säkerhetsregler för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-traffic-filter-problem.md).
 
@@ -78,12 +78,12 @@ Använd [IP-flödesverifieringen](../../network-watcher/network-watcher-check-ip
 Använda Network Watcher [nästa hopp](../../network-watcher/network-watcher-check-next-hop-portal.md) möjlighet att bekräfta att en väg inte förhindrar trafik dirigeras till eller från en virtuell dator. Du kan också gå igenom effektiva vägar för att se alla effektiva vägar för ett nätverksgränssnitt. Mer information finns i [använda effektiva vägar för felsökning av VM infrastrukturtrafiken rör](../../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
-Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
+Om du inte redan gjort installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på en Azure-konto med hjälp av [az-inloggning](/cli/azure/reference-index#az_login).
 
 Om du har skapat och laddat upp en anpassad avbildning för Linux-disk, se till att den [Microsoft Azure Linux Agent](../extensions/agent-windows.md) version 2.0.5 eller senare är installerat. För virtuella datorer som skapas med hjälp av avbildningar i galleriet, access-tillägg redan installerat och konfigurerat åt dig.
 
 ### <a name="reset-ssh-configuration"></a>Återställ SSH-konfiguration
-Du kan först försöka återställa SSH-konfigurationen till standardvärden och SSH-servern på den virtuella datorn startas om. Observera att detta inte ändrar användarkontonamn, lösenordet eller SSH-nycklar.
+Du kan först försöka återställa SSH-konfigurationen till standardvärden och SSH-servern på den virtuella datorn startas om. Detta ändras inte användarens kontonamn, lösenord och SSH-nycklar.
 I följande exempel används [az vm användaren att återställa-ssh](/cli/azure/vm/user#az_vm_user_reset_ssh) att återställa SSH-konfigurationen på den virtuella datorn med namnet `myVM` i `myResourceGroup`. Använd dina egna värden enligt följande:
 
 ```azurecli
@@ -182,21 +182,13 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
     --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
-
-## <a name="restart-a-vm"></a>Starta om en virtuell dator
+## <a name="a-idrestart-vm-restart-a-vm"></a><a id="restart-vm" />Starta om en virtuell dator
 Om du har återställa SSH-konfigurationen och användardata autentiseringsuppgifterna eller påträffade ett fel gör det, kan du starta om den virtuella datorn till underliggande problem med compute-adress.
 
 ### <a name="azure-portal"></a>Azure Portal
-Om du vill starta om en virtuell dator med Azure portal, Välj den virtuella datorn och klicka på den **starta om** knappen som i följande exempel:
+Om du vill starta om en virtuell dator med Azure portal, Välj den virtuella datorn och välj sedan **starta om** som i följande exempel:
 
 ![Starta om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/restart-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Klassisk Azure CLI
-I följande exempel startar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
-
-```azurecli
-azure vm restart --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure CLI
 I följande exempel används [az vm restart](/cli/azure/vm#az_vm_restart) att starta om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
@@ -205,26 +197,25 @@ I följande exempel används [az vm restart](/cli/azure/vm#az_vm_restart) att st
 az vm restart --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Klassisk Azure CLI
+I följande exempel startar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
 
-## <a name="redeploy-a-vm"></a>Distribuera om en VM
+```azurecli
+azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+## <a name="a-idredeploy-vm-redeploy-a-vm"></a><a id="redeploy-vm" />Distribuera om en virtuell dator
 Du kan distribuera om en virtuell dator till en annan nod i Azure, som kan korrigera eventuella underliggande nätverksproblem. Information om hur du distribuerar om en virtuell dator finns i [distribuera om virtuell dator till nya Azure-nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!NOTE]
-> När den här åtgärden är klar differentierande diskdata går förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn kommer att uppdateras.
+> När den här åtgärden är klar differentierande diskdata går förlorade och dynamiska IP-adresser som är associerade med den virtuella datorn uppdateras.
 > 
 > 
 
 ### <a name="azure-portal"></a>Azure Portal
-Om du vill distribuera om en virtuell dator med Azure portal, Välj den virtuella datorn och bläddra ned till den **stöd + felsökning** avsnittet. Klicka på den **omdistribuera** knappen som i följande exempel:
+Om du vill distribuera om en virtuell dator med Azure portal, Välj den virtuella datorn och bläddra ned till den **stöd + felsökning** avsnittet. Välj **omdistribuera** som i följande exempel:
 
 ![Distribuera om en virtuell dator i Azure portal](./media/troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
-
-### <a name="azure-classic-cli"></a>Klassisk Azure CLI
-I följande exempel distribuerar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
-
-```azurecli
-azure vm redeploy --resource-group myResourceGroup --name myVM
-```
 
 ### <a name="azure-cli"></a>Azure CLI
 Följande exempel används [az vm omdistribution](/cli/azure/vm#az_vm_redeploy) att distribuera om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
@@ -233,11 +224,18 @@ Följande exempel används [az vm omdistribution](/cli/azure/vm#az_vm_redeploy) 
 az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
+### <a name="azure-classic-cli"></a>Klassisk Azure CLI
+I följande exempel distribuerar om den virtuella datorn med namnet `myVM` i resursgruppen med namnet `myResourceGroup`. Använd dina egna värden enligt följande:
+
+```azurecli
+azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
 ## <a name="vms-created-by-using-the-classic-deployment-model"></a>Virtuella datorer som skapas med hjälp av den klassiska distributionsmodellen
 Prova de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen. Försök återansluta till den virtuella datorn efter varje steg.
 
-* Återställ fjärråtkomst från den [Azure-portalen](https://portal.azure.com). Välj din virtuella dator på Azure-portalen och klicka på den **Återställ fjärråtkomst...**  knappen.
-* Starta om den virtuella datorn. På den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn och klicka på den **starta om** knappen.
+* Återställ fjärråtkomst från den [Azure-portalen](https://portal.azure.com). Välj din virtuella dator på Azure-portalen och välj sedan **Återställ fjärråtkomst...** .
+* Starta om den virtuella datorn. På den [Azure-portalen](https://portal.azure.com), Välj den virtuella datorn och välj **starta om**.
     
 * Distribuera om den virtuella datorn till en ny Azure-nod. Information om hur du distribuera om en virtuell dator finns i [distribuera om virtuell dator till nya Azure-nod](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
@@ -254,5 +252,3 @@ Prova de här stegen för att lösa de vanligaste SSH-anslutningsfel för virtue
 * Om du är fortfarande inte SSH till den virtuella datorn när du har följt stegen efter, visa [mer detaljerad felsökning](detailed-troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) se ytterligare steg för att lösa problemet.
 * Läs mer om hur du felsöker programåtkomst [Felsök åtkomst till ett program som körs på virtuella Azure-datorer](../windows/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Läs mer om hur du felsöker virtuella datorer som har skapats med hjälp av den klassiska distributionsmodellen [återställa ett lösenord eller SSH för Linux-baserade virtuella datorer](../linux/classic/reset-access-classic.md).
-
-

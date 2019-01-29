@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: c6f17fd4cc225b7d4ce60d38bf2abcabf12a40c5
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945594"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177916"
 ---
 # <a name="provider-resource-usage-api"></a>API för providerresursanvändning
 Termen *provider* gäller tjänstadministratören och alla delegerade providrar. Azure Stack-operatörer och delegerade providrar kan använda provideranvändning för att visa användningen av sina direkta klienter. Till exempel i diagrammet visas P0 kan anropa providern API för att få information om användningen på P1 och P2's direkt användning och P1 kan anropa användningsinformation för P3 och P4.
@@ -37,7 +37,7 @@ Den här användningen API är en leverantör API, så att anroparen måste till
 | HÄMTA |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce.Admin/subscriberUsageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity} & subscriberId = {sub1.1} & api-version = 2015-06-01-preview & continuationToken = {token-value} |
 
 ### <a name="arguments"></a>Argument
-| **Argumentet** | **Beskrivning** |
+| **Argument** | **Beskrivning** |
 | --- | --- |
 | *armendpoint* |Azure Resource Manager-slutpunkten för Azure Stack-miljön. Azure Stack-konventionen är att namnet på Azure Resource Manager-slutpunkten är i formatet `https://adminmanagement.{domain-name}`. Till exempel för development kit om domännamnet är *local.azurestack.external*, Resource Manager-slutpunkten är `https://adminmanagement.local.azurestack.external`. |
 | *subId* |Prenumerations-ID för den användare som gör anropet. |
@@ -45,7 +45,7 @@ Den här användningen API är en leverantör API, så att anroparen måste till
 | *reportedEndTime* |Sluttid för frågan. De begränsningar som gäller för *reportedStartTime* gäller även för det här argumentet. Värdet för *reportedEndTime* får inte vara i framtiden eller det aktuella datumet. Om det är är resultatet inställd på ”behandlingen har inte slutförts”. |
 | *aggregationGranularity* |Valfri parameter som har två diskreta möjliga värden: varje dag och per timme. Eftersom värdena föreslå en returnerar data i daglig kornighet och den andra är upplösningen per timme. Dagliga alternativet är standardinställningen. |
 | *subscriberId* |Prenumerations-ID. Prenumerations-ID för en direkt klient av providern krävs för att hämta filtrerade data. Om ingen prenumerations-ID-parameter har angetts i anropet returnerar användningsdata för alla leverantörens direkt klienter. |
-| *API-versionen* |Version av det protokoll som används för att göra denna begäran. Det här värdet anges till *2015-06-01-preview*. |
+| *api-version* |Version av det protokoll som används för att göra denna begäran. Det här värdet anges till *2015-06-01-preview*. |
 | *continuationToken* |Token hämtas från det senaste anropet till användnings-API-providern. Den här token krävs när ett svar är större än 1 000 rader och den fungerar som ett bokmärke för information om förloppet. Om token inte är tillgänglig, data hämtas från början på dagen eller timme, baserat på precisionen skickas in. |
 
 ### <a name="response"></a>Svar
@@ -78,7 +78,7 @@ meterID1",
 ```
 
 ### <a name="response-details"></a>Svarsinformation
-| **Argumentet** | **Beskrivning** |
+| **Argument** | **Beskrivning** |
 | --- | --- |
 | *ID* |Unikt ID för användning aggregering. |
 | *Namn* |Namnet på samlingen användning. |
@@ -86,9 +86,9 @@ meterID1",
 | *Prenumerations-ID* |Prenumerations-ID för Azure Stack-användare. |
 | *usageStartTime* |UTC starttid för bucketen användning som den här aggregeringen användningen tillhör.|
 | *usageEndTime* |UTC-sluttid för bucketen användning som den här aggregeringen användningen tillhör. |
-| *instanceData* |Nyckel / värde-par med instansinformation (i ett nytt format):<br> *resourceUri*: fullständigt kvalificerade resurs-ID, vilket inkluderar resursgrupper och instansnamnet. <br> *plats*: Region där den här tjänsten kördes. <br> *taggar*: resurstaggar som anges av användaren. <br> *additionalInfo*: Mer information om den resurs som förbrukades, till exempel OS-version eller avbildning typen. |
+| *instanceData* |Nyckel / värde-par med instansinformation (i ett nytt format):<br> *resourceUri*: Fullständigt kvalificerade resurs-ID, vilket inkluderar resursgrupper och instansnamnet. <br> *Plats*: Region där den här tjänsten kördes. <br> *Taggar*: Resurstaggar som anges av användaren. <br> *additionalInfo*: Mer information om den resurs som förbrukades, till exempel den version av Operativsystemet eller avbildning typ. |
 | *Kvantitet* |Mängden resursförbrukning som inträffat under det här tidsintervallet. |
-| *MeterId* |Unikt ID för den resurs som förbrukades (kallas även *ResourceID*). |
+| *meterId* |Unikt ID för den resurs som förbrukades (kallas även *ResourceID*). |
 
 
 ## <a name="retrieve-usage-information"></a>Hämta information om användning

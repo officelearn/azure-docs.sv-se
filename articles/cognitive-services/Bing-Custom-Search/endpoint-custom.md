@@ -6,19 +6,19 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: da448cdeaf6fcbe10cba8e5e2613214f8e0cee18
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: ed420676ddc4c83be93939874f2943126f9209e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815196"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176632"
 ---
 # <a name="custom-search"></a>Anpassad sökning
-Bing Custom Search kan du skapa skräddarsydda sökmöjligheter för ämnen som intresserar dig. Användarna ser sökresultat som skräddarsys för det innehåll som de bryr dig om slipper att bläddra igenom sökresultat som har inte relevant innehåll.
+Med anpassad sökning i Bing kan du skapa skräddarsydda sökningar om ämnen som intresserar dig. Användarna ser sökresultat som skräddarsytts efter det innehåll som intresserar dem, i stället för att behöva bläddra bland irrelevanta sökresultat.
 
 ## <a name="custom-search-endpoint"></a>Anpassad sökning
 För att få resultat med hjälp av API: et för Bing Custom Search kan skicka en `GET` begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
@@ -58,7 +58,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Information om hur du konfigurerar en anpassad Sökinstans finns i [konfigurera din anpassade sökupplevelse](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view).
 
 ## <a name="next-steps"></a>Nästa steg
-Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
+Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.  Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
 
 Fullständig information om de parametrar som stöds av varje slutpunkt finns referenssidor för varje typ av.
 Exempel på grundläggande begäranden med hjälp av API för anpassad sökning finns [anpassad sökning i Snabbstarter för lösningar](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)

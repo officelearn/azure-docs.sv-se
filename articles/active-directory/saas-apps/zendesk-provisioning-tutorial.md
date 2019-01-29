@@ -8,19 +8,19 @@ writer: zhchia
 manager: beatrizd-msft
 ms.assetid: na
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 7df4cb5e988b4037675d5bf1c45ee103d5939568
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 919c4d3dc08d81fa5fe95a7e63df8d02258aab80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999330"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194329"
 ---
 # <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Zendesk för automatisk användaretablering
 
@@ -40,7 +40,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Zendesk Rest API](https://developer.zendesk.com/rest_api/docs/core/introduction), som är tillgängliga för Zendesk-team på Enterprise-avtalet eller bättre.
 
-## <a name="adding-zendesk-from-the-gallery"></a>Att lägga till Zendesk från galleriet
+## <a name="adding-zendesk-from-the-gallery"></a>Lägga till Zendesk från galleriet
 Du måste lägga till Zendesk från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Zendesk för automatisk användarförsörjning med Azure AD.
 
 **Utför följande steg för att lägga till Zendesk från Azure AD-programgalleriet:**

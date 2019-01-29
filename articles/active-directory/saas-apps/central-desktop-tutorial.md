@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/08/2017
 ms.author: jeedes
-ms.openlocfilehash: 82a6911c85dd1438aa8f60cb36194a2916bc91e7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bc8aec25d6493d87393a45549fb89f978c469912
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39429054"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179165"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Självstudier: Azure Active Directory-integrering med Central Desktop
 
@@ -66,7 +66,7 @@ För att konfigurera integrering av centrala Desktop i Azure AD, som du behöver
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Bladet för Enterprise-program][2]
+    ![Bladet Företagsprogram][2]
     
 1. Om du vill lägga till nya program, Välj den **nytt program** knappen överst i dialogrutan.
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av centrala Desktop i Azure AD, som du behöver
 
     ![Central Desktop i resultatlistan](./media/central-desktop-tutorial/tutorial_centraldesktop_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Central Desktop baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -92,7 +92,7 @@ Om du vill konfigurera och testa Azure AD enkel inloggning med Central Desktop, 
 1. [Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user) att aktivera Britta Simon att använda Azure AD enkel inloggning.
 1. [Testa enkel inloggning](#test-single-sign-on) att kontrollera att konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för centrala Desktop.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **centrala Desktop** application integration markerar **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. Att aktivera enkel inloggning, i den **enkel inloggning** i dialogrutan den **läge** listrutan, väljer **SAML-baserad inloggning**.
  
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I den **SAML-signeringscertifikat** väljer **certifikat**. Spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/central-desktop-tutorial/tutorial_centraldesktop_certificate.png) 
 
 1. Välj knappen **Spara**.
 
@@ -182,7 +182,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. Om du vill visa en lista över användare, gå till **användare och grupper**. Välj sedan **alla användare**.
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/central-desktop-tutorial/create_aaduser_02.png)
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](./media/central-desktop-tutorial/create_aaduser_02.png)
 
 1. Öppna den **användaren** dialogrutan **Lägg till** överst i den **alla användare** dialogrutan.
 
@@ -190,7 +190,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 1. I den **användaren** dialogrutan rutan, gör följande:
 
-    ![Dialogrutan användare](./media/central-desktop-tutorial/create_aaduser_04.png)
+    ![Dialogrutan Användare](./media/central-desktop-tutorial/create_aaduser_04.png)
 
     a. I den **namn** skriver **BrittaSimon**.
 
@@ -215,7 +215,7 @@ För Azure AD-användare för att kunna logga in, måste de vara etablerade i Ce
 
 1. Välj **lägga till interna medlemmar**.
 
-    ![Personer](./media/central-desktop-tutorial/ic781051.png "personer")
+    ![Personer](./media/central-desktop-tutorial/ic781051.png "Personer")
     
 1. I den **e-postadress för nya medlemmar** skriver du ett Azure AD-konto som du vill etablera och välj sedan **nästa**.
 
@@ -246,11 +246,11 @@ I det här avsnittet ska aktivera du användaren Britta Simon att använda Azure
 
     ![Central Desktop länken i listan med program](./media/central-desktop-tutorial/tutorial_centraldesktop_app.png)  
 
-1. I menyn till vänster väljer **användare och grupper**.
+1. På menyn till vänster väljer du **Användare och grupper**.
 
-    ![Länken ”användare och grupper”][202]
+    ![Länken ”Användare och grupper”][202]
 
-1. Välj den **Lägg till** knappen. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
+1. Välj knappen **Lägg till**. Välj sedan **användare och grupper** i den **Lägg till tilldelning** dialogrutan.
 
     ![Fönstret Lägg till tilldelning][203]
 

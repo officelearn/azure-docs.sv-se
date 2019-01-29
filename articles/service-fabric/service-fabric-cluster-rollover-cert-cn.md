@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/24/2018
 ms.author: ryanwi
-ms.openlocfilehash: df919e23fd608cdf41e93844f13342ca00657adb
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 72640a4d917ddb2485199f0df1fead8b0bdcd1c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205152"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192981"
 ---
-# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Distribuera manuellt via ett certifikat för Service Fabric-kluster
-När ett certifikat för Service Fabric-klustret är väg att löpa ut, måste du uppdatera certifikatet.  Förnya certifikatet är enkel om klustret var [till använder certifikat baserat på nätverksnamn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtrycket).  Hämta ett nytt certifikat från en certifikatutfärdare med ett nytt utgångsdatum.  Självsignerade certifikat, inklusive de som skapas när du distribuerar ett Service Fabric-kluster i Azure portal stöds inte.  Det nya certifikatet måste ha samma allmänna namn som det tidigare certifikatet. 
+# <a name="manually-roll-over-a-service-fabric-cluster-certificate"></a>Manuellt förnya ett certifikat för Service Fabric-kluster
+När ett certifikat för Service Fabric-klustret är att löpa ut kan behöva du uppdatera certifikatet.  Förnya certifikatet är enkel om klustret var [ställts in använder certifikat baserat på nätverksnamn](service-fabric-cluster-change-cert-thumbprint-to-cn.md) (i stället för tumavtryck).  Få ett nytt certifikat från en certifikatutfärdare med ett nytt utgångsdatum.  Självsignerade certifikat är inte stöd för produktion Service Fabric-kluster för att inkludera certifikat som genereras under Azure portal kluster skapa arbetsflöde. Det nya certifikatet måste ha samma allmänna namn som det äldre certifikatet. 
 
-Följande skript Överför ett nytt certifikat till ett nyckelvalv och installerar certifikatet på virtuella datorns skaluppsättning.  Service Fabric-klustret ska använda automatiskt certifikatet med det senaste förfallodatumet.
+Service Fabric-klustret ska använda deklarerade certifikatet automatiskt med ytterligare i framtida utgångsdatum; När fler än en verifiera installeras certifikatet på värden. Ett bra tips är att använda en Resource Manager-mall för att etablera Azure-resurser. För icke-produktionsmiljö skriptet nedan kan användas för att ladda upp ett nytt certifikat till key vault och installerar certifikatet på virtuella datorns skalningsuppsättning: 
 
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser -Force
@@ -79,7 +79,10 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Name $VmssName -VirtualMachineScaleSet $vmss  -Verbose
 ```
 
-Mer information finns på följande:
-* Lär dig mer om [kluster säkerhet](service-fabric-cluster-security.md).
+>[!NOTE]
+> Beräknar VM Scale ange hemligheter inte stöder samma resurs-id för två separata hemligheter, eftersom varje hemlighet är en version unik resurs. 
+
+Om du vill veta mer kan du läsa följande:
+* Lär dig mer om [kluster security](service-fabric-cluster-security.md).
 * [Uppdatera och hantera klustercertifikat](service-fabric-cluster-security-update-certs-azure.md)
 

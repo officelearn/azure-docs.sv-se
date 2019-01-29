@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 409e4d2e71766ddba2b1d7bcf7e10afdbe298104
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e58bd9afcbb7684cae93d3e71bae89d49f640111
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968552"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203971"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Node.js
 
@@ -27,7 +27,7 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
-* Den [Library för JavaScript-begäran](https://github.com/request/request)
+* [Begäransbiblioteket för JavaScript](https://github.com/request/request)
 
 Du måste ha en [Cognitive Services API-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med Bing-API: er. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Använd åtkomstnyckel som tillhandahållits av den kostnadsfria utvärderingsversionen.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -43,7 +43,7 @@ Följande kod hämtar definierar och skickar en begäran. Den implementeras i f�
 
 Här följer den fullständiga koden för demon:
 
-````
+```
 'use strict';
 
 let https = require('https');
@@ -90,7 +90,7 @@ let Search = function () {
 
 Search();
 
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

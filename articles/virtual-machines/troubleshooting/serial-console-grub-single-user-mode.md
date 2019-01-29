@@ -14,29 +14,34 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: f22e5159acc93d9632c8cd268e24e8f972cbd7dd
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 5029365e665ce3ee9ba65886a3d6d5bbced0ed9a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580152"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103317"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Använd Seriekonsol för att komma åt GRUB och enanvändarläge
-GRUB är GRand Unified startprogrammet. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
+GRUB är GRand Unified startprogrammet, vilket förmodligen är det första som visas när du startar en virtuell dator. Eftersom den visar innan operativsystemet har startat är den inte tillgänglig via SSH. Från GRUB kan du ändra din startkonfiguration starta i enanvändarläge, bland annat.
 
 Enanvändarläge är en minimal miljö med minimal funktioner. Det kan vara praktiskt för att undersöka problem, filsystem problem eller nätverksproblem. Färre tjänsterna kan köras i bakgrunden och, beroende på är ett filsystem kan inte ens att automatiskt montera.
 
-Enanvändarläge är också användbart i situationer där den virtuella datorn endast kan konfigureras för att acceptera SSH-nycklar för inloggning. I det här fallet kan du att kunna använda enanvändarläge för att skapa ett konto med lösenordsautentisering.
+Enanvändarläge är också användbart i situationer där den virtuella datorn endast kan konfigureras för att acceptera SSH-nycklar för inloggning. I det här fallet kan du att kunna använda enanvändarläge för att skapa ett konto med lösenordsautentisering. Observera att tjänsten Seriell konsol kan användare med deltagaråtkomst nivå eller högre att komma åt seriekonsol för en virtuell dator.
 
-Om du vill ange enanvändarläge, behöver du ange GRUB när den virtuella datorn startas och ändra startkonfigurationen i GRUB. Detta kan göras med den virtuella datorn från seriell konsolen.
+Om du vill ange enanvändarläge, behöver du ange GRUB när den virtuella datorn startas och ändra startkonfigurationen i GRUB. Detaljerade anvisningar för att ange GRUB finns nedan. I allmänhet kan du använda knappen Starta om VM seriella konsolen att starta om den virtuella datorn och visa GRUB om den virtuella datorn har konfigurerats för att visa GRUB.
+
+![Linux seriella konsolen startar du om knappen](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## <a name="general-grub-access"></a>Allmän GRUB-åtkomst
 För att komma åt GRUB, behöver du starta om den virtuella datorn samtidigt som det öppna bladet Seriell konsol. Vissa distributioner kräver tangentbordsinmatning att visa GRUB, medan andra automatiskt visa GRUB under några sekunder och tillåter indata från användaren tangentbord annullera timeout-värdet.
 
 Du vill kontrollera att GRUB är aktiverat på den virtuella datorn för att få åtkomst till enanvändarläge. Beroende på din distribution, kan det finnas vissa installationen fungerar för att kontrollera att GRUB är aktiverat. Distribution-specifik information finns nedan och i [den här länken](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
-### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att komma åt GRUB i Seriekonsol
-Starta om den virtuella datorn med bladet Seriell konsol är öppen kan göras med en SysRq `'b'` kommandot om [SysRq](./serial-console-nmi-sysrq.md) är aktiverad, eller genom att klicka på omstarten knappen i bladet översikt (öppna den virtuella datorn i en ny webbläsarflik ska startas om utan att stänga bladet Seriell konsol). Följ distribution-specifika anvisningarna nedan för att lära dig vad som händer GRUB när du startar om.
+### <a name="restart-your-vm-to-access-grub-in-serial-console"></a>Starta om den virtuella datorn för att komma åt GRUB i Seriekonsol
+Du kan starta om den virtuella datorn i seriekonsolen genom att gå till power-knappen och klicka på ”Starta om VM”. Detta initierar en omstart av virtuella datorer och du ser ett meddelande i Azure-portalen om omstarten.
+Starta om den virtuella datorn kan också göras med en SysRq `'b'` kommandot om [SysRq](./serial-console-nmi-sysrq.md) är aktiverad. Följ distribution-specifika anvisningarna nedan för att lära dig vad som händer GRUB när du startar om.
+
+![Linux Seriell konsol omstart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## <a name="general-single-user-mode-access"></a>Allmän enanvändarläge åtkomst
 Manuell åtkomst till enanvändarläge kan behövas i situationer där du inte har konfigurerat ett konto med autentisering med lösenord. Du behöver ändra GRUB-konfigurationen för att manuellt ange enanvändarläge. När du har gjort det, se [Använd läget för enskild användare kan återställa eller lägger till ett lösenord](#-Use-Single-User-Mode-to-reset-or-add-a-password) för ytterligare instruktioner.

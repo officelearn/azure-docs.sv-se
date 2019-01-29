@@ -6,12 +6,12 @@ ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.openlocfilehash: bbc0eadebec849dde47cecaf6e3718eb6673a22f
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: bbb48708d0e5a7cd07a3971a6966f40696107562
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912824"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095103"
 ---
 # <a name="advanced-threat-protection-for-azure-database-for-postgresql"></a>Avancerat skydd för Azure Database för PostgreSQL
 
@@ -58,7 +58,7 @@ Avancerat skydd integrerar dess aviseringar med [Azure Security Center](https://
 
 Klicka på **säkerhetsaviseringar** under **HOTSKYDD** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL-hot som upptäckts på databasen.
 
-  ![Threat protectoin asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
+  ![Threat protection asc](./media/howto-database-threat-protection-portal/threat-detection-alert-asc.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

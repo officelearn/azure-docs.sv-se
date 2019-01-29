@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1c4b3819494ecb4c0897edeb08e2ce45d867b626
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665850"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179080"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Godkänn eller neka begäranden för Azure AD-katalogroller i PIM
 
@@ -30,7 +30,7 @@ Med Azure AD Privileged Identity Management (PIM), kan du konfigurera roller fö
 
 Som en delegerad godkännaren får du ett e-postmeddelande när en begäran om Azure AD directory roll är väntar på ditt godkännande. Du kan visa dessa väntande begäranden i PIM.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 

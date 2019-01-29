@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 89ac87436fb6807177acf3882dd6e923b1722bd5
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 8bfa4178baae0d92f7efb5ea156cfd35a8b32b1b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849217"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157473"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Dirigera nätverkstrafik med en routningstabell med hjälp av Azure CLI
 
@@ -121,7 +121,7 @@ az network vnet subnet update \
 
 En NVA är en virtuell dator som utför en nätverksfunktion, som routning, brandvägg eller WAN-optimering.
 
-Skapa en NVA i den *DMZ* undernätet med [az vm skapa](/cli/azure/vm#az_vm_create). När du skapar en virtuell dator, Azure skapar och tilldelar en offentlig IP-adress till den virtuella datorn som standard. Den `--public-ip-address ""` parametern instruerar Azure inte att skapa och tilldela en offentlig IP-adress till den virtuella datorn eftersom den virtuella datorn inte behöver anslutas till från internet. Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
+Skapa en NVA i den *DMZ* undernätet med [az vm skapa](/cli/azure/vm). När du skapar en virtuell dator, Azure skapar och tilldelar en offentlig IP-adress till den virtuella datorn som standard. Den `--public-ip-address ""` parametern instruerar Azure inte att skapa och tilldela en offentlig IP-adress till den virtuella datorn eftersom den virtuella datorn inte behöver anslutas till från internet. Om det inte redan finns SSH-nycklar på en standardnyckelplats skapar kommandot dem. Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.
 
 ```azure-cli-interactive
 az vm create \
@@ -161,7 +161,7 @@ Kommandot kan ta upp till en minut att köra.
 
 Skapa två virtuella datorer i det virtuella nätverket så att du kan verifiera att trafiken från den *offentliga* undernätet dirigeras till den *privata* undernätet via NVA i ett senare steg. 
 
-Skapa en virtuell dator i den *offentliga* undernätet med [az vm skapa](/cli/azure/vm#az_vm_create). Den `--no-wait` parameter gör det möjligt för Azure för att köra kommandot i bakgrunden, så att du kan fortsätta med nästa kommando. För att förenkla den här artikeln används ett lösenord. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
+Skapa en virtuell dator i den *offentliga* undernätet med [az vm skapa](/cli/azure/vm). Den `--no-wait` parameter gör det möjligt för Azure för att köra kommandot i bakgrunden, så att du kan fortsätta med nästa kommando. För att förenkla den här artikeln används ett lösenord. Nycklar används vanligtvis för produktionsdistributioner. Om du använder nycklar måste du också konfigurera SSH-agentvidarebefordran. Mer information finns i dokumentationen för SSH-klienten. Ersätt `<replace-with-your-password>` i följande kommando med ett lösenord som du väljer.
 
 ```azurecli-interactive
 adminPassword="<replace-with-your-password>"

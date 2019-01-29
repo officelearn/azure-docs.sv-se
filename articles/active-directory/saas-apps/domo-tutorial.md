@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Domo | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Domo | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Domo.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 9c6a8585033cc9ba8db763e053f63cef47fdcd02
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e0be067195e6bac1df2206c396faaf4d907f7469
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443304"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152629"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Självstudier: Azure Active Directory-integration med Domo
+# <a name="tutorial-azure-active-directory-integration-with-domo"></a>Självstudier: Azure Active Directory-integrering med Domo
 
 I den här självstudien får du lära dig hur du integrerar Domo med Azure Active Directory (AD Azure).
 
@@ -43,10 +43,10 @@ Om du vill konfigurera Azure AD-integrering med Domo, behöver du följande obje
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö kan du få en månads utvärdering [här](https://azure.microsoft.com/pricing/free-trial/).
+- Använd inte din produktionsmiljö om det inte behövs.
+- Om du inte har en Azure AD-utvärderingsmiljö kan du skaffa en månads utvärderingsperiod [här](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
@@ -59,17 +59,17 @@ För att konfigurera integrering av Domo i Azure AD, som du behöver lägga till
 
 **Utför följande steg för att lägga till Domo från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **Domo**.
 
@@ -112,9 +112,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/domo-tutorial/tutorial_domo_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.domo.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<companyname>.domo.com`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:     
+    b. I textrutan **Identifierare** anger du en URL med följande mönster:     
 
     | |
     |--|    
@@ -131,7 +131,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://<companyname>.stage.domo.com` |
     
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [Domo klienten supportteamet](mailto:support@domo.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Domo klienten supportteamet](mailto:support@domo.com) att hämta dessa värden.
 
 1. Domo program som förväntar SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för den här konfigurationen. 
 
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | Attributnamn | Attributvärde |
     | ------------------- | -------------------- |    
     | namn | User.DisplayName |
-    | e-post | User.Mail |
+    | e-post | user.mail |
     
     a. Klicka på **Lägg till attribut** att öppna den **lägga till attributet** dialogrutan.
 
@@ -150,7 +150,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/domo-tutorial/tutorial_attribute_05.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
     
     c. Från den **värdet** anger attributvärdet som visas för den raden.
     
@@ -160,7 +160,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/domo-tutorial/tutorial_domo_certificate.png) 
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/domo-tutorial/tutorial_general_400.png)
 
@@ -172,10 +172,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 1. Att konfigurera enkel inloggning på **Domo** sida, navigera till Domo's Knowledge Base-artikeln hitta [här](http://knowledge.domo.com?cid=azuread), och följ instruktionerna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -209,7 +209,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Domo. Domo stöder just-in-time-etablering, vilket är som standard aktiverat.
 
-Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Domo om det inte finns ännu.
+Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Domo om det inte finns ännu.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
@@ -246,7 +246,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 När du klickar på panelen Domo i åtkomstpanelen du bör få automatiskt loggat in på ditt Domo program.
 
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

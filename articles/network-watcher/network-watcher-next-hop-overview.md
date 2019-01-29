@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 28eacdce922e26d391cf34f78cb03ead9c6887a1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 40f1790806aac6756979f28ad29442b7abf96019
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391274"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096899"
 ---
 # <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Använd nästa hopp för att diagnostisera problem med Routning-VM
 
@@ -36,10 +36,10 @@ Nästa hopp som kan returneras av funktionen nästa hopp är följande:
 * VirtualNetworkPeering
 * VirtualNetworkServiceEndpoint 
 * MicrosoftEdge
-* Inga
+* Ingen
 
 Läs mer om varje nästa hopptyp i [routningsöversikten](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du använder nästa hopp för att diagnostisera problem med Virtuella nätverk routning i [diagnostisera Virtuella datornätverket routningsproblem](diagnose-vm-network-routing-problem.md).
+Läs hur du använder nästa hopp för att diagnostisera problem med Virtuella nätverk routning i diagnostisera VM network routning problem med att använda den [Azure-portalen](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), eller [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

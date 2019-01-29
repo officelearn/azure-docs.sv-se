@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 78034766ccbe337360097270b2554f64c951712e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: aaeec216e2a89cfd230208d0c674e15153224b5a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882335"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157507"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>Så här skapar du en Linux-dator i Azure med flera nätverkskort
 
@@ -31,7 +31,7 @@ Installera senast [Azure CLI](/cli/azure/install-az-cli2) och logga in på Azure
 
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen ingår *myResourceGroup*, *mystorageaccount*, och *myVM*.
 
-Skapa först en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+Skapa först en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -58,7 +58,7 @@ az network vnet subnet create \
     --address-prefix 10.0.2.0/24
 ```
 
-Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg#az_network_nsg_create). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
+Skapa en nätverkssäkerhetsgrupp med [az network nsg skapa](/cli/azure/network/nsg). I följande exempel skapas en nätverkssäkerhetsgrupp med namnet *myNetworkSecurityGroup*:
 
 ```azurecli
 az network nsg create \

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 7b19aa42c669fec5872e210351ecec22360ef24e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 43133a1666dc3551e0f935ceb2af4cf1297d44a7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155314"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Uppdatera Windows-operativsystemet i Service Fabric-klustret
 
@@ -143,9 +143,6 @@ Programmet tillsammans med installationsskript kan laddas ned från [Arkiv länk
 
 Program i sfpkg format kan laddas ned från [sfpkg länk](https://aka.ms/POA/POA.sfpkg). Detta är praktiskt för [Azure Resource Manager-baserade programdistribution](service-fabric-application-arm-resource.md).
 
-> [!IMPORTANT]
-> V1.3.0 (senaste) av Patch Orchestration Application har ett känt problem som körs på Windows Server 2012. Om du kör Windows Server 2012, hämta v1.2.2 av programmet [här](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.zip). SFPkg länk [här](http://download.microsoft.com/download/C/9/1/C91780A5-F4B8-46AE-ADD9-E76B9B0104F6/PatchOrchestrationApplication_v1.2.2.sfpkg).
-
 ## <a name="configure-the-app"></a>Konfigurera appen
 
 Patch orchestration appens beteende kan konfigureras för att uppfylla dina behov. Åsidosätta standardvärdena genom att skicka in parametern program under programmet skapas eller uppdatera. Programparametrar kan anges genom att ange `ApplicationParameter` till den `Start-ServiceFabricApplicationUpgrade` eller `New-ServiceFabricApplication` cmdletar.
@@ -156,7 +153,7 @@ Patch orchestration appens beteende kan konfigureras för att uppfylla dina beho
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy anger den princip som ska användas av Coordinator-tjänsten för att installera Windows-uppdateringar för Service Fabric-klusternoder.<br>                         Tillåtna värden är: <br>                                                           <b>NodeWise</b>. Windows Update är installerade en nod i taget. <br>                                                           <b>UpgradeDomainWise</b>. Windows Update är installerade en uppgraderingsdomän i taget. (På högsta alla noder som tillhör en uppgraderingsdomän kan gå för Windows Update.)<br> Referera till [vanliga frågor och svar](#frequently-asked-questions) avsnittet om hur du avgör vilket är bäst lämpade princip för klustret.
 |LogsDiskQuotaInMB   |Lång  <br> (Standard: 1024)               |Maximal storlek för patch orchestration app loggar i MB, vilket kan vara kvar lokalt på noderna.
 | WUQuery               | sträng<br>(Standard: ”IsInstalled = 0”)                | Fråga för att hämta Windows-uppdateringar. Mer information finns i [WuQuery.](https://msdn.microsoft.com/library/windows/desktop/aa386526(v=vs.85).aspx)
-| InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: SANT)                 | Använd den här flaggan för att styra vilka uppdateringar som ska hämtas och installeras. Följande värden tillåts <br>True - installerar endast uppdateringar i Windows operativsystem.<br>FALSKT: installerar alla tillgängliga uppdateringar på datorn.          |
+| InstallWindowsOSOnlyUpdates | Boolesk <br> (standard: FALSKT)                 | Använd den här flaggan för att styra vilka uppdateringar som ska hämtas och installeras. Följande värden tillåts <br>True - installerar endast uppdateringar i Windows operativsystem.<br>FALSKT: installerar alla tillgängliga uppdateringar på datorn.          |
 | WUOperationTimeOutInMinutes | Int <br>(Standard: 90)                   | Anger tidsgränsen för alla Windows Update-åtgärder (Sök eller ladda ned eller installera). Om åtgärden inte har slutförts inom den angivna tidsgränsen, avbryts.       |
 | WURescheduleCount     | Int <br> (Standard: 5)                  | Om en åtgärd misslyckas så att uppdatera det maximala antalet gånger som tjänsten schemalägger om i Windows.          |
 | WURescheduleTimeInMinutes | Int <br>(Standard: 30) | Intervallet då tjänsten schemalägger om Windows-uppdateringen om felet kvarstår. |
@@ -295,7 +292,7 @@ Baserat på principen för programmet, antingen en nod kan gå under en uppdater
 
 I slutet av installationen av uppdateringen för Windows-noderna är reenabled efter omstart.
 
-I följande exempel klustret gick in i ett feltillstånd tillfälligt eftersom två noder har nedåt och MaxPercentageUnhealthNodes principen har överskridits. Felet är tillfälligt tills uppdatering åtgärd pågår.
+I följande exempel klustret gick in i ett feltillstånd tillfälligt eftersom två noder har nedåt och MaxPercentageUnhealthyNodes principen har överskridits. Felet är tillfälligt tills uppdatering åtgärd pågår.
 
 ![Bild av felaktiga kluster](media/service-fabric-patch-orchestration-application/MaxPercentage_causing_unhealthy_cluster.png)
 
@@ -330,7 +327,7 @@ F. **Hur lång tid tar det för att korrigera ett helt kluster?**
 A. Den tid som behövs för att korrigera ett helt kluster beror på följande faktorer:
 
 - Tid som krävs att korrigera en nod.
-- Princip för Coordinator-tjänsten. -Standardprincipen `NodeWise`, resulterar i korrigeringar bara en nod i taget, som är långsammare än `UpgradeDomainWise`. Exempel: Om en nod tar ca 1 timme att korrigera kan gå igenom att korrigera uzel 20 (samma typ av noder) kluster med 5 uppgraderingsdomäner, som innehåller 4 noder.
+- Princip för Coordinator-tjänsten. -Standardprincipen `NodeWise`, resulterar i korrigeringar bara en nod i taget, som är långsammare än `UpgradeDomainWise`. Exempel: Om en nod tar ca 1 timme att korrigera, för att korrigera 20 nod (samma typ av noder) klustret med 5 uppgraderingsdomäner, som innehåller 4 noder.
     - Det bör ta ~ 20 timmar att korrigera hela klustret, om principen är `NodeWise`
     - Det bör ta ~ 5 timmar om principen är `UpgradeDomainWise`
 - Klustret Läs in – varje uppdatering åtgärden kräver att flytta arbetsbelastningen kunden till andra tillgängliga noder i klustret. Noden som för tillfället patch stå i [inaktiveras](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabling) tillstånd under den här tiden. Om klustret körs nära hög belastning, tar Inaktivera processen längre tid. Därför verkar övergripande korrigeringsprocessen vara långsam under under belastning förhållanden.
@@ -411,3 +408,8 @@ En administratör måste ingripa och avgöra varför programmet eller kluster fi
 - Ange InstallWindowsOSOnlyUpdates till false nu installerar alla tillgängliga uppdateringar.
 - Ändra logiken för att inaktivera automatiska uppdateringar. Det löser en bugg där automatiska uppdateringar har inte ska inaktiveras på Server 2016 och senare.
 - Parametriserade placering begränsningen för båda mikrotjänster av POA för avancerade usecases.
+
+### <a name="version-131"></a>Version 1.3.1
+- Åtgärda regression där POA 1.3.0 fungerar inte på Windows Server 2012 R2 eller lägre på grund av fel i inaktivera automatiska uppdateringar. 
+- Åtgärda fel där InstallWindowsOSOnlyUpdates configuration alltid har valts som True.
+- Ändra standardvärdet för InstallWindowsOSOnlyUpdates till FALSKT.

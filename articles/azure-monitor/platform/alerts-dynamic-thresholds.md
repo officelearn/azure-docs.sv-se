@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 4024ecddde4b0d020e2c657214a4a258ea0b2ea5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 92a6d0f0cd9ef9a7d246624f89315a87a7fb26f9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449018"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097817"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Måttaviseringar med dynamiska tröskelvärden i Azure Monitor (förhandsversion)
 
@@ -21,7 +21,7 @@ Metrisk varning med dynamiska tröskelvärden identifiering utnyttjar avancerad 
 
 När en varningsregel har skapats kan aktiveras den endast när det övervakade måtten inte fungerar som förväntat, baserat på dess skräddarsydda tröskelvärden.
 
-Vi vill gärna höra dina synpunkter, hålla det kommer på azurealertsfeedback@microsoft.com.
+Vi vill gärna höra dina synpunkter, hålla det kommer på <azurealertsfeedback@microsoft.com>.
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>När och varför använder dynamisk Villkorstyp rekommenderas?
 
@@ -37,7 +37,7 @@ Aviseringar med dynamiska tröskelvärden kan konfigureras via aviseringar för 
 
 ## <a name="how-are-the-thresholds-calculated"></a>Hur beräknas tröskelvärdena?
 
-Dynamiskt tröskelvärde kontinuerligt lär sig av data för mått-serien och försöker att modellera den med hjälp av en uppsättning algoritmer och metoder. och försöker att modellera den med hjälp av en uppsättning algoritmer och metoder. Den identifierar mönster i data, till exempel säsongsvärdet (per timme / dag / vecka) och kan hantera bort störande mått (till exempel dator CPU eller minne) samt mått med låg spridning (till exempel tillgänglighet och fel-pris).
+Dynamiska tröskelvärden kontinuerligt lär sig av data för mått-serien och försöker att modellera den med hjälp av en uppsättning algoritmer och metoder. Den identifierar mönster i data, till exempel säsongsvärdet (per timme / dag / vecka) och kan hantera bort störande mått (till exempel dator CPU eller minne) samt mått med låg spridning (till exempel tillgänglighet och fel-pris).
 
 Tröskelvärdena som är markerade så att en avvikelse från de här tröskelvärdena visar avvikelser i måttbeteendet.
 
@@ -80,3 +80,80 @@ Förmodligen inte. Dynamiska tröskelvärden är bra för identifiering av betyd
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>Hur mycket data används för att förhandsgranska och sedan beräkna tröskelvärden?
 
 De tröskelvärden som visas i diagrammet, innan en varningsregel skapas på måttet beräknas baserat på de senaste 10 dagarna av historiska data när en varningsregel har skapats, dynamiska tröskelvärden kommer skaffa ytterligare historiska data som är tillgänglig och kommer Läs hela tiden baserat på nya data att göra det mer exakta tröskelvärdena.
+
+## <a name="dynamic-thresholds-best-practices"></a>Metodtips för dynamiska tröskelvärden
+
+Dynamiska tröskelvärden kan tillämpas på valfri plattform eller ett anpassat mått i Azure Monitor och den har också justerad för vanliga mått för program och infrastruktur.
+Följande objekt är bästa metoder för hur du konfigurerar aviseringar på några av de här måtten med dynamiska tröskelvärden.
+
+### <a name="dynamic-thresholds-on-virtual-machine-cpu-percentage-metrics"></a>Dynamiska tröskelvärden på mätvärden för virtuell dator CPU-procent
+
+1. I [Azure-portalen](https://portal.azure.com), klicka på **övervakaren**. Övervakarevyn samlas alla dina övervakningsinställningar och -data i en vy.
+
+2. Klicka på **aviseringar** klickar **+ ny aviseringsregel**.
+
+    > [!TIP]
+    > De flesta resursbladen har också **aviseringar** i sina resursmenyn under **övervakning**, du kan skapa aviseringar därifrån också.
+
+3. Klicka på **Välj mål**, i fönstret kontext som läser in väljer du en målresurs som du vill att Avisera om. Använd **prenumeration** och **”virtuella datorer” resurstypen** listrutor för att hitta resursen som du vill övervaka. Du kan också använda sökfältet för att hitta din resurs.
+
+4. När du har valt en målresurs, klickar du på **Lägg till villkor**.
+
+5. Välj den **CPU-procent**.
+
+6. Du kan också förfina måttet genom att justera **Period** och **aggregering**. Det rekommenderas inte för att använda, Maximum, sammansättningstyp för den här Måttyp eftersom det är mindre representativ för beteende. För ”högsta' aggregering typen statisk tröskelvärdet kanske är mer lämpliga.
+
+7. Du ser ett diagram för måttet för de senaste 6 timmarna. Definiera parametrarna som aviseringen:
+    1. **Ange ett villkor för typen** -väljer alternativet ”dynamiska”.
+    1. **Känslighet** -Välj Medium/låg känslighet för att minska onödig avisering.
+    1. **Operatorn** -väljer ”större än' om inte beteendet representerar programanvändningen.
+    1. **Frekvens** -Överväg att sänka baserat på inverkan på företaget för aviseringen.
+    1. **Misslyckas perioder** (avancerade alternativ) - fönstret titt backend ska vara minst 15 minuter. Till exempel om perioden är inställt på fem minuter, ska misslyckas perioder vara minst tre eller fler.
+
+8. Metrisk diagrammet visar beräknade tröskelvärden baserat på senaste data.
+
+9. Klicka på **Klar**.
+
+10. Fyll i **aviseringsinformation** som **avisering Regelnamn**, **beskrivning**, och **allvarlighetsgrad**.
+
+11. Lägg till en åtgärdsgrupp till aviseringen genom att välja en befintlig åtgärdsgrupp eller skapa en ny åtgärdsgrupp.
+
+12. Klicka på **klar** att spara måttaviseringsregel.
+
+> [!NOTE]
+> Metrisk varning regler som skapats via portalen skapas i samma resursgrupp som målresursen.
+
+### <a name="dynamic-thresholds-on-application-insights-http-request-execution-time"></a>Körningstid för dynamiska tröskelvärden på Application Insights HTTP-begäran
+
+1. I [Azure-portalen](https://portal.azure.com), klicka på **övervakaren**. Övervakarevyn samlas alla dina övervakningsinställningar och -data i en vy.
+
+2. Klicka på **aviseringar** klickar **+ ny aviseringsregel**.
+
+    > [!TIP]
+    > De flesta resursbladen har också **aviseringar** i sina resursmenyn under **övervakning**, du kan skapa aviseringar därifrån också.
+
+3. Klicka på **Välj mål**, i fönstret kontext som läser in väljer du en målresurs som du vill att Avisera om. Använd **prenumeration** och **”Application Insights” resurstypen** listrutor för att hitta resursen som du vill övervaka. Du kan också använda sökfältet för att hitta din resurs.
+
+4. När du har valt en målresurs, klickar du på **Lägg till villkor**.
+
+5. Välj den **'Körningstid för HTTP-begäran ”**.
+
+6. Du kan också förfina måttet genom att justera **Period** och **aggregering**. Det rekommenderas inte för att använda, Maximum, sammansättningstyp för den här Måttyp eftersom det är mindre representativ för beteende. För ”högsta' aggregering typen statisk tröskelvärdet kanske är mer lämpliga.
+
+7. Du ser ett diagram för måttet för de senaste 6 timmarna. Definiera parametrarna som aviseringen:
+    1. **Ange ett villkor för typen** -väljer alternativet ”dynamiska”.
+    1. **Operatorn** -Välj ”större än' att minska aviseringar som utlösts på förbättring i varaktighet.
+    1. **Frekvens** -Överväg att sänka baserat på inverkan på företaget för aviseringen.
+
+8. Metrisk diagrammet visar beräknade tröskelvärden baserat på senaste data.
+
+9. Klicka på **Klar**.
+
+10. Fyll i **aviseringsinformation** som **avisering Regelnamn**, **beskrivning**, och **allvarlighetsgrad**.
+
+11. Lägg till en åtgärdsgrupp till aviseringen genom att välja en befintlig åtgärdsgrupp eller skapa en ny åtgärdsgrupp.
+
+12. Klicka på **klar** att spara måttaviseringsregel.
+
+> [!NOTE]
+> Metrisk varning regler som skapats via portalen skapas i samma resursgrupp som målresursen.

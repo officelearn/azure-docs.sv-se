@@ -16,28 +16,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: e3f17dd3717a57d184be7c9b8c73855c3fd2a768
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 33326aa0f033800268d0eb439f9c8c81b4d2e675
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106778"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094401"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>Etablera den virtuella datorn för datavetenskap för Linux (Ubuntu)
 
 Den virtuella datorn för datavetenskap för Linux är en Ubuntu-baserad VM-avbildning som gör det enkelt att komma igång med machine learning, inklusive djupinlärning på Azure. Deep learning-verktyg är:
 
-  * [Caffe](http://caffe.berkeleyvision.org/): ett ramverk för djupinlärning som skapats för hastighet, expressivity och modularitet
-  * [Caffe2](https://github.com/caffe2/caffe2): en plattformsoberoende version av Caffe
-  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): en toolkit för programvara från Microsoft Research för djupinlärning
-  * [H2O](https://www.h2o.ai/): en öppen källkod stordataplattform och grafiskt användargränssnitt
-  * [Keras](https://keras.io/): ett övergripande neural network API i Python för Theano och TensorFlow
-  * [MXNet](http://mxnet.io/): en flexibla, effektiva deep learning-biblioteket med många språkbindningar
-  * [NVIDIA SIFFROR](https://developer.nvidia.com/digits): ett grafiskt system som förenklar vanliga uppgifter för djupinlärning
-  * [PyTorch](http://pytorch.org/): ett övergripande Python-bibliotek med stöd för dynamisk nätverk
-  * [TensorFlow](https://www.tensorflow.org/): ett bibliotek för öppen källkod för maskinintelligens från Google
-  * [Theano](http://deeplearning.net/software/theano/): en Python-bibliotek för att definiera, optimera och effektivt utvärderar matematiska uttryck som involverar flerdimensionella matriser
-  * [Torch](http://torch.ch/): ett ramverk för vetenskapliga databehandling med brett stöd för machine learning-algoritmer
+  * [Caffe](http://caffe.berkeleyvision.org/): Ett ramverk för djupinlärning som skapats för hastighet, expressivity och modularitet
+  * [Caffe2](https://github.com/caffe2/caffe2): En plattformsoberoende version av Caffe
+  * [Microsoft Cognitive Toolkit](https://github.com/Microsoft/CNTK): Verktyget för programvara från Microsoft Research för djupinlärning
+  * [H2O](https://www.h2o.ai/): En öppen källkod stordataplattform och grafiskt användargränssnitt
+  * [Keras](https://keras.io/): Ett övergripande neural network API i Python för Theano och TensorFlow
+  * [MXNet](http://mxnet.io/): En flexibla, effektiva deep learning-biblioteket med många språkbindningar
+  * [NVIDIA DIGITS](https://developer.nvidia.com/digits): Ett grafiskt system som förenklar vanliga uppgifter för djupinlärning
+  * [PyTorch](http://pytorch.org/): Ett övergripande Python-bibliotek med stöd för dynamisk nätverk
+  * [TensorFlow](https://www.tensorflow.org/): Ett bibliotek för öppen källkod för maskinintelligens från Google
+  * [Theano](http://deeplearning.net/software/theano/): Ett Python-bibliotek för att definiera, optimera och effektivt utvärderar matematiska uttryck som involverar flerdimensionella matriser
+  * [Torch](http://torch.ch/): Ett vetenskapliga databehandling ramverk med brett stöd för machine learning-algoritmer
   * CUDA-, cuDNN- och NVIDIA-drivrutin
   * Många exempel Jupyter-anteckningsböcker
 
@@ -53,10 +53,10 @@ Den virtuella datorn för datavetenskap för Linux innehåller även populära v
 * Azure Lagringsutforskaren
 * Azure-kommandoradsgränssnittet (CLI) för att hantera Azure-resurser
 * Machine learning-verktyg
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): snabb machine learning-system som har stöd för tekniker som online, hash, allreduce, sänkt, learning2search, aktiv, och interaktiva utbildningar
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): ett verktyg för att tillhandahålla snabba och exakta bättre trädet-implementering
-  * [Rattle](https://togaware.com/rattle/): ett grafiskt verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt
-  * [LightGBM](https://github.com/Microsoft/LightGBM): en snabb, distribuerad, högpresterande gradient boosting framework
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Ett system för snabb maskininlärning som stöd för tekniker som online hashing allreduce, sänkt, learning2search, aktiv, och interaktiv utbildning
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Ett verktyg för att tillhandahålla snabba och exakta bättre trädet-implementering
+  * [Rattle](https://togaware.com/rattle/): Ett grafiskt verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt
+  * [LightGBM](https://github.com/Microsoft/LightGBM): En snabb, distribuerad, högpresterande gradient boosting framework
 * Azure SDK i Java, Python, node.js, Ruby, PHP
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Utvecklingsverktyg och -redigerare (RStudio, PyCharm, IntelliJ, Emacs, vim)
@@ -89,12 +89,12 @@ Här följer stegen för att skapa en instans av den virtuella datorn för datav
    
    a. **Grunderna**:
    
-   * **Namn på**: namnet på din data science-server som du skapar.
+   * **Namn**: Namnet på din data science-server som du skapar.
    * **Typ av virtuell Datordisk**: Välj **Premium SSD** om du föredrar en Solid State-hårddisk (SSD). Annars väljer du **Standard HDD**. 
-   * **Användarnamnet**: första kontoinloggningen ID.
-   * **Lösenord**: första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
-   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-   * **Resursgrupp**: du kan skapa en ny eller Använd en befintlig grupp.
+   * **Användarnamn**: Första kontoinloggningen-ID.
+   * **Lösenord**: Första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
+   * **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+   * **Resursgrupp**: Du kan skapa en ny eller Använd en befintlig grupp.
    * **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
    
    b. **Storlek**:
@@ -133,11 +133,11 @@ Linux VM är redan upprättad med X2Go server och redo att ta emot klientanslutn
 1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
-     * **Värden**: värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
-     * **Logga in**: användarnamn på Linux-VM.
-     * **SSH-porten**: lämnar det på 22, standardvärdet.
-     * **Sessionstyp**: ändrar du värdet till XFCE. Linux VM stöder för närvarande endast XFCE desktop.
-   * **Media-flik**: du kan inaktivera stöd för ljud och skriva ut om du inte behöver använda dem-klienten.
+     * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
+     * **logga in**: Användarnamn på Linux-VM.
+     * **SSH Port**: Lämna det på 22, standardvärdet.
+     * **Sessionstyp**: Ändra värdet till XFCE. Linux VM stöder för närvarande endast XFCE desktop.
+   * **Media-flik**: Du kan inaktivera stöd för ljud och skriva ut om du inte behöver använda dem-klienten.
    * **Delade mappar**: Om du vill kataloger från dina klientdatorer som är monterad på Linux-VM, lägger du till de klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
 
 När du loggar in till den virtuella datorn med hjälp av SSH-klient eller XFCE grafiska desktop via X2Go klienten, är du redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. På XFCE, kan du se genvägar på Program-menyn och ikoner på skrivbordet för många av verktygen.
@@ -220,7 +220,7 @@ Aktivera py35 miljön igen:
 
 Om du vill anropa en interaktiv session Python, skriver du **python** i gränssnittet. 
 
-Installera ytterligare Python-bibliotek med ```conda``` eller ````pip```` . För pip, aktivera rätt miljö först om du inte vill att standard:
+Installera ytterligare Python-bibliotek med ```conda``` eller ```pip``` . För pip, aktivera rätt miljö först om du inte vill att standard:
 
     source activate root
     pip install <package>
@@ -271,7 +271,7 @@ Innan du kör i Spark-kontexten i Microsoft R Server som du behöver göra en en
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att köra ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
+Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att köra ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
 
 ### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
 Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM, Emacs, RStudio pycharm med IntelliJ. IntelliJ, RStudio och PyCharm finns grafiska redigerare du måste vara inloggad på ett grafiskt skrivbord kan använda dem. Dessa redigerare har skrivbord och programtjänster menyn genvägar att starta dem.
@@ -296,11 +296,11 @@ Mer information finns i [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Kommandoradsverktyg för att komma åt Microsoft SQL Server
 Paketets ODBC-drivrutinen för SQL Server levereras med två kommandoradsverktyg:
 
-**BCP**: bcp-verktyget bulk kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett format som angetts av användaren. Bcp-verktyget för att importera stora mängder nya rader till SQL Server-tabeller eller exportera data från tabeller till datafiler. Om du vill importera data till en tabell, måste antingen använda en formatfil som skapats för tabellen eller förstå strukturen för tabellen och vilka typer av data som är giltiga för sina kolumner.
+**bcp**: Bcp-verktyget bulk kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett format som angetts av användaren. Bcp-verktyget för att importera stora mängder nya rader till SQL Server-tabeller eller exportera data från tabeller till datafiler. Om du vill importera data till en tabell, måste antingen använda en formatfil som skapats för tabellen eller förstå strukturen för tabellen och vilka typer av data som är giltiga för sina kolumner.
 
 Mer information finns i [ansluter med bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: du kan ange Transact-SQL-uttryck med sqlcmd-verktyget, samt system procedurer och skriptfiler i Kommandotolken. Det här verktyget använder ODBC för att köra Transact-SQL-satser.
+**sqlcmd**: Du kan ange Transact-SQL-uttryck med sqlcmd-verktyget, samt system procedurer och skriptfiler i Kommandotolken. Det här verktyget använder ODBC för att köra Transact-SQL-satser.
 
 Mer information finns i [ansluter med sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -318,13 +318,13 @@ Det finns bibliotek som är tillgängliga i R och Python till access-databaser.
 ### <a name="azure-tools"></a>Azure-verktyg
 Följande Azure-verktygen är installerade på den virtuella datorn:
 
-* **Azure-kommandoradsgränssnittet**: The Azure CLI kan du skapa och hantera Azure-resurser via shell-kommandon. För att anropa Azure-verktygen, skriver du **azure hjälp**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure-kommandoradsgränssnittet**: Azure CLI kan du skapa och hantera Azure-resurser via shell-kommandon. För att anropa Azure-verktygen, skriver du **azure hjälp**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer är ett grafiskt verktyg som används för att bläddra igenom objekten som du har lagrat i Azure storage-kontot, och för att ladda upp och ned data till och från Azure-blobar. Du kan komma åt Storage Explorer från ikonen genvägen på skrivbordet. Du kan anropa det från en shell-prompten genom att skriva **StorageExplorer**. Du måste vara inloggad på en X2Go-klient eller har X11 vidarebefordran set upp.
-* **Azure-bibliotek**: följande är några av de förinstallerade biblioteken.
+* **Azure-bibliotek**: Följande är några av de förinstallerade biblioteken.
   
-  * **Python**: Azure-relaterade bibliotek i Python som är installerade är **azure**, **azureml**, **pydocumentdb**, och **pyodbc**. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
-  * **R**: Azure-relaterade bibliotek i R som är installerade är **AzureML** och **RODBC**.
-  * **Java**: listan över Azure Java-bibliotek finns i katalogen **/dsvm/sdk/AzureSDKJava** på den virtuella datorn. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
+  * **Python**: Azure-relaterade-bibliotek i Python som är installerade är **azure**, **azureml**, **pydocumentdb**, och **pyodbc**. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
+  * **R**: Azure-relaterade biblioteken i R som är installerade är **AzureML** och **RODBC**.
+  * **Java**: Listan över Azure Java-bibliotek finns i katalogen **/dsvm/sdk/AzureSDKJava** på den virtuella datorn. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
 
 Du kan komma åt den [Azure-portalen](https://portal.azure.com) från den förinstallerade webbläsaren Firefox. På Azure-portalen kan du skapa, hantera och övervaka Azure-resurser.
 
@@ -345,12 +345,12 @@ Information om hur du distribuerar modeller i R och Python i Azure Machine Learn
 ### <a name="machine-learning-tools"></a>Machine learning-verktyg
 Den virtuella datorn kommer med några machine learning-verktyg och algoritmer som har förväg kompilerad och förinstallerade lokalt. Exempel på dessa är:
 
-* **Vowpal Wabbit**: en snabb online inlärningsalgoritm.
-* **xgboost**: ett verktyg som tillhandahåller optimerade, bättre algoritmer.
-* **Rattle**: någon R-baserade grafiskt verktyg för att enkelt datagranskning och modellering.
+* **Vowpal Wabbit**: En snabb online inlärningsalgoritm.
+* **xgboost**: Ett verktyg som tillhandahåller optimerade, bättre algoritmer.
+* **Rattle**: Ett R-baserad grafiska verktyg för enkel datagranskning och modellering.
 * **Python**: Anaconda Python medföljer machine learning-algoritmer med bibliotek som lär du dig Scikit. Du kan installera andra bibliotek med hjälp av den `pip install` kommando.
-* **LightGBM**: en snabb, distribuerad, högpresterande gradient boosting framework baserat på beslut algoritmer.
-* **R**: ett omfattande bibliotek med machine learning-funktioner är tillgängliga för R. Vissa av de bibliotek som är förinstallerade är lm, glm, randomForest, rpart. Andra bibliotek kan installeras genom att köra:
+* **LightGBM**: En snabb, distribuerad, högpresterande gradient boosting framework baserat på beslut algoritmer.
+* **R**: Ett omfattande bibliotek med machine learning-funktioner är tillgängliga för R. Vissa av de bibliotek som är förinstallerade är lm, glm, randomForest, rpart. Andra bibliotek kan installeras genom att köra:
   
         install.packages(<lib name>)
 

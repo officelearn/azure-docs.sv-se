@@ -8,17 +8,16 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8235ba65d9e2e000995d338c200a61845911fbff
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 05812d3c1f1596cbc560d50ac37a058d9438581a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426751"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101544"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>De resurser som stöds för måttaviseringar i Azure Monitor
 
 Azure Monitor nu stöder en [nya måttaviseringstypen](../../azure-monitor/platform/alerts-overview.md) som har betydande fördelar över den äldre [klassiska måttaviseringar](../../azure-monitor/platform/alerts-classic.overview.md). Mått är tillgängliga för [lång lista med Azure-tjänster](../../azure-monitor/platform/metrics-supported.md). En (växande) delmängd av resurstyperna som har stöd för nyare aviseringar. Den här artikeln innehåller dessa användare.
-
 
 Du kan också använda nyare måttaviseringar på den populära Log Analytics loggar extraherade som mått. Mer information finns [mått aviseringar för loggar](../../azure-monitor/platform/alerts-metric-logs.md).
 
@@ -65,57 +64,56 @@ Här är en fullständig lista över Azure monitor mått källor som stöds av d
 | Microsoft.Web/sites/slots | Ja | [App Service-fack](../../azure-monitor/platform/metrics-supported.md#microsoftwebsitesslots)|
 |Microsoft.OperationalInsights/workspaces| Ja|[Log Analytics-arbetsytor](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 
-
-
 ## <a name="payload-schema"></a>Nyttolast-schema
 
 POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla nära nyare måttaviseringar när en korrekt konfigurerad [åtgärdsgrupp](../../azure-monitor/platform/action-groups.md) används:
 
 ```json
-{"schemaId":"AzureMonitorMetricAlert","data":
-    {
+{
+  "schemaId": "AzureMonitorMetricAlert",
+  "data": {
     "version": "2.0",
     "status": "Activated",
     "context": {
-    "timestamp": "2018-02-28T10:44:10.1714014Z",
-    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
-    "name": "StorageCheck",
-    "description": "",
-    "conditionType": "SingleResourceMultipleMetricCriteria",
-    "condition": {
-      "windowSize": "PT5M",
-      "allOf": [
-        {
-          "metricName": "Transactions",
-          "dimensions": [
-            {
-              "name": "AccountResourceId",
-              "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-            },
-            {
-              "name": "GeoType",
-              "value": "Primary"
-            }
-          ],
-          "operator": "GreaterThan",
-          "threshold": "0",
-          "timeAggregation": "PT5M",
-          "metricValue": 1.0
-        },
-      ]
+      "timestamp": "2018-02-28T10:44:10.1714014Z",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/microsoft.insights/metricAlerts/StorageCheck",
+      "name": "StorageCheck",
+      "description": "",
+      "conditionType": "SingleResourceMultipleMetricCriteria",
+      "condition": {
+        "windowSize": "PT5M",
+        "allOf": [
+          {
+            "metricName": "Transactions",
+            "dimensions": [
+              {
+                "name": "AccountResourceId",
+                "value": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
+              },
+              {
+                "name": "GeoType",
+                "value": "Primary"
+              }
+            ],
+            "operator": "GreaterThan",
+            "threshold": "0",
+            "timeAggregation": "PT5M",
+            "metricValue": 1
+          }
+        ]
+      },
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "resourceGroupName": "Contoso",
+      "resourceName": "diag500",
+      "resourceType": "Microsoft.Storage/storageAccounts",
+      "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
+      "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
     },
-    "subscriptionId": "00000000-0000-0000-0000-000000000000",
-    "resourceGroupName": "Contoso",
-    "resourceName": "diag500",
-    "resourceType": "Microsoft.Storage/storageAccounts",
-    "resourceId": "/subscriptions/1e3ff1c0-771a-4119-a03b-be82a51e232d/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500",
-    "portalLink": "https://portal.azure.com/#resource//subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Contoso/providers/Microsoft.Storage/storageAccounts/diag500"
-  },
-        "properties": {
-                "key1": "value1",
-                "key2": "value2"
-        }
+    "properties": {
+      "key1": "value1",
+      "key2": "value2"
     }
+  }
 }
 ```
 
@@ -124,4 +122,3 @@ POST-åtgärd innehåller följande JSON-nyttolast och schemat för alla nära n
 * Mer information om den nya [aviseringar upplevelse](../../azure-monitor/platform/alerts-overview.md).
 * Lär dig mer om [loggaviseringar i Azure](../../azure-monitor/platform/alerts-unified-log.md).
 * Lär dig mer om [aviseringar i Azure](../../azure-monitor/platform/alerts-overview.md).
-

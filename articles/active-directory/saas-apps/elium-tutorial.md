@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Elium | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Elium | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Elium.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: fae344b3-5bd9-40e2-9a1d-448dcd58155f
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: jeedes
-ms.openlocfilehash: dfa90474632b2cf18055e0ba95994f120cb293ef
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ac88d3accad8aa9ec523ecce5eb11b6c10eb913c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447792"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181494"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Självstudier: Azure Active Directory-integration med Elium
+# <a name="tutorial-azure-active-directory-integration-with-elium"></a>Självstudier: Azure Active Directory-integrering med Elium
 
 I den här självstudien får du lära dig hur du integrerar Elium med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Elium med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Elium.
 - Du kan aktivera användarna att automatiskt få loggat in på Elium (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Elium, behöver du följande obj
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ För att konfigurera integrering av Elium i Azure AD, som du behöver lägga til
 
 **Utför följande steg för att lägga till Elium från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ För att konfigurera integrering av Elium i Azure AD, som du behöver lägga til
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av Elium i Azure AD, som du behöver lägga til
 
     ![Elium i resultatlistan](./media/elium-tutorial/tutorial_elium_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Elium baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -84,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Elium, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Elium](#create-an-elium-test-user)**  – du har en motsvarighet för Britta Simon i Elium som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Elium program.
 
@@ -98,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Elium** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -108,15 +108,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Elium domän och URL: er med enkel inloggning för information](./media/elium-tutorial/tutorial_elium_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<platform-domain>.elium.com/login/saml2/metadata`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<platform-domain>.elium.com/login/saml2/metadata`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<platform-domain>.elium.com/login/saml2/acs`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<platform-domain>.elium.com/login/saml2/acs`
 
 1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Elium domän och URL: er med enkel inloggning för information](./media/elium-tutorial/tutorial_elium_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: ` https://<platform-domain>.elium.com/login/saml2/login`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: ` https://<platform-domain>.elium.com/login/saml2/login`
      
     > [!NOTE] 
     > Dessa värden är inte verkliga. Du får dessa värden från den **SP metadatafil** laddas ner `https://<platform-domain>.elium.com/login/saml2/metadata`, som beskrivs senare i den här självstudien.
@@ -129,11 +129,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
            
     | Attributnamn | Attributvärde |   
     | ---------------| ----------------|
-    | e-post   |User.Mail |
-    | Förnamn| User.givenName |
-    | Efternamn| User.surname|
-    | befattning| User.jobtitle|
-    | Företagets| User.CompanyName|
+    | e-post   |user.mail |
+    | first_name| user.givenname |
+    | last_name| user.surname|
+    | job_title| User.jobtitle|
+    | Företagets| user.companyname|
     
     > [!NOTE]
     > Det här är standard-anspråk. **Endast e-anspråk krävs**. Anspråk är obligatoriskt för JIT etablering också bara e-post. Andra anpassade anspråk kan variera från plattform som en kund till en annan kund-plattform.
@@ -142,7 +142,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/elium-tutorial/tutorial_attribute_04.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     ![Konfigurera enkel inloggning](./media/elium-tutorial/tutorial_attribute_05.png)
 
@@ -158,7 +158,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/elium-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/elium-tutorial/tutorial_general_400.png)
     
 1. I ett annat webbläsarfönster logga du in på webbplatsen Elium företag som administratör.
 
@@ -166,7 +166,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/elium-tutorial/user1.png)
 
-1. Välj **Security** fliken.
+1. Välj fliken **Säkerhet**.
 
     ![Konfigurera enkel inloggning](./media/elium-tutorial/user2.png)
 
@@ -231,9 +231,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-an-elium-test-user"></a>Skapa en Elium testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Elium. Elium stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Elium om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Elium. Elium stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Elium om det inte finns ännu.
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Elium supportteamet](mailto:support@elium.com).
+>Om du vill skapa en användare manuellt kan du kontakta [Elium supportteamet](mailto:support@elium.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

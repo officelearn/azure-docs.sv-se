@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med IQNavigator VMS | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med IQNavigator VMS | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och IQNavigator VMS.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: femila
 ms.assetid: a8a09b25-dfa5-4c31-aea2-53bf1853b365
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: jeedes
-ms.openlocfilehash: f568f33de348289334c4b4c346e9525e28cce51c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 062c83c7e1d621a80a5e81cdaf6b070eb446453c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445130"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180542"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Självstudier: Azure Active Directory-integration med IQNavigator VMS
+# <a name="tutorial-azure-active-directory-integration-with-iqnavigator-vms"></a>Självstudier: Azure Active Directory-integrering med IQNavigator VMS
 
 I den här självstudien får du lära dig hur du integrerar IQNavigator VMS med Azure Active Directory (AD Azure).
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med IQNavigator VMS, behöver du fö
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö kan du kan få en månads utvärdering här [– prova](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -59,17 +59,17 @@ För att konfigurera integrering av IQNavigator VMS i Azure AD, som du behöver 
 
 **Utför följande steg för att lägga till IQNavigator VMS från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Active Directory][1]
 
 1. Gå till **företagsprogram**. Gå till **alla program**.
 
-    ![Program][2]
+    ![Appar][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-    ![Program][3]
+    ![Appar][3]
 
 1. I sökrutan skriver **IQNavigator VMS**.
 
@@ -114,7 +114,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare** textrutan anger du URL:`iqn.com`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.iqnavigator.com/security/login?client_name=https://sts.window.net/<instance name>`
 
 1. Kontrollera **visa avancerade URL-inställningar**, utföra följande steg:
 
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med bibliotekets aktuella tillstånd för svars-URL och Relay. Kontakta [IQNavigator VMS klienten supportteamet](https://www.beeline.com/iqn-product-support/) att hämta dessa värden.
 
-1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
+1. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
     
     ![Konfigurera enkel inloggning](./media/iqnavigatorvms-tutorial/tutorial_metadataurl.png)
 
@@ -133,7 +133,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_attribute.png)
 
-1. Klicka på **spara** knappen.
+1. Klicka på knappen **Spara**.
 
     ![Konfigurera enkel inloggning](./media/iqnavigatorvms-tutorial/tutorial_general_400.png)
 
@@ -141,10 +141,10 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](./media/iqnavigatorvms-tutorial/tutorial_iqnavigatorvms_configure.png)
 
-1. Att konfigurera enkel inloggning på **IQNavigator VMS** sida, som du behöver skicka den **Appfederationsmetadata**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [IQNavigator VMS supportteamet](https://www.beeline.com/iqn-product-support/). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **IQNavigator VMS** sida, som du behöver skicka den **Appfederationsmetadata**, **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL**till [IQNavigator VMS supportteamet](https://www.beeline.com/iqn-product-support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
 ![Skapa en Azure AD-användare][100]
 
@@ -213,7 +213,7 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
 När du klickar på panelen IQNavigator VMS i åtkomstpanelen du bör få automatiskt loggat in på ditt IQNavigator VMS-program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
+Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

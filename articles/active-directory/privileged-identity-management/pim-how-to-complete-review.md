@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3955f4bf9b579ae40424c2650f9d3b4c2ac4f030
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc4dcc22cf22f70fcf441c3c8a54aeda2ffd7588
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188594"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189689"
 ---
 # <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM
 Privilegierade rolladministratörer kan granska privilegierad åtkomst när en [åtkomstgranskning har startats](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) skickas automatiskt ett e-postmeddelande som uppmanar användarna att granska åtkomsten. Om en användare inte fått ett e-postmeddelande, kan du skicka dem instruktionerna [så här utför du en åtkomstgranskning](pim-how-to-perform-security-review.md).
@@ -55,4 +55,4 @@ Om du inte är intresserad av att granska ytterligare kan du ta bort den. Den **
 ## <a name="next-steps"></a>Nästa steg
 
 - [Starta en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-start-security-review.md)
-- [Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)

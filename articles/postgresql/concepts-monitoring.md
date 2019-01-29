@@ -6,15 +6,15 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: c412ace453eb37646654375454d80a5c4e8dc3a6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: c936d7946398183f0b0aac025503bb172bc147af
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540919"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101016"
 ---
 # <a name="monitor-and-tune"></a>Övervaka och finjustera
-Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteende för din server.
+Övervakning av data om dina servrar kan du felsöka och optimera din arbetsbelastning. Azure Database för PostgreSQL innehåller olika övervakningsalternativ att ge insikter i beteendet för din server.
 
 ## <a name="metrics"></a>Mått
 Azure Database för PostgreSQL innehåller olika mått som ger inblick i beteendet för de resurser som stödjer PostgreSQL-servern. Varje mått har genererats med en frekvens för en minut och har upp till 30 dagars historik. Du kan konfigurera aviseringar om måtten. Stegvisa anvisningar finns i [hur du konfigurerar aviseringar](howto-alert-on-metric.md). Andra uppgifter är att skapa automatiska åtgärder, utföra avancerade analyser och arkivering historik. Mer information finns i den [översikt över Azure-mått](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

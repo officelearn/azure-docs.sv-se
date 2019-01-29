@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: f610a221dca296561fefab65a6c40b52a5dd292a
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
+ms.openlocfilehash: 43992d25590a58b24c48aad8bfbf6f91b17699ee
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275844"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098089"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure-funktioner med hjälp av Visual Studio  
 
@@ -48,7 +48,7 @@ För att skapa och distribuera functions, behöver du:
 
 * En aktiv Azure-prenumeration. Om du inte har någon Azure-prenumeration [kostnadsfria konton](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) är tillgängliga.
 
-* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto, [skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+* Ett Azure Storage-konto. Om du vill skapa ett lagringskonto kan du läsa mer i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
 
 ### <a name="check-your-tools-version"></a>Kontrollera vilken version av verktyg
 
@@ -78,9 +78,9 @@ För att skapa och distribuera functions, behöver du:
 
 Projektmallen skapar ett C#-projekt, installerar den `Microsoft.NET.Sdk.Functions` NuGet-paketet, och anger målramverk. Fungerar 1.x mål .NET Framework och 2.x mål .NET Standard-funktioner. Det nya projektet har följande filer:
 
-* **Host.JSON**: låter dig konfigurera Functions-värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [referens för host.json](functions-host-json.md).
+* **host.json**: Kan du konfigurera Functions-värden. Dessa inställningar gäller både när du kör lokalt och i Azure. Mer information finns i [referens för host.json](functions-host-json.md).
 
-* **Local.Settings.JSON**: underhåller inställningar som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
+* **local.settings.json**: Sparar inställningarna som används när du kör funktioner lokalt. De här inställningarna används inte av Azure, de som används av den [Azure Functions Core Tools](functions-run-local.md). Använd den här filen för att ange inställningar för variabler som krävs av dina funktioner. Lägg till ett nytt objekt i den **värden** matris för varje anslutning som krävs av funktions-bindningar i projektet. Mer information finns i [lokala inställningsfilen](functions-run-local.md#local-settings-file) i Azure Functions Core Tools-artikeln.
 
     >[!IMPORTANT]
     >Eftersom filen local.settings.json kan innehålla hemligheter, måste den undantas från ditt projekt källkontroll. Den **kopiera till utdatakatalog** inställningen för den här filen bör alltid vara **kopiera om nyare**. 
@@ -115,7 +115,7 @@ I förväg kompilerad funktion definieras de bindningar som används av funktion
 
     Till exempel representerar följande C#-klass ett grundläggande kö funktion som utlöses storage:
 
-    ````csharp
+    ```csharp
     using System;
     using Microsoft.Azure.WebJobs;
     using Microsoft.Azure.WebJobs.Host;
@@ -132,7 +132,7 @@ I förväg kompilerad funktion definieras de bindningar som används av funktion
             }
         }
     }
-    ````
+    ```
     En bindning-specifika attribut tillämpas på varje bindningsparametern som angetts för metoden. Attributet tar bindningsinformationen som parametrar. I exemplet ovan den första parametern har en **QueueTrigger** attributet tillämpas, som anger funktion som utlöses kö. Könamn och namn på anslutningssträng inställningen skickas som parametrar till den **QueueTrigger** attribut. Mer information finns i [Azure Queue storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
     
 Du kan använda proceduren ovan för att lägga till fler funktioner i ditt funktionsappsprojekt. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions-utlösare och bindningar begrepp](functions-triggers-bindings.md).

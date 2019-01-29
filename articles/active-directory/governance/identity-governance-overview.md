@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: compliance
+ms.subservice: compliance
 ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
-ms.openlocfilehash: 20b1c8673bfdb3b2207ed63749f79539c396642c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 887c0bd4246c7c4215cb4d97dfd96db5d2aba6cb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168038"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170026"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Vad är Azure AD-identitetsstyrning?
 
@@ -74,7 +74,7 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 ### <a name="access-reviews"></a>Åtkomstgranskningar
 
 - [Vad är en åtkomstgranskning?](access-reviews-overview.md)
-- [Hantera användarnas åtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
+- [Hantera användaråtkomst med åtkomstgranskningar](manage-user-access-with-access-reviews.md)
 - [Hantera gäståtkomst med åtkomstgranskningar](manage-guest-access-with-access-reviews.md)
 - [Starta en åtkomstgranskning av en katalogroll](../privileged-identity-management/pim-how-to-start-security-review.md)
 
@@ -82,6 +82,6 @@ Azure AD Privileged Identity Management (PIM) ger ytterligare kontroller som är
 
 - [Vad kan jag göra med användningsvillkoren?](active-directory-tou.md)
 
-### <a name="privileged-identity-management"></a>Privileged identity management
+### <a name="privileged-identity-management"></a>Privileged Identity Management
 
 - [Vad är Azure AD PIM?](../privileged-identity-management/pim-configure.md)

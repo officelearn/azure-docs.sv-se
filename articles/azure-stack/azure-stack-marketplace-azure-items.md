@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: d006deb83ca16860eb669548ae8563304f7937fa
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 06252d2fc33fafc27371c45f41f792e8e5abd542
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54306615"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196216"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-objekt tillgängliga för Azure Stack
 
@@ -46,7 +46,7 @@ När det finns uppdateringar av tillägg för virtuell dator (VM) som du använd
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security-agenten för Windows](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.ksws-windows-arm?tab=Overview) | Du kan använda Kaspersky Hybrid Cloud Security för att etablera cybersäkerhet funktioner i dina arbetsbelastningar i molnet via Azure-tillägg. | Kaspersky Lab | Windows |
 | ![Kaspersky](media/azure-stack-marketplace-azure-items/kaspersky.png) | [Kaspersky Hybrid Cloud Security Agent for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/KasperskyLab.kesl-linux-arm?tab=Overview) | Du kan använda Kaspersky Hybrid Cloud Security för att etablera cybersäkerhet funktioner i dina arbetsbelastningar i molnet via Azure-tillägg. | Kaspersky Lab | Linux |
 
-## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft avbildningar av virtuella datorer och mallar för lösningar
+## <a name="microsoft-virtual-machine-images-and-solution-templates"></a>Microsoft Virtual Machine-bilder och mallar för lösningar
 
 Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketplace och lösningsmallar. Hämta eventuella beroenden separat, enligt vad som anges. Program som SQL Server och Machine Learning Server kräver korrekt licensiering, utom där märkta gratis- eller utvärderingsversion.
 
@@ -97,10 +97,11 @@ Microsoft Azure Stack har stöd för följande virtuella datorer i Azure Marketp
 | ![SLES 12 SP3 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 12 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 12 SP3. | SUSE |
 | ![SLES 15 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 15 SP3 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 15. | SUSE |
 
-## <a name="third-party-byol-free-and-trial-images-and-solution-templates"></a>BYOL från tredje part och kostnadsfri utvärderingsversion bilder och mallar för lösningar
+## <a name="third-party-byol-free-trial-images-and-solution-templates"></a>Tredje parts BYOL, kostnadsfri utvärderingsversion bilder och lösningsmallar
 
 |  | Namn på konfigurationsobjekt | Beskrivning | Utgivare |
 | --- | --- | --- | --- |
+| ![A10 vThunder ADC](media/azure-stack-marketplace-azure-items/a10.png) | [A10 vThunder ADC](https://azuremarketplace.microsoft.com/marketplace/apps/a10networks.vthunder-414-gr1) | A10 nätverk vThunder Application Deliver Controller för Microsoft Azure är för hög prestanda, flexibilitet och enkelt att distribuera program och server belastningsutjämning och optimerats för att köras internt i Azure-molnet. | A10 Networks |
 | ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | Arista vEOS routern är en funktionsrik, flera moln och multihypervisor-virtuell router som hjälper företag och molntjänstleverantörer att skapa konsekvent och mycket säker och skalbar hybrid-nätverk. | Arista Networks |
 | ![Barracuda Application Control Säkerhetscenter](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda Application Control Säkerhetscenter](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-app-sec-control-center) | Central hantering av flera Barracuda Web Application brandväggar (WAF). | Barracuda Networks, Inc. |
 | ![Barracuda e-Security-Gateway](media/azure-stack-marketplace-azure-items/barracuda.png) | [Barracuda e-Security-Gateway](https://azuremarketplace.microsoft.com/marketplace/apps/barracudanetworks.barracuda-email-security-gateway) | E-security gateway att skydda mot inkommande e-post via kod. | Barracuda Networks, Inc. |

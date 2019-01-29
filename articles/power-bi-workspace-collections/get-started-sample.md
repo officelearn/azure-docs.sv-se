@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 630413d15df04d27599389f647c57876fff9d295
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51246692"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094435"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Kom igång med Power BI-Arbetsytesamlingar exempel
 
@@ -24,7 +24,7 @@ Med **Microsoft Power BI-Arbetsytesamlingar**, kan du integrera Power BI-rapport
 > [!IMPORTANT]
 > Power BI-arbetsytesamlingar fasas ut och är tillgänglig till juni 2018 eller det som anges i ditt avtal. Du uppmanas att planera migreringen till Power BI Embedded för att undvika avbrott i programmet. Information om hur du migrerar dina data till Power BI Embedded finns i [Migrera Power BI-arbetsytesamlingar till Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/).
 
-Innan vi går vidare, du vill spara följande resurser: de hjälper dig att när de integrerar Power BI-rapporter i exempelappen och dina egna appar för.
+Innan vi går vidare, som du vill spara följande resurser: De hjälper dig att när de integrerar Power BI-rapporter i exempelappen och dina egna appar för.
 
 * [Exempelwebbappen för arbetsytan](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Power BI-arbetsyta samlingar API-referens](https://msdn.microsoft.com/library/azure/mt711507.aspx)
@@ -71,7 +71,7 @@ Nu har du en rapport för Power BI PBIX som importeras till din **arbetsytan**. 
 Web app-exemplet är ett exempelprogram som återger rapporter som importeras till din **arbetsytan**. Här är att konfigurera web app-exemplet.
 
 1. I den **Power BI-inbäddad** Visual Studio-lösning högerklickar du på den **EmbedSample** webbprogrammet och välj **Ställ in som Startprojekt**.
-2. I **web.config**i den **EmbedSample** webbprogram, redigera den **appSettings**: **AccessKey**,  **WorkspaceCollection** namn, och **WorkspaceId**.
+2. I **web.config**i den **EmbedSample** webbprogram, redigera den **appSettings**: **AccessKey**, **WorkspaceCollection** namn, och **WorkspaceId**.
 
     ```
     <appSettings>
@@ -93,7 +93,7 @@ När du klickar på en rapport i **EmbedSample** webbprogram bör se ut ungefär
 
 ## <a name="explore-the-sample-code"></a>Utforska exempelkoden
 
-Den **Microsoft Power BI-Arbetsytesamlingar** exemplet är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkoden som du kan utforska inom den **Power BI-inbäddad** web applösning. Mönstret Model-View-Controller (MVC) avgränsar modellering av domänen, presentation och åtgärder baserat på användarindata i tre separata klasser: modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](http://www.asp.net/mvc).
+Den **Microsoft Power BI-Arbetsytesamlingar** exemplet är en exempelwebbapp som visar hur du integrerar **Power BI** rapporter i din app. Använder en designmönstret Model-View-Controller (MVC) för att demonstrera bästa praxis. Det här avsnittet beskrivs delar av exempelkoden som du kan utforska inom den **Power BI-inbäddad** web applösning. Mönstret Model-View-Controller (MVC) avgränsar modellering av domänen, presentation och åtgärder baserat på användarindata i tre separata klasser: Modell, visa och kontroll. Läs mer om MVC i [Lär dig mer om ASP.NET](http://www.asp.net/mvc).
 
 Den **Microsoft Power BI-Arbetsytesamlingar** exempelkoden avgränsas på följande sätt. Varje avsnitt innehåller namnet på filen i Power BI-embedded.sln lösningen så att du lätt kan hitta koden i exemplet.
 
@@ -104,14 +104,14 @@ Den **Microsoft Power BI-Arbetsytesamlingar** exempelkoden avgränsas på följa
 
 Exemplet har en **ReportsViewModel** och **ReportViewModel**.
 
-**ReportsViewModel.cs**: representerar Power BI-rapporter.
+**ReportsViewModel.cs**: Representerar Power BI-rapporter.
 
     public class ReportsViewModel
     {
         public List<Report> Reports { get; set; }
     }
 
-**ReportViewModel.cs**: representerar en Power BI-rapport.
+**ReportViewModel.cs**: Representerar en Power BI-rapport.
 
     public classReportViewModel
     {
@@ -128,17 +128,17 @@ Anslutningssträngen måste ha följande format:
 Data Source=tcp:MyServer.database.windows.net,1433;Initial Catalog=MyDatabase
 ```
 
-Med hjälp av vanliga servern och databasen attribut misslyckas. Till exempel: Server=tcp:MyServer.database.windows.net,1433;Database=MyDatabase,
+Med hjälp av vanliga servern och databasen attribut misslyckas. Exempel: Server=TCP:myserver.Database.Windows.NET,1433;Database=MyDatabase,
 
 ### <a name="view"></a>Visa
 
 Den **visa** hanterar visningen av Power BI **rapporter** och en Power BI **rapporten**.
 
-**Reports.cshtml**: iterera över **Model.Reports** att skapa en **ActionLink**. Den **ActionLink** består på följande sätt:
+**Reports.cshtml**: Iterera över **Model.Reports** att skapa en **ActionLink**. Den **ActionLink** består på följande sätt:
 
 | En del | Beskrivning |
 | --- | --- |
-| Titel |Namnet på rapporten. |
+| Rubrik |Namnet på rapporten. |
 | QueryString |En länk till rapporten-ID. |
 
     <div id="reports-nav" class="panel-collapse collapse">
@@ -168,7 +168,7 @@ Report.cshtml: Ange den **Model.AccessToken**, och Lambda-uttrycket för **Power
 
 ### <a name="controller"></a>Kontrollenhet
 
-**DashboardController.cs**: skapar en PowerBIClient skicka en **apptoken**. En JSON Web Token (JWT) genereras från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
+**DashboardController.cs**: Skapar en PowerBIClient skicka en **apptoken**. En JSON Web Token (JWT) genereras från den **signeringsnyckeln** att hämta den **autentiseringsuppgifter**. Den **autentiseringsuppgifter** används för att skapa en instans av **PowerBIClient**. När du har en instans av **PowerBIClient**, kan du anropa GetReports() och GetReportsAsync().
 
 CreatePowerBIClient()
 
@@ -228,7 +228,7 @@ När du har en **rapporten**, du använder en **IFrame** att bädda in Power BI 
 ```
 init: function() {
     var embedUrl = this.getEmbedUrl();
-    var iframeHtml = '<igrame style="width:100%;height:100%;" src="' + embedUrl + 
+    var iframeHtml = '<iframe style="width:100%;height:100%;" src="' + embedUrl + 
         '" scrolling="no" allowfullscreen="true"></iframe>';
     this.element.innerHTML = iframeHtml;
     this.iframe = this.element.childNodes[0];

@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: ad14e443f7176a0acb2da3529348fba452f76dee
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 44d33e687d64c7e226a20edf3fdcbbf7bcf859b3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54477965"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55169271"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Fastställa katalogsynkroniseringskrav
 Synkronisering handlar om och ger användarna en identitet i molnet baserat på deras lokala identitet. Oavsett om de använda synkroniserade kontot för autentisering eller federerad autentisering, måste användarna fortfarande att ha en identitet i molnet.  Den här identiteten måste bibehållas och uppdateras regelbundet.  Uppdateringarna kan olika former, från titel ändras till lösenordsändringar.  

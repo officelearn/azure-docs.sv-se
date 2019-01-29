@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/25/2018
 ms.author: ryanwi
-ms.openlocfilehash: 064d73aa3d1a9183eddd53b1a1b8ddbf02afb04d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 426f89437b91bf32efc7d4887c92ebe9cd729b5b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792857"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166296"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -91,8 +91,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>Nästa steg
 Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra appar.
 
-* [Skapa ditt första Service Fabric-program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
-* [Lär dig hur du distribuerar och hanterar program i ditt lokala kluster](service-fabric-get-started-with-a-local-cluster.md)
+* [Lär dig att skapa, distribuera och hantera program](service-fabric-tutorial-create-dotnet-app.md)
 * [Läs mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
 * [Kolla in Service Fabric-kodexemplen på GitHub](https://aka.ms/servicefabricsamples)
 * [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)

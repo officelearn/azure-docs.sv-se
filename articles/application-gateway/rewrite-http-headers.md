@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 3e40dbb96b27df4b228c52e7a8f70d047a556c31
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2babb6ff7b93ad9cf7c93565cadce9453a3b96ca
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198533"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103436"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Skriv om HTTP-huvuden med Application Gateway (offentlig förhandsversion)
 
@@ -94,22 +94,20 @@ Den här funktionen stöder skriva om rubriker till följande servervariabler:
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Returnerar listan över chiffer som stöds av klienten          |
 | ciphers_used               | Returnerar en sträng med chiffer som används för en etablerad SSL-anslutning |
-| client_latitude            | att fastställa land, region och ort beroende på klientens IP-adress |
-| client_longitude           | att fastställa land, region och ort beroende på klientens IP-adress |
 | client_port                | klientport                                                  |
 | client_tcp_rtt             | information om klienten TCP-anslutning. tillgängligt på system som stöder socketalternativet TCP_INFO |
 | client_user                | När du använder HTTP-autentisering, användarnamnet som angetts för autentisering |
 | värd                       | i den här rangordning: värdnamn från begäran linje- eller värdnamnet från fältet ”värd” begäran rubrik eller ett servernamn som matchar en begäran |
 | http_method                | den metod som används för att utföra URL-begäran. Till exempel få POST osv. |
-| HTTP_STATUS                | Sessionsstatus, t.ex.: 200, 400, 403 osv.                       |
+| http_status                | Sessionsstatus, t.ex.: 200, 400, 403 osv.                       |
 | http_version               | begäran-protokollet, vanligtvis ”HTTP/1.0”, ”HTTP/1.1” eller ”HTTP/2.0” |
-| QUERY_STRING               | listan över variabeln / värde-par som följer den ””? i den begärda URL: en. |
+| query_string               | listan över variabeln / värde-par som följer den ””? i den begärda URL: en. |
 | received_bytes             | begärandelängd (inklusive raden för kravet, rubrik och begärandetexten) |
 | request_query              | argument i raden för kravet                                |
 | request_scheme             | begäran-schema, ”http” eller ”https”                            |
 | request_uri                | fullständiga ursprungliga begärande-URI (med argument)                   |
 | sent_bytes                 | antalet byte som skickats till en klient                             |
-| SERVER_PORT                | port på den server som godkänt en begäran                 |
+| server_port                | port på den server som godkänt en begäran                 |
 | ssl_connection_protocol    | Returnerar protokollet för en etablerad SSL-anslutning        |
 | ssl_enabled                | ”on” om fungerar anslutningen i SSL-läge eller en tom sträng som på annat sätt |
 

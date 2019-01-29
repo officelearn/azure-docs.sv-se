@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: 21f8d8ad63e8ea7c134477a6171155c40a2b4dc8
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2a0a4aeded3667b7c8f4a31821adb2fc40339137
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792024"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104107"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -629,7 +629,7 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 |Egenskap   |Standard | Beskrivning |
 |---------|---------|---------| 
 |maxAutoRenewDuration|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.| 
-|automatisk komplettering|false|Utlösaren ska om omedelbart Markera som slutförd (Komplettera automatiskt) eller vänta på att processen för att anropa klar.| 
+|automatisk komplettering|true|Utlösaren ska om omedelbart Markera som slutförd (Komplettera automatiskt) eller vänta på att processen för att anropa klar.| 
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. | 
 |prefetchCount|Saknas|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.| 
 

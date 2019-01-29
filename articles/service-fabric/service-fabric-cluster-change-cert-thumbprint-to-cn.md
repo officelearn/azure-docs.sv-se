@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/01/2019
 ms.author: ryanwi
-ms.openlocfilehash: 6e596b0db1a03efbf6b029487ed956105b632edb
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 0501ccbf2b5d9124a82cb1758e09236e8ad8455a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972812"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197984"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>Ändra kluster från tumavtrycket för certifikatet till unika namn
 Inga två certifikat kan ha samma tumavtryck, vilket gör förnya certifikatet för klustret eller management svårt. Flera certifikat kan dock ha samma namn eller ämne.  Växla ett distribuerat kluster från att använda certifikattumavtryck till att använda vanliga namn för certifikatet gör certifikathantering mycket enklare. Den här artikeln beskriver hur du uppdaterar en Service Fabric-kluster för certifikatets unika namn istället för certifikatets tumavtryck.
@@ -94,6 +94,9 @@ $vmss = Add-AzureRmVmssSecret -VirtualMachineScaleSet $vmss -SourceVaultId $Sour
 Update-AzureRmVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
     -Name $VmssName -VirtualMachineScaleSet $vmss 
 ```
+
+>[!NOTE]
+> Beräknar VM Scale ange hemligheter inte stöder samma resurs-id för två separata hemligheter, eftersom varje hemlighet är en version unik resurs. 
 
 ## <a name="download-and-update-the-template-from-the-portal"></a>Ladda ned och uppdatera mallen från portalen
 Certifikatet har installerats på underliggande skalningsuppsättningen, men du måste också uppdatera Service Fabric-klustret för att använda certifikatet och dess namn.  Hämta nu mallen för distributionen av klustret.  Logga in på den [Azure-portalen](https://portal.azure.com) och navigera till resursgruppen som är värd för klustret.  I **inställningar**väljer **distributioner**.  Välj den senaste distributionen och klicka på **visa mall**.

@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 12/21/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1db379a48d4dafdaa2494d081658296a7145bcd9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 80510b4f3f07b96b9084108fcb89c75e108cbc65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54815242"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096859"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Azure Disk Encryption för virtuella IaaS-datorer: vanliga frågor och svar
 
@@ -42,8 +42,8 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 
 | Linux-distribution | Version | Volymtyp som stöds för kryptering|
 | --- | --- |--- |
-| Ubuntu | 16.04 DAGLIGA LTS | OS- och disk |
-| Ubuntu | 14.04.5-DAILY-LTS | OS- och disk |
+| Ubuntu | 16.04| OS- och disk |
+| Ubuntu | 14.04.5</br>[med Azure justerade kernel uppdateras till 4.15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
 | RHEL | 7.5 | OS- och disk * |
 | RHEL | 7.4 | OS- och disk * |
 | RHEL | 7.3 | OS- och disk * |
@@ -59,12 +59,10 @@ Azure Disk Encryption stöds på följande Linux-server-distributioner och versi
 | CentOS | 6.7 | Datadisk |
 | CentOS | 6.6 | Datadisk |
 | CentOS | 6.5 | Datadisk |
-| openSUSE | 13.2 | Datadisk |
-| SLES | 12 SP1 | Datadisk |
-| SLES | Prioritet: 12-SP1 | Datadisk |
-| SLES | HPC 12 | Datadisk |
-| SLES | Prioritet: 11-SP4 | Datadisk |
-| SLES | 11 SP4 | Datadisk |
+| openSUSE | SUSE:openSUSE-Leap:42.3:latest | Datadisk |
+| SLES | SUSE:SLES-Priority:12-SP4:latest | Datadisk |
+| SLES | SUSE:SLES-HPC:12-SP3:latest | Datadisk |
+| SLES | SUSE:SLES-Priority:12-SP3:latest | Datadisk |
 
 
 *__Ny ADE implementering har stöd för RHEL-OS- och datadisk för RHEL7 betala per användning-avbildningar. ADE stöds för närvarande inte för RHEL Bring-Your-Own-prenumeration (BYOS)-avbildningar. Också finns den [Azure Disk Encryption för Linux](azure-security-disk-encryption-linux.md) artikeln för mer information.__

@@ -7,19 +7,19 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
-ms.openlocfilehash: 83694f121fb17f90aa89fb9ba99e8514cadd5b09
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 90b7638acf6df721a16bdcca6ceebb6f9d65ca2c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724093"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096831"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Hur du fyller i specifika fält för ett egenutvecklat program
 
@@ -40,9 +40,9 @@ Den här artikeln ger en kort beskrivning av alla tillgängliga fält i registre
 
 | Fält            | Beskrivning                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Namn             | Namnet på programmet. Den bör ha minst fyra tecken.                |
-| Programtyp | **Webbapp/webb API**: ett program som motsvarar ett webbprogram, ett webb-API eller båda 
-| |**Interna**: ett program som kan installeras på en användares enhet eller dator           |
+| Name             | Namnet på programmet. Den bör ha minst fyra tecken.                |
+| Programtyp | **Webbapp/webb API**: Ett program som motsvarar ett webbprogram, ett webb-API eller båda 
+| |**Interna**: Ett program som kan installeras på en användares enhet eller dator           |
 | Inloggnings-URL      | URL: en där användare kan logga in använder dina program                                  |
 
 När du har fyllt fälten ovan kan programmet registreras i Azure-portalen och omdirigeras du till appen på sidan. Den **inställningar** knappen i program-panelen öppnas sidan Inställningar, som har fler fält som du kan anpassa ditt program. Tabellen nedan beskriver alla fält på sidan Inställningar. Observera att du bara ser en delmängd av fälten, beroende på om du har skapat ett webbprogram eller ett internt program.

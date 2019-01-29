@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: c90715608b5d35520605c504b5cebb5e7a3ec021
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9cb41bfde38d9b47f5db994c0ca39c64b453ef1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47096641"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55171464"
 ---
 # <a name="reliable-services-application-and-service-manifest-examples"></a>Exempel på Reliable Services-program och tjänstmanifest
 Här följer några exempel på program och tjänstens manifest för ett Service Fabric-program med en ASP.NET-kärnans webbklient och en tillståndskänslig backend-server. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Snabbstart för Service Fabric .NET](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) manifest.
@@ -198,7 +198,7 @@ Se [manifest programelement](#application-manifest-elements), [VotingWeb manifes
         the root of the code package regardless of where the EXE is defined in the code package directory. This is where the processes can write the data. Writing data 
         in the code package or code base is not recommended as those folders could be shared between different application instances and may get deleted.-->
         <WorkingFolder>CodePackage</WorkingFolder>
-        <!-- Warning! Do not use console rediriction in a production application, only use it for local development and debugging. Redirects console output from the startup
+        <!-- Warning! Do not use console redirection in a production application, only use it for local development and debugging. Redirects console output from the startup
         script to an output file in the application folder called "log" on the cluster node where the application is deployed and run. Also set the number of output files
         to retain and the maximum file size (in KB). -->
         <ConsoleRedirection FileRetentionCount="10" FileMaxSizeInKb="20480"/>
@@ -215,7 +215,7 @@ Se [manifest programelement](#application-manifest-elements), [VotingWeb manifes
     </EntryPoint>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -304,7 +304,7 @@ Slutpunkt(er) att åsidosätta. Mer information finns i [slutpunkter Element](se
 ### <a name="endpoint-element"></a>Slutpunktselement
 Den slutpunkt som har deklarerats i tjänstmanifestet att åsidosätta. Mer information finns i [Endpoint Element](service-fabric-service-model-schema-elements.md#EndpointElementEndpointOverrideTypeComplexTypeDefinedInEndpointselement)
 
-### <a name="policies-element"></a>Principer för elementet
+### <a name="policies-element"></a>Policies Element
 Beskriver principer (slutpunkt för bindning, delning, kör som-paketet och säkerhet åtkomst) som ska tillämpas på importerade tjänstmanifestet. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
@@ -325,7 +325,7 @@ Anger lokal användare eller kontot Lokalt system som använder ett tjänstkodpa
 ### <a name="defaultservices-element"></a>DefaultServices Element
 Anger instanser av tjänsten som skapas automatiskt när ett program instantieras mot den här typen. Mer information finns i [DefaultServices Element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
 
-### <a name="service-element"></a>Tjänsten Element
+### <a name="service-element"></a>Service Element
 Deklarerar en tjänst som ska skapas automatiskt när programmet instantieras. Mer information finns i [Service Element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
 
 ### <a name="statefulservice-element"></a>StatefulService Element
@@ -334,7 +334,7 @@ Definierar en tillståndskänslig tjänst. Mer information finns i [StatefulServ
 ### <a name="statelessservice-element"></a>StatelessService Element
 Definierar en tillståndslös tjänst. Mer information finns i [StatelessService Element](service-fabric-service-model-schema-elements.md#StatelessServiceElementStatelessServiceTypeComplexTypeDefinedInServiceTemplatesTypecomplexTypeDefinedInServiceelement)
 
-### <a name="principals-element"></a>Huvudnamn Element
+### <a name="principals-element"></a>Principals Element
 Beskriver de säkerhetsobjekt (användare, grupper) som krävs för det här programmet körs tjänster och säkra resurser. Huvudnamn refereras i avsnitten principer. Mer information finns i [huvudkonton Element](service-fabric-service-model-schema-elements.md#PrincipalsElementSecurityPrincipalsTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
 
 ### <a name="groups-element"></a>Grupper Element
@@ -364,7 +364,7 @@ System-grupp att lägga till användaren.  Systemgruppen måste definieras i avs
 ### <a name="group-element"></a>Gruppelementet
 Grupp att lägga till användaren.  Gruppen måste ha definierats i avsnittet grupper. Mer information finns i [gruppelementet](service-fabric-service-model-schema-elements.md#GroupElementanonymouscomplexTypeComplexTypeDefinedInMemberOfelement)
 
-### <a name="policies-element"></a>Principer för elementet
+### <a name="policies-element"></a>Policies Element
 Beskriver principerna (Logginsamling, standard kör som, hälsotillstånd och säkerhetsbehörighet) som ska tillämpas på programnivå. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementApplicationPoliciesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInEnvironmentTypecomplexType)
 
 ### <a name="defaultrunaspolicy-element"></a>DefaultRunAsPolicy Element
@@ -395,14 +395,16 @@ En privilegierad startpunkt som standard körs med samma autentiseringsuppgifter
 ### <a name="program-element"></a>Programelement
 Filnamn.  Till exempel ”MySetup.bat” eller ”MyServiceHost.exe”. Mer information finns i [programelement](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
-### <a name="arguments-element"></a>Argument Element
+### <a name="arguments-element"></a>Arguments Element
  Mer information finns i [argument Element](service-fabric-service-model-schema-elements.md#ArgumentsElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder Element
-Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: Arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="consoleredirection-element"></a>ConsoleRedirection Element
-Varning! Använda konsolen rediriction i ett produktionsprogram inte, endast använda den för lokal utveckling och felsökning. Omdirigerar konsolens utdata från startskriptet att en utdatafil i programmappen ”logg” med namnet på den noden i klustret där programmet har distribuerats och körs. Mer information finns i [ConsoleRedirection Element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+
+> [!WARNING]
+> Använda omdirigering av konsol i ett produktionsprogram inte, endast använda den för lokal utveckling och felsökning. Omdirigerar konsolens utdata från startskriptet att en utdatafil i programmappen ”logg” med namnet på den noden i klustret där programmet har distribuerats och körs. Mer information finns i [ConsoleRedirection Element](service-fabric-service-model-schema-elements.md#ConsoleRedirectionElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="entrypoint-element"></a>EntryPoint Element
 Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskrävande. Förekomsten av en separat konfigurationsstartpunkten innebär att du slipper att köra tjänstevärden med höga privilegier för längre tid. Den körbara filen som anges av EntryPoint körs när SetupEntryPoint har avslutas. Resulterande processen övervakas och startas om (början igen med SetupEntryPoint) om det skulle avslutas eller kraschar. Mer information finns i [EntryPoint Element](service-fabric-service-model-schema-elements.md#EntryPointElementEntryPointDescriptionTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -447,12 +449,12 @@ Den körbara filen som anges av EntryPoint är vanligtvis tjänstevärden tidskr
 Filnamn.  Till exempel ”MySetup.bat” eller ”MyServiceHost.exe”. Mer information finns i [programelement](service-fabric-service-model-schema-elements.md#ProgramElementxs:stringComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="workingfolder-element"></a>WorkingFolder Element
-Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
+Arbetskatalogen för processen i kodpaketet på den noden i klustret där programmet har distribuerats. Du kan ange tre värden: Arbete (standard), CodePackage eller kodbas. Kodbas anger att arbetskatalogen har angetts till katalogen där den exe-filen definieras i kodpaketet. CodePackage anger arbetskatalogen är roten för kodpaketet oavsett var den exe-filen definieras i paketkatalogen kod. Arbete anger arbetskatalogen till en unik mapp som skapas på noden.  Den här mappen är samma för hela programmet-instansen. Arbetskatalog för alla processer i programmet är som standard till programmappen för arbetet. Det här är där processerna kan skriva data. Skrivning av data i kodpaketet eller kodbas rekommenderas inte eftersom dessa mappar kan delas mellan olika programinstanser och kan tas bort. Mer information finns i [WorkingFolder Element](service-fabric-service-model-schema-elements.md#WorkingFolderElementanonymouscomplexTypeComplexTypeDefinedInExeHostEntryPointTypecomplexType)
 
 ### <a name="configpackage-element"></a>ConfigPackage Element
 Anger en mapp med namnet av attributet namn under PackageRoot som innehåller en Settings.xml-fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="datapackage-element"></a>DataPackage-Element
+### <a name="datapackage-element"></a>DataPackage Element
 Anger en mapp med namnet av attributet namn under PackageRoot som innehåller filer som statiska data ska användas av processen vid körning. Service Fabric kommer Papperskorgen alla exe-filerna och DLLHOSTs som anges i paket som värd och support när data-paket som anges i tjänstmanifestet uppgraderas. Mer information finns i [DataPackage-Element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
 ### <a name="resources-element"></a>Resurser-Element

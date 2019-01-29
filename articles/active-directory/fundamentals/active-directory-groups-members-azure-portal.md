@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
-ms.openlocfilehash: c92ac805fe9c8f3554044aa85306ecc43464411b
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 3db75187160be9a1e4ca985e207f84db71cf75d7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54445359"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093214"
 ---
 # <a name="add-or-remove-group-members-using-azure-active-directory"></a>Lägga till eller ta bort medlemmar med hjälp av Azure Active Directory
 Med Azure Active Directory kan fortsätta du att lägga till och ta bort medlemmar.

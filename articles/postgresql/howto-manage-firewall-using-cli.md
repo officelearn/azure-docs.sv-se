@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 05/4/2018
-ms.openlocfilehash: 214c6c4dc3b2dd83e6bf3dfa3355ad6f6aa2eb18
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d450b8d154e920bfc9a82314d34f20a52af71dab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539151"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182004"
 ---
 # <a name="create-and-manage-azure-database-for-postgresql-firewall-rules-using-azure-cli"></a>Skapa och hantera Azure Database för PostgreSQL brandväggsregler med hjälp av Azure CLI
 Brandväggsregler på servernivå kan administratörer hantera åtkomst till en Azure Database for PostgreSQL-Server från en specifik IP-adress eller IP-adressintervall. Med praktiska Azure CLI-kommandon kan du skapa, uppdatera, ta bort, lista, och visa brandväggsregler för att hantera servern. En översikt över Azure Database för PostgreSQL brandväggsregler, se [Azure Database for PostgreSQL-Server brandväggsregler](concepts-firewall-rules.md)
@@ -70,7 +70,7 @@ az postgres server firewall-rule show --resource-group myresourcegroup --server-
 Vid en lyckad distribution visas information om brandväggsregeln som du har angett som standard i JSON-format i kommandoutdata. Om det uppstår ett fel, visar utdata ett felmeddelande i stället.
 
 ## <a name="delete-firewall-rule"></a>Ta bort brandväggsregel
-Om du vill återkalla åtkomst för ett IP-adressintervall till servern att ta bort en befintlig brandväggsregel genom att köra den [az postgres server firewall-rule ta bort](/cli/azure/postgres/server/firewall-rule#az_postgres_server_firewall_rule_delete) kommando. Ange namnet på befintlig brandväggsregeln.
+Om du vill återkalla åtkomst för ett IP-adressintervall till servern att ta bort en befintlig brandväggsregel genom att köra den [az postgres server firewall-rule ta bort](/cli/azure/postgres/server/firewall-rule) kommando. Ange namnet på befintlig brandväggsregeln.
 ```azurecli-interactive
 az postgres server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name AllowIpRange
 ```

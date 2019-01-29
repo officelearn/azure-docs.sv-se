@@ -1,21 +1,21 @@
 ---
-title: Utvärdera metoden – Academic Knowledge API
+title: Evaluate method - Academic Knowledge API
 titlesuffix: Azure Cognitive Services
 description: Använd metoden utvärdera om du vill returnera en uppsättning akademiska enheter baserat på ett frågeuttryck.
 services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c3449d3b61c9b8950c0530590e7f1950c06afbc3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902339"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187308"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
 
@@ -28,18 +28,18 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ```   
 <br>
 ## <a name="request-parameters"></a>Parametrar för begäran  
-Namn     | Värde | Krävs?  | Beskrivning
+Name     | Value | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
 **uttryck för Markörstorlek**       | Textsträngen | Ja | Ett frågeuttryck som anger vilka enheter som ska returneras.
-**Modellen**      | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
+**model**      | Textsträngen | Nej  | Namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.        
 **Attribut** | Textsträngen | Nej<br>standard: Id | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
-**Antal**        | Tal | Nej<br>Standard: 10 | Antalet resultat som ska returneras.
-**förskjutning**     | Tal |   Nej<br>Standard: 0    | Index för det första resultatet ska returneras.
-**OrderBy** |   Textsträngen | Nej<br>Standard: genom att minska sannolikhet | Namnet på ett attribut som används för att sortera entiteterna. Du kan också kan stigande/fallande anges. Formatet är: *namn: asc* eller *namn: desc*.
+**antal**        | Tal | Nej<br>Standard: 10 | Antalet resultat som ska returneras.
+**offset**     | Tal |   Nej<br>Standard: 0    | Index för det första resultatet ska returneras.
+**orderby** |   Textsträngen | Nej<br>Standard: genom att minska sannolikhet | Namnet på ett attribut som används för att sortera entiteterna. Du kan också kan stigande/fallande anges. Formatet är: *namn: asc* eller *namn: desc*.
   
  <br>
 ## <a name="response-json"></a>Svar (JSON)
-Namn | Beskrivning
+Name | Beskrivning
 -------|-----   
 **uttryck för Markörstorlek** |  Den *uttryck* parametern från begäran.
 **Entiteter** |  En matris med 0 eller fler entiteter som matchade frågeuttrycket. Varje entitet innehåller ett naturliga loggen sannolikhetsvärde och värdena för andra attribut som begärs.

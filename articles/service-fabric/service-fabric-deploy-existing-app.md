@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 0f4bb3f32b264bd894341a8776d48eb9f8b061a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: d8b78e42dc5909e6c80f100c9337880b1ad2d9e6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258739"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168421"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Paketera och distribuera en befintlig körbar fil till Service Fabric
 När paketering en befintlig körbar fil som en [gästfil](service-fabric-guest-executables-introduction.md), kan du välja att använda en projektmall för Visual Studio eller [skapa programpaketet manuellt](#manually). Med Visual Studio skapas application package struktur och manifestfiler med den nya projektmallen för åt dig.
@@ -157,7 +157,7 @@ Det finns bara en SetupEntryPoint så installationsskripten behöver grupperas i
 
 I föregående exempel SetupEntryPoint körs en batchfil som heter `LaunchConfig.cmd` som finns i den `scripts` underkatalog i katalogen kod (förutsatt att WorkingFolder-elementet är inställt på kodbas).
 
-#### <a name="update-entrypoint"></a>Uppdatera EntryPoint
+#### <a name="update-entrypoint"></a>Update EntryPoint
 ```xml
 <EntryPoint>
   <ExeHost>
@@ -302,4 +302,4 @@ I den här artikeln har du lärt dig hur du paketera en körbar Gäst och distri
 * [Exempel för att paketera och distribuera en körbar gäst](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started), inklusive en länk till förhandsutgåvan av verktyget paketering
 * [Exempel på två gäst körbara filer (C# och nodejs) kommunicerar via tjänsten namngivning med hjälp av REST](https://github.com/Azure-Samples/service-fabric-containers)
 * [Distribuera flera körbara gäster](service-fabric-deploy-multiple-apps.md)
-* [Skapa ditt första Service Fabric-program med Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)
+* [Skapa ditt första Service Fabric-program med Visual Studio](service-fabric-tutorial-create-dotnet-app.md)

@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 85b05766e99c68fa7054b04cc7d174e5ad24a15d
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: be6c5ccea6bf923b408319baf4bc1743978169c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203818"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Azure AD Connect-synkronisering: Aktivera AD-papperskorgen
 Vi rekommenderar att du aktiverar Papperskorgen i Active Directory-funktionen för din lokala Active-kataloger som synkroniseras till Azure AD. 

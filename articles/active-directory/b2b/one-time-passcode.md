@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: 5259176328803d3b6c0715c741d7f43b6ecc2d8a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55082570"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095590"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -81,29 +81,29 @@ Först måste du installera den senaste versionen av Azure AD PowerShell för Gr
 #### <a name="prerequisite-install-the-latest-azureadpreview-module"></a>Förutsättning: Installera den senaste AzureADPreview-modulen
 Kontrollera först vilka moduler du har installerat. Öppna Windows PowerShell som upphöjd användare (Kör som administratör) och kör följande kommando:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Om modulen AzureADPreview visas utan meddelande som anger att det finns en senare version så är du klar. Annars gör du något av följande, baserat på utdata:
 
 - Om inga resultat returneras kör du följande kommando för att installera AzureADPreview-modulen:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - Om enbart AzureAD-modulen visas i resultaten så kör du följande kommandon för att installera AzureADPreview-modulen: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - Om endast AzureADPreview-modulen visas i resultaten, men du får ett meddelande som anger att det finns en senare version så uppdaterar du modulen genom att köra följande kommandon: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 Du får eventuellt en uppmaning om att installera modulen från en icke betrodd lagringsplats. Det här inträffar om du inte tidigare angett PSGallery-lagringsplatsen som en betrodd lagringsplats. Installera modulen genom att trycka på **Y**.
 
@@ -111,25 +111,25 @@ Du får eventuellt en uppmaning om att installera modulen från en icke betrodd 
 
 Därefter kontrollerar du om det finns en B2BManagementPolicy för närvarande genom att köra följande:
 
-````powershell 
+```powershell 
 $currentpolicy =  Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 $currentpolicy -ne $null
-````
+```
 - Om resultatet är False, finns inte för närvarande principen. Skapa en ny B2BManagementPolicy och välja förhandsgranskningen genom att köra följande:
 
-   ````powershell 
+   ```powershell 
    $policyValue=@("{`"B2BManagementPolicy`":{`"PreviewPolicy`":{`"Features`":[`"OneTimePasscode`"]}}}")
    New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true
-   ````
+   ```
 
 - Om resultatet är sant, finns för närvarande B2BManagementPolicy principen. För att uppdatera principen och välj att delta i förhandsversionen, kör du följande:
   
-   ````powershell 
+   ```powershell 
    $policy = $currentpolicy.Definition | ConvertFrom-Json
    $features=[PSCustomObject]@{'Features'=@('OneTimePasscode')}; $policy.B2BManagementPolicy | Add-Member 'PreviewPolicy' $features -Force; $policy.B2BManagementPolicy
    $updatedPolicy = $policy | ConvertTo-Json -Depth 3
    Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-   ````
+   ```
 
 ## <a name="opting-out-of-the-preview-after-opting-in"></a>Väljer bort förhandsgranskningen efter du börjat
 Det kan ta några minuter för att välja bort-åtgärden ska börja gälla. Om du stänger av förhandsversionen av alla gästanvändare som har löst in ett engångslösenord inte kunna logga in. Du kan ta bort gästanvändaren och reinvite användaren så att de kan logga in igen med en annan autentiseringsmetod.
@@ -144,17 +144,17 @@ Det kan ta några minuter för att välja bort-åtgärden ska börja gälla. Om 
 ### <a name="to-turn-off-the-preview-using-powershell"></a>Inaktivera förhandsversionen via PowerShell
 Installera den senaste modulen AzureADPreview om du inte redan har den (se [nödvändiga: Installera den senaste modulen AzureADPreview](#prerequisite-install-the-latest-azureadpreview-module) ovan). Kontrollera sedan att principen engångskod förhandsgranskning för närvarande finns genom att köra följande:
 
-````powershell 
+```powershell 
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy' -and $_.IsOrganizationDefault -eq $true} | select -First 1
 ($currentPolicy -ne $null) -and ($currentPolicy.Definition -like "*OneTimePasscode*")
-````
+```
 
 Om resultatet är sant, kan du välja bort förhandsgranskningen genom att köra följande:
 
-````powershell 
+```powershell 
 $policy = $currentpolicy.Definition | ConvertFrom-Json
 $policy.B2BManagementPolicy.PreviewPolicy.Features = $policy.B2BManagementPolicy.PreviewPolicy.Features.Where({$_ -ne "OneTimePasscode"})
 $updatedPolicy = $policy | ConvertTo-Json -Depth 3
 Set-AzureADPolicy -Definition $updatedPolicy -Id $currentpolicy.Id
-````
+```
 

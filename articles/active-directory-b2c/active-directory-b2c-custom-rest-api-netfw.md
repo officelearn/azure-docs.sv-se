@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 9e5f8171dde2f6da153441dafd9a87fc5c946e71
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5ade3ac7587d4ac5c5a6d8e174e76e76088e4e57
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54853059"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157949"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API anspråk Utbytena i din Azure AD B2C-användarresa som verifiering av indata från användaren
 
@@ -215,7 +215,7 @@ I webb-API, en _controller_ är ett objekt som hanterar HTTP-begäranden. Kontro
     Den **skapa App Service** öppnas. I den, kan du skapa alla Azure-resurser för att köra ASP.NET-webbapp i Azure.
 
     > [!NOTE]
-    >Mer information om hur du publicerar finns i [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Mer information om hur du publicerar finns i [skapa en ASP.NET-webbapp i Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. I den **Webbappnamnet** skriver du ett unikt appnamn (giltiga tecken är a – z, 0-9 och bindestreck (-). URL: en för webbappen är http://<app_name>.azurewebsites.NET, där *app_name* är namnet på din webbapp. Du kan godkänna namnet som genereras automatiskt och som är unikt.
 

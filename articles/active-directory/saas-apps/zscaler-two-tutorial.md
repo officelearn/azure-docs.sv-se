@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 1fd8a940-7320-47e0-a176-2dd4eeca6db2
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
 ms.author: jeedes
-ms.openlocfilehash: 3e954d8535b5ac78da2066af5c97afac12c09319
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 37c2374738cbebceb11dbaeb973c6713c87ff4b0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53789423"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150656"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-two"></a>Självstudier: Azure Active Directory-integrering med två Zscaler
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Zscaler två, behöver du följa
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -127,7 +127,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     | Namn  | Källattribut  |
     | ---------| ------------ |
-    | MemberOf     | user.assignedroles |
+    | memberOf     | user.assignedroles |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 

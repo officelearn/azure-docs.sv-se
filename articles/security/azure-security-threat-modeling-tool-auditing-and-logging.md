@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 990f300055f7c0c7132dd44271dea73044649fc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 1d67f981991796b81ba3ab6540631e6d62be8077
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307006"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092185"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Security ram: Granskning och loggning | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -30,12 +30,12 @@ ms.locfileid: "43307006"
 | **Azure Storage** | <ul><li>[Med Azure Storage Analytics kan du granska åtkomst i Azure Storage](#analytics)</li></ul> |
 | **WCF** | <ul><li>[Implementera tillräcklig loggning](#sufficient-logging)</li><li>[Implementera tillräckligt med gransknings-fel och hantera](#audit-failure-handling)</li></ul> |
 | **Webb-API** | <ul><li>[Se till att granskning och loggning är aktiverad för webb-API](#logging-web-api)</li></ul> |
-| **IoT-fält-Gateway** | <ul><li>[Se till att lämpliga granskning och loggning är aktiverad för fält-Gateway](#logging-field-gateway)</li></ul> |
-| **IoT-molnet Gateway** | <ul><li>[Se till att lämpliga granskning och loggning är aktiverad för Molngatewayen](#logging-cloud-gateway)</li></ul> |
+| **IoT Field Gateway** | <ul><li>[Se till att lämpliga granskning och loggning är aktiverad för fält-Gateway](#logging-field-gateway)</li></ul> |
+| **IoT Cloud Gateway** | <ul><li>[Se till att lämpliga granskning och loggning är aktiverad för Molngatewayen](#logging-cloud-gateway)</li></ul> |
 
 ## <a id="sensitive-entities"></a>Identifiera känsliga entiteter i din lösning och implementering av en ändring av auktoriseringsprincip
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Dynamics CRM | 
 | **SDL fas**               | Utveckla |  
@@ -46,7 +46,7 @@ ms.locfileid: "43307006"
 
 ## <a id="auditing"></a>Se till att granskning och loggning är aktiverad för programmet
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -57,7 +57,7 @@ ms.locfileid: "43307006"
 
 ## <a id="log-rotation"></a>Kontrollera att loggrotation och uppdelning är på plats
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -68,18 +68,18 @@ ms.locfileid: "43307006"
 
 ## <a id="log-sensitive-data"></a>Kontrollera att programmet inte logga känslig information
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
 | **Referenser**              | Gäller inte  |
-| **Steg**                   | <p>Kontrollera att du inte logga alla känsliga data som en användare skickar till din webbplats. Sök efter avsiktliga loggning samt sidoeffekter på grund av problem med design. Exempel på känsliga data:</p><ul><li>Autentiseringsuppgifter för användare</li><li>E-postadress eller annan information</li><li>Kreditkortsnummer eller andra finansiell information</li><li>Information om hälsa</li><li>Privata nycklar eller andra data som kan användas för att dekryptera krypterad information</li><li>System- eller information som kan användas för effektivare angrepp programmet</li></ul>|
+| **Steg**                   | <p>Kontrollera att du inte logga alla känsliga data som en användare skickar till din webbplats. Sök efter avsiktliga loggning samt sidoeffekter på grund av problem med design. Exempel på känsliga data:</p><ul><li>Användarautentiseringsuppgifter</li><li>E-postadress eller annan information</li><li>Kreditkortsnummer eller andra finansiell information</li><li>Information om hälsa</li><li>Privata nycklar eller andra data som kan användas för att dekryptera krypterad information</li><li>System- eller information som kan användas för effektivare angrepp programmet</li></ul>|
 
 ## <a id="log-restricted-access"></a>Se till att gransknings- och loggfiler har begränsad åtkomst
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -90,7 +90,7 @@ ms.locfileid: "43307006"
 
 ## <a id="user-management"></a>Kontrollera att händelser för hantering av användare är inloggad
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -101,7 +101,7 @@ ms.locfileid: "43307006"
 
 ## <a id="inbuilt-defenses"></a>Kontrollera att systemet har inbyggd försvar mot missbruk
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -112,7 +112,7 @@ ms.locfileid: "43307006"
 
 ## <a id="diagnostics-logging"></a>Aktivera diagnostikloggning för webbappar i Azure App Service
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
 | **SDL fas**               | Utveckla |  
@@ -123,7 +123,7 @@ ms.locfileid: "43307006"
 
 ## <a id="identify-sensitive-entities"></a>Kontrollera att inloggningen granskning är aktiverat på SQL Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -134,7 +134,7 @@ ms.locfileid: "43307006"
 
 ## <a id="threat-detection"></a>Aktivera hotidentifiering i Azure SQL
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
 | **SDL fas**               | Utveckla |  
@@ -145,7 +145,7 @@ ms.locfileid: "43307006"
 
 ## <a id="analytics"></a>Med Azure Storage Analytics kan du granska åtkomst i Azure Storage
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
 | **SDL fas**               | Distribution |  
@@ -156,7 +156,7 @@ ms.locfileid: "43307006"
 
 ## <a id="sufficient-logging"></a>Implementera tillräcklig loggning
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -185,7 +185,7 @@ Följande är ett exempel på en konfiguration med granskning är aktiverat
 
 ## <a id="audit-failure-handling"></a>Implementera tillräckligt med gransknings-fel och hantera
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
 | **SDL fas**               | Utveckla |  
@@ -196,7 +196,7 @@ Följande är ett exempel på en konfiguration med granskning är aktiverat
 
 ### <a name="example"></a>Exempel
 Den `<behavior/>` element i WCF-konfigurationsfilen nedan instruerar WCF inte meddela programmet när WCF inte kan skriva till en granskningslogg.
-````
+```
 <behaviors>
     <serviceBehaviors>
         <behavior name="NewBehavior">
@@ -207,12 +207,12 @@ Den `<behavior/>` element i WCF-konfigurationsfilen nedan instruerar WCF inte me
         </behavior>
     </serviceBehaviors>
 </behaviors>
-````
+```
 Konfigurera WCF för att meddela programmet när det inte går att skriva till en granskningslogg. Programmet bör ha ett annat Meddelandeschema på plats till den organisation som spårning som inte bevaras avisering. 
 
 ## <a id="logging-web-api"></a>Se till att granskning och loggning är aktiverad för webb-API
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
 | **SDL fas**               | Utveckla |  
@@ -223,9 +223,9 @@ Konfigurera WCF för att meddela programmet när det inte går att skriva till e
 
 ## <a id="logging-field-gateway"></a>Se till att lämpliga granskning och loggning är aktiverad för fält-Gateway
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-fält-Gateway | 
+| **Komponent**               | IoT Field Gateway | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |
@@ -234,9 +234,9 @@ Konfigurera WCF för att meddela programmet när det inte går att skriva till e
 
 ## <a id="logging-cloud-gateway"></a>Se till att lämpliga granskning och loggning är aktiverad för Molngatewayen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | IoT-molnet Gateway | 
+| **Komponent**               | IoT Cloud Gateway | 
 | **SDL fas**               | Utveckla |  
 | **Tillämpliga tekniker** | Generisk |
 | **Attribut**              | Gäller inte  |

@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 50942634bd50974453c242d1980db9fc589bd47e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 76484a2340e527dc016f321dbafa29adb7c358b5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579217"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157542"
 ---
 # <a name="detecting-domain-specific-content"></a>Identifiera domänspecifikt innehåll
 
@@ -33,7 +33,7 @@ Det finns två alternativ för att använda domänspecifika modeller:
 
 Du kan visa de domänspecifika modeller som stöds av visuellt innehåll. Visuellt stöder för närvarande följande domänspecifika modeller för att upptäcka domänspecifika innehåll:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | kändisar | Kändisigenkänning stöds för bilder klassificeras i den `people_` kategori |
 | Landmärken | Igenkänning av landmärken, stöds för bilder klassificeras i den `outdoor_` eller `building_` kategorier |

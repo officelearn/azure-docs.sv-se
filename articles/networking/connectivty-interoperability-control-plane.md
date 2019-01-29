@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: 37f5399426bebd375200bbc18dae7ed83f4fde3f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 77a405e2f020ff764348370fc001388610ad75b6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614692"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155535"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Samverkan i Azure backend-anslutningsfunktionerna: Kontrollera plan analys
+# <a name="interoperability-in-azure-back-end-connectivity-features-control-plane-analysis"></a>Samverkan i Azure backend-anslutningsfunktionerna: Kontrollen plan analys
 
 Den här artikeln beskriver kontrollen plan analys av den [testa installationen][Setup]. Du kan också granska den [test installationskonfiguration] [ Configuration] och [data analysis-dataplaner] [ Data-Analysis] av test-installationen.
 
@@ -79,7 +79,7 @@ I VNet-peering inom en region, kan virtuella ekernätverk använda hub VNet-gate
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren VNet-anslutning via plats-till-plats-VPN
 
-Du kanske vill gren virtuella nätverk som finns i olika regioner och lokala nätverk för att kommunicera med varandra via en hubbnätverket. Intern Azure-lösning för den här cofiguration är plats-till-plats VPN-anslutning med hjälp av en VPN-anslutning. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i hubben.
+Du kanske vill gren virtuella nätverk som finns i olika regioner och lokala nätverk för att kommunicera med varandra via en hubbnätverket. Intern Azure-lösning för den här konfigurationen är plats-till-plats VPN-anslutning med hjälp av en VPN-anslutning. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i hubben.
 
 Mer information finns i [vad är VPN-Gateway?] [ VPN] och [distribuera en högtillgänglig NVA][Deploy-NVA].
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogirdh
-ms.openlocfilehash: 236809336975eec94d7decd9822fc9143ae19bfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 692f6b1f02c6c1e86170971886e83722d0160838
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981033"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203597"
 ---
 # <a name="set-up-oracle-asm-on-an-azure-linux-virtual-machine"></a>Konfigurera Oracle ASM på en virtuell Linux-dator för Azure  
 
@@ -50,7 +50,7 @@ az group create --name myResourceGroup --location eastus
 
 ### <a name="create-a-vm"></a>Skapa en virtuell dator
 
-Om du vill skapa en virtuell dator baserat på avbildningen som Oracle Database och konfigurera den om du vill använda Oracle ASM genom att använda den [az vm skapa](/cli/azure/vm#az_vm_create) kommando. 
+Om du vill skapa en virtuell dator baserat på avbildningen som Oracle Database och konfigurera den om du vill använda Oracle ASM genom att använda den [az vm skapa](/cli/azure/vm) kommando. 
 
 I följande exempel skapas en virtuell dator med namnet myVM som är en Standard_DS2_v2 storlek med fyra anslutna datadiskar på 50 GB. Om de inte redan finns på standardplatsen för nyckeln, skapas även SSH-nycklar.  Om du vill använda en specifik uppsättning nycklar använder du alternativet `--ssh-key-value`.  
 
@@ -513,7 +513,7 @@ Om du vill konfigurera Oracle ASM-installationen, gör du följande:
 
    Oracle ASM Configuration Assistant öppnas.
 
-2. I den **konfigurera ASM: diskgrupper** dialogrutan klickar du på den `Create` knappen och klicka sedan på `Show Advanced Options`.
+2. I den **konfigurera ASM: Disk grupper** dialogrutan klickar du på den `Create` knappen och klicka sedan på `Show Advanced Options`.
 
 3. I den **skapa diskgruppen** dialogrutan:
 
@@ -525,7 +525,7 @@ Om du vill konfigurera Oracle ASM-installationen, gör du följande:
 
    ![Skärmbild av dialogrutan Skapa diskgruppen](./media/oracle-asm/asm02.png)
 
-4. I den **konfigurera ASM: diskgrupper** dialogrutan klickar du på den `Create` knappen och klicka sedan på `Show Advanced Options`.
+4. I den **konfigurera ASM: Disk grupper** dialogrutan klickar du på den `Create` knappen och klicka sedan på `Show Advanced Options`.
 
 5. I den **skapa diskgruppen** dialogrutan:
 
@@ -540,7 +540,7 @@ Om du vill konfigurera Oracle ASM-installationen, gör du följande:
 
 6. Välj **avsluta** att Stäng ASM Configuration Assistant.
 
-   ![Skärmbild av ASM konfigurera: dialogrutan för diskgrupper med Stäng-knappen](./media/oracle-asm/asm05.png)
+   ![Skärmbild av den konfigurerar ASM: Dialogrutan för disk grupper med Stäng-knappen](./media/oracle-asm/asm05.png)
 
 ## <a name="create-the-database"></a>Skapa en databas
 
@@ -583,8 +583,8 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Självstudie: Konfigurera Oracle DataGuard](configure-oracle-dataguard.md)
+[Självstudier: Konfigurera Oracle DataGuard](configure-oracle-dataguard.md)
 
-[Självstudie: Konfigurera Oracle GoldenGate](Configure-oracle-golden-gate.md)
+[Självstudier: Konfigurera Oracle GoldenGate](Configure-oracle-golden-gate.md)
 
 Granska [om arkitekturen i en Oracle-databas](oracle-design.md)

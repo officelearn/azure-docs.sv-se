@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: bf6dbde725670030046aad4fccf41554b8d917fe
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: c130c6cd5fcb5191195712f570db66408734200a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901285"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150882"
 ---
 # <a name="query-expression-syntax"></a>Fråga uttryckssyntax
 
@@ -25,40 +25,40 @@ Du kan också konstruera egna frågeuttryck och använda dem i en **utvärdera**
 
 Varje entitetsattribut som kan ingå i ett frågeuttryck har en specifik typ och en uppsättning frågeoperatorer som möjligt. En uppsättning entitetsattribut och operatorer som stöds för varje attribut har angetts i [entitetsattribut](EntityAttributes.md). En fråga med enkla värden kräver attributet för den *är lika med* igen. En prefix-fråga kräver attributet för den *StartsWith* igen. Numeriska intervallfrågor kräver att attributet för den *IsBetween* igen.
 
-Några av entitetsdata lagras som sammansatta attribut som anges med en punkt '.' i attributets namn. Till exempel representeras författare/anknytning till information som en sammansatt attribut. Den innehåller 4 komponenter: AuN, AuId, AfN, AfId. Dessa komponenter är separata delar som utgör en enda entitet attribut-värde.
+Några av entitetsdata lagras som sammansatta attribut som anges med en punkt '.' i attributets namn. Till exempel representeras författare/anknytning till information som en sammansatt attribut. Den innehåller 4 komponenter: AuN AuId, AfN, AfId. Dessa komponenter är separata delar som utgör en enda entitet attribut-värde.
 
 
 **Strängattribut: Enstaka värde** (inklusive matchningar mot synonymer)  
 Ti = 'indexering av latent semantiska analysen'  
-Sammansatta (AA. AuN = 'stämning sker dumais ”)
+Composite(AA.AuN='sue dumais')
 
 **Strängattribut: Exakt värde** (matchar endast kanoniska värden)  
 Ti == 'indexering av latent semantiska analysen'  
-Sammansatta (AA. AuN == 'susan t dumais ”)
+Composite(AA.AuN=='susan t dumais')
      
-**Strängattribut: Värde för**   
+**Strängattribut: Prefixvärdet**   
 Ti = 'indexering av latent seman'...  
-Sammansatta (AA. AuN = 'stämning sker du'...)
+Composite(AA.AuN='sue du'...)
 
-**Numeriska attribut: Enstaka värde**  
-Y = 2010
+**Numeriska attribut: Enskilt värde**  
+Y=2010
  
-**Numeriska attribut: Värdet intervall**  
-Y &GT; 2005  
+**Numeriska attribut: Intervallvärdet**  
+Y>2005  
 Y &GT; = 2005  
-Y &LT; 2010  
-Y &LT; = 2010  
-Y =\[2010, 2012\) (innehåller endast vänstra gränsvärdet: 2010, 2011)  
+Y<2010  
+Y<=2010  
+Y =\[2010, 2012\) (innehåller endast vänstra gränsens värde: 2010, 2011)  
 Y =\[2010, 2012\] (omfattar både gränsvärden: 2010, 2011, 2012)
  
-**Numeriska attribut: Värde för**  
+**Numeriska attribut: Prefixvärdet**  
 Y = '19'... (ett numeriskt värde som börjar med 19) 
  
-**Datumattribut: Enstaka värde**  
-D = ”2010-02-04-
+**Datumattribut: Enskilt värde**  
+D='2010-02-04'
 
-**Datumattribut: Värdet intervall**  
-D &GT; ”2010-02-03”  
+**Datumattribut: Intervallvärdet**  
+D>'2010-02-03'  
 D = [”2010-02-03” ”, 2010-02-05']
 
 **Och/eller frågor:**  
@@ -85,7 +85,7 @@ And(Composite(AA.AuN='mike smith'),Composite(AA.AfN='harvard university'))
 ```
 <br>I den här versionen eftersom Composite() tillämpas på författaren och anknytning individuellt innan And(), får vi alla rapporter där en av författarna är ”Mike Smith” och en av författarnas anknytningar är ”Harvard”. Detta låter liknar det föregående exemplet i frågan, men det är inte samma sak.
 
-I allmänhet fundera på följande exempel: Vi har ett sammansatt attribut C som består av två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
+I allmänhet ska du tänka på följande exempel: Vi har ett sammansatt attribut C som består av två komponenter A och B. En entitet kan ha flera värden för C. Det här är våra entiteter:
 ```
 E1: C={A=1, B=1}  C={A=1,B=2}  C={A=2,B=3}
 E2: C={A=1, B=3}  C={A=3,B=2}

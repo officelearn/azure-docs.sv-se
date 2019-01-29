@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/29/2018
+ms.date: 01/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 16bf68a5fdb1df2a4f60de9167893a42295cbc52
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 266e2be2775a6f9b74c714bd9112e38837bb6a6c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260541"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098346"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Ethereum proof of work consortium lösningsmallen
 
 Lösningsmallen Ethereum Proof of Work Consortium är utformad för att göra det enklare och snabbare att distribuera och konfigurera ett flera medlem Ethereum konsortienätverk med minimal kunskap om Azure och Ethereum.
 
-Med en handfull användarindata och en enda musklick distribution via Azure-portalen, kan varje medlem etablera sina nätverk fotavtryck, med hjälp av Microsoft Azure Compute, nätverk och lagringstjänster över hela världen. Varje medlem nätverk fotavtryck består av en uppsättning noder för Utjämning av nätverksbelastning transaktion med som ett program eller en användare kan interagera om du vill skicka transaktioner, en uppsättning utvinning noder till poster transaktioner och en VPN-gateway. Ett efterföljande anslutning steg ansluter gatewayer för att skapa en fullständigt konfigurerad flera medlem blockchain-nätverk.
+Med en Azure Resource Manager-mall, kan varje medlem etablera sina nätverk fotavtryck, med hjälp av Microsoft Azure Compute, nätverk och lagringstjänster. Varje medlem nätverk fotavtryck består av en uppsättning noder för Utjämning av nätverksbelastning transaktion med som ett program eller en användare interagerar om du vill skicka transaktioner, en uppsättning utvinning noder till poster transaktioner och en VPN-gateway. Efter distributionen kan ansluta du dina gateways för att skapa en fullständigt konfigurerad flera medlem blockchain-nätverk.
 
 ## <a name="about-blockchain"></a>Om blockchain
 
@@ -35,7 +35,7 @@ Medlem consortium kan etablera upp till fem regioner som innehåller en eller fl
 
 Alla noder har en stabil version av klienten gå Ethereum (Geth) och är konfigurerade för datautvinning noder. Om du inte har lämnat ett anpassat genesis block, Använd alla noder samma Ethereum-adress och nyckelpar som skyddas av Ethereum-kontolösenord. Ethereum-lösenfras som du angett används för att generera standardkontot (coinbase) för varje nod för datautvinning. Som utvinningsstrukturen noder utvinna, de samla in avgifter som läggs till det här kontot.
 
-Antalet utvinningsstrukturen noder per consortium medlem beror på storleken på det önskade nätverket och mängden hash power för varje medlem. Ju större nätverk, fler noder som behöver äventyras för att få en orättvis fördel. Mallen har stöd för upp till 15 utvinningsstrukturen noder per region som etablerats med hjälp av VM-skalningsuppsättningar.
+Antalet utvinningsstrukturen noder per consortium medlem beror på storleken på det önskade nätverket och mängden hash power som är dedikerad för varje medlem. Större nätverk kräver fler noder äventyras för att få en orättvis fördel. Mallen har stöd för upp till 15 utvinningsstrukturen noder per region som etablerats med hjälp av VM-skalningsuppsättningar.
 
 ### <a name="transaction-node-details"></a>Transaktionsinformation för noden
 
@@ -45,7 +45,7 @@ Transaktionen noder är Utjämning av nätverksbelastning i en tillgänglighetsu
 
 ### <a name="log-analytics-details"></a>Log analytics-information
 
-Varje distribution även skapar en ny Log Analytics-instans eller kan ansluta till en befintlig instans. Detta tillåter övervakning av olika prestandamått för alla virtuella datorer som utgör det distribuerade nätverket.
+Varje distribution även skapar en ny Log analytics-instans eller kan ansluta till en befintlig instans. Logganalys tillåter övervakning av olika prestandamått för alla virtuella datorer som utgör det distribuerade nätverket.
 
 ## <a name="deployment-architecture"></a>Distributionsarkitektur för
 
@@ -88,11 +88,9 @@ Prenumeration| Den prenumeration som ska distribueras consortium network||Ej til
 Resursgrupp| Den resursgrupp som ska distribueras consortium network.||Ej tillämpligt
 Plats| Azure-regionen för resursgruppen. ||Ej tillämpligt
 
-
-
 ### <a name="operations-management-suite"></a>Operations Management Suite
 
-Bladet Operations Management Suite (OMS) kan du konfigurera en OMS-resurs för nätverket. OMS samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem. Gratisversionen av OMS misslyckas gradvis när kapaciteten har nåtts.
+Operations Management Suite (OMS) kan du konfigurera en OMS-resurs för nätverket. OMS samlar in och surface användbart mått och loggar från ditt nätverk, ger möjligheten att snabbt kontrollera nätverkets tillstånd eller felsöka problem. Gratisversionen av OMS misslyckas gradvis när kapaciteten har nåtts.
 
 ![Skapa ny OMS](./media/ethereum-deployment/new-oms.png)
 
@@ -143,8 +141,8 @@ Parameternamn |Beskrivning |Tillåtna värden|Standardvärden
 ConsortiumMember-ID|ID som är associerade med varje medlem som deltar i konsortienätverk som används för att konfigurera IP-adressutrymmen att undvika kollision. <br /><br />Medlems-ID måste vara unikt inom olika organisationer i samma nätverk. Ett unikt medlems-ID krävs även när samma organisation distribuerar till flera regioner.<br /><br />Anteckna värdet för den här parametern eftersom du kommer att behöva dela den med andra sammanbinder medlemmar.|0 - 255
 Ethereum nätverks-ID|Nätverks-ID för consortium Ethereum-nätverk som ska distribueras. Varje Ethereum-nätverk har sin egen, med 1 som ID för det offentliga nätverket. Nätverksåtkomst är begränsad för datautvinning noder, rekommenderar vi ändå med hjälp av ett stort antal för att förhindra kollisioner.|5 - 999,999,999| 10101010
 Anpassade genesis block|Alternativet för att automatiskt generera ett genesis block eller ange en anpassad.|Ja/nej| Nej
-Kontolösenord för Ethereum (anpassad genesis block = Nej)|Administratörslösenordet som används för att skydda det Ethereum-konto som har importerats till varje nod. Lösenordet måste innehålla följande: 1 versal bokstav, 1 gemen bokstav och 1 siffra.|minst 12 tecken|Ej tillämpligt
-Ethereum-privata nyckeln (anpassad genesis block = Nej)|Lösenfras som används för att generera den privata nyckeln för ECC som är associerade med Ethereum standardkontot som genereras. En förgenererade privat nyckel behöver inte uttryckligen också skickas.<br /><br />Beakta en lösenfras med tillräckliga slumpmässighet för att säkerställa en stark privat nyckel och utan överlappande med andra medlemmar i consortium. Lösenfrasen måste innehålla minst följande: 1 versal bokstav, 1 gemen bokstav och 1 siffra.<br /><br />Observera att om två medlemmar använda samma lösenfras de konton som skapas kommer att vara samma. Samma lösenfras är användbart om en enda organisation försöker distribuera i flera regioner och vill dela ett enda konto (mynt grundläggande) i alla noder.|minst 12 tecken|Ej tillämpligt
+Kontolösenord för Ethereum (anpassad genesis block = Nej)|Administratörslösenordet som används för att skydda det Ethereum-konto som har importerats till varje nod. Lösenordet måste innehålla: 1 versal bokstav, 1 gemen bokstav och 1 siffra.|minst 12 tecken|Ej tillämpligt
+Ethereum-privata nyckeln (anpassad genesis block = Nej)|Lösenfras som används för att generera den privata nyckeln för ECC som är associerade med Ethereum standardkontot som genereras. En förgenererade privat nyckel behöver inte uttryckligen också skickas.<br /><br />Beakta en lösenfras med tillräckliga slumpmässighet för att säkerställa en stark privat nyckel och utan överlappande med andra medlemmar i consortium. Lösenfrasen måste innehålla minst: 1 versal bokstav, 1 gemen bokstav och 1 siffra.<br /><br />Observera att om två medlemmar använda samma lösenfras de konton som skapas kommer att vara samma. Samma lösenfras är användbart om en enda organisation försöker distribuera i flera regioner och vill dela ett enda konto (mynt grundläggande) i alla noder.|minst 12 tecken|Ej tillämpligt
 Genesis block (anpassad genesis block = Yes)|JSON-sträng som representerar anpassade genesis block. Du hittar mer information om formatet för genesis blocket här under anpassade nätverk.<br /><br />Ett Ethereum-konto skapas fortfarande när du anger en anpassad genesis-block. Överväg att ange ett prefunded Ethereum-konto i blocket genesis inte vänta tills datautvinning.|Valid JSON |Ej tillämpligt
 Delad nyckel för anslutningen|En delad nyckel för anslutningen mellan VNET-gatewayer.| minst 12 tecken|Ej tillämpligt
 Consortium Data-URL|Den URL som pekar mot den relevanta consortium konfigurationsdata som tillhandahålls av en annan medlem distribution. <br /><br />Den här informationen tillhandahålls av en redan anslutna medlem som har en distribution. Om du har distribuerat resten av nätverket är URL: en mall för distribution utdata med namnet CONSORTIUM-DATA.||Ej tillämpligt
@@ -154,7 +152,7 @@ Nyckel för peer-information registrator|Peer primär nyckel från en annan medl
 
 ### <a name="summary"></a>Sammanfattning
 
-Klicka dig igenom sammanfattningsbladet och granska indata som angetts och att köra grundläggande verifiering av distributionen.
+Klicka dig igenom sammanfattningen och granska indata som angetts och att köra grundläggande verifiering av distributionen.
 
 ![Sammanfattning](./media/ethereum-deployment/summary.png)
 

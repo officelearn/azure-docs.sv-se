@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 90eacdb120603fdb68c0f6c3de3457964ec5fd75
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: d882ad89e68936d07ae4d76218c6e3ac450185a8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53579370"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151336"
 ---
 # <a name="detect-color-schemes-in-images"></a>Identifiera färgscheman i bilder
 
@@ -52,7 +52,7 @@ I följande tabell beskrivs dominerande förgrund, bakgrund och bildfärger för
 
 | Bild | Dominanta färger |
 |-------|-----------------|
-|![En vit blommor med en grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Svart, vit, grön|
+|![En vit blommor med en grön bakgrund](./Images/flower.png)| Förgrund: Svart<br/>Bakgrund: Vit<br/>Färger: Black, White, Green|
 ![Ett flygplan som körs via en station](./Images/train_station.png) | Förgrund: Svart<br/>Bakgrund: Svart<br/>Färger: Svart |
 
 ### <a name="accent-color-examples"></a>Accent färg exempel

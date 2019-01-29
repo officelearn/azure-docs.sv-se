@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: eab9f13ad41d4109bb44ae196a7f8e2177886532
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.openlocfilehash: 772070b73f1d2dcf83d15283f6be70ab4fef148b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994206"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155674"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -38,9 +38,9 @@ Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Inte alla AP
 Regioner                                        | Tillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
 [Alla allmänt tillgängliga Azure-regioner globalt](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig   | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
-[Azure Kina](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
-[Azure Tyskland](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2018-02-01 till 2017-12-01 till 2017-08-01 till 2017-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure China](https://www.azure.cn/)                                                           | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01
 
 Den här tabellen uppdateras när det finns uppdateringar av tjänsten och eller nya versioner som stöds är tillgängliga
 
@@ -304,11 +304,11 @@ publicKeys | Samling med offentliga nycklar [https://docs.microsoft.com/rest/api
 vmScaleSetName | [Namn på virtuell dator ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) för VM-skalningsuppsättning | 2017-12-01
 zon | [Tillgänglighetszon](../../availability-zones/az-overview.md) för den virtuella datorn | 2017-12-01 
 ipv4/privateIpAddress | Lokala IPv4-adressen för den virtuella datorn | 2017-04-02
-IPv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
-undernät/adress | Undernätadress för den virtuella datorn | 2017-04-02 
+ipv4/publicIpAddress | Offentliga IPv4-adressen för den virtuella datorn | 2017-04-02
+subnet/address | Undernätadress för den virtuella datorn | 2017-04-02 
 undernätsprefix / | Undernätets prefix, exempel 24 | 2017-04-02 
-IPv6/IP-adress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
-MAC-adress | Mac-adress för virtuell dator | 2017-04-02 
+ipv6/ipAddress | Den lokala IPv6-adressen för den virtuella datorn | 2017-04-02 
+macAddress | Mac-adress för virtuell dator | 2017-04-02 
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 identity | (Förhandsversion) Hanterade identiteter för Azure-resurser. Se [hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01 
 
@@ -491,7 +491,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * Om du vill få support för tjänsten, skapa ett supportärende i Azure portal för den virtuella datorn där det inte går att hämta metadata svar efter långt återförsök 
 9. Jag begäran orsakade timeout för min anrop till tjänsten?
    * Metadata-anrop måste göras från den primära IP-adress som tilldelats till nätverkskortet för den virtuella datorn, även om du har ändrat vägarna det måste vara en väg för 169.254.0.0/16 adress utanför nätverkskortet.
-10. Jag har uppdaterat min taggarna i skalningsuppsättningen för virtuella datorer, men de visas inte i instanser till skillnad från virtuella datorer?
+10. Jag har uppdaterat min taggar i Virtual Machine Scale Sets, men de visas inte i instanser till skillnad från virtuella datorer?
    * För närvarande för ScaleSets visar taggar endast att den virtuella datorn på en omstart/reimage/eller ändrar du en disk till instansen. 
 
    ![Stöd för instans-Metadata](./media/instance-metadata-service/InstanceMetadata-support.png)

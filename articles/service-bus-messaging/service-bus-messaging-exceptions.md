@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: e0d319526bf9e604a98a1c926f7b6fc4f2834466
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: dc177ba7b20af61a4b6a875404a73fda5d08f7dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851155"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177329"
 ---
 # <a name="service-bus-messaging-exceptions"></a>Service Bus – undantag för meddelanden
 Den här artikeln innehåller vissa undantag som genereras av Microsoft Azure Service Bus-meddelanden API: er. Den här referensen kan komma att ändras, så kom tillbaka för uppdateringar.
@@ -37,7 +37,7 @@ I följande tabell visas meddelanden undantagstyper och orsaker och anteckningar
 
 | **Undantagstyp** | **Exempel-beskrivning/orsak** | **Föreslagen åtgärd** | **Notera på automatisk/omedelbart återförsök** |
 | --- | --- | --- | --- |
-| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden som kontrolleras av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout). Servern har slutfört den begärda åtgärden. Detta kan inträffa på grund av nätverks- eller andra fördröjningar i infrastrukturen. |Kontrollera systemtillstånd för att få konsekvens och försök igen om det behövs. Se [tidsgränsfel](#timeoutexception). |Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
+| [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx) |Servern svarade inte på den begärda åtgärden inom den angivna tiden som kontrolleras av [OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings). Servern har slutfört den begärda åtgärden. Detta kan inträffa på grund av nätverks- eller andra fördröjningar i infrastrukturen. |Kontrollera systemtillstånd för att få konsekvens och försök igen om det behövs. Se [tidsgränsfel](#timeoutexception). |Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
 | [InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx) |Begärd användare-åtgärden tillåts inte i servern eller -tjänsten. Se Undantagsmeddelandet mer information. Till exempel [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) genererar det här undantaget om meddelandet har tagits emot i [ReceiveAndDelete](/dotnet/api/microsoft.azure.servicebus.receivemode) läge. |Kontrollera koden och i dokumentationen. Kontrollera att den begärda åtgärden är giltig. |Det hjälper inte försök igen. |
 | [OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx) |Det görs ett försök att anropa en åtgärd på ett objekt som har redan stängts, avbröts eller tagits bort. I sällsynta fall kan den omgivande transaktionen har redan tagits bort. |Kontrollera koden och se till att den inte anropar åtgärder på ett borttaget objekt. |Det hjälper inte försök igen. |
 | [UnauthorizedAccessException](https://msdn.microsoft.com/library/system.unauthorizedaccessexception.aspx) |Den [TokenProvider](/dotnet/api/microsoft.servicebus.tokenprovider) objekt kunde inte hämta en token, token är ogiltig eller token innehåller inte de anspråk som krävs för att utföra åtgärden. |Kontrollera att Tokenleverantören har skapats med korrekta värden. Kontrollera konfigurationen av tjänsten Access Control. |Återförsök kan hjälpa dig att i vissa fall. Lägg till logik för omprövning i kod. |
@@ -101,7 +101,7 @@ En [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception
 Du bör kontrollera värdet för den [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) egenskap som nått den här gränsen kan även orsaka en [TimeoutException](https://msdn.microsoft.com/library/system.timeoutexception.aspx).
 
 ### <a name="queues-and-topics"></a>Köer och ämnen
-Timeout-värdet har angetts för köer och ämnen, antingen i den [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings#Microsoft_ServiceBus_Messaging_MessagingFactorySettings_OperationTimeout) egenskap som en del av anslutningssträngen eller via [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Felmeddelandet själva kan variera, men den innehåller alltid timeout-värdet som angetts för den aktuella åtgärden. 
+Timeout-värdet har angetts för köer och ämnen, antingen i den [MessagingFactorySettings.OperationTimeout](/dotnet/api/microsoft.servicebus.messaging.messagingfactorysettings) egenskap som en del av anslutningssträngen eller via [ServiceBusConnectionStringBuilder](/dotnet/api/microsoft.azure.servicebus.servicebusconnectionstringbuilder). Felmeddelandet själva kan variera, men den innehåller alltid timeout-värdet som angetts för den aktuella åtgärden. 
 
 
 

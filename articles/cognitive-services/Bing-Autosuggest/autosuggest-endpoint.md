@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: v-gedod
-ms.openlocfilehash: c2d1c97ad2af266558f9b664162526d5006d2092
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 03f7ac11b08d9cad633e207337ff963114f2c68f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830452"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55149245"
 ---
 # <a name="bing-autosuggest-endpoint"></a>Slutpunkt för Automatiska förslag i Bing
 
@@ -25,7 +25,7 @@ Den **automatiska förslag i Bing** innehåller en slutpunkt som returnerar en l
 
 För att få föreslagna frågor med hjälp av Bing-API kan skicka en `GET` begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
 
-**Slutpunkt:** returnerar sökförslag som JSON-resultat som är relevanta för användarens indata som definierats av `?q=""`.
+**Slutpunkt:** Returnerar sökförslag som JSON-resultat som är relevanta för användarens indata som definierats av `?q=""`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
@@ -39,7 +39,7 @@ Svaret på en begäran om automatiska förslag inkluderar resultat som JSON-obje
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.
+Den **Bing** API: er stöder sökåtgärder som returnerar resultat enligt typ. Alla Sök slutpunkter returnerar resultat som JSON-svar-objekt.
 Alla slutpunkter stöd för frågor som returnerar ett visst språk och/eller plats genom att longitud, latitud och Sök radius.
 
 Fullständig information om de parametrar som stöds av varje slutpunkt finns referenssidor för varje typ av.

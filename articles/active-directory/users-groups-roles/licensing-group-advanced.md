@@ -10,16 +10,16 @@ editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b94bf4c499a5d6323e774df90304f0134bc5894
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215420"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195168"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 
@@ -187,7 +187,7 @@ New Value : [Users successfully assigned licenses: 6, Users for whom license ass
 > ```
 
 3. Om du vill se en komplett logg för hur en grupp har bearbetats, inklusive alla användarändringar, ange följande filter:
-  - **Initierad av (aktör)**”: Microsoft Azure AD gruppbaserad licensiering”
+  - **Initierad av (aktör)**: ”Microsoft Azure AD gruppbaserad licensiering”
   - **Datumintervall** (valfritt): anpassade intervall för när du vet att en specifik grupp igång och bearbetats
 
 Detta exempel på utdata visas i början av bearbetning, alla resulterande användarändringar och slutdatumet för bearbetning.
@@ -201,7 +201,7 @@ Detta exempel på utdata visas i början av bearbetning, alla resulterande anvä
 
 Det går inte att ta bort en grupp med en aktiv licens. En administratör kan ta bort en grupp utan att märka att det leder till licenser som ska tas bort från användare – därför kräver vi eventuella licenser som ska tas bort från gruppen först innan den kan tas bort.
 
-När du försöker ta bort en grupp i Azure-portalen kan du se en felmeddelandet Så här: ![borttagning av skärmbild misslyckades](./media/licensing-group-advanced/groupdeletionfailed.png)
+När du försöker ta bort en grupp i Azure-portalen kan du se en felmeddelandet Så här: ![Skärmbild bort misslyckades](./media/licensing-group-advanced/groupdeletionfailed.png)
 
 Gå till den **licenser** fliken för gruppen och se om det finns några tilldelade licenser. Om Ja, ta bort dessa licenser och försök att ta bort gruppen igen.
 

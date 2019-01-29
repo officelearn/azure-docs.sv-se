@@ -1,6 +1,6 @@
 ---
-title: Övervaka användning och fråga Resursstatistik för en search-tjänst – Azure Search
-description: Hämta fråga aktivitetsmått, resursförbrukning och andra systemdata från en Azure Search-tjänst.
+title: Övervaka användning och fråga Resursmått för en search-tjänst – Azure Search
+description: Aktivera loggning, få frågan aktivitetsmått, Resursanvändning och andra systemdata från en Azure Search-tjänst.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
@@ -11,24 +11,24 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: af2a9cd7f834f5c6f70a78d94e8826de2584127d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ed084520e092802ffa2a42e8a0c664ec09c4cbb7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076391"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093248"
 ---
-# <a name="monitor-an-azure-search-service-in-azure-portal"></a>Övervaka en Azure Search-tjänst i Azure-portalen
+# <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resource förbrukning och fråga i Azure Search
 
-Du kan visa systemdata om resursanvändning, plus fråga mått som frågor Per sekund (QPS), frågesvarstiden och procentandelen förfrågningar som har begränsats på sidan Översikt i Azure Search-tjänsten. Du kan dessutom använda portalen för att utnyttja en mängd funktioner för övervakning i Azure-plattformen för djupare datainsamling. 
+På sidan Översikt i Azure Search-tjänsten kan du visa systemdata om resursanvändning, fråga mått och hur mycket kvoten är att skapa flera index, indexerare och datakällor. Du kan också använda portalen för att konfigurera log analytics eller en annan resurs som används vid insamling av beständiga data. 
 
-Den här artikeln identifierar och jämför tillgängliga alternativ för loggning av Azure Search-åtgärder. Guiden innehåller anvisningar för att aktivera loggning och logglagring och hur du kommer åt information ut service- och användaraktivitet.
+Konfigurera loggar är användbart för self diagnostik- och preserving operativa historik. Internt, finns loggar på serverdelen för en kort tidsperiod, räcker för undersökning och analys om en supportbegäran. Om du vill kontroll över- och att logga information, bör du ställa in en av de lösningar som beskrivs i den här artikeln.
 
-Konfigurera loggar är användbart för självsignerat-diagnostics och bevara en historik över tjänståtgärder. Internt, finns loggarna under en kort tidsperiod, räcker för undersökning och analys om en supportbegäran. Om du vill kontrollera lagringen av logginformation för din tjänst bör du ställa in en av de lösningar som beskrivs i den här artikeln.
+I den här artikeln lär du dig om hur du övervakar alternativ, hur du aktiverar loggning och logga storage och hur du visar logginnehållet.
 
 ## <a name="metrics-at-a-glance"></a>Mått direkt
 
-**Användning** och **övervakning** avsnitt som är inbyggda i översikt över visualisera lagringsanvändningen och frågar om mått för körning. Den här informationen blir tillgänglig när du börjar använda tjänsten, med krävs ingen konfiguration. Den här sidan uppdateras några minuters mellanrum. Om du slutför beslut om [vilken nivå ska användas för produktionsarbetsbelastningar](search-sku-tier.md), eller om du vill [justera antalet aktiva repliker och partitioner](search-capacity-planning.md), de här måtten kan hjälpa dig med dessa beslut där du kan se hur snabbt resurser används och hur väl den aktuella konfigurationen hanterar befintlig belastning.
+**Användning** och **övervakning** avsnitt som är inbyggda i översikten sidan rapporten ut i resursförbrukning och frågar om mått för körning. Den här informationen blir tillgänglig när du börjar använda tjänsten, med krävs ingen konfiguration. Den här sidan uppdateras några minuters mellanrum. Om du slutför beslut om [vilken nivå ska användas för produktionsarbetsbelastningar](search-sku-tier.md), eller om du vill [justera antalet aktiva repliker och partitioner](search-capacity-planning.md), de här måtten kan hjälpa dig med dessa beslut där du kan se hur snabbt resurser används och hur väl den aktuella konfigurationen hanterar befintlig belastning.
 
 Den **användning** fliken visar resurstillgänglighet i förhållande till aktuell [gränser](search-limits-quotas-capacity.md). Följande bild är för den kostnadsfria tjänsten som är högst 3 objekt av varje typ och 50 MB lagringsutrymme. Basic eller Standard-tjänsten har högre gränser, och om du ökar antalet för partition, det största lagringsutrymmet går upp proportionellt.
 
@@ -65,13 +65,13 @@ I följande tabell jämförs alternativen för att lagra loggar och lägger till
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserade på något scheman nedan. Händelser loggas på en blobbehållare och lagras i JSON-filer. Använda en JSON-redigerare för att visa innehållet i filen.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och mått i frågan, baserat på de scheman som beskrivs i den här artikeln. Välj det som ett alternativt samling tjänst för mycket stora loggar. |
 
+Log Analytics- och Blob storage är tillgängliga som en kostnadsfri, delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Application Insights är kostnadsfritt att registrera och använda så länge application data ligger under vissa gränser (se den [sidan med priser](https://azure.microsoft.com/ricing/details/monitor/) information).
 
-
-Log Analytics- och Blob storage är tillgängliga som kostnadsfri delad tjänst så att du kan prova utan kostnad för livslängden för dina Azure-prenumeration. Nästa avsnitt vägleder dig genom stegen för att aktivera och använda Azure Blob storage för att samla in och komma åt loggdata som skapats av Azure Search-åtgärder.
+Nästa avsnitt vägleder dig genom stegen för att aktivera och använda Azure Blob storage för att samla in och komma åt loggdata som skapats av Azure Search-åtgärder.
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Loggning för indexerings- och arbetsbelastningar är inaktiverat som standard och beror på tilläggslösningar för både loggning infrastruktur och externa långtidslagring. Är de enda beständiga data i Azure Search index, så loggar måste lagras på annan plats.
+Loggning för indexerings- och arbetsbelastningar är inaktiverat som standard och beror på tilläggslösningar för både loggning infrastruktur och externa långtidslagring. Är de enda beständiga data i Azure Search de objekt som den skapar och hanterar, så loggar måste lagras på annan plats.
 
 I det här avsnittet lär du dig att använda Blob storage kan lagra loggade händelser och mått.
 
@@ -91,12 +91,14 @@ I det här avsnittet lär du dig att använda Blob storage kan lagra loggade hä
 
 5. Testa loggning genom att skapa eller ta bort objekt (skapar logghändelser) och genom att skicka frågor (genererar mått). 
 
-Loggning är aktiverat när du sparar profilen, behållare skapas endast när det finns en händelse till loggen eller mått. Det kan ta flera minuter innan behållarna ska visas. När data kopieras till ett lagringskonto, data formaterade som JSON och placeras i två behållare:
+Loggning är aktiverad när du sparar profilen. Behållare skapas endast när det finns en aktivitet till loggen eller mått. När data kopieras till ett lagringskonto, data formaterade som JSON och placeras i två behållare:
 
 * Insights-logs-operationlogs: för search trafikloggar
 * Insights-mått-pt1m: för mått
 
-Du kan använda [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) eller en annan JSON-redigerare för att visa filerna. Det finns en blob, per timme per behållare.
+Det tar en timme innan behållarna som visas i Blob storage. Det finns en blob, per timme per behållare. 
+
+Du kan använda [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) eller en annan JSON-redigerare för att visa filerna. 
 
 ### <a name="example-path"></a>Exempel på sökväg
 
@@ -163,7 +165,7 @@ Du kan använda valfri JSON-redigerare för att visa loggfilen. Om du inte har e
 
 När filen har hämtats, kan du öppna den i en JSON-redigerare för att visa innehållet.
 
-## <a name="get-sys-info-apis"></a>Hämta sys-info API: er
+## <a name="use-system-apis"></a>Använd system-API
 Både Azure Search REST API och .NET-SDK: N ger programmatisk åtkomst till information om tjänstens mått, index och indexerare och dokumentantal.
 
 * [Hämta statistik för tjänster](/rest/api/searchservice/get-service-statistics)

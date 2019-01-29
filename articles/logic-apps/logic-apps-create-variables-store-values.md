@@ -72,7 +72,7 @@ Du kan skapa en variabel och deklarera dess datatyp och ursprungsvärdet – all
 
 4. Ange den här informationen för variabeln:
 
-   | Egenskap  | Krävs | Värde |  Beskrivning |
+   | Egenskap  | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
    | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
    | Type | Ja | <*typ av variabel*> | Datatypen för variabeln | 
@@ -208,7 +208,7 @@ Att öka eller *ökningen* en variabel med ett konstant värde, lägga till den 
 
 3. Ange den här informationen för att öka variabeln:
 
-   | Egenskap  | Krävs | Värde |  Beskrivning |
+   | Egenskap  | Krävs | Value |  Beskrivning |
    |----------|----------|-------|--------------|
    | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att öka | 
    | Value | Nej | <*öka värdet*> | Det värde som används för att öka variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för variabeln som ökar. | 
@@ -328,7 +328,7 @@ Att minska eller *minska* en variabel med ett konstant värde, följer du stegen
 
 Här följer egenskaperna för den **minska variabel** åtgärd:
 
-| Egenskap  | Krävs | Värde |  Beskrivning |
+| Egenskap  | Krävs | Value |  Beskrivning |
 |----------|----------|-------|--------------|
 | Name | Ja | <*variabeln-name*> | Namnet på variabeln för att minska | 
 | Value | Nej | <*öka värdet*> | Värdet för minska variabeln. Standardvärdet är en. <p><p>**Tips!** Även om det är valfritt, ange ett värde som bästa praxis så att du alltid vet det specifika värdet för minska variabeln. | 
@@ -363,7 +363,7 @@ Värdet är obligatoriskt eftersom åtgärden inte har ett standardvärde.
 
 Här följer egenskaperna för den **ange variabel** åtgärd:
 
-| Egenskap  | Krävs | Värde |  Beskrivning | 
+| Egenskap  | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
 | Value | Ja | <*nytt värde*> | Det värde som du vill tilldela variabeln. Båda måste ha samma datatyp. | 
@@ -421,7 +421,7 @@ För variabler som lagrar strängar eller matriser, kan du infoga eller *lägga 
 
 Här följer egenskaperna för den **läggas till...**  åtgärder:
 
-| Egenskap  | Krävs | Värde |  Beskrivning | 
+| Egenskap  | Krävs | Value |  Beskrivning | 
 |----------|----------|-------|--------------| 
 | Name | Ja | <*variabeln-name*> | Namnet på variabeln att ändra | 
 | Value | Ja | <*Lägg till värde*> | Det värde som du vill lägga till, vilket kan ha valfri typ | 

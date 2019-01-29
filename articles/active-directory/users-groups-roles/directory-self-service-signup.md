@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
 ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394688"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55195825"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
 Den här artikeln förklarar självbetjäningsregistrering och ge stöd för den i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, finns i [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
@@ -31,9 +31,9 @@ Den här artikeln förklarar självbetjäningsregistrering och ge stöd för den
 * En klientportal-självservice skapade Azure AD-katalog kan omvandlas till en hanterad katalog som kan användas för andra tjänster
 
 ## <a name="terms-and-definitions"></a>Termer och definitioner
-* **Självbetjäningsregistrering**: det här är den metod som en användare registrerar sig för en molnbaserad tjänst och har en identitet som skapas automatiskt för dem i Azure AD baserat på e-postdomän.
-* **Ohanterad Azure AD-katalog**: det här är den katalog där den identiteten har skapats. En ohanterad katalog är en katalog som har ingen global administratör.
-* **E-postkontrollerad användaren**: det här är en typ av användarkonto i Azure AD. En användare som har en identitet som skapas automatiskt när du registrerar dig för ett erbjudande med självbetjäning kallas för en e-postkontrollerad användare. En e-postkontrollerad användare är en vanlig medlem i en katalog som taggats med creationmethod = EmailVerified.
+* **Självbetjäningsregistrering**: Det här är den metod som en användare registrerar sig för en molnbaserad tjänst och har en identitet som skapas automatiskt för dem i Azure AD baserat på e-postdomän.
+* **Ohanterad Azure AD-katalog**: Det här är den katalog där den identiteten har skapats. En ohanterad katalog är en katalog som har ingen global administratör.
+* **E-postkontrollerad användaren**: Det här är en typ av användarkonto i Azure AD. En användare som har en identitet som skapas automatiskt när du registrerar dig för ett erbjudande med självbetjäning kallas för en e-postkontrollerad användare. En e-postkontrollerad användare är en vanlig medlem i en katalog som taggats med creationmethod = EmailVerified.
 
 ## <a name="how-do-i-control-self-service-settings"></a>Hur kan jag styra självbetjäingsinställningar?
 Administratörer har två självbetjäning kontroller i dag. De kan kontrollera om:
@@ -63,9 +63,9 @@ Flow och PowerApps utvärderingsversion registreringar kontrolleras inte av den 
 ### <a name="how-do-the-controls-work-together"></a>Hur fungerar kontrollerna tillsammans?
 Dessa två parametrar kan användas tillsammans för att definiera mer exakt kontroll över självbetjäningsregistrering. Till exempel följande kommando kan användarna utföra självbetjänad registrering, men endast om dessa användare redan har ett konto i Azure AD (d.v.s. användare som behöver en e-postkontrollerad konto skapas först kan inte utföra självbetjänad registrering):
 
-````powershell
+```powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
-````
+```
 
 I följande flödesschema beskriver olika kombinationer för dessa parametrar och de resulterande villkor katalog-och registrering av självbetjäning.
 

@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du programmässigt kan skapa och ha
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: adeb963333ffc2b587d7468eb357fab8dc4d6bbe
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54847058"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101795"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -201,17 +201,34 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
   }
   ```
 
+   Läs mer om redigering av en principdefinition [Azure Policy-Definitionsstruktur](../concepts/definition-structure.md).
+
 1. Kör följande kommando för att skapa en principdefinition:
 
    ```azurecli-interactive
    az policy definition create --name 'audit-storage-accounts-open-to-public-networks' --display-name 'Audit Storage Accounts Open to Public Networks' --description 'This policy ensures that storage accounts with exposures to public networks are audited.' --rules '<path to json file>' --mode All
    ```
 
+   Kommandot skapar en principdefinition med namnet _Audit Storage-konton öppen för offentliga nätverk_.
+   Läs mer om andra parametrar som du kan använda [az principdefinitionen skapa](/cli/azure/policy/definition#az-policy-definition-create).
+
+   När den anropas utan Platsparametrar, `az policy definition creation` standard till sparar principdefinitionen i den valda prenumerationen av sessioner kontext. Om du vill spara definitionen till en annan plats, använder du följande parametrar:
+
+   - **--prenumeration** -spara till en annan prenumeration. Kräver en _GUID_ värde för prenumerations-ID eller en _sträng_ värde för prenumerationens namn.
+   - **--hanteringsgrupp** -spara till en hanteringsgrupp. Kräver en _sträng_ värde.
+
 1. Använd följande kommando för att skapa en principtilldelning. Ersätt exempelinformation i &lt; &gt; symboler med dina egna värden.
 
    ```azurecli-interactive
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
+
+   Den **--omfång** parametern på `az policy assignment create` fungerar med hanteringsgruppen, prenumeration, resursgrupp eller en enskild resurs. Parametern använder en fullständig resurssökväg. Mönster för **--omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resursnamnet på din resursgrupp namn, prenumerations-ID och namn på hanteringsgrupp, respektive. `{rType}` skulle ersättas med det **resurstyp** av resurs, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+
+   - Resurs- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resursgrupp – `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Prenumeration – `/subscriptions/{subID}`
+   - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Du kan hämta Principdefinitionens ID med hjälp av PowerShell med följande kommando:
 

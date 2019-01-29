@@ -9,17 +9,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: trinadhk
-ms.openlocfilehash: a0cbb8650a818c3ae6c839d69bbc9b94f8d080ca
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: a5afdd0dca55a5df075acb99e488c932196d95c5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351404"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092312"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhetskopian och återställer prestanda med Azure Backup-omedelbar återställning kapacitet
 
 > [!NOTE]
-> Baserat på feedback från användare som den **VM-säkerhetskopieringsstack V2** är förvirrande med Azure stack, vi har ändrat namnet på den till **omedelbar återställning** vilket ger en uppgraderad och bättre upplevelse.
+> Baserat på feedback från användare byter vi namn **VM-säkerhetskopieringsstack V2** till **omedelbar återställning** att minska förvirring med Azure Stack-funktioner.
 
 Den nya modellen för omedelbar återställning innehåller följande funktionsförbättringar:
 

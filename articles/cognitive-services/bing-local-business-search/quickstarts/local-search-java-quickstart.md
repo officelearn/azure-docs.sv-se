@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 533e8b30bf59010f71df477b96b5441c83c34be7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: ada75f9ebe38615d17276c9e5b731924a45c8e75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52307116"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55148464"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-java"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing med hjälp av Java
 
@@ -25,9 +25,9 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Den [Kit(JDK) för Java-utveckling](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* The [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver en åtkomstnyckel som tillhandahållits när du aktiverar din kostnadsfria utvärderingsversion.  Se även [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten. Du behöver den åtkomstnyckel som tillhandahålls när du aktiverar din kostnadsfria utvärderingsversion.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 Det här exempelprogrammet hämtar lokala svarsdata från frågan för en *hotell i Bellevue*.
 
@@ -35,7 +35,7 @@ Det här exempelprogrammet hämtar lokala svarsdata från frågan för en *hotel
 
 Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”hotell i Bellevue”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
-````
+```
     // construct URL of search request (endpoint + query string)
      URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
     HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -47,7 +47,7 @@ Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en 
 
     // construct result object for return
     SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## <a name="run-the-complete-application"></a>Kör hela appen
 
@@ -58,7 +58,7 @@ Den lokala företag i Bing returnerar resultat från Bing search-motorn.
 4. Ersätt värdet för subscriptionKey med en giltig åtkomstnyckel för din prenumeration.
 5. Kör programmet.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -162,7 +162,7 @@ public class LocalSearchCls {
         }
     }
 
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lokala företag Search-Snabbstart](local-quickstart.md)

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 11/30/2018
 ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 2f9cefa31b007cae715ff2ea98bccb3112babbef
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
+ms.openlocfilehash: d31c54da82a8580fee9ad3d681c449aff74b14c4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52619800"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097861"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Ramverket för medgivande för Azure Active Directory
 
@@ -41,19 +41,19 @@ Följande steg visar hur samtycke upplevelse fungerar för både programutveckla
 
     ![Behörigheter för andra program](./media/quickstart-v1-integrate-apps-with-azure-ad/requiredpermissions.png)
 
-1. Överväg att behörigheter för ditt program har uppdaterats, programmet körs och en användare kommer att använda den för första gången. Programmet måste först, att hämta en auktoriseringskod från Azure Active Directorys `/authorize` slutpunkt. Auktoriseringskoden kan sedan användas för att få en ny tillgång och uppdatera token.
+1. Överväg att behörigheter för ditt program har uppdaterats, programmet körs och en användare kommer att använda den för första gången. Programmet måste först, att hämta en auktoriseringskod från Azure Active Directorys `/authorize` slutpunkt. Auktoriseringskoden kan sedan användas för att få en ny åtkomst och uppdatera token.
 
 1. Om användaren inte är autentiserad och Azure Active Directorys `/authorize` endpoint uppmanar användaren att logga in.
 
     [Användaren eller administratören logga in på Azure AD](./media/quickstart-v1-integrate-apps-with-azure-ad/usersignin.png)
 
-1. När användaren har loggat in avgör Azure AD om användaren behöver en samtyckessida visas. Det här fastställs baserat på om användaren (eller organisationens administratör) har redan gett samtycke för programmet. Om medgivande inte redan har getts, Azure AD efterfrågar medgivande och visar de behörigheter som krävs ska fungera. Uppsättningen behörigheter som visas i dialogrutan för medgivande överensstämmer med de som valts i den **delegerade behörigheter** i Azure-portalen.
+1. När användaren har loggat in avgör Azure AD om användaren behöver en samtyckessida visas. Det här fastställandet baseras på om användaren (eller organisationens administratör) redan har gett medgivande för programmet. Om medgivande inte redan har getts, Azure AD efterfrågar medgivande och visar de behörigheter som krävs ska fungera. Uppsättningen behörigheter som visas i dialogrutan för medgivande överensstämmer med de som valts i den **delegerade behörigheter** i Azure-portalen.
 
     ![Användarupplevelsen för medgivande](./media/quickstart-v1-integrate-apps-with-azure-ad/consent.png)
 
 1. När användaren ger ditt medgivande, returneras en auktoriseringskod till programmet, som har löst in att hämta en åtkomsttoken och uppdatera token. Mer information om det här flödet finns i [webb-API-apptyp](web-api.md).
 
-1. Som administratör kan också samtycker du till ett programs delegerade behörigheter för alla användare i din klient. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
+1. Som administratör kan du även samtycka till ett programs delegerade behörigheter för samtliga användare i klienten. Administratörs godkännande förhindrar att godkännande i dialogrutan visas för varje användare i klienten och kan göras i den [Azure-portalen](https://portal.azure.com) av användare med administratörsrollen. Läs vilken administratör roller kan godkänna delegerade behörigheter i [behörigheter för administratör i Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
 
     **Om du vill godkänna en app delegerade behörigheter**
 

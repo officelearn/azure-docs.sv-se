@@ -1,7 +1,7 @@
 ---
 title: PowerShell-exempel för att hantera grupper i Azure Active Directory | Microsoft Docs
 description: Den här sidan innehåller PowerShell-exempel för att hjälpa dig att hantera dina grupper i Azure Active Directory
-keywords: Azure AD, Azure Active Directory, PowerShell, grupper, grupphantering
+keywords: Azure AD, Azure Active Directory, PowerShell, Groups, Group management
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -9,18 +9,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: d6fb5a97ef573a35f335875beddc7752f580bec1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 9cb496ad1ad679fd3a4e6f55f15f658f084e308a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176343"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Azure Active Directory version 2-cmdletar för grupphantering
 > [!div class="op_single_selector"]
@@ -218,15 +218,15 @@ Inaktivera skapande av en grupp för icke-administratörer:
 
 1. Kontrollera att icke-administratörer har behörighet att skapa grupper:
    
-  ````
+  ```
   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ````
+  ```
   
 2. Om den returnerar `UsersPermissionToCreateGroupsEnabled : True`, icke-administratörer kan skapa grupper. Inaktivera den här funktionen:
   
-  ```` 
+  ``` 
   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ````
+  ```
   
 ## <a name="manage-owners-of-groups"></a>Hantera ägare av grupper
 Om du vill lägga till ägare till en grupp, använder du Lägg till AzureADGroupOwner-cmdlet:
@@ -250,10 +250,10 @@ Om du vill ta bort ägare från en grupp kan du använda cmdleten Remove-AzureAD
     PS C:\Windows\system32> remove-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -OwnerId e831b3fd-77c9-49c7-9fca-de43e109ef67
 
 ## <a name="reserved-aliases"></a>Reserverade alias 
-När en grupp skapas vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadressen till gruppen. Grupper med följande med hög behörighetsnivå e-post-alias kan endast skapas av en global administratör för Azure AD. 
-  
+När en grupp skapas vissa slutpunkter gör det möjligt för användaren att ange en mailNickname eller alias som ska användas som en del av e-postadressen till gruppen. Grupper med följande med hög behörighetsnivå e-post-alias kan endast skapas av en global administratör för Azure AD. 
+  
 * missbruk 
-* Admin 
+* admin 
 * administratör 
 * hostmaster 
 * majordomo 
@@ -261,7 +261,7 @@ När en grupp skapas vissa slutpunkter gör det möjligt för användaren att an
 * rot 
 * skydda 
 * security 
-* SSL-administratör 
+* ssl-admin 
 * webbadministratör 
 
 ## <a name="next-steps"></a>Nästa steg

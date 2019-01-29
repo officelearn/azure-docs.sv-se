@@ -6,17 +6,17 @@ services: cognitive-services
 author: KellyDF
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 3146650280af80923a4ed9cbb78a5ce6d43e5bce
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 8bcca60299cae01bed00a4730f78bf53809ab187
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584283"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178791"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Vanliga och frågor svar om API för visuellt
 
@@ -43,7 +43,7 @@ ms.locfileid: "53584283"
 | | | Språk som stöds | | |
 |---------------- |------------------ |------------------ |--------------------------- |--------------------
 | Danska (da-DK)  | Nederländska (nl-NL)     | Svenska           | Finska (fi-FI)            |Franska (fr-FR)
-| Tyska (de-DE)  | Grekiska (el-GR)     | Ungerska (hu-HU) | Italienska (it-IT)            | Japanska (ja-JP)
+| Tyska (de-DE)  | Grekiska (el-GR)     | Ungerska (hu-HU) | Italienska (it-IT)            | Japanese (ja-JP)
 | Koreanska (ko-KR)  | Norska (nb-NO) | Polska (pl-PL)    | Portugisiska (pt-BR) (pt-PT) | Ryska (ru-RU)
 | Spanska (es-ES)   | Svenska (SA-SV)     | Turkiska (tr-TR)   |                            |
 

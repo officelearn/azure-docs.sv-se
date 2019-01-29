@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8bfd4ca6a9bdac999653fa9448bf7e754e9e6180
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51254476"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168251"
 ---
 <a name="create-a-microsoft-developer-account"></a>Skapa ett Microsoft Developer-konto
 ====================================
@@ -106,7 +106,7 @@ Microsoft Developer Center för att registrera företagsinformation en gång. Av
    ![Välj land/region](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >”” Försäljningsländer: för att kunna sälja dina tjänster på Azure Marketplace, registrerade entiteten måste vara från en av de godkända ”” försäljningsländer visas i listrutan. Den här begränsningen är payout och skatt skäl. Mer information finns i deltagandepolicyerna för Marketplace.
+    >”” Försäljningsländer: Registrerade entiteten måste vara från en av de godkända ”” försäljningsländer visas i listrutan för att kunna sälja dina tjänster på Azure Marketplace. Den här begränsningen är payout och skatt skäl. Mer information finns i deltagandepolicyerna för Marketplace.
 
 5. Välj **företagets** som din ”kontotyp” och välj sedan **nästa**.
 
@@ -181,7 +181,8 @@ Om du vill publicera kommersiella erbjudanden för inköp, måste du lägga till
     - Välj **Nästa**.
 4.  Ange dina skatteuppgifter och välj sedan **nästa**.
 
->[VARNING!] Du kommer inte att kunna skicka till dina kommersiella erbjudanden till produktion utan att ange konto- och skatteinformation i Microsoft Developer Center-konto.
+>[!WARNING]
+>Du kommer inte att kunna skicka till dina kommersiella erbjudanden till produktion utan att ange konto- och skatteinformation i Microsoft Developer Center-konto.
 
 ### <a name="developer-center-registration-issues"></a>Developer Center registreringsproblem
 

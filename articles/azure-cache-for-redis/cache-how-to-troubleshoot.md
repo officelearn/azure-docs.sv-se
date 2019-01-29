@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: wesmc
-ms.openlocfilehash: 154f5200872dbc06550f396717cb215f3db4f7dd
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 58c1af860c5ccc87f4396c698b432f47f0ea7c65
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199586"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096967"
 ---
 # <a name="how-to-troubleshoot-azure-cache-for-redis"></a>Felsökning av Azure Cache för Redis
 Den här artikeln innehåller riktlinjer för felsökning av följande typer av Azure Cache för Redis-problem.
@@ -187,11 +187,11 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
 | Fel meddelande mått | Information |
 | --- | --- |
 | inst |Under det senaste tidsintervallet: 0-kommandon som har utfärdats |
-| hanteraren |Socket manager utför `socket.select`, vilket innebär att den ber operativsystem och ange en socket som har att göra; i princip: läsaren inte aktivt lästes från nätverket eftersom det inte tror att det finns något att göra |
+| mgr |Socket manager utför `socket.select`, vilket innebär att den ber operativsystem och ange en socket som har att göra; i princip: läsaren inte aktivt lästes från nätverket eftersom det inte tror att det finns något att göra |
 | kö |Det finns 73 Totalt antal pågående åtgärder |
-| Tidsgräns |6 för pågående åtgärder finns i unsent kön och ännu inte har skrivit till utgående nätverkstrafik |
-| Qs |67 pågående åtgärder har skickats till servern men svaret är inte tillgänglig ännu. Svaret kan bli `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
-| QC |0 för pågående åtgärder har sett svar men ännu inte har markerats som slutförd på grund av att vänta på slutförande-loop |
+| qu |6 för pågående åtgärder finns i unsent kön och ännu inte har skrivit till utgående nätverkstrafik |
+| qs |67 pågående åtgärder har skickats till servern men svaret är inte tillgänglig ännu. Svaret kan bli `Not yet sent by the server` eller `sent by the server but not yet processed by the client.` |
+| qc |0 för pågående åtgärder har sett svar men ännu inte har markerats som slutförd på grund av att vänta på slutförande-loop |
 | WR |Det finns en aktiv skrivaren (dvs. 6 ej skickade begäranden inte ignoreras) byte/activewriters |
 | i |Det finns ingen aktiv läsare och noll byte är tillgängliga för att läsa på NIC byte/activereaders |
 
@@ -212,7 +212,7 @@ Det här felmeddelandet innehåller mått som kan hjälpa till att peka orsaken 
             return lazyConnection.Value;
         }
     }
-    ````
+    ```
 
     Mer information finns i [Anslut den till cachen med StackExchange.Redis](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
 

@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: ab2c0f671eaf6147baad24b426c4a527f07e136f
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 74f071d91003c63fd8db590572a7c9dea1b8915b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422413"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092789"
 ---
 # <a name="id-tokens"></a>ID-tokens
 
@@ -55,8 +55,8 @@ Visa den här v2.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJ
 
 |Begäran | Format | Beskrivning |
 |-----|--------|-------------|
-|`typ` | Sträng - alltid ”JWT” | Anger att token är en JWT.|
-|`alg` | Sträng | Anger den algoritm som användes för att signera token. Exempel: ”RS256” |
+|`typ` | String - always "JWT" | Anger att token är en JWT.|
+|`alg` | Sträng | Anger den algoritm som användes för att signera token. Exempel: "RS256" |
 |`kid` | Sträng | Tumavtryck för den offentliga nyckeln som används för att signera den här token. Släpps i både v1.0 och v2.0 `id_tokens`. |
 |`x5t` | Sträng | Samma (i användning och värde) som `kid`. Detta är ett äldre anspråk som släpps endast i v1.0 `id_tokens` för kompatibilitet. |
 
@@ -67,7 +67,7 @@ Visa den här v2.0 exempel token i [jwt.ms](https://jwt.ms/#id_token=eyJ0eXAiOiJ
 |`aud` |  Sträng, ett App-ID-URI | Identifierar den avsedda mottagaren av token. I `id_tokens`, målgruppen är appens program-ID som tilldelats din app i Azure-portalen. Din app ska verifiera det här värdet och avvisa token om värdet inte matchar. |
 |`iss` |  Sträng, en STS-URI | Identifierar den säkerhetstokentjänst (STS) som skapar och återställer token och Azure AD-klient där användaren autentiserades. Om token har utfärdats av v2.0-slutpunkten, URI: N ska avslutas i `/v2.0`.  Det GUID som anger att användaren är en konsument användare från ett Microsoft-konto är `9188040d-6c67-4c5b-b112-36a304b66dad`. Din app ska använda GUID-del av kravet för att minska antalet klienter som kan logga in på appen, om tillämpligt. |
 |`iat` |  int, en UNIX-tidsstämpel | ”Utfärdat till” anger när autentisering för den här token inträffade.  |
-|`idp`|Sträng, vanligtvis en STS-URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en orgnizational kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |
+|`idp`|String, usually an STS URI | Registrerar den identitetsprovider som har autentiserat subjektet för token. Det här värdet är identiskt med utfärdaren anspråkets värde såvida inte användarkontot inte i samma klient som utfärdaren - gäster, till exempel. Om anspråket inte är tillgänglig, innebär det att värdet för `iss` kan användas i stället.  För personliga konton som används i en orgnizational kontext (till exempel ett personligt konto bjudits in till en Azure AD-klient), den `idp` anspråk kan vara ”live.com” eller en STS-URI som innehåller Microsoft-kontots klientorganisation `9188040d-6c67-4c5b-b112-36a304b66dad`. |
 |`nbf` |  int, en UNIX-tidsstämpel | ”Nbf” (inte före)-anspråket identifierar den tid som JWT inte måste godkännas för bearbetning.|
 |`exp` |  int, en UNIX-tidsstämpel | ”Exp” (upphör att gälla)-anspråket identifierar den upphör att gälla på eller efter vilket den JWT måste inte accepteras för bearbetning.  Det är viktigt att Observera att en resurs kan avvisa token innan du nu även - om till exempel en ändring i autentisering krävs eller en återkallningen av token har identifierats. |
 | `c_hash`| Sträng |Kod hash ingår i ID-token endast när ID-token utfärdas med en OAuth 2.0-auktoriseringskod. Det kan användas för att bekräfta en auktoriseringskod är äkta. Mer information om hur du utför den här verifieringen, finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html). |

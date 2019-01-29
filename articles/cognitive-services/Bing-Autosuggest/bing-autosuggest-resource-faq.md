@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: b0ec10bbf03e8a8d005eece4b6496b74b2943233
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831372"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55173266"
 ---
 # <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Vanliga frågor (och svar FAQ) om Bing för automatiska förslag i
  
@@ -33,7 +33,7 @@ Men när du anropar den automatiska förslag i Bing från JavaScript kanske i we
 
 Du kan göra automatiska förslag i Bing-begäran via en CORS-proxy för att lösa problemet. Svaret från sådan proxy har en `Access-Control-Expose-Headers` rubrik som vitlistor svarshuvuden och gör dem tillgängliga för JavaScript.
 
-Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorials/autosuggest.md) att komma åt valfria klientcertifikat-huvuden. Första, om du inte redan har det, [installera Node.js](https://nodejs.org/en/download/). Ange sedan följande kommando i Kommandotolken.
+Det är enkelt att installera en proxy för CORS så att våra [självstudieappen](tutorials/autosuggest.md) att komma åt valfria klientcertifikat-huvuden. [Installera Node.js](https://nodejs.org/en/download/) om du inte redan har det. Ange sedan följande kommando i Kommandotolken.
 
     npm install -g cors-proxy-server
 
@@ -41,11 +41,11 @@ Sedan ändra den automatiska förslag i Bing-slutpunkten i HTML-filen:
 
     http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/Suggestions
 
-Slutligen börja CORS-proxyn med följande kommando:
+Slutligen startar du CORS-proxyn med följande kommando:
 
     cors-proxy-server
 
-Lämna Kommandotolken öppen medan du använder självstudieappen; stänga fönstret stoppar proxyn. I avsnittet nedan sökresultaten utbyggbara HTTP-huvuden, kan du nu se den `X-MSEdge-ClientID` rubrik (bland annat) och kontrollera att det är samma för varje begäran.
+Lämna kommandofönstret öppet medan du använder självstudieappen. Om du stänger fönstret stoppas proxyn. I det expanderbara avsnittet om HTTP-huvuden nedan kan du nu se `X-MSEdge-ClientID`-huvudet (bland annat) under sökresultatet och du kan kontrollera att det är samma för varje begäran.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -53,4 +53,4 @@ Lämna Kommandotolken öppen medan du använder självstudieappen; stänga föns
 
 ## <a name="see-also"></a>Se också
 
-- [Stackspill: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/microsoft-cognitive)

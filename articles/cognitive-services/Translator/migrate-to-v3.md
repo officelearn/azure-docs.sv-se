@@ -41,13 +41,13 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 | V2 API-metoden   | V3 API-kompatibilitet |
 |:----------- |:-------------|
-| Översätt     | [Översätt](reference/v3-0-translate.md)          |
+| Translate     | [Översätt](reference/v3-0-translate.md)          |
 | TranslateArray      | [Översätt](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Språk](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Språk](reference/v3-0-languages.md)       |
 | GetLanguagesForSpeak      | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Tala     | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Upptäcka     | [Identifiera](reference/v3-0-detect.md)         |
+| Speak     | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Detect     | [Identifiera](reference/v3-0-detect.md)         |
 | DetectArray     | [Identifiera](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
@@ -75,12 +75,12 @@ Microsoft Translator V3 debiteras på samma sätt som V2 har prissätts; per tec
 
 | V3-metod   | Tecken som räknas för fakturering |
 |:----------- |:-------------|
-| Språk     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
-| Översätt     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
-| Transkribera     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
-| Ordlista lookup & exempel     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
+| Languages     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
+| Translate     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
+| Transliterate     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
+| Dictionary lookup & example     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
 | BreakSentence     | Ingen extra kostnad.       |
-| Upptäcka     | Ingen extra kostnad.      |
+| Detect     | Ingen extra kostnad.      |
 
 ## <a name="v3-end-points"></a>V3-slutpunkter
 

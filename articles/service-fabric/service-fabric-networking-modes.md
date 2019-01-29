@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: twhitney, subramar
-ms.openlocfilehash: a42236af7e301a21a91a3c1294b20167824dfc84
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 62812dd8f92bcace8f764a21aba608157815cec3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024798"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093178"
 ---
 # <a name="service-fabric-container-networking-modes"></a>Nätverkslägen för behållare för Service Fabric
 
@@ -78,7 +78,7 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
             ],
     ```
     
-2. Konfigurera nätverk profilavsnittet för Virtual Machine Scale Sets-resursen. På så sätt kan flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod. Registrera fem IP-adresser i Azure Load Balancer-Serverdelsadresspool för att du har fem IP-adresser som är tillgänglig från Azure Load Balancer, som visas nedan.  Du kommer också att vitbok för att lägga till variabler längst upp i din mall i variables-avsnittet.
+2. Konfigurera nätverk profilavsnittet för Virtual Machine Scale Sets-resursen. På så sätt kan flera IP-adresser som ska konfigureras på varje nod i klustret. I följande exempel ställer in fem IP-adresser per nod för Windows/Linux Service Fabric-kluster. Du kan ha fem instanser av tjänsten lyssnar på port på varje nod. Registrera fem IP-adresser i Azure Load Balancer-Serverdelsadresspool för att du har fem IP-adresser som är tillgänglig från Azure Load Balancer, som visas nedan.  Du måste också lägga till variabler längst upp i din mall i variables-avsnittet.
 
     Lägg till det här avsnittet i variabler:
 
@@ -264,7 +264,7 @@ När en behållartjänst startar om eller flyttas till en annan nod i klustret, 
    </Resources>
    ```
    
-6. För Windows, gör en omstart av virtuell dator att öppna nätverks återskapas. Det här är att minimera underliggande problemet i nätverksstacken. Standard-beteende är att återskapa nätverket. Om det här beteendet måste stängas av, kan följande konfiguration användas följt av en config-uppgradering.
+6. För Windows, gör en omstart av virtuell dator att öppna nätverks återskapas. Det här är att minimera underliggande problemet i nätverksstacken. Standardinställningen är att återskapa nätverket. Om det här beteendet måste stängas av, kan följande konfiguration användas följt av en config-uppgradering.
 
 ```json
 "fabricSettings": [

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 70305468ca20c48bdc26e7e000a0e5edb63508cd
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261578"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55198222"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionera Service Fabric reliable services
 Den här artikeln innehåller en introduktion till de grundläggande principerna för Azure Service Fabric tillförlitliga tjänster partitioneras. Källkoden som används i artikeln finns också på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -129,11 +129,7 @@ Eftersom du verkligen vill ha en partition per bokstav kan vi använda 0 som nyc
 1. Öppna **Visual Studio** > **filen** > **nya** > **projekt**.
 2. I den **nytt projekt** dialogrutan väljer du Service Fabric-program.
 3. Anropa projektet ”AlphabetPartitions”.
-4. I den **skapar du en tjänst** dialogrutan väljer du **tillståndskänslig** -tjänsten och anropa det ”Alphabet.Processing” enligt bilden nedan.
-       ![Dialogrutan Ny tjänst i Visual Studio][1]
-
-  <!--  ![Stateful service screenshot](./media/service-fabric-concepts-partitioning/createstateful.png)-->
-
+4. I den **skapar du en tjänst** dialogrutan väljer du **tillståndskänslig** -tjänsten och anropa det ”Alphabet.Processing”.
 5. Ange antalet partitioner. Öppna filen Applicationmanifest.xml finns i mappen ApplicationPackageRoot projektets AlphabetPartitions och uppdatera parametern Processing_PartitionCount till 26 enligt nedan.
    
     ```xml
@@ -167,7 +163,7 @@ Eftersom du verkligen vill ha en partition per bokstav kan vi använda 0 som nyc
    
     Flera kopior av den här tjänsten kan finnas på samma dator, så den här adressen måste vara unikt för repliken. Det är därför partitions-ID + replik-ID finns i URL: en. HttpListener kan lyssna på flera adresser på samma port som URL-prefixet är unikt.
    
-    Extra GUID finns det för ett avancerade fall där sekundära repliker även lyssna efter begäranden som skrivskyddad. När så är fallet, som du vill se till att en ny unik adress används när övergången från primära till sekundära för att tvinga klienter att matcha adressen igen. ”+” används som den här adressen så att repliken lyssnar på alla tillgängliga värdar (IP, FQDM localhost, osv.) Koden nedan visar ett exempel.
+    Extra GUID finns det för ett avancerade fall där sekundära repliker även lyssna efter begäranden som skrivskyddad. När så är fallet, som du vill se till att en ny unik adress används när övergången från primära till sekundära för att tvinga klienter att matcha adressen igen. ”+” används som den här adressen så att repliken lyssnar på alla tillgängliga värdar (IP, FQDN, localhost, osv.) Koden nedan visar ett exempel.
    
     ```CSharp
     protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -365,7 +361,7 @@ Eftersom du verkligen vill ha en partition per bokstav kan vi använda 0 som nyc
 Hela källkoden för exemplet finns på [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Reliable Services och aktören Förgrena delprocesser
-Service Fabric stöder inte reliable services och därefter reliable actors Förgrena delprocesser. Ett exempel på varför det är inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera ett som inte stöds underprocess och annulleringstoken skickas endast till registrerad processer, vilket resulterar i alla typer av problem, till exempel uppgradera fel, när delprocesser inte Stäng när den överordnade processen har tagit emot en token för annullering. 
+Service Fabric stöder inte reliable services och därefter reliable actors Förgrena delprocesser. Ett exempel på varför det är inte stöds är [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) kan inte användas för att registrera ett som inte stöds underprocess och annullering token skickas endast till registrerade bearbetar, vilket resulterar i alla typer av problem, till exempel uppgradera fel, när delprocesser inte Stäng när den överordnade processen har tagit emot en token för annullering. 
 
 ## <a name="next-steps"></a>Nästa steg
 Information om Service Fabric-begrepp finns i följande:

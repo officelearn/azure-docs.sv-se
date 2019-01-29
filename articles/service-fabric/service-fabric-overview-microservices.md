@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 48df598ab12c509952b7712bb8cc9fe21355325f
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 39034d069c0c0feb2ac81437e34c7206d7fe6c4c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613689"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102824"
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Varför använda mikrotjänster för att bygga program?
 
@@ -33,11 +33,11 @@ Varierande affärsbehov är:
 
 Dessa affärsbehov påverkar *hur* vi bygga program.
 
-Mer information om metoden Azure för att mikrotjänster [Mikrotjänster: en application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+Mer information om metoden Azure för att mikrotjänster [Mikrotjänster: En application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="monolithic-vs-microservice-design-approach"></a>Monolitisk jämfört med mikrotjänst Designmetoden
 
-Program som utvecklas med tiden. Framgångsrika program utvecklas genom att vara praktiskt att personer. Misslyckade program att utvecklas inte och så småningom är inaktuella. Frågan är: hur mycket vet du om dina krav idag och vad de är i framtiden? Anta exempelvis att du skapar en reporting program för en avdelning. Du är säker på att programmet bara kan användas inom omfånget för ditt företag och att rapporterna är tillfällig. Ditt val av metoden skiljer sig från, säg, att skapa en tjänst som levererar videoinnehåll till tiotals miljoner kunder.
+Program som utvecklas med tiden. Framgångsrika program utvecklas genom att vara praktiskt att personer. Misslyckade program att utvecklas inte och så småningom är inaktuella. Frågan är: Hur mycket vet du om dina krav idag och vad de är i framtiden? Anta exempelvis att du skapar en reporting program för en avdelning. Du är säker på att programmet bara kan användas inom omfånget för ditt företag och att rapporterna är tillfällig. Ditt val av metoden skiljer sig från, säg, att skapa en tjänst som levererar videoinnehåll till tiotals miljoner kunder.
 
 Ibland kan komma åt något lansera som konceptbevis är drivande faktorn när du vet att programmet kan vara ny utformning senare. Det finns lite punkten i tekniska över något som aldrig används. Det är vanligt engineering kompromiss. När företagen pratar om att bygga för molnet, är förväntar sig att växa och användning. Problemet är att tillväxt och skala är oförutsägbar. Vi vill kunna skapa prototyper snabbt samtidigt som du vet också att vi finns på en sökväg utan fortsatta framgång. Detta är den smidiga Start-metoden: bygg, mät, Läs och iterera.
 
@@ -149,7 +149,7 @@ Service Fabric hjälper dig att bygga program som använder ett mikrotjänstpers
 
 * En plattform som tillhandahåller systemtjänster om du vill distribuera, uppgradera, upptäcka och starta om misslyckade tjänsterna, identifiera tjänster, dirigera meddelanden, hantera tillstånd och övervaka hälsa.
 * Möjlighet att distribuera program antingen körs i behållare eller processer. Service Fabric är en behållare och processen orchestrator.
-* Produktiv programmering API: er, att hjälpa dig att bygga program som mikrotjänster: [ASP.NET Core och Reliable Actors Reliable Services](service-fabric-choose-framework.md). Exempel: du kan få information om hälsa och diagnostik eller du kan dra nytta av inbyggd hög tillgänglighet.
+* Produktiv programmering API: er, att hjälpa dig att bygga program som mikrotjänster: [ASP.NET Core, tillförlitliga aktörer och Reliable Services](service-fabric-choose-framework.md). Exempel: du kan få information om hälsa och diagnostik eller du kan dra nytta av inbyggd hög tillgänglighet.
 
 ***Service Fabric är oberoende på hur du skapar din tjänst och du kan använda teknik. Det tillhandahåller dock inbyggda programmeringsspråk API: er som gör det enklare att skapa mikrotjänster.***
 
@@ -181,7 +181,7 @@ Många organisationer slutar här. De har redan fördelarna med behållare och S
 Tillägg av nya tjänster tillsammans med befintliga behållare kod. Om du ska skriva ny kod, rekommenderas du att du bestämmer dig för att ta små steg vidare mikrotjänster. Det gick att lägga till en ny REST API-slutpunkt, eller nya affärslogik. På så sätt kan du börja på din resa av studiematerial utveckla och distribuera dem och skapa nya mikrotjänster.
 
 **Utveckla**  
-En mikrotjänster metoden anpassar föränderliga affärsbehov. I det här skedet är beslutet om du behöver starta dela upp en monolitisk app i tjänster eller innovation. Här ett exempel är när en databas som används som en arbetsflödeskö blir en flaskhals för bearbetning. Eftersom antalet arbetsflödet begär ökar, måste arbetet som ska distribueras för att skala. Dela upp detta i en mikrotjänst och innovera för att viss typ av program som inte skalning eller som behöver uppdateras oftare.
+Ett mikrotjänstperspektiv kan hantera varierande affärsbehov. I det här skedet är beslutet om du behöver starta dela upp en monolitisk app i tjänster eller innovation. Här ett exempel är när en databas som används som en arbetsflödeskö blir en flaskhals för bearbetning. Eftersom antalet arbetsflödet begär ökar, måste arbetet som ska distribueras för att skala. Dela upp detta i en mikrotjänst och innovera för att viss typ av program som inte skalning eller som behöver uppdateras oftare.
 
 **Omvandlas till mikrotjänster**  
 Detta är där ditt program är helt består av (eller delats upp i) mikrotjänster. Du har gjort mikrotjänster vägen för att nå här. Du kan börja här, men om du vill göra detta utan en mikrotjänster är plattformen som hjälper dig att en betydande investering. 
@@ -197,7 +197,7 @@ Målet med Service Fabric är att minska komplexiteten i att skapa mikrotjänstp
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Service Fabric-terminologi](service-fabric-technical-overview.md)
-* [Mikrotjänster: En program-revolution har drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
+* [Mikrotjänster: En application revolution som drivs i molnet](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)
 
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png

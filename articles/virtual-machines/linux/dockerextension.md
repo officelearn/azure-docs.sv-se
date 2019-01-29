@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 59dbbb8374455088d759a5e837b8d3bc22145d3e
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: f30305374b1fcaabfb36533195a098073d33b6c3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882771"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197610"
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Skapa en Docker-miljö i Azure med Docker VM-tillägget
 
@@ -58,7 +58,7 @@ Det tar några minuter innan distributionen är klar.
 
 
 ## <a name="deploy-your-first-nginx-container"></a>Distribuera din första NGINX-behållare
-Du kan visa information om den virtuella datorn, inklusive DNS-namnet [az vm show](/cli/azure/vm#az_vm_show):
+Du kan visa information om den virtuella datorn, inklusive DNS-namnet [az vm show](/cli/azure/vm):
 
 ```azurecli
 az vm show \

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 36496dd80111689b510bbbd27edc35a454d230a3
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448300"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098416"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använd API-versionsprofiler med Go i Azure Stack
 
@@ -33,9 +33,9 @@ En profil är en kombination av olika resurstyper med olika versioner från olik
 
 I Go-SDK profiler är tillgängliga under den profiler-sökvägen, med versionerna i den **åååå-MM-DD** format. Just nu är den senaste versionen av Azure Stack-API-profilen är **2017-03-09**. Importera den motsvarande modulen från profilen om du vill importera en viss tjänst från en profil. Till exempel för att importera **Compute** tjänsten från **2017-03-09** profil, Använd följande kod:
 
-````go
+```go
 import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compute"
-````
+```
 
 ## <a name="install-azure-sdk-for-go"></a>Installera Azure SDK för Go
 

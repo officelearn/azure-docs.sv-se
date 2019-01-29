@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 14297c74-0d57-4146-97fa-7a055fb73057
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: jeedes
-ms.openlocfilehash: 3b394ff8e3638a9663e756fd6db866b0c3e5d2ef
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 7a125ea70a891d8db0ec652844a99153f19253bd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52450036"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150299"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ivanti-service-manager-ism"></a>Självstudier: Azure Active Directory-integrering med Ivanti Service Manager (ISM)
 
@@ -30,7 +30,7 @@ Integrera Ivanti Service Manager (ISM) med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Ivanti Service Manager (ISM).
 - Du kan aktivera användarna att automatiskt få loggat in till Ivanti Service Manager (ISM) (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Ivanti Service Manager (ISM), be
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +70,7 @@ För att konfigurera integrering av Ivanti Service Manager (ISM) till Azure AD, 
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +78,7 @@ För att konfigurera integrering av Ivanti Service Manager (ISM) till Azure AD, 
 
     ![Ivanti Service Manager (ISM) i resultatlistan](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Ivanti Service Manager (ISM) baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Ivanti Service Manager (ISM)** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
@@ -110,35 +110,35 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
     ![Ivanti Service Manager (ISM)-domän och URL: er med enkel inloggning för information](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    a. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
     |--|
     | `https://<customer>.saasit.com/` |
     | `https://<customer>.saasiteu.com/` |
     | `https://<customer>.saasitau.com/` |
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
-5. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Ivanti Service Manager (ISM)-domän och URL: er med enkel inloggning för information](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<customer>.saasit.com/`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<customer>.saasit.com/`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Ivanti Service Manager (ISM) klient-supportteamet](https://www.ivanti.com/support/contact) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Ivanti Service Manager (ISM) klient-supportteamet](https://www.ivanti.com/support/contact) att hämta dessa värden.
 
 6. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Raw)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-certificate.png) 
 
 7. På den **ange upp Ivanti Service Manager (ISM)** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Microsoft Azure Active Directory-identifierare
 
@@ -146,13 +146,13 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Ivanti konfigurationshantering i Service Manager (ISM)](common/configuresection.png)
 
-8. Att konfigurera enkel inloggning på **Ivanti Service Manager (ISM)** sida, som du behöver skicka de hämtade **certifikat (Raw)**, och kopierade **inloggnings-URL**,  **Azure AD-identifierare**, **URL för utloggning** till [Ivanti Service Manager (ISM) supportteamet](https://www.ivanti.com/support/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+8. Att konfigurera enkel inloggning på **Ivanti Service Manager (ISM)** sida, som du behöver skicka de hämtade **certifikat (Raw)**, och kopierade **inloggnings-URL**,  **Azure AD-identifierare**, **URL för utloggning** till [Ivanti Service Manager (ISM) supportteamet](https://www.ivanti.com/support/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Skapa en Azure AD-användare][100]
 
@@ -164,9 +164,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](common/create-aaduser-02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -175,7 +175,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-an-ivanti-service-manager-ism-test-user"></a>Skapa en testanvändare Ivanti Service Manager (ISM)
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Ivanti Service Manager (ISM). Ivanti Service Manager (ISM) stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Ivanti Service Manager (ISM) om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Ivanti Service Manager (ISM). Ivanti Service Manager (ISM) stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Ivanti Service Manager (ISM) om det inte finns ännu.
 >[!Note]
 >Om du vill skapa en användare manuellt kan du kontakta [Ivanti Service Manager (ISM) supportteamet](https://www.ivanti.com/support/contact).
 

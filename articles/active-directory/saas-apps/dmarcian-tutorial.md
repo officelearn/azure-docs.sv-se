@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med dmarcian | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med dmarcian | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och dmarcian.
 services: active-directory
 documentationCenter: na
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: jeedes
-ms.openlocfilehash: 0f8878505280371bf6046c1d1f0d7fc1275dd496
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 197e0cceb7457ffdd96ada7d4561de56c7ed10fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039895"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095659"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Självstudier: Azure Active Directory-integration med dmarcian
+# <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Självstudier: Azure Active Directory-integrering med dmarcian
 
 I den här självstudien får du lära dig hur du integrerar dmarcian med Azure Active Directory (AD Azure).
 
@@ -29,7 +29,7 @@ Integrera dmarcian med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till dmarcian.
 - Du kan aktivera användarna att automatiskt få loggat in på dmarcian (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -43,9 +43,9 @@ Om du vill konfigurera Azure AD-integrering med dmarcian, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -67,7 +67,7 @@ För att konfigurera integrering av dmarcian i Azure AD, som du behöver lägga 
 
     ![Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -75,7 +75,7 @@ För att konfigurera integrering av dmarcian i Azure AD, som du behöver lägga 
 
     ![dmarcian i resultatlistan](./media/dmarcian-tutorial/tutorial_dmarcian_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med dmarcian baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -83,13 +83,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med dmarcian, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare dmarcian](#create-a-dmarcian-test-user)**  – du har en motsvarighet för Britta Simon i dmarcian som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt dmarcian program.
 
@@ -97,7 +97,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **dmarcian** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -107,14 +107,14 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![dmarcian domän och URL: er enkel inloggning för information](./media/dmarcian-tutorial/tutorial_dmarcian_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster:
+    a. I textrutan **Identifierare** anger du en URL med följande mönster:
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-eu.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    b. I textrutan **Svars-URL** anger du en URL med följande mönster:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -125,7 +125,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![dmarcian domän och URL: er enkel inloggning för information](./media/dmarcian-tutorial/tutorial_dmarcian_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -137,11 +137,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. På den **SAML-signeringscertifikat** klickar du på kopieringsknappen för att kopiera **Appfederationsmetadata** och klistra in den i anteckningar.
 
-    ![Länk för hämtning av certifikat](./media/dmarcian-tutorial/tutorial_dmarcian_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/dmarcian-tutorial/tutorial_dmarcian_certificate.png) 
 
 6. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/dmarcian-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/dmarcian-tutorial/tutorial_general_400.png)
     
 7. I ett annat webbläsarfönster, loggar du in dmarcian som en administratör.
 
@@ -157,15 +157,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Autentiseringen ](./media/dmarcian-tutorial/tutorial_dmarcian_auth.png)
 
-    * Under **lägga till dmarcian i din identitetsprovider** klickar du på **kopia** att kopiera den **URL för Konsumenttjänst för försäkran** för din instans och klistra in den i  **Svars-URL** -textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
+    * Under **lägga till dmarcian i din identitetsprovider** klickar du på **kopia** att kopiera den **URL för Konsumenttjänst för försäkran** för din instans och klistra in den i  **Svars-URL** -textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
 
-    * Under **lägga till dmarcian i din identitetsprovider** klickar du på **kopia** att kopiera den **entitets-ID** för din instans och klistra in den i **identifierare**-textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
+    * Under **lägga till dmarcian i din identitetsprovider** klickar du på **kopia** att kopiera den **entitets-ID** för din instans och klistra in den i ** Identifieraren** -textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
 
     * Under **konfigurera autentisering** avsnittet i den **identitet providern Metadata** textrutan klistra in den **Appfederationsmetadata**, som du har kopierat från Azure-portalen.
 
     * Under **konfigurera autentisering** avsnittet i den **attribut** textrutan klistra in webbadressen `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
-    * Under **konfigurera inloggnings-URL** avsnittet, kopiera den **inloggnings-URL** för din instans och klistra in den i **inloggnings-URL** -textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
+    * Under **konfigurera inloggnings-URL** avsnittet, kopiera den **inloggnings-URL** för din instans och klistra in den i **inloggnings-URL** -textrutan i **dmarcian domän och URL: er avsnittet** på Azure-portalen.
 
         > [!Note]
         > Du kan ändra den **inloggnings-URL** enligt din organisation.
@@ -228,7 +228,7 @@ Om du vill aktivera Azure AD-användare att logga in på dmarcian, måste de eta
 
     b. Om du vill ge administratörsrättigheter till användaren väljer **gör användaren administratör**.
 
-    c. Klicka på **lägga till användare**.
+    c. Klicka på **Lägg till användare**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

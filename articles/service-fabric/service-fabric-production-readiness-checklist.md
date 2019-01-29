@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: 4e6d5cb3191be7188c1a7c4753200cf049800f04
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53436015"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159122"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
@@ -27,15 +27,15 @@ ms.locfileid: "53436015"
 
 
 ## <a name="pre-requisites-for-production"></a>Förutsättningar för produktion
-1. [Metodtips för Azure Service Fabric](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) är: 
+1. [Metodtips för Azure Service Fabric-säkerhet](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) är: 
 * Använda X.509-certifikat
 * Konfigurera säkerhetsprinciper
 * Konfigurera SSL för Azure Service Fabric
 * Använd isolering av nätverk och säkerhet med Azure Service Fabric
 * Konfigurera Azure Key Vault för säkerhet
-* Tilldela användare till roller
+* Microsoft.Network/loadBalancersAssign användare till roller
 * Implementera säkerhetskonfiguration Reliable Actors om använder programmeringsmodellen aktörer
-2. Skapa en dedikerad primära nodtypen systemtjänsterna för kluster med fler än 20 kärnor eller 10 noder. Lägg till [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) att reservera den primära nodtypen för systemtjänster. 
+2. Skapa en dedikerad primära nodtypen systemtjänsterna för kluster med fler än 20 kärnor eller 10 noder. Lägg till [placeringsbegränsningar](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) att reservera den primära nodtypen för systemtjänster.
 3. Använd en D2v2 eller högre SKU för den primära nodtypen. Vi rekommenderar att välja en SKU med minst 50 GB hårddiskkapacitet.
 4. Produktionskluster måste vara [säker](service-fabric-cluster-security.md). Ett exempel på hur du konfigurerar ett säkert kluster finns i den här [kluster mallen](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Använda vanliga namn för certifikat och undvika att använda självsignerat signerat certifikat.
 5. Lägg till [resursbegränsningar på behållare och tjänster](service-fabric-resource-governance.md), så att de inte förbrukar mer än 75% av noden resurser. 
@@ -61,8 +61,8 @@ Om du använder Service Fabric Reliable Services eller Reliable Actors programme
 22. Uppgradera program under lokal utveckling för att kontrollera att koden för tjänsten är respektera annullering token i den `RunAsync` metoden och stänga anpassade kommunikationslyssnarna.
 23. Undvika [vanliga fallgropar](service-fabric-work-with-reliable-collections.md) när du använder tillförlitliga samlingar.
 24. Övervaka .NET CLR-minnesprestanda räknare när du kör belastningstester och söka efter höga nivåer av skräpinsamling eller lång körningstid heap tillväxt.
-25. Underhålla offlinesäkerhetskopiering av [Reliable Services och Reliable Actors](service-fabric-reliable-services-backup-restore.md) och testa återställningsprocessen. 
-
+25. Underhålla offlinesäkerhetskopiering av [Reliable Services och Reliable Actors](service-fabric-reliable-services-backup-restore.md) och testa återställningsprocessen.
+26. Din primära NodeType virtuella datorn instansantal bör helst vara lika med minimala för ditt kluster tillförlitlighetsnivån; villkor när det är lämpligt att överskrida minst nivån omfattar: tillfälligt när lodrätt skalning du är din primära NodeTypes VM Scale SKU: N.
 
 ## <a name="optional-best-practices"></a>Valfritt Metodtips
 

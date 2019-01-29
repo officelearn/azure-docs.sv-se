@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: e69f6869911555730fe723b340e224c0d5a1e4bb
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536057"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104520"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Anslutningsarkitektur
 
@@ -68,7 +68,7 @@ Låt oss ta en djupdykning i anslutningsarkitektur för hanterad instans. Följa
 
 ![anslutningen arkitektur diagram virtuellt kluster](./media/managed-instance-connectivity-architecture/connectivityarch003.png)
 
-Klienterna ansluter till hanterad instans med det värdnamn som har ett formulär `<mi_name>.<dns_zone>.database.windows.net`. Värddatorns namn motsvarar privata IP-adressen även om den är registrerad i offentliga DNS-zon och är offentligt matchat. Den `zone-id` genereras automatiskt när klustret har skapats. Om ett nyskapat kluster värd för en sekundär hanterad instans, delar dess zons-id med det primära klustret. Mer information finns i [automatisk redundans grupper](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
+Klienterna ansluter till hanterad instans med det värdnamn som har ett formulär `<mi_name>.<dns_zone>.database.windows.net`. Värddatorns namn motsvarar privata IP-adressen även om den är registrerad i offentliga DNS-zon och är offentligt matchat. Den `zone-id` genereras automatiskt när klustret har skapats. Om ett nyskapat kluster värd för en sekundär hanterad instans, delar dess zons-ID med det primära klustret. Mer information finns i [automatisk redundans grupper](sql-database-auto-failover-group.md##enabling-geo-replication-between-managed-instances-and-their-vnets)
 
 Privata IP-adressen hör till den hanterade instansen interna belastningsutjämnaren (ILB) som dirigerar trafik till den hanterade instansen Gateway (GW). Eftersom flera hanterade instanser kan potentiellt körs i samma kluster, använder GW värdnamn för hanterad instans för att omdirigera trafik till rätt SQL-motor-tjänst.
 
@@ -78,7 +78,7 @@ Hanterings-och ansluta till Managed Instance med [hanteringsslutpunkten](#manage
 
 Det virtuella klustret i Azure SQL Database Managed Instance innehåller en hanteringsslutpunkt som Microsoft använder för att hantera den hanterade instansen. Hanteringsslutpunkten skyddas med inbyggda brandväggen på nätverket och det ömsesidig certifikatverifiering på programnivå. Du kan [hitta ip-adress för hantering av slutpunkten](sql-database-managed-instance-find-management-endpoint-ip-address.md).
 
-När anslutningar öppnas från inuti den hanterade instansen (säkerhetskopiering, granskningsloggen) visas den som trafiken kommer ifrån från management endpoint offentlig IP-adress. Du kan begränsa åtkomst till offentliga tjänster från hanterad instans genom att ställa in brandväggsregler för att tillåta hanterad instans-IP-adressen. Hitta mor einformation om den metod som kan [verifiera Managed Instance inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
+När anslutningar öppnas från inuti den hanterade instansen (säkerhetskopiering, granskningsloggen) visas den som trafiken kommer ifrån från management endpoint offentlig IP-adress. Du kan begränsa åtkomst till offentliga tjänster från hanterad instans genom att ställa in brandväggsregler för att tillåta hanterad instans-IP-adressen. Mer information om den metod som kan [verifiera Managed Instance inbyggda brandväggen](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
 
 > [!NOTE]
 > Detta gäller inte ställa in brandväggsregler för Azure-tjänster som finns i samma region som hanterad instans som Azure-plattformen har en optimering för trafik som går mellan de tjänster som är samordnad.
@@ -101,15 +101,15 @@ Du kan distribuera hanterade instanser i ett dedikerat undernät (hanterad insta
 | Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |Alla        |Tillåt |
-|. mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
+|mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
 |health_probe|Alla                         |Alla     |AzureLoadBalancer|Alla        |Tillåt |
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler 
 
 | Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
-|hantering  |80, 443, 12000|TCP     |Alla              |Alla        |Tillåt |
-|. mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
+|hantering  |80, 443, 12000|TCP     |Alla              |Internet   |Tillåt |
+|mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
 
   > [!Note]
   > Även om obligatoriska inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440, 1452 portarna skyddas av inbyggda brandvägg. Detta [artikeln](sql-database-managed-instance-find-management-endpoint-ip-address.md) visar hur du kan identifiera hantering slutpunktens IP-adress och kontrollera brandväggsregler. 

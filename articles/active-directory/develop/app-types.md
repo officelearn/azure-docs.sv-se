@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: 5a8e43934393c2e6a97b81809284781a5c207e41
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: b4b49cd679ee5d770696b4fa5cc29ebdd908cecf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816352"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093129"
 ---
 # <a name="application-types-in-v10"></a>Programtyper i v1.0
 
@@ -33,11 +33,11 @@ Följande diagram illustrerar scenarier och programtyper, och hur du kan lägga 
 
 Det här är de fem primära programmet scenarier som stöds av Azure AD:
 
-- **[Ensidesapplikation (SPA)](single-page-application.md)**: en användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
-- **[Webbläsarens webbprogram](web-app.md)**: en användare måste logga in till ett webbprogram som skyddas av Azure AD.
-- **[Internt program till webb-API](native-app.md)**: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
-- **[Webbprogram till webb-API](web-api.md)**: ett program behöver få resurser från ett webb-API som skyddas av Azure AD.
-- **[Daemon eller ett serverprogram till webb-API](service-to-service.md)**: en daemon-program eller ett serverprogram utan användargränssnitt för web måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Ensidesapplikation (SPA)](single-page-application.md)**: En användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
+- **[Webbläsarens webbprogram](web-app.md)**: En användare måste logga in till ett webbprogram som skyddas av Azure AD.
+- **[Internt program till webb-API](native-app.md)**: Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Webbprogram till webb-API](web-api.md)**: Ett webbprogram måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Daemon eller ett serverprogram till webb-API](service-to-service.md)**: En daemon-program eller ett serverprogram utan användargränssnitt för web måste hämta resurser från ett webb-API som skyddas av Azure AD.
 
 Följ länkarna för att lära dig mer om varje typ av app och förstå de övergripande scenarierna innan du börjar arbeta med kod. Du kan också läsa om skillnader som du behöver veta när du skriver en viss app som fungerar med v1.0 slutpunkten eller v2.0-slutpunkten.
 
@@ -69,7 +69,7 @@ Mer information lär du dig hur du [registrera en app med Azure AD v1.0 slutpunk
 Etablering blir tydligare när du förstår att det finns två typer av program som kan utvecklas och integrerad med Azure AD:
 
 * **Program för klienter med enkel** – en enda klient-programmet är avsett att användas i en organisation. Det här är vanligtvis line-of-business (LoB) program som skrivits av företagsutvecklare. En enda klient behöver bara användas av användare i en katalog och därför kan den bara behöver etableras i en katalog. Programmen registreras vanligtvis av en utvecklare i organisationen.
-* **Program med flera innehavare** -program med flera innehavare är avsedd att användas i många organisationer är inte bara en organisation. Det här är vanligtvis software-as-a-service (SaaS)-program som skrivits av en oberoende programvaruleverantör (ISV). Program för flera innehavare måste tillhandahållas i varje katalog där de ska användas, vilket kräver att användaren eller administratören tillstånd att registrera dem. Förfarandet medgivande startar när ett program som har registrerats i katalogen och ges åtkomst till Graph API eller kanske en annan webb-API. När en användare eller administratör från en annan organisation registrerar sig att använda programmet, visas en dialogruta som visar de behörigheter som programmet kräver. Användaren eller administratören kan sedan godkänna att programmet, vilket ger programmet åtkomst till den angivna data och slutligen registrerar programmet i sin katalog. Mer information finns i [översikt över ramverket för medgivande](consent-framework.md).
+* **Program med flera innehavare** -program med flera innehavare är avsedd att användas i många organisationer är inte bara en organisation. Det kallas vanligen för SaaS-webbprogram (Software as a Service) och skrivs av en oberoende programvaruleverantör (ISV). Program för flera innehavare måste tillhandahållas i varje katalog där de ska användas, vilket kräver att användaren eller administratören tillstånd att registrera dem. Medgivandeprocessen startar när ett program har registrerats i katalogen och ges åtkomst till Graph API eller kanske någon annan webb-API. När en användare eller administratör från en annan organisation registrerar sig att använda programmet, visas en dialogruta som visar de behörigheter som programmet kräver. Användaren eller administratören kan sedan godkänna att programmet, vilket ger programmet åtkomst till den angivna data och slutligen registrerar programmet i sin katalog. Mer information finns i [översikt över ramverket för medgivande](consent-framework.md).
 
 ### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Ytterligare överväganden när du utvecklar en eller flera klient apps
 

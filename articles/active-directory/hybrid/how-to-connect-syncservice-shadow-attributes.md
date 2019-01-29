@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12067b4413924717228547fccdc3ef07d07beaf8
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7be6570d61bc3697bec143478404d32123b4f8d2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470383"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55184231"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Azure AD Connect sync-tjänsten shadow attribut
 De flesta attribut representeras på samma sätt i Azure AD som de är i din lokala Active Directory. Men vissa attribut har en särskild hantering och attributvärdet i Azure AD kan skilja sig från vad som synkroniserar Azure AD Connect.
@@ -37,7 +37,7 @@ De har flera UPN-suffix i sin lokala Active Directory, men de bara har verifiera
 ### <a name="userprincipalname"></a>userPrincipalName
 En användare har följande attributvärden i en icke-kontrollerad domän:
 
-| Attribut | Värde |
+| Attribut | Value |
 | --- | --- |
 | lokalt userPrincipalName | lee.sperry@fabrikam.com |
 | Azure AD-shadowUserPrincipalName | lee.sperry@fabrikam.com |
@@ -52,7 +52,7 @@ Eftersom det verkliga lokala attributvärdet lagras i Azure AD, när du har kont
 
 För en postlåda användare, antingen lokalt eller i Exchange Online visas endast värden för verifierade domäner. Det kan se ut så här:
 
-| Attribut | Värde |
+| Attribut | Value |
 | --- | --- |
 | lokala proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | Exchange Online proxyAddresses | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |

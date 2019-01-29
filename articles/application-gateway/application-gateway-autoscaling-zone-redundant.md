@@ -1,25 +1,25 @@
 ---
 title: Automatisk skalning och zonredundant Application Gateway i Azure (offentlig förhandsversion)
-description: Den här artikeln innehåller information om storleksgränser för web application firewall begäran och undantagslistor i Application Gateway med Azure-portalen.
+description: Den här artikeln introducerar v2-SKU Azure-program som innehåller funktioner för automatisk skalning och zonredundant.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: f5885fd2ac76550990c9a56a1d200bbe11555918
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7301460014e4d547d1950c8edfbd7534d8a4c103
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213764"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101676"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Automatisk skalning och zonredundant Application Gateway (offentlig förhandsversion)
 
 Application Gateway och Web Application Firewall (WAF) finns nu i offentlig förhandsversion under en ny v2-SKU som ger prestandaförbättringar och lägger till stöd för viktiga nya funktioner som automatisk skalning, redundans och stöd för statiska virtuella IP-adresser. Befintliga funktioner under den allmänt tillgängliga SKU: N fortfarande användas i den nya v2-SKU, med några undantag som anges i avsnitt kända begränsningar. De nya v2-SKU: er inkluderar följande förbättringar:
 
 - **Automatisk skalning**: Application Gateway eller WAF-distributioner under autoskalning SKU kan skala upp eller ned utifrån ändrade trafikmönster belastningen. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Därför erbjuder SKU: N SANT elasticitet. I den nya SKU: N kan Application Gateway fungerar både fast kapacitet (automatisk skalning inaktiverat) och i läget för automatisk skalning aktiverat. Fast kapacitet läge är användbart för scenarier med konsekventa och förutsägbara arbetsbelastningar. Läget för automatisk skalning är bra i program som finns ser många variationer i programtrafiken.
-   
+
    > [!NOTE]
    > Automatisk skalning är inte tillgänglig för WAF SKU. Konfigurera WAF med fast kapacitet läge, i stället för läget för automatisk skalning.
 - **Zon redundans**: En Application Gateway eller WAF-distribution kan sträcka sig över flera Tillgänglighetszoner, ta bort behovet av att etablera och skapa separata Application Gateway-instanser i varje zon med Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway-instanser har distribuerats, därmed säkerställa fel zonelasticitet. Serverdelspoolen för program kan distribueras på samma sätt i olika tillgänglighetszoner.
@@ -33,10 +33,12 @@ Application Gateway och Web Application Firewall (WAF) finns nu i offentlig för
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
-Autoscaling SKU är tillgängligt i östra USA 2, centrala USA, USA, västra 2, norra centrala USA, västra USA, södra centrala USA, Frankrike, centrala, Västeuropa, Nordeuropa, Storbritannien, västra, Asien, sydöstra och Japan, östra.
+
+Automatisk skalning SKU är tillgänglig i följande regioner: usaöstra2, västra USA 2, europavästra, southeastasia, centralus, francecentral, eastus, Sydostasien, europanorra, usasödracentrala, västrastorbritannien, usanorracentrala, usavästra, eastus (BL) centralus (DM), japanöstra (OS ).
 
 ## <a name="pricing"></a>Prissättning
-I förhandsversionen är gratis. Du debiteras för andra resurser än Programgateway, till exempel Key Vault, virtuella datorer och så vidare. 
+
+I förhandsversionen är gratis. Du debiteras för andra resurser än Programgateway, till exempel Key Vault, virtuella datorer och så vidare.
 
 ## <a name="known-issues-and-limitations"></a>Kända problem och begränsningar
 

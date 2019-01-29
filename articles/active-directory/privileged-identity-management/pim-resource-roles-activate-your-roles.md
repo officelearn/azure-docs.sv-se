@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 249680f60b3c2ee10ff3f3f1eb39d4bf74e57cd9
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: e37435b0f2d52e2015caf3d2e0db6db0dba60c75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52497331"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187359"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Aktivera Mina roller för Azure-resurs i PIM
 
@@ -65,7 +65,7 @@ När du behöver utföra på en Azure-resurs-roll kan du begära aktivering med 
 
     ![Slutförda Aktivera fönstret](./media/pim-resource-roles-activate-your-roles/resources-my-roles-activate-done.png)
 
-1. Klicka på **aktivera**.
+1. Klicka på **Aktivera**.
 
     Om rollen inte kräver godkännande, aktiveras den och har lagts till i listan över aktiva roller. Om du vill använda rollen direkt, följer du stegen i nästa avsnitt.
 

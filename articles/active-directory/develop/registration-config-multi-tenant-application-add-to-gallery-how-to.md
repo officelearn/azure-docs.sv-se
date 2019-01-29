@@ -7,7 +7,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: 92c1651a-675d-42c8-b337-f78e7dbcc40d
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: celested
 ms.reviewer: jeedes
-ms.openlocfilehash: b89be37d9c77fb83e607a1af0bc2f6ba716ab2c1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 073f6d925a6868937410972a9400daefa802876d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724168"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152050"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Lägg till ett program för flera till Azure AD-programgalleriet
 
@@ -31,9 +31,9 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst. Den [Azu
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Om ditt program har stöd för SAML- eller OpenIDConnect
 Om du har ett program för flera som ska visas i Azure AD-programgalleriet, måste du först se till att ditt program har stöd för något av följande enkel inloggning för tekniker:
 
-- **OpenID Connect**: för att få din app i listan ska du skapa program för flera klientorganisationer i Azure AD och implementera de [Azure AD-ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications#overview-of-the-consent-framework) för ditt program. Skicka inloggningsförfrågan till en gemensam slutpunkt så att alla kunder kan ge samtycke till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN tas emot i token. Skicka programmet med hjälp av den process som beskrivs i [lista ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: För att få din app i listan ska du skapa program för flera klientorganisationer i Azure AD och implementera de [Azure AD-ramverket för medgivande](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) för ditt program. Skicka inloggningsförfrågan till en gemensam slutpunkt så att alla kunder kan ge samtycke till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN tas emot i token. Skicka programmet med hjälp av den process som beskrivs i [lista ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
-- **SAML**: om ditt program har stöd för SAML 2.0, appen kan visas i galleriet. Följ instruktionerna i [lista ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **SAML**: Om ditt program har stöd för SAML 2.0, kan appen visas i galleriet. Följ instruktionerna i [lista ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 ## <a name="if-your-application-does-not-support-saml-or-openidconnect"></a>Om ditt program inte stöder SAML eller OpenIDConnect
 Program som inte har stöd för SAML- eller OpenIDConnect kan fortfarande integreras i appgalleriet tack vare lösenord för enkel inloggning tekniken.

@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell skriptexempel - Peer två virtuella nätverk | Microsoft Docs
-description: Azure PowerShell skriptexempel - Peer två virtuella nätverk
+title: Exempel på Azure PowerShell-skript – Peering i två virtuella nätverk | Microsoft Docs
+description: Exempel på Azure PowerShell-skript – Peering i två virtuella nätverk
 services: virtual-network
 documentationcenter: virtual-network
 author: georgewallace
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.openlocfilehash: 6c475311f8b0299908dfc26aa590c1990e00bc4a
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 8a892f109b368d7ff0d4ec2ad9174bb99114fd7c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598514"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100163"
 ---
-# <a name="peer-two-virtual-networks"></a>Peer-två virtuella nätverk
+# <a name="peer-two-virtual-networks"></a>Peerkoppla två virtuella nätverk
 
-Det här skriptet skapar och ansluter två virtuella nätverk i samma region-trhough Azure-nätverk. När du har kört skriptet har du en peering mellan två virtuella nätverk.
+Det här skriptet skapar och ansluter två virtuella nätverk i samma region via Azures nätverk. När du har kört skriptet har du en peering mellan två virtuella nätverk.
 
 Om det behövs installerar du Azure PowerShell med hjälp av instruktionerna i [Azure PowerShell-guiden](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/) och kör sedan `Connect-AzureRmAccount` för att skapa en anslutning till Azure.
 
@@ -57,4 +57,4 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 
 Mer information om Azure PowerShell finns i [Azure PowerShell-dokumentationen](https://docs.microsoft.com/powershell/azure/overview).
 
-Ytterligare nätverk PowerShell-skript-exempel finns i den [dokumentation för Azure-nätverk – översikt](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
+Ytterligare exempel på PowerShell-nätverksskript finns i [dokumentation för översikt över Azure-nätverk](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

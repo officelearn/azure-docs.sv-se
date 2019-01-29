@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 588aeede123848900fac6fab663dd1f6c6c169b6
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 17fead25840e45f98478a6eb6c146bcc261dfe75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719429"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158017"
 ---
-# <a name="liveevent-states-and-billing"></a>LiveEvent tillstånd och fakturering
+# <a name="live-event-states-and-billing"></a>Live-händelse tillstånd och fakturering
 
-I Azure Media Services, börjar en LiveEvent fakturering när dess status övergår till **kör**. Du måste stoppa LiveEvent om du vill stoppa LiveEvent från fakturering.
+I Azure Media Services, en direktsänd händelse börjar fakturering när dess status övergår till **kör**. Du måste stoppa Live-händelsen för att stoppa Live-händelse från fakturering.
 
-När **LiveEventEncodingType** på din [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) till Standard, Media Services automatiskt stängs av alla LiveEvent som är fortfarande i den **kör** tillstånd 12 timmar efter det indata-flöde går förlorad och det finns inga **LiveOutput**datorer som körs. Men du kommer fortfarande att debiteras för den tid som LiveEvent var i den **kör** tillstånd.
+När **LiveEventEncodingType** på din [direktsänd händelse](https://docs.microsoft.com/rest/api/media/liveevents) till Standard, Media Services automatiskt stängs av en Live-händelse som fortfarande är i den **kör** tillstånd 12 timmar efter det indata-flöde går förlorad och det finns inga **Live utdata**datorer som körs. Men du kommer fortfarande att debiteras för tiden Live-händelsen som fanns i den **kör** tillstånd.
 
 ## <a name="states"></a>Tillstånd
 
-LiveEvent kan vara i något av följande tillstånd.
+Live-händelsen kan vara i något av följande tillstånd.
 
 |Status|Beskrivning|
 |---|---|
-|**Stoppad**| Det här är starttillståndet för LiveEvent när du har skapat (såvida inte autostart har angetts till true.) Ingen debitering sker i det här tillståndet. I det här tillståndet LiveEvent egenskaper kan uppdateras, men strömning är inte tillåtet.|
-|**Startar**| LiveEvent startas och resurser allokeras. Ingen debitering sker i det här tillståndet. Uppdateringar eller strömning tillåts inte i det här tillståndet. Om ett fel inträffar återgår LiveEvent till tillståndet stoppad.|
-|**Kör**| LiveEvent resurser som har allokerats, mata in och förhandsgranska URL: er har genererats och är det kan ta emot direktsända strömmar. Fakturering är nu aktiv. Du måste explicit anropa Stop på LiveEvent resursen för att stoppa ytterligare fakturering.|
-|**Stoppar**| LiveEvent stoppas och resurser som ska enhetstiden. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
-|**Tar bort**| LiveEvent tas bort. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
+|**Stoppad**| Det här är starttillståndet för Live-händelsen när du har skapat (såvida inte autostart har angetts till true.) Ingen debitering sker i det här tillståndet. Egenskaper för Live-händelse kan uppdateras men strömning är inte tillåtet i det här tillståndet.|
+|**Startar**| Live-händelsen startas och resurser allokeras. Ingen debitering sker i det här tillståndet. Uppdateringar eller strömning tillåts inte i det här tillståndet. Om ett fel inträffar återgår Live-händelse till tillståndet stoppad.|
+|**Kör**| Live-händelsen resurser som har allokerats, mata in och förhandsgranska URL: er har genererats och är det kan ta emot direktsända strömmar. Fakturering är nu aktiv. Du måste explicit anropa Stop på resursen för direktsänd händelse att stoppa ytterligare fakturering.|
+|**Stoppar**| Live-händelsen stoppas och resurser som ska enhetstiden. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
+|**Tar bort**| Live-händelse tas bort. Ingen debitering sker i den här tillfälligt tillstånd. Uppdateringar eller strömning tillåts inte i det här tillståndet.|
 
 ## <a name="next-steps"></a>Nästa steg
 

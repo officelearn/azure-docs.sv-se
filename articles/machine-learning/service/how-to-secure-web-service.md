@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: adac36bd0d1798bf0bc9c2e2671c2482c6fcb84c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c2285b4d7764592d3e210177edd8f127ca4bfaee
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076493"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55090671"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
@@ -82,6 +82,7 @@ Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange d
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
+<a name="fpga"></a>
 + **Distribuera på fältet Programmable Gate matriser (FPGA)**
 
   Svaret på den `create_service` åtgärden innehåller IP-adressen för tjänsten. IP-adressen används när du kartlägger DNS-namn till IP-adressen för tjänsten. Svaret innehåller även en __primärnyckel__ och __sekundärnyckel__ som används för att använda tjänsten. Ange värden för SSL-relaterade parametrar som du ser i kodfragmentet:

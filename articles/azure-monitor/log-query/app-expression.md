@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: bwren
-ms.openlocfilehash: e83ba321a98e40f07ff82e68c7961c2a6a49076d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 2d6f3517e988d6bd66ee9007e072ee87c71d1340
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53191843"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104668"
 ---
 # <a name="app-expression-in-log-analytics-query"></a>App() uttryck i Log Analytics-fråga
 
@@ -28,7 +28,7 @@ Den `app` uttryck används i en Log Analytics-fråga för att hämta data från 
 
 ## <a name="syntax"></a>Syntax
 
-`app(`*identifierare*`)`
+`app(`*Identifier*`)`
 
 
 ## <a name="arguments"></a>Argument
@@ -37,10 +37,10 @@ Den `app` uttryck används i en Log Analytics-fråga för att hämta data från 
 
 | Identifierare | Beskrivning | Exempel
 |:---|:---|:---|
-| Resursnamn | Mänskliga läsbara namnet på appen (AKA ”komponentnamn”) | App("fabrikamapp") |
+| Resursnamn | Mänskliga läsbara namnet på appen (AKA ”komponentnamn”) | app("fabrikamapp") |
 | Kvalificerat namn | Fullständigt namn för appen i formatet: ”subscriptionName/resourceGroup/componentName” | App('AI-prototype/Fabrikam/fabrikamapp') |
-| ID | GUID för appen | App("988ba129-363e-4415-8fe7-8cbab5447518") |
-| Azure-resurs-ID | Identifierare för Azure-resursen |App("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/Microsoft.Insights/Components/fabrikamapp") |
+| ID | GUID för appen | app("988ba129-363e-4415-8fe7-8cbab5447518") |
+| Azure Resource ID | Identifierare för Azure-resursen |App("/subscriptions/7293b69-db12-44fc-9a66-9c2005c3051d/resourcegroups/Fabrikam/providers/Microsoft.Insights/Components/fabrikamapp") |
 
 
 ## <a name="notes"></a>Anteckningar
@@ -48,6 +48,7 @@ Den `app` uttryck används i en Log Analytics-fråga för att hämta data från 
 * Du måste ha läsbehörighet till programmet.
 * Identifierar ett program med namnet förutsätter att det är unikt för alla tillgängliga prenumerationer. Om du har flera program med det angivna namnet att frågan misslyckas på grund av tvetydighet. I det här fallet måste du använda en av de andra identifierarna.
 * Använd relaterade uttrycket [arbetsytan](workspace-expression.md) till frågan i Log Analytics-arbetsytor.
+* App() uttrycket stöds för närvarande inte i frågan med Azure-portalen för att skapa en [aviseringsregeln för anpassad sökning](../platform/alerts-log.md), såvida inte ett Application Insights-program kan användas som resursen för regeln.
 
 ## <a name="examples"></a>Exempel
 

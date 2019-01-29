@@ -8,25 +8,25 @@ manager: ''
 editor: ''
 ms.assetid: 81208c0b-8d41-4f65-be15-42119b1b5957
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: e3a31749407f9ec0494e8452b602ed9966c5ab83
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: be07579d8273ab19101aa6c475ae5d23375517ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504217"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177193"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-secure-ldap-configuration"></a>Azure AD Domain Services - felsökning säker LDAP-konfiguration
 
 Den här artikeln innehåller lösningar för vanliga problem när [konfigurera säkert LDAP](active-directory-ds-admin-guide-configure-secure-ldap.md) för Azure AD Domain Services.
 
-## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Nätverkssäkerhetsgruppen för säker LDAP-konfiguration
+## <a name="aadds101-secure-ldap-network-security-group-configuration"></a>AADDS101: Konfiguration för säker LDAP-Nätverkssäkerhetsgrupp
 
 **Varningsmeddelande:**
 

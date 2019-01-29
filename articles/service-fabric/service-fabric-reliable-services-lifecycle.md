@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f301c0156265f055f0ebf7cdad8dba7f39f5ba2b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 391fc493d642c260a10b74aa42b805ad055dd8b1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39044585"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164562"
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Översikt av programlivscykel Reliable Services
 > [!div class="op_single_selector"]
@@ -99,7 +99,7 @@ Precis som tillståndslösa tjänster Livscykelhändelser vid avstängningen är
 3. Efter `StatefulServiceBase.OnCloseAsync()` har slutförts serviceobjektet destructed.
 
 ## <a name="stateful-service-primary-swaps"></a>Tillståndskänslig tjänst primära växlingar
-När en tillståndskänslig tjänst körs de primära replikerna av de tillståndskänsliga tjänsterna har sina kommunikationslyssnarna öppnas och deras **RunAsync** metod som heter. Sekundära repliker skapas, men det finns inga ytterligare anrop. När en tillståndskänslig tjänst körs den replik som är för närvarande primärt kan ändra. Vad betyder detta i Användarvillkor Livscykelhändelser för en replik kan se? Beteendet tillståndskänsliga repliken ser beror på om det är repliken att degraderas eller uppgraderas under växlingen.
+När en tillståndskänslig tjänst körs de primära replikerna av de tillståndskänsliga tjänsterna har sina kommunikationslyssnarna öppnas och deras **RunAsync** metod som heter. Sekundära repliker skapas, men det finns inga ytterligare anrop. När en tillståndskänslig tjänst körs, kan ändra som för närvarande är primärt repliken på grund av fel eller belastningsutjämning optimering-kluster. Vad betyder detta i Användarvillkor Livscykelhändelser för en replik kan se? Beteendet tillståndskänsliga repliken ser beror på om det är repliken att degraderas eller uppgraderas under växlingen.
 
 ### <a name="for-the-primary-thats-demoted"></a>För den primära degraderas
 Service Fabric måste den här repliken för att avbryta bearbetat meddelandena och avsluta alla bakgrundsjobbet som det går för den primära repliken degraderas. Därför kan det här steget ser ut som den visades när tjänsten är avstängd. En skillnad är att tjänsten inte är destructed eller stängts eftersom den fortfarande som en sekundär. Följande API: er anropas:

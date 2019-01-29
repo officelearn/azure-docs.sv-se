@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 06/22/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9bcdf5a4de0ce54b922f3fd176cc6c979f3d7a17
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 2c67e40cf540062aeadd533962c0fb296648fb86
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425113"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100010"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Tokenreferens för Azure AD-SAML
 
@@ -31,7 +31,7 @@ Azure Active Directory (Azure AD) genererar flera typer av säkerhetstoken under
 ## <a name="claims-in-saml-tokens"></a>Anspråk i SAML-token
 
 > [!div class="mx-codeBreakAll"]
-| Namn | Motsvarande JWT-anspråk | Beskrivning | Exempel |
+| Namn | Equivalent JWT Claim | Beskrivning | Exempel |
 | --- | --- | --- | ------------|
 |Målgrupp | `aud` |Den avsedda mottagaren av token. Det program som tar emot en token måste kontrollera att värdet för målgrupp är korrekt och avvisa de token som är avsedd för en annan publik. | `<AudienceRestriction>`<br>`<Audience>`<br>`https://contoso.com`<br>`</Audience>`<br>`</AudienceRestriction>`  |
 | Autentiseringstillfälle | |Innehåller information om datum och tid när autentiseringen gjordes. | `<AuthnStatement AuthnInstant="2011-12-29T05:35:22.000Z">` | 

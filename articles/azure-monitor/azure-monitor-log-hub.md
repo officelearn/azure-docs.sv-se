@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hub-page
-ms.date: 01/15/2019
+ms.date: 01/25/2019
 ms.author: magoedte
-ms.openlocfilehash: 5c3a61eb4509742f8f5a8732f5d4e81cab59ff78
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: afdc71e5bbc70d3553adeb161e0bfc48a129b3c6
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54830272"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094095"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -53,8 +53,8 @@ ms.locfileid: "54830272"
                                                                     <p> 
                                                                         <a href="/azure/azure-monitor/overview">Vad är Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Profileringsändringar</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/monitoring-data-sources">Övervakning av datakällor</a><br/>
-                                                                        <a href="/azure/azure-monitor/platform/log-analytics-service-providers">Designöverväganden för tjänsteleverantörer</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/data-sources">Övervakning av datakällor</a><br/>
+                                                                        <a href="/azure/azure-monitor/platform/service-providers">Designöverväganden för tjänsteleverantörer</a><br/>
                                                                     </p>
                                                                 </div>
                                                             </div>
@@ -103,7 +103,7 @@ ms.locfileid: "54830272"
                                                     <h3>Övervakning</h3>
                                                         <p>
                                                             <a href="/azure/azure-monitor/platform/data-collection">Mått och loggar</a><br/>
-                                                            <a href="/azure/azure-monitor/platform/log-analytics-data-ingestion-time">Logga datainmatning tid</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/data-ingestion-time">Logga datainmatning tid</a><br/>
                                                         </p>
                                                         <br>
                                                         <h3>Datakällor</h3>
@@ -147,7 +147,7 @@ ms.locfileid: "54830272"
                                                         <br>
                                                         <h3>Incidenthantering</h3>
                                                         <p>
-                                                            <a href="/azure/azure-monitor/platform/alerts-unified">Översikt över aviseringar</a><br/>
+                                                            <a href="/azure/azure-monitor/platform/alerts-overview">Översikt över aviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/autoscale-overview">Automatisk skalning</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-unified-log">Loggaviseringar</a><br/>
                                                             <a href="/azure/azure-monitor/platform/alerts-activity-log">Aktivitetsloggaviseringar</a><br/>

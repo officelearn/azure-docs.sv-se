@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 43e842d6325897f484d9dff342505cace6640e78
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 64fb629e29de9771ca5f76d1c454ec5d14337a57
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472296"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104524"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Skapa, visa och hantera aviseringar med Azure Monitor  
 
@@ -72,6 +72,7 @@ Detaljerad nästa är stegvis guide till med hjälp av aviseringar i Azure porta
     ![Aggregera på alternativ](media/alerts-log/aggregate-on.png)
 
 1.  *Loggaviseringar*: Med visualiseringen på plats, **Alert Logic** kan väljas från visas alternativen för villkor, sammanställning och slutligen tröskelvärdet. Ange sedan i logik, tiden för att utvärdera för det angivna villkoret med **Period** alternativet. Tillsammans med hur ofta avisering ska köras genom att välja **frekvens**.
+
 För **Loggaviseringar** aviseringar kan baseras på:
    - *Antalet poster*: En avisering skapas om antalet poster som returneras av frågan är större än eller mindre än det angivna värdet.
    - *Metrisk måttenhet*: En avisering skapas om varje *aggregera värdet* överskrider tröskelvärdet som angetts i resultatet och det är *grupperade efter* valt värde. Antalet överträdelser för en avisering är antalet gånger som tröskelvärdet överstigs under den valda tidsperioden. Du kan ange Totalt antal överträdelser för valfri kombination av intrång i resultatuppsättningen eller efterföljande överträdelser att kräva att överträdelserna måste ske i efterföljande prover. Läs mer om [Loggaviseringar och deras typer](../../azure-monitor/platform/alerts-unified-log.md).
@@ -108,7 +109,7 @@ För **Loggaviseringar** aviseringar kan baseras på:
     Inom några minuter, aviseringen är aktiv och utlöser som det beskrivits.
 
 Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azure-portalen](../../azure-monitor/log-query/portals.md#log-analytics-page
-) push-överföra den att skapa en avisering genom att ställa in avisering knappen - och följa anvisningarna steg 6 och senare i självstudien ovan.
+) och skickar sedan det för att skapa en avisering via ”+ ny aviseringsregel” knappen - och sedan följa instruktionerna från steg 6 och senare i självstudien ovan.
 
  ![Log Analytics – Ställ in en avisering](media/alerts-log/AlertsAnalyticsCreate.png)
 
@@ -125,35 +126,31 @@ Användarna kan också underkänts analytics-fråga i [loggar analyssidan i Azur
     ![ Hantera Varningsregler](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Hantera aviseringar med Azure Resource-mall
-För närvarande baserat log aviseringar kan skapas med hjälp av två olika Resursmallar, på vilka analysplattform aviseringen är ska baseras på (det vill säga) Log Analytics eller Application Insights.
 
-Därför i avsnittet nedan innehåller information om hur du använder Resource-mall för Loggaviseringar för varje plattform för dataanalys.
+Loggaviseringar i Azure Monitor är associerade med resurstyp `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Loggaviseringar för Application Insights eller Log Analytics, kan skapas med [schemalagda regler fråge-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-### <a name="azure-resource-template-for-log-analytics"></a>Azure-resursmall för Log Analytics
-Loggaviseringar för Log Analytics skapas från Varningsregler som kör en sparad sökning med regelbundna intervall. Om resultatet av frågan matchar de angivna villkoren, skapas en aviseringspost och en eller flera åtgärder körs. 
-
-Resursmall för sökning och Log analytics-aviseringar den sparade Log analytics är tillgängliga i Log Analytics i dokumentationen för. Mer information finns i, [att lägga till Log Analytics sparade sökningar och aviseringar](../../azure-monitor/insights/solutions-resources-searches-alerts.md); som innehåller färgkodats exempel samt information om schemat.
-
-### <a name="azure-resource-template-for-application-insights"></a>Azure-resursmall för Application Insights
-Log avisering för Application Insights-resurser har en typ av `Microsoft.Insights/scheduledQueryRules/`. Mer information om den här resurstypen finns [Azure Monitor - schemalagda fråga regler API-referens](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
+> [!NOTE]
+> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
 Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) baserat resursmall med exempeldatauppsättning som variabler.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0", 
     "parameters": {      
     },   
     "variables": {
-    "alertLocation": "southcentralus",
-    "alertName": "samplelogalert",
-    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
-    "alertDescription": "Sample log search alert",
+    "alertLocation": "Region Name for your Application Insights App or Log Analytics Workspace",
+    "alertName": "sample log alert",
+    "alertDescr": "Sample log search alert",
     "alertStatus": "true",
+    "alertTag": "hidden-link:/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
     "alertSource":{
-        "Query":"requests",
-        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/components/sampleAIapplication",
+        "Query":"union workspace("servicews").Update, app('serviceapp').requests | summarize AggregatedValue = count() by bin(TimeGenerated,1h), Classification",
+        "Resource1": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews", 
+        "Resource2": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/components/serviceapp",
+        "SourceId": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.OperationalInsights/workspaces/servicews",
         "Type":"ResultCount"
          },
      "alertSchedule":{
@@ -161,17 +158,24 @@ Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.micr
          "Time": 60
          },
      "alertActions":{
-         "SeverityLevel": "4"
+         "SeverityLevel": "4",
+         "SuppressTimeinMin": 20
          },
       "alertTrigger":{
         "Operator":"GreaterThan",
         "Threshold":"1"
          },
+      "metricMeasurement": {
+          "thresholdOperator": "Equal",
+          "threshold": "1",
+          "metricTriggerType": "Consecutive",
+          "metricColumn": "Classification"
+      },
        "actionGrp":{
-        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/myRG/providers/microsoft.insights/actiongroups/sampleAG",
+        "ActionGroup": "/subscriptions/a123d7efg-123c-1234-5678-a12bc3defgh4/resourceGroups/contosoRG/providers/microsoft.insights/actiongroups/sampleAG",
         "Subject": "Customized Email Header",
-        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"           
-         }
+        "Webhook": "{ \"alertname\":\"#alertrulename\", \"IncludeSearchResults\":true }"
+        }
   },
   "resources":[ {
     "name":"[variables('alertName')]",
@@ -180,28 +184,36 @@ Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.micr
     "location": "[variables('alertLocation')]",
     "tags":{"[variables('alertTag')]": "Resource"},
     "properties":{
-       "description": "[variables('alertDescription')]",
+       "description": "[variables('alertDescr')]",
        "enabled": "[variables('alertStatus')]",
        "source": {
            "query": "[variables('alertSource').Query]",
+           "authorizedResources": "[concat(array(variables('alertSource').Resource1), array(variables('alertSource').Resource2))]",
            "dataSourceId": "[variables('alertSource').SourceId]",
            "queryType":"[variables('alertSource').Type]"
        },
       "schedule":{
            "frequencyInMinutes": "[variables('alertSchedule').Frequency]",
-           "timeWindowInMinutes": "[variables('alertSchedule').Time]"    
+           "timeWindowInMinutes": "[variables('alertSchedule').Time]"
        },
       "action":{
            "odata.type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
            "severity":"[variables('alertActions').SeverityLevel]",
+           "throttlingInMin": "[variables('alertActions').SuppressTimeinMin]",
            "aznsAction":{
-               "actionGroup":"[array(variables('actionGrp').ActionGroup)]",
+               "actionGroup": "[array(variables('actionGrp').ActionGroup)]",
                "emailSubject":"[variables('actionGrp').Subject]",
                "customWebhookPayload":"[variables('actionGrp').Webhook]"
            },
        "trigger":{
                "thresholdOperator":"[variables('alertTrigger').Operator]",
-               "threshold":"[variables('alertTrigger').Threshold]"
+               "threshold":"[variables('alertTrigger').Threshold]",
+               "metricTrigger":{
+                   "thresholdOperator": "[variables('metricMeasurement').thresholdOperator]",
+                   "threshold": "[variables('metricMeasurement').threshold]",
+                   "metricColumn": "[variables('metricMeasurement').metricColumn]",
+                   "metricTriggerType": "[variables('metricMeasurement').metricTriggerType]"
+               }
            }
        }
      }
@@ -214,32 +226,26 @@ Följande är strukturen för [schemalagda Frågeregler skapa](https://docs.micr
 
 Exempel-json ovan kan sparas som (exempelvis) sampleScheduledQueryRule.json i den här genomgången och kan distribueras med hjälp av [Azure Resource Manager i Azure-portalen](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
-
 ## <a name="managing-log-alerts-using-powershell-cli-or-api"></a>Hantera aviseringar med PowerShell, CLI eller API
-Log aviseringar kan skapas baserat med hjälp av två olika Resource Manager kompatibla API: er, för närvarande på vilka analysplattform aviseringen är ska baseras på (det vill säga) Log Analytics eller Application Insights.
 
-I avsnittet nedan innehåller därför information med API: et via Powershell eller CLI för Loggaviseringar för varje plattform för dataanalys.
+Azure Monitor - schemalagda Frågeregler API] (https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
 
-### <a name="powershell-cli-or-api-for-log-analytics"></a>PowerShell, CLI eller API för Log Analytics
-Log Analytics avisering REST API är RESTful och kan nås via Azure Resource Manager REST API. API: et därför kan nås från en PowerShell-kommandorad och kommer att bli sökresultat till dig i JSON-format, så att du kan använda resultaten i många olika sätt programmässigt.
+> [!NOTE]
+> Loggaviseringar för Log Analytics kan också hanteras med hjälp av äldre [Log Analytics-avisering API](../../azure-monitor/platform/api-alerts.md) och äldre mallar för [sparade sökningar och aviseringar i Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md) samt. Mer information om hur du använder den nya ScheduledQueryRules API som beskrivs här som standard finns i [växla till nya API: et för Log Analytics-aviseringar](alerts-log-api-switch.md).
 
-Läs mer om [skapa och hantera Varningsregler i Log Analytics med REST API](../../azure-monitor/platform/api-alerts.md), inklusive exempel för att komma åt API: et från Powershell.
 
-### <a name="powershell-cli-or-api-for-application-insights"></a>PowerShell, CLI eller API för Application Insights
-[Azure Monitor - schemalagda Frågeregler API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) är en REST-API och helt kompatibla med Azure Resource Manager REST API. Därför kan den användas via Powershell med Resource Manager-cmdlet som Azure CLI.
-
-Bilden nedan användning via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i den [Resource mallavsnittet](#azure-resource-template-for-application-insights) :
+Loggaviseringar har inte dedikerade PowerShell eller CLI-kommandon för närvarande; men som på bilden nedan kan användas via Azure Resource Managers PowerShell-cmdlet för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i den [Resource mallavsnittet](#azure-resource-template-for-application-insights) :
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
+New-AzureRmResourceGroupDeployment -ResourceGroupName "contosoRG" -TemplateFile "D:\Azure\Templates\sampleScheduledQueryRule.json"
 ```
+
 Bilden nedan användning via Azure Resource Manager-kommando i Azure CLI för exemplet resursmall som visades tidigare (sampleScheduledQueryRule.json) i den [Resource mallavsnittet](#azure-resource-template-for-application-insights) :
 
 ```azurecli
-az group deployment create --resource-group myRG --template-file sampleScheduledQueryRule.json
+az group deployment create --resource-group contosoRG --template-file sampleScheduledQueryRule.json
 ```
+
 Lyckade åtgärder 201 återgår till tillståndet skapandet av ny regel för varning eller 200 returneras om en befintlig varningsregel ändrades.
-
-
   
 ## <a name="next-steps"></a>Nästa steg
 

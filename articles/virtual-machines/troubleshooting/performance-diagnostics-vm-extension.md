@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 7037c0b4c1021ac7b91134fa429a774f600a774f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3430ff2b292a3e5fe675c3a5f332a12a88d4bfbf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53194172"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096797"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Prestanda för Azure Diagnostics VM-tillägg för Windows
 
@@ -76,12 +76,12 @@ Följande JSON visar schemat för Azure VM Diagnostics-tillägget prestanda. Det
 |performanceScenario|grundläggande|Prestanda-scenario som du vill samla in data. Giltiga värden är: **grundläggande**, **vmslow**, **azurefiles**, och **anpassade**.
 |traceDurationInSeconds|300|Varaktigheten för spårningar, om något av spårningsalternativ för har valts.
 |perfCounterTrace|p|Alternativet för att aktivera prestandaräknaren spårningen. Giltiga värden är **p** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
-|networkTrace|N|Alternativet för att aktivera nätverksspårning. Giltiga värden är **n** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
+|networkTrace|n|Alternativet för att aktivera nätverksspårning. Giltiga värden är **n** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
 |xperfTrace|x|Alternativet för att aktivera XPerf spårningen. Giltiga värden är **x** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
 |storPortTrace|S|Alternativet för att aktivera StorPort spårningen. Giltiga värden är **s** eller tomt värde. Om du inte vill samla in den här spårningen lämna värdet som tom.
 |srNumber|123452016365929|Biljett supportnumret, om det är tillgängligt. Lämna värdet som tom om du inte har den.
 |requestTimeUtc|2017-09-28T22:08:53.736Z|Aktuellt datum tid i Utc. Om du använder portalen för att installera tillägg, behöver du inte ange det här värdet.
-|resourceId|/subscriptions/ {subscriptionId} /resourceGroups/ {resourceGroupName} /providers/ {resourceProviderNamespace} / {resourceType} / {resourceName}|Den unika identifieraren för en virtuell dator.
+|resourceId|/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}|Den unika identifieraren för en virtuell dator.
 |storageAccountName|mystorageaccount|Namnet på lagringskontot för att lagra diagnostikloggar och resultat.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|Nyckel för lagringskontot.
 
@@ -123,7 +123,7 @@ Följ dessa steg om du vill ta bort tillägget från en virtuell dator:
 ## <a name="template-deployment"></a>Malldistribution
 Azure virtual machine-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall. Den här lösningen körs tillägget Azure prestanda diagnostik VM under en malldistribution för Azure Resource Manager. Här är en exempelmall:
 
-````
+```
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -207,14 +207,14 @@ Azure virtual machine-tillägg kan distribueras med Azure Resource Manager-malla
     }
   ]
 }
-````
+```
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution
 Den `Set-AzureRmVMExtension` kommando kan användas för att distribuera Azure Diagnostics-tillägget prestanda VM till en befintlig virtuell dator.
 
 PowerShell
 
-````
+```
 $PublicSettings = @{ "storageAccountName"="mystorageaccount";"performanceScenario"="basic";"traceDurationInSeconds"=300;"perfCounterTrace"="p";"networkTrace"="";"xperfTrace"="";"storPortTrace"="";"srNumber"="";"requestTimeUtc"="2017-09-28T22:08:53.736Z";"resourceId"="VMResourceId" }
 $ProtectedSettings = @{"storageAccountKey"="mystoragekey" }
 
@@ -227,7 +227,7 @@ Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -Settings $PublicSettings `
     -ProtectedSettings $ProtectedSettings `
     -Location WestUS
-````
+```
 
 ## <a name="information-on-the-data-captured"></a>Information om de data som hämtats
 Verktyget PerfInsights samlar in olika loggar, konfiguration och diagnostiska data, beroende på det valda scenariot. Mer information finns i den [PerfInsights dokumentation](https://aka.ms/perfinsights).

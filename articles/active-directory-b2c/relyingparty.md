@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/25/2019
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 8ec9e5a50f2350a17d5845f5c52954df10fa1d10
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 5d42568a738d946d7df65601044b9797a35f6b1f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856833"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176020"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -44,7 +44,7 @@ I följande exempel visas en **RelyingParty** elementet i den *B2C_1A_signup_sig
   <RelyingParty>
     <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
     <UserJourneyBehaviors>
-      <SingleSignOn Scope="TrustFramework" />
+      <SingleSignOn Scope="TrustFramework" KeepAliveInDays="7"/>
       <SessionExpiryType>Rolling</SessionExpiryType>
       <SessionExpiryInSeconds>300</SessionExpiryInSeconds>
       <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="your-application-insights-key" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
@@ -125,6 +125,7 @@ Den **SingleSignOn** elementet innehåller i följande attribut:
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Scope | Ja | Omfattning beteendet för enkel inloggning. Möjliga värden: `Suppressed`, `Tenant`, `Application`, eller `Policy`. Den `Suppressed` värdet anger att beteendet undertrycks. Till exempel när det gäller en enda session inloggnings-ingen session bibehålls för användaren och användaren uppge alltid ett val för identitets-provider. Den `TrustFramework` värdet anger att funktionen används för alla principer inom ramen för förtroende. Exempelvis kan en användare navigera genom två princip utbildning för ett förtroende-ramverk inte uppmanas att ange ett val för identitets-provider. Den `Tenant` värdet anger att funktionen används för alla principer i klienten. Exempelvis kan en användare navigera genom två princip utbildning för en klient inte uppmanas att ange ett val för identitets-provider. Den `Application` värdet anger att funktionen används för alla principer för program som gör begäran. En användare navigera genom två princip utbildning för ett program är till exempel inte ange ett val för identitets-provider. Den `Policy` värdet anger att problemet endast gäller för en princip. Till exempel en användare navigera genom två princip utbildning för ett förtroende-ramverk uppmanas att ange ett identitet providern val när du växlar mellan principer. |
+| KeepAliveInDays | Ja | styr hur länge användaren förblir inloggad. Ange värdet till 0 inaktiveras KMSI funktioner. Mer information finns i [vill förbli inloggad](active-directory-b2c-reference-kmsi-custom.md). |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -159,7 +160,7 @@ Den **ContentDefinitionParameter** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på nyckeln värde-par. |
+| Name | Ja | Namnet på nyckeln värde-par. |
 
 Mer information finns i [konfigurera Användargränssnittet med dynamiskt innehåll med hjälp av anpassade principer](active-directory-b2c-ui-customization-custom-dynamic.md)
 
@@ -186,7 +187,7 @@ Den **protokollet** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OpenIdConnect` eller `SAML2`. Den `OpenIdConnect` värdet representerar OpenID Connect 1.0-protokollstandard enligt OpenID foundation-specifikationen. Den `SAML2` representerar SAML 2.0-protokollstandard enligt OASIS-specifikationen. Använd inte en SAML-token i produktion. |
+| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OpenIdConnect` eller `SAML2`. Den `OpenIdConnect` värdet representerar OpenID Connect 1.0-protokollstandard enligt OpenID foundation-specifikationen. Den `SAML2` representerar SAML 2.0-protokollstandard enligt OASIS-specifikationen. Använd inte en SAML-token i produktion. |
 
 ## <a name="outputclaims"></a>OutputClaims
 

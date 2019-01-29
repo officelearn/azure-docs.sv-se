@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3a2ccd04cd7ec36cafdf56830b9ad8249f89eb7e
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321608"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181477"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -46,7 +46,7 @@ Under **Compute och appar**, finns följande flikar:
 - **Behållare (förhandsgranskning)**: lista över dina behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
 - **Beräkningsresurser (förhandsversion)**: lista över rekommendationer för dina beräkningsresurser, till exempel Service Fabric-kluster och Event hubs.
 
-Om du vill fortsätta, Välj **Compute och appar** under **Resource security hygeine**.
+Om du vill fortsätta, Välj **Compute och appar** under **Resource security hygien**.
 
 ![Compute](./media/security-center-virtual-machine-recommendations/compute.png)
 
@@ -196,8 +196,8 @@ Det finns tre typer av ikoner i den här listan:
 |Beräkningsresurser (händelsehubb)|5|Aktivera diagnostikloggar i Event Hub|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Beräkningsresurser (logikappar)|5|Aktivera diagnostikloggar i Logic Apps|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras. |
 |Beräkningsresurser (service fabric)|15|Ange egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric|Service Fabric tillhandahåller tre skyddsnivåer (ingen, logga in och EncryptAndSign) för nod-till-nod-kommunikation med hjälp av en primär klustercertifikat.  Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt. |
-|Beräkningsresurser (service bus)|1|Ta bort alla regler förutom RootManageSharedAccessKey från Service Bus-namnområde |Service Bus-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till den minsta säkerhet behörighet modell, ska du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
-|Beräkningsresurser (händelsehubb)|1|Ta bort alla regler förutom RootManageSharedAccessKey från namnområdet för Händelsehubben |Event Hub-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till den minsta säkerhet behörighet modell, ska du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
+|Beräkningsresurser (service bus)|1|Ta bort alla regler förutom RootManageSharedAccessKey från Service Bus-namnområde |Service Bus-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
+|Beräkningsresurser (händelsehubb)|1|Ta bort alla regler förutom RootManageSharedAccessKey från namnområdet för Händelsehubben |Event Hub-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
 |Beräkningsresurser (händelsehubb)|5|Definiera regler för Event Hub-entitet|Granska auktoriseringsregler på entiteten Event Hub att bevilja lägsta åtkomstbehörighet.|
 |Dator|50|Installera övervakningsagenten på dina datorer|Installera agenten för övervakning om du vill aktivera insamling av data, uppdateringar som genomsökning, baslinjegenomsökning och endpoint protection på varje dator.|
 |Dator|50|Aktivera automatisk etablering och insamling av data för dina prenumerationer |Aktivera automatisk etablering och insamling av data för datorer i dina prenumerationer för att aktivera insamling av data, uppdateringar som genomsökning, baslinjegenomsökning och endpoint protection på varje dator som har lagts till i dina prenumerationer.|

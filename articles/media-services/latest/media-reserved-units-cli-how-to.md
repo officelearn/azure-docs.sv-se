@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/24/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9f95be8a9d75065deedd3bd7c92907145e966494
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: b40ab6bcc2f718eda85ff64d69a6689e12d60ab8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913062"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094843"
 ---
 # <a name="scaling-media-processing"></a>Skala mediebearbetning
 
@@ -32,27 +32,19 @@ Den här artikeln visar hur du använder [Media Services v3 CLI](https://aka.ms/
 
 ## <a name="prerequisites"></a>Förutsättningar 
 
-+ Installera [Azure CLI]( /cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. 
+[Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
-    Du kan också använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest).
-+ [Skapa ett Media Services-konto](create-account-cli-how-to.md).
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Skala Mediereserverade enheter med CLI
 
-1. Kör `login`-kommandot. Kör det här kommandot om du använder Azure cloudshell eller lokala CLI-gränssnittet.
+Kör `mru`-kommandot.
 
-    ```azurecli
-    az login
-    ```
-    
-    Om CLI kan öppna din standardwebbläsare så sker det och en inloggningssida läses in. I annat fall måste du öppna en Webbläsarsida och följ anvisningarna på kommandoraden för att ange en auktoriseringskod när du har lämnat till [ https://aka.ms/devicelogin ](https://aka.ms/devicelogin) i webbläsaren.
-2. Kör `mru`-kommandot.
+Följande [az ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) kommandot anger Mediereserverade enheter på ”amsaccount”-konto med hjälp av den **antal** och **typ** parametrar.
 
-    Följande [az ams-konto mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) kommandot anger Mediereserverade enheter på ”amsaccount”-konto med hjälp av den **antal** och **typ** parametrar.
-
-    ```azurecli
-    az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
-    ```
+```azurecli
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
+```
 
 ## <a name="billing"></a>Fakturering
 

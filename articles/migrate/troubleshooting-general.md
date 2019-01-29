@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: raynew
-ms.openlocfilehash: 5a5fbcb4cd2e073192ec7032bdbed15ab49798ad
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: ebd374cc8792545d1db57f624a5831dc9ded272f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075435"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102135"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -153,9 +153,17 @@ Azure Migrate collector laddar ned PowerCLI och installerar den på installation
 Det här problemet kan inträffa på grund av ett problem med VMware PowerCLI-installationen. Följ de stegen nedan för att lösa problemet:
 
 1. Om du inte har den senaste versionen av för insamlingsprogram [uppgradera insamlaren till den senaste versionen](https://aka.ms/migrate/col/checkforupdates) och kontrollera om problemet är löst.
-2. Om du redan har den senaste versionen av insamlaren, följer du de stegen nedan för att göra en ren installation av PowerCLI: en. Stäng webbläsaren i installationen.
-   b. Stoppa tjänsten Azure Migrate Collector genom att gå till Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Stoppa, c. Ta bort alla mappar som börjar med ”VMware' från följande platser: C:\Program Files\WindowsPowerShell\Modules  
-        C:\Program filer (x86) \WindowsPowerShell\Modules d. Starta om tjänsten Azure Migrate Collector i Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Start.
+2. Om du redan har den senaste versionen av insamlaren, följer du de stegen nedan för att göra en ren installation av PowerCLI:
+
+   a. Stäng webbläsaren i installationen.
+
+   b. Stoppa tjänsten Azure Migrate Collector genom att gå till Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Stoppa.
+
+   c. Ta bort alla mappar som börjar med ”VMware' från följande platser: C:\Program Files\WindowsPowerShell\Modules  
+        C:\Program Files (x86)\WindowsPowerShell\Modules
+
+   d. Starta om tjänsten Azure Migrate Collector i Windows Service Manager (öppna ”kör” och Skriv services.msc att öppna Windows Service Manager). Högerklicka på Azure Migrate Collector-tjänsten och klicka på Start.
+   
    e. Dubbelklicka på genvägen kör-insamlare att starta insamlingsprogrammet. Insamlingsprogrammet bör automatiskt hämta och installera versionen som krävs för PowerCLI.
 
 3. Om ovanstående inte löser problemet manuellt installera [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) och kontrollera om problemet är löst.
@@ -214,7 +222,7 @@ Lista över Windows-operativsystem som stöds av beroendeagenten är [här](http
 Listan med Linux-operativsystem som stöds av beroendeagenten är [här](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Jag kan inte visualisera beroenden i Azure Migrate för mer än en timme?
-Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Även om Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, är maximal varaktighet för vilken du kan visualisera beroenden upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period. 
+Azure Migrate kan du visualisera beroenden för varaktighet för upp till en timme. Även om Azure Migrate kan du gå tillbaka till ett visst datum i historiken för upp till senaste månaden, är maximal varaktighet för vilken du kan visualisera beroenden upp till 1 timme. Exempel: du kan använda funktionen tid varaktighet på beroendekartan visar beroenden för igår, men kan bara visa för ett fönster med en timme. Du kan dock använda Log Analytics för att [frågedata beroende](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) över en längre period.
 
 ### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Jag kan inte visualisera beroenden för grupper med fler än 10 virtuella datorer?
 Du kan [visualisera beroenden för grupper](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) som har upp till 10 virtuella datorer, om du har en grupp med fler än 10 virtuella datorer, rekommenderar vi att dela upp gruppen i mindre grupper och visualisera beroenden.

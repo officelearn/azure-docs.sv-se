@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 91813e31c6237cf47a744a4290e3e2d7736195f0
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 14d7ae7cc347b771dfdb1209bc8d55c484d00db0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322103"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193741"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Förstå periodiska konfiguration av säkerhetskopiering i Azure Service Fabric
 
@@ -219,9 +219,9 @@ När behovet av inaktiveringen är klar kan sedan säkerhetskopieringen periodis
 * Om inaktivering har tillämpats på en _Partition_, och sedan återupptas med [återuppta Partition säkerhetskopiering](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ### <a name="difference-between-suspend-and-disable-backups"></a>Skillnaden mellan att pausa och inaktivera säkerhetskopiering
-Inaktivera backup bör användas när säkerhetskopieringar inte längre behövs för ett visst program, tjänst eller partition. En kan infact anropa inaktivera backup begäran tillsammans med ren säkerhetskopior parameter ska vara sant vilket betyder att alla befintliga säkerhetskopior tas bort. Dock pausa ska användas i situationer där en vill inaktivera säkerhetskopior tillfälligt som när lokal disk blir full eller ladda upp säkerhetskopiering misslyckas på grund av kända nätverksproblem osv. 
+Inaktivera backup bör användas när säkerhetskopieringar inte längre behövs för ett visst program, tjänst eller partition. En kan anropa inaktivera backup begäran tillsammans med ren säkerhetskopior parameter ska vara sant vilket betyder att alla befintliga säkerhetskopior tas bort. Dock pausa ska användas i situationer där en vill inaktivera säkerhetskopior tillfälligt som när lokal disk blir full eller ladda upp säkerhetskopiering misslyckas på grund av kända nätverksproblem osv. 
 
-Medan inaktivera kan anropas endast på en nivå som har tidigare aktiverats för säkerhetskopiering explicilty men inaktivering kan tillämpas på vilken nivå som har aktiverats för säkerhetskopiering antingen direkt eller via arv / hierarki. Om säkerhetskopiering aktiveras på programnivå, en till exempel anropa inaktivera endast på programnivå men pausa anropas på program, tjänster eller partition under programmet. 
+Medan inaktivera kan anropas endast på en nivå som har tidigare aktiverats för säkerhetskopiering uttryckligen men inaktivering kan tillämpas på vilken nivå som har aktiverats för säkerhetskopiering antingen direkt eller via arv / hierarki. Om säkerhetskopiering aktiveras på programnivå, en till exempel anropa inaktivera endast på programnivå men pausa anropas på program, tjänster eller partition under programmet. 
 
 ## <a name="auto-restore-on-data-loss"></a>Automatisk återställning på dataförlust
 Tjänsten partitionen kan förlora data på grund av oväntade fel. Disk för två av tre repliker för en partition (inklusive den primära repliken) hämtar skadad eller rensas.

@@ -1,5 +1,5 @@
 ---
-title: Använda Video Indexer-API:et
+title: Använda Video Indexer-API – Azure
 titlesuffix: Azure Media Services
 description: Den här artikeln visar hur du kommer igång med att använda Video Indexer-API:t.
 services: media-services
@@ -7,16 +7,16 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d7af0d8961d5fa4d3f76b76a48ec613d954298ad
-ms.sourcegitcommit: beb4fa5b36e1529408829603f3844e433bea46fe
+ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2018
-ms.locfileid: "52292505"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190504"
 ---
-# <a name="use-the-video-indexer-api"></a>Använda Video Indexer-API:et
+# <a name="tutorial-use-the-video-indexer-api"></a>Självstudier: Använda Video Indexer-API:et
 
 > [!Note]
 > Video Indexer-API:t v1 blev inaktuellt den 1 augusti 2018. Nu bör du använda Video Indexer-API:t v2. <br/>Om du vill utveckla med Video Indexer-API:er v2 läser du instruktionerna [här](https://api-portal.videoindexer.ai/). 

@@ -1,6 +1,6 @@
 ---
 title: Uppgradera ett Azure Service Fabric-kluster | Microsoft Docs
-description: Lär dig mer om hur du uppgraderar den version eller konfigurationen av en Azure Svice Fabric-kluster.  Den här artikeln beskrivs inställningen kluster uppdateringsläge, uppgradera certifikat, lägga till programportar, korrigeringsfiler för operativsystem och vad du kan förvänta dig när uppgraderingen utförs
+description: Lär dig mer om hur du uppgraderar den version eller konfigurationen av en Azure Service Fabric-klustret.  Den här artikeln beskrivs inställningen kluster uppdateringsläge, uppgradera certifikat, lägga till programportar, korrigeringsfiler för operativsystem och vad du kan förvänta dig när uppgraderingen utförs
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: aljo
-ms.openlocfilehash: a864d6423dc530857009e58a2fa90f0fa2cbc84f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 2e5838046cdb60023495c7e9e111506c333cecc7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853293"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102404"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Uppgradera och uppdaterar ett Azure Service Fabric-kluster
 

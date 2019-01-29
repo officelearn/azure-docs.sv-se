@@ -7,7 +7,7 @@ author: andretms
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a0c2d13b2ac6715db047d56e998294688d9b65cf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986550"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097069"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Anropa Microsoft Graph API från en Universal Windows Platform-program (XAML)
 
@@ -48,7 +48,7 @@ Den här guiden använder följande NuGet-paket:
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsofts autentiseringsbibliotek|
 
-## <a name="set-up-your-project"></a>Konfigurera ditt projekt
+## <a name="set-up-your-project"></a>Konfigurera projektet
 
 Det här avsnittet innehåller stegvisa instruktioner för att integrera ett Windows Desktop .NET-program (XAML) med *logga In med Microsoft*. Den kan sedan fråga webb-API: er som kräver en token, till exempel Microsoft Graph API.
 
@@ -60,7 +60,7 @@ Den här guiden skapar ett program som visar en knapp som frågar Graph API, en 
 
 ### <a name="create-your-application"></a>Skapa ditt program
 
-1. I Visual Studio väljer **filen** > **New** > **projekt**.
+1. Välj **Arkiv** > **Nytt** > **Projekt** i Visual Studio.
 2. Under **mallar**väljer **Visual C#**.
 3. Välj **Tom app (Universal Windows)**.
 4. Ge appen ett namn och välj **OK**.
@@ -334,7 +334,7 @@ Om du vill aktivera Windows-integrerad autentisering när den används med en fe
 > [!IMPORTANT]
 > Windows-integrerad autentisering har inte konfigurerats som standard för det här exemplet. Program som begär *Företagsautentisering* eller *delade användarcertifikat* funktioner kräver en högre säkerhetsnivå för verifiering av Windows Store. Dessutom bör alla utvecklare att utföra den högre nivån verifieringsmetod. Den här inställningen aktiveras endast om du behöver Windows-integrerad autentisering med en federerad Azure Active Directory-domän.
 
-## <a name="test-your-code"></a>Testa din kod
+## <a name="test-your-code"></a>Testa koden
 
 Testa ditt program genom att välja F5 för att köra projektet i Visual Studio. Huvudfönstret visas:
 
@@ -382,14 +382,14 @@ En av följande felmeddelanden visas när du loggar in på ditt program i en fed
  - Inga giltiga certifikat finns i användarens certifikatarkiv.
  - Försök igen genom att välja en annan autentiseringsmetod.
 
-**Orsak:** Enterprise-och certifikatet är inte aktiverade.
+**Orsak:** Enterprise-och certifikatet har inte aktiverats.
 
-**Lösning:** följer du stegen i [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional).
+**Lösning:** Följ stegen i [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional).
 
 ### <a name="issue-2"></a>Problemet 2
 Du aktiverar [integrerad autentisering på federerade domäner](#enable-integrated-authentication-on-federated-domains-optional) och försök att använda Windows Hello på en Windows 10-dator för att logga in på en miljö med multifaktorautentisering som konfigurerats. Listan över certifikat som visas. Om du väljer att använda din PIN-kod exponeras aldrig fönstret PIN-kod.
 
-**Orsak:** det här problemet är en känd begränsning av webbautentiseringskoordinatorn i UWP-program som körs på Windows 10 desktop. Den fungerar på Windows 10 Mobile.
+**Orsak:** Det här problemet är en känd begränsning av webbautentiseringskoordinatorn i UWP-program som körs på Windows 10 desktop. Den fungerar på Windows 10 Mobile.
 
 **Lösning:** Välj **logga in med andra alternativ**. Välj sedan **logga in med ett användarnamn och lösenord**. Välj **ange ditt lösenord**. Gå sedan igenom phone autentiseringsprocessen.
 

@@ -1,5 +1,5 @@
 ---
-title: Utöka (kopiera) Log Analytics-aviseringar i Azure Alerts - översikt
+title: Utöka (kopiera) Log Analytics-aviseringar i Azure Government-molnet
 description: Översikt över processen för att kopiera aviseringar från Log Analytics i OMS-portalen till Azure-aviseringar med detaljerad information om adressering vanliga kundernas synpunkter.
 author: msvijayn
 services: azure-monitor
@@ -8,19 +8,21 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: e2f2a739f78072a0479e77e68e84c8f4b395468f
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: efd2fc9d164564126b7b641ef35bbb10c4834f49
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422234"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099336"
 ---
 # <a name="extend-log-analytics-alerts-to-azure-alerts"></a>Utöka Log Analytics-aviseringar till Azure-aviseringar
 
 > [!NOTE]
 > Microsoft har redan slutfört den process som beskrivs i den här artikeln för offentliga versioner av Azure. Det gäller dock fortfarande för US government-versioner.  
 
-Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights. 
+Tills nyligen med Azure Log Analytics sin egen avisering funktioner, vilket kan informera dig om villkor baserat på Log Analytics-data. Du har hanterat Varningsregler i Microsoft Operations Management Suite-portalen. Det nya aviseringsgränssnittet har nu integrerats aviseringar för olika tjänster i Microsoft Azure. Detta är tillgänglig **aviseringar** under Azure Monitor i Azure-portalen och har stöd för aviseringar från aktiviteten skrivloggar, statistik och loggar från både Log Analytics och Azure Application Insights.
+
+Azure Government cloud-kunder som använder OMS-portalen kan [frivilligt utöka sina Varningsregler till Azure](alerts-extend-tool.md) från **den 1 februari 2019**. Startar **den 1 mars 2019** - Microsoft automatiskt-utökas på ett systematiskt sätt alla befintliga Varningsregler i Azure Government - OMS-portalen till Azure, utan driftavbrott eller break till den. En ny arbetsyta som skapats på eller efter **den 1 mars 2019** i Azure Government-molnet OMS portal utsträcks automatiskt till Azure.
 
 ## <a name="benefits-of-extending-your-alerts"></a>Fördelar med att utöka dina aviseringar
 Det finns flera fördelar med att skapa och hantera aviseringar i Azure portal, till exempel:

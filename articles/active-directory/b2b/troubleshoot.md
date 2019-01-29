@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 8651313f2dde21a2f6141d3cc8ee43cf32b7634a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 764b5defd2fb647fd52e1e93441b68ffe492d0c9
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081372"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181273"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Felsökning av Azure Active Directory B2B-samarbete
 
@@ -76,6 +76,10 @@ För att uppfylla sekretesslagar våra API: er inte inkluderar anpassade meddela
 - När ett huvudnamn för appservice skickar inbjudan
 
 Om det här scenariot är viktiga för dig kan du utelämna e-postinbjudan vårt API och skicka den via den e-postmekanism. Kontakta din organisations är jurist att kontrollera att alla e-postmeddelanden som du skickar detta sätt uppfyller gällande sekretesslagstiftning.
+
+## <a name="a-guest-user-with-a-just-in-time-or-viral-tenant-is-unable-to-reset-their-password"></a>En gästanvändare med en just-in-time- eller ”viral”-klienten är inte kan återställa sina lösenord
+
+Om klienten identitet är en just-in-time (JIT) eller av viral klientorganisation kan (dvs. det är en separat, ohanterad Azure-klient), bara gästanvändaren återställa sina lösenord. Ibland en organisation kommer [tar över hanteringen av viral klienter](https://docs.microsoft.com/en-us/azure/active-directory/users-groups-roles/domains-admin-takeover) som skapas när anställda använda sina e-postadresser för att registrera dig för tjänster. När organisationen tar över en av viral klientorganisation kan kan bara en administratör i organisationen återställa användarens lösenord eller aktivera SSPR. Om det behövs, som organisationen som bjuder in kan du ta bort användarkontot från din katalog och skicka om inbjudan.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 6c101878c474e605106bb2fbb6ea6568f433e756
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: b7e2a075df7d0d7f6bb68163414fab525aad25a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53338540"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093459"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Övervakning av filintegritet i Azure Security Center
 Lär dig hur du konfigurerar filen integritet övervakning (FIM) i Azure Security Center med den här genomgången.
@@ -31,7 +31,7 @@ Security Center-Filintegritetsövervakning kontrollerar integriteten för Window
 
 - Skapa en fil- och registret och borttagning
 - Filändringar (ändringar i filstorlek och åtkomstkontrollistor innehållets hash-värde)
-- Registret ändringar (ändringar i storlek, åtkomst conrol listor, typ och innehållet)
+- Registret ändringar (ändringar i storlek, åtkomstkontrollistor, typ och innehållet)
 
 Entiteter för att övervaka, som du kan enkelt aktivera FIM på rekommenderar Security Center. Du kan även definiera dina egna principer för FIM eller entiteter för att övervaka. Den här genomgången visar hur du gör.
 
@@ -152,7 +152,7 @@ Under **Redigera för ändringsspårning** kan du:
 - Ta bort entiteten, ignorera ändringen eller spara ändringen
 
 ## <a name="add-a-new-entity-to-monitor"></a>Lägg till en ny entitet för att övervaka
-1. Gå tillbaka till den **filen integirty instrumentpanelen** och välj **inställningar** högst upp. **Arbetsytekonfiguration** öppnas.
+1. Gå tillbaka till den **instrumentpanel för filintegritetsövervakning** och välj **inställningar** högst upp. **Arbetsytekonfiguration** öppnas.
 2. Under **Arbetsytekonfiguration**, Välj fliken för typ av enhet som du vill lägga till: Windows-registret, filer för Windows eller Linux-filer. I det här exemplet har vi valt **Linux-filer**.
 
   ![Lägg till ett nytt objekt att övervaka][14]

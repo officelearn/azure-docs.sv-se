@@ -8,19 +8,19 @@ manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 56ccb219-11b2-4e43-9f07-5a76e3cd8da8
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: cf205249c4d07cee1ff17c9c726283cfddca1fce
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155232"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55187104"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services för Azure Cloud Solution Providers (CSP)
 Den här artikeln förklarar hur du kan använda Azure AD Domain Services i en Azure CSP-prenumeration.
@@ -76,14 +76,14 @@ Följande viktiga överväganden gäller när du administrerar en hanterad domä
 
 * **CSP: er kan skript skapandet av nya hanterade domäner för sina kunder med hjälp av PowerShell:** Se [hur att aktivera Azure AD Domain Services med hjälp av PowerShell](active-directory-ds-enable-using-powershell.md) mer information.
 
-* **Agenter för CSP-administratör kan inte utföra pågående hanteringsuppgifter på den hanterade domänen med sina autentiseringsuppgifter:** CSP-administratörer kan inte utföra vanliga hanteringsuppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa för kundens Azure AD-katalog och sina autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-katalog. Azure AD Domain Services har därför inte åtkomst till Kerberos- och NTLM-lösenordshashvärden för dessa användare. Därför kan kan dessa användare inte autentiseras på Azure AD Domain Services hanterade domäner.
+* **Agenter för CSP-administratören kan inte utföra pågående hanteringsuppgifter på den hanterade domänen med sina autentiseringsuppgifter:** CSP-administratörer kan inte utföra vanliga hanteringsuppgifter i den hanterade domänen med sina autentiseringsuppgifter. Dessa användare är externa för kundens Azure AD-katalog och sina autentiseringsuppgifter är inte tillgängliga i kundens Azure AD-katalog. Azure AD Domain Services har därför inte åtkomst till Kerberos- och NTLM-lösenordshashvärden för dessa användare. Därför kan kan dessa användare inte autentiseras på Azure AD Domain Services hanterade domäner.
 
   > [!WARNING]
   > **Du måste skapa ett användarkonto i kundens directory att utföra löpande administrationsuppgifter i den hanterade domänen.**
   > Du kan inte logga in till den hanterade domänen med hjälp av en administratörsanvändare för CSP-autentiseringsuppgifter. Använd autentiseringsuppgifterna för ett användarkonto som tillhör kundens Azure AD-katalog för att göra detta. Du behöver dessa autentiseringsuppgifter för uppgifter som att ansluta virtuella datorer till den hanterade domänen, administrera DNS, administrera grupp princip osv.
   >
 
-* **Det användarkonto som har skapats för löpande administrativa måste läggas till gruppen ”AAD DC-administratörer”:** gruppen ”AAD DC-administratörer” har behörighet att utföra vissa uppgifter för delegerad administration i den hanterade domänen. Dessa omfattar att konfigurera DNS, skapa organisationsenheter, administrera Grupprincip osv. För CSP-partner att utföra uppgifter på en hanterad domän, behöver ett konto skapas i kundens Azure AD-katalog. Autentiseringsuppgifterna för det här kontot måste delas med CSP-partner admin-agenter. Det här användarkontot måste också läggas till gruppen ”AAD DC-administratörer” för att aktivera konfigurationsåtgärder i den hanterade domänen som ska utföras med hjälp av det här användarkontot.
+* **Det användarkonto som har skapats för löpande administrativa måste läggas till gruppen ”AAD DC-administratörer”:** Gruppen ”AAD DC-administratörer” har behörighet att utföra vissa uppgifter för delegerad administration i den hanterade domänen. Dessa omfattar att konfigurera DNS, skapa organisationsenheter, administrera Grupprincip osv. För CSP-partner att utföra uppgifter på en hanterad domän, behöver ett konto skapas i kundens Azure AD-katalog. Autentiseringsuppgifterna för det här kontot måste delas med CSP-partner admin-agenter. Det här användarkontot måste också läggas till gruppen ”AAD DC-administratörer” för att aktivera konfigurationsåtgärder i den hanterade domänen som ska utföras med hjälp av det här användarkontot.
 
 
 ## <a name="next-steps"></a>Nästa steg

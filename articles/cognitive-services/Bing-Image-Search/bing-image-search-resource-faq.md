@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: ab67769aee5347fdf21a58c6af5b9af02b4f36ba
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 986e1affeb9e3326644bc252e8f8f85ab5bdd89d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161233"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168691"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Vanliga frågor (och svar FAQ) om sökning i Bing
 
@@ -65,4 +65,4 @@ Den här metoden skyddar även din API-nyckel från exponeringen för allmänhet
 
 ## <a name="see-also"></a>Se också
 
- [Stackspill: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)

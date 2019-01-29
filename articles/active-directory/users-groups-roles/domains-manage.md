@@ -8,17 +8,17 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.openlocfilehash: d5f926ac41bb90ba716e0c52b790a60fd74e0631
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 85c990d6bfd90c93dea764383453d7f3cc53efde
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854923"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152339"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Hantera anpassade domännamn i Azure Active Directory
 
@@ -87,13 +87,13 @@ Ett fel returneras när:
 ### <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **F: Varför misslyckas domänborttagning med ett fel som anger att jag har lärt dig att Exchange-grupper på det här domännamnet?** <br>
-**S:** idag vissa grupper som brevlåda säkerhetsgrupper och distribuerade listor har etablerats av Exchange och behöver rengöras manuellt i [Exchange Admin Center (UK)](https://outlook.office365.com/ecp/). Det kan kvarstående ProxyAddresses som förlitar sig på det anpassade domännamnet och måste uppdateras manuellt till ett annat domännamn. 
+**A:** Idag vissa grupper som brevlåda säkerhetsgrupper och distribuerade listor har etablerats av Exchange och behöver rengöras manuellt i [Exchange Admin Center (UK)](https://outlook.office365.com/ecp/). Det kan kvarstående ProxyAddresses som förlitar sig på det anpassade domännamnet och måste uppdateras manuellt till ett annat domännamn. 
 
 **F: Jag är inloggad som admin@contoso.com men jag kan inte ta bort domänen namnet ”contoso.com”?**<br>
-**S:** du kan inte referera till det anpassade domännamnet som du försöker att ta bort i ditt användarkonto. Kontrollera att kontot som Global administratör använder den initiala standarddomännamnet (. onmicrosoft.com) som admin@contoso.onmicrosoft.com. Logga in med en annan Global administratör-konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domännamn som ”fabrikam.com” där kontot som är admin@fabrikam.com.
+**A:** Du kan inte referera till det anpassade domännamnet som du försöker att ta bort i ditt användarkonto. Kontrollera att kontot som Global administratör använder den initiala standarddomännamnet (. onmicrosoft.com) som admin@contoso.onmicrosoft.com. Logga in med en annan Global administratör-konto som till exempel admin@contoso.onmicrosoft.com eller ett annat anpassat domännamn som ”fabrikam.com” där kontot som är admin@fabrikam.com.
 
-**F: jag klickade på borttagningsknappen för domänen och se `In Progress` status för borttagningen. Hur lång tid tar det? Vad händer om den inte?**<br>
-**S:** åtgärden ta bort domänen är en asynkron bakgrundsaktiviteten som byter namn på alla referenser till domännamnet. Det bör vara klart inom en minut. Om domänborttagning misslyckas, kontrollerar du att det inte finns:
+**F: Jag klickade på borttagningsknappen för domänen och se `In Progress` status för borttagningen. Hur lång tid tar det? Vad händer om den inte?**<br>
+**A:** Åtgärden ta bort domänen är en asynkron bakgrundsaktiviteten som byter namn på alla referenser till domännamnet. Det bör vara klart inom en minut. Om domänborttagning misslyckas, kontrollerar du att det inte finns:
 
 * Appar som har konfigurerats på domännamnet med appIdentifierURI
 * Alla e-postaktiverad grupp som refererar till det anpassade domännamnet

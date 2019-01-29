@@ -1,47 +1,66 @@
 ---
-Rubrik: PowerShell-modulen för Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: PowerShell-modulen för Azure Machine Learning finns tillgänglig i offentligt förhandsgranskningsläge. Skapa och hantera arbetsytor, experiment, webbtjänster och annat med hjälp av PowerShell.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: PowerShell-moduler för Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa och hantera Azure Machine Learning Studio-arbetsytor, experiment, webbtjänster och annat med hjälp av PowerShell. tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
 
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 03/15/2017
+author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 01/25/2019
 ---
-# <a name="powershell-module-for-azure-machine-learning-studio"></a>PowerShell-modulen för Azure Machine Learning Studio
-PowerShell-modulen för Azure Machine Learning är ett kraftfullt verktyg som gör att du kan använda Windows PowerShell för att hantera arbetsytor, experiment, datauppsättningar, klassiska webbtjänster och mycket mer.
+# <a name="powershell-modules-for-azure-machine-learning-studio"></a>PowerShell-moduler för Azure Machine Learning Studio
 
-Du kan visa dokumentationen och hämta modulen tillsammans med den fullständiga källkoden på [ https://aka.ms/amlps ](https://aka.ms/amlps). 
+Med PowerShell-moduler kan hantera du programmässigt dina Studio resurser och resurser, till exempel arbetsytor, datauppsättningar och webbtjänster.
 
-> [!NOTE]
-> Azure Machine Learning PowerShell-modulen är för närvarande i förhandsgranskningsläge. Modulen fortsätter att förbättras och expanderas under denna förhandsgranskningsperiod. Håll ett öga på den [Cortana Intelligence och Machine Learning Blog](https://blogs.technet.microsoft.com/machinelearning/) för nyheter och information.
+Du kan interagera med Studio resurser med hjälp av tre Powershell-moduler:
 
-## <a name="what-is-the-machine-learning-powershell-module"></a>Vad är Machine Learning PowerShell-modulen?
-Machine Learning PowerShell-modulen är en. NET-baserad DLL-modul som hjälper dig att hantera Azure Machine Learning-arbetsytor, experiment, datauppsättningar, klassiska webbtjänster och slutpunkter för klassiska webbtjänster från Windows PowerShell. 
+* [Azure PowerShell-Az](#az-rm) utgivet 2018, innehåller alla funktioner i AzureRM, men med olika cmdlet-namnen
+* [AzureRM](#az-rm) i 2016
+* [Klassisk Azure Machine Learning PowerShell](#classic) i 2016
 
-Med modulen kan du hämta den fullständiga källkoden som innehåller en korrekt avgränsas [ C# API-läger](https://github.com/hning86/azuremlps/blob/master/code/AzureMLSDK.cs). Du kan referera till denna DLL-fil från din egen .NET-projekt och hantera Azure Machine Learning via .NET-kod. Dessutom beroende DLL-filerna underliggande REST API: er som du kan använda direkt från din favoritklient.
+Även om dessa moduler har vissa likheter kan är varje utformad för särskilda scenarier. Den här artikeln beskrivs skillnaderna mellan PowerShell-moduler och hjälper dig att bestämma vilka som du väljer.
 
-## <a name="what-can-i-do-with-the-powershell-module"></a>Vad kan jag göra med PowerShell-modulen?
-Här är några av de uppgifter du kan utföra med PowerShell-modulen. Titta närmare på den [fullständiga dokumentationen](https://aka.ms/amlps) för dessa och många andra funktioner.
+## <a name="choosing-modules"></a> Välja moduler
 
-* Etablera en ny arbetsyta med ett hanteringscertifikat ([New AmlWorkspace](https://github.com/hning86/azuremlps#new-amlworkspace))
-* Exportera och importera en JSON-fil som representerar ett experimentdiagram ([Export AmlExperimentGraph](https://github.com/hning86/azuremlps#export-amlexperimentgraph) och [Importera AmlExperimentGraph](https://github.com/hning86/azuremlps#import-amlexperimentgraph))
-* Kör ett experiment ([Start-AmlExperiment](https://github.com/hning86/azuremlps#start-amlexperiment))
-* Skapa en webbtjänst utanför en förutsägbart experiment ([New AmlWebService](https://github.com/hning86/azuremlps#new-amlwebservice))
-* Skapa en slutpunkt på en publicerad webbtjänst ([Lägg till AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint))
-* Anropa en RRS-och/eller BES-webbtjänstslutpunkt ([Invoke-AmlWebServiceRRSEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicerrsendpoint) och [Invoke-AmlWebServiceBESEndpoint](https://github.com/hning86/azuremlps#invoke-amlwebservicebesendpoint))
+Välja mellan de tillgängliga PowerShell-modulerna beror på vilken typ av resurser som du hanterar.
 
-Här är ett snabbt exempel på hur man kan använda PowerShell för att köra ett befintligt experiment:
+Kontrollera den [support tabell](#support-table) nedan för att se vilka resurser som stöds av varje modul. Eftersom klassisk PowerShell kan installeras parallellt med Az eller AzureRM, kan du installera två moduler och täcker alla resurstyper (klassiska med Az eller klassiska med AzureRM)
 
-        #Find the first Experiment named “xyz”
-        $exp = (Get-AmlExperiment | where Description -eq ‘xyz’)[0]
-        #Run the Experiment
-        Start-AmlExperiment -ExperimentId $exp.ExperimentId 
+Det rekommenderas dock inte ha Az- och AzureRM installerad på samma gång. Om du vill välja mellan Az- och AzureRM, rekommenderar Microsoft Az för alla framtida distributioner. Använd AzureRm bara om det finns särskilda omständigheter i din miljö som kräver detta.
 
-Ett mer detaljerat användningsfall finns i den här artikeln om hur du använder PowerShell-modulen för att automatisera en ofta begärd uppgift: [Skapa många Machine Learning-modeller och webbtjänstslutpunkter från ett experiment med PowerShell](create-models-and-endpoints-with-powershell.md).
+Läs mer om skillnaderna mellan Az- och AzureRM samt vår angivna migreringssökväg i vår [introduktion till Azure PowerShell Az.](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)
 
-## <a name="how-do-i-get-started"></a>Hur kommer jag igång?
-För att komma igång med Machine Learning PowerShell hämtar du [versionspaketet](https://github.com/hning86/azuremlps/releases) från GitHub och följer [installationsanvisningarna](https://github.com/hning86/azuremlps/blob/master/README.md). Instruktionerna förklarar hur du avblockera den nedladdade/ouppackade DLL-filen och sedan importera den till din PowerShell-miljö. De flesta cmdletar kräver att du anger arbetsyte-ID, autentiseringstoken för arbetsytan och Azure-regionen som arbetsytan finns i. Det enklaste sättet att ange värdena som är via en config.json-fil. Anvisningarna beskriver också hur du konfigurerar den här filen. 
+## <a name="az-rm"></a> Azure PowerShell-Az- och AzureRM
 
-Om du vill kan du kan klona git-trädet ändrar koden och kompilera den lokalt med hjälp av Visual Studio.
+AZ- och AzureRM både hantera lösningar som distribueras med den **Azure Resource Manager** distributionsmodell. Dessa resurser inkluderar Studio-arbetsytor och Studio nya webbtjänster. För att hantera resurser som distribueras med den klassiska distributionsmodellen, bör du använda den klassiska PowerShell-modulen. Om du vill ha mer information om distributionsmodellerna finns i den [Azure Resource Manager och klassisk distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) artikeln.
+
+AZ är nu avsedda PowerShell-modulen för att interagera med Azure och innehåller alla funktioner som tidigare i AzureRM. AzureRM fortsätter att ta emot felkorrigeringar, men den får inga nya cmdletar eller funktioner. Eftersom det uppgradering från AzureRM, om det uppstår problem med Az när du arbetar med Studio kan du rapportera problemet och återgår till att använda AzureRM.
+
+Kom igång med Az genom att följa den [Installationsinstruktioner för Azure-Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+## <a name="classic"></a> PowerShell – klassisk
+
+Studio [klassiska PowerShell-modulen](https://aka.ms/amlps) kan du hantera resurser som distribueras med den **klassiska distributionsmodellen**. Dessa resurser inkluderar Studio användaren tillgångar, klassiska webbtjänster och slutpunkter för klassiska webbtjänster.
+
+Microsoft rekommenderar dock att du använder Resource Manager-distributionsmodellen för alla nya resurser för att förenkla distribution och hantering av resurser. Om du vill ha mer information om distributionsmodellerna finns i den [Azure Resource Manager och klassisk distribution](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) artikeln.
+
+Kom igång med klassisk PowerShell genom att ladda ned den [versionspaketet](https://github.com/hning86/azuremlps/releases) från GitHub och följer de [anvisningar för installation](https://github.com/hning86/azuremlps/blob/master/README.md). Instruktionerna förklarar hur du avblockera den nedladdade/ouppackade DLL-filen och sedan importera den till din PowerShell-miljö.
+
+## <a name="support-table"></a> PowerShell stöd tabell
+
+ **Studio-arbetsytor** | **Az** |  **AzureRM** | **PowerShell – Klassisk** |
+| --- | --- | --- | --- | --- |
+| Skapa/ta bort arbetsytor | [Resource Manager-mallar](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) | [Resource Manager-mallar](https://docs.microsoft.com/azure/machine-learning/studio/deploy-with-resource-manager-template) |  |
+| Hantera arbetsyteanvändare |  |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
+| Hantera åtagandeprenumerationer | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | [New-AzureRmMlCommitmentPlan](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlcommitmentplan) |
+|||
+| **Webbtjänster** | **Az** | **AzureRM** | **PowerShell – Klassisk** |
+| Hantera webbtjänster | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br> (Nya webbtjänster) | [New-AzureRmMlWebService](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/new-azurermmlwebservice) <br> (Nya webbtjänster) |[New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br> (klassiska webbtjänster) |
+| Hantera slutpunkter/nycklar |  [Get-AzMlWebServiceKeys](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekeys) <br> (Nya webbtjänster) | [Get-AzureRmMlWebServiceKeys](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/get-azurermmlwebservicekeys) <br> (Nya webbtjänster) | [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint) <br> (klassiska webbtjänster) |
+|||
+| **Användaren tillgångar** | **Az** | **AzureRM** | **PowerShell – Klassisk** |
+| Hantera datauppsättningar/utbildade modeller |  |  | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
+| Hantera experiment |  |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
+| Hantera anpassade moduler |  |  | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |
+
 
 ## <a name="next-steps"></a>Nästa steg
-Du hittar den fullständiga dokumentationen för PowerShell-modulen på [ https://aka.ms/amlps ](https://aka.ms/amlps). 
-
-Ett utökat exempel på hur du använder modulen i ett verkligt scenario, Kolla in djupgående användningsfall [skapa många Machine Learning-modeller och webbtjänstslutpunkter från ett experiment med PowerShell](create-models-and-endpoints-with-powershell.md).
+Du kan följa dessa länkar för fullständig dokumentation för PowerShell-moduler:
+* [AzureRM](https://docs.microsoft.com/powershell/module/azurerm.machinelearning/#machine_learning)
+* [PowerShell – Klassisk](https://aka.ms/amlps)
+* [Azure PowerShell Az](https://docs.microsoft.com/powershell/module/az.machinelearning/#machine_learning)

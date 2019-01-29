@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: a5fa005741d0ac320badc12c908fde3991291857
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 46101ccf5eaf47a29bf01c7adcac989cfe2cc638
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46311404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167401"
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för multifaktorautentisering för dina hybrididentitetslösning
 I den här världen för mobilitet med användare som kommer åt data och program i molnet och på valfri enhet, har det blivit avgörande att skydda den här informationen.  Varje dag är det en ny rubrik om en säkerhetsöverträdelse.  Även om det finns ingen garanti mot överträdelser, ger multifaktorautentisering, ett extra lager av säkerhet för att förhindra dessa överträdelser.

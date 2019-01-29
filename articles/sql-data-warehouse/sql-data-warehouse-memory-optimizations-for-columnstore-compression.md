@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: de7cc0e67960edf95ace67808ffc677b57a46dab
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306840"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097001"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximera radgrupps kvalitet för columnstore
 
@@ -68,7 +68,7 @@ from cte;
 
 Trim_reason_desc meddelar om radgrupps har tas bort (trim_reason_desc = NO_TRIM innebär det fanns ingen beskrivande text och radgrupp är av hög kvalitet). Följande trim anger för tidig Trimning av radgrupps:
 - BULKLOAD: Den här trim orsaken används när inkommande batch med rader för arbetsbelastning har mindre än 1 miljon rader. Motorn skapar komprimerade radgrupper om det är större än 100 000 rader infogas (i stället för att infoga i arkivet delta) men anger trim orsaken till BULKLOAD. Överväg att öka belastningen batch fönstret för att ackumuleras fler rader i det här scenariot. Dessutom att omvärdera ditt partitioneringsschema och kontrollera att det inte är för detaljerad eftersom radgrupper inte kan omfatta partitionsgränser.
-- MEMORY_LIMITATION: För att skapa radgrupper med 1 miljon rader, krävs en viss mängd arbetsminne av motorn. När tillgängligt minne på den läser in sessionen är mindre än det nödvändiga arbetsminnet, radgrupper hämta tidigt tas bort. I följande avsnitt beskrivs hur du beräkna minne som krävs och tilldela mer minne.
+- MEMORY_LIMITATION: Om du vill skapa radgrupper med 1 miljon rader, krävs en viss mängd arbetsminne av motorn. När tillgängligt minne på den läser in sessionen är mindre än det nödvändiga arbetsminnet, radgrupper hämta tidigt tas bort. I följande avsnitt beskrivs hur du beräkna minne som krävs och tilldela mer minne.
 - DICTIONARY_SIZE: Därför trim anger att radgrupps trimning inträffat eftersom det inte fanns minst en strängkolumn med bred och/eller hög kardinalitet strängar. Ordlista storlek är begränsad till 16 MB i minnet och komprimeras när den här gränsen har nåtts i radgrupp. Om du kör i den här situationen, Överväg att isolera den problematiska kolumnen i en separat tabell.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Så här att uppskatta minneskrav
@@ -88,7 +88,7 @@ där kort strängkolumner använder strängdatatyper av < = 32 byte och långa s
 
 Lång sträng komprimeras med en komprimeringsmetod som utformats för att komprimera text. Den här komprimeringsmetoden använder en *ordlista* att lagra textmönster. Den maximala storleken för en ordlista är 16 MB. Det finns bara en ordlista för varje lång sträng-kolumn i radgrupp.
 
-En detaljerad beskrivning av columnstore minneskrav finns i videon [skalning i Azure SQL Data Warehouse: konfiguration och vägledning](https://myignite.microsoft.com/videos/14822).
+En detaljerad beskrivning av columnstore minneskrav finns i videon [skalning i Azure SQL Data Warehouse: konfiguration och vägledning](https://channel9.msdn.com/Events/Ignite/2016/BRK3291).
 
 ## <a name="ways-to-reduce-memory-requirements"></a>Så här minskar minneskrav
 

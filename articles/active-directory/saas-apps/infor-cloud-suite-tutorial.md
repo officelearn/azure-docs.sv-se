@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Infor CloudSuite | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Infor CloudSuite | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Infor CloudSuite.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a2f4f843-00d2-4522-a29d-6496cc5a781a
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
-ms.openlocfilehash: bed29e213c3a4ed81ec8736d40f33b35d7f069a5
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 09d0c92703c13baba2555245f7c71a3d48b4ee9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52730246"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174983"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Självstudier: Azure Active Directory-integration med Infor CloudSuite
+# <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Självstudier: Azure Active Directory-integrering med Infor CloudSuite
 
 I den här självstudien får du lära dig hur du integrerar Infor CloudSuite med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Infor CloudSuite med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Infor CloudSuite.
 - Du kan aktivera användarna att automatiskt få loggat in på Infor CloudSuite (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Infor CloudSuite, behöver du f�
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +70,7 @@ För att konfigurera integrering av Infor CloudSuite i Azure AD, som du behöver
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +78,7 @@ För att konfigurera integrering av Infor CloudSuite i Azure AD, som du behöver
 
     ![Infor CloudSuite i resultatlistan](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Infor CloudSuite utifrån en testanvändare som kallas ”Britta Simon”.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Infor CloudSuite** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
@@ -110,7 +110,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg om du vill konfigurera programmet i **IDP** initierade läge:
+4. Om du vill konfigurera appen i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
 
     ![Infor CloudSuite domän och URL: er med enkel inloggning för information](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-url1.png)
 
@@ -124,7 +124,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `http://mingle-sso.se2.inforcloudsuite.com`|
     | |
 
-    b. I den **svars-URL** textrutan anger du ett URL:
+    b. I textrutan **Svars-URL** anger du en URL:
 
     | | |
     |-|-|
@@ -134,11 +134,11 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
     | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
     | |
 
-5. Klicka på **ange ytterligare webbadresser** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Infor CloudSuite domän och URL: er med enkel inloggning för information](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-url2.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster:
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster:
     
     | | |
     |-|-|
@@ -152,15 +152,15 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 6. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att ladda ned **Federation Metadata XML** och spara för metadatafilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-certificate.png)
+    ![Länk för nedladdning av certifikatet](./media/inforcloudsuite-tutorial/tutorial-inforcloudsuite-certificate.png)
 
-7. Att konfigurera enkel inloggning på **Infor CloudSuite** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** till [Infor CloudSuite supportteamet](mailto:support@infor.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+7. Att konfigurera enkel inloggning på **Infor CloudSuite** sida, som du behöver skicka de hämtade **XML-Metadata för Federation** till [Infor CloudSuite supportteamet](mailto:support@infor.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Skapa en Azure AD-användare][100]
 
@@ -172,9 +172,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](common/create-aaduser-02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -183,7 +183,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-infor-cloudsuite-test-user"></a>Skapa Infor CloudSuite testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Infor CloudSuite. Infor CloudSuite stöder just-in-time etablering som kan aktiveras med Innehavaradministratör. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Infor CloudSuite om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Infor CloudSuite. Infor CloudSuite stöder just-in-time etablering som kan aktiveras med Innehavaradministratör. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Infor CloudSuite om det inte finns ännu.
 
 > [!Note]
 > Om du vill skapa en användare manuellt kan du kontakta [Infor CloudSuite supportteamet](mailto:support@infor.com).

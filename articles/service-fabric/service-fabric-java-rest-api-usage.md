@@ -1,5 +1,5 @@
 ---
-title: 'Azure Service Fabric Java klienten API: er | Microsoft Docs'
+title: 'Azure Service Fabric Java-klient API: er | Microsoft Docs'
 description: 'Skapa och använda Service Fabric Java-klientens API: er med hjälp av REST API-specifikationen för Service Fabric-klienten'
 services: service-fabric
 documentationcenter: java
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/27/2017
 ms.author: rapatchi
-ms.openlocfilehash: 987959742335940dca8eb57c54d593aea90dec15
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 116defb43126932c1a9ce0e7a9d588e731abff78
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111192"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55182038"
 ---
-# <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java klienten API: er
+# <a name="azure-service-fabric-java-client-apis"></a>Azure Service Fabric Java-klient API: er
 
-Service Fabric-klientens API: er kan distribuera och hantera mikrotjänster baserat program och behållare i ett Service Fabric-kluster på Azure, lokalt på datorn för lokal utveckling eller i andra moln. Den här artikeln beskriver hur du skapar och använda Service Fabric Java-klientens API: er ovanpå REST API: er för Service Fabric-klienten
+Service Fabric-klientens API: er kan distribuera och hantera mikrotjänster baserat program och behållare i Service Fabric-kluster på Azure, lokalt, på lokala utvecklingsdator eller i andra moln. Den här artikeln beskrivs hur du skapar och använder Service Fabric Java-klientens API: er ovanpå REST API: er för Service Fabric-klienten
 
 ## <a name="generate-the-client-code-using-autorest"></a>Generera klientkod med AutoRest
 
-[AutoRest](https://github.com/Azure/autorest) är ett verktyg som genererar klientbibliotek för att komma åt RESTful-tjänster. Indata för AutoRest är en specifikation som beskriver REST-API med formatet OpenAPI-specifikationen. [Service Fabric-klienten REST API: er](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) följer den här specifikationen.
+[AutoRest](https://github.com/Azure/autorest) är ett verktyg som genererar-klientbibliotek för att komma åt RESTful-webb-tjänster. Indata till AutoRest är en specifikation som beskriver REST-API i formatet för OpenAPI-specifikation. [Service Fabric-klientens REST API: er](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/servicefabric/data-plane) följer den här specifikationen.
 
-Följ anvisningarna nedan för att generera klientkod för Service Fabric Java med hjälp av verktyget AutoRest.
+Följ stegen nedan för att generera klientkod för Service Fabric Java med hjälp av verktyget AutoRest.
 
 1. Installera nodejs och NPM på datorn
 
@@ -48,43 +48,43 @@ Följ anvisningarna nedan för att generera klientkod för Service Fabric Java m
     npm install -g autorest
     ```
 
-3. Förgrening och klona [azure-rest-api-specifikationerna](https://github.com/Azure/azure-rest-api-specs) databasen på din lokala dator och gå till den klonade platsen från terminal på din dator.
+3. Förgrening och kloning [azure-rest-api-specifikationer](https://github.com/Azure/azure-rest-api-specs) lagringsplatsen i den lokala datorn och gå till den klonade platsen från terminalen på din dator.
 
 
-4. Gå till den plats som anges nedan i din klonade lagringsplatsen.
+4. Gå till den plats som nämns i den klonade lagringsplatsen.
     ```bash
     cd specification\servicefabric\data-plane\Microsoft.ServiceFabric\stable\6.0
     ```
 
     > [!NOTE]
-    > Om din version av klustret inte 6.0. * Gå sedan till den aktuella katalogen i mappen stabil.
+    > Om klustret-versionen inte är 6.0. * Gå sedan till den aktuella katalogen i mappen stabil.
     >   
 
-5. Kör följande kommando för autorest att generera klientkod java.
+5. Kör följande autorest-kommando för att generera klientkod för java.
     
     ```bash
     autorest --input-file= servicefabric.json --java --output-folder=[output-folder-name] --namespace=[namespace-of-generated-client]
     ```
-   Nedan visas ett exempel som visar användningen av autorest.
+   Nedan visas ett exempel som demonstrerar användningen av autorest.
    
     ```bash
     autorest --input-file=servicefabric.json --java --output-folder=java-rest-api-code --namespace=servicefabricrest
     ```
    
-   Följande kommando tar ``servicefabric.json`` specifikationen filen som indata och genererar klientkod för java i ``java-rest-api-     code`` mapp och omsluter koden i ``servicefabricrest`` namnområde. Efter det här steget finns två mappar ``models``, ``implemenation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genereras i den ``java-rest-api-code`` mapp.
+   Följande kommando tar ``servicefabric.json`` specifikationen fil som indata och genererar klientkod för java i ``java-rest-api-     code`` mapp och omsluter koden i ``servicefabricrest`` namnområde. Efter det här steget kan du hitta två mappar ``models``, ``implementation`` och två filer ``ServiceFabricClientAPIs.java`` och ``package-info.java`` genererats i den ``java-rest-api-code`` mapp.
 
 
 ## <a name="include-and-use-the-generated-client-in-your-project"></a>Inkludera och använda den genererade klienten i ditt projekt
 
-1. Lägg till den genererade koden korrekt i projektet. Vi rekommenderar att du skapar ett bibliotek med den genererade koden och inkludera det här biblioteket i projektet.
-2. Om du skapar ett bibliotek inkludera följande beroende i bibliotekets projekt. Om du använder en annan metod innehålla beroendet på lämpligt sätt.
+1. Lägg till den genererade koden på rätt sätt i ditt projekt. Vi rekommenderar att du skapar ett bibliotek med den genererade koden och inkludera det här biblioteket i projektet.
+2. Om du skapar ett bibliotek omfattar följande beroende på din biblioteksprojekt. Om du använder en annan metod sedan inkludera beroenden på rätt sätt.
 
     ```
         GroupId:  com.microsoft.rest
         Artifactid: client-runtime
         Version: 1.2.1
     ```
-    Om du använder Maven build-system omfattar följande i till exempel din ``pom.xml`` fil:
+    Exempel: Om du använder Maven build-system omfattar följande i din ``pom.xml`` fil:
 
     ```xml
         <dependency>
@@ -104,7 +104,7 @@ Följ anvisningarna nedan för att generera klientkod för Service Fabric Java m
             .build();
         ServiceFabricClientAPIs client = new ServiceFabricClientAPIsImpl(simpleClient);
     ```
-4. Använd klienten objektet och lämpliga-anrop som krävs. Här följer några exempel som demonstrerar användningen av objekt. Vi förutsätter att programpaketet är inbyggd och överförs till avbildningsarkivet innan du använder den under API: er.
+4. Använd klientobjektet och göra lämplig anrop efter behov. Här följer några exempel som demonstrerar användningen av klientobjektet. Vi antar att programpaketet är inbyggd och har överförts till avbildningsarkivet innan du använder den under API: er.
     * Etablera ett program
     
         ```java
@@ -123,15 +123,15 @@ Följ anvisningarna nedan för att generera klientkod för Service Fabric Java m
         ```
 
 ## <a name="understanding-the-generated-code"></a>Förstå den genererade koden
-För alla API: T hittar du fyra överlagringar av implementeringen. Om det finns valfria parametrar skulle du hitta fyra flera variationer, inklusive de valfria parametrarna. Till exempel vara API: et ``removeReplica``.
+Du kommer märka fyra överlagringar av implementering för alla API: er. Om det finns valfria parametrar kan du hitta fyra mer variationer, inklusive de valfria parametrarna. Överväg till exempel att API: et ``removeReplica``.
  1. **offentliga void removeReplica (sträng nodnamn, UUID partitionId, sträng replicaId, booleskt forceRemove, lång timeout)**
     * Det här är den synkrona varianten av removeReplica API-anrop
  2. **offentliga ServiceFuture<Void> removeReplicaAsync (String nodnamn, UUID partitionId, sträng replicaId, booleskt forceRemove, lång timeout, sista ServiceCallback<Void> serviceCallback)**
-    * Den här variant av API-anrop kan användas om du vill använda framtida baserat asynkron programmering och använda återanrop
- 3. **offentliga observeras<Void> removeReplicaAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
-    * Den här variant av API-anrop kan användas om du vill använda reaktiv asynkron programmering
- 4. **offentliga observerades < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
-    * Den här variant av API-anrop kan användas om du vill använda reaktiv asynkron programmering och hantera RÅDATA rest-svar
+    * Den här variant av API-anrop som kan användas om du vill använda framtida baserat asynkron programmering och använda återanrop
+ 3. **offentliga övervakas<Void> removeReplicaAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
+    * Den här variant av API-anrop som kan användas om du vill använda reaktiva asynkron programmering
+ 4. **offentliga övervakas < ServiceResponse<Void>> removeReplicaWithServiceResponseAsync (sträng nodnamn, UUID partitionId, sträng replicaId)**
+    * Den här variant av API-anrop som kan användas om du vill använda reaktiva asynkron programmering och hantera RAW rest-svar
 
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Service Fabric REST API: er](https://docs.microsoft.com/rest/api/servicefabric/)

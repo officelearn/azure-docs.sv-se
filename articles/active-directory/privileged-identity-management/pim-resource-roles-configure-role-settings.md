@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 37938896c21bbe0ba5d6fafedc3c30ef52d3cfef
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669371"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55153359"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Konfigurera Azure-resurs rollinställningar i PIM
 
@@ -92,7 +92,7 @@ För att kräva en behörig medlem att köra MFA innan aktivering, kontrollera d
 
 Mer information finns i [multifaktorautentisering (MFA) och PIM](pim-how-to-require-mfa.md).
 
-## <a name="activation-maximum-duration"></a>Aktiveringens maximala varaktighet
+## <a name="activation-maximum-duration"></a>Maxlängd för aktivering
 
 Använd den **aktiveringens maximala varaktighet** skjutreglaget för att ange den maximala tiden, i timmar, att en roll förblir aktiv innan den upphör. Det här värdet kan vara mellan 1 och 24 timmar.
 
@@ -108,7 +108,7 @@ Följ dessa steg om du vill kräva godkännande för att aktivera en roll.
 
 1. Klicka på **Välj godkännare** att öppna dialogrutan Välj ett fönster som är medlem eller grupp.
 
-    ![Välj en medlem eller en grupp](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Välj en medlem eller grupp](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Välj minst en medlem eller gruppen och klicka sedan på **Välj**. Du kan lägga till valfri kombination av medlemmar och grupper. Du måste välja minst en godkännare. Det finns inga standard godkännare.
 

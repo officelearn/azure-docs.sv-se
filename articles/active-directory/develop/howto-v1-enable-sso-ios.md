@@ -6,7 +6,7 @@ author: CelesteDG
 manager: mtillman
 ms.assetid: d042d6da-7503-4e20-bb55-06917de01fcd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
@@ -15,14 +15,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: de0d8d5fb538619e94595ef322eeb80c4de743be
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 6c68070a9b94cf867f8c1c930874a5f02a685294
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52426296"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096746"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Så här: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -295,11 +295,11 @@ Omdirigerings-URI måste vara i rätt format för:
 
 `<app-scheme>://<your.bundle.id>`
 
-Exempel: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
 Omdirigeringen URI måste anges i din app registrering med den [Azure-portalen](https://portal.azure.com/). Mer information om Azure AD app-registrering finns i [integrera med Azure Active Directory](active-directory-how-to-integrate.md).
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Steg 3a: lägga till en omdirigerings-URI i din app och dev portal stöd för certifikatbaserad autentisering
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Steg 3a: Lägg till en omdirigerings-URI i din app och dev portal stöd för certifikatbaserad autentisering
 
 Till stöd för certifikatbaserad autentisering en andra ”msauth” måste vara registrerad i ditt program och [Azure-portalen](https://portal.azure.com/) att hantera autentisering om du vill lägga till som har stöd för i ditt program.
 
@@ -307,7 +307,7 @@ Till stöd för certifikatbaserad autentisering en andra ”msauth” måste var
 
 Exempel: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägg till en konfigurationsparameter till din app
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägga till en konfigurationsparameter i din app
 
 ADAL använder – canOpenURL: att kontrollera om den asynkrona meddelandekön är installerat på enheten. I iOS 9 på låsta Apple scheman ett program kan fråga efter. Du måste lägga till ”msauth” i avsnittet LSApplicationQueriesSchemes i din `info.plist file`.
 

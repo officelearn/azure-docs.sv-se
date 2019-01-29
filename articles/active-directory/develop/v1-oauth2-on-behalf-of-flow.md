@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 72b1ba51f306203092b420e6f2d6186b3307d35d
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3c2953d44587d72517c6f619ee9c9f05aabff186
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422753"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094384"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst anropar den användning som delegerad användaridentiteten i On-Behalf-Of-flöde
 
@@ -37,7 +37,7 @@ Flödet för OAuth 2.0 Behalf (OBO) gör att ett program som anropar en tjänst 
 
 OBO-flödet startar när användaren har autentiserats på ett program som använder den [flöde beviljat med OAuth 2.0-auktoriseringskod](v1-protocols-oauth-code.md). I det här läget skickar programmet en åtkomsttoken (token A) till mellannivå webb-API (API-A) som innehåller användarens anspråk och medgivande till att komma åt API A. Därefter gör API A en autentiserad begäran till underordnade webb-API (API-B).
 
-De här stegen utgör On-Behalf-Of-flöde: ![OAuth2.0 Behalf flöde](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+De här stegen utgör On-Behalf-Of-flöde: ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. Klientprogrammet skickar en begäran till API A med token A.
 1. API-A autentiserar till Azure AD-slutpunkten för utfärdande och begär en token för att komma åt API B.
@@ -103,7 +103,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 Klientprogrammet skyddas av en delad hemlighet eller av ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först för användningsfall: begäran om åtkomsttoken med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fall: Begäran om åtkomsttoken med en delad hemlighet
 
 När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begäran om åtkomsttoken följande parametrar:
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
 
 En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehåller följande parametrar:
 
@@ -181,7 +181,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Mer information om ägar-token finns i den [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | omfång |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
@@ -263,16 +263,16 @@ En tjänst-till-tjänst-begäran för en SAML-försäkran innehåller följande 
 
 Svaret innehåller en SAML-token som kodats i UTF8 och Base64url.
 
-- **SubjectConfirmationData för SAML-försäkran som kommer från ett anrop om OBO**: Om målprogrammet kräver ett mottagarens värde i **SubjectConfirmationData**, värdet måste vara en icke-jokertecken svars-URL i den programkonfigurationen för resursen.
-- **Noden SubjectConfirmationData**: noden får inte innehålla en **InResponseTo** attributet eftersom det inte är en del av en SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-försäkran utan en **InResponseTo** attribut.
+- **SubjectConfirmationData för SAML-försäkran som kommer från ett anrop om OBO**: Om målprogrammet kräver ett mottagarens värde i **SubjectConfirmationData**, värdet måste vara en icke-jokertecken svars-URL i programkonfigurationen för resursen.
+- **Noden SubjectConfirmationData**: Noden får inte innehålla en **InResponseTo** attributet eftersom det inte är en del av en SAML-svar. Programmet som tar emot SAML-token måste kunna acceptera SAML-försäkran utan en **InResponseTo** attribut.
 
-- **Godkänna**: medgivande måste ha beviljats för att ta emot en SAML-token som innehåller användardata på en OAuth-flöde. Information om behörigheter och erhålla administratörens godkännande finns [behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
+- **godkänna**: Medgivande måste ha beviljats ta emot en SAML-token som innehåller användardata på en OAuth-flöde. Information om behörigheter och erhålla administratörens godkännande finns [behörigheter och godkännande i Azure Active Directory v1.0 slutpunkten](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Svar med SAML-försäkran
 
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token, [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token, [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | omfång |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
@@ -280,14 +280,14 @@ Svaret innehåller en SAML-token som kodats i UTF8 och Base64url.
 | access_token |Parametern som returnerar SAML-kontroll. |
 | refresh_token |Uppdateringstoken. Anropa tjänsten kan använda denna token för att begära en annan åtkomsttoken när den aktuella SAML-försäkran upphör att gälla. |
 
-- token_type: ägar
+- token_type: Ägar
 - expires_in: 3296
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resursen: `https://api.contoso.com`
 - access_token: \<SAML-försäkran\>
 - issued_token_type: urn: ietf:params:oauth:token-typ: saml2
-- refresh_token: \<uppdateringstoken\>
+- refresh_token: \<Uppdatera token\>
 
 ## <a name="client-limitations"></a>Klientbegränsningar
 

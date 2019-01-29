@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.openlocfilehash: 9dd471f70407191734b4c5a3aa84d5365a7beab8
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 4ebd96613378bbd907beb5109343a2427b1300b0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125303"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095676"
 ---
 # <a name="create-maps-that-transform-xml-between-formats-in-azure-logic-apps-with-enterprise-integration-pack"></a>Skapa kartor som omvandlar XML mellan format i Azure Logic Apps med Enterprise-Integrationspaket
 
@@ -88,7 +88,7 @@ Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutp
 
   Det här exemplet visar en karta som refererar till en sammansättning med namnet ”XslUtilitiesLib” och anropar den `circumreference` metoden från sammansättningen.
 
-  ````xml
+  ```xml
   <?xml version="1.0" encoding="UTF-8"?>
   <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
   <msxsl:script language="C#" implements-prefix="user">
@@ -109,13 +109,13 @@ Nu kan du testa din transformeringen genom att göra en begäran till HTTP-slutp
      </circles>
     </xsl:template>
     </xsl:stylesheet>
-  ````
+  ```
 
 
 ### <a name="byte-order-mark"></a>Byte-ordningsmarkering
 Som standard startar svaret från omvandlingen med Byte Order Mark (BOM). Du kan komma åt den här funktionen endast när du arbetar i kodvy redigeraren. Om du vill inaktivera den här funktionen, ange `disableByteOrderMark` för den `transformOptions` egenskapen:
 
-````json
+```json
 "Transform_XML": {
     "inputs": {
         "content": "@{triggerBody()}",
@@ -129,7 +129,7 @@ Som standard startar svaret från omvandlingen med Byte Order Mark (BOM). Du kan
     "runAfter": {},
     "type": "Xslt"
 }
-````
+```
 
 
 

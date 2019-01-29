@@ -5,15 +5,15 @@ services: storage
 author: jeffpatt24
 ms.service: storage
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 852ffdafefeef7f4b8fd6bf3a9c5d175d872e077
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157640"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095165"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -21,7 +21,7 @@ Använd Azure File Sync för att centralisera din organisations filresurser i Az
 Den här artikeln är utformad för att hjälpa dig att felsöka och lösa problem som kan uppstå med Azure File Sync-distributionen. Vi beskriver också hur du samlar in viktiga loggar från systemet om det krävs en mer ingående undersökning av problemet. Om du inte ser svar på din fråga, kan du kontakta oss via följande kanaler (i ständigt växande ordning):
 
 1. [Azure Storage-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
-2. [UserVoice för Azure Files](https://feedback.azure.com/forums/217298-storage/category/180670-files).
+2. [Azure Files UserVoice](https://feedback.azure.com/forums/217298-storage/category/180670-files).
 3. Microsoft-supporten. Att skapa en ny supportbegäran i Azure-portalen på den **hjälpa** fliken den **hjälp + support** och välj sedan **ny supportbegäran**.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -104,10 +104,10 @@ Att fastställa om din användarroll konto har behörigheterna som krävs:
     * **Rolltilldelning** bör ha **Läs** och **skriva** behörigheter.
     * **Rolldefinitionen** bör ha **Läs** och **skriva** behörigheter.
 
-<a id="server-endpoint-createjobfailed"></a>**Serverslutpunkten misslyckas med felet: ”MgmtServerJobFailed” (felkod:-2134375898)**  
+<a id="server-endpoint-createjobfailed"></a>**Serverslutpunkten misslyckas med felet: "MgmtServerJobFailed" (Error code: -2134375898)**  
 Det här problemet uppstår om sökvägen till serverns slutpunkt finns på systemvolymen och molnet lagringsnivåer är aktiverad. Molnet lagringsnivåer stöds inte på systemvolymen. Inaktivera molnlagringsnivåer när du skapar Serverslutpunkten för att skapa en serverslutpunkt på systemvolymen.
 
-<a id="server-endpoint-deletejobexpired"></a>**Borttagningen av Serverslutpunkten misslyckas med felet: ”MgmtServerJobExpired”**                
+<a id="server-endpoint-deletejobexpired"></a>**Borttagningen av Serverslutpunkten misslyckas med felet: "MgmtServerJobExpired"**                
 Det här problemet uppstår om servern är offline eller inte har någon nätverksanslutning. Om servern är inte längre tillgänglig, avregistrera servern i portalen som tar bort server-slutpunkter. Om du vill ta bort serverslutpunkter, följer du stegen som beskrivs i [avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
 <a id="server-endpoint-provisioningfailed"></a>**Det går inte att öppna egenskapssidan för server-slutpunkt eller uppdatera principer för lagringsnivåer för moln**  
@@ -283,7 +283,7 @@ Synkroniseringssessioner kan misslyckas av olika anledningar, inklusive den serv
 <a id="-2147012889"></a>**Det gick inte att upprätta en anslutning till tjänsten.**    
 | | |
 |-|-|
-| **HRESULT** | 0x80072EE7 |
+| **HRESULT** | 0x80072ee7 |
 | **HRESULT (decimal)** | -2147012889 | 
 | **Felsträng** | WININET_E_NAME_NOT_RESOLVED |
 | **Reparation krävs** | Ja |
@@ -804,24 +804,19 @@ Det finns två huvudsakliga typer av fel som kan ske via antingen fel väg:
 I följande avsnitt visar hur du felsöker problem med lagringsnivåer-molnet och avgöra om ett problem är ett problem för lagring av molnet eller ett serverfel.
 
 <a id="monitor-tiering-activity"></a>**Hur övervakar lagringsnivåer på en server**  
-Om du vill övervaka lagringsnivåer på en server, använder du händelse-ID 9002 9003, 9016 och 9029 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken).
-
-- Händelse-ID 9002 innehåller eftersläpningar statistik för en serverslutpunkt. Till exempel TotalGhostedFileCount, SpaceReclaimedMB, osv.
+Om du vill övervaka lagringsnivåer på en server, använder du händelse-ID 9003 9016 och 9029 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken).
 
 - Händelse-ID 9003 innehåller felfördelningen för en serverslutpunkt. Till exempel Total Felräkning ErrorCode, osv. Observera att en händelse loggas per felkod.
-
 - Händelse-ID 9016 innehåller eftersläpningar resultat för en volym. Till exempel ledigt utrymme i procent är avbildad antalet filer i sessionen, antal filer kunde inte ghost osv.
-
-- Händelse-ID 9029 innehåller eftersläpningar sessionsinformation. Till exempel antalet filer i sessionen, antal filer nivåer i sessionen, antalet filer som redan har nivåindelade, osv.
+- Händelse-ID 9029 innehåller eftersläpningar sessionsinformation för en serverslutpunkt. Till exempel antalet filer i sessionen, antal filer nivåer i sessionen, antalet filer som redan har nivåindelade, osv.
 
 <a id="monitor-recall-activity"></a>**Så här övervakar du återställningar på en server**  
-Du övervakar återställningar på en server med händelse-ID 9005, 9006, 9007 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken). Observera att dessa händelser loggas per timme.
+Du övervakar återställningar på en server med händelse-ID 9005 9006, 9009 och 9059 i händelseloggen telemetri (finns under program och Services\Microsoft\FileSync\Agent i Loggboken).
 
 - Händelse-ID 9005 ger återkallande tillförlitligheten hos en serverslutpunkt. Till exempel Total unika filer som används, totalt antal unika filer med misslyckade åtkomst osv.
-
 - Händelse-ID 9006 ger återkallande felfördelningen för en serverslutpunkt. Exempel: Totalt antal misslyckade begäranden, ErrorCode, osv. Observera att en händelse loggas per felkod.
-
-- Händelse-ID 9007 ger återkallande prestanda för en serverslutpunkt. Till exempel TotalRecallIOSize, TotalRecallTimeTaken, osv.
+- Händelse-ID 9009 ger återkallande sessionsinformation för en serverslutpunkt. Till exempel DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed, osv.
+- Händelse-ID 9059 ger återkallande av programdistribution för en serverslutpunkt. Till exempel ShareId, programnamn och TotalEgressNetworkBytes.
 
 <a id="files-fail-tiering"></a>**Felsökning av filer som misslyckas till tier**  
 Om filerna inte nivå till Azure Files:

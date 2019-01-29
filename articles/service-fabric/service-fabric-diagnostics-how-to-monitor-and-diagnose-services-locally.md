@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 740864276b8d4d7a40a263a0d6d2e09c3534dbd6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054183"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190912"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en inställning för utveckling av lokal dator
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ ms.locfileid: "44054183"
 * **Det finns inbyggt stöd i Visual Studio för Service Fabric-verktyg för att visa ETW-händelser.** ETW-händelser som visas i vyn diagnostikhändelser av Visual Studio när Visual Studio är korrekt konfigurerad med Service Fabric. 
 
 ## <a name="view-service-fabric-system-events-in-visual-studio"></a>Visa händelser för Service Fabric-system i Visual Studio
-Service Fabric genererar ETW-händelser för att hjälpa programutvecklare att förstå vad som händer i plattformen. Om du inte redan gjort det, gå vidare och följ stegen i [skapar ditt första program i Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Den här informationen hjälper dig att komma igång ett program med diagnostik Loggboken visar spårningsmeddelanden.
+Service Fabric genererar ETW-händelser för att hjälpa programutvecklare att förstå vad som händer i plattformen. Om du inte redan gjort det, gå vidare och följ stegen i [skapar ditt första program i Visual Studio](service-fabric-tutorial-create-dotnet-app.md). Den här informationen hjälper dig att komma igång ett program med diagnostik Loggboken visar spårningsmeddelanden.
 
 1. Om diagnostiken händelser fönstret inte visar automatiskt, går till den **visa** fliken i Visual Studio **andra Windows** och sedan **Loggboken diagnostik**.
 2. Varje händelse har standard metadatainformation om den noden, program och tjänsten som händelsen kommer från. Du kan också filtrera listan över händelser med hjälp av den **Filterhändelser** högst upp i fönstret händelser. Du kan till exempel filtrera på **nodnamnet** eller **tjänstnamn.** Och när du granskar informationen om händelsen, du kan också pausa med hjälp av den **pausa** längst upp i fönstret händelser och återuppta senare utan att förlora händelser.

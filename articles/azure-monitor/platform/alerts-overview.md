@@ -5,15 +5,15 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 18a63497cb0df2ade495dfb721aaa881aa4e6ff7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54464127"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156419"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -23,7 +23,7 @@ Den här artikeln beskriver vilka aviseringar har sina fördelar, och hur du kom
 ## <a name="what-are-alerts-in-microsoft-azure"></a>Vad är aviseringar i Microsoft Azure?
 Aviseringar meddelar proaktivt dig när det är viktigt villkor finns i dina övervakningsdata. De gör att du kan identifiera och lösa problem innan användarna av systemet uppmärksamma dem. 
 
-Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](alerts-overview.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
+Den här artikeln beskriver den avisering enhetlig upplevelsen i Azure Monitor, som nu innehåller Log Analytics och Application Insights. Den [tidigare avisering erfarenhet](alerts-classic.overview.md) och aviseringstyper kallas **klassiska aviseringar**. Du kan visa den här äldre upplevelse och äldre typ av avisering genom att klicka på **Visa klassiska aviseringar** överst på sidan avisering. 
 
 ## <a name="overview"></a>Översikt
 
@@ -63,6 +63,13 @@ Du kan meddela mått och loggar enligt beskrivningen i [övervakning datakällor
 - Hälsotillståndet för underliggande Azure-plattformen
 - Tester för tillgänglighet för webbplats
 
+Tidigare hade Azure Monitor-mått, Application Insights, logganalys och Tjänstehälsa för separata aviseringar funktioner. Framöver kommer Azure förbättrad och kombineras både användargränssnitt och olika metoder för aviseringar. Denna konsolidering pågår fortfarande. Därför finns fortfarande vissa varningar funktioner inte ännu i det nya systemet för aviseringar.  
+
+| **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
+|-------------|----------------|-------------|
+| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
+
 ## <a name="manage-alerts"></a>Hantera aviseringar
 Du kan ange tillståndet för en avisering för att ange var den är i lösningsprocessen. När villkoren som har angetts i regeln uppfylls, en avisering skapas eller utlöstes, den har statusen *New*. Du kan ändra status när du har godkänt en avisering och när du stänger den. Alla tillståndsändringar lagras i historiken för aviseringen.
 
@@ -99,7 +106,7 @@ Du kan filtrera den här vyn genom att välja värden i listrutorna överst på 
 
 Välj följande värden överst på sidan aviseringar för att öppna en annan sida.
 
-| Värde | Beskrivning |
+| Value | Beskrivning |
 |:---|:---|
 | Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna vyn alla aviseringar med inget filter. |
 | Smarta grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
@@ -124,14 +131,7 @@ Förenklad redigering processen kräver inte längre att du enkelt se övervakni
 
 Du kan lära dig mer om hur du skapar aviseringsregler i [skapa, visa och hantera aviseringar med hjälp av Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](../../azure-monitor/overview.md). I följande tabell innehåller en lista över typerna av Varningsregler som är tillgängliga i Azure. Den visar också vad stöds för närvarande i vilka aviseringar upplevelse.
-
-Tidigare hade Azure Monitor, Application Insights, logganalys och Tjänstehälsa för separata aviseringar funktioner. Övertidskostnad, Azure förbättrad och kombineras både användargränssnitt och olika metoder för aviseringar. Denna konsolidering pågår fortfarande. Därför finns fortfarande vissa varningar funktioner inte ännu i det nya systemet för aviseringar.  
-
-| **Övervaka källan** | **Signaltyp**  | **Beskrivning** | 
-|-------------|----------------|-------------|
-| Service Health | Aktivitetslogg  | Stöds ej. Se [skapa aviseringar för aktivitetsloggen för tjänstmeddelanden](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Webbtester för tillgänglighet | Stöds ej. Se [webbtestaviseringar](../../azure-monitor/app/monitor-web-app-availability.md). Tillgänglig för alla webbplatser som är utrustade för att skicka data till Application Insights. Få ett meddelande när tillgänglighet och svarstider på en webbplats som är lägre än förväntningar. |
+Aviseringar är tillgängliga i flera Azure-övervakningstjänster. Information om hur och när du ska använda var och en av dessa tjänster finns i [övervakning av Azure-program och resurser](../../azure-monitor/overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Alla aviseringssidan 

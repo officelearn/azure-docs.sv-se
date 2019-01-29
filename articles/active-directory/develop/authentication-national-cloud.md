@@ -7,7 +7,7 @@ author: negoe
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -16,12 +16,12 @@ ms.date: 12/20/2018
 ms.author: negoe
 ms.reviewer: negoe,andret,saeeda,CelesteDG
 ms.custom: aaddev
-ms.openlocfilehash: dfca40c14ad0da3a3e3a8a32757ec40ace9acf6a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2130cc4d51965a087ccdbaeb922eda5059ee1c82
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200572"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55091588"
 ---
 # <a name="national-clouds"></a>Nationella moln
 
@@ -44,7 +44,7 @@ I följande tabell visas de grundläggande URL: er för Azure Active Directory (
 | Nationella moln | Azure AD-portalen slutpunkt
 | --- | --- |
 | Azure AD för amerikanska myndigheter |https://portal.azure.us
-|Azure AD-Tyskland |https://portal.microsoftazure.de
+|Azure AD Germany |https://portal.microsoftazure.de
 |Azure AD-Kina som drivs av 21Vianet |https://portal.azure.cn
 |Azure AD (tjänsten för global)|https://portal.azure.com 
 
@@ -57,7 +57,7 @@ I följande tabell visas de grundläggande URL: er för Azure Active Directory (
 | Nationella moln | Azure AD-autentisering-slutpunkt
 | --- | --- |
 | Azure AD för amerikanska myndigheter |`https://login.microsoftonline.us`
-|Azure AD-Tyskland| `https://login.microsoftonline.de`
+|Azure AD Germany| `https://login.microsoftonline.de`
 |Azure AD-Kina som drivs av 21Vianet | `https://login.chinacloudapi.cn`
 |Azure AD (tjänsten för global)|`https://login.microsoftonline.com`
 

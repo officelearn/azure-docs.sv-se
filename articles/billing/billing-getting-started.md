@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: banders
-ms.openlocfilehash: 6cc42477e167b7c1a72c1ef74af477073b9af16e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 732ac5e1e82c67d2f4a0a3443b85c67712f4f651
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901912"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101659"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Förhindra oväntade avgifter med Azure-fakturering och kostnadshantering
 
@@ -75,7 +75,7 @@ Det här exemplet används den **Actual Cost Over Time** rapporten för att skic
 5. Välj den **tröskelvärdet** fliken och välj sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). 
    1. I den **röda aviseringen** tröskelvärdet anger 10000. 
    2. I den **gul avisering** tröskelvärdet anger 9000. 
-   3. I den **antalet på varandra följande aviseringar** anger antalet på varandra följande aviseringar för att ta emot. När du får det totala antalet aviseringar som du angav skickas inga fler aviseringar. 
+   3. I den **antalet på varandra följande aviseringar** anger antalet på varandra följande aviseringar för att ta emot. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. 
 6. Välj **Spara**.
 
     ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/billing-getting-started/schedule-alert01.png)

@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: fb9ec69476253eaa559fe763dcc2c92994505602
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: fea87a711bf43ea73d3e09efeb42f5133d8f4e9f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163377"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434928"
 ---
-# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudie: Använda riskhändelser för att utlösa multifaktorautentisering och lösenordsändringar
+# <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Självstudier: Använda riskhändelser för att utlösa multifaktorautentisering och lösenordsändringar
 
 I den här självstudien aktiverar du funktionerna för Azure Active Directory (Azure AD) Identity Protection, en Azure AD Premium P2-funktion som är mer än bara ett övervaknings- och rapporteringsverktyg. För att skydda organisationens identiteter kan du konfigurera riskbaserade principer som automatiskt svarar på riskfyllda beteenden. Dessa principer kan antingen automatiskt blockera eller initiera reparationer, inklusive att kräva lösenordsändring och framtvinga multifaktorautentisering.
 
@@ -53,7 +53,7 @@ Att aktivera riskbaserade principer är en enkel process. Stegen nedan vägleder
 
 Azure AD Identity Protection innehåller en standardprincip som kan hjälpa dig att registrera användarna för multifaktorautentisering och enkelt identifiera den aktuella registreringsstatusen. När den här principen aktiveras kräver den inte att användare utför multifaktorautentisering, men den ber dem att förhandsregistrera sig.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **Alla tjänster** och bläddra sedan till **Azure AD Identity Protection**.
 1. Klicka på **MFA-registrering**.
 1. Ange Tillämpa princip till **På**.

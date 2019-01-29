@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 737dc40bafa519d59bcbc0ff6510a89cb3a840fa
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c8aa7050163c2b58ca68adcf9a9b4d0bc96bb126
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263211"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54808365"
 ---
 # <a name="about-azure-migrate"></a>Om Azure Migrate
 
@@ -57,7 +57,7 @@ Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegensk
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 33 regioner som målplatser för migrering. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, västra 2.
+**Målplats** | Azure-platsen du vill migrera till.<br/><br/>Azure Migrate stöder för närvarande 33 regioner som målplatser för migrering. [Se regioner](https://azure.microsoft.com/global-infrastructure/services/). Målregionen är som standard angiven som USA, östra.
 **Lagringstyp** | Typen av de hanterade diskar som du vill allokera för alla virtuella datorer som ingår i utvärderingen. Om storlekskriteriet är *som lokal storleksbestämning* kan du ange måldisktypen som antingen premium-diskar (standard), standard-SSD-diskar eller standardhårddiskar. För *prestandabaserad storleksbestämning* har du utöver alternativen ovan även möjligheten att välja Automatiskt, vilket ser till att rekommendationen för storleksbestämning sker automatiskt baserat på prestandadata för de virtuella datorerna. Om du till exempel vill uppnå ett [serviceavtal för enskild virtuell datorinstans på 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) kan du ange lagringstypen som hanterade Premium-diskar, vilket säkerställer att alla diskar i utvärderingen rekommenderas som hanterade Premium-diskar. Observera att Azure Migrate endast stöder hanterade diskar för migreringsutvärdering.
 **Reserverade instanser** |  Om du har [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure. Azure Migrate beräknar kostnaden enligt detta.
 **Ändra storlek på kriterium** | Storleken kan baseras på **prestandahistorik** för lokala virtuella datorer (standard) eller **som lokalt**, utan att ta hänsyn till prestandahistorik.
@@ -77,7 +77,7 @@ Utvärderingsinställningarna kan anpassas efter dina behov. Utvärderingsegensk
 3. Du ansluter till den virtuella datorn via vCenter Server och anger ett nytt lösenord för den vid anslutning.
 4. Du kör insamlaren på den virtuella datorn för att inleda identifieringen.
 5. Insamlaren samlar in VM-metadata med cmdletar för VMware PowerCLI. Identifierng är agentfri och installerar inte något på VMware-värdar eller virtuella datorer. Insamlade metadata innefattar VM-information (kärnor, minne, diskar, diskstorlekar och nätverksadaptrar). De samlar även in prestandadata för virtuella datorer, däribland CPU- och minnesanvändning, disk-IOPS, diskgenomflöde (Mbit/s) och nätverksutdata (Mbit/s).
-5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure-portalen.
+5.  Metadata skickas till Azure Migrate-projektet. Du kan visa dem i Azure Portal.
 6.  I utvärderingssyfte samlar du de identifierade virtuella datorerna i olika grupper. Du kan exempelvis gruppera virtuella datorer som kör samma program. För mer exakt gruppering kan du använda visualisering av beroenden för att se beroenden för en specifik dator eller för alla datorer i en grupp och sedan ändra gruppen.
 7.  När en grupp har definierats kan skapa du en utvärdering för den.
 8.  När utvärderingen är klar kan du visa den i portalen eller ladda ned den i Excel-format.

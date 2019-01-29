@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/17/2018
+ms.date: 01/18/2019
 ms.author: spelluru
-ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: b5abb8d4aad7c58bf673aa578255efe12d32ad4b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470871"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54422906"
 ---
-# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudie: Få åtkomst till ett labb i Azure DevTest Labs
-I den här självstudien använder du det labbet som skapades i [Självstudie: Skapa ett labb i Azure DevTests Labs](tutorial-create-custom-lab.md) .
+# <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Självstudier: Komma åt ett labb i Azure DevTest Labs
+I den här självstudien använder du det labb som skapades i [Självstudie: Skapa ett labb i Azure DevTest Labs](tutorial-create-custom-lab.md).
 
 I de här självstudierna gör du följande:
 
@@ -68,14 +68,16 @@ När du är klar med den virtuella datorn släpper du anspråket på den virtuel
 1. På sidan för den virtuella datorn väljer du **Släpp krav** i verktygsfältet. 
 
     ![Släppa anspråk på en virtuell dator](./media/tutorial-use-custom-lab/unclaim-vm-menu.png)
-1. Den virtuella datorn stängs av innan kravet släpps. 
+1. Den virtuella datorn stängs av innan kravet släpps. Du kan se status för den här åtgärden i meddelanden.  
+3. Gå tillbaka till DevTest-labbsidan genom att klicka på namnet på ditt labb i adressfältmenyn längst upp. 
+    
+    ![Navigera tillbaka till labbet](./media/tutorial-use-custom-lab/breadcrumb-to-lab.png)
+1. Bekräfta att du ser den virtuella datorn i listan över **Virtuella datorer som kan tas i anspråk** längst ned.
 
-    ![Släppa anspråk på status](./media/tutorial-use-custom-lab/unclaim-status.png) 
-1. När anspråket har släppts ser du den virtuella datorn i listan med **Virtuella datorer som kan tas i anspråk** längst ned. 
     
 ## <a name="next-steps"></a>Nästa steg
 Den här självstudiekursen visade hur du använder ett labb som har skapats med hjälp av Azure DevTest Labs. Läs mer om åtkomst till och användning av virtuella datorer i ett labb i 
 
 > [!div class="nextstepaction"]
-> [Anvisningar: använda virtuella datorer i ett labb](devtest-lab-add-vm.md)
+> [Anvisningar: Använda virtuella datorer i ett labb](devtest-lab-add-vm.md)
 

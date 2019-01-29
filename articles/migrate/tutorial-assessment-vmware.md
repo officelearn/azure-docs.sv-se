@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 186d532f159db7d51ba4f93a250c00c7627280e0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: e922e9e7741eb3338503e02cd0ca78387e32b1f6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229532"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824107"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Utforska och utvärdera lokala virtuella VMware-datorer för migrering till Azure
 
@@ -177,7 +177,7 @@ Importera den nedladdade filen till vCenter Server.
     - Om den virtuella datorn har åtkomst till Internet via en proxy, klickar du på **Proxyinställningar** där du anger proxyadress och lyssningsport. Ange autentiseringsuppgifter om proxyn kräver autentisering. [Lär dig mer](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) om kraven för Internetanslutning och den [lista över URL:er](https://docs.microsoft.com/azure/migrate/concepts-collector#connect-to-urls) som insamlaren använder.
 
       > [!NOTE]
-      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en hanteringsproxy kan internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
+      > Proxyadressen måste anges i formatet http://ProxyIPAddress eller http://ProxyFQDN. Endast HTTP-proxy stöds. Om du har en spärrande proxy kan Internetanslutningen misslyckas om du inte har importerat proxycertifikatet. [Läs mer](https://docs.microsoft.com/azure/migrate/concepts-collector#internet-connectivity-with-intercepting-proxy) om hur du kan åtgärda detta genom att importera proxycertifikatet som ett betrott certifikat på den virtuella datorn för insamling.
 
     - Insamlaren kontrollerar att insamlingstjänsten körs. Tjänsten installeras som standard på den virtuella insamlardatorn.
     - Ladda ned och installera VMware PowerCLI.

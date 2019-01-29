@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: ba06e568b3d7b0125d5868c1ad4a85e5e42f7e18
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ffceeeeb5a55b0fab1dd1cf91aebfcd4cfd852ef
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246219"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848605"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
 Azure Notebooks är en kostnadsfri värdbaserad tjänst som används för att utveckla och köra Jupyter Notebooks i molnet utan installation. [Jupyter](https://jupyter.org/) (tidigare IPython) är ett projekt med öppen källkod som gör att du enkelt kan kombinera Markdown-text, körbar kod, beständiga data, grafik och visualiseringar på en enda delbar arbetsyta, *notebook-filen* (bilden tillhör jupyter.org):
 
-[![](https://jupyter.org/assets/jupyterpreview.png "Jupyter Notebooks")](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Exempel på Jupyter-anteckningsböcker](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Tack vare den här kraftfulla kombinationen av kod, grafik och förklarande text har Jupyter blivit populärt för många användningsområden, däribland datavetenskapsinstruktion, datarensning och transformering, numerisk simulering, statistisk modellering och utveckling av maskininlärningsmodeller.
 
@@ -57,7 +57,7 @@ Kort sagt hjälper Azure Notebooks dig att utföra ditt arbete effektivare och d
 
 Azure Notebooks är en kostnadsfri tjänst, men varje projekt är begränsat till 4 GB minne och 1 GB data för att förhindra missbruk. Legitima användare som överskrider dessa gränser får en Captcha-utmaning för att fortsätta köra notebook-filer.
 
-Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du använda beräkningsnivåer i Azure Data Science Virtual Machine.
+Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du ansluta till valfria Azure Data Science Virtual Machine-instanser i den prenumerationen. Mer information finns i avsnittet om att [hantera och konfigurera projekt på beräkningsnivån](configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="available-kernels-and-environments"></a>Tillgängliga kernels och miljöer
 

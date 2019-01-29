@@ -2,19 +2,19 @@
 title: Jämförelse av Azure-meddelandefunktion – Event Grid, Event Hubs, Service Bus
 description: Beskriver de tre Azure-meddelandetjänsterna – Azure Event Grid, Event Hubs och Service Bus. Rekommenderar vilken tjänst som ska användas för olika scenarier.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
 ms.date: 12/07/2018
-ms.author: tomfitz
+ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0eeded4e6bfe9041b360441d1e7b2a5c7dd4a099
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 80a2f9aa07f67c4d149a1ef8245f5e3269a751b3
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53166531"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54469856"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -77,7 +77,7 @@ Den har följande egenskaper:
 
 ### <a name="service-bus"></a>Service Bus
 
-Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, sortering, dubblettidentifiering och omedelbar konsekvens. Med Service Bus kan program i molnet tillhandahålla tillförlitlig övergångshantering för tillstånd i affärsprocesser. Om du hanterar viktiga meddelanden som inte får försvinna eller dupliceras, bör du använda Azure Service Bus. Service Bus underlättar också säker kommunikation i hybridmolnlösningar och kan ansluta befintliga lokala system till molnlösningar.
+Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogram kräver transaktioner, sortering, dubblettidentifiering och omedelbar konsekvens. Med Service Bus kan [molnbaserade](https://azure.microsoft.com/overview/cloudnative/) program tillhandahålla tillförlitlig övergångshantering för tillstånd i affärsprocesser. Om du hanterar viktiga meddelanden som inte får försvinna eller dupliceras, bör du använda Azure Service Bus. Service Bus underlättar också säker kommunikation i hybridmolnlösningar och kan ansluta befintliga lokala system till molnlösningar.
 
 Service Bus är en asynkron meddelandetjänst. Den lagrar meddelanden på ett tillförlitligt sätt i en ”asynkron meddelandekö” tills konsumenten är redo att ta emot meddelandena.
 

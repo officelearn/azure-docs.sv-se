@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
-ms.openlocfilehash: 098973e2ece3477ec87b154c0304c4ca7e0246d1
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5bd27ed71e93edc10fd86395121c524cb54c98e7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163394"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427618"
 ---
-# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Självstudie: Utföra en pilotlansering av Azure Multi-Factor Authentication
+# <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Självstudier: Utföra en pilotlansering av Azure Multi-Factor Authentication
 
 I den här självstudien konfigurerar du en princip för villkorsstyrd åtkomst som aktiverar Azure Multi-Factor Authentication (MFA Azure) vid inloggning till Azure-portalen. Principen distribueras till och testats på en specifik grupp med pilotanvändare. Distribution av Azure MFA med villkorsstyrd åtkomst ger stor flexibilitet för organisationer och administratörer jämfört med den traditionella framtvingande metoden.
 
@@ -29,7 +29,7 @@ I den här självstudien konfigurerar du en princip för villkorsstyrd åtkomst 
 
 * En aktiv Azure AD-klientorganisation med minst en aktiverad utvärderingslicens.
 * Ett konto med behörigheter som global administratör.
-* En testanvändare som inte är administratör med ett lösenord som du känner till i testningssyfte. Om du behöver skapa en användare finns information i artikeln [Snabbstart: Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
+* En testanvändare som inte är administratör med ett lösenord som du känner till för testning. Om du behöver skapa en användare finns information i artikeln [Snabbstart: Lägga till nya användare i Azure Active Directory](../add-users-azure-active-directory.md).
 * En pilotgrupp att testa med som icke-administratörsanvändaren är medlem i. Om du behöver skapa en grupp finns information i artikeln [Skapa en grupp och lägga till medlemmar i Azure Active Directory](../active-directory-groups-create-azure-portal.md).
 
 ## <a name="enable-azure-multi-factor-authentication"></a>Aktivera Azure Multi-Factor Authentication
@@ -68,7 +68,7 @@ För att visa att din princip för villkorsstyrd åtkomst fungerar provar du att
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här självstudien kan du göra följande ändring.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Bläddra till **Azure Active Directory**, **Conditional access** (Villkorsstyrd åtkomst).
 1. Välj den princip för villkorsstyrd åtkomst som du skapade.
 1. Klicka på **Ta bort**.

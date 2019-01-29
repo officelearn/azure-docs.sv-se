@@ -3,19 +3,19 @@ title: Vad är Azure Active Directory B2C? | Microsoft Docs
 description: Läs mer om hur du skapar och hanterar programmets inloggningsfunktion med hjälp av Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: overview
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 2f9c4acc1a2a98978e12aaf5356a5bc270b8d017
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: b667934fefe0b9afb5aeca786839f5e105be2c4d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724034"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54845001"
 ---
 # <a name="what-is-azure-active-directory-b2c"></a>Vad är Azure Active Directory B2C?
 
@@ -102,17 +102,17 @@ I Azure AD B2C representerar en klientorganisation din organisation och är en k
 
 Länka din Azure AD B2C-klientorganisation till din Azure-prenumeration för att aktivera alla funktioner och betala för användningsavgifter. För att tillåta dina kunder att logga in på ditt program registrerar du det i en Azure AD B2C-klientorganisation.
 
-Innan du konfigurerar programmet att använda Azure AD B2C måste du först skapa en Azure AD B2C-klientorganisation och registrera ditt program. För att registrera ditt program slutför du stegen i [Självstudie: Registrera ett program för att aktivera registrering och inloggning med Azure AD B2C](tutorial-register-applications.md).
+Innan du konfigurerar programmet att använda Azure AD B2C måste du först skapa en Azure AD B2C-klientorganisation och registrera ditt program. Registrera ditt program genom att slutföra stegen i [Självstudie: Registrera ett program för att aktivera registrering och inloggning med hjälp av Azure AD B2C](tutorial-register-applications.md).
   
-Om du är ASP.NET-webbprogramutvecklare konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett webbprogram för autentisering med konton med Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
+Om du är ASP.NET-webbappsutvecklare konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett webbprogram för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-web-app.md).
 
-Om du är utvecklare av skrivbordsprogram konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett skrivbordsprogram för autentisering med konton med Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
+Om du utvecklar skrivbordsprogram konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett skrivbordsprogram för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-desktop-app.md).
 
-Om du är utvecklare av ensidesprogram som använder Node.js konfigurerar du programmet för att autentisera konton med hjälp av stegen i [Självstudie: Aktivera ett ensidesprogram för autentisering med konton med Azure AD B2C](active-directory-b2c-tutorials-spa.md).
+Om du utvecklar ensidesapplikationer med hjälp av Node.js konfigurerar du programmet att autentisera kontor via stegen i [Självstudie: Aktivera en ensidesapplikation för autentisering med konton med hjälp av Azure AD B2C](active-directory-b2c-tutorials-spa.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Börja konfigurera ditt program för registrerings- och inloggningsupplevelsen genom att fortsätta till självstudien.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Skapar en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)
+> [Självstudier: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md)

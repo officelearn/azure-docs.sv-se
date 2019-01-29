@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Använd Azure Storage Explorer för att skapa en blob i objektlagring med Azure Data Lake Storage Gen2 aktiverat'
+title: 'Snabbstart: Använda Azure Storage Explorer för att hantera data i Azure Data Lake Storage Gen2 '
 description: I den här snabbstarten får du lära dig hur du använder Azure Storage Explorer för att skapa ett filsystem i ett Azure Data Lake Storage Gen2-konto, samt en katalog och en fil. Du får lära dig hur du hämtar filen till din lokala dator och hur du visar hela filen i en katalog.
 services: storage
 author: tamram
@@ -9,14 +9,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: tamram
-ms.openlocfilehash: e556dbe377f5bba6cbd727ac69c3d4fb9127a2c9
-ms.sourcegitcommit: 85d94b423518ee7ec7f071f4f256f84c64039a9d
+ms.openlocfilehash: 5b46d5644536123a9ef3dfc7be87e34d03ee4c4f
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53385626"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423604"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Snabbstart: Skapa en blob i objektlagring med hjälp av Azure Storage Explorer
+# <a name="quickstart-use-azure-storage-explorer-to-manage-data-in-an-azure-data-lake-storage-gen2-account"></a>Snabbstart: Använda Azure Storage Explorer för att hantera data i ett Azure Data Lake Storage Gen2-konto
 
 I den här snabbstarten får du lära dig hur du skapar en katalog och en blob med [Azure Storage Explore](https://azure.microsoft.com/features/storage-explorer/). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en katalog. Du får också lära dig hur du skapar en ögonblicksbild av en blob, hanterar åtkomstprinciper för kataloger och skapar en signatur för delad åtkomst.
 

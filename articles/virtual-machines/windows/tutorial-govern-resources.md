@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6377a54cc862bb5f62726c3ce91a41cc6eb0763d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 6b36cdecb178a7189773abbfe963411e19764401
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311396"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54438668"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-governance-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Windows-datorer med Azure PowerShell
 
@@ -27,7 +27,7 @@ ms.locfileid: "49311396"
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du kör PowerShell lokalt och du inte har version 6.0 eller senare måste du [uppdatera din version](/powershell/azure/install-azurerm-ps). Du måste också köra `Connect-AzureRmAccount` för att upprätta en anslutning till Azure. För lokala installationer måste du även [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) för att skapa en ny Azure Active Directory-grupp.
+Exemplen i den här artikeln kräver Azure PowerShell 6.0 eller senare. Om du kör PowerShell lokalt och du inte har version 6.0 eller senare måste du [uppdatera din version](/powershell/azure/azurerm/install-azurerm-ps). Du måste också köra `Connect-AzureRmAccount` för att upprätta en anslutning till Azure. För lokala installationer måste du även [ladda ned Azure AD PowerShell-modulen](https://www.powershellgallery.com/packages/AzureAD/) för att skapa en ny Azure Active Directory-grupp.
 
 ## <a name="understand-scope"></a>Förstå omfång
 

@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
-ms.openlocfilehash: bdf5b5188dd584c5eb20f72ff4a98ba6904bc53e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 6663e3fc48408de83e92f39e8c8070005818852d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702382"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097987"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates-preview"></a>Azure Stream Analytics JavaScript-användardefinierade aggregeringar (förhandsversion)
  
@@ -28,7 +28,7 @@ En användardefinierad samling används ovanpå en tidsangivelse för fönstret 
 
 AccumulateOnly aggregeringar ackumulera endast nya händelser till dess tillstånd, algoritmen tillåter inte deaccumulation av värden. Välj den här typen av sammanställda deaccumulate när en händelse information från statusvärdet är omöjligt att implementera. Följande är JavaScript-mallen för AccumulatOnly aggregeringar:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can only be accumulated.
 function main() {
     this.init = function () {
@@ -43,13 +43,13 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ### <a name="accumulatedeaccumulate-aggregates"></a>AccumulateDeaccumulate aggregeringar
 
 Tillåt deaccumulation av en tidigare ackumulerade värdet från tillstånd, till exempel AccumulateDeaccumulate aggregeringar, ta bort ett nyckel / värde-par från en lista med värden för event eller subtrahera ett värde från ett tillstånd där sammanställd summan. Följande är JavaScript-mallen för AccumulateDeaccumulate aggregeringar:
 
-````JavaScript
+```JavaScript
 // Sample UDA which state can be accumulated and deaccumulated.
 function main() {
     this.init = function () {
@@ -72,7 +72,7 @@ function main() {
         return this.state;
     }
 }
-````
+```
 
 ## <a name="uda---javascript-function-declaration"></a>UDA - deklarationen för JavaScript-funktion
 
@@ -129,7 +129,7 @@ Nu ska vi skapa JavaScript UDA under ett befintligt ASA-jobb genom att följa st
 1. På den nya funktionen i vyn väljer **JavaScript UDA** som typ av funktionen ser en standardmall för UDA som visas i redigeraren.
 1. Fyll i ”Nivågränsvärde” som UDA-alias och ändrar som följande:
 
-    ````JavaScript
+    ```JavaScript
     // Sample UDA which calculate Time-Weighted Average of incoming values.
     function main() {
         this.init = function () {
@@ -167,7 +167,7 @@ Nu ska vi skapa JavaScript UDA under ett befintligt ASA-jobb genom att följa st
             return result;
         }
     }
-    ````
+    ```
 
 1. När du klickar på knappen ”Spara” din UDA som visas i listan funktion.
 
@@ -177,7 +177,7 @@ Nu ska vi skapa JavaScript UDA under ett befintligt ASA-jobb genom att följa st
 
 I Azure-portalen och öppna ditt jobb, redigera frågan och anropa TWA() funktion med utförda prefixet ”uda”. Exempel:
 
-````SQL
+```SQL
 WITH value AS
 (
     SELECT
@@ -191,13 +191,13 @@ SELECT
     uda.TWA(value) as NoseDoseTWA
 FROM value
 GROUP BY TumblingWindow(minute, 5)
-````
+```
 
 ## <a name="testing-query-with-uda"></a>Testa frågan med UDA
 
 Skapa en lokal JSON-fil med nedan innehåll, överföra filen till Stream Analytics-jobb och testa ovanför fråga.
 
-````JSON
+```JSON
 [
   {"EntryTime": "2017-06-10T05:01:00-07:00", "NoiseLevelDB": 80, "DurationSecond": 22.0},
   {"EntryTime": "2017-06-10T05:02:00-07:00", "NoiseLevelDB": 81, "DurationSecond": 37.8},
@@ -223,7 +223,7 @@ Skapa en lokal JSON-fil med nedan innehåll, överföra filen till Stream Analyt
   {"EntryTime": "2017-06-10T05:20:00-07:00", "NoiseLevelDB": 113, "DurationSecond": 25.1},
   {"EntryTime": "2017-06-10T05:22:00-07:00", "NoiseLevelDB": 110, "DurationSecond": 5.3}
 ]
-````
+```
 
 ## <a name="get-help"></a>Få hjälp
 

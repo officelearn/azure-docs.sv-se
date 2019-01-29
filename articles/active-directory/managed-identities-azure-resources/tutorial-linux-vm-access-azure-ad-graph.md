@@ -4,7 +4,7 @@ description: En självstudie som steg för steg beskriver hur du använder en sy
 services: active-directory
 documentationcenter: ''
 author: daveba
-manager: mtillman
+manager: daveba
 editor: daveba
 ms.service: active-directory
 ms.component: msi
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: b58bfc5345e06f82b2550ea2a1a53443946f2096
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52427463"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432650"
 ---
-# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
+# <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
 
 [!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice.md)]
 
@@ -66,7 +66,7 @@ I den här självstudien beviljar du den virtuella datorns identitet möjlighete
 Azure AD Graph:
 - Tjänsthuvudnamnets appId (används vid tilldelning av programbehörighet): 00000002-0000-0000-c000-000000000000
 - Resurs-ID (används vid begäran av åtkomsttoken från hanterade identiteter för Azure-resurser): https://graph.windows.net
-- Referens för behörighetsomfång: [referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
+- Referens för behörighetsomfång: [Referens för Azure AD Graph-behörigheter](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
 
 ### <a name="grant-application-permissions-using-curl"></a>Bevilja programbehörigheter med CURL
 
@@ -131,7 +131,7 @@ Azure AD Graph:
  
 ## <a name="get-an-access-token-using-the-vms-identity-to-call-azure-ad-graph"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns identitet för att anropa Azure AD Graph 
 
-För att slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Om du vill slutföra de här stegen behöver du en SSH-klient. Om du använder Windows kan du använda SSH-klienten i [Windows-undersystemet för Linux](https://msdn.microsoft.com/commandline/wsl/about). Om du behöver hjälp att konfigurera SSH-klientens nycklar läser du [Använda SSH-nycklar med Windows i Azure](../../virtual-machines/linux/ssh-from-windows.md) eller [Så här skapar du säkert ett offentligt och ett privat SSH-nyckelpar för virtuella Linux-datorer i Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. I portalen går du till den virtuella Linux-datorn och i **översikten** klickar du på **Anslut**.  
 2. **Anslut** till den virtuella datorn med valfri SSH-klient. 

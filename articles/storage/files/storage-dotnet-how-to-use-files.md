@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 11/22/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 380a7be6a42109f90da5dbd39ea557c06be4be6a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 2d6926b9d6a9b5bc4f3744fbd6fe8864a925ff17
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253711"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54819755"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
@@ -58,8 +58,8 @@ Du kan använda Azure Storage-klientbiblioteket i alla typer av .NET-program, t.
 ## <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
 Det finns två paket som du måste referera till i ditt projekt för att slutföra den här kursen:
 
-* [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
-* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
+* [Microsoft Azure Storage-klientbibliotek för .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): Det här paketet ger programmatisk åtkomst till dataresurser i ditt lagringskonto.
+* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
@@ -324,8 +324,8 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att auktorisera åtkomsten till blobben under kopieringen.
 
-## <a name="share-snapshots-preview"></a>Dela ögonblicksbilder (förhandsversion)
-Från och med version 8.5 av klientbiblioteket för Azure Storage kan du dela en ögonblicksbild (förhandsversion). Du kan också visa eller bläddra bland resursögonblicksbilder och ta bort resursögonblicksbilder. Resursögonblicksbilder är skrivskyddade så att inga skrivåtgärder tillåts på resursögonblicksbilder.
+## <a name="share-snapshots"></a>Resursögonblicksbilder
+Från och med version 8.5 av klientbiblioteket för Azure Storage kan du skapa en resursögonblicksbild. Du kan också visa eller bläddra bland resursögonblicksbilder och ta bort resursögonblicksbilder. Resursögonblicksbilder är skrivskyddade så att inga skrivåtgärder tillåts på resursögonblicksbilder.
 
 **Skapa resursögonblicksbilder**
 

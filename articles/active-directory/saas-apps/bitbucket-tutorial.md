@@ -1,268 +1,234 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med SAML SSO för Bitbucket resolution GmbH | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML SSO för Bitbucket resolution GmbH.
+title: 'Självstudier: Azure Active Directory-integrering med SAML SSO for Bitbucket by resolution GmbH | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och SAML SSO for Bitbucket by resolution GmbH.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: joflore
+manager: daveba
+ms.reviewer: barbkess
 ms.assetid: fc947df1-f24e-43ae-9a34-518293583d69
-ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.service: Azure-Active-Directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 12/04/2017
+ms.topic: tutorial
+ms.date: 12/27/2018
 ms.author: jeedes
-ms.openlocfilehash: c91f62aa2f47cfab7de22def631a7149ab37ba46
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 14811ef9da1a50ba3b0ec0363cede1988d386e78
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434983"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54818157"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integration med SAML SSO för Bitbucket resolution GmbH
+# <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-bitbucket-by-resolution-gmbh"></a>Självstudier: Azure Active Directory-integrering med SAML SSO for Bitbucket by resolution GmbH
 
-I den här självstudien får du lära dig hur du integrerar SAML SSO för Bitbucket resolution GmbH med Azure Active Directory (AD Azure).
+I den här självstudien lär du dig att integrera SAML SSO for Bitbucket by resolution GmbH med Azure Active Directory (Azure AD).
+Integreringen av SAML SSO for Bitbucket by resolution GmbH med Azure AD medför följande fördelar:
 
-Integrera SAML SSO för Bitbucket resolution GmbH med Azure AD ger dig följande fördelar:
+* Du kan i Azure AD styra vem som har åtkomst till SAML SSO for Bitbucket by resolution GmbH.
+* Du kan göra så att dina användare automatiskt loggas in på SAML SSO for Bitbucket by resolution GmbH (enkel inloggning) med sina Azure AD-konton.
+* Du kan hantera dina konton på en central plats – Azure-portalen.
 
-- Du kan styra i Azure AD som har åtkomst till SAML SSO för Bitbucket resolution GmbH.
-- Du kan aktivera användarna att automatiskt få loggat in på SAML SSO för Bitbucket resolution GmbH (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+## <a name="prerequisites"></a>Nödvändiga komponenter
 
-## <a name="prerequisites"></a>Förutsättningar
+För att konfigurera Azure AD-integrering med SAML SSO for Bitbucket by resolution GmbH behöver du följande:
 
-Om du vill konfigurera Azure AD-integrering med SAML SSO för Bitbucket resolution GmbH, behöver du följande objekt:
-
-- En Azure AD-prenumeration
-- En SAML SSO för Bitbucket av upplösning GmbH, enkel inloggning på aktiverad prenumeration
-
-> [!NOTE]
-> Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
-
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
-
-- Använd inte din produktionsmiljö, om det inte behövs.
-- Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* SAML SSO for Bitbucket by resolution GmbH-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
-I den här självstudien kan du testa Azure AD enkel inloggning i en testmiljö. Det scenario som beskrivs i den här självstudien består av två viktigaste byggstenarna:
 
-1. Att lägga till SAML SSO för Bitbucket resolution GmbH från galleriet
-1. Konfigurera och testa Azure AD enkel inloggning
+I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-## <a name="adding-saml-sso-for-bitbucket-by-resolution-gmbh-from-the-gallery"></a>Att lägga till SAML SSO för Bitbucket resolution GmbH från galleriet
-För att konfigurera integrering av SAML SSO för Bitbucket resolution GmbH i Azure AD, som du behöver lägga till SAML SSO för Bitbucket resolution GmbH från galleriet i din lista över hanterade SaaS-appar.
+* SAML SSO for Bitbucket by resolution GmbH stöder **SP- och IDP**-initierad enkel inloggning
+* SAML SSO for Bitbucket by resolution GmbH stöder **just in time**-initierad enkel inloggning
 
-**Om du vill lägga till SAML SSO för Bitbucket resolution GmbH från galleriet, utför du följande steg:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+## <a name="adding-saml-sso-for-bitbucket-by-resolution-gmbh-from-the-gallery"></a>Lägga till SAML SSO for Bitbucket by resolution GmbH från galleriet
 
-    ![Azure Active Directory-knappen][1]
+För att konfigurera integreringen av SAML SSO for Bitbucket by resolution GmbH med Azure AD måste du lägga till SAML SSO for Bitbucket by resolution GmbH från galleriet till din lista över hanterade SaaS-appar.
 
-1. Gå till **företagsprogram**. Gå till **alla program**.
+**Utför följande steg för att lägga till SAML SSO for Bitbucket by resolution GmbH från galleriet:**
 
-    ![Bladet för Enterprise-program][2]
-    
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
-    ![Knappen Nytt program][3]
+    ![Azure Active Directory-knappen](common/select-azuread.png)
 
-1. I sökrutan skriver **SAML SSO för Bitbucket resolution GmbH**väljer **SAML SSO för Bitbucket resolution GmbH** resultatet panelen klickar **Lägg till** för att lägga till den programmet.
+2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
 
-    ![SAML SSO för Bitbucket av lösningen GmbH i listan med resultat](./media/bitbucket-tutorial/tutorial_bitbucket_addfromgallery.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med SAML SSO för Bitbucket resolution GmbH baserat på en testanvändare som kallas ”Britta Simon”.
+    ![Knappen Nytt program](common/add-new-app.png)
 
-För enkel inloggning att fungera, behöver Azure AD du veta vilka motsvarande användaren i SAML SSO för Bitbucket resolution GmbH är att en användare i Azure AD. Med andra ord en länk relationen mellan en Azure AD-användare och relaterade användaren i SAML SSO för Bitbucket resolution GmbH måste upprättas.
+4. I sökrutan skriver du **SAML SSO for Bitbucket by resolution GmbH**, väljer **SAML SSO for Bitbucket by resolution GmbH** i resultatpanelen och klickar på knappen **Lägg till** för att lägga till programmet.
 
-I SAML SSO för Bitbucket resolution GmbH, tilldela värdet för den **användarnamn** i Azure AD som värde för den **användarnamn** att upprätta länken-relation.
+     ![SAML SSO for Bitbucket by resolution GmbH i resultatlistan](common/search-new-app.png)
 
-Om du vill konfigurera och testa Azure AD enkel inloggning med SAML SSO för Bitbucket resolution GmbH, måste du utföra följande byggblock:
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
-1. **[Skapa en SAML SSO för Bitbucket av lösning GmbH testanvändare](#create-a-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)**  – du har en motsvarighet för Britta Simon i SAML SSO för Bitbucket resolution GmbH som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med SAML SSO for Bitbucket by resolution GmbH baserat på en testanvändare med namnet **Britta Simon**.
+För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i SAML SSO for Bitbucket by resolution GmbH upprättas.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+För att konfigurera och testa enkel inloggning för Azure AD med SAML SSO for Bitbucket by resolution GmbH behöver du slutföra följande byggstenar:
 
-I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i din SAML SSO för Bitbucket resolution GmbH program.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för SAML SSO for Bitbucket by resolution GmbH](#configure-saml-sso-for-bitbucket-by-resolution-gmbh-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Skapa SAML SSO for Bitbucket by resolution GmbH-testanvändare](#create-saml-sso-for-bitbucket-by-resolution-gmbh-test-user)** – för att ha en motsvarighet för Britta Simon i SAML SSO for Bitbucket by resolution GmbH som är länkad till en Azure AD-representation av användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-**Om du vill konfigurera Azure AD enkel inloggning med SAML SSO för Bitbucket resolution GmbH, utför du följande steg:**
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-1. I Azure-portalen på den **SAML SSO för Bitbucket resolution GmbH** program integration-sidan klickar du på **enkel inloggning**.
+I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-    ![Konfigurera enkel inloggning för länken][4]
+Utför följande steg för att konfigurera enkel inloggning i Azure AD med SAML SSO for Bitbucket by resolution GmbH:
 
-1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
- 
-    ![Enkel inloggning för dialogrutan](./media/bitbucket-tutorial/tutorial_bitbucket_samlbase.png)
+1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **SAML SSO for Bitbucket by resolution GmbH**-programintegrering och väljer **Enkel inloggning**.
 
-1. På den **SAML SSO Bitbucket resolution GmbH domän och URL: er** avsnittet, utför följande steg om du vill konfigurera programmet i IDP-initierad läge:
+    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-    ![SAML SSO för Bitbucket resolution GmbH domän och URL: er med enkel inloggning för information](./media/bitbucket-tutorial/tutorial_bitbucket_url.png)
+2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
+    ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
+3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
 
-1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
+    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-    ![SAML SSO för Bitbucket resolution GmbH domän och URL: er med enkel inloggning för information](./media/bitbucket-tutorial/tutorial_bitbucket_url1.png)
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du vill konfigurera programmet i **IDP**-initierat läge:
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
-     
-    > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [SAML SSO för Bitbucket resolution GmbH klienten supportteam](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) att hämta dessa värden. 
+    ![Information om enkel inloggning med Bitbucket by resolution GmbH-domäner och -URL:er](common/idp-intiated.png)
 
-1. På den **SAML-signeringscertifikat** klickar du på **XML-Metadata för** och spara sedan metadatafilen på datorn.
+    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
-    ![Länk för hämtning av certifikat](./media/bitbucket-tutorial/tutorial_bitbucket_certificate.png) 
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Klicka på **spara** knappen.
+    c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/bitbucket-tutorial/tutorial_general_400.png)
-    
-1. Inloggning till SAML SSO för Bitbucket av lösning GmbH företagets plats som administratör.
+    ![Information om enkel inloggning med Bitbucket by resolution GmbH-domäner och -URL:er](common/metadata-upload-additional-signon.png)
 
-1. Till höger i verktygsfältet klickar du på **inställningar**.
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<server-base-url>/plugins/servlet/samlsso`
 
-1. Gå till avsnittet om konton, klickar du på **SAML SingleSignOn** på menyraden.
+    > [!NOTE]
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [kundsupporten för SAML SSO for Bitbucket by resolution GmbH](https://marketplace.atlassian.com/apps/1217045/saml-single-sign-on-sso-bitbucket?hosting=server&tab=support) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+
+5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+
+### <a name="configure-saml-sso-for-bitbucket-by-resolution-gmbh-single-sign-on"></a>Konfigurera enkel inloggning för SAML SSO for Bitbucket by resolution GmbH
+
+1. Logga in på din SAML SSO for Bitbucket by resolution GmbH-företagswebbplats som administratör.
+
+2. Till höger i huvudverktygsfältet klickar du på **Inställningar**.
+
+3. Gå till avsnittet KONTON och klicka på **SAML SingleSignOn** på menyraden.
 
     ![Samlsingle](./media/bitbucket-tutorial/tutorial_bitbucket_samlsingle.png)
 
-1. På den **konfigurationssidan för SAML SIngleSignOn plugin-programmet**, klickar du på **lägga till idp**. 
+4. På **konfigurationssidan för SAML SIngleSignOn-plugin-programmet** klickar du på **Lägg till IdP**. 
 
-    ![Den lägger till idp](./media/bitbucket-tutorial/tutorial_bitbucket_addidp.png)
+    ![Lägg till IdP](./media/bitbucket-tutorial/tutorial_bitbucket_addidp.png)
 
-1. På den **väljer SAML-identitetsprovider** kan utföra följande steg:
+5. På sidan **Välj din SAML-identitetsprovider** utför du följande steg:
 
     ![Identitetsprovidern](./media/bitbucket-tutorial/tutorial_bitbucket_identityprovider.png)
 
-    a. Välj **Idp typ** som **AZURE AD**.
+    a. Välj **IdP-typ** as **AZURE AD**.
 
-    b. I den **namn** textrutan skriver du namnet.
+    b. I textrutan **Namn** skriver du namnet.
 
-    c. I den **beskrivning** textrutan anger du beskrivningen.
+    c. I textrutan **Beskrivning** skriver du beskrivningen.
 
     d. Klicka på **Nästa**.
 
-1. På den **konfigurationssidan för identitets-provider**, klickar du på **nästa**.
+6. På **konfigurationssidan för identitetsprovider** klickar du på **Nästa**.
 
-    ![Identity-config](./media/bitbucket-tutorial/tutorial_bitbucket_identityconfig.png)
+    ![Identitetskonfigurationen](./media/bitbucket-tutorial/tutorial_bitbucket_identityconfig.png)
 
-1.  På den **importera SAML Idp Metadata** , klickar du på **Läs in fil** att ladda upp den **XML-METADATA för** fil som du har hämtat från Azure-portalen.
+7.  På sidan **Importera SAML IdP-metadata** klickar du på **Läs in fil** för att ladda upp den **METADATA XML**-fil som du har laddat ned från Azure-portalen.
 
-    ![Idpmetadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
+    ![IdP-metadata](./media/bitbucket-tutorial/tutorial_bitbucket_idpmetadata.png)
     
-1. Klicka på **Nästa**.
+8. Klicka på **Nästa**.
 
-1. Klicka på **spara inställningarna för**.
+9. Klicka **Spara inställningar**.
 
     ![Spara](./media/bitbucket-tutorial/tutorial_bitbucket_save.png)
 
-> [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
-   ![Skapa en Azure AD-testanvändare][100]
+    ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-**Utför följande steg för att skapa en testanvändare i Azure AD:**
+2. Välj **Ny användare** överst på skärmen.
 
-1. I Azure-portalen, i den vänstra rutan klickar du på den **Azure Active Directory** knappen.
+    ![Knappen Ny användare](common/new-user.png)
 
-    ![Azure Active Directory-knappen](./media/bitbucket-tutorial/create_aaduser_01.png)
+3. Genomför följande steg i Användaregenskaper.
 
-1. Om du vill visa en lista över användare, gå till **användare och grupper**, och klicka sedan på **alla användare**.
+    ![Dialogrutan Användare](common/user-properties.png)
 
-    ![”Användare och grupper” och ”alla användare”-länkar](./media/bitbucket-tutorial/create_aaduser_02.png)
+    a. I fältet **Namn** anger du **BrittaSimon**.
+  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
+    Till exempel, BrittaSimon@contoso.com
 
-1. Öppna den **användaren** dialogrutan klickar du på **Lägg till** överst i den **alla användare** dialogrutan.
-
-    ![Knappen Lägg till](./media/bitbucket-tutorial/create_aaduser_03.png)
-
-1. I den **användaren** dialogrutan utför följande steg:
-
-    ![Dialogrutan användare](./media/bitbucket-tutorial/create_aaduser_04.png)
-
-    a. I den **namn** skriver **BrittaSimon**.
-
-    b. I den **användarnamn** skriver användarens Britta Simon e-postadress.
-
-    c. Välj den **visa lösenord** kryssrutan och sedan skriva ned det värde som visas i den **lösenord** box.
+    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
     d. Klicka på **Skapa**.
- 
-### <a name="create-a-saml-sso-for-bitbucket-by-resolution-gmbh-test-user"></a>Skapa en SAML SSO för Bitbucket av lösning GmbH testanvändare
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i SAML SSO för Bitbucket resolution GmbH. SAML SSO för Bitbucket resolution GmbH har stöd för just-in-time-etablering och även användare kan skapas manuellt, kontakta [SAML SSO för Bitbucket resolution GmbH klienten supportteam](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) enligt dina behov.
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+I det här avsnittet gör du det möjligt för Britta Simon att använda enkel inloggning med Azure genom att ge åtkomst till SAML SSO for Bitbucket by resolution GmbH.
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till SAML SSO för Bitbucket resolution GmbH.
+1. I Azure-portalen väljer du **Företagsprogram** följt av **Alla program** och sedan **SAML SSO for Bitbucket by resolution GmbH**.
 
-![Tilldela rollen][200] 
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-**Om du vill tilldela SAML SSO för Bitbucket Britta Simon resolution GmbH, utför du följande steg:**
+2. I listan över program skriver och väljer du **SAML SSO for Bitbucket by resolution GmbH**.
 
-1. Öppna vyn program i Azure-portalen och gå till vyn directory och gå till **företagsprogram** klickar **alla program**.
+    ![SAML SSO for Bitbucket by resolution GmbH-länk i programlistan](common/all-applications.png)
 
-    ![Tilldela användare][201] 
+3. På menyn till vänster väljer du **Användare och grupper**.
 
-1. I listan med program väljer **SAML SSO för Bitbucket resolution GmbH**.
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-    ![SAML SSO för Bitbucket per lösning GmbH länk i listan med program](./media/bitbucket-tutorial/tutorial_bitbucket_app.png)  
+4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
 
-1. I menyn till vänster, klickar du på **användare och grupper**.
+    ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-    ![Länken ”användare och grupper”][202]
+5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
 
-1. Klicka på **Lägg till** knappen. Välj sedan **användare och grupper** på **Lägg till tilldelning** dialogrutan.
+6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
 
-    ![Fönstret Lägg till tilldelning][203]
+7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-1. På **användare och grupper** dialogrutan **Britta Simon** på listan användare.
+### <a name="create-saml-sso-for-bitbucket-by-resolution-gmbh-test-user"></a>Skapa SAML SSO for Bitbucket by resolution GmbH-testanvändare
 
-1. Klicka på **Välj** knappen **användare och grupper** dialogrutan.
+Målet med det här avsnittet är att skapa en användare som heter Britta Simon i SAML SSO for Bitbucket by resolution GmbH. SAML SSO for Bitbucket by resolution GmbH stöder just-in-time-etablering och manuellt skapande av användare. Kontakta [kundsupporten för SAML SSO for Bitbucket by resolution GmbH](https://marketplace.atlassian.com/plugins/com.resolution.atlasplugins.samlsso-bitbucket/server/support) enligt dina behov.
 
-1. Klicka på **tilldela** knappen **Lägg till tilldelning** dialogrutan.
-    
-### <a name="test-single-sign-on"></a>Testa enkel inloggning
+### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på SAML SSO för Bitbucket av lösning GmbH panel i åtkomstpanelen du bör få automatiskt loggat in på ditt SAML SSO för Bitbucket resolution GmbH program.
-Läs mer om åtkomstpanelen [introduktion till åtkomstpanelen](../user-help/active-directory-saas-access-panel-introduction.md). 
+När du klickar på SAML SSO for Bitbucket by resolution GmbH-panelen i åtkomstpanelen bör du automatiskt loggas in på SAML SSO for Bitbucket by resolution GmbH som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Lista över guider om hur du integrerar SaaS-appar med Azure Active Directory](tutorial-list.md)
-* [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/bitbucket-tutorial/tutorial_general_01.png
-[2]: ./media/bitbucket-tutorial/tutorial_general_02.png
-[3]: ./media/bitbucket-tutorial/tutorial_general_03.png
-[4]: ./media/bitbucket-tutorial/tutorial_general_04.png
-
-[100]: ./media/bitbucket-tutorial/tutorial_general_100.png
-
-[200]: ./media/bitbucket-tutorial/tutorial_general_200.png
-[201]: ./media/bitbucket-tutorial/tutorial_general_201.png
-[202]: ./media/bitbucket-tutorial/tutorial_general_202.png
-[203]: ./media/bitbucket-tutorial/tutorial_general_203.png
+- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

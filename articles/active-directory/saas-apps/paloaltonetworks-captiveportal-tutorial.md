@@ -1,10 +1,10 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Palo Alto Networks – Captive Portal | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks – Captive Portal.
+title: 'Självstudier: Azure Active Directory-integrering med Palo Alto Networks Captive Portal | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Palo Alto Networks Captive Portal.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
 ms.service: Azure-Active-Directory
@@ -14,198 +14,197 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
-ms.openlocfilehash: eff08cc17f475e2b6ad6406e463de27371bbe5b1
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 15ddb29f090ca8dc14befc93e3377c181038b554
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064737"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54816168"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---captive-portal"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks – Captive Portal
+# <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Självstudier: Azure Active Directory-integrering med Palo Alto Networks Captive Portal
 
-I den här självstudien lär du dig att integrera Palo Alto Networks – Captive Portal med Azure Active Directory (AD Azure).
-Genom att integrera Palo Alto Networks – Captive Portal med Azure AD får du följande fördelar:
+I den här självstudien lär du dig att integrera Palo Alto Networks Captive Portal med Azure Active Directory (AD Azure).
 
-* Du kan i Azure AD styra vem som har åtkomst till Palo Alto Networks – Captive Portal.
-* Du kan göra så att dina användare automatiskt loggas in på Palo Alto Networks – Captive Portal (enkel inloggning) med sina Azure AD-konton.
-* Du kan hantera dina konton på en central plats – Azure-portalen.
+Genom att integrera Palo Alto Networks Captive Portal med Azure AD får du följande fördelar:
 
-Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
+* Du kan i Azure AD styra vem som har åtkomst till Palo Alto Networks Captive Portal.
+* Du kan automatiskt logga in användare i Palo Alto Networks Captive Portal (enkel inloggning) med hjälp av Azure AD-konton.
+* Du kan hantera dina konton på en enda central plats: Azure-portalen.
+
+Läs mer om SaaS-appintegrering (programvara som en tjänst) med Azure AD i [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+
+Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att konfigurera Azure AD-integrering med Palo Alto Networks – Captive Portal behöver du följande:
+För att integrera Azure AD med Palo Alto Networks Captive Portal behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* Palo Alto Networks – Captive Portal-prenumeration med enkel inloggning aktiverat
+* En Azure Active Directory-prenumeration. Om du inte har Azure AD kan du få [en månads kostnadsfri utvärdering](https://azure.microsoft.com/pricing/free-trial/).
+* En Palo Alto Networks Captive Portal-prenumeration med enkel inloggning (SSO) aktiverat.
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Palo Alto Networks – Captive Portal stöder **IDP**-initierad enkel inloggning
+Palo Alto Networks Captive Portal stöder följande scenarier:
 
-* Palo Alto Networks – Captive Portal stöder **just-in-time**-användaretablering
+* **IDP-initierad enkel inloggning**
+* **just-in-time-användaretablering**
 
-## <a name="adding-palo-alto-networks---captive-portal-from-the-gallery"></a>Lägga till Palo Alto Networks – Captive Portal från galleriet
+## <a name="add-palo-alto-networks-captive-portal-from-the-gallery"></a>Lägga till Palo Alto Networks Captive Portal från galleriet
 
-För att konfigurera integreringen av Palo Alto Networks – Captive Portal till Azure AD behöver du lägga till Palo Alto Networks – Captive Portal från galleriet till listan över hanterade SaaS-appar.
+Kom igång genom att i galleriet lägga till Palo Alto Networks Captive Portal till listan över hanterade SaaS-appar:
 
-**Lägg till Palo Alto Networks – Captive Portal från galleriet genom att utföra följande steg:**
-
-1. I **[Azure-portalen](https://portal.azure.com)**, i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
+1. I [Azure-portalen](https://portal.azure.com) går du till den vänstra menyn och väljer **Azure Active Directory**.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
-2. Gå till **Företagsprogram** och välj alternativet **Alla program**.
+2. Välj **Företagsprogram** > **Alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Alternativ för företagsprogram i menyn](common/enterprise-applications.png)
 
-3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
+3. Välj **Nytt program**.
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver du **Palo Alto Networks – Captive Portal**, väljer **Palo Alto Networks – Captive Portal** från resultatpanelen och klickar därefter på **Lägg till** för att lägga till programmet.
+4. I sökrutan anger du **Palo Alto Networks Captive Portal**. I sökresultatet väljer du **Palo Alto Networks – Captive Portal** och sedan **Lägg till**.
 
      ![Palo Alto Networks – Captive Portal i resultatlistan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
-I det här avsnittet så konfigurerar och testar du enkel inloggning i Azure AD med Palo Alto Networks – Captive Portal baserat på en testanvändare som heter **Britta Simon**.
-För att enkel inloggning ska fungera måste en länkrelation mellan en Azure AD-användare och den relaterade användaren i Palo Alto Networks – Captive Portal upprättas.
+Du konfigurerar och testar enkel inloggning i Azure AD med Palo Alto Networks Captive Portal baserat på en testanvändare som heter *Britta Simon*. För att enkel inloggning ska fungera måste du upprätta en relation mellan en Azure AD-användare och samma användare Palo Alto Networks Captive Portal. 
 
-För att konfigurera och testa enkel inloggning för Azure AD med Palo Alto Networks – Captive Portal behöver du slutföra följande byggstenar:
+För att konfigurera och testa enkel inloggning för Azure AD med Palo Alto Networks Captive Portal behöver du slutföra följande byggstenar:
 
-1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
-2. **[Konfigurera enkel inloggning för Palo Alto Networks – Captive Portal](#configure-palo-alto-networks---captive-portal-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
-4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
-5. **[Skapa Palo Alto Networks – Captive Portal-testanvändare](#create-palo-alto-networks---captive-portal-test-user)** – du har en motpart för Britta Simon i Palo Alto Networks – Captive Portal som är länkad till en Azure AD-representation av användaren.
-6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)**: Gör att användaren kan använda den här funktionen.
+2. **[Konfigurera enkel inloggning för Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Konfigurera inställningar för enkel inloggning i programmet.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**: Testa enkel inloggning med Azure AD med användaren *Britta Simon*.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)**: Konfigurera Britta Simon att använda enkel inloggning med Azure AD.
+5. **[Skapa en Palo Alto Networks Captive Portal-testanvändare](#create-palo-alto-networks-captive-portal-test-user)**: Skapa den motsvarande användaren *Britta Simon* i Palo Alto Networks Captive Portal som är länkad till Azure AD-användaren.
+6. **[Testa enkel inloggning](#test-single-sign-on)**: Kontrollera att konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
-I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
-
-Utför följande steg för att konfigurera enkel inloggning i Azure AD med Palo Alto Networks – Captive Portal:
+Först aktiverar du enkel inloggning med Azure AD i Azure-portalen:
 
 1. På [Azure-portalen](https://portal.azure.com/) går du till sidan för **Palo Alto Networks – Captive Portal**-programintegrering och väljer **Enkel inloggning**.
 
     ![Konfigurera länk för enkel inloggning](common/select-sso.png)
 
-2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
+2. I fönstret **Välj en metod för enkel inloggning** väljer du **SAML**.
 
     ![Välja läge för enkel inloggning](common/select-saml-option.png)
 
-3. På sidan **Konfigurera enkel inloggning med SAML** klickar du på **redigeringsikonen** för att öppna dialogrutan **Grundläggande SAML-konfiguration**.
+3. I fönstret **Konfigurera enkel inloggning med SAML** väljer du pennikonen **Redigera**.
 
-    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+    ![Pennikonen Redigera](common/edit-urls.png)
 
-4. I dialogrutan **Grundläggande SAML-konfiguration** utför du följande steg:
+4. I fönstret **Grundläggande SAML-konfiguration** utför du följande steg:
 
-    ![Palo Alto Networks – Captive Portal-domän och information om URL:er för enkel inloggning](common/idp-intiated.png)
+    ![Fönstret Grundläggande SAML-konfiguration för Palo Alto Networks Captive Portal](common/idp-intiated.png)
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<Customer Firewall Hostname>/SAML20/SP`
+    1. För **Identifierare** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<Customer Firewall Hostname>/SAML20/SP/ACS`
+    2. För **Svars-URL** anger du en URL som har mönstret `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska identifieraren och svars-URL. Hämta dessa värden genom att kontakta [supportteamet för Palo Alto Networks – Captive Portal-klienten](https://support.paloaltonetworks.com/support). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Uppdatera platshållarvärdena i det här steget med den faktiska identifieraren och svars-URL:erna. Hämta de faktiska värdena genom att kontakta [kundsupporten för Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
-5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
+5. I avsnittet **SAML-signeringscertifikat** letar du upp **XML:en med federationsmetadata** och väljer **Ladda ned** intill det. Spara den nedladdade filen till datorn.
 
-    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
+    ![Nedladdningslänk för XML:en med federationsmetadata](common/metadataxml.png)
 
-### <a name="configure-palo-alto-networks---captive-portal-single-sign-on"></a>Konfigurera enkel inloggning för Palo Alto Networks – Captive Portal
+### <a name="configure-palo-alto-networks-captive-portal-single-sign-on"></a>Konfigurera enkel inloggning för Palo Alto Networks Captive Portal
 
-1. Öppna Palo Alto-platsen som administratör i ett annat webbläsarfönster.
+Sedan konfigurerar du enkel inloggning för Palo Alto Networks Captive Portal:
 
-2. Klicka på **enhet**.
+1. I ett annat webbläsarfönster loggar du in på Palo Alto Networks-webbplatsen som administratör.
 
-    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
+2. Välj fliken **Enhet**.
 
-3. Välj **SAML-identitetsprovider** från det vänstra navigeringsfönstret och klicka på Importera om du vill importera metadatafilen.
+    ![Fliken Enheter för Palo Alto Networks-webbplatsen](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin1.png)
 
-    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
+3. I menyn väljer du **SAML-identitetsprovider** och sedan **Importera**.
 
-4. Utför följande åtgärder i Importera-fönstret
+    ![Knappen Importera](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin2.png)
 
-    ![Konfigurera enkel inloggning med Palo Alto](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+4. I dialogrutan **SAML Identity Provider Server Profile Import** (Importera serverprofil för SAML-identitetsprovider) utför du följande steg:
 
-    a. I textrutan **Profilnamn** anger du ett namn, till exempel Azure AD Admin UI.
+    ![Konfigurera enkel inloggning för Palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
+
+    1. För **Profilnamn** anger du ett namn, till exempel **AzureAD-CaptivePortal**.
     
-    b. I **Metadata för identitetsprovider** klickar du på **Bläddra** och väljer metadata XML-filen som du hämtade från Azure Portal
+    2. Intill **Identity Provider Metadata** (Metadata för identitetsprovider) väljer du **Bläddra**. Välj den metadata.xml-fil som du laddade ned i Azure-portalen.
     
-    c. Klicka på **OK**
+    3. Välj **OK**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
+Skapa sedan en testanvändare med namnet *Britta Simon* i Azure-portalen:
 
-1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
+1. I Azure-portalen väljer du **Azure Active Directory** > **Användare** > **Alla användare**.
 
     ![Länkarna ”Användare och grupper” och ”Alla grupper”](common/users.png)
 
-2. Välj **Ny användare** överst på skärmen.
+2. Välj **Ny användare**.
 
     ![Knappen Ny användare](common/new-user.png)
 
-3. Genomför följande steg i Användaregenskaper.
+3. I fönstret **Användare** utför du följande steg:
 
     ![Dialogrutan Användare](common/user-properties.png)
 
-    a. I fältet **Namn** anger du **BrittaSimon**.
+    1. För **Namn** anger du **BrittaSimon**.
   
-    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
-    Till exempel, BrittaSimon@contoso.com
+    2. För **Användarnamn** anger du **BrittaSimon@\<din_företagsdomän\>**. Till exempel **BrittaSimon@contoso.com**.
 
-    c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
+    3. För **Lösenord** anger du ett lösenord. Vi rekommenderar att du antecknar det lösenord du anger. Du kan markera kryssrutan **Visa lösenord** för att visa lösenordet.
 
-    d. Klicka på **Skapa**.
+    4. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
-I det här avsnittet låter du Britta Simon använda enkel inloggning i Azure genom att ge åtkomst till Palo Alto Networks – Captive Portal.
+Sedan beviljar du åtkomst till Palo Alto Networks Captive Portal så att Britta Simon kan använda enkel inloggning med Azure:
 
-1. På Azure-portalen väljer du **Företagsprogram**, **Alla program** och sedan **Palo Alto Networks – Captive Portal**.
+1. I Azure-portalen väljer du **Företagsprogram** > **Alla program**.
 
-    ![Bladet Företagsprogram](common/enterprise-applications.png)
+    ![Fönstret Företagsprogram](common/enterprise-applications.png)
 
-2. I programlistan skriver du in och väljer **Palo Alto Networks – Captive Portal**.
+2. I programlistan anger du **Palo Alto Networks – Captive Portal** och väljer sedan programmet.
 
-    ![Palo Alto Networks – Captive Portal-länken i programlistan](common/all-applications.png)
+    ![Palo Alto Networks – Captive Portal-länk i programlistan](common/all-applications.png)
 
-3. På menyn till vänster väljer du **Användare och grupper**.
+3. På menyn väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
-4. Klicka på knappen **Lägg till användare** och välj sedan **Användare och grupper** i dialogrutan **Lägg till tilldelning**.
+4. Välj **Lägg till användare**. I fönstret **Lägg till tilldelning** väljer du **Användare och grupper**.
 
     ![Fönstret Lägg till tilldelning](common/add-assign-user.png)
 
-5. I dialogrutan **Användare och grupper** väljer du **Britta Simon** i listan med användare och klickar på knappen **Välj** längst ned på skärmen.
+5. I fönstret **Användare och grupper** går du till listan **Användare** och väljer **Britta Simon**. Välj **Välj**.
 
-6. Om du förväntar dig ett rollvärde i SAML-försäkran väljer du i dialogrutan **Välj roll** lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+6. För att lägga till ett rollvärde i SAML-försäkran lägger du i fönstret **Välj roll** till relevant roll för användaren. Välj **Välj**.
 
-7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+7. I fönstret **Lägg till tilldelning** väljer du **Tilldela**.
 
-### <a name="create-palo-alto-networks---captive-portal-test-user"></a>Skapa Palo Alto Networks – Captive Portal-testanvändare
+### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Skapa en Palo Alto Networks Captive Portal-testanvändare
 
-I det här avsnittet skapas en användare som heter Britta Simon i Palo Alto Networks – Captive Portal. Palo Alto Networks – Captive Portal stöder **just-in-time-användaretablering**, vilket är aktiverat som standard. Det finns inget åtgärdsobjekt för dig i det här avsnittet. Om det inte redan finns en användare i Palo Alto Networks – Captive Portal skapas en ny efter autentisering.
+Skapa sedan en användare med namnet *Britta Simon* i Palo Alto Networks Captive Portal. Palo Alto Networks Captive Portal stöder just-in-time-användaretablering, vilket är aktiverat som standard. Du behöver inte utföra några uppgifter i det här avsnittet. Om det inte redan finns en användare i Palo Alto Networks – Captive Portal skapas en ny efter autentisering.
 
 > [!NOTE]
-> Om du behöver skapa en användare manuellt kontaktar du [supportteamet för Palo Alto Networks – Captive Portal-klienten](https://support.paloaltonetworks.com/support).
+> Om du vill skapa en användare manuellt kontaktar du [kundsupporten för Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
-Captive Portal är konfigurerat bakom brandväggen på Windows-VM. För att testa enkel inloggning på Captive Portal loggar du in på Windows-VM med hjälp av Remote Desktop Protocol (RDP). Från RDP-sessionen öppnar du ett webbläsarfönster till valfri webbplats. Det bör automatiskt öppna URL:en för enkel inloggning och fråga efter autentisering. När autentiseringen är klar bör du kunna navigera till webbplatser.
+Palo Alto Networks Captive Portal installeras bakom brandväggen på en virtuella Windows-dator. För att testa enkel inloggning i Palo Alto Networks Captive Portal loggar du in på den virtuella Windows-datorn med hjälp av Remote Desktop Protocol (RDP). I RDP-sessionen öppnar du en webbläsare och går till valfri webbplats. URL:en för enkel inloggning öppnas, och du uppmanas att autentisera. När autentiseringen är klar kan du komma åt webbplatser.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+Mer information finns i följande artiklar:
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-
-- [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Självstudier om att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Enkel inloggning till program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Villkorlig åtkomst i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

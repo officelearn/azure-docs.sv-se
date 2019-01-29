@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 704bbe5cc566833ef1279e84f0fab9f363dfaa11
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 97dffa4952354864f90f75ffb909228eb4202e77
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841639"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382802"
 ---
-# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager jämfört med klassisk distribution: Förstå distributionsmodeller och dina resursers tillstånd
+# <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager kontra klassisk distribution: Förstå distributionsmodeller och tillståndet för dina resurser
 
 > [!NOTE]
 > Informationen i den här artikeln används bara när du migrerar från den klassiska distributionen till Azure Resource Manager-distributionen.
@@ -153,6 +153,7 @@ All automatisering och alla skript som du har skapat kommer att fortsätta funge
 Du hittar en omfattande uppsättning startmallar i [Azure Resource Manager-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Om du vill se hur man skapar mallen som definierar en virtuell dator, ett lagringskonto och ett virtuellt nätverk kan du läsa [Genomgång av en Resource Manager-mall](resource-manager-template-walkthrough.md).
 * Kommandon för att distribuera en mall finns i [Distribuera ett program med en Azure Resource Manager-mall](resource-group-template-deploy.md).
 

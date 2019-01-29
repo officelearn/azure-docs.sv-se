@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 928b8fd8ef076afa2c60c870fb705a9a682003d1
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: e96119abd4fc77c576fb65281c3f48b8263e020d
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53093615"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54849982"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -93,15 +93,23 @@ Azure Cost Management ger även kostnadsbesparande rekommendationer för Azure-t
 
 ## <a name="create-alerts-for-unusual-spending"></a>Skapa aviseringar för onormalt höga kostnader
 
-Du kan automatiskt meddela intressenter vid avvikelser i utgifterna och vid risk för höga utgifter. Du kan snabbt och enkelt skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader.
+Aviseringar gör att du automatiskt kan meddela intressenter om avvikelser i utgifter och risk för höga utgifter. Du kan skapa aviseringar med hjälp av rapporter som har stöd för aviseringar baserat på tröskelvärden för budgetar och kostnader.
 
-Du kan skapa en avisering för alla typer av utgifter från valfri kostnadsrapport. I det här exemplet använder du rapporten Actual Cost Over Time till att meddela dig när Azure VM-utgifterna närmar sig din totala budget. Alla följande steg krävs för att skapa aviseringen. I menyn längst upp i portalen klickar du på **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. Klicka på **Actions** (Åtgärder) uppe till höger i rapporten och välj **Schedule report** (Schemalägg rapport).
+I det här exemplet används rapporten **Actual Cost Over Time** (Faktisk kostnad över tid) till att skicka ett meddelande när dina Azure VM-utgifter närmar sig din totala budget. I det här scenariot har du en total budget på 20 000 dollar, och du vill få ett meddelande när kostnaderna närmar sig hälften av budgeten – 9 000 dollar – och ytterligare ett meddelande när kostnaderna når 10 000 dollar.
 
-På fliken **Schemaläggning** i rutan Spara eller schemalägg den här rapporten kan du ange att du vill få ett e-postmeddelande med rapporten med valfri frekvens. Välj **Skicka via e-post**. De taggar samt den gruppering och filtrering du använde ingår i rapporten du får via e-post. Klicka på fliken **Threshold** (Tröskelvärde) och välj **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). Om du har en total budget på 20 000 USD och vill få en avisering när kostnaderna är ungefär hälften kan du skapa en **röd avisering** vid 10 000 USD och en **gul avisering** vid 9 000 USD. Inkludera inte kommatecken i de värden som du anger. Välj sedan antalet på varandra följande aviseringar. När du har fått det antal aviseringar som du angett, skickas inga fler aviseringar. Spara den schemalagda rapporten.
+1. På menyn längst upp i Cloudyn-portalen väljer du **Kostnader** > **Kostnadsanalys** > **Faktisk kostnad över tid**. 
+2. Ställ in **Groups** (Grupper) på **Service** och sätt **Filter on the service** (Filtrera efter tjänsten) till **Azure/VM**. 
+3. Längst upp till höger i rapporten väljer du **Åtgärder** och sedan **Schemalägg rapport**.
+4. Om du vill skicka e-post med rapporten till dig själv vid schemalagt intervall väljer du fliken **Schemaläggning** i rapportdialogrutan **Spara eller schemalägg den här**. Välj **Skicka via e-post**. Eventuella taggar samt den gruppering och filtrering du använde ingår i den rapport som du får via e-post. 
+5. Välj fliken **Tröskel** och sedan **Actual Cost vs. Threshold** (Faktisk kostnad jämfört med tröskelvärde). 
+   1. I tröskelrutan **Röd avisering** anger du 10000. 
+   2. I tröskelrutan **Gul avisering** anger du 9000. 
+   3. I rutan **Antal på varandra följande aviseringar** anger du det antal på varandra följande aviseringar som ska tas emot. När du har fått det totala antal aviseringar som du angav skickas inga fler aviseringar. 
+6. Välj **Spara**.
 
 ![Exemplet visar röda och gula aviseringar baserat på tröskelvärden för utgifter](./media/tutorial-review-usage/schedule-alert01.png)
 
-Du kan också välja tröskelvärdesmåttet Cost Percentage vs. Budget (Kostnadernas procentandel av budgeten) till att skapa aviseringar. Då kan du använda procentandelar av budgeten i stället för faktiska valutavärden.
+Du kan även välja tröskelvärdesmåttet **Cost Percentage vs. Budget** (Kostnadernas procentandel av budgeten) till att skapa aviseringar. På så sätt kan du ange tröskelvärden som procentandelar av budgeten i stället för valutavärden.
 
 ## <a name="export-data"></a>Exportera data
 

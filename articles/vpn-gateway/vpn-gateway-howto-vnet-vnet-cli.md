@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuellt nätverk till ett annat VNet med en VNet-till-VNet-anslutning: Azure CLI | Microsoft Docs'
+title: 'Ansluta ett virtuellt nätverk till ett annat VNet via en VNet-till-VNet-anslutning: Azure CLI | Microsoft Docs'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och Azure CLI.
 services: vpn-gateway
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2fc25235325db8a403c2b258dd5e4b3effc46ace
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dda4f68046b81d96cfe92d5e8b09eab23df0003b
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971968"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846324"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av Azure CLI
 
@@ -74,11 +74,11 @@ I den här artikeln beskrivs två olika uppsättningar anvisningar för anslutni
 
 För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-* [VNets som finns i samma prenumeration:](#samesub) I stegen för den här konfigurationen används TestVNet1 och TestVNet4.
+* [VNet som finns i samma prenumeration:](#samesub) Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-* [VNets som finns i olika prenumerationer:](#difsub) I stegen för den här konfigurationen används TestVNet1 och TestVNet5.
+* [VNet som finns i olika prenumerationer:](#difsub) Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
 
@@ -99,14 +99,14 @@ Vi använder följande värden i exemplen:
 
 * VNet-namn: TestVNet1
 * Resursgrupp: TestRG1
-* Plats: USA, östra
+* Plats: Östra USA
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Offentlig IP: VNet1GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet1GWIP
+* VPNType: Routningsbaserad
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 
@@ -120,8 +120,8 @@ Vi använder följande värden i exemplen:
 * Resursgrupp: TestRG4
 * Plats: Västra USA
 * GatewayName: VNet4GW
-* Offentlig IP: VNet4GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet4GWIP
+* VPNType: Routningsbaserad
 * Anslutning: VNet4toVNet1
 
 ### <a name="Connect"></a>Steg 1 - Ansluta till din prenumeration
@@ -133,7 +133,7 @@ Vi använder följande värden i exemplen:
 1. Skapa en resursgrupp.
 
   ```azurecli
-  az group create -n TestRG1  -l eastus
+  az group create -n TestRG1  -l eastus
   ```
 2. Skapa TestVNet1 och undernäten för TestVNet1. I följande exempel skapas ett virtuellt nätverk med namnet ”TestVNet1” och ett undernät, ”FrontEnd”.
 
@@ -148,11 +148,11 @@ Vi använder följande värden i exemplen:
 4. Skapa backend-undernät.
   
   ```azurecli
-  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
+  az network vnet subnet create --vnet-name TestVNet1 -n BackEnd -g TestRG1 --address-prefix 10.12.0.0/24 
   ```
 5. Skapa gateway-undernätet. Observera att gateway-undernätet har namnet 'GatewaySubnet'. Namnet är obligatoriskt. I det här exemplet använder gateway-undernätet en /27. Även om det är möjligt att skapa ett gatewayundernät som är så litet som /29 så rekommenderar vi att du skapar ett större undernät som inkluderar fler adresser genom att välja minst /28 eller /27. Det tillåter tillräckligt med adresser för att rymma möjliga övriga konfigurationer som du kan behöva i framtiden.
 
-  ```azurecli 
+  ```azurecli 
   az network vnet subnet create --vnet-name TestVNet1 -n GatewaySubnet -g TestRG1 --address-prefix 10.12.255.0/27
   ```
 6. Begär en offentlig IP-adress som ska allokeras till den gateway som du ska skapa för det virtuella nätverket. Observera att AllocationMethod är Dynamic. Du kan inte ange den IP-adress som du vill använda. Den allokeras dynamiskt till gatewayen.
@@ -171,7 +171,7 @@ Vi använder följande värden i exemplen:
 1. Skapa en resursgrupp.
 
   ```azurecli
-  az group create -n TestRG4  -l westus
+  az group create -n TestRG4  -l westus
   ```
 2. Skapa TestVNet4.
 
@@ -182,13 +182,13 @@ Vi använder följande värden i exemplen:
 3. Skapa extra undernät för TestVNet4.
 
   ```azurecli
-  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
-  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
+  az network vnet update -n TestVNet4 --address-prefixes 10.41.0.0/16 10.42.0.0/16 -g TestRG4 
+  az network vnet subnet create --vnet-name TestVNet4 -n BackEnd -g TestRG4 --address-prefix 10.42.0.0/24 
   ```
 4. Skapa gateway-undernätet.
 
   ```azurecli
-   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
+   az network vnet subnet create --vnet-name TestVNet4 -n GatewaySubnet -g TestRG4 --address-prefix 10.42.255.0/27
   ```
 5. Begär en offentlig IP-adress.
 
@@ -218,18 +218,18 @@ Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-an
   Exempel på utdata:
 
   ```
-  "activeActive": false, 
-  "bgpSettings": { 
-    "asn": 65515, 
-    "bgpPeeringAddress": "10.12.255.30", 
-    "peerWeight": 0 
-   }, 
-  "enableBgp": false, 
-  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
-  "gatewayDefaultSite": null, 
-  "gatewayType": "Vpn", 
-  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
-  "ipConfigurations":
+  "activeActive": false, 
+  "bgpSettings": { 
+    "asn": 65515, 
+    "bgpPeeringAddress": "10.12.255.30", 
+    "peerWeight": 0 
+   }, 
+  "enableBgp": false, 
+  "etag": "W/\"ecb42bc5-c176-44e1-802f-b0ce2962ac04\"", 
+  "gatewayDefaultSite": null, 
+  "gatewayType": "Vpn", 
+  "id": "/subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW", 
+  "ipConfigurations":
   ```
 
   Kopiera värdena efter **”id”:** inom citattecken.
@@ -247,7 +247,7 @@ Nu har du två VNets med VPN-gatewayer. Nästa steg är att skapa VPN-gateway-an
 3. Skapa TestVNet1-till-TestVNet4-anslutningen. I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet4. Den finns en delad nyckel som refereras i exemplen. Du kan använda egna värden för den delade nyckeln. Det är viktigt att den delade nyckeln matchar båda anslutningarna. Att skapa en anslutning kan ta en stund att slutföra.
 
   ```azurecli
-  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
+  az network vpn-connection create -n VNet1ToVNet4 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "aabbcc" --vnet-gateway2 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG4/providers/Microsoft.Network/virtualNetworkGateways/VNet4GW 
   ```
 4. Skapa TestVNet4-till-TestVNet1-anslutningen. Det här steget liknar det ovan, förutom att du skapar anslutningen från TestVNet4 till TestVNet1. Kontrollera att de delade nycklarna matchar. Det tar några minuter att upprätta anslutningen.
 
@@ -286,14 +286,14 @@ När du skapar ytterligare anslutningar är det viktigt att se till att IP-adres
 
 * VNet-namn: TestVNet5
 * Resursgrupp: TestRG5
-* Plats: Japan, östra
+* Plats: Östra Japan
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Offentlig IP: VNet5GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet5GWIP
+* VPNType: Routningsbaserad
 * Anslutning: VNet5toVNet1
 * ConnectionType: VNet2VNet
 
@@ -304,7 +304,7 @@ Det här steget måste utföras i den nya prenumerationen, prenumeration 5. Den 
 1. Kontrollera att du är ansluten till prenumeration 5 och sedan skapa en resursgrupp.
 
   ```azurecli
-  az group create -n TestRG5  -l japaneast
+  az group create -n TestRG5  -l japaneast
   ```
 2. Skapa TestVNet5.
 
@@ -362,7 +362,7 @@ Vi har delat upp steget i två CLI-sessioner som kallas för **[Prenumeration 1]
 
   Kopiera utdata för ”id:”. Skicka ID och namn på den VNet-gatewayen (VNet5GW) till prenumeration 1-administratören via e-post eller någon annan metod.
 
-3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra. Kontrollera att du ansluter till Prenumeration 1.
+3. **[Prenumeration 1]** I det här steget ska du skapa anslutningen från TestVNet1 till TestVNet5. Du kan använda egna värden för den delade nyckeln, men den delade nyckeln måste matcha för både anslutningar. Att skapa en anslutning kan ta en stund att slutföra. Kontrollera att du ansluter till Prenumeration 1.
 
   ```azurecli
   az network vpn-connection create -n VNet1ToVNet5 -g TestRG1 --vnet-gateway1 /subscriptions/d6ff83d6-713d-41f6-a025-5eb76334fda9/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW -l eastus --shared-key "eeffgg" --vnet-gateway2 /subscriptions/e7e33b39-fe28-4822-b65c-a4db8bbff7cb/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW

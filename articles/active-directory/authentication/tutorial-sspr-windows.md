@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 5c40e6c681a4f37c61519040eb32531d3c8f071c
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 640f03cd35ac74df9c7b25352ab294c35c4ec0ea
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437154"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54430680"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Självstudie: Azure AD-lösenordsåterställning från inloggningsskärmen
 
@@ -32,6 +32,7 @@ I den här självstudien gör du så att användare kan återställa sina lösen
    * [Azure AD-ansluten dator](../device-management-azure-portal.md) eller
    * [Hybrid Azure AD-ansluten dator](../device-management-hybrid-azuread-joined-devices-setup.md) med en nätverksanslutning till en domänkontrollant.
 * Återställning av lösenord för självbetjäning i Azure AD måste vara aktiverat.
+* Om dina Windows 10-datorer finns bakom en proxyserver eller brandvägg ska HTTPS-trafik (443) till `passwordreset.microsoftonline.com` och `ajax.aspnetcdn.com` tillåtas.
 
 ## <a name="configure-reset-password-link-using-intune"></a>Konfigurera länken Återställ lösenord med Intune
 
@@ -126,8 +127,6 @@ Det har bekräftats att följande principinställningar stör möjligheten att �
    * Explorer.exe har ersatts med ett anpassat gränssnitt
 
 Den här funktionen fungerar inte för nätverk som distribuerar nätverksautentisering 802.1x och alternativet ”Utför omedelbart innan användaren loggar in”. Nätverk med nätverksautentiseringen 802.1x distribuerad rekommenderas att använda datorautentisering för att aktivera funktionen.
-
-Om dina Windows 10-datorer finns bakom en proxyserver eller brandvägg ska HTTPS-trafik (443) till passwordreset.microsoftonline.com och ajax.aspnetcdn.com tillåtas.
 
 För Hybrid-domänanslutna scenarier så finns ett scenario där SSPR-arbetsflödet slutförs utan att en Active Directory-domänkontrollant behövs. Anslutning med en domänkontrollant krävs när lösenordet ska användas för första gången.
 

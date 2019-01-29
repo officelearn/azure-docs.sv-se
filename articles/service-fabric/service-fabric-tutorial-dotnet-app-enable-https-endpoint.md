@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/12/2018
+ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 2e631a0605385f8d55c652a26739b23a0945674f
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 541d1473b21056e24c6b04b86414936a02b7d9d5
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077258"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382583"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Självstudier: Lägga till en HTTPS-slutpunkt i en klienttjänst i webb-API:et för ASP.NET Core med hjälp av Kestrel
 
@@ -158,7 +158,9 @@ serviceContext =>
         }))
 ```
 
-Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
+Lägg även till följande metod så att Kestrel kan hitta certifikatet i `Cert:\LocalMachine\My`-lagret med hjälp av ämnet.  
+
+Ersätt ”&lt;your_CN_value&gt;” med ”mytestcert” om du har skapat ett självsignerat certifikat med föregående PowerShell-kommando. Använd annars CN för ditt certifikat.
 
 ```csharp
 private X509Certificate2 GetCertificateFromStore()
@@ -347,7 +349,7 @@ Spara alla filer och tryck på F5 för att köra programmet lokalt.  När progra
 
 ## <a name="install-certificate-on-cluster-nodes"></a>Installera certifikatet på klusternoder
 
-Innan du distribuerar programmet till Azure ska du installera certifikatet i `Cert:\LocalMachine\My`-lagret för de fjärranslutna klusternoderna.  När klientwebbtjänsten startar på en klusternod kommer startskriptet att leta upp certifikatet och konfigurera åtkomstbehörigheter.
+Innan du distribuerar programmet till Azure ska du installera certifikatet i `Cert:\LocalMachine\My`-lagret för alla de fjärranslutna klusternoderna.  Tjänster kan flyttas till olika noder i klustret.  När klientwebbtjänsten startar på en klusternod kommer startskriptet att leta upp certifikatet och konfigurera åtkomstbehörigheter.
 
 Exportera först certifikatet till en PFX-fil. Öppna programmet certlm.msc och gå till **Personligt**>**Certifikat**.  Högerklicka på certifikatet *mytestcert* och välj **Alla aktiviteter**>**Exportera**.
 

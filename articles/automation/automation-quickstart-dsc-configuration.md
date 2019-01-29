@@ -3,7 +3,7 @@ title: Azure snabbstart – Konfigurera en virtuell dator med DSC | Microsoft Do
 description: Konfigurera en LAMP-stack på en virtuell Linux-dator med DSC (Desired State Configuration)
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
@@ -11,12 +11,12 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 7a9e394213ef40b995cb048c71f14a190e5e7970
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c0a7bb9dfe8553515816efd53785dbe661cee0fa
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243700"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431596"
 ---
 # <a name="configure-a-linux-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell Linux-dator med DSC (Desired State Configuration)
 
@@ -108,7 +108,7 @@ Importera konfigurationen:
 
 ## <a name="compile-a-configuration"></a>Kompilera en konfiguration
 
-DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) innan de tilldelas till en nod. Kompilering verifierar konfigurationen och tillåter indata för parametervärden. Mer information om kompilering av en konfiguration finns i: [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile) (Kompilera konfigurationer i Azure Automation DSC)
+DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) innan de tilldelas till en nod. Kompilering verifierar konfigurationen och tillåter indata för parametervärden. Mer information om hur du kompilerar en konfiguration finns i: [Kompilera konfigurationer i Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
 
 Kompilera konfigurationen:
 
@@ -145,3 +145,4 @@ I den här snabbstarten har du registrerat en virtuell Linux-dator med DSC, skap
 * Mer information om PowerShell DSC finns i [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Översikt över PowerShell DSC).
 * Mer information om hur du hanterar Automation DSC från PowerShell finns i [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
 * Information om hur du vidarebefordrar DSC-rapporter till Log Analytics för rapportering och aviseringar finns i [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) (Vidarebefordra DSC-rapportering till Log Analytics) 
+

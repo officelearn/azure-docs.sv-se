@@ -11,12 +11,12 @@ ms.author: cforbe
 ms.reviewer: trbye
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81afda4227484c19b49ffc4c399e52576629da34
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: eb4d94d93a72844cfa869bd74aef6eeb34b0f8e9
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321882"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54817511"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Självstudier: Förbereda data för regressionsmodellering
 
@@ -37,7 +37,7 @@ Du kan förbereda dina data i Python med hjälp av [Azure Machine Learning Data 
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Kör anteckningsboken **regression-part1-data-prep.ipynb** antingen i Azure Notebooks eller på din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part1-data-prep.ipynb). Kör anteckningsboken **regression-part1-data-prep.ipynb** antingen i [Azure Notebooks](https://notebooks.azure.com/) eller på din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -1066,7 +1066,7 @@ package.save(file_path)
 
 För att du ska kunna fortsätta med del två i självstudien måste filen **dflows.dprep** finnas i den aktuella katalogen.
 
-Om du inte planerar att fortsätta till del två tar du bort filen **dflows.dprep** i den aktuella katalogen. Ta bort den här filen oavsett om du utför körningen lokalt eller i Azure Notebooks.
+Om du inte planerar att fortsätta till del två tar du bort filen **dflows.dprep** i den aktuella katalogen. Ta bort den här filen oavsett om du utför körningen lokalt eller i [Azure Notebooks](https://notebooks.azure.com/).
 
 ## <a name="next-steps"></a>Nästa steg
 

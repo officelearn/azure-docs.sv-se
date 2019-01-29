@@ -3,21 +3,21 @@ title: Självstudie – Bevilja åtkomst till ett ASP.NET webb-API från en webb
 description: Självstudiekurs som visar hur du använder Active Directory B2C för att skydda ett ASP.NET webb-API och anropa det från en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: bd900071bbcd894d4fe71e0f8a265d98348eb262
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 4051c0438cfb7c33f36cf49542e422e54e723cfc
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52726414"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856068"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API från en webbapp med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig anropa en webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från en ASP.NET-webbapp.
 
@@ -116,13 +116,13 @@ Om du vill anropa ett skyddat webb-API från en app måste du ge appen åtkomst 
 
 När webb-API:et är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så den använder din Azure AD B2C-klientorganisation. I den här självstudiekursen konfigurerar du ett webb-API-exempel. 
 
-Webb-API-exemplet ingår i projektet du laddade ned i den obligatoriska föregående självstudiekursen: [Använda Azure Active Directory B2C för användarautentisering i en ASP.NET webbapp](active-directory-b2c-tutorials-web-app.md). Om du inte genomfört den obligatoriska självstudiekursen gör du det innan du går vidare.
+Exempelwebb-API ingår i det projekt som du laddade ned i den obligatoriska föregående självstudien: [Självstudie om att använda Azure Active Directory B2C för användarautentisering i en ASP.NET-webbapp](active-directory-b2c-tutorials-web-app.md). Om du inte genomfört den obligatoriska självstudiekursen gör du det innan du går vidare.
 
 Exempellösningen innehåller två projekt:
 
-**Exempelwebbapp (TaskWebApp):** webbapp som skapar och redigerar en uppgiftslista. Webbappen använder användarflödet **registrering eller inloggning** för att registrera eller logga in användare med en e-postadress.
+**Exempelwebbapp (TaskWebApp):** Webbapp för att skapa och redigera en uppgiftslista. Webbappen använder användarflödet **registrering eller inloggning** för att registrera eller logga in användare med en e-postadress.
 
-**Webb-API-exempelapp (TaskService):** Webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:et skyddas av Azure AD B2C och anropas av webbappen.
+**Exempelapp med webb-API (TaskWebApp):** Ett webb-API med stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. Webb-API:et skyddas av Azure AD B2C och anropas av webbappen.
 
 Exempelwebbappen och webb-API:et definierar konfigurationsvärdena som appinställningar i varje projekts Web.config-fil.
 

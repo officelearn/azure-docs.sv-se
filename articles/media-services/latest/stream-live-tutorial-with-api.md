@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 12/28/2018
+ms.date: 01/22/2019
 ms.author: juliako
-ms.openlocfilehash: 858c062c2b3d61b38247e323bf70d2768d33b257
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: c51a36f4380199de1ac62ef3f0c32bd0a8f06c01
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969343"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811221"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Självstudier: Strömma live med Media Services v3 med hjälp av API:er
 
@@ -89,7 +89,7 @@ Om du vill börja använda API:er för Media Services med .NET, måste du skapa 
 
 ### <a name="create-a-live-event"></a>Skapa en livehändelse
 
-Det här avsnittet visar hur du skapar en **pass-through**-typ av LiveEvent (LiveEventEncodingType inställd på None). Om du vill skapa en LiveEvent som är aktiverad för livekodning anger du värdet LiveEventEncodingType till Standard. 
+Det här avsnittet visar hur du skapar en **pass-through**-typ av LiveEvent (LiveEventEncodingType inställd på None). Om du vill skapa en LiveEvent som är aktiverad för livekodning anger du LiveEventEncodingType till **Standard**. 
 
 Vissa andra saker som du kan ange när du skapar en livehändelsen är:
 
@@ -100,8 +100,12 @@ Vissa andra saker som du kan ange när du skapar en livehändelsen är:
 * IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här LiveEvent. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).
     
     Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.
+    
+    IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
 
-När du skapar händelsen, kan du ange att den ska startas automatiskt. 
+* När du skapar händelsen, kan du ange att den ska startas automatiskt. 
+
+    När autostart är angett till true (sant) startas live-händelsen efter skapandet. Det innebär att faktureringen startar så fort live-händelsen körs. Du måste explicit anropa Stop på LiveEvent-resursen för att stoppa ytterligare fakturering. Mer information finns i [LiveEvent-tillstånd och fakturering](live-event-states-billing.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/Live/MediaV3LiveApp/Program.cs#CreateLiveEvent)]
 

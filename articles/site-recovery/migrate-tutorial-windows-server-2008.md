@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 2497793ce5d24ed2516636e76b8b947417dd9f74
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: afcf64b79b08ae76f56f57569905945489c2933e
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039953"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382884"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrera servrar som kör Windows Server 2008 till Azure
 
@@ -119,7 +119,7 @@ Välj och kontrollera målresurserna.
 1. Om du vill skapa en ny replikeringsprincip klickar du på **Site Recovery-infrastruktur** > **Replikeringsprinciper** > **+Replikeringsprincip**.
 2. I **Skapa replikeringsprincip** anger du ett principnamn.
 3. I **Tröskelvärde för replikeringspunktmål** anger du gränsen för replikeringspunktmålet (RPO). En avisering skapas om replikeringens RPO överskrider gränsen.
-4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade virtuella datorer kan återställas till valfri punkt i ett fönster. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
+4. I **Återställningspunkt för kvarhållning** anger du kvarhållningsperioden (i antal timmar) för varje återställningspunkt. Replikerade servrar kan återställas till valfri punkt i det här fönstret. Upp till 24 timmars kvarhållning stöds för datorer replikerade till premiumlagring och 72 timmar för standardlagring.
 5. I **Frekvens för appkonsekvent ögonblicksbild** anger du **Av**. Klicka på **OK** för att skapa principen.
 
 Principen associeras automatiskt med konfigurationsservern.
@@ -154,13 +154,13 @@ Kör en redundansväxling för de datorer som du vill migrera.
 2. I **Redundans** väljer du en **återställningspunkt** att redundansväxla till. Välj den senaste återställningspunkten.
 3. Välj **Stäng datorn innan du påbörjar redundans**. Site Recovery försöker stänga av servern innan redundansväxlingen utlöses. Redundansväxlingen fortsätter även om avstängningen misslyckas. Du kan följa redundansförloppet på sidan **Jobb**.
 4. Kontrollera att den virtuella Azure-datorn visas i Azure som förväntat.
-5. I **Replikerade objekt** högerklickar du på den virtuella datorn > **Slutför migrering**. Det här gör följande:
+5. I **Replikerade objekt** högerklickar du på servern > **Slutför migrering**. Det här gör följande:
 
-    - Avslutar migreringsprocessen, stoppar replikeringen för virtuella datorer i AWS och stoppar Site Recovery-debitering för den virtuella datorn.
+    - Avslutar migreringsprocessen, stoppar replikeringen för servern och stoppar Site Recovery-debitering för servern.
     - Det här steget rensar replikeringsdata. Men det raderar inte de migrerade virtuella datorerna.
 
    ![Slutföra migrering](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
 
 > [!WARNING]
-> **Avbryt inte en redundansväxling som pågår**: Innan redundans startas stoppas den virtuella datorreplikeringen. Om du avbryter en pågående redundans så stoppas redundansen, men den virtuella datorn kommer inte att replikeras igen.
+> **Avbryt inte en redundansväxling som pågår**: Serverreplikeringen stoppas innan redundans startas. Om du avbryter en pågående redundans stoppas redundansen, men serverreplikeringen fortsätter inte att replikeras.

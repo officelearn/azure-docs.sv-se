@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/11/2019
+ms.date: 1/22/2019
 ms.author: victorh
-ms.openlocfilehash: 21aac318542f9d30cb44d940392d05367f1f7b9f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246474"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448950"
 ---
 # <a name="what-is-azure-application-gateway"></a>Vad är Azure Application Gateway?
 
@@ -102,7 +102,7 @@ Den cookie-baserade sessionstillhörighetsfunktionen är användbar när du vill
 
 ## <a name="websocket-and-http2-traffic"></a>Websocket- och HTTP/2-trafik
 
-Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Stöd för HTTP-2 kan aktiveras med hjälp av Azure PowerShell.
+Application Gateway har inbyggt stöd för WebSocket- och HTTP/2-protokoll. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd.
 
 WebSocket- och HTTP/2-protokollen aktiverar full duplex-kommunikation mellan en server och en klient över en tidskrävande TCP-anslutning. Det här tillåter en mer interaktiv kommunikation mellan webbservern och klienten, som kan vara dubbelriktad utan att behöva avsökning som krävs i HTTP-baserade implementeringar. Dessa protokoll har låg omkostnader, till skillnad från HTTP, och kan återanvända samma TCP-anslutning för flera begäranden/svar, vilket resulterar i ett mer effektivt utnyttjande av resurser. Dessa protokoll är utformade att fungera via de traditionella HTTP-portarna 80 och 443.
 
@@ -114,10 +114,26 @@ Application Gateway stöder nu möjligheten att skriva om rubrikerna för inkomm
 
 Läs mer om den här offentliga förhandsgranskningsfunktionen i [Skriva om HTTP-huvuden](rewrite-http-headers.md).
 
+## <a name="sizing"></a>Storlekar
+
+Application Gateway finns för närvarande i tre storlekar: **liten**, **medel** och **stor**. Smål instansstorlekar är avsedda för utvecklings- och testningsscenarier.
+
+En fullständig lista över gränserna för programgateways finns i avsnittet om [gränser för Application Gateway-tjänsten](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+
+Följande tabell visar ett genomsnittligt prestanda-dataflöde för varje Application Gateway-instans som har SSL-avlastning aktiverat:
+
+| Genomsnittligt sidsvarsstorlek för serverdel | Liten | Medel | Stor |
+| --- | --- | --- | --- |
+| 6 kB |7.5 Mbit/s |13 Mbit/s |50 Mbit/s |
+| 100 kB |35 Mbit/s |100 Mbit/s |200 Mbit/s |
+
+> [!NOTE]
+> De här värdena är genomsnittliga värden för ett Application Gateway-dataflöde. Det faktiska dataflödet beror på olika miljöfaktorer som genomsnittlig sidstorlek, plats för serverdelsinstanserna och bearbetningstid för att serva en sida. Du bör köra egna test för exakta prestandavärden. Dessa värden är bara för vägledning vid kapacitetsplanering.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Beroende på dina krav och din miljö kan du skapa en testprogramgateway med Azure-portalen, Azure PowerShell eller Azure CLI:
+Beroende på dina krav och din miljö kan du skapa en testprogramgateway med Azure Portal, Azure PowerShell eller Azure CLI:
 
-- [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure-portalen](quick-create-portal.md).
+- [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal](quick-create-portal.md).
 - [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure PowerShell](quick-create-powershell.md)
 - [Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure CLI](quick-create-cli.md)

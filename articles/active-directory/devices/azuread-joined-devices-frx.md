@@ -4,7 +4,7 @@ description: Ett ämne som förklarar hur användare kan konfigurera Azure AD Jo
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3693115d72d9928bea0ca8bbe4fae5858e0f3cb7
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046330"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54446433"
 ---
-# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Självstudie: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Självstudier: Ansluta en ny Windows 10-enhet med Azure AD under den första körningen
 
 Med enhetshanteringen i Azure Active Directory (Azure AD) kan du se till att användarna har tillgång till dina resurser från enheter som uppfyller dina krav för säkerhet och kompatibilitet. Mer information finns i [Introduktion till hantering av enheter i Azure Active Directory](overview.md).
 

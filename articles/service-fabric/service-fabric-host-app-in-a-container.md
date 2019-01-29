@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 2b53b8a97f4e794110dc482db09a0d376247a678
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299647"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54436985"
 ---
-# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudiekurs: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
+# <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudier: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
 I den här självstudiekursen lär du dig hur du skapar en container för ett befintligt ASP.NET-program och hur du paketerar programmet som ett Service Fabric-program.  Kör containrarna lokalt i Service Fabric-utvecklingsklustret och distribuera sedan programmet till Azure.  Programmet sparar data i [Azure SQL Database](/azure/sql-database/sql-database-technical-overview). 
 
@@ -237,7 +237,7 @@ Följ distributionsförloppet i utdatafönstret  När programmet har distribuera
 ![Fabrikam-webbexempel][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Konfigurera kontinuerlig integrering och distribution (CI/CD) med ett Service Fabric-kluster
-Mer information om hur du använder Azure DevOps för att konfigurera en CI/CD-programdistribution till ett Service Fabric-kluster finns i [Självstudiekurs: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
+Mer information om hur du använder Azure DevOps för att konfigurera en CI/CD-programdistribution till ett Service Fabric-kluster finns i [Självstudie: Distribuera ett program med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Den process som beskrivs i självstudien är densamma för det här projektet (FabrikamFiber), förutom att du hoppar nedladdningen av Voting-exemplet och använder FabrikamFiber som namnet på lagringsplatsen i stället för Voting.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 När du är klar tar du bort alla resurser du skapat.  Det enklaste sättet att göra det är att ta bort resursgrupperna som innehåller Service Fabric-klustret, Azure SQL-databasen och Azure Container Registry.
@@ -269,7 +269,7 @@ I den här självstudiekursen lärde du dig att:
 I nästa del av självstudierna lär du dig hur du [distribuerar ett containerprogram med CI/CD till ett Service Fabric-kluster](service-fabric-tutorial-deploy-container-app-with-cicd-vsts.md).
 
 [link-fabrikam-github]: https://aka.ms/fabrikamcontainer
-[link-azure-powershell-install]: /powershell/azure/install-azurerm-ps
+[link-azure-powershell-install]: /powershell/azure/azurerm/install-azurerm-ps
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md

@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/07/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.openlocfilehash: 926a339bc8214c989da4ef934ae41012eea58d1e
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: ed275638c1b217f18d5d1335b9d039879ae55004
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54120741"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54846327"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Självstudie: Lägga till ett lokalt program för fjärråtkomst via programproxy i Azure Active Directory
 
@@ -181,6 +181,7 @@ Nu när du har förberett din miljö och installerat ett anslutningsprogram är 
     | **Tidsgränsen för serverdels-programmet** | Ställ endast in värdet på **Lång** om programmet autentiserar och ansluter långsamt. |
     | **Använd endast HTTP-cookie** | Ställ in värdet på **Ja** för att programproxycookies ska inkluderas i HTTPOnly-flaggan i HTTP-svarsrubriken. Ställ in värdet på **Nej** om du använder fjärrskrivbordstjänster.|
     | **Använd säker cookie**| Ställ in värdet på **Ja** för att skicka cookies via en säker kanal, som en krypterad HTTPS-begäran.
+    | **Använd beständig cookie**| Behåll det här värdet inställt på **Nej**. Den här inställningen bör endast användas för program som inte kan dela cookies mellan processer. Mer information om cookie-inställningar finns i avsnittet om [cookie-inställningar för åtkomst till lokala program i Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings)
     | **Översätt webbadresser i rubriker** | Behåll det här värdet som **Ja** såvida inte programmets ursprungliga värdrubrik krävs i autentiseringsbegäran. |
     | **Översätt webbadresser i brödtext för program** | Behåll det här värdet som **Nej** såvida du inte har hårdkodade HTML-länkar till andra lokala program och inte använder anpassade domäner. Mer information finns i [Länka översättning med programproxy](application-proxy-configure-hard-coded-link-translation.md).<br><br>Ställ in det här värdet på **Ja** om du planerar att övervaka programmet med Microsoft Cloud App Security (MCAS). Mer information finns i [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) (Konfigurera övervakning av realtidsprogramåtkomst med Microsoft Cloud App Security och Azure Active Directory) |
    

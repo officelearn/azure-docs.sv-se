@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: d89c5a3f2545edd7c02b67fa9d2e2b78937a9791
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: c8d1f659078a36bc57e92b01e6e32502be7a0ea9
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779578"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54434758"
 ---
-# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
+# <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure-portalen
 
 En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här guiden får du lära dig att:
 
@@ -36,20 +36,20 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Du måste ha en befintlig, aktiv VPN-gateway för att kunna använda VPN-diagnostik. Om du inte har en befintlig VPN-gateway att diagnostisera kan du distribuera en med hjälp av ett [PowerShell-skript](../vpn-gateway/scripts/vpn-gateway-sample-site-to-site-powershell.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Du kan köra PowerShell-skriptet från:
-    - **En lokal installation av PowerShell**: Skriptet kräver AzureRM PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
-    - **Azure Cloud Shell**: Den senaste versionen av PowerShell är installerad och konfigurerad i [Azure Cloud Shell](https://shell.azure.com/powershell) och loggar in dig automatiskt i Azure.
+    - **En lokal PowerShell-installation**: Skriptet kräver AzureRM PowerShell-modul version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta den installerade versionen. Om du behöver uppgradera modulen läser du avsnittet [Installera Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+    - **Azure Cloud Shell**: [Azure Cloud Shell](https://shell.azure.com/powershell) har den senaste versionen av PowerShell installerad och konfigurerad, och loggar in dig i Azure.
 
 Det tar ungefär en timme att skapa en VPN-gateway med skriptet. I de återstående stegen förutsätter vi att den gateway som du diagnostiserar är den som distribuerats med det här skriptet. Om du diagnostiserar en egen befintlig gateway i stället, kan resultatet variera.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
 Om du redan har en aktiv nätverksbevakare i regionen Östra USA går du vidare till [Diagnostisera en gateway](#diagnose-a-gateway).
 
-1. Välj **Alla tjänster** på portalen. Skriv *Network Watcher*i **filterrutan**. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
@@ -63,7 +63,7 @@ Om du redan har en aktiv nätverksbevakare i regionen Östra USA går du vidare 
 3. Välj **VPN-diagnostik** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 4. Välj **Lagringskonto** och välj sedan det lagringskonto som du vill skriva diagnostikinformation till.
 5. Välj det lagringskonto som du vill använda i listan med **lagringskonton**. Om du inte har ett befintligt lagringskonto väljer du **+ Lagringskonto**, anger eller väljer nödvändig information och skapar sedan ett konto genom att välja **Skapa**. Om du har skapat en VPN-gateway med hjälp av skriptet i avsnittet [Krav](#prerequisites) kanske du vill skapa lagringskontot i samma resursgrupp, *TestRG1*, som gatewayen.
-6. Välj den behållare som du vill använda i listan med **behållare** och välj sedan **Välj**. Om du inte har några behållare väljer du **+ Behållare**, anger ett namn för behållaren och väljer sedan **OK**.
+6. Välj den container som du vill använda i listan med **containrar** och välj sedan **Välj**. Om du inte har några containrar väljer du **+ Container**, anger ett namn för containern och väljer sedan **OK**.
 7. Välj en gateway och välj sedan **Starta felsökning**. Som du ser i följande bild körs testet mot en gateway med namnet **Vnet1GW**:
 
     ![VPN-diagnostik](./media/diagnose-communication-problem-between-networks/vpn-diagnostics.png)

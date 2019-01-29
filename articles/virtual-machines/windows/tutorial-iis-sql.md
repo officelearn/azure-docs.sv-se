@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ff8fe3c3c61777902269364df88a9fff4e8d1385
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515496"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54425160"
 ---
-# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudie: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Självstudier: Installera SQL-, IIS-, .NET-stacken på en virtuell Windows-dator med Azure PowerShell
 
 I den här självstudien installerar vi en SQL-, IIS-, .NET-stack med Azure PowerShell. Stacken består av två virtuella datorer som kör Windows Server 2016, en med IIS och .NET och den andra med SQL Server.
 
@@ -34,7 +34,7 @@ I den här självstudien installerar vi en SQL-, IIS-, .NET-stack med Azure Powe
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AzureRM.Compute-modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien AzureRM.Compute-modulversion 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM.Compute` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="create-a-iis-vm"></a>Skapa en virtuell IIS-dator 
 

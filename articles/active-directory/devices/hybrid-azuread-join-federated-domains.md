@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar Azure Active Directory-hybridanslutnin
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/08/2019
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f904690187f6f2b020cb9cc32f9a20712d8bb53
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: af1495af69255c7daa7de94da6ce0321c13d7599
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107573"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448219"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Självstudier: Konfigurera Azure Active Directory-hybridanslutningar för federerade domäner
 
@@ -71,13 +71,13 @@ Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för 
 
 Konfigurationsstegen i den här artikeln baseras på guiden. Om du har en äldre version av Azure AD Connect installerad måste du uppgradera den till 1.1.819 eller senare. Om du inte kan installera den senaste versionen av Azure AD Connect kan du läsa om [hur du konfigurerar enhetsregistrering manuellt](../device-management-hybrid-azuread-joined-devices-setup.md).
 
-Vid Azure AD-hybridkoppling måste enheterna ha åtkomst till följande Microsoft-resurser inifrån organisationens nätverk:  
+Hybrid Azure AD-koppling kräver att enheterna har åtkomst till följande Microsoft-resurser från organisationens nätverk:  
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
+- https\://enterpriseregistration.windows.net
+- https\://login.microsoftonline.com
+- https\://device.login.microsoftonline.com
 - Din organisations STS (federerade domäner)
-- https://autologon.microsoftazuread-sso.com (Om du använder eller planerar att använda enkel inloggning)
+- https\://autologon.microsoftazuread-sso.com (om du använder eller planerar att använda sömlös enkel inloggning)
 
 Från och med Windows 10 1803 gäller att om den omedelbara Hybrid Azure AD-anslutningen för federerad domäner såsom AD FS misslyckas så förlitar vi oss på Azure AD Connect för att synkronisera det datorobjekt i Azure AD som därefter används för att slutföra enhetsregistreringen för Hybrid Azure AD-anslutningen.
 

@@ -3,21 +3,21 @@ title: Självstudie – Bevilja åtkomst till ett ASP.NET Core webb-API från en
 description: Självstudie som visar hur du använder Active Directory B2C för att skydda ett .NET Core webb-API och anropar det från en ensidesapp.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 3/02/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 4a1787f0a6d222f91eefd6f96e265ba825ca9e82
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605767"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54848105"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig anropa en ASP.NET Core webb-API-resurs som skyddas av Azure Active Directory (Azure AD) B2C från ensidesapp.
 
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 
 Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en [begäran från en skyddad resurs](../active-directory/develop/developer-glossary.md#resource-server) från [klientprogram](../active-directory/develop/developer-glossary.md#client-application) som använder en [åtkomsttoken](../active-directory/develop/developer-glossary.md#access-token) från Azure Active Directory. Registrering skapar [programmet och tjänstens huvudnamnsobjekt](../active-directory/develop/developer-glossary.md#application-object) i klientorganisationen. 
 
-Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för Azure AD B2C-klientorganisationen.
+Logga in på [Azure Portal](https://portal.azure.com/) som global administratör för din Azure AD B2C-klientorganisationen.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 

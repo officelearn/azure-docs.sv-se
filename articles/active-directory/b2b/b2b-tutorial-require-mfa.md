@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 34ca5667b5bf47bec8c48a7e5836b7d51ad08724
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 88225ee7aeefd9030e754f2b1abc66e4c05e5c6b
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986825"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431188"
 ---
-# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Använda multifaktorautentisering för B2B-gästanvändare
+# <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Självstudier: Framtvinga multifaktorautentisering för B2B-gästanvändare
 
 När du samarbetar med externa B2B-gästanvändare är det en bra idé om du skyddar dina appar med principer för multifaktorautentisering (MFA). De externa användarna kommer då att behöva mer än bara ett användarnamn och ett lösenord för att få åtkomst till dina resurser. I Azure Active Directory (AD Azure), kan du uppnå detta med en princip för villkorsstyrd åtkomst som kräver MFA för åtkomst. MFA-principerna kan tillämpas i klientorganisations- eller appnivå eller på enskild gästanvändarnivå, på samma sätt som de aktiveras för medlemmar i din organisation.
 

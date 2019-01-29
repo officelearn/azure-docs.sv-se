@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 69c8e293186f955e86962a325fce2f54a2eefdc7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982818"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432174"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Jämför B2B-samarbete och B2C i Azure Active Directory
 
@@ -30,13 +30,13 @@ Tabellen nedan ger en detaljerad jämförelse.
 
 B2B-samarbetsfunktioner |     Azure AD B2C-fristående erbjudande
 -------- | --------
-Avsedd för: organisationer som vill kunna autentisera användare från en partnerorganisation oavsett identitetsprovider. | Avsedd för: att bjuda in kunder för dina mobila och webbappar oavsett om det rör sig om individuella, institutionella eller organisationella kunder till din Azure AD.
-Identiteter som stöds: anställda med arbets- eller skolkonton, partners med arbets- eller skolkonton eller valfria e-postadresser. Stödjer snart direkt federation.  | Identiteter som stöds: konsumentanvändare med lokala programkonton (e-postadresser eller användarnamn) eller någon social identitet med direkt federation som stöds.
-Vilken katalog som partneranvändare finns i: partneranvändare från den externa organisationen hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, kan läggas till i samma grupper och så vidare  | Vilken katalog kundens användarentiteter finns i: I programkatalogen. Hanteras separat från organisationens anställda och partnerkatalogen (i förekommande fall.
+Avsett för: Organisationer som vill kunna autentisera användare från en partnerorganisation oavsett identitetsprovider. | Avsett för: Att bjuda in kunder för dina mobila och webbappar oavsett om det rör sig om individuella, institutionella eller organisationella kunder till din Azure AD.
+Identiteter som stöds: Anställda med arbets- eller skolkonton, partner med arbets- eller skolkonton eller valfri e-postadress. Stödjer snart direkt federation.  | Identiteter som stöds: Konsumentanvändare med lokala programkonton (e-postadresser eller användarnamn) eller någon social identitet med direkt federation som stöds.
+Vilken katalog som partneranvändare finns i: Partneranvändare från den externa organisationen hanteras i samma katalog som anställda, men kommenteras särskilt. De kan hanteras på samma sätt som anställda, kan läggas till i samma grupper och så vidare  | Vilken katalog som kundens användarentiteter finns i: I programkatalogen. Hanteras separat från organisationens anställda och partnerkatalogen (i förekommande fall.
 Enkel inloggning (SSO) för alla Azure AD-anslutna appar stöds. Du kan till exempel ge åtkomst till Office 365 eller lokala appar och till andra SaaS-appar som Salesforce eller Workday.  |  Stöd för enkel inloggning till kundägda appar i Azure AD B2C-klientorganisationer. Enkel inloggning till Office 365 eller andra Microsoft- och icke-Microsoft-SaaS-appar stöds inte.
-Livscykel för partner: hanteras av värden/den inbjudande organisationen.  | Livscykel för kunden: självbetjäning eller hanteras av programmet.
-Säkerhetsprinciper och efterlevnad: hanteras av värden/den inbjudande organisationen (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Säkerhetsprincip och efterlevnad: hanteras av programmet.
-Anpassning: Värden/den inbjudande organisationens varumärke används.  |    Anpassning: hanteras av programmet. Brukar vanligtvis vara produktanpassad med organisationens varumärke intonat i bakgrunden.
+Livscykel för partner: Hanteras av värden/den inbjudande organisationen.  | Livscykel för kunden: Självbetjäning eller hanteras av programmet.
+Säkerhetsprincip och efterlevnad: Hanteras av värden/den inbjudande organisationen (till exempel med [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/b2b/conditional-access)).  | Säkerhetsprincip och efterlevnad: Hanteras av programmet.
+Varumärke: Värden/den inbjudande organisationens varumärke används.  |    Varumärke: Hanteras av programmet. Brukar vanligtvis vara produktanpassad med organisationens varumärke intonat i bakgrunden.
 Mer information: [Blogginlägg](https://blogs.technet.microsoft.com/enterprisemobility/2017/02/01/azure-ad-b2b-new-updates-make-cross-business-collab-easy/), [Dokumentation](what-is-b2b.md)  | Mer information: [Produktsida](https://azure.microsoft.com/services/active-directory-b2c/), [Dokumentation](https://docs.microsoft.com/azure/active-directory-b2c/)
 
 

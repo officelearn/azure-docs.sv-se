@@ -9,67 +9,68 @@ ms.topic: include
 ms.date: 03/12/2018
 ms.author: tarcher
 ms.custom: Jenkins
-ms.openlocfilehash: d5a832909f060ad8c8b3f0e7c7ea4504e5e5aadb
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
-ms.translationtype: MT
+ms.openlocfilehash: 4025dcc5824991baa9a52dbb912a5c07f4273d58
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36943478"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54383298"
 ---
-1. I webbläsaren och öppna den [Azure Marketplace-avbildning för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
+1. I webbläsaren öppnar du [Azure Marketplace-avbildningen för Jenkins](https://azuremarketplace.microsoft.com/marketplace/apps/azure-oss.jenkins?tab=Overview).
 
-1. Välj **Hämta nu IT**.
+1. Välj **GET IT NOW** (Hämta nu).
 
-    ![Välj GIT IT nu för att starta installationsprocessen för Jenkins Marketplace-avbildning.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
+    ![Välj GET IT NOW (Hämta nu) för att starta installationsprocessen för Jenkins Marketplace-avbildningen.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-get-it-now.png)
 
-1. När du har granskat prisinformation information och villkoren, Välj **Fortsätt**.
+1. När du har granskat prisinformationen och villkoren väljer du **Fortsätt**.
 
-    ![Jenkins Marketplace priser och villkor avbildningsinformationen.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
+    ![Prisinformation och villkor för Jenkins Marketplace-avbildning.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-pricing-and-terms.png)
 
-1. Välj **skapa** att konfigurera servern Jenkins i Azure-portalen. 
+1. Välj **Skapa** för att konfigurera Jenkins-servern i Azure-portalen. 
 
     ![Installera Jenkins Marketplace-avbildningen.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-create.png)
 
-1. I den **grunderna** anger du följande värden:
+1. På fliken **Grundläggande** anger du följande värden:
 
-    - **Namnet** -ange `Jenkins`.
-    - **Användarnamnet** -ange ett användarnamn som ska användas när du loggar in till den virtuella datorn som kör Jenkins. Användarnamnet måste uppfylla [specifika krav](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
-    - **Autentiseringstypen** – Välj **offentliga SSH-nyckeln**.
-    - **Offentlig SSH-nyckel** -kopiera och klistra in en offentlig RSA-nyckel i en rad format (från och med `ssh-rsa`) eller flerradiga PEM-format. Du kan skapa SSH-nycklar med hjälp av ssh-keygen i Linux och macOS eller PuTTYGen i Windows. Mer information om SSH-nycklar och Azure finns i artikeln [så Använd SSH-nycklar med Windows på Azure](/azure/virtual-machines/linux/ssh-from-windows).
-    - **Prenumerationen** – Välj Azure-prenumeration som du vill installera Jenkins.
-    - **Resursgruppen** – Välj **Skapa nytt**, och ange ett namn för resursgruppen som fungerar som en logisk behållare för insamling av resurser som utgör Jenkins installationen.
-    - **Plats** – Välj **östra USA**.
+    - **Namn** – Ange `Jenkins`.
+    - **Användarnamn** – ange det användarnamn som ska användas vid inloggning till den virtuella dator där Jenkins körs. Användarnamnet måste uppfylla [specifika krav](/azure/virtual-machines/linux/faq#what-are-the-username-requirements-when-creating-a-vm).
+    - **Autentiseringstyp** – Välj **Offentlig SSH-nyckel**.
+    - **Offentlig SSH-nyckel** – Kopiera och klistra in en offentlig RSA-nyckel i enradigt format (börja med `ssh-rsa`) eller flerradigt PEM-format. Du kan generera SSH-nycklar med hjälp av ssh-keygen i Linux och macOS eller PuTTYGen i Windows. Mer information om SSH-nycklar och Azure finns i artikeln [Så här använder du SSH-nycklar med Windows i Azure](/azure/virtual-machines/linux/ssh-from-windows).
+    - **Prenumeration** – Välj den Azure-prenumeration där du vill installera Jenkins.
+    - **Resursgrupp** – Välj **Skapa ny** och ange ett namn för den resursgrupp som fungerar som en logisk container för den samling med resurser som utgör din Jenkins-installation.
+    - **Plats** – Välj **USA, östra**.
 
-    ![Ange autentiserings- och gruppinformation för Jenkins på fliken Grundläggande.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
+    ![Ange information om autentisering och resursgrupp för Jenkins på fliken Grundläggande.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-basic.png)
 
-1. Välj **OK** för att komma till den **ytterligare inställningar** fliken. 
+1. Välj **OK** för att fortsätta till fliken **Ytterligare inställningar**. 
 
-1. I den **ytterligare inställningar** anger du följande värden:
+1. På fliken **Ytterligare inställningar** anger du följande värden:
 
-    - **Storlek** -Välj lämplig storleksalternativ för den virtuella datorn Jenkins.
-    - **VM disktyp** – ange antingen Hårddisk (hårddiskenheten) eller SSD (SSD) som anger vilken lagringstyp som disk är tillåten för den virtuella datorn Jenkins.
-    - **Virtuellt nätverk** -(valfritt) Välj **för virtuella nätverk** att ändra standardinställningarna.
-    - **Undernät** – Välj **undernät**, kontrollerar du informationen och välj **OK**.
-    - **Offentliga IP-adressen** -IP-adressnamn som standard Jenkins namnet du angav i föregående sida med suffixet - IP. Du kan välja alternativet för att ändra som standard.
-    - **Domännamnet** -ange värdet för den fullständiga URL-Adressen till den virtuella datorn Jenkins.
-    - **Jenkins versionstyp** -Markera önskade versionen från alternativen: `LTS`, `Weekly build`, eller `Azure Verified`. Den `LTS` och `Weekly build` alternativ beskrivs i artikel [Jenkins LTS versionen rad](https://jenkins.io/download/lts/). Den `Azure Verified` alternativet refererar till en [Jenkins LTS version](https://jenkins.io/download/lts/) som har verifierats ska köras på Azure. 
+    - **Storlek** – Välj lämpligt storleksalternativ för den virtuella Jenkins-datorn.
+    - **VM-disktyp** – Ange antingen HDD (hårddisk) eller SSD (solid state-hårddisk) för att ange vilken lagringsdisktyp som tillåts för den virtuella Jenkins-datorn.
+    - **Virtuellt nätverk** – (Valfritt) Välj **virtuellt nätverk** för att ändra standardinställningarna.
+    - **Undernät** – Välj **Undernät**, kontrollera informationen och välj **OK**.
+    - **Offentlig IP-adress** – IP-adressnamnet är som standard det Jenkins-namn som du angav på föregående sida med suffixet -IP. Du kan välja alternativet för att ändra det standardvärdet.
+    - **Domännamnsetikett** – Ange värdet för den fullständigt kvalificerade URL-adressen till den virtuella Jenkins-datorn.
+    - **Jenkins-versionstyp** – Välj önskad versionstyp i alternativen: `LTS`, `Weekly build` eller `Azure Verified`. Alternativen `LTS` och `Weekly build` beskrivs i artikeln [Jenkins LTS Release Line](https://jenkins.io/download/lts/). Alternativet `Azure Verified` refererar till en [Jenkins LTS-version](https://jenkins.io/download/lts/) som har verifierats för att köras på Azure. 
+    - **JDK-type** – JDK som ska installeras. Standardvärdet är Zulu-testade, certifierade versioner av OpenJDK.
 
-    ![Ange inställningar för virtuell dator för Jenkins på fliken Inställningar.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
+    ![Ange inställningar för virtuella datorer för Jenkins på fliken Inställningar.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-settings.png)
 
-1. Välj **OK** för att komma till den **inställningar för katalogintegrering** fliken.
+1. Välj **OK** för att fortsätta till fliken **Integreringsinställningar**.
 
-1. I den **inställningar för katalogintegrering** anger du följande värden:
+1. På fliken **Integreringsinställningar** anger du följande värden:
 
-    - **Tjänstens huvudnamn** -tjänstens huvudnamn läggs till i Jenkins som autentiseringsuppgifter för autentisering med Azure. `Auto` innebär att objektet kommer att skapas av MSI (hanterade tjänstidentiteten). `Manual` innebär att objektet ska skapas av dig. 
-        - **Program-ID** och **hemlighet** - om du väljer den `Manual` för den **tjänstens huvudnamn** alternativet måste du ange den `Application ID` och `Secret` för din tjänstens huvudnamn. När [skapar ett huvudnamn för tjänsten](/cli/azure/create-an-azure-service-principal-azure-cli), Observera att standardroll **deltagare**, vilket är tillräckligt för att arbeta med Azure-resurser.
-    - **Aktivera molnet agenter** -ange molnet standardmallen för agenter där `ACI` refererar till Azure-behållare instans och `VM` refererar till virtuella datorer. Du kan också ange `No` om du inte vill aktivera en moln-agenten.
+    - **Tjänstens huvudnamn** – Tjänstens huvudnamn läggs till i Jenkins som en autentiseringsuppgift för autentisering med Azure. `Auto` innebär att huvudkontot skapas av MSI (Hanterad tjänstidentitet). `Manual` innebär att huvudkontot ska skapas av dig. 
+        - **Program-ID** och **Hemlighet** – Om du väljer alternativet `Manual` för alternativet **Tjänstens huvudnamn** måste du ange `Application ID` och `Secret` för din tjänstens huvudnamn. När du [skapar ett tjänsthuvudnamn](/cli/azure/create-an-azure-service-principal-azure-cli) bör du observera att standardrollen är **Deltagare**, vilket är tillräckligt för att arbeta med Azure-resurser.
+    - **Aktivera molnagenter** – Ange stanardmolnmall för agenter där `ACI` refererar till Azure Container Instance och `VM` refererar till virtuella datorer. Du kan även ange `No` om du inte vill aktivera en molnagent.
 
-1. Välj **OK** för att komma till den **sammanfattning** fliken.
+1. Välj **OK** för att fortsätta till fliken **Sammanfattning**.
 
-1. När den **sammanfattning** visar, informationen har verifierats. När du ser den **validering godkänd** meddelande (överst på fliken), Välj **OK**. 
+1. När fliken **Sammanfattning** visas valideras den information som anges. När du ser meddelandet **Validation passed** (Valideringen lyckades) längst upp på fliken väljer du **OK**. 
 
-    ![Fliken Sammanfattning visar och verifierar dina valda alternativ.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
+    ![På fliken Sammanfattning visas och valideras dina valda alternativ.](./media/jenkins-install-from-azure-marketplace-image/jenkins-configure-summary.png)
 
-1. När den **skapa** visar, Välj **skapa** att skapa den virtuella datorn Jenkins. När servern är klar, visas ett meddelande i Azure-portalen.
+1. När fliken **Skapa** visas väljer du **Skapa** för att skapa den virtuella Jenkins-datorn. När servern är klar visas ett meddelande i Azure-portalen.
 
-    ![Jenkins är klar meddelande.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)
+    ![Meddelande om att Jenkins är klart.](./media/jenkins-install-from-azure-marketplace-image/jenkins-install-notification.png)

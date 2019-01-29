@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Taligenkänning i JavaScript i Node.js med hjälp av Speech Service SDK'
+title: 'Snabbstart: Taligenkänning, Node.js – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Lär dig om taligenkänning i JavaScript i Node.js med hjälp av Speech Service SDK
+description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Node.js. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
 author: fmegen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: fmegen
-ms.openlocfilehash: 35652b169067bc545fa0d1fcc977bbaee79ec3aa
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: e0ae916687ca32835dd8daf6e5059b8f6eea0ff6
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724444"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382168"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-nodejs-using-the-speech-service-sdk"></a>Snabbstart: Taligenkänning i JavaScript i Node.js med hjälp av Speech Service SDK
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-nodejs"></a>Snabbstart: Taligenkänning med Speech SDK för Node.js
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -29,9 +29,9 @@ Appen baseras på Microsoft [Cognitive Services Speech SDK](https://aka.ms/csspe
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en utan kostnad](get-started.md).
 * En aktuell version av [Node.js](https://nodejs.org).
 
-## <a name="create-a-new-project-folder"></a>Skapa en ny projektmapp
+## <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
-Skapa en ny tom mapp och initiera den som ett nytt projekt för JavaScript och Node.js.
+Skapa en ny mapp och initiera projektet.
 
 ```sh
 npm init -f
@@ -39,13 +39,17 @@ npm init -f
 
 På så sätt kommer package.json-filer att initieras med standardvärden. Du vill förmodligen redigera den här filen senare.
 
-## <a name="install-the-speech-sdk-for-javascript-into-that-folder"></a>Installera Speech SDK för JavaScript i mappen
+## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
-Lägg till Speech SDK via `npm install microsoft-cognitiveservices-speech-sdk` till ditt Node.js-projekt.
+Lägg till Speech SDK till ditt Node.js-projekt.
 
-Detta kommer att ladda ner och installera den senaste versionen av Speech SDK och eventuella nödvändiga förutsättningar från npmjs. SDK kommer att installeras i `node_modules`-katalogen i projektmappen.
+```
+npm install microsoft-cognitiveservices-speech-sdk
+```
 
-## <a name="using-the-speech-sdk"></a>Använda Speech SDK
+Detta gör att den senaste versionen av Speech SDK och eventuella nödvändiga förutsättningar från npmjs laddas ned och installeras. SDK kommer att installeras i `node_modules`-katalogen i projektmappen.
+
+## <a name="use-the-speech-sdk"></a>Använda Speech SDK
 
 Skapa en ny fil i mappen, med namnet `index.js` och öppna filen med en textredigerare.
 
@@ -58,7 +62,7 @@ Lägg till följande JavaScript-kod:
 
 [!code-javascript[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/js-node/index.js#code)]
 
-## <a name="running-the-sample-from-command-line"></a>Kör exemplet från kommandoraden
+## <a name="run-the-sample"></a>Kör exemplet
 
 Om du vill starta appen, anpassa `YourSubscriptionKey`, `YourServiceRegion` och `YourAudioFile.wav` till din konfiguration. Sedan kan du köra den genom att anropa följande kommando:
 
@@ -88,7 +92,7 @@ SpeechRecognitionResult {
 }
 ```
 
-## <a name="running-the-sample-from-visual-studio-code"></a>Kör exemplet från Visual Studio Code
+## <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
 Du kan också köra exemplet från Visual Studio Code. Följ stegen nedan för att installera, öppna och köra snabbstarten:
 

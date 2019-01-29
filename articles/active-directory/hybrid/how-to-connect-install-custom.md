@@ -5,7 +5,7 @@ services: active-directory
 keywords: vad är Azure AD Connect, installera Active Directory, komponenter som krävs för Azure AD
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a1cdf332e34df5f0b3d2058ba5980b67582f14a2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 394f61f9fca06f5471edc62e99be8fa6bb415e40
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51248834"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54471641"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
@@ -42,7 +42,7 @@ När du installerar synkroniseringstjänsterna kan du lämna avsnittet för valf
 | --- | --- |
 | Använda en befintlig SQL-server |Med det här alternativet kan du ange namnet på SQL-servern och namnet på instansen. Välj det här alternativet om du redan har en databasserver som du vill använda. Ange instansnamnet följt av ett kommatecken och portnummer i **Instansnamn** om bläddring inte är aktiverat för SQL-servern. |
 | Använda ett befintligt tjänstkonto |Som standard använder Azure AD Connect ett lokalt tjänstkonto som ska användas av synkroniseringstjänsterna. Om du använder en fjärransluten SQL-server eller om du använder en proxyserver som kräver autentisering så behöver använda ett **hanterat tjänstkonto** eller ett tjänstkonto i domänen och måste även känna till lösenordet. I detta fall anger du det konto som ska användas. Kontrollera att användaren som kör installationen är en SA i SQL så att en inloggning för tjänstkontot kan skapas.  Se [Azure AD Connect: Konton och behörigheter](reference-connect-accounts-permissions.md#adsync-service-account). </br></br>Med den senaste versionen kan SQL-administratören nu distribuera databasen ”out of band” och därefter kan den installeras av Azure AD Connect-administratören med databasägarrättigheter.  Läs mer i informationen om hur du [installerar Azure AD Connect med SQL-delegerade administratörsbehörigheter](how-to-connect-install-sql-delegation.md).|
-| Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. Dessa grupper är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
+| Ange anpassade synkroniseringsgrupper |Som standard skapar Azure AD Connect fyra grupper som är lokala på servern när synkroniseringstjänsterna installeras. De här grupperna är: gruppen Administratörer, gruppen Operatorer, gruppen Bläddra och gruppen Återställning av lösenord. Du kan ange dina egna grupper här. Grupperna måste vara lokala på servern och de kan inte hittas i domänen. |
 
 ### <a name="user-sign-in"></a>Användarinloggning
 När du har installerat de nödvändiga komponenterna uppmanas du att välja användaruppgifter för enkel inloggning. Följande tabell innehåller en kort beskrivning av de tillgängliga alternativen. En fullständig beskrivning av inloggningsmetoderna finns i [Användarinloggning](plan-connect-user-signin.md).
@@ -136,7 +136,7 @@ Attributet sourceAnchor är ett attribut som inte kan ändras under ett använda
 
 | Inställning | Beskrivning |
 | --- | --- |
-| Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect attributet sourceAnchor-attributvalslogiken som beskrivs i avsnittet [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp - Använda ms-DS-ConsistencyGuid som sourceAnchor). Guiden informerar dig vilket attribut som har valts som källfästpunktsattribut när den anpassade installationen har slutförts. |
+| Låt Azure hantera källfästpunkten | Välj det här alternativet om du vill att Azure AD ska hämta attributet. Om du väljer det här alternativet använder Azure AD Connect-guiden den sourceAnchor-attributvalslogik som beskrivs i avsnittet [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp – Använda msDS-ConsistencyGuid som sourceAnchor). Guiden informerar dig vilket attribut som har valts som källfästpunktsattribut när den anpassade installationen har slutförts. |
 | Ett specifikt attribut | Välj det här alternativet om du vill ange ett befintligt AD-attribut som sourceAnchor-attribut. |
 
 Eftersom attributet inte kan ändras måste du planera för ett lämpligt attribut som ska användas. En bra kandidat är objectGUID. Det här attributet ändras inte, såvida inte användarkontot flyttas mellan skogar/domäner. Undvik attribut som kan ändras när en person gifter sig eller får nya uppgifter. Du kan inte använda attribut med ett @-sign. Det betyder att du inte kan använda email eller userPrincipalName. Attributet är också skiftlägeskänsligt. Därför är det viktigt att du inte ändrar gemener/versaler om du flyttar ett objekt mellan skogar. Binära attribut är base64-kodade, men andra attributtyper är kvar i kodat tillstånd. I federationsscenarier och i vissa Azure AD-gränssnitt kallas det här attributet även för immutableID. Mer information om källfästpunkten finns i [designbegreppen](plan-connect-design-concepts.md#sourceanchor).
@@ -159,7 +159,7 @@ På den här sidan kan du välja de valfria funktionerna för dina specifika sce
 >[!WARNING]
 >Azure AD Connect version **1.0.8641.0** och äldre förlitar sig på Azure Access Control-tjänsten för tillbakaskrivning av lösenord.  Den här tjänsten dras in den 7 november 2018.  Om du använder någon av de här versionerna av Azure AD Connect och har aktiverat tillbakaskrivning av lösenord, kanske användarna inte kan ändra eller återställa sina lösenord när tjänsten har dragits in. Tillbakaskrivning av lösenord med de här versionerna av Azure AD Connect stöds inte.
 >
->Mer information om Azure Access Control-tjänsten finns i [Migrera från Azure Access Control Service](../develop/active-directory-acs-migration.md)
+>Mer information om Azure Access Control-tjänsten finns i [Anvisningar: Migrera från Azure Access Control-tjänsten](../develop/active-directory-acs-migration.md)
 >
 >Klicka [här](https://www.microsoft.com/en-us/download/details.aspx?id=47594) om du vill ladda ned den senaste versionen av Azure AD Connect.
 
@@ -371,12 +371,12 @@ Azure AD Connect verifierar DNS-inställningarna åt dig när du klickar på kna
 
 **Anslutningskontroller för intranät**
 
-* Matcha federationstjänstens FQDN: Azure AD Connect kontrollerar om federationens fullständigt kvalificerade domännamn kan matchas av DNS för att säkerställa anslutningen. Om Azure AD Connect inte kan matcha det fullständigt kvalificerade domännamnet misslyckas verifieringen. Kontrollera att det finns en DNS-post för federationstjänstens fullständigt kvalificerade domännamn så att verifieringen lyckas.
+* Lösa federationens FQDN: Azure AD Connect kontrollerar om federationens fullständiga domännamn kan lösas av DNS för att säkerställa anslutningen. Om Azure AD Connect inte kan matcha det fullständigt kvalificerade domännamnet misslyckas verifieringen. Kontrollera att det finns en DNS-post för federationstjänstens fullständigt kvalificerade domännamn så att verifieringen lyckas.
 * DNS A-post: Azure AD Connect kontrollerar om det finns en A-post för federationstjänsten. Verifieringen misslyckas om det inte finns någon A-post. Skapa en A-post, inte en CNAME-post, för federationens fullständigt kvalificerade domännamn så att verifieringen lyckas.
 
 **Anslutningskontroller för extranät**
 
-* Matcha federationstjänstens FQDN: Azure AD Connect kontrollerar om federationens fullständigt kvalificerade domännamn kan matchas av DNS för att säkerställa anslutningen.
+* Lösa federationens FQDN: Azure AD Connect kontrollerar om federationens fullständiga domännamn kan lösas av DNS för att säkerställa anslutningen.
 
 ![Slutför](./media/how-to-connect-install-custom/completed.png)
 
@@ -385,7 +385,7 @@ Azure AD Connect verifierar DNS-inställningarna åt dig när du klickar på kna
 För att kontrollera att autentiseringen från slutpunkt till slutpunkt lyckades bör du utföra ett eller flera av följande test manuellt:
 
 * När synkroniseringen har slutförts använder du åtgärden Validera federerad inloggning i Azure AD Connect för att verifiera autentiseringen för ett lokalt användarkonto som du har valt.
-* Kontrollera att du kan logga in från en webbläsare från en domänansluten dator i intranätet: Anslut till https://myapps.microsoft.com och kontrollera inloggningen med ditt inloggade konto. Det inbyggda AD DS-administratörskontot synkroniseras inte och kan inte användas för verifiering.
+* Kontrollera att du kan logga in från en webbläsare från en domänansluten dator i intranätet: Ansluta till https://myapps.microsoft.com och kontrollera inloggningen med ditt inloggade konto. Det inbyggda AD DS-administratörskontot synkroniseras inte och kan inte användas för verifiering.
 * Kontrollera att du kan logga in från en enhet från extranätet. Anslut till https://myapps.microsoft.com och ange dina autentiseringsuppgifter på en hemdator eller mobil enhet.
 * Verifiera inloggningen på en rich-klient. Anslut till https://testconnectivity.microsoft.com, välj fliken **Office 365** och sedan **Test av enkel inloggning i Office 365**.
 
@@ -416,7 +416,7 @@ När installationen har slutförts kan du logga ut och logga in igen i Windows i
 
 Nu när Azure AD Connect är installerat kan du [verifiera installationen och tilldela licenser](how-to-connect-post-installation.md).
 
-Läs mer om dessa funktioner, som aktiverades med installationen: [Förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md) och [Azure AD Connect Health](how-to-connect-health-sync.md).
+Läs mer om de här funktionerna, som aktiverades med installationen: [Förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md) och [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Läs mer om [schemaläggaren och hur du utlöser synkronisering](how-to-connect-sync-feature-scheduler.md).
 

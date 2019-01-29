@@ -6,18 +6,18 @@ ms.service: cosmos-db
 ms.topic: overview
 ms.date: 12/18/2018
 ms.author: sngun
-ms.openlocfilehash: b384bc51ac371ef75f5128c92f7e4b8d7f45ecc6
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 68ed21489cb97ff23a252ecc5287ad79aeeb210e
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034955"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429557"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Välkommen till Azure Cosmos DB
 
 Dagens program måste alltid vara mycket responsiva och ständigt online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Programmen behöver kunna svara i realtid på stora förändringar av användningen vid hög belastning, lagra ständigt ökande datavolymer och göra dessa data tillgängliga för användare på millisekunder.
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett knappklick, låter Azure DB Cosmos dig att elastiskt och oberoende skala dataflöde och lagring över valfritt antal av Azures geografiska regioner. Du kan elastiskt skala dataflöde och lagring och dra fördel av snabb dataåtkomst på ensiffriga millisekunder med hjälp av din favorit-API bland SQL, MongoDB, Cassandra, Tables eller Gremlin. Cosmos DB tillhandahåller omfattande [serviceavtal](https://aka.ms/acdbsla) (SLA:er) för garantier beträffande dataflöde, svarstid, tillgänglighet och konsekvens, något som ingen annan databastjänst kan erbjuda.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Med ett knappklick gör DB Cosmos att du kan skala dataflöde och lagring elastiskt och oberoende över valfritt antal av Azures geografiska regioner. Du kan elastiskt skala dataflöde och lagring och dra fördel av snabb dataåtkomst på ensiffriga millisekunder med hjälp av din favorit-API bland SQL, MongoDB, Cassandra, Tables eller Gremlin. Cosmos DB tillhandahåller omfattande [serviceavtal](https://aka.ms/acdbsla) (SLA:er) för garantier beträffande dataflöde, svarstid, tillgänglighet och konsekvens, något som ingen annan databastjänst kan erbjuda.
 
 Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration, utan kostnad och åtaganden.
 
@@ -32,11 +32,9 @@ Du kan [Testa Azure Cosmos DB kostnadsfritt](https://azure.microsoft.com/try/cos
 
 Med Cosmos DB kan du skapa mycket responsiva program med hög tillgänglighet, runt om i världen. Cosmos DB replikerar data transparent oavsett var dina användare finns, så att användarna kan interagera med en replik av de data som är närmast dem.
 
-Med Cosmos DB kan du lägga till eller ta bort Azure-regioner på ditt Cosmos-konto när som helst genom att klicka på en knapp. Cosmos DB replikerar sömlöst dina data till alla regioner som är associerade med ditt Cosmos-konto samtidigt som ditt program fortsätter att ha hög tillgänglighet tack vare tjänstens funktioner för kunna vara värd för flera webbplatser.
+Med Cosmos DB kan du lägga till eller ta bort Azure-regioner på ditt Cosmos-konto när som helst genom att klicka på en knapp. Cosmos DB replikerar sömlöst dina data till alla regioner som är associerade med ditt Cosmos-konto samtidigt som ditt program fortsätter att ha hög tillgänglighet tack vare tjänstens funktioner för kunna vara värd för flera webbplatser. Mer information finns i artikeln om [global distribution](distribute-data-globally.md).
 
-Mer information finns i artikeln om [global distribution](distribute-data-globally.md).
-
-### <a name="always-on"></a>Alltid ”på”
+### <a name="always-on"></a>Alltid på
 
 Tack vare djupgående integrering med Azure-infrastrukturen och [transparent replikering av flera original](global-dist-under-the-hood.md), tillhandahåller Cosmos DB en [hög tillgänglighet](high-availability.md) på 99,999 % för både läsning och skrivning. Cosmos DB ger dig också möjligheten att anropa regional redundans för Cosmos-kontot programmatiskt (eller via portalen). Med den här funktionen kan du säkerställa att resten av programmet också är utformat för att redundansväxla vid regionalt haveri om en Cosmos-databas utsätts för automatisk redundansväxling.
 
@@ -50,19 +48,19 @@ Med Cosmos DB kan du skapa mycket responsiva och världsomfattande program. Med 
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Ett flertal exakt definierade konsekvensval
 
-Du behöver inte längre göra extrema [avvägningar mellan konsekvens, tillgänglighet, svarstid och programmerbarhet](consistency-levels-tradeoffs.md). Cosmos DB:s protokoll för replikering av flera original är noggrant utformat för att erbjuda [fem väldefinierade konsekvensnivåalternativ](consistency-levels.md) – stark, begränsad föråldring, konsekvens-prefix, session och slutlig – för en intuitiv programmeringsmodell med kort svarstid och hög tillgänglighet för ditt globalt distribuerade program.
+Du behöver inte längre göra extrema [avvägningar mellan konsekvens, tillgänglighet, svarstid och dataflöde](consistency-levels-tradeoffs.md). Cosmos DB:s protokoll för replikering av flera original är noggrant utformat för att erbjuda [fem väldefinierade konsekvensnivåalternativ](consistency-levels.md) – stark, begränsad föråldring, session, konsekvent prefix, och slutlig – för en intuitiv programmeringsmodell med kort svarstid och hög tillgänglighet för ditt globalt distribuerade program.
 
 ### <a name="no-schema-or-index-management"></a>Ingen hantering av schema eller index
 
-Att hålla databasschema och index synkroniserade med ett programs schema är särskilt svårt för globalt distribuerade appar. Men med Cosmos DB behöver du inte hantera scheman eller index. Databasmotorn är fullständigt schemaoberoende.  Eftersom ingen schema- eller indexhantering krävs, behöver du inte heller bekymra dig om programdriftstopp när du migrerar scheman. Cosmos DB [indexerar automatiskt alla data](index-policy.md) – varken scheman eller index krävs – och hanterar frågor snabbt.
+Att hålla databasschema och index synkroniserade med ett programs schema är särskilt svårt för globalt distribuerade appar. Men med Cosmos DB behöver du inte bry dig om schema- eller indexhantering. Databasmotorn är fullständigt schemaoberoende.  Eftersom ingen schema- eller indexhantering krävs, behöver du inte heller bekymra dig om programdriftstopp när du migrerar scheman. Cosmos DB [indexerar automatiskt alla data](index-policy.md) och hanterar frågor snabbt.
 
 ### <a name="battle-tested-database-service"></a>Beprövad databastjänst
 
-Cosmos DB är en grundläggande tjänst på Azure. I nästan tio år har Cosmos DB använts av många av Microsofts produkter för uppdragskritiska tillämpningar i global skala, som Skype, Xbox, Office 365, Azure och många andra. Idag är Cosmos DB en av de snabbast växande tjänsterna på Azure och används av många externa kunder och program som kräver elastisk skalning och/eller nyckelfärdig replikering av flera original på flera datacenter/i flera regioner för kort svarstid och hög tillgänglighet för både läsning och skrivning.
+Cosmos DB är en grundläggande tjänst i Azure. I nästan tio år har Cosmos DB använts av många av Microsofts produkter för uppdragskritiska tillämpningar i global skala, som Skype, Xbox, Office 365, Azure och många andra. Idag är Cosmos DB en av de snabbast växande tjänsterna på Azure och används av många externa kunder och program som kräver elastisk skalning och/eller nyckelfärdig replikering av flera original på flera datacenter/i flera regioner för kort svarstid och hög tillgänglighet för både läsning och skrivning.
 
 ### <a name="ubiquitous-regional-presence"></a>Ständig regional närvaro
 
-Cosmos DB är tillgängligt i alla Azure-regioner över hela världen, inklusive 54 + regioner i offentliga moln, Azure China 21Vianet, Azure Germany, Azure Government och Azure Government for Department of Defense (DoD). Se [Cosmos DB:s regionala närvaro](regional-presence.md).
+Cosmos DB är tillgängligt i alla Azure-regioner över hela världen, däribland 54 + regioner i offentliga moln, Azure China 21Vianet, Azure Germany, Azure Government och Azure Government for Department of Defense (DoD). Se [Cosmos DB:s regionala närvaro](regional-presence.md).
 
 ### <a name="secure-by-default-and-enterprise-ready"></a>Säker som standard och företagsredo
 
@@ -78,7 +76,7 @@ Cosmos DB är den första och enda tjänsten som erbjuder [branschledande omfatt
 
 ### <a name="apache-spark--cosmos-db--operational-analytics-at-global-scale"></a>Apache Spark + Cosmos DB = driftanalyser i realtid på global skala
 
-Du kan köra [Apache Spark](spark-connector.md) på data som lagras i Cosmos DB. Med den här funktionen kan du göra du göra driftanalyser i realtid med kort svarstid i global skala utan att påverka transaktionsbelastningar som arbetar direkt mot Cosmos DB.
+Du kan köra [Spark](spark-connector.md) direkt på data som lagras i Cosmos DB. Med den här funktionen kan du göra du göra driftanalyser i realtid med kort svarstid i global skala utan att påverka transaktionsbelastningar som arbetar direkt mot Cosmos DB.
 
 ### <a name="develop-applications-for-cosmos-db-using-popular-nosql-apis"></a>Utveckla program för Cosmos DB med populära NoSQL API:er
 
@@ -93,11 +91,11 @@ Cosmos DB implementerar också trådprotokoll för [Cassandra](cassandra-introdu
 
 ## <a name="solutions-that-benefit-from-azure-cosmos-db"></a>Lösningar som har nytta av Azure Cosmos DB
 
-Alla [webb-, mobil-, spel- och IoT-program](use-cases.md) som behöver hantera stora mängder data-, läs- och skrivoperationer i [global](distribute-data-globally.md) skala med svarstider i nära realtid för en mängd olika data drar nytta av Azure Cosmos DB:s [garanterade](https://azure.microsoft.com/support/legal/sla/cosmos-db/) höga tillgänglighet, snabba dataflöde, korta svarstider och justerbara konsekvenskontroll. Lär dig mer om hur Azure Cosmos DB kan användas på [IoT och telematik](use-cases.md#iot-and-telematics), [Handel och marknadsföring](use-cases.md#retail-and-marketing), [Spel](use-cases.md#gaming) och [Webb- och mobilprogram](use-cases.md#web-and-mobile-applications).
+Alla [webb-, mobil-, spel- och IoT-program](use-cases.md) som behöver hantera stora mängder data-, läs- och skrivoperationer i [global](distribute-data-globally.md) skala med svarstider i nära realtid för en mängd olika data drar nytta av Cosmos DB:s [garanterade](https://azure.microsoft.com/support/legal/sla/cosmos-db/) höga tillgänglighet, snabba dataflöde, korta svarstider och justerbara konsekvenskontroll. Lär dig mer om hur Azure Cosmos DB kan användas för att skapa [IoT och telematik](use-cases.md#iot-and-telematics), [handel och marknadsföring](use-cases.md#retail-and-marketing), [spel](use-cases.md#gaming) samt [webb- och mobilprogram](use-cases.md#web-and-mobile-applications).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Cosmos DB:s funktioner för [global distribution](distribute-data-globally.md) och [partitionering](partitioning-overview.md).
+Läs mer om Cosmos DB:s funktioner för [nyckelfärdig global distribution](distribute-data-globally.md) och [partitionering](partitioning-overview.md).
 
 Kom igång med Azure Cosmos DB med någon av våra snabbstarter:
 

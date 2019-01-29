@@ -12,20 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/29/2018
+ms.date: 01/18/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5b8277c0688d0fd08dfa81cb7d5f7155840843c0
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092091"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413591"
 ---
-# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Azure CDN-domän
-
-> [!IMPORTANT]
-> Den här funktionen är inte tillgänglig med **Azure CDN Standard från Akamai**-produkter. En jämförelse av Azure Content Delivery Network-funktioner (CDN) finns i [Jämföra Azure CDN-produktfunktioner](cdn-features.md).
+# <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
 Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med en Azure CDN-slutpunkt. Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via TLS-/SSL-kryptering när de skickas över Internet. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Den här processen ger trygghet och skyddar dina webbprogram mot attacker.
 
@@ -33,11 +30,11 @@ Azure CDN stöder HTTPS i CDN-slutpunktens värdnamn som standard. Om du skapar 
 
 Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
-- Ingen extra kostnad: det kostar ingenting att förvärva eller förnya certifikat och det tillkommer ingen extra kostnad för HTTPS-trafik. Du betalar bara för utgående trafik (GB) från CDN.
+- Utan extra kostnad: Det kostar ingenting att förvärva eller förnya certifikat, och det tillkommer ingen extra kostnad för HTTPS-trafik. Du betalar bara för utgående trafik (GB) från CDN.
 
-- Enkel aktivering: enklicksetablering är tillgänglig från [Azure Portal](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
+- Enkel aktivering: Enklicksetablering är tillgänglig från [Azure-portalen](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
 
-- Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
+- Fullständig certifikathantering är tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
 I den här guiden får du lära dig att:
 > [!div class="checklist"]
@@ -49,9 +46,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
+Innan du kan slutföra stegen i den här kursen måste du först skapa en CDN-profil och minst en CDN-slutpunkt. Mer information finns i [ Snabbstart: Skapa en Azure CDN-profil och CDN-slutpunkt](cdn-create-new-endpoint.md).
 
-Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
+Dessutom måste du associera en anpassad Azure CDN-domän på CDN-slutpunkten. Mer information finns i [Självstudie: Självstudier: Lägga till en anpassad domän i Azure CDN-slutpunkten](cdn-map-content-to-custom-domain.md)
 
 ---
 
@@ -65,7 +62,7 @@ När du använder ett CDN-hanterat certifikat kan du aktivera HTTPS med några f
 
 Följ dessa steg om du vill aktivera HTTPS på en anpassad domän:
 
-1. I [Azure Portal](https://portal.azure.com) går du till profilen **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
+1. I [Azure-portalen](https://portal.azure.com) går du till profilen **Azure CDN Standard från Microsoft**, **Azure CDN Standard från Akamai**, **Azure CDN Standard från Verizon** eller **Azure CDN Premium från Verizon**.
 
 2. I listan med CDN-slutpunkter väljer du slutpunkten som innehåller din anpassade domän.
 
@@ -98,9 +95,9 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 
 ### <a name="prepare-your-azure-key-vault-account-and-certificate"></a>Förbered ditt Azure Key Vault-konto och certifikat
  
-1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som Azure CDN-profilen och CDN-slutpunkterna där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
+1. Azure Key Vault: Du måste ha ett aktivt Azure Key Vault-konto under samma prenumeration som den Azure CDN-profil och de CDN-slutpunkter där du vill aktivera anpassad HTTPS. Skapa ett Azure Key Vault-konto om du inte redan har ett.
  
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med. 
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med. 
 
 ### <a name="register-azure-cdn"></a>Registrera Azure CDN
 
@@ -187,6 +184,9 @@ Den automatiska verifieringen tar vanligtvis några minuter. Öppna ett support�
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
 Om CNAME-posten för slutpunkten inte finns längre eller om den innehåller cdnverify-underdomänen följer du instruktionerna i det här steget.
+
+>[!NOTE]
+>E-postvalidering av ägande av anpassad domän är för närvarande inte tillgänglig för **Azure CDN från Akamai**-profiler. Den här funktionen är för närvarande planerad inför framtiden. 
 
 När du har aktiverat HTTPS på din anpassade domän verifierar DigiCert-certifikatutfärdaren ägarskapet för din domän genom att kontakta registranten enligt domänens [WHOIS](http://whois.domaintools.com/)-registrantinformation. Kontakten sker via e-postadressen (som standard) eller telefonnumret som står i WHOIS-registreringen. Du måste slutföra domänverifieringen för att HTTPS ska aktiveras på din anpassade domän. Du har sex arbetsdagar på dig att godkänna domänen. Begäranden som inte godkänns inom sex arbetsdagar avbryts automatiskt. 
 
@@ -302,15 +302,11 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
     
     Ett SAN-certifikat följer samma standarder för kryptering och säkerhet som ett dedikerat certifikat. Alla utfärdade SSL-certifikat använder SHA-256 för förbättrad serversäkerhet.
 
-5. *Kan jag använda HTTPS för en anpassad domän med Azure CDN från Akamai?*
-
-    Den här funktionen är för närvarande inte tillgänglig med **Azure CDN Standard från Akamai**-profiler. Microsoft kommer att lägga till stöd för den här funktionen inom de närmaste månaderna.
-
-6. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
+5. *Behöver jag en CAA-post (Certificate Authority Authorization) med DNS-leverantören?*
 
     Nej, en CAA-post krävs inte för närvarande. Men om du har en sådan måste den innehålla DigiCert som en giltig certifikatutfärdare.
 
-7. *Den 20 juni 2018 började Azure CDN från Verizon som standard använda ett dedikerat certifikat med SNI-baserad TLS/SSL. Vad händer med mina befintliga anpassade domäner som använder SAN-certifikat och IP-baserad TLS/SSL?*
+6. *Den 20 juni 2018 började Azure CDN från Verizon som standard använda ett dedikerat certifikat med SNI-baserad TLS/SSL. Vad händer med mina befintliga anpassade domäner som använder SAN-certifikat och IP-baserad TLS/SSL?*
 
     Dina befintliga domäner kommer gradvis att migreras till ett enskilt certifikat under de kommande månaderna om Microsoft i sina analyser ser att det bara görs SNI-klientförfrågningar till ditt program. Om Microsoft ser att det görs andra typer av förfrågningar till ditt program fortsätter domänerna att använda SAN-certifikat med IP-baserad TLS/SSL. Det uppstår dock inga avbrott i tjänsten eller stödet för klientförfrågningar oavsett om förfrågningarna är SNI-baserade eller inte.
 
@@ -329,5 +325,5 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa kurs om du vill lära dig hur du konfigurerar cachelagring på en CDN-slutpunkt.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Konfigurera Azures CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
+> [Självstudier: Konfigurera Azure CDN-cachelagringsregler](cdn-caching-rules-tutorial.md)
 

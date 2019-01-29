@@ -1,28 +1,28 @@
 ---
 title: Skapa en Azure Search-tjänst i portalen – Azure Search
-description: Etablera en Azure Search-tjänst i Azure-portalen. Välj resursgrupper, regioner, samt SKU eller prisnivå.
+description: Etablera en Azure Search-resurs i Azure-portalen. Välj resursgrupper, regioner, samt SKU eller prisnivå.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 01/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: dfb6ccac01933ea114694de361c2f1d4d5a649b0
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 6d71ad9bdc7744898480fb2cc6743e59131ec588
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230534"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54423450"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Skapa en Azure Search-tjänst i portalen
 
 Azure Search är en fristående-resurs som används för att koppla in en sökfunktion i anpassade appar. Azure Search integreras enkelt med många andra Azure-tjänster, men du kan även använda det separat, med appar på nätverksservrar eller med programvara som körs på andra molnplattformar. 
 
-I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure-portalen](https://portal.azure.com/). 
+I den här artikeln lär du dig hur du skapar en Azure Search-resurs i [Azure Portal](https://portal.azure.com/). 
 
-![Azure Search-resurs i portalen](media/search-create-service-portal/azure-search-resource-label.png)
+[ ![Animerad GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif) ](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 Föredrar du PowerShell? Använd [tjänstmallen](https://azure.microsoft.com/resources/templates/101-azure-search-create/) för Azure Resource Manager. Om du behöver hjälp att komma igång går du till [Hantera Azure Search med PowerShell](search-manage-powershell.md).
 
@@ -37,7 +37,7 @@ Du kan också [aktivera MSDN-prenumerantförmåner](https://azure.microsoft.com/
 2. Klicka på plustecknet (”+ Skapa resurs”) i det övre vänstra hörnet.
 3. Använd sökfältet för att hitta ”Azure Search” eller gå till resursen via **Web** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search3.png)
+![Navigera till en Azure Search-resurs](./media/search-create-service-portal/find-search3.png "Navigeringssökväg till Azure Search")
 
 ## <a name="name-the-service-and-url-endpoint"></a>Namnge tjänsten och URL-slutpunkten
 
@@ -64,7 +64,9 @@ Om du inte kombinerar resurser i en grupp eller om befintliga resursgrupper är 
 > Om du tar bort en resursgrupp tar du också bort tjänsterna i gruppen. Om du har ett prototypprojekt som använder flera tjänster kan du placera dem i samma resursgrupp. Då är det lättare att rensa upp när projektet är slutfört. 
 
 ## <a name="select-a-hosting-location"></a>Välj en värdplats 
-Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. Observera att [priserna kan variera](https://azure.microsoft.com/pricing/details/search/) efter geografiskt område.
+Azure Search är en Azure-tjänst som kan finnas i datacenter över hela världen. [Priserna kan variera](https://azure.microsoft.com/pricing/details/search/) efter geografiskt område.
+
+Om du planerar att använda kognitiv sökning väljer du en [region med funktionstillgänglighet](cognitive-search-quickstart-blob.md#supported-regions).
 
 ## <a name="select-a-pricing-tier-sku"></a>Välj en prisnivå (SKU)
 [Azure Search finns för närvarande med flera olika prisnivåer](https://azure.microsoft.com/pricing/details/search/): Kostnadsfri, Basic eller Standard. Nivåerna har olika [kapacitet och begränsningar](search-limits-quotas-capacity.md). Mer information finns i [Välj en prisnivå nivå eller SKU](search-sku-tier.md).
@@ -77,7 +79,21 @@ När tjänsten väl har skapats går det inte att ändra prisnivå. Om du senare
 
 Kom ihåg att fästa din tjänst på instrumentpanelen för enkel åtkomst när du loggar in.
 
-![](./media/search-create-service-portal/new-service3.png)
+![Fäst på instrumentpanelen](./media/search-create-service-portal/new-service3.png "Fäst resursen på instrumentpanelen för snabb åtkomst")
+
+## <a name="get-a-key-and-url-endpoint"></a>Hämta en nyckel och URL-slutpunkt
+
+Med några undantag kräver användning av din nya tjänst att du anger URL-slutpunkten och en API-nyckel för auktorisering. Snabbstarter, självstudier som [Utforska Azure Search REST-API:er (Postman)](search-fiddler.md) och [Så använder du Azure Search från .NET](search-howto-dotnet-sdk.md), exempel och anpassad kod behöver en slutpunkt och nyckel för att köras på just din resurs.
+
+1. På översiktssidan för tjänsten letar du upp och kopierar URL-slutpunkten till vänster på sidan. 
+
+   ![Översiktssidan för tjänst med URL-slutpunkt](./media/search-create-service-portal/url-endpoint.png "URL-slutpunkt och annan tjänstinformation")
+
+2. I det vänstra navigeringsfönstret väljer du **Nycklar** och kopierar sedan någon av administratörsnycklarna (de är likvärdiga). API-administratörsnycklarna krävs för att skapa, uppdatera och ta bort objekt i tjänsten.
+
+   ![Nyckelsida som visar primär- och sekundärnycklar](./media/search-create-service-portal/admin-api-keys.png "API-administratörsnycklar för auktorisering")
+
+Det behövs ingen slutpunkt eller nyckel för portalbaserade uppgifter. Portalen är redan länkad till din Azure Search-resurs med administratörsrättigheter. För en portalsjälvstudie börjar du med [Självstudie: Importera, indexera och köra frågor i Azure Search](search-get-started-portal.md).
 
 ## <a name="scale-your-service"></a>Skala din tjänst
 Det kan ta några minuter att skapa en tjänst (15 minuter eller mer beroende på nivå). När tjänsten har etablerats kan du skala den så att den passar dina behov. Eftersom du har valt standardnivån för din Azure Search-tjänst kan du skala tjänsten i två dimensioner: repliker och partitioner. Om du hade valt Basic-nivån hade du bara kunnat lägga till repliker. Skalning är inte tillgängligt om du etablerar tjänsten utan kostnad.
@@ -95,14 +111,14 @@ Om du lägger till resurser blir din månatliga faktura större. [Priskalkylator
 2. Välj **Inställningar** > **Skala** i det vänstra navigeringsfönstret.
 3. Använd reglaget om du vill lägga till resurser av endera typ.
 
-![](./media/search-create-service-portal/settings-scale.png)
+![Lägga till kapacitet](./media/search-create-service-portal/settings-scale.png "Lägga till kapacitet via repliker och partitioner")
 
 > [!Note] 
 > Varje nivå har olika [begränsningar](search-limits-quotas-capacity.md) för det totala antalet Search-enheter som tillåts i en enskild tjänst (repliker * partitioner = totalt antal Search-enheter).
 
 ## <a name="when-to-add-a-second-service"></a>När ska du lägga till en andra tjänst?
 
-En stor majoritet av kunderna använder bara en tjänst som etablerats på en nivå som har [rätt resursbalans](search-sku-tier.md). En tjänst kan vara värd för flera index i enlighet med [gränsvärdena för den nivå du väljer](search-capacity-planning.md), med indexen isolerade från varandra. I Azure Search kan förfrågningar bara riktas till ett index, vilket minimerar risken för oavsiktlig eller avsiktlig datahämtning från andra index i samma tjänst.
+De flesta kunder använder bara en tjänst som etablerats på en nivå som har [rätt resursbalans](search-sku-tier.md). En tjänst kan vara värd för flera index i enlighet med [gränsvärdena för den nivå du väljer](search-capacity-planning.md), med indexen isolerade från varandra. I Azure Search kan förfrågningar bara riktas till ett index, vilket minimerar risken för oavsiktlig eller avsiktlig datahämtning från andra index i samma tjänst.
 
 Även om de flesta kunder bara använder en tjänst kan det vara nödvändigt med tjänstredundans om de operativa kraven omfattar följande:
 

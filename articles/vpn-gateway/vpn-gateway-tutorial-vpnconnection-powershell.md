@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0c71062bded65f8aa7c259c0678ee6675e2dab38
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336584"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54432225"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Skapa och hantera VPN-anslutningar mellan servrar med Azure PowerShell-modulen
 
@@ -39,11 +39,11 @@ Följande diagram visar topologin för den här självstudien:
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
+Om du väljer att installera och använda PowerShell lokalt kräver den här självstudien version 5.3 eller senare av Azure PowerShell-modulen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Login-AzureRmAccount` för att skapa en anslutning till Azure.
 
 ## <a name="requirements"></a>Krav
 
-Slutför den första självstudien ”:[Skapa VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)” för att skapa följande resurser:
+Slutför den första självstudien: ”[Skapa VPN-gateway med Azure PowerShell](vpn-gateway-tutorial-create-gateway-powershell.md)” för att skapa följande resurser:
 
 1. Resursgrupp (TestRG1), virtuellt nätverk (VNet1) och GatewaySubnet
 2. VPN-gateway (VNet1GW)
@@ -168,7 +168,7 @@ Du kan inaktivera BGP genom att ändra egenskapsvärdet ”-EnableBGP” till **
 Du kan tillämpa en valfri IPsec/IKE-princip för att ange den exakta kombinationen av IPsec/IKE:s kryptografiska algoritmer och nyckelstyrkor i anslutningen, i stället för att använda [standardförslagen](vpn-gateway-about-vpn-devices.md#ipsec). Följande exempelskript skapar en annan IPsec/IKE-princip med följande algoritmer och parametrar:
 
 * IKEv2: AES256, SHA256, DHGroup14
-* IPsec: AES128, SHA1, PFS14, SA-livslängd 14 400 sekunder och 102 400 000 KB
+* IPsec: AES128, SHA1, PFS14, SA-livslängd 14 400 sekunder och 102 400 000 kB
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection -Name $Connection1 `

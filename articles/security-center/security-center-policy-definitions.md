@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/15/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1bf0ae8b0e9e0665f9b51935763d9f724b4bca4f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 925bf325d128f1757d24d29013f4e27eb788d7e2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261901"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180678"
 ---
 # <a name="azure-security-policies-monitored-by-azure-security-center"></a>Azure säkerhetsprinciper som övervakas av Azure Security Center
 Den här artikeln innehåller en lista över Azure principdefinitioner som kan övervakas i Security Center. Mer information om säkerhetsprinciper finns [arbeta med säkerhetsprinciper](tutorial-security-policy.md).
@@ -34,7 +34,7 @@ För att förstå de inbyggda principer som övervakas av Security Center finns 
 |Granska auktoriseringsregler för namnområden för händelsehubb|Event Hub-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. För att anpassas till det lägsta privilegiet säkerhetsmodell, bör du skapa principer för åtkomst på enhetsnivå för köer och ämnen för att ge åtkomst till endast den specifika enheten.|
 |Granska förekomst av auktoriseringsregler för händelsehubbentiteter|Granska förekomst av auktoriseringsregler på Händelsehubb entiteter för att ge lägsta åtkomstbehörighet.|
 |Granska obegränsad nätverksåtkomst till lagringskonton|Granska obegränsad nätverksåtkomst i brandväggsinställningarna för storage-konto. Konfigurera i stället Nätverksregler så att endast program från tillåtna nätverk har åtkomst till lagringskontot. Om du vill tillåta anslutningar från specifika Internet eller en lokal klienter beviljas åtkomst till trafik från specifika Azure-nätverk eller till offentliga Internet-IP-adressintervall.|
-|Granska användning av anpassade RBAC-regler|Granska inbyggda roller som ägare, deltagarbehörighet, läsare i stället för anpassad RBAC-roller som är felbenägna. Med hjälp av anpassade roller behandlas som ett undantag och kräver en omfattande granskning och hotmodellering.|
+|Granska användning av anpassade RBAC-regler|Granska inbyggda roller som ägare, deltagare, läsare i stället för anpassad RBAC-roller som är felbenägna. Med hjälp av anpassade roller behandlas som ett undantag och kräver en omfattande granskning och hotmodellering.|
 |Granska aktivering av diagnostikloggar i Azure Stream Analytics|Granska aktivering av loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.|
 |Granska säker överföring till lagringskonton|Granska krav för säker överföring i ditt lagringskonto. Säker överföring är ett alternativ som tvingar ditt storage-konto för att acceptera begäranden endast från säkra anslutningar (HTTPS). Använda HTTPS säkerställer autentisering mellan servern och tjänsten och skyddar data under överföring från network layer attacker, till exempel man-in-the-middle, avlyssning och sessionskapning.|
 |Granska tillhandahållande av Azure Active Directory-administratör för SQL Server|Granska etablering av en Azure Active Directory-administratör för SQL-servern att aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighetshantering och centraliserad Identitetshantering för databasanvändare och andra Microsoft-tjänster.|

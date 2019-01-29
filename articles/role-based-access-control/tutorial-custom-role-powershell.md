@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f49f6f03b6d9f1c51cada58ae782bbc364fc9d66
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300617"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427295"
 ---
-# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Självstudie: Skapa en anpassad roll med Azure PowerShell
+# <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Självstudier: Skapa en anpassad roll med hjälp av Azure PowerShell
 
 Om de [inbyggda rollerna](built-in-roles.md) inte uppfyller organisationens specifika krav kan du skapa egna, anpassade roller. För den här självstudien skapar du en anpassad roll med namnet Reader Support Tickets (Läsare av supportbegäranden) med hjälp av Azure PowerShell. Med den här anpassade rollen kan användare visa allt i prenumerationen samt öppna supportbegäranden.
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 För att kunna genomföra den här kursen behöver du följande:
 
 - Behörigheter att skapa anpassade roller som [Owner](built-in-roles.md#owner) (Ägare) eller [User Access Administrator](built-in-roles.md#user-access-administrator) (Administratör för användaråtkomst)
-- Lokalt installerat [Azure PowerShell](/powershell/azure/install-azurerm-ps)
+- Lokalt installerat [Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps)
 
 ## <a name="sign-in-to-azure-powershell"></a>Logga in till Azure PowerShell
 

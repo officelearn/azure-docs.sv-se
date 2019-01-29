@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: 5ce8217629cff702ecd3ec274d77918e54efacc6
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359127"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54451892"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Självstudier: Beställa Azure Data Box
 
@@ -79,7 +79,7 @@ Utför följande steg på Azure-portalen för att beställa en enhet.
     |Namn     |  Välj ett smeknamn så att du kan spåra beställningen. <br> Namnet kan innehålla mellan 3 och 24 tecken som kan vara bokstäver, siffror och bindestreck. <br> Namnet måste börja och sluta med en bokstav eller en siffra.      |
     |Resursgrupp     |   Använd ett befintligt eller skapa ett nytt. <br> En resursgrupp är en logisk container för de resurser som kan hanteras eller distribueras tillsammans.         |
     |Azure-målregion     | Välj en region för lagringskontot. <br> Mer information finns i [regional tillgänglighet](data-box-overview.md#region-availability).        |
-    |Lagringskonto(n)     | Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan även ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **Blob Storage**. Det går inte att använda lagringskonton som har konfigurerade regler. För lagringskonton måste **åtkomst tillåtas från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
+    |Lagringskonto(n)     | Baserat på den angivna Azure-regionen väljer du ett eller flera lagringskonton från den filtrerade listan med befintliga lagringskonton. Data Box kan länkas med upp till 10 lagringskonton. <br> Du kan även ett nytt konto för **Generell användning v1**, **Generell användning v2** eller **Blob Storage**. Det går inte att använda lagringskonton som har konfigurerade regler. Lagringskonton måste **tillåta åtkomst från alla nätverk** i avsnittet om brandväggar och virtuella nätverk.|
     
 7. I **Leveransadress** uppger du för- och efternamn, företagets postadress och ett giltigt telefonnummer. Klicka på **Verifiera adress**. Tjänsten verifierar leveransadressen och tjänstens tillgänglighet. Om tjänsten är tillgänglig för den angivna leveransadressen får du ett meddelande om det. Klicka på **Nästa**.
 

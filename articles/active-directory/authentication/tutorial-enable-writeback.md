@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: e91ca2ff438e3ae9e9b3f46e5a8db89f17fb1c8e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6cbc4fa071a45e670dae3cc6be66272bc67767f7
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295129"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54437189"
 ---
-# <a name="tutorial-enabling-password-writeback"></a>Självstudie: Aktivera tillbakaskrivning av lösenord
+# <a name="tutorial-enabling-password-writeback"></a>Självstudier: Aktivera tillbakaskrivning av lösenord
 
 I den här självstudien aktiverar du tillbakaskrivning av lösenord för din hybridmiljö. Tillbakaskrivning av lösenord används för att synkronisera lösenordsändringar i Azure Active Directory (Azure AD) tillbaka till din lokala Active Directory Domain Services-miljö (AD DS). Tillbakaskrivning av lösenord är aktiverat som en del av Azure AD Connect för att tillhandahålla en säker metod för att skicka lösenordsändringar tillbaka till en befintlig lokal katalog från Azure AD. Du hittar mer information om mekanismerna bakom tillbakaskrivning av lösenord i artikeln [Vad är Tillbakaskrivning av lösenord?](concept-sspr-writeback.md).
 

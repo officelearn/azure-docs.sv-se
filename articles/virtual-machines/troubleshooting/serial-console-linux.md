@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: fab422612bc3f83c8dc75d0dd99f42369dfa1d26
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 6c0207a68cea70951143c87f83f6b17bb0c7b1f3
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438091"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098467"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Seriekonsol för virtuell dator för Linux
 
@@ -89,7 +89,7 @@ Felaktig brandväggsregler | Få åtkomst till den seriella konsolen och åtgär
 Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet.
 Problem med SSH/RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna.
 Nätverket låsa system| Komma åt seriekonsolen från Azure portal för att hantera systemet.
-Interagera med startprogrammet | Åtkomst GRUB från seriell konsol. Mer information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
+Interagera med startprogrammet | Starta om den virtuella datorn från seriell konsol-bladet för att komma åt GRUB på Linux-VM. Mer information finns i [Använd seriekonsol för att komma åt GRUB och enanvändarläge](serial-console-grub-single-user-mode.md).
 
 ## <a name="disable-the-serial-console"></a>Inaktivera seriekonsolen
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.

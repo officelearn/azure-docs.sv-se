@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d50059fb6fe03309609c91b56fb3763bad32e46b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 0aef8c5e055eb43576ea0ecc7ef8bf09d22d6ed3
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199977"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412911"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudier: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -75,7 +75,7 @@ Du behöver ett Azure IoT Central-program för att kunna genomföra den här sj�
 
 ## <a name="create-a-new-custom-device-template"></a>Skapa en ny anpassad enhetsmall
 
-Som byggare kan du skapa och redigera enhetsmallar i programmet. När du skapar en enhetsmall genererar Azure IoT Central en simulerad enhet utifrån mallen. Den simulerade enheten genererar telemetri som gör att du kan testa programmets beteende innan du ansluter en fysisk enhet.
+Som byggare kan du skapa och redigera enhetsmallar i programmet. När du skapar en enhetsmall genererar Azure IoT Central en simulerad enhet utifrån mallen. Den simulerade enheten genererar telemetri som gör att du kan testa programmets beteende innan du ansluter en riktig enhet.
 
 Om du vill lägga till en ny enhetsmall för programmet går du till sidan **Programverktyg**. För att göra det väljer du **Programverktyg** på den vänstra navigeringsmenyn.
 
@@ -155,7 +155,7 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
 
 ## <a name="define-event-measurement"></a>Definiera händelsemått
 
-Du kan använda händelsen för att definiera tidpunktsdata som skickas av enheten för att ange något viktigt, till exempel ett fel eller ett komponentfel. Utöver telemetrimätningar kan Azure IoT Central simulera enhetshändelser så att du kan testa programmets beteende innan du ansluter en fysisk enhet. Du definierar händelsemått för enhetstypen i vyn **Mått**.
+Du kan använda händelsen för att definiera tidpunktsdata som skickas av enheten för att ange något viktigt, till exempel ett fel eller ett komponentfel. Utöver telemetrimätningar kan Azure IoT Central simulera enhetshändelser så att du kan testa programmets beteende innan du ansluter en riktig enhet. Du definierar händelsemått för enhetstypen i vyn **Mått**.
 
 1. För att lägga till händelsemåttet **Fel på fläktmotor** väljer du **Nytt mått**. Välj sedan **Händelse** som måttyp:
 
@@ -191,7 +191,7 @@ Du kan använda händelsen för att definiera tidpunktsdata som skickas av enhet
 
 ## <a name="define-state-measurement"></a>Definiera tillståndsmätning
 
-Du kan använda Tillstånd för att definiera och visualisera tillståndet för enheten eller dess komponenter över en viss tidsperiod. Utöver telemetrimätningar kan Azure IoT Central simulera enhetstillstånd så att du kan testa programmets beteende innan du ansluter en fysisk enhet. Du definierar tillståndsmått för enhetstypen i vyn **Mått**.
+Du kan använda Tillstånd för att definiera och visualisera tillståndet för enheten eller dess komponenter över en viss tidsperiod. Utöver telemetrimätningar kan Azure IoT Central simulera enhetstillstånd så att du kan testa programmets beteende innan du ansluter en riktig enhet. Du definierar tillståndsmått för enhetstypen i vyn **Mått**.
 
 1. För att lägga till måttet **Fläktläge** väljer du **Nytt mått**. Välj sedan **Tillstånd** som måttyp:
 
@@ -488,7 +488,7 @@ Nu när du har definierat enhetsmallen **Ansluten luftkonditioneringsenhet** kan
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig att:
+I den här självstudiekursen lärde du dig att:
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

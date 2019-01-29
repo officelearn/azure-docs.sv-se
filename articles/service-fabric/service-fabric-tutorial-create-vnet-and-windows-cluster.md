@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 09/27/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: a720bb906192731b8b636939e22b13a8e52bbe76
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 76281113c0d1e7b3943e137accf7aa93c2863fe6
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632899"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435388"
 ---
-# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudie: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
+# <a name="tutorial-deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Självstudier: Distribuera ett Service Fabric Windows-kluster till ett virtuellt Azure-nätverk
 
 Den här självstudien ingår i en serie. Du får lära dig att distribuera ett Windows Service Fabric-kluster till ett [virtuellt Azure-nätverk (VNET)](../virtual-network/virtual-networks-overview.md) och en [nätverkssäkerhetsgrupp](../virtual-network/virtual-networks-nsg.md) med PowerShell och en mall. När du är färdig körs ett kluster i molnet som du kan distribuera program till.  Om du vill skapa ett Linux-kluster med Azure CLI kan du läsa [Skapa ett säkert Linux-kluster i Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
@@ -51,7 +51,7 @@ Innan du börjar den här självstudien:
 
 * om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * installera [Service Fabric SDK och PowerShell-modulen](service-fabric-get-started.md)
-* installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+* installera [Azure Powershell-modulen version 4.1 eller senare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 
 I följande procedurer skapas ett Service Fabric-kluster med fem noder. Du kan beräkna kostnaden för att köra ett Service Fabric-kluster i Azure med [Azures prissättningsberäknare](https://azure.microsoft.com/pricing/calculator/).
 
@@ -98,8 +98,8 @@ I resursen **Microsoft.ServiceFabric/kluster** konfigureras ett Windows-kluster 
 * [DNS-tjänsten](service-fabric-dnsservice.md) är aktiverad
 * [Hållbarhetsnivå](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) Brons (kan konfigureras i mallparametrarna)
 * [Tillförlitlighetsnivå](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) Silver (kan konfigureras i mallparametrarna)
-* slutpunkt för klientanslutning: 19000 (kan konfigureras i mallparametrarna)
-* slutpunkt för HTTP-gateway: 19080 (kan konfigureras i mallparametrarna)
+* klientanslutningsslutpunkt: 19000 (kan konfigureras i mallparametrarna)
+* HTTP-gatewayslutpunkt: 19080 (kan konfigureras i mallparametrarna)
 
 ### <a name="azure-load-balancer"></a>Azure-lastbalanserare
 

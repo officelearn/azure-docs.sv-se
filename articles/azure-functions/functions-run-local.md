@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 854485863786a4892ea04d4d5400732742436210
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 214f32c4dc35661480b96477caf0cdf6243c75a8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913078"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094257"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -371,7 +371,7 @@ Du måste ange data i brödtexten i en POST-förfrågan för om du vill skicka t
 {
     "input": "<trigger_input>"
 }
-````
+```
 
 Den `<trigger_input>` värdet innehåller data i ett format som förväntades av funktionen. Följande cURL-exempel finns ett INLÄGG till en `QueueTriggerJS` funktion. I det här fallet är indata en sträng som motsvarar meddelandet som förväntas ska finnas i kön.
 

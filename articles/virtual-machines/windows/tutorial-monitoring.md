@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 1bee08800eb5b480024001f742e8965cbd609a73
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408650"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54428893"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka och uppdatera en virtuell Windows-dator i Azure
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 > * Övervaka ändringar och inventering
 > * Konfigurera avancerad övervakning
 
-Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul).
+Den här självstudiekursen kräver Azure PowerShell-modulen version 5.7.0 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
 
 ## <a name="create-virtual-machine"></a>Skapa en virtuell dator
 

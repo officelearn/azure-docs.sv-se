@@ -4,7 +4,7 @@ description: Lär dig hur du konfigurerar Azure-diagnostik för att skicka Azure
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
 ms.service: active-directory
@@ -16,14 +16,14 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 9d41c0ceeed2a69884b8ef481c79feb495fc89c0
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 35acd3fa4815be6d60738dd5f5cef9dc9b45d748
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51621216"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54824566"
 ---
-# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Självstudie: Arkivera Azure AD-loggar till ett Azure-lagringskonto (förhandsversion)
+# <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Självstudier: Arkivera Azure AD-loggar till ett Azure-lagringskonto (förhandsversion)
 
 I den här självstudien får du lära dig hur du konfigurerar Azure Monitor-diagnostikinställningar för att dirigera Azure Active Directory-loggar (Azure AD) till ett Azure-lagringskonto.
 

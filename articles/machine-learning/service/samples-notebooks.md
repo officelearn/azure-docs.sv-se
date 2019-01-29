@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0d74f731d0a7eca25238344e36838dc6c806c788
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 6befe3a3fee80dd65fd3ac5be241c558707224e6
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53434536"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54811102"
 ---
 # <a name="use-jupyter-notebooks-to-explore-azure-machine-learning-service"></a>Använd Jupyter-anteckningsböcker för att utforska Azure Machine Learning-tjänsten
 
@@ -31,7 +31,7 @@ Slutför [Azure Machine Learning Python-snabbstarten](quickstart-get-started.md)
 
 ## <a name="try-azure-notebooks-free-jupyter-notebooks-in-the-cloud"></a>Prova Azure Notebooks: Kostnadsfria Jupyter-anteckningsböcker i molnet
 
-Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i Azure Notebooks. Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
+Det är lätt att komma igång med Azure Notebooks! [Azure Machine Learning SDK för Python](https://aka.ms/aml-sdk) har redan installerats och konfigurerats för dig i [Azure Notebooks](https://notebooks.azure.com/). Installationen och framtida uppdateringar hanteras automatiskt via Azure-tjänster.
   
 + Så här kör du de **centrala anteckningsböckerna i självstudien**:
   1. Gå till [Azure Notebooks](https://notebooks.azure.com/).

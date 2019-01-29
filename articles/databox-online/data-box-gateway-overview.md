@@ -5,14 +5,14 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 4f1ab6d955c81ce6f7b141eef42341f43bb379f6
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 9670d67fa1eb79e9e5e8c81726c10cc78767fb74
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165325"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54435472"
 ---
 # <a name="what-is-azure-data-box-gateway-preview"></a>Vad är Azure Data Box Gateway (förhandsversion)? 
 
@@ -39,7 +39,10 @@ Data Box Gateway har följande fördelar:
 
 - **Enkel dataöverföring** – Gör det enkelt att flytta data till och från Azure Storage, lika enkelt som att arbeta med en lokal nätverksresurs.  
 - **Höga prestanda** – Tar bort problemen med nätverksdatatransport med överföringar med höga prestanda till och från Azure. 
-- **Snabb åtkomst** – Cachelagrar de senaste filerna för snabb åtkomst av lokala filer.  
+- **Snabb åtkomst och höga datainmatningsfrekvenser under kontorstid** – Data Box Gateway har en lokal cache som du definierar som lokal kapacitet när den virtuella enheten etableras. Datadiskstorleken ska anges enligt [minimikraven för virtuella enheter](data-box-gateway-system-requirements.md#specifications-for-the-virtual-device). Den lokala cachen ger följande fördelar:
+    - Den lokala cachen möjliggör datainmatning med hög hastighet. När stora mängder data matas in vid tider med hög belastning kan cachen förvara data och överför dem till molnet.
+    - Den lokala cachen möjliggör snabb läsåtkomst upp till ett visst tröskelvärde. Tills enheten är 50–60 % full används alla läsningar från enheten från cachen, vilket gör att de blir snabbare. När det använda utrymmet på enheten överskrider det här tröskelvärdet börjar enheten att ta bort lokala filer. 
+ 
 - **Begränsad bandbreddsanvändning** – data kan skrivas till Azure även om nätverket begränsar användningen vid tider med hög belastning.  
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
@@ -67,7 +70,7 @@ Den virtuella Data Box-Gateway-enheten har följande specifikationer:
 | Virtuella processorer (kärnor)   | Minst 4 |            
 | Minne  | Minst 8 GB|
 | Tillgänglighet|Enkel nod|
-| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
+| Diskar| OS-disk: 250 GB <br> Datadisk: minst 2 TB, tunt allokerad och måste backas upp av SSD-enheter|
 | Nätverksgränssnitt|Minst 1 virtuellt nätverksgränssnitt|
 | Interna fildelningsprotokoll|SMB och NFS  |
 | Säkerhet| Autentisering för att låsa upp åtkomst till enhet och data <br> Data-in-flight-krypterad med AES-256-bitarskryptering|

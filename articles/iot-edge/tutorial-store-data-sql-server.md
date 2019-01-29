@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 01/18/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 426e4fe05890f1669859545db3d731943a12428a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260183"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54412231"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Självstudie: Lagra data på gränsen med SQL Server-databaser
 
@@ -36,7 +36,10 @@ I den här guiden får du lära dig att:
 
 En Azure IoT Edge-enhet:
 
-* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md). 
+* Du kan använda utvecklingsdatorn eller en virtuell dator som en gränsenhet genom att följa stegen i snabbstarten för [Linux-](quickstart-linux.md) eller [Windows-enheter](quickstart.md).
+
+  > [!NOTE]
+  > SQL Server har endast stöd för Linux-containrar. Om du vill testa den här självstudien genom att använda en Windows-enhet som din Edge-enhet måste du konfigurera den så att den använder Linux-containrar. Krav och installationssteg för konfiguration av IoT Edge-körningen för Linux-containrar i Windows finns i [Installera Azure IoT Edge-körningen i Windows](how-to-install-iot-edge-windows-with-linux.md).
 
 Molnresurser:
 
@@ -227,15 +230,9 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
 1. Öppna filen **deployment.template.json** i Visual Studio Code-utforskaren. 
 
-2. Leta upp avsnittet **modules** (moduler). Två moduler bör listas: **tempSensor**, som genererar simulerade data, och din **sqlFunction**-modul.
+1. Leta upp avsnittet **modules** (moduler). Två moduler bör listas: **tempSensor**, som genererar simulerade data, och din **sqlFunction**-modul.
 
-3. Om du använder Windows-containrar ändrar du avsnittet **sqlFunction.settings.image**.
-
-   ```json
-   "image": "${MODULES.sqlFunction.windows-amd64}"
-   ```
-
-4. Lägg till följande kod för att deklarera en tredje modul. Lägg till ett kommatecken efter avsnittet sqlFunction och infoga:
+1. Lägg till följande kod för att deklarera en tredje modul. Lägg till ett kommatecken efter avsnittet sqlFunction och infoga:
 
    ```json
    "sql": {
@@ -253,29 +250,7 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
 
    ![Lägga till SQL-servermodul till manifest](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-5. Beroende på typen av Docker-containrar på din IoT Edge-enhet uppdaterar du **sql**-modulparametrarna med följande kod:
-   * Windows-containrar:
-
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "microsoft/mssql-server-windows-developer",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "C:\\mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
-
-   * Linux-containrar:
-
+1. Uppdatera **sql**-modulparametrarna med följande kod:
       ```json
       "env": {
         "ACCEPT_EULA": {"value": "Y"},
@@ -295,9 +270,9 @@ Ett [distributionsmanifest](module-composition.md) deklarerar vilka moduler IoT 
       ```
 
    >[!Tip]
-   >Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
+   >Varje gång du skapar en SQL Server-container i en produktionsmiljö bör du [ändra standardlösenord för systemadministratören](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-6. Spara filen **deployment.template.json**.
+1. Spara filen **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Skapa din IoT Edge-lösning
 
@@ -353,42 +328,16 @@ När du applicerar distributionsmanifestet på din enhet körs tre moduler. Modu
 Kör följande kommandon på din IoT Edge-enhet. De kommandona ansluter till den **sql**-modul som körs på enheten och skapar en databas och en tabell som ska innehålla temperaturdata som skickas till den. 
 
 1. I ett kommandoradsverktyg på IoT Edge-enheten ansluter du till din databas. 
-   * Windows-container:
-   
-      ```cmd
-      docker exec -it sql cmd
-      ```
-    
-   * Linux-container: 
-
       ```bash
       sudo docker exec -it sql bash
       ```
 
 2. Öppna SQL-kommandoverktyget.
-   * Windows-container:
-
-      ```cmd
-      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
-      ```
-
-   * Linux-container: 
-
       ```bash
       /opt/mssql-tools/bin/sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
       ```
 
 3. Skapa databasen: 
-
-   * Windows-container
-      ```sql
-      CREATE DATABASE MeasurementsDB
-      ON
-      (NAME = MeasurementsDB, FILENAME = 'C:\mssql\measurementsdb.mdf')
-      GO
-      ```
-
-   * Linux-container
       ```sql
       CREATE DATABASE MeasurementsDB
       ON

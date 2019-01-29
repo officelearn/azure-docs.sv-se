@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 01/25/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ad62b306849b2291c81399cedc1634057e2eec9d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 2adf07cf2337611b9136af47ce6a35b617e2e9ff
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54828102"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177040"
 ---
 # <a name="publish-azure-application-offer"></a>Publicera erbjudande för Azure-program
 
@@ -28,6 +28,7 @@ När du har skapat ett erbjudande genom att tillhandahålla informationen om den
 I följande diagram visas de viktigaste stegen i publiceringsprocessen i ett erbjudande ”gå live”.
 
 ![Publicera erbjudande-steg](./media/offer-publishing-steps.png)
+
 
 ## <a name="detailed-description-of-publishing-steps"></a>Detaljerad beskrivning av publicering av steg
 
@@ -44,12 +45,14 @@ I följande tabell listar och beskriver hur publicering och ger en Uppskattad ti
 | Microsoft-granskning                | 7 – 14 dagar | Microsoft granskar dina Azure-program holistiskt och e-postmeddelande om problem upptäcks.  Längden på det här steget beror på hur komplex programmet problem vid och hur snabbt du svara på dem.  |
 | Live                           | < 1 dag | Erbjudandet är publicerat, replikeras till de angivna regionerna och göras tillgängliga för allmänheten. |
 |   |&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|   |
+
  
 Du kan övervaka publiceringsprocessen i den **Status** fliken för ditt erbjudande i partnerportalen i molnet.
 
 ![Fliken status för ett erbjudande för Azure-app](./media/offer-status-tab.png)
 
 När du har slutfört processen för att publicera ditt erbjudande visas i den [Microsoft Azure Marketplace-programkategori](https://azuremarketplace.microsoft.com/marketplace/apps/).
+
 
 
 ## <a name="errors-and-review-feedback"></a>Fel och granska feedback

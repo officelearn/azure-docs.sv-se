@@ -3,21 +3,21 @@ title: Självstudiekurs – Aktivera autentisering av skrivbordsapp med konton m
 description: Självstudiekurs som lär dig använda Azure Active Directory B2C för att tillhandahålla användarinloggning till en .NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: a135dd0b350a6129d94f1c6b0b185c3fb272668f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 357b9f4d307624db838b22581097799d7d7fef4c
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834510"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54857003"
 ---
-# <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudiekurs: Aktivera autentisering av skrivbordsapp med konton med hjälp av Azure Active Directory B2C
+# <a name="tutorial-enable-desktop-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering för ett skrivbordsprogram med konton med hjälp av Azure Active Directory B2C
 
 I den här självstudien lär du dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en WFP-skrivbordsapp (Windows Presentation Foundation). Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 

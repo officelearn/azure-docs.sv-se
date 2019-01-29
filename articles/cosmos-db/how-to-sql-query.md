@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 2a88b130c92f7b9074fd248afc97f0ea6b4c13bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: d101931fb2a4184ff9ffffc0aed4fc90fee2cbd5
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042146"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452963"
 ---
 # <a name="sql-query-examples-to-query-data-from-azure-cosmos-db"></a>SQL-frågeexempel för att köra frågor mot data rån Azure Cosmos DB
 
@@ -506,7 +506,7 @@ Du kan även kapsla anropen till operator som i frågan nedan.
 
 Som med andra frågeoperatorer gäller att om de refererade egenskaperna i villkorsuttrycket saknas i något objekt, eller om de typer som jämförs är olika, så exkluderas de objekten i frågeresultatet.
 
-Operatorn Coalesce (??) kan användas för att effektivt söka efter förekomsten av en egenskap (dvs. som är definierad) i ett objekt. Den här operatorn är användbar när du kör frågor mot halvstrukturerade eller data av blandade typer. Till exempel returnerar den här frågan ”lastName” om det finns eller ”surname” om det inte finns.
+Operatorn Coalesce (??) kan användas för att effektivt söka efter förekomsten av en egenskap i ett objekt. Den här operatorn är användbar när du kör frågor mot halvstrukturerade eller data av blandade typer. Till exempel returnerar den här frågan ”lastName” om det finns eller ”surname” om det inte finns.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName

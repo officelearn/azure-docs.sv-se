@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5bd6649b063521853864d4da423372ae181cf977
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 97910241cb4f903deeeb9ff6971839530903efe2
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53580526"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54823027"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Självstudier: Använda automatiserad maskininlärning för att skapa en regressionsmodell
 
@@ -44,11 +44,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 > * [Kör självstudien för dataförberedelse](tutorial-data-prep.md).
-> * En konfigurerad miljö med automatiserad maskininlärning. Exempel är Azure Notebooks, en lokal Python-miljö eller en Data Science Virtual Machine. [Konfigurera automatiserad maskininlärning](samples-notebooks.md).
+> * En konfigurerad miljö med automatiserad maskininlärning. Exempel är [Azure Notebooks](https://notebooks.azure.com/), en lokal Python-miljö eller en Data Science Virtual Machine. [Konfigurera automatiserad maskininlärning](samples-notebooks.md).
 
 ## <a name="get-the-notebook"></a>Hämta anteckningsboken
 
-Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Kör anteckningsboken `regression-part2-automated-ml.ipynb` antingen i Azure Notebooks eller på din egen Jupyter Notebook-server.
+Denna självstudie finns tillgänglig som en [Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/regression-part2-automated-ml.ipynb). Kör anteckningsboken `regression-part2-automated-ml.ipynb` antingen i [Azure Notebooks](https://notebooks.azure.com/) eller på din egen Jupyter Notebook-server.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
@@ -66,9 +66,15 @@ import logging
 import os
 ```
 
+Om du följer självstudien i din egen Python-miljö använder du följande för att installera nödvändiga paket.
+
+```shell
+pip install azureml-sdk[automl,notebooks] azureml-dataprep pandas scikit-learn matplotlib
+```
+
 ## <a name="configure-workspace"></a>Konfigurera arbetsyta
 
-Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumeration och resursgruppsinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen. 
+Skapa ett arbetsyteobjekt från den befintliga arbetsytan. En `Workspace` är en klass som accepterar din Azure-prenumeration och resursgruppsinformation. Den skapar också en molnresurs för att övervaka och spåra dina körningar i modellen.
 
 `Workspace.from_config()` läser filen **aml_config/config.json** och läser in informationen i ett objekt med namnet `ws`.  `ws` används i resten av koden i den här självstudien.
 
@@ -95,7 +101,7 @@ pd.DataFrame(data=output, index=['']).T
 
 ## <a name="explore-data"></a>Utforska data
 
-Använd dataflödesobjektet som skapades i föregående självstudie. Öppna och kör dataflödet och granska resultatet:
+Använd dataflödesobjektet som skapades i föregående självstudie. Sammanfattningsvis rensade del 1 av den här självstudien NYC Taxi-data så att de kunde användas i en maskininlärningsmodell. Nu använder du olika funktioner från datamängden och tillåter en automatiserad modell att skapa relationer mellan funktionerna och priset för en taxiresa. Öppna och kör dataflödet och granska resultatet:
 
 
 ```python
@@ -605,27 +611,27 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 y_train.values.flatten()
 ```
 
-Nu har du nödvändiga paket och data för att kunna träna din modell automatiskt.
+Syftet med det här steget är att ha datapunkter för att testa den färdiga modell som inte har använts för att träna modellen, detta för att mäta den äkta noggrannheten. Med andra ord bör en korrekt tränad modell kunna göra noggranna förutsägelser från data som den inte redan har sett. Nu har du nödvändiga paket och data för att kunna träna din modell automatiskt.
 
 ## <a name="automatically-train-a-model"></a>Träna en modell automatiskt
 
 För att träna en modell automatiskt gör du följande:
-1. Definiera inställningar för körningen av experimentet.
-1. Skicka experimentet för modelljustering.
+1. Definiera inställningar för körningen av experimentet. Koppla dina träningsdata till konfigurationen och ändra de inställningar som styr träningsprocessen.
+1. Skicka experimentet för modelljustering. När experimentet har skickats itererar processen genom olika maskininlärningsalgoritmer och inställningar för hyperparametrar enligt dina definierade begränsningar. Den väljer den modell som passar bäst genom att optimera ett noggrannhetsmått.
 
 ### <a name="define-settings-for-autogeneration-and-tuning"></a>Definiera inställningar för automatisk generering och justering
 
-Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md).
+Definiera experimentparametern och modellinställningarna för automatisk generering och justering. Visa hela listan med [inställningar](how-to-configure-auto-train.md). Att skicka experimentet med de här standardinställningarna tar cirka 10–15 minuter, men om du vill ha en kortare körtid kan du minska antingen `iterations` eller `iteration_timeout_minutes`.
 
 
 |Egenskap| Värde i den här självstudien |Beskrivning|
 |----|----|---|
-|**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration.|
-|**iterationer**|30|Antal iterationer. I varje iteration tränas modellen med data med en specifik pipeline.|
-|**primary_metric**| spearman_correlation | Mått som du vill optimera.|
-|**preprocess**| True | Med hjälp av **Sant**, kan experimentet förbearbeta indata.|
+|**iteration_timeout_minutes**|10|Tidsgräns i minuter för varje iteration. Minska det här värdet om du vill minska den totala körningstiden.|
+|**iterationer**|30|Antal iterationer. I varje iteration tränas en ny maskininlärningsmodell med dina data. Det här är det primära värde som påverkar den totala körningstiden.|
+|**primary_metric**| spearman_correlation | Mått som du vill optimera. Den modell som passar bäst väljs utifrån det här måttet.|
+|**preprocess**| True | När **True** (Sant) används kan experimentet förbearbeta indata (hantering av saknade data, konvertering av text till numeriskt osv.)|
 |**verbosity**| logging.INFO | Styr loggningsnivån.|
-|**n_cross_validationss**|5|Antalet delningar i korsverifieringar.|
+|**n_cross_validations**|5|Det antal delningar av korsvalidering som ska utföras när verifieringsdata inte har angetts.|
 
 
 
@@ -640,6 +646,7 @@ automl_settings = {
 }
 ```
 
+Använd dina definierade träningsinställningar som parameter till ett `AutoMLConfig` objekt. Ange även dina träningsdata och modelltypen, som i det här fallet är `regression`.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -664,6 +671,8 @@ experiment=Experiment(ws, experiment_name)
 local_run = experiment.submit(automated_ml_config, show_output=True)
 ```
 
+De utdata som visas uppdateras direkt allt eftersom experimentet körs. För varje iteration ser du modelltypen, körningens varaktighet samt träningens noggrannhet. Fältet `BEST` spårar den bästa löpande körningspoängen utifrån din måttyp.
+
     Parent Run ID: AutoML_02778de3-3696-46e9-a71b-521c8fca0651
     *******************************************************************************************
     ITERATION: The iteration being evaluated.
@@ -672,7 +681,7 @@ local_run = experiment.submit(automated_ml_config, show_output=True)
     METRIC: The result of computing score on the fitted pipeline.
     BEST: The best observed score thus far.
     *******************************************************************************************
-    
+
      ITERATION   PIPELINE                                       DURATION      METRIC      BEST
              0   MaxAbsScaler ExtremeRandomTrees                0:00:08       0.9447    0.9447
              1   StandardScalerWrapper GradientBoosting         0:00:09       0.9536    0.9536
@@ -724,7 +733,7 @@ RunDetails(local_run).show()
 
 ### <a name="option-2-get-and-examine-all-run-iterations-in-python"></a>Alternativ 2: Hämta och granska alla körningsiterationer i Python
 
-Du kan också hämta historiken för varje experiment och utforska enskilda mått för varje iterationskörning:
+Du kan även hämta historiken för varje experiment och utforska enskilda mått för varje iterationskörning. Genom att undersöka RMSE (root_mean_squared_error) för varje enskild modellkörning ser du att de flesta iterationer förutsäger kostnaden för taxifärden med en rimlig marginal (3–4 dollar).
 
 ```python
 children = list(local_run.get_children())
@@ -1081,28 +1090,16 @@ print(best_run)
 print(fitted_model)
 ```
 
-## <a name="register-the-model"></a>Registrera modellen
-
-Registrera modellen på din Azure Machine Learning-tjänstarbetsyta:
-
-
-```python
-description = 'Automated Machine Learning Model'
-tags = None
-local_run.register_model(description=description, tags=tags)
-local_run.model_id # Use this id to deploy the model as a web service in Azure
-```
-
 ## <a name="test-the-best-model-accuracy"></a>Testa den bästa modellens precision
 
-Använd den bästa modellen för att köra förutsägelser på datauppsättningen för testning. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **resekostnad**, från `x_test`-datauppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`:
+Använd den bästa modellen till att köra förutsägelser på testdatamängden för att förutsäga taxipriser. Funktionen `predict` använder den bästa modellen och förutsäger värdena för y, **resekostnad**, från `x_test`-datauppsättningen. Skriv ut de 10 första förutsagda kostnadsvärdena från `y_predict`:
 
 ```python
 y_predict = fitted_model.predict(x_test.values)
 print(y_predict[:10])
 ```
 
-Skapa ett spridningsdiagram för att visualisera värden för beräknade kostnader jämfört med värden för faktiska kostnader. I följande kod används funktionen `distance` som x-axel och `cost` för resa som y-axel. I syfte att jämföra variansen för beräknad kostnad vid varje värde för reseavstånd skapas de först 100 beräknade och faktiska värdena för kostnad som separata serier. En undersökning av ritytan visar att relationen mellan avståndet/kostnaden är nästan linjär. Och de förväntade kostnadsvärdena är i de flesta fall mycket nära de faktiska kostnadsvärdena för samma reseavstånd.
+Skapa ett spridningsdiagram för att visualisera värden för beräknade kostnader jämfört med värden för faktiska kostnader. I följande kod används funktionen `distance` som x-axel och `cost` för resa som y-axel. I syfte att jämföra variansen för beräknad kostnad vid varje värde för reseavstånd skapas de först 100 beräknade och faktiska värdena för kostnad som separata serier. En undersökning av diagrammet visar att relationen mellan avstånd/kostnad nästan är linjär, och värdena för beräknad kostnad är i de flesta fall nära värdena för faktisk kostnad för samma reseavstånd.
 
 ```python
 import matplotlib.pyplot as plt
@@ -1127,7 +1124,7 @@ plt.show()
 
 ![Spridningsdiagram för förutsägelse](./media/tutorial-auto-train-models/automl-scatter-plot.png)
 
-Beräkna `root mean squared error` för resultatet. Använd dataramen `y_test`. Konvertera den till en lista som ska jämföras med de förutsagda värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Att ta kvadratroten ur resultatet ger ett fel i samma enheter som y-variabeln, **kostnad**. Det visar ungefär hur långt dina förutsägelser kommer från det faktiska värdet:
+Beräkna `root mean squared error` för resultatet. Använd dataramen `y_test`. Konvertera den till en lista som ska jämföras med de förutsagda värdena. Funktionen `mean_squared_error` tar emot två matriser med värden och beräknar det genomsnittliga kvadratfelet mellan dem. Att ta kvadratroten ur resultatet ger ett fel i samma enheter som y-variabeln, **kostnad**. Det visar ungefär hur långt förutsägelserna om taxipriser kommer från de faktiska priserna:
 
 ```python
 from sklearn.metrics import mean_squared_error
@@ -1165,6 +1162,8 @@ print(1 - mean_abs_percent_error)
 
     Model Accuracy:
     0.8945484613043041
+
+Utifrån de sista måtten för förutsägelsens noggrannhet ser du att modellen är ganska bra på att förutsäga taxipriser baserat på datamängdens egenskaper, vanligtvis inom +- 3,00 dollar. Utvecklingsprocessen för maskininlärningsmodeller är mycket resurskrävande och fordrar betydande domänkunskap och tid för att köra och jämföra resultat från flera olika modeller. Användning av automatisk maskininlärning är ett bra sätt att snabbt testa flera olika modeller för ett scenario.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

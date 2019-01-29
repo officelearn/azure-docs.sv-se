@@ -8,12 +8,12 @@ ms.date: 3/23/2018
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 13003f671e479217d73d1c611be36987b3bda7bc
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4343e8f1c456d35ccee169f3d7d62f152d8274d8
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793594"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54465351"
 ---
 # <a name="back-up-azure-file-shares"></a>Säkerhetskopiera Azure-filresurser
 Den här artikeln förklarar hur du använder Azure Portal för att säkerhetskopiera och återställa [Azure-filresurser](../storage/files/storage-files-introduction.md).
@@ -31,7 +31,7 @@ I den här guiden får du lära du dig att:
 Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den finns i någon av de [lagringskontotyper som stöds](backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview). När du har kontrollerat detta kan du skydda din filresurser.
 
 ## <a name="limitations-for-azure-file-share-backup-during-preview"></a>Begränsningar för säkerhetskopiering av Azure-filresurser i förhandsversionen
-Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-konton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
+Säkerhetskopiering för Azure-filresurser är i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-lagringskonton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
 - Du kan inte skydda Azure-filresurser i lagringskonton med RA-GRS-replikering\* [geo-redundant lagring med läsbehörighet](../storage/common/storage-redundancy-grs.md).
 - Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 - Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
@@ -46,7 +46,7 @@ Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filre
 Säkerhetskopiering av Azure-filresurser i lagringskonton med replikering med [zonredundant lagring](../storage/common/storage-redundancy-zrs.md) (ZRS) är för närvarande endast tillgängligt i USA, centrala (CUS), USA, östra (EUS), USA, östra 2 (EUS2), Europa, norra (NE), Sydostasien (SEA), Europa, västra (WE) och USA, västra 2 (WUS2).
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Konfigurera säkerhetskopiering för en Azure-filresurs
-Alla säkerhetskopierade data lagras i Recovery Services-valv. Den här självstudien förutsätter att du redan har skapat en filresurs i Azure. Säkerhetskopiera Azure-filresurser:
+Den här självstudien förutsätter att du redan har skapat en filresurs i Azure. Säkerhetskopiera Azure-filresurser:
 
 1. Skapa ett Recovery Services-valv i samma region som din filresurs. Om du redan har ett valv öppnar du valvets översiktssida och klickar på **Backup**.
 

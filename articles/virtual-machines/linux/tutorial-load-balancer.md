@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 11/13/2017
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: b37f8c53e9528919da3aaf0acf66376876bd64b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470888"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54856425"
 ---
-# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudie: lastbalansera virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
+# <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudier: Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
 Med belastningsutjämning får du högre tillgänglighet genom att inkommande begäranden sprids över flera virtuella datorer. I den här kursen får du lära dig mer om de olika komponenterna i Azure Load Balancer som distribuerar trafik och ger hög tillgänglighet. Lär dig att:
 
@@ -53,7 +53,7 @@ Om du följde den föregående självstudien [skapa en VM-skalningsuppsättning]
 
 
 ## <a name="create-azure-load-balancer"></a>Skapa en Azure Load Balancer
-I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [az group create](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *eastus*:
+I det här avsnittet beskrivs hur du skapar och konfigurerar varje komponent i lastbalanseraren. Innan du kan skapa lastbalanseraren måste du skapa en resursgrupp med [az group create](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroupLoadBalancer* på platsen *eastus*:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
@@ -226,7 +226,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Nu kan du skapa de virtuella datorerna med [az vm create](/cli/azure/vm#az_vm_create). I följande exempel skapas tre virtuella datorer och SSH-nycklar om de inte redan finns:
+Nu kan du skapa de virtuella datorerna med [az vm create](/cli/azure/vm). I följande exempel skapas tre virtuella datorer och SSH-nycklar om de inte redan finns:
 
 ```bash
 for i in `seq 1 3`; do

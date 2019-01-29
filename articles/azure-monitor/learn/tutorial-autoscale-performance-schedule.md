@@ -8,13 +8,13 @@ ms.topic: tutorial
 ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
-ms.component: autoscale
-ms.openlocfilehash: bf9cf931964fec9b2089cce100757e044788a972
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.subservice: autoscale
+ms.openlocfilehash: b9d54dc1483da20b4c411047af0b44b681fe197c
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262327"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54429284"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Skapa en autoskalningsinställning för Azure-resurser baserat på prestanda eller ett schema
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 ## <a name="create-a-web-app-and-app-service-plan"></a>Skapa en webbapp i och en App Service-plan
 1. Klicka på alternativet **Skapa en resurs** i det vänstra navigeringsfönstret.
 2. Sök efter och välj objektet *Webbapp* och klicka på **Skapa**.
-3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa en ny resursgrupp, *myResourceGroup' och placera den i valfri resursgrupp.
+3. Välj ett appnamn, som *MyTestScaleWebApp*. Skapa den nya resursgruppen ”myResourceGroup” eller placera den i valfri resursgrupp.
 
 Dina resurser bör etableras på några minuter. Använd webbappen och motsvarande App Service-plan i resten av den här självstudien.
 
@@ -123,7 +123,7 @@ Vi rekommenderar att du alltid använder en inskalningsregel tillsammans med en 
 ## <a name="trigger-scale-out-action"></a>Lös ut utskalningsåtgärden
 Om utskalningsvillkoret i inställningen vi just skapade ska lösas ut måste webbappen ta emot fler än 10 förfrågningar på mindre än 5 minuter.
 
-1. Öppna ett webbläsarfönster och navigera till den webbapp du skapade tidigare i självstudien. Du hittar URL:en för webbappen i Azure-portalen genom att gå till Web App-resursen och klicka på knappen **Bläddra** på fliken Översikt.
+1. Öppna ett webbläsarfönster och navigera till den webbapp du skapade tidigare i självstudien. Du hittar URL:en för webbappen i Azure Portal genom att gå till Web App-resursen och klicka på knappen **Bläddra** på fliken Översikt.
 
 2. Läs in sidan fler än 10 gånger i snabb följd.
 
@@ -144,7 +144,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 1. Kontrollera att inga förfrågningar skickas till webbappen.
 
-2. Läs in Azure-portalen.
+2. Läs in Azure Portal.
 
 3. Välj alternativet **Övervaka** i det vänstra navigeringsfönstret. När sidan lästs in väljer du fliken **Autoskalning**.
 
@@ -162,7 +162,7 @@ Inskalningsvillkoret i inställningen löses ut om webbappen tar emot färre än
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-1. Klicka på **Alla resurser** på menyn till vänster på Azure-portalen och välj sedan webbappen du skapade i den här självstudien.
+1. Klicka på **Alla resurser** på menyn till vänster på Azure Portal och välj sedan webbappen du skapade i den här självstudien.
 
 2. Klicka på **Ta bort** på resurssidan, bekräfta borttagningen genom att skriva **Ja** i textrutan och klicka sedan på **Ta bort**.
 
@@ -185,3 +185,4 @@ Om du vill veta mer om autoskalningsinställningar kan du fortsätta till [över
 
 > [!div class="nextstepaction"]
 > [Arkivera dina övervakningsdata](tutorial-archive-data.md)
+

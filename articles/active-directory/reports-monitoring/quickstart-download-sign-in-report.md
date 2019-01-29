@@ -4,7 +4,7 @@ description: Lär dig hur du laddar ned en inloggningsrapport med Azure-portalen
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
-manager: mtillman
+manager: daveba
 editor: ''
 ms.assetid: 9131f208-1f90-4cc1-9c29-085cacd69317
 ms.service: active-directory
@@ -16,16 +16,16 @@ ms.component: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ce242066df427163048a2ef51e79ffd98eadbc7d
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 7b16fb718e689eec8ea016b513d866390b2328e0
+ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214920"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54815573"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Snabbstart: Hämta en inloggningsrapport med Azure-portalen
 
-I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna för din klient för de senaste 24 timmarna.
+I den här snabbstarten får du lära dig hur du hämtar inloggningsloggarna för din klient för de senaste 24 timmarna. Du kan ladda ned upp till 5 000 poster från Azure-portalen. Posterna är sorterade efter de senaste. Därför får du som standard de senaste 5 000 posterna. 
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 

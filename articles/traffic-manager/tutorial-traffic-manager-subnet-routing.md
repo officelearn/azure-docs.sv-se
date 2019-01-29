@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: kumud
-ms.openlocfilehash: 8243130fc9752a47661b4c80826000d573da35c8
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 2cd3fdc9387952277c25fa07c62a0faae2993089
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54053082"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478254"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Dirigera trafik till specifika slutpunkter baserat på användares undernät med Traffic Manager
 
-Den här artikeln beskriver hur du konfigurerar trafikroutningsmetoden för undernät. Med trafikroutningsmetoden för **undernät** kan du mappa en uppsättning IP-adressintervall till specifika slutpunkter. När en begäran tas emot av Traffic Manager undersöks käll-IP-adressen för begäran och slutpunkten som är kopplad till den returneras. 
+Den här artikeln beskriver hur du konfigurerar trafikroutningsmetoden för undernät. Med trafikroutningsmetoden för **undernät** kan du mappa en uppsättning IP-adressintervall till specifika slutpunkter. När en begäran tas emot av Traffic Manager undersöks käll-IP-adressen för begäran och slutpunkten som är kopplad till den returneras.
 
 I de här självstudierna används undernätsroutning, vilket innebär att trafik dirigeras antingen till en intern webbplats eller en produktionswebbplats beroende på IP-adressen för användarens fråga.
 
@@ -41,11 +41,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 Om du vill se hur Traffic Manager fungerar i praktiken behöver du använda följande i den här självstudien:
 - två grundläggande webbplatser som körs i olika Azure-regioner – **USA, östra** (fungerar som intern webbplats) och **Europa, västra** (fungerar som produktionswebbplats).
-- två virtuella testdatorer för att testa Traffic Manager – en virtuell dator i **USA, östra** och den andra virtuella datorn i **Europa, västra**. 
+- två virtuella testdatorer för att testa Traffic Manager – en virtuell dator i **USA, östra** och den andra virtuella datorn i **Europa, västra**.
 
 De virtuella testdatorerna används för att illustrera hur Traffic Manager dirigerar trafik till den interna webbplatsen eller produktionswebbplatsen baserat på undernätet som användarfrågan kommer från.
 
-### <a name="sign-in-to-azure"></a>Logga in på Azure 
+### <a name="sign-in-to-azure"></a>Logga in på Azure
 
 Logga in på Azure Portal på https://portal.azure.com.
 
@@ -93,37 +93,37 @@ I det här avsnittet skapar du två virtuella datorer *InternalWebsite* och *Pro
 
 #### <a name="install-iis-and-customize-the-default-web-page"></a>Installera IIS och anpassa standardwebbsidan
 
-I det här avsnittet ska du installera IIS-servern på två virtuella datorer – *myIISVMEastUS*  & *myIISVMWEurope*, och sedan uppdatera standardwebbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
+I det här avsnittet ska du installera IIS-servern på två virtuella datorer – *myIISVMEastUS* & *myIISVMWEurope*, och sedan uppdatera standardwebbsidan. Den anpassade webbsidan visar namnet på den virtuella datorn som du ansluter till när du besöker webbplatsen från en webbläsare.
 
 1. Klicka på **Alla resurser** i den vänstra menyn och från resurslistan klickar du sedan på *myIISVMEastUS* som finns i resursgruppen *myResourceGroupTM1*.
-2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**. 
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
+2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
+3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
 5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 6. Navigera till **Windows Administrationsverktyg**>**Serverhanteraren** på serverdatorn.
 7. Starta Windows PowerShell på den virtuella datorn *InternalWebsite* och kör följande kommandon för att installera IIS-servern och uppdatera HTML-standardfilen.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 8. Stäng RDP-anslutningen med den virtuella datorn *InternalWebsite*.
 9. Upprepa steg 1–6 genom att skapa en RDP-anslutning till den virtuella datorn *ProdWebsite* inom resursgruppen *myResourceGroupTM2* för att installera IIS och anpassa dess standardwebbsida.
 10. Starta Windows PowerShell på virtuella datorn *ProdWebsite* och använd följande kommandon för att installera IIS-servern och uppdatera HTML-standardfilen.
     ```powershell-interactive
     # Install IIS
-      Install-WindowsFeature -name Web-Server -IncludeManagementTools
+    Install-WindowsFeature -name Web-Server -IncludeManagementTools
     
     # Remove default htm file
-     remove-item  C:\inetpub\wwwroot\iisstart.htm
+    remove-item C:\inetpub\wwwroot\iisstart.htm
     
     #Add custom htm file
-     Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
+    Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from my " + $env:computername)
     ```
 
 #### <a name="configure-dns-names-for-the-vms-running-iis"></a>Konfigurera DNS-namnen för de virtuella datorer som kör IIS
@@ -185,12 +185,12 @@ Skapa en Traffic Manager-profil som gör det möjligt att returnera specifika sl
     | Resursgrupp          | Välj **Befintlig** och ange *myResourceGroupTM1*. |
     | |                              |
     |
-  
+
     ![Skapa en Traffic Manager-profil](./media/tutorial-traffic-manager-subnet-routing/create-traffic-manager-profile.png)
 
 ## <a name="add-traffic-manager-endpoints"></a>Lägga till Traffic Manager-slutpunkter
 
-Lägg till de två virtuella datorerna som kör IIS-servrarna, *InternalWebsite*  & *ProdWebsite*, för att dirigera användartrafik baserat på undernätet för användarens fråga.
+Lägg till de två virtuella datorerna som kör IIS-servrarna, *InternalWebsite* & *ProdWebsite*, för att dirigera användartrafik baserat på undernätet för användarens fråga.
 
 1. I portalens sökfält söker du efter det Traffic Manager-profilnamn som du skapade i föregående avsnitt och väljer profilen i det resultat som visas.
 2. I **Traffic Manager-profilen** går du till avsnittet **Inställningar** och klickar på **Slutpunkter** och klickar sedan på **Lägg till**.
@@ -205,9 +205,8 @@ Lägg till de två virtuella datorerna som kör IIS-servrarna, *InternalWebsite*
     |  Inställningar för undernätsroutning    |   Lägg till IP-adressen för den virtuella testdatorn *UserVMUS*. Alla användarfrågor från den här virtuella datorn dirigeras till *InternalWebSiteEndpoint*.    |
 
 4. Upprepa steg 2 och 3 för att lägga till en annan slutpunkt med namnet *ProdWebsiteEndpoint* för den offentliga IP-adressen *ProdWebsite ip* som är associerad med den virtuella datorn med IIS-servern med namnet *ProdWebsite*. För **Inställningar för undernätsroutning** lägger du till IP-adressen för den virtuella testdatorn – *UserVMEurope*. Alla användarfrågor från den här virtuella testdatorn dirigeras till slutpunkten – *myProdWebsiteEndpoint*.
-5.  När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
+5. När båda slutpunkterna har lagts till visas de i **Traffic Manager-profilen** tillsammans med sin övervakningsstatus, som är **Online**.
 
- 
 ## <a name="test-traffic-manager-profile"></a>Testa Traffic Manager-profil
 I det här avsnittet testar du hur Traffic Manager dirigerar användartrafik från ett visst undernät till en specifik slutpunkt. Om du vill se hur Traffic Manager fungerar i praktiken gör du följande:
 1. Fastställ DNS-namnet för din Traffic Manager-profil.
@@ -216,26 +215,26 @@ I det här avsnittet testar du hur Traffic Manager dirigerar användartrafik fr�
     - Från den virtuella testdatorn (*UserVMEurope*) som finns i regionen **Europa, västra** bläddrar du, i en webbläsare, till DNS-namnet för Traffic Manager-profilen.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Fastställ DNS-namnet på Traffic Manager-profilen
-I den här självstudien använder du för enkelhetens skull DNS-namnet för Traffic Manager-profilen för att besöka webbplatserna. 
+I den här självstudien använder du för enkelhetens skull DNS-namnet för Traffic Manager-profilen för att besöka webbplatserna.
 
 Så här kan du fastställa DNS-namnet i Traffic Manager-profilen:
 
-1.  I portalens sökfält söker du efter det **Traffic Manager-profil**namn som du skapade i föregående avsnitt. I det resultat som visas klickar du på Traffic Manager-profilen.
+1. I portalens sökfält söker du efter det **Traffic Manager-profil**namn som du skapade i föregående avsnitt. I det resultat som visas klickar du på Traffic Manager-profilen.
 1. Klicka på **Översikt**.
 2. **Traffic Manager-profilen** visar DNS-namnet på din nyligen skapade Traffic Manager-profil. I Produktionsdistributioner konfigurerar du ett anpassat domännamn så att den pekar till Traffic Manager-domännamnet, med hjälp av en DNS CNAME-post.
 
 ### <a name="view-traffic-manager-in-action"></a>Se hur Traffic Manager fungerar i praktiken
-I det här avsnittet får du se Traffic Manager i arbete. 
+I det här avsnittet får du se Traffic Manager i arbete.
 
 1. Välj **Alla resurser** på den vänstra menyn och från resurslistan klickar du sedan på *myUserVMUS* som finns i resursgruppen *myResourceGroupTM1*.
-2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**. 
-3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn. 
+2. På sidan **Översikt** klickar du på **Anslut**. I **Connect to virtual machine** (Anslut till virtuell dator) väljer du **Ladda ned RDP-fil**.
+3. Öppna den nedladdade RDP-filen. Välj **Anslut** om du uppmanas att göra det. Ange användarnamnet och lösenordet du angav när du skapade den virtuella datorn. Du kan behöva välja **Fler alternativ** och sedan **Använd ett annat konto** för att ange autentiseringsuppgifterna du angav när du skapade den virtuella datorn.
 4. Välj **OK**.
-5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen. 
+5. Du kan få en certifikatvarning under inloggningen. Om du ser varningen väljer du **Ja** eller **Fortsätt** för att fortsätta med anslutningen.
 1. I en webbläsare på den virtuella datorn *UserVMUS* skriver du in DNS-namnet för din Traffic Manager-profil för att visa webbplatsen. Eftersom IP-adressen för den virtuella datorn *UserVMUS* är associerad med slutpunkten *myInternalWebsiteEndpoint* startar webbläsaren testwebbplatsservern – *InternalWebsite*.
 
-2. Anslut sedan till den virtuella datorn *UserVMEurope* som finns i **Europa, västra** med hjälp av steg 1–5 och bläddra till domännamnet för Traffic Manager-profilen från den här virtuella datorn. Eftersom IP-adressen för den virtuella datorn *UserVMEurope* är associerad med slutpunkten *myProductionWebsiteEndpoint* startar webbläsaren testwebbplatsservern – *ProdWebsite*. 
-  
+2. Anslut sedan till den virtuella datorn *UserVMEurope* som finns i **Europa, västra** med hjälp av steg 1–5 och bläddra till domännamnet för Traffic Manager-profilen från den här virtuella datorn. Eftersom IP-adressen för den virtuella datorn *UserVMEurope* är associerad med slutpunkten *myProductionWebsiteEndpoint* startar webbläsaren testwebbplatsservern – *ProdWebsite*.
+
 ## <a name="delete-the-traffic-manager-profile"></a>Ta bort Traffic Manager-profilen
 När resursgrupperna inte längre behövs kan du ta bort dem (**ResourceGroupTM1** och **ResourceGroupTM2**). Om du vill göra det markerar du resursgruppen (**ResourceGroupTM1** eller **ResourceGroupTM2**) och väljer sedan **Ta bort**.
 
@@ -244,5 +243,3 @@ När resursgrupperna inte längre behövs kan du ta bort dem (**ResourceGroupTM1
 - Lär dig mer om [routningsmetoden för viktad trafik](traffic-manager-configure-weighted-routing-method.md).
 - Lär dig mer om [prioritetsroutningsmetoden](traffic-manager-configure-priority-routing-method.md).
 - Lär dig mer om den [geografiska routningsmetoden](traffic-manager-configure-geographic-routing-method.md).
-
-

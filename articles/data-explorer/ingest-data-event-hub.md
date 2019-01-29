@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: b33a646c52ca5ce85e0525b04e9be5009cc6f90d
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 11c6f421e2eb1c3e508868d4a87f838781bda8e2
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352945"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54478458"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Snabbstart: Mata in data från Event Hub i Azure Data Explorer
 
@@ -29,7 +29,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 * [Visual Studio 2017 version 15.3.2 eller senare](https://www.visualstudio.com/vs/) för att köra exempelappen
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -37,7 +37,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I den här snabbstarten ska du skapa exempeldata och skicka dem till en händelsehubb. Det första steget är att skapa en händelsehubb. Du kan göra detta med hjälp av en Azure Resource Manager-mall på Azure-portalen.
 
-1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj länken **Öppna i nytt fönster** i en annan flik eller ett annat fönster så att du kan följa resten av stegen i den här artikeln.
+1. Skapa en händelsehubb genom att använda följande knapp för att starta distributionen. Högerklicka och välj **Öppna i nytt fönster** så att du kan följa resten av stegen i den här artikeln.
 
     [![Distribuera till Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
@@ -195,7 +195,7 @@ Med appen som genererar data kan du nu se flödet av dessa data från händelseh
 
 Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** för att undvika kostnader.
 
-1. Välj **Resursgrupper** i Azure-portalen längst till vänster och välj sedan den resursgrupp du skapat.  
+1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
     Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 

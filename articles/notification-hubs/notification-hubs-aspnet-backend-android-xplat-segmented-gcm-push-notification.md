@@ -3,8 +3,8 @@ title: Push-meddelanden till specifika Android-enheter som använder Azure Notif
 description: Lär dig hur du använder Notification Hubs för att skicka meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging.
 services: notification-hubs
 documentationcenter: android
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru'
 ms.assetid: 3c23cb80-9d35-4dde-b26d-a7bfd4cb8f81
 ms.service: notification-hubs
@@ -13,39 +13,43 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/06/2018
-ms.author: dimazaid
-ms.openlocfilehash: 1751071aa37665b5cea51f7be76990020ad569ab
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: fb0eca8a6871fbcc3a9da99334ede6c758350dba
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "41918118"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449254"
 ---
-# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Självstudier: Skicka meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging
+# <a name="tutorial-push-notifications-to-specific-android-devices-using-azure-notification-hubs-and-google-cloud-messaging"></a>Självstudier: Skicka push-meddelanden till specifika Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging
+
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
 ## <a name="overview"></a>Översikt
+
 I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka nyhetsmeddelanden till en Android-app. När du är klar kan du registrera dig för olika nyhetskategorier som du är intresserad av och därmed endast få push-meddelanden för dessa kategorier. Det här scenariot är ett vanligt mönster för många appar där meddelanden måste skickas till olika grupper av användare som tidigare har deklarerat intresse för dem, t.ex. RSS-läsare, appar för musiklyssnare osv.
 
 Du aktiverar sändningsscenarier genom att inkludera en eller flera *taggar* när du skapar en registrering i meddelandehubben. När meddelanden skickas till en tagg tar alla enheter som har registrerats för taggen emot meddelandet. Eftersom taggar bara är strängar behöver de inte etableras i förväg. Mer information om taggar finns i [Notification Hubs-routning och tagguttryck](notification-hubs-tags-segment-push-message.md).
 
-I den här självstudien gör du följande: 
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Lägga till kategorival i mobilappen.
-> * Registrerad för meddelanden med taggar. 
-> * Skicka taggade meddelanden. 
+> * Registrerad för meddelanden med taggar.
+> * Skicka taggade meddelanden.
 > * Testa appen
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
-Den här självstudien bygger på den app som du skapade i [Självstudie: Skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]. Innan du påbörjar den här självstudien så slutför [Självstudie: Skicka meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started].
+
+Den här självstudien bygger på den app som du skapade i [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started]. Innan du påbörjar den här självstudien slutför du [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging][get-started].
 
 ## <a name="add-category-selection-to-the-app"></a>Lägga till kategorival till appen
+
 Det första steget är att lägga till de UI-element i din befintliga huvudaktivitet som gör det möjligt för användaren att välja kategorier att registrera. De kategorier som valts av en användare lagras på enheten. När appen startar skapas en enhetsregistrering i din meddelandehubb med de valda kategorierna som taggar.
 
-1. Öppna filen res/layout/activity_main.xml och ersätt innehållet med följande innehåll:
-   
+1. Öppna `res/layout/activity_main.xml file` och ersätt innehållet med följande:
+
     ```xml
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -97,7 +101,7 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
             />
     </LinearLayout>
     ```
-2. Öppna filen res/values/strings.xml och lägg till följande rader:
+2. Öppna filen `res/values/strings.xml` och lägg till följande rader:
 
     ```xml
     <string name="button_subscribe">Subscribe</string>
@@ -109,12 +113,12 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
     <string name="label_sports">Sports</string>
     ```
 
-    Den grafiska layouten main_activity.xml bör nu se ut som på följande bild:
-   
-    ![][A1]
-3. Skapa en `Notifications`-klass i samma paket som din **MainActivity**-klass.
+    Den grafiska layouten för `main_activity.xml` bör se ut som på följande bild:
 
-    ```java   
+    ![][A1]
+3. Skapa en `Notifications`-klass i samma paket som din `MainActivity`-klass.
+
+    ```java
     import java.util.HashSet;
     import java.util.Set;
 
@@ -135,7 +139,7 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
         private Context context;
         private String senderId;
 
-        public Notifications(Context context, String senderId, String hubName, 
+        public Notifications(Context context, String senderId, String hubName,
                                 String listenConnectionString) {
             this.context = context;
             this.senderId = senderId;
@@ -165,7 +169,7 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
 
                         String templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
 
-                        hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM, 
+                        hub.registerTemplate(regid,"simpleGCMTemplate", templateBodyGCM,
                             categories.toArray(new String[categories.size()]));
                     } catch (Exception e) {
                         Log.e("MainActivity", "Failed to register - " + e.getMessage());
@@ -185,16 +189,16 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
 
     }
     ```
-       
-    Den här klassen använder lokal lagring för att lagra de nyhetskategorier som den här enheten ska ta emot. Den innehåller också metoder för att registrera dig för dessa kategorier.
-4. Ta bort dina privata fält för **NotificationHub** och **GoogleCloudMessaging** i din **MainActivity**-klass och lägg till ett fält för **Meddelanden**:
 
-    ```java   
+    Den här klassen använder lokal lagring för att lagra de nyhetskategorier som den här enheten ska ta emot. Den innehåller också metoder för att registrera dig för dessa kategorier.
+4. I din `MainActivity`-klass tar du bort dina privata fält för `NotificationHub` och `GoogleCloudMessaging` och lägger till ett fält för `Notifications`:
+
+    ```java
     // private GoogleCloudMessaging gcm;
     // private NotificationHub hub;
     private Notifications notifications;
     ```
-5. Ta sedan bort initieringen av fältet **hubb** och metoden **registerWithNotificationHubs** i metoden **onCreate**. Lägg till följande rader som initierar en instans av klassen **Meddelanden**. 
+5. I metoden `onCreate` tar du sedan bort initieringen av fältet `hub` och metoden `registerWithNotificationHubs`. Lägg sedan till följande rader som instansierar klassen `Notifications`.
 
     ```java
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,16 +217,18 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
 
     Bekräfta att hubbnamnet och anslutningssträngen är korrekt inställda i klassen NotificationSettings.
 
-    > [AZURE.NOTE] Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra bör du bara distribuera nyckeln för lyssningsåtkomst med din klientapp. Lyssningsåtkomst gör det möjligt för din app att registrera sig för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckeln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
-1. Lägg sedan till följande importer:
+    > [!NOTE]
+    > Eftersom autentiseringsuppgifterna som distribueras med ett klientprogram vanligtvis inte är säkra bör du bara distribuera nyckeln för lyssningsåtkomst med din klientapp. Lyssningsåtkomst gör det möjligt för din app att registrera sig för meddelanden, men befintliga registreringar kan inte ändras och meddelanden kan inte skickas. Nyckeln för fullständig åtkomst används i en skyddad serverdelstjänst för att skicka meddelanden och ändra befintliga registreringar.
 
-    ```java   
+6. Lägg sedan till följande importer:
+
+    ```java
     import android.widget.CheckBox;
     import java.util.HashSet;
     import java.util.Set;
     ```
-1. Lägg till följande `subscribe`-metod om du vill hantera prenumerationsknappens klickhändelse:        
-   
+7. Lägg till följande `subscribe`-metod om du vill hantera prenumerationsknappens klickhändelse:
+
     ```java
     public void subscribe(View sender) {
         final Set<String> categories = new HashSet<String>();
@@ -249,37 +255,36 @@ Det första steget är att lägga till de UI-element i din befintliga huvudaktiv
         notifications.storeCategoriesAndSubscribe(categories);
     }
     ```
-       
-    Den här metoden skapar en lista över kategorier och använder klassen **Meddelanden** för att lagra listan lokalt och registrera motsvarande taggar i meddelandehubben. När kategorier ändras återskapas registreringen med de nya kategorierna.
+
+    Den här metoden skapar en lista över kategorier och använder klassen `Notifications` för att lagra listan lokalt och registrera motsvarande taggar i meddelandehubben. När kategorier ändras återskapas registreringen med de nya kategorierna.
 
 Din app kan nu lagra en uppsättning kategorier i lokal lagring på enheten och registrera med meddelandehubben närhelst användaren ändrar kategoriurvalet.
 
 ## <a name="register-for-notifications"></a>Registrera sig för meddelanden
+
 De här stegen registreras med meddelandehubben vid start med hjälp av de kategorier som har lagrats i lokal lagring.
 
 > [!NOTE]
 > Eftersom det registrationId som tilldelats av Google Cloud Messaging (GCM) kan ändras när som helst, bör du ofta registrera dig för meddelanden ofta och undvika meddelandefel. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
-> 
-> 
 
-1. Lägg till följande kod i slutet av metoden **onCreate** i klassen **MainActivity**:
-   
+1. Lägg till följande kod i slutet av metoden `onCreate` i klassen `MainActivity`:
+
     ```java
     notifications.subscribeToCategories(notifications.retrieveCategories());
     ```
-   
-    Den här koden ser till att appen varje gång den startas hämtar kategorier från lokal lagring och begär en registrering för dessa kategorier. 
+
+    Den här koden ser till att appen varje gång den startas hämtar kategorier från lokal lagring och begär en registrering för dessa kategorier.
 2. Uppdatera sedan metoden `onStart()` för klassen `MainActivity` enligt följande:
-   
+
     ```java
     @Override
     protected void onStart() {
-   
+
         super.onStart();
         isVisible = true;
-   
+
         Set<String> categories = notifications.retrieveCategories();
-   
+
         CheckBox world = (CheckBox) findViewById(R.id.worldBox);
         world.setChecked(categories.contains("world"));
         CheckBox politics = (CheckBox) findViewById(R.id.politicsBox);
@@ -294,25 +299,28 @@ De här stegen registreras med meddelandehubben vid start med hjälp av de kateg
         sports.setChecked(categories.contains("sports"));
     }
     ```
-   
+
     Den här koden uppdaterar huvudaktiviteten baserat på tidigare sparade kategoriers status.
 
 Appen är nu klar och kan lagra en uppsättning kategorier i den enhetens lokala lagring som används för registrering i meddelandehubben närhelst användaren ändrar kategoriurvalet. Definiera sedan en serverdel som kan skicka kategorimeddelanden till den här appen.
 
 ## <a name="send-tagged-notifications"></a>Skicka taggade meddelanden
+
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
 ## <a name="test-the-app"></a>Testa appen
+
 1. Kör appen på din Android-enhet eller emulator i Android Studio. Appens användargränssnitt innehåller en uppsättning växlar med vilka du kan välja vilka kategorier du vill prenumerera på.
 2. Aktivera en eller flera kategoriväxlar och klicka sedan på **Prenumerera**. Appen konverterar de valda kategorierna till taggar och begär en ny enhetsregistrering för de valda taggarna från meddelandehubben. De registrerade kategorierna returneras och visas i ett popup-meddelande.
 
     ![Prenumerera på kategorier](./media/notification-hubs-aspnet-backend-android-breaking-news/subscribe-for-categories.png)
-1. Kör .NET-konsolappen som skickar meddelanden för varje kategori. Meddelanden för de valda kategorierna visas som popup-meddelanden.
+3. Kör .NET-konsolappen som skickar meddelanden för varje kategori. Meddelanden för de valda kategorierna visas som popup-meddelanden.
 
     ![Tekniknyhetsmeddelanden](./media/notification-hubs-aspnet-backend-android-breaking-news/technolgy-news-notification.png)
 
 ## <a name="next-steps"></a>Nästa steg
-I den här kursen har du skickat meddelanden till specifika Android-enheter som har registrerats för kategorier. Information om hur du skickar meddelanden till specifika användare finns i följande självstudie: 
+
+I den här kursen har du skickat meddelanden till specifika Android-enheter som har registrerats för kategorier. Information om hur du skickar meddelanden till specifika användare finns i följande självstudie:
 
 > [!div class="nextstepaction"]
 >[Skicka meddelanden till specifika användare](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)

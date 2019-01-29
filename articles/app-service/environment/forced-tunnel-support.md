@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 89827cdc7d29a817c83fd16ec2a4340f06c8343c
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 36324ccd9b6e9470c93949efed6c29a9b8d3ab61
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53272745"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389291"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Konfigurera App Service Environment med tvingande dirigering
 
-Azure App Service Environment (ASE) är en distribution av Azure App Service i en kunds virtuella Azure-nätverk. Många kunder konfigurerar sina virtuella Azure-nätverk så att de blir förlängningar av de lokala nätverken med VPN eller Azure ExpressRoute-anslutningar. Tvingad tunneltrafik är när du omdirigerar Internet-bunden trafik till ditt VPN eller en virtuell installation i stället. Detta sker ofta som en del av säkerhetskraven vid inspektion och granskning av all utgående trafik. 
+Azure App Service Environment (ASE) är en distribution av Azure App Service i en kunds virtuella Azure-nätverk. Många kunder konfigurerar sina virtuella Azure-nätverk så att de blir förlängningar av de lokala nätverken med VPN eller Azure ExpressRoute-anslutningar. Tvingad tunneltrafik är när du omdirigerar Internet-bunden trafik till ditt VPN eller en virtuell installation i stället. Virtuella installationer används ofta vid inspektion och granskning av utgående nätverkstrafik. 
 
 ASE har ett antal externa beroenden som beskrivs i dokumentet [Nätverksarkitektur i App Service Environment][network]. Normalt måste all utgående ASE-beroende trafik gå igenom den VIP som har etablerats med ASE:n. Om du ändrar routningen för trafik till eller från ASE:n utan att följa informationen nedan, kommer din ASE att sluta fungera.
 
@@ -62,28 +62,25 @@ Om nätverket redan dirigerar trafik lokalt måste du skapa det undernät som sk
 
 ## <a name="configure-your-ase-subnet-to-ignore-bgp-routes"></a>Konfigurera ditt ASE-undernät så att BGP-vägar ignoreras ## 
 
-Du kan konfigurera ditt ASE-undernät så att alla BGP-vägar ignoreras.  När du gör det kan ASE komma åt sina beroenden utan problem.  Du måste dock skapa UDR:er så att apparna kan komma åt lokala resurser.
+Du kan konfigurera ditt ASE-undernät så att alla BGP-vägar ignoreras.  När ASE har konfigurerats att ignorera BGP-vägar kan det komma åt sina beroenden utan problem.  Du måste dock skapa UDR:er så att apparna kan komma åt lokala resurser.
 
 Så här konfigurerar du ditt ASE-undernät så att BGP-vägar ignoreras:
 
 * Skapa en UDR och tilldela den till ditt ASE-undernät om du inte redan har en.
 * Öppna Azure Portal och öppna gränssnittet för routningstabellen som tilldelats till ASE-undernätet.  Välj Konfiguration.  Ange Inaktiverad Spridning av BGP-väg.  Klicka på Spara. Inaktiveringen är dokumenterad i dokumentet [Skapa en routningstabell][routetable].
 
-När du gör detta kan apparna inte längre nå din lokala miljö. Du kan lösa det här genom att redigera UDR:en som är tilldelad till ASE-undernätet och lägga till vägar för dina lokala adressområden. Nästa hopptyp bör ställas in som Virtuell nätverksgateway. 
+När du har konfigurerat ASE-undernätet att ignorera alla BGP-vägar kan dina appar inte längre nå resurser lokalt. Om du vill göra så att apparna kan komma åt resurser lokalt redigerar du UDR som tilldelats till ASE-underlätet och lägger till vägar för dina lokala adressintervall. Nästa hopptyp bör ställas in som Virtuell nätverksgateway. 
 
 
 ## <a name="configure-your-ase-with-service-endpoints"></a>Konfigurera din ASE med tjänstens slutpunkter ##
 
- > [!NOTE]
-   > Tjänstslutpunkter med SQL fungerar inte med ASE i US Government-regioner.  Följande information gäller endast för offentliga Azure-regioner.  
-
 Utför följande steg för att dirigera all utgående trafik från din ASE, förutom den som går till Azure SQL och Azure Storage:
 
-1. Skapa en routningstabell och tilldela den till ditt ASE-undernät. Hitta adresserna som matchar din region här [Hanteringsadresser för App Service Environment][management]. Skapa vägar för dessa adresser med ett nexthop för Internet. Detta är nödvändigt eftersom App Service Environments inkommande hanteringstrafik måste svara från samma adress den skickades till.   
+1. Skapa en routningstabell och tilldela den till ditt ASE-undernät. Hitta adresserna som matchar din region här [Hanteringsadresser för App Service Environment][management]. Skapa vägar för dessa adresser med ett nexthop för Internet. De här vägarna behövs eftersom App Service Environments inkommande hanteringstrafik måste svara från samma adress som den skickades till.   
 
 2. Aktivera tjänstslutpunkter med Azure SQL och Azure Storage med ASE-undernätet.  När det här steget har slutförts kan du konfigurera ditt virtuella nätverk med tvingad tunneltrafik.
 
-Om du vill skapa ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera all trafik lokalt måste du skapa ASE med en Resource Manager-mall.  Det går inte att skapa en ASE med portalen i ett befintligt undernät.  När du distribuerar ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera utgående trafik lokalt måste du skapa ASE med en Resource Manager-mall, vilket gör att du kan ange ett undernät som redan finns. Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med en mall][template].
+Om du vill skapa ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera all trafik lokalt måste du skapa ASE med en Resource Manager-mall.  Det går inte att skapa en ASE med portalen i ett befintligt undernät.  När du distribuerar ASE i ett virtuellt nätverk som redan har konfigurerats för att dirigera utgående trafik lokalt måste du skapa ASE med en Resource Manager-mall, vilket gör att du kan ange ett undernät som redan finns. Mer information om hur du distribuerar ASE med en mall finns i [Skapa en App Service-miljö med hjälp av en mall][template].
 
 Med tjänstens slutpunkter kan du begränsa åtkomsten för tjänster med flera innehavare till en uppsättning virtuella Azure-nätverk och undernät. Du kan läsa mer om tjänstens slutpunkter i dokumentationen [Tjänstens slutpunkter för virtuella nätverk][serviceendpoints]. 
 
@@ -91,7 +88,7 @@ När du aktiverar tjänstens slutpunkter för en resurs, finns det vägar som sk
 
 När tjänstens slutpunkter är aktiverade på ett undernät med en Azure SQL-instans, måste alla Azure SQL-instanser som är anslutna från undernätet ha aktiverat tjänstens slutpunkter. Om du vill ha åtkomst till flera Azure SQL-instanser från samma undernät kan du inte aktivera tjänstens slutpunkter på en Azure SQL-instans och inte på en annan.  Azure Storage fungerar inte på samma sätt som Azure SQL.  När du aktiverar tjänstens slutpunkter med Azure Storage kan du låsa åtkomsten till resursen från undernätet, men du kan ändå använda andra Azure Storage-konton även om de inte har aktiverat tjänstens slutpunkter.  
 
-Om du konfigurerar tvingad tunneltrafik med en nätverksfilterinstallation måste du komma ihåg att ASE har ytterligare beroenden utöver Azure SQL och Azure Storage. Du måste tillåta trafik till dessa beroenden. Annars fungerar inte ASE korrekt.
+Om du konfigurerar tvingad tunneltrafik med en nätverksfilterinstallation måste du komma ihåg att ASE har ytterligare beroenden utöver Azure SQL och Azure Storage. Om trafik till dessa beroenden blockeras fungerar inte ASE korrekt.
 
 ![Tvingad tunneltrafik med tjänstens slutpunkter][2]
 
@@ -99,7 +96,7 @@ Om du konfigurerar tvingad tunneltrafik med en nätverksfilterinstallation måst
 
 Utför följande steg för att tunnla all utgående trafik från din ASE, förutom den som går till Azure SQL och Azure Storage:
 
-1. Skapa en routningstabell och tilldela den till ditt ASE-undernät. Hitta adresserna som matchar din region här [Hanteringsadresser för App Service Environment][management]. Skapa vägar för dessa adresser med ett nexthop för Internet. Detta är nödvändigt eftersom App Service Environments inkommande hanteringstrafik måste svara från samma adress den skickades till. 
+1. Skapa en routningstabell och tilldela den till ditt ASE-undernät. Hitta adresserna som matchar din region här [Hanteringsadresser för App Service Environment][management]. Skapa vägar för dessa adresser med ett nexthop för Internet. De här vägarna behövs eftersom App Service Environments inkommande hanteringstrafik måste svara från samma adress som den skickades till. 
 
 2. Aktivera tjänstens slutpunkter för Azure Storage med ditt ASE-undernät
 

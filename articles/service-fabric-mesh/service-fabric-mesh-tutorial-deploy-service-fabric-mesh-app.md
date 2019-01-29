@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: twhitney
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ec282bc1159e8a8cf21b88b8430bbf3067686528
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: e1f2991b2e006c97087c6288d3ed3c20d2927e8c
+ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788639"
+ms.lasthandoff: 01/19/2019
+ms.locfileid: "54413489"
 ---
 # <a name="tutorial-deploy-a-service-fabric-mesh-application"></a>Självstudier: Distribuera ett Service Fabric Mesh-program
 
@@ -106,7 +106,8 @@ The application was deployed successfully and it can be accessed at http://10.00
 
 Öppna en webbläsare och navigera till webbadressen för att se webbplatsen köras i Azure.
 
-## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI 
+## <a name="set-up-service-fabric-mesh-cli"></a>Konfigurera Service Fabric Mesh CLI
+
 Du kan använda Azure Cloud Shell eller en lokal installation av Azure CLI för återstående steg. Installera Azure Service Fabric Mesh CLI-tilläggsmodulen genom att följa de här [instruktionerna](service-fabric-mesh-howto-setup-cli.md).
 
 ## <a name="check-application-deployment-status"></a>Kontrollera programmets distributionsstatus
@@ -117,6 +118,14 @@ Programnamnet för exempelprogrammet är `todolistapp`. Samla in information om 
 
 ```azurecli-interactive
 az mesh app show --resource-group $rg --name todolistapp
+```
+
+## <a name="get-the-ip-address-of-your-deployment"></a>Hämta IP-adressen för din distribution
+
+Om du vill hämta IP-adressen för ditt program använder du följande kommando:
+  
+```azurecli-interactive
+az mesh gateway show --resource-group myResourceGroup --name todolistappGateway
 ```
 
 ## <a name="see-all-applications-currently-deployed-to-your-subscription"></a>Se alla program som för närvarande distribueras till din prenumeration

@@ -1,6 +1,6 @@
 ---
 title: Åtkomst till ett klassrumslabb i Azure Lab Services | Microsoft Docs
-description: I självstudien får du åtkomst till virtuella datorer i ett klassrumslabb som har konfigurerats av en professor.
+description: I självstudien får du åtkomst till virtuella datorer i ett klassrumslabb som har konfigurerats av en lärare.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: b9d140eedf69ed730985412ba1dcdca2d626b191
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 1328835714086dcec71b0e9dd4d1916794f557a6
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706712"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54390169"
 ---
-# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Självstudie: Åtkomst till ett klassrumslabb i Azure Lab Services
+# <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Självstudier: Få åtkomst till ett klassrumslabb i Azure Lab Services
 I den här självstudien ansluter du som student till en virtuell dator (VM) i ett klassrumslabb. 
 
 I den här självstudien gör du följande:

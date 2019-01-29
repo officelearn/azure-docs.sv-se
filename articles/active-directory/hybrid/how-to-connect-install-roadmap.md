@@ -3,7 +3,7 @@ title: Installationsplan för Azure AD Connect och Azure AD Connect Health. | Mi
 description: Det här dokumentet innehåller en översikt över installationsalternativ och sökvägar för att installera Azure AD Connect och Connect Health.
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 5da946ff0c9bdda91668999db2fccdd12a67c0d2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 149c6436101750811af9ba3051ab715dd9eac021
+ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253201"
+ms.lasthandoff: 01/23/2019
+ms.locfileid: "54462343"
 ---
 # <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Installationsplan för Azure AD Connect och Azure AD Connect Health
 
@@ -160,11 +160,11 @@ På Azure AD Connect Health-portalen kan du visa varningar, övervaka prestanda 
 
 * **Snabbstart**: När du väljer det här alternativet öppnas bladet **Snabbstart**. Du kan hämta Azure AD Connect Health-agenten genom att välja **Hämta verktyg**. Du kan också komma åt dokumentationen och ge feedback.
 * **Azure Active Directory Connect (synkronisering)**: När du väljer det här alternativet visas de Azure AD Connect-servrar som Azure AD Connect Health övervakar för tillfället. Posten **Sync errors** (Synkroniseringsfel) visar grundläggande synkroniseringsfel för din första publicerade tjänst efter kategorier. När du väljer posten **Sync services** (Synkroniseringstjänster) öppnas ett blad som visar information om dina Azure AD Connect-servrar. Läs mer om funktionerna i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md).
-* **Active Directory Federation Services**: När du väljer det här alternativet visas alla AD FS-tjänster som Azure AD Connect Health övervakar för tillfället. När du väljer en instans visas information om tjänstinstansen på bladet som öppnas. Den här informationen innehåller en översikt, egenskaper, aviseringar, övervakning och användningsanalys. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md).
-* **Active Directory Domain Services**: När du väljer det här alternativet visas alla AD DS-skogar som Azure AD Connect Health övervakar för tillfället. När du väljer en skog visas information om skogen på bladet som öppnas. Denna information innehåller en översikt över viktig information, instrumentpanelerna Domänkontrollanter och Replikeringsstatus, aviseringar och övervakning. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
+* **Active Directory Federation Services**: När du väljer det här alternativet visas alla de AD FS-tjänster som Azure AD Connect Health övervakar för tillfället. När du väljer en instans visas information om tjänstinstansen på bladet som öppnas. Den här informationen innehåller en översikt, egenskaper, aviseringar, övervakning och användningsanalys. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD FS](how-to-connect-health-adfs.md).
+* **Active Directory Domain Services**: När du väljer det här alternativet visas alla de AD DS-skogar som Azure AD Connect Health övervakar för tillfället. När du väljer en skog visas information om skogen på bladet som öppnas. Denna information innehåller en översikt över viktig information, instrumentpanelerna Domänkontrollanter och Replikeringsstatus, aviseringar och övervakning. Läs mer om funktionerna i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
 * **Konfigurera**: Det här avsnittet innehåller alternativ för att aktivera eller inaktivera följande:
 
-  - Posten **Settings** (Inställningar ) innehåller grundläggande konfigurationer av dina agenter. Inställningen för automatisk uppgradering aktiverar automatisk uppdatering av Azure AD Connect Health-agenten till den senaste versionen: med det här alternativet uppdateras Azure AD Connect Health-agenten automatiskt till den senaste versionen när den blir tillgänglig. Den här funktionen är aktiverad som standard. Ge Microsoft åtkomst till din Azure AD-katalogs hälsodata i felsökningssyfte: Om det här alternativet är aktiverat kan Microsoft se samma data som du ser. Den här informationen kan komma till nytta vid felsökning och om du behöver hjälp med olika problem. Alternativet är inaktiverat som standard.
+  - Posten **Settings** (Inställningar ) innehåller grundläggande konfigurationer av dina agenter. Med inställningen Automatisk uppgradering kan du automatiskt uppdatera Azure AD Connect Health-agenten till den senaste versionen: Du får automatiska uppdateringar till de senaste versionerna av Azure AD Connect Health-agenten när de blir tillgängliga. Den här funktionen är aktiverad som standard. Ge Microsoft åtkomst till din Azure AD-katalogs hälsodata i felsökningssyfte: Om det här alternativet är aktiverat kan Microsoft se samma data som du ser. Den här informationen kan komma till nytta vid felsökning och om du behöver hjälp med olika problem. Alternativet är inaktiverat som standard.
 * **Role based access control (IAM)** (Rollbaserad åtkomstkontroll) är avsnittet för att hantera åtkomst till Connect Health-data i rollbasen. 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -7,14 +7,14 @@ ms.topic: overview
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 08638f0b55c84a6b0e42d3782246ef5b2ce833f3
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ed440b5d4a95689c6b6d9f1986dfe35ea47e4298
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359076"
+ms.locfileid: "54390393"
 ---
-# <a name="use-azure-cosmos-dbs-api-for-mongodb-support-for-mongodb-features-and-syntax"></a>Använda Azure Cosmos DB:s API för MongoDB-stöd för MongoDB-funktioner och syntax
+# <a name="azure-cosmos-dbs-api-for-mongodb-supported-features-and-syntax"></a>Azure Cosmos DB:s API för MongoDB: funktioner och syntax som stöds
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB:s API för MongoDB med någon av MongoDB-klient[drivrutinerna](https://docs.mongodb.org/ecosystem/drivers) med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
@@ -313,7 +313,7 @@ Unika index är tillgängliga för alla Cosmos-konton med hjälp av Azure Cosmos
 
 ## <a name="time-to-live-ttl"></a>TTL-värde (time to live)
 
-Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du kan aktivera TTL för samlingar genom att gå till [Azure-portalen](https://portal.azure.com).
+Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du kan aktivera TTL för samlingar genom att gå till [Azure Portal](https://portal.azure.com).
 
 ## <a name="user-and-role-management"></a>Användar- och rollhantering
 

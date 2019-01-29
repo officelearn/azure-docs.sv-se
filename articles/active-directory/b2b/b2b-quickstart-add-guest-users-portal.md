@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Lägga till gästanvändare i Azure-portalen'
+title: 'Snabbstart: Lägga till gästanvändare i Azure Portal'
 description: Använd den här snabbstarten för att lära dig hur Azure AD-administratörer kan lägga till B2B-gästanvändare i Azure-portalen och gå igenom arbetsflödet för B2B-inbjudan.
 services: active-directory
 ms.service: active-directory
@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
-manager: mtillman
+manager: daveba
 ms.reviewer: sasubram
-ms.openlocfilehash: ed49eed6dbfce9a71f13770e3ddcaec6557cf875
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 5e62d8679a76c024b0dcada5cfaad50659fcd4c8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986553"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54431698"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Snabbstart: Lägga till gästanvändare till din katalog i Azure-portalen
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-För att slutföra scenariot i den här självstudien behöver du:
+För att kunna slutföra scenariot i den här självstudien behöver du:
 
  - En roll som gör att du kan skapa användare i din klientkatalog, som rollen Global administratör eller någon av de begränsade katalogadministratörsrollerna.
  - Ett giltigt e-postkonto som du kan lägga till i din klientkatalog och som du kan använda för att ta emot e-postmeddelandet med testinbjudan.

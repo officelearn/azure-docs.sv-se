@@ -3,21 +3,21 @@ title: Självstudiekurs – Aktivera en webbapp för autentisering med konton me
 description: Självstudie som lär dig använda Azure Active Directory B2C för att tillhandahålla en användarinloggning till en ASP.NET-webbapp.
 services: active-directory-b2c
 author: davidmu1
-manager: mtillman
+manager: daveba
 ms.author: davidmu
 ms.date: 11/30/2018
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 8b482391dfafdda0e54b3f9e2b8a3a7de2f2d5cd
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 30a94cb5de2d618938f17c4e5733821ac7247785
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834731"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54851529"
 ---
-# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Självstudie:Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C
+# <a name="tutorial-enable-a-web-application-to-authenticate-with-accounts-using-azure-active-directory-b2c"></a>Självstudier: Aktivera en webbapp för autentisering med konton med hjälp av Azure Active Directory B2C
 
 Den här självstudien lär dig använda Azure Active Directory (Azure AD) B2C för att logga in och registrera användare i en ASP.NET webbapp. Med Azure AD B2C kan appar autentisera med konton på sociala medier, företagskonton och Azure Active Directory-konton med öppna protokoll.
 
@@ -171,9 +171,9 @@ ASP.NET exempelwebbappen är en enkel app som kan skapa och uppdatera en uppgift
 
 Exempellösningen innehåller två projekt:
 
-**Exempelwebbapp (TaskWebApp):** webbapp som skapar och redigerar en uppgiftslista. Webbappen använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
+**Exempelwebbapp (TaskWebApp):** Webbapp för att skapa och redigera en uppgiftslista. Webbappen använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
 
-**Webb-API-exempelapp (TaskService):** Webb-API med stöd för att skapa, läsa, uppdatera och ta bort en uppgiftslista. Webb-API:n skyddas av Azure AD B2C och anropas av webbappen.
+**Exempelapp med webb-API (TaskWebApp):** Ett webb-API med stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. Webb-API:n skyddas av Azure AD B2C och anropas av webbappen.
 
 Du måste ändra appen om du vill använda appregistreringen i din klientorganisation, som innehåller det program-ID och den nyckel som du tidigare registrerade. Du behöver även konfigurera de användarflöden som du skapade. Exempelwebbappen definierar konfigurationsvärdena som appinställningar i Web.config-filen. Så här ändrar du appinställningarna:
 
@@ -216,4 +216,4 @@ Du kan använda Azure AD B2C-klientorganisationen om du vill prova andra självs
 I den här självstudien lärde du dig att skapa en Azure AD B2C-klientorganisation, skapa användarflöden och uppdatera exempelwebbappen så den använder din Azure AD B2C-klientorganisation. Fortsätt till nästa självstudie och lär dig registrera, konfigurera och anropa ett ASP.NET webb-API som skyddas av din Azure AD B2C-klientorganisation.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API](active-directory-b2c-tutorials-web-api.md)
+> [Självstudier: Använda Azure Active Directory B2C för att skydda ett ASP.NET webb-API](active-directory-b2c-tutorials-web-api.md)

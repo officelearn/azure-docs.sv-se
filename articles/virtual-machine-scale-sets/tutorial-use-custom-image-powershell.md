@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 924fea7a8a8e6fb1ab25584a49f38b25156d1ec6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: bca92b5079b5ef21c954b46bfbeab9b973828fc8
+ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230520"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54427448"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-azure-powershell"></a>Självstudier: Skapa och använda en anpassad avbildning för VM-skalningsuppsättningar med Azure PowerShell
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0 eller senare av Azure PowerShell-modulen i den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
+Om du väljer att installera och använda PowerShell lokalt krävs version 6.0.0 eller senare av Azure PowerShell-modulen i den här självstudiekursen. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul). Om du kör PowerShell lokalt måste du också köra `Connect-AzureRmAccount` för att skapa en anslutning till Azure. 
 
 
 ## <a name="create-and-configure-a-source-vm"></a>Skapa och konfigurera en virtuell källdator
@@ -76,7 +76,7 @@ Nu ska vi installera en grundläggande webbserver för att anpassa din virtuella
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [Så här använder du Sysprep: en introduktion](https://technet.microsoft.com/library/bb457073.aspx).
+Det sista steget för att förbereda din virtuella dator för användning som en anpassad avbildning är att generalisera den virtuella datorn. Sysprep tar bort all personlig kontoinformation och konfigurationer och återställer den virtuella datorn till ett rent tillstånd för framtida distributioner. Mer information finns i [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx) (Använda Sysprep: En introduktion).
 
 Om du vill generalisera den virtuella datorn, kör du Sysprep och konfigurerar den virtuella datorn för en helt ny upplevelse. När du är klar, instruerar du Sysprep att stänga av den virtuella datorn:
 

@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
-ms.openlocfilehash: 3050bc06c30c29efe7ba5294cbbee2aea1a6055b
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 9ae21e66c178ceb9c6aab814c6528da032ce0b30
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52311610"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54382125"
 ---
 # <a name="quickstart-bing-spell-check-sdk-with-c"></a>Snabbstart: SDK för stavningskontroll i Bing med C#
 
@@ -46,10 +46,10 @@ Instansiera sedan klienten:
 var client = new SpellCheckClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"));
 ```
 
-Använd klienten för att kontrollera stavning:
+Använd klienten för att kontrollera stavningen i texten. Parametern `acceptLanguage` är valfri:
 
 ```cs
-var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market: "en-US").Result;
 Console.WriteLine("Correction for Query# \"bill gatas\"");
 ```
 
@@ -95,7 +95,7 @@ Följande konsolprogram kör den tidigare koden:
 ```cs
 using System;
 using System.Linq;
-using Microsoft.Azure.CognitiveServices.SpellCheck;
+using Microsoft.Azure.CognitiveServices.Language.SpellCheck;
 
 namespace SpellCheckSDK
 {
@@ -107,7 +107,7 @@ namespace SpellCheckSDK
 
             try
             {
-                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
+                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US", market:"en-US").Result;
                 Console.WriteLine("Correction for Query# \"bill gatas\"");
 
                 // SpellCheck Results

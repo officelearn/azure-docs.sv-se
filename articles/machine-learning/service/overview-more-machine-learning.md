@@ -9,32 +9,54 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 12/04/2018
-ms.openlocfilehash: b2d7888234a05c82f1245bd58b98f505989d7f2d
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.date: 1/17/2019
+ms.openlocfilehash: d5660d1a4d5d2a26af57e2a2411552e3f6267379
+ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53557894"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54389131"
 ---
 # <a name="what-are-the-machine-learning-products-at-microsoft"></a>Vilka maskininlärningsprodukter har Microsoft?
 
 Microsoft har olika produktalternativ för att bygga, distribuera och hantera dina maskininlärningsmodeller. Jämför dessa produkter och välj vad du behöver för att utveckla dina maskininlärningslösningar på effektivast möjliga sätt.
 
-| Maskininlärningsprodukt | Vad det är | Det här kan du göra |
+
+**Molnbaserade alternativ**
+
+Följande alternativ är tillgängliga för maskininlärning i Azure-molnet.
+
+| Molnalternativ | Vad det är | Det här kan du göra |
 |-|-|-|
-| ***I molnet*** | | |
 | [Azure Machine Learning-tjänst](#azure-machine-learning-services) | Hanterad molntjänst för ML  | Träna, distribuera och hantera modeller i Azure med Python och CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuellt dra&ndash;och&ndash;släpp-gränssnitt för ML | Skapa, experimentera och distribuera modeller med förkonfigurerade algoritmer |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Visuellt dra&ndash;och&ndash;släpp-gränssnitt för ML | Skapa, experimentera och distribuera modeller med förkonfigurerade algoritmer (Python och R)|
 | [Azure Databricks](#azure-databricks) | Apache Spark-baserad analysplattform | Skapa och distribuera modeller och dataarbetsflöden |
 | [Azure Cognitive Services](#azure-cognitive-services) | Azure-tjänster med inbyggda AI- och ML-modeller | Ett enkelt sätt att lägga till smarta funktioner i dina appar |
 | [Azure Data Science Virtual Machine](#azure-data-science-virtual-machine) | Virtuell dator med förinstallerade verktyg för datavetenskap | Utveckla ML-lösningar i en förkonfigurerad miljö |
-| ***Lokalt***<br>*(lokala servrar kan också köras på en virtuell dator i molnet)* | | |
+
+**Lokala alternativ**
+
+Följande alternativ är tillgängliga för lokal maskininlärning. Lokala servrar kan också köras på en virtuell dator i molnet.
+
+| Lokala&nbsp;alternativ | Vad det är | Det här kan du göra |
+|-|-|-|
 | [SQL Server Machine Learning Services](#sql-server-machine-learning-services) | Analysmotor som är inbäddad i SQL | Skapa och distribuera modeller i SQL Server |
 | [Microsoft Machine Learning Server](#microsoft-machine-learning-server) | Fristående företagsserver för förutsägbar analys | Skapa och distribuera modeller med R och Python |
-| ***Utvecklarverktyg*** | | |
+
+**Utvecklingsverktyg**
+
+Följande utvecklingsverktyg är tillgängliga för maskininlärning.
+
+| Utvecklingsverktyg | Vad det är | Det här kan du göra |
+|-|-|-|
 | [ML.NET](#mlnet) | Plattformsoberoende ML-SDK med öppen källkod | Utveckla ML-lösningar för .NET-program |
 | [Windows ML](#windows-ml) | ML-plattform för Windows 10 | Utvärdera tränade modeller på en Windows 10-enhet |
+
+
+
+
+
+
 
 ## <a name="azure-machine-learning-service"></a>Azure Machine Learning-tjänst
 

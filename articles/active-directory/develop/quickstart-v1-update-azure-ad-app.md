@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: f311f951e09e064b8eac779b1082c666fe029479
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 9a89768a5cf02cc8d4cdce670bdfb5b90f504bdf
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977258"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447470"
 ---
 # <a name="quickstart-update-an-application-in-azure-active-directory"></a>Snabbstart: Uppdatera ett program i Azure Active Directory
 
@@ -44,15 +44,15 @@ För att ett webbklientprogram eller ett konfidentiellt webbprogram ska kunna de
 
 Innan en klient kan komma åt ett webb-API som görs tillgängligt av ett resursprogram (till exempel Microsoft Graph API) säkerställer ramverket för medgivande att klienten det behörighetsbeviljande som krävs, baserat på de begärda behörigheterna. Som standard kan alla program välja behörigheter från **Azure Active Directory** (Graph API) och den klassiska Azure-distributionsmodellen. [Graph API-behörigheten ”Logga in och läs användarprofil”](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes#PermissionScopeDetails) väljs också som standard. Om klienten registreras i en klientorganisation som har konton som prenumererar på Office 365 är webb-API:er och behörigheter för SharePoint och Exchange Online tillgängliga att väljas. Du kan välja mellan två typer av behörigheter för varje önskat webb-API:
 
-- Programbehörigheter: klientprogrammet behöver komma åt webb-API:et direkt som sig självt (ingen användarkontext). Den här typen av behörighet kräver administratörens godkännande och är inte heller tillgängligt för interna klientprogram.
-- Delegerade behörigheter: klientprogrammet behöver komma åt webb-API:et som den inloggade användaren men med åtkomst som begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare såvida inte behörigheten kräver administratörens godkännande.
+- Programbehörigheter: Klientprogrammet behöver komma åt webb-API:et direkt som sig självt (ingen användarkontext). Den här typen av behörighet kräver administratörens godkännande och är inte heller tillgängligt för interna klientprogram.
+- Delegerade behörigheter: Klientprogrammet behöver komma åt webb-API:et som den inloggade användaren men med åtkomst som begränsas av den valda behörigheten. Den här typen av behörighet kan beviljas av en användare såvida inte behörigheten kräver administratörens godkännande.
 
   > [!NOTE]
   > Att lägga till en delegerad behörighet till ett program ger automatiskt medgivande till användare i klientorganisationen. Användarna måste fortfarande manuellt ge medgivande för de tillagda delegerade behörigheterna vid körning såvida inte administratören beviljas medgivande för alla användares räkning.
 
 ### <a name="add-application-credentials-or-permissions-to-access-web-apis"></a>Lägga till autentiseringsuppgifter för program eller behörighet att komma åt webb-API:er
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret väljer du **Azure Active Directory**-tjänsten, väljer **Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
 
@@ -88,7 +88,7 @@ Följande avsnitt visar hur du gör åtkomstomfång tillgängliga genom att änd
 
 ### <a name="add-access-scopes-to-your-resource-application"></a>Lägga till åtkomstomfång i ditt resursprogram
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret väljer du **Azure Active Directory > Appregistreringar** och letar upp och väljer det program som du vill konfigurera.
 
@@ -170,7 +170,7 @@ Om du skriver ett program som du vill göra tillgängliga för dina kunder eller
 
 Så här ger du externa användare möjlighet att komma åt ditt program:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**-tjänsten, klickar på **Appregistreringar** och letar upp och klickar på det program som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
 4. På sidan **Inställningar** klickar du på **Egenskaper** och ändrar växeln **Multi-tenanted** (Med flera klientorganisationer) till **Ja**.
@@ -205,7 +205,7 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 > [!NOTE]
 > Det rekommenderas att du först läser informationen om hur du redigerar programmanifestet i föregående avsnitt, [Konfigurera resursprogram för att göra webb API:er tillgängliga](#configuring-a-resource-application-to-expose-web-apis).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Om ditt konto ger dig tillgång till fler än en klickar du på ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 3. I det vänstra navigeringsfönstret klickar du på **Azure Active Directory**-tjänsten, klickar på **Appregistreringar** och letar upp och klickar på det program som du vill konfigurera. Du kommer till programmets huvudsakliga registreringssida, vilket öppnar sidan **Inställningar** för programmet.
 4. Växla till sidan **Redigera manifest** genom att klicka på **Manifest** från programmets registreringssida. En webbaserad manifestredigerare öppnas så att du kan **Redigera** manifestet i portalen. Leta upp och ställ in värdet ”oauth2AllowImplicitFlow” till ”true” (sant). Som standard är det inställt på ”false” (falskt).

@@ -1,23 +1,23 @@
 ---
-title: 'Snabbstart: Identifiera tal i Python med Speech Service-SDK'
+title: 'Snabbstart: Taligenkänning, Python – Speech Services'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du identifierar tal i Python med hjälp av Speech Service-SDK
+description: Använd den här guiden för att skapa ett tal till text-konsolprogram med hjälp av Speech SDK för Python. När du är klar kan du använda datorns mikrofon för att transkribera tal till text i realtid.
 services: cognitive-services
 author: chlandsi
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 12/18/2018
+ms.date: 1/16/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7610b12b351b2652df7ade603711d4d92e587292
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 40869457ce933368e17a2054dfca50fc4505fa22
+ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53723917"
+ms.lasthandoff: 01/17/2019
+ms.locfileid: "54381578"
 ---
-# <a name="quickstart-using-the-speech-service-from-python"></a>Snabbstart: Använda taltjänsten från Python
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-python"></a>Snabbstart: Taligenkänning med Speech SDK för Python
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -39,7 +39,7 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 
 * I Windows behöver du även [Microsoft Visual C++ Redistributable för Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) för din plattform.
 
-## <a name="get-the-speech-sdk-python-package"></a>Hämta Python Speech SDK-paketet
+## <a name="install-the-speech-sdk"></a>Installera Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
@@ -61,7 +61,7 @@ Om du har problem eller saknar en funktion kan du titta på [supportsidan](./sup
 
 ## <a name="create-a-python-application-using-the-speech-sdk"></a>Skapa ett Python-program med hjälp av Speech SDK
 
-### <a name="running-the-sample-in-a-terminal"></a>Kör exemplet i en terminal
+### <a name="run-the-sample"></a>Kör exemplet
 
 Du kan antingen kopiera [koden](#quickstart-code) till en källfil från den här snabbstarten `quickstart.py` och köra den i din IDE eller i konsolen
 
@@ -71,11 +71,11 @@ python quickstart.py
 
 eller så kan du ladda ned den här snabbsjälvstudien som en [Jupyter](https://jupyter.org) Notebook från [lagringsplatsen för Cognitive Services talexempel](https://github.com/Azure-Samples/cognitive-services-speech-sdk/) och köra den som en notebook-fil.
 
-### <a name="quickstart-code"></a>Snabbstartskod
+### <a name="sample-code"></a>Exempelkod
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/quickstart.py#code)]
 
-### <a name="installing-the-speech-sdk-python-package-and-running-the-sample-in-visual-studio-code"></a>Installera Python Speech SDK-paketet och köra exemplet i Visual Studio Code
+### <a name="install-and-use-the-speech-sdk-with-visual-studio-code"></a>Installera och använda Speech SDK med Visual Studio Code
 
 1. [Ladda ned](https://www.python.org/downloads/) och installera en 64-bitarsversion (3.5 eller senare) av Python på din dator.
 1. [Ladda ned](https://code.visualstudio.com/Download) och installera Visual Studio Code.

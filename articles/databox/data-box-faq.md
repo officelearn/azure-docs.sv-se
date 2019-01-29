@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/16/2019
 ms.author: alkohli
-ms.openlocfilehash: c8aa08dc189a77a206ea24b535aedf64454838c7
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: ad52427263c4bbd2effb373b00ef8ff37b8f5b67
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359416"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449579"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Vanliga frågor och svar
 
@@ -192,7 +192,9 @@ Mer information finns i avsnittet om [Data Box-säkerhetsfunktioner](data-box-se
 
 ### <a name="q-i-have-finished-prepare-to-ship-and-shut-down-the-device-can-i-still-add-more-data-to-data-box"></a>F. Jag har slutfört anvisningarna i Förbered för att skicka och enheten är avstängd. Kan jag fortfarande lägga till mer data till Data Box?
 A. Ja. Du kan aktivera enheten och lägga till mer data. Du måste köra **Förbered för att skicka** igen när du har slutfört kopieringen.
-  
+
+### <a name="q-i-received-my-device-and-it-is-not-booting-up-how-do-i-ship-the-device-back"></a>F. Jag fick enheten, men den startas inte. Hur skickar jag tillbaka enheten?
+A. Om enheten inte startar går du till din beställning i Azure-portalen. Ladda ned en adressetikett och fäst den på enheten. Mer information finns i [Ladda ned adressetikett](data-box-portal-admin.md#download-shipping-label).
 
 ## <a name="verify-and-upload"></a>Verifiera och ladda upp
 

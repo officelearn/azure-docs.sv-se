@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 10750b5005810ec9034d2b4c7907578949ca6821
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 97c33a5dc2eb43644081579b5d1c0172ce953906
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54155209"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54449358"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Självstudier: Kopiera data till Azure Data Box Disk och verifiera
 
@@ -161,7 +161,7 @@ Utför stegen nedan för att ansluta och kopiera data från din dator till Data 
     
     Mer information om Robocopy-kommandon finns i [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy och några exempel).
 
-6. Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned loggfilerna för felsökning. Loggfilerna finns på den plats som anges i robobopy-kommandot.
+6. Öppna målmappen för att visa och verifiera de kopierade filerna. Om det uppstod fel under kopieringsprocessen laddar du ned loggfilerna för felsökning. Loggfilerna finns på den plats som anges i kommandot robocopy.
  
 > [!IMPORTANT]
 > - Det är ditt ansvar att se till att du kopierar data till mappar som matchar lämpligt dataformat. Kopiera exempelvis blockblobdata till mappen för blockblobobjekt. Om dataformatet inte matchar mappen (lagringstyp) misslyckas datauppladdningen till Azure i ett senare skede.
@@ -251,7 +251,7 @@ Om du inte använde Split Copy-verktyget för att kopiera data måste du verifie
     ![Checksum-utdata](media/data-box-disk-deploy-copy-data/data-box-disk-checksum-output.png)
 
     > [!TIP]
-    > - Återställ verktyget mellan de två körningarna.
+    > - Återställ verktyget mellan två körningar.
     > - Använd alternativ 1 om du hanterar stora datamängder som innehåller små filer (~ kB). Det här alternativet validerar bara filerna eftersom genereringen av kontrollsummor kan ta mycket lång tid och prestanda kan vara mycket långsamma.
 
 3. Om du använder flera diskar kör du kommandot för varje disk.

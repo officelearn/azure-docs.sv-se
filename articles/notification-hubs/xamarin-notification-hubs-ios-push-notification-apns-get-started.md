@@ -4,8 +4,8 @@ description: I den här självstudiekursen beskrivs hur du använder Azure Notif
 services: notification-hubs
 keywords: push-meddelanden för ios, push-meddelanden, push-aviseringar, push-avisering
 documentationcenter: xamarin
-author: dimazaid
-manager: kpiteira
+author: jwargo
+manager: patniko
 editor: spelluru
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 08/23/2018
-ms.author: dimazaid
-ms.openlocfilehash: 4704d9bb04f6dc69c69df434562c03b868baf045
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 01/04/2019
+ms.author: jowargo
+ms.openlocfilehash: f81066489d09bd6abef3f96ed83bea1108f99b77
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917711"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54447453"
 ---
-# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -44,11 +44,11 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- Den senaste versionen av [XCode][Install Xcode]
-- En enhet som är kompatibel med iOS 10 (eller senare version)
-- Medlemskap i [Apple Developer Program](https://developer.apple.com/programs/).
-- [Visual Studio för Mac]
+* **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* Den senaste versionen av [XCode][Install Xcode]
+* En enhet som är kompatibel med iOS 10 (eller senare version)
+* Medlemskap i [Apple Developer Program](https://developer.apple.com/programs/).
+* [Visual Studio för Mac]
   
   > [!NOTE]
   > På grund av konfigurationskrav för iOS-pushmeddelanden måste du distribuera och testa exempelappen på en fysisk iOS-enhet (iPhone eller iPad) i stället för i simulatorn.
@@ -84,19 +84,19 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
 
      ![Välj Studio – Välj apptyp][31]
 
-2. Ange appnamnet och organisations-ID och välj sedan **Next** (Nästa) och **Create** (Skapa)
+2. Ange appnamnet och organisations-ID, och klicka sedan på **Next** (Nästa) och **Create** (Skapa)
 
 3. I vyn Solution (Lösning) dubbelklickar du på *Info.plist* och under **Identity** (Identitet) ser du till att paket-ID:t matchar det som används när du skapar etableringsprofilen. Under **Signing** (Signering) kontrollerar du att ditt Developer-konto är markerat under **Team**, att "Automatically manage signing" (Hantera signering automatiskt) är markerat samt att signeringscertifikatet och etableringsprofilen väljs automatiskt.
 
     ![Visual Studio – iOS-appkonfiguration][32]
 
-4. Dubbelklicka på *Entitlements.plist* från lösningsvyn och kontrollera att **Aktivera push-meddelanden**"** är markerat.
+4. Dubbelklicka på `Entitlements.plist` från lösningsvyn och kontrollera att **Aktivera push-meddelanden**"** är markerat.
 
     ![Visual Studio – konfigurera iOS-berättiganden][33]
 
 5. Lägg till Azure Messaging-paketet. I vyn Solution (Lösning) högerklickar du på projektet och väljer **Add** (Lägg till)  > **Add NuGet Packages** (Lägg till NuGet-paket). Sök efter **Xamarin.Azure.NotificationHubs.iOS** och lägg till paketet i projektet.
 
-6. Lägg till en ny fil i klassen, ge den namnet **Constants.cs** och lägg till följande variabler och ersätt stränglitteralplatshållarna med *hubbnamnet* och *DefaultListenSharedAccessSignature* som noterats tidigare.
+6. Lägg till en ny fil i klassen och ge den namnet `Constants.cs` Lägg till följande variabler och ersätt stränglitteralplatshållarna med `hubname` och `DefaultListenSharedAccessSignature` som noterats tidigare.
 
     ```csharp
     // Azure app-specific connection string and hub path
@@ -104,19 +104,19 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     public const string NotificationHubName = "<Azure Notification Hub Name>";
     ```
 
-7. Lägg till följande using-instruktion i **AppDelegate.cs**:
+7. I `AppDelegate.cs` lägger du till följande using-instruktion:
 
     ```csharp
     using WindowsAzure.Messaging;
     ```
 
-8. Deklarera en instans av **SBNotificationHub**:
+8. Deklarera en instans av `SBNotificationHub`:
 
     ```csharp
     private SBNotificationHub Hub { get; set; }
     ```
 
-9. I **AppDelegate.cs** uppdaterar du **FinishedLaunching()** så att det matchar följande kod:
+9. I `AppDelegate.cs` uppdaterar du `FinishedLaunching()` till att matcha följande kod:
 
     ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -145,7 +145,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     }
     ```
 
-10. Åsidosätt metoden **RegisteredForRemoteNotifications()** i **AppDelegate.cs**:
+10. I `AppDelegate.cs` åsidosätter du metoden `RegisteredForRemoteNotifications()`:
 
     ```csharp
     public override void RegisteredForRemoteNotifications(UIApplication application, NSData deviceToken)
@@ -168,7 +168,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     }
     ```
 
-11. Åsidosätt metoden **ReceivedRemoteNotification()** i **AppDelegate.cs**:
+11. I `AppDelegate.cs` åsidosätter du metoden `ReceivedRemoteNotification()`:
 
     ```csharp
     public override void ReceivedRemoteNotification(UIApplication application, NSDictionary userInfo)
@@ -177,7 +177,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     }
     ```
 
-12. Skapa följande **ProcessNotification()**-metod i **AppDelegate.cs**:
+12. I `AppDelegate.cs` skapar du metoden `ProcessNotification()`:
 
     ```csharp
     void ProcessNotification(NSDictionary options, bool fromFinishedLaunching)
@@ -216,7 +216,7 @@ Din meddelandehubb har nu konfigurerats för att fungera med APNs och du har ans
     ```
 
     > [!NOTE]
-    > Du kan välja att åsidosätta **FailedToRegisterForRemoteNotifications()** för att hantera vissa situationer, till exempel om det inte finns någon nätverksanslutning. Detta är särskilt viktigt om användaren kan starta appen i offline-läge (t.ex. flygplansläge) och du vill hantera scenarier för push-meddelanden som är specifika för din app.
+    > Du kan välja att åsidosätta `FailedToRegisterForRemoteNotifications()` för att hantera vissa situationer, till exempel om det inte finns någon nätverksanslutning. Detta är särskilt viktigt om användaren kan starta appen i offline-läge (t.ex. flygplansläge) och du vill hantera scenarier för push-meddelanden som är specifika för din app.
 
 13. Kör appen på enheten.
 
@@ -239,24 +239,19 @@ I de här självstudierna har du skickat meddelanden till alla iOS-enheter som �
 [6]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png
 [213]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-console-app.png
-
 [215]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler1.png
 [216]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-scheduler2.png
-
 [30]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
 [31]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-create-ios-app.png
 [32]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-app-settings.png
 [33]: ./media/partner-xamarin-notification-hubs-ios-get-started/notification-hub-entitlements-settings.png
 
-
 <!-- URLs. -->
 [Install Xcode]: https://go.microsoft.com/fwLink/p/?LinkID=266532
 [iOS Provisioning Portal]: http://go.microsoft.com/fwlink/p/?LinkId=272456
 [Visual Studio för Mac]: https://visualstudio.microsoft.com/vs/mac/
-
 [Local and Push Notification Programming Guide]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/HandlingRemoteNotifications.html#//apple_ref/doc/uid/TP40008194-CH6-SW1
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: http://go.microsoft.com/fwlink/p/?LinkId=272584
-
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
 [Azure Portal]: https://portal.azure.com

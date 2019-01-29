@@ -1,5 +1,5 @@
 ---
-title: 'Azure-portalen: Skapa en SQL-hanterad instans | Microsoft Docs'
+title: 'Azure Portal: Skapa en SQL-hanterad instans | Microsoft Docs'
 description: Skapa en SQL-hanterad instans, en nätverksmiljö och en virtuell klientdator för åtkomst.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 201ba431a4382741815536db2bb4d08f0068be80
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: a4e829f8ae89815c68d80a9f85dfbfd58a03b6a0
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329549"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54452198"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Snabbstart: Skapa en hanterad Azure SQL Database-instans
 
@@ -25,7 +25,7 @@ I den här snabbstarten går vi igenom hur du skapar en [hanterad instans](sql-d
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure-portalen
+## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
 Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -33,7 +33,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 I följande steg visas hur du skapar en hanterad instans.
 
-1. Välj **Skapa en resurs** längst upp till vänster i Azure-portalen.
+1. Välj **Skapa en resurs** längst upp till vänster i Azure Portal.
 2. Leta upp **Managed Instance** och välj sedan **Azure SQL Managed Instance**.
 3. Välj **Skapa**.
 
@@ -47,7 +47,7 @@ I följande steg visas hur du skapar en hanterad instans.
    |**Namn på hanterad instans**|Valfritt giltigt namn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Administratörsinloggning för hanterad instans**|Giltigt användarnamn|Giltiga namn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Använd inte ”serveradmin” eftersom det är en reserverad servernivåroll.|
    |**Lösenord**|Valfritt giltigt lösenord|Lösenordet måste vara minst 16 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Sortering**|Den sortering som du vill använda för din hanterade instans|Mer information om sorteringar finns i [Sorteringar](https://docs.microsoft.com/sql/t-sql/statements/collations).|
+   |**Sortering**|Den sortering som du vill använda för din hanterade instans|Om du migrerar databaser från SQL Server kontrollerar du källans sortering med hjälp av `SELECT SERVERPROPERTY(N'Collation')` och det värdet. Mer information om sorteringar finns i [Sorteringar på servernivå](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Plats**|Platsen där du vill skapa den hanterade instansen|För information om regioner, se [Azure-regioner](https://azure.microsoft.com/regions/).|
    |**Virtuellt nätverk**|Välj antingen **Skapa nytt virtuellt nätverk** eller ett giltigt virtuellt nätverk och undernät.| Om en nätverk/undernät är nedtonat måste det [ändras för att uppfylla nätverkskraven](sql-database-managed-instance-configure-vnet-subnet.md) innan du väljer det som mål för den nya hanterade instansen. Information om kraven för att konfigurera nätverksmiljön för en hanterad instans finns i [Konfigurera ett virtuellt nätverk för hanterad Azure SQL Database-instans](sql-database-managed-instance-connectivity-architecture.md). |
    |**Resursgrupp**|En ny eller befintlig resursgrupp|Giltiga resursgruppnamn finns i [Namngivningsregler och begränsningar](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|

@@ -9,18 +9,18 @@ services: iot-accelerators
 ms.date: 11/15/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 5505ceaa88f1ad792df57f9728f5e4809404942c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: a2dc5653b7579d9c5db4667d84e6e5b5082abaab
+ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599509"
+ms.lasthandoff: 01/22/2019
+ms.locfileid: "54448082"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>Självstudier: Konfigurera enheter som är anslutna till din övervakningslösning
 
 I den här självstudiekursen använder du lösningsacceleratorn Fjärrövervakning för att konfigurera och hantera dina anslutna IoT-enheter. Du lägger till en ny enhet till lösningsacceleratorn och konfigurerar enheten.
 
-Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i Fjärrövervakning-lösningsacceleratorn och testar att den simulerade enheten svarar korrekt på konfigurationsuppdateringar. I den här självstudiekursen används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [fysisk enhet ansluten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
+Contoso har beställt nya maskiner och utökat en av sina anläggningar. Medan du väntar på att de nya maskinerna ska levereras vill du köra en simulering för att testa lösningens beteende. För att köra simuleringen lägger du till en ny simulerad motor i Fjärrövervakning-lösningsacceleratorn och testar att den simulerade enheten svarar korrekt på konfigurationsuppdateringar. I den här självstudien används simulerade enheter men en enhetsutvecklare kan implementera direktmetoder på en [riktig enhet ansluten till lösningsacceleratorn Fjärrövervakning](iot-accelerators-connecting-devices.md).
 
 I den här kursen för du göra följande:
 

@@ -10,14 +10,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/09/2018
+ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1c53dfb1447b0abd5b96d109a657eae5f5947118
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 804044dbfc5428c3a80aab13227730ed13c43ce2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401443"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098038"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -66,7 +66,7 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 
 
 ## <a name="insights"></a>Insikter
-Övervakning av data är endast användbart om det kan öka din insyn i driften av IT-miljön. Azure Monitor innehåller flera funktioner och verktyg som kan ger värdefulla insikter i dina program och andra resurser som de förlitar sig på. [Övervakningslösningar](insights/solutions.md) och funktioner som [Application Insights](app/app-insights-overview.md) och behållaren Insights ger djupare insikter om olika aspekter av ditt program och specifika Azure-tjänster. 
+Övervakning av data är endast användbart om det kan öka din insyn i driften av IT-miljön. Azure Monitor innehåller flera funktioner och verktyg som kan ger värdefulla insikter i dina program och andra resurser som de förlitar sig på. [Övervakningslösningar](insights/solutions.md) och funktioner som [Programinsikter](app/app-insights-overview.md) och [Azure Monitor för behållare](insights/container-insights-overview.md) ger djupare insikter om olika aspekter av ditt program och specifika Azure tjänster. 
 
 ### <a name="application-insights"></a>Application Insights
 [Application Insights](app/app-insights-overview.md) övervakar tillgänglighet, prestanda och användningen av ditt webbprogram om de är finns i molnet eller lokalt. Den använder kraftfull dataplattform analys i Azure Monitor för att ge dig djupare insikter om ditt programs operations och diagnostisera fel utan att behöva vänta på att en användare rapporterar dem. Application Insights innehåller en rad olika utvecklingsverktyg och integreras med Visual Studio för att stödja dina DevOps-processer.
@@ -74,12 +74,12 @@ Azure Monitor kan samla in loggdata från alla REST-klient som använder den [Da
 ![App Insights](media/overview/app-insights.png)
 
 ### <a name="azure-monitor-for-containers"></a>Azure Monitor för containrar
-Azure Monitor för behållare är en funktion som utformats för att övervaka prestanda för arbetsbelastningar distribueras till hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Det ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. Containerloggar samlas också.  När du aktiverar övervakning från Kubernetes-kluster kan samlas dessa mått och loggar automatiskt in för dig via en behållare version av Log Analytics-agenten för Linux.
+[Azure Monitor för behållare](insights/container-insights-overview.md) är en funktion som utformats för att övervaka prestanda för arbetsbelastningar distribueras till hanterade Kubernetes-kluster som finns på Azure Kubernetes Service (AKS). Det ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. Containerloggar samlas också.  När du aktiverar övervakning från Kubernetes-kluster kan samlas dessa mått och loggar automatiskt in för dig via en behållare version av Log Analytics-agenten för Linux.
 
 ![Container Health](media/overview/container-insights.png)
 
 ### <a name="azure-monitor-for-vms"></a>Azure Monitor för virtuella datorer
-Azure Monitor VM insights övervakar dina Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för Windows och Linux-datorer, inklusive olika processer och sammankopplade beroenden på andra resurser och externa processer. Lösningen har stöd för övervakning av prestanda och programberoenden för virtuella datorer finns på plats eller en annan molnleverantör.  
+[Azure Monitor för virtuella datorer](insights/vminsights-overview.md) övervakar dina Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för Windows och Linux-datorer, inklusive olika processer och sammankopplade beroenden på andra resurser och externt bearbetar. Lösningen har stöd för övervakning av prestanda och programberoenden för virtuella datorer finns på plats eller en annan molnleverantör.  
 
 
 ![VM-insikter](media/overview/vm-insights.png)

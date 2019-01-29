@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 61b64b63a53318e0a703678d5525399fe13efa83
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b280c86b15f7af01b04d41b4c2d625ea4ec4a398
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432771"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104466"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Seriekonsol för virtuell dator för Windows
 
@@ -136,6 +136,13 @@ Funktionstangenter är aktiverade för användning för seriekonsolen i virtuell
 
 ### <a name="use-wsl-in-serial-console"></a>Använd WSL i seriekonsol
 Windows-undersystem för Linux (WSL) har aktiverats för Windows Server 2019 eller senare, så det är också möjligt att aktivera WSL för användning i seriekonsolen om du kör Windows Server 2019 eller senare. Detta kan vara fördelaktigt för användare som även har tidigare erfarenhet av Linux-kommandon. Anvisningar för att aktivera WSL för Windows Server finns i den [installationsguide](https://docs.microsoft.com/windows/wsl/install-on-server).
+
+### <a name="restart-your-windows-vm-within-serial-console"></a>Starta om din Windows-VM i seriekonsol
+Du kan starta om den virtuella datorn i seriekonsolen genom att gå till power-knappen och klicka på ”Starta om VM”. Detta initierar en omstart av virtuella datorer och du ser ett meddelande i Azure-portalen om omstarten.
+
+Detta är användbart i situationer där du kanske vill komma åt på startmenyn för den virtuella datorn utan att lämna Seriell konsol-upplevelse.
+
+![Starta om Windows-Seriekonsol](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-windows.gif)
 
 ## <a name="disable-serial-console"></a>Inaktivera seriekonsol
 Som standard har alla prenumerationer seriell konsolåtkomst är aktiverad för alla virtuella datorer. Du kan inaktivera seriekonsolen på prenumerationsnivån eller VM-nivå.

@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 01/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3af8f57cab6e420a7c7515bdf32b7ef382441cf9
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f23aa49d44e8f29f860174ebde2447fad79c8c52
+ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633155"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54843386"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
 
@@ -47,6 +47,8 @@ I terminalfönstret kör du följande kommandon för att klona exempelappen till
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
+
+Lagringsplatsen innehåller en *application.py* som informerar App Service om att lagringsplatsen innehåller en Flask-app. Mer information finns i [Containerns startprocess och anpassningar](how-to-configure-python.md).
 
 ## <a name="run-the-app-locally"></a>Köra appen lokalt
 
@@ -87,7 +89,7 @@ Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
-Gå till webbplatsen för att se din nya app med inbyggd avbildning. Ersätt _&lt;<app_name>_ med namnet på din app.
+Gå till webbplatsen för att se din nyligen skapade app med inbyggd avbildning. Ersätt _&lt;<app_name>_ med namnet på din app.
 
 ```bash
 http://<app_name>.azurewebsites.net
@@ -162,7 +164,7 @@ I den vänstra menyn, klickar du på **App Services** och därefter på namnet p
 
 ![Portalnavigering till Azure-app](./media/quickstart-python/app-service-list.png)
 
-Nu visas översiktssidan för din app. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
+Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
 ![App Service-sidan på Azure Portal](media/quickstart-python/app-service-detail.png)
 

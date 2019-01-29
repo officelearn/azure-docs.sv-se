@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 34c284f3fdd78d8b2f56ec7c36e139f9ac9d78bf
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c31f104b3a7ae37d768a2a483a70385852dc47ca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54473511"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156827"
 ---
 # <a name="plan-for-enhancing-data-security-through-a-strong-identity-solution"></a>Planering för att utöka datasäkerhet via en stark identitetslösning
 Det första steget i att skydda data är att identifiera vem som kan komma åt dessa data. Du måste dessutom ha en identitetslösning som kan integreras med ditt system genom att tillhandahålla funktioner för autentisering och auktorisering. Autentisering och auktorisering förväxlas ofta med varandra och deras roller tror många. I verkligheten kan skiljer de sig, enligt bilden nedan:

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: ab2361eae7dac58adb2739437d0616bcd05f870f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 220a95f1bc95a8866a459eb878047e7f47920bd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54850390"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175102"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en teknisk verifieringsprofil i en anpassad princip för Azure Active Directory B2C
 
@@ -65,14 +65,14 @@ Den **Förhandsvillkoret** elementet innehåller följande attribut:
 
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Typ | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
+| Type | Ja | Typ av kontroll eller fråga för att utföra för villkor. Antingen `ClaimsExist` anges för att se till att åtgärder ska utföras om de angivna anspråk finns i användarens aktuella anspråksuppsättningen, eller `ClaimEquals` har angetts som åtgärder ska utföras om det angivna anspråket finns och dess värde är lika med den angivet värde. |
 | ExecuteActionsIf | Ja | Anger om åtgärderna som i villkor som ska utföras om testet är true eller false. |
 
 Den **Förhandsvillkoret** elementet innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Värde | 1:n | De data som används av kontrollen. Om den här kontrollen är `ClaimsExist`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Om typ av kontroll är `ClaimEquals`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Även om ett annat värde element innehåller värdet som ska kontrolleras.|
+| Value | 1:n | De data som används av kontrollen. Om den här kontrollen är `ClaimsExist`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Om typ av kontroll är `ClaimEquals`, det här fältet anger en ClaimTypeReferenceId att fråga efter. Även om ett annat värde element innehåller värdet som ska kontrolleras.|
 | Åtgärd | 1:1 | Den åtgärd som ska vidtas om kontrollen Förhandsvillkoret inom en orkestreringssteget är sant. Värdet för den **åtgärd** är inställd på `SkipThisValidationTechnicalProfile`. Anger att den tekniska profilen med tillhörande inte ska köras. |
 
 ### <a name="example"></a>Exempel

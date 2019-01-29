@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9f0c4789e73659e5965440989c23a8cf673f7cd2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 33ada343738e113e8f14e1e5ac4a0e8aee481670
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309169"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55185473"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Övervaka och diagnostisera tjänster i en inställning för utveckling av lokal dator
 
@@ -51,7 +51,7 @@ java.util.logging.FileHandler.count = 10
 java.util.logging.FileHandler.pattern = /tmp/servicefabric/logs/mysfapp%u.%g.log
 ```
 
-Mappen som pekar på den `app.properties` filen måste finnas. Efter den `app.properties` fil skapas, måste du också ändra din startpunktsskriptet `entrypoint.sh` i den `<applicationfolder>/<servicePkg>/Code/` mappen för att ange egenskapen `java.util.logging.config.file` till `app.propertes` fil. Posten bör se ut som följande fragment:
+Mappen som pekar på den `app.properties` filen måste finnas. Efter den `app.properties` fil skapas, måste du också ändra din startpunktsskriptet `entrypoint.sh` i den `<applicationfolder>/<servicePkg>/Code/` mappen för att ange egenskapen `java.util.logging.config.file` till `app.properties` fil. Posten bör se ut som följande fragment:
 
 ```sh
 java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path to app.properties> -jar <service name>.jar
@@ -74,7 +74,7 @@ Flera ramverk är tillgängliga för spårning av CoreCLR program på Linux. Mer
 
 Det första steget är att inkludera System.Diagnostics.Tracing så att du kan skriva dina loggar till minne, utdataströmmar eller konsolfiler.  Lägg till följande projektet i din project.json för loggning med EventSource är:
 
-```
+```json
     "System.Diagnostics.StackTrace": "4.0.1"
 ```
 

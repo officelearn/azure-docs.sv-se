@@ -6,14 +6,14 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 01/08/2018
+ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 36ecfe8942d263ed84e430b01727743ed2cad00c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103173"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092148"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -33,7 +33,23 @@ Det här felet kan inträffa när OS-diskkryptering testas på en målmiljö fö
 - Dataenheter är rekursivt monterad under katalogen /mnt/ eller varandra (till exempel /mnt/data1, /mnt/data2, /data3 + /data3/data4).
 - Andra Azure Disk Encryption [krav](azure-security-disk-encryption-prerequisites.md) för Linux inte uppfylls.
 
-## <a name="unable-to-encrypt"></a>Det går inte att kryptera
+## <a name="bkmk_Ubuntu14"></a> Uppdatera standard-kerneln för Ubuntu 14.04 LTS
+
+Ubuntu 14.04 LTS-avbildning levereras med en standard kernel-version 4.4. Den här kernel-versionen har ett känt problem där av minne borttagare felaktigt avslutar kommandot dd under OS krypteringsprocessen. Det här felet har åtgärdats i den senaste Azure anpassade Linux-kernel. Undvik det här felet, innan du aktiverar kryptering på avbildningen, uppdatera till den [Azure justerade kernel 4.15](https://packages.ubuntu.com/trusty/linux-azure) eller senare med följande kommandon:
+
+```
+sudo apt-get update
+sudo apt-get install linux-azure
+sudo reboot
+```
+
+När den virtuella datorn har startats om in i ny kerneln, kan den nya kernel-versionen bekräftas med hjälp av:
+
+```
+uname -a
+```
+
+## <a name="unable-to-encrypt-linux-disks"></a>Det går inte att kryptera diskar för Linux
 
 I vissa fall kan har Linux diskkryptering verkar ha fastnat på ”OS diskkryptering igång” och SSH inaktiverats. Krypteringsprocessen kan ta mellan 3-16 timmar att slutföra på en lagerartiklar galleriavbildning. Om flera terabyte storlek datadiskar läggs kan processen ta dagar.
 

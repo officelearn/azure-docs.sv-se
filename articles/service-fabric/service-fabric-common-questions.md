@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 60fe7296d95a7746fd703c3a45349faf294e5bbd
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: ce88c8c4850e5226ddda12ce5ee0e1d18b51ea5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320607"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104090"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -73,7 +73,7 @@ Vi kräver ett produktionskluster ha minst 5 noder på grund av följande tre or
 
 Vi vill att klustret ska vara tillgängliga om samtidiga fel med två noder. Systemtjänster måste vara tillgänglig för ett Service Fabric-kluster ska vara tillgängliga. Tillståndskänsliga systemtjänster som namntjänst och redundans manager-tjänsten, som att spåra vilka tjänster som har distribuerats till klustret och där de är för närvarande finns, beror på stark konsekvens. Den stark konsekvensen i sin tur är beroende av möjligheten att hämta en *kvorum* Services-tillståndet för de angivna uppdateringar, där ett kvorum representerar en strikt majoritet av repliker (N/2 + 1) för en viss tjänst. Så om vi vill vara motståndskraftiga mot samtidiga förlust av två noder (alltså samtidiga förlust av två repliker på en systemtjänst), vi måste ha ClusterSize - QuorumSize > = 2, vilket tvingar den minsta storleken är fem. För att se som klustret har N noder och det finns N replikeringar av en system-tjänst – en på varje nod. Kvorum-storleken för en systemtjänst är (N/2 + 1). Ovanstående ojämlikhet ut N - (N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, exempelvis N = 2\*m där m > = 1, 2 ojämlikhet ut\*m - (2\*m/2 + 1) > = 2 eller m > = 3. Minimum för N är 6 och som kan uppnås när m = 3. Å andra sidan, om N är udda, säger N = 2\*m + 1 var m > = 1, 2 ojämlikhet ut\*m + 1 – ((2\*m + 1) / 2 + 1) > = 2 eller 2\*m + 1 – (m + 1) > = 2 eller m > = 2. Minimum för N är 5 och som kan uppnås när m = 2. Därför bland alla värden i N som uppfyller ojämlikhet ClusterSize - QuorumSize > = 2, vilket är 5.
 
-Observera att i argumentet ovan har vi antas att varje nod har en replik av en system-tjänst, alltså kvorum storleken beräknas baserat på antalet noder i klustret. Men genom att ändra *TargetReplicaSetSize* vi kan göra kvorum storleken mindre än (N / 2 + 1) som kan ge intryck av att vi kan har ett kluster som är mindre än 5 noder och fortfarande har 2 extra noder ovan storleken kvorum. Till exempel i ett kluster med 4 noder om vi ger TargetReplicaSetSize till 3, kvorum storleken utifrån TargetReplicaSetSize är (3/2 + 1) eller 2, så vi har CluserSize - QuorumSize = 4-2 > = 2. Men vi kan inte garantera att system-tjänsten är tillgänglig med eller över kvorum om vi förlorar eventuella par noder samtidigt, kan det att de två noderna som vi förlorar som är värd för två repliker, så att systemtjänsten hamnar i förlorar kvorum (med endast en enskild replik till vänster) en ND blir otillgänglig.
+Observera att i argumentet ovan har vi antas att varje nod har en replik av en system-tjänst, alltså kvorum storleken beräknas baserat på antalet noder i klustret. Men genom att ändra *TargetReplicaSetSize* vi kan göra kvorum storleken mindre än (N / 2 + 1) som kan ge intryck av att vi kan har ett kluster som är mindre än 5 noder och fortfarande har 2 extra noder ovan storleken kvorum. Till exempel i ett kluster med 4 noder om vi ger TargetReplicaSetSize till 3, kvorum storleken utifrån TargetReplicaSetSize är (3/2 + 1) eller 2, så vi har ClusterSize - QuorumSize = 4-2 > = 2. Men vi kan inte garantera att system-tjänsten är tillgänglig med eller över kvorum om vi förlorar eventuella par noder samtidigt, kan det att de två noderna som vi förlorar som är värd för två repliker, så att systemtjänsten hamnar i förlorar kvorum (med endast en enskild replik till vänster) en ND blir otillgänglig.
 
 Mot den bakgrunden, låt oss nu undersöka några möjliga klusterkonfigurationer:
 

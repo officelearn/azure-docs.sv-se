@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 10/23/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0eed7943d782bda134c2df2de6cf9eeeb58bfa3b
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 44530a1c4eec0f2efca7357438366dd7b6abe42a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243873"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093350"
 ---
 # <a name="azure-stack-validation-report"></a>Azure Stack-verifieringsrapport
 Verktyget Azure Stack-beredskap för installation används för att köra verifieringar som har stöd för distribution och underhåll av Azure Stack-miljön. Verktyget skriver resultatet till en JSON-fil för rapporten. Rapporten visar detaljerad och sammanfattade data om tillståndet för krav för distribution av Azure Stack. Rapporten visar även information om hemligheter Rotation för befintliga Azure Stack-distributioner.  
@@ -44,7 +44,7 @@ Till exempel om du vill visa rapporten i en PowerShell-Kommandotolken som är ö
 
 Utdata liknar följande:
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -84,7 +84,7 @@ StartTime         : 2018/10/22 14:24:16
 EndTime           : 2018/10/22 14:24:19
 Duration          : 3
 PSBoundParameters : 
-````
+```
 
 ## <a name="view-the-report-summary"></a>Visa sammanfattning av rapporten
 Om du vill visa en sammanfattning av rapporten, kan du lägga till den **-sammanfattning av** växla till slutet av PowerShell-kommandoraden. Exempel: 
@@ -92,7 +92,7 @@ Om du vill visa en sammanfattning av rapporten, kan du lägga till den **-samman
 
 Sammanfattningen visar verifieringar som inte har resultat och anger lyckat eller misslyckat för verifieringar har slutförts. Utdata liknar följande:
 
-````PowerShell
+```PowerShell
 Reading All Validation(s) from Report C:\Contoso-AzsReadinessCheckerReport.json
 
 ############### Certificate Validation Summary ###############
@@ -114,7 +114,7 @@ Azure Stack Graph Validation results not available.
 ############### Azure Stack ADFS Validation Summary ###############
 
 Azure Stack ADFS Validation results not available.
-````
+```
 
 
 ## <a name="view-a-filtered-report"></a>Visa en filtrerad rapport

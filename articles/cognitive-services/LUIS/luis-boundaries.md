@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/28/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7f8f4848b7181ad3df7ad4fa009ff284de381b75
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 592b8500f9b032a20bb991326201d45db586980d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820418"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55177533"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Gränser för LUIS-modell och nycklar
 LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundaries), som styr avsikter, entiteter och funktioner i LUIS. Det andra området är [kvotgränser](#key-limits) baserat på nyckeltyp. Ett tredje område av gränser är den [tangentbord kombination](#keyboard-controls) för att styra LUIS-webbplatsen. En fjärde området är den [världen regionsmappning](luis-reference-regions.md) mellan LUIS redigering av webbplatsen och LUIS [endpoint](luis-glossary.md#endpoint) API: er. 
@@ -24,15 +24,14 @@ LUIS har flera gräns områden. Först är det [modellen gräns](#model-boundari
 
 ## <a name="model-boundaries"></a>Modellen gränser
 
-
 |Område|Gräns|
 |--|:--|--|
 | [Appnamn][luis-get-started-create-app] | * Standardvärdet max |
 | [Batch-testning][batch-testing]| 10 datauppsättningar, 1000 yttranden per datauppsättning|
 | Explicit lista | 50 per program|
-| [Avsikter][intents]|500 per program<br>[Dispatch-baserade](https://aka.ms/dispatch-tool) programmet har motsvarande 500 dispatch-källor|
+| [Avsikter][intents]|500 per program: 499 anpassade avsikter och de nödvändiga _ingen_ avsikt.<br>[Dispatch-baserade](https://aka.ms/dispatch-tool) programmet har motsvarande 500 dispatch-källor.|
 | [Lista över entiteter](./luis-concept-entity-types.md) | Överordnad: 50, underordnade: 20 000 objekt. Kanoniskt namn är * maximalt antal tecken som standard. Synonymen värden har ingen begränsning av lösenordslängd. |
-| [Datorn lärt dig entiteter](./luis-concept-entity-types.md):<br> Sammansatta,<br>  Hierarkisk<br> Enkel|100 <br>Det totala antalet datorer lärt dig entiteter (enkel-, hierarki- och sammansatta entiteter) får inte överskrida 100. Sammansatt och hierarkisk entiteter kan inte ha fler än 10 barn.  |
+| [Datorn lärt dig entiteter](./luis-concept-entity-types.md):<br> Sammansatta,<br>  Hierarkisk<br> Enkel|En gräns på 100 överordnade entiteter (inkluderar inte hierarkiska underordnade) eller 330 entiteter (inklusive hierarkisk underordnade), beroende på vilket som begränsar träffar för användaren först.<br><br>Ett exempel på hierarki är 30 hierarkier varje med 10 underordnade.  Underordnade förbrukar 300 totala och element för hierarkin kommer att använda de återstående 30. |
 | [Mönster](luis-concept-patterns.md)|500 mönster per program.<br>Maximal längd på mönstret är 400 tecken.<br>3 Pattern.any entiteter per mönster<br>Högst 2 kapslade valfritt texter i mönstret|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per program, 3 pattern.any entiteter per mönster |
 | [Fras lista][phrase-list]|10 fras listor, 5 000 poster per|

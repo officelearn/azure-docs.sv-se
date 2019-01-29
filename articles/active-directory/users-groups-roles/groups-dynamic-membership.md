@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 148a657b1a5db5b1b33c94e27d695e7c24dfb265
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 98638c2fbd3f60ec0db009b52507eadcadd87ab4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214649"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55172331"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -40,7 +40,7 @@ En medlemskapsregel som automatiskt fyller på en grupp med användare eller enh
 
 * Egenskap 
 * Operator
-* Värde
+* Value
 
 Ordningen på delarna i ett uttryck är viktiga för att undvika syntaxfel.
 
@@ -70,8 +70,8 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
-| accountEnabled |SANT FALSKT |user.accountEnabled - eq SANT |
-| dirSyncEnabled |SANT FALSKT |user.dirSyncEnabled - eq SANT |
+| accountEnabled |SANT FALSKT |user.accountEnabled -eq true |
+| dirSyncEnabled |SANT FALSKT |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>Egenskaper av typen sträng
 
@@ -79,20 +79,20 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | --- | --- | --- |
 | city |Någon strängvärde eller *null* |(user.city - eq ”value”) |
 | Land |Någon strängvärde eller *null* |(user.country - eq ”value”) |
-| Företagsnamn | Någon strängvärde eller *null* | (user.companyName - eq ”value”) |
+| companyName | Någon strängvärde eller *null* | (user.companyName -eq "value") |
 | avdelning |Någon strängvärde eller *null* |(user.department - eq ”value”) |
-| displayName |ett värde |(user.displayName - eq ”value”) |
+| displayName |ett värde |(user.displayName -eq "value") |
 | employeeId |ett värde |(user.employeeId - eq ”value”)<br>(user.employeeId - ne *null*) |
-| facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber - eq ”value”) |
+| facsimileTelephoneNumber |Någon strängvärde eller *null* |(user.facsimileTelephoneNumber -eq "value") |
 | givenName |Någon strängvärde eller *null* |(user.givenName - eq ”value”) |
 | jobTitle |Någon strängvärde eller *null* |(user.jobTitle - eq ”value”) |
 | e-post |Någon strängvärde eller *null* (SMTP-adress för användaren) |(user.mail - eq ”value”) |
 | mailNickName |Ett värde (e-postalias för användaren) |(user.mailNickName - eq ”value”) |
 | mobila |Någon strängvärde eller *null* |(user.mobile - eq ”value”) |
-| objekt-ID |GUID för användarobjektet |(user.objectId - eq ”11111111-1111-1111-1111-111111111111”) |
-| onPremisesSecurityIdentifier | Lokala säkerhetsidentifierare (SID) för användare som har synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier - eq ”S-1-1-11-1111111111-1111111111-1111111111-1111111”) |
-| passwordPolicies |Ingen DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies - eq ”DisableStrongPassword”) |
-| physicalDeliveryOfficeName |Någon strängvärde eller *null* |(user.physicalDeliveryOfficeName - eq ”value”) |
+| objekt-ID |GUID för användarobjektet |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
+| onPremisesSecurityIdentifier | Lokala säkerhetsidentifierare (SID) för användare som har synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
+| passwordPolicies |None DisableStrongPassword DisablePasswordExpiration DisablePasswordExpiration, DisableStrongPassword |(user.passwordPolicies -eq "DisableStrongPassword") |
+| physicalDeliveryOfficeName |Någon strängvärde eller *null* |(user.physicalDeliveryOfficeName -eq "value") |
 | Postnummer |Någon strängvärde eller *null* |(user.postalCode - eq ”value”) |
 | preferredLanguage |ISO 639-1-kod |(user.preferredLanguage - eq ”en-US”) |
 | sipProxyAddress |Någon strängvärde eller *null* |(user.sipProxyAddress - eq ”value”) |
@@ -100,9 +100,9 @@ Här följer användaregenskaper som du kan använda för att skapa ett enkelt u
 | streetAddress |Någon strängvärde eller *null* |(user.streetAddress - eq ”value”) |
 | Efternamn |Någon strängvärde eller *null* |(user.surname - eq ”value”) |
 | telephoneNumber |Någon strängvärde eller *null* |(user.telephoneNumber - eq ”value”) |
-| usageLocation |Två bokstäver landskod |(user.usageLocation - eq ”US”) |
-| userPrincipalName |ett värde |(user.userPrincipalName - eq ”alias@domain”) |
-| UserType |medlem gäst *null* |(user.userType - eq ”medlem”) |
+| usageLocation |Två bokstäver landskod |(user.usageLocation -eq "US") |
+| userPrincipalName |ett värde |(user.userPrincipalName -eq "alias@domain") |
+| UserType |medlem gäst *null* |(user.userType -eq "Member") |
 
 ### <a name="properties-of-type-string-collection"></a>Egenskaper av typen sträng samling
 
@@ -122,11 +122,11 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Inte lika med |-ne |
 | Lika med |-eq |
 | Börjar inte med |-notStartsWith |
-| Börjar med |startsWith- |
+| Börjar med |-startsWith |
 | Innehåller inte |-notContains |
 | Contains |-innehåller |
 | Matchar inte |-notMatch |
-| Matchning |-matchar |
+| Matchning |-match |
 | I | -i |
 | Inte i | -notIn |
 
@@ -233,7 +233,7 @@ Egenskaper för flera värden är samlingar av objekt av samma typ. De kan anvä
 
 | Egenskaper | Värden | Användning |
 | --- | --- | --- |
-| assignedPlans | Varje objekt i samlingen visar egenskaperna för följande sträng: capabilityStatus, tjänst, servicePlanId |user.assignedPlans-alla (assignedPlan.servicePlanId - eq ”efb87545-963c-4e0d-99df-69c6916d9eb0”- och assignedPlan.capabilityStatus - eq ”Enabled”) |
+| assignedPlans | Varje objekt i samlingen visar egenskaperna för följande sträng: capabilityStatus, tjänst, servicePlanId |user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses-alla (\_ -innehåller ”contoso”)) |
 
 ### <a name="using-the--any-and--all-operators"></a>Med hjälp av-alla och -alla operatörer
@@ -348,17 +348,17 @@ Du kan använda följande enhetsattribut.
  accountEnabled | SANT FALSKT | (device.accountEnabled - eq SANT)
  displayName | ett värde |(device.displayName - eq ”Rob Iphone”)
  deviceOSType | ett värde | (device.deviceOSType - eq ”iPad”)- eller (device.deviceOSType - eq ”iPhone”)
- deviceOSVersion | ett värde | (device.deviceOSVersion - eq ”9.1”)
- deviceCategory | ett giltigt enhetsnamn för kategori | (device.deviceCategory - eq ”BYOD”)
- deviceManufacturer | ett värde | (device.deviceManufacturer - eq ”Samsung”)
- deviceModel | ett värde | (device.deviceModel - eq ”iPad luften”)
+ deviceOSVersion | ett värde | (device.deviceOSVersion -eq "9.1")
+ deviceCategory | ett giltigt enhetsnamn för kategori | (device.deviceCategory -eq "BYOD")
+ deviceManufacturer | ett värde | (device.deviceManufacturer -eq "Samsung")
+ deviceModel | ett värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Privat, företag, okänt | (device.deviceOwnership - eq ”Company”)
- Domännamn | ett värde | (device.domainName - eq ”contoso.com”)
- enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot-profilnamn | (device.enrollmentProfileName - eq ”DEP iPhone”)
+ Domännamn | ett värde | (device.domainName -eq "contoso.com")
+ enrollmentProfileName | Profil för registrering av Apple-enheter eller Windows Autopilot-profilnamn | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | SANT FALSKT | (device.isRooted - eq SANT)
- managementType | MDM (för mobila enheter)<br>Datorn (för datorer som hanteras av Intune PC-agenten) | (device.managementType - eq ”MDM”)
- deviceId | en giltig enhets-ID för Azure AD | (device.deviceId - eq ”d4fe7726-5966-431c-b3b8-cddc8fdb717d”)
- objekt-ID | en giltig Azure AD objekt-ID |  (device.objectId - eq 76ad43c9-32c5-45e8-a272-7b58b58f596d ”)
+ managementType | MDM (för mobila enheter)<br>Datorn (för datorer som hanteras av Intune PC-agenten) | (device.managementType -eq "MDM")
+ deviceId | en giltig enhets-ID för Azure AD | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
+ objekt-ID | en giltig Azure AD objekt-ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
  systemLabels | valfri sträng som matchar Intune enhetsegenskap för taggar Modern arbetsplats enheter | (device.systemLabels-innehåller ”M365Managed”)
 
 > [!Note]  

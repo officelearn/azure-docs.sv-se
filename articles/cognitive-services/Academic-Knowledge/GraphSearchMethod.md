@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e8472323d99de9d0d81130eac5fbe3ec9e11c590
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902391"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197644"
 ---
 # <a name="graph-search-method"></a>Sökmetod
 
@@ -29,9 +29,9 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 <br>
 
 ## <a name="request-parameters"></a>Parametrar för begäran  
-Namn     | Värde | Krävs?  | Beskrivning
+Name     | Value | Krävs?  | Beskrivning
 -----------|-----------|---------|--------
-**läge**       | Textsträngen | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
+**mode**       | Textsträngen | Ja | Namnet på det läge som du vill använda. Värdet är antingen *json* eller *lambda*.
 
 Sökmetoden måste anropas via en HTTP POST-begäran. Post-begäran bör innehålla rubriken innehållstyp: **application/json**.
 
@@ -40,13 +40,13 @@ Sökmetoden måste anropas via en HTTP POST-begäran. Post-begäran bör innehå
 För den *json* search, brödtexten INLÄGGET är ett JSON-objekt. JSON-objektet beskriver ett sökvägsmönster med användardefinierade begränsningar (se den [specifikation av JSON-objekt](JSONSearchSyntax.md) för *json* Sök).
 
 
-##### <a name="lambda-search"></a>Lambda-sökning
+##### <a name="lambda-search"></a>Lambda Search
 
 För den *lambda* search, POST brödtexten är en vanlig textsträng. Brödtexten för POST är en LIKQ lambda frågesträng, vilket är en enda C#-instruktion (se den [specifikation av frågesträngen](LambdaSearchSyntax.md) för *lambda* Sök). 
 
 <br>
 ## <a name="response-json"></a>Svar (JSON)
-Namn | Beskrivning
+Name | Beskrivning
 -------|-----   
 **Resultat** | En matris med 0 eller fler entiteter som matchar frågeuttrycket. Varje entitet innehåller värdena för attribut som begärs. Det här fältet är tillgänglig om begäran har behandlats.
 **Fel** | HTTP-statuskoder. Det här fältet är tillgänglig om begäran misslyckas.
@@ -128,7 +128,7 @@ Utdata från en fråga är en matris med sökvägar för diagrammet. En sökväg
 }
  ```
 
-##### <a name="lambda-search"></a>Lambda-sökning 
+##### <a name="lambda-search"></a>Lambda Search 
 
 ```
 https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?mode=lambda

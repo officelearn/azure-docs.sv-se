@@ -6,20 +6,20 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: 5394f86e8a5d167830cb4061800f4cbf9a521713
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5b73acb633512960d7aa6d6eea9b1d6e10dd3c22
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174303"
 ---
 # <a name="get-videos-from-your-custom-view"></a>Hämta videor från den anpassade vyn
 
-Bing Custom Search i videor kan du förbättra upplevelsen för anpassad sökning med videor. Liknar Webbresultat, har stöd för anpassad sökning söker efter videor i din instans listan över webbplatser. Du kan hämta de videor med anpassad videor i Bing eller via Användargränssnittet finns funktion. Funktionen finns Användargränssnittet är enkelt att använda och rekommenderas för din sökupplevelse konfigurera och komma igång i korthet ordning. Information om hur du konfigurerar finns Användargränssnittet för att inkludera videor finns i [konfigurera din värdbaserade användargränssnitt](hosted-ui.md).
+Bing Custom Search i videor kan du förbättra upplevelsen för anpassad sökning med videor. På ett liknande sätt som med webbresultat har anpassad sökning stöd för videosökning i listan över webbplatser i dina instanser. Du kan hämta de videor med anpassad videor i Bing eller via Användargränssnittet finns funktion. Funktionen finns Användargränssnittet är enkelt att använda och rekommenderas för din sökupplevelse konfigurera och komma igång i korthet ordning. Information om hur du konfigurerar finns Användargränssnittet för att inkludera videor finns i [konfigurera din värdbaserade användargränssnitt](hosted-ui.md).
 
 Om du vill mer kontroll över visar sökresultatet, kan du använda anpassad videor i Bing. Eftersom anropa API liknar anropa Videosökning, Kolla in [Videosökning](../Bing-Video-Search/search-the-web.md) exempel anropar API: et. Men innan du gör det bekanta dig med den [anpassad videor Search API-referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference) innehåll. De viktigaste skillnaderna är de frågeparametrar som stöds (måste du inkludera Frågeparametern customConfig) och den slutpunkt som du skickar begäranden till.
 

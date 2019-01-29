@@ -1,5 +1,5 @@
 ---
-title: 'Samverkan i Azure backend-anslutningsfunktionerna: konfigurationsinformation | Microsoft Docs'
+title: 'Samverkan i Azure backend-anslutningsfunktionerna: Information om | Microsoft Docs'
 description: Den här artikeln beskriver konfigurationsdetaljer för de inställningar du kan använda för att analysera samverkan mellan ExpressRoute, en plats-till-plats-VPN och virtuell nätverkspeering i Azure.
 documentationcenter: na
 services: networking
@@ -10,14 +10,14 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 10/18/2018
 ms.author: rambala
-ms.openlocfilehash: a460a8f4c652182a7916cba5aef0520834432909
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.openlocfilehash: 4aa594769a3665908f0adce498a4a2bf3a4f4f83
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51614828"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189076"
 ---
-# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Samverkan i Azure backend-anslutningsfunktionerna: testa konfigurationsinformation
+# <a name="interoperability-in-azure-back-end-connectivity-features-test-configuration-details"></a>Samverkan i Azure backend-anslutningsfunktionerna: Testa konfigurationsinformation
 
 Den här artikeln beskriver konfigurationsinformationen för de [testa installationen][Setup]. Testa installationen hjälper dig att analysera hur Azure nätverkstjänster interagera på den plan kontrollnivå och data plan nivå.
 
@@ -186,7 +186,7 @@ I VNet-peering inom en region, kan virtuella ekernätverk använda hub VNet-gate
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>Gren VNet-anslutning via plats-till-plats-VPN
 
-Du kanske vill gren virtuella nätverk som finns i olika regioner och lokala nätverk för att kommunicera med varandra via en hubbnätverket. Intern Azure-lösning för den här cofiguration är plats-till-plats VPN-anslutning med hjälp av en VPN-anslutning. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i hubben.
+Du kanske vill gren virtuella nätverk som finns i olika regioner och lokala nätverk för att kommunicera med varandra via en hubbnätverket. Intern Azure-lösning för den här konfigurationen är plats-till-plats VPN-anslutning med hjälp av en VPN-anslutning. Ett alternativ är att använda en virtuell nätverksinstallation (NVA) för routning i hubben.
 
 Mer information finns i [vad är VPN-Gateway?] [ VPN] och [distribuera en högtillgänglig NVA][Deploy-NVA].
 

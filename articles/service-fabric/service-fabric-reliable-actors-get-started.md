@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f92fe2432051b148bf0b35fccc3fa33db9b66a14
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054765"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093170"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Komma igång med Reliable Actors
 > [!div class="op_single_selector"]
@@ -54,7 +54,7 @@ Lösningen innehåller tre projekt:
 
 * **Gränssnittsprojektet (HelloWorld.Interfaces)**. Det här projektet innehåller gränssnittsdefinitionen för aktören. Aktörsgränssnitt kan definieras i alla projekt med ett namn.  Gränssnittet definierar aktörskontraktet som delas av aktörsimplementeringen och klienterna som anropar aktören.  Eftersom klienten projekt kan beror på den, är det vanligtvis meningsfullt att definiera den i en sammansättning som är separat från aktörsimplementeringen.
 
-* **Aktörtjänstprojektet (HelloWorld)**. Det här projektet definierar Service Fabric-tjänst som kommer att vara värd för aktören. Den innehåller implementeringen av aktören, *HellowWorld.cs*. En aktörsimplementeringen är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörsklassen måste även implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
+* **Aktörtjänstprojektet (HelloWorld)**. Det här projektet definierar Service Fabric-tjänst som kommer att vara värd för aktören. Den innehåller implementeringen av aktören, *HelloWorld.cs*. En aktörsimplementeringen är en klass som härleds från bastypen `Actor` och implementerar de gränssnitt som definierats i den *MyActor.Interfaces* projekt. En aktörsklassen måste även implementera en konstruktor som accepterar en `ActorService` instans och en `ActorId` och skickar dem till grundläggande `Actor` klass.
     
     Det här projektet innehåller också *Program.cs*, som registrerar aktören klasser med Service Fabric runtime med `ActorRuntime.RegisterActorAsync<T>()`. Den `HelloWorld` klassen är redan registrerad. Eventuella ytterligare aktören implementeringar som har lagts till i projektet måste också vara registrerade i den `Main()` metoden.
 

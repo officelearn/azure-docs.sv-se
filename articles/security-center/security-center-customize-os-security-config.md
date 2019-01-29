@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/26/2018
 ms.author: rkarlin
-ms.openlocfilehash: 91ee57ccd676d1d5e806e3f22eed3389d0fe5e73
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: 16c7ad523bcd4a1f7b7b1f80d99e4d36dade72df
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334201"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102438"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Anpassa OS-säkerhetskonfigurationer i Azure Security Center (förhandsversion)
 
@@ -90,15 +90,15 @@ Har en uppsättning regler eller RuleSet-metod i anpassning, varje OS-version so
 >
 >
 
-När du redigerar anpassningsfilen kan ändra du en regel eller alla. Varje regeluppsättning innehåller en *regler* avsnitt som är uppdelad i tre kategorier: registret, granskningsprincip och Security Policy, som visas här:
+När du redigerar anpassningsfilen kan ändra du en regel eller alla. Varje regeluppsättning innehåller en *regler* avsnitt som är uppdelad i tre kategorier: Registret, granskningsprincip och Security Policy, som visas här:
 
 ![Tre ruleset-kategorier](media/security-center-customize-os-security-config/rules-section.png)
 
 Varje kategori har en egen uppsättning attribut. Du kan ändra följande attribut:
 
-- **expectedValue**: det här attributet fälts datatyp måste matcha värdena som stöds per *regeltyp*, till exempel:
+- **expectedValue**: Det här attributet fälts datatyp måste matcha värdena som stöds per *regeltyp*, till exempel:
 
-  - **baselineRegistryRules**: värdet måste matcha den [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) som definieras i regeln.
+  - **baselineRegistryRules**: Värdet måste matcha den [regValueType](https://msdn.microsoft.com/library/windows/desktop/ms724884) som definieras i regeln.
 
   - **baselineAuditPolicyRules**: Använd någon av följande strängvärden:
 
@@ -110,9 +110,9 @@ Varje kategori har en egen uppsättning attribut. Du kan ändra följande attrib
 
     - *Ingen*
 
-    - Lista över tillåtna användargrupper, till exempel: *administratörer*, *ansvariga för säkerhetskopiering*
+    - Lista över tillåtna användargrupper, till exempel: *Administratörer*, *ansvariga för säkerhetskopiering*
 
--   **tillstånd**: strängen kan innehålla alternativ *inaktiverad* eller *aktiverad*. För den här privata förhandsversionen är strängen skiftlägeskänsligt.
+-   **tillstånd**: Strängen kan innehålla alternativ *inaktiverad* eller *aktiverad*. För den här privata förhandsversionen är strängen skiftlägeskänsligt.
 
 Det här är de enda fält som kan konfigureras. Om du bryter mot file format eller storlek, kan du inte spara ändringen. Du får ett fel som säger att du behöver ladda upp en giltig JSON-konfigurationsfil.
 
@@ -121,7 +121,7 @@ En lista över andra potentiella fel finns i [felkoder](#error-codes).
 Följande tre avsnitt innehåller exempel på föregående regler. Den *expectedValue* och *tillstånd* attribut kan ändras.
 
 **baselineRegistryRules**
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -144,7 +144,7 @@ Följande tre avsnitt innehåller exempel på föregående regler. Den *expected
 ```
 
 **baselineAuditPolicyRules**
-```
+```json
     {
     "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
     "ruleId": "37745508-95fb-44ec-ab0f-644ec0b16995",
@@ -161,7 +161,7 @@ Följande tre avsnitt innehåller exempel på föregående regler. Den *expected
 ```
 
 **baselineSecurityPolicyRules**
-```
+```json
     {
     "sectionName": "Privilege Rights",
     "settingName": "SeIncreaseWorkingSetPrivilege",
@@ -194,17 +194,17 @@ Du kan också skapa nya regler. Innan du skapar en ny regel, Tänk på följande
 
 Nya regler som har markerats med en ny anpassad källa (! = ”Microsoft”). Den *ruleId* fält kan vara null eller tomt. Om den är tom, genererar en av Microsoft. Om den inte är tom, måste den ha ett giltigt GUID som är unikt i alla regler (standard och anpassade). Granska följande begränsningar för core fält:
 
--   **originalId**: kan vara null eller tomt. Om *originalId* är inte tom, bör det vara ett giltigt GUID.
+-   **originalId**: Kan vara null eller tomt. Om *originalId* är inte tom, bör det vara ett giltigt GUID.
 
--   **cceId**: kan vara null eller tomt. Om *cceId* är inte tom, det måste vara unikt.
+-   **cceId**: Kan vara null eller tomt. Om *cceId* är inte tom, det måste vara unikt.
 
 -   **Regeltyp**: (Välj ett alternativ) registret, AuditPolicy eller SecurityPolicy.
 
 -   **Allvarlighetsgrad**: (Välj ett alternativ) Okänd, kritisk, varning eller information.
 
--   **analyzeOperation**: måste vara *är lika med*.
+-   **analyzeOperation**: Måste vara *är lika med*.
 
--   **auditPolicyId**: måste vara ett giltigt GUID.
+-   **auditPolicyId**: Måste vara ett giltigt GUID.
 
 -   **regValueType**: (Välj ett alternativ) Int, Long, String eller MultipleString.
 
@@ -216,7 +216,7 @@ Nya regler som har markerats med en ny anpassad källa (! = ”Microsoft”). De
 Exempel på en ny anpassad regel:
 
 **Registret**:
-```
+```json
     {
     "hive": "LocalMachine",
     "regValueType": "Int",
@@ -225,7 +225,7 @@ Exempel på en ny anpassad regel:
     "valueName": "MyValueName",
     "originalId": "",
     "cceId": "",
-    "ruleName": "My new registry rule”, "baselineRuleType": "Registry",
+    "ruleName": "My new registry rule", "baselineRuleType": "Registry",
     "expectedValue": "123", "severity": "Critical",
     "analyzeOperation": "Equals",
     "source": "MyCustomSource",
@@ -233,7 +233,7 @@ Exempel på en ny anpassad regel:
     }
 ```
 **Säkerhetsprincip**:
-```
+```json
    {
    "sectionName": "Privilege Rights",
    "settingName": "SeDenyBatchLogonRight",
@@ -248,7 +248,7 @@ Exempel på en ny anpassad regel:
    }
 ```
 **Granskningsprincip**:
-```
+```json
    {
    "auditPolicyId": "0cce923a-69ae-11d9-bed3-505054503030",
    "originalId": "",
@@ -275,7 +275,7 @@ Alla eventuella fel visas i följande tabell:
 
 | **Fel**                                | **Beskrivning**                                                                                                                              |
 |------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| BaselineConfiguratiohSchemaVersionError  | Egenskapen *schemaVersion* hittades ogiltigt eller tomt. Värdet måste anges till *{0}*.                                                         |
+| BaselineConfigurationSchemaVersionError  | Egenskapen *schemaVersion* hittades ogiltigt eller tomt. Värdet måste anges till *{0}*.                                                         |
 | BaselineInvalidStringError               | Egenskapen *{0}* får inte innehålla  *\\n*.                                                                                                         |
 | BaselineNullRuleError                    | Regler för baslinjen konfigurationslistan innehåller en regel med värdet *null*.                                                                         |
 | BaselineRuleCceIdNotUniqueError          | CCE-ID *{0}* är inte unikt.                                                                                                                  |
@@ -298,7 +298,7 @@ Alla eventuella fel visas i följande tabell:
 | BaselineRuleTypeDoesntMatchError         | Den faktiska typen av regeln är *{0}*, men *regeltyp* egenskapen är *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Endast *expectedValue* och *tillstånd* egenskaper ska kunna ändras.                                                                       |
 | BaselineTooManyRules                     | Det maximala antalet tillåtna anpassade regler är {0} regler. Den angivna konfigurationen innehåller {1} regler, {2} standardregler, och {3} anpassade regler. |
-| ErrorNoConfigurationStatus               | Inga Konfigurationsstatus hittades. Ange den önskade konfigurationsstatusen: *standard* eller *anpassad*.                                    |
+| ErrorNoConfigurationStatus               | Inga Konfigurationsstatus hittades. Tillstånd för status för önskad konfiguration: *Standard* eller *anpassad*.                                    |
 | ErrorNonEmptyRulesetOnDefault            | Configuration-status är inställd på standardvärdet. Den *BaselineRulesets* listan måste vara null eller tom.                                                          |
 | ErrorNullRulesetsPropertyOnCustom        | Den angivna konfigurationsstatusen är *anpassade* men *baselineRulesets* egenskapen är null eller tomt.                                             |
 | ErrorParsingBaselineConfig               | Den angivna konfigurationen är ogiltig. En eller flera av de definierade värdena har ett null-värde eller en ogiltig typ.                                  |

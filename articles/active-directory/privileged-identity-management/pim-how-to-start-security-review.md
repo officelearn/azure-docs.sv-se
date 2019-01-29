@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 5c7216a419ba01c1b2df744e305bf059cf68104e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cf3d29bd3d7af56f3e20c1d2344ed90095229bf
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224400"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55196675"
 ---
 # <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Starta en åtkomstgranskning för Azure AD-katalogroller i PIM
 Rolltilldelningar blir ”inaktuell” när användarna har privilegierad åtkomst som de inte behöver längre. För att minska riskerna med dessa inaktuella rolltilldelningar Privilegierade roller bör eller globala administratörer regelbundet skapa åtkomstgranskningar om du vill ställa administratörer att granska de roller som användare har fått. Det här dokumentet beskriver steg för att starta en åtkomstgranskning i Azure AD Privileged Identity Management (PIM).
@@ -62,8 +62,8 @@ Det finns tre alternativ för att utföra en granskning. Du kan tilldela granskn
     ![Välj granskare – skärmbild](./media/pim-how-to-start-security-review/PIM_review_reviewers.png)
 2. Välj något av alternativen:
    
-   * **Välj granskare**: Använd det här alternativet om du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
-   * **Mig**: användbart om du vill förhandsgranska hur åtkomstgranskningar arbete eller du vill granska åt personer som inte.
+   * **Välj granskare**: Använd det här alternativet när du inte vet vilka som behöver åtkomst. Med det här alternativet kan du tilldela granskningen till en resursägaren eller gruppansvarig för att slutföra.
+   * **Mig**: Användbart om du vill förhandsgranska hur åtkomstgranskningar arbete, eller du vill granska åt personer som inte.
    * **Medlemmar kan granska själva**: Använd det här alternativet för att be användarna granska sin egen rolltilldelningar.
 
 ### <a name="start-the-review"></a>Starta granskningen
@@ -80,5 +80,5 @@ Tills granskningsperioden är över, kan du påminna användarna om att slutför
 ## <a name="next-steps"></a>Nästa steg
 
 - [Slutför en åtkomstgranskning för Azure AD-katalogroller i PIM](pim-how-to-complete-review.md)
-- [Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
 - [Starta en åtkomstgranskning för Azure-resursroller i PIM](pim-resource-roles-start-access-review.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 21c0fd9b258100e769172332713769024fb12969
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48c78f4c3332f28cc37aea0c663976ce7c2d489b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170954"
 ---
 # <a name="previewing-drive-usage-for-an-export-job"></a>Förhandsgranska diskanvändning för ett exportjobb
 Innan du skapar ett exportjobb, måste du välja en uppsättning blobbar exporteras. Microsoft Azure Import/Export-tjänsten kan du använda en lista över blob-sökvägar eller blob-prefix för att representera de blobar som du har valt.  
@@ -27,10 +27,10 @@ Du kan använda följande parametrar när du använder den `PreviewExport` komma
 |Kommandoradsparametern|Beskrivning|  
 |--------------------------|-----------------|  
 |**/logdir:**< LogDirectory\>|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
-|**/SN:**< StorageAccountName\>|Krävs. Namnet på lagringskontot för export-jobbet.|  
-|**/Sk:**< StorageAccountKey\>|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+|**/sn:**<StorageAccountName\>|Krävs. Namnet på lagringskontot för export-jobbet.|  
+|**/sk:**<StorageAccountKey\>|Krävs endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
 |**/csas:**< ContainerSas\>|Krävs endast om en lagringskontonyckel inte har angetts. Behållaren SAS för att lista blobbar exporteras i export-jobbet.|  
-|**/ ExportBlobListFile:**< ExportBlobListFile\>|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) driften av REST-API för Import/Export-tjänsten.|  
+|**/ExportBlobListFile:**<ExportBlobListFile\>|Krävs. Sökväg till XML-Datatypen filen som innehåller listan över blob-sökvägar eller blob-prefix som sökväg för BLOB-objekt som ska exporteras. Filformatet som används i den `BlobListBlobPath` elementet i den [placera jobbet](/rest/api/storageimportexport/jobs) driften av REST-API för Import/Export-tjänsten.|  
 |**/ DriveSize:**< DriveSize\>|Krävs. Storleken på enheter som ska användas för ett exportjobb *t.ex.*, 500 GB, 1,5 TB.|  
 
 ## <a name="command-line-example"></a>Exempel-kommandorad

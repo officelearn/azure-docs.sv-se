@@ -11,33 +11,34 @@ ms.component: core
 ms.topic: article
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 75a1a8763125e1e93691e2a28bc90a6d02ed7c40
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 1187460deff0ac1ec71ddc70e503169a728c8b5c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246338"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099959"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Konfigurera beräkningsmål för modellträning
 
-Med Azure Machine Learning-tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, samlingsnamnet [ __beräkningsmål__](concept-azure-machine-learning-architecture.md#compute-target). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel ett Azure beräkning av Machine Learning, Azure HDInsight eller en fjärransluten virtuell dator.  
+Med Azure Machine Learning-tjänsten kan du träna din modell på en mängd olika resurser eller miljöer, samlingsnamnet [ __beräkningsmål__](concept-azure-machine-learning-architecture.md#compute-target). Beräkningsmål kan vara en lokal dator eller en molnresurs, till exempel ett Azure beräkning av Machine Learning, Azure HDInsight eller en fjärransluten virtuell dator.  Du kan också skapa beräkningsmål för distribution av modeller som beskrivs i [”där och hur du distribuerar dina modeller”](how-to-deploy-and-where.md).
 
 Du kan skapa och hantera ett beräkningsmål som använder Azure Machine Learning SDK, Azure-portalen eller Azure CLI. Om du har beräkningsmål som har skapats via en annan tjänst (till exempel ett HDInsight-kluster), kan du använda dem genom att koppla dem till din arbetsyta för Azure Machine Learning-tjänsten.
  
-I den här artikeln får du lära dig hur du använder olika beräkningsmål.  Stegen för alla beräkningsmål följer samma arbetsflöde:
+I den här artikeln får du lära dig hur du använder olika beräkningsmål för modellen.  Stegen för alla beräkningsmål följer samma arbetsflöde:
 1. __Skapa__ beräkningsmål om du inte redan har ett.
 2. __Bifoga__ beräkningsmål till din arbetsyta.
 3. __Konfigurera__ beräkningarna rikta så att den innehåller Python-miljön och paketet beroenden som krävs av skriptet.
 
+
 >[!NOTE]
 > Koden i den här artikeln har testats med Azure Machine Learning SDK version 1.0.6.
 
-## <a name="supported-compute-targets"></a>Stöds beräkningsmål
+## <a name="compute-targets-for-training"></a>Beräkningsmål för utbildning
 
 Azure Machine Learning-tjänsten har olika stöd för olika beräkningsmål. En typisk modellen för säkerhetsutveckling börjar med utveckling/experimentering på en liten mängd data. I det här skedet bör du använda en lokal miljö. Den lokala datorn eller en molnbaserad VM. När du skalar upp utbildning på större datauppsättningar eller göra distribuerad utbildning, bör du använda beräkning av Azure Machine Learning för att skapa ett enda eller flera node kluster som skalar varje gång du skickar en körning. Du kan även bifoga dina egna beräkningsresurs, även om stöd för olika scenarier kan variera som beskrivs nedan:
 
 
-|Beräkningsmål| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad</br> maskininlärning | Pipeline-vänlig|
+|Beräkningsmål för träning| GPU-acceleration | Automatiserad<br/> finjustering av hyperparametrar | Automatiserad</br> maskininlärning | Pipeline-vänlig|
 |----|:----:|:----:|:----:|:----:|
 |[Lokal dator](#local)| Kanske | &nbsp; | ✓ | &nbsp; |
 |[Azure Machine Learning-beräkning](#amlcompute)| ✓ | ✓ | ✓ | ✓ |
@@ -352,8 +353,8 @@ Skapa först ett experiment i din arbetsyta.
 
 Skicka experiment med en `ScriptRunConfig` objekt.  Det här objektet innehåller de:
 
-* **källkatalog**: Källkatalogen som innehåller skriptet utbildning
-* **skriptet**: Identifiera skriptet utbildning
+* **source_directory**: Källkatalogen som innehåller skriptet utbildning
+* **script**: Identifiera skriptet utbildning
 * **run_config**: Körningskonfigurationen, som i sin tur definierar var utbildningen kommer att göras.
 
 När du skickar in ett utbildning kör en ögonblicksbild av den katalog som innehåller dina utbildningsskript skapas och skickas till beräkningsmål. Mer information finns i [ögonblicksbilder](concept-azure-machine-learning-architecture.md#snapshot).

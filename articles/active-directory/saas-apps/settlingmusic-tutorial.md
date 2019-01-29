@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med reglera musik | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med reglera musik | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Settling musik.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 6f86a8a2-4bd0-40cc-b1b4-752fce123328
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2018
 ms.author: jeedes
-ms.openlocfilehash: fda6ca2efb670c8087252428e417a3e0901fa748
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 900254e42410aafa0d8e58048c7d88efa94dfed5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449071"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178553"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Självstudier: Azure Active Directory-integration med reglera musik
+# <a name="tutorial-azure-active-directory-integration-with-settling-music"></a>Självstudier: Azure Active Directory-integrering med reglera musik
 
 I den här självstudien får du lära dig hur du integrerar Settling musik med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Settling musik med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till att reglera musik.
 - Du kan aktivera användarna att automatiskt få loggat in till att reglera musik (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med reglera musik, behöver du följ
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ För att konfigurera integrering av Settling musik i Azure AD, som du behöver l
 
 **Utför följande steg för att lägga till Settling musik från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ För att konfigurera integrering av Settling musik i Azure AD, som du behöver l
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ För att konfigurera integrering av Settling musik i Azure AD, som du behöver l
 
     ![Reglera musik i resultatlistan](./media/settlingmusic-tutorial/tutorial_settlingmusic_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med reglera musik baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -84,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Settling musik, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare för Settling musik](#create-a-settling-music-test-user)**  – du har en motsvarighet för Britta Simon i reglera musik som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Settling musik program.
 
@@ -98,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **reglera musik** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -108,20 +108,20 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Reglera musik domän och URL: er enkel inloggning för information](./media/settlingmusic-tutorial/tutorial_settlingmusic_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<SUBDOMAIN>.rakurakuseisan.jp/<USERACCOUNT>/`
 
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare. Kontakta [reglera musik klienten supportteamet](https://rakurakuseisan.jp/) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [reglera musik klienten supportteamet](https://rakurakuseisan.jp/) att hämta dessa värden. 
  
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/settlingmusic-tutorial/tutorial_settlingmusic_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/settlingmusic-tutorial/tutorial_settlingmusic_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/settlingmusic-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/settlingmusic-tutorial/tutorial_general_400.png)
 
 1. På den **reglera musik Configuration** klickar du på **konfigurera reglera musik** att öppna **konfigurera inloggning** fönster. Kopiera den **URL: en för utloggning och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
@@ -189,7 +189,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-settling-music-test-user"></a>Skapa en testanvändare för Settling musik
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Settling musik. Arbeta med [reglera musik klienten supportteamet](https://rakurakuseisan.jp/) att lägga till användare i Settling musik-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som kallas Britta Simon i Settling musik. Arbeta med [reglera musik klienten supportteamet](https://rakurakuseisan.jp/) att lägga till användare i Settling musik-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 319bae3025741d6a3130c92d876ae38fcbcdf11e
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
+ms.openlocfilehash: e3cf87ca49ae39966cffbb768dc1c191991d4036
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333946"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096916"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Introduktion till Service Fabric cluster resource manager
 Traditionellt hanterar IT-system eller onlinetjänster avsedda tilldela specifika fysiska eller virtuella datorer till de specifika tjänster eller system. Tjänster har byggts som nivåer. Det skulle vara en ”web” och en ”data” eller ”storage” nivå. Program behöver messaging-nivån där förfrågningar federationssida in och ut, samt en uppsättning datorer som är dedikerad till cachelagring. Varje nivå eller typ av arbetsbelastning hade specifika datorer som är dedikerad till den: databasen har några datorer som är dedikerad till den, webbservrar ett fåtal. Om en viss typ av arbetsbelastning orsakade de datorer som den var på att köra för varmt och sedan du har lagt till fler datorer med samma konfigurationen till den nivån. Men inte alla arbetsbelastningar kan skaländras ut så enkelt – särskilt med datanivå skulle du normalt ersätta datorer med större datorer. Enkelt. Om en dator inte kördes som en del av det övergripande programmet vid lägre kapacitet tills datorn kunde återställas. Fortfarande ganska enkelt (om det är inte nödvändigtvis roliga).
@@ -53,7 +53,7 @@ I traditionella program för N-nivå, finns alltid en [belastningsutjämnaren](h
 
 Belastningsutjämnare för nätverk eller meddelande routrar försökt att se till att web/worker-nivå som finns kvar ungefär belastningsutjämnade. Strategier för att balansera datanivån har olika och beroende på Lagringsmekanismen data. Belastningsutjämning datanivå förlitade sig tidigare på horisontell Datapartitionering, cachelagring, hanterade vyer, lagrade procedurer och andra store-specifika metoder.
 
-Vissa av dessa strategier är intressant, är Service Fabric Cluster Resource Manager inte något som Utjämning av nätverksbelastning eller ett cacheminne. Utjämning av nätverksbelastning balanserar klienter genom att sprida trafiken mellan klienter. Service Fabric Cluster Resource Manager har en egen strategi. Grunden, Service Fabric flyttar *services* där de göra passar bäst, förväntas trafik eller läsa in om du vill följa. Det kan till exempel flytta tjänster till noder som är för närvarande kalla eftersom de tjänster som finns det inte gör mycket arbete. Noderna kan vara kalla eftersom de tjänster som fanns har tagits bort eller flyttats någon annanstans. Ett annat exempel är kan Cluster Resource Manager också flytta en tjänst från en dator. Kanske datorn håller på att uppgraderas, eller är överbelastad på grund av en topp i förbrukning av de tjänster som körs på den. Alernatively, tjänstens resurskrav kan ha ökat. Därför det inte finns tillräckligt med resurser på den här datorn fortsätter att använda den. 
+Vissa av dessa strategier är intressant, är Service Fabric Cluster Resource Manager inte något som Utjämning av nätverksbelastning eller ett cacheminne. Utjämning av nätverksbelastning balanserar klienter genom att sprida trafiken mellan klienter. Service Fabric Cluster Resource Manager har en egen strategi. Grunden, Service Fabric flyttar *services* där de göra passar bäst, förväntas trafik eller läsa in om du vill följa. Det kan till exempel flytta tjänster till noder som är för närvarande kalla eftersom de tjänster som finns det inte gör mycket arbete. Noderna kan vara kalla eftersom de tjänster som fanns har tagits bort eller flyttats någon annanstans. Ett annat exempel är kan Cluster Resource Manager också flytta en tjänst från en dator. Kanske datorn håller på att uppgraderas, eller är överbelastad på grund av en topp i förbrukning av de tjänster som körs på den. Du kan också kan tjänstens resurskrav har ökat. Därför det inte finns tillräckligt med resurser på den här datorn fortsätter att använda den. 
 
 Eftersom Cluster Resource Manager är ansvarig för att flytta tjänster runt, innehåller en uppsättning med olika funktioner jämfört med vad du hittar i Utjämning av nätverksbelastning. Det beror på att belastningsutjämnare för nätverk leverera nätverkstrafik till var services redan är, även om platsen inte är idealiskt för att köra själva tjänsten. Service Fabric Cluster Resource Manager använder helt olika strategier för att säkerställa att resurserna i klustret används effektivt.
 

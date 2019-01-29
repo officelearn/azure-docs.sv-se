@@ -7,19 +7,19 @@ author: priyamohanram
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: priyamo
-ms.openlocfilehash: 9c31ea2046064f7f776e582f82bd6ebd90dd16b2
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 6fff8890a32cd6c3f0aeb506425964edcc841c5e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54883236"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193479"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en Azure VM-skalningsuppsättning med en mall
 
@@ -173,7 +173,7 @@ I det här avsnittet tilldelar du en hanterad Användartilldelad identitet till 
 > [!Note]
 > För att skapa en Användartilldelad hanterad identitet med en Azure Resource Manager-mall, se [skapa en hanterad Användartilldelad identitet](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
-### <a name="assign-a-user-assigned-managed-identity-to-a-virutal-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet till en skalningsuppsättning för virtuella datorer
+### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet till en VM-skalningsuppsättning
 
 1. Under den `resources` element, Lägg till följande post för att tilldela en hanterad Användartilldelad identitet till din skalningsuppsättning för virtuell dator.  Se till att ersätta `<USERASSIGNEDIDENTITY>` hanteras med namnet på den Användartilldelad identitet som du skapade.
    

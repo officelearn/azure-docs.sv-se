@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 665db66bc7302710ed73ae46aad0e9afcfd44400
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 7ea7dd0c697a5b7d8e90cb4fc5cad88451d6755a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54258466"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103803"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Vad är Tillgänglighetszoner i Azure?
 Tillgänglighetszoner är en hög tillgänglighet erbjudande som skyddar dina program och data från datacenter havererar. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. För att säkerställa återhämtning, finns det minst tre separata zoner i alla aktiverade regioner. Fysisk avgränsning av Tillgänglighetszoner inom en region skyddar program och data mot datacenterproblem. Zonredundant tjänster replikera dina program och data i olika Tillgänglighetszoner och skydda från single punkter av fel. Azure erbjuder branschens bästa 99,99% VM DRIFTTID med Tillgänglighetszoner. I det fullständiga[Azure-serviceavtalet](https://azure.microsoft.com/support/legal/sla/virtual-machines/) förklaras den garanterade tillgängligheten för Azure som helhet.
@@ -80,7 +80,7 @@ Det finns ingen extra kostnad för virtuella datorer som distribueras i en Tillg
 - [Zonredundant lagring](../storage/common/storage-redundancy-zrs.md)
 - [SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Geohaveriberedskap för Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
-- [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
+- [Geohaveriberedskap för Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)
 - [Skapa en zonredundant virtuell nätverksgateway](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 

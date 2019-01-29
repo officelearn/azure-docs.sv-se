@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 0fcdb2324868528e62e69fa0ce24ab2334052ced
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 186e5ed062be8210f4efa0bdaf134f3af51d268b
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245421"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094146"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -232,9 +232,9 @@ Det finns två delar i det här scenariot:
 
 Du kan nu lägga till tillägg för virtuell dator med versionen av Azure Stack PowerShell 1.3.0. Exempel:
 
-````PowerShell
+```PowerShell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

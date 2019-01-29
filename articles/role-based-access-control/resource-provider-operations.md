@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 08108863d7b6348e3ab26d7040c70f29ed641ebe
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: fa17b2bb440f574f63349c5bb51573725aa45876
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081661"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191550"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager åtgärder för resursprovider
 
@@ -998,8 +998,8 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/operationStatuses/read | Läser åtgärdsstatus för virtuella nätverksgatewayar. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/packages/read | Hämtar gateway-paketet för virtuella nätverk. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/read | Hämtar de virtuella nätverks-gatewayerna. |
-> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Startar diagnostiken för den virtuella nätverks-gatewayen. |
-> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Stoppar diagnostiken för den virtuella nätverks-gatewayen. |
+> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/startDiagnostics/action | Startar diagnostik för den virtuella nätverksgatewayen. |
+> | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/stopDiagnostics/action | Stoppar diagnostiken för den virtuella nätverksgatewayen. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/gateways/write | Lägger till en virtuell nätverks-gateway. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/join/action | Anslut till det virtuella nätverket. |
 > | Åtgärd | Microsoft.ClassicNetwork/virtualNetworks/operationStatuses/read | Läser åtgärdsstatus för virtuella nätverk. |
@@ -1255,7 +1255,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/read | Hämtar diagnostikinställningen för containergruppen. |
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/diagnosticSettings/write | Skapar eller uppdaterar diagnostikinställningen för containergruppen. |
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/providers/Microsoft.Insights/metricDefinitions/read | Hämtar tillgängliga mått för containergruppen. |
-> | Åtgärd | Microsoft.ContainerInstance/containerGroups/read | Hämta alla containergrupper. |
+> | Åtgärd | Microsoft.ContainerInstance/containerGroups/read | Hämta alla behållargrupper. |
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/restart/action | Startar om en särskild containergrupp. |
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/start/action | Startar en särskild containergrupp. |
 > | Åtgärd | Microsoft.ContainerInstance/containerGroups/stop/action | Stoppar en särskild behållargrupp. Databearbetningen kommer att frigöra resurser och fakturering stoppas. |
@@ -1836,7 +1836,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.DBforPostgreSQL/locations/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
 > | Åtgärd | Microsoft.DBforPostgreSQL/performanceTiers/read | Returnerar listan över prestandanivåer som är tillgängliga. |
-> | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/read | Returnera lista över advisros |
+> | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/read | Returnera lista över rådgivare |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActions/read | Returnera listan med rekommenderade åtgärder |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/advisors/recommendedActionSessions/action | Se rekommendationer |
 > | Åtgärd | Microsoft.DBforPostgreSQL/servers/configurations/read | Returnera lista över konfigurationer för en server eller hämtar egenskaperna för den angivna konfigurationen. |
@@ -2198,7 +2198,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.EventHub/checkNameAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. |
-> | Åtgärd | Microsoft.EventHub/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd Checknameavailability istället. |
+> | Åtgärd | Microsoft.EventHub/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd CheckNameAvailability istället. |
 > | Åtgärd | Microsoft.EventHub/clusters/providers/Microsoft.Insights/metricDefinitions/read | Hämta lista över klustermått resursbeskrivningar |
 > | Åtgärd | Microsoft.EventHub/clusters/read | Hämtar beskrivning av klusterresurs |
 > | Åtgärd | Microsoft.EventHub/clusters/write | Hämtar beskrivning av klusterresurs |
@@ -2609,7 +2609,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.IoTSpaces/Graph/delete | Tar bort Microsoft.IoTSpaces graphresursen |
 > | Åtgärd | Microsoft.IoTSpaces/Graph/read | Hämtar Microsoft.IoTSpaces Graph-resurser |
 > | Åtgärd | Microsoft.IoTSpaces/Graph/write | Skapa Microsoft.IoTSpaces Graph-resurs |
-> | Åtgärd | Microsoft.IoTSpaces/register/action | Registrera prenumeration för Microsoft.IoTSpaces Graph-resursprovidern att aktivera creationg resurser |
+> | Åtgärd | Microsoft.IoTSpaces/register/action | Registrera prenumeration för resursprovidern för Microsoft.IoTSpaces Graph att skapa resurser |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
@@ -3326,7 +3326,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/checkTrafficManagerNameAvailability/action | Kontrollerar tillgängligheten för ett Traffic Manager relativt DNS-namn. |
 > | Åtgärd | Microsoft.Network/connections/delete | Tar bort VirtualNetworkGatewayConnection |
 > | Åtgärd | Microsoft.Network/connections/read | Hämtar VirtualNetworkGatewayConnection |
-> | Åtgärd | Microsoft.Network/connections/revoke/action | Markerar en Exprress väg anslutningsstatus som återkallats |
+> | Åtgärd | Microsoft.Network/connections/revoke/action | Markerar en Express Route-anslutningsstatus som återkallats |
 > | Åtgärd | Microsoft.Network/connections/sharedkey/action | Hämta VirtualNetworkGatewayConnection SharedKey |
 > | Åtgärd | Microsoft.Network/connections/sharedKey/read | Hämtar VirtualNetworkGatewayConnection SharedKey |
 > | Åtgärd | Microsoft.Network/connections/sharedKey/write | Skapar eller uppdaterar en befintlig VirtualNetworkGatewayConnection SharedKey |
@@ -3543,7 +3543,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/operations/read | Hämta tillgängliga åtgärder |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/delete | Tar bort en P2SVpnGateway. |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Generera Vpn-profil för P2SVpnGateway |
-> | Åtgärd | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Hämtar en P2S Vpn-anslutning om objekthälsotillstånd för P2SVpnGateway |
+> | Åtgärd | Microsoft.Network/p2sVpnGateways/getp2svpnconnectionhealth/action | Hämtar en P2S Vpn-anslutningen hälsotillstånd för P2SVpnGateway |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/read | Hämtar en P2SVpnGateway. |
 > | Åtgärd | Microsoft.Network/p2sVpnGateways/write | Placerar en P2SVpnGateway. |
 > | Åtgärd | Microsoft.Network/privateLinkServices/delete | Tar bort en privat länk-tjänstresurs. |
@@ -3567,14 +3567,14 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/routeFilters/routeFilterRules/delete | Tar bort en regel för vägen filterdefinition |
 > | Åtgärd | Microsoft.Network/routeFilters/routeFilterRules/read | Hämtar en regel för vägen filterdefinition |
 > | Åtgärd | Microsoft.Network/routeFilters/routeFilterRules/write | Skapar en flödesfilterregeln eller uppdaterar en befintlig flödesfilterregeln |
-> | Åtgärd | Microsoft.Network/routeFilters/write | Skapar ett flödesfilter eller uppdaterar ett befintligt rotue-filter |
+> | Åtgärd | Microsoft.Network/routeFilters/write | Skapar ett flödesfilter eller uppdaterar ett befintligt route-filter |
 > | Åtgärd | Microsoft.Network/routeTables/delete | Tar bort en väg tabelldefinition |
 > | Åtgärd | Microsoft.Network/routeTables/join/action | Ansluter till en routningstabell |
 > | Åtgärd | Microsoft.Network/routeTables/read | Hämtar en väg tabelldefinition |
 > | Åtgärd | Microsoft.Network/routeTables/routes/delete | Tar bort en väg-definition |
 > | Åtgärd | Microsoft.Network/routeTables/routes/read | Hämtar en väg-definition |
 > | Åtgärd | Microsoft.Network/routeTables/routes/write | Skapar en väg eller uppdaterar ett befintligt flöde |
-> | Åtgärd | Microsoft.Network/routeTables/write | Skapar en routningstabell eller uppdaterar en befintlig rotue-tabell |
+> | Åtgärd | Microsoft.Network/routeTables/write | Skapar en routningstabell eller uppdaterar en befintlig routningstabell |
 > | Åtgärd | Microsoft.Network/securegateways/delete | Delete Secure Gateway |
 > | Åtgärd | Microsoft.Network/securegateways/read | Få säker Gateway |
 > | Åtgärd | Microsoft.Network/securegateways/write | Skapar eller uppdaterar en säker Gateway |
@@ -3583,7 +3583,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/joinSubnet/action | Ansluter till ett undernät till Tjänstslutpunktsprinciperna |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/read | Hämtar en tjänstbeskrivning Endpoint princip |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/delete | Tar bort en Tjänstslutpunktens Principdefinition |
-> | Åtgärd | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Hämtar en Service Endpoint Policy Definition beskrivning |
+> | Åtgärd | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/read | Hämtar en slutpunkt Policy Definition tjänstbeskrivning |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/serviceEndpointPolicyDefinitions/write | Skapar en Tjänstslutpunktens Principdefinition eller uppdaterar en befintlig Tjänstslutpunktens Principdefinition |
 > | Åtgärd | Microsoft.Network/serviceEndpointPolicies/write | Skapar en Tjänstslutpunktsprincip eller uppdaterar en befintlig Tjänstslutpunktsprincipen |
 > | Åtgärd | Microsoft.Network/trafficManagerGeographicHierarchies/read | Hämtar Traffic Manager geografiska hierarkin som innehåller regioner som kan användas med geografisk routningsmetod |
@@ -3626,7 +3626,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | microsoft.network/virtualnetworkgateways/setvpnclientipsecparameters/action | Ange Vpnclient Ipsec-parametrarna för VirtualNetworkGateway P2S-klient. |
 > | Åtgärd | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Listor stöds Vpn-enheter |
 > | Åtgärd | Microsoft.Network/virtualNetworkGateways/write | Skapar eller uppdaterar en VirtualNetworkGateway |
-> | Åtgärd | Microsoft.Network/virtualNetworks/BastionHosts/action | Hämtar refrences Skyddsmiljö-värd i ett virtuellt nätverk. |
+> | Åtgärd | Microsoft.Network/virtualNetworks/BastionHosts/action | Hämtar referenser Skyddsmiljö-värd i ett virtuellt nätverk. |
 > | Åtgärd | Microsoft.Network/virtualNetworks/checkIpAddressAvailability/read | Kontrollera om Ip-adress är tillgänglig på det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.Network/virtualNetworks/delete | Tar bort ett virtuellt nätverk |
 > | Åtgärd | Microsoft.Network/virtualNetworks/peer/action | Peerar ett virtuellt nätverk med ett annat virtuellt nätverk |
@@ -4233,7 +4233,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.Relay/checkNameAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. |
-> | Åtgärd | Microsoft.Relay/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd Checknameavailability istället. |
+> | Åtgärd | Microsoft.Relay/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd CheckNameAvailability istället. |
 > | Åtgärd | Microsoft.Relay/namespaces/authorizationRules/action | Uppdateringar Namespace-auktoriseringsregeln. Detta API är inaktuell. Använd ett PUT-anrop för att uppdatera auktoriseringsregeln Namespace istället... Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.Relay/namespaces/authorizationRules/delete | Ta bort auktoriseringsregel för Namespace. Auktoriseringsregel för standard Namespace kan inte tas bort.  |
 > | Åtgärd | Microsoft.Relay/namespaces/authorizationRules/listkeys/action | Hämta anslutningssträngen till namnområdet |
@@ -4444,7 +4444,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärdstyp | Åtgärd | Beskrivning |
 > | --- | --- | --- |
 > | Åtgärd | Microsoft.ServiceBus/checkNameAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. |
-> | Åtgärd | Microsoft.ServiceBus/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd Checknameavailability istället. |
+> | Åtgärd | Microsoft.ServiceBus/checkNamespaceAvailability/action | Kontrollerar tillgänglighet för namnområden i en viss prenumeration. Detta API är inaktuell Använd CheckNameAvailability istället. |
 > | Åtgärd | Microsoft.ServiceBus/locations/deleteVirtualNetworkOrSubnets/action | Tar bort reglerna för virtuellt nätverk i ServiceBus-resursprovidern för det angivna virtuella nätverket |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/authorizationRules/action | Uppdateringar Namespace-auktoriseringsregeln. Detta API är inaktuell. Använd ett PUT-anrop för att uppdatera auktoriseringsregeln Namespace istället... Den här åtgärden stöds inte på API-versionen 2017-04-01. |
 > | Åtgärd | Microsoft.ServiceBus/namespaces/authorizationRules/delete | Ta bort auktoriseringsregel för Namespace. Auktoriseringsregel för standard Namespace kan inte tas bort.  |
@@ -4883,7 +4883,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Returnera typer av mått som är tillgängliga för servrar |
 > | Åtgärd | Microsoft.Sql/servers/read | Returnera listan över servrar eller hämtar egenskaperna för den angivna servern. |
 > | Åtgärd | Microsoft.Sql/servers/recommendedElasticPools/databases/read | Hämta mått för rekommenderade elastic database-pooler för en viss server |
-> | Åtgärd | Microsoft.Sql/servers/recommendedElasticPools/read | Hämta rekommendationer för elastic database-pooler att minska kostnaderna eller förbättra prestandan, utifrån historica resursutnyttjande |
+> | Åtgärd | Microsoft.Sql/servers/recommendedElasticPools/read | Hämta rekommendationer för elastic database-pooler att minska kostnaderna eller förbättra prestanda baserat på historiska resursanvändningen |
 > | Åtgärd | Microsoft.Sql/servers/recoverableDatabases/read | Den här åtgärden används för haveriberedskap för live-databas för att återställa databasen till senast fungerande god säkerhetskopieringspunkt. Den returnerar information om den senaste säkerhetskopian som bra men doesn\u0027t faktiskt återställa databasen. |
 > | Åtgärd | Microsoft.Sql/servers/replicationLinks/read | Returnera listan över replikering länkar eller hämtar egenskaperna för den angivna replikeringslänkar. |
 > | Åtgärd | Microsoft.Sql/servers/restorableDroppedDatabases/read | Hämta en lista över databaser som har tagits bort på en viss server som är fortfarande inom bevarandeprincip. |
@@ -4892,7 +4892,7 @@ Den här artikeln visar en lista över åtgärderna som är tillgängliga för v
 > | Åtgärd | Microsoft.Sql/servers/securityAlertPolicies/write | Ändra den server threat principen för en viss server |
 > | Åtgärd | Microsoft.Sql/servers/serviceObjectives/read | Hämta lista över servicenivåmål (även kallat prestandanivåer) finns på en viss server |
 > | Åtgärd | Microsoft.Sql/servers/syncAgents/delete | Tar bort en befintlig sync-agenten. |
-> | Åtgärd | Microsoft.Sql/servers/syncAgents/generateKey/action | Generera sync-agenten registrering nyckel |
+> | Åtgärd | Microsoft.Sql/servers/syncAgents/generateKey/action | Generera registreringsnyckel för sync-agenten |
 > | Åtgärd | Microsoft.Sql/servers/syncAgents/linkedDatabases/read | Returnera lista över synkronisera agenten länkade databaser |
 > | Åtgärd | Microsoft.Sql/servers/syncAgents/read | Returnera listan över synkroniseringsagenter eller hämtar egenskaperna för den angivna sync-agenten. |
 > | Åtgärd | Microsoft.Sql/servers/syncAgents/write | Skapar en sync-agenten med de angivna parametrarna eller uppdaterar egenskaperna för den angivna sync-agenten. |

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
-ms.openlocfilehash: 8d5e3060d31a260ddba2e7b23d468568ea9569c0
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: c3b30085e1036e49706d73fd68b80221e5177d03
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078040"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095744"
 ---
 # <a name="machine-learning-integration-in-stream-analytics"></a>Machine Learning-integrering i Stream Analytics
 Stream Analytics har stöd för användardefinierade funktioner som Azure Machine Learning-slutpunkter. REST API-stöd för den här funktionen beskrivs i den [Stream Analytics REST API-bibliotek](https://msdn.microsoft.com/library/azure/dn835031.aspx). Den här artikeln ger ytterligare information som behövs för lyckade implementeringen av den här funktionen i Stream Analytics. En självstudiekurs som också har publicerats och är tillgänglig [här](stream-analytics-machine-learning-integration-tutorial.md).
@@ -44,9 +44,9 @@ Med hjälp av REST API: er kan du konfigurera ditt jobb för att anropa maskinko
 ## <a name="creating-a-udf-with-basic-properties"></a>Skapa en UDF med grundläggande egenskaper
 Till exempel följande exempelkoden skapar en skalär UDF med namnet *newudf* som binder till en Azure Machine Learning-slutpunkt. Observera att den *endpoint* (tjänstens URI) finns på hjälpsidan för API för den valda tjänsten och *apiKey* kan hittas på huvudsidan för tjänster.
 
-````
+```
     PUT : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Exempel-begärandetexten:
 
@@ -71,9 +71,9 @@ Exempel-begärandetexten:
 ## <a name="call-retrievedefaultdefinition-endpoint-for-default-udf"></a>Anropa RetrieveDefaultDefinition slutpunkt för standard UDF
 När stommen UDF har skapats krävs fullständiga definitionen av en användardefinierad funktion. RetrieveDefaultDefinition slutpunkten kan du hämta standarddefinitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Nyttolasten nedan måste du hämta standard UDF-definitionen för en skalärfunktion som är bunden till en Azure Machine Learning-slutpunkt. Det Ange inte den faktiska slutpunkten som har redan angetts under PUT-begäran. Stream Analytics anropar slutpunkten som tillhandahölls i begäran om det anges uttryckligen. Annars används den som ursprungligen refereras. Här sträng UDF-tar en enda sträng parametern (en mening) och returnerar en enda utdata av typen som anger etiketten ”attitydanalys” för den meningen.
 
-````
+```
 POST : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>/RetrieveDefaultDefinition?api-version=<apiVersion>
-````
+```
 
 Exempel-begärandetexten:
 
@@ -130,9 +130,9 @@ Ett exempel på utdata detta skulle titta något i stil nedan.
 ## <a name="patch-udf-with-the-response"></a>Patch-UDF med svaret
 Nu en användardefinierad funktion måste korrigeras med föregående svar, enligt nedan.
 
-````
+```
 PATCH : /subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/Microsoft.StreamAnalytics/streamingjobs/<streamingjobName>/functions/<udfName>?api-version=<apiVersion>
-````
+```
 
 Begärandetexten (utdata från RetrieveDefaultDefinition):
 

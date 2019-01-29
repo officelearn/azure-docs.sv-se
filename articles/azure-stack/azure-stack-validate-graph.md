@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 43f30989fa09e711fc71941e7722dcd195212472
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: fbc6e7586e116df1fa19c6c9e0c5a5b17f00d646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416247"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096780"
 ---
 # <a name="validate-graph-integration-for-azure-stack"></a>Verifiera graph-integrering för Azure Stack
 
@@ -94,7 +94,7 @@ Följande krav måste vara på plats.
     Invoke-AzsGraphValidation Completed
     ```
 
-I produktionsmiljöer, Testa nätverksanslutningen från en operatör arbetsstation är inte fullständigt indikation på anslutningen som är tillgängliga för Azure Stack. Azure Stack-stämpel offentliga VIP-nätverket behöver anslutning för LDAP-trafik att utföra identitetsintegrering.
+I produktionsmiljöer, Testa nätverksanslutningen från en operatör arbetsstation är inte fullständigt indikation på anslutningen som är tillgängliga för Azure Stack. Azure Stack-stämpel offentliga VIP-nätverk ha anslutning för LDAP-trafik att utföra identitetsintegrering.
 
 ## <a name="report-and-log-file"></a>Rapporten och loggfilen
 
@@ -106,8 +106,8 @@ Som standard skrivs båda filerna till `C:\Users\<username>\AppData\Local\Temp\A
 
 Användning:
 
-* **-OutputPath**: den *sökväg* parameter i slutet av kommandot Kör för att ange en annan plats.
-* **-CleanReport**: parametern i slutet av kommandot Kör för att rensa *AzsReadinessCheckerReport.json* av föregående rapportinformation. Mer information finns i [Azure Stack verifieringsrapport](azure-stack-validation-report.md).
+* **-OutputPath**: Den *sökväg* parameter i slutet av kommandot Kör för att ange en annan plats.
+* **-CleanReport**: Parametern i slutet av kommandot Kör för att rensa *AzsReadinessCheckerReport.json* av föregående rapportinformation. Mer information finns i [Azure Stack verifieringsrapport](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Verifieringsfel
 

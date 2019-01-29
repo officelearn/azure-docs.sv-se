@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 6a175fb888237e5e4de445df6331ffb370839b8c
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 29c46c3987a6adff4ef2492a60b4e6a4b022e3e8
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163029"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168847"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller anvisningar för att använda Azure Active Directory (AD Azure) PowerShell-cmdletar för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland för enhetliga grupper). 

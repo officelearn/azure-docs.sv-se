@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 71d5b0e8156710e2f82ac76d3187ba1ddba46936
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151098"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core i Service Fabric Reliable Services
 
@@ -62,15 +62,15 @@ En tillförlitlig tjänstinstans representeras av din tjänstklass som härleds 
 Den `ICommunicationListener` implementeringar för Kestrel och HttpSys i den `Microsoft.ServiceFabric.AspNetCore.*` NuGet-paket har liknande användningsmönster men utföra något annorlunda åtgärder som är specifika för varje webbserver. 
 
 Båda kommunikationslyssnarna innehåller en konstruktor som använder följande argument:
- - **`ServiceContext serviceContext`**: Det `ServiceContext` objekt som innehåller information om tjänsten som körs.
- - **`string endpointName`**: namnet på en `Endpoint` konfigurationen i ServiceManifest.xml. Detta är främst där två kommunikationslyssnarna skiljer sig åt: HttpSys **kräver** en `Endpoint` konfiguration, men inte av Kestrel.
+ - **`ServiceContext serviceContext`**: Den `ServiceContext` objekt som innehåller information om tjänsten som körs.
+ - **`string endpointName`**: namnet på en `Endpoint` konfigurationen i ServiceManifest.xml. Det här är främst där två kommunikationslyssnarna skiljer sig: HttpSys **kräver** en `Endpoint` konfiguration, men inte av Kestrel.
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: en lambda som du implementerar i som du skapar och returnera ett `IWebHost`. På så sätt kan du konfigurera `IWebHost` på sätt som du vanligtvis använder i ett ASP.NET Core-program. Lambda innehåller en URL som genereras för du beroende på Service Fabric-integrering alternativ du använder och `Endpoint` konfiguration som du anger. Att URL: en sedan kan ändras eller används som – är att starta webbservern.
 
 ## <a name="service-fabric-integration-middleware"></a>Mellanprogram för Service Fabric-integrering
 Den `Microsoft.ServiceFabric.AspNetCore` NuGet-paketet innehåller den `UseServiceFabricIntegration` tilläggsmetod på `IWebHostBuilder` som lägger till Service Fabric-medvetna mellanprogram. Den här mellanprogram konfigurerar Kestrel eller HttpSys `ICommunicationListener` att registrera en unik tjänst-URL med Service Fabric Naming-tjänst och sedan validerar klientbegäranden för att se till att klienter ansluter till en tjänst. Detta är nödvändigt i en miljö med delad värden, till exempel Service Fabric, där flera webbprogram kan köras på samma fysiska eller virtuella datorn men inte använder unika värdnamn, för att förhindra att klienter ansluter av misstag till fel-tjänsten. Det här scenariot beskrivs närmare i nästa avsnitt.
 
 ### <a name="a-case-of-mistaken-identity"></a>Ett ärende med felaktiga identitet
-Tjänsten repliker, oavsett protokoll, lyssna på en unik IP:port kombination. När en replik för tjänsten har startats lyssnar på en slutpunkt för IP:port rapporterar den slutpunktsadressen till den namngivning i Service Fabric där den kan identifieras av klienter eller andra tjänster. Om tjänster använder dynamiskt tilldelade programportar, kan en tjänsterepliken tillfälligtvis använda samma IP:port slutpunkten för en annan tjänst som tidigare fanns på samma fysiska eller virtuella datorn. Detta kan medföra att en klient till mistakely ansluta till tjänsten fel. Detta kan inträffa om följande sekvens av händelser inträffar:
+Tjänsten repliker, oavsett protokoll, lyssna på en unik IP:port kombination. När en replik för tjänsten har startats lyssnar på en slutpunkt för IP:port rapporterar den slutpunktsadressen till den namngivning i Service Fabric där den kan identifieras av klienter eller andra tjänster. Om tjänster använder dynamiskt tilldelade programportar, kan en tjänsterepliken tillfälligtvis använda samma IP:port slutpunkten för en annan tjänst som tidigare fanns på samma fysiska eller virtuella datorn. Detta kan orsaka en klient ansluta av misstag till fel-tjänsten. Detta kan inträffa om följande sekvens av händelser inträffar:
 
  1. Tjänsten A lyssnar på 10.0.0.1:30000 via HTTP. 
  2. Klienten matchar tjänst A och hämtar adress 10.0.0.1:30000
@@ -106,7 +106,7 @@ HttpSys bygger på den [Windows http-Server API](https://msdn.microsoft.com/libr
 
 Följande diagram illustrerar hur HttpSys använder den *http.sys* kerneldrivrutinen på Windows för delning av port:
 
-![HTTP.sys][3]
+![http.sys][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HttpSys i en tillståndslös tjänst
 Att använda `HttpSys` i en tillståndslös tjänst åsidosätta den `CreateServiceInstanceListeners` metoden och returnera en `HttpSysCommunicationListener` instans:
@@ -354,7 +354,7 @@ När du är exponerade för Internet, bör en tillståndslös tjänst använda e
 
 |  |  | **Anteckningar** |
 | --- | --- | --- |
-| Webbserver | kestrel | Kestrel är prioriterade webbservern eftersom den stöds i Windows och Linux. |
+| Webbserver | Kestrel | Kestrel är prioriterade webbservern eftersom den stöds i Windows och Linux. |
 | Portkonfiguration | statisk | En känd statisk port ska ställas in på den `Endpoints` konfiguration av ServiceManifest.xml, till exempel 80 för HTTP och port 443 för HTTPS. |
 | ServiceFabricIntegrationOptions | Ingen | Den `ServiceFabricIntegrationOptions.None` bör användas när du konfigurerar mellanprogram för Service Fabric-integrering så att tjänsten inte försöker verifiera inkommande förfrågningar för en unik identifierare. Externa användare av ditt program vet inte den unika identifieringsinformation som används av oss mellanprogrammet. |
 | Antal instanser | -1 | I vanliga användningsfall bör instansantalet inställningen anges till ”-1” så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
@@ -379,7 +379,7 @@ Tillståndslösa tjänster som endast anropas från i klustret ska använda unik
 
 |  |  | **Anteckningar** |
 | --- | --- | --- |
-| Webbserver | kestrel | Även om HttpSys kan användas för interna tillståndslösa tjänster, är Kestrel rekommenderade servern så att flera instanser av tjänsten att dela en värd.  |
+| Webbserver | Kestrel | Även om HttpSys kan användas för interna tillståndslösa tjänster, är Kestrel rekommenderade servern så att flera instanser av tjänsten att dela en värd.  |
 | Portkonfiguration | dynamiskt tilldelade | Flera kopior av en tillståndskänslig tjänst kan dela en värdprocess eller värdoperativsystemet och därför måste unika portar. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar felaktiga identitet problemet som beskrivs ovan med dynamisk porttilldelning. |
 | InstanceCount | valfri | Ange instansantalet kan ställas in till ett värde krävs för att driva tjänsten. |
@@ -389,7 +389,7 @@ Tillståndskänsliga tjänster som endast anropas från i klustret ska använda 
 
 |  |  | **Anteckningar** |
 | --- | --- | --- |
-| Webbserver | kestrel | Den `HttpSysCommunicationListener` är inte avsedd för användning av tillståndskänsliga tjänster där repliker dela en värdprocess. |
+| Webbserver | Kestrel | Den `HttpSysCommunicationListener` är inte avsedd för användning av tillståndskänsliga tjänster där repliker dela en värdprocess. |
 | Portkonfiguration | dynamiskt tilldelade | Flera kopior av en tillståndskänslig tjänst kan dela en värdprocess eller värdoperativsystemet och därför måste unika portar. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Den här inställningen förhindrar felaktiga identitet problemet som beskrivs ovan med dynamisk porttilldelning. |
 

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: 9ca777275aa4aa09a16c0248f6e3b1ecc76ac5b2
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 0287ca78c8d2df4af1aab043b0575bd52f9d5eb1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267342"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094265"
 ---
 # <a name="validate-azure-identity"></a>Verifiera Azure identity 
 Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) för att verifiera att din Azure Active Directory (Azure AD) är klart att användas med Azure Stack. Verifiera din för Azure-identitetslösning innan du påbörjar en Azure Stack-distributionen.  
@@ -65,7 +65,7 @@ Följande krav måste vara på plats.
    > `Invoke-AzsAzureIdentityValidation -AADServiceAdministrator $serviceAdminCredential -AzureEnvironment <environment name> -AADDirectoryTenantName contoso.onmicrosoft.com`
 4. Granska utdata när verktyget körs. Bekräfta att statusen är **OK** för installationskraven. En lyckad validering visas som på följande bild: 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -76,7 +76,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 
 ## <a name="report-and-log-file"></a>Rapporten och loggfilen
@@ -97,7 +97,7 @@ I följande exempel ger vägledning om vanliga verifieringsfel.
 
 ### <a name="expired-or-temporary-password"></a>Har upphört att gälla eller tillfälliga lösenord 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -111,7 +111,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Orsak** -kontot kan inte logga in eftersom lösenordet har upphört att gälla eller är tillfälligt.     
 
 **Lösning** – i PowerShell kör du följande och följer sedan anvisningarna för att återställa lösenordet.  
@@ -120,7 +120,7 @@ Invoke-AzsAzureIdentityValidation Completed
 Du kan också logga in på https://portal.azure.com som kontot och användaren tvingas att ändra lösenordet.
 ### <a name="unknown-user-type"></a>Okänd användartyp 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -134,13 +134,13 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 **Orsak** -kontot kan inte logga in på den angivna Azure Active Directory (AADDirectoryTenantName). I det här exemplet *AzureChinaCloud* har angetts som den *AzureEnvironment*.
 
 **Lösning** – Kontrollera att kontot är giltigt för den angivna Azure-miljön. I PowerShell kör du följande för att verifiera kontot är giltigt för en viss miljö:   Login-AzureRmAccount – EnvironmentName AzureChinaCloud 
 ### <a name="account-is-not-an-administrator"></a>Kontot är inte en administratör 
  
-````PowerShell
+```PowerShell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -154,7 +154,7 @@ Finished Azure Identity Validation
 Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
 Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
 Invoke-AzsAzureIdentityValidation Completed
-````
+```
 
 **Orsak** – även om konton som kan logga in, kontot inte är administratör för Azure Active Directory (AADDirectoryTenantName).  
 

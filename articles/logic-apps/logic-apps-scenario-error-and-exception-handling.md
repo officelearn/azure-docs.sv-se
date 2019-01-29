@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 63b0b843-f6b0-4d9a-98d0-17500be17385
 ms.topic: article
 ms.date: 07/29/2016
-ms.openlocfilehash: 0c6062fb9e9708b0fa6aef7a6d7390287cbf69d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 58e59e4faa135e24124f494d90437b49caa30129
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124043"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098671"
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Scenario: Undantagshantering och felloggning för logic apps
 
@@ -57,7 +57,7 @@ Eftersom vi ska logga posten kommer ut från Dynamics CRM Online, låt oss börj
 
 Vi använder en **begära** utlösa som visas i följande exempel:
 
-```` json
+``` json
 "triggers": {
         "request": {
           "type": "request",
@@ -90,7 +90,7 @@ Vi använder en **begära** utlösa som visas i följande exempel:
         }
       },
 
-````
+```
 
 
 ## <a name="steps"></a>Steg

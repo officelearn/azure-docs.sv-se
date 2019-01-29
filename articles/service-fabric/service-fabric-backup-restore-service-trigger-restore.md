@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/30/2018
 ms.author: aagup
-ms.openlocfilehash: ad89acb63057ff260332384372bcb7719cc8e4f3
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 1482497f3767e7533d1d56e6eb63e55cdb5c9ebb
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064839"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104651"
 ---
 # <a name="restoring-backup-in-azure-service-fabric"></a>Återställning av säkerhetskopia i Azure Service Fabric
 
@@ -229,7 +229,7 @@ $restoreResponse | Format-List
     ```
     
 3. **Lyckade**, **fel**, eller **Timeout**: En begärda återställning kan utföras på något av följande tillstånd. Varje tillstånd har följande information om betydelse och svar:
-    - **Lyckade**: En _lyckades_ återställningstillstånd anger tillståndet återupprättats partition. Rapporter för partition _RestoreEpoch_ och _RestordLSN_ tillstånd tillsammans med tiden i UTC.
+    - **Lyckade**: En _lyckades_ återställningstillstånd anger tillståndet återupprättats partition. Rapporter för partition _RestoredEpoch_ och _RestoredLSN_ tillstånd tillsammans med tiden i UTC.
 
         ```
         RestoreState  : Success
@@ -245,7 +245,7 @@ $restoreResponse | Format-List
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Tidsgräns för**: En _Timeout_ återställningstillstånd anger att begäran har timeout. Skapa en ny begäran om återställning med större [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Standardvärdet för timeout är 10 minuter. Se till att partitionen inte är i ett tillstånd för förlust av data innan du begär restore igen.
+    - **Timeout**: En _Timeout_ återställningstillstånd anger att begäran har timeout. Skapa en ny begäran om återställning med större [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). Standardvärdet för timeout är 10 minuter. Se till att partitionen inte är i ett tillstånd för förlust av data innan du begär restore igen.
      
         ```
         RestoreState  : Timeout

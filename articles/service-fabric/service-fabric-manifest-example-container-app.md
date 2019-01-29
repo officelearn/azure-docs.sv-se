@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2018
 ms.author: ryanwi
-ms.openlocfilehash: 010fd442419f57f8b53705be8d3f49fdb84e28fd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: bdff930e00bfebe1d702e397a9dfc7de15aa3225
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262460"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156232"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exempel på program med flera behållare och tjänstmanifest
 Här följer några exempel på manifest för program och tjänster för en Service Fabric-program med flera behållare. Syftet med de här exemplen är att visa vilka inställningar är tillgängliga och hur de används. Dessa program och tjänstens manifest baseras på den [Windows Server 2016 behållare exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest.
@@ -195,7 +195,7 @@ Se [manifest programelement](#application-manifest-elements), [FrontEndService m
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
   
@@ -246,7 +246,7 @@ Se [manifest programelement](#application-manifest-elements), [FrontEndService m
     </EnvironmentVariables>
   </CodePackage>
 
-  <!-- Config package is the contents of the Config directoy under PackageRoot that contains an 
+  <!-- Config package is the contents of the Config directory under PackageRoot that contains an 
        independently-updateable and versioned set of custom configuration settings for your service. -->
   <ConfigPackage Name="Config" Version="1.0.0" />
 
@@ -279,7 +279,7 @@ Importerar ett tjänstmanifest som skapats av tjänsten-utvecklare. Ett tjänstm
 ### <a name="servicemanifestref-element"></a>ServiceManifestRef Element
 Importerar tjänstmanifestet med referens. För närvarande måste tjänstmanifestfilen (ServiceManifest.xml) finnas i build-paketet. Mer information finns i [ServiceManifestRef Element](service-fabric-service-model-schema-elements.md#ServiceManifestRefElementServiceManifestRefTypeComplexTypeDefinedInServiceManifestImportelement)
 
-### <a name="policies-element"></a>Principer för elementet
+### <a name="policies-element"></a>Policies Element
 Beskriver principer (slutpunkt för bindning, delning, kör som-paketet och säkerhet åtkomst) som ska tillämpas på importerade tjänstmanifestet. Mer information finns i [principer Element](service-fabric-service-model-schema-elements.md#PoliciesElementServiceManifestImportPoliciesTypeComplexTypeDefinedInServiceManifestImportelement)
 
 ### <a name="servicepackageresourcegovernancepolicy-element"></a>ServicePackageResourceGovernancePolicy Element
@@ -297,7 +297,7 @@ Autentiseringsuppgifter för behållaren avbildningslagringsplatsen för pull-av
 ### <a name="portbinding-element"></a>PortBinding Element
 Anger vilken slutpunktsresurs som ska binda till behållaren exponerade port. Mer information finns i [PortBinding Element](service-fabric-service-model-schema-elements.md#PortBindingElementPortBindingTypeComplexTypeDefinedInServicePackageContainerPolicyTypecomplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="volume-element"></a>Volymelement
+### <a name="volume-element"></a>Volume Element
 Anger volymen som ska bindas till behållaren. Mer information finns i [volymelement](service-fabric-service-model-schema-elements.md#VolumeElementContainerVolumeTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
 ### <a name="driveroption-element"></a>DriverOption Element
@@ -306,7 +306,7 @@ Drivrutiner som ska skickas till drivrutinen. Mer information finns i [DriverOpt
 ### <a name="imageoverrides-element"></a>ImageOverrides Element
 Windows Server-behållare kan inte vara kompatibla mellan olika versioner av Operativsystemet.  Du kan ange flera operativsystemsavbildningar per behållare och tagga dem med build-versioner av Operativsystemet. Hämta build-versionen av Operativsystemet genom att köra ”winver” i en kommandotolk i Windows. Om det underliggande Operativsystemet är version version 16299 (Windows Server version 1709), Service Fabric används den behållaravbildning som taggats med Os = ”16299”. En ej taggad behållaravbildning antas fungerar i alla versioner av Operativsystemet och åsidosätter den avbildning som angetts i tjänstmanifestet. Mer information finns i [ImageOverrides Element](service-fabric-service-model-schema-elements.md#ImageOverridesElementImageOverridesTypeComplexTypeDefinedInContainerHostPoliciesTypecomplexType)
 
-### <a name="image-element"></a>Bildelement
+### <a name="image-element"></a>Image Element
 Behållaravbildning som motsvarar OS build-versionsnumret som ska startas. Om Os-attributet inte anges, antas fungerar i alla versioner av Operativsystemet behållaravbildningen och åsidosätter den avbildning som angetts i tjänstmanifestet. Mer information finns i [bildelement](service-fabric-service-model-schema-elements.md#ImageElementImageTypeComplexTypeDefinedInImageOverridesTypecomplexType)
 
 ### <a name="environmentoverrides-element"></a>EnvironmentOverrides Element
@@ -323,7 +323,7 @@ PFX-filen och lösenordet är tillgängliga i behållaren med hjälp av miljöva
 ### <a name="defaultservices-element"></a>DefaultServices Element
 Anger instanser av tjänsten som skapas automatiskt när ett program instantieras mot den här typen. Mer information finns i [DefaultServices Element](service-fabric-service-model-schema-elements.md#DefaultServicesElementDefaultServicesTypeComplexTypeDefinedInApplicationManifestTypecomplexTypeDefinedInApplicationInstanceTypecomplexType)
 
-### <a name="service-element"></a>Tjänsten Element
+### <a name="service-element"></a>Service Element
 Deklarerar en tjänst som ska skapas automatiskt när programmet instantieras. Mer information finns i [Service Element](service-fabric-service-model-schema-elements.md#ServiceElementanonymouscomplexTypeComplexTypeDefinedInDefaultServicesTypecomplexType)
 
 ### <a name="statelessservice-element"></a>StatelessService Element
@@ -361,7 +361,7 @@ Miljövariabeln. Mer information finns i [EnvironmentVariable Element](service-f
 ### <a name="configpackage-element"></a>ConfigPackage Element
 Deklarerar en mapp med namnet av attributet namn, som innehåller en Settings.xml fil. Den här filen innehåller avsnitt av inställningar för användardefinierade, nyckel / värde-par som processen kan läsa tillbaka vid körning. Vid en uppgradering om det bara ConfigPackage version har ändrats startas sedan processen inte. I stället meddelar en motringning den process som konfigurationsinställningarna har ändrats så att de kan läsas dynamiskt. Mer information finns i [ConfigPackage Element](service-fabric-service-model-schema-elements.md#ConfigPackageElementConfigPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedConfigPackageelement)
 
-### <a name="datapackage-element"></a>DataPackage-Element
+### <a name="datapackage-element"></a>DataPackage Element
 Anger en mapp med namnet av attributet namn som innehåller statiska datafiler. Service Fabric kommer Papperskorgen alla exe-filerna och DLLHOSTs som anges i paket som värd och support när data-paket som anges i tjänstmanifestet uppgraderas. Mer information finns i [DataPackage-Element](service-fabric-service-model-schema-elements.md#DataPackageElementDataPackageTypeComplexTypeDefinedInServiceManifestTypecomplexTypeDefinedInDigestedDataPackageelement)
 
 ### <a name="resources-element"></a>Resurser-Element

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: f73f90b76900a3a5213297f8a28ff13204852039
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: adaed5f15facb00b6ed624234ebad31f60782de1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53105555"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094333"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Dataplattformar som stöds på den virtuella datorn för datavetenskap
 
@@ -95,7 +95,7 @@ Innan du kör i Spark-kontexten i Microsoft R Server på Ubuntu Linux DSVM-versi
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Du kan stoppa Hadoop relaterade tjänster när du inte behöver dem genom att köra ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
+Du kan stoppa Hadoop relaterade tjänster när du inte behöver dem genom att köra ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
 
 
 ### <a name="how-is-it-configured--installed-on-the-dsvm"></a>Hur är det konfigurerade / installerad på DSVM? 

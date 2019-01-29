@@ -2,14 +2,14 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 01/27/2019
 ms.author: cynthn
-ms.openlocfilehash: b9fa5fff46fa330a55125053b831c780f21f6e8f
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: a13ce8d3dc71be83e05fae5bd07f30f413ce59f2
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54404679"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147929"
 ---
 Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, visa och analysera diagnostiska och logga data. Att göra enkla [övervakning](../articles/azure-monitor/overview.md) för den virtuella datorn kan du använda översiktsskärmen för den virtuella datorn i Azure-portalen. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) att konfigurera diagnostik på dina virtuella datorer att samla in ytterligare måttdata. Du kan också använda mer avancerade alternativ för övervakning, till exempel [Programinsikter](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
 
@@ -41,7 +41,7 @@ Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md
 
 [Azure Resource health](../articles/service-health/resource-health-overview.md) hjälper dig att diagnostisera och få support när ett problem med Azure påverkar dina resurser. Det informerar dig om det aktuella och tidigare hälsotillståndet för dina resurser och hjälper dig att åtgärda problem. Resource Health ger teknisk support när du behöver hjälp med problem med Azure-tjänster.
 
-## <a name="logs"></a>Logs
+## <a name="azure-activity-log"></a>Azure-aktivitetsloggen
 
 Den [Azure-aktivitetsloggen](../articles/azure-monitor/platform/activity-logs-overview.md) är en prenumerationslogg som ger insikt i händelser på prenumerationsnivå som har inträffat i Azure. Loggen innehåller en mängd data från Azure Resource Manager driftdata uppdateringar på Service Health-händelser. Du kan klicka på aktivitetsloggen i Azure portal för att visa loggen för den virtuella datorn.
 
@@ -64,11 +64,13 @@ Några av de saker du kan göra med diagnostikloggar är:
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-- [Log Analytics](../articles/log-analytics/log-analytics-overview.md) är en tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Den samlar in data som genereras av resurser i dina miljöer i molnet och lokalt och från andra övervakningsverktyg för att tillhandahålla analyser över flera källor. Du kan installera ett tillägg på en [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) eller en [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) som Log Analytics-agenten installeras och registreras den virtuella datorn i en befintlig Log Analytics-arbetsyta.
+- [Azure Monitor](../articles/azure-monitor/overview.md) är en tjänst som övervakar dina molnbaserade och lokala miljöer för att bibehålla tillgänglighet och prestanda. Det ger en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på. Du kan installera ett tillägg på en [Linux VM](../articles/virtual-machines/linux/extensions-oms.md) eller en [Windows VM](../articles/virtual-machines/windows/extensions-oms.md) som installerar Log Analytics-agenten att samla in loggdata och lagra i Log Analytics-arbetsytan.
 
-    För Windows och Linux-datorer är den rekommenderade metoden för att samla in loggar och mått genom att installera Log Analytics-agenten. Det enklaste sättet att installera Log Analytics-agenten på en virtuell dator är via den [Log Analytics VM-tillägget](../articles/log-analytics/log-analytics-azure-vm-extension.md). Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
+    För Windows och Linux-datorer är den rekommenderade metoden för att samla in loggar genom att installera Log Analytics-agenten. Det enklaste sättet att installera Log Analytics-agenten på en virtuell dator är via den [Log Analytics VM-tillägget](../articles/log-analytics/log-analytics-azure-vm-extension.md). Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
 
 - [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) kan du övervaka din virtuella dator och dess kopplade resurser som är relaterade till det nätverk som de finns i. Du kan installera tillägget Network Watcher-Agent på en [Linux VM](../articles/virtual-machines/linux/extensions-nwa.md) eller en [Windows VM](../articles/virtual-machines/windows/extensions-nwa.md).
+
+- [Azure Monitor för virtuella datorer](../articles/azure-monitor/insights/vminsights-overview.md) övervakar dina Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för Windows och Linux-datorer, inklusive olika processer och sammankopplade beroenden på andra resurser och externt bearbetar. 
 
 ## <a name="next-steps"></a>Nästa steg
 - Gå igenom stegen i [övervaka en Windows-dator med Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) eller [övervaka en Linux-dator med Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).

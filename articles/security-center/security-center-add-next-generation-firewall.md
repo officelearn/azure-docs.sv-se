@@ -1,6 +1,6 @@
 ---
 title: Lägg till en nästa generations brandvägg i Azure Security Center | Microsoft Docs
-description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationer **lägga till en nästa generations brandvägg** och **väg traffice via NGFW endast**.
+description: Det här dokumentet visar hur du implementerar Azure Security Center-rekommendationer **lägga till en nästa generations brandvägg** och **dirigera trafiken endast via NGFW**.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 0f1949373e99df1cccd6c49ff92c80d595519377
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: a71f2044b799fb47e4ab8991d76f92a1ccc049f5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341159"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102455"
 ---
 # <a name="add-a-next-generation-firewall-in-azure-security-center"></a>Lägg till en nästa generations brandvägg i Azure Security Center
 Azure Security Center rekommendera att du lägger till en nästa generations brandvägg (NGFW) från en Microsoft-partner att öka din säkerhetsskydd. Det här dokumentet vägleder dig genom ett exempel på hur du gör detta.

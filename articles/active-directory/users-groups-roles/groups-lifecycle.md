@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 9e73a979950e856a7fc2bfa2193ea4ca0d59bac2
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 070e86f2d5d37823f1596cf04735b199289f3d75
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242236"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166177"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Konfigurera en princip för Office 365-grupper
 
@@ -91,45 +91,45 @@ Bevarandeprincipen konfigureras via Security and Compliance Center. Om du har st
 Här följer exempel på hur du kan använda PowerShell-cmdletar för att konfigurera inställningar för giltighetstid för Office 365-grupper i din klient:
 
 1. Installera PowerShell v2.0-förhandsversionsmodulen (2.0.0.137) och logga in i PowerShell-Kommandotolken:
-  ````
+  ```
   Install-Module -Name AzureADPreview
   connect-azuread 
-  ````
-2. Konfigurera inställningar för giltighetstid New-AzureADMSGroupLifecyclePolicy: den här cmdlet: en anger livslängden för alla Office 365-grupper i klienten och 365 dagar. Förnyelse av meddelanden för Office 365 grupper utan ägare kommer att skickas till 'emailaddress@contoso.com'
+  ```
+2. Konfigurera inställningar för giltighetstid New-AzureADMSGroupLifecyclePolicy:  Den här cmdlet: en anger livslängden för alla Office 365-grupper i klienten och 365 dagar. Förnyelse av meddelanden för Office 365 grupper utan ägare kommer att skickas till 'emailaddress@contoso.com'
   
-  ````
+  ```
   New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
-  ````
-3. Hämta den befintliga principen Get-AzureADMSGroupLifecyclePolicy: denna cmdlet hämtar de aktuella upphör att gälla inställningarna för Office 365-grupp som har konfigurerats. I det här exemplet ser du:
+  ```
+3. Hämta den befintliga principen Get-AzureADMSGroupLifecyclePolicy: Denna cmdlet hämtar de aktuella upphör att gälla inställningarna för Office 365-grupp som har konfigurerats. I det här exemplet ser du:
   * Princip-ID 
   * Livslängd för alla Office 365-grupper i klienten är inställd på 365 dagar
   * Förnyelse av meddelanden för Office 365 grupper utan ägare kommer att skickas till ”emailaddress@contoso.com”.
   
-  ````
+  ```
   Get-AzureADMSGroupLifecyclePolicy
   
   ID                                    GroupLifetimeInDays ManagedGroupTypes AlternateNotificationEmails
   --                                    ------------------- ----------------- ---------------------------
   26fcc232-d1c3-4375-b68d-15c296f1f077  365                 All               emailaddress@contoso.com
-  ```` 
+  ``` 
    
-4. Uppdatera den befintliga principen Set-AzureADMSGroupLifecyclePolicy: den här cmdleten används för att uppdatera en befintlig princip. I exemplet nedan ändras grupp livstid i den befintliga principen från 365 dagar till 180 dagar. 
+4. Uppdatera den befintliga principen Set-AzureADMSGroupLifecyclePolicy: Denna cmdlet används för att uppdatera en befintlig princip. I exemplet nedan ändras grupp livstid i den befintliga principen från 365 dagar till 180 dagar. 
   
-  ````
+  ```
   Set-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -GroupLifetimeInDays 180 -AlternateNotificationEmails "emailaddress@contoso.com"
-  ````
+  ```
   
-5. Lägga till specifika grupper i principen Add-AzureADMSLifecyclePolicyGroup: den här cmdleten lägger till en grupp i policyn för onlinelivscykeln. Som exempel: 
+5. Lägga till specifika grupper i principen Add-AzureADMSLifecyclePolicyGroup: Denna cmdlet lägger till en grupp i policyn för onlinelivscykeln. Som exempel: 
   
-  ````
+  ```
   Add-AzureADMSLifecyclePolicyGroup -Id "26fcc232-d1c3-4375-b68d-15c296f1f077" -groupId "cffd97bd-6b91-4c4e-b553-6918a320211c"
-  ````
+  ```
   
-6. Ta bort den befintliga principen Remove-AzureADMSGroupLifecyclePolicy: den här cmdleten tar bort förfallodatum för Office 365 gruppinställningar men kräver princip-ID. Detta inaktiverar förfallodatum för Office 365-grupper. 
+6. Ta bort den befintliga principen Remove-AzureADMSGroupLifecyclePolicy: Denna cmdlet tar bort förfallodatum för Office 365 gruppinställningar men kräver princip-ID. Detta inaktiverar förfallodatum för Office 365-grupper. 
   
-  ````
+  ```
   Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
-  ````
+  ```
   
 Följande cmdletar kan användas för att konfigurera principen i detalj. Mer information finns i [PowerShell-dokumentationen](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
 

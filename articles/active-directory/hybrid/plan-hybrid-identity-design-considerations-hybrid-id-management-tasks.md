@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 436bb3c235c76f04e0f3d0fec1beeec3872f1dfb
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 159f902326d76900e955c6488eb36e58f4b8f3dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475823"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167486"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Planera för Hybrid Identitetslivscykel
 Identitet är en av grundpelarna i enterprise mobility och programmet åtkomststrategi. Om du loggar din mobila enhet eller SaaS-app, är din identitet på för att få åtkomst till allt. På den högsta nivån omfattar en lösning för Identitetshantering förena och synkronisering mellan din identitet lagringsplatser, bland annat automatisera och centralisera att etablera resurser. ID-lösning bör vara en centraliserad identitet i både lokalt och i molnet och även använda någon form av identitetsfederation att underhålla centraliserad autentisering och på ett säkert sätt dela och samarbeta med externa användare och företag. Resurser mellan operativsystem och program till personer i eller tillhör en organisation. Organisationsstruktur kan ändras för att hantera etablering principer och procedurer.

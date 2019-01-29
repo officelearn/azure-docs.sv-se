@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.openlocfilehash: eb924a612188d905eb6c7127067fed2fd4b0f218
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 97d35eb3442b63736b40d51dda57b872813293ad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825535"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164069"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Möjliga orsaker till felmeddelandet ”du kan inte ta dig dit härifrån”
 Vid åtkomst till organisationens interna webbprogram eller tjänster, kan du få ett felmeddelande som säger, **du kan inte ta dig dit härifrån**. Det här meddelandet innebär att din organisation har infört en princip som förhindrar enheten från att komma åt din organisations resurser. Medan du kan få behöva kontakta din supportavdelning för att åtgärda problemet, är här några saker som du kan försöka först.

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: 47cfd5820c80a0f53772f5424f674603acdaf18d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: 6a588764908f72607bbb99e9b1ea031182c95e64
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166925"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Tokenreferens
 
@@ -70,7 +70,7 @@ När du använder Azure AD B2C har detaljerad kontroll över innehållet i dina 
 
 Observera att anspråk i ID-token inte returneras i någon särskild ordning. Dessutom kan du introduceras nya anspråk i ID-token när som helst. Din app ska inte bryter när nya anspråk introduceras. Här följer de anspråk som du förväntar dig att finnas i ID och åtkomst-token som utfärdas av Azure AD B2C. Ytterligare anspråk bestäms av principer. Du bör testa i Granska anspråk i exemplet ID-token genom att klistra in den i [jwt.ms](https://jwt.ms). Mer information finns i den [OpenID Connect-specifikationen](https://openid.net/specs/openid-connect-core-1_0.html).
 
-| Namn | Begäran | Exempelvärde | Beskrivning |
+| Name | Begäran | Exempelvärde | Beskrivning |
 | --- | --- | --- | --- |
 | Målgrupp |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |En målgrupp anspråket identifierar den avsedda mottagaren av token. Målgruppen är appens program-ID, som tilldelats din app i portalen för registrering av appen för Azure AD B2C. Din app ska verifiera det här värdet och avvisa token om det inte matchar. Målgruppen är synonyma med resursen. |
 | Utfärdare |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Det här anspråket identifierar den säkerhetstokentjänst (STS) som skapar och returnerar token. Den identifierar också Azure AD-katalog där användaren autentiserades. Din app bör verifiera utfärdare anspråk så att token kom från Azure Active Directory v2.0-slutpunkten. |

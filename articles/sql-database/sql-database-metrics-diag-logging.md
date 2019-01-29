@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 49c411487a29a7faa5a6cec5087a85d472309a4b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54044577"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102197"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
@@ -68,7 +68,7 @@ Du kan ställa in Azure SQL-databaser och databaser i hanterade instanser för a
 | [Alla mått](sql-database-metrics-diag-logging.md#all-metrics): Innehåller DTU/CPU-procent, DTU/CPU-begränsning, fysiska data läses procent, skriva log procent brandväggsanslutningar, sessioner procent, arbetare procent, lagring, lagringsprocent och XTP lagringsprocent lyckades/misslyckades/blockerades. | Ja | Nej |
 | [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): Innehåller information om den fråga runtime statistik, till exempel CPU-användning och fråga varaktighet. | Ja | Ja |
 | [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): Innehåller information om frågestatistik för vänta (vad dina frågor kan ha väntat), till exempel processor, LOG och låser. | Ja | Ja |
-| [Fel](sql-database-metrics-diag-logging.md#errors-dataset): Innehåller information om SQL-fel på databasen. | Ja | Nej |
+| [Fel](sql-database-metrics-diag-logging.md#errors-dataset): Innehåller information om SQL-fel på databasen. | Ja | Ja |
 | [DatabaseWaitStatistics](sql-database-metrics-diag-logging.md#database-wait-statistics-dataset): Innehåller information om hur lång tid att databasen har använt för att vänta på olika vänta typer. | Ja | Nej |
 | [Tidsgränser](sql-database-metrics-diag-logging.md#time-outs-dataset): Innehåller information om tidsgränser för databasen. | Ja | Nej |
 | [Block](sql-database-metrics-diag-logging.md#blockings-dataset): Innehåller information om blockering av händelser i databasen. | Ja | Nej |
@@ -414,15 +414,15 @@ Se tabellen nedan för mer information om loggar för hanterad instans.
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure|
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: ResourceUsageStats |
 |Resurs|Namn på resursen |
 |ResourceType|Namnet på resurstypen. Alltid: MANAGEDINSTANCES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på den hanterade instansen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |SKU_s|Hanterad instans produkt-SKU |
 |virtual_core_count_s|Antal virtuella kärnor tillgängliga |
 |avg_cpu_percent_s|Genomsnittlig CPU-procent |
@@ -443,18 +443,18 @@ Se följande tabell innehåller information om loggfiler för Azure SQL- och han
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreRuntimeStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreRuntimeStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |query_hash_s|Fråge-hash |
 |query_plan_hash_s|Fråge-hash för plan |
 |statement_sql_handle_s|Sql instruktionsreferensen |
@@ -494,18 +494,18 @@ Läs mer om [Query Store runtime statistikdata](https://docs.microsoft.com/sql/r
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: QueryStoreWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: QueryStoreWaitStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |wait_category_s|Kategori för väntan |
 |is_parameterizable_s|Är frågan parameteriseringsbar |
 |statement_type_s|Typ av instruktionen |
@@ -532,18 +532,18 @@ Läs mer om [Query Store vänta statistikdata](https://docs.microsoft.com/sql/re
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
+|Type|Alltid: AzureDiagnostics |
 |ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQ |
 |Kategori|Namnet på kategorin. Alltid: Fel |
 |OperationName|Åtgärdens namn. Alltid: ErrorEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |Meddelande|Felmeddelande i oformaterad text |
 |user_defined_b|Är fel användardefinierade-bitars |
 |error_number_d|Felkod |
@@ -561,18 +561,18 @@ Läs mer om [felmeddelanden för SQL Server](https://msdn.microsoft.com/library/
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: DatabaseWaitStatistics |
 |OperationName|Åtgärdens namn. Alltid: DatabaseWaitStatisticsEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |wait_type_s|Vänta typens namn |
 |start_utc_date_t [UTC]|Mätt periodens starttid |
 |end_utc_date_t [UTC]|Uppmätt period sluttid |
@@ -590,18 +590,18 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: Timeouter |
 |OperationName|Åtgärdens namn. Alltid: TimeoutEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |error_state_d|Felkod för tillstånd |
 |query_hash_s|Fråga hash, om det är tillgängligt |
 |query_plan_hash_s|Fråga plan hash, om det är tillgängligt |
@@ -613,18 +613,18 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: block |
 |OperationName|Åtgärdens namn. Alltid: BlockEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |lock_mode_s|LOCK-läge som används av frågan |
 |resource_owner_type_s|Den låsägare |
 |blocked_process_filtered_s|Blockerad processen rapporten XML |
@@ -637,18 +637,18 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC] |Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: Dödlägen |
 |OperationName|Åtgärdens namn. Alltid: DeadlockEvent |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |deadlock_xml_s|Deadlock rapporten XML |
 
 ### <a name="automatic-tuning-dataset"></a>Automatisk justering datauppsättning
@@ -658,18 +658,18 @@ Läs mer om [databasen vänta statistik](https://docs.microsoft.com/sql/relation
 |TenantId|Ditt klient-ID |
 |SourceSystem|Alltid: Azure |
 |TimeGenerated [UTC]|Tidsstämpel när loggen registrerades |
-|Typ|Alltid: AzureDiagnostics |
-|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT. SQL |
+|Type|Alltid: AzureDiagnostics |
+|ResourceProvider|Namnet på resursprovidern. Alltid: MICROSOFT.SQL |
 |Kategori|Namnet på kategorin. Alltid: AutomaticTuning |
 |Resurs|Namn på resursen |
-|ResourceType|Namnet på resurstypen. Alltid: SERVRAR/DATABASER |
+|ResourceType|Namnet på resurstypen. Alltid: SERVERS/DATABASES |
 |SubscriptionId|Prenumerations-GUID för databasen |
 |ResourceGroup|Namnet på resursgruppen för databasen |
 |LogicalServerName_s|Namnet på servern för databasen |
 |LogicalDatabaseName_s|Namnet på databasen |
 |ElasticPoolName_s|Namnet på den elastiska poolen för databasen, om sådana |
 |DatabaseName_s|Namnet på databasen |
-|Resurs-ID|Resurs-URI |
+|ResourceId|Resurs-URI |
 |RecommendationHash_s|Unikt hash för automatisk justering rekommendation |
 |OptionName_s|Åtgärden för automatisk justering |
 |Schema_s|Databasschemat |

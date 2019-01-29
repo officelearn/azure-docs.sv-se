@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -17,12 +17,12 @@ ms.date: 10/27/2017
 ms.author: celested
 ms.reviewer: andret
 ms.custom: aaddev
-ms.openlocfilehash: 7374b3f71474cb4d4e59e9d81ab1de7bea265483
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: f8c5e5f598ab8566eacb594ff66b63ce3793f57f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337146"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093206"
 ---
 # <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare
 
@@ -52,13 +52,13 @@ Där *{Your söktermer}* är dina sökord.
 
 |Verktyget  |Beskrivning  |
 |---------|---------|
-|[jwt.MS](https://jwt.ms)| Klistra in ID eller åtkomst-token för att avkoda de anspråk namn och värden |
+|[jwt.ms](https://jwt.ms)| Klistra in ID eller åtkomst-token för att avkoda de anspråk namn och värden |
 |[Felkod analyzer](https://apps.dev.microsoft.com/portal/tools/errors)| Klistra in en felkod som togs emot under inloggning eller medgivanden sidor för att se möjliga orsaker och reparationer |
-|[Microsoft Graph-testaren](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som låter dig göra begäranden och se svar mot Microsoft Graph API|
+|[Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som låter dig göra begäranden och se svar mot Microsoft Graph API|
 
 <br/>
 
-[![Stackspill](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
+[![Stack Overflow](./media/developer-support-help-options/stackoverflow-logo.png)](https://www.stackoverflow.com)
 ## <a name="post-a-question-to-stack-overflow"></a>Ställa en fråga till Stack Overflow
 
 Stack Overflow är prioriterade kanalen för utveckling-relaterade frågor – där båda är medlemmar i communityn för Microsoft-gruppmedlemmar är direkt inblandade i att hjälpa dig att lösa problemet.
@@ -72,7 +72,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 |OWIN-mellanprogrammet  |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)|
 |[Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  |[[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
 |[Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  |[[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2b)|
-|[Microsoft Graph-API](https://developer.microsoft.com/graph/) |[[microsoft graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
+|[Microsoft Graph-API](https://developer.microsoft.com/graph/) |[[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph)
 |Annat område som rör autentisering eller auktorisering ämnen |[[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory)
 <br/>
 > [!TIP]
@@ -83,7 +83,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 <br/>
 
 
-[![Stackspill](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
+[![Stack Overflow](./media/developer-support-help-options/github-logo.png)](https://www.github.com)
 ## <a name="create-a-github-issue"></a>Skapa ett GitHub-ärende
 
  Om du hittar något fel eller problem som rör våra bibliotek, skapar du ett problem på vår GitHub-lagringsplatser. Eftersom våra bibliotek är öppen källkod, kan du också skicka en pull-begäran. I följande artikel innehåller en lista med bibliotek och deras GitHub-databaser:

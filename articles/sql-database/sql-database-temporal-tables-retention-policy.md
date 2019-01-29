@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f339cadc63d5e5cd934d07e7b0fffc6342ca04c7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a6fc5f353eceab5ac02895e110aec6e11ddc5d0c
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159115"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101909"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Hantera historiska data i Temporala tabeller med bevarandeprincip
 Temporala tabeller kan öka databasstorleken, mer än vanliga tabeller, särskilt om du behåller historiska data under en längre tidsperiod. Därför är bevarandeprincipen för historiska data en viktig aspekt av planering och hantering av livscykeln för varje temporal tabell. Temporala tabeller i Azure SQL Database levereras med enkel att använda kvarhållning mekanism som hjälper dig att utföra den här uppgiften.
@@ -26,26 +26,26 @@ Temporala kvarhållning kan vara konfigurerad på nivån enskilda tabeller, vilk
 
 När du har definierat bevarandeprincip startar Azure SQL Database regelbundet kontrollera om det finns historiska rader som är kvalificerade för automatisk rensning. Identifiering av matchande rader och deras tas bort från historiktabellen sker transparent, i bakgrundsaktiviteten som är schemalagda och körs av systemet. Ålder villkor för historik tabellrader kontrolleras baserat på kolumnen som motsvarar slutet av SYSTEM_TIME-perioden. Om kvarhållningsperioden, exempelvis är inställt på sex månader, uppfylla tabellrader som är berättigade för rensning följande villkor:
 
-````
+```
 ValidTo < DATEADD (MONTH, -6, SYSUTCDATETIME())
-````
+```
 
 I föregående exempel, antas vi som **ValidTo** kolumnen som motsvarar slutet av SYSTEM_TIME-perioden.
 
 ## <a name="how-to-configure-retention-policy"></a>Så här konfigurerar du bevarandeprincip?
 Innan du konfigurerar bevarandeprincipen för en temporal tabell, kontrollera först om temporala historiska kvarhållning har aktiverats *på databasnivå*.
 
-````
+```
 SELECT is_temporal_history_retention_enabled, name
 FROM sys.databases
-````
+```
 
 Databasen flaggan **is_temporal_history_retention_enabled** är inställt på på som standard, men användaren kan ändra den med instruktionen ALTER DATABASE. Den också automatiskt är inställt på OFF efter [tidpunkt för återställning](sql-database-recovery-using-backups.md) igen. Om du vill aktivera temporala lagringsrensningen för din databas, kör du följande uttryck:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 > [!IMPORTANT]
 > Du kan konfigurera kvarhållning för temporala tabeller, även om **is_temporal_history_retention_enabled** har värdet OFF, men inte automatisk rensning för föråldrade rader utlöses i så fall.
@@ -54,7 +54,7 @@ SET TEMPORAL_HISTORY_RETENTION  ON
 
 Bevarandeprincipen är rätt när tabellen skapas genom att ange värdet för parametern in HISTORY_RETENTION_PERIOD:
 
-````
+```
 CREATE TABLE dbo.WebsiteUserInfo
 (  
     [UserID] int NOT NULL PRIMARY KEY CLUSTERED
@@ -72,16 +72,16 @@ CREATE TABLE dbo.WebsiteUserInfo
         HISTORY_RETENTION_PERIOD = 6 MONTHS
      )
  );
-````
+```
 
-Azure SQL Database kan du ange kvarhållningsperiod med olika tidsenheter: dagar, veckor, månader och år. Om in HISTORY_RETENTION_PERIOD utelämnas antas obegränsad kvarhållning. Du kan också använda oändlig nyckelordet uttryckligen.
+Azure SQL Database kan du ange kvarhållningsperiod med olika tidsenheter: DAGAR, veckor, månader och år. Om in HISTORY_RETENTION_PERIOD utelämnas antas obegränsad kvarhållning. Du kan också använda oändlig nyckelordet uttryckligen.
 
 I vissa situationer kan du konfigurera kvarhållning av säkerhetskopior när tabellen har skapats eller om du vill ändra tidigare konfigurerade värde. I det fallet använder du ALTER TABLE-instruktionen:
 
-````
+```
 ALTER TABLE dbo.WebsiteUserInfo
 SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
-````
+```
 
 > [!IMPORTANT]
 > Ställa in SYSTEM_VERSIONING på OFF *bevaras inte* värdet för kvarhållning perioden. Ställa in SYSTEM_VERSIONING på ON utan in HISTORY_RETENTION_PERIOD anges uttryckligen resultat i obegränsad kvarhållningsperiod.
@@ -90,7 +90,7 @@ SET (SYSTEM_VERSIONING = ON (HISTORY_RETENTION_PERIOD = 9 MONTHS));
 
 Om du vill granska aktuella tillståndet för policyn för datalagring i, Använd följande fråga som ansluter till temporal kvarhållninsrensning aktivering flaggan på databasnivå med kvarhållningsperioder för enskilda tabeller:
 
-````
+```
 SELECT DB.is_temporal_history_retention_enabled,
 SCHEMA_NAME(T1.schema_id) AS TemporalTableSchema,
 T1.name as TemporalTableName,  SCHEMA_NAME(T2.schema_id) AS HistoryTableSchema,
@@ -101,7 +101,7 @@ OUTER APPLY (select is_temporal_history_retention_enabled from sys.databases
 where name = DB_NAME()) AS DB
 LEFT JOIN sys.tables T2   
 ON T1.history_table_id = T2.object_id WHERE T1.temporal_type = 2
-````
+```
 
 
 ## <a name="how-sql-database-deletes-aged-rows"></a>Hur SQL-databas tar bort föråldrade rader?
@@ -127,7 +127,7 @@ Rensa på grupperade columnstore-indexet fungerar optimalt om historiska raderna
 
 Undvik att återskapa kolumnlagringsindex för historiktabellen med begränsad kvarhållningsperiod eftersom det kan ändra ordning i radgrupper naturligt införts av systemversionshanteringen igen. Om du behöver återskapa kolumnlagringsindex i historiktabellen gör du genom att återskapa den ovanpå kompatibla B-trädindex, bevarar ordning i radgrupper krävs för vanliga slutfasen i rensningen. Samma metod som vidtas om du skapar den temporala tabellen med befintliga historiktabellen som har det klustrade kolumnindex utan garanterad dataordningen:
 
-````
+```
 /*Create B-tree ordered by the end of period column*/
 CREATE CLUSTERED INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory (ValidTo)
 WITH (DROP_EXISTING = ON);
@@ -135,13 +135,13 @@ GO
 /*Re-create clustered columnstore index*/
 CREATE CLUSTERED COLUMNSTORE INDEX IX_WebsiteUserInfoHistory ON WebsiteUserInfoHistory
 WITH (DROP_EXISTING = ON);
-````
+```
 
 När begränsad kvarhållningsperiod har konfigurerats för historiktabellen med klustrade columnstore-index kan skapa du inte ytterligare icke-grupperade B-trädindex i tabellen:
 
-````
+```
 CREATE NONCLUSTERED INDEX IX_WebHistNCI ON WebsiteUserInfoHistory ([UserName])
-````
+```
 
 Ett försök att köra ovan instruktionen misslyckas med följande fel:
 
@@ -152,9 +152,9 @@ Alla frågor på den temporala tabellen filtrerar automatiskt bort historiska ra
 
 Följande bild visar frågeplanen för en enkel fråga:
 
-````
+```
 SELECT * FROM dbo.WebsiteUserInfo FOR SYSTEM_TIME ALL;
-````
+```
 
 Frågeplanen innehåller ytterligare filter som tillämpas på slutet av periodkolumnen (ValidTo) i operatorn klustrade Index skanna för historiktabellen (markerat). Det här exemplet förutsätts att kvarhållningsperiod för en månad har ställts in för WebsiteUserInfo tabell.
 
@@ -173,10 +173,10 @@ Anta att en temporal tabell har en månad kvarhållningen angiven tidsperiod. Om
 
 Om du vill aktivera temporala lagringsrensningen kör du följande Transact-SQL-instruktionen efter punkt återställning till tidpunkt:
 
-````
+```
 ALTER DATABASE <myDB>
 SET TEMPORAL_HISTORY_RETENTION  ON
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 Om du vill veta hur du använder Temporala tabeller i dina program, Kolla in [komma igång med Temporala tabeller i Azure SQL Database](sql-database-temporal-tables.md).

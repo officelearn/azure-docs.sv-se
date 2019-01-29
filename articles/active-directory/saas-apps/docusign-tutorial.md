@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med DocuSign | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med DocuSign | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och DocuSign.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: a691288b-84c1-40fb-84bd-5b06878865f0
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 6b2b5f72c9520498d4834bbbfaf6c56656a807e7
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 8838cb2479078a8b6b4f031128501f09284b6bdd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53015232"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55159282"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Självstudier: Azure Active Directory-integration med DocuSign
+# <a name="tutorial-azure-active-directory-integration-with-docusign"></a>Självstudier: Azure Active Directory-integrering med DocuSign
 
 I den här självstudien får du lära dig hur du integrerar DocuSign med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera DocuSign med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till DocuSign.
 - Du kan aktivera användarna att automatiskt få loggat in på DocuSign (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med DocuSign, behöver du följande 
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +70,7 @@ För att konfigurera integrering av DocuSign i Azure AD, som du behöver lägga 
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +78,7 @@ För att konfigurera integrering av DocuSign i Azure AD, som du behöver lägga 
 
     ![DocuSign i resultatlistan](./media/docusign-tutorial/tutorial_docusign_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med DocuSign baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **DocuSign** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
@@ -110,24 +110,24 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     ![DocuSign domän och URL: er med enkel inloggning för information](./media/docusign-tutorial/tutorial_docusign_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/sp/<IDPID>`
 
-    b. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
+    b. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska inloggnings-URL och identifierare som beskrivs senare **visa SAML 2.0 slutpunkter** avsnitt i självstudien.
 
 5. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/docusign-tutorial/tutorial_docusign_certificate.png) 
 
 6. På den **konfigurera DocuSign** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Microsoft Azure Active Directory-identifierare
 
@@ -210,9 +210,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Skapa en Azure AD-användare][100]
 
@@ -224,9 +224,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.
@@ -235,7 +235,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
 ### <a name="creating-a-docusign-test-user"></a>Skapa en testanvändare DocuSign
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i DocuSign. DocuSign stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt DocuSign om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i DocuSign. DocuSign stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt DocuSign om det inte finns ännu.
 >[!Note]
 >Om du vill skapa en användare manuellt kan du kontakta [DocuSign-supportteamet](https://support.docusign.com/).
 

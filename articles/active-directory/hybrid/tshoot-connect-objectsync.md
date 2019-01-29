@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ed13014dd5ad559ed3793ff52ae410be9174ae2b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 0a740a2e26e0f2dd6e4f6d8ea039b107dce65066
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461322"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158119"
 ---
 # <a name="troubleshoot-object-synchronization-with-azure-ad-connect-sync"></a>Felsöka objektsynkronisering med Azure AD Connect-synkronisering
 Den här artikeln innehåller steg för felsökning av problem med synkronisering av objektet med hjälp av felsökningsaktiviteten. Om du vill se hur felsökning fungerar i Azure Active Directory (Azure AD) Connect, se [den här korta videon](https://aka.ms/AADCTSVideo).

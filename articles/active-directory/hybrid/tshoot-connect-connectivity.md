@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c1a575c3a30dfe5923fc0026c6d41d1b20276e49
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 5b17cf1bfae884e1fbdf47dabd78a1c6c3e1c7a0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076476"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151608"
 ---
 # <a name="troubleshoot-connectivity-issues-with-azure-ad-connect"></a>Felsökning av anslutningsproblem med Azure AD Connect
 Den här artikeln förklarar hur anslutningar mellan Azure AD Connect och Azure AD fungerar och hur du felsöker problem med nätverksanslutningen. Dessa problem är mest sannolikt ska synas i en miljö med en proxyserver.

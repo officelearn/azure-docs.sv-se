@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a76be5203c7d62ba973993bf6338b7496e2fce80
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902696"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203937"
 ---
 # <a name="lambda-search-syntax"></a>Lambda-Söksyntax
 
@@ -93,7 +93,7 @@ Returnerar *Action.Continue* om villkoret är *SANT*. Om villkoret är *FALSKT* 
 
 Genererar ett slumptal som är större än eller lika med 0,0 och mindre än 1,0. Den här funktionen returnerar *SANT* endast om talet är mindre än eller lika med *p*.
 
-Jämfört med *json* search *lambda* search är mer uttrycksfull: C# lambda-uttryck kan användas direkt att ange frågemönster. Här följer två exempel.
+Jämfört med *json* search *lambda* search är mer uttrycksfull: C#Lambda-uttryck kan användas direkt att ange frågemönster. Här följer två exempel.
 
 ```
 MAG.StartFrom(@"{

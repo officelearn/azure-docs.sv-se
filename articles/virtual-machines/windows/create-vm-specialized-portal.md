@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: b24435501ed1312e91ebec9b9c434971dbc94b55
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091257"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163457"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Skapa en virtuell dator från en virtuell Hårddisk med hjälp av Azure portal
 
@@ -28,6 +28,8 @@ Det finns flera sätt att skapa en virtuell dator (VM) i Azure:
 - Om du redan har en virtuell hårddisk (VHD) för att använda eller du vill kopiera den virtuella Hårddisken från en befintlig virtuell dator att använda, kan du skapa en ny virtuell dator av *koppla* den virtuella Hårddisken till den nya virtuella datorn som en OS-disk. 
 
 - Du kan skapa en ny virtuell dator från den virtuella Hårddisken för en virtuell dator som har tagits bort. Om du har en Azure-dator som inte fungerar korrekt kan du ta bort den virtuella datorn och använda dess VHD för att skapa en ny virtuell dator. Du kan återanvända samma virtuella Hårddisk, eller så kan du skapa en kopia av den virtuella Hårddisken genom att skapa en ögonblicksbild och sedan skapa en ny hanterad disk från ögonblicksbilden. Även om det tar några få steg för att skapa en ögonblicksbild, bevarar den ursprungliga virtuella Hårddisken och ger dig en reserv.
+
+- Ta en klassisk virtuell dator och använda den virtuella Hårddisken för att skapa en ny virtuell dator som använder Resource Manager-distributionsmodellen och hanterade diskar. För bästa resultat bör **stoppa** klassisk virtuell dator i Azure-portalen innan du skapar ögonblicksbilden.
  
 - Du kan skapa en Azure-dator från en lokal virtuell Hårddisk genom att ladda upp en lokal VHD och kopplar den till en ny virtuell dator. Du använder PowerShell eller något annat verktyg för att överföra den virtuella Hårddisken till ett lagringskonto och sedan du skapar en hanterad disk från den virtuella Hårddisken. Mer information finns i [överföra en specialiserad virtuell Hårddisk](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 

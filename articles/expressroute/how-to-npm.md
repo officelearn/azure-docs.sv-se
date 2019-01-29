@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 01/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: e72c2ceaedd23f4e3ee2006930302321498eb736
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 93fd42739e0ec8ca9230688274b31fac5edf216d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53104738"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098586"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Konfigurera övervakare av nätverksprestanda för ExpressRoute
 
@@ -38,15 +38,15 @@ Du kan:
 Övervakningsagenterna installeras på flera servrar, både lokalt och i Azure. Agenterna kommunicerar med varandra, men inte skickar data kan de skicka TCP handshake-paket. Kommunikation mellan agenterna kan Azure för att mappa nätverkets topologi och sökvägen kan ta en trafiken.
 
 1. Skapa en arbetsyta för NPM. Det här är samma som en Log Analytics-arbetsyta.
-2. Installera och konfigurera programvaruagenter: 
+2. Installera och konfigurera programvaruagenter. (Om du bara vill övervaka över Microsoft-Peering kan du inte behöver installera och konfigurera programvaruagenter.): 
     * Installera övervakningsagenter på lokala servrar och virtuella Azure-datorer (för privat peering).
     * Konfigurera inställningar på övervakningsservrar agent för att tillåta övervakningsagenterna att kommunicera. (Öppna portar i brandväggen, osv.)
 3. Konfigurera regler för nätverkssäkerhetsgrupper (NSG) för att tillåta övervakningsagenten installeras på Azure virtuella datorer ska kunna kommunicera med en lokal övervakning av agenter.
-4. Konfigurera övervakning: automatiskt upptäcka och hantera vilka nätverk som är synliga i NPM.
+4. Konfigurera övervakning: Automatiskt upptäcka och hantera vilka nätverk som är synliga i NPM.
 
 Om du redan använder Övervakare av nätverksprestanda för att övervaka andra objekt eller tjänster och du redan har arbetsytan i en av regionerna som stöds, kan du hoppa över steg 1 och steg 2 och börjar din konfiguration med steg3.
 
-## <a name="configure"></a>Steg 1: Skapa en arbetsyta
+## <a name="configure"></a>Steg 1: Skapar en arbetsyta
 
 Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till ExpressRoute-kretsar.
 
@@ -78,7 +78,7 @@ Skapa en arbetsyta i den prenumeration som har virtuella nätverk-länk till Exp
 
 ## <a name="agents"></a>Steg 2: Installera och konfigurera agenter
 
-### <a name="download"></a>2.1: ladda ned installationsfilen för agenten
+### <a name="download"></a>2.1: Ladda ned installationsfilen för agenten
 
 1. Gå till den **gemensamma inställningar för** fliken den **konfiguration av övervakaren av nätverksprestanda** för din resurs. Klickar du på agenten som motsvarar din server processor från den **installera Log Analytics-agenter** avsnittet och ladda ned installationsfilen.
 2. Kopiera den **arbetsyte-ID** och **primärnyckel** till anteckningar.
@@ -111,11 +111,11 @@ Vi rekommenderar att du installerar minst två agenter på båda sidor av Expres
     ![Konto](./media/how-to-npm/10.png)
 6. På den **klar att installera** sidan, kontrollerar du valen och klickar sedan på **installera**.
 7. På sidan **Konfigurationen har slutförts** klickar du på **Slutför**.
-8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Log Analytics. När du är ansluten, agenten visar ett meddelande om: **The Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
+8. När du är klar visas Microsoft Monitoring Agent på Kontrollpanelen. Du kan granska konfigurationen där och kontrollera att agenten är ansluten till Azure Log Analytics. När du är ansluten, visar agenten ett meddelande om: **Microsoft Monitoring Agent har anslutits till tjänsten Microsoft Operations Management Suite**.
 
 9. Upprepa proceduren för varje virtuellt nätverk som du behöver som ska övervakas.
 
-### <a name="proxy"></a>2.3: konfigurera proxyinställningar (valfritt)
+### <a name="proxy"></a>2.3: Konfigurera proxyinställningar (valfritt)
 
 Om du använder en webbproxy för att få åtkomst till Internet, kan du använda följande steg för att konfigurera proxyinställningar för Microsoft Monitoring Agent. Utföra dessa steg för varje server. Om du har många servrar att konfigurera är det kanske enklare att använda ett skript för att automatisera processen. I så, fall Se [konfigurera proxyinställningar för Microsoft Monitoring Agent med hjälp av ett skript](../log-analytics/log-analytics-windows-agent.md).
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 393426678d9331837bdc3b73c4e491dbe7eae6fa
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: dacc2ca995bebd0ae65d9c8221fc1954687949ee
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834833"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55179845"
 ---
 # <a name="register-in-dev-center"></a>Registrera i Dev Center  
 För att kontrollera att du inte är inloggad på ett konto för personliga webbläsaren kan öppna en ny Internet Explorer InPrivate- eller Chrome Incognito-webbläsarsession.  
@@ -68,7 +68,7 @@ För att kontrollera att du inte är inloggad på ett konto för personliga webb
 
 9.  I den `Registration - Review` avsnittet granskar din kontoinformation och bekräfta att allt är korrekt.  
 
-    Läs villkoren i publiceringsavtalet för Microsoft Azure Marketplace.  
+    Läs villkoren för Microsoft Azure Marketplace [publiceringsavtalet](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf).  
 
     Klicka på kryssrutan som anger att du har läst och accepterat villkoren.  
     
@@ -103,7 +103,7 @@ Följ stegen nedan för att skicka in ett supportärende om du har problem med r
 3.  Klicka på knappen Skicka för att du skickar biljetten. 
 
 
-## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Problem: Lägga till information om bank och skatt för utgivaren payouts  
+## <a name="issue-add-bank-and-tax-information-for-publisher-payouts"></a>Ärende: Lägg till information om bank och skatt för utgivaren payouts  
 Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact listtyp.  
 *   Om du publicerar kommersiella erbjudanden för inköp, sedan du måste lägga till betalnings-och skatteinformation och begärandevalideringen i Dev Center.  
     >[!IMPORTANT]
@@ -143,7 +143,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar: 
 
 *   **Vilken utgivare kräver Kontoregistrering för en Dev Center?** 
-> Utgivaren som publicerar i Transact listtyp: VM, Azure-appar: lösningsmallar och hanterade appar.  
+> Utgivare som publicerar i Transact listtyp: Virtuella Azure-appar: lösningsmallar och hanterade appar.  
 
 *   **Varför är Dev Center-konto som krävs?**
 > Dev Center-konto är en nödvändig för att Microsoft ska fakturera kunden på utgivarens räkning för Transact listtyp. Dev Center-konto registrering kan Microsoft verifiera eventuella juridiska krav, skatte- och bankinformation för ditt företag. Att lära dig mer genom att klicka [här.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
@@ -165,7 +165,7 @@ Bank-och skatt krävs för alla kommersiella erbjudanden med hjälp av transact 
 > Slutför den [Marketplace registrering](https://azuremarketplace.microsoft.com/en-us/sell/signup) formuläret för att ta emot en kampanjkoden Dev Center.
  
 *   **Vad kan jag förvänta mig när du har slutfört registreringen?**
-> Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Kontrollera din e-postkonto med Microsoft”. Klicka på den känsliga verifieringslänken tid att slutföra registreringen. *Om du inte har fått ett e-postmeddelande inom 24 timmar, kontrollera mappen för skräppost.*
+> Leta efter ett e-postmeddelande från verify@microsoft.com med ämnesrad ”åtgärd krävs: Verifiera din e-postkonto med Microsoft ”. Klicka på den känsliga verifieringslänken tid att slutföra registreringen. *Om du inte har fått ett e-postmeddelande inom 24 timmar, kontrollera mappen för skräppost.*
 
 *   **Vad är nästa steg efter Dev Center-verifiering?**
 > Gå till ”program” (https://developer.microsoft.com/dashboard/Account/Programs) och logga in på Dev Center-konto. Om du inte ser Azure som ett registrerat program, tittar du under ”rekommenderas program du” och sedan leta efter Azure för att välja ”Kom igång”.

@@ -10,16 +10,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e08ca3453cc43fa0f35102ca5563b4b07ce45dea
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 423842d3e2485334a916423e997c12669a126adb
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215012"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155076"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Tilldela licenser till användare av gruppmedlemskap i Azure Active Directory
 
@@ -59,7 +59,7 @@ I det här exemplet innehåller klienten en säkerhetsgrupp med namnet **persona
 Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Azure AD har startats för att bearbeta alla befintliga medlemmar i gruppen. Den här inledande åtgärden kan ta en stund, beroende på den aktuella storleken för gruppen. Nästa steg beskriver hur du kontrollerar att processen är klar och fastställa om ytterligare åtgärder krävs för att lösa problem.
 
 > [!NOTE]
-> Du kan starta samma tilldelning från en alternativ plats: **användare och grupper** i Azure AD. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**. Hitta gruppen, markerar du den och gå till den **licenser** fliken. Den **tilldela** knappen överst i fönstret öppnar tilldelningsfönstret licens.
+> Du kan starta samma tilldelning från en alternativ plats: **Användare och grupper** i Azure AD. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**. Hitta gruppen, markerar du den och gå till den **licenser** fliken. Den **tilldela** knappen överst i fönstret öppnar tilldelningsfönstret licens.
 
 ## <a name="step-2-verify-that-the-initial-assignment-has-finished"></a>Steg 2: Verifiera att den första tilldelningen är klar
 
@@ -77,13 +77,13 @@ Nu har vi angett en licensmall för personalavdelningen gruppen. Bakgrunden i Az
 
 3. Visa mer detaljerad information om licens bearbetning under **Azure Active Directory** > **användare och grupper** > *gruppnamn*  >  **Granskningsloggar**. Observera följande aktiviteter:
 
-   - Aktivitet: **börja tillämpa gruppbaserad licens för användare**. Detta loggas när systemet tar upp licenstilldelning ändringen i den aktuella och startar den tillämpas på alla användarmedlemmar. Den innehåller information om ändringen som gjordes.
+   - Aktivitet: **Börja tillämpa gruppbaserad licens för användare**. Detta loggas när systemet tar upp licenstilldelning ändringen i den aktuella och startar den tillämpas på alla användarmedlemmar. Den innehåller information om ändringen som gjordes.
 
    - Aktivitet: **Slutför tillämpning av gruppbaserad licens för användare**. Detta loggas när systemet har slutfört behandlingen alla användare i gruppen. Den innehåller en sammanfattning av hur många användare har bearbetats och hur många användare gick inte att koppla grupplicenserna.
 
    [Läs det här avsnittet](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) mer information om hur granskningsloggar kan användas för att analysera ändringar gjorda av gruppbaserad licensiering.
 
-## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Kontrollera licensproblem och löser dem.
+## <a name="step-3-check-for-license-problems-and-resolve-them"></a>Steg 3: Sök efter licensproblem och löser dem.
 
 1. Gå till **Azure Active Directory** > **användare och grupper** > **alla grupper**, och hitta den **personalavdelningen** grupp som har tilldelats licenser.
 2. På den **personalavdelningen** gruppen väljer **licenser**. Meddelandet överst i fönstret visar att det finns 10 användare licenser kunde inte tilldelas till. Om du klickar på det öppnas en lista över alla användare i en licensiering feltillstånd i den här gruppen.

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: df1f8d805c950bdfbe2c18f365a450a6d630891b
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: a9ca61d7845c427429282885c658f4a4cb9b7b7a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300446"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097681"
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Med hjälp av privilegierad slutpunkt i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Som Azure Stack-operatör, bör du använda administratörsportal, PowerShell eller Azure Resource Manager API: er för de flesta dagliga hanteringsuppgifter. Men för vissa mindre vanliga åtgärder, som du behöver använda den *privilegierad slutpunkt* (program). Detta program är en förkonfigurerad PowerShell fjärrkonsolen ger tillgång till tillräckligt funktioner för att utföra en viss uppgift. Slutpunkten använder [PowerShell JEA (Just Enough Administration)](https://docs.microsoft.com/powershell/jea/overview) att exponera endast en begränsad uppsättning cmdlets. Ett lågprivilegierat konto används för att komma åt detta program och anropa begränsad uppsättning cmdlets. Det krävs inga administratörskonton. För ytterligare säkerhet tillåts skript inte.
 
@@ -52,32 +52,32 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
 
     - Kör följande kommando från en upphöjd Windows PowerShell-session för att lägga till detta program som en betrodd värd på den strikta virtuella datorn körs på maskinvara livscykel värden eller den privilegierade åtkomst-arbetsstationen på ett integrerat system.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Om du kör ASDK, kan du logga in på värden development kit.
 
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
     - På ett integrerat system:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
     - Om du kör ASDK:
      
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         Enter-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack-domänen*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenord**: Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot.
 
     > [!NOTE]
@@ -88,7 +88,7 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
     Många av dessa cmdletar är avsedda enbart för integrerat system-miljöer (till exempel de cmdletar som rör datacenter-integrering). Följande cmdletar har verifierats i ASDK:
 
     - Clear-värd
-    - Stäng PrivilegedEndpoint
+    - Close-PrivilegedEndpoint
     - Avsluta-PSSession
     - Get-AzureStackLog
     - Get-AzureStackStampInformation
@@ -96,10 +96,10 @@ Innan du påbörjar den här proceduren för ett integrerat system, kontrollera 
     - Get-FormatData
     - Get-Help
     - Get-ThirdPartyNotices
-    - Mått-Object
+    - Measure-Object
     - New-CloudAdminUser
-    - Standard ut
-    - Ta bort CloudAdminUser
+    - Out-Default
+    - Remove-CloudAdminUser
     - Select-Object
     - Set-CloudAdminUserPassword
     - Test-AzureStack
@@ -124,38 +124,38 @@ Om du vill importera program-session på den lokala datorn, gör du följande:
 
     -Kör följande kommando från en upphöjd Windows PowerShell-session för att lägga till detta program som en betrodd värd på strikt virtuell dator som körs på maskinvara livscykel värden eller Privileged Access Workstation på ett integrerat system.
 
-      ````PowerShell
+      ```PowerShell
         winrm s winrm/config/client '@{TrustedHosts="<IP Address of Privileged Endpoint>"}'
-      ````
+      ```
     - Om du kör ASDK, kan du logga in på värden development kit.
 
 2. Öppna en Windows PowerShell-session på den strikta virtuella datorn körs på maskinvara livscykel värd eller Privileged Access Workstation. Kör följande kommandon för att upprätta en fjärrsession på den virtuella datorn som är värd för detta program:
  
     - På ett integrerat system:
-      ````PowerShell
+      ```PowerShell
         $cred = Get-Credential
 
         $session = New-PSSession -ComputerName <IP_address_of_ERCS> `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ````
+      ```
       Den `ComputerName` parameter kan vara antingen IP-adressen eller DNS-namnet på en av de virtuella datorerna som är värd för detta program. 
     - Om du kör ASDK:
      
-      ````PowerShell
+      ```PowerShell
        $cred = Get-Credential
 
        $session = New-PSSession -ComputerName azs-ercs01 `
           -ConfigurationName PrivilegedEndpoint -Credential $cred
-      ```` 
+      ``` 
    När du uppmanas, Använd följande autentiseringsuppgifter:
 
-      - **Användarnamnet**: Ange CloudAdmin-konto i formatet **&lt;*Azure Stack domän*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
+      - **Användarnamnet**: Ange CloudAdmin-konto i formatet  **&lt; *Azure Stack-domänen*&gt;\cloudadmin**. (För ASDK, användarnamnet är **azurestack\cloudadmin**.)
       - **Lösenord**: Ange samma lösenord som angavs under installationen för AzureStackAdmin domänadministratörskontot.
 
 3. Importera program-sessionen till den lokala datorn
-    ````PowerShell 
+    ```PowerShell 
         Import-PSSession $session
-    ````
+    ```
 4. Du kan nu använda tabbifyllning och göra skript som vanligt på din lokala PowerShell-session med alla funktioner och cmdletar för detta program, utan att minska säkerhetspositionen för Azure Stack. Ha det så kul!
 
 
@@ -178,4 +178,5 @@ När avskrift filerna har överförts till filresursen, är de automatiskt bort 
 
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Diagnostiska verktyg för Azure Stack](azure-stack-diagnostics.md)

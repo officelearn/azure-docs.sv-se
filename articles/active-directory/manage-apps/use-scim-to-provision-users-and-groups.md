@@ -7,7 +7,7 @@ author: barbkess
 manager: daveba
 editor: ''
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 13491b10096e651b40a83e072057250e856d4ef1
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 140391b02dab8ce6b47d5350d6d40a9673b29e11
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469546"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161774"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -422,7 +422,7 @@ Följande bild visar meddelandena som Azure Active Directory skickar till SCIM-t
      System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]>  Query(
        Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
        string correlationIdentifier);
-   ````
+   ```
 
    Här är definitionen av gränssnittet Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters: 
 

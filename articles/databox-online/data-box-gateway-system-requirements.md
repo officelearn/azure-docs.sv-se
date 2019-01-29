@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 10/17/2018
+ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: da22c09a227069af0eeb42ab67a59189ae494185
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 81df0a776cd22490342230567deacb23097cd12e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53256680"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094197"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Systemkrav för Azure Data Box-Gateway (förhandsversion)
 
@@ -46,7 +46,7 @@ Här är en lista över operativsystem som stöds för klienter eller värdar so
 
 | **Operativsystem/plattform** | **Versioner** |
 | --- | --- |
-| Windows Server |2012 R2 <br> 2016 |
+| Windows Server |2012 R2 <br> 2016 <br> 2019 |
 | Windows |8, 10 |
 | SUSE Linux |Enterprise Server 12 (x86_64)|
 | Ubuntu |16.04.3 LTS|
@@ -64,7 +64,7 @@ Här är en lista över operativsystem som stöds för klienter eller värdar so
 | **Operativsystem/plattform**  |**Versioner**   |**Anteckningar**  |
 |---------|---------|---------|
 |Hyper-V  |  2012 R2 <br> 2016  |         |
-|VMware ESXi     | 6.0 <br> 6.5        |VMware-verktyg stöds inte.         |
+|VMware ESXi     | 6.0 <br> 6.5 <br> 6.7       |VMware-verktyg stöds inte.         |
 
 
 ## <a name="supported-storage-accounts"></a>Stöds storage-konton
@@ -126,11 +126,11 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 |     URL-mönster                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Komponenten/funktioner                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box-Gateway-tjänsten<br>Azure Service Bus<br>Autentiseringstjänsten    |
-|    http://*.Backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Enhetsaktivering                                                                                    |
+|    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Enhetsaktivering                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Återkallade certifikat                                                                               |
-|    https://*.core.windows.net/* https://*. data.microsoft.com http://*. msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure storage-konton och övervakning                                                                |
-|    http://windowsupdate.microsoft.com<br>http://*. windowsupdate.microsoft.com<br>https://*. windowsupdate.microsoft.com<br>http://*. update.microsoft.com<br>https://*. update.microsoft.com<br>http://*. windowsupdate.com<br>http://download.microsoft.com<br>http://*. download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*. ws.microsoft.com<br>https://*. ws.microsoft.com<br>http://*.MP.microsoft.com        |    Microsoft Update-servrar                                                                             |
-|    http://*.Deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
+|    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Azure storage-konton och övervakning                                                                |
+|    http://windowsupdate.microsoft.com<br>http://*.windowsupdate.microsoft.com<br>https://*.windowsupdate.microsoft.com<br>http://*.update.microsoft.com<br>https://*.update.microsoft.com<br>http://*.windowsupdate.com<br>http://download.microsoft.com<br>http://*.download.windowsupdate.com<br>http://wustat.windows.com<br>http://ntservicepack.microsoft.com<br>http://*.ws.microsoft.com<br>https://*.ws.microsoft.com<br>http://*.mp.microsoft.com        |    Microsoft Update-servrar                                                                             |
+|    http://*.deploy.akamaitechnologies.com                                                                                                                                                                                                                                                                                                                                                                                                             |    Akamai CDN                                                                                           |
 |    https://*.partners.extranet.microsoft.com/*                                                                                                                                                                                                                                                                                                                                                                                                        |    Supportpaket                                                                                      |
 |    http://*.data.microsoft.com                                                                                                                                                                                                                                                                                                                                                                                                                        |    Telemetritjänsten i Windows, finns i uppdateringen för customer experience och diagnostiktelemetri      |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                         |

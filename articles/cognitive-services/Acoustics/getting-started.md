@@ -6,16 +6,16 @@ services: cognitive-services
 author: kegodin
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 0aad231b4a57c2d9927a553a43394681282b5494
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902951"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55155960"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Komma igång med projektet Akustik
 Den här snabbstartsguiden visar hur du integrerar plugin-programmet i dina Unity-projekt, skapa din scen och tillämpa Akustik till ljud källor. Den här snabbstarten måste du först skapa en [Azure batch-kontot](create-azure-account.md). Den här guiden förutsätter bekant med Unity.
@@ -34,7 +34,7 @@ Importera Akustik UnityPackage i projektet.
 
 ![Importera paket](media/ImportPackage.png)  
 
-* Välj **MicrosoftAcoustics.unitypackage**
+* Choose **MicrosoftAcoustics.unitypackage**
 
 Om du importerar plugin-programmet till ett befintligt projekt, ditt projekt kan redan ha en **mcs.rsp** filen i projektroten, som anger alternativ för att C#-kompilatorn. Du måste slå samman innehållet i filen med den mcs.rsp-fil som ingår i projektet Akustik plugin-programmet.
 
@@ -82,11 +82,11 @@ Vi bädda in ljud runtime DSP för Akustik i Unity's spatializer framework och i
 ## <a name="set-up-the-acoustics-lookup-table"></a>Konfigurera Akustik uppslagstabell
 Dra och släpp den **Microsoft Acoustics** prefab från projektpanelen i din scen:
 
-![Akustik Prefab](media/AcousticsPrefab.png)
+![Acoustics Prefab](media/AcousticsPrefab.png)
 
 Klicka på den **ProjectAcoustics** spel objektet och gå till dess inspector panel. Ange platsen för ändamålet resultatet (. FÖRBERED-fil i **tillgångar/AcousticsData**) genom att dra och släppa den till skriptet Akustik Manager eller genom att klicka på knappen cirkel bredvid textrutan.
 
-![Akustik Manager](media/AcousticsManager.png)  
+![Acoustics Manager](media/AcousticsManager.png)  
 
 ## <a name="apply-acoustics-to-sound-sources"></a>Tillämpa Akustik till ljud källor
 Skapa en ljudkälla. Klicka på kryssrutan längst ned på panelen för den AudioSource granska där det står **Spatialize**. Se till att **Spatial Blend** är inställd på fullständig 3D.  

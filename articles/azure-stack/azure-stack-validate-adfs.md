@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: jerskine
-ms.openlocfilehash: 87e3f03ce5d4c65d5c4b1754300f5d57feca2a49
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 7e6c54add856a69e1750b0b6ca0a058c2d80bfd8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416519"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101744"
 ---
 # <a name="validate-ad-fs-integration-for-azure-stack"></a>Verifiera AD FS-integrering för Azure Stack
 
@@ -29,7 +29,7 @@ Använd verktyget Azure Stack-beredskap för installation (AzsReadinessChecker) 
 Validerar beredskap för installation:
 
 * Den *federationsmetadata* innehåller giltig XML-elementen för federation.
-* Den *AD FS SSL-certifikatet* kan hämtas och en kedja av förtroende kan skapas. På stämpel måste AD FS lita på SSL-certifikatkedjan. Certifikatet måste signeras av samma *certifikatutfärdare* som Azure Stack-distributionscertifikat eller av en partner för betrodda utfärdare. En fullständig lista över betrodda utfärdare partner Se [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+* Den *AD FS SSL-certifikatet* kan hämtas och en kedja av förtroende kan skapas. På stämpel måste AD FS lita på SSL-certifikatkedjan. Certifikatet måste signeras av samma *certifikatutfärdare* används för Azure Stack-distributionscertifikat eller av en partner för betrodda utfärdare. En fullständig lista över betrodda utfärdare partner Se [TechNet](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 * Den *signeringscertifikatet för AD FS* är betrodda och inte närmar sig förfallodatum.
 
 Läs mer om Azure Stack datacenter-integrering, [Azure Stack datacenter-integrering - identitet](azure-stack-integrate-identity.md).
@@ -101,8 +101,8 @@ Som standard skrivs båda filerna till `C:\Users\<username>\AppData\Local\Temp\A
 
 Användning:
 
-* **-OutputPath**: den *sökväg* parameter i slutet av kommandot Kör för att ange en annan plats.
-* **-CleanReport**: parametern i slutet av kör kommandot för att rensa AzsReadinessCheckerReport.json av föregående rapportinformation. Mer information finns i [Azure Stack verifieringsrapport](azure-stack-validation-report.md).
+* **-OutputPath**: Den *sökväg* parameter i slutet av kommandot Kör för att ange en annan plats.
+* **-CleanReport**: Parametern i slutet av kör kommandot för att rensa AzsReadinessCheckerReport.json av föregående rapportinformation. Mer information finns i [Azure Stack verifieringsrapport](azure-stack-validation-report.md).
 
 ## <a name="validation-failures"></a>Verifieringsfel
 
@@ -114,9 +114,9 @@ I följande exempel ger vägledning om vanliga verifieringsfel.
 
 `Invoke-AzsADFSValidation : The term 'Invoke-AzsADFSValidation' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.`
 
-**Orsak**: PowerShell Autoload kunde inte läsa in modulen beredskap för installation på rätt sätt.
+**Orsak**: Det gick inte att läsa in modulen beredskap för installation korrekt PowerShell Autoload.
 
-**Lösning**: importera modulen beredskap för installation uttryckligen. Kopiera och klistra in följande kod i PowerShell och uppdatera \<version\> med siffra för den installerade versionen.
+**Upplösning**: Importera modulen beredskap för installation uttryckligen. Kopiera och klistra in följande kod i PowerShell och uppdatera \<version\> med siffra för den installerade versionen.
 
 `Import-Module "c:\Program Files\WindowsPowerShell\Modules\Microsoft.AzureStack.ReadinessChecker\<version>\Microsoft.AzureStack.ReadinessChecker.psd1" -Force`
 

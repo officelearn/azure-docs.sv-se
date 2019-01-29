@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
-ms.openlocfilehash: 1118be1c335d8f88171b359c9cd273cdd2923021
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-jan
+ms.openlocfilehash: bf357a4f46f0aed26b8f06c524faffa9e7431de2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321729"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176564"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Framtvinga en namnprincip för Office 365-grupper i Azure Active Directory (förhandsversion)
 
@@ -81,14 +81,14 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
 1. Öppna Windows PowerShell-appen som administratör.
 2. Avinstallera en eventuell tidigare version av AzureADPreview.
   
-  ````
+  ```
   Uninstall-Module AzureADPreview
-  ````
+  ```
 3. Installera den senaste versionen av AzureADPreview.
   
-  ````
+  ```
   Install-Module AzureADPreview
-  ````
+  ```
 Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger du **Y** (Ja). Det kan ta några minuter för den nya modulen att installeras.
 
 ## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Konfigurera gruppen namngivningspolicy för en klient med hjälp av Azure AD PowerShell
@@ -97,10 +97,10 @@ Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger d
 
 2. Kör följande kommandon för att förbereda körningen av cmdletarna.
   
-  ````
+  ```
   Import-Module AzureADPreview
   Connect-AzureAD
-  ````
+  ```
   På sidan **Logga in på ditt konto** som öppnas anger du ditt administratörskonto och lösenord för att ansluta till tjänsten, och väljer **Logga in**.
 
 3. Följ stegen i [Azure Active Directory-cmdletar för att konfigurera gruppinställningar](groups-settings-cmdlets.md) för att skapa gruppinställningar för den här klientorganisationen.
@@ -109,35 +109,35 @@ Om du får ett meddelande om åtkomst till en icke-betrodd lagringsplats anger d
 
 1. Hämta den aktuella namnprincip om du vill visa de aktuella inställningarna.
   
-  ````
+  ```
   $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
-  ````
+  ```
   
 2. Visa de aktuella gruppinställningarna.
   
-  ````
+  ```
   $Setting.Values
-  ````
+  ```
   
 ### <a name="set-the-naming-policy-and-custom-blocked-words"></a>Ange namnprincip och anpassade spärrad ord
 
 1. Ange gruppnamnsprefix och -suffix i Azure AD PowerShell. För att funktionen ska fungera korrekt måste [GroupName] inkluderas i inställningen.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
-  ````
+  ```
   
 2. Ange de anpassade blockerade ord du vill begränsa. I följande exempel visas hur du kan lägga till dina egna anpassade ord.
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
-  ````
+  ```
   
 3. Spara inställningarna för att den nya principen ska gälla, som i följande exempel.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
   
 Klart! Du har konfigurera principer för namngivning och har lagt till din blockerade ord.
 
@@ -147,14 +147,14 @@ Mer information finns i artikeln [Azure Active Directory-cmdletar för att konfi
 
 Här är ett exempel på ett PowerShell.skript för att exportera flera blockerade ord:
 
-````
+```
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
-````
+```
 
 Här är ett exempel PowerShell-skript för att importera flera blockerade ord:
 
-````
+```
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -166,27 +166,27 @@ if ($Settings.Count -eq 0)
 $Settings["CustomBlockedWordsList"] = $BadWords
 $Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
-````
+```
 
 ## <a name="remove-the-naming-policy"></a>Ta bort namnprincip
 
 1. Ta bort gruppnamnsprefix och -suffix i Azure AD PowerShell.
   
-  ````
+  ```
   $Setting["PrefixSuffixNamingRequirement"] =""
-  ````
+  ```
   
 2. Ta bort de anpassade spärrade orden. 
   
-  ````
+  ```
   $Setting["CustomBlockedWordsList"]=""
-  ````
+  ```
   
 3. Spara inställningarna.
   
-  ````
+  ```
   Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
-  ````
+  ```
 
 
 ## <a name="naming-policy-experiences-across-office-365-apps"></a>Namngivningspolicy resultat på alla Office 365-appar

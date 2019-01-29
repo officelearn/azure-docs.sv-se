@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integration med Carlson Wagonlit resa | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Carlson Wagonlit resa | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Carlson Wagonlit resa.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 2745e165-94ab-43b1-970a-4547b4e5b501
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/19/2018
 ms.author: jeedes
-ms.openlocfilehash: b1854b8e2c05fb2bcc5bd864c9ed8049250743b8
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 564f78b28be96209012542fd0d2e4de94872e583
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39054122"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55188084"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Självstudier: Azure Active Directory-integration med Carlson Wagonlit resa
+# <a name="tutorial-azure-active-directory-integration-with-carlson-wagonlit-travel"></a>Självstudier: Azure Active Directory-integrering med Carlson Wagonlit resa
 
 I den här självstudien får du lära dig hur du integrerar Carlson Wagonlit resor med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Carlson Wagonlit resor med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Carlson Wagonlit resa.
 - Du kan aktivera användarna att automatiskt få loggat in på Carlson Wagonlit resor (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Carlson Wagonlit resor, behöver
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av Carlson Wagonlit resa till Azure AD, som
 
 **Utför följande steg för att lägga till Carlson Wagonlit resa från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ Om du vill konfigurera integreringen av Carlson Wagonlit resa till Azure AD, som
 
     ![Bladet för Enterprise-program][2]
     
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ Om du vill konfigurera integreringen av Carlson Wagonlit resa till Azure AD, som
 
     ![Carlson Wagonlit resa i resultatlistan](./media/carlsonwagonlit-tutorial/tutorial_carlsonwagonlittravel_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Carlson Wagonlit resa baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -86,13 +86,13 @@ I Carlson Wagonlit resa, tilldela värdet för den **användarnamn** i Azure AD 
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Carlson Wagonlit resor, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+2. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 3. **[Skapa en testanvändare Carlson Wagonlit resa](#create-a-carlson-wagonlit-travel-test-user)**  – du har en motsvarighet för Britta Simon i Carlson Wagonlit resa som är länkad till en Azure AD-representation av användaren.
-4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+5. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Carlson Wagonlit resa.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Carlson Wagonlit resa** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -118,12 +118,12 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 5. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/carlsonwagonlit-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/carlsonwagonlit-tutorial/tutorial_general_400.png)
 
-6. Att konfigurera enkel inloggning på **Carlson Wagonlit resa** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Carlson Wagonlit resa supportteamet](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+6. Att konfigurera enkel inloggning på **Carlson Wagonlit resa** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Carlson Wagonlit resa supportteamet](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 > 
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
@@ -160,7 +160,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-carlson-wagonlit-travel-test-user"></a>Skapa en testanvändare Carlson Wagonlit resa
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Carlson Wagonlit resa. Arbeta med [Carlson Wagonlit resa supportteamet](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) att lägga till användare i Carlson Wagonlit reseplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+I det här avsnittet skapar du en användare som kallas Britta Simon i Carlson Wagonlit resa. Arbeta med [Carlson Wagonlit resa supportteamet](http://www.carlsonwagonlit.in/content/cwt/in/en/technical-assistance.html) att lägga till användare i Carlson Wagonlit reseplattform. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

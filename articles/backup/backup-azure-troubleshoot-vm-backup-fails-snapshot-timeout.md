@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 7446c680ffdba28fef7eb68441d04a4c18398847
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: e96c637e3c01ccfc27afa967d830c7d0254d11e7
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912572"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104243"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup-fel: Problem med agenten eller -tillägget
 
@@ -105,7 +105,7 @@ När du har registrerat och schemalägga en virtuell dator för Azure Backup-tj�
 **Felkod**: UserErrorUnsupportedDiskSize <br>
 **Felmeddelande**: För närvarande har Azure Backup inte stöd för diskstorlekar som är större än 1023 GB <br>
 
-Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till omedelbar återställning. Uppgradera till omedelbar återställning ger stöd för upp till 4TB, finns i den här [artikeln](backup-instant-restore-capability.md#upgrading-to-instant-restore).  
+Din säkerhetskopieringen misslyckas, när du säkerhetskopierar virtuella datorer med diskstorlekar på över 1 023 GB, eftersom ditt valv inte har uppgraderats till omedelbar återställning. Uppgradera till omedelbar återställning ger stöd för upp till 4TB, finns i den här [artikeln](backup-instant-restore-capability.md#upgrading-to-instant-restore). När du uppgraderar kan ta det upp till två timmar innan prenumerationen för att kunna ta del av den här funktionen. Ange tillräckliga bufferten innan du försöker igen.  
 
 ## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported – för närvarande Azure Backup stöder inte Standard SSD-diskar
 

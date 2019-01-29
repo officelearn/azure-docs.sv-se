@@ -9,12 +9,12 @@ ms.author: robreed
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 74587d05ec27e87d87aa3647c22f5c90a9cdcf58
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 1a3cfb51cc75c89c5a4580b1b7721eb763078980
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436410"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096712"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Konfigurera datorer för hantering av Azure Automation State Configuration
 
@@ -168,7 +168,7 @@ Lokala Linux-datorer, Linux-datorer i Azure och Linux-datorer i Azure-moln kan d
 1. Kontrollera att den senaste versionen av [PowerShell Desired State Configuration för Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) är installerat på datorer som du vill att publicera till Azure Automation State Configuration.
 1. Om den [PowerShell DSC lokal konfigurationshanterare standardvärden](/powershell/dsc/metaconfig4) matchar ditt användningsområde och du vill integrera datorer, till exempel att de **både** hämta från och rapportera till Azure Automation-Tillståndskonfiguration:
 
-   - På varje Linux-dator för att publicera till Azure Automation tillstånd Configuratin, använder du `Register.py` att publicera med hjälp av PowerShell DSC Local Configuration Manager-standardinställningar:
+   - På varje Linux-dator för att publicera till Azure Automation-Tillståndskonfiguration, använder du `Register.py` att publicera med hjälp av PowerShell DSC Local Configuration Manager-standardinställningar:
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 

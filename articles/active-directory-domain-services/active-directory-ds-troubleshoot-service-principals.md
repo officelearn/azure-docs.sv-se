@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Felsöka konfigurationen av tjänstens huvudnamn | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Felsöka Service Principal configuration | Microsoft Docs'
 description: Felsöka konfigurationen av tjänstens huvudnamn för Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -8,19 +8,19 @@ manager: ''
 editor: ''
 ms.assetid: f168870c-b43a-4dd6-a13f-5cfadc5edf2c
 ms.service: active-directory
-ms.component: domain-services
+ms.subservice: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ergreenl
-ms.openlocfilehash: bba7c70a5078d309a55f898c24389d42a8a604ab
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 2c39e8f172283f512037e0d991b2c22eb816c8f6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51035043"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55191337"
 ---
 # <a name="troubleshoot-invalid-service-principal-configuration-for-your-managed-domain"></a>Felsökning av ogiltig konfiguration för tjänstens huvudnamn för din hanterade domän
 
@@ -28,7 +28,7 @@ Den här artikeln hjälper dig att felsöka och lösa tjänstens huvudnamn-relat
 
 ## <a name="alert-aadds102-service-principal-not-found"></a>Varning AADDS102: Tjänstens huvudnamn hittades inte
 
-**Varningsmeddelande:** *ett tjänstens huvudnamn krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts förmåga att övervaka, hantera, korrigera och synkronisera din hanterade domän.*
+**Varningsmeddelande:** *Ett huvudnamn för tjänsten som krävs för Azure AD Domain Services ska fungera korrekt har tagits bort från Azure AD-katalogen. Den här konfigurationen påverkar Microsofts förmåga att övervaka, hantera, korrigera och synkronisera din hanterade domän.*
 
 [Tjänsthuvudnamn](../active-directory/develop/app-objects-and-service-principals.md) program som Microsoft använder för att hantera, uppdatera och underhålla din hanterade domän. Om de tas bort bryts Microsofts förmåga att hantera din domän.
 
@@ -50,7 +50,7 @@ Använd följande steg för att avgöra vilken tjänst som huvudnamn måste åte
 ## <a name="recreate-a-missing-service-principal-with-powershell"></a>Återskapa saknas tjänstens huvudnamn med PowerShell
 Följ stegen nedan om ett huvudnamn för tjänsten med ID ```2565bd9d-da50-47d4-8b85-4c97f669dc36``` saknas från Azure AD-katalogen.
 
-**Lösning:** du behöver Azure AD PowerShell för att slutföra de här stegen. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Lösning:** Du behöver Azure AD PowerShell för att slutföra de här stegen. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Skriv följande kommandon i ett PowerShell-fönster för att åtgärda problemet:
 1. Installera Azure AD PowerShell-modulen och importera den.
@@ -89,10 +89,10 @@ Följ stegen nedan om ett huvudnamn för tjänsten med ID ```443155a6-77f3-45e3-
 
 ## <a name="alert-aadds105-password-synchronization-application-is-out-of-date"></a>Varning AADDS105: Program för synkronisering av lösenord är inaktuell
 
-**Varningsmeddelande:** tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnas bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som behövs för att underhålla din hanterade domän. Synkronisering av lösenord på den hanterade domänen kan påverkas.
+**Varningsmeddelande:** Tjänstens huvudnamn med program-ID ”d87dcbc6-a371-462e-88e3-28ad15ec4e64” har tagits bort och sedan återskapas. Återskapning lämnas bakom inkonsekvent behörigheter på Azure AD Domain Services-resurser som behövs för att underhålla din hanterade domän. Synkronisering av lösenord på den hanterade domänen kan påverkas.
 
 
-**Lösning:** du behöver Azure AD PowerShell för att slutföra de här stegen. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
+**Lösning:** Du behöver Azure AD PowerShell för att slutföra de här stegen. Information om hur du installerar Azure AD PowerShell finns i [i den här artikeln](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0.).
 
 Skriv följande kommandon i ett PowerShell-fönster för att åtgärda problemet:
 1. Installera Azure AD PowerShell-modulen och importera den.

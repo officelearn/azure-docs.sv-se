@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8635d943120f0e79b8efcfe1f9be0b74d8bb4fac
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: adc780577e8c83411e173a5bfad75c3555119f11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433908"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093525"
 ---
 # <a name="update-management-solution-in-azure"></a>Lösningen för uppdateringshantering i Azure
 
@@ -216,7 +216,7 @@ Om du vill skapa en ny uppdateringsdistribution, Välj **distribution av schemau
 
 | Egenskap  | Beskrivning |
 | --- | --- |
-| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
+| Name |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper för att uppdatera (förhandsversion)|Definiera en fråga som baseras på en kombination av prenumeration, resursgrupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i din distribution. Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Mer om de olika metoderna för att skapa datorgrupper i Log Analytics finns i dokumentationen om [datorgrupper i Log Analytics](../azure-monitor/platform/computer-groups.md) |
@@ -443,8 +443,8 @@ on SourceComputerId
 on SourceComputerId
 | extend WorstMissingUpdateSeverity=coalesce(WorstMissingUpdateSeverity, -1)
 | summarize computersBySeverity=count() by WorstMissingUpdateSeverity)
-| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
-| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeeedOtherUpdatesCount=sum(computersNeeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
+| summarize assessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity>-1), notAssessedComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==-1), computersNeedCriticalUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==4), computersNeedSecurityUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==2), computersNeedOtherUpdatesCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==1), upToDateComputersCount=sumif(computersBySeverity, WorstMissingUpdateSeverity==0)
+| summarize assessedComputersCount=sum(assessedComputersCount), computersNeedCriticalUpdatesCount=sum(computersNeedCriticalUpdatesCount),  computersNeedSecurityUpdatesCount=sum(computersNeedSecurityUpdatesCount), computersNeedOtherUpdatesCount=sum(computersNeedOtherUpdatesCount), upToDateComputersCount=sum(upToDateComputersCount), notAssessedComputersCount=sum(notAssessedComputersCount)
 | extend allComputersCount=assessedComputersCount+notAssessedComputersCount
 
 
@@ -574,7 +574,7 @@ Läs hur du integrerar hanteringslösningen med System Center Configuration Mana
 
 Uppdatera inkludering kan du ange specifika uppdateringar tillämpas. Korrigeringsfiler eller paket som ingår är installerade. När korrigeringsfiler eller paket ingår och en klassificering har markerats, installeras både inkluderade objekt och objekt som uppfyller klassificeringen.
 
-Det är viktigt att veta att undantag åsidosätta inkluderingar. Till exempel om du definierar en regel för exkludering av `*`, och sedan inga korrigeringar eller paket som är installerade som de är alla undantagna. För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är installeras paketet inte.
+Det är viktigt att veta att undantag åsidosätta inkluderingar. Till exempel om du definierar en regel för exkludering av `*`, och sedan inga korrigeringar eller paket som är installerade som de är alla undantagna. Exkluderade korrigeringar fortfarande visa som saknas från datorn. För Linux-datorer om ett paket som ingår men innehåller ett beroende paket som har undantagits är installeras paketet inte.
 
 ## <a name="patch-linux-machines"></a>Patch Linux-datorer
 

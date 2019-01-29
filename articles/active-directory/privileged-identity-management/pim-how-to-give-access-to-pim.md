@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d7d064d9be3b180985c343b8dffc20f274fae048
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287095"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55163134"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Bevilja åtkomst till andra administratörer att hantera PIM
 
@@ -31,7 +31,7 @@ Kontrollera att det finns alltid minst två användare i en privilegierad Rollad
 
 ## <a name="grant-access-to-manage-pim"></a>Bevilja åtkomst till hantera PIM
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -69,7 +69,7 @@ Kontrollera att det finns alltid minst två användare i en privilegierad Rollad
 
 Innan du tar bort någon från rollen privilegierad Rolladministratör kan du alltid kontrollera kommer fortfarande att ha minst två användare som är tilldelade till den.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 

@@ -10,17 +10,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 3096fa77913ef1dd4eb491b3c0e5d7fa236f6c65
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020902"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164953"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
-> [!div class="op_single_selector" title1="Välj vilken version av Data Factory-tjänsten du använder:"]
+> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-copy-activity-performance.md)
 > * [Aktuell version](copy-activity-performance.md)
 
@@ -241,7 +241,13 @@ Vi rekommenderar att du gör följande för att finjustera prestanda för Data F
 
 1. **Upprätta en baslinje för**. Testa din pipeline med hjälp av Kopieringsaktivitet mot ett representativt datasampel under utvecklingsfasen för. Samla in information om och prestandaegenskaper följa [kopiera aktivitetsövervakning](copy-activity-overview.md#monitoring).
 
-2. **Diagnostisera och optimera prestanda**. Om du se prestanda inte uppfyller dina förväntningar kan behöva du identifiera flaskhalsar i prestanda. Sedan kan optimera prestanda för att ta bort eller minska effekten av flaskhalsar. En fullständig beskrivning av Prestandadiagnostik ligger utanför omfånget för den här artikeln, men här följer några vanliga överväganden:
+2. **Diagnostisera och optimera prestanda**. Om du se prestanda inte uppfyller dina förväntningar kan behöva du identifiera flaskhalsar i prestanda. Sedan kan optimera prestanda för att ta bort eller minska effekten av flaskhalsar. 
+
+    För vissa scenarier, du kan även se en ”**prestandajustering tips**” avsnittet av den [kopiera aktivitetsövervakning sidan](copy-activity-overview.md#monitor-visually), som talar om flaskhalsen identifieras och vägleder dig om hur du förbättrar kopia dataflöde för sådana kopia.
+
+    **Exempel: kopiera till Azure SQL DB med tips för prestandajustering** ![kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    En fullständig beskrivning av Prestandadiagnostik ligger utanför omfånget för den här artikeln, men här följer några vanliga överväganden:
 
    * Prestandafunktioner:
      * [Parallell kopia](#parallel-copy)
@@ -360,7 +366,7 @@ Var försiktig antalet datauppsättningar och kopieringsaktiviteter som kräver 
 
 ## <a name="sample-scenario-copy-from-an-on-premises-sql-server-to-blob-storage"></a>Exempelscenario: Kopiera från en lokal SQL Server till Blob storage
 
-**Scenariot**: En pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
+**Scenario**: En pipeline är utformat för att kopiera data från en lokal SQL Server till Blob storage i CSV-format. Om du vill göra kopieringsjobbet snabbare ska CSV-filer komprimeras bzip2-format.
 
 **Testning och analys**: Dataflödet för Kopieringsaktivitet är mindre än 2 Mbit/s, vilket är mycket långsammare än benchmark för prestanda.
 

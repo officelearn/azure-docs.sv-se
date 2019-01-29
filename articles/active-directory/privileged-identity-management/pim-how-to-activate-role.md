@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 11/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 534714accb504e4ce487950fef028ab675c46a87
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 75c8952b1fa7003b6a2c12c7e3e6be4983a25bba
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52496408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174116"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Aktivera mitt Azure AD-katalogroller i PIM
 
@@ -68,7 +68,7 @@ När du behöver utföra på en Azure AD directory-roll kan du begära aktiverin
 
     ![Slutförda aktivering fönstret](./media/pim-how-to-activate-role/directory-roles-activation-pane.png)
 
-1. Klicka på **aktivera**.
+1. Klicka på **Aktivera**.
 
     Om rollen inte kräver godkännande, aktiveras den och har lagts till i listan över aktiva roller. Om du vill använda rollen direkt, följer du stegen i nästa avsnitt.
 

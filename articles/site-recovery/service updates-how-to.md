@@ -1,6 +1,6 @@
 ---
 title: Uppdaterar Azure Site Recovery | Microsoft Docs
-description: Översikt över servic eupdates & uppgradera komponenter som används i Azure Site Recovery.
+description: Innehåller en översikt över uppdateringar av tjänsten och hur du uppgraderar komponenter som används i Azure Site Recovery.
 services: site-recovery
 author: rajani-janaki-ram
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/8/2019
 ms.author: rajanaki
-ms.openlocfilehash: eecd409c0256c42646edfc99208e180a42f1cb5b
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 4af881a3c49505e07a7fb73bb8af5a62e5e5a06f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401494"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55176938"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Uppdateringar av tjänsten i Azure Site Recovery
 Som en organisation måste du ta reda på hur du ska skydda data och appar/arbetsbelastningar som körs när planerade och oplanerade avbrott inträffar. Azure Site Recovery bidrar till din BCDR-strategi genom att hålla appar som körs på virtuella datorer och fysiska servrar tillgängliga om en plats kraschar. Site Recovery replikerar arbetsbelastningar som körs på virtuella datorer och fysiska servrar så att de fortfarande är tillgängliga på en sekundär plats om den primära platsen inte är tillgänglig. Den återställer arbetsbelastningar till den primära platsen när den är igång och körs igen.

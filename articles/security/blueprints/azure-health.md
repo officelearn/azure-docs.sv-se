@@ -1,5 +1,5 @@
 ---
-title: Azure Health Analytics skiss
+title: Azure Health Analytics Blueprint
 description: Vägledning för distribution av en HIPAA/HITRUST hälsotillstånd Analytics skiss
 services: security
 documentationcenter: na
@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b7232a72a2090465dfd75ef6a4277930e45bf9ed
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 6787f347661db61806180edde5c091a865051748
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53315782"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103080"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Azure-säkerhet och efterlevnad skissen - HIPAA/hitrust – hälsodata och AI
 
@@ -48,7 +48,7 @@ Den här skissen är avsedd att fungera som en modulbaserad grund för kunder en
 
 -   **Arkitekturdiagram för.** Diagrammet visar referensarkitekturen används för skissen och exemplet användningsfallsscenario.
 
--   [IaaS-tillägget](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) den här lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en Privieged åtkomst arbetsstation för att på ett säkert sätt hantera moln-bsed tjänster och lösningar. 
+-   [IaaS-tillägget](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) den här lösningen visar hur du migrerar en lokal SQL-baserad lösning till Azure och för att implementera en privilegierad åtkomst arbetsstation för att på ett säkert sätt hantera moln-bsed tjänster och lösningar. 
 
 ## <a name="solution-components"></a>Lösningskomponenter
 
@@ -104,7 +104,7 @@ Data Science fungerar Azure Machine Learning Studio. De kan importera, exportera
 
 -   Omfång: ResourceGroup
 
-### <a name="chief-medical-information-officer-cmio"></a>Chief Medical Information Officer: N)
+### <a name="chief-medical-information-officer-cmio"></a>Chief Medical Information Officer (CMIO)
 
 
 Cmio: N är mellan informatics/teknik och sjukvårdspersonalen inom organisationen. Ansvarsområdet ingår normalt med analytics för att avgöra om resurser allokeras på rätt sätt i organisationen.
@@ -156,7 +156,7 @@ Alexs jobb är att utvärdera tekniker som kan minska bördan med att hantera et
 
 **Datavetare – Adina**
 
-*E-postadress: Adina\_DataScientist*
+*E-postadress: Debra\_DataScientist*
 
 Adina ansvarar för att använda och skapa modeller som analyserar medicinska journaler för att ge insikter om patientvård. Adina använder SQL och det statistiska programmeringsspråket R för att skapa sin modeller.
 
@@ -374,7 +374,7 @@ Lösningen har stöd för Azure Event Grid, en enskild tjänst för att hantera 
 
     -   Säkerhet och granskning
 
-    -   Azure SQL DB-analys
+    -   Azure SQL DB Analytics
 
     -   [Azure WebApp Analytics](/azure/log-analytics/log-analytics-azure-web-apps-analytics) lösning
 

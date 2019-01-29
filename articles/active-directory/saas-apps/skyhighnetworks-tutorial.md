@@ -8,19 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 48d6ddd1-4d3e-4019-8234-5e5212684d9c
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 40237946adf0e9cf30367fd0464a6c32572c3aaf
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6b66a7343c6ddaa9ff8cf36489798a96fbdf1c30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423733"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175323"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skyhigh-networks"></a>Självstudier: Azure Active Directory-integrering med Skyhigh nätverk
 
@@ -30,7 +30,7 @@ Integrera Skyhigh nätverk med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Skyhigh nätverk.
 - Du kan aktivera användarna att automatiskt få loggat in på Skyhigh nätverk (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Skyhigh nätverk, behöver du f�
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av Skyhigh nätverk till Azure AD, som du b
 
 **Utför följande steg för att lägga till Skyhigh nätverk från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ Om du vill konfigurera integreringen av Skyhigh nätverk till Azure AD, som du b
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ Om du vill konfigurera integreringen av Skyhigh nätverk till Azure AD, som du b
 
     ![Skyhigh nätverk i listan med resultat](./media/skyhighnetworks-tutorial/tutorial_skyhighnetworks_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Skyhigh nätverk baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -84,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad användaren mot
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Skyhigh nätverk, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Skyhigh nätverk](#create-a-skyhigh-networks-test-user)**  – du har en motsvarighet för Britta Simon i Skyhigh nätverk som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt program för Skyhigh nätverk.
 
@@ -98,7 +98,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **Skyhigh nätverk** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -110,30 +110,30 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     a. I den **identifierare (entitets-ID)** textrutan anger du ett URL med hjälp av följande mönster: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<ENV>.myshn.net/shndash/response/saml-postlogin`
 
 1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Skyhigh nätverk domän och URL: er med enkel inloggning för information](./media/skyhighnetworks-tutorial/tutorial_skyhighnetworks_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<ENV>.myshn.net/shndash/saml/Azure_SSO`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Skyhigh nätverk klienten supportteamet](mailto:support@skyhighnetworks.com) att hämta dessa värden. 
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Skyhigh nätverk klienten supportteamet](mailto:support@skyhighnetworks.com) att hämta dessa värden. 
 
 1. På den **SAML-signeringscertifikat** klickar du på **certifikat (Base64)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/skyhighnetworks-tutorial/tutorial_skyhighnetworks_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/skyhighnetworks-tutorial/tutorial_skyhighnetworks_certificate.png) 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/skyhighnetworks-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/skyhighnetworks-tutorial/tutorial_general_400.png)
     
 1. På den **Skyhigh nätverk Configuration** klickar du på **konfigurera Skyhigh nätverk** att öppna **konfigurera inloggning** fönster. Kopiera den **URL för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** från den **Snabbreferens avsnittet.**
 
     ![Skyhigh nätverk konfiguration](./media/skyhighnetworks-tutorial/tutorial_skyhighnetworks_configure.png) 
 
-1. Att konfigurera enkel inloggning på **Skyhigh nätverk** sida, som du behöver skicka de hämtade **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till [ Skyhigh nätverk supportteam](mailto:support@skyhighnetworks.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Skyhigh nätverk** sida, som du behöver skicka de hämtade **certifikat (Base64), URL: en för utloggning, SAML entitets-ID och SAML enkel inloggning för tjänst-URL** till [ Skyhigh nätverk supportteam](mailto:support@skyhighnetworks.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -169,7 +169,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-skyhigh-networks-test-user"></a>Skapa en testanvändare Skyhigh nätverk
 
-I det här avsnittet skapar du en användare som kallas Britta Simon i Skyhigh nätverk. Arbeta med [Skyhigh nätverk supportteam](mailto:support@skyhighnetworks.com) att lägga till användare i Skyhigh nätverk-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
+I det här avsnittet skapar du en användare som kallas Britta Simon i Skyhigh nätverk. Arbeta med [Skyhigh nätverk supportteam](mailto:support@skyhighnetworks.com) att lägga till användare i Skyhigh nätverk-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

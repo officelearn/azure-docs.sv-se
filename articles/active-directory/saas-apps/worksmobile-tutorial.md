@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med rad WORKS | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med rad fungerar | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och rad fungerar.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 725f32fd-d0ad-49c7-b137-1cc246bf85d7
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
-ms.openlocfilehash: 34059652a33ddb539bf10a6d7931502c5a8694e3
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 3ebb8917ffadf11ecf8e2e89a67508be3dee7ef5
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423668"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150351"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Självstudier: Azure Active Directory-integration med rad fungerar
+# <a name="tutorial-azure-active-directory-integration-with-line-works"></a>Självstudier: Azure Active Directory-integrering med rad fungerar
 
 I den här självstudien får du lära dig hur du integrerar rad fungerar med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera rad fungerar med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till rad fungerar.
 - Du kan aktivera användarna att automatiskt få loggat in på rad fungerar (Single Sign-On) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med rad fungerar, behöver du följa
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -70,7 +70,7 @@ För att konfigurera integrering av rad fungerar i Azure AD, som du behöver lä
 
     ![Bladet för Enterprise-program][2]
 
-3. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+3. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -78,7 +78,7 @@ För att konfigurera integrering av rad fungerar i Azure AD, som du behöver lä
 
     ![RAD fungerar i resultatlistan](./media/worksmobile-tutorial/tutorial_lineworks_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med rad fungerar baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -100,7 +100,7 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 1. I Azure-portalen på den **rad fungerar** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 2. På den **väljer du en metod för enkel inloggning** dialogrutan klickar du på **Välj** för **SAML** läge för att aktivera enkel inloggning.
 
@@ -110,21 +110,21 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
     ![Konfigurera enkel inloggning](common/editconfigure.png)
 
-4. På den **SAML grundkonfiguration** avsnittet, utför följande steg:
+4. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg:
 
     ![RAD fungerar domän och URL: er med enkel inloggning för information](./media/worksmobile-tutorial/tutorial_lineworks_url.png)
 
-    a. I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://auth.worksmobile.com/d/login/<domain>/`
+    a. I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://auth.worksmobile.com/d/login/<domain>/`
 
     b. I den **identifierare** textrutan anger du ett URL: `worksmobile.com`
 
 5. På den **SAML-signeringscertifikat** sidan den **SAML-signeringscertifikat** klickar du på **hämta** att hämta **certifikat (Raw)** och spara certifikatfilen på datorn.
 
-    ![Länk för hämtning av certifikat](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
+    ![Länk för nedladdning av certifikatet](./media/worksmobile-tutorial/tutorial_lineworks_certificate.png) 
 
 6. På den **konfigurera rad fungerar** avsnittet, kopiera den lämpliga URL enligt dina behov.
 
-    a. Inloggningswebbadress
+    a. Inloggnings-URL
 
     b. Microsoft Azure Active Directory-identifierare
 
@@ -139,9 +139,9 @@ I det här avsnittet Aktivera Azure AD enkel inloggning i Azure-portalen och kon
 
 ### <a name="creating-an-azure-ad-test-user"></a>Skapa en Azure AD-användare för testning
 
-Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen kallas Britta Simon.
+Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen med namnet Britta Simon.
 
-1. I Azure-portalen, i den vänstra rutan väljer **Azure Active Directory**väljer **användare**, och välj sedan **alla användare**.
+1. Gå till den vänstra rutan i Azure-portalen och välj **Azure Active Directory**, välj **Users** och sedan **Alla användare**.
 
     ![Skapa en Azure AD-användare][100]
 
@@ -153,9 +153,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
 
     ![Skapa en Azure AD-användare för testning](common/create_aaduser_02.png)
 
-    a. I den **namn** anger **BrittaSimon**.
+    a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** skriver **brittasimon@yourcompanydomain.extension**  
+    b. I fältet **Användarnamn** anger du **brittasimon@yourcompanydomain.extension**  
     Till exempel, BrittaSimon@contoso.com
 
     c. Välj **egenskaper**väljer den **Show lösenord** kryssrutan och sedan skriva ned det värde som visas i rutan lösenord.

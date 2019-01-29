@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.component: pim
+ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3b9c998351432a591ece0a61d60256aea89a6f8f
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189726"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180899"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure-resursroller i PIM
 Privileged Identity Management (PIM) för Azure-resurser förenklar hur företag hantera privilegierad åtkomst till resurser i Azure. 
@@ -32,7 +32,7 @@ Om du är en administratör av Privilegierade roller som är intresserade av åt
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
 Du kan använda PIM för Azure Active Directory (Azure AD)-program i den [Azure-portalen](https://portal.azure.com/) att utföra din granskning. Om du inte har programmet i din portal, följer du dessa steg för att komma igång.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj användaren namn i det övre högra hörnet i Azure Portal och välj den katalog där du kommer du fungerar.
 3. Välj **alla tjänster**, och använda den **Filter** att söka efter *Azure AD Privileged Identity Management*.
 4. Kontrollera **fäst på instrumentpanelen**, och välj sedan **skapa**. PIM-program öppnas.
@@ -53,4 +53,4 @@ Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)
+- [Utför en åtkomstgranskning av mina Azure AD-katalogroller i PIM](pim-how-to-perform-security-review.md)

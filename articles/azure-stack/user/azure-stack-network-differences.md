@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 manager: femila
-ms.date: 10/22/2018
+ms.date: 01/25/2019
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg
 ms.reviewer: scottnap
-ms.openlocfilehash: 4aa62319ee37b2f82455d1a3c7ad2d224988d93e
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a02166b6dedb91a1a82a0b5a77e693c1fe390957
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54160071"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104634"
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Överväganden för nätverk i Azure Stack
 
@@ -29,8 +29,8 @@ Den här artikeln innehåller en översikt över unika överväganden för nätv
 
 | Tjänst | Funktion | Azure (global) | Azure Stack |
 |--------------------------|----------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| DNS | DNS för flera innehavare | Stöds | Stöds inte än |
-|  | AAAA DNS-poster | Stöds | Stöds inte |
+| DNS | Multi-tenant DNS | Stöds | Stöds inte än |
+|  | DNS AAAA records | Stöds | Stöds inte |
 |  | DNS-zoner per prenumeration | 100 (standard)<br>Kan ökas på begäran. | 100 |
 |  | DNS-postuppsättningar per zon | 5000 (standard)<br>Kan ökas på begäran. | 5000 |
 |  | Namnservrarna för zondelegering | Azure erbjuder fyra namnservrarna för varje användare (klient)-zon som har skapats. | Azure Stack tillhandahåller två namnservrar för varje användare (klient)-zon som har skapats. |
@@ -46,7 +46,7 @@ Den här artikeln innehåller en översikt över unika överväganden för nätv
 |  | Gällande säkerhetsregler | Stöds | Stöds inte än. |
 |  | Programsäkerhetsgrupper | Stöds | Stöds inte än. |
 | Virtuella nätverksgatewayer | Punkt-till-plats-VPN-Gateway | Stöds | Stöds inte än. |
-|  | Vnet-till-Vnet-Gateway | Stöds | Stöds inte än. |
+|  | Vnet-to-Vnet Gateway | Stöds | Stöds inte än. |
 |  | Typ av virtuellt nätverksgateway | Azure stöder VPN<br> Express Route <br> Hyper Net | Azure Stack har stöd för VPN-typ just nu. |
 |  | VPN-Gateway SKU: er | Stöd för Basic, GW1, GW2, GW3, Standard, höga prestanda, mycket hög prestanda. | Stöd för Basic, Standard och högpresterande SKU: er. |
 |  | VPN-typ | Azure stöder både principbaserad och Vägbaserad. | Azure Stack stöder Vägbaserad endast. |

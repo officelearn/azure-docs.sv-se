@@ -7,19 +7,19 @@ author: curtand
 manager: mtillman
 editor: ''
 ms.service: active-directory
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
-ms.custom: it-pro
-ms.openlocfilehash: 44fe3b54e2dfedb71b50a75befce96121ecebe05
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.custom: it-pro;seo-update-jan
+ms.openlocfilehash: ec1f36bee1a764f98473d7a6d1a6d7359dde9ea7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320250"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156164"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Ta över en ohanterad katalog som administratör i Azure Active Directory
 Den här artikeln beskrivs två sätt att ta över en DNS-domännamnet i en ohanterad katalog i Azure Active Directory (AD Azure). När en självbetjäningsanvändare registrerar sig för en molntjänst som använder Azure AD läggs de till i en ohanterad Azure AD-katalog baserat på e-postdomän. Mer information om självbetjäning eller ”viral” registrering för en tjänst finns i [vad är självbetjäningsregistrering för Azure Active Directory?](directory-self-service-signup.md)
@@ -131,42 +131,42 @@ cmdlet | Användning
 ### <a name="powershell-example"></a>PowerShell-exempel
 
 1. Anslut till Azure AD med de autentiseringsuppgifter som användes för att svara på självbetjäning erbjudandet:
-  ````
+  ```
     Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred
-  ````
+  ```
 2. Hämta en lista över domäner:
   
-  ````
+  ```
     Get-MsolDomain
-  ````
+  ```
 3. Kör cmdleten Get-MsolDomainVerificationDns för att skapa en utmaning:
-  ````
+  ```
     Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
   
     For example:
   
     Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
-  ````
+  ```
 
 4. Kopiera värdet (utmaningen) som returneras från det här kommandot. Exempel:
-  ````
+  ```
     MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
-  ````
+  ```
 5. Skapa en DNS txt-post som innehåller värdet som du kopierade i föregående steg i ditt offentliga DNS-namnområde. Namn för den här posten är namnet på den överordnade domänen, så om du skapar denna resurspost med hjälp av DNS-roll från Windows Server, post namn tomt och bara klistra in värdet i textrutan.
 6. Kör cmdleten Confirm-MsolDomain för att verifiera utmaningen:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName *your_domain_name*
-  ````
+  ```
   
   Exempel:
   
-  ````
+  ```
     Confirm-MsolEmailVerifiedDomain -DomainName contoso.com
-  ````
+  ```
 
 En lyckad utmaning återgår till Kommandotolken utan fel.
 

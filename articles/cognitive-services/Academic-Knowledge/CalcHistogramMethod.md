@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: cb47b3933ecb6e38aa7945ac7f81f7602a0c8034
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321300"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55192544"
 ---
 # <a name="calchistogram-method"></a>CalcHistogram, metod
 
@@ -30,29 +30,29 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
   
 ## <a name="request-parameters"></a>Parametrar för begäran
 
-Namn  |Värde | Krävs?  |Beskrivning
+Name  |Value | Krävs?  |Beskrivning
 -----------|----------|--------|----------
 **uttryck för Markörstorlek**    |Textsträngen | Ja  |Ett frågeuttryck som anger de entiteter som att beräkna histogram.
-**Modellen** |Textsträngen | Nej |Välj namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.
+**model** |Textsträngen | Nej |Välj namnet på den modell som du vill fråga.  För närvarande standardvärdet *senaste*.
 **Attribut** | Textsträngen | Nej<br>standard: | En kommaavgränsad lista som anger de attributvärden som ingår i svaret. Attributnamn är skiftlägeskänsliga.
 **antal** |Tal | Nej<br>Standard: 10 |Antalet resultat som ska returneras.
-**förskjutning**  |Tal | Nej<br>Standard: 0 |Index för det första resultatet ska returneras.
-**Timeout**  |Tal | Nej<br>Standard: 1000 |Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
+**offset**  |Tal | Nej<br>Standard: 0 |Index för det första resultatet ska returneras.
+**timeout**  |Tal | Nej<br>Standard: 1000 |Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
 
 ## <a name="response-json"></a>Svar (JSON)
 
-Namn | Beskrivning
+Name | Beskrivning
 --------|---------
 **uttryck för Markörstorlek**  |Parametern uttryck från begäran.
 **num_entities** | Totalt antal matchande entiteter.
 **Histogram** |  En matris med histogram, en för varje attribut som anges i begäran.
 **Histogram [x] .attribute** | Namnet på attributet för vilken histogrammet beräknas.
-**Histogram [x] .distinct_values** | Antal distinkta värden mellan matchande entiteter för det här attributet.
-**Histogram [x] .total_count** | Totalt antal värdet instanser mellan matchande entiteter för det här attributet.
+**histograms[x].distinct_values** | Antal distinkta värden mellan matchande entiteter för det här attributet.
+**histograms[x].total_count** | Totalt antal värdet instanser mellan matchande entiteter för det här attributet.
 **Histogram [x] .histogram** | Histogramdata för det här attributet.
 **histogram [.histogram [y] .value x]** |  Ett värde för attributet.
-**histogram [.histogram [y] .logprob x]**  |Totalt antal naturliga loggen sannolikhet med matchande entiteter med det här attributvärdet.
-**histogram [.histogram [y] .count x]**  |Antal matchande entiteter med det här attributvärdet.
+**histograms[x].histogram[y].logprob**  |Totalt antal naturliga loggen sannolikhet med matchande entiteter med det här attributvärdet.
+**histograms[x].histogram[y].count**  |Antal matchande entiteter med det här attributvärdet.
 **avbröts** | SANT om uppnåddes för begäran.
 
 

@@ -9,16 +9,16 @@ editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.component: pim
+ms.subservice: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: b4cffbd1ce240e4792fba84581dafb1933c71a62
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: f80eadf15148865f62e2d0f51e2e9d96ac4d147a
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55190538"
 ---
 # <a name="perform-an-access-review-of-my-azure-ad-directory-roles-in-pim"></a>Utför en åtkomstgranskning av min Azure AD-katalogroller i PIM
 Azure Active Directory (AD) Privileged Identity Management förenklar hur företag hantera privilegierad åtkomst till resurser i Azure AD och andra Microsoft onlinetjänster som Office 365 eller Microsoft Intune.  
@@ -30,7 +30,7 @@ Om du är en privilegierad rolladministratör eller den globala administratören
 ## <a name="add-the-privileged-identity-management-application"></a>Lägga till programmet Privileged Identity Management
 Du kan använda Azure AD Privileged Identity Management (PIM)-program i den [Azure-portalen](https://portal.azure.com/) att utföra din granskning.  Om du inte har Azure AD Privileged Identity Management-programmet på din portal, följer du dessa steg för att komma igång.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj ditt användarnamn i det övre högra hörnet av Azure-portalen och välj den katalog där du kommer du fungerar.
 3. Välj **Alla tjänster** och använd textrutan Filter för att söka efter **Azure AD Privileged Identity Management**.
 4. Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**. Programmet Privileged Identity Management öppnas.
@@ -48,4 +48,4 @@ Följ dessa steg för att hitta och slutföra åtkomstgranskningen:
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
 
-- [Utför en åtkomstgranskning av min Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)
+- [Utför en åtkomstgranskning av mina Azure-resursroller i PIM](pim-resource-roles-perform-access-review.md)

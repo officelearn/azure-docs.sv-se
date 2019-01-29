@@ -10,12 +10,12 @@ ms.component: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: 12e91a07d09929ba59873d0d56f4e19b20077f53
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 297547d52333bf84af69a780c98ce9d84938cf94
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53999761"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097765"
 ---
 # <a name="project-url-preview-v7-reference"></a>Project URL-förhandsgranskning v7-referens
 
@@ -31,10 +31,10 @@ Du måste använda endast data från URL-förhandsgranskning för att visa förh
 Om du vill begära URL-förhandsgranskning resultat, skicka en begäran till följande slutpunkt. Använda rubriker och URL-parametrar för att definiera ytterligare specifikationer.
 
 Slutpunkt GET:
-````
+```
 https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=queryURL
 
-````
+```
 
 Begäran måste använda HTTPS-protokollet och omfattar följande Frågeparametern:
 
@@ -73,10 +73,10 @@ Följande är de rubriker som en begäran och svaret kan innehålla.
 ## <a name="query-parameters"></a>Frågeparametrar
 Begäran kan innehålla följande Frågeparametrar. Se kolumnen krävs för obligatoriska parametrar. Du måste URL: en koda Frågeparametrar. Frågan måste vara en absolut URL med en http eller https-schema; Vi stöder inte relativa URL: er eller andra scheman som ftp: / /
 
-|Namn|Värde|Typ|Krävs|
+|Name|Value|Type|Krävs|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Marknaden som resultatet kommer från. <br /><br />En lista över möjliga marknaden värden finns i [marknaden koder](#market-codes).<br /><br /> **OBS:** URL: en förhandsversion av API: et stöder för närvarande endast USA geografi och engelska.<br /><br />|Sträng|Ja|
-|<a name="query" />frågor och|URL: en för att förhandsgranska|Sträng|Ja|
+|<a name="query" />q|URL: en för att förhandsgranska|Sträng|Ja|
 |<a name="responseformat" />responseFormat|Medietyp för att använda för svaret. Här följer möjliga skiftlägeskänsliga värden.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Standardvärdet är JSON. Information om JSON-objekt att svaret innehåller, finns i [Svarsobjekten](#response-objects).<br /><br />Om du anger JsonLd innehåller svarstexten JSON-LD-objekt som innehåller sökresultaten. Information om JSON-LD finns [JSON-LD](http://json-ld.org/).|Sträng|Nej|
 |<a name="safesearch"/>safeSearch|Ogiltig vuxet innehåll eller oäkta innehåll har blockerats med felkoden 400, och *isFamilyFriendly* flaggan returneras inte. <p>Är det som gäller för juridiska vuxna nedan. Statuskod returnerar 200, och *isFamilyFriendly* flaggan är inställd på false.<ul><li>safeSearch = strikt: Rubrik, beskrivning, URL: en och avbildning returneras inte.</li><li>safeSearch = måttlig; Hämta rubrik, URL: en och beskrivning, men inte beskrivande avbildningen.</li><li>safeSearch =. Få svar objekt/allt – namn, URL: en, beskrivning, bild.</li></ul> |Sträng|Krävs inte. </br> Som standard safeSearch = strikt.|
 
@@ -85,24 +85,24 @@ Svarsschemat är antingen en [webbsida] eller ErrorResponse, som i API för webb
 
 |Objekt|Beskrivning|
 |------------|-----------------|
-|[Webbsida](#webpage)|Översta nivån JSON-objekt som innehåller attribut för förhandsversionen.|
+|[WebPage](#webpage)|Översta nivån JSON-objekt som innehåller attribut för förhandsversionen.|
 
 ### <a name="error"></a>Fel
 Definierar de fel som inträffat.
 
-|Element|Beskrivning|Typ|
+|Element|Beskrivning|Type|
 |-------------|-----------------|----------|
 |<a name="error-code" />Kod|Felkoden som identifierar kategorin för fel. Läs en lista över möjliga koder [felkoder](#error-codes).|Sträng|
 |<a name="error-message" />meddelande|En beskrivning av felet.|Sträng|
 |<a name="error-moredetails" />moreDetails|En beskrivning som ger ytterligare information om felet.|Sträng|
-|<a name="error-parameter" />Parametern|Frågeparametern i begäran som orsakade felet.|Sträng|
-|<a name="error-subcode" />Obligatorisk|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|
+|<a name="error-parameter" />parameter|Frågeparametern i begäran som orsakade felet.|Sträng|
+|<a name="error-subcode" />subCode|Felkoden som identifierar felet. Till exempel om `code` är InvalidRequest, `subCode` kanske ParameterInvalid eller ParameterInvalidValue. |Sträng|
 |<a name="error-value" />Värde|Värde för Frågeparametern som inte var giltig.|Sträng|
 
 ### <a name="errorresponse"></a>ErrorResponse
 Det översta objekt som svaret innehåller när begäran misslyckas.
 
-|Namn|Värde|Typ|
+|Name|Value|Type|
 |----------|-----------|----------|
 |_typ|Typ-tipset.|Sträng|
 |<a name="errors" />Fel|En lista över fel som beskriver orsaker varför begäran misslyckades.|[Fel](#error)]|
@@ -110,7 +110,7 @@ Det översta objekt som svaret innehåller när begäran misslyckas.
 ### <a name="webpage"></a>Webbsida
 Definierar informationen om en webbsida i förhandsversion.
 
-|Namn|Värde|Typ|
+|Name|Value|Type|
 |----------|-----------|----------|
 |namn|En rubrik, inte nödvändigtvis HTML-rubrik|Sträng|
 |url|Den URL som faktiskt har crawlats (begäran kan ha följt omdirigeringar)|Sträng|
@@ -119,7 +119,7 @@ Definierar informationen om en webbsida i förhandsversion.
 |primaryImageOfPage/contentUrl|URL: en till en representativ avbildning som ska ingå i förhandsversionen|Sträng|
 
 ### <a name="identifiable"></a>Identifierbar
-|Namn|Värde|Typ|
+|Name|Value|Type|
 |-------------|-----------------|----------|
 |id|Resurs-ID|Sträng|
 
@@ -131,8 +131,8 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 |-----------------|-----------------|
 |200|Lyckades.|
 |400|En av frågeparametrarna är saknas eller är inte giltig.|
-|400|ServerError, underkod ResourceError: Den begärda URL: en kunde inte nås|
-|400|ServerError, underkod ResourceError: Den begärda Webbadressen returnerade inte en framgångskod (inklusive om den returnerade HTTP 404)|
+|400|ServerError, subCode ResourceError: Den begärda URL: en kunde inte nås|
+|400|ServerError, subCode ResourceError: Den begärda Webbadressen returnerade inte en framgångskod (inklusive om den returnerade HTTP 404)|
 |400|InvalidRequest, underkod blockerad: Den begärda URL: en kan innehålla vuxet innehåll och som har blockerats|
 |401|Prenumerationsnyckeln saknas eller är inte giltig.|
 |403|Användaren har autentiserats (till exempel de använde en giltig prenumerationsnyckel), men de inte har behörighet till den begärda resursen.<br /><br /> Bing kan också returnera denna status om anroparen överskridits deras frågor per månad kvot.|
@@ -170,7 +170,7 @@ Om begäran misslyckas svaret innehåller en [ErrorResponse](#errorresponse) obj
 
 Här följer möjliga fel kod och underordnade fel kodvärden.
 
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Bing returnerar HttpNotAllowed om du använder HTTP-protokollet i stället för HTTPS och HTTP-statuskoden är 410.

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 0fc81a75e79d7f570bd55c9c30a464e5bbb9ad1c
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: e7c393f1eb654d30c5e06869f404c8523c56a21e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423440"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093179"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0- och OAuth 2.0-Behalf-flöde
 
@@ -42,7 +42,7 @@ Anta att användaren har autentiserats på ett program med hjälp av den [flöde
 
 De steg som följer utgör On-Behalf-Of-flöde och beskrivs med hjälp av följande diagram.
 
-![OAuth2.0-On-Behalf-Of-flöde](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. Klientprogrammet skickar en begäran till API A med token A (med en `aud` anspråk av API-A).
@@ -64,7 +64,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet eller ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först för användningsfall: begäran om åtkomsttoken med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fall: Begäran om åtkomsttoken med en delad hemlighet
 När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begäran om åtkomsttoken följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -94,7 +94,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 &requested_token_use=on_behalf_of
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
 En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehåller följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -133,7 +133,7 @@ Ett lyckat svar är ett JSON OAuth 2.0-svar med följande parametrar.
 
 | Parameter | Beskrivning |
 | --- | --- |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Mer information om ägar-token finns i den [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | omfång |Omfattning åtkomst beviljas i token. |
 | expires_in |Hur lång tid den åtkomst-token är giltig (i sekunder). |
 | access_token |Den begärda åtkomst-token. Anropa tjänsten kan använda denna token för att autentisera till den mottagande tjänsten. |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
 ms.author: ryanwi
-ms.openlocfilehash: 1410d61fed2dc98f5fa657541c3863e09b803166
-ms.sourcegitcommit: e37fa6e4eb6dbf8d60178c877d135a63ac449076
+ms.openlocfilehash: d93ebb01c905be6bf799ed6e4a037e3ddfdc2430
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53321791"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094180"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Skala Azure Service Fabric-kluster
 Service Fabric-kluster är en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras. En dator eller virtuell dator som ingår i ett kluster kallas för en nod. Kluster kan innehålla potentiellt tusentals noder. När du har skapat ett Service Fabric-kluster, kan du skala klustret horisontellt (ändra antalet noder) eller lodrätt (ändra resurser noder).  Du kan skala klustret när som helst, även när arbetsbelastningar sedan körs på klustret.  När klustret skalas skalas programmen automatiskt samt.

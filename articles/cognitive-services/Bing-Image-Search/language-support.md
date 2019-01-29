@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
 ms.author: aahi
-ms.openlocfilehash: e5c9a4291501c657a94509aec2edd90d00ab795d
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: d214c227171066e0a401e22d20538014790a58d3
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52160435"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55157337"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Språk och din region stöd för sökning i Bing
 
@@ -78,33 +78,33 @@ Du kan också ange land/region med hjälp av den `cc` frågeparameter. Om du ang
 
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
-|Argentina|Spanska|ES AR|
+|Argentina|Spanska|es-AR|
 |Australien|Svenska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
-|Belgien|Nederländska|NL-vara|
-|Belgien|Franska|fr-vara|
+|Belgien|Nederländska|nl-BE|
+|Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
 |Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|ES – CL|
+|Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
 |Indien|Svenska|en Indien|
-|Indonesien|Svenska|SV-ID|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|IT-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en min|
+|Malaysia|Svenska|en-MY|
 |Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
 |Nya Zeeland|Svenska|en NZ|
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|en f|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
 |Sydafrika|Svenska|en ZA|
@@ -115,8 +115,8 @@ Du kan också ange land/region med hjälp av den `cc` frågeparameter. Om du ang
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
-|USA|Spanska|ES-USA|
+|USA|Svenska|en-US|
+|USA|Spanska|es-US|
 
 ## <a name="next-steps"></a>Nästa steg
 Läs mer om Sök på Bing News-slutpunkter, [nyheter Image Search API v7 referens](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).

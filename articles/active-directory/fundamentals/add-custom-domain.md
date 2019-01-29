@@ -6,18 +6,18 @@ author: eross-msft
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: fa5649e0e4acb389768ad5038c3e26ee2f3465e1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: aae0a71684f91b98b5f7f137738d5a5fefd40dbc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451603"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092722"
 ---
 # <a name="add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Lägg till ditt domännamn med hjälp av Azure Active Directory-portalen
 Varje ny Azure AD-klienten levereras med ett första domännamn *domainname*. onmicrosoft.com. Du kan inte ändra eller ta bort det ursprungliga domännamnet, men du kan lägga till din organisations namn i listan. Att lägga till anpassade domännamn som hjälper dig att skapa användarnamn som dina användare känner igen som *alain@contoso.com*.

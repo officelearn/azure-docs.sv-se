@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: dd164882f9820cab970edd4d01f2f28c26771f88
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fd02c2d10d072f33fdc265feaadf9776e9c1d679
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815230"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102042"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Så här: lista ditt program i Azure Active Directory-programgalleriet
+# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD-programgalleriet?
 
@@ -79,7 +79,7 @@ Om du vill visa ett program i Azure AD-appgalleri, måste du först att implemen
     * Om du vill lägga till dina program i listan i galleriet med hjälp av OpenID Connect, Välj **OpenID Connect och OAuth 2.0** precis som ovan.
     * Om du har några frågor om åtkomst kan du kontakta den [enkel inloggning för Azure AD-integrering Team](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** eller **WS-Fed**: om din app har stöd för SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** eller **WS-Fed**: Om appen stöder SAML 2.0, kan du integrera det direkt med en Azure AD-klient med hjälp av den [anvisningar för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
     ![Tidslinje för att visa en lista över SAML 2.0 eller WS-Fed program i galleriet](./media/howto-app-gallery-listing/saml.png)
 

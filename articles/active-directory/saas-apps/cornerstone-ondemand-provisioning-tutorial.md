@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera Hörnstenen OnDemand för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudier: Konfigurera Hörnstenen OnDemand för automatisk användaretablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory för att automatiskt etablera och avetablera användarkonton till Hörnstenen OnDemand.
 services: active-directory
 documentationcenter: ''
@@ -8,21 +8,21 @@ writer: zhchia
 manager: beatrizd
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: v-ant
-ms.openlocfilehash: 6a6cfb2cb1fd6b70be0437c8b6fa62f50e76e53b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9f18fcb38e6e0855a00ffb454211273dfb2041a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345421"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168506"
 ---
-# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudie: Konfigurera Hörnstenen OnDemand för automatisk användaretablering
+# <a name="tutorial-configure-cornerstone-ondemand-for-automatic-user-provisioning"></a>Självstudier: Konfigurera Hörnstenen OnDemand för automatisk användaretablering
 
 
 Målet med den här självstudien är att ange vilka åtgärder som ska utföras i Hörnstenen OnDemand och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till Hörnstenen OnDemand.
@@ -43,7 +43,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 > [!NOTE]
 > Azure AD etablering integration förlitar sig på den [Hörnstenen OnDemand webbtjänsten](https://help.csod.com/help/csod_0/Content/Resources/Documents/WebServices/CSOD_-_Summary_of_Web_Services_v20151106.pdf), som är tillgängliga för Hörnstenen OnDemand-team.
 
-## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Att lägga till Hörnstenen OnDemand från galleriet
+## <a name="adding-cornerstone-ondemand-from-the-gallery"></a>Lägga till Cornerstone OnDemand från galleriet
 Du måste lägga till Hörnstenen OnDemand från Azure AD-programgalleriet i listan över hanterade SaaS-program innan du konfigurerar Hörnstenen OnDemand för automatisk användaretablering med Azure AD.
 
 **Utför följande steg för att lägga till Hörnstenen OnDemand från Azure AD-programgalleriet:**

@@ -9,13 +9,13 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
-ms.component: B2C
-ms.openlocfilehash: afbcacb299fa76a19cd7aaa20d3a4f2c2eb26d5c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.subservice: B2C
+ms.openlocfilehash: ce65f71349ae6d7e86ebae1ee2067653a63b89b4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54845885"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161077"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera resursägarens lösenord autentiseringsuppgifter flöde i Azure AD B2C
 
@@ -69,7 +69,7 @@ Använd din favorit-API-program för utveckling för att generera ett API-anrop 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Värde |
+| Nyckel | Value |
 | --- | ----- |
 | användarnamn | leadiocl@outlook.com |
 | lösenord | Passxword1 |
@@ -109,7 +109,7 @@ Skapa en POST-anrop som den som visas här med informationen i följande tabell 
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| Nyckel | Värde |
+| Nyckel | Value |
 | --- | ----- |
 | _typ av beviljande | refresh_token |
 | response_type | id_token |

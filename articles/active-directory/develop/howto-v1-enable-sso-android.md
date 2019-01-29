@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
-ms.openlocfilehash: 2c7ccd8d2022631e32c240007a782d2382aac518
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 9f0cc19ae220d27de620e5bd347fe78d9bfab2d5
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52422855"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55093299"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Så här: Aktivera enkel inloggning mellan appar på Android använder ADAL
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på Android använder ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -116,7 +116,7 @@ Funktioner som gör att programmet ska använda den asynkrona meddelandekön akt
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 2: Skapa en ny omdirigerings-URI med URL-schema
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 2: Upprätta en ny omdirigerings-URI med URL-schema
 
 För att säkerställa att rätt program recevies den returnerade autentiseringsuppgifterna tokens, det är nödvändigt att kontrollera att anropet tillbaka till programmet på ett sätt som operativsystemet Android kan verifiera. Android-operativsystemet använder hash för certifikatet i Google Play-butiken. Den här hash för certifikatet kan inte förfalskas av en otillåtna program. Microsoft garanterar att token som returneras till rätt program tillsammans med URI: N för broker-programmet. En unik omdirigerings-URI krävs som ska registreras i programmet.
 
@@ -124,7 +124,7 @@ Omdirigerings-URI måste vara i rätt format för:
 
 `msauth://packagename/Base64UrlencodedSignature`
 
-Exempel: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
+ex: *msauth://com.example.userapp/IcB5PxIyvbLkbFVtBI%2FitkW%2Fejk%3D*
 
 Du kan registrera den här omdirigerings-URI i din app registrering med den [Azure-portalen](https://portal.azure.com/). Mer information om Azure AD app-registrering finns i [integrera med Azure Active Directory](active-directory-how-to-integrate.md).
 

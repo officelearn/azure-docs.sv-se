@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: ca18aa5af89ec0a80d1aa8139671bf017a86e36c
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 12764574c92c494e27290f98f274d2b76c7a4dc6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465181"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183244"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 
@@ -73,7 +73,7 @@ GEO-säkerhetskopiering är aktiverat som standard. Om ditt informationslager ä
 
 
 ## <a name="backup-and-restore-costs"></a>Kostnader för säkerhetskopiering och återställning
-Du ser Azure-faktura har ett radobjekt för lagring och ett radobjekt för Disaster Recovery-lagring. Avgiften för lagring är den totala kostnaden för att lagra data i den primära regionen tillsammans med de inkrementella ändringar som avbildas av ögonblicksbilder. En mer detaljerad förklaring på hur ögonblicksbilder tas för närvarande finns i det här [dokumentation](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Geo-redundant avgiften täcker kostnaden för lagring av geo-säkerhetskopiering.  
+Du ser Azure-faktura har ett radobjekt för lagring och ett radobjekt för Disaster Recovery-lagring. Avgiften för lagring är den totala kostnaden för att lagra data i den primära regionen tillsammans med de inkrementella ändringar som avbildas av ögonblicksbilder. En mer detaljerad förklaring av hur ögonblicksbilder debiteras avser [förstå hur ögonblicksbilder påförs avgifter](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). Geo-redundant avgiften täcker kostnaden för lagring av geo-säkerhetskopiering.  
 
 Den totala kostnaden för din primära datalagret och sju dagar efter ögonblicksbild ändringar avrundas till närmaste TB. Till exempel att om ditt informationslager är 1,5 TB och ögonblicksbilderna samlar in 100 GB, kommer du att debiteras för 2 TB data enligt priserna för Azure Premium Storage. 
 

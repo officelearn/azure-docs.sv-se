@@ -7,17 +7,17 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/3/2018
+ms.date: 1/25/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ec1c24e4a9714506a4107fd5bfd53d1a562c8781
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 66f41ffef5d72f5d574bb78d3b810f4a4dc2c4c1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022367"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098739"
 ---
 # <a name="customize-setup-for-the-azure-ssis-integration-runtime"></a>Anpassa installationsprogrammet för Azure-SSIS integration runtime
 
@@ -27,6 +27,8 @@ Du kan konfigurera din anpassade konfiguration genom att förbereda ett skript o
 
 Du kan installera både kostnadsfria eller olicensierad komponenter och betalda eller licensierade komponenter. Om du är en oberoende Programvaruleverantör, se [hur du utvecklar betald eller licensierade komponenter för Azure-SSIS IR](how-to-develop-azure-ssis-ir-licensed-components.md).
 
+> [!IMPORTANT]
+> Noderna v2-serien i Azure-SSIS IR är inte lämpligt för anpassad installation, så Använd v3-serien noderna istället.  Om du redan använder noder v2-serien, växla för att använda noder v3-serien så snart som möjligt.
 
 ## <a name="current-limitations"></a>Aktuella begränsningar
 
@@ -78,7 +80,7 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        ![Skapa en blobcontainer](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
 
-    1.  Välj den nya behållaren och ladda upp din egen installationsskriptet och dess associerade filer. Se till att du laddar upp `main.cmd` på den översta nivån i behållaren inte i valfri mapp. 
+    1.  Välj den nya behållaren och ladda upp din egen installationsskriptet och dess associerade filer. Se till att du laddar upp `main.cmd` på den översta nivån i din behållare, inte i valfri mapp. Kontrollera också att din behållare innehåller endast de anpassa nödvändiga filerna, så hämta dem till din Azure-SSIS IR inte tar lång tid.
 
        ![Ladda upp filer till blob-behållaren](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
 
@@ -140,15 +142,15 @@ För att anpassa din Azure-SSIS IR, behöver du följande:
 
        1. En `.NET FRAMEWORK 3.5` mappen som innehåller en anpassad installation om du vill installera en tidigare version av .NET Framework som kan krävas för anpassade komponenter på varje nod i din Azure-SSIS IR.
 
-       1. En `AAS` mappen som innehåller en anpassad installation om du vill installera klientbibliotek på varje nod i din Azure-SSIS IR som gör att dina Analysis Services-aktiviteter att ansluta till Azure Analysis Services (AAS)-instans med autentisering av tjänstens huvudnamn. Först laddar du ned senast **MSOLAP (amd64)** och **AMO** klienten bibliotek/Windows installationsprogram – till exempel `x64_15.0.900.108_SQL_AS_OLEDB.msi` och `x64_15.0.900.108_SQL_AS_AMO.msi` – från [här](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), sedan ladda upp dem alla tillsammans med `main.cmd` i din behållare.  
-
        1. En `BCP` mappen som innehåller en anpassad installation för att installera SQL Server kommandoradsverktyg (`MsSqlCmdLnUtils.msi`), inklusive program bulk copy program (`bcp`), på varje nod i din Azure-SSIS IR.
 
        1. En `EXCEL` mappen som innehåller en anpassad installation för att installera open source-sammansättningar (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, och `ExcelDataReader.dll`) på varje nod i din Azure-SSIS IR.
 
        1. En `ORACLE ENTERPRISE` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) och konfigurationsfilen för tyst installation (`client.rsp`) att installera Oracle-kopplingar och OCI drivrutinen på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för Oracle-, käll- och målservrarna. Först ladda ned Microsoft Connectors v5.0 för Oracle (`AttunitySSISOraAdaptersSetup.msi` och `AttunitySSISOraAdaptersSetup64.msi`) från [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=55179) och den senaste Oracle-klienten – till exempel `winx64_12102_client.zip` – från [Oracle](http://www.oracle.com/technetwork/database/enterprise-edition/downloads/database12c-win64-download-2297732.html), sedan överföra dem alla tillsammans med `main.cmd` och `client.rsp` i din behållare. Om du använder TNS för att ansluta till Oracle kan du också behöva hämta `tnsnames.ora`, redigera den och överför den till din behållare, så det kan kopieras till Oracle-installationsmappen under installationen.
 
-       1. En `ORACLE STANDARD` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODP.NET-drivrutin på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda Anslutningshanteraren för ADO.NET, källa och mål. Först laddar du ned den senaste Oracle ODP.NET-drivrutinen – till exempel `ODP.NET_Managed_ODAC122cR1.zip` – från [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` i din behållare.
+       1. En `ORACLE STANDARD ADO.NET` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODP.NET-drivrutin på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda Anslutningshanteraren för ADO.NET, källa och mål. Först laddar du ned den senaste Oracle ODP.NET-drivrutinen – till exempel `ODP.NET_Managed_ODAC122cR1.zip` – från [Oracle](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html), och sedan ladda upp den tillsammans med `main.cmd` i din behållare.
+       
+       1. En `ORACLE STANDARD ODBC` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera Oracle ODBC-drivrutinen och konfigurera DSN på varje nod i din Azure-SSIS IR. Den här konfigurationen kan du använda ODBC Connection Manager/källa/mål- eller Power Query Manager/anslutningskälla med ODBC-typ av datakälla för att ansluta till Oracle-servern. Först laddar du ned de senaste Oracle omedelbar klienten (Baspaket eller Lite Baspaket) och ODBC-paket – till exempel 64-bitars paket från [här](https://www.oracle.com/technetwork/topics/winx64soft-089540.html) (Baspaket: `instantclient-basic-windows.x64-18.3.0.0.0dbru.zip`, Lite Baspaket: `instantclient-basiclite-windows.x64-18.3.0.0.0dbru.zip`, ODBC-paketet : `instantclient-odbc-windows.x64-18.3.0.0.0dbru.zip`) eller 32-bitars paket från [här](https://www.oracle.com/technetwork/topics/winsoft-085727.html) (Baspaket: `instantclient-basic-nt-18.3.0.0.0dbru.zip`, Lite Baspaket: `instantclient-basiclite-nt-18.3.0.0.0dbru.zip`, ODBC-paketet: `instantclient-odbc-nt-18.3.0.0.0dbru.zip`), och sedan ladda upp dem tillsammans med `main.cmd` i din behållare.
 
        1. En `SAP BW` mappen som innehåller en anpassad installationsskriptet (`main.cmd`) att installera SAP .NET connector sammansättningen (`librfc32.dll`) på varje nod i din Azure-SSIS IR Enterprise Edition. Den här konfigurationen kan du använda Anslutningshanteraren för SAP BW, källa och mål. Börja ladda upp 64-bitars eller 32-bitarsversionen av `librfc32.dll` från SAP-installationsmappen till behållaren, tillsammans med `main.cmd`. Skriptet kopierar sedan SAP-sammansättningen i den `%windir%\SysWow64` eller `%windir%\System32` mapp under installationen.
 

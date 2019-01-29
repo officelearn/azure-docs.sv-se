@@ -11,12 +11,12 @@ ms.component: text-analytics
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: a75f5ec11644bbd64a6bafeb8585371437eedc3b
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9e1d4ae38b18feb01d32ff62d4923b14d33494fa
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476928"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197678"
 ---
 # <a name="configure-containers"></a>Konfigurera containrar
 
@@ -185,7 +185,7 @@ Den `Logging` konfigurationsinställningar hantera ASP.NET Core loggningsstöd f
   | `Format` | Sträng | Utdataformat för loggfiler.<br/> **Obs!** Det här värdet måste anges till `json` att aktivera loggning-providern. Ett fel inträffar om det här värdet anges utan att också ange en utdata mount vid instansiering en behållare. |
   | `MaxFileSize` | Integer | Den maximala storleken i megabyte (MB) på en loggfil. När storleken på den aktuella loggfilen uppfyller eller överskrider detta värde, har en ny loggfil startats med loggningsprovider. Om -1 anges begränsas storleken på loggfilen bara av den maximala filstorleken för utdata mount. Standardvärdet är 1. |
 
-Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#settings-file-configuration).
+Läs mer om hur du konfigurerar ASP.NET Core loggningsstöd [inställningar filkonfiguration](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
 
 ## <a name="mounts-configuration-settings"></a>Monterar konfigurationsinställningar
 

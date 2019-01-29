@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: jingwang
-ms.openlocfilehash: 5f7770d9331df46c16ed7f5e565c781a864bc5e1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 86fccf71463a2f00b31f5f1e6082db4c404bbf9b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077953"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55152207"
 ---
 # <a name="copy-data-from-or-to-azure-file-storage-by-using-azure-data-factory"></a>Kopiera data från eller till Azure File Storage med hjälp av Azure Data Factory
 
@@ -42,8 +42,8 @@ Följande egenskaper har stöd för Azure File Storage-länkade tjänsten:
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
 | typ | Type-egenskapen måste anges till: **FileServer**. | Ja |
-| värd | Anger Azure File Storage-slutpunkt som `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
-| användar-ID | Anger att användaren kommer åt Azure File Storage som `"userid": "AZURE\\<storage name>"`. | Ja |
+| värd | Anger Azure File Storage-slutpunkt som: <br/>-Med hjälp av Användargränssnittet: Ange `\\<storage name>.file.core.windows.net\<file service name>`<br/>-Använder JSON: `"host": "\\\\<storage name>.file.core.windows.net\\<file service name>"`. | Ja |
+| användar-ID | Ange att användaren kommer åt Azure File Storage som: <br/>-Med hjälp av Användargränssnittet: Ange `AZURE\<storage name>`<br/>-Använder JSON: `"userid": "AZURE\\<storage name>"`. | Ja |
 | lösenord | Ange åtkomstnyckel för lagring. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Du kan använda Azure Integration Runtime eller lokal Integration Runtime (om ditt datalager finns i privat nätverk). Om den inte anges används standard Azure Integration Runtime. |Nej för källa, Ja för mottagare |
 

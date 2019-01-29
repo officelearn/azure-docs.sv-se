@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: a7f939d9-532d-4b6d-b6d3-95520207965d
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,12 +17,12 @@ ms.date: 02/08/2017
 ms.author: celested
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 8f32d8f05d5ba5a7a813157adbf07ff7590153bb
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 0afcb022cf6a62479253efcf07843d06b17117cd
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425386"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092875"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst till tjänst-anrop med klientautentiseringsuppgifter (delad hemlighet eller certifikat)
 
@@ -53,7 +53,7 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ## <a name="service-to-service-access-token-request"></a>Tjänst-till-tjänst begäran om åtkomsttoken
 Det finns två fall beroende på om klientprogrammet väljer att skyddas av en delad hemlighet eller ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Först för användningsfall: begäran om åtkomsttoken med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fall: Begäran om åtkomsttoken med en delad hemlighet
 När du använder en delad hemlighet, innehåller en tjänst-till-tjänst begäran om åtkomsttoken följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -74,7 +74,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: Begäran om åtkomsttoken med ett certifikat
 En begäran för tjänst-till-tjänst åtkomst-token med ett certifikat innehåller följande parametrar:
 
 | Parameter |  | Beskrivning |
@@ -105,7 +105,7 @@ Ett lyckat svar innehåller ett JSON OAuth 2.0-svar med följande parametrar:
 | Parameter | Beskrivning |
 | --- | --- |
 | access_token |Den begärda åtkomst-token. Anropa webbtjänsten kan använda denna token för att autentisera till mottagande webbtjänsten. |
-| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Mer information om ägar-token finns i den [Framework för OAuth 2.0-auktorisering: ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Anger typ tokenu värdet. Den enda typen som har stöd för Azure AD är **ägar**. Läs mer om ägar-token i [Framework för OAuth 2.0-auktorisering: Ägar-Token användning (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Hur länge den åtkomst-token är giltig (i sekunder). |
 | expires_on |Den tid då den åtkomst-token upphör att gälla. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills de upphör att gälla. Det här värdet används för att fastställa livslängd för cachelagrade token. |
 | not_before |Den tid som åtkomsttoken blir kan användas. Datumet visas som hur många sekunder en från 1970-01-01T0:0:0Z UTC tills giltighetstiden för token.|

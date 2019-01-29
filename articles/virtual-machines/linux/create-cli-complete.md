@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 27cef0287156d4cf76914704b849cb646c21dd7d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: ec520e7d06f6c5a560af56e6616eeed8481520fe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467493"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55180373"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Skapa en fullständig Linux-dator med Azure CLI
 För att snabbt skapa en virtuell dator (VM) i Azure, kan du använda en enda Azure CLI-kommando som använder standardvärden för att skapa alla nödvändiga resurser. Resurser, till exempel ett virtuellt nätverk, offentlig IP-adress och reglerna för nätverkssäkerhetsgruppen skapas automatiskt. Använd för mer kontroll över din miljö i produktion, du kan skapa de här resurserna förbereds i förväg och sedan lägga till de virtuella datorerna i dem. Den här artikeln vägleder dig genom hur du skapar en virtuell dator och var och en av de stödjande resurserna i taget.
@@ -30,13 +30,13 @@ Se till att du har installerat senast [Azure CLI](/cli/azure/install-az-cli2) oc
 I följande exempel, ersätter du exempel parameternamn med dina egna värden. Parametern exempelnamnen inkluderar *myResourceGroup*, *myVnet*, och *myVM*.
 
 ## <a name="create-resource-group"></a>Skapa resursgrupp
-En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och virtuella nätverksresurser. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group#az_group_create). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
+En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras. En resursgrupp måste skapas innan en virtuell dator och virtuella nätverksresurser. Skapa en resursgrupp med [az gruppen skapa](/cli/azure/group). I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på platsen *eastus*:
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
-Som standard är utdata från Azure CLI-kommandon i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet utdata till en lista eller tabell, till exempel använda [konfigurera az--utdata](/cli/azure/reference-index#az_configure). Du kan också lägga till `--output` med valfritt kommando under en tid ändras i utdataformat. I följande exempel visas JSON-utdata från den `az group create` kommando:
+Som standard är utdata från Azure CLI-kommandon i JSON (JavaScript Object Notation). Om du vill ändra standardvärdet utdata till en lista eller tabell, till exempel använda [konfigurera az--utdata](/cli/azure/reference-index). Du kan också lägga till `--output` med valfritt kommando under en tid ändras i utdataformat. I följande exempel visas JSON-utdata från den `az group create` kommando:
 
 ```json                       
 {
@@ -559,7 +559,7 @@ Om du vill se NGINX-standardplatsen i praktiken, öppna webbläsaren och ange fu
 ![NGINX-standardplatsen på den virtuella datorn](media/create-cli-complete/nginx.png)
 
 ## <a name="export-as-a-template"></a>Exportera som mall
-Vad händer om du vill nu skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar det? Resource Manager använder JSON-mallar som definierar parametrarna som för din miljö. Du bygga ut hela miljöer genom att referera till den här JSON-mallen. Du kan [bygga JSON-mallar manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa JSON-mallen för dig. Använd [az exportera](/cli/azure/group#az_group_export) att exportera din resursgrupp på följande sätt:
+Vad händer om du vill nu skapa en ytterligare utvecklingsmiljö med samma parametrar eller en produktionsmiljö som matchar det? Resource Manager använder JSON-mallar som definierar parametrarna som för din miljö. Du bygga ut hela miljöer genom att referera till den här JSON-mallen. Du kan [bygga JSON-mallar manuellt](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller exportera en befintlig miljö för att skapa JSON-mallen för dig. Använd [az exportera](/cli/azure/group) att exportera din resursgrupp på följande sätt:
 
 ```azurecli
 az group export --name myResourceGroup > myResourceGroup.json

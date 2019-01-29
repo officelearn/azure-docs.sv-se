@@ -14,18 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/12/2017
 ms.author: lemai
-ms.openlocfilehash: 95c3726caeb19d6bbf7153533951bb18cd7d0e57
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ff5d4267de172aa83fae6ce70a609ad9897d7374
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055411"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102693"
 ---
 # <a name="replacing-the-start-node-and-stop-node-apis-with-the-node-transition-api"></a>Ersätt starta nod och stoppa noden API: er med API: T för noden övergång
 
 ## <a name="what-do-the-stop-node-and-start-node-apis-do"></a>Vad stoppa nod och starta noden API: er?
 
-Stoppa noden-API (hanterade: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stoppar en Service Fabric-nod.  Ett Service Fabric-noden är processen, inte en virtuell dator eller en dator – den virtuella datorn eller datorn fortfarande körs.  I resten av dokumentet innebär ”nod” Service Fabric-nod.  Stoppa en nod placerar den i en *stoppats* tillstånd där den är inte medlem i klustret och det går inte att tillhandahålla tjänster, vilket simulerar en *ned* noden.  Detta är användbart för att infoga fel i systemet för att testa ditt program.  Starta Node-API (hanterade: [StartNodeAsync()][startnode], PowerShell: [Start ServiceFabricNode][startnodeps]]) kastar API stoppa noden  som tar ur noden till normalt läge.
+Stoppa noden-API (hanteras: [StopNodeAsync()][stopnode], PowerShell: [Stop-ServiceFabricNode][stopnodeps]) stoppar en Service Fabric-nod.  Ett Service Fabric-noden är processen, inte en virtuell dator eller en dator – den virtuella datorn eller datorn fortfarande körs.  I resten av dokumentet innebär ”nod” Service Fabric-nod.  Stoppa en nod placerar den i en *stoppats* tillstånd där den är inte medlem i klustret och det går inte att tillhandahålla tjänster, vilket simulerar en *ned* noden.  Detta är användbart för att infoga fel i systemet för att testa ditt program.  Starta Node-API (hanteras: [StartNodeAsync()][startnode], PowerShell: [Start-ServiceFabricNode][startnodeps]]) kastar stoppa noden API, som tar ur noden till normalt läge.
 
 ## <a name="why-are-we-replacing-these"></a>Varför Vi ersätter dessa?
 
@@ -38,14 +38,14 @@ En nod har stoppats för varaktighet är också ”oändlig” tills starta Node
 
 ## <a name="introducing-the-node-transition-apis"></a>Introduktion till API: er för noden övergång
 
-Vi har åtgärdas problemen ovan i en ny uppsättning API: er.  Den nya noden övergången API (hanterade: [StartNodeTransitionAsync()][snt]) kan användas för att överföra en Service Fabric-nod till en *stoppats* tillstånd, eller att överföra den från en *stoppats* tillståndet för en normal in tillståndet.  Observera att ”Start” namnet på API: et inte refererar till början av en nod.  Den refererar till påbörjar en asynkron åtgärd som systemet ska köra om du vill överföra noden till antingen *stoppats* eller igång tillstånd.
+Vi har åtgärdas problemen ovan i en ny uppsättning API: er.  Den nya noden övergången API (hanteras: [StartNodeTransitionAsync()][snt]) kan användas för att överföra en Service Fabric-nod till en *stoppats* tillstånd, eller att överföra den från en *stoppats* tillstånd till en normalt upp-läge.  Observera att ”Start” namnet på API: et inte refererar till början av en nod.  Den refererar till påbörjar en asynkron åtgärd som systemet ska köra om du vill överföra noden till antingen *stoppats* eller igång tillstånd.
 
 **Användning**
 
-Om API: T för noden övergången genereras ett undantag vid aktivering, sedan systemet har accepterat den asynkrona åtgärden och kör den.  Ett genomfört anrop innebär inte åtgärden har slutförts ännu.  Om du vill ha information om det aktuella tillståndet för åtgärden kan anropa API: et för noden övergången förlopp (hanterade: [GetNodeTransitionProgressAsync()][gntp]) med det guid som används vid noden övergången API för den här åtgärden.  API: T för noden övergången förloppet returnerar ett NodeTransitionProgress-objekt.  Det här objektets tillståndsegenskap anger det aktuella tillståndet för åtgärden.  Om tillståndet ”körs”, körs igen.  Om den har slutförts åtgärden har slutförts utan fel.  Om det är fel, uppstod ett problem åtgärden kan genomföras.  Egenskapen resultatet Undantagsegenskapen anger vad som var problemet.  Se https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate för mer information om egenskapen State och avsnittet ”exempel” nedan kodexempel.
+Om API: T för noden övergången genereras ett undantag vid aktivering, sedan systemet har accepterat den asynkrona åtgärden och kör den.  Ett genomfört anrop innebär inte åtgärden har slutförts ännu.  Om du vill ha information om det aktuella tillståndet för åtgärden kan anropa API: et för noden övergången förlopp (hanteras: [GetNodeTransitionProgressAsync()][gntp]) med det guid som används vid noden övergången API för den här åtgärden.  API: T för noden övergången förloppet returnerar ett NodeTransitionProgress-objekt.  Det här objektets tillståndsegenskap anger det aktuella tillståndet för åtgärden.  Om tillståndet ”körs”, körs igen.  Om den har slutförts åtgärden har slutförts utan fel.  Om det är fel, uppstod ett problem åtgärden kan genomföras.  Egenskapen resultatet Undantagsegenskapen anger vad som var problemet.  Se https://docs.microsoft.com/dotnet/api/system.fabric.testcommandprogressstate för mer information om egenskapen State och avsnittet ”exempel” nedan kodexempel.
 
 
-**Skilja mellan en stoppad nod och en inaktiv nod** om en nod *stoppats* med hjälp av noden övergången API, resultatet av en nod-fråga (hanterade: [GetNodeListAsync()] [ nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) visar att den här noden har en *IsStopped* egenskapsvärdet true.  Observera att detta skiljer sig från värdet för den *NodeStatus* egenskapen, som meddelar *ned*.  Om den *NodeStatus* egenskapen har värdet *ned*, men *IsStopped* är falsk, och sedan noden inte har stoppats med hjälp av noden övergången API och är *ned*  på grund av någon anledning.  Om den *IsStopped* egenskapen har värdet true och *NodeStatus* egenskapen är *ned*, och sedan den stoppades med hjälp av noden övergången API.
+**Hur man skiljer mellan en stoppad nod och en inaktiv nod** om en nod *stoppats* med hjälp av noden övergången API, resultatet av en nod-fråga (hanteras: [GetNodeListAsync()][nodequery], PowerShell: [Get-ServiceFabricNode][nodequeryps]) visar att den här noden har en *IsStopped* egenskapsvärdet true.  Observera att detta skiljer sig från värdet för den *NodeStatus* egenskapen, som meddelar *ned*.  Om den *NodeStatus* egenskapen har värdet *ned*, men *IsStopped* är falsk, och sedan noden inte har stoppats med hjälp av noden övergången API och är *ned*  på grund av någon anledning.  Om den *IsStopped* egenskapen har värdet true och *NodeStatus* egenskapen är *ned*, och sedan den stoppades med hjälp av noden övergången API.
 
 Starta en *stoppats* nod med hjälp av noden övergången API returnerar den för att fungera som en normal medlem i klustret igen.  Utdata från noden frågan API visas *IsStopped* som false, och *NodeStatus* som något som inte är nere (till exempel upp).
 
@@ -159,7 +159,7 @@ Starta en *stoppats* nod med hjälp av noden övergången API returnerar den fö
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```
@@ -202,7 +202,7 @@ Starta en *stoppats* nod med hjälp av noden övergången API returnerar den fö
             }
             while (!wasSuccessful);
 
-            // Now call StartNodeTransitionProgressAsync() until hte desired state is reached.
+            // Now call StartNodeTransitionProgressAsync() until the desired state is reached.
             await WaitForStateAsync(fc, guid, TestCommandProgressState.Completed).ConfigureAwait(false);
         }
 ```

@@ -6,16 +6,16 @@ services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 76e86eb78a06d98e3d5c6c54b244add3c0c245d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48900469"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55183347"
 ---
 # <a name="similarity-method"></a>Likhet metod
 
@@ -30,18 +30,18 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parametrar för begäran
 Parameter        |Datatyp      |Krävs | Beskrivning
 ----------|----------|----------|------------
-**S1**        |Sträng   |Ja  |Sträng * som ska jämföras
-**S2**        |Sträng   |Ja  |Sträng * som ska jämföras
+**s1**        |Sträng   |Ja  |Sträng * som ska jämföras
+**s2**        |Sträng   |Ja  |Sträng * som ska jämföras
 <sub> * Strängar att jämföra har en högsta längd på 1MB. </sub>
 <br>
 ## <a name="response"></a>Svar
-Namn | Beskrivning
+Name | Beskrivning
 --------|---------
 **SimilarityScore**        |En flytande peka värde som representerar cosinus-likheten för s1 och s2 med värden närmare 1.0 betydelsen mer liknande och värden för närmare att-1.0 vilket innebär att mindre
 <br>
 
 ## <a name="successerror-conditions"></a>Lyckade/felvillkor
-HTTP-Status | Orsak | Svar
+HTTP Status | Orsak | Svar
 -----------|----------|--------
 **200**         |Lyckades | Flyttalsnummer
 **400**         | Felaktig begäran eller är ogiltigt för begäran | Felmeddelande      

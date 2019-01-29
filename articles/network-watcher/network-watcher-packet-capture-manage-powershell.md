@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: d768367b8e35c30b1e8cb1646e6cbfceb6151dec
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 770b2e5dfef1a414da3cc8ec691c6d6ce20183fc
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348301"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102506"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Hantera infångade paket med Azure Network Watcher med hjälp av PowerShell
 
@@ -78,7 +78,7 @@ För Linux-datorer:
 $AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
 $ExtensionName = "AzureNetworkWatcherExtension"
 Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
-````
+```
 
 I följande exempel är ett lyckat svar efter körning i `Set-AzureRmVMExtension` cmdlet.
 

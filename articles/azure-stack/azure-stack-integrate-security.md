@@ -6,25 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 01/28/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: d81478e6bdaf4a1844d01278b961350c81b2edd6
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 5826ab8ac50a5d27f5a74cff4bebba4b2809d5f0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087737"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096627"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrering med Azure Stack datacenter - syslog-vidarebefordran
 
-Den här artikeln visar hur du använder syslog för att integrera Azure Stack-infrastruktur med externa security-lösningar som redan har distribuerats i ditt datacenter. Till exempel ett system Security Information händelsehantering (SIEM). Syslog-kanalen exponerar granskningar, aviseringar och säkerhetsloggar från alla komponenter i Azure Stack-infrastruktur. Använd syslog-vidarebefordran för att integrera med lösningar för säkerhetsövervakning och/eller att hämta alla granskningar, aviseringar och säkerhet loggar för att spara dem för kvarhållning. 
+Den här artikeln visar hur du använder syslog för att integrera Azure Stack-infrastruktur med externa security-lösningar som redan har distribuerats i ditt datacenter. Till exempel ett system Security Information händelsehantering (SIEM). Syslog-kanalen exponerar granskningar, aviseringar och säkerhetsloggar från alla komponenter i Azure Stack-infrastruktur. Använd syslog-vidarebefordran för att integrera med lösningar för säkerhetsövervakning och/eller att hämta alla granskningar, aviseringar och säkerhet loggar för att spara dem för kvarhållning.
 
 Från och med uppdateringen 1809, har Azure Stack en integrerad syslog-klient som, när konfigurationen är klar, genererar syslog-meddelanden med nyttolast i Common Event Format (CEF).
 
-Följande diagram visar integreringen av Azure Stack med en extern SIEM. Det finns två integration mönster som ska övervägas: den först en (en i blått) är den Azure Stack-infrastruktur som omfattar infrastrukturens virtuella datorer och Hyper-V-noder. Alla granskningar, säkerhetsloggar och varningar från dessa komponenter är centralt samlas in och exponeras via syslog med CEF-nyttolast. Det här mönstret för integrering beskrivs i den här dokumentsidan.
-Andra mönster för integration är det som visas i orange och täcker hanteringsstyrenheter för baskort (bmc), maskinvara livscykel värden (HLH), virtuella datorer och/eller virtuella enheter som kör maskinvara partnern övervakning och hantering programvara och överst växlar rack (TOR). Eftersom dessa komponenter är maskinvaru-partner specifikt, kontaktar du partnern maskinvara dokumentation om hur du integrerar dem med en extern SIEM.
+Följande diagram visar integreringen av Azure Stack med en extern SIEM. Det finns två integration mönster som ska övervägas: den först en (en i blått) är den Azure Stack-infrastruktur som omfattar infrastrukturens virtuella datorer och Hyper-V-noder. Alla granskningar, säkerhetsloggar och aviseringar med de komponenterna som samlas in centralt och exponeras via syslog med CEF-nyttolast. Det här mönstret för integrering beskrivs i den här dokumentsidan.
+Andra mönster för integration är det som visas i orange och täcker hanteringsstyrenheter för baskort (bmc), maskinvara livscykel värden (HLH), virtuella datorer och/eller virtuella enheter som kör maskinvara partnern övervakning och hantering programvara och överst växlar rack (TOR). Eftersom dessa komponenter är maskinvaru-partner specifikt, kontakta partner maskinvaran dokumentation om hur du integrerar dem med en extern SIEM.
 
 ![Diagram för Syslog-vidarebefordran](media/azure-stack-integrate-security/syslog-forwarding.png)
 
@@ -32,13 +32,13 @@ Andra mönster för integration är det som visas i orange och täcker hantering
 
 Syslog-klienten i Azure Stack har stöd för följande konfigurationer:
 
-1. **Syslog via TCP med ömsesidig autentisering (klient och server) och TLS 1.2-kryptering:** i den här konfigurationen både syslog-servern och syslog-klienten kontrollera identiteten på varandra via certifikat. Meddelandena skickas via en krypterad kanal TLS 1.2.
+1. **Syslog via TCP med ömsesidig autentisering (klient och server) och TLS 1.2-kryptering:** I den här konfigurationen kan både syslog-servern och syslog-klienten kontrollera identiteten på varandra via certifikat. Meddelandena skickas via en krypterad kanal TLS 1.2.
 
-2. **Syslog via TCP med server-autentisering och kryptering av TLS 1.2:** i den här konfigurationen syslog-klienten kan verifiera identiteten för syslog-servern via ett certifikat. Meddelandena skickas via en krypterad kanal TLS 1.2.
+2. **Syslog via TCP med server-autentisering och TLS 1.2-kryptering:** I den här konfigurationen kan syslog-klienten verifiera identiteten för syslog-servern via ett certifikat. Meddelandena skickas via en krypterad kanal TLS 1.2.
 
-3. **Syslog via TCP med Ingen kryptering:** i den här konfigurationen varken syslog-klienten eller syslog-servern verifierar identitet med varandra. Meddelandena skickas i klartext via TCP.
+3. **Syslog via TCP med Ingen kryptering:** I den här konfigurationen kontrolleras syslog-klienten och syslog-servern identiteter inte. Meddelandena skickas i klartext via TCP.
 
-4. **Syslog över UDP med Ingen kryptering:** i den här konfigurationen varken syslog-klienten eller syslog-servern verifierar identitet med varandra. Meddelandena skickas i klartext över UDP.
+4. **Syslog över UDP med Ingen kryptering:** I den här konfigurationen kontrolleras syslog-klienten och syslog-servern identiteter inte. Meddelandena skickas i klartext över UDP.
 
 > [!IMPORTANT]
 > Microsoft rekommenderar att du använder TCP som med hjälp av autentisering och kryptering (konfiguration #1 eller vid mycket minsta #2) för produktionsmiljöer som skyddar mot man-in-the-middle-attacker och avlyssning av meddelanden.
@@ -60,22 +60,22 @@ Set-SyslogClient [-pfxBinary <Byte[]>] [-CertPassword <SecureString>] [-RemoveCe
 
 Parametrar för *Set-SyslogServer* cmdlet:
 
-| Parameter | Beskrivning | Typ | Krävs |
+| Parameter | Beskrivning | Type | Krävs |
 |---------|---------|---------|---------|
 |*Servernamn* | FQDN eller IP-adress för syslog-servern | Sträng | ja|
 |*ServerPort* | Portnumret syslog-servern lyssnar på | Sträng | ja|
-|*NoEncryption*| Tvinga klienten att skicka syslog-meddelanden i klartext | Flagga | nej|
-|*SkipCertificateCheck*| Hoppa över verifieringen av det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | Flagga | nej|
-|*SkipCNCheck*| Hoppa över validering av nätverksnamn värdet för det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | Flagga | nej|
-|*UseUDP*| Använda syslog med UDP som transport-protokoll |Flagga | nej|
-|*ta bort*| Ta bort konfigurationen av servern från klienten och stoppa syslog-vidarebefordran| Flagga | nej|
+|*NoEncryption*| Tvinga klienten att skicka syslog-meddelanden i klartext | flag | nej|
+|*SkipCertificateCheck*| Hoppa över verifieringen av det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | flag | nej|
+|*SkipCNCheck*| Hoppa över validering av nätverksnamn värdet för det certifikat som tillhandahålls av syslog-servern under den inledande TLS-handskakning | flag | nej|
+|*UseUDP*| Använda syslog med UDP som transport-protokoll |flag | nej|
+|*ta bort*| Ta bort konfigurationen av servern från klienten och stoppa syslog-vidarebefordran| flag | nej|
 
 Parametrar för *Set-SyslogClient* cmdlet:
-| Parameter | Beskrivning | Typ |
+| Parameter | Beskrivning | Type |
 |---------|---------| ---------|
 | *pfxBinary* | pfx-fil som innehåller certifikatet som ska användas av klienten som identitet för att autentisera mot syslog-servern  | Byte] |
 | *CertPassword* |  Lösenord för att importera den privata nyckeln som är associerad med pfx-filen | SecureString |
-|*RemoveCertificate* | Ta bort certifikat från klienten | Flagga|
+|*RemoveCertificate* | Ta bort certifikat från klienten | flag|
 
 ### <a name="configuring-syslog-forwarding-with-tcp-mutual-authentication-and-tls-12-encryption"></a>Konfigurera syslog-vidarebefordran med TCP, ömsesidig autentisering och TLS 1.2-kryptering
 
@@ -129,7 +129,7 @@ Invoke-Command @params -ScriptBlock {
 
 ### <a name="configuring-syslog-forwarding-with-tcp-server-authentication-and-tls-12-encryption"></a>Konfigurera syslog-vidarebefordran med TCP, Server-autentisering och TLS 1.2-kryptering
 
-I den här konfigurationen vidarebefordrar syslog-klienten i Azure Stack de till syslog-servern via TCP, med TLS 1.2-kryptering. Under den inledande handskakningen verifierar klienten också att servern tillhandahåller ett giltigt certifikat som är betrodda. Detta förhindrar att klienten för att skicka meddelanden till ej betrodda mål.
+I den här konfigurationen vidarebefordrar syslog-klienten i Azure Stack de till syslog-servern via TCP, med TLS 1.2-kryptering. Under den inledande handskakningen verifierar klienten också att servern tillhandahåller ett giltigt certifikat som är betrodda. Den här konfigurationen hindrar klienten för att skicka meddelanden till ej betrodda mål.
 TCP använda autentisering och kryptering är standardkonfigurationen och representerar den lägsta nivån av säkerhet som Microsoft rekommenderar för en produktionsmiljö. 
 
 ```powershell
@@ -258,7 +258,7 @@ PROGRAM allvarlighetsgrad tabell:
 
 | Severity | Nivå | Numeriskt värde |
 |----------|-------| ----------------|
-|0|Odefinierat|Värde: 0. Anger loggar på alla nivåer|
+|0|Undefined (Odefinierad)|Värde: 0. Anger loggar på alla nivåer|
 |10|Kritisk|Värde: 1. Anger loggar för en kritisk varning|
 |8|Fel| Värde: 2. Anger loggar för ett fel|
 |5|Varning|Värde: 3. Anger loggar för en varning|
@@ -288,7 +288,7 @@ Tabell med händelser för återställning-slutpunkten:
 REP Severity tabell:
 | Severity | Nivå | Numeriskt värde |
 |----------|-------| ----------------|
-|0|Odefinierat|Värde: 0. Anger loggar på alla nivåer|
+|0|Undefined (Odefinierad)|Värde: 0. Anger loggar på alla nivåer|
 |10|Kritisk|Värde: 1. Anger loggar för en kritisk varning|
 |8|Fel| Värde: 2. Anger loggar för ett fel|
 |5|Varning|Värde: 3. Anger loggar för en varning|
@@ -307,7 +307,7 @@ REP Severity tabell:
 Allvarlighetsgrad tabell för Windows-händelser:
 | CEF-allvarlighetsgrad | Windows Händelsenivå | Numeriskt värde |
 |--------------------|---------------------| ----------------|
-|0|Odefinierat|Värde: 0. Anger loggar på alla nivåer|
+|0|Undefined (Odefinierad)|Värde: 0. Anger loggar på alla nivåer|
 |10|Kritisk|Värde: 1. Anger loggar för en kritisk varning|
 |8|Fel| Värde: 2. Anger loggar för ett fel|
 |5|Varning|Värde: 3. Anger loggar för en varning|
@@ -353,14 +353,14 @@ Anpassat tilläggs-tabell för Windows-händelser i Azure Stack:
 Aviseringar allvarlighetsgrad tabell:
 | Severity | Nivå |
 |----------|-------|
-|0|Odefinierat|
+|0|Undefined (Odefinierad)|
 |10|Kritisk|
 |5|Varning|
 
 Tabell med anpassade tillägg för aviseringar som skapats i Azure Stack:
 | Namn på anpassade tillägg | Exempel | 
 |-----------------------|---------|
-|MasEventDescription|Beskrivning: Ett användarkonto \<TestUser\> skapades för \<TestDomain\>. Det är en potentiell säkerhetsrisk. --REPARATION: Kontakta supporten. Kundtjänst krävs för att lösa problemet. Försök inte att lösa problemet utan deras hjälp. Innan du öppnar en supportförfrågan, starta filen logginsamlingsprocessen med hjälp av vägledningen från https://aka.ms/azurestacklogfiles |
+|MasEventDescription|DESCRIPTION (BESKRIVNING): Ett användarkonto \<TestUser\> skapades för \<TestDomain\>. Det är en potentiell säkerhetsrisk. --REPARATION: Kontakta supporten. Kundtjänst krävs för att lösa problemet. Försök inte att lösa problemet utan deras hjälp. Innan du öppnar en supportförfrågan, starta filen logginsamlingsprocessen med hjälp av vägledningen från https://aka.ms/azurestacklogfiles |
 
 ### <a name="cef-mapping-for-alerts-closed"></a>CEF-mappning för aviseringar som stängts
 

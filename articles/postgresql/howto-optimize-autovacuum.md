@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/22/2018
-ms.openlocfilehash: 0f8db7dd3a90e06587a7e0e05f33cb6fba5c72e1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 21ac48ff473dcf494f96f87210bdfe09e4d82646
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539797"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55103402"
 ---
 # <a name="optimizing-autovacuum-on-azure-database-for-postgresql-server"></a>Optimera autovacuum på Azure Database for PostgreSQL-server 
 Den här artikeln beskriver hur du optimerar effektivt autovacuum på Azure Database för PostgreSQL.
@@ -97,6 +97,6 @@ ALTER TABLE t SET (autovacuum_vacuum_cost_delay = 10);
 Autovacuum är en per tabell synkron processen. Större procent av döda tupplar en tabell har högre ”cost” till autovacuum.  Dela upp tabeller som har en hög andel uppdateringar/borttagningar i flera tabeller hjälper till att parallellisera autovacuum och minska ”cost” för att slutföra autovacuum på en tabell. Du kan också öka antalet parallella autovacuum arbetare så arbetare liberally är schemalagda.
 
 ## <a name="next-steps"></a>Nästa steg
-Granska följande PostgreSQL-Hämtningsinformation mer information om använda och justera autovacuum:
+Granska följande PostgreSQL-dokumentation för mer information om använda och justera autovacuum:
  - PostgreSQL-dokumentation – [kapitel 18, serverkonfiguration](https://www.postgresql.org/docs/9.5/static/runtime-config-autovacuum.html)
  - PostgreSQL-dokumentation – [kapitel 24, vanliga uppgifter för databasunderhåll](https://www.postgresql.org/docs/9.6/static/routine-vacuuming.html)

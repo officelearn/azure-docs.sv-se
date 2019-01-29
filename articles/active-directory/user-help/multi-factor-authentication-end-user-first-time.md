@@ -9,16 +9,16 @@ ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
-ms.openlocfilehash: a5cb5a879687bdbea043d582526f4dd357a2a620
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d53221a8bed6995231385cae21a8994fce132a30
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54809929"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55175918"
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Konfigurera mitt konto för tvåstegsverifiering
 Tvåstegsverifiering är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in. Om du läser den här artikeln fick du förmodligen ett e-postmeddelande från din arbets- eller skolkonto administratör om Multi-Factor Authentication. Eller kanske du försökte logga in och fick ett meddelande som ber dig att ställa in ytterligare säkerhetsverifiering. Om så är fallet, **du inte logga in förrän du har slutfört den automatiska registreringen**.

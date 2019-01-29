@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 253934d450619ca67e429fbf396a5fed5b71a267
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 3d1bd2b459c9c80fa81b4c6e7c40b1f82636f2ef
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53081871"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104600"
 ---
 # <a name="provision-a-linux-centos-data-science-virtual-machine-on-azure"></a>Etablera en Linux CentOS Data Science-dator på Azure
 
@@ -37,10 +37,10 @@ Linux Data Science-dator är en CentOS-baserade Azure-dator som ingår i en saml
 * Azure-kommandoradsgränssnittet (CLI) för att hantera Azure-resurser
 * PostgresSQL databas
 * Machine learning-verktyg
-  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): en toolkit för programvara från Microsoft Research för djupinlärning.
-  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): snabb machine learning-system som har stöd för tekniker som online, hash, allreduce, sänkt, learning2search, aktiv, och interaktiva utbildningar.
-  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): ett verktyg för att tillhandahålla snabba och exakta bättre trädet implementering.
-  * [Rattle](https://togaware.com/rattle/) (den R analytiska Verktyg att lära dig enkelt): ett verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt med GUI-baserade datagranskning och modellering med automatisk generering av R-kod.
+  * [Cognitive Toolkit](https://github.com/Microsoft/CNTK): En djupinläranede verktygspaket för programvara från Microsoft Research.
+  * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): Ett system för snabb maskininlärning som stöd för tekniker som online hashing allreduce, sänkt, learning2search, aktiv, och interaktiv utbildning.
+  * [XGBoost](https://xgboost.readthedocs.org/en/latest/): Ett verktyg för att tillhandahålla snabba och exakta bättre trädet implementering.
+  * [Rattle](https://togaware.com/rattle/) (R analytiska verktyget mer enkelt): Ett verktyg som gör att komma igång med dataanalys och maskininlärning i R enkelt med GUI-baserade datagranskning och modellering med automatisk generering av R-kod.
 * Azure SDK i Java, Python, node.js, Ruby, PHP
 * Bibliotek i R och Python för använder i Azure Machine Learning och andra Azure-tjänster
 * Utvecklingsverktyg och -redigerare (RStudio, PyCharm, IntelliJ, Emacs, gedit, vi)
@@ -76,11 +76,11 @@ Här följer stegen för att skapa en instans av den Linux virtuella datorn för
    
    a. **Grunderna**:
    
-   * **Namn på**: namnet på din data science-server som du skapar.
-   * **Användarnamnet**: första kontoinloggningen ID.
-   * **Lösenord**: första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
-   * **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
-   * **Resursgrupp**: du kan skapa en ny eller Använd en befintlig grupp.
+   * **Namn**: Namnet på din data science-server som du skapar.
+   * **Användarnamn**: Första kontoinloggningen-ID.
+   * **Lösenord**: Första kontolösenordet (du kan använda offentlig SSH-nyckel i stället för lösenord).
+   * **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras. Du måste ha behörighet att skapa resurser för prenumerationen.
+   * **Resursgrupp**: Du kan skapa en ny eller Använd en befintlig grupp.
    * **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data, eller så är närmast dina fysiska platsen för snabbaste nätverksåtkomst.
    
    b. **Storlek**:
@@ -90,8 +90,8 @@ Här följer stegen för att skapa en instans av den Linux virtuella datorn för
    c. **Inställningar för**:
    
    * **Disktyp**: Välj **Premium** om du föredrar en Solid State-hårddisk (SSD). Annars väljer du **Standard**.
-   * **Storage-konto**: du kan skapa ett nytt Azure storage-konto i din prenumeration eller använda ett befintligt namn på samma plats som har valts på den **grunderna** steg i guiden.
-   * **Andra parametrar**: I de flesta fall använder du bara standardvärdena. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
+   * **Storage-konto**: Du kan skapa ett nytt Azure storage-konto i din prenumeration eller använda ett befintligt namn på samma plats som har valts på den **grunderna** steg i guiden.
+   * **Andra parametrar**: I de flesta fall kan använda du bara standardvärdena. Att tänka på icke-standardvärden, hovrar du över informationsmeddelande länken Hjälp om specifika fält.
    
    d. **Sammanfattning av**:
    
@@ -117,11 +117,11 @@ Linux VM är redan upprättad med X2Go server och redo att ta emot klientanslutn
 1. Ladda ned och installera klienten för din klientplattform från X2Go [X2Go](http://wiki.x2go.org/doku.php/doc:installation:x2goclient).    
 1. Kör X2Go-klienten och välj **ny Session**. Det öppnar en konfiguration med flera flikar. Ange följande konfigurationsparametrar:
    * **Sessionen fliken**:
-     * **Värden**: värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
-     * **Logga in**: användarnamn på Linux-VM.
-     * **SSH-porten**: lämnar det på 22, standardvärdet.
-     * **Sessionstyp**: ändrar du värdet till XFCE. Linux VM stöder för närvarande endast XFCE desktop.
-   * **Media-flik**: Om du inte behöver använda stöd för ljud och skriva ut-klienten kan du stänga dem av.
+     * **Värden**: Värdnamn eller IP-adressen för din Linux virtuell dator för datavetenskap.
+     * **logga in**: Användarnamn på Linux-VM.
+     * **SSH Port**: Lämna det på 22, standardvärdet.
+     * **Sessionstyp**: Ändra värdet till XFCE. Linux VM stöder för närvarande endast XFCE desktop.
+   * **Media-flik**: Om du inte behöver använda stöd för ljud och skriva ut-klienten kan inaktivera du dem.
    * **Delade mappar**: Om du vill kataloger från dina klientdatorer som är monterad på Linux-VM, lägger du till de klienten datorn kataloger som du vill dela med den virtuella datorn på den här fliken.
 
 När du loggar in till den virtuella datorn med hjälp av SSH-klient eller XFCE grafiska desktop via X2Go klienten, är du redo att börja använda de verktyg som är installerade och konfigurerade på den virtuella datorn. På XFCE, kan du se genvägar på Program-menyn och ikoner på skrivbordet för många av verktygen.
@@ -154,7 +154,7 @@ Python 3.5 är installerat i */anaconda/envs/py35/bin*.
 
 Om du vill anropa en interaktiv session Python, skriver du **python** i gränssnittet. Om du är på ett grafiskt gränssnitt eller har X11 vidarebefordran set upp kan du skriva **pycharm** starta PyCharm Python IDE.
 
-Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` eller ````pip```` under sudo och anger sökvägen till Python package manager (conda eller pip) om du vill installera på rätt Python-miljö. Exempel:
+Om du vill installera ytterligare Python-bibliotek, måste du köra ```conda``` eller ```pip``` under sudo och anger sökvägen till Python package manager (conda eller pip) om du vill installera på rätt Python-miljö. Exempel:
 
     sudo /anaconda/bin/pip install <package> #pip for Python 2.7
     sudo /anaconda/envs/py35/bin/pip install <package> #pip for Python 3.5
@@ -198,7 +198,7 @@ Innan du kör i Spark-kontexten i Microsoft R Server som du behöver göra en en
     chown hadoop:hadoop ~hadoop/.ssh/authorized_keys
     systemctl start hadoop-namenode hadoop-datanode hadoop-yarn
 
-Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att köra ````systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn```` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
+Du kan stoppa Hadoop-relaterade tjänster när du inte behöver dem genom att köra ```systemctl stop hadoop-namenode hadoop-datanode hadoop-yarn``` ett exempel som visar hur du utvecklar och testar FRU i remote Spark-kontexten (som är fristående Spark-instansen på DSVM) har angetts och är tillgängliga i den `/dsvm/samples/MRS` katalogen. 
 
 ### <a name="ides-and-editors"></a>IDE: er och redigeringsprogram
 Du kan välja mellan flera kod redigerare. Detta inkluderar vi/VIM, Emacs, gEdit, RStudio, Eclipse pycharm med IntelliJ. gEdit, Eclipse, IntelliJ, RStudio och PyCharm finns grafiska redigerare du måste vara inloggad på ett grafiskt skrivbord kan använda dem. Dessa redigerare har skrivbord och programtjänster menyn genvägar att starta dem.
@@ -227,11 +227,11 @@ Mer information finns i [SQuirrel SQL](http://squirrel-sql.sourceforge.net/index
 #### <a name="command-line-tools-for-accessing-microsoft-sql-server"></a>Kommandoradsverktyg för att komma åt Microsoft SQL Server
 Paketets ODBC-drivrutinen för SQL Server levereras med två kommandoradsverktyg:
 
-**BCP**: bcp-verktyget bulk kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett format som angetts av användaren. Bcp-verktyget för att importera stora mängder nya rader till SQL Server-tabeller eller exportera data från tabeller till datafiler. Om du vill importera data till en tabell, måste antingen använda en formatfil som skapats för tabellen eller förstå strukturen för tabellen och vilka typer av data som är giltiga för sina kolumner.
+**bcp**: Bcp-verktyget bulk kopierar data mellan en instans av Microsoft SQL Server och en datafil i ett format som angetts av användaren. Bcp-verktyget för att importera stora mängder nya rader till SQL Server-tabeller eller exportera data från tabeller till datafiler. Om du vill importera data till en tabell, måste antingen använda en formatfil som skapats för tabellen eller förstå strukturen för tabellen och vilka typer av data som är giltiga för sina kolumner.
 
 Mer information finns i [ansluter med bcp](https://msdn.microsoft.com/library/hh568446.aspx).
 
-**SQLCMD**: du kan ange Transact-SQL-uttryck med sqlcmd-verktyget, samt system procedurer och skriptfiler i Kommandotolken. Det här verktyget använder ODBC för att köra Transact-SQL-satser.
+**sqlcmd**: Du kan ange Transact-SQL-uttryck med sqlcmd-verktyget, samt system procedurer och skriptfiler i Kommandotolken. Det här verktyget använder ODBC för att köra Transact-SQL-satser.
 
 Mer information finns i [ansluter med sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
 
@@ -248,19 +248,19 @@ Det finns bibliotek som är tillgängliga i R och Python till access-databaser.
 
 Åtkomst till **Postgres**:
 
-* Använd paketet från R: **RPostgreSQL**.
-* Använd från Python: Den **psycopg2** biblioteket.
+* Från R: Använda paketet **RPostgreSQL**.
+* Från Python: Använd den **psycopg2** biblioteket.
 
 ### <a name="azure-tools"></a>Azure-verktyg
 Följande Azure-verktygen är installerade på den virtuella datorn:
 
-* **Azure-kommandoradsgränssnittet**: The Azure CLI kan du skapa och hantera Azure-resurser via shell-kommandon. För att anropa Azure-verktygen, skriver du **azure hjälp**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
+* **Azure-kommandoradsgränssnittet**: Azure CLI kan du skapa och hantera Azure-resurser via shell-kommandon. För att anropa Azure-verktygen, skriver du **azure hjälp**. Mer information finns i den [dokumentationssidan för Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 * **Microsoft Azure Storage Explorer**: Microsoft Azure Storage Explorer är ett grafiskt verktyg som används för att bläddra igenom objekten som du har lagrat i Azure storage-kontot, och för att ladda upp och ned data till och från Azure-blobar. Du kan komma åt Storage Explorer från ikonen genvägen på skrivbordet. Du kan anropa det från en shell-prompten genom att skriva **StorageExplorer**. Du måste vara inloggad på en X2Go-klient eller har X11 vidarebefordran set upp.
-* **Azure-bibliotek**: följande är några av de förinstallerade biblioteken.
+* **Azure-bibliotek**: Följande är några av de förinstallerade biblioteken.
   
-  * **Python**: Azure-relaterade bibliotek i Python som är installerade är **azure**, **azureml**, **pydocumentdb**, och **pyodbc**. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
-  * **R**: Azure-relaterade bibliotek i R som är installerade är **AzureML** och **RODBC**.
-  * **Java**: listan över Azure Java-bibliotek finns i katalogen **/dsvm/sdk/AzureSDKJava** på den virtuella datorn. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
+  * **Python**: Azure-relaterade-bibliotek i Python som är installerade är **azure**, **azureml**, **pydocumentdb**, och **pyodbc**. Med de tre första biblioteken kan du komma åt Azure storage-tjänster, Azure Machine Learning och Azure Cosmos DB (en NoSQL-databas på Azure). Fjärde biblioteket pyodbc (tillsammans med Microsoft ODBC-drivrutinen för SQL Server), ger åtkomst till SQL Server, Azure SQL Database och Azure SQL Data Warehouse från Python med hjälp av en ODBC-gränssnittet. Ange **pip lista** att se alla bibliotek. Glöm inte att köra det här kommandot i både Python 2.7 och 3,5 miljöer.
+  * **R**: Azure-relaterade biblioteken i R som är installerade är **AzureML** och **RODBC**.
+  * **Java**: Listan över Azure Java-bibliotek finns i katalogen **/dsvm/sdk/AzureSDKJava** på den virtuella datorn. Viktiga bibliotek är Azure lagring och hantering av API: er, Azure Cosmos DB och JDBC-drivrutiner för SQL Server.  
 
 Du kan komma åt den [Azure-portalen](https://portal.azure.com) från den förinstallerade webbläsaren Firefox. På Azure-portalen kan du skapa, hantera och övervaka Azure-resurser.
 
@@ -281,11 +281,11 @@ Information om hur du distribuerar modeller i R och Python i Azure Machine Learn
 ### <a name="machine-learning-tools"></a>Machine learning-verktyg
 Den virtuella datorn kommer med några machine learning-verktyg och algoritmer som har förväg kompilerad och förinstallerade lokalt. Exempel på dessa är:
 
-* **Microsoft Cognitive Toolkit** : djupinläranede verktygspaket.
-* **Vowpal Wabbit**: en snabb online inlärningsalgoritm.
-* **xgboost**: ett verktyg som tillhandahåller optimerade, bättre algoritmer.
+* **Microsoft Cognitive Toolkit** : Ett deep learning-verktyg.
+* **Vowpal Wabbit**: En snabb online inlärningsalgoritm.
+* **xgboost**: Ett verktyg som tillhandahåller optimerade, bättre algoritmer.
 * **Python**: Anaconda Python medföljer machine learning-algoritmer med bibliotek som lär du dig Scikit. Du kan installera andra bibliotek med hjälp av den `pip install` kommando.
-* **R**: ett omfattande bibliotek med machine learning-funktioner är tillgängliga för R. Vissa av de bibliotek som är förinstallerade är lm, glm, randomForest, rpart. Andra bibliotek kan installeras genom att köra:
+* **R**: Ett omfattande bibliotek med machine learning-funktioner är tillgängliga för R. Vissa av de bibliotek som är förinstallerade är lm, glm, randomForest, rpart. Andra bibliotek kan installeras genom att köra:
   
         install.packages(<lib name>)
 

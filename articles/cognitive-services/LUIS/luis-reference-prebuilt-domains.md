@@ -11,12 +11,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: diberry
-ms.openlocfilehash: 3cb85a48a881545e9b2a0df29c35218b999fdbf0
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 94bae7ddfd0d7f885b8441ed3b9d5943d052dbaf
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140973"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101928"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Referens för fördefinierade för LUIS-appen
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
@@ -402,7 +402,7 @@ Platser domänen innehåller avsikter för hantering av frågor som rör platser
 |CheckAccident|Be om det finns en olycka på angivna väg.|Finns det en olycka på 880?<br/>Visa mig misstag information|
 |CheckAreaTraffic|Kontrollera trafik för ett allmänt område eller plats, inte på en angiven väg.|Trafik i Seattle<br/>Vad är trafik som i Seattle?|
 |CheckIntoPlace|Checka in på en plats med hjälp av sociala medier.|Kontrollera mig i på Foursquare<br/>Checka in här|
-|CheckRouteTraffic| Kontrollera trafik för en specifik väg som angetts av användaren.|Vad är trafiken till Mashiko?<br/>Visa mig traffice till Kirkland<br/>Vad är trafiken till Seattle?| 
+|CheckRouteTraffic| Kontrollera trafik för en specifik väg som angetts av användaren.|Vad är trafiken till Mashiko?<br/>Visa mig trafiken till Kirkland<br/>Vad är trafiken till Seattle?| 
 |Bekräfta|Bekräfta en åtgärd som är relaterad till en plats.|Bekräfta min restaurang-reservation.|
 |Avsluta|Åtgärd att avsluta en uppgift som är relaterad till en plats.|Avsluta.<br/>Avsluta ger mig till anvisningarna|
 |FindPlace|Sök efter en plats (business, institution, restaurang, offentligt adressutrymme, adress).|Var finns det närmaste biblioteket?<br/>Hitta en bra italienska restaurang i Mountain View|

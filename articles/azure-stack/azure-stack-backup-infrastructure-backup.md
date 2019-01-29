@@ -10,19 +10,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: 4cb8ffe218ef1cd64b93201eddbbd09bb16026db
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 477d0bcebf8f699c49e0cf769a54ef3ae52a3a76
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50087397"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096033"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Säkerhetskopiering och dataåterställning för Azure Stack med Backup-tjänsten infrastruktur
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan säkerhetskopiera och återställa konfiguration och tjänstdata med hjälp av Backup-tjänsten infrastruktur. Varje Azure Stack-installation innehåller en instans av tjänsten. Du kan använda säkerhetskopior som har skapats av tjänsten för omdistribution av Azure Stack-molnet för att återställa identitet, säkerhet och Azure Resource Manager-data.
 
@@ -43,7 +43,7 @@ Tjänsterna innehåller följande funktioner.
 | Komprimering och kryptering av exporterade säkerhetskopierade Data | Säkerhetskopierade data komprimeras och krypteras av systemet innan den exporteras till den externa lagringsplatsen som tillhandahålls av administratören.                |
 | Säkerhetskopieringsjobbet övervakning                              | När säkerhetskopiering jobb misslyckas och reparation steg visas ett meddelande.                                                                                                |
 | Upplevelse för hantering av säkerhetskopiering                       | Säkerhetskopiering RP har stöd för Aktivera säkerhetskopiering.                                                                                                                         |
-| Molnåterställning                                     | Om det finns en oåterkallelig dataförlust, användas säkerhetskopieringar för att återställa information om grundläggande Azure Stack som en del av distributionen.                                 |
+| Cloud Recovery                                     | Om det finns en oåterkallelig dataförlust, användas säkerhetskopieringar för att återställa information om grundläggande Azure Stack som en del av distributionen.                                 |
 
 ## <a name="verify-requirements-for-the-infrastructure-backup-service"></a>Kontrollera krav för infrastruktur Backup-tjänsten
 

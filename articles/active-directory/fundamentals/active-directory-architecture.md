@@ -5,19 +5,19 @@ services: active-directory
 author: eross-msft
 manager: daveba
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
-ms.openlocfilehash: 7667f7b52f9130c9793a86a185a15f8dec1ae063
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 683627efe6946ec68e40f84b7bd7b3d3c8f30985
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452164"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55094214"
 ---
 # <a name="what-is-the-azure-active-directory-architecture"></a>Vad är Azure Active Directory-arkitekturen?
 Med Azure AD (Active Directory Azure) kan du på ett säkert sätt hantera åtkomsten till Azure-tjänster och -resurser för dina användare. En komplett uppsättning identitetshanteringsfunktioner ingår i Azure AD. Information om funktionerna i Azure AD finns i [Vad är Azure Active Directory?](active-directory-whatis.md)

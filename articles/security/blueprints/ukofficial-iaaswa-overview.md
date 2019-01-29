@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: d5b759fcde66a2a9be86cc15cba1ead1765ba248
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 04de32b2df630eea918c786a7f065f404f4d8dca
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413404"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55164528"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
 
@@ -204,7 +204,7 @@ Kunder kan också överväga att använda en [förbättrad administrativ säkerh
 
 **Problemseparering**: Denna Referensarkitektur skiljer de virtuella nätverken för hanteringsåtgärder och verksamheten. Separata virtuella nätverk och undernät tillåter hantering, inklusive trafik ingående och utgående begränsningar med hjälp av NSG: er mellan nätverkssegment följa [Microsofts molntjänster och nätverkssäkerhet](https://docs.microsoft.com/azure/best-practices-network-security) bästa praxis.
 
-**Resurshantering**: Azure-resurser som virtuella datorer, virtuella nätverk och belastningsutjämnare som hanteras av grupperas tillsammans i [Azure-resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groupsresource). Åtkomstkontroll resursroller kan tilldelas till varje resursgrupp för att begränsa åtkomsten till endast auktoriserade användare.
+**Resurshantering**: Azure-resurser som virtuella datorer, virtuella nätverk och belastningsutjämnare som hanteras av grupperas tillsammans i [Azure-resursgrupper](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Åtkomstkontroll resursroller kan tilldelas till varje resursgrupp för att begränsa åtkomsten till endast auktoriserade användare.
 
 **Komma åt Kontrollbegränsningar**: Använd [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) (RBAC) för att hantera resurserna i ditt program med hjälp av [anpassade roller](https://docs.microsoft.com/azure/role-based-access-control/custom-roles) RBAC kan användas för att begränsa de åtgärder som DevOps kan utföra på varje nivå. När du beviljar behörighet använder den [principen om lägsta behörighet](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Logga alla administrativa åtgärder och utför regelbundna granskningar för att säkerställa att inga ändringar i konfigurationen har planerats.
 

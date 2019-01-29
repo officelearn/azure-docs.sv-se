@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: pullabhk
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 68c611b08524b5fc037598bafe46d75b3293886d
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 4a65e8a855b9be797c1ceeacf4b74fea74697d00
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289731"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55100223"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>Återställa virtuella Azure-datorer med hjälp av REST API
 
@@ -37,7 +37,7 @@ Den *hämta* URI: N har de obligatoriska parametrarna. Det finns inget behov av 
 
 ### <a name="responses"></a>Svar
 
-|Namn  |Typ  |Beskrivning  |
+|Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |200 OK     |   [RecoveryPointResourceList](https://docs.microsoft.com/rest/api/backup/recoverypoints/list#recoverypointresourcelist)      |       Ok  |
 
@@ -127,9 +127,9 @@ Om det finns ett behov av att anpassa skapandet av en virtuell dator från säke
 
 Utlöser återställning av diskar är en *POST* begäran. Om du vill veta mer om åtgärden Återställ diskar, referera till den [”aktivera återställning” REST API](https://docs.microsoft.com/rest/api/backup/restores/trigger).
 
-````http
+```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/restore?api-version=2016-12-01
-````
+```
 
 Den `{containerName}` och `{protectedItemName}` som konstruerats [här](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1). `{fabricName}` är ”Azure” och `{recoveryPointId}` är den `{name}` fältet för återställningspunkten som nämns [ovan](#example-response).
 
@@ -137,7 +137,7 @@ Den `{containerName}` och `{protectedItemName}` som konstruerats [här](backup-a
 
 Här följer komponenterna i begärandetexten för att utlösa en diskåterställning från en virtuell Azure-säkerhetskopiering.
 
-|Namn  |Typ  |Beskrivning  |
+|Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |properties     | [IaaSVMRestoreRequest](https://docs.microsoft.com/rest/api/backup/restores/trigger#iaasvmrestorerequest)        |    RestoreRequestResourceProperties     |
 
@@ -147,7 +147,7 @@ Den fullständiga listan över definitioner av begärandetexten och annan inform
 
 Följande begäran definierar egenskaper som krävs för att utlösa en diskåterställning av.
 
-````json
+```json
 {
   "properties": {
     "objectType": "IaasVMRestoreRequest",
@@ -163,15 +163,15 @@ Följande begäran definierar egenskaper som krävs för att utlösa en diskåte
     }
   }
 }
-````
+```
 
 ### <a name="response"></a>Svar
 
 Utlösningen av en återställning disk är en [asynkron åtgärd](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). Det innebär att den här åtgärden skapar en annan åtgärd som kräver uppföljning separat.
 
-Den returnerar två svar: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
+Två svar returneras: 202 (accepterad) när en annan åtgärd har skapats och sedan 200 (OK) när åtgärden har slutförts.
 
-|Namn  |Typ  |Beskrivning  |
+|Name  |Typ  |Beskrivning  |
 |---------|---------|---------|
 |202-accepterad     |         |     Accepterad    |
 
@@ -243,7 +243,7 @@ När det körs under lång tid jobbet har slutförts, att diskar och konfigurati
 
 Följande begäran definierar egenskaper som krävs för att utlösa en återställning av virtuell dator.
 
-````json
+```json
 {
   "parameters": {
         "subscriptionId": "00000000-0000-0000-0000-000000000000",
@@ -275,7 +275,7 @@ Följande begäran definierar egenskaper som krävs för att utlösa en återst�
       }
     }
 }
-````
+```
 
 Svaret ska hanteras på samma sätt som [förklaras ovan för att återställa diskar](#response).
 

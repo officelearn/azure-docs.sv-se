@@ -10,21 +10,21 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bc1353ffb4514622ce0ef6e5c3ced76adc7f999f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 8f87cb68aeea8b953b9883e92fd5080569c6cdd0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314796"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55203699"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Fördefinierade kunskaper för innehåll berikande (Azure Search)
 
 I den här artikeln får du lära dig om kognitiva kunskaper som medföljer Azure Search. En *kognitiva kunskaper* är en åtgärd som transformerar innehållet på något sätt. Ofta är det en komponent som extraherar data eller härleder struktur och därför förstärker vår förståelse för indata. Utdata är nästan alltid textbaserade. En *kompetens* är samling färdigheter som definierar berikande pipeline. 
 
 > [!NOTE]
-> Från och med den 21 December 2018 kan du associera en resurs för Cognitive Services med ett Azure Search-kompetens. Detta gör att vi börjar debitera för körning av kompetens. På det här datumet måste också börjar vi debitera för extrahering av avbildningen som en del av dokumentknäckning fasen. Textextrahering från dokument fortsätter att erbjudas utan extra kostnad.
+> Från och med 21 december 2018 kan du koppla en Cognitive Services-resurs med en färdighet i Azure Search. Detta gör det möjligt för oss att börja debitera för körning av färdigheter. Samma datum börjar vi också debitera bildextrahering som en del av dokumentknäckningsfasen. Textextrahering från dokument kommer fortfarande att kunna användas utan kostnad.
 >
-> Körningen av inbyggda kunskaper debiteras med den befintliga [Cognitive Services betala-som-du gå pris](https://azure.microsoft.com/pricing/details/cognitive-services/) . Bild extrahering priser kommer att debiteras enligt priserna för förhandsversionen och beskrivs i den [Azure Search sidan med priser](https://go.microsoft.com/fwlink/?linkid=2042400). Lär dig [mer](cognitive-search-attach-cognitive-services.md).
+> Körningen av inbyggda funktioner faktureras till det befintliga [betala per användning-priset för Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). Prissättningen för bildextrahering följer prissättningen för förhandsversionen. Mer information finns på [prissättningssidan för Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). Läs [mer](cognitive-search-attach-cognitive-services.md).
 
 ## <a name="predefined-skills"></a>Fördefinierade kunskaper
 
@@ -35,7 +35,7 @@ Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Kompetensen använder en pretrained modell för att identifiera viktiga fraser som baserat på termen placering, språkliga regler, närhet till andra villkor och hur ovanlig termen är i källdata. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Denna färdighet använder en pretrained modell att identifiera vilka språk är används (ett språk-ID per dokument). När flera språk används i samma text segment, är utdata LCID för de främst används.|
 | [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md) | Konsoliderar text från en samling av fält till ett fält.  |
-| [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md) | Kompetensen använder en pretrained modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation. |
+| [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Kompetensen använder en pretrained modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation, e-postmeddelanden, URL: er, datetime-fält. |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Kompetensen använder en pretrained modell för att bedöma positiv eller negativ attityd på basis av post med. Poängen är mellan 0 och 1. Neutrala resultat inträffar för både null fallet när sentiment inte kan identifieras och som anses neutral för text.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Delar upp text i sidor så att du kan utöka eller förbättra innehållet inkrementellt. |
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Kompetensen använder en algoritm för avbildning för att identifiera innehållet i en bild och generera en textbeskrivning. |
@@ -46,4 +46,4 @@ Flera kunskaper är flexibla i vad de använda eller skapa. I allmänhet baseras
 
 + [Hur du definierar en kompetens](cognitive-search-defining-skillset.md)
 + [Anpassade egenskapsdefinition gränssnitt](cognitive-search-custom-skill-interface.md)
-+ [Självstudiekurs: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)
++ [Självstudier: Utökad indexering med kognitiva search](cognitive-search-tutorial-blob.md)

@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/14/2017
 ms.author: rogarana
 ms.component: queues
-ms.openlocfilehash: 016d6b1991085e3ed881deb68317dbde0ee46326
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: b46aea2a50b12f82858b8f465f8dfbfff8aa0bbe
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213237"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55165021"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Utföra åtgärder för Azure Queue storage med Azure PowerShell
 
@@ -35,7 +35,7 @@ Det finns ingen PowerShell-cmdletar för dataplanet för köer. Om du vill utfö
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på Azure-prenumerationen med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
+Logga in på din Azure-prenumeration med kommandot `Connect-AzAccount` och följ anvisningarna på skärmen.
 
 ```powershell
 Connect-AzAccount
@@ -111,15 +111,15 @@ I följande exempel visar hur du lägger till ett meddelande i kön.
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 1"
 # Add a new message to the queue
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 
 # Add two more messages to the queue 
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 2"
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 $queueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage `
   -ArgumentList "This is message 3"
-$queue.CloudQueue.AddMessage($QueueMessage)
+$queue.CloudQueue.AddMessageAsync($QueueMessage)
 ```
 
 Om du använder den [Azure Storage Explorer](http://storageexplorer.com), du kan ansluta till ditt Azure-konto och visa köer i lagringskontot och granska nedåt i kö för att visa meddelanden i kön. 
@@ -140,25 +140,29 @@ I följande exempel du läsa igenom tre Kömeddelanden och vänta 10 sekunder (t
 $invisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
 # Read the message from the queue, then show the contents of the message. Read the other two messages, too.
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queueMessage 
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
 
 # After 10 seconds, these messages reappear on the queue. 
 # Read them again, but delete each one after reading it.
 # Delete the message.
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
-$queueMessage = $queue.CloudQueue.GetMessage($invisibleTimeout)
-$queue.CloudQueue.DeleteMessage($queueMessage)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
+$queueMessage = $queue.CloudQueue.GetMessageAsync($invisibleTimeout,$null,$null)
+$queueMessage.Result
+$queue.CloudQueue.DeleteMessageAsync($queueMessage.Result.Id,$queueMessage.Result.popReceipt)
 ```
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
+
 Ta bort en kö och alla meddelanden som finns i den genom att anropa cmdleten Remove-AzStorageQueue. I följande exempel visas hur du tar bort den specifika kö som används i den här övningen med hjälp av cmdleten Remove-AzStorageQueue.
 
 ```powershell
@@ -187,7 +191,9 @@ I den här artikeln berättade om grundläggande Queue storage management med Po
 > * Ta bort en kö
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Microsoft Azure PowerShell Storage-cmdletar
+
 * [Storage PowerShell cmdletar](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
+
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.

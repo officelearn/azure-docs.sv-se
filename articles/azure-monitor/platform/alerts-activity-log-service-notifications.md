@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/09/2018
 ms.author: shtabriz
-ms.openlocfilehash: b22ecb9d8948a77df43f47cd9fd218be4319d06e
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 6b617ff99b9183c6b5008292dd3e5d11f2e69da9
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583739"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55092242"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications"></a>Skapa aviseringar för aktivitetsloggen för tjänstmeddelanden
 ## <a name="overview"></a>Översikt
@@ -37,7 +37,7 @@ Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../../azure-
 
 Information om hur du konfigurerar tjänsten hälsovarningar för meddelande med hjälp av Azure Resource Manager-mallar finns i [Resource Manager-mallar](alerts-activity-log.md).
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure portal
+## <a name="alert-and-new-action-group-using-azure-portal"></a>Aviseringar och ny åtgärdsgrupp med hjälp av Azure portal
 1. I den [portal](https://portal.azure.com)väljer **Tjänstehälsa**.
 
     ![Tjänsten ”Tjänstehälsa”](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -86,7 +86,7 @@ Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system]
 >
 >
 
-## <a name="create-an-alert-on-a-service-health-notification-for-an-existing-action-group-by-using-the-azure-portal"></a>Skapa en avisering på en avisering om tjänstens hälsa för en befintlig åtgärdsgrupp med hjälp av Azure portal
+## <a name="alert-with-existing-action-group-using-azure-portal"></a>Avisering med befintlig åtgärdsgrupp med hjälp av Azure portal
 
 1. Följ steg 1 till och med 7 i föregående avsnitt för att skapa aviseringen om tjänstens hälsa. 
 
@@ -96,7 +96,7 @@ Lär dig hur du [konfigurera webhook-aviseringar för befintliga problem system]
 
 Inom några minuter, aviseringen är aktiv och börjar att utlösa baserat på de villkor som du angav när du skapar.
 
-## <a name="create-an-alert-on-a-service-health-notification-for-a-new-action-group-by-using-the-azure-resource-manager-templates"></a>Skapa en avisering på en avisering om tjänstens hälsa för en ny åtgärdsgrupp med hjälp av Azure Resource Manager-mallar
+## <a name="alert-and-new-action-group-using-the-azure-resource-manager-templates"></a>Aviseringar och ny åtgärdsgrupp med hjälp av Azure Resource Manager-mallar
 
 Följande är ett exempel som skapar en grupp med ett mål för e-post och aktiverar alla service health-aviseringar för målprenumerationen.
 

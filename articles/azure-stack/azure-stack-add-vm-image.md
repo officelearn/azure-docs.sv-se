@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 1/18/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bac0b2933d4b6d4a88ebbb0402bba0ffd508b395
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 54f7b596eebf2cc5ad7a9bf1b795fab087b6fac0
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474378"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55102489"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Göra en avbildning av virtuell dator som är tillgängliga i Azure Stack
 
@@ -82,14 +82,14 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" `
       -offer "<offer>" `
       -sku "<sku>" `
       -version "<#.#.#>” `
       -OSType "<ostype>" `
       -OSUri "<osuri>"
-  ````
+  ```
 
   Den **Lägg till AzsPlatformimage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
   - **publisher**  
@@ -157,24 +157,24 @@ Avbildningar måste kunna refereras till av en URI för blob-lagring. Förbereda
 
 5. Förbereda en Windows- eller Linux operativsystemavbildning i VHD-format (inte VHDX), överför avbildningen till ditt storage-konto och hämta URI där VM-avbildning kan hämtas med PowerShell.  
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzureRmAccount `
       -EnvironmentName "AzureStackAdmin" `
       -TenantId $TenantID
-  ````
+  ```
 
 6. (Valfritt) Du kan överföra en matris med datadiskar som en del av avbildningen. Skapa din datadiskar med hjälp av cmdleten New-DataDiskObject. Öppna PowerShell från en upphöjd kommandotolk och kör:
 
-  ````PowerShell  
+  ```PowerShell  
     New-DataDiskObject -Lun 2 `
     -Uri "https://storageaccount.blob.core.windows.net/vhds/Datadisk.vhd"
-  ````
+  ```
 
 7. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ````PowerShell  
+  ```PowerShell  
     Add-AzsPlatformimage -publisher "<publisher>" -offer "<offer>" -sku "<sku>" -version "<#.#.#>” -OSType "<ostype>" -OSUri "<osuri>"
-  ````
+  ```
 
     Mer information om cmdlet: en Add-AzsPlatformimage och New-DataDiskObject cmdlet finns i Microsoft-PowerShell [dokumentation för Azure Stack-operatör modulen](https://docs.microsoft.com/powershell/module/).
 
@@ -188,13 +188,13 @@ När du behöver inte längre den avbildning av virtuell dator som du laddade up
 
 3. Öppna PowerShell med en upphöjd kommandotolk och kör:
 
-  ````PowerShell  
+  ```PowerShell  
   Remove-AzsPlatformImage `
     -publisher "<publisher>" `
     -offer "<offer>" `
     -sku "<sku>" `
     -version "<version>" `
-  ````
+  ```
   Den **Remove-AzsPlatformImage** cmdlet anger värden som används av Azure Resource Manager-mallar för att referera till VM-avbildning. Värdena är:
   - **publisher**  
     Exempel: `Canonical`  

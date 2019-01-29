@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 198cd2c3-f7c8-4ec2-b59d-dfdea9fe7d95
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8af6846da78d12460b7866297c9802c5dab20a69
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5b721dfd7a229220836f273be58c5ca74c4284d1
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967531"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097942"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Snabbstart: Skapa en Xamarin-app som integrerar Microsoft-inloggning
 
@@ -39,27 +39,27 @@ För Xamarin-appar som behöver åtkomst till skyddade resurser, tillhandahålle
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Ladda ned den [stommen av ett projekt](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/skeleton.zip), eller hämta den [färdiga exemplet](https://github.com/AzureADQuickStarts/NativeClient-MultiTarget-DotNet/archive/complete.zip). Varje version är en Visual Studio 2013-lösning.
-* Du behöver också en Azure AD-klient att skapa användare och registrera appen. Om du inte redan har en klient, [Lär dig hur du skaffa ett](quickstart-create-new-tenant.md).
+* Du behöver också en Azure AD-klient att skapa användare och registrera appen. Om du inte redan har en klientorganisation kan du [läsa om hur du skaffar en](quickstart-create-new-tenant.md).
 
 När du är redo, följer du procedurerna i följande fyra avsnitt.
 
-## <a name="step-1-set-up-your-xamarin-development-environment"></a>Steg 1: Ställ in din utvecklingsmiljö för Xamarin
+## <a name="step-1-set-up-your-xamarin-development-environment"></a>Steg 1: Konfigurera din utvecklingsmiljö för Xamarin
 
 Eftersom den här självstudien omfattar projekt för iOS, Android och Windows, måste både Visual Studio och Xamarin. För att skapa nödvändiga miljön, slutför du processen i [ange installation av Visual Studio och Xamarin och](https://msdn.microsoft.com/library/mt613162.aspx) på MSDN. Anvisningarna omfattar material som du kan granska om du vill veta mer om Xamarin under tiden du väntar för installationer ska slutföras.
 
 När du har slutfört installationen, öppnar du lösningen i Visual Studio. Där hittar du sex projekt: fem plattformsspecifika projekt och en PCL, DirectorySearcher.cs som delas mellan alla plattformar.
 
-## <a name="step-2-register-the-directorysearcher-app"></a>Steg 2: Registrera appen DirectorySearcher
+## <a name="step-2-register-the-directorysearcher-app"></a>Steg 2: Registrera DirectorySearcher-app
 
 Om du vill att appen ska kunna hämta token, måste du först registrera det i Azure AD-klienten och bevilja behörighet att komma åt Azure AD Graph API. Så här gör du:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på ditt konto i det översta fältet. Sedan, under den **Directory** väljer du Active Directory-klient där du vill registrera appen.
-3. Klicka på **alla tjänster** i den vänstra rutan och välj sedan **Azure Active Directory**.
-4. Klicka på **appregistreringar**, och välj sedan **Lägg till**.
+3. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
+4. Klicka på **Appregistreringar** och välj sedan **Lägg till**.
 5. Att skapa en ny **internt klientprogram**, följ anvisningarna.
   * **Namn på** beskriver appen till användare.
-  * **Omdirigerings-URI** är en kombination av schema och strängen som Azure AD använder för att returnera tokensvar. Ange ett värde (till exempel http://DirectorySearcher).
+  * **Omdirigerings-URI** är ett schema och en strängkombination som Azure AD använder till att returnera tokensvar. Ange ett värde (till exempel http://DirectorySearcher).
 6. När du har slutfört registreringen, tilldelar Azure AD appen ett unikt program-ID. Kopiera värdet från den **program** fliken eftersom du behöver senare.
 7. På den **inställningar** väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**.
 8. Välj **Microsoft Graph** som API: et. Under **delegerade behörigheter**, lägga till den **läsa kataloginformation** behörighet. Den här åtgärden gör det möjligt för appen att fråga Graph-API: N för användare.
@@ -98,7 +98,7 @@ Nu när du har en app i Azure AD kan du skriva koden identitetsrelaterade instal
   * Den *clientId* är klient-ID för appen, som du kopierade från portalen.
   * Den *returnUri* är omdirigerings-URI som du angav på portalen (till exempel http://DirectorySearcher).
 
-## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Steg 4: Använda ADAL för att hämta token från Azure AD
+## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Steg 4: Använd ADAL för att hämta token från Azure AD
 
 Nästan alla appens autentiseringslogiken ligger i `DirectorySearcher.SearchByAlias(...)`. Allt som behövs i de plattformsspecifika projekt är att skicka en sammanhangsberoende parametern till den `DirectorySearcher` PCL.
 
@@ -187,12 +187,12 @@ List<User> results = await DirectorySearcherLib.DirectorySearcher.SearchByAlias(
 
 Nu har du en fungerande Xamarin-app som kan autentisera användare och på ett säkert sätt anropa webb-API: er med hjälp av OAuth 2.0 på fem olika plattformar.
 
-## <a name="step-5-populate-your-tenant"></a>Steg 5: Lägg till i din klient 
+## <a name="step-5-populate-your-tenant"></a>Steg 5: Fyll i din klient 
 
 Om du inte har redan fyllt i din klient med användare, är det dags att göra detta.
 
 1. Kör DirectorySearcher appen och logga sedan in med en av användarna.
-2. Sök efter andra användare baserat på deras UPN.
+2. Sök efter andra användare utifrån deras UPN.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: dd62e0f4ff110ec8454031f1b66b56025328c33c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 55e9ef0f8bd268f36378c7d34cea95384c6f725e
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101487"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55099353"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partitionering och horisontell skalning i Azure Cosmos DB
 
@@ -27,7 +27,7 @@ En logisk partition definierar omfattningen för databastransaktioner. Du kan up
 
 ## <a name="physical-partitions"></a>Fysiska partitioner
 
-Azure Cosmos-behållare skalas genom att distribuera data och dataflöde över ett stort antal logiska partitioner. Internt, en eller flera logiska partitioner mappas till en **fysisk partition** som består av en uppsättning repliker kallas även en replikuppsättning. Varje replikuppsättningen har en instans av Azure Cosmos-databasmotorn. En replikuppsättning gör de data som lagras i fysisk partition hållbar, högtillgänglig och konsekvent. En fysisk partition har stöd för en fast, maximal mängd lagringsutrymme och ru: er. Varje replik som består av fysisk partition ärver lagringskvoten. Och alla repliker på en fysisk partition stöd gemensamt för det dataflöde som allokerats till fysisk partition. Följande bild visar logiska partitioner mappas till fysiska partitioner som distribueras globalt:
+Azure Cosmos-behållare skalas genom att distribuera data och dataflöde över ett stort antal logiska partitioner. Internt, en eller flera logiska partitioner mappas till en **fysisk partition** som består av en uppsättning repliker kallas även en replikuppsättning. Varje replikuppsättningen har en instans av Azure Cosmos-databasmotorn. En replikuppsättning gör de data som lagras i fysisk partition hållbar, högtillgänglig och konsekvent. En fysisk partition har stöd för maximal mängd lagringsutrymme och ru: er. Varje replik som består av fysisk partition ärver lagringskvoten. Och alla repliker på en fysisk partition stöd gemensamt för det dataflöde som allokerats till fysisk partition. Följande bild visar logiska partitioner mappas till fysiska partitioner som distribueras globalt:
 
 ![Azure Cosmos DB-partitionering](./media/partition-data/logical-partitions.png)
 

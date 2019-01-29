@@ -1,21 +1,21 @@
 ---
-title: Ändringsjournalen entitetsattribut – Academic Knowledge API
+title: Journal entity attributes - Academic Knowledge API
 titlesuffix: Azure Cognitive Services
 description: Läs om de attribut som du kan använda med journalen entiteten i Academic Knowledge API i Cognitive Services.
 services: cognitive-services
 author: alch-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: academic-knowledge
+ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: 45b2860b56e79c197d96998350131a142326157a
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 397293c17320ef75daa5c31af76d49183b6c435c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902815"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55193836"
 ---
 # <a name="journal-entity"></a>Ändringsjournalen entitet
 

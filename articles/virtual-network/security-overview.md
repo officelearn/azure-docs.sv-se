@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: jdial
-ms.openlocfilehash: 52cac856fbec79842cc4661f38342cb972ea40df
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: bbfb070a66bdae415d357542459ee88fd8b1865f
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159068"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55104504"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -47,7 +47,7 @@ Det finns gränser för hur många säkerhetsregler du kan skapa i en nätverkss
 
 ## <a name="augmented-security-rules"></a>Förhöjda säkerhetsregler
 
-Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](#service-tags) eller [programsäkerhetsgrupper](#application-security-groups). Det finns gränser för hur många adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nätverk så att du kan definiera större och mer komplexa nätverkssäkerhetsprinciper med färre regler. Du kan kombinera flera portar och flera explicita IP-adresser och IP-intervall i en enda, lättbegriplig säkerhetsregel. Använd förhöjda regler i fälten för källa, mål och port för en regel. För att göra det enklare att underhålla definitionen av dina säkerhetsregler kan du kombinera förhöjda säkerhetsregler med [tjänsttaggar](#service-tags) eller [programsäkerhetsgrupper](#application-security-groups). Det finns gränser för antalet adresser, intervall och portar som du kan ange i en regel. Läs mer i informationen om [begränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="service-tags"></a>Tjänsttaggar
 
@@ -58,7 +58,7 @@ Förhöjda säkerhetsregler förenklar säkerhetsdefinitionen för virtuella nä
  Du kan använda följande tjänsttaggar när du definierar säkerhetsregler. Namnen skiljer sig lite mellan olika [Azure-distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 * **VirtualNetwork** (Resource Manager) (**VIRTUAL_NETWORK** för klassisk): Den här taggen innehåller adressutrymmet för det virtuella nätverket (alla CIDR-intervall som har definierats för det virtuella nätverket), alla anslutna lokala adressutrymmen och [peer-kopplade](virtual-network-peering-overview.md) virtuella nätverk eller virtuella nätverk som anslutits till en [virtuell nätverksgateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md##azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
+* **AzureLoadBalancer** (Resource Manager) (**AZURE_LOADBALANCER** för klassisk): Den här taggen anger lastbalanseraren för Azures infrastruktur. Taggen översätts till [värdens virtuella IP-adress](security-overview.md#azure-platform-considerations) (168.63.129.16) som Azures hälsoavsökningar kommer från. Du kan åsidosätta den här regeln om du inte använder Azures lastbalanserare.
 * **Internet** (Resource Manager) (**INTERNET** för klassisk): Den här taggen omfattar det IP-adressutrymme som är utanför det virtuella nätverket och som nås via offentligt Internet. Adressintervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 * **AzureCloud** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för Azure, inklusive alla [offentliga IP-adresser för datacentret](https://www.microsoft.com/download/details.aspx?id=41653). Om du anger *AzureCloud* som värde tillåts eller nekas trafik till offentliga Azure IP-adresser. Om du bara vill tillåta åtkomst till AzureCloud i en viss [region](https://azure.microsoft.com/regions) kan du ange regionen. Om du till exempel endast vill tillåta åtkomst till Azure AzureCloud i regionen USA, östra så anger *AzureCloud.EastUS* som en tjänsttagg. 
 * **AzureTrafficManager** (endast Resource Manager): Den här taggen anger IP-adressutrymmet för IP-adresserna för avsökning i Azure Traffic Manager. Mer information om IP-adresser för avsökning i Traffic Manager finns i [Vanliga frågor och svar om Azure Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs). 

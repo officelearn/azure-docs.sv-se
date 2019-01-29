@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/4/2019
 ms.author: rkarlin
-ms.openlocfilehash: 52af6051b4534ba65b4822205cb5395a59ef9d6a
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c706dbd4536b9c75281500ace6f02db00ff2f95d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259972"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095582"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -36,7 +36,7 @@ En säkerhetsprincip definierar den önskade konfigurationen för arbetsbelastni
 
 Dina säkerhetsprinciper innehåller säkerhetsrekommendationer som du får i Azure Security Center. Du kan övervaka efterlevnad med dem för att hjälpa dig att upptäcka potentiella säkerhetsrisker och avhjälpa hot. Mer information om hur du avgör vilket alternativ som passar dig finns i listan över [inbyggda säkerhetsprinciper](security-center-policy-definitions.md).
 
-När du aktiverar Security Center, visas säkerhetsprincipen som är inbyggd i Security Center i Azure Policy som en inbyggd initiativ under kategorin Security Center. Den inbyggda intitiative tilldelas automatiskt till alla Security Center registrerad prenumerationer (kostnadsfri eller Standard-nivå). Inbyggda initiativet innehåller endast granskningsprinciper. 
+När du aktiverar Security Center, visas säkerhetsprincipen som är inbyggd i Security Center i Azure Policy som en inbyggd initiativ under kategorin Security Center. Det inbyggda initiativet tilldelas automatiskt till alla Security Center-registrerade prenumerationer (på kostnadsfri nivå eller standardnivå). Det inbyggda initiativet innehåller endast granskningsprinciper. 
 
 
 ### <a name="management-groups"></a>Hanteringsgrupper
@@ -121,7 +121,7 @@ Inbyggda initiativ har alla Security Center-principerna är aktiverade som stand
 Ersätt dessa variabler i följande exempel:
 
 - **{omfång}**  anger du namnet på hanteringsgruppen eller prenumerationen du tillämpar principen till.
-- **{poicyAssignmentName}**  ange den [namn på relevanta principtilldelningen](#policy-names).
+- **{policyAssignmentName}**  ange den [namn på relevanta principtilldelningen](#policy-names).
 - **{name}**  ange ditt namn eller namnet på den administratör som godkänts principändringen.
 
 Det här exemplet visar hur du tilldelar initiativet inbyggda Security Center på en prenumeration eller hanteringsgrupp
@@ -212,7 +212,7 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |Säkerhetskonfigurationer |Övervaka OS-säkerhetsproblem i Azure Security Center |systemConfigurationsMonitoringEffect| 
 |Slutpunktsskydd |Övervaka saknad Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade Virtuella Datordiskar i Azure Security Center |diskEncryptionMonitoringEffect|
-|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssesmentMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Brandvägg för webbaserade program |Övervaka oskyddat webbprogram i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverksslutpunkter i Azure Security Center| |
 

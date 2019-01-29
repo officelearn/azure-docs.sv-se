@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-autosuggest
+ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: scottwhi
-ms.openlocfilehash: 8ada9ab6622ea12e48475230787168d90e95ec0d
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 13e1a2d574abd080b1e947896ed5c2de568fc853
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829876"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178485"
 ---
 # <a name="autosuggest-api-upgrade-guide"></a>Uppgraderingsguide för API för automatiska förslag
 
@@ -37,7 +37,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 - Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.
 
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de underordnade kod inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran inte är giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -71,4 +71,4 @@ Blockerad|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använd och visa krav](./UseAndDisplayRequirements.md)
+> [Användnings- och visningskrav](./UseAndDisplayRequirements.md)

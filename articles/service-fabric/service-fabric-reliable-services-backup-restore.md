@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: mcoskun
-ms.openlocfilehash: 42aaafd346c6db9d4a8780628319720aa3f28134
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 986a7be49f8ae0f683b89596204845bb08eeaf2d
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727723"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095778"
 ---
 # <a name="backup-and-restore-reliable-services-and-reliable-actors"></a>Säkerhetskopiera och återställa Reliable Services och Reliable Actors
 Azure Service Fabric är en plattform för hög tillgänglighet som replikerar tillståndet över flera noder att upprätthålla hög tillgänglighet.  Även om en nod i klustret misslyckas, fortsätter därför tjänsterna ska vara tillgängliga. Även om den här inbyggd redundans som tillhandahålls av plattformen är tillräcklig för vissa, i vissa fall är det lämpligt att tjänsten för att säkerhetskopiera data (till en extern lagring).
@@ -44,7 +44,7 @@ En tjänst kan till exempel vill säkerhetskopiera data för att skydda mot föl
 Funktionen för säkerhetskopiering/återställning tillåter tjänster som bygger på Reliable Services API för att skapa och återställa säkerhetskopior. De säkerhetskopierade API tillhandahålls av plattformen gör att säkerhetskopiorna av en tjänstpartition tillstånd utan blockerar Läs- eller skrivåtgärder. Återställningen API gör att en tjänstpartition tillstånd och kan inte återställas från en vald säkerhetskopia.
 
 ## <a name="types-of-backup"></a>Typer av säkerhetskopiering
-Det finns två alternativ för säkerhetskopiering: fullständig och inkrementell.
+Det finns två alternativ för säkerhetskopiering: Fullständiga och inkrementella.
 En fullständig säkerhetskopia är en säkerhetskopia som innehåller alla data som krävs för att återskapa tillståndet för replikeringen: kontrollpunkter och alla loggposter.
 En fullständig säkerhetskopia kan återställas ensamt eftersom den har kontrollpunkter och loggen.
 
@@ -227,7 +227,7 @@ När inkrementell säkerhetskopiering har aktiverats, tar en inkrementell säker
   - Repliken har aldrig tagit en fullständig säkerhetskopiering eftersom det blivit primära.
   - Vissa av posterna loggen har trunkerats eftersom senaste säkerhetskopian skapades.
 
-När inkrementell säkerhetskopiering aktiveras `KvsActorStateProvider` använder inte cirkulär buffert för att hantera dess loggposter och trunkerar den med jämna mellanrum. Om ingen säkerhetskopia görs av användaren under 45 minuter, trunkerar systemet automatiskt loggposter. Det här intervallet kan konfigureras genom att ange `logTrunctationIntervalInMinutes` i `KvsActorStateProvider` konstruktorn (ungefär som när du aktiverar inkrementell säkerhetskopiering). Loggposter kan också hämta trunkeras om primära repliken behöver skapa en annan replik genom att skicka alla data.
+När inkrementell säkerhetskopiering aktiveras `KvsActorStateProvider` använder inte cirkulär buffert för att hantera dess loggposter och trunkerar den med jämna mellanrum. Om ingen säkerhetskopia görs av användaren under 45 minuter, trunkerar systemet automatiskt loggposter. Det här intervallet kan konfigureras genom att ange `logTruncationIntervalInMinutes` i `KvsActorStateProvider` konstruktorn (ungefär som när du aktiverar inkrementell säkerhetskopiering). Loggposter kan också hämta trunkeras om primära repliken behöver skapa en annan replik genom att skicka alla data.
 
 När du gör återställningen från en säkerhetskopiering kedja liknar Reliable Services i BackupFolderPath ska innehålla underkataloger med en underkatalog som innehåller fullständig säkerhetskopiering och andra underkataloger som innehåller inkrementella säkerhetskopiorna. Restore-API: et genereras FabricException med lämpligt felmeddelande om loggsäkerhetskopieringssekvensen verifieringen misslyckas. 
 

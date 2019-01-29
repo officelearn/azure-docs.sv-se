@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 14aac6103f1a560a50bc9dd80e18d5e2fbaae3c4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 450f62cd3605656ff8907c0020775f634dba0b4a
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51264017"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55148040"
 ---
 <!--author=alkohli last changed: 08/21/17-->
 
@@ -55,7 +55,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
     >[!NOTE] 
     > Du bör installera den _HcsSoftwareUpdate.exe_ första. När installationen har slutförts kan du sedan installera _CisMdsAgentUpdate.exe_.
    
-        ````
+        ```
         Controller0>Start-HcsHotfix -Path \\10.100.100.100\share
         \FirstOrderUpdate\HcsSoftwareUpdate.exe -Credential contoso\John
    
@@ -66,7 +66,7 @@ Utför följande steg för att installera och verifiera snabbkorrigeringar i nor
         be disrupted. Are you sure you want to continue?
         [Y] Yes [N] No [?] Help (default is "Y"): Y
    
-        ````
+        ```
 5. Skriv **Y** när du uppmanas att bekräfta installationen av snabbkorrigeringen.
 6. Övervaka uppdateringen med hjälp av `Get-HcsUpdateStatus`-cmdlet. Uppdateringen slutförs först på den passiva styrenheten. När den passiva styrenheten har uppdaterats sker en redundans och uppdateringen tillämpas sedan på den andra styrenheten. Uppdateringen har slutförts när båda styrenheterna har uppdateras.
    

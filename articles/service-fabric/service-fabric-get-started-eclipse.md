@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: a9888a23088949b5373aa0eef7d4df3b3064466f
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 250931c9b53692dff4006a0114b6da20948b3f59
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358593"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55096678"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Service Fabric-plugin-program för utveckling av Java-program i Eclipse
 Eclipse är en av de mest använda IDE:erna (Integrated Development Environment) för Java-utvecklare. I den här artikeln beskrivs hur du kan konfigurera din Eclipse-utvecklingsmiljö för att arbeta med Azure Service Fabric. Läs om hur du installerar Service Fabric-plugin-programmet, skapar ett Service Fabric-program och distribuerar Service Fabric-programmet till ett lokalt eller fjärranslutet Service Fabric-kluster i Eclipse. 
@@ -37,7 +37,7 @@ Du kan installera ett Service Fabric-plugin-program i Eclipse. Plugin-programmet
 
 Installera Eclipse Neon eller senare från [Eclipse-webbplatsen](https://www.eclipse.org).  Installera även version 2.2.1 eller senare av Buildship (Service Fabric-plugin-programmet är inte kompatibelt med äldre versioner av Buildship):
 -   Du kan kontrollera vilka versioner du har av installerade komponenter genom att välja **Hjälp** > **Om Eclipse** > **Installationsinformation** i Eclipse.
--   Om du vill uppdatera Buildship kan du läsa [Eclipse Buildship: Eclipse-plugin-program för Gradle][buildship-update] (på engelska).
+-   Om du vill uppdatera Buildship kan se [Eclipse Buildship: Eclipse plugin-program för Gradle][buildship-update].
 -   Om du vill söka efter och installera uppdateringar för Eclipse kan du navigera till **Help** > **Check for Updates** (Hjälp > Sök efter uppdateringar).
 
 Om du vill installera Service Fabric-plugin-programmet öppnar du **Help** > **Install New Software** (Hjälp > Installera ny programvara) i Eclipse.
@@ -112,7 +112,7 @@ När du har skapat ditt Service Fabric-program, följer du stegen nedan för att
 
 Läs hur du felsöker programmet i Eclipse med hjälp av det lokala klustret i [Felsök en Java-tjänst i Eclipse](./service-fabric-debugging-your-application-java.md).
 
-Du kan också distribuera programmet till det lokala klustret wuth den **publicera program** kommando:
+Du kan också distribuera programmet till det lokala klustret med den **publicera program** kommando:
 
 1. Högerklicka på Service Fabric-programmet och välj sedan **Service Fabric**.
 2. På snabbmenyn klickar du på **publicera program...** .
@@ -165,7 +165,7 @@ Följ dessa steg för att publicera ditt program till molnet:
 
 I säkert Linux-kluster, om programmet innehåller Reliable Services-tjänster, måste även konfigurera ett certifikat som dina tjänster kan använda för att anropa API: er för Service Fabric-körningen. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).
 
-En snabb genomgång av hur du distribuerar en Service Fabric Reliable Services-program som är skrivna i Java till ett säkert Linux-kluster, se [Quckstart: distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
+En snabb genomgång av hur du distribuerar en Service Fabric Reliable Services-program som är skrivna i Java till ett säkert Linux-kluster, se [snabbstarten: Distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
 
 ## <a name="deploy-a-service-fabric-application-by-using-eclipse-run-configurations"></a>Distribuera ett Service Fabric-program med hjälp av Eclipse kör konfigurationer
 
@@ -211,7 +211,7 @@ Om du markerar alternativet **Automatically update application and service versi
 
 ## <a name="upgrade-your-service-fabric-java-application"></a>Uppgradera ditt Service Fabric Java-program
 
-Anta att du har ett projekt som heter **App1** som du har skapat med Service Fabric-plugin-programmet i Eclipse. För att distribuera projektet skapade du ett program med namnet **fabric:/App1Application** med hjälp av plugin-programmet. Programtypen är **App1AppicationType** och programversionen är 1.0. Nu vill du uppgradera programmet utan att det påverkar tillgängligheten.
+Anta att du har ett projekt som heter **App1** som du har skapat med Service Fabric-plugin-programmet i Eclipse. För att distribuera projektet skapade du ett program med namnet **fabric:/App1Application** med hjälp av plugin-programmet. Programtypen är **App1ApplicationType**, och programversionen är 1.0. Nu vill du uppgradera programmet utan att det påverkar tillgängligheten.
 
 Gör ändringar i programmet och bygg sedan den ändrade tjänsten på nytt. Uppdatera manifestfilen (ServiceManifest.xml) för den ändrade tjänsten med de uppdaterade versionerna för tjänsten (samt kod, konfig eller data, om det behövs). Ändra också programmets manifest (ApplicationManifest.xml) med det uppdaterade versionsnumret för programmet och den ändrade tjänsten.  
 
@@ -230,7 +230,7 @@ Vi har nyligen flyttat Service Fabric Java-bibliotek från Service Fabric Java-S
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Snabbsteg på att bygga Java Reliable tjänstprogram och distribuera den lokalt och till Azure, se [Quckstart: distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
+- Snabbsteg på att bygga Java Reliable tjänstprogram och distribuera den lokalt och till Azure, se [snabbstarten: Distribuera ett Java Reliable Services-program](./service-fabric-quickstart-java-reliable-services.md).
 - Information om hur du felsöker ett Java-program i ditt lokala kluster, se [Felsök en Java-tjänst i Eclipse](./service-fabric-debugging-your-application-java.md).
 - Om du vill lära dig mer om att övervaka och diagnostisera Service Fabric-program, se [övervaka och diagnostisera tjänster i en inställning för utveckling av lokala dator](./service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
 

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -17,14 +17,14 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: justhu, elisol
 ms.custom: aaddev
-ms.openlocfilehash: 5c904feacef4f5c15784c5f30c5f8bedf3940329
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: ae9412ed7c02d88e7d0c35c6ea0f95da755b84d4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52425351"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55097052"
 ---
-# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Så här: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
+# <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Anvisningar: Logga in alla Azure Active Directory-användare med programmönstret för flera innehavare
 
 Om du erbjuder en programvara som en tjänst (SaaS) till många organisationer, kan du konfigurera ditt program att godkänna inloggningar från alla Azure Active Directory (Azure AD)-klient. Den här konfigurationen kallas *gör ditt program flera innehavare*. Användare i alla Azure AD-klient kommer att kunna logga in till programmet efter medgivandedialogen använda sitt konto med ditt program. 
 
@@ -59,7 +59,7 @@ Logga in begäranden skickas till klientens inloggning slutpunkt i en enda klien
 
 Med ett program för flera innehavare vet programmet inte direkt vad klient som användaren är från, så att du inte kan skicka begäranden till slutpunkten för en klient. Istället skickas begäranden till en slutpunkt som flerfaldigar över alla Azure AD-klienter: `https://login.microsoftonline.com/common`
 
-När Azure AD tar emot en begäran på den/Common slutpunkten, det loggar du in och, följaktligen identifierar vilken klientorganisation som användaren är från. Den/vanliga slutpunkt som fungerar med alla protokoll för autentisering som stöds av Azure AD: OpenID Connect, OAuth 2.0, SAML 2.0 och WS-Federation.
+När Azure AD tar emot en begäran på den/Common slutpunkten, det loggar du in och, följaktligen identifierar vilken klientorganisation som användaren är från. Den/vanliga slutpunkt som fungerar med alla protokoll för autentisering som stöds av Azure AD:  OpenID Connect, OAuth 2.0, SAML 2.0 och WS-Federation.
 
 Logga in-svaret till programmet sedan innehåller en token som representerar användaren. Utfärdarvärdet i token visar ett program vad användaren är från-klient. När ett svar returneras från den/Common slutpunkt, utfärdarvärdet i token motsvarar användarens klient. 
 
@@ -116,13 +116,13 @@ Vissa behörigheter kan vara godkänts av en vanlig användare, medan andra krä
 
 ### <a name="admin-consent"></a>Administratörsmedgivande
 
-Appspecifika behörigheter kräver alltid en Innehavaradministratör godkännande. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet, visas ett felmeddelande visas om användaren inte kan godkänna.
+Appspecifika behörigheter kräver alltid medgivande av en klientadministratör. Om ditt program begär en appspecifik behörighet och en användare försöker logga in på programmet, visas ett felmeddelande visas om användaren inte kan godkänna.
 
 Vissa delegerade behörigheter kräver också en Innehavaradministratör godkännande. Till exempel kräver möjligheten att skriva tillbaka till Azure AD som den inloggade användaren en Innehavaradministratör medgivande. Som appspecifika behörigheter får ditt program ett fel om en vanlig användare försöker logga in till ett program som begär en delegerad behörighet som kräver administratörens godkännande. Om en behörighet kräver administratörens godkännande bestäms av utvecklaren som publiceras till resursen och finns i dokumentationen för resursen. I dokumentationen för behörigheter för den [Azure AD Graph API] [ AAD-Graph-Perm-Scopes] och [Microsoft Graph API] [ MSFT-Graph-permission-scopes] anger vilka behörigheter kräver administratör ditt medgivande.
 
 Om programmet använder behörigheter som kräver administratörens godkännande, måste du ha en gest, till exempel en knapp eller länk där administratören kan starta åtgärden. Den begäran som programmet skickar för den här åtgärden är vanligt OAuth2/OpenID Connect auktoriseringsbegäran som även innehåller den `prompt=admin_consent` frågesträngparametern. När administratören har godkänt och tjänstens huvudnamn har skapats i kundens klient, efterföljande inloggningsförfrågningar behöver inte den `prompt=admin_consent` parametern. Eftersom administratören har valt behörigheterna som krävs är godtagbara, tillfrågas inga andra användare i klienten om samtycke från den tidpunkten och framåt.
 
-En Innehavaradministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa programmet med slutanvändarens medgivande inaktiverad, du kan hitta configuration-växeln i den [Azure-portalen] [ AZURE-portal] i den **[användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** avsnittet **företagsprogram**.
+En klientadministratör kan inaktivera möjligheten för vanliga användare att samtycka till program. Om den här funktionen har inaktiverats krävs alltid administratörens godkännande för program som ska användas i klienten. Om du vill testa programmet med slutanvändarens medgivande inaktiverad, du kan hitta configuration-växeln i den [Azure-portalen] [ AZURE-portal] i den **[användarinställningar](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/)** avsnittet **företagsprogram**.
 
 Den `prompt=admin_consent` parametern kan även användas av program som begär behörighet som inte kräver administratörens godkännande. Ett exempel på när det skulle användas är om programmet kräver en upplevelse där administratör ”registrerar sig” en tid och utan att andra användare tillfrågas om samtycke från den punkten på.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: rosh
 ms.service: cognitive-services
-ms.component: bing-local-business
+ms.subservice: bing-local-business
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 3513ada8a911c36a31c5796214cfe35d088320b7
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
+ms.openlocfilehash: 37cb122503dba31ba57dd6445317f3c54db08084
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52316046"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181460"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-c"></a>Snabbstart: Skicka en fråga till den lokala företag i Bing iC#
 
@@ -28,13 +28,13 @@ Det här exempelprogrammet hämtar lokala svarsdata från API: et för sökfråg
 * Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).
 
-Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten.  Se även [Cognitive Services priser – API för Bing Search](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+Du måste ha ett [API-konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med API:er för Bing-sökresultat. Det räcker med en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) för den här snabbstarten.  Se även [Priser för Cognitive Services – API för Bing-sökning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
 ## <a name="create-the-request"></a>Skapa begäran 
 
 Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en frågesträng för ”restaurang i Bellevue”.  Därefter skickar den en begäran och tilldelar svaret till en sträng som ska innehålla JSON-texten.
 
-````
+```
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -50,7 +50,7 @@ Följande kod skapar en `WebRequest`anger rubriken åtkomst och lägger till en 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## <a name="run-the-complete-application"></a>Kör hela appen
 
@@ -60,7 +60,7 @@ Den lokala företag i Bing returnerar lokaliserade sökresultat från Bing searc
 3. Ersätt värdet för accessKey med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-````
+```
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -206,7 +206,7 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## <a name="next-steps"></a>Nästa steg
 - [Lokala företag Search-Java-Snabbstart](local-search-java-quickstart.md)

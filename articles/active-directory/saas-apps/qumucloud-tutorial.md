@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med Qumu moln | Microsoft Docs'
+title: 'Självstudier: Azure Active Directory-integrering med Qumu Cloud | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Qumu molnet.
 services: active-directory
 documentationCenter: na
@@ -8,21 +8,21 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: d8c4a97b-4de6-49d4-b64e-42222c2ec6c9
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 1e42d83ed7f74b366d2bca248a794cc9fb506b73
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f0701a7f046666a135c3325eb22d1d12cbd59ba0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435364"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156895"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Självstudier: Azure Active Directory-integration med Qumu molnet
+# <a name="tutorial-azure-active-directory-integration-with-qumu-cloud"></a>Självstudier: Azure Active Directory-integrering med Qumu molnet
 
 I den här självstudien får du lära dig hur du integrerar Qumu molnet med Azure Active Directory (AD Azure).
 
@@ -30,7 +30,7 @@ Integrera Qumu molnet med Azure AD ger dig följande fördelar:
 
 - Du kan styra i Azure AD som har åtkomst till Qumu moln.
 - Du kan aktivera användarna att automatiskt få loggat in på Qumu Cloud (enkel inloggning) med sina Azure AD-konton.
-- Du kan hantera dina konton på en central plats – Azure portal.
+- Du kan hantera dina konton på en central plats – Azure-portalen.
 
 Om du vill veta mer om integrering av SaaS-app med Azure AD finns i [vad är programåtkomst och enkel inloggning med Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
@@ -44,9 +44,9 @@ Om du vill konfigurera Azure AD-integrering med Qumu molnet, behöver du följan
 > [!NOTE]
 > Om du vill testa stegen i den här självstudien rekommenderar vi inte med hjälp av en produktionsmiljö.
 
-Om du vill testa stegen i den här självstudien bör du följa dessa rekommendationer:
+Du bör följa de här rekommendationerna när du testar stegen i självstudien:
 
-- Använd inte din produktionsmiljö, om det inte behövs.
+- Använd inte din produktionsmiljö om det inte behövs.
 - Om du inte har en Azure AD-utvärderingsmiljö, kan du [få en månads utvärdering](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -60,7 +60,7 @@ Om du vill konfigurera integreringen av Qumu moln till Azure AD, som du behöver
 
 **Utför följande steg för att lägga till Qumu molnet från galleriet:**
 
-1. I den  **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
+1. I den **[Azure-portalen](https://portal.azure.com)**, klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon. 
 
     ![Azure Active Directory-knappen][1]
 
@@ -68,7 +68,7 @@ Om du vill konfigurera integreringen av Qumu moln till Azure AD, som du behöver
 
     ![Bladet för Enterprise-program][2]
     
-1. Lägg till nytt program, klicka på **nytt program** knappen överst i dialogrutan.
+1. Lägg till ett nytt program genom att klicka på knappen **Nytt program** högst upp i dialogrutan.
 
     ![Knappen Nytt program][3]
 
@@ -76,7 +76,7 @@ Om du vill konfigurera integreringen av Qumu moln till Azure AD, som du behöver
 
     ![Qumu molnet i resultatlistan](./media/qumucloud-tutorial/tutorial_qumucloud_addfromgallery.png)
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa enkel inloggning med Azure AD
 
 I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med Qumu molnet baserat på en testanvändare som kallas ”Britta Simon”.
 
@@ -84,13 +84,13 @@ För enkel inloggning att fungera, behöver Azure AD du veta vad du motsvarighet
 
 Om du vill konfigurera och testa Azure AD enkel inloggning med Qumu moln, måste du utföra följande byggblock:
 
-1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
+1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
 1. **[Skapa en testanvändare Qumu molnet](#create-a-qumu-cloud-test-user)**  – du har en motsvarighet för Britta Simon i Qumu moln som är länkad till en Azure AD-representation av användaren.
-1. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-1. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
+1. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera Azure AD enkel inloggning
+### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen och konfigurera enkel inloggning i ditt Qumu molnprogram.
 
@@ -98,7 +98,7 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. I Azure-portalen på den **Qumu molnet** program integration-sidan klickar du på **enkel inloggning**.
 
-    ![Konfigurera enkel inloggning för länken][4]
+    ![Konfigurera länk för enkel inloggning][4]
 
 1. På den **enkel inloggning** dialogrutan **läge** som **SAML-baserad inloggning** att aktivera enkel inloggning.
  
@@ -108,20 +108,20 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     ![Qumu molnet domän och URL: er med enkel inloggning för information](./media/qumucloud-tutorial/tutorial_qumucloud_url.png)
 
-    a. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.qumucloud.com/saml/SSO`
+    a. I textrutan **Identifierare** anger du en URL med följande mönster: `https://<subdomain>.qumucloud.com/saml/SSO`
 
-    b. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.qumucloud.com/saml/SSO`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<subdomain>.qumucloud.com/saml/SSO`
 
 1. Kontrollera **visa avancerade URL-inställningar** och utföra följande steg om du vill konfigurera programmet i **SP** initierade läge:
 
     ![Qumu molnet domän och URL: er med enkel inloggning för information](./media/qumucloud-tutorial/tutorial_qumucloud_url1.png)
 
-    I den **inloggnings-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<subdomain>.qumucloud.com`
+    I textrutan **Inloggnings-URL** anger du en URL med följande mönster: `https://<subdomain>.qumucloud.com`
      
     > [!NOTE] 
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med de faktiska identifierare, svars-URL och inloggnings-URL. Kontakta [Qumu Cloud klienten supportteamet](mailto:support@qumu.com) att hämta dessa värden.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [Qumu Cloud klienten supportteamet](mailto:support@qumu.com) att hämta dessa värden.
 
-1. Qumu molnprogram förväntas SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel för detta.
+1. Qumu molnprogram förväntas SAML-intyg i ett visst format. Konfigurera följande anspråk för det här programmet. Du kan hantera värdena för dessa attribut från den ”**användarattribut**” på sidan för integrering av program. Följande skärmbild visar ett exempel på detta.
     
     ![Konfigurera enkel inloggning](./media/qumucloud-tutorial/attribute.png)
     
@@ -129,16 +129,16 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
     | Attributnamn | Attributvärde |
     | ---------------| --------------- |    
-    | urn: oid:2.5.4.42 | User.givenName |
-    | urn: oid:2.5.4.4 | User.surname |
-    | urn: oid:0.9.2342.19200300.100.1.3 | User.Mail |
-    | urn: oid:0.9.2342.19200300.100.1.1 | User.userPrincipalName |
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4 | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:0.9.2342.19200300.100.1.1 | user.userprincipalname |
 
     a. Klicka på ett attribut för att öppna den **redigera attributet** fönster.
 
     ![Konfigurera enkel inloggning](./media/qumucloud-tutorial/tutorial_attribute_04.png)
 
-    b. I den **namn** textrutan skriver du attributnamnet som visas för den raden.
+    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
     ![Konfigurera enkel inloggning](./media/qumucloud-tutorial/tutorial_attribute_05.png)
 
@@ -154,12 +154,12 @@ I det här avsnittet ska du aktivera Azure AD enkel inloggning i Azure-portalen 
 
 1. Klicka på **spara** knappen.
 
-    ![Konfigurera enkel inloggning spara-knapp](./media/qumucloud-tutorial/tutorial_general_400.png)
+    ![Konfigurera enkel inloggning – knappen Spara](./media/qumucloud-tutorial/tutorial_general_400.png)
     
-1. Att konfigurera enkel inloggning på **Qumu molnet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Qumu molnet supportteamet](mailto:support@qumu.com). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Att konfigurera enkel inloggning på **Qumu molnet** sida, som du behöver skicka de hämtade **XML-Metadata för** till [Qumu molnet supportteamet](mailto:support@qumu.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 > [!TIP]
-> Du kan läsa en kortare version av instruktionerna i den [Azure-portalen](https://portal.azure.com), medan du ställer in appen!  När du lägger till den här appen från den **Active Directory > företagsprogram** bara klickar du på den **enkel inloggning** fliken och komma åt den inbäddade dokumentationen genom den  **Konfigurationen** avsnittet längst ned. Du kan läsa mer om här funktionen embedded-dokumentation: [Azure AD embedded-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Nu kan du läsa en kortare version av instruktionerna i [Azure Portal](https://portal.azure.com), samtidigt som du konfigurerar appen!  När du har lagt till appen från avsnittet **Active Directory > Företagsprogram**, behöver du bara klicka på fliken **Enkel inloggning**. Du kommer då till den inbäddade dokumentationen via avsnittet **Konfiguration** längst ned. Du kan läsa mer om funktionen för inbäddad dokumentation här: [Inbäddad Azure AD-dokumentation]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -195,9 +195,9 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen k
  
 ### <a name="create-a-qumu-cloud-test-user"></a>Skapa en testanvändare Qumu molnet
 
-Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Qumu molnet. Qumu molnet stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inga uppgift åt dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Qumu molnet om det inte finns ännu.
+Målet med det här avsnittet är att skapa en användare som kallas Britta Simon i Qumu molnet. Qumu molnet stöder just-in-time-etablering, vilket är som standard aktiverat. Det finns inget åtgärdsobjekt för dig i det här avsnittet. En ny användare har skapats under ett försök att komma åt Qumu molnet om det inte finns ännu.
 >[!Note]
->Om du vill skapa en användare manuellt kan du kontakta [Qumu Cloud klienten supportteamet](mailto:support@qumu.com).
+>Om du vill skapa en användare manuellt kan du kontakta [Qumu Cloud klienten supportteamet](mailto:support@qumu.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 

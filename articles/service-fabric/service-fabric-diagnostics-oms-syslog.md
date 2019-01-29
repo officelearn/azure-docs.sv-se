@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: ec2b623650818877930ac6b95a17ee264f07efdf
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959550"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197253"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux klusterhändelser i Syslog
 
@@ -35,7 +35,7 @@ Varje Syslog-händelse har 4 komponenter
 * Meddelande
 * Severity
 
-SyslogConsumer skriver alla plattformshändelser med hjälp av anläggning `Local0`. Du kan uppdatera till någon giltig resurs genom att ändra config-config. Den identitet som används är `ServicFabric`. Meddelandet innehåller hela händelsen serialiseras i JSON så att den kan efterfrågas och används av en mängd olika verktyg. 
+SyslogConsumer skriver alla plattformshändelser med hjälp av anläggning `Local0`. Du kan uppdatera till någon giltig resurs genom att ändra config-config. Den identitet som används är `ServiceFabric`. Meddelandet innehåller hela händelsen serialiseras i JSON så att den kan efterfrågas och används av en mängd olika verktyg. 
 
 ## <a name="enable-syslogconsumer"></a>Aktivera SyslogConsumer
 

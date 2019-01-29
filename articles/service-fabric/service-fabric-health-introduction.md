@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 6cba4e1fd9c9fe5fdaa7ff4513218a606a4eace9
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 060ff6b94c171d27dae74ea76603222253f33bab
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215238"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194295"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduktion till Service Fabric-hälsoövervakning
 Azure Service Fabric introducerar en hälsomodellen som tillhandahåller omfattande, flexibel och utökningsbar hälsotillstånd utvärdering och rapportering. Modellen tillåter nära realtid övervakning av statusen för klustret och de tjänster som körs i den. Du kan enkelt hämta hälsoinformation och korrigera potentiella problem innan de spridas vidare och orsaka avbrott i stora. I den vanliga modellen tjänster skicka rapporter baserat på deras lokala vyer och att informationen sammanställs för att ge en övergripande-klusternivå vy.
@@ -68,7 +68,7 @@ Hierarkin health består av överordnade och underordnade relationer. Ett kluste
 Hälsotillstånd hierarkin representerar det senaste tillståndet för systemet baserat på senaste hälsorapporter som är information nästan i realtid.
 Interna och externa watchdogs kan rapportera om samma entiteter utifrån programspecifika logik eller anpassade övervakade villkor. Användarrapporter samexistera med systemrapporter.
 
-Planera att investera i hur du rapporterar och svara på hälsa under utformningen av en stor molntjänst. Den här direkta investement gör det enklare att felsöka, övervaka och hantera tjänsten.
+Planera att investera i hur du rapporterar och svara på hälsa under utformningen av en stor molntjänst. Den här direkta investeringar gör det enklare att felsöka, övervaka och hantera tjänsten.
 
 ## <a name="health-states"></a>Hälsotillstånd
 Service Fabric använder tre hälsotillstånd för att beskriva om en entitet är felfria eller inte: OK, varning och fel. Alla rapporter som skickas till hälsoarkivet måste ange ett av dessa lägen. Utvärderingsresultat hälsotillstånd är ett av dessa lägen.

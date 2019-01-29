@@ -7,17 +7,17 @@ manager: daveba
 ms.assetid: 3065a1ee-f253-41f0-a68d-2bd84af5ffba
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: 6a55be6a7443017250a00a473fd57cd7d49226aa
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 0616118274c3698c8f49e02f80dbfb5e2e818074
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902728"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168178"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Ladda ned och installera Microsoft Authenticator-appen
 Microsoft Authenticator-appen kan du logga in på dina konton om du använder två faktorer verifiering. Verifiering av två faktorer hjälper dig att komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stulits eller komprometterats, två faktorer är ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.

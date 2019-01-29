@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: be880b937f254cbf8115d1a5129069069a0c7eea
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55156929"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
 
@@ -54,16 +54,16 @@ Du kan se medlemskapet bearbetning status och datum för senaste uppdatering på
 
 Följande statusmeddelanden kan visas för **medlemskap bearbetning** status:
 
-* **Utvärdera**: gruppändringen har tagits emot och uppdateringarna utvärderas.
-* **Bearbetning av**: uppdateringar som bearbetas.
-* **Uppdateringen är klar**: bearbetning har slutförts och alla tillämpliga uppdateringar har gjorts.
-* **Fel vid bearbetning av**: ett fel uppstod vid utvärdering av medlemskapsregel och bearbetning kunde inte slutföras.
-* **Uppdatera pausats**: dynamisk medlemsregel har pausats av administratören. MembershipRuleProcessingState anges som ”pausad”.
+* **Utvärdera**:  Gruppändringen har tagits emot och uppdateringarna utvärderas.
+* **Bearbetning av**: Uppdateringar som bearbetas.
+* **Uppdateringen är klar**: Bearbetningen har slutförts och alla tillämpliga uppdateringar har gjorts.
+* **Fel vid bearbetning av**: Ett fel uppstod vid utvärdering av medlemskapsregel och bearbetning kunde inte slutföras.
+* **Uppdatera pausats**: Dynamiskt medlemskap har regel pausats av administratören. MembershipRuleProcessingState anges som ”pausad”.
 
 Följande statusmeddelanden kan visas för **medlemskap senast uppdaterad** status:
 
-* &lt;**Datum och tid**&gt;: senast medlemskap har uppdaterats.
-* **Pågår**: uppdateringar pågår för tillfället.
+* &lt;**Datum och tid**&gt;: Senast medlemskap har uppdaterats.
+* **Pågår**: Uppdateringar pågår för tillfället.
 * **Okänd**: Det går inte att hämta den senaste uppdateringstiden. Det kan bero på gruppen som nyligen skapas.
 
 Om det uppstår ett fel vid bearbetning av medlemskapsregeln för en viss grupp, visas en avisering i den **översiktssidan** för gruppen. Om du inte väntar på dynamiskt medlemskap uppdateringar kan bearbetas för alla grupper i klienten för sedan 24 timmar, visas en avisering i **alla grupper**.

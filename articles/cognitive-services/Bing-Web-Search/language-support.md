@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-web-search
+ms.subservice: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aahi
-ms.openlocfilehash: 6d7b227ac182ca2cd30d6a6eaa428ea86757214c
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: dbe9fe5b8e9cd31ca20d88b7db89a9d35e1fe8de
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161146"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Stöd för språk och din region för Bing Web Search API
 
@@ -70,26 +70,26 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 
 |Land/region|Språk|Marknaden kod|
 |-------|--------|-----------|
-|Argentina|Spanska|ES AR|
+|Argentina|Spanska|es-AR|
 |Australien|Svenska|SV-Australien|
 |Österrike|Tyska|Tyskland-AT|
-|Belgien|Nederländska|NL-vara|
-|Belgien|Franska|fr-vara|
+|Belgien|Nederländska|nl-BE|
+|Belgien|Franska|fr-BE|
 |Brasilien|Portugisiska|pt-BR|
 |Kanada|Svenska|en CA: N|
 |Kanada|Franska|fr-CA|
-|Chile|Spanska|ES – CL|
+|Chile|Spanska|es-CL|
 |Danmark|Danska|da-DK|
 |Finland|Finska|fi-FI|
 |Frankrike|Franska|fr-FR|
 |Tyskland|Tyska|de-DE|
 |Hongkong SAR|Traditionell kinesiska|zh-HK|
 |Indien|Svenska|en Indien|
-|Indonesien|Svenska|SV-ID|
+|Indonesien|Svenska|en-ID|
 |Italien|Italienska|IT-IT|
 |Japan|Japanska|ja-JP|
 |Korea|Koreanska|ko-KR|
-|Malaysia|Svenska|en min|
+|Malaysia|Svenska|en-MY|
 |Mexiko|Spanska|es-MX|
 |Nederländerna|Nederländska|NL-NL|
 |Nya Zeeland|Svenska|en NZ|
@@ -97,7 +97,7 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Kina|Kinesiska|zh-CN|
 |Polen|Polska|pl-PL|
 |Portugal|Portugisiska|PT-PT|
-|Filippinerna|Svenska|en f|
+|Filippinerna|Svenska|en-PH|
 |Ryssland|Ryska|ru-RU|
 |Saudiarabien|Arabiska|ar-SA|
 |Sydafrika|Svenska|en ZA|
@@ -108,5 +108,5 @@ Du kan också ange på marknaden med den `mkt` Frågeparametern och en kod från
 |Taiwan|Traditionell kinesiska|zh-TW|
 |Turkiet|Turkiska|TR-TR|
 |Storbritannien|Svenska|en-GB|
-|USA|Svenska|sv-SE|
-|USA|Spanska|ES-USA|
+|USA|Svenska|en-US|
+|USA|Spanska|es-US|

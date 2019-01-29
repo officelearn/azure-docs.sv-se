@@ -9,22 +9,27 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: d98ff2c5b9d18c36e7d16ec19d3e136be03b8d4c
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 9446bbd4783aaf20f1bc9079ec43f7050274bf11
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848010"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55095624"
 ---
 # <a name="azure-service-bus-geo-disaster-recovery"></a>Azure Service Bus Geo-haveriberedskap
 
-När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* och *Geo-replikering* är viktiga funktioner för vilket företag som helst. Azure Service Bus stöder både geo-haveriberedskap och geo-replikering på namnområdesnivå. 
+När hela Azure-regioner eller Datacenter (om ingen [tillgänglighetszoner](../availability-zones/az-overview.md) används) drabbas, det är viktigt för att bearbeta till fortsätter att fungera i en annan region eller datacenter. Därför *geohaveriberedskap* är en viktig funktion för vilket företag som helst. Azure Service Bus stöder geo-haveriberedskap på namnområdesnivå.
 
 Geo-disaster recovery-funktionen är globalt tillgänglig för Service Bus Premium-SKU. 
 
+>[!NOTE]
+> GEO-haveriberedskap säkerställer för närvarande endast att metadata (köer, ämnen, prenumerationer, filter) kopieras från den primära namnrymden till sekundärt namnområde tillsammans.
+
 ## <a name="outages-and-disasters"></a>Avbrott och katastrofer
 
-Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. En *avbrott* är Azure Service Bus är tillfälligt otillgänglig och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är löst, blir Service Bus tillgänglig igen. Ett avbrott medför normalt förlusten av meddelanden eller andra data. Ett exempel på sådana ett avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott kan endast kort anslutning förluster på grund av problem med tillfälliga eller. 
+Det är viktigt att Observera skillnaden mellan ”avbrott” och ”katastrofer”. 
+
+En *avbrott* är Azure Service Bus är tillfälligt otillgänglig och kan påverka vissa komponenter av tjänsten, till exempel ett meddelandearkiv eller även hela datacentret. Men när problemet är löst, blir Service Bus tillgänglig igen. Ett avbrott medför normalt förlusten av meddelanden eller andra data. Ett exempel på sådana ett avbrott kan vara ett strömavbrott i datacentret. Vissa avbrott kan endast kort anslutning förluster på grund av problem med tillfälliga eller. 
 
 En *haveriberedskap* definieras som permanenta eller mer långsiktiga förlusten av en Service Bus-kluster, Azure-region eller datacenter. Den region eller datacenter kan eller kan inte bli tillgänglig igen, eller kanske inte körs i timmar eller dagar. Exempel på sådana katastrofer är fire, överbelasta eller jordbävning. Problem som blir permanent kan orsaka förlust av vissa meddelanden, händelser eller andra data. Men i de flesta fall bör det finnas inga data går förlorade och meddelanden kan återställas när datacentret är säkerhetskopiera.
 
@@ -36,33 +41,47 @@ Funktionen disaster recovery implementerar metadata katastrofåterställning och
 
 I den här artikeln används följande termer:
 
--  *Alias*: Namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. 
+-  *Alias*: Namnet på en haveriberedskapskonfiguration som du har konfigurerat. Aliaset som innehåller en enda stabil anslutningssträng för fullständigt kvalificerade domännamn (FQDN). Program använder den här anslutningssträngen för alias för att ansluta till ett namnområde. Med ett alias garanterar att anslutningssträngen är oförändrade när redundansen utlöses.
 
 -  *Primära och sekundära namnområdet*: Namnområden som motsvarar aliaset. Det primära namnområdet är ”aktiv” och tar emot meddelanden (det kan vara ett namnområde för befintliga eller nya). Det sekundära namnområdet är ”passiva” och ta emot inte meddelanden. Metadata mellan båda är synkroniserade, så att båda sömlöst kan godkänna meddelanden utan program kod eller anslutningen sträng ändringar. För att säkerställa att endast aktiva namnområdet tar emot meddelanden, måste du använda detta alias. 
 
--  *Metadata*: Entiteter som köer, ämnen och prenumerationer; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden replikeras inte. 
+-  *Metadata*: Entiteter som köer, ämnen och prenumerationer; och deras egenskaper för tjänsten som är associerade med namnområdet. Observera att endast entiteter och deras inställningar replikeras automatiskt. Meddelanden replikeras inte.
 
 -  *Redundans*: Att aktivera det sekundära namnområdet.
 
-## <a name="setup-and-failover-flow"></a>Installation och redundans flöde
+## <a name="setup"></a>Konfiguration
 
-Följande avsnitt är en översikt över failover-processen och förklarar hur du ställer in inledande växling vid fel. 
+Följande avsnitt är en översikt över att konfigurera länkning av lagringspooler mellan namnområden.
 
 ![1][]
 
-### <a name="setup"></a>Konfiguration
+Installationen är följande-
 
-Du först skapa eller använda en befintlig primär namnrymd och ett nytt sekundärt namnområde och sedan koppla ihop två. Den här parkoppling ger dig ett alias som du kan använda för att ansluta. Eftersom du använder ett alias, behöver du inte ändra anslutningssträngar. Endast nya namnområden kan läggas till dina redundans länkning. Slutligen bör du lägga till viss övervakning för att identifiera om en redundansväxling är nödvändigt. I de flesta fall tjänsten är en del av ett omfattande ekosystem, vilket automatisk växling vid fel är sällan möjligt, som ofta redundansväxling måste utföras synkroniserade med återstående undersystem eller infrastruktur.
+1. Etablera en ***primära*** Service Bus Premium-Namespace.
 
-### <a name="example"></a>Exempel
+2. Etablera en ***sekundära*** Service Bus Premium-Namespace i en region *skiljer sig från där det primära namnområdet har etablerats*. Detta hjälper att tillåta felisolering i olika datacenterregioner.
 
-Överväg en återställningspunkt för försäljning (POS)-lösning som genererar meddelanden eller händelser i ett exempel på det här scenariot. Service Bus skickar händelser till vissa mappnings- eller formatera om lösningen, som sedan vidarebefordrar mappade data till ett annat system för vidare bearbetning. I det här läget att alla dessa system kan finnas i samma Azure-region. Beslutet om när och vilken del att växla över beror på flödet av data i din infrastruktur. 
+3. Skapa länkning av lagringspooler mellan primärt namnområde och sekundära namnområdet för att hämta den ***alias***.
 
-Du kan automatisera redundans med övervakningssystem eller med anpassade övervakningslösningar. Sådana automation tar dock extra planering och arbete som ligger utanför omfånget för den här artikeln.
+4. Använd den ***alias*** hämtades i steg 3 att ansluta dina klientprogram att Geo-DR aktiverat primärt namnområde. Aliaset pekar till en början på det primära namnområdet.
 
-### <a name="failover-flow"></a>Redundansflöde
+5. [Valfritt] Lägg till viss övervakning för att identifiera om en redundansväxling är nödvändigt.
 
-Om du påbörja redundans krävs två steg:
+## <a name="failover-flow"></a>Redundansflöde
+
+Redundans utlöses manuellt av kunden (antingen uttryckligen via ett kommando eller klienten som ägs av affärslogik som utlöser kommandot) och aldrig av Azure. Detta ger kunden fullständig ägarskap och synlighet för matchning av avbrott på Azures stamnät.
+
+![4][]
+
+Efter redundansen utlöses-
+
+1. Den ***alias*** anslutningssträngen uppdateras för att peka på det sekundära Premium-namnområdet.
+
+2. Klienter (sändare och mottagare) ansluta automatiskt till det sekundära namnområdet.
+
+3. Den befintliga länkning av lagringspooler mellan primära och sekundära premium-namnområde har brutits.
+
+När redundansen initieras-
 
 1. Om något annat avbrott inträffar, som du vill kunna redundansväxla igen. Därför kan ställa in en annan passiva namnrymd och uppdatera kopplingen. 
 
@@ -70,6 +89,8 @@ Om du påbörja redundans krävs två steg:
 
 > [!NOTE]
 > Endast misslyckas vidarebefordra semantik stöds. I det här scenariot du växlar över och sedan koppla igen med ett nytt namnområde. Det går inte att återställas. till exempel i en SQL-kluster. 
+
+Du kan automatisera redundans med övervakningssystem eller med anpassade övervakningslösningar. Sådana automation tar dock extra planering och arbete som ligger utanför omfånget för den här artikeln.
 
 ![2][]
 
@@ -95,20 +116,20 @@ Den [exemplen på GitHub](https://github.com/Azure/azure-service-bus/tree/master
 
 Observera följande överväganden att tänka på med den här versionen:
 
-1. I redundans planeringen, bör du också faktorn tid. Exempelvis kan kan du förlora anslutningen längre än 15 till 20 minuter du välja att påbörja redundans. 
- 
+1. I redundans planeringen, bör du också faktorn tid. Exempelvis kan kan du förlora anslutningen längre än 15 till 20 minuter du välja att påbörja redundans.
+
 2. Det faktum att inga data replikeras innebär att för närvarande aktiva sessioner inte replikeras. Dessutom fungerar inte dubblettidentifiering och schemalagda meddelanden. Nya sessioner, nya schemalagda meddelanden och nya dubbletter ska fungera. 
 
-3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång. 
+3. Redundansväxla en infrastruktur för komplexa distribuerade ska vara [testas](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) minst en gång.
 
-4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter. 
+4. Synkronisera enheter kan ta lite tid, cirka 50 – 100 entiteter per minut. Prenumerationer och regler räknas också som entiteter.
 
-## <a name="availability-zones-preview"></a>Tillgänglighetszoner (förhandsversion)
+## <a name="availability-zones"></a>Tillgänglighetszoner
 
-Service Bus Premium-SKU: N stöder också [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region. 
+Service Bus Premium-SKU: N stöder också [Tillgänglighetszoner](../availability-zones/az-overview.md), vilket ger felisolerade platser inom en Azure-region.
 
 > [!NOTE]
-> Förhandsversionen av Tillgänglighetszoner stöds bara i den **centrala USA**, **östra USA 2**, och **Frankrike, centrala** regioner.
+> Tillgänglighetszoner-support för Azure Service Bus Premium är bara tillgängliga i [Azure-regioner](../availability-zones/az-overview.md#regions-that-support-availability-zones) där tillgänglighetszoner finns.
 
 Du kan aktivera Tillgänglighetszoner på nya namnområden, med hjälp av Azure portal. Service Bus stöder inte migreringen av befintliga namnområden. Du kan inte inaktivera redundans när du har aktiverat i namnområdet.
 
@@ -127,6 +148,7 @@ Om du vill veta mer om Service Bus-meddelanden, finns i följande artiklar:
 * [Använd Service Bus ämnen och prenumerationer](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 * [REST-API](/rest/api/servicebus/) 
 
-[1]: ./media/service-bus-geo-dr/geo1.png
+[1]: ./media/service-bus-geo-dr/geodr_setup_pairing.png
 [2]: ./media/service-bus-geo-dr/geo2.png
 [3]: ./media/service-bus-geo-dr/az.png
+[4]: ./media/service-bus-geo-dr/geodr_failover_alias_update.png

@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 3bcbba21d367b3d40eca72d84a7e2447f78fa57f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5e9ae0f7affe563d69fd2a55daeaf03a230c03c7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801586"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55202951"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Stavningskontrolls-API: er för Uppgraderingsguide
 
@@ -38,7 +38,7 @@ Den här uppgraderingshandboken identifierar ändringar mellan version 5 och ver
 
 - Ersatt v5-felkoder med följande möjliga `code` och `subCode` värden.  
   
-|Kod|Obligatorisk|Beskrivning
+|Kod|SubCode|Beskrivning
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Bing returnerar ServerError när något av de obligatorisk inträffar. Svaret innehåller de här felen om HTTP-statuskoden är 500.
 |InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Blockerad|Bing returnerar InvalidRequest när någon del av begäran är inte giltig. Till exempel en obligatorisk parameter saknas eller ett parametervärde är inte giltig.<br/><br/>Om felet är ParameterMissing eller ParameterInvalidValue, är HTTP-statuskod 400.<br/><br/>Om felet är HttpNotAllowed, HTTP-statuskod 410.
@@ -72,4 +72,4 @@ Blockerad|InvalidRequest.Blocked
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Använd och visa krav](./UseAndDisplayRequirements.md)
+> [Användnings- och visningskrav](./UseAndDisplayRequirements.md)

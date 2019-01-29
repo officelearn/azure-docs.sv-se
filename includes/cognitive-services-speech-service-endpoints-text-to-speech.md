@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/11/2018
 ms.author: wolfma
-ms.openlocfilehash: e0a00ffac1921adab3ce120d65fcccaa8b2d231f
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 933ee0ce6885960d5b35f67a0a4ee50602fe55c8
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53381689"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55147977"
 ---
 ### <a name="neural-voices"></a>Neural röster
 
@@ -20,6 +20,9 @@ Neural röster är tillgängliga i dessa regioner:
 | Östra USA | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Sydostasien | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
 | Västra Europa | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |
+
+> [!IMPORTANT]
+> Microsoft Server tal Text till tal-röst (zh-CN, XiaoxiaoNeural) är endast tillgänglig via Sydostasien slutpunkt: https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1. En fullständig lista över neural röster Se [språkstöd](../articles/cognitive-services/speech-service/language-support.md).
 
 ### <a name="standard-voices"></a>Standard röster
 

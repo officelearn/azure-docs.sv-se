@@ -33,11 +33,11 @@ Den här behållaren har följande konfigurationsinställningar:
 |Ja|[ApiKey](#apikey-setting)|Används för att spåra faktureringsinformation.|
 |Nej|[ApplicationInsights](#applicationinsights-setting)|Du kan lägga till [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetri stöd till behållaren.|
 |Ja|[Billing](#billing-setting)|Anger URI för tjänstresursen på Azure.|
-|Ja|[Licensvillkor](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
+|Ja|[Eula](#eula-setting)| Anger att du har godkänt licensen för behållaren.|
 |Nej|[Fluentd](#fluentd-settings)|Skriva log och eventuellt måttdata till en Fluentd-server.|
 |Nej|[HTTP-Proxy](#http-proxy-credentials-settings)|Konfigurera en HTTP-proxy för utgående förfrågningar.|
 |Nej|[Loggning](#logging-settings)|Ger ASP.NET Core loggning stöd för din behållare. |
-|Ja|[Monterar](#mount-settings)|Läsa och skriva data från värddatorn till behållare och behållaren tillbaka till värddatorn.|
+|Ja|[Mounts](#mount-settings)|Läsa och skriva data från värddatorn till behållaren och från behållaren tillbaka till värddatorn.|
 
 > [!IMPORTANT]
 > Den [ `ApiKey` ](#apikey-setting), [ `Billing` ](#billing-setting), och [ `Eula` ](#eula-setting) inställningar används tillsammans, och du måste ange giltiga värden för alla tre av dem, annars din behållare startar inte. Läs mer om att använda dessa konfigurationsinställningar för att skapa en instans av en behållare, [fakturering](luis-container-howto.md#billing).

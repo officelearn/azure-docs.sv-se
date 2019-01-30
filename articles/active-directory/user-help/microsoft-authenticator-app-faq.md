@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.openlocfilehash: a108d89ab3eb3cf9c7a729f14e3c88bf2b67b20b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 5a646f83d3bd6a2c2824aef679f8a46e352f2263
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154107"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246940"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Microsoft Authenticator-appen vanliga frågor och svar
 
@@ -47,6 +47,8 @@ Microsoft Authenticator-appen ersätts Azure Authenticator-appen och är den rek
 |Jag får ett kommunikationsfel mellan Apple Watch och min telefon. Vad kan jag göra om du vill felsöka?|Det här felet inträffar när skärmen Watch försätts i viloläge innan den har slutfört kommunicerar med din telefon.<br><br><b>Om detta inträffar under installationen:</b><br>Försök att köra installationen igen och se till att försätta klockan tills processen är klar. Öppna appen på telefonen och svara på eventuella uppmaningar som visas på samma gång.<br><br>Om telefonen och titta på inte kommunicerar fortfarande visas kan du prova följande:<ol><li>Framtvinga avsluta appen Microsoft Authenticator och öppna det igen på din iPhone.</li><li>Framtvinga avsluta den tillhörande appen på din Apple Watch.<ol><li> Öppna Microsoft Authenticator-appen för tillhörande på klockan</li><li>Håll ned knappen sida tills den **avstängning** skärmen visas.</li><li>Släpper du knappen på klientsidan och håll ned digitala krona om du vill framtvinga avslutar appen active.</li></ol></li><li>Stäng av både Bluetooth- och Wi-Fi för både din telefon och klockan och sedan aktivera dem igen.</li><li>Starta om din iPhone och din klocka.</li></ol><b>Om detta händer när du försöker att godkänna ett meddelande:</b><br>Nästa gång du försöker godkänna ett meddelande på din Apple Watch-försätta skärmen tills begäran är klar och du höra ljudet att den har slutförts.|
 |Varför är inte Microsoft Authenticator-appen för Apple Watch för tillhörande synkroniserar eller visas i min titta på?|Om appen inte visas på klockan, provar du följande: <ol><li>Kontrollera att klockan körs watchOS 4.0 eller senare.</li><li>Synkronisera klockan igen.</li></ol>|
 |Min Apple Watch tillhörande app har kraschat. Kan jag skicka Mina krasch-loggar så att du kan undersöka? |Du måste först kontrollera att du har valt att dela dina analyser med oss. Om du är en TestFlight-användare kan du redan har registrerat dig. Annars går du till **Inställningar > sekretess > Analytics** och välj både den **dela iPhone och titta på analys** och **filresursen med Apputvecklare** alternativ.<br><br>När du har registrerat dig kan du försöka återskapa din krascher så att loggarna kraschar ska skickas automatiskt till oss för undersökning. Men om du inte kan återskapa din krascher, manuellt kopiera loggfilerna och skicka dem till oss.<ol><li>Öppna klockappen på din telefon, gå till **Inställningar > Allmänt**, och klicka sedan på **kopia Watch Analytics**.</li><li>Hitta motsvarande kraschen under **Inställningar > sekretess > Analytics > analysdata**, och sedan manuellt kopiera hela texten.</li><li>Öppna Microsoft Authenticator-appen på telefonen och klistra in som kopierade text i den **filresursen med Apputvecklare** textrutan på den **skicka loggar** sidan.</li></ol>|
+|Vad är App Lock-funktionen och hur hjälper den för att skydda mig?|Om du vill skydda din enstaka lösenord, programinformation och app-inställningar kan aktivera du App Lock-funktionen i Microsoft Authenticator-appen. Aktivera App Lock från den **inställningar** skärmen i Microsoft Authenticator-appen innebär att du uppmanas att autentisera med hjälp av din PIN-kod eller biometriska varje gång du öppnar Microsoft Authenticator-appen. Den här funktionen ger extra skydd, hur du godkänner meddelanden i Microsoft Authenticator-appen ändras inte.<br><br>**Obs!**<br>Om du går tillbaka till Microsoft Authenticator-appen som körs på en Android-enhet i mindre än 30 sekunder, ombeds du inte att autentisera igen.| 
+
 
 ## <a name="next-steps"></a>Nästa steg
 

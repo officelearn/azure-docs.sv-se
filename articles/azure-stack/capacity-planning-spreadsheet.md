@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 6f6e680f7ce613d7a6d9f227765ce599c537e2d3
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 12/11/2018
+ms.openlocfilehash: d140b80ecb5fe2a7211245044b08f43fde4233a8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106519"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240994"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner är ett kalkylblad som används för kapacitetsplanering för Azure Stack-resurs. Capacity planner ger dig möjlighet att utforma olika allokeringen av datorresurser och se hur de skulle passa över ett urval av maskinvara. Detaljerade anvisningar för användning av Azure Stack-Kalkylatorn finns nedan.
@@ -30,7 +31,7 @@ Följande är en kort sammanfattning av kalkylblad i Azure Stack Capacity Planne
 
 |Fliknamn|Beskrivning|
 |-----|-----|
-|Version friskrivning|Kort översikt över syftet med kalkylator, versionsnummer och utgivna datum.|
+|Version-Disclaimer|Kort översikt över syftet med kalkylator, versionsnummer och utgivna datum.|
 |Instruktioner|Innehåller detaljerade anvisningar om användning av Azure Stack Capacity Planner.|
 |DefinedSolutionSKUs|Tabell med flera kolumner som innehåller definitioner som är upp till fem maskinvara. Poster i det här bladet är exempel. Avsikten är att användaren ändrar information om du vill matcha systemkonfigurationer ses som för användning eller köpa.|
 |DefineByVMFootprint|Hitta rätt maskinvara SKU: N genom att skapa en samling av olika storlekar och kvantiteter av virtuella datorer.|
@@ -53,7 +54,7 @@ De grundläggande byggstenarna som används för resursen modellering i Azure St
 Det här verktyget erbjuder två metoder för att tilldela VM-resurser. antingen som en enskild samling resursallokeringar för virtuell dator eller som en samling av upp till sex olika konfigurationer för arbetsbelastning. Varje arbetsbelastningskonfiguration kan innehålla en annan fördelning av tillgängliga VM-resurser. Detaljerad information för att skapa och använda var och en av dessa allokering modeller finns nedan. Endast värden i icke-bakgrunden skuggade celler eller inom SKU nedrullningsbara listor på det här kalkylbladet ska ändras. Ändringar som gjorts i skuggade celler kan bryta resource beräkningar.
 
 
-## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint instruktioner
+## <a name="definebyvmfootprint-instructions"></a>DefineByVMFootprint instructions
 Välj fliken ”DefineByVMFootprint” för att skapa en modell med en enda samling av olika storlekar och kvantiteter av virtuella datorer, och följ den här sekvensen av steg.
 
 1. I det övre högra hörnet av det här kalkylbladet använder du de tillhandahållna nedrullningsbara listrutekontroller för att välja en ursprungsvärdet av servrar (mellan 4 och 16) som ska installeras i varje maskinvarusystem (SKU). Det här antalet servrar som kan ändras när som helst under modelleringsprocessen att se hur det påverkar den totala tillgängliga resurser för din modell.
@@ -67,7 +68,7 @@ Välj fliken ”DefineByVMFootprint” för att skapa en modell med en enda saml
 5. När du har skapat en uppsättning virtuella datorer kan hittar du den föreslagna maskinvaran SKU: N genom att klicka på ”föreslagna SKU” hittades i det övre högra hörnet på sidan, direkt under etiketten ”aktuella SKU: N”. Med den här knappen kan du sedan ändrar dina VM-konfigurationer och se vilka maskinvaran har stöd för varje konfiguration.
 
 
-## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint instruktioner
+## <a name="definebyworkloadfootprint-instructions"></a>DefineByWorkloadFootprint instructions
 Välj fliken ”DefineByWorkloadFootprint” för att skapa en modell med hjälp av en samling av arbetsbelastningar på Azure Stack, och följ den här sekvensen av steg. Azure Stack-arbetsbelastningar skapas med hjälp av tillgängliga VM-resurser.   
 
 > [!TIP]

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 66a2871e0c4b36959ccd8f08df5b6b7edd09f624
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 79e031226f11d45121827795c34b0103235d8d79
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227832"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55248171"
 ---
 # <a name="asdk-administration-basics"></a>Grundläggande om administration av ASDK 
 Det finns flera saker du behöver veta om du inte har använt Azure Stack Development Kit (ASDK) administration. Den här vägledningen innehåller en översikt över din roll som Azure Stack-operatör i utvecklingsmiljö och kontrollera din testanvändare kan vara produktiva snabbt.
@@ -37,7 +38,7 @@ Det finns några överväganden för användarkonton som du bör känna till nä
 |Lokal administratör (. \administratör)|ASDK värd administratör|ASDK värd administratör|
 |AzureStack\AzureStackAdmin|ASDK värd administratör<br><br>Kan användas för att logga in på administrationsportalen för Azure Stack<br><br>Åtkomst till se och administrera Service Fabric-ringar|ASDK värd administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till se och administrera Service Fabric-ringar<br><br>Inte längre ägare av standard providern prenumeration (DPS)|
 |AzureStack\CloudAdmin|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt<br><br>Kan inte logga in till ASDK värden<br><br>Ägaren av providern Standardprenumeration (DPS)|
-|Global Azure AD-administratör|Används under installationen<br><br>Ägaren av providern Standardprenumeration (DPS)|Inte tillämpligt|
+|Azure AD Global Administrator|Används under installationen<br><br>Ägaren av providern Standardprenumeration (DPS)|Inte tillämpligt|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg kan jag använda för att hantera?

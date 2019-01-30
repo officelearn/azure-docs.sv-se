@@ -6,16 +6,16 @@ author: kavithaj
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff23235e9681301984e13e346b23f277662bb5c
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 112d093946099e623d1edfa4555eda681069892e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43300942"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243393"
 ---
 # <a name="threat-detection-in-azure-sql-data-warehouse"></a>Hotidentifiering i Azure SQL Data Warehouse
 Konfigurera hotidentifiering och utforska misstänkta händelser i Azure SQL Data Warehouse.
@@ -54,7 +54,7 @@ Hotidentifiering identifierar till exempel vissa avvikande databasaktiviteter so
    
     ![Navigeringsfönster](media/sql-data-warehouse-security-threat-detection/6_td_audit_record_details.png)
 4. På bladet med granskningsposter klickar du på **Öppna i Excel** om du vill öppna en förkonfigurerad Excel-mall för att importera och köra djupare analyser av granskningsloggen vid tiden för den misstänkta händelsen.<br/>
-   **Obs:** i Excel 2010 eller senare Power Query och **snabb kombinering** inställning är obligatorisk
+   **Obs!** I Excel 2010 eller senare Power Query och **snabb kombinering** inställning är obligatorisk
    
     ![Navigeringsfönster](media/sql-data-warehouse-security-threat-detection/7_td_audit_records_open_excel.png)
 5. Konfigurera inställningen **Kombinera snabbt** i menyfliksområdet **POWER QUERY** genom att välja **Alternativ** så öppnas alternativdialogrutan. Välj avsnittet Sekretess och välj det andra alternativet ”Ignorera sekretessnivåerna och förbättra eventuellt prestandan”:

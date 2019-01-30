@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: b5314ce874c253151b88882b086257f96612c019
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: ec7b56a7324f3c8c3e3459639e4fd00e92d93e8f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615406"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249756"
 ---
 # <a name="prepare-the-asdk-host-computer"></a>Förbereda ASDK värddatorn
 Innan du kan installera ASDK på värddatorn, måste du förbereda miljön ASDK för installation. När värddatorn development kit har förberetts, att den startas från CloudBuilder.vhdx virtuella hårddisken till börjar ASDK distributionen.
@@ -52,7 +53,7 @@ Innan du kan installera ASDK på värddatorn, måste du förbereda datorn för A
     ![](media/asdk-prepare-host/2.PNG)
 
 6. På den **valfria inställningar** anger du den lokala administratören kontoinformation för värddator för development kit och klicka sedan på **nästa**. Du kan också ange värden för följande valfria inställningar:
-  - **ComputerName**: det här alternativet anger namnet för development kit värden. Namnet måste vara kompatibel med FQDN krav och måste vara högst 15 tecken eller färre. Standardvärdet är ett slumpmässigt datornamn som genererats av Windows.
+  - **ComputerName**: Det här alternativet anger namnet för development kit värden. Namnet måste vara kompatibel med FQDN krav och måste vara högst 15 tecken eller färre. Standardvärdet är ett slumpmässigt datornamn som genererats av Windows.
   - **Statisk IP-konfiguration**: Anger distributionen för att använda en statisk IP-adress. När installationsprogrammet startar om i cloudbuilder.vhdx, annars konfigureras nätverksgränssnitt med DHCP.
 
     ![](media/asdk-prepare-host/3.PNG)

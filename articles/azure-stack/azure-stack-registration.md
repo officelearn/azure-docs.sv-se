@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 7413ebac82adce9f034d5ceec16ec76b9ad53f82
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: d9ab89afba2b83f99bfbf432d033cd0546a25a9d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359552"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247399"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registrera Azure Stack med Azure
 
@@ -444,7 +445,7 @@ Om du vill köra cmdleten, behöver du:
     <String>] [<CommonParameters>]
    ```
 
-| Parameter | Typ | Beskrivning |
+| Parameter | Type | Beskrivning |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | PrivilegedEndpointCredential | PSCredential | Autentiseringsuppgifterna som används för [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Användarnamnet är i formatet **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sträng | En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |
@@ -466,7 +467,7 @@ Get-AzsRegistrationToken genererar en registreringstoken från indataparametrarn
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
-| Parameter | Typ | Beskrivning |
+| Parameter | Type | Beskrivning |
 |-------------------------------|--------------|-------------|
 | PrivilegedEndpointCredential | PSCredential | Autentiseringsuppgifterna som används för [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). Användarnamnet är i formatet **AzureStackDomain\CloudAdmin**. |
 | PrivilegedEndpoint | Sträng |  En förkonfigurerad PowerShell fjärrkonsolen ger tillgång till funktioner som loggar in och andra post distributionsuppgifter. Mer information finns i [med hjälp av privilegierad slutpunkt](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint) artikeln. |

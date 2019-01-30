@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 45af8f554bf38c65c886c4d101c78255f5671037
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f369ab0ec8c460137f7e2b16a7f2696357d84c50
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218673"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247450"
 ---
 # <a name="speech-service-rest-apis"></a>Speech Service REST API: er
 
@@ -439,6 +439,9 @@ Text till tal REST API har stöd för neurala och standard text till tal röster
 
 * En fullständig lista över röster Se [språkstöd](language-support.md#text-to-speech).
 * Information om regional tillgänglighet finns i [regioner](regions.md#text-to-speech).
+
+> [!IMPORTANT]
+> Kostnader för olika för standard, anpassade och neural röster. Mer information finns i [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="request-headers"></a>Begärandehuvud
 

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 1963708fb05feb7797bc8b4df024d16175687b17
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.lastreviewed: 01/25/2018
+ms.openlocfilehash: 9568ac58e646be03d367fe466ae972955f23488c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177916"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252242"
 ---
 # <a name="provider-resource-usage-api"></a>API för providerresursanvändning
 Termen *provider* gäller tjänstadministratören och alla delegerade providrar. Azure Stack-operatörer och delegerade providrar kan använda provideranvändning för att visa användningen av sina direkta klienter. Till exempel i diagrammet visas P0 kan anropa providern API för att få information om användningen på P1 och P2's direkt användning och P1 kan anropa användningsinformation för P3 och P4.

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231022"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239782"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -76,12 +76,12 @@ I följande tabell beskrivs alla attribut i namnet på loggen.
 | Attribut | Beskrivning |
 | --- | --- |
 | <service-name> |Namnet på storage-tjänsten. Till exempel: blob-, tabell- eller kön. |
-| ÅÅÅÅ |Fyrsiffrigt år för loggen. Till exempel: 2011. |
-| MM |Månad med två siffror i loggen. Till exempel: 07. |
-| DD |Månad med två siffror i loggen. Till exempel: 07. |
-| hh |En timme med två siffror som anger från timme för loggarna i 24-timmarsformat UTC. Till exempel: 18. |
+| ÅÅÅÅ |Fyrsiffrigt år för loggen. Exempel: 2011. |
+| MM |Månad med två siffror i loggen. Exempel: 07. |
+| DD |Månad med två siffror i loggen. Exempel: 07. |
+| hh |En timme med två siffror som anger från timme för loggarna i 24-timmarsformat UTC. Exempel: 18. |
 | mm |De två siffror som anger från minut för loggarna. Det här värdet stöds inte i den aktuella versionen av Storage Analytics och dess värde är alltid 00. |
-| <counter> |Ett nollbaserat räknare med sex siffror som anger antalet loggblobarna som genererats för storage-tjänsten i en timme lång tid. Den här räknaren börjar vid 000000. Till exempel: 000001. |
+| <counter> |Ett nollbaserat räknare med sex siffror som anger antalet loggblobarna som genererats för storage-tjänsten i en timme lång tid. Den här räknaren börjar vid 000000. Exempel: 000001. |
 
 Följande är ett fullständigt exempel loggnamn som kombinerar i föregående exempel.
 
@@ -99,13 +99,13 @@ Alla loggblobarna lagras med metadata som kan användas för att identifiera vil
 | Attribut | Beskrivning |
 | --- | --- |
 | LogType |Beskriver om loggen innehåller information om för att läsa, skriva eller ta bort åtgärder. Det här värdet kan innehålla en typ eller en kombination av alla tre, avgränsade med kommatecken. Exempel 1: skrivning. Exempel 2: läsa, skriva; Exempel 3: läsa, skriva, ta bort. |
-| startTime |Den tidigaste tidpunkten för en post i loggen, i formatet ÅÅÅÅ-MM-: ssZ. Till exempel: 2011-07-31T18:21:46Z. |
-| endTime |Senaste tid för en post i loggen, i formatet ÅÅÅÅ-MM-: ssZ. Till exempel: 2011-07-31T18:22:09Z. |
+| startTime |Den tidigaste tidpunkten för en post i loggen, i formatet ÅÅÅÅ-MM-: ssZ. Exempel: 2011-07-31T18:21:46Z. |
+| endTime |Senaste tid för en post i loggen, i formatet ÅÅÅÅ-MM-: ssZ. Exempel: 2011-07-31T18:22:09Z. |
 | LogVersion |Versionen av loggformatet. Det enda värdet som stöds är för närvarande 1.0. |
 
 Följande lista visar hela exemplet metadata med hjälp av föregående exempel.
 
-* LogType = skrivning
+* LogType=write
 * StartTime=2011-07-31T18:21:46Z
 * EndTime=2011-07-31T18:22:09Z
 * LogVersion=1.0
@@ -135,9 +135,9 @@ Transaktionsmått registreras för både användarförfrågningar och begärande
 
 Registreras kapacitetsdata varje dag för ett lagringskontos Blob service och två tabellenheter skrivs. En entitet innehåller statistik för användardata och den andra innehåller statistik om den `$logs` blob-behållare som används av Storage Analytics. Den `$MetricsCapacityBlob` tabell innehåller följande statistik:
 
-* **Kapacitet**: mängden lagringsutrymme som används av lagringskontots Blob service i byte.
-* **ContainerCount**: antal blob-behållare i lagringskontots Blob service.
-* **ObjectCount**: antalet allokerade och ogenomförda block- eller sidtyp blobar i lagringskontots Blob service.
+* **Kapacitet**: Mängden lagringsutrymme som används av lagringskontots Blob service i byte.
+* **ContainerCount**: Antal blob-behållare i lagringskontots Blob service.
+* **ObjectCount**: Antal allokerade och ogenomförda block- eller sidtyp blobar i lagringskontots Blob service.
 
 Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
 

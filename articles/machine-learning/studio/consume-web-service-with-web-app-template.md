@@ -1,6 +1,6 @@
 ---
 Rubrik: Använda Studio-webbtjänst med web app mallen titleSuffix: Beskrivning av Azure Machine Learning Studio: Använd en mall för webbappar i Azure Marketplace för att använda en förutsägbar webbtjänst i Azure Machine Learning.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

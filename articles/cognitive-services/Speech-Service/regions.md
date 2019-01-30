@@ -6,17 +6,17 @@ services: cognitive-services
 author: mahilleb-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mahilleb
 ms.custom: seodec18
-ms.openlocfilehash: e33bf7cd98cdd5862af6f4d68d3d73de1a07d229
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 32a8b4cbfd0d8b43d294155432a0feaf29036c4c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218146"
 ---
 # <a name="speech-service-supported-regions"></a>Med Taltjänsten regioner som stöds
 
@@ -52,20 +52,20 @@ Tillgängliga regioner för **avsiktsigenkänning** via tal SDK är följande:
  ------|-------|--------
  Asien | Östasien | `eastasia`
  Asien | Sydostasien | `southeastasia`
- Australien | Östra Australien | `australiaeast`
- Europa | Norra Europa | `northeurope`
- Europa | Västra Europa | `westeurope`
+ Australien | Australien, Öst | `australiaeast`
+ Europa | Nordeuropa | `northeurope`
+ Europa | Västeuropa | `westeurope`
  Nordamerika | Östra USA | `eastus`
  Nordamerika | USA, östra 2 | `eastus2`
- Nordamerika | Södra centrala USA | `southcentralus`
+ Nordamerika | USA, Central syd | `southcentralus`
  Nordamerika | Västra centrala USA | `westcentralus`
  Nordamerika | Västra USA | `westus`
  Nordamerika | Västra USA 2 | `westus2`
- Sydamerika | Södra Brasilien | `brazilsouth`
+ Sydamerika | Brasilien, Syd | `brazilsouth`
 
 Det här är en delmängd av publishing regioner som stöds av den [tjänst för Språkförståelse (LUIS)](/azure/cognitive-services/luis/luis-reference-regions).
 
-## <a name="rest-apis"></a>REST API:er
+## <a name="rest-apis"></a>REST-API:er
 
 Speech-tjänsten exponerar även REST-slutpunkter för förfrågningar om tal till text och text till tal.
 

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 3ae0a67a8aa2d403a72b0e20471c2044dbf557bf
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.lastreviewed: 01/16/2019
+ms.openlocfilehash: b032dea67bba6f78b8172e772ab2f8fe492f39f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389068"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250443"
 ---
 # <a name="deploy-kubernetes-to-azure-stack-using-active-directory-federated-services"></a>Distribuera Kubernetes i Azure Stack med hjälp av Active Directory Federation Services
 
@@ -65,7 +66,7 @@ Du måste arbeta med Azure Stack-administratör för att konfigurera tjänstens 
 
     - Du behöver följande typer av information:
 
-        | Värde | Beskrivning |
+        | Value | Beskrivning |
         | ---   | ---         |
         | Azure Resource Manager-slutpunkten | Microsoft Azure Resource Manager är en management-ramverk som gör att administratörer kan distribuera, hantera och övervaka Azure-resurser. Azure Resource Manager kan hantera dessa uppgifter som en grupp i stället, i en enda åtgärd.<br>Slutpunkten i Azure Stack Development Kit (ASDK) är: `https://management.local.azurestack.external/`<br>Slutpunkten i integrerade system är: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/` |
         | Ditt prenumerations-ID | Den [prenumerations-ID](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) är hur du kommer åt erbjudanden i Azure Stack. |
@@ -106,7 +107,7 @@ Du måste arbeta med Azure Stack-administratör för att konfigurera tjänstens 
 
     - Du behöver följande typer av information:
 
-        | Värde | Beskrivning |
+        | Value | Beskrivning |
         | ---   | ---         |
         | Sökväg för certifikatets | FQDN eller filsökväg till certifikatet. |
         | Certifikatlösenord | Lösenordet för certifikatet. |

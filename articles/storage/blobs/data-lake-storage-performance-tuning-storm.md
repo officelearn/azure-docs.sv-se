@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 Storm prestandajustering riktlinjer | Micros
 description: Azure Data Lake Storage Gen2 Storm prestandajustering riktlinjer
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 845bb739408cb38d823ae662e261d6955726d28a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b242fca5a5a8490cc51222a6dd8b1ff1bb724417
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975195"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247916"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för Storm på HDInsight och Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ Förstå de faktorer som ska beaktas när du finjustera prestanda för en Azure 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [Snabbstart: skapa en lagrings-konto för analytiska](data-lake-storage-quickstart-create-account.md).
+* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa en lagrings-konto för analytiska](data-lake-storage-quickstart-create-account.md).
 * **Ett Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Kontrollera att du aktivera Fjärrskrivbord för klustret.
 * **Köra ett Storm-kluster på Data Lake Storage Gen2**. Mer information finns i [Storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
 * **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md).   

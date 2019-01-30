@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3759a9845d4ad1514fc5f0183c78b5eca2e31464
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: eff526118f6fd127ba720d28296baf86abd01393
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960659"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246450"
 ---
 # <a name="azure-stack-firewall-integration"></a>Integrering med Azure Stack-brandväggen
 Du rekommenderas att du använder en brandväggsenhet för att säkra Azure Stack. Även om brandväggar kan hjälpa dig med distribuerade denial of service DDOS-attacker, intrångsidentifiering och innehållsgranskning, kan de också blir en flaskhals för dataflöde för Azure storage-tjänster som blobbar, tabeller och köer.
@@ -34,7 +35,7 @@ För företag, kan det externa nätverket vara befintliga företagets nätverk. 
 ### <a name="network-address-translation"></a>Network Address Translation
 Network Address Translation (NAT) är den rekommenderade metoden att tillåta en distribution av virtuell dator (DVM) för att få åtkomst till de externa resurserna och internet under distributionen av samt de nödfall Recovery konsolen (ERCS) virtuella datorerna eller privilegierad slutpunkt (program) under registrering och felsökning.
 
-NAT kan också vara ett alternativ till offentliga IP-adresser på det externa nätverket eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar klient användarupplevelsen och ökar komplexiteten. De två alternativen är en 1:1-NAT som fortfarande kräver en offentlig IP per användare IP-adresser på poolen eller många: 1 NAT som kräver en NAT-regeln per användare VIP som innehåller kopplingar till alla portar en användare kan använda.
+NAT kan också vara ett alternativ till offentliga IP-adresser på det externa nätverket eller offentliga virtuella IP-adresser. Det rekommenderas dock inte eftersom det begränsar klient användarupplevelsen och ökar komplexiteten. De två alternativen är en 1:1-NAT som fortfarande kräver en offentlig IP per användare IP-adresser på poolen eller många: En användare kan använda 1 NAT som kräver en NAT-regel per användare VIP som innehåller kopplingar till alla portar.
 
 Några av nackdelarna med att använda NAT för offentlig VIP-adress är:
 - NAT lägger till användning vid hantering av brandväggsregler eftersom användare styra sina egna slutpunkter och sina egna publiceringsregler i stacken programvarudefinierade nätverk (SDN). Användare måste kontakta Azure Stack-operatör att få sina VIP som har publicerats och för att uppdatera listan över portar.
@@ -54,7 +55,7 @@ Vanligtvis har offentliga dirigerbara IP-adresser angetts för den offentliga VI
 ## <a name="enterprise-intranet-or-perimeter-network-firewall-scenario"></a>Intranät eller perimeternätverket nätverket brandväggen företagsscenariot
 I en intranät- eller perimeternätverket företagsdistribution med Azure Stack på en multi-zonindelad brandvägg eller mellan gränsbrandväggen och interna, företagets brandvägg. Dess trafiken distribueras sedan mellan säker, perimeternätverk (eller DMZ) och oskyddade zoner som beskrivs nedan:
 
-- **Säker zon**: det här är det interna nätverket som använder interna eller företagets dirigerbara IP-adresser. Säkert nätverk kan delas, ha utgående Internetåtkomst via NAT i brandväggen och kan vanligtvis nås från var som helst i ditt datacenter via det interna nätverket. Alla Azure Stack-nätverk ska placeras i zonen säker utom det externa nätverket offentliga VIP-poolen.
+- **Säker zon**: Det här är det interna nätverket som använder interna eller företagets dirigerbara IP-adresser. Säkert nätverk kan delas, ha utgående Internetåtkomst via NAT i brandväggen och kan vanligtvis nås från var som helst i ditt datacenter via det interna nätverket. Alla Azure Stack-nätverk ska placeras i zonen säker utom det externa nätverket offentliga VIP-poolen.
 - **Perimeter zonen**. Perimeternätverket är där externa eller program som webbservrar distribueras vanligen som riktas mot internet. Det är vanligtvis övervakas av en brandvägg för att undvika attacker som DDoS och för intrångsidentifiering (kodar) samtidigt som fortfarande angivna inkommande trafik från internet. Endast en externt nätverk offentliga VIP-pool i Azure-stacken ska placeras i perimeterrnätverkszonen.
 - **Oskyddat zon**. Det här är det externa nätverket internet. Den **är inte** rekommenderas att distribuera Azure Stack i zonen oskyddat.
 

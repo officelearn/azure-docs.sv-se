@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.date: 11/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: ff8508db55b04d2c55158b5846325d0c13665048
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: f25d87c7c557404071d777f4efcf22e53886d96d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53542755"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242628"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-postgresql"></a>Ansluta Azure Kubernetes Service och Azure Database för PostgreSQL
 
@@ -32,6 +32,14 @@ Du kan bekräfta om AKS-klustret har accelererat nätverk:
 6. Gå till Virtuellt datorns **nätverk** fliken.
 7. Bekräfta om **Accelerated networking** 'Aktiveras ”.
 
+Eller via Azure CLI med hjälp av följande två kommandon:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+Följande utdata returneras genererade resursgruppen att AKS skapar som innehåller nätverksgränssnittet. Ta med namnet ”nodeResourceGroup” och använda den i nästa kommando. **EnableAcceleratedNetworking** ska antingen vara true eller false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Öppna Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kan du etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [Open Service Broker API](https://www.openservicebrokerapi.org/) implementering för Azure.

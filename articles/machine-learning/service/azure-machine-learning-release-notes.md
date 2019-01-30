@@ -4,29 +4,29 @@ titleSuffix: Azure Machine Learning service
 description: 'Läs om de senaste uppdateringarna för Azure Machine Learning-tjänsten och den machine learning och data Förbered Python SDK: er.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
 ms.date: 12/20/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9556a87b8de08dadb211d73e93f3daa9033c2cc1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: a615b6c59d178fcc1d47d11bf89691c7e83249f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221325"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250664"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Viktig information för Azure Machine Learning-tjänsten
 
-I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner. 
+I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.  En fullständig beskrivning av varje SDK finns i referensdokument för:
++ Azure Machine Learning [ **huvudsakliga SDK för Python**](https://aka.ms/aml-sdk)
++ Azure Machine Learning [ **Data Förbered SDK**](https://aka.ms/aml-sdk)
 
 ## <a name="2019-01-28"></a>2019-01-28
 
 ### <a name="azure-machine-learning-sdk-for-python-v1010"></a>Azure Machine Learning-SDK för Python v1.0.10
-
-+ **Referensdokument för SDK**: https://aka.ms/aml-sdk
 
 + **Ändringar**: 
   + Azure ML-SDK har inte längre azure cli-paket som beroende. Mer specifikt har beroenden för azure-cli-core och azure-cli-profil tagits bort från azureml-kärna. Det här är den användare som påverkas av ändringar:
@@ -37,8 +37,6 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 + **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
 
 ### <a name="azure-machine-learning-data-prep-sdk-v108"></a>Azure Machine Learning Data Förbered SDK v1.0.8
-
-+ **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
 
 + **Felkorrigeringar**
   + Avsevärt bättre prestanda för att få data profiler.
@@ -59,13 +57,9 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 ### <a name="azure-machine-learning-sdk-for-python-v108"></a>Azure Machine Learning-SDK för Python v1.0.8
 
-+ **Referensdokument för SDK**: https://aka.ms/aml-sdk
-
 + **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
 
 ### <a name="azure-machine-learning-data-prep-sdk-v107"></a>Azure Machine Learning Data Förbered SDK v1.0.7
-
-+ **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
 
 + **Nya funktioner**
   + Förbättringar av datalager (beskrivs i [How-to-till-guide-datalager](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/how-to-guides/datastore.ipynb))
@@ -77,22 +71,15 @@ I den här artikeln lär du dig om Azure Machine Learning-tjänstversioner.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v106"></a>Azure Machine Learning Data Förbered SDK v1.0.6
 
-+ **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
-
 + **Felkorrigeringar**
   + En bugg har åtgärdats med läsning från offentliga läsbara Azure Blob-behållare på Spark
 
 ## <a name="2018-12-20"></a>2018-12-20 
 
 ### <a name="azure-machine-learning-sdk-for-python-v106"></a>Azure Machine Learning-SDK för Python v1.0.6
-
-+ **Referensdokument för SDK**: https://aka.ms/aml-sdk
-
 + **Felkorrigeringar**: Den här versionen innehåller främst mindre felkorrigeringar
 
 ### <a name="azure-machine-learning-data-prep-sdk-v104"></a>Azure Machine Learning Data Prep SDK v1.0.4
-
-+ **Referensdokument för SDK**: https://aka.ms/data-prep-sdk
 
 + **Nya funktioner**
   + `to_bool` funktionen kan nu Felmatchade värden som ska konverteras till felvärden. Det här är den nya matchningsfel för standardfunktionen för `to_bool` och `set_column_types`, medan tidigare standardbeteendet var att konvertera Felmatchade värden till False.

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: d1225cb90d0eecddb5ec7eca56437b020be50c71
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.date: 01/29/2019
+ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080843"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250780"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -138,7 +138,7 @@ SQL Database dynamisk datamaskning begränsar exponering av känsliga data genom
 
 ### <a name="sql-vulnerability-assessment"></a>Sårbarhetsbedömning för SQL
 
-[Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och att åtgärda säkerhetsrisker i databasen med målet att proaktivt förbättra övergripande databassäkerhet. Vulnerability Assessment (VA) är en del av erbjudandet SQL avancerade Threat Protection (ATP), vilket är en enhetlig paketet för avancerade funktioner för SQL-säkerhet. Utvärdering av säkerhetsrisker kan nås och hanteras via den centrala SQL ATP-portalen.
+[Sårbarhetsbedömning för SQL](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera tjänsten som kan upptäcka, spåra och att åtgärda säkerhetsrisker i databasen med målet att proaktivt förbättra övergripande databassäkerhet. Vulnerability Assessment (VA) är en del av erbjudandet SQL avancerade Data Security (AD), vilket är en enhetlig paketet för avancerade funktioner för SQL-säkerhet. Utvärdering av säkerhetsrisker kan nås och hanteras via den centrala SQL ADS-portalen.
 
 ### <a name="data-discovery--classification"></a>Dataidentifiering och klassificering
 

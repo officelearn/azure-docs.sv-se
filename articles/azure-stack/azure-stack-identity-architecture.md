@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 11/07/2018
 ms.author: patricka
 ms.reviewer: fiseraci
-ms.openlocfilehash: a16a6596d6bc33200f87a1dfd3b2ea5b02628e10
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: b739db654a182433bbe1f47528d1ab99f1b10c08
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51277825"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242169"
 ---
 # <a name="identity-architecture-for-azure-stack"></a>Identitetsarkitektur för Azure Stack
 Innan du väljer en identitetsprovider som ska användas med Azure Stack, Förstå viktiga skillnader mellan alternativen i Azure Active Directory (Azure AD) och Active Directory Federation Services (AD FS). 
@@ -43,7 +44,7 @@ Den identitetsprovider som du väljer kan begränsa dina alternativ, inklusive s
 |Program kan använda Graph-tjänsten           |Ja |Nej|
 |Program kan använda identitetsleverantör för att logga in |Ja |Ja. Kräver program att federera med en lokal AD FS-instanser. |
 
-## <a name="topologies"></a>Topologier
+## <a name="topologies"></a>Topologies
 I följande avsnitt beskrivs de olika identity-topologier som du kan använda.
 
 ### <a name="azure-ad-single-tenant-topology"></a>Azure AD: enda klient-topologi 

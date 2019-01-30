@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08335f676437a32aa2240298be4680633eff16ba
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.lastreviewed: 09/05/2018
+ms.openlocfilehash: 0fed6751d326c5da4431e953f7ded9c12688871f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432978"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250052"
 ---
 # <a name="back-up-azure-stack"></a>Säkerhetskopiera Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Utföra en säkerhetskopiering på begäran på Azure Stack med säkerhetskopiering på plats. Anvisningar om hur du konfigurerar PowerShell-miljö finns i [installera PowerShell för Azure Stack ](azure-stack-powershell-install.md). Om du vill logga in på Azure Stack, se [med hjälp av administratörsportalen i Azure Stack](azure-stack-manage-portals.md).
 

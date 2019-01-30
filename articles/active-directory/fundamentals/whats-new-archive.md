@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 01/29/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 2d0c6bb930d0e4c4fe7ae663c88e663e17cae084
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ba538aed855667417e14bef12b708e80f34cd8c4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096865"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243934"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arkiveringsjobb för vad som är nytt? i Azure Active Directory
 
@@ -29,6 +29,166 @@ Vad är nytt viktig information innehåller information om:
 - Felkorrigeringar
 - Inaktuell funktion
 - Planer för ändringar
+
+---
+
+## <a name="june-2018"></a>Juni 2018
+
+### <a name="change-notice-security-fix-to-the-delegated-authorization-flow-for-apps-using-azure-ad-activity-logs-api"></a>Ändringsmeddelande: Säkerhetskorrigering till delegerad auktorisering flödet för appar som använder Azure AD-aktivitet loggar API
+
+**Typ:** Förändringsplan  
+**Tjänstekategori:** Rapportering  
+**Produkten kapacitet:** Övervakning och rapportering
+
+På grund av våra starkare säkerhet tvingande som vi har haft att göra en ändring i behörigheter för appar som använder ett flöde för delegerad auktorisering för att komma åt [Azure AD-aktivitet loggar API: er](https://aka.ms/aadreportsapi). Den här ändringen utförs av **26 juni 2018**.
+
+Om någon av dina appar använder Azure AD-aktivitet Log API: er följer du stegen nedan för att se till att appen inte bryta när ändringen har skett.
+
+**Uppdatera app-behörigheter**
+
+1. Logga in på Azure portal, Välj **Azure Active Directory**, och välj sedan **Appregistreringar**.
+2. Välj din app som använder Azure AD-aktivitet loggar API, Välj **inställningar**väljer **nödvändiga behörigheter**, och välj sedan den **Windows Azure Active Directory** API.
+3. I den **delegerade behörigheter** område i den **Aktivera åtkomst** bladet markerar du kryssrutan bredvid **Läs directory** data och välj sedan **spara**.
+4. Välj **bevilja**, och välj sedan **Ja**.
+    
+    >[!Note]
+    >Du måste vara en Global administratör för att bevilja behörigheter till appen.
+
+Mer information finns i den [bevilja](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-prerequisites-azure-portal#grant-permissions) tänkbara kraven för att få åtkomst till Azure AD reporting API-artikel.
+
+---
+
+### <a name="configure-tls-settings-to-connect-to-azure-ad-services-for-pci-dss-compliance"></a>Konfigurera TLS för att ansluta till Azure AD-tjänster för PCI DSS-kompatibilitet
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Gäller inte  
+**Produkten kapacitet:** Plattform
+
+Transport Layer Security (TLS) är ett protokoll som ger sekretess och integritet mellan två kommunicerande program och är den vanligaste säkerhetsprotokoll som används idag.
+
+Den [PCI Security Standards Council](https://www.pcisecuritystandards.org/) har fastställt att tidiga versioner av TLS och Secure Sockets Layer (SSL) måste inaktiveras av aktiverar nya och säkrare protokoll med efterlevnad som börjar på **den 30 juni 2018**. Den här ändringen innebär att om du ansluter till Azure AD-tjänster och kräva PCI DSS-efterlevnad, måste du inaktivera TLS 1.0. Flera versioner av TLS finns, men TLS 1.2 är den senaste versionen som är tillgängliga för Azure Active Directory Services. Vi rekommenderar starkt att flytta direkt till TLS 1.2 för både klient/server och webbläsaren/server kombinationer.
+
+Inaktuella webbläsare stöder inte nyare TLS-versioner, till exempel TLS 1.2. Om du vill se vilka versioner av TLS som stöds av webbläsaren, gå till den [Qualys SSL Labs](https://www.ssllabs.com/) och klicka **testa din webbläsare**. Vi rekommenderar att du uppgraderar till den senaste versionen av din webbläsare och aktivera helst endast TLS 1.2.
+
+**Aktivera TLS 1.2 i webbläsare**
+
+- **Microsoft Edge och Internet Explorer (båda anges med hjälp av Internet Explorer)**
+
+    1. Öppna Internet Explorer, Välj **verktyg** > **Internetalternativ** > **Avancerat**.
+    2. I den **Security** Välj **använda TLS 1.2**, och välj sedan **OK**.
+    3. Stänga alla webbläsarfönster och starta om Internet Explorer. 
+
+- **Google Chrome**
+
+    1. Öppna Google Chrome, typ *chrome://settings/* i adressfältet och tryck på **RETUR**.
+    2. Expandera den **Avancerat** alternativ, gå till den **System** område och välj **öppna proxyinställningar**.
+    3. I den **Internetegenskaper** väljer den **Avancerat** fliken, gå till den **Security** Välj **använda TLS 1.2**, och välj sedan  **OK**.
+    4. Stänga alla webbläsarfönster och starta om Google Chrome.
+
+- **Mozilla Firefox**
+
+    1. Öppna Firefox, typ *om: config* i adressfältet och tryck sedan på **RETUR**.
+    2. Sök efter period, *TLS*, och välj sedan den **security.tls.version.max** posten.
+    3. Ange värdet till **3** att tvinga webbläsaren att använda upp till version TLS 1.2 och välj sedan **OK**.
+
+        >[!NOTE]
+        >Firefox version 60,0 stöder TLS 1.3 så att du kan också ange security.tls.version.max-värdet **4**.
+
+    4. Stänga alla webbläsarfönster och starta om Mozilla Firefox.
+
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-app-gallery---june-2018"></a>Nya federerade appar är tillgängliga i appgalleriet för Azure AD - juni 2018
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** Tredjepartsintegration
+ 
+I juni 2018 har vi lagt till stöd för dessa 15 nya appar med Federation i app-galleriet:
+
+[Skytap](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skytap-tutorial), [reglera musik](https://docs.microsoft.com/azure/active-directory/active-directory-saas-settlingmusic-tutorial), [SAML 1.1 Token aktiverat LOB-App](https://docs.microsoft.com/azure/active-directory/active-directory-saas-saml-tutorial), [Supermood](https://docs.microsoft.com/azure/active-directory/active-directory-saas-supermood-tutorial), [Autotask](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [ Säkerhetskopiering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-autotaskendpointbackup-tutorial), [Skyhigh nätverk](https://docs.microsoft.com/azure/active-directory/active-directory-saas-skyhighnetworks-tutorial), Smartway2, [TonicDM](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tonicdm-tutorial), [Moconavi](https://docs.microsoft.com/azure/active-directory/active-directory-saas-moconavi-tutorial), [Zoho en](https://docs.microsoft.com/azure/active-directory/active-directory-saas-zohoone-tutorial), [ Lokal SharePoint-](https://docs.microsoft.com/azure/active-directory/active-directory-saas-sharepoint-on-premises-tutorial), [förutser CX Suite](https://docs.microsoft.com/azure/active-directory/active-directory-saas-foreseecxsuite-tutorial), [Vidyard](https://docs.microsoft.com/azure/active-directory/active-directory-saas-vidyard-tutorial), [ChronicX](https://docs.microsoft.com/azure/active-directory/active-directory-saas-chronicx-tutorial)
+
+Mer information om apparna som finns i [SaaS-programintegration med Azure Active Directory](https://aka.ms/appstutorial). Läs mer om att lista ditt program i Azure AD-appgalleri [lista ditt program i Azure Active Directory-programgalleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing). 
+
+---
+
+### <a name="azure-ad-password-protection-is-available-in-public-preview"></a>Azure AD-lösenordsskydd är allmänt tillgänglig förhandsversion
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Identity Protection  
+**Produkten kapacitet:** Användarautentisering
+
+Använd Azure AD-lösenordsskydd för att eliminera enkelt att gissa lösenord från din miljö. Eliminera lösenorden hjälper till att minska risken för angrepp mot ett lösenord besprutningsmedel typen av attacker.
+
+Mer specifikt Azure AD-lösenordsskydd hjälper dig att:
+
+- Skydda din organisations konton i både Azure AD och Windows Server Active Directory (AD). 
+- Stoppar dina användare använder lösenord på en lista med mer än 500 av de vanligaste lösenorden och över 1 miljon tecken ersättningen varianter av dessa lösenord.
+- Administrera Azure AD-lösenord skydd från en enda plats i Azure AD-portalen för både Azure AD och lokala Windows Server AD.
+
+Läs mer om Azure AD-lösenordsskydd [eliminera felaktiga lösenord i din organisation](https://aka.ms/aadpasswordprotectiondocs).
+
+---
+
+### <a name="new-all-guests-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Ny ”alla gäster” villkorlig åtkomst Principmall när användningsvillkor (ToU) skapades
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Användningsvillkor  
+**Produkten kapacitet:** Styrning
+
+När du skapar dina användningsvillkor (ToU) skapas också en ny mall för princip för villkorlig åtkomst för ”alla gäster” och ”alla appar”. Den här nya principmallen gäller den nyligen skapade ToU effektivisera skapandet och tvingande processen för gäster.
+
+Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-custom-conditional-access-policy-template-created-during-terms-of-use-tou-creation"></a>Nya principmallen för ”anpassad” villkorlig åtkomst när användningsvillkor (ToU) skapades
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Användningsvillkor  
+**Produkten kapacitet:** Styrning
+
+När du skapar dina användningsvillkor (ToU) skapas också en ny ”anpassad” Principmall för villkorlig åtkomst. Den här nya principmallen kan du skapa användningsvillkoren och sedan omedelbart gå till principbladet skapa villkorlig åtkomst utan att behöva gå manuellt via portalen.
+
+Mer information finns i [Azure Active Directory-villkoren i Använd funktion](https://docs.microsoft.com/azure/active-directory/active-directory-tou).
+
+---
+
+### <a name="new-and-comprehensive-guidance-about-deploying-azure-multi-factor-authentication"></a>Nya och heltäckande vägledning om hur du distribuerar Azure Multi-Factor Authentication
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Annat  
+**Produkten kapacitet:** Identitetssäkerhet och skydd
+ 
+Vi har släppt nya stegvisa anvisningar om hur du distribuerar Azure Multi-Factor Authentication (MFA) i din organisation.
+
+Om du vill visa i distributionsguiden för MFA, går du till den [identitet distributionsguider](https://aka.ms/DeploymentPlans) lagringsplatsen på GitHub. Om du vill ge feedback om distributionsguiden, använda den [distributionen planera feedbackformulär](https://aka.ms/deploymentplanfeedback). Om du har frågor om distributionsguiden kontaktar du oss på [IDGitDeploy](mailto:idgitdeploy@microsoft.com).
+
+---
+
+### <a name="azure-ad-delegated-app-management-roles-are-in-public-preview"></a>Azure AD delegerad apphantering roller finns i offentlig förhandsversion
+
+**Typ:** Ny funktion  
+**Tjänstekategori:** Företagsappar  
+**Produkten kapacitet:** Åtkomstkontroll
+
+Administratörer kan nu delegera hanteringsuppgifter utan att tilldela rollen som Global administratör. De nya roller och funktioner är:
+
+- **Nya standarden administratörsroller i Azure AD:**
+
+    - **Programadministratör.** Ger möjlighet att hantera alla aspekter av alla appar, inklusive registrering, inställningar för enkel inloggning, tilldelning av appar och licensiering, App proxy-inställningar och godkännande (förutom till Azure AD-resurser).
+
+    - **Molnprogramadministratör.** Beviljar alla programadministratör funktioner, förutom App proxy eftersom det inte ger åtkomst till lokala.
+
+    - **Programutvecklare.** Ger möjlighet att skapa appregistreringar, även om den **Tillåt användare att registrera appar** alternativet är inaktiverat.
+
+- **Ägarskap (Konfigurera per app-registrering och per företag-appen, liknar grupp ägarskapet processen:**
+ 
+    - **Appregistrering ägare.** Ger möjlighet att hantera alla aspekter av ägda appregistrering, inklusive appmanifestet och lägga till ytterligare ägare.
+
+    - **Enterprise Appägaren.** Ger dig möjlighet att hantera många aspekter av ägda enterprise-appar, inklusive inställningar för enkel inloggning, tilldelning av appar och godkännande (förutom till Azure AD-resurser).
+
+Läs mer om offentlig förhandsversion, den [Azure AD delegerad programhantering roller finns i offentlig förhandsversion!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blogg. Mer information om roller och behörigheter finns i [Tilldela administratörsroller i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal).
 
 ---
 

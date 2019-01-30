@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att skapa, visa och ta bort Azure Machine Learning-tjänstens arbetsytor i Azure-portalen.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 73a47929fa26ae0729943e17d0f6c9a054f4f6bb
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: b65bc1dc510a02144e57e9d057254963d0c398ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53276714"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244342"
 ---
 # <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Skapa och hantera Azure Machine Learning-tjänstens arbetsytor
 
@@ -24,7 +24,7 @@ I den här artikeln får du skapa, visa och ta bort [ **Azure Machine Learning-t
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta 
 
-Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+Du behöver en Azure-prenumeration för att skapa en arbetsyta. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
@@ -64,4 +64,4 @@ Använd knappen Ta bort överst på arbetsytan som du vill ta bort.
 Följ den kompletta självstudiekursen lär du dig hur du använder en arbetsyta för att skapa, träna och distribuera modeller med Azure Machine Learning-tjänsten.
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Skapa modeller](tutorial-train-models-with-aml.md)
+> [Självstudier: Skapa modeller](tutorial-train-models-with-aml.md)

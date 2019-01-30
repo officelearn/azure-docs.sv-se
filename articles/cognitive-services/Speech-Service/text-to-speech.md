@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 7439a2c5466784a881e71649fa86a8e51d757957
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b413bd65582dceadd9aab912694c3b560070c4f3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226425"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251562"
 ---
 # <a name="about-the-text-to-speech-api"></a>Om text till tal-API:
 
@@ -37,6 +37,9 @@ Scenarier i vilka tal syntes används är:
 ## <a name="voice-support"></a>Stöd för röst
 
 Microsofts **text till tal** tjänsten erbjuder mer än 75 röster i mer än 45 språk och nationella inställningar. Om du vill använda dessa standard ”rösttyper”, behöver du bara ange voice-namn med några andra parametrar när du anropar tjänstens REST API. Mer information om språk som stöds, språk och röster finns [språk som stöds](language-support.md#text-to-speech).
+
+> [!IMPORTANT]
+> Kostnader för olika för standard, anpassade och neural röster. Mer information finns i [priser](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 ### <a name="neural-voices"></a>Neural röster
 

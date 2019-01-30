@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 01/23/19
 ms.author: patricka
 ms.reviewer: thoroet
+ms.lastreviewed: 01/23/19
 keywords: ''
-ms.openlocfilehash: 4f599379de07a9628ee81425ddac2374411bdf97
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f05d27effecee6a18a1395520b29d8cf1db1eaaa
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852770"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246255"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrering med Azure Stack datacenter - identitet
 Du kan distribuera Azure Stack med Azure Active Directory (AD Azure) eller Active Directory Federation Services (AD FS) som identitetsleverantör man. Du måste göra valet innan du distribuerar Azure Stack. Distributionen med hjälp av AD FS är kallas även distribuera Azure Stack i frånkopplat läge.
@@ -118,7 +119,7 @@ Graph-tjänsten i Azure Stack använder följande protokoll och portar för att 
 
 Graph-tjänsten i Azure Stack använder följande protokoll och portar för att kommunicera med målet Active Directory:
 
-|Typ|Port|Protokoll|
+|Type|Port|Protokoll|
 |---------|---------|---------|
 |LDAP|389|TCP OCH UDP|
 |LDAP SSL|636|TCP|

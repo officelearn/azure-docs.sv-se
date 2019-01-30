@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 326fd38f7cb738540a389c93de2a9b5be015e0d7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 9dc023eedf0ddca4e760d9d066b019b75597fb69
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968740"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246491"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Återställa från oåterkallelig dataförlust
 
-*Gäller för: integrerade Azure Stack-system.*
+*Gäller för: Integrerade Azure Stack-system.*
 
 Azure Stack kör Azure-tjänster i ditt datacenter. Azure Stack kan köras i miljöer som är så litet som fyra noder som är installerad i ett enda rack. Däremot körs Azure på fler än 40 regioner i flera datacenter och flera zoner i varje region. Användarresurser som kan sträcka sig över flera servrar, rack, Datacenter och regioner. Med Azure Stack har du för närvarande endast möjlighet att distribuera hela molnet till ett enda rack. Detta visar molnet för risk för katastrofer i ditt datacenter eller fel som beror på större produktbuggar. När en katastrof inträffar, frånkopplas Azure Stack-instans. Alla data som är potentiellt oåterkalleligt.
 

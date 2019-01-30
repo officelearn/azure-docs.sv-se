@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/19/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: bfe53ac99ae1719deeacc156b250fe5a7f87a99a
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.lastreviewed: 12/19/2018
+ms.openlocfilehash: 421e3bf4465f5aa9aafc4ad666af2178faedb7c3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913469"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245981"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Att tänka på när virtuella datorer i Azure Stack
 
@@ -53,7 +54,7 @@ Azure Stack inför resursgränser för att undvika över förbrukningen av resur
 
 I följande tabell visas de virtuella datorer som stöds på Azure Stack tillsammans med deras konfiguration:
 
-| Typ           | Storlek          | Rad stöds storlekar |
+| Type           | Storlek          | Rad stöds storlekar |
 | ---------------| ------------- | ------------------------ |
 |Generellt syfte |Basic A        |[A0 - A4](azure-stack-vm-sizes.md#basic-a)                   |
 |Generellt syfte |Standard A     |[A0 - A7](azure-stack-vm-sizes.md#standard-a)              |

@@ -5,19 +5,19 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 1/29/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 38cccf17980f5a6a2cf162cdecdc6aad40d4f38e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5717074d53e267018b7697aeed21ea00d246592e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432566"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252225"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärdsgrupper i Azure portal
 ## <a name="overview"></a>Översikt ##
-En åtgärdsgrupp är en samling av aviseringsinställningarna som definieras av ägaren av en Azure-prenumeration. Azure Monitor och Service Health-aviseringar använda åtgärdsgrupper för att meddela användare att en avisering har utlösts. Olika typer av aviseringar kan använda samma åtgärdsgruppen eller annan åtgärdsgrupper beroende på användarens krav.
+En åtgärdsgrupp är en samling av aviseringsinställningarna som definieras av ägaren av en Azure-prenumeration. Azure Monitor och Service Health-aviseringar använda åtgärdsgrupper för att meddela användare att en avisering har utlösts. Olika typer av aviseringar kan använda samma åtgärdsgruppen eller annan åtgärdsgrupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärdsgrupper i en prenumeration.
 
 När en åtgärd har konfigurerats för att meddela en person via e-post eller SMS personen får en bekräftelse som anger han / hon har lagts till i åtgärdsgruppen.
 
@@ -88,15 +88,18 @@ Du kan ha upp till 1 000 e poståtgärder i en åtgärdsgrupp. Se den [begränsa
 **Röst** – du kan ha upp till 10 Voice-åtgärder i en åtgärdsgrupp</dd>
 Se den [begränsar information frekvensbegränsningen](./../../azure-monitor/platform/alerts-rate-limiting.md) artikel</dd>
 
-**Webhook** – du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp. Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket sker efter 10 sekunder. Andra och sista återförsök sker efter 100 sekunder.
+**Webhook** – du kan ha upp till 10 Webhook-åtgärder i en åtgärdsgrupp.
+Logik för omprövning - tidsgränsen för svar är 10 sekunder. Webhook-anrop kommer att göras upp till 2 gånger när följande HTTP-Statuskoder returneras: 408, 429, 503, 504 eller HTTP-slutpunkt svarar inte. Det första återförsöket sker efter 10 sekunder. Andra återförsök sker efter 100 sekunder. Efter två fel ska slutpunkten inte anropas i 30 minuter från alla åtgärdsgruppen.
 
 Käll-IP-adressintervall
+    - 13.72.19.232
     - 13.106.57.181
     - 13.106.54.3
     - 13.106.54.19
     - 13.106.38.142
     - 13.106.38.148
     - 13.106.57.196
+    - 52.244.68.117
 
 Att ta emot uppdateringar om ändringar av dessa IP-adresser som vi rekommenderar att du konfigurerar en [hälsoavisering för tjänst](./../../azure-monitor/platform/service-notifications.md) som övervakar för informationsmeddelanden om tjänsten åtgärdsgrupper.
 

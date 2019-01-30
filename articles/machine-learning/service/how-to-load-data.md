@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning service
 description: Läs mer om att läsa in data med Azure Machine Learning Data Prep SDK. Du kan läsa in olika typer av indata, ange data filtyper och parametrar eller använda smart läsning av SDK-funktioner för att automatiskt identifiera filtyp.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: cforbe
 author: cforbe
@@ -12,12 +12,12 @@ manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2478a5dd3f5d685253ef9145bec0a68ff324c6c3
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 08dcb75fabc109a8869151402d3a448333beb556
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263823"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247535"
 ---
 # <a name="load-and-read-data-with-azure-machine-learning"></a>Läsa in och läsa data med Azure Machine Learning
 

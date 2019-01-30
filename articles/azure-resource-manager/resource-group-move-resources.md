@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/24/2019
+ms.date: 01/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8a5fd44f1122b682ee4e3b4c6fcf56408098cae1
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 1ab3abb2542b3fec461f1d9ff569ea8ab74458d3
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080727"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251987"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Flytta resurser till ny resursgrupp eller prenumeration
 
@@ -57,6 +57,7 @@ Följande lista innehåller en allmän översikt över Azure-tjänster som kan f
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure-datautforskaren
+* Azure-databas för MariaDB
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure DevOps - köper Azure DevOps-organisationer med icke-Microsoft-tillägg måste [Avbryt sina inköp](https://go.microsoft.com/fwlink/?linkid=871160) innan de kan flytta kontot mellan prenumerationer.

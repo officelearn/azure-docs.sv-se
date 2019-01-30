@@ -9,12 +9,13 @@ ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 56814cc44874fe0c169e5fb51dc6cbff5a225231
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: 071d58f53389367833df6379c68c27ecc4771fa1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53727861"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238830"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Kom igång med Azure Stack verktyg för lagringsutveckling
 
@@ -39,9 +40,9 @@ Ta reda på den version som är kompatibel med REST API för storage-klientbibli
 | Java | 6.1.0 | Maven-paketet:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0 | Anslutningsinställningar för sträng |
 | Node.js | 2.7.0 | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Kör: `npm install azure-storage@2.7.0`)<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0 | Instans tjänstedeklaration |
 | C++ | 3.1.0 | Nuget-paketet:<br>https://www.nuget.org/packages/wastorage.v140/3.1.0<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0 | Anslutningsinställningar för sträng |
-| PHP | 1.0.0 | GitHub-version:<br>Vanliga: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabell: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installera via Composer (Mer information, [se information nedan](#install-php-client-via-composer---current).) | Anslutningsinställningar för sträng |
-| Python | 1.0.0 | GitHub-version:<br>Vanliga:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>BLOB:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Instans tjänstedeklaration |
-| Ruby | 1.0.1 | RubyGems paket:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Kö: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Tabell: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub-version:<br>Vanliga: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Kö: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Tabell: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Anslutningsinställningar för sträng |
+| PHP | 1.0.0 | GitHub-version:<br>Common: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common<br>BLOB: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-queue<br>Tabell: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-table<br> <br>Installera via Composer (Mer information, [se information nedan](#install-php-client-via-composer---current).) | Anslutningsinställningar för sträng |
+| Python | 1.0.0 | GitHub-version:<br>Vanliga:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common<br>Blob:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob<br>Kö:<br>https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-queue | Instans tjänstedeklaration |
+| Ruby | 1.0.1 | RubyGems package:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/versions/1.0.1<br>BLOB: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1<br>Kö: https://rubygems.org/gems/azure-storage-queue/versions/1.0.1<br>Tabell: https://rubygems.org/gems/azure-storage-table/versions/1.0.1<br> <br>GitHub-version:<br>Common: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common<br>BLOB: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob<br>Kö: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-queue<br>Tabell: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-table | Anslutningsinställningar för sträng |
 
 #### <a name="install-php-client-via-composer---current"></a>Installera PHP-klienten via Composer - aktuella
 
@@ -58,7 +59,7 @@ Installera via Composer: (ta bloben som exempel).
     ```
 
 2. Ladda ned [composer.phar](http://getcomposer.org/composer.phar) till rot-projekt.
-3. Kör: `php composer.phar install`.
+3. Run: `php composer.phar install`.
 
 ### <a name="previous-versions-1802-to-1809-update"></a>Tidigare versioner (1802 1809 uppdatering)
 
@@ -70,7 +71,7 @@ Installera via Composer: (ta bloben som exempel).
 |C++|2.4.0|Nuget-paketet:<br>[https://www.nuget.org/packages/wastorage.v140/2.4.0](https://www.nuget.org/packages/wastorage.v140/2.4.0)<br><br>GitHub-version:<br>[https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0](https://github.com/Azure/azure-storage-cpp/releases/tag/v2.4.0)|Anslutningsinställningar för sträng|
 |PHP|0.15.0|GitHub-version:<br>[https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0](https://github.com/Azure/azure-storage-php/releases/tag/v0.15.0)<br><br>Installera via Composer (se detaljer nedan)|Anslutningsinställningar för sträng|
 |Python     |0.30.0|PIP-paket:<br> [https://pypi.python.org/pypi/azure-storage/0.30.0](https://pypi.python.org/pypi/azure-storage/0.30.0)<br>(Kör: `pip install -v azure-storage==0.30.0)`<br><br>GitHub-version:<br> [https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0](https://github.com/Azure/azure-storage-python/releases/tag/v0.30.0)|Instans tjänstedeklaration|
-|Ruby|0.12.1<br>Förhandsversion|RubyGems paket:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub-version:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Anslutningsinställningar för sträng|
+|Ruby|0.12.1<br>Förhandsversion|RubyGems package:<br> [https://rubygems.org/gems/azure-storage/versions/0.12.1.preview](https://rubygems.org/gems/azure-storage/versions/0.12.1.preview)<br><br>GitHub-version:<br> [https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1](https://github.com/Azure/azure-storage-ruby/releases/tag/v0.12.1)|Anslutningsinställningar för sträng|
 
 #### <a name="install-php-client-via-composer---previous"></a>Installera PHP-klienten via Composer - tidigare
 
@@ -87,7 +88,7 @@ Installera via Composer: (gör blob som exempel).
   ```
 
 2. Ladda ned [composer.phar](http://getcomposer.org/composer.phar) till rot-projekt.
-3. Kör: `php composer.phar install`.
+3. Run: `php composer.phar install`.
 
 ## <a name="endpoint-declaration"></a>Slutpunktsdeklarationen
 

@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 MapReduce prestandajustering riktlinjer | Mi
 description: Azure Data Lake Storage Gen2 MapReduce prestandajustering riktlinjer
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 4ba683bc75ed841fc92eb2c9fcc908e419b716d6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 0cd7ecdc6ee7b6ccd66c9d0d88ebef0a1220a40a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975300"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249120"
 ---
 # <a name="performance-tuning-guidance-for-mapreduce-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för MapReduce på HDInsight och Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ Förstå de faktorer som du bör tänka på när du finjustera prestanda för Ma
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [Snabbstart: skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
+* **Ett konto med Azure Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md).
 * **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto. Kontrollera att du aktivera Fjärrskrivbord för klustret.
 * **Använda MapReduce på HDInsight**.  Mer information finns i [använda MapReduce i Hadoop på HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
 * **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md)
@@ -45,7 +45,7 @@ När du kör MapReduce-jobb, följer du de parametrar som du kan konfigurera fö
 > [!NOTE]
 > Riktlinjerna i det här dokumentet förutsätter att ditt program är det enda program som körs i klustret.
 
-**Steg 1: Fastställa antalet jobb som körs**
+**Steg 1: Bestämma antalet jobb som körs**
 
 Som standard använder MapReduce hela klustret för jobbet.  Du kan använda mindre i klustret med hjälp av mindre Mappningskomponenter än det finns tillgängliga behållare.        
 
@@ -53,7 +53,7 @@ Som standard använder MapReduce hela klustret för jobbet.  Du kan använda min
 
 Storleken på minnet för kartan och minska uppgifter är beroende av specifika jobbet.  Du kan minska minnesstorleken om du vill öka parallellkörningen.  Antal aktiviteter som körs samtidigt beror på antalet behållare.  Genom att minska mängden minne per mapper eller reducer kan fler behållare skapas, som aktiverar fler Mappningskomponenter och reducerare som körs samtidigt.  Minska mängden minne för mycket kan det orsaka vissa processer för att få slut på minne.  Om du får en heap-fel när du kör jobbet, bör du öka minne per mapper eller reducer.  Du bör överväga att lägga till fler behållare kommer att lägga till extra administration för varje ytterligare behållare som potentiellt kan försämra prestanda.  Ett annat alternativ är att få mer minne med hjälp av ett kluster som har större mängder minne eller öka antalet noder i klustret.  Mer minne kan fler behållare som ska användas, vilket innebär att större samtidighet.  
 
-**Steg 3: Bestäm totala YARN-minne**
+**Steg 3: Fastställa totala YARN-minne**
 
 För att justera mapreduce.job.maps/mapreduce.job.reduces, bör du överväga hur mycket av det totala YARN minnet som är tillgängliga för användning.  Den här informationen är tillgänglig i Ambari.  Gå till YARN och visa fliken konfigurationer.  YARN-minne visas i det här fönstret.  Du bör multiplicera YARN-minne med antalet noder i klustret för att hämta den totala mängden YARN-minnet.
 
@@ -77,7 +77,7 @@ Schemaläggning av CPU- och CPU-isolering är inaktiverade som standard så att 
 
 Anta att vi har ett kluster som består av 8 D14 noder och vi vill köra ett i/o-intensiva jobb.  Här är beräkningar som du bör göra:
 
-**Steg 1: Fastställa antalet jobb som körs**
+**Steg 1: Bestämma antalet jobb som körs**
 
 I det här exemplet antar vi att vår jobbet är det enda jobb som körs.  
 
@@ -87,7 +87,7 @@ I det här exemplet vi använder ett i/o-intensiva jobb och bestämma att 3GB mi
 
     mapreduce.map.memory = 3GB
 
-**Steg 3: Bestäm totala YARN-minne**
+**Steg 3: Fastställa totala YARN-minne**
 
     Total memory from the cluster is 8 nodes * 96GB of YARN memory for a D14 = 768GB
 **Steg 4: Beräkna antal YARN-behållare**

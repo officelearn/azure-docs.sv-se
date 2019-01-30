@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att använda en webbtjänst som genererades när en modell har distribuerats med Azure Machine Learning-modell. Webbtjänsten visar ett REST-API. Skapa klienter för detta API med vilket språk du önskar.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/03/2018
 ms.custom: seodec18
-ms.openlocfilehash: 96a96bcb007d904e9ffbee355f896bde8b509820
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b83542a11ce2351214ac8f15a6902d1a90f871ee
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55177160"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242271"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Använd en Azure Machine Learning-modell som distribueras som en webbtjänst
 

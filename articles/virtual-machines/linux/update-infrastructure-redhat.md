@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 61d2c82f875c4f40e370515fd249e23601e91678
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 7ab8b66d516368bf866aa9d2a202ccd261394b93
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232064"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243155"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Uppdateringsinfrastruktur för Red Hat för på begäran Red Hat Enterprise Linux-datorer i Azure
  [Uppdateringsinfrastruktur för Red Hat](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) gör att cloud-leverantörer, till exempel Azure för spegling av Red Hat-värdbaserade databasinnehåll, skapa anpassade databaser med Azure-specifika innehåll och gör den tillgänglig för slutanvändaren virtuella datorer.
@@ -51,12 +51,12 @@ Vissa kunder vill låsa sin virtuella RHEL-datorer till en viss RHEL mindre vers
 
 1. Inaktivera lagringsplatser för icke-EUS:
     ```bash
-    sudo yum --disablerepo=* remove rhui-azure-rhel7
+    sudo yum --disablerepo='*' remove 'rhui-azure-rhel7'
     ```
 
 1. Lägg till EUS lagringsplatser:
     ```bash
-    yum --config=https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config install rhui-azure-rhel7-eus
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
 1. Lås releasever variabeln:
@@ -103,15 +103,10 @@ De nya Azure RHUI-servrarna distribueras med [Azure Traffic Manager](https://azu
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>Uppdatera har upphört att gälla RHUI-klientcertifikat på en virtuell dator
 
-Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7.4 (bild-URN: `RedHat:RHEL:7.4:7.4.2018010506`), du kommer att uppleva anslutningsproblem till RHUI på grund av ett utgångna (på Nov 21 2018) SSL-klientcertifikat. Uppdatera RHUI-klientpaketet på den virtuella datorn med följande kommando för att lösa problemet:
+Om du använder en äldre RHEL VM-avbildning, till exempel RHEL 7.4 (bild-URN: `RedHat:RHEL:7.4:7.4.2018010506`), du kommer att uppleva anslutningsproblem till RHUI på grund av ett utgångna SSL-klientcertifikat. Fel som du ser kan se ut _”SSL-peer avvisade ditt certifikat som upphört att gälla”_. Uppdatera RHUI-klientpaketet på den virtuella datorn med följande kommando för att lösa problemet:
 
 ```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-azure-rhel7
-```
-
-Om din RHEL VM i molnet för amerikanska myndigheter, använder du följande kommando:
-```bash
-sudo yum update -y --disablerepo=* --enablerepo=rhui-microsoft-* rhui-usgov-rhel7
+sudo yum update -y --disablerepo='*' --enablerepo='*-microsoft-*'
 ```
 
 Du kan också köra `sudo yum update` uppdaterar även klientpaketet för certifikatet trots ”utgånget SSL-certifikat” fel visas för andra databaser. Efter uppdateringen, normal anslutning till andra RHUI-databaser ska återställas så att du kommer att kunna köra `sudo yum update` har.

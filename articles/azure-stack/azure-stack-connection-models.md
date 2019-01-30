@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: d55cebf380c4ca5183e8ff15fd193e254b66c30b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338904"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246593"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Integrerade Azure Stack-system anslutning modeller
 Om du är intresserad av i ett integrerat Azure Stack-system, måste du förstå [flera datacenter integration överväganden](azure-stack-datacenter-integration.md) för Azure Stack-distributioner att fastställa hur systemet ryms i ditt datacenter. Dessutom måste du bestämma exakt hur du ska integrera Azure Stack i din hybridmiljö i molnet. Den här artikeln innehåller en översikt över dessa viktiga besluten, inklusive Azure-anslutningen, identitetsarkiv, och fakturering modellen beslut.

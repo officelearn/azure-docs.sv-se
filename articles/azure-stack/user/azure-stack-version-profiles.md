@@ -13,12 +13,13 @@ ms.topic: article
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9c4b66501cfb51088609de81fe00b5b041e056d3
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 28ff7c9f6ca5fc6365b3fe1b9a91d2159c8b3f48
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037536"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247620"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Hantera API-versionsprofiler i Azure Stack
 
@@ -40,9 +41,9 @@ Det här avsnittet hjälper dig att:
 - API-profiler har skapats för dig att skapa mallar över flera Azure-moln. Profiler är en kompatibel och stabil gränssnitt.
 - Profiler släpps fyra gånger per år.
 - Tre profil namnkonventioner används:
-    - **senaste**  
+    - **latest**  
         Innehåller de senaste API-versioner som introducerades i globala Azure.
-    - **åååå-mm-dd-hybrid**  
+    - **yyyy-mm-dd-hybrid**  
     Är två gånger per år, fokuserar den här versionen på konsekvent och stabil i flera moln. Den här profilen riktar sig mot optimala Azure Stack-kompatibilitet.
     - **åååå-mm-dd-profil** balanserar optimala stabilitet och de senaste funktionerna.
 
@@ -53,10 +54,10 @@ De senaste Azure API-profilerna är inte kompatibla med Azure Stack. Du kan anv�
 **senaste**  
 Den här profilen har de senaste API-versioner finns i globala Azure, som inte fungerar i Azure Stack. **Senaste** har det största antalet icke-bakåtkompatibla ändringar. Profilen har tagits ur bruk stabilitet och kompatibilitet med andra moln. Om du vill använda de senaste API-versionerna **senaste** är profilen som du ska använda.
 
-**åååå-mm-dd-hybrid**  
+**Yyyy-mm-dd-hybrid**  
 Den här profilen släpps i mars och September varje år. Den har optimala stabilitet och kompatibilitet med olika moln. **Åååå-mm-dd-hybrid** har utformats för att ange globala Azure och Azure Stack som mål. Azure API-versioner som anges i den här profilen ska vara samma som de som visas på Azure Stack. Du kan använda den här profilen för att utveckla kod för hybridmolnlösningar.
 
-**åååå-mm-dd-profil**  
+**yyyy-mm-dd-profile**  
 Den här profilen släpps för global Azure i juni och December. Det fungerar inte med Azure Stack; normalt kan finnas det många ändringar. Även om det balanserar optimala stabilitet och de senaste funktionerna, skillnaden mellan **senaste** och den här profilen är att **senaste** alltid består av de senaste API-versionerna, oavsett när API: T var publicerat. Till exempel om en ny API-version har skapats för beräknings-API i morgon, den API-versionen visas i den **senaste**, men inte i den **åååå-mm-dd-profil** profilen eftersom det redan finns i den här profilen. **åååå-mm-dd-profil** omfattar de senaste versionerna som släppts före juni eller innan December.
 
 ## <a name="azure-resource-manager-api-profiles"></a>Azure Resource Manager API-profiler

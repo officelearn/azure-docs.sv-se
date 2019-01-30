@@ -7,16 +7,16 @@ author: swatig007
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: da809aaaa1dd46c1232d0b032136833caaf0d2d0
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 48f714a505bc79f0556a829206821aef986ad5d0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240275"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning-service"></a>Justera hyperparametrar för din modell med Azure Machine Learning-tjänsten
 
@@ -255,7 +255,7 @@ Om ingen princip har angetts kan finjustering justering tjänsten alla tränings
 
 Kontrollera din resurs budget för din finjustering justering experiment genom att ange det maximala antalet träningskörningar.  Du kan också ange den högsta tiden för din finjustering justering experiment.
 
-* `max_total_runs`: Högsta antal träningskörningar som ska skapas. Övre gränsen – det kan vara färre, exempelvis om finjustering utrymme är begränsad och har färre exempel. Måste vara ett tal mellan 1 och 1000.
+* `max_total_runs`: Maximalt antal träningskörningar som ska skapas. Övre gränsen – det kan vara färre, exempelvis om finjustering utrymme är begränsad och har färre exempel. Måste vara ett tal mellan 1 och 1000.
 * `max_duration_minutes`: Maximal varaktighet i minuter för finjustering justering experiment. Parametern är valfri och om det finns några körningar som skulle köras efter varaktigheten avbryts automatiskt.
 
 >[!NOTE] 

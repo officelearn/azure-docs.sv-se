@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: Lär dig mer om att samla in Azure Machine Learning indatamodellen data i Azure Blob storage.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
 ms.date: 11/08/2018
 ms.custom: seodec18
-ms.openlocfilehash: 2a4f0f1100064010405c3d0bc599e7add1041074
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 79a2c0c98cdee0532856a90ec4a7b98dda09cdb7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53271580"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247382"
 ---
 # <a name="collect-data-for-models-in-production"></a>Samla in data för modeller i produktion
 
@@ -50,7 +50,7 @@ Sökvägen till utdata i blob följande följande syntax:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfri eller betald version av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) idag.
+- Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnadsfria versionen eller betalversionen av Azure Machine Learning-tjänsten](http://aka.ms/AMLFree) i dag.
 
 - En Azure Machine Learning-tjänsten arbetsyta, en lokal katalog som innehåller dina skript och Azure Machine Learning-SDK för Python installerat. Lär dig hur du hämtar dessa krav med hjälp av den [så här konfigurerar du en utvecklingsmiljö](how-to-configure-environment.md) dokumentet.
 

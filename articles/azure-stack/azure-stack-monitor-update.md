@@ -13,16 +13,17 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: mabrigg
 ms.reviewer: fiseraci
-ms.openlocfilehash: 4641dce6fe8518016ee85cd480de6d11354fe170
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 09d3d996e4c939d6691162d66f303536a3f2038d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037229"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239272"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Övervaka uppdateringar i Azure Stack med hjälp av privilegierad slutpunkt
 
-*Gäller för: integrerade Azure Stack-system*
+*Gäller för: Integrerade Azure Stack-system*
 
 Du kan använda den [privilegierad slutpunkt](azure-stack-privileged-endpoint.md) för att övervaka förloppet för ett Azure Stack uppdateringskörningen och återuppta en misslyckad uppdatering köras från det senaste lyckade steget Azure Stack-portalen blir otillgänglig.  Med hjälp av Azure Stack-portalen är den rekommenderade metoden för att hantera uppdateringar i Azure Stack.
 
@@ -35,7 +36,7 @@ Följande nya PowerShell-cmdletar för hantering av uppdateringar som ingår i u
 | | |
 
 ## <a name="verify-the-cmdlets-are-available"></a>Kontrollera cmdletarna som är tillgängliga
-Eftersom cmdletarna som är nytt i 1710 uppdateringspaketet för Azure Stack, måste 1710 uppdateringsprocessen få till en viss punkt innan övervakning funktionen är tillgänglig. Normalt cmdletarna är tillgängliga om statusen i administratörsportalen visar att uppdateringen 1710 är på den **starta om Storage värdar** steg. Mer specifikt cmdlet-uppdateringen sker under **steg: kör steg 2.6 - Uppdatera PrivilegedEndpoint godkända**.
+Eftersom cmdletarna som är nytt i 1710 uppdateringspaketet för Azure Stack, måste 1710 uppdateringsprocessen få till en viss punkt innan övervakning funktionen är tillgänglig. Normalt cmdletarna är tillgängliga om statusen i administratörsportalen visar att uppdateringen 1710 är på den **starta om Storage värdar** steg. Mer specifikt cmdlet-uppdateringen sker under **steg: Kör steg 2.6 - uppdatering PrivilegedEndpoint godkända**.
 
 Du kan också bestämma om cmdletarna som är tillgängliga via programmering genom att fråga Kommandolistan från Privilegierade slutpunkten. Gör detta genom att köra följande kommandon från maskinvara livscykel värden eller på en arbetsstation för privilegierad åtkomst. Kontrollera också att Privilegierade slutpunkten är en betrodd värd. Mer information finns i steg 1 av [åt den privilegierade slutpunkten](azure-stack-privileged-endpoint.md#access-the-privileged-endpoint). 
 

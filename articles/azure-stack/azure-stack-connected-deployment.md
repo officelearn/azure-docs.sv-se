@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e0f51306ab17e88db9d28da14faab9de0b445f74
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 491bdf121729d690784324051ff701f3ed2d2b7a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037914"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243189"
 ---
 # <a name="azure-connected-deployment-planning-decisions-for-azure-stack-integrated-systems"></a>Integrerade Azure-ansluten distribution planeringsbeslut för Azure Stack-system
 När du har bestämt dig [hur du ska integrera Azure Stack i hybridmolnmiljön](azure-stack-connection-models.md), du kan sedan slutföra din Azure Stack-distributionsbeslut.
@@ -68,7 +69,7 @@ Kapacitet fakturering kräver ett Enterprise Agreement (EA) Azure-prenumeration 
 
 ## <a name="learn-more"></a>Läs mer
 - Information om användningsfall, inköp, partner och OEM maskinvaruleverantörer finns i den [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
-- Mer information om plan och geo-tillgänglighet för Azure Stack-integrerade system finns i faktabladet: [Azure Stack: en utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Information om plan och geo-tillgänglighet för Azure Stack integrerade system finns i dokumentet: [Azure Stack: En utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 - Mer information om Microsoft Azure Stack förpackning och priser [ladda ned .pdf](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf). 
 
 ## <a name="next-steps"></a>Nästa steg

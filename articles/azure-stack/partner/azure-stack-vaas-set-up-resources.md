@@ -13,13 +13,14 @@ ms.topic: tutorial
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: aa4e8cf0745f3af3d16369e31129f0603e6402e6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: 460edc7f092764cce3584c81371db4801fbd69bc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54244757"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240024"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Självstudier: Konfigurera resurser för verifiering som en tjänst
 
@@ -75,7 +76,7 @@ Den här processen tillåter din klient med den **Azure Stack-verifiering Servic
     |--------------------------------|---------------------------------------------------------------------------------------------|
     | Organisationens namn | Det officiella organisationsnamnet. |
     | Katalognamnet för Azure AD-klient | Azure AD-klient katalognamnet håller på att registreras. |
-    | Katalog-ID för Azure AD-klient | Katalogen Azure AD-klient GUID som är kopplade till katalogen. Information om hur du hittar din katalog-ID för Azure AD-klient finns i [hämta klient-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
+    | Azure AD Tenant Directory ID | Katalogen Azure AD-klient GUID som är kopplade till katalogen. Information om hur du hittar din katalog-ID för Azure AD-klient finns i [hämta klient-ID](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#get-tenant-id). |
 
 2. Vänta på bekräftelse från Azure Stack-verifieringsteamet att kontrollera att din klient kan använda VaaS-portalen.
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 13483333c2135f858191f62b255e2887c0e61f01
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: data-lake-storage-gen2
+ms.openlocfilehash: 967e24ae6e004fe6ce2b1c0aa6c039f46be2598c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975307"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244512"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Azure Data Lake Storage Gen2 förhandsversion hierarkiskt namnområde
 
@@ -23,11 +23,11 @@ En viktig mekanism som gör att Azure Data Lake Storage Gen2 förhandsversion at
 
 Följande fördelar är kopplade till filsystem som implementerar ett hierarkiskt namnområde över blob-data:
 
-- **Manipulering av atomiska directory:** objektlager ungefärlig en directory-hierarkin genom att använda en konvention för inbäddning snedstreck (/) i objektnamn att ange sökvägssegment. Även om denna konvention fungerar för att ordna objekt, tillhandahåller konventionen utan hjälp för åtgärder som att flytta, byta namn på eller ta bort kataloger. Utan verkliga kataloger måste program potentiellt bearbeta miljontals enskilda BLOB-och uppnå katalognivå uppgifter. Däremot bearbetar hierarkiskt namnområde dessa uppgifter genom att uppdatera en enda post (den överordnade katalogen).
+- **Manipulering av atomiska directory:** Objektlager ungefär en directory-hierarkin genom att använda en konvention för inbäddning snedstreck (/) i objektnamn att ange sökvägssegment. Även om denna konvention fungerar för att ordna objekt, tillhandahåller konventionen utan hjälp för åtgärder som att flytta, byta namn på eller ta bort kataloger. Utan verkliga kataloger måste program potentiellt bearbeta miljontals enskilda BLOB-och uppnå katalognivå uppgifter. Däremot bearbetar hierarkiskt namnområde dessa uppgifter genom att uppdatera en enda post (den överordnade katalogen).
 
     Den här dramatisk optimering är särskilt betydelsefull för många ramverk för analys av stordata. Verktyg som Hive, Spark, etc. skriva ofta utdata till tillfällig platser och Byt sedan namn på plats när jobbet. Utan hierarkiskt namnområde kan den här Byt namn på ofta ta längre tid än analytics bearbeta själva. Kortare svarstider för jobbet är lika med lägre totala ägandekostnad (TCO) för analytiska arbetsbelastningar för.
 
-- **Välbekanta gränssnitt Style:** filsystem är väl förstådda av utvecklare och användare. Det finns inget behov att lära dig en ny storage-paradigm när du flyttar till molnet som exponeras av Data Lake Storage Gen2 file systemgränssnittet är samma paradigmet används av datorer, stora och små.
+- **Välbekanta gränssnitt format:** Filsystem är väl förstådda av utvecklare och användare. Det finns inget behov att lära dig en ny storage-paradigm när du flyttar till molnet som exponeras av Data Lake Storage Gen2 file systemgränssnittet är samma paradigmet används av datorer, stora och små.
 
 En av anledningarna att objektlager inte har historiskt stöds hierarkisk namnområden är att hierarkisk namnområden begränsad skala. Data Lake Storage Gen2 hierarkiskt namnområde skalas linjärt och försämras inte antingen datakapacitet eller prestanda.
 

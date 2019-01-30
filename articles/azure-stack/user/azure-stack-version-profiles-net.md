@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/07/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 20e96ad7a99fdb8c90f3b7990965d7225aef8be0
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.lastreviewed: 12/07/2018
+ms.openlocfilehash: e335f4cb112c0f029768ccf050f888e00a6efdc1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555021"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250630"
 ---
 # <a name="use-api-version-profiles-with-net-in-azure-stack"></a>Använda API-versionsprofiler med .NET i Azure Stack
 
@@ -126,9 +127,9 @@ JSON-exempelfilen:
 
 ## <a name="existing-api-profiles"></a>Befintliga API-profiler
 
-1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01. *ResourceProvider*. 0.9.0-preview.nupkg**: Senaste profil har skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
+1.  **Microsoft.Azure.Management.Profiles.hybrid\_2018\_03\_01.*ResourceProvider*.0.9.0-preview.nupkg**: Senaste profil har skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
 
-2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09. *ResourceProvider*. 0.9.0-preview.nupkg**: Om du har en tidsstämpel som är lägre än den 1808-versionen kan du använda den här profilen.
+2.  **Microsoft.Azure.Management.Profiles.hybrid\_2017\_03\_09.*ResourceProvider*.0.9.0-preview.nupkg**: Om du har en tidsstämpel som är lägre än den 1808-versionen kan du använda den här profilen.
 
 3.  **Senaste**: Profil som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster. Den här profilen är en del av den **Microsoft.Azure.Management** NuGet-paketet.
 

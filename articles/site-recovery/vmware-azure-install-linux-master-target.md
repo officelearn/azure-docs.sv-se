@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7ff73051abc5168b4dc3852a9008adc22d7d56c6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 68892faf707a767ba9c25ce7317f775708e61a90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54811867"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217993"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installera en Linux-huvudmålserver för återställning efter fel
 När du växlar över dina virtuella datorer till Azure kan du återställa dit de virtuella datorerna till den lokala platsen. För att återställa, måste du återaktivera skyddet för den virtuella datorn från Azure till den lokala platsen. För den här processen behöver du ett lokala huvudmålservern tar emot trafiken. 
@@ -130,7 +130,7 @@ Håll en Ubuntu 16.04.2 minimal 64-bitars ISO i DVD-enheten och startas.
 
     ![Välj program](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Välj i markering för att installera startprogrammet GRUB **Ja**, och välj sedan **RETUR**.
+1. I alternativet för att installera startprogrammet GRUB väljer **Ja**, och välj sedan **RETUR**.
      
     ![GRUB-Start installer](./media/vmware-azure-install-linux-master-target/image20.png)
 

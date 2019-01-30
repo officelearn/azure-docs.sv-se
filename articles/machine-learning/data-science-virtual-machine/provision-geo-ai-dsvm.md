@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: ''
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 395604da3465e66214f89b4f74ddf9d6bcdc48f8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 47d5616f86c8f4cb62773d0b92a24a5fb63b2ea7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103956"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240480"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Etablera en Geo artificiell intelligens virtuell dator på Azure 
 
@@ -49,22 +49,22 @@ Här följer stegen för att skapa en instans av Geo AI Data Science VM:
 
    - **Grundläggande inställningar**
 
-      1. **Namn på**: namnet på den data science-server som du skapar.
+      1. **Namn**: Namnet på data science-server som du skapar.
 
-      2. **Användarnamnet**: inloggnings-id för Admin-konto.
+      2. **Användarnamn**: Admin-konto inloggnings-id.
 
-      3. **Lösenord**: lösenord för administratörskonto.
+      3. **Lösenord**: Lösenord för administratörskonto.
 
-      4. **Prenumeration**: Om du har mer än en prenumeration kan du välja den som som datorn är skapas och faktureras.
+      4. **Prenumeration**: Om du har mer än en prenumeration väljer du det som datorn är skapas och faktureras.
 
-      5. **Resursgrupp**: du kan skapa en ny eller Använd en **tom** befintliga Azure-resursgrupp i din prenumeration.
+      5. **Resursgrupp**: Du kan skapa en ny eller Använd en **tom** befintliga Azure-resursgrupp i din prenumeration.
 
-      6. **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. Om du behöver göra deep learning på GPU, måste du välja någon av platser i Azure som har NC-serien GPU VM-instanser. De platser som har virtuella GPU-datorer finns för närvarande: **östra USA, norra centrala USA, södra centrala USA, västra USA 2, Norra Europa, Västeuropa**. Den senaste listan finns i [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
+      6. **Plats**: Välj det datacenter som är mest lämplig. Vanligtvis är det datacenter som har de flesta av dina data eller som är närmast dina fysiska platsen för snabbaste nätverksåtkomst. Om du behöver göra deep learning på GPU, måste du välja någon av platser i Azure som har NC-serien GPU VM-instanser. Det finns för närvarande platser som har virtuella GPU-datorer: **Östra USA, norra centrala USA, södra centrala USA, västra USA 2, Norra Europa, Västeuropa**. Den senaste listan finns i [Azure-produkter per Region sidan](https://azure.microsoft.com/regions/services/) och leta efter **NC-serien** under **Compute**. 
 
 
-   - **Inställningar för**: Välj något av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på din Geo DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
+   - **Inställningar för**: Välj en av NC-serien GPU VM-storlek om du planerar att köra deep learning på GPU på Geo-DSVM. I annat fall kan du välja någon av Processorn baserad instans.  Skapa ett lagringskonto för den virtuella datorn. 
    
-   - **Sammanfattning**: Kontrollera att all information du angett är korrekt.
+   - **Sammanfattning av**: Kontrollera att all information du angett är korrekt.
 
    - **Köpa**: Klicka på **köpa** att starta etableringen. Det finns en länk till användningsvillkor. Den virtuella datorn har inte några ytterligare avgifter utöver beräkning för serverstorlek som du valde i den **storlek** steg. 
 

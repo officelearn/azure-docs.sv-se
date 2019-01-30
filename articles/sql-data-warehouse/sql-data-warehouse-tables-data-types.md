@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: eb469e6a654414b0411f8c45b73658f99a383751
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aab51c3dc66a1486e8ad7ced55425a2b49c7dea1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306591"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247518"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Tabelldatatyper i Azure SQL Data Warehouse
 Rekommendationer för att definiera tabelldatatyper i Azure SQL Data Warehouse. 
@@ -55,12 +55,12 @@ I följande lista visas datatyperna som SQL Data Warehouse stöder inte och ger 
 | [geometri](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [Geografisk plats](/sql/t-sql/spatial-geography/spatial-types-geography) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
 | [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql)(4000) |
-| [bild](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
-| [Text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
+| [image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varbinary](/sql/t-sql/data-types/binary-and-varbinary-transact-sql) |
+| [text](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [ntext](/sql/t-sql/data-types/ntext-text-and-image-transact-sql) |[nvarchar](/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql) |
 | [sql_variant](/sql/t-sql/data-types/sql-variant-transact-sql) |Dela upp kolumn i flera starkt typifierad kolumner. |
-| [Tabell](/sql/t-sql/data-types/table-transact-sql) |Konvertera till temporära tabeller. |
-| [Tidsstämpel](/sql/t-sql/data-types/date-and-time-types) |Omarbeta kod för att använda [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) och [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) funktion. Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en kolumn för tidsstämpling skrivna, använder du [binära](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) eller [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) rad Versionsvärden för inte NULL eller NULL. |
+| [table](/sql/t-sql/data-types/table-transact-sql) |Konvertera till temporära tabeller. |
+| [timestamp](/sql/t-sql/data-types/date-and-time-types) |Omarbeta kod för att använda [datetime2](/sql/t-sql/data-types/datetime2-transact-sql) och [CURRENT_TIMESTAMP](/sql/t-sql/functions/current-timestamp-transact-sql) funktion. Endast konstanter stöds som standard, därför current_timestamp kan inte definieras som en default-begränsning. Om du behöver migrera version radvärden från en kolumn för tidsstämpling skrivna, använder du [binära](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) eller [VARBINARY](/sql/t-sql/data-types/binary-and-varbinary-transact-sql)(8) rad Versionsvärden för inte NULL eller NULL. |
 | [xml](/sql/t-sql/xml/xml-transact-sql) |[varchar](/sql/t-sql/data-types/char-and-varchar-transact-sql) |
 | [användardefinierad typ](/sql/relational-databases/native-client/features/using-user-defined-types) |Konvertera tillbaka till den ursprungliga datatypen när det är möjligt. |
 | standardvärden | Standardvärden stöder tidslitteraler och endast konstanter. |

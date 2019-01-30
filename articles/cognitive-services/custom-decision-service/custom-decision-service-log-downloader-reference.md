@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 227caaa1b726210fd498596d716aa41365a63c7a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366821"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228125"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
@@ -23,9 +23,9 @@ Ladda ned loggfiler som produceras av Azure Custom Decision Service och generera
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- Python 3: Installerat och i sökvägen. Vi rekommenderar den 64-bitars-versionen för att hantera stora filer.
-- Den *Microsoft/mwt-ds* lagringsplats: [klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
-- Den *azure blobblagring* paket: information om installationen finns i [Microsoft Azure Storage-biblioteket för Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Python 3: Installerad och i sökvägen. Vi rekommenderar den 64-bitars-versionen för att hantera stora filer.
+- Den *Microsoft/mwt-ds* lagringsplats: [Klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
+- Den *azure blobblagring* paketet: För information om installationen går du till [Microsoft Azure Storage-biblioteket för Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
 - Ange din anslutningssträng för Azure storage i *mwt-ds/DataScience/ds.config*: Följ den *my_app_id: my_connectionString* mall. Du kan ange flera `app_id`. När du kör `LogDownloader.py`om indata `app_id` hittades inte i `ds.config`, `LogDownloader.py` använder den `$Default` anslutningssträngen.
 
 ## <a name="usage"></a>Användning
@@ -49,11 +49,11 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 | `-s START_DATE`, `--start_date START_DATE` | Hämtning startdatum (inkluderat) är i *åååå-MM-DD* format. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | Hämtar slutdatumet (ingår), i *åååå-MM-DD* format. | `None` |
 | `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | Överskrivningsläge att använda. | |
-| | `0`: Skriv över aldrig; Be användaren om BLOB-objekt används för närvarande. | Standard | |
+| | `0`: Skriv aldrig över; Be användaren om BLOB-objekt används för närvarande. | Standard | |
 | | `1`: Be användaren hur du fortsätter när filerna har olika storlekar eller när blobarna som används för närvarande. | |
 | | `2`: Alltid över; ladda ned används blobar. | |
-| | `3`: Aldrig skriva över och till om den är större, utan att be; ladda ned används blobar. | |
-| | `4`: Aldrig skriva över och till om den är större, utan att be; Hoppa över för närvarande används blobbar. | |
+| | `3`: Skriv aldrig över och till om den är större, utan att be; ladda ned används blobar. | |
+| | `4`: Skriv aldrig över och till om den är större, utan att be; Hoppa över för närvarande används blobbar. | |
 | `--dry_run` | Skriv ut vilka blobar skulle har laddats ned, utan att hämta. | `False` |
 | `--create_gzip` | Skapa en *gzip* -filen för Vowpal Wabbit. | `False` |
 | `--delta_mod_t DELTA_MOD_T` | Tidsfönster, i sekunder, för att upptäcka om en fil är för närvarande används. | `3600` SEK (`1` timme) |

@@ -4,22 +4,40 @@ description: Lär dig att felsöka onboarding med uppdateringshantering, ändrin
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/19/2018
+ms.date: 01/25/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 52ff52ffb558278507bb24e1b1e2054c251b2512
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 78e78bc019ab5f8be1cfd3448220b97b89cde6a5
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879652"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228788"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Felsöka fel när onboarding-lösningar
 
 Fel kan uppstå när onboarding-lösningar som uppdateringshantering eller ändringsspårning och inventering. Den här artikeln beskriver de olika fel som kan uppstå och hur du löser dem.
 
 ## <a name="general-errors"></a>Allmänt fel
+
+### <a name="missing-write-permissions"></a>Scenario: Onboarding misslyckas med meddelandet – Det går inte att aktivera lösningen
+
+#### <a name="issue"></a>Problem
+
+Följande meddelande visas när du försöker att publicera en virtuell dator till en lösning:
+
+```
+The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+#### <a name="cause"></a>Orsak
+
+Det här felet orsakas av felaktig eller saknas behörigheter på den virtuella datorn eller användaren.
+
+#### <a name="resolution"></a>Matchning
+
+Se till att du har tillräckliga behörigheter för att publicera den virtuella datorn. Granska den [behörigheter som krävs för att publicera datorer](../automation-role-based-access-control.md#onboarding) och försök att publicera lösningen igen.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -31,7 +49,7 @@ Den här felkoden innebär att sparad sökning dator grupp frågan används för
 
 Frågan kan ha ändrats eller den kan ha ändrats av systemet.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Du kan ta bort frågan för den här lösningen och reonboard lösning som återskapar frågan. Frågan finns i din arbetsyta under **sparade sökningar**. Namnet på frågan är **MicrosoftDefaultComputerGroup**, och kategorin för frågan är namnet på den lösning som är associerad med den här frågan. Om flera lösningar är aktiverade i **MicrosoftDefaultComputerGroup** visas flera gånger under **sparade sökningar**.
 
@@ -45,7 +63,7 @@ Den här felkoden betyder att distributionen misslyckades på grund av överträ
 
 En princip är på plats som blockerar åtgärden att slutföras.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 För att kunna distribuera lösningen, måste du överväga att ändra den angivna principen. Eftersom det finns många olika typer av principer som kan definieras, beror specifika ändringar som krävs på den princip som har överskridits. Till exempel om en princip har definierats i en resursgrupp som nekas behörighet att ändra innehållet i vissa typer av resurser i resursgruppen, kan du till exempel göra något av följande:
 
@@ -55,7 +73,7 @@ För att kunna distribuera lösningen, måste du överväga att ändra den angiv
   * Nytt inriktning principen till en specifik resurs (till exempel ett specifikt Automation-konto).
   * Ändra uppsättningen av resurser principen har konfigurerats för att neka.
 
-Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till resursgruppen som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den distribution. Mer information om Azure Policy besök: [översikt över Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
+Kontrollera meddelanden i det övre högra hörnet i Azure-portalen eller navigera till resursgruppen som innehåller ditt automation-konto och välj **distributioner** under **inställningar** att visa den distribution. Om du vill veta finns mer om Azure Policy: [Översikt över Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>MMA-datortillägg
 
@@ -91,7 +109,7 @@ Några möjliga orsaker till felet är:
 
 * En brandväggsinställning har blockerat åtkomsten till de nödvändiga portarna och adresser.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Kontrollera att du har rätt portar och adresser som är öppna för kommunikation. En lista över portar och adresser finns i [planerar nätverket](../automation-hybrid-runbook-worker.md#network-planning).
 
@@ -122,11 +140,11 @@ Några möjliga orsaker till felet är:
 * En annan installation pågår
 * Systemet är utlöstes för att starta om när mallen distribueras
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Matchning
 
 Det här felet är ett tillfälligt fel sin natur. Gör om distributionen för att installera tillägget.
 
-### <a name="installation-timeout"></a>Scenario: Tidsgräns för Installation
+### <a name="installation-timeout"></a>Scenario: Tidsgräns för installation
 
 Installationen av MMA-tillägget kunde inte slutföras på grund av en tidsgräns.
 
@@ -142,7 +160,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 Det här felet beror på den virtuella datorn är hårt belastat under installationen.
 
-### <a name="resolution"></a>Lösning
+### <a name="resolution"></a>Matchning
 
 Försök att installera tillägget MMA när den virtuella datorn har en lägre belastning.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: panosper
-ms.openlocfilehash: 181797cd8ba193d7200e5ece8b599ffa40f7185b
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: MT
+ms.openlocfilehash: db397c5aff598124b78ab98c861b184b01ddbb90
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413710"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227054"
 ---
 # <a name="creating-custom-voice-fonts"></a>Skapa anpassade rösttyper
 
@@ -127,7 +127,7 @@ Datauppsättningar verifieras automatiskt efter överföringen. Dataverifiering 
 
 I följande tabell visas bearbetning tillstånden för importerade datauppsättningar:
 
-| Status | Betydelse
+| Region | Betydelse
 | ----- | -------
 | `NotStarted` | Din datauppsättning har tagits emot och är i kö för bearbetning.
 | `Running` | Din datauppsättning verifieras.
@@ -173,7 +173,7 @@ Den nya modellen visas i den **Mina Rösttyper** tabell.
 
 Den status som visas återspeglar att konvertera datauppsättningen till en rösttyp som visas här.
 
-| Status | Betydelse
+| Region | Betydelse
 | ----- | -------
 | `NotStarted` | Din begäran för att skapa en röst teckensnittet är i kö för bearbetning.
 | `Running` | Din rösttyp håller på att skapas.
@@ -225,7 +225,7 @@ Anpassad slutpunkt är funktionellt identiskt med standard-slutpunkt som använd
 
 Röst anpassning är tillgänglig på följande språk:
 
-| Språk | Nationell inställning |
+| Språk | Nationella inställningar |
 |----------|--------|
 | Kinesiska (fastlandet) | zh-CN |
 | English (US) | en-US |

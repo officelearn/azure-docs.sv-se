@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 11/11/2018
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: 513d9a3a044daacd84b810e4795522c2bd6763f8
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 4207031652db7ec4b2ae5468dc159320f6efdbc2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51616579"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228822"
 ---
 ## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
 
-Du måste först skapa ett Media Services-konto. Det här avsnittet beskriver vad du behöver för att skapa konto med hjälp av Azure CLI.
+Du måste först skapa ett Media Services-konto. Det här avsnittet visas vad du behöver för att skapa för kontot med hjälp av Azure CLI.
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 

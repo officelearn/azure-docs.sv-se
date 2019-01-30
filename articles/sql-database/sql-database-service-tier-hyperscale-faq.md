@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242168"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240666"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -49,7 +49,7 @@ Tjänsten vCore-baserade nivåer är främst differentierade baserat på tillgä
 | **Bäst för** |Alla|  De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad belastningsutjämnade beräknings- och lagringsalternativ. | Dataprogram med kapacitetskrav för stora mängder data och möjligheten att automatiskt skala lagringsutrymme och skala databearbetningen smidigt sätt. | OLTP-program med höga transaktionsintervall och lägsta svarstid i/o. Erbjuder högsta återhämtning för fel som använder flera isolerade repliker.|
 |  **Resurstyp** ||Enkel databas / elastisk pool / hanterad instans | Enskild databas | Enkel databas / elastisk pool / hanterad instans |
 | **Beräkna storlek**|Enkel databas / elastisk pool * | 1-80 virtuella kärnor | 1-80 virtuella kärnor * | 1-80 virtuella kärnor |
-| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
+| |Hanterad instans | 8, 16, 24, 32, 40, 64, 80  vCores | Gäller inte | 8, 16, 24, 32, 40, 64, 80  vCores |
 | **Lagringstyp** | Alla |Premium Fjärrlagring (per instans) | Ta bort kopplade lagring med lokal SSD-cache (per instans) | Supersnabb lokal SSD-lagring (per instans) |
 | **Lagringsstorlek** | Enkel databas / elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
 | | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
@@ -73,7 +73,7 @@ Tjänstnivån hyperskala är främst avsett för kunder som har stora lokala SQL
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Vilka regioner stöder för närvarande hyperskala
 
-Hyperskala är för närvarande tillgänglig för enskilda databaser i följande regioner: västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Storbritannien, västra, Sydostasien, östra Japan, centrala Korea, Australien, sydöstra Australien och Östra Australien.
+Hyperskala är nu tillgänglig för enskilda databaser i följande regioner:  Västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Storbritannien, västra, Sydostasien, östra Japan, Korea, centrala, Australien, sydöstra och Östra Australien.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Jag kan skapa flera hyperskala databaser per logisk server
 
@@ -98,7 +98,7 @@ SQL Database hyperskala ger snabb skalbarhet på begäran för din arbetsbelastn
 
 ## <a name="deep-dive-questions"></a>Djupdykning frågor
 
-### <a name="can-i-mix-hyperscale-and-single-databases-a-my-logical-server"></a>Kan jag blanda hyperskala och enskilda databaser en min logisk server
+### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Jag kan blanda hyperskala och enskilda databaser på min logisk server
 
 Ja, det kan du.
 
@@ -243,7 +243,7 @@ Nej. SQL Database hyperskala är en SMP-arkitektur och är inte en asymmetrisk F
 
 ### <a name="what-is-the-oldest-sql-server-version-will-sql-database-hyperscale-support-migration-from"></a>Vad är den äldsta SQL Server version kommer SQL Database hyperskala stöder migrering från
 
-SQLServer 2005. Mer information finns i [migrera till en enkel databas eller en databas i pool](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Kompatibilitetsproblem, se [åtgärda kompatibilitetsproblem vid Databasmigrering](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. Mer information finns i [migrera till en enkel databas eller en databas i pool](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). Kompatibilitetsproblem, se [åtgärda kompatibilitetsproblem vid Databasmigrering](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### <a name="does-sql-database-hyperscale-support-migration-from-other-data-sources-such-as-aurora-mysql-oracle-db2-and-other-database-platforms"></a>Stöder migrering från andra datakällor, till exempel Aurora, MySQL, Oracle, DB2 och andra databasplattformar i hyperskala för SQL-databas
 

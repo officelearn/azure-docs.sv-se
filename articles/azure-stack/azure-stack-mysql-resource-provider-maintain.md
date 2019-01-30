@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
-ms.openlocfilehash: e0de6b26499b4a5166db411eccee543be43c8352
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 01/11/2019
+ms.openlocfilehash: fdc75f169ebd4b85e5e413277c265922fb27dfdb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245998"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239731"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Underhåll-åtgärder för MySQL-resursprovider
 
@@ -177,7 +178,7 @@ Du kan använda PowerShell tillräckligt Administration JEA ()-slutpunkten DBAda
 
 - **Get-AzsDBAdapterLog**. Det här kommandot skapar ett zip-paket med resource provider-diagnostikloggar och sparar filen på den sessionen enheten. Du kan köra det här kommandot utan några parametrar och de sista fyra timmarna loggar samlas in.
 
-- **Ta bort AzsDBAdapterLog**. Det här kommandot tar bort den befintliga log paket på resursprovidern VM.
+- **Remove-AzsDBAdapterLog**. Det här kommandot tar bort den befintliga log paket på resursprovidern VM.
 
 ### <a name="endpoint-requirements-and-process"></a>Slutpunkten kraven och processen
 

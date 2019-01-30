@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/04/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: af959507fc2e0d1b68f547d2856eb7020d3ed5c6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/04/2018
+ms.openlocfilehash: 861784a2d22d15253c61884bfab62667c0560bcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247591"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250656"
 ---
 # <a name="start-azsreadinesschecker-cmdlet-reference"></a>Start-AzsReadinessChecker cmdlet-referens
 
@@ -313,7 +314,7 @@ Anger Azure Stack-distributioner externa FQDN, även ett alias som ExternalFQDN 
 |----------------------------|--------------|
 |Ange:                       |Sträng        |
 |Position:                   |med namnet         |
-|Standardvärde:              |ExternalFQDN ExternalDomainName |
+|Standardvärde:              |ExternalFQDN, ExternalDomainName |
 |Acceptera indata från pipeline:      |False         |
 |Acceptera jokertecken: |False         |
 
@@ -384,12 +385,12 @@ Anger målsökvägen för filen PFX från import/export-rutin.
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
-> -Ämne
+> -Subject
 
 Anger en ordnad ordlista med ämnet för den certifikat begäran generationen.
 |  |  |
 |----------------------------|---------|
-|Ange:                       |OrderedDictionary-objektet   |
+|Ange:                       |OrderedDictionary   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
 |Acceptera indata från pipeline:      |False    |
@@ -407,7 +408,7 @@ Anger den SAN-typ av certifikatförfrågan. Giltiga värden MultipleCSR, SingleC
 |Ange:                       |Sträng   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
-|Giltiga värden:               |MultipleCSR, 'SingleCSR' |
+|Giltiga värden:               |'MultipleCSR','SingleCSR' |
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
@@ -452,7 +453,7 @@ Anger en instans av Azure-tjänster som innehåller konton, kataloger och prenum
 |Ange:                       |Sträng   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Ingen     |
-|Giltiga värden:               |'AzureCloud', 'AzureChinaCloud' 'azureusgovernment eller' |
+|Giltiga värden:               |'AzureCloud','AzureChinaCloud','AzureUSGovernment' |
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
@@ -497,11 +498,11 @@ Anger sökvägen som endast certifikat krävs certifikat mappar finns.
 
 Nödvändiga mappar för Azure Stack-distribution med Azure Active Directory-identitetssystemet är:
 
-ACSBlob, ACSQueue, ACSTable, Admin-portalen, ARM-administratör kan ARM offentlig, KeyVault, KeyVaultInternal, offentlig Portal
+ACSBlob, ACSQueue, ACSTable, Admin Portal, ARM Admin, ARM Public, KeyVault, KeyVaultInternal, Public Portal
 
 Krav på mappen för Azure Stack-distribution med Active Directory Federation Services-identitetssystemet är:
 
-ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM-administratör, ARM offentlig, diagram, KeyVault, KeyVaultInternal, offentlig Portal
+ACSBlob, ACSQueue, ACSTable, ADFS, Admin Portal, ARM Admin, ARM Public, Graph, KeyVault, KeyVaultInternal, Public Portal
 
 |  |  |
 |----------------------------|---------|
@@ -531,7 +532,7 @@ Anger om du endast vill visa rapporten Sammanfattning utesluter detalj.
 |Ange:                       |Sträng   |
 |Position:                   |med namnet    |
 |Standardvärde:              |Alla      |
-|Giltiga värden:               |”Certifikat”, ”AzureRegistration', 'AzureIdentity', jobb,” alla ” |
+|Giltiga värden:               |'Certificate','AzureRegistration','AzureIdentity','Jobs','All' |
 |Acceptera indata från pipeline:      |False    |
 |Acceptera jokertecken: |False    |
 
@@ -566,7 +567,7 @@ Anger anpassad sökväg för att spara beredskap JSON-rapporten och detaljerad l
 |----------------------------|------------------|
 |Ange:                       |Sträng            |
 |Position:                   |med namnet             |
-|Standardvärde:              |$ENV: TEMP\AzsReadinessChecker  |
+|Standardvärde:              |$ENV:TEMP\AzsReadinessChecker  |
 |Acceptera indata från pipeline:      |False             |
 |Acceptera jokertecken: |False             |
 
@@ -588,7 +589,7 @@ Visar vad som skulle hända om cmdleten kördes. Cmdleten körs inte.
 |  |  |
 |----------------------------|------------------|
 |Ange:                       |SwitchParameter   |
-|Alias:                    |Wi                |
+|Alias:                    |wi                |
 |Position:                   |med namnet             |
 |Standardvärde:              |False             |
 |Acceptera indata från pipeline:      |False             |

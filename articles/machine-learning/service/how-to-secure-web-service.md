@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: c2285b4d7764592d3e210177edd8f127ca4bfaee
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 43f4aa5cc0d8545c6148fc15991817356ff69827
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55090671"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228108"
 ---
 # <a name="use-ssl-to-secure-web-services-with-azure-machine-learning-service"></a>Använda SSL för att skydda webbtjänster med Azure Machine Learning-tjänsten
 
@@ -82,36 +82,11 @@ Om du vill distribuera (eller omdistribuera) tjänsten med SSL aktiverat, ange d
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-<a name="fpga"></a>
-+ **Distribuera på fältet Programmable Gate matriser (FPGA)**
-
-  Svaret på den `create_service` åtgärden innehåller IP-adressen för tjänsten. IP-adressen används när du kartlägger DNS-namn till IP-adressen för tjänsten. Svaret innehåller även en __primärnyckel__ och __sekundärnyckel__ som används för att använda tjänsten. Ange värden för SSL-relaterade parametrar som du ser i kodfragmentet:
-
-    ```python
-    from amlrealtimeai import DeploymentClient
-
-    subscription_id = "<Your Azure Subscription ID>"
-    resource_group = "<Your Azure Resource Group Name>"
-    model_management_account = "<Your Azure Machine Learning service Model Management Account Name>"
-    location = "eastus2"
-
-    model_name = "resnet50-model"
-    service_name = "quickstart-service"
-
-    deployment_client = DeploymentClient(subscription_id, resource_group, model_management_account, location)
-
-    with open('cert.pem','r') as cert_file:
-        with open('key.pem','r') as key_file:
-            cert = cert_file.read()
-            key = key_file.read()
-            service = deployment_client.create_service(service_name, model_id, ssl_enabled=True, ssl_certificate=cert, ssl_key=key)
-    ```
-
 ## <a name="update-your-dns"></a>Uppdatera din DNS-Server
 
 Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
 
-+ **För ACI och FPGA**:
++ **För ACI**:
 
   Använd de verktyg som tillhandahålls av din domänregistrator för att uppdatera DNS-posten för ditt domännamn. Posten måste peka på IP-adressen för tjänsten.
 
@@ -122,6 +97,10 @@ Därefter måste du uppdatera din DNS så att den pekar till webbtjänsten.
   Uppdatera DNS under fliken ”Configuration” i ”offentliga IP-adressen” för AKS-kluster som du ser i bilden. Du hittar den offentliga IP-adressen som en av de resurstyper som skapats under resursgruppen med agentnoderna AKS och andra nätverksresurser.
 
   ![Azure Machine Learning-tjänsten: Skydda webbtjänster med SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)
+
++ **För FPGA**:
+
+Med hjälp av SSL med tjänster som distribueras till FPGA stöds inte för närvarande.
 
 ## <a name="next-steps"></a>Nästa steg
 

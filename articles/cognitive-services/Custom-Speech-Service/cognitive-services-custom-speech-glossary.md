@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 02f6c3f81cbaa26eed8de8b7785b519ecbc3bf26
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 889eabf38f25923d9bd84ea6ceaa5567c74216df
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344259"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223824"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -36,7 +36,7 @@ En modell som är lämpliga för att känna igen tal som sägs i ett konversatio
 
 ## <a name="d"></a>D
 
-### <a name="deployment"></a>Distribution
+### <a name="deployment"></a>Distribuering
 
 Processen som anpassats anpassade modellen blir en tjänst och Exponerar en URI
 
@@ -76,7 +76,7 @@ Normalisering (Text): Omvandling av resulterande text (d.v.s. avskrift) till en 
 
 ## <a name="p"></a>P
 
-## <a name="q"></a>FRÅGOR OCH
+## <a name="q"></a>Q
 
 ## <a name="r"></a>R
 
@@ -90,11 +90,11 @@ En akustisk modell är lämplig för bearbetning av kommandon. Microsoft Search 
 
 Prenumerationsnyckel är en sträng som du vill ange som en frågesträngsparameter för att kunna anropa någon Custom Speech Service-modell. En prenumerationsnyckel hämtas från [Azure-portalen](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) och hämtas en gång det finns i ”Mina prenumerationer” Custom Speech Service-portalen.
 
-## <a name="t"></a>T
+## <a name="t"></a>t
 
 ### <a name="transcription"></a>Avskrift
 
-Transkription: Del av texten som resultat av processen för en typ av ljud WAV-fil
+Transkription: Texten som resultat av processen för en typ av ljud WAV-fil
 
 ## <a name="u"></a>U
 

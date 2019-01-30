@@ -11,16 +11,17 @@ ms.date: 12/03/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.custom: mvc
-ms.openlocfilehash: 0664316d73b1473ab52b08f8abead2ec33d121b6
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.lastreviewed: 12/03/2018
+ms.openlocfilehash: ef2d59393902194af3e257ce0fd5bf403b293af1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836754"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245431"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snabbstart: skapa en Linux-server-dator med Azure Stack-portalen
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack-portalen. Följ stegen i den här artikeln för att skapa och använda en virtuell dator. Den här artikeln ger dig också hur du:
 
@@ -40,7 +41,7 @@ Du kan skapa en Ubuntu Server 16.04 LTS-dator med hjälp av Azure Stack-portalen
 
 * **Åtkomst till en SSH-klient**
 
-   Om du använder Azure Stack Development Kit (ASDK), kanske du inte har åtkomst till en SSH-klient. Om du behöver en klient, finns det flera paket som innehåller en SSH-klient. PuTTY innehåller till exempel en SSH-klient och en SSH-nyckelgenerator (puttygen.exe). Mer information om tillgängliga paket finns i följande Azure artikel: [så här använder du SSH-nycklar med Windows på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Om du använder Azure Stack Development Kit (ASDK), kanske du inte har åtkomst till en SSH-klient. Om du behöver en klient, finns det flera paket som innehåller en SSH-klient. PuTTY innehåller till exempel en SSH-klient och en SSH-nyckelgenerator (puttygen.exe). Mer information om tillgängliga paket finns i följande Azure artikel: [Så här använder du SSH-nycklar med Windows på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Den här snabbstarten använder PuTTY för att generera SSH-nycklar och att ansluta till den virtuella datorn på Linux. Om du vill hämta och installera PuTTY, gå till [ http://www.putty.org/ ](http://www.putty.org).
 

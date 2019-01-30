@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 2bdda273a32167f70633096d463be59884eca033
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 363e0868542f56df8c37639b2af7ac295be97da2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718241"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249913"
 ---
 # <a name="install-the-azure-stack-development-kit-asdk"></a>Installera Azure Stack Development Kit (ASDK)
 Efter [förbereda värddatorn ASDK](asdk-prepare-host.md), ASDK kan distribueras till CloudBuilder.vhdx avbildningen med hjälp av följande steg i den här artikeln.
@@ -38,8 +39,8 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
     ![](media/asdk-install/1.PNG) 
 
 3. I identitetsleverantörens **typ** listrutan, väljer **Azure-molnet** eller **AD FS**. Under **lokala administratörslösenordet** skriver du det lokala administratörslösenordet (som måste matcha det aktuella konfigurera lokala administratörslösenordet) i den **lösenord** rutan och klicka sedan på  **Nästa**.
-    - **Azure-molnet**: konfigurerar Azure Active Directory (Azure AD) som identitetsleverantör. Om du vill använda det här alternativet måste du ha en Internetanslutning, det fullständiga namnet på en Azure AD directory-klient i form av *domainname*. onmicrosoft.com eller en Azure AD verifierat domännamn och autentiseringsuppgifter som global administratör för den angivna katalogen. Efter distributionen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
-    - **AD FS**: standard stämpel katalogtjänsten används som identitetsleverantör. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet är det som du angav som en del av installationen.
+    - **Azure Cloud**: Konfigurerar Azure Active Directory (Azure AD) som identitetsleverantör. Om du vill använda det här alternativet måste du ha en Internetanslutning, det fullständiga namnet på en Azure AD directory-klient i form av *domainname*. onmicrosoft.com eller en Azure AD verifierat domännamn och autentiseringsuppgifter som global administratör för den angivna katalogen. Efter distributionen krävs inte behörighet för Azure Active Directory global administratör. Vissa åtgärder kan dock kräva autentiseringsuppgifter för global administratör. Till exempel ett resource provider installer skript eller en ny funktion som kräver en behörighet som ska beviljas. Du kan tillfälligt återställa kontots behörigheter som global administratör eller använda ett separat globalt administratörskonto som äger den *standard providerprenumeration*.
+    - **AD FS**: Katalogtjänsten för standard-stämpel används som identitetsleverantör. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet är det som du angav som en del av installationen.
 
     ![](media/asdk-install/2.PNG) 
     
@@ -53,7 +54,7 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
     > [!TIP]
     > BGPNAT01 VM är edge-routern med NAT- och VPN-funktioner för Azure Stack.
 
-    - **DHCP** (standard): den virtuella datorn hämtar IP-nätverkskonfiguration från DHCP-servern.
+    - **DHCP** (standard): Den virtuella datorn hämtar IP-nätverkskonfiguration från DHCP-servern.
     - **Statisk**: Använd bara det här alternativet om DHCP inte kan tilldela en giltig IP-adress för Azure Stack för åtkomst till Internet. **Statisk IP-adress måste anges med längden nätmask i CIDR-format (till exempel 10.0.0.5/24)**.
     - Ange en giltig **tid IP-adress** adress. Detta krävs för fältet anger tid-server som ska användas av i development kit. Den här parametern måste anges som en giltig tid serverns IP-adress. Servernamn stöds inte.
 
@@ -61,8 +62,8 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
       > En IP-adress finns [pool.ntp.org](http://pool.ntp.org) eller pinga time.windows.com. 
 
     - **Du kan också**, anger du följande värden:
-        - **VLAN-ID**: Anger VLAN-ID. Använd bara det här alternativet om värden och AzS-BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och internet). 
-        - **DNS-vidarebefordrare**: en DNS-server skapas som en del av Azure Stack-distributioner. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen att matcha namn utanför stämpeln. DNS-server i stämpel vidarebefordras okänt namn på den här servern.
+        - **VLAN ID**: Anger VLAN-ID. Använd bara det här alternativet om värden och AzS-BGPNAT01 måste konfigurera VLAN-ID för att komma åt den fysiska nätverk (och internet). 
+        - **DNS-vidarebefordrare**: En DNS-server skapas som en del av Azure Stack-distribution. Ange din befintliga infrastruktur för DNS-server så att datorer i lösningen att matcha namn utanför stämpeln. DNS-server i stämpel vidarebefordras okänt namn på den här servern.
 
     ![](media/asdk-install/4.PNG)
 
@@ -81,7 +82,7 @@ Stegen i den här artikeln visar hur du distribuerar ASDK med ett grafiskt anvä
 
     ![](media/asdk-install/7.PNG)
 
-11. Distributionsprocessen tar några timmar, under tiden värddatorn ska startas om automatiskt en gång. Om du vill övervaka förloppet för distributionen, logga in som azurestack\AzureStackAdmin när development kit värden startas om. När distributionen är klar, PowerShell-konsolen visas: **Slutför: åtgärden ”distribution”**. 
+11. Distributionsprocessen tar några timmar, under tiden värddatorn ska startas om automatiskt en gång. Om du vill övervaka förloppet för distributionen, logga in som azurestack\AzureStackAdmin när development kit värden startas om. När distributionen är klar visas PowerShell-konsolen: **SLUTFÖR: Åtgärden ”distribution”**. 
     > [!IMPORTANT]
     > Om du loggar in som lokal administratör när datorn är ansluten till domänen, visas inte förloppet för distributionen. Inte köra distributionen, i stället logga in som azurestack\AzureStackAdmin att verifiera att den körs.
 

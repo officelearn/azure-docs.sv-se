@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 12/10/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 45e22f19c6e2da26105615da6a775eed4f8676f0
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/10/2018
+ms.openlocfilehash: 759ea6b8e4981b3ea198077cabf9df7966d6e883
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243652"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242968"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Skydda virtuella datorer som distribueras på Azure Stack
 
@@ -64,7 +65,7 @@ Planera din strategi för säkerhetskopiering, återställning och katastrofåte
 
 Du måste fastställa mängden stopptid och dataförlust som din organisation kan tolerera för varje program. Du kan kvantifiera stopptid och dataförlust för att skapa en återställningsplan som minimerar påverkan av ett haveri på din organisation. Överväg att för varje program:
 
- - **Återställningstid (RTO)**  
+ - **Mål för återställningstid (RTO)**  
 RTO är den tid som ett program kan vara otillgängligt efter en incident. Till exempel innebär en RTO 90 minuter att du måste kunna återställa programmet till ett fungerande tillstånd inom 90 minuter från början av ett haveri. Om du har ett lågt RTO kan du behålla en andra distribution som körs kontinuerligt i vänteläge för att skydda mot ett regionalt strömavbrott.
  - **Mål för återställningspunkt (RPO)**  
 Återställningspunktmålet är den maximala dataförlusten som är acceptabel vid ett haveri. Om du till exempel lagrar data i en enda databas, utan replikering till andra databaser, och säkerhetskopierar varje timme kan du förlora upp till en timme med data.

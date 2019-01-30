@@ -7,13 +7,13 @@ ms.author: cbrooks
 ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
-ms.component: blobs
-ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.subservice: blobs
+ms.openlocfilehash: 6c2a642c30be79c907286e4ffac6bcea40d86fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735893"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247756"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reagera på Blob storage-händelser
 
@@ -28,7 +28,7 @@ Ta en titt på [dirigera Blob storage-händelser till en anpassad webb-endpoint 
 ![Event Grid-modell](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob Storage-konton
-BLOB storage-händelser är tillgängliga i storage-konton för generell användning v2 och Blob storage-konton. **Generell användning v2** storage-konton stöder alla funktioner för alla lagringstjänster, inklusive Blobar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. Mer information finns i [översikt över Azure storage-konton](../common/storage-account-overview.md).
+Blob storage-händelser är tillgängliga i storage-konton för generell användning v2 och Blob storage-konton. **Generell användning v2** storage-konton stöder alla funktioner för alla lagringstjänster, inklusive Blobar, filer, köer och tabeller. Ett **Blob Storage-konto** är ett specialiserat lagringskonto för lagring av ostrukturerade data som blobbar (objekt) i Azure Storage. Blob Storage-konton liknar allmänna lagringskonton och har samma höga hållbarhet, tillgänglighet, skalbarhet och prestanda som du använder idag, inklusive 100 % API-konsekvens för blockblobbar och tilläggsblobbar. Mer information finns i [kontoöversikten för Azure Storage](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Tillgängliga Blob storage-händelser
 Händelserutnät använder [händelseprenumerationer](../../event-grid/concepts.md#event-subscriptions) händelsen skicka meddelanden till prenumeranter.  Händelseprenumerationer för BLOB storage kan innehålla två typer av händelser:  
@@ -44,16 +44,16 @@ BLOB storage-händelser innehåller all information du behöver för att svara p
 > |Egenskap |Typ|Beskrivning|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |ämne|sträng|Fullständig Azure Resource Manager-id för det lagringskonto som genererar händelsen.|
-> |Ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
+> |ämne|sträng|Relativ resurssökväg till objektet som omfattas av händelsen, med samma utökade Azure Resource Manager-format som vi använder för att beskriva storage-konton, tjänster och behållare för Azure RBAC.  Det här formatet innehåller ett bevara blobnamn.|
 > |eventTime|sträng|Datum/tid som händelsen har genererats i ISO 8601-format|
-> |Händelsetyp|sträng|”Microsoft.Storage.BlobCreated” eller ”Microsoft.Storage.BlobDeleted”|
+> |Händelsetyp|sträng|"Microsoft.Storage.BlobCreated" or "Microsoft.Storage.BlobDeleted"|
 > |Id|sträng|Unik identifierare om den här händelsen|
 > |dataVersion|sträng|Dataobjektets schemaversion.|
 > |metadataVersion|sträng|Schemaversion för översta egenskaper.|
 > |data|objekt|Insamling av data för blob storage-händelse|
 > |data.contentType|sträng|Innehållstypen för bloben som ska returneras i Content-Type-rubriken från blob|
 > |data.contentLength|nummer|Storleken på blobben som heltal som motsvarar ett antal byte som ska returneras i Content-Length-huvudet från blob.  Skickas med BlobCreated händelse, men inte med BlobDeleted.|
-> |data.URL|sträng|URL: en för det objekt som omfattas av händelsen|
+> |data.url|sträng|URL: en för det objekt som omfattas av händelsen|
 > |data.eTag|sträng|Etag för objektet när den här händelsen utlöses.  Inte tillgängligt för händelsen BlobDeleted.|
 > |data.api|sträng|Namnet på api-åtgärden som utlöste händelsen. Det här värdet är ”PutBlob”, ”PutBlockList” eller ”CopyBlob” för BlobCreated händelser. Det här värdet är ”DeleteBlob” för BlobDeleted händelser. Dessa värden är samma api-namn som finns i diagnostikloggar för Azure Storage. Se [loggade åtgärder och statusmeddelanden](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).|
 > |data.sequencer|sträng|En täckande strängvärde som representerar den logiska ordningsföljden händelser för ett visst blobnamn.  Användare kan använda vanlig strängjämförelse för att förstå den relativa sekvensen av två händelser på samma blobnamn.|

@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: danlep
-ms.openlocfilehash: 73e207dae61dfc8912fd79a151adf982753701f1
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 077ca3c876a3078e7e627dbfefdff38e09ec57b9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969115"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228363"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Uppgradera ett klassiskt container register
 
@@ -52,7 +52,7 @@ Under konverteringen, alla `docker push` åtgärder blockeras medan `docker pull
 
 Inte ta bort eller ändra innehållet i det lagringskonto som backar upp klassiskt register under konverteringen. Detta kan resultera i skadade av dina behållaravbildningar.
 
-När migreringen är klar, används längre storage-konto i din prenumeration ursprungligen uppbackning klassiskt register av ACR. När du har kontrollerat att migreringen lyckades, Överväg att ta bort lagringskontot för att minimera kostnader.
+När migreringen är klar, används inte längre storage-konto i din prenumeration ursprungligen uppbackning klassiskt register av ACR. När du har kontrollerat att migreringen lyckades, Överväg att ta bort lagringskontot för att minimera kostnader.
 
 >[!IMPORTANT]
 > Uppgradera från klassiskt läge till en av de hanterade SKU: er är en **envägsprocess**. När du har konverterat en klassisk registret till Basic, Standard och Premium, kan du inte återgå till klassisk. Du kan dock fritt flytta mellan hanterade SKU: er med tillräckligt med kapacitet för ditt register.

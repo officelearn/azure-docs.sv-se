@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 5a16b81abb9cc95f46bd61f6c0232a28f3cda0ff
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 7e53b50df88c592386d3f2fb140373a0c5aaab13
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52875407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228295"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrera Azure ExpressRoute med haveriberedskap för virtuella Azure-datorer
 
@@ -28,8 +28,8 @@ Site Recovery kan haveriberedskap för virtuella Azure-datorer genom att replike
 
 ExpressRoute kan du utöka lokala nätverk till Microsoft Azure-molnet via en privat anslutning med hjälp av en anslutningsprovider. Om du har konfigurerat ExpressRoute, den kan integreras med Site Recovery på följande sätt:
 
-- **När de replikeras mellan Azure-regioner**: replikeringstrafik för haveriberedskap för virtuella Azure-datorn är endast inom Azure och ExpressRoute inte behövs eller som används för replikering. Men om du ansluter från en lokal plats till Azure virtuella datorer på den primära platsen för Azure, finns det ett antal problem vara medveten om när du konfigurerar haveriberedskap för de virtuella Azure-datorer.
-- **Växling mellan Azure-regioner**: vid avbrott så växlar du över virtuella Azure-datorer från primär till sekundär Azure-region. Det finns ett antal steg du ska vidta för att komma åt virtuella Azure-datorer i den sekundära regionen som använder ExpressRoute efter redundansväxling till en sekundär region.
+- **När de replikeras mellan Azure-regioner**: Replikeringstrafik för haveriberedskap för virtuella Azure-datorn är endast inom Azure och ExpressRoute inte behövs eller som används för replikering. Men om du ansluter från en lokal plats till Azure virtuella datorer på den primära platsen för Azure, finns det ett antal problem vara medveten om när du konfigurerar haveriberedskap för de virtuella Azure-datorer.
+- **Växling mellan Azure-regioner**: Vid avbrott så växlar du över virtuella Azure-datorer från primär till sekundär Azure-region. Det finns ett antal steg du ska vidta för att komma åt virtuella Azure-datorer i den sekundära regionen som använder ExpressRoute efter redundansväxling till en sekundär region.
 
 
 ## <a name="before-you-begin"></a>Innan du börjar
@@ -93,9 +93,9 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 - **Hubbnätverk**. Det finns en Hubbnätverk **källa Hubbnätverk**: 10.10.10.0/24.
     - Den här Hubbnätverk fungerar som gatekeepern.
     - All kommunikation över undernät igenom den här hubben.
- - ** Hub vNet undernät**. Hubbnätverk har två undernät:
+ - Hub vNet undernät **. Hubbnätverk har två undernät:
      - **NVA-undernätet**: 10.10.10.0/25. Det här undernätet innehåller en NVA (10.10.10.10).
-     - **Gateway-undernätet**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
+     - **Gateway-undernät**: 10.10.10.128/25. Det här undernätet innehåller en ExpressRoute-gateway som är anslutna till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering routningsdomän.
 - Datacenter på plats har en ExpressRoute-krets-anslutning via en partner edge i Hongkong.
 - Alla routning styrs via Azure-routningstabeller (UDR).
 - All utgående trafik mellan virtuella nätverk eller till det lokala datacentret dirigeras via NVA.
@@ -106,10 +106,10 @@ Enterprise-distributioner har vanligtvis arbetsbelastningar delas upp på flera 
 
 **Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
-Spoke till hub | Tillåt virtuell nätverksadress | Enabled
-Spoke till hub | Tillåt vidarebefordrad trafik | Enabled
-Spoke till hub | Tillåt gatewayöverföring | Disabled
-Spoke till hub | Använd ta bort gateways | Enabled
+Spoke till hub | Tillåt virtuell nätverksadress | Aktiverad
+Spoke till hub | Tillåt vidarebefordrad trafik | Aktiverad
+Spoke till hub | Tillåt gatewayöverföring | Inaktiverat
+Spoke till hub | Använd ta bort gateways | Aktiverad
 
  ![Ekrar till hubben peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
@@ -117,10 +117,10 @@ Spoke till hub | Använd ta bort gateways | Enabled
 
 **Riktning** | **Inställning** | **tillstånd**
 --- | --- | ---
-Hub till spoke | Tillåt virtuell nätverksadress | Enabled
-Hub till spoke | Tillåt vidarebefordrad trafik | Enabled
-Hub till spoke | Tillåt gatewayöverföring | Enabled
-Hub till spoke | Använd ta bort gateways | Disabled
+Hub till spoke | Tillåt virtuell nätverksadress | Aktiverad
+Hub till spoke | Tillåt vidarebefordrad trafik | Aktiverad
+Hub till spoke | Tillåt gatewayöverföring | Aktiverad
+Hub till spoke | Använd ta bort gateways | Inaktiverat
 
  ![NAV och ekrar peering-konfigurationen](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
@@ -146,7 +146,7 @@ När du redundansväxlar virtuella Azure-datorer till målet med hjälp av Site 
 
 #### <a name="two-circuits-with-two-peering-locations"></a>Två kretsar med två peering-platser
 
-Den här konfigurationen hjälper att skyddar ExpressRoute-kretsar mot regionalt haveri. Om din primära peering loation slutar fungera kan fortsätta anslutningar från den andra platsen.
+Den här konfigurationen hjälper att skyddar ExpressRoute-kretsar mot regionalt haveri. Om din primära peeringplats slutar fungera kan fortsätta anslutningar från den andra platsen.
 
 - Kretsen är anslutna till produktionsmiljön är vanligtvis primärt. Den sekundära kretsen har normalt lägre bandbredd, vilket kan ökas om en olycka inträffar.
 - Du kan upprätta anslutningar från den sekundära ExpressRoute-kretsen till mål-vNet efter redundansväxlingen. Du kan också ha anslutningar som har förberetts och kan nu händelse av katastrof, för att minska övergripande återställningstid.

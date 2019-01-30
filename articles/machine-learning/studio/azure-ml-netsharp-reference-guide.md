@@ -1,6 +1,6 @@
 ---
 Rubrik: Skapa anpassade neurala nätverk med Net # titleSuffix: Beskrivning av Azure Machine Learning Studio: Syntax guide för det Net # språket för neurala nätverk. Lär dig hur du skapar anpassade neurala nätverk modeller i Azure Machine Learning Studio.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: referens
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: referens
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
 ---

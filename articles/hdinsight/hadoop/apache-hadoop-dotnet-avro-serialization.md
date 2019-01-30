@@ -1,7 +1,7 @@
 ---
 title: Serialisera data i Apache Hadoop - Microsoft Avro Library - Azure
 description: Lär dig mer om att serialisera och deserialisera data i Hadoop på HDInsight med hjälp av Microsoft Avro Library ska sparas i minnet, en databas eller fil.
-keywords: avro, hadoop avro
+keywords: avro,hadoop avro
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
 ms.custom: hdiseo17may2017
-ms.openlocfilehash: 8ef8f66a67ee93ea8c015c33e69b87e7c5d2a898
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: d729d840bb055452eb8bb87cc978f1e38dcea48e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259995"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227955"
 ---
 # <a name="serialize-data-in-apache-hadoop-with-the-microsoft-avro-library"></a>Serialisera data i Apache Hadoop med Microsoft Avro Library
 
@@ -1351,7 +1351,7 @@ I sjätte exempel illustrerar några programmeringstekniker som rör interagera 
 Exemplet gör följande:
 
 * Ansluter till ett befintligt kluster för HDInsight-tjänsten.
-* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och som representerar ett utdrag ur AMEX lager historiska data distribueras av [Infochimps](https://www.infochimps.com/) under 1970 2010. Exemplet läser CSV-fildata, konverterar poster till instanser av den **lager** klassen och Serialiserar dem genom att använda reflektion. Definition av lagerartiklar har skapats från en JSON-schema via verktyget Microsoft Avro Library code generation.
+* Serialiserar flera CSV-filer och överför resultatet till Azure Blob storage. (CSV-filer ska distribueras tillsammans med exemplet och som representerar ett utdrag ur AMEX lager historiska data distribueras av [Infochimps](https://www.infochimps.org/) under 1970 2010. Exemplet läser CSV-fildata, konverterar poster till instanser av den **lager** klassen och Serialiserar dem genom att använda reflektion. Definition av lagerartiklar har skapats från en JSON-schema via verktyget Microsoft Avro Library code generation.
 * Skapar en ny extern tabell som kallas **aktier** i Hive och länkar den till data laddades upp i föregående steg.
 * Kör en fråga med hjälp av Hive via den **aktier** tabell.
 

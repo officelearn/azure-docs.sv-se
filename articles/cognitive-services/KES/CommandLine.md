@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 52d001e32e1bdb0d0046853f18649bafa49b1f14
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127173"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228533"
 ---
 # <a name="command-line-interface"></a>Kommandoradsgränssnitt
 
@@ -30,7 +30,7 @@ Kommandoradsgränssnitt för Knowledge utforskning Service (KES) ger möjlighet 
 
 <a name="build_index-command"></a>
 
-## <a name="buildindex-command"></a>build_index kommando
+## <a name="buildindex-command"></a>build_index Command
 
 Den **build_index** kommandot skapas en binär indexeringsfil från en definitionsfil för schema och en datafil med objekt som ska indexeras.  Den resulterande indexfilen kan användas för att utvärdera strukturerade frågeuttryck eller att generera tolkningar av frågor med naturligt språk i samband med en kompilerad grammatikfil.
 
@@ -48,7 +48,7 @@ Dessa filer kan anges med lokala sökvägar eller URL-sökvägar till Azure BLOB
 
 Beskrivningssträng kan anges om du vill att senare identifiera en binär index med hjälp av den **describe_index** kommando.  
 
-Som standard har skapat indexet på den lokala datorn.  Lokala versioner är begränsade till filer som innehåller upp till 10 000 objekt utanför Azure-miljön.  När--remote flagga har angetts, indexet skapas på ett tillfälligt skapade Azure-VM för den angivna storleken.  På så sätt kan stora index skapas effektivt med Azure-datorer med mer minne.  För att undvika sidindelning som saktar ned skapandeprocessen, bör du använda en virtuell dator med 3 gånger mängden RAM-minne som filstorlek indata.  En lista över tillgängliga VM-storlekar finns i [storlekar för virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
+Som standard har skapat indexet på den lokala datorn.  Lokala versioner är begränsade till filer som innehåller upp till 10 000 objekt utanför Azure-miljön.  När--remote flagga har angetts, indexet skapas på ett tillfälligt skapade Azure-VM för den angivna storleken.  På så sätt kan stora index skapas effektivt med Azure-datorer med mer minne.  För att undvika sidindelning som saktar ned skapandeprocessen, bör du använda en virtuell dator med 3 gånger mängden RAM-minne som filstorlek indata.  En lista över tillgängliga storlekar på virtuella datorer finns i [storlekar på virtuella datorer](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
 > [!TIP] 
 > Presort objekten i datafilen genom att minska sannolikheten för snabbare versioner.
@@ -70,7 +70,7 @@ Dessa filer kan anges med lokala sökvägar eller URL-sökvägar till Azure BLOB
 
 <a name="host_service-command"/>
 
-## <a name="hostservice-command"></a>host_service kommando
+## <a name="hostservice-command"></a>host_service Command
 
 Den **host_service** kommando har en instans av tjänsten KES på den lokala datorn.
 
@@ -88,7 +88,7 @@ Utanför Azure-miljö, lokalt värdbaserade tjänster är begränsade till index
 
 <a name="deploy_service-command"/>
 
-## <a name="deployservice-command"></a>deploy_service kommando
+## <a name="deployservice-command"></a>deploy_service Command
 
 Den **deploy_service** kommandot distribuerar en instans av tjänsten KES till en Azure-molntjänst.
 

@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 800e41fe26cb58840c7371606ed746c149f7024d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/14/2019
+ms.openlocfilehash: a8c4ef5df586c87862ea8e1634e9a72356401d0b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54304150"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247433"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Självstudier: Skapa molnöverskridande skalning lösningar med Azure
 
@@ -246,7 +247,7 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 
 5.  I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
 
-6.  Välj **spara ändringar**.
+6.  Välj **Spara ändringar**.
 
 7.  I den **VSTS grupper** väljer **Endpoint administratörer**.
 
@@ -254,7 +255,7 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
 
 9.  I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
 
-10. Välj **spara ändringar**.
+10. Välj **Spara ändringar**.
 
 Nu när information om slutpunkten finns är Pipelines Azure till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från Azure Pipelines och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
 

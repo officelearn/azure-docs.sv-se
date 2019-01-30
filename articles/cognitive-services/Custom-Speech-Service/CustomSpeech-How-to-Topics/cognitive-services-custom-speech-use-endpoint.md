@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3f99172f486c374cdbd0b6ebd50fdf7bfec98ec3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341813"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227156"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Använd en anpassad slutpunkt för tal till text
 
@@ -36,10 +36,10 @@ Tjänsten förutsätter att data överförs i realtid. Om det har skickats snabb
 
 Starta klienten för att skicka begäranden till din anpassade slutpunkt med hjälp av talklientbiblioteket. Använd klienten tal SDK från [NuGet](http://nuget.org/). Sök efter *taligenkänning*, och välj det tal igenkänning av paketet från Microsoft för din plattform. Exempelkod finns på [GitHub](https://github.com/Microsoft/Cognitive-Speech-STT-Windows). Klient-SDK för taligenkänning erbjuder en klass för factory **SpeechRecognitionServiceFactory**, där du får följande metoder:
 
-  *   ```CreateDataClient(...)```: En data igenkänning av klienten.
-  *   ```CreateDataClientWithIntent(...)```: Klient en data-taligenkänning med avsikt.
-  *   ```CreateMicrophoneClient(...)```: En mikrofon igenkänning av klienten.
-  *   ```CreateMicrophoneClientWithIntent(...)```: En mikrofon igenkänning av klienten med avsikt.
+  *   ```CreateDataClient(...)```: En klient för igenkänning av data.
+  *   ```CreateDataClientWithIntent(...)```: En data för klient med avsikt.
+  *   ```CreateMicrophoneClient(...)```: En mikrofon igenkänning av klient.
+  *   ```CreateMicrophoneClientWithIntent(...)```: En mikrofon igenkänning av klient med avsikt.
 
 Detaljerad dokumentation finns i den [taligenkänning för Bing](https://docs.microsoft.com/azure/cognitive-services/speech/home). Custom Speech Service-slutpunkterna stöder samma SDK.
 

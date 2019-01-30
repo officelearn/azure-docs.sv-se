@@ -6,17 +6,17 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 04a1f3222b17d91889eb580d9d4e8206d8156d37
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: c906a45443bcba8c84a0624c74255f19a492a4e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53095491"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217186"
 ---
 # <a name="troubleshoot-the-speech-service-sdk"></a>Felsöka Taltjänst-SDK
 
@@ -28,7 +28,7 @@ Du kanske fel slutpunkten för din region eller tjänst. Kontrollera URI för at
 
 Dessutom det kan finnas ett problem med din prenumerationsnyckel eller auktorisering token. Mer information finns i nästa avsnitt.
 
-## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 Åtkomst förbjuden eller HTTP 401 Ej behörig
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Fel: HTTP 403 – förbjuden eller HTTP 401 Ej behörig
 
 Det här felet orsakas ofta av problem med autentisering. Anslutningsförfrågningar utan ett giltigt `Ocp-Apim-Subscription-Key` eller `Authorization` rubrik avvisas med status 403 eller 401.
 
@@ -104,11 +104,11 @@ Om du använder en Autentiseringstoken för autentisering, kör du något av fö
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 (felaktig förfrågan)
+## <a name="error-http-400-bad-request"></a>Fel: HTTP 400 Felaktig begäran
 
 Det här felet uppstår vanligen när begärandetexten innehåller ogiltigt ljuddata. Endast WAV formatet stöds. Kontrollera också begärandehuvuden för att se till att du kan ange lämpliga värden för `Content-Type` och `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Fel: HTTP 408 Timeout för begäran
+## <a name="error-http-408-request-timeout"></a>Fel: HTTP 408 Request Timeout
 
 Felet sannolikt beror på att inga ljuddata som skickas till tjänsten. Det här felet kan också orsakas av nätverksproblem.
 

@@ -15,12 +15,13 @@ ms.topic: get-started-article
 ms.date: 10/19/2018
 ms.author: sethm
 ms.reviewer: shnatara
-ms.openlocfilehash: 46dd9c786fddb2f6ce9fb8a761a1b9f135a82d74
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/19/2018
+ms.openlocfilehash: c9288d47dc9df8604c7eb676ba5d93f91a6b0063
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52959204"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245692"
 ---
 # <a name="change-the-owner-for-an-azure-stack-user-subscription"></a>Ändra ägare för en prenumeration för Azure Stack-användare
 
@@ -28,7 +29,7 @@ Azure Stack-operatörer kan använda PowerShell för att ändra fakturering äga
 
 Det finns två typer av *ägare* som är tilldelade till en prenumeration:
 
-- **Fakturering ägare**: som standard fakturering ägaren är det användarkonto som hämtar prenumerationen från ett erbjudande och sedan äger faktureringsrelation för den aktuella prenumerationen. Det här kontot är också en administratör för prenumerationen. Endast ett användarkonto kan ha den här beteckning på en prenumeration. En fakturering ägare är ofta en organisation eller ditt team lead. 
+- **Fakturering ägare**: Som standard är fakturering ägaren det användarkonto som hämtar prenumerationen från ett erbjudande och sedan äger faktureringsrelation för den aktuella prenumerationen. Det här kontot är också en administratör för prenumerationen. Endast ett användarkonto kan ha den här beteckning på en prenumeration. En fakturering ägare är ofta en organisation eller ditt team lead. 
 
   Du använder PowerShell-cmdleten i [Set-AzsUserSubscription](/powershell/module/azs.subscriptions.admin/set-azsusersubscription) att ändra fakturering ägare.  
 
@@ -46,7 +47,7 @@ Kör följande skript för att ändra fakturering ägaren till en användarprenu
 Ersätt följande värden i skriptet innan den körs: 
  
 - **$ArmEndpoint**: Ange Resource Manager-slutpunkten för din miljö.  
-- **$TenantId**: Ange ditt Klientorganisations-ID. 
+- **$TenantId**: Ange dina klient-ID. 
 - **$SubscriptionId**: Ange ditt prenumerations-ID.
 - **$OwnerUpn**: Ange ett konto som **user@example.com** ska läggas till som den nya ägaren för fakturering.  
 

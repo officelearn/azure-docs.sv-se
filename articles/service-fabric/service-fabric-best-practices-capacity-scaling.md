@@ -14,16 +14,29 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: ff58cc713a6aba211f9eeb1dc42912d21c5b0bdb
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: d6f2ca53829642009adbc50061966c5a7e924f7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914121"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240411"
 ---
 # <a name="capacity-planning-and-scaling"></a>Kapacitetsplanering och skalning
 
 Innan du skapar ett Azure Service Fabric-kluster eller skala beräkningsresurser som är värd för klustret, är det viktigt att planera kapaciteten. Läs mer om hur du planerar kapaciteten [planera kapacitet för Service Fabric-kluster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity). Planera för skalningsåtgärder tar längre tid än en timme att slutföra för en produktionsmiljö, oavsett hur många virtuella datorer som du lägger till förutom överväger egenskaper Nodetype och kluster.
+
+## <a name="auto-scaling"></a>Automatisk skalning
+Skalning ska utföras via Azure Resource malldistributionen, eftersom det är en bra idé att behandla [resurskonfigurationer som kod]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code), och använder Virtual Machine Scale Sets autoskalning resulterar i din Ange antalet instanser; för version Resource Manager-mall som felaktigt definiera VM-skalningsuppsättning öka risken för framtida distributioner som orsakar oönskade skalningsåtgärder och i allmänhet bör du använda automatisk skalning om:
+
+* Distribuera dina Resource Manager-mallar med rätt kapacitet som deklarerats stöder inte ditt användningsområde.
+  * Manuell skalning kan du konfigurera en [kontinuerlig integrering och leverans Pipeline i Azure DevOps-tjänster med projekt för distribution av Azure-resursgrupp]( https://docs.microsoft.com/azure/vs-azure-tools-resource-groups-ci-in-vsts), som utlöses av en Logikapp som utnyttjar ofta prestandamått för virtuella datorer som efterfrågas från [Azure Monitor REST API](https://docs.microsoft.com/azure/azure-monitor/platform/rest-api-walkthrough); effektivt automatisk skalning baserat på måtten du vill, under optimering för Azure Resource Manager lägger till värdet.
+* Du behöver bara att vågrätt skala 1 VM scale set-nod i taget.
+  * Att skala ut genom 3 eller fler noder i taget, bör du [skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), och den är säkrast att skala in och ut virtuella datorer anger du vågrätt 1 nod i taget.
+* Du har på Silver tillförlitlighet eller högre för Service Fabric-kluster och Silver hållbarhet eller senare på valfri skala Set du konfigurera regler för automatisk skalning.
+  * Automatisk skalning regler kapacitet [minsta] måste vara lika med eller större än 5 instanser av virtuella datorer och måste vara lika med eller större än din tillförlitlighetsnivån minimum för den primära nodtypen.
+
+> [!NOTE]
+> Azure Service Fabric tillståndskänslig service fabric: / System/InfastructureService/< NODE_TYPE_NAME > körs på varje nodtyp som har Silver eller högre tillförlitlighet, vilket är den enda systemtjänst som går för att köra i Azure på någon av dina kluster nodtyper . 
 
 ## <a name="vertical-scaling-considerations"></a>Lodrät skalning överväganden
 
@@ -150,10 +163,10 @@ scaleSet.Update().WithCapacity(newCapacity).Apply();
 ## <a name="reliability-levels"></a>Tillförlitlighetsnivåer
 
 Den [tillförlitlighetsnivån](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity) är en egenskap för din resurs för Service Fabric-kluster och kan inte konfigureras på olika sätt för enskilda nodeTypes. Den styr replikeringsfaktorn systemtjänster för klustret och är en inställning på klusternivå för resursen. Tillförlitlighetsnivån avgör det minsta antalet noder som den primära nodtypen måste innehålla. Tillförlitlighetsnivån kan ha följande värden:
-* Platina - körs systemtjänster med ett mål set replikantal av sju
-* Guld - körs systemtjänster med ett mål set replikantal av sju
-* Silver - kör systemtjänster med en target replica set uppräkning av fem
-* Brons – kör systemtjänster med ett mål set replikantal tre
+* Platina - körs systemtjänster med en target replica set uppräkning av sju och nio startvärdesnoder.
+* Guld - körs systemtjänster med en target replica set uppräkning av sju och sju startvärdesnoder.
+* Silver - körs systemtjänster med en target replica set uppräkning av fem och fem startvärdesnoder.
+* Brons - körs systemtjänster med en target replica set uppräkning av tre och tre startvärdesnoder.
 
 Den minsta rekommenderade tillförlitlighetsnivån är Silver.
 

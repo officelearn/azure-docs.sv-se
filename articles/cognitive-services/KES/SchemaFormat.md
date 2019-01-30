@@ -6,18 +6,18 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 07f5536641b55aadf9d8b2623bf4797b8dcd7bd5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4fa8f072d420a0245b9de65482ab4c97fa775bdf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129258"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227309"
 ---
-# <a name="schema-format"></a>Schemaformat
+# <a name="schema-format"></a>Schema Format
 
 Schemat har angetts i en JSON-fil som beskriver attributet strukturen för objekten i datafilen som används för att skapa indexet.  För varje attribut anger schemat namn, datatyp, valfritt operations och valfritt synonymer.  Ett objekt kan ha 0 eller fler värden för varje attribut.  Nedan visas ett förenklat exempel från en akademiska publikationen domän:
 
@@ -41,16 +41,16 @@ Attributnamn är skiftlägeskänsliga identifierare som börjar med en bokstav o
 
 Nedan visas en lista över attribut som stöds datatyper:
 
-| Typ | Beskrivning | Åtgärder | Exempel |
+| Type | Beskrivning | Åtgärder | Exempel |
 |------|-------------|------------|---------|
 | Sträng | Sträng (1 – 1024 tecken) | lika med, starts_with | ”hello world” |
 | Int32 | Ett signerat 32-bitars heltal | är lika med, starts_with, is_between | 2016 |
 | Int64 | Ett signerat 64-bitars heltal | är lika med, starts_with, is_between | 9876543210 |
 | Double-värde | Flyttal med dubbel precision | är lika med, starts_with, is_between | 1.602e-19 |
-| Date | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | ”2016-03-14” |
-| GUID | Globalt unik identifierare | lika med | ”602DD052-CC47-4B23-A16A-26B52D30C05B” |
+| Datum | Datum (1400-01-01 till 9999-12-31) | lika med, is_between | '2016-03-14' |
+| GUID | Globalt unik identifierare | är lika med | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
 | Blob | Internt komprimerade data som inte är indexerade | *Ingen* | ”Hjälpa människor och organisationer i världen för att uppnå mer” |
-| Sammansatta | Sammansättning av flera underordnade attribut| *Saknas* | {”Name”: ”harry shum”, ”anknytning”: ”microsoft”} |
+| Sammansatta | Sammansättning av flera underordnade attribut| *Saknas* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Strängattribut används för att representera strängvärden som kan visas som en del av användarfrågan.  De stöder den exakt matchningen *är lika med* åtgärd, samt de *starts_with* åtgärden för frågan slutförande scenarier, till exempel matchar ”micros” med ”microsoft”.  Skiftlägeskänsliga och fuzzy matchning för att hantera stavfel kommer att stödjas i framtida versioner.
 

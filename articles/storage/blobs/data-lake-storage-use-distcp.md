@@ -3,17 +3,17 @@ title: Kopiera data till Azure Data Lake Storage Gen2 förhandsversion använda 
 description: Använd DistCp för att kopiera data till och från Data Lake Storage Gen2 förhandsversion
 services: storage
 author: seguler
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: seguler
-ms.openlocfilehash: 6c231de0a37eda4f5593c9fbbfa5e611a97996a0
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 9c12f96399de218241c8aa7ed686113c17a7410c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975566"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244155"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen2-preview"></a>Använd DistCp för att kopiera data mellan Azure Storage-Blobbar och Azure Data Lake Storage Gen2 förhandsversion
 
@@ -71,7 +71,7 @@ Eftersom Distcps lägsta Granulariteten är en enskild fil, är ange det maximal
 
 Här är några riktlinjer som du kan använda.
 
-* **Steg 1: Fastställ totalt minne som är tillgängliga för ”standard” YARN app kön** – det första steget är att fastställa det tillgängliga minnet för ”standard” YARN app kön. Den här informationen är tillgänglig i Ambari-portalen som är associerade med klustret. Gå till YARN och visa fliken konfigurationer om du vill visa YARN-minne till ”standard” app kön. Det här är det totala mängden tillgängligt minnet för DistCp jobbet (vilket är egentligen ett MapReduce-jobb).
+* **Steg 1: Fastställa totalt minne som är tillgängliga för ”standard” YARN app kön** – det första steget är att fastställa det tillgängliga minnet för ”standard” YARN app kön. Den här informationen är tillgänglig i Ambari-portalen som är associerade med klustret. Gå till YARN och visa fliken konfigurationer om du vill visa YARN-minne till ”standard” app kön. Det här är det totala mängden tillgängligt minnet för DistCp jobbet (vilket är egentligen ett MapReduce-jobb).
 
 * **Steg 2: Beräkna antalet Mappningskomponenter** -värdet för **m** motsvarar kvoten av den totala YARN minnet dividerat med YARN-behållarens storlek. YARN-behållare Storleksinformation finns i Ambari-portalen. Gå till YARN och visa fliken konfigurationer. Behållarstorlek YARN visas i det här fönstret. Formeln ska tas emot på hur många Mappningskomponenter (**m**) är
 
@@ -81,11 +81,11 @@ Här är några riktlinjer som du kan använda.
 
 Anta att du har ett 4 x D14v2s-kluster och du försöker överföra 10 TB data från 10 olika mappar. Var och en av mapparna innehåller olika mängder data och filstorlekar i varje App är olika.
 
-* **Totalt minne YARN**: från Ambari portal YARN-minne ligger 96 GB för en D14-nod. Det är totala YARN-minnet i kluster med fyra noder: 
+* **Totalt minne YARN**: Från portalen Ambari bestämma du att YARN-minne är 96 GB för en D14-nod. Det är totala YARN-minnet i kluster med fyra noder: 
 
         YARN memory = 4 * 96GB = 384GB
 
-* **Antal Mappningskomponenter**: du bestämma att YARN behållarens storlek är 3 072 MB för en D14 klusternod från Ambari-portalen. Därför är antalet Mappningskomponenter:
+* **Antal Mappningskomponenter**: Från portalen Ambari bestämma du att YARN behållarens storlek är 3 072 MB för en D14-klusternod. Därför är antalet Mappningskomponenter:
 
         m = (4 nodes * 96GB) / 3072MB = 128 mappers
 

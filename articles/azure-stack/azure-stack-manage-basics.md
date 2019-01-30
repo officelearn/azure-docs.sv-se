@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
-ms.openlocfilehash: f22754a16c4765989b5773d099fc3ecda73040db
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: a9bf2240e6e60a3d2d80bf4829d74f1043024d7e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52972396"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239680"
 ---
 # <a name="azure-stack-administration-basics"></a>Azure Stack administration grunder
 Det finns flera saker du behöver veta om du inte har använt Azure Stack-administration. Den här vägledningen ger en översikt över din roll som Azure Stack-operatör och vad du behöver att be användarna för dem att snabbt blir mer produktiv.
@@ -63,7 +64,7 @@ De här tjänsterna kräver ytterligare konfiguration innan du kan göra dem til
 
 **Planerna för tjänsten**
 
-Azure Stack kommer att fortsätta att lägga till stöd för Azure-tjänster. Planerade översikt över och se den [Azure Stack: en utökning av Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Du kan också övervaka den [Azure Stack-blogginlägg](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) efter nya meddelanden.
+Azure Stack kommer att fortsätta att lägga till stöd för Azure-tjänster. Planerade översikt över och se den [Azure Stack: En utökning av Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) White Paper. Du kan också övervaka den [Azure Stack-blogginlägg](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) efter nya meddelanden.
 
 ## <a name="what-account-should-i-use"></a>Vilket konto ska jag använda?
 Det finns några överväganden för användarkonton som du bör känna till när du hanterar Azure Stack. Särskilt i distributioner med Windows Server Active Directory Federation Services (AD FS) som identitetsleverantör i stället för Azure Active Directory (AD Azure). Följande gäller konto både integrerade Azure Stack-system och ASDK distributioner:
@@ -74,7 +75,7 @@ Det finns några överväganden för användarkonton som du bör känna till nä
 |Lokal administratör (. \administratör)|ASDK värd administratör|ASDK värd administratör|
 |AzureStack\AzureStackAdmin|ASDK värd administratör<br><br>Kan användas för att logga in på administrationsportalen för Azure Stack<br><br>Åtkomst till se och administrera Service Fabric-ringar|ASDK värd administratör<br><br>Ingen åtkomst till Azure Stack-administrationsportalen<br><br>Åtkomst till se och administrera Service Fabric-ringar<br><br>Inte längre ägare av standard providern prenumeration (DPS)|
 |AzureStack\CloudAdmin|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt|Kan komma åt och kör tillåtna kommandon inom den privilegierad slutpunkt<br><br>Kan inte logga in på ASDK värden<br><br>Ägaren av providern Standardprenumeration (DPS)|
-|Global Azure AD-administratör|Används under installationen<br><br>Ägaren av providern Standardprenumeration (DPS)|Inte tillämpligt|
+|Azure AD Global Administrator|Används under installationen<br><br>Ägaren av providern Standardprenumeration (DPS)|Inte tillämpligt|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Vilka verktyg kan jag använda för att hantera?
@@ -108,7 +109,7 @@ Du måste du låta dina användare veta hur du arbetar med tjänster i Azure Sta
 
 Det finns information som användarna måste förstå innan de använder tjänster och skapa appar i Azure Stack. Det finns till exempel särskilda krav för PowerShell och API-versionen. Det finns även vissa funktionen deltan mellan en tjänst i Azure och motsvarande tjänsten i Azure Stack. Se till att dina användare läser följande artiklar:
 
-- [Viktiga överväganden: med hjälp av tjänster eller att skapa appar för Azure Stack](user/azure-stack-considerations.md)
+- [Viktiga överväganden: Med hjälp av tjänster eller att skapa appar för Azure Stack](user/azure-stack-considerations.md)
 - [Överväganden för virtuella datorer i Azure Stack](user/azure-stack-vm-considerations.md)
 - [Lagring: skillnader och överväganden](user/azure-stack-acs-differences.md)
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 95e7f5ce52f4bcf45153b4e455c1427f7117641c
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 91fe93df29717519e6bf3fcdb39b97b8ffde02d1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263686"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225193"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Språkstöd för Content Moderator-API
 
@@ -30,30 +30,30 @@ ms.locfileid: "54263686"
 | Arabiska (Romanized)   | Afrikaans   | Arabiska   | Arabiska
 | Balinese | Albanska | Kinesiska (förenklad)    | Danska
 | Bengali | Amhariska | Kinesiska (traditionell)     | Nederländska
-| Buginesisk skrift | Arabiska | tjeckiska                     | Svenska
+| Buginesisk skrift | Arabiska | tjeckiska                     | Engelska
 | Buhid | Armeniska | Danska                     | Finska
 | Carian | Assamesiska | Nederländska                     | Franska
-| Kinesiska (förenklad) | Azerbajdzjansk | Svenska  | Grekiska (modern)
+| Kinesiska (förenklad) | Azerbajdzjanska | Engelska  | Grekiska (modern)
 | Kinesiska (traditionell) | Bengali - Bangladesh | Finska  | Italienska
-| Kyrka (Slaviska) | Bengali - Indien | Franska     | Koreanska
+| Kyrka (Slaviska) | Bengali - Indien | Franska     | Koreansk
 | Koptiska | Baskiska | Tyska                      | Norska
-| tjeckiska |  Vitryska | Grekiska (modern)         | Polska
+| tjeckiska |  Vitryska | Grekiska (modern)         | polska
 | Dhivehi | Bosniska - kyrilliska | ungerska      | Portugisiska
 | Nederländska | Bosniska - Latin | Italienska             | Rumänska
-| Svenska | (Creole) | Breton [non-GeoPol] | Japanska  | Ryska
-| Farsi | Bulgariska | Koreanska                        | Slovakiska
+| Engelska | (Creole) | Breton [non-GeoPol] | Japanska  | ryska
+| Farsi | Bulgariska | Koreansk                        | Slovakiska
 | Franska | Katalanska | Norska                        | Spanska
-| Tyska | Centralkurdiska | Polska        | Turkiska
+| Tyska | Centralkurdiska | polska        | turkiska
 | Grekiska | Cherokesiska | Portugisiska
 | Haitiska | Kinesiska (förenklad) | Rumänska
-| Hebreiska | Kinesiska (traditionell) - Hongkong SAR | Ryska
+| Hebreiska | Kinesiska (traditionell) - Hongkong SAR | ryska
 | Hindi | Kinesiska (traditionell) - Taiwan | Serbiska-kyrilliska
 | Hmong | Kroatiska | Serbiska-Latin
 | ungerska | tjeckiska | Slovakiska
 | Italienska | Danska | Spanska
-| Japanska | Dari | Svenska
-| Koreanska | Nederländska | Turkiska
-| Kurdiska (arabiska) | Svenska
+| Japanska | Dari | svenska
+| Koreansk | Nederländska | turkiska
+| Kurdiska (arabiska) | Engelska
 | Kurdiska (latinsk) | Estniska
 | Lepcha | Filippinska
 | Limbu | Finska
@@ -66,11 +66,11 @@ ms.locfileid: "54263686"
 | Norska (nynorsk) |  Haussa
 | Gamla (persiska) | Hebreiska
 | Afghanska | Hindi
-| Polska | ungerska
+| polska | ungerska
 | Portugisiska | Isländska
 | Punjabi | Igbo
 | Rejang | Indonesiska
-| Ryska | Inuktitut
+| ryska | Inuktitut
 | Santali | Iriska
 | Sasak | isiXhosa
 | Saurashtra | isiZulu
@@ -79,13 +79,13 @@ ms.locfileid: "54263686"
 | Singalesiska | Kannada
 | Slovenska | Kazakiska
 | Spanska | Khmer
-| Svenska | Quiché
+| svenska | Quiché
 | Sylheti | Rwanda
 | Syriska | Kiswahili
 | Tagbanwa | Konkani
-| Tai (Nua) | Koreanska
+| Tai (Nua) | Koreansk
 | Tamashek | Kirgiziska
-| Turkiska | Laotiska
+| turkiska | Laotiska
 | Ugaritisk skrift | Lettiska
 | Uzbekiska (kyrillisk) | Litauiska
 | Uzbekiska (latinsk) | Luxemburgiska
@@ -102,7 +102,7 @@ ms.locfileid: "54263686"
 | | Odia
 | | Afghanska
 | | Persiska
-| | Polska
+| | polska
 | | Portugisiska - Brasilien
 | | Portugisiska - Portugal
 | | Pulaar
@@ -110,27 +110,27 @@ ms.locfileid: "54263686"
 | | Punjabi (Pakistan)
 | | Quechua (Peru)
 | | Rumänska
-| | Ryska
+| | ryska
 | | Skotsk gaeliska
 | | Serbiska (kyrillisk)
 | | Serbiska (kyrillisk, Bosnien och Hercegovina)
 | | Serbiska (latinsk)
 | | Sesotho
-| | Sesotho sa Leboa
+| | Nordsotho
 | | Setswana
 | | Sindhi
 | | Singalesiska
 | | Slovakiska
 | | Slovenska
 | | Spanska
-| | Svenska
+| | svenska
 | | Tadzjikiska
 | | Tamiliska
 | | Tatariska
 | | Telugu
 | | Thailändska
-| | Tigrinya
-| | Turkiska
+| | Tigrinja
+| | turkiska
 | | Turkmeniska
 | | Ukrainska
 | | Urdu

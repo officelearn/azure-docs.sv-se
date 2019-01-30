@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cf86d2a644c2732f27442a807dec1ad960b94af5
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095165"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214474"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -156,7 +156,7 @@ En serverslutpunkt kan inte logga synkronisering av följande skäl:
 > [!Note]  
 > Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
 
-## <a name="sync"></a>Sync
+## <a name="sync"></a>Synkronisering
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -879,6 +879,7 @@ Om problemet kvarstår kör du verktyget AFSDiag:
 6. En .zip-fil som innehåller loggar och spårningsfiler sparas i den katalogen som du har angett.
 
 ## <a name="see-also"></a>Se också
+- [Övervaka Azure File Sync](storage-sync-files-monitoring.md)
 - [Vanliga och frågor svar om Azure Files](storage-files-faq.md)
 - [Felsöka Azure Files-problem i Windows](storage-troubleshoot-windows-file-connection-problems.md)
 - [Felsöka problem i Azure Files i Linux](storage-troubleshoot-linux-file-connection-problems.md)

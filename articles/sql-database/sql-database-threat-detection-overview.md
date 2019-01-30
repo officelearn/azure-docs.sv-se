@@ -11,24 +11,23 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 587c0718e333f121d0ff8b32d8c2a7dad6b8f774
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/29/2019
+ms.openlocfilehash: 2f52cbaf5d50eca13a87ff8e745b0f8baefbe23e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037148"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210385"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 
 Azure SQL-Hotidentifiering för [Azure SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) identifierar avvikande aktiviteter som visar onormala och potentiellt skadliga försök att komma åt eller utnyttja databaser.
 
-Hotidentifiering är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ATP-portalen.
+Hotidentifiering är en del av den [SQL avancerade datasäkerhet](sql-advanced-threat-protection.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Hotidentifiering kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
 
-Threat detection-tjänsten debiteras 15$ / månad för alla databaser per logisk Server eller hanterad instans med första 30 dagarna kostnadsfritt.
 
 ## <a name="what-is-threat-detection"></a>Vad är identifiering av hot
 
@@ -69,7 +68,7 @@ Du får ett e-postavisering när avvikande databasaktiviteter. E-postmeddelandet
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Utforska hotidentifieringsaviseringar för din databas i Azure portal
 
-Hotidentifieringen i SQL Database integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). En SQL threat identifiering realtidspaneler i databasen och SQL ATP-blad i Azure-portalen spåra status för aktiva hot.
+Hotidentifieringen i SQL Database integrerar dess aviseringar med [Azure Security Center](https://azure.microsoft.com/services/security-center/). Live SQL threat identifiering av paneler i databasen och SQL-ANNONSER blad i Azure-portalen spåra status för aktiva hot.
 
 Klicka på **Threat varning** för att starta Azure Security Center-aviseringar sidan och få en översikt över aktiva SQL hot som upptäckts på databasen eller datalagret.
 
@@ -81,7 +80,7 @@ Klicka på **Threat varning** för att starta Azure Security Center-aviseringar 
 
 - Läs mer om [Hotidentifiering i enkel databas](sql-database-threat-detection.md).
 - Läs mer om [Hotidentifiering i Managed Instance](sql-database-managed-instance-threat-detection.md).
-- Läs mer om [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Läs mer om [SQL Advanced datasäkerhet](sql-advanced-threat-protection.md).
 - Läs mer om [Azure SQL Database Auditing](sql-database-auditing.md)
 - Läs mer om [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Mer information om priser finns i den [sidan med priser för SQL-databas](https://azure.microsoft.com/pricing/details/sql-database/)  

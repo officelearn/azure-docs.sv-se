@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: cd26eef236063eff72d909c0cd86c7f9485bfc4d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 4fa8e28d9ccc16482ca937a220eae83e282da7e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793299"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210045"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Stöd matrix för haveriberedskap för Hyper-V-datorer till en sekundär plats
 
@@ -45,7 +45,7 @@ Windows Server 2012 R2 | Någon gästen operativsystemet [stöds av Hyper-V](htt
 
 Endast Linux-datorer med följande storage kan replikeras:
 
-- Filsystem (EXT3, ETX4, ReiserFS, XFS).
+- File system (EXT3, ETX4, ReiserFS, XFS).
 - Upptäcka programvara-enheter med mappning.
 - Volymhanterare (LVM2).
 - Fysiska servrar med HP CCISS controller lagring stöds inte.
@@ -60,9 +60,9 @@ Host - VLAN | Ja
 Host - IPv4 | Ja 
 Host - IPv6 | Nej 
 Gäst VM - NIC-teamindelning | Nej
-Gäst VM - IPv4 | Ja
+Guest VM - IPv4 | Ja
 Gäst VM - IPv6 | Nej
-Gues VM-Windows / Linux - statisk IP-adress | Ja
+Gäst VM-Windows / Linux - statisk IP-adress | Ja
 Gäst VM - med flera nätverkskort | Ja
 
 
@@ -72,7 +72,7 @@ Gäst VM - med flera nätverkskort | Ja
 
 **Lagring (värd)** | **Stöds**
 --- | --- 
-NFS | Gäller inte
+NFS | Saknas
 SMB 3.0 |  Ja
 SAN (ISCSI) | Ja
 Flera sökvägar (MPIO) | Ja
@@ -81,16 +81,16 @@ Flera sökvägar (MPIO) | Ja
 
 **Konfiguration** | **Stöds**
 --- | --- | 
-VMDK |  Gäller inte
-VHD-/ VHDX | Ja (upp till 16 diskar)
+VMDK |  Saknas
+VHD/VHDX | Ja (upp till 16 diskar)
 Gen 2 VM | Ja
 Delad klusterdisk | Nej
 Krypterad disk | Nej
-UEFI| Gäller inte
+UEFI| Saknas
 NFS | Nej
 SMB 3.0 | Nej
-RDM | Gäller inte
-Disk-> 1 TB | Ja
+RDM | Saknas
+Disk > 1 TB | Ja
 Volymen med stripe-disk > 1 TB<br/><br/> LVM | Ja
 Lagringsutrymmen | Ja
 Frekvent Lägg till/ta bort disk | Nej
@@ -104,7 +104,7 @@ Flera sökvägar (MPIO) | Ja
 Flytta valv mellan resursgrupper (inom eller mellan prenumerationer) |  Nej
 Flytta lagring, nätverk, virtuella Azure-datorer mellan resursgrupper (inom eller mellan prenumerationer) | Nej
 
-## <a name="azure-site-recovery-provider"></a>Azure Site Recovery-providern
+## <a name="azure-site-recovery-provider"></a>Azure Site Recovery Provider
 
 Providern samordnar kommunikationen mellan VMM-servrar. 
 

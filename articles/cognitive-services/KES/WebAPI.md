@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 131d8d58982b5430063aa3dc7b3d1982cd430148
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122033"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211312"
 ---
 # <a name="web-api-interface"></a>Webb-API-gränssnitt
 
@@ -29,8 +29,8 @@ Dessa API-metoder att används tillsammans skapa en fullständig semantiska sök
 
 **Exempel**
 
-I en domän för akademiska publikationer, om en användare skriver strängen ”latent s” den *tolka* metoden kan ge en uppsättning rankad tolkningar som tyder på att användaren kan söka efter nyckelordet ”latent semantiska analys”, den rubriken ”latent struktur analysis” eller andra uttryck som börjar med ”latent s”.  Den här informationen kan användas för att snabbt hjälper användaren att önskade sökresultat.
+I en domän för akademiska publikationer, om en användare skriver strängen ”latent s” den *tolka* metoden kan ge en uppsättning rankad tolkningar som tyder på att användaren kan söka efter nyckelordet ”latent semantiska analys”, den rubriken ”latent struktur analysis” eller andra uttryck som börjar med ”latent s”.  Den här informationen kan användas för att snabbt vägleda användaren till önskat sökresultat.
 
 För den här domänen i *utvärdera* metoden kan användas för att hämta en uppsättning matchande publikationer från akademiska indexet och *calchistogram* metoden kan användas för att beräkna fördelningen av attribut värden för de matchande publikationer som kan användas för att ytterligare filter och förfina sökresultaten.
 
-Observera att REST API-anrop för att förbättra läsbarheten av exemplen innehåller tecken (t ex blanksteg) som inte har URL-kodade. Koden behöver du tillämpa lämpliga URL-kodningar.
+Observera att för att förbättra läsbarheten för exemplen innehåller REST API-anropen tecken (såsom blanksteg) som inte har URL-kodats. Din kod behöver tillämpa lämpliga URL-kodningar.

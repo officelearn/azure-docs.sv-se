@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: fa25c144737c4d070b2dbd08700c68e617950e0d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 148efb47d123938c3914f36e1432d447e277b051
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452266"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210565"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -34,7 +34,7 @@ Den här artikeln sammanfattas konfigurationer som stöds och komponenter när d
 
 **Resursåtgärden** | **Detaljer**
 --- | --- | ---
-**Flytta valv mellan resursgrupper** | Stöds inte
+**Flytta valv mellan resursgrupper** | Stöds ej
 **Flytta resurser för beräkning/lagringsnätverk mellan resursgrupper** | Stöds ej.<br/><br/> Om du flyttar en virtuell dator eller tillhörande komponenter, till exempel lagringsnätverk/när Virtuellt datorn replikeras, måste du inaktivera och återaktivera replikering för den virtuella datorn.
 **Replikera virtuella Azure-datorer från en prenumeration till en annan för katastrofåterställning** | Stöd för inom samma Azure Active Directory-klientorganisation.
 **Migrera virtuella datorer mellan regioner i stöds geografiska kluster (inom och mellan prenumerationer)** | Stöd för inom samma Azure Active Directory-klientorganisation.
@@ -59,9 +59,9 @@ Kina | Kina, östra, Kina, norra, North2 för Kina, östra 2 Kina
 >
 > - För **södra Brasilien** region, som du kan replikera och redundansväxla till något av följande: Södra centrala USA, västra centrala USA, östra USA, östra USA 2, västra USA, västra USA 2 och USA, norra centrala regioner. Det bör noteras att Site Recovery har bara aktiverat södra Brasilien som ska användas som en källregionen från där virtuella datorer kan skyddas. Den **kan inte användas som en DR för mål-region** för alla Azure-regioner som södra centrala USA. Anledningen svarstid som observerats på grund av geografiska avståndet rekommenderar vi att du väljer alla andra America region än södra Brasilien.
 > 
-> - Om du är **kunde inte finns i en region** där du vill att **att skapa ett valv** Kontrollera din prenumeration har behörighet att skapa resurser i den regionen. Exempel: Om du inte kan skapa valv i Frankrike, södra sedan har din prenumeration inte åtkomst till Frankrike, södra region. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”whitlelist prenumerationen för XXX Azure-region”
+> - Om du är **kunde inte finns i en region** där du vill att **att skapa ett valv** Kontrollera din prenumeration har behörighet att skapa resurser i den regionen. Exempel: Om du inte kan skapa valv i Frankrike, södra sedan har din prenumeration inte åtkomst till Frankrike, södra region. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
 > 
-> - Om du är **kunde inte finns i en region** inom ett geografiskt kluster **under replikering** Kontrollera din prenumeration har behörighet att skapa virtuella datorer i den regionen. Exempel: Om du försöker skydda virtuella datorer mellan Frankrike, centrala och Frankrike, södra och inte ser Frankrike, södra under regionen nedrullningsbara din prenumeration har åtkomst till distribuera virtuell dator i den regionen. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”whitlelist prenumerationen för XXX Azure-region”
+> - Om du är **kunde inte finns i en region** inom ett geografiskt kluster **under replikering** Kontrollera din prenumeration har behörighet att skapa virtuella datorer i den regionen. Exempel: Om du försöker skydda virtuella datorer mellan Frankrike, centrala och Frankrike, södra och inte ser Frankrike, södra under regionen nedrullningsbara din prenumeration har åtkomst till distribuera virtuell dator i den regionen. Skriv in filen supportärende under problemet typen ”prenumerationshantering” och problemet ”övriga allmänna frågor” ämne ”godkända prenumerationen för XXX Azure-region”
 > - Du kan inte välja regioner över geografiska kluster som nämns ovan.
 
 
@@ -154,7 +154,7 @@ Storlek | Alla Azure VM-storlekar med minst 2 CPU-kärnor och 1 GB RAM-minne | K
 Tillgänglighetsuppsättningar | Stöds | Om du aktiverar replikering för en virtuell Azure-dator med standardalternativen skapas en tillgänglighetsuppsättning automatiskt baserat på de nationella inställningarna för källan. Du kan ändra dessa inställningar.
 Tillgänglighetszoner | Stöds |
 Hybrid Use-förmånen (HUB) | Stöds | Om den Virtuella källdatorn har en HUB licens aktiverad, ett redundanstest eller redundans använder virtuell dator också HUB-licens.
-Skalningsuppsättning för virtuella datorer | Stöds inte |
+Skalningsuppsättning för virtuella datorer | Stöds ej |
 Azure galleriavbildningar - Microsoft publicerat | Stöds | Om den virtuella datorn kör ett operativsystem som stöds.
 Azure-galleriet-avbildningar – från tredje part publicerats | Stöds | Om den virtuella datorn kör ett operativsystem som stöds.
 Anpassade avbildningar - från tredje part publicerats | Stöds | Om den virtuella datorn kör ett operativsystem som stöds.
@@ -178,7 +178,7 @@ Den här tabellen sammanfattas stöd för Azure VM OS-disk, datadisk och tillfä
 **Komponent** | **Support** | **Detaljer**
 --- | --- | ---
 Maximal storlek för OS-disk | 2 048 GB | [Läs mer](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms) om VM-diskar.
-Temporär disk | Stöds inte | Den temporära disken utelämnas alltid från replikering.<br/><br/> Inte alla beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
+Temporär disk | Stöds ej | Den temporära disken utelämnas alltid från replikering.<br/><br/> Inte alla beständiga data på den temporära disken. [Läs mer](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk).
 Maximal Datastorlek för disk | 4 095 GB |
 Maxantalet för data-disk | Upp till 64 i enlighet med stöd för en viss Azure VM-storlek | [Läs mer](../virtual-machines/windows/sizes.md) om VM-storlekar.
 Förändringstakten för data-disk | Högst 10 Mbit/s per disk för premiumlagring. Högst 2 Mbit/s per disk för standardlagring. | Om de genomsnittliga dataändringshastighet på disken är kontinuerligt högre än tillåtna, replikering ifatt inte.<br/><br/>  Om längsta har överskridits sporadiskt replikering kan komma ifatt, men du kan se något fördröjda återställningspunkter.
@@ -188,20 +188,20 @@ Hanterad disk - standard | Stöd i Azure-regioner där Azure Site Recovery stöd
 Hanterad disk - premium | Stöd i Azure-regioner där Azure Site Recovery stöds. |
 Standard SSD | Stöds inte |
 Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
-Frekventa och lågfrekventa lagring | Stöds inte | VM-diskar stöds inte på frekventa och lågfrekventa lagring
+Frekventa och lågfrekventa lagring | Stöds ej | VM-diskar stöds inte på frekventa och lågfrekventa lagring
 Lagringsutrymmen | Stöds |
 Kryptering i vila (SSE) | Stöds | SSE är standardinställningen på storage-konton.   
 Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktiverats för [kryptering med Azure AD-app](https://aka.ms/ade-aad-app) stöds |
-Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
-Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
-Uteslut disk | Stöds inte|   Temporär disk är undantagen som standard.
-Storage Spaces Direct  | Stöds inte|
-Skalbar filserver  | Stöds inte|
+Azure Disk Encryption (ADE) för Linux OS | Stöds ej |
+Frekvent Lägg till/ta bort disk | Stöds ej | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
+Uteslut disk | Stöds ej|   Temporär disk är undantagen som standard.
+Storage Spaces Direct  | Stöds ej|
+Skalbar filserver  | Stöds ej|
 LRS | Stöds |
 GRS | Stöds |
 RA-GRS | Stöds |
-ZRS | Stöds inte |
-Frekventa och lågfrekventa lagring | Stöds inte | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
+ZRS | Stöds ej |
+Frekventa och lågfrekventa lagring | Stöds ej | Virtuella diskar stöds inte på frekventa och lågfrekventa lagring
 Azure Storage-brandväggar för virtuella nätverk  | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, se till att du [”Tillåt att betrodda Microsoft-tjänster”](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 Storage-konton för generell användning V2 (både frekvent och lågfrekvent nivå) | Nej | Transaktionen kostnaderna ökar avsevärt jämfört med generell användning V1-lagringskonton
 
@@ -235,7 +235,7 @@ Traffic Manager     | Stöds | Du kan förkonfigurera Traffic Manager så att tr
 Azure DNS | Stöds |
 Anpassad DNS  | Stöds |
 Via oautentiserad proxyserver | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)    
-Autentiserad Proxy | Stöds inte | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
+Autentiserad Proxy | Stöds ej | Om den virtuella datorn använder en autentiserad proxyserver för utgående anslutningar, kan inte replikeras med Azure Site Recovery.    
 VPN för plats till plats med en lokal (med eller utan ExpressRoute)| Stöds | Se till att Udr och NSG: er konfigureras så att Site recovery trafiken inte dirigeras till den lokala. Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
 Anslutning mellan virtuella nätverk | Stöds | Referera till [nätverk vägledningsdokumentet.](site-recovery-azure-to-azure-networking-guidance.md)  
 Slutpunkter för virtuellt nätverk | Stöds | Om du är att begränsa åtkomst till virtuellt nätverk till storage-konton, kontrollerar du att betrodda Microsoft-tjänster har åtkomst till lagringskontot.

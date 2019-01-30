@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d6ddb76954108c037dc4135393df8622c9dbd101
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128272"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220781"
 ---
 # <a name="evaluate-method"></a>utvärdera metod
 
@@ -23,17 +23,17 @@ Den *utvärdera* metoden utvärderar och returnerar resultatet av ett strukturer
 
 Vanligtvis hämtas ett uttryck som från ett svar till metoden tolkningar.  Men du kan också skapa frågeuttryck själv (se [strukturerade frågeuttryck](Expressions.md)).  
 
-## <a name="request"></a>Förfrågan 
+## <a name="request"></a>Begäran 
 
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
-Namn|Värde|Beskrivning
+Name|Value|Beskrivning
 ----|----|----
 uttryck för Markörstorlek       | Textsträngen | Strukturerade frågeuttryck som väljer en delmängd av index entiteter.
 Attribut | Textsträngen | Kommaavgränsad lista med attribut som ska ingå i svaret.
-count      | Antal (standard = 10) | Maximalt antal resultat som ska returneras.
-förskjutning     | Antal (standard = 0) | Index för det första resultatet ska returneras.
-OrderBy |   Textsträngen | Namnet på attributet som används för att sortera resultaten, följt av valfritt sorteringsordningen (standard = asc) ”:*%{attrname/*[: (asc&#124;desc)]”.  Om inte anges returneras resultatet genom att minska sannolikheten för naturliga loggen.
+ antal      | Antal (standard = 10) | Maximalt antal resultat som ska returneras.
+offset     | Antal (standard = 0) | Index för det första resultatet ska returneras.
+orderby |   Textsträngen | Namnet på attributet som används för att sortera resultaten, följt av valfritt sorteringsordningen (standard = asc) ”:*%{attrname/*[: (asc&#124;desc)]”.  Om inte anges returneras resultatet genom att minska sannolikheten för naturliga loggen.
 timeout  | Antal (standard = 1000) | Tidsgräns i millisekunder. Endast returneras en beräknad innan tidsgränsen har gått ut.
 
 Med hjälp av den *antal* och *offset* parametrar, ett stort antal resultat kan erhållas stegvis över flera förfrågningar.

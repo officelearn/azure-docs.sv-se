@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 7c4a5029208854528afdfdbfcdc63434a2a94e24
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: f8bc13aa2adad5c27b1754303ea30304c491f7ca
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338716"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211805"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Snabbstart: Använda Bing-Taligenkänning för taligenkänning i Objective-C på iOS
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-objective-c-on-ios"></a>Snabbstart: Använd Bing-Taligenkänning för taligenkänning i Objective-C på iOS
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -115,7 +115,7 @@ Klientbiblioteket tillhandahåller redan implementerat erkännande klientklasser
 
 * `DataRecognitionClient`: Taligenkänning med PCM-data (till exempel från en källa för filen eller ljud). Data har delats upp i buffertar och varje buffert skickas till tal-tjänsten. Inga ändringar görs till buffertar, så att användare kan använda sina egna identifiering av tystnad, om så önskas. Om informationen som tillhandahålls av WAV-filer, kan du skicka data från fil-direkt till servern. Om du har rådata, till exempel ljud kommer via Bluetooth, först skickar du ett sidhuvud i formatet till servern följt av data.
 * `MicrophoneRecognitionClient`: Taligenkänning med ljud från mikrofonen. Kontrollera att mikrofonen är på och att data från mikrofonen skickas till tjänsten för taligenkänning. En inbyggd ”tystnad detektor” tillämpas på mikrofonen data innan den skickas till tjänsten för taligenkänning.
-* `DataRecognitionClientWithIntent` och `MicrophoneRecognitionClientWithIntent`: förutom igenkänning av text, returnera dessa klienter strukturerad information om avsikten talaren, som dina program kan använda för att driva ytterligare åtgärder. Om du vill använda ”avsikt”, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` och `MicrophoneRecognitionClientWithIntent`: Förutom igenkänning av text returnera dessa klienter strukturerad information om syftet för talare, som dina program kan använda för att driva ytterligare åtgärder. Om du vill använda ”avsikt”, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Språk
 
@@ -132,9 +132,9 @@ Du måste också ange `SpeechRecognitionMode` när du skapar klienten med `Speec
 
 Du kan koppla olika händelsehanterare till klienten du skapade:
 
-* **Partiell resultat händelser**: den här händelsen anropas varje gång den Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
-* **Felhändelser**: kallas när tjänsten upptäcker ett fel.
-* **Avsiktshantering händelser**: namnet på ”WithIntent” klienter (endast i ShortPhrase läge) när slutgiltiga resultatet parsas till en strukturerade JSON-avsikt.
+* **Partiell resultat händelser**: Den här händelsen anropas varje gång den Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
+* **Felhändelser**: Anropas när tjänsten upptäcker ett fel.
+* **Avsiktshantering händelser**: Namnet på ”WithIntent” klienter (endast i ShortPhrase läge) när slutgiltiga resultatet parsas till en strukturerade JSON-avsikt.
 * **Resultera händelser**:
   * I `SpeechRecognitionMode_ShortPhrase` läge, den här händelsen kallas och returnerar n bäst resultat när du har slutfört talar.
   * I `SpeechRecognitionMode_LongDictation` läge, händelsehanteraren anropas flera gånger, baserat på där tjänsten identifierar paus i meningen.

@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e4131bc8f038957e52b914937b2d45e670be8f5f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157283"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251358"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotera hemligheter i Azure Stack
 
@@ -43,7 +44,7 @@ Infrastruktur tjänstcertifikat för externa tjänster som tillhandahålls av Az
 - KeyVault
 - Admininistrationstillägg värden
 - ACS (inklusive blob-, tabell- och queue storage)
-- AD FS *
+- ADFS *
 - Graph *
 
 \* Gäller endast om den miljön identitetsprovider är Active Directory Federation Services (AD FS).
@@ -62,13 +63,13 @@ Azure Stack stöder hemliga rotation med externa certifikat från en ny certifik
 
 |Installerade certifikat CA: N|Certifikatutfärdaren för att rotera till|Stöds|Azure Stack-versioner som stöds|
 |-----|-----|-----|-----|
-|Från självsignerat|Enterprise-|Stöds inte||
+|Från självsignerat|To Enterprise|Stöds inte||
 |Från självsignerat|Att självsignerat|Stöds inte||
 |Från självsignerat|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
-|Från Enterprise|Enterprise-|Så länge som kunder använder samma företagets Certifikatutfärdare som används vid distribution som stöds|1803 och senare|
+|Från Enterprise|To Enterprise|Så länge som kunder använder samma företagets Certifikatutfärdare som används vid distribution som stöds|1803 och senare|
 |Från Enterprise|Att självsignerat|Stöds inte||
 |Från Enterprise|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
-|Från offentlig<sup>*</sup>|Enterprise-|Stöds inte|1803 och senare|
+|Från offentlig<sup>*</sup>|To Enterprise|Stöds inte|1803 och senare|
 |Från offentlig<sup>*</sup>|Att självsignerat|Stöds inte||
 |Från offentlig<sup>*</sup>|Till offentligt<sup>*</sup>|Stöds|1803 och senare|
 
@@ -297,7 +298,7 @@ Den **Start SecretRotation** cmdlet roterar infrastruktur hemligheterna i ett Az
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Typ | Krävs | Position | Standard | Beskrivning |
+| Parameter | Type | Krävs | Position | Standard | Beskrivning |
 | -- | -- | -- | -- | -- | -- |
 | PfxFilesPath | Sträng  | False  | med namnet  | Ingen  | Sökvägen till filresursen i **\Certificates** katalog som innehåller alla externa nätverk endpoint certifikat. Krävs endast när du roterar externa hemligheter. End-katalogen måste vara **\Certificates**. |
 | CertificatePassword | SecureString | False  | med namnet  | Ingen  | Lösenordet för alla certifikat som anges i - PfXFilesPath. Obligatoriskt värde om PfxFilesPath anges när externa hemligheter roteras. |

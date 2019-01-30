@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: raynew
-ms.openlocfilehash: fef6dc7937b2c83e67a281c69267bdf29216793d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61e66a19b625141c69a9473373d3d5d808e18fde
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199143"
+ms.locfileid: "55211125"
 ---
-# <a name="whats-new-in-site-recovery"></a>Vad är nytt i Site Recovery
+# <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
 Den [Azure Site Recovery](site-recovery-overview.md) tjänsten uppdateras och förbättras kontinuerligt. Som hjälper dig att hålla dig uppdaterad, den här artikeln innehåller information om de senaste versioner, nya funktioner och nytt innehåll. Den här sidan uppdateras regelbundet.
 
@@ -59,7 +59,7 @@ Azure introduceras [Standard Solid tillstånd-hårddiskar (SSD)](https://docs.mi
 
 ### <a name="support-for-azure-storage-firewall"></a>Support för Azure storage-brandväggen
 
-Du kan skydda Azure storage-konton till en specifik uppsättning nätverk genom att aktivera brandväggsregler för kontot. Du konfigurerar storage-konton för att neka trafik från interna nätverk och internet som standard och sedan bevilja åtkomst till trafik från specifika virtuella nätverk. Site Recovery stöder replikering för virtuella datorer med ohanterade diskar på firewa-aktiverade storage-konton till en sekundär region. Du kan välja storage-konton med brandväggar som aktiverats i målregionen för ohanterade diskar. Du kan också begränsa åtkomsten till cachelagringskontot genom att begränsa nätverksåtkomst till endast nätverk som virtuella datorer finns. Observera att du måste [Tillåt åtkomst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för betrodda Microsoft-tjänster.
+Du kan skydda Azure storage-konton till en specifik uppsättning nätverk genom att aktivera brandväggsregler för kontot. Du konfigurerar storage-konton för att neka trafik från interna nätverk och internet som standard och sedan bevilja åtkomst till trafik från specifika virtuella nätverk. Site Recovery stöder replikering för virtuella datorer med ohanterade diskar till brandväggen aktiverad lagringskonton till en sekundär region. Du kan välja storage-konton med brandväggar som aktiverats i målregionen för ohanterade diskar. Du kan också begränsa åtkomsten till cachelagringskontot genom att begränsa nätverksåtkomst till endast nätverk som virtuella datorer finns. Observera att du måste [Tillåt åtkomst](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för betrodda Microsoft-tjänster.
 
 ## <a name="q3-2018"></a>Q3 2018 
 

@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 399a0e6dd2b5c83a599aa50973417ba5a9be708d
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 890ed64779c6e5704915609552cdd7490ede123a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54813363"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210309"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Optimera prestanda med hjälp av minnesinterna tekniker i SQL-databas
 
@@ -163,7 +163,7 @@ När du använder icke-grupperat columnstore-index, lagras fortfarande bastabell
 Om du har en **klustrade** columnstore-indexet, hela tabellen blir otillgänglig när nedgraderingen. Därför rekommenderar vi att du ta bort alla *klustrade* columnstore indexerar innan du börjar nedgradera din databas till en nivå som inte stöds eller nivå.
 
 > [!Note]
-> Hanterad instans stöder Columstore index på alla nivåer.
+> Hanterad instans har stöd för ColumnStore-index på alla nivåer.
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 8a546845adb32823e89b814377bcf3e469562445
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: b2b247b50eff446776edfbf3a552e92af3c7dfff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413676"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228805"
 ---
 # <a name="azure-advanced-threat-detection"></a>Azure avancerad hotidentifiering
 
@@ -75,7 +75,7 @@ PIM hjälper dig att:
 
 -   Få aviseringar om åtkomst till en privilegierad roll.
 
-## <a name="azure-log-analytics"></a>Azure Log Analytics
+## <a name="azure-log-analytics"></a>Azure Logganalys
 
 [Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) är en Microsoft molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Eftersom Log Analytics har implementerats som en molnbaserad tjänst kan kan du ha den igång snabbt med minsta möjliga investering i infrastrukturtjänster. Nya säkerhetsfunktioner levereras automatiskt, sparar löpande underhåll och Uppgraderingskostnader.
 
@@ -115,7 +115,7 @@ Datakällor och lösningar skapar olika posttyper med sin egen uppsättning egen
 
 De flesta interaktionen med Log Analytics är via Azure-portalen, som körs i alla webbläsare och ger åtkomst till konfigurationsinställningar och flera olika verktyg för att analysera och agera utifrån insamlade data. Från portalen kan använda du:
 * [Loggsökningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) där du skapar förfrågningar för att analysera insamlade data.
-* [Instrumentpaneler](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
+* [Instrumentpaneler](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-logs-dashboards), som du kan anpassa med grafiska vyer över dina mest värdefulla sökningar.
 * [Lösningar](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), som ger ytterligare funktioner och analysverktyg.
 
 ![Analysverktyg](./media/azure-threat-detection/azure-threat-detection-fig6.png)
@@ -341,7 +341,7 @@ Med verktyg för att upptäcka Shadow IT, utvärdera risker, genomdriva principe
 
 | | |
 |---|---|
-| Utforska | Upptäck shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
+| Identifiera | Upptäck shadow IT med Cloud App Security. Få insyn genom att identifiera appar, aktiviteter, användare, data och filer i molnmiljön. Identifiera tredjepartsappar som är anslutna till molnet.|
 |Undersök | Undersök dina molnappar med hjälp av datautredningsverktyg djupdykning riskfyllda appar, specifika användare och filer i nätverket. Hitta mönster i data som samlas in från molnet. Generera rapporter för molnövervakning. |
 | Kontroll | Minska riskerna genom att ange principer och varningar för att uppnå full kontroll över molntrafiken i nätverket. Använda Cloud App Security för att migrera användarna till säkra sanktionerade molnappar app alternativ. |
 | Skydda | Använd Cloud App Security att sanktionera eller förbjuda program, tillämpa skydd mot dataförlust, kontrollera behörigheter och delning och skapa anpassade rapporter och aviseringar. |

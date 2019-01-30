@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 16381a9529f516dcb9ffd39022a658a7dd17ff57
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: a2db74e4c5688c0a2a3975ff828caf20c3cf7904
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796945"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222584"
 ---
 # <a name="how-to-use-cards-part-1-of-2"></a>Hur du använder kort (del 1 av 2)
 
@@ -97,4 +97,4 @@ På ögonikonen visar hur kortet ser ut.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hybrid robotar](./16-hybrid-bots.md)
+> [Hybrid Bots](./16-hybrid-bots.md)

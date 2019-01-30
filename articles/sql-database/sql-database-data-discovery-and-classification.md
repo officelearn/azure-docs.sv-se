@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: ffa1c45b2d9449310a2b0dcc66a513b4d8efbc5d
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232995"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217245"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 
@@ -28,7 +28,7 @@ Identifiera och klassificera dina mest känsliga data (business- och finansiella
 - Olika säkerhetsscenarier, till exempel övervakning (granskning) och Varna vid avvikande åtkomsten till känsliga data.
 - Kontrollera åtkomst till och Härdning av säkerheten för databaser som innehåller mycket känsliga data.
 
-Dataidentifiering och klassificering är en del av den [SQL Avancerat skydd](sql-advanced-threat-protection.md) (ATP) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ATP-portalen.
+Dataidentifiering och klassificering är en del av den [SQL avancerade datasäkerhet](sql-advanced-threat-protection.md) (ADS) erbjudande som en enhetlig paket för avancerade funktioner för SQL-säkerhet. Dataidentifiering och klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
 
 > [!NOTE]
 > Det här dokumentet avser endast Azure SQL Database. SQL Server (lokalt), se [SQL Dataidentifiering och klassificering](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -77,7 +77,7 @@ När du har definierat principen klienttäckande kan du fortsätta med klassific
 
 1. Gå till [Azure-portalen](https://portal.azure.com).
 
-2. Gå till **Advanced Threat Protection** under rubriken säkerhet i Azure SQL Database-rutan. Klicka om du vill aktivera Avancerat skydd och klicka sedan på den **dataidentifiering och klassificering (förhandsversion)** kort.
+2. Gå till **avancerade datasäkerhet** under rubriken säkerhet i Azure SQL Database-rutan. Klicka om du vill aktivera avancerad säkerhet för Data och klicka sedan på den **dataidentifiering och klassificering (förhandsversion)** kort.
 
    ![Skanna en databas](./media/sql-data-discovery-and-classification/data_classification.png)
 
@@ -134,8 +134,8 @@ Du kan använda T-SQL för att lägga till/ta bort kolumnklassificeringar, samt 
 > [!NOTE]
 > När du använder T-SQL för att hantera etiketter, finns det ingen validering som etiketter som lagts till i en kolumn som finns i organisationens information protection-principen (uppsättning etiketter som visas i portalen rekommendationer). Därför är det upp till dig att verifiera detta.
 
-- Lägg till/uppdatera klassificeringen av en eller flera kolumner: [lägga till KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-- Ta bort klassificeringen från en eller flera kolumner: [släppa KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Lägg till/uppdatera klassificeringen av en eller flera kolumner: [LÄGG TILL KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Ta bort klassificeringen från en eller flera kolumner: [TA BORT KÄNSLIGHETSKLASSIFICERING](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Du kan också använda REST API: er för att programmässigt hantera klassificeringar. Den publicerade REST-API: er har stöd för följande åtgärder:
@@ -147,7 +147,7 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 
 ## <a id="subheading-5"></a>Nästa steg
 
-- Läs mer om [SQL Advanced Threat Protection](sql-advanced-threat-protection.md).
+- Läs mer om [SQL Advanced datasäkerhet](sql-advanced-threat-protection.md).
 - Överväg att konfigurera [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
 
 <!--Anchors-->

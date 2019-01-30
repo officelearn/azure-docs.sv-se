@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: c20f61788086806d3eebb62d35b7ac9fbcbd6fb9
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: f4e1b25133914a65f34e281c145d7db5969b0581
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846937"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208031"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>Konfigurera katastrofåterställning till Azure för Hyper-V-datorer med PowerShell och Azure Resource Manager
 
@@ -47,8 +47,8 @@ Specifika exemplet som beskrivs i den här artikeln har dessutom följande krav:
 
 1. Öppna en PowerShell-konsol och kör detta kommando för att logga in på ditt Azure-konto. Cmdlet: en som öppnas en webbsida uppmanar dig att autentiseringsuppgifterna för ditt konto: **Connect-AzureRmAccount**.
     - Alternativt kan du kan inkludera autentiseringsuppgifterna för ditt konto som en parameter i den **Connect-AzureRmAccount** cmdlet, med hjälp av den **-Credential** parametern.
-    - Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Till exempel: **Connect-AzureRmAccount-klient ”fabrikam.com”**
-2. Koppla den prenumeration du vill använda med konto, eftersom ett konto kan ha flera prenumerationer:
+    - Om du är CSP-partner som arbetar för en klient kan du ange kunden som en klient med hjälp av deras primära domännamn tenantID eller -klient. Exempel: **Connect-AzureRmAccount -Tenant "fabrikam.com"**
+2. Koppla den prenumeration du vill använda med kontot, eftersom ett konto kan ha flera prenumerationer:
 
     `Select-AzureRmSubscription -SubscriptionName $SubscriptionName`
 
@@ -78,7 +78,7 @@ Specifika exemplet som beskrivs i den här artikeln har dessutom följande krav:
     Du kan hämta en lista över befintliga valv med den **Get-AzureRmRecoveryServicesVault** cmdlet.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>Steg 3: Ange kontext för Recovery Services-valv
+## <a name="step-3-set-the-recovery-services-vault-context"></a>Steg 3: Ange valvkontexten Recovery Services
 
 Ange valvkontexten på följande sätt:
 
@@ -112,7 +112,7 @@ Ange valvkontexten på följande sätt:
 
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
-## <a name="step-6-create-a-replication-policy"></a>Steg 6: Skapa en replikeringsprincip
+## <a name="step-6-create-a-replication-policy"></a>Steg 6: Skapa replikeringsprincip
 
 Innan du börjar bör du Observera att det angivna lagringskontot ska vara i samma Azure-region som valvet och ska ha geo-replikering aktiverat.
 
@@ -132,7 +132,7 @@ Innan du börjar bör du Observera att det angivna lagringskontot ska vara i sam
         $protectionContainer = Get-AsrProtectionContainer
 3. Associera skyddsbehållaren med replikeringsprincipen, enligt följande:
 
-     $Policy = get-AsrPolicy - FriendlyName $PolicyName $associationJob = New-AsrProtectionContainerMapping-namnge $mappingName-principen $Policy - PrimaryProtectionContainer $protectionContainer [0]
+     $Policy = Get-AsrPolicy -FriendlyName $PolicyName   $associationJob  = New-AsrProtectionContainerMapping -Name $mappingName -Policy $Policy -PrimaryProtectionContainer $protectionContainer[0]
 
 4. Vänta tills jobbet är kopplingen har slutförts.
 

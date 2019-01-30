@@ -6,16 +6,16 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: pafarley
-ms.openlocfilehash: 2bee7f0af98bf03a13e376dea9dbf083b3f61815
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 72ba363201b27a8ca31c73af1d0cceb436de468d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340298"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209409"
 ---
 # <a name="how-to-improve-your-classifier"></a>Hur vi kan förbättra din klassificerare
 
@@ -41,23 +41,23 @@ Ett annat övervägande är att bör du se till att dina data är balanserade. E
 
 Ger bilder som är representativ för vad som ska skickas till klassificeraren under normal användning. Till exempel om du tränar en ”äpple” klassificerare kanske din klassificerare inte som korrekt om du endast träna foton av äpplen i nivåer men gör förutsägelser på foton av äpplen på träd. Inklusive ett stort antal bilder ska se till att din klassificerare inte prioriterar och kan också generalisera. Nedan finns några sätt som du kan göra utbildning att ange mer diversifierad:
 
-__Bakgrund:__ ger bilder för objektet framför olika bakgrunder (det vill säga frukt på lj jämfört med frukt i livsmedelskedja säck). Foton i kontexten är bättre än foton framför neutral bakgrunder eftersom de ger mer information om klassificeraren.
+__Bakgrund:__ Ger bilder för objektet framför olika bakgrunder (det vill säga frukt på lj jämfört med frukt i livsmedelskedja säck). Foton i kontexten är bättre än foton framför neutral bakgrunder eftersom de ger mer information om klassificeraren.
 
 ![Bild av BITS-exempel](./media/getting-started-improving-your-classifier/background.png)
 
-__Belysning:__ ger bilder med olika belysning (det vill säga vidtas med flash, hög, etc.), särskilt om bilder som används för förutsägelse har olika belysning. Det är också bra att inkludera bilder med olika mättnad, hue och intensitet.
+__Ljus:__ Ger bilder med olika belysning (det vill säga vidtas med flash, hög, etc.), särskilt om bilder som används för förutsägelse har olika belysning. Det är också bra att inkludera bilder med olika mättnad, hue och intensitet.
 
 ![Bild av belysning-exempel](./media/getting-started-improving-your-classifier/lighting.png)
 
-__Objektstorlek:__ ange avbildningar som objekten är av olika storlek samla in olika delar av objektet. Till exempel knippen ett foto av bananer och en närbild av en enda bananer. Olika storlek hjälper klassificeraren generalisera bättre.
+__Objektstorlek:__ Ger bilder som objekten är av olika storlek, samla in olika delar av objektet. Till exempel knippen ett foto av bananer och en närbild av en enda bananer. Olika storlek hjälper klassificeraren generalisera bättre.
 
 ![Bild av storlek-exempel](./media/getting-started-improving-your-classifier/size.png)
 
-__Kameravinkel:__ ger bilder med olika kameravinklar. Om alla dina foton utförs med en uppsättning fast kameror (till exempel övervakningskameror), kontrollera att du tilldela en annan etikett till varje kamera, även om de fångar in samma objekt för att undvika overfitting – modellering orelaterade objekt (till exempel lampposts) som kärnan.
+__Kameravinkel:__ Ger bilder med olika kameravinklar. Om alla dina foton utförs med en uppsättning fast kameror (till exempel övervakningskameror), kontrollera att du tilldela en annan etikett till varje kamera, även om de fångar in samma objekt för att undvika overfitting – modellering orelaterade objekt (till exempel lampposts) som kärnan.
 
 ![Bild av vinkel-exempel](./media/getting-started-improving-your-classifier/angle.png)
 
-__Format:__ ger bilder av olika typer av samma klass (det vill säga olika typer av citrus). Men om du har bilder av objekt i drastiskt olika format (det vill säga Mickey mus jämfört med en verklig rat) rekommenderas att du märker dem som separata klasser som bättre representerar deras olika funktioner.
+__Format:__ Ger bilder av olika typer av samma klass (det vill säga olika typer av citrus). Men om du har bilder av objekt i drastiskt olika format (det vill säga Mickey mus jämfört med en verklig rat) rekommenderas att du märker dem som separata klasser som bättre representerar deras olika funktioner.
 
 ![Bild av formatmallar](./media/getting-started-improving-your-classifier/style.png)
 

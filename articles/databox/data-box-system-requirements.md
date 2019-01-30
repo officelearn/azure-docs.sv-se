@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 469d553d60eb7c5cdfac3bc16f1fb479bd84cb70
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 7d52af9e3948f40936795efab5b6671c3f71007a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886220"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206755"
 ---
 # <a name="azure-data-box-system-requirements"></a>Azure Data Box-systemkrav
 
@@ -48,7 +48,7 @@ Här är en lista över operativsystem som stöds för själva Datakopieringen v
 
 ### <a name="supported-storage-accounts"></a>Stöds storage-konton
 
-Här är en lista över lagringskontona som stöds och lagringstyper för Data Box-enhet. En fullständig lista över alla olika typer av lagringskonton och deras fullständiga funktioner Se [typer av lagringskonton](/azure/storage/common/storage-account-overview.md#types-of-storage-accounts).
+Här är en lista över lagringskontona som stöds och lagringstyper för Data Box-enhet. En fullständig lista över alla olika typer av lagringskonton och deras fullständiga funktioner Se [typer av lagringskonton](/azure/storage/common/storage-account-overview#types-of-storage-accounts).
 
 | **Storage-konto / stöds lagringstyper** | **Blockblob** |**Sidblob*** |**Azure Files** |**Anteckningar**|
 | --- | --- | -- | -- | -- |

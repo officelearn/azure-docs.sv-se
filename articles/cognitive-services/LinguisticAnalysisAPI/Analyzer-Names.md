@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 997dcdd6ce99815a79006b40b87568e573c63ff3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237241"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221691"
 ---
 # <a name="analyzer-names"></a>Analyzer-namn
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Vi använder en något komplicerade namngivningsstrukturen för analysverktyg för båda flexibelt på analysverktyg och precision förstå vad ett namn innebär.
 Analyzer-namn som består av fyra delar: ett ID, en typ, en specifikation och en implementering.
@@ -31,12 +31,12 @@ Rollen för varje komponent definieras nedan.
 Först måste har en analyzer ett unikt ID; ett GUID.
 Dessa GUID bör ändras relativt sällan, men är det enda sättet att beskriva en viss analyzer unikt.
 
-## <a name="kind"></a>Variant
+## <a name="kind"></a>Typ
 Sedan måste varje analyzer är ett **typ**.
 Detta definierar mycket mer allmänt typ av analys returneras och unikt bör definiera datastrukturen som används för att representera den här analysen.
 Det finns tre olika typer:
  - [Token](Sentences-and-Tokens.md)
- - [POS-taggar](Pos-Tagging.md)
+ - [POS Tags](Pos-Tagging.md)
  - [Av valkrets trädet](constituency-parsing.md)
 
 ## <a name="specification"></a>Specifikationen

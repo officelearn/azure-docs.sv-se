@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 12/27/2018
-ms.author: raynew
-ms.openlocfilehash: 3d07b7156800b50daa75978add3ad3922108f142
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.date: 1/18/2019
+ms.author: mayg
+ms.openlocfilehash: 05a60ff2b2995642f797897d0e1f4db46c5b6741
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53974020"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215851"
 ---
 # <a name="fail-over-vms-and-physical-servers"></a>Växla över virtuella datorer och fysiska servrar 
 
@@ -27,7 +27,7 @@ Använd följande tabell om du vill veta om alternativen för redundans av Azure
 
 | Scenario | Återställning av programkrav | Arbetsflöde för Hyper-V | Arbetsflöde för VMware
 |---|--|--|--|
-|Planerad redundans på grund av en kommande datacenter-avbrott| Ingen dataförlust för programmet när en planerad aktivitet utförs| För Hyper-V replikerar ASR data på en kopieringsfrekvens som anges av användaren. Planerad redundans används för att åsidosätta frekvensen och replikera de slutliga förändringar innan redundans initieras. <br/> <br/> 1.    Planera en underhållsperiod enligt din verksamhet av processen för ändringshantering. <br/><br/> 2. meddela användare om kommande driftstopp. <br/><br/> 3. Koppla från användarinriktade-programmet.<br/><br/>4. initiera planerad redundans med hjälp av ASR-portalen. Den lokala virtuella datorn är automatiskt avstängningstillstånd.<br/><br/>Effektiva dataförlust = 0 <br/><br/>En journal återställningspunkter ges också i en kvarhållningsperiod för en användare som vill använda en tidigare återställningspunkt. (24 timmar kvarhållning för Hyper-V).| För VMware replikerar ASR data kontinuerligt med hjälp av CDP. Redundans ger användaren möjlighet att redundans till den senaste informationen (inklusive post programmet avställning)<br/><br/> 1. Planera en underhållsperiod enligt av processen för ändringshantering <br/><br/>2. meddela användare om kommande driftstopp <br/><br/>3.    Koppla från användarinriktade-programmet. <br/><br/>4.  Starta en planerad redundans med hjälp av ASR-portalen till den senaste tidpunkten när programmet är offline. Använd alternativet ”oplanerad redundans” på portalen och välj den senaste tidpunkten för redundans. Den lokala virtuella datorn är automatiskt avstängningstillstånd.<br/><br/>Effektiva dataförlust = 0 <br/><br/>En journal återställningspunkter i en kvarhållningsperiod har angetts för en kund som vill använda en tidigare återställningspunkt. (72 timmars kvarhållning för VMware).
+|Planerad redundans på grund av en kommande datacenter-avbrott| Ingen dataförlust för programmet när en planerad aktivitet utförs| För Hyper-V replikerar ASR data på en kopieringsfrekvens som anges av användaren. Planerad redundans används för att åsidosätta frekvensen och replikera de slutliga förändringar innan redundans initieras. <br/> <br/> 1.    Planera en underhållsperiod enligt din verksamhet av processen för ändringshantering. <br/><br/> 2. meddela användare om kommande driftstopp. <br/><br/> 3. Koppla från användarinriktade-programmet.<br/><br/>4. initiera planerad redundans med hjälp av ASR-portalen. Den lokala virtuella datorn är automatiskt avstängningstillstånd.<br/><br/>Effektiva dataförlust = 0 <br/><br/>En journal återställningspunkter ges också i en kvarhållningsperiod för en användare som vill använda en tidigare återställningspunkt. (24 timmar kvarhållning för Hyper-V). Om replikeringen har stoppats utöver tidsram kvarhållningsperioden, kan kunder fortfarande kunna redundans med hjälp av de senaste tillgängliga återställningspunkterna. | För VMware replikerar ASR data kontinuerligt med hjälp av CDP. Redundans ger användaren möjlighet att redundans till den senaste informationen (inklusive post programmet avställning)<br/><br/> 1. Planera en underhållsperiod enligt av processen för ändringshantering <br/><br/>2. meddela användare om kommande driftstopp <br/><br/>3.    Koppla från användarinriktade-programmet. <br/><br/>4.  Starta en planerad redundans med hjälp av ASR-portalen till den senaste tidpunkten när programmet är offline. Använd alternativet ”oplanerad redundans” på portalen och välj den senaste tidpunkten för redundans. Den lokala virtuella datorn är automatiskt avstängningstillstånd.<br/><br/>Effektiva dataförlust = 0 <br/><br/>En journal återställningspunkter i en kvarhållningsperiod har angetts för en kund som vill använda en tidigare återställningspunkt. (72 timmars kvarhållning för VMware). Om replikeringen har stoppats utöver tidsram kvarhållningsperioden, kan kunder fortfarande kunna redundans med hjälp av de senaste tillgängliga återställningspunkterna.
 |Växling vid fel på grund av en oplanerad datacenter-avbrott (naturligt eller IT-haveri) | Minimal dataförlust för programmet | 1. initiera organisationens BCP-plan <br/><br/>2. Initiera oplanerad redundans med hjälp av ASR-portalen till senast eller en tidpunkt från kvarhållningsperiod (journal).| 1. Initiera organisationens BCP-plan. <br/><br/>2.  Initiera oplanerad redundans med hjälp av ASR-portalen till senast eller en tidpunkt från kvarhållningsperiod (journal).
 
 
@@ -44,7 +44,7 @@ Den här proceduren beskriver hur du kör en redundansväxling för en [återst�
     1.  **Senaste appkonsekventa**: Det här alternativet redundansväxlar alla virtuella datorer i återställningsplanen till den senaste programkonsekvent återställningspunkt som redan har bearbetats av Site Recovery-tjänsten. När du gör redundanstest för en virtuell dator, visas också tidsstämpeln för den senaste appkonsekventa återställningspunkten. Om du genomför redundans för en återställningsplan går du till en enskild virtuell dator och titta på **senaste återställningspunkter** panelen för att få den här informationen.
     1.  **Senaste multi-VM bearbetas**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som är en del av en replikering gruppväxling till den senaste vanliga Konsekvens programkonsekvent återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste bearbetade återställningspunkten.  
     1.  **Senaste multi-VM appkonsekvent**: Det här alternativet är endast tillgänglig för återställningsplaner som har minst en virtuell dator med flera virtuella datorer konsekvens vidare. Virtuella datorer som ingår i en grupp replikeringsredundansen till den senaste vanliga Konsekvens programkonsekventa återställningspunkten för programkatalog. Andra virtuella datorer redundans till sina senaste programkonsekventa återställningspunkten.
-    1.  **Anpassad**: Om du genomför testning av redundans för en virtuell dator kan du använda det här alternativet ska gå över till en specifik återställningspunkt.
+    1.  **Anpassat**: Om du genomför testning av redundans för en virtuell dator kan du använda det här alternativet ska gå över till en specifik återställningspunkt.
 
     > [!NOTE]
     > Möjlighet att välja en återställningspunkt är endast tillgänglig när du redundansväxla till Azure.
@@ -97,7 +97,7 @@ I vissa fall kräver redundans för virtuella datorer ett extra steg som vanligt
 * Hyper-V virtuella datorer som skyddas som fysiska servrar
 * VMware-datorer där följande drivrutiner inte finns som startdrivrutiner
     * storvsc
-    * VMBus
+    * vmbus
     * storflt
     * Intelide
     * ATAPI

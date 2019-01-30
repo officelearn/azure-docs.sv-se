@@ -6,16 +6,16 @@ services: cognitive-services
 author: priyaravi20
 manager: yanbo
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: priyar
-ms.openlocfilehash: db69a9e3beb819600109603a8c0129547db57fa5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 61bd1879a4b1bf8281ac03c8254fb3d48c07a139
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343035"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215868"
 ---
 # <a name="bing-text-to-speech-api"></a>Bing text till tal-API
 
@@ -40,7 +40,7 @@ Content-Length: 0
 
 Obligatorisk huvudinformationen för tokenåtkomst är som följer.
 
-Namn| Format | Beskrivning
+Name| Format | Beskrivning
 ----|----|----
 OCP-Apim-Subscription-Key | ASCII | Din prenumerationsnyckel
 
@@ -59,11 +59,11 @@ Klienter måste använda följande slutpunkt för att komma åt tjänsten text t
 
 I följande tabell visas de HTTP-huvuden som används för syntes röstförfrågningar.
 
-Huvud |Värde |Kommentarer
+Sidhuvud |Value |Kommentarer
 ----|----|----
 Innehållstyp | program/ssml + xml | Inkommande innehållstyp.
 X-Microsoft-OutputFormat | **1.** ssml-16 khz-16-bitars-mono-text till tal <br> **2.** raw-16 khz-16-bitars-mono-pcm <br>**3.** ljud-16 khz – 16 kbit/s-mono-siren <br> **4.** riff-16 khz – 16 kbit/s-mono-siren <br> **5.** riff-16 khz-16-bitars-mono-pcm <br> **6.** ljud-16 khz-128kbitrate-mono-mp3 <br> **7.** ljud-16 khz-64kbitrate-mono-mp3 <br> **8.** ljud-16 khz-32kbitrate-mono-mp3 | Ljudformatet utdata.
-AppId-X-sökning | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
+X-Search-AppId | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar klientprogrammet. Detta kan vara lagrings-ID för appar. Om det inte finns, kan ID: T vara användargenererade för ett program.
 X-Search-ClientID | En GUID (hex endast, inga streck) | Ett ID som unikt identifierar en programinstans för varje installation.
 Användaragent | Programnamn | Programnamnet är obligatoriskt och måste vara färre än 255 tecken.
 Auktorisering | Autentiseringstoken |  Se den <a href="#Subscription">auktoriseringstoken</a> avsnittet.
@@ -179,7 +179,7 @@ SSML 1.0 har stöd för Microsoft text till tal-API som definierats i W3C [tal s
   ```
 
 > [!NOTE]
-> Obs ljuddata måste vara 8 kB eller 16 k wav anges i följande format: **CRC kod** (CRC-32): 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Ljud format flaggan**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Antal prov**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Storleken på binär brödtext**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Binära brödtext**: n byte.
+> Obs ljuddata måste vara 8 kB eller 16 k wav som anges i följande format: **CRC kod** (CRC-32): 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Ljud format flaggan**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0xFFFFFFFF; **Antal prov**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Storleken på binär brödtext**: 4 byte (DWORD) med giltiga intervallet 0x00000000 ~ 0x7FFFFFFF; **Binära brödtext**: n byte.
 
 ## <a name="SampleApp"></a>Exempelprogram
 
@@ -189,9 +189,9 @@ Mer information om implementering finns i den [Visual C# .NET text till tal-exem
 
 I följande tabell visas några av de nationella inställningar som stöds och relaterade rösttyper.
 
-Nationell inställning | Kön | Tjänsten Namnmappningen
+Nationella inställningar | Kön | Tjänsten Namnmappningen
 ---------|--------|------------
-ar-t.ex. * | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
+ar-EG* | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)”
 ar-SA | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)”
 BG-BG | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)”
 CA-ES | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)”
@@ -214,9 +214,9 @@ en IE | Man | ”Microsoft Server tal Text till tal-röst (en IE, Stefan)”
 en Indien | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, Heera, Apollo)”
 en Indien | Kvinna | ”Microsoft Server tal Text till tal-röst (en-IN-, PriyaRUS)”
 en Indien | Man | ”Microsoft Server tal Text till tal-röst (en-IN-, Ravi, Apollo)”
-sv-SE | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)”
-sv-SE | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaRUS)”
-sv-SE | Man | ”Microsoft Server tal Text till tal-röst (en-US, BenjaminRUS)”
+en-US | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, ZiraRUS)”
+en-US | Kvinna | ”Microsoft Server tal Text till tal-röst (en-US, JessaRUS)”
+en-US | Man | ”Microsoft Server tal Text till tal-röst (en-US, BenjaminRUS)”
 es-ES | Kvinna | ”Microsoft Server tal Text till tal röst (es-ES, Lisa, Apollo)”
 es-ES | Kvinna | ”Microsoft Server tal Text till tal röst (es-ES, HelenaRUS)”
 es-ES | Man | ”Microsoft Server tal Text till tal röst (es-ES, Pablo, Apollo)”

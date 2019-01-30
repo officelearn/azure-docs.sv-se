@@ -1,17 +1,17 @@
 ---
 title: Aktivera replikering av virtuella VMware-datorer för VMware-haveriberedskap till Azure med Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du aktiverar replikering av virtuella VMware-datorer för haveriberedskap till Azure med Azure Site Recovery.
-author: asgang
+author: mayurigupta13
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: f160fc5f15ad9ca8994995c34d9eba7ee375c015
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: mayg
+ms.openlocfilehash: 51086b894de7a02ec78302323512c7766dc9f4fb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424166"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226341"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Aktivera replikering till Azure för virtuella VMware-datorer
 
@@ -59,7 +59,7 @@ När du replikerar virtuella VMware-datorer:
 8. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling. Nätverket måste finnas i samma region som Recovery Services-valvet. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. Om du inte har ett nätverk kan du behöva [skapar ett](#set-up-an-azure-network). Om du vill skapa ett nätverk med hjälp av Resource Manager klickar du på **Skapa ny**. Välj ett undernät om det är tillämpligt, och klicka sedan på **OK**.
 
     ![Aktivera replikering Målinställningar](./media/vmware-azure-enable-replication/enable-rep3.png)
-9. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**. Om det inte går att visa/välja en viss virtuell dator, klickar du på [här](https://aka.ms/doc-plugin-VM-not-showing) att lösa problemet.
+9. I **Virtual Machines** > **Välj virtuella datorer** väljer du de datorer som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**. Om du inte kan visa /välja en viss virtuell dator klickar du [här](https://aka.ms/doc-plugin-VM-not-showing) för att lösa problemet.
 
     ![Aktivera replikering väljer virtuella datorer](./media/vmware-azure-enable-replication/enable-replication5.png)
 10. I **egenskaper** > **konfigurera egenskaper**, väljer du det konto som används av processervern för att automatiskt installera Mobilitetstjänsten på datorn.  
@@ -86,18 +86,20 @@ Nu ska kontrollera du egenskaperna för källdatorn. Kom ihåg att Azure VM-namn
 
 1. Klicka på **inställningar** > **replikerade objekt** >, och välj sedan datorn. Den **Essentials** visar information om datorinställningar och status.
 2. I **Egenskaper** kan du visa information om replikering och redundans för den virtuella datorn.
-3. I **Beräkning och nätverk** > **Beräkna egenskaper** kan du ange namnet och storleken på den virtuella Azure-datorn. Ändra namnet till uppfyller kraven för Azure om det behövs.
+3. I **beräkning och nätverk** > **beräkna egenskaper**, du kan ändra flera VM-propoerties:
+* Azure VM name - ändra namnet till uppfyller kraven för Azure vid behov
+* Storleken eller typ - standard VM-storlek väljs baserat på käll-VM-storlek. Du kan välja en annan VM-storlek baserat på behov när som helst före redundans. Observera att VM-diskstorleken bygger också på källdiskens storlek och att den endast kan ändras efter redundans. Läs mer på [Standard](../virtual-machines/windows/disks-standard-ssd.md#scalability-and-performance-targets) och [Premium](../virtual-machines/windows/premium-storage.md#scalability-and-performance-targets) storlekar och IOPS.
 
     ![Beräknings- och Nätverksegenskaper](./media/vmware-azure-enable-replication/vmproperties.png)
 
-4.  Du kan välja en [resursgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) från vilket en dator blir en del av en efter redundans. Du kan ändra den här inställningen när som helst före redundans. Efter redundans, om du migrerar datorn till en annan resursgrupp skyddsinställningarna för den datorn break.
-5. Du kan välja en [tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) om din dator måste vara en del av en efter redundans. När du markerar en tillgänglighetsuppsättning, Tänk på att:
+*  Resursgrupp – du kan välja en [resursgrupp](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines) från vilket en dator blir en del av en efter redundans. Du kan ändra den här inställningen när som helst före redundans. Efter redundans, om du migrerar datorn till en annan resursgrupp skyddsinställningarna för den datorn break.
+* Tillgänglighetsuppsättning – du kan välja en [tillgänglighetsuppsättning](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) om din dator måste vara en del av en efter redundans. När du markerar en tillgänglighetsuppsättning, Tänk på att:
 
     * Endast tillgänglighetsuppsättningar som hör till den angivna resursgruppen listas.  
     * Datorer med olika virtuella nätverk kan inte ingå i samma tillgänglighetsuppsättning.
     * Endast virtuella datorer av samma storlek kan ingå i en tillgänglighetsuppsättning.
-5. Du kan också visa och lägga till information om målnätverket, undernätet och IP-adress som tilldelas den virtuella Azure-datorn.
-6. I **diskar**, du kan se det operativsystem och datadiskar på den virtuella datorn replikeras.
+4. Du kan också visa och lägga till information om målnätverket, undernätet och IP-adress som tilldelas den virtuella Azure-datorn.
+5. I **diskar**, du kan se det operativsystem och datadiskar på den virtuella datorn replikeras.
 
 ### <a name="configure-networks-and-ip-addresses"></a>Konfigurera nätverk och IP-adresser
 
@@ -120,7 +122,7 @@ Läs mer om [Azure Hybrid-förmånen](https://aka.ms/azure-hybrid-benefit-pricin
 
 ## <a name="common-issues"></a>Vanliga problem
 
-* Varje disk ska vara mindre än 1 TB i storlek.
+* Varje disk ska vara mindre än 4 TB i storlek.
 * OS-disken ska vara en standarddisk och inte en dynamisk disk.
 * Operativsystemets familj måste vara Windows för generation 2/UEFI-aktiverade virtuella datorer och startdisken får vara högst 300 GB.
 
@@ -128,4 +130,5 @@ Läs mer om [Azure Hybrid-förmånen](https://aka.ms/azure-hybrid-benefit-pricin
 
 När skyddet har slutförts och datorn har nått ett skyddat läge, kan du prova en [redundans](site-recovery-failover.md) att kontrollera om ditt program visas i Azure eller inte.
 
-Om du vill inaktivera skyddet, lär du dig hur du [Rensa inställningarna för registrering och skydd](site-recovery-manage-registration-and-protection.md).
+* Lär dig hur du [Rensa inställningarna för registrering och skydd](site-recovery-manage-registration-and-protection.md) att inaktivera replikering.
+* Lär dig hur du [automatisera replikering för virtuella datorer med hjälp av Powershell](vmware-azure-disaster-recovery-powershell.md)

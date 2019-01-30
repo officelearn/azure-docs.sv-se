@@ -6,31 +6,31 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4f950734081be6cf76770b1c6cb2feca7efdae70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46128021"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221411"
 ---
 # <a name="interpret-method"></a>tolka metod
 
 Den *tolka* metoden tar en frågesträng för naturligt språk och returnerar formaterad tolkningar av användaravsikt baserat på de grammatik- eller indexhantering.  För att ge en interaktiv sökning, den här metoden kan anropas när varje tecken anges av användaren med den *fullständig* parameteruppsättning till 1 för att aktivera automatisk komplettering förslag.
 
-## <a name="request"></a>Förfrågan
+## <a name="request"></a>Begäran
 
 `http://<host>/interpret?query=<query>[&<options>]`
 
-Namn|Värde| Beskrivning
+Name|Value| Beskrivning
 ----|----|----
-DocumentDB    | Textsträngen | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
+fråga    | Textsträngen | Frågan som angetts av användaren.  Om fullständig har angetts till 1, tolkas fråga som ett prefix för generering frågeförslag för automatisk komplettering.        
 Slutför | 0 (standardvärde) eller 1 | 1 innebär att automatisk komplettering förslag genereras baserat på de grammatik- eller indexhantering.         
-count    | Antal (standard = 10) | Maximalt antal tolkningar för att returnera.         
-förskjutning   | Antal (standard = 0) | Index för den första tolkningen ska returneras.  Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
+ antal    | Antal (standard = 10) | Maximalt antal tolkningar för att returnera.         
+offset   | Antal (standard = 0) | Index för den första tolkningen ska returneras.  Till exempel *count = 2 & örskjutning = 0* returnerar tolkningar 0 och 1. *Antal = 2 & örskjutning = 2* returnerar tolkningar 2 och 3.       
 timeout  | Antal (standard = 1000) | Tidsgräns i millisekunder. Endast tolkningar hittades före tidsgränsen har gått ut returneras.
 
 Med hjälp av den *antal* och *offset* parametrar, ett stort antal resultat kan erhållas stegvis över flera förfrågningar.
@@ -41,13 +41,13 @@ JSONPath     | Beskrivning
 ---------|---------
 $.query |*fråga* parametern från begäran.
 $.interpretations   |Matris med 0 eller fler sätt att matcha indatafrågan mot grammatik.
-$.interpretations [\*] .logprob   |Relativa log sannolikheten för tolkningen (< = 0).  Högre värden är mer sannolikt.
-$.interpretations [\*] .parse |XML-sträng som visar hur varje del av frågan har tolkas.
-$.interpretations [\*] .rules |Matris med-1 eller flera regler som definierats i grammatik anropas under tolkning.
-$.interpretations [\*] .rules [\*] .name    |namnet på regeln.
-$.interpretations [\*] .rules [\*] .output  |Semantisk utdata från regeln.
-$.interpretations [\*] .rules [\*]. output.type |Datatypen för semantisk utdata.
-$.interpretations [\*] .rules [\*]. output.value|Värdet för semantisk utdata.  
+$.interpretations[\*].logprob   |Relativa log sannolikheten för tolkningen (< = 0).  Högre värden är mer sannolikt.
+$.interpretations[\*].parse |XML-sträng som visar hur varje del av frågan har tolkas.
+$.interpretations[\*].rules |Matris med-1 eller flera regler som definierats i grammatik anropas under tolkning.
+$.interpretations[\*].rules[\*].name    |namnet på regeln.
+$.interpretations[\*].rules[\*].output  |Semantisk utdata från regeln.
+$.interpretations[\*].rules[\*].output.type |Datatypen för semantisk utdata.
+$.interpretations[\*].rules[\*].output.value|Värdet för semantisk utdata.  
 $.aborted | SANT om uppnåddes för begäran.
 
 ### <a name="parse-xml"></a>Tolka XML

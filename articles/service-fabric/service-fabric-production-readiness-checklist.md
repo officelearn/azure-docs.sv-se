@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: aljo-microsoft
-ms.openlocfilehash: ac263ef842c780e09576303f2f49e782612294c2
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 02ad880f3c4a4f5812b60887090c29a0a39f6742
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159122"
+ms.locfileid: "55206977"
 ---
 # <a name="production-readiness-checklist"></a>Checklista för produktionsberedskap
 
@@ -62,7 +62,7 @@ Om du använder Service Fabric Reliable Services eller Reliable Actors programme
 23. Undvika [vanliga fallgropar](service-fabric-work-with-reliable-collections.md) när du använder tillförlitliga samlingar.
 24. Övervaka .NET CLR-minnesprestanda räknare när du kör belastningstester och söka efter höga nivåer av skräpinsamling eller lång körningstid heap tillväxt.
 25. Underhålla offlinesäkerhetskopiering av [Reliable Services och Reliable Actors](service-fabric-reliable-services-backup-restore.md) och testa återställningsprocessen.
-26. Din primära NodeType virtuella datorn instansantal bör helst vara lika med minimala för ditt kluster tillförlitlighetsnivån; villkor när det är lämpligt att överskrida minst nivån omfattar: tillfälligt när lodrätt skalning du är din primära NodeTypes VM Scale SKU: N.
+26. Din primära NodeType virtuella datorn instansantal bör helst vara lika med minimala för ditt kluster tillförlitlighetsnivån; villkor när det är lämpligt att överskrida minst nivån omfattar: tillfälligt när lodrätt skalning av dina primära NodeTypes VM Scale SKU: N.
 
 ## <a name="optional-best-practices"></a>Valfritt Metodtips
 

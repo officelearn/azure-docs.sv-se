@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 01/28/2019
 ms.author: bwren
-ms.openlocfilehash: 674a26b9c8eb5fe8f44b416b5296b61c6678d2cd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9fe25821d5a234326570b1681807c6f9dfd6ffc8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186182"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211108"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Skicka data till Log Analytics med HTTP Data Collector API (förhandsversion)
 Den här artikeln visar hur du använder HTTP Data Collector API för att skicka data till Log Analytics från en REST API-klient.  Den beskriver hur du formatera data som samlas in från dina skript eller ett program, inkludera den i en begäran och få den begäran som auktoriserats av Log Analytics.  Exempel tillhandahålls för PowerShell, C# och Python.
@@ -54,12 +54,12 @@ Om du vill använda HTTP Data Collector API måste skapa du en POST-begäran som
 | API-version |Versionen av API för användning med den här begäran. Det är för närvarande 2016-04-01. |
 
 ### <a name="request-headers"></a>Begärandehuvud
-| Huvud | Beskrivning |
+| Sidhuvud | Beskrivning |
 |:--- |:--- |
 | Auktorisering |Signatur för auktorisering. Senare i artikeln kan du läsa om hur du skapar en HMAC-SHA256-rubrik. |
-| Loggtyp |Ange posttypen för de data som skickas. Loggtypen stöder för närvarande endast alfanumeriska tecken. Det stöder inte numeriska värden eller specialtecken. Storleksgränsen för den här parametern är 100 tecken. |
+| Loggtyp |Ange posttypen för de data som skickas. Storleksgränsen för den här parametern är 100 tecken. |
 | x-ms-date |Det datum då begäran bearbetades i RFC 1123 format. |
-| tid genererade fält |Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
+| time-generated-field |Namnet på ett fält i de data som innehåller tidsstämpeln för dataobjektet. Om du anger ett fält så att innehållet används för **TimeGenerated**. Om det här fältet har inte angetts standard för **TimeGenerated** är den tid som matas in meddelandet. Innehållet i fältet meddelande bör följa ISO 8601-formatet ÅÅÅÅ-MM-: ssZ. |
 
 ## <a name="authorization"></a>Auktorisering
 Varje Log Analytics HTTP Data Collector API-begäran måste innehålla en auktoriseringsrubrik. För att autentisera en begäran, måste du logga på begäran med antingen primärt eller sekundära nyckeln för den arbetsyta som gör begäran. Skicka sedan den signaturen som en del av begäran.   
@@ -138,10 +138,10 @@ Lägger till ett suffix till egenskapsnamnet för att identifiera datatypen för
 
 | Typ av egenskapsdata | Suffix |
 |:--- |:--- |
-| Sträng |_S |
+| Sträng |_s |
 | Boolesk |_b |
-| Double-värde |_D |
-| Datum/tid |_Tätt |
+| Double-värde |_d |
+| Datum/tid |_t |
 | GUID |_g |
 
 Datatypen som Log Analytics använder för varje egenskap beror på om posttypen för den nya posten redan finns.
@@ -155,15 +155,15 @@ Skicka posten skulle till exempel skapa en post med tre egenskaper **number_d**,
 
 Om du sedan skickat den här nästa post med alla värden som är formaterade som strängar, skulle det inte att ändra egenskaperna. Dessa värden kan konverteras till befintliga datatyper:
 
-![Exempelpost 2](media/data-collector-api/record-02.png)
+![Sample record 2](media/data-collector-api/record-02.png)
 
 Men om du har gjort den här nästa skickas sedan Log Analytics skapar de nya egenskaperna **boolean_d** och **string_d**. Dessa värden kan inte konverteras:
 
-![Exempelpost 3](media/data-collector-api/record-03.png)
+![Sample record 3](media/data-collector-api/record-03.png)
 
 Om du skickat sedan följande post innan typ av post skapades, Log Analytics skulle skapa en post med tre egenskaper **antal_l**, **boolean_s**, och **string_s**. I den här posten formateras var och en av de initiala värdena som en sträng:
 
-![Exempelpost 4](media/data-collector-api/record-04.png)
+![Sample record 4](media/data-collector-api/record-04.png)
 
 ## <a name="data-limits"></a>Databegränsningar
 Det finns vissa begränsningar kring data som skickats till Log Analytics-Data samling API: et.
@@ -179,7 +179,7 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 
 | Kod | Status | Felkod | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| 200 |Ok | |Begäran har accepterats. |
+| 200 |OK | |Begäran har accepterats. |
 | 400 |Felaktig förfrågan |InactiveCustomer |Arbetsytan har stängts. |
 | 400 |Felaktig förfrågan |InvalidApiVersion |API-version som du angav kändes inte av tjänsten. |
 | 400 |Felaktig förfrågan |InvalidCustomerId |Arbetsyte-ID som angetts är ogiltig. |
@@ -189,7 +189,7 @@ Den här tabellen innehåller en fullständig uppsättning med statuskoder som k
 | 400 |Felaktig förfrågan |MissingContentType |Innehållstypen har inte angetts. |
 | 400 |Felaktig förfrågan |MissingLogType |Loggtyp obligatoriskt värde har inte angetts. |
 | 400 |Felaktig förfrågan |UnsupportedContentType |Innehållstyp angavs inte **application/json**. |
-| 403 |Förbjudna |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
+| 403 |Förbjuden |InvalidAuthorization |Tjänsten kunde inte autentisera begäran. Kontrollera att arbetsytenyckeln-ID och anslutningen är giltiga. |
 | 404 |Kunde inte hittas | | Antingen av Webbadressen som tillhandahålls är felaktig eller begäran är för stor. |
 | 429 |För många begäranden | | En stor mängd data från ditt konto har uppstått med tjänsten. Försök begäran igen senare. |
 | 500 |Internt serverfel |UnspecifiedError |Ett internt fel inträffade i tjänsten. Försök med förfrågan. |

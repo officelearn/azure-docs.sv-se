@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
-ms.openlocfilehash: bc88b46182eadf431efcb5be89f05256a9e0eb1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 14b00dd354618edb3a1f41c292d62b5a13a1f10d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095590"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216055"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>E-engångskod authentication (förhandsversion)
 
@@ -29,7 +29,7 @@ Funktionen för e-post engångskod autentiserar B2B-gästanvändare när de inte
 Den här funktionen är tillgänglig för förhandsversion (se [valde förhandsversionen](#opting-in-to-the-preview) nedan). Efter förhandsversionen kan aktiveras den här funktionen som standard för alla klienter.
 
 > [!NOTE]
-> Engångskod användare måste logga in med en länk som innehåller klient-kontext, till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>`. Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel. 
+> Engångskod användare måste logga in med en länk som innehåller klient-kontext (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>`, eller när det gäller en verifierad standarddomän `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel. 
 
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Användarupplevelsen för engångslösenord gästanvändare
 Med engångskod autentisering kan gästanvändaren Lös in inbjudan genom att klicka på en direktlänk eller med hjälp av e-postinbjudan. I båda fallen indikerar ett meddelande i webbläsaren att en kod kommer att skickas till gästanvändarens e-postadress. Gästanvändaren väljer **skicka kod**:

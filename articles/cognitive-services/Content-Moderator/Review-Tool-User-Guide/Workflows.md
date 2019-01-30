@@ -6,16 +6,16 @@ services: cognitive-services
 author: sanjeev3
 manager: mikemcca
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 265d5a2bd6a256d287e6ae164e883ade783f960f
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 8fe380e3015e5b6929aebcb898eef44d6f6bceda
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262412"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213284"
 ---
 # <a name="define-test-and-use-workflows"></a>Definiera, testa och använda arbetsflöden
 
@@ -67,7 +67,7 @@ Välj sedan motsvarande **köra arbetsflödet** knappen.
 
   ![Arbetsflödet test](images/ocr-workflow-step-6-list.PNG)
 
-### <a name="upload-a-file"></a>Överför en fil
+### <a name="upload-a-file"></a>Ladda upp en fil
 
 Spara den [exempelbild](https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png) till din lokala enhet. Om du vill testa arbetsflödet, Välj **väljer fil(er)** och ladda upp avbildningen.
 

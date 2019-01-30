@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: ac97cf3e269652dc33ce4211947b45631228a697
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463294"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216214"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -50,7 +50,7 @@ Den **värden** är den dator som kör docker-behållaren. Det kan vara en dator
 
 Den här behållaren har stöd för minsta och rekommenderade värden för inställningarna:
 
-|Inställning| Minimum | Rekommenderas |
+|Inställning| Minimum | Rekommenderad |
 |-----------|---------|-------------|
 |Kärnor<BR>`--cpus`|1 kärna<BR>minst 2,6 GHz (gigahertz) eller snabbare|1 kärna|
 |Minne<BR>`--memory`|2 GB|4 GB|
@@ -169,7 +169,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för den publicerade LUIS-appen. |
 |{APPLICATION_ENVIRONMENT} | Miljö av den publicerade LUIS-appen. Använd någon av följande värden:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +197,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för tränade LUIS-programmet. |
 |{APPLICATION_VERSION} | Programversion för tränade LUIS-programmet. |
@@ -219,7 +219,7 @@ Om detta lyckas är svaret en LUIS-paketfil. Spara filen på den lagringsplats s
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra behållaren. Kommandot använder följande parametrar:
 
-| Platshållare | Värde |
+| Platshållare | Value |
 |-------------|-------|
 |{ENDPOINT_KEY} | Den här nyckeln används för att starta behållaren. Använd inte den starter-nyckeln. |
 |{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan.|
@@ -268,10 +268,10 @@ Använd värden https://localhost:5000, för behållaren API: er.
 
 Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 
-|Frågeparameter|Typ|Syfte|
+|Frågeparameter|Type|Syfte|
 |--|--|--|
 |`q`|sträng|Användarens uttryck.|
-|`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
+|`timezoneOffset`|tal|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
 |`verbose`|boolesk|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
 |`staging`|boolesk|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
 |`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endoint-utt.md). Standardvärdet är true.|

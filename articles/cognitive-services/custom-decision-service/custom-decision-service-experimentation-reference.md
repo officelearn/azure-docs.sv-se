@@ -6,16 +6,16 @@ services: cognitive-services
 author: marco-rossi29
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 90a99d4910b0afb885b415760f6a7ef1ca2aec33
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366564"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219829"
 ---
 # <a name="experimentation"></a>Experimentering
 
@@ -35,8 +35,8 @@ Med hjälp av loggfilen, experimentering strävar efter att hitta principen med 
 * Testar principutvärdering `--cb_type` (inverterade benägenhet poäng (`ips`) eller dubbelt robust (`dr`). Mer information finns i [sammanhangsberoende Bandit exempel](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Testerna Marginalanteckningarna.
 * Testerna kvadratisk interaktiva funktioner:
-   * **Brute force-fasen**: testar alla kombinationer av med `--q_bruteforce_terms` par eller färre.
-   * **girig fas**: lägger till den bästa tills det finns ingen förbättring för `--q_greedy_stop` Avrundar.
+   * **Brute force-fasen**: Testar alla kombinationer av med `--q_bruteforce_terms` par eller färre.
+   * **girig fas**: Lägger till den bästa tills det finns ingen förbättring för `--q_greedy_stop` Avrundar.
 * Utför en andra Svep hyperparametrar (`learning rate`, `L1 regularization`, och `power_t`).
 
 Parametrar som styr de här stegen är vissa Vowpal Wabbit argument:
@@ -54,12 +54,12 @@ En detaljerad förklaring av argument som finns i [kommandoradsargument som Vowp
 
 ## <a name="prerequisites"></a>Förutsättningar
 - Vowpal Wabbit: Installerad och i sökvägen.
-  - Windows: [används den `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
+  - Windows: [Använd den `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
   - Andra plattformar: [Hämta källkoden](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: Installerat och i sökvägen.
+- Python 3: Installerad och i sökvägen.
 - NumPy: Använd Pakethanteraren valfri.
-- Den *Microsoft/mwt-ds* lagringsplats: [klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
-- Beslutet Service JSON-loggfilen: som standard grundläggande kommandot innefattar `--dsjson`, vilket gör att Decision Service JSON-parsning av indata-filen. [Hämta ett exempel på det här formatet](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Den *Microsoft/mwt-ds* lagringsplats: [Klona lagringsplatsen](https://github.com/Microsoft/mwt-ds).
+- Loggfil för Decision Service JSON: Som standard grundläggande kommandot innefattar `--dsjson`, vilket gör att Decision Service JSON-parsning av indata-filen. [Hämta ett exempel på det här formatet](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Användning
 Gå till `mwt-ds/DataScience` och kör `Experimentation.py` med relevanta argument, enligt beskrivningen i följande kod:

@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 335bcc025d2f3e972a02234da89e35c90c91afeb
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129179"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222705"
 ---
 # <a name="structured-query-expression"></a>Strukturerade frågeuttryck
 
@@ -29,17 +29,17 @@ Strukturerade frågeuttryck kan hämtas från [ *tolka* ](interpretMethod.md) be
 
 Ett attribut frågeuttryck identifierar en uppsättning objekt baserat på matchning mot ett specifikt attribut.  Olika matchande åtgärder stöds, beroende på typ av attribut och indexerade åtgärd som angetts i den [schemat](SchemaFormat.md):
 
-| Typ | Åtgärd | Exempel |
+| Type | Operation | Exempel |
 |------|-------------|------------|
-| Sträng | lika med | Rubrik = latent semantiska analysen (canonical + synonymer) |
-| Sträng | lika med | Author.Name=='susan t dumais (canonical endast)|
-| Sträng | starts_with | Titel = 'latent s'... |
-| Double-Int32/Int64 | lika med | År = 2000 |
+| Sträng | är lika med | Title='latent semantic analysis'  (canonical + synonyms) |
+| Sträng | är lika med | Author.Name=='susan t dumais (canonical endast)|
+| Sträng | starts_with | Title='latent s'... |
+| Double-Int32/Int64 | är lika med | År = 2000 |
 | Double-Int32/Int64 | starts_with | År = ”20”... (ett decimalvärde som börjar med ”20”) |
-| Double-Int32/Int64 | is_between | År&lt;2000 <br/> År&lt;= 2000 <br/> År&gt;2000 <br/> År&gt;= 2000 <br/> Year=[2010,2012) *(innehåller endast vänstra gränsvärdet: 2010, 2011)* <br/> År = [2000,2012] *(omfattar både gränsvärden: 2010, 2011, 2012)* |
-| Date | lika med | Födelsedatumet ='1984-05-14 ” |
-| Date | is_between | Födelsedatumet&lt;=' 2008/03/14' <br/> PublishDate = ['2000-01-01 ””, 2009-12-31'] |
-| GUID | lika med | ID = '602DD052-CC47-4B23-A16A-26B52D30C05B ” |
+| Double-Int32/Int64 | is_between | År&lt;2000 <br/> År&lt;= 2000 <br/> År&gt;2000 <br/> År&gt;= 2000 <br/> Year=[2010,2012) *(innehåller endast vänstra gränsens värde: 2010, 2011)* <br/> År = [2000,2012] *(omfattar både gränsvärden: 2010, 2011, 2012)* |
+| Datum | är lika med | BirthDate='1984-05-14' |
+| Datum | is_between | Födelsedatumet&lt;=' 2008/03/14' <br/> PublishDate=['2000-01-01','2009-12-31'] |
+| GUID | är lika med | Id='602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
 Till exempel uttrycket ”Title = 'latent s'...” matchar alla akademiska publikationer vars titeln börjar med strängen ”latent s”.  För att utvärdera det här uttrycket måste attributet rubrik ange ”starts_with”-åtgärden i schemat som används för att skapa indexet.
@@ -47,7 +47,7 @@ Till exempel uttrycket ”Title = 'latent s'...” matchar alla akademiska publi
 För attribut med associerade synonymer kan ett frågeuttryck Ange objekt vars canonical värdet matchar en given sträng med ”==” operator eller objekt där någon av dess canonical/synonymen värden matchar med operatorn ”=”.  Kräver båda operatorn ”lika med” anges i attributdefinitionen.
 
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>Funktioner
 
 Det finns en inbyggd uppsättning funktioner som tillåter konstruktion av mer sofistikerade frågeuttryck från grundläggande attributet frågor.
 

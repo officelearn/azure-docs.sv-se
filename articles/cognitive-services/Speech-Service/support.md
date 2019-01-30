@@ -6,16 +6,16 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9ed4f14ee5c3f6023e5529aca7fbd824f5ca460a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468066"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207045"
 ---
 # <a name="support-and-help-options"></a>Alternativ för support och hjälp
 
@@ -32,7 +32,7 @@ Har du precis börjat utforska funktionerna i Speech-tjänsten? Implementerar du
 
 Nyheter om Cognitive Services som samlas in i den [Cognitive Services-blogg](https://azure.microsoft.com/blog/topics/cognitive-services/). Den senaste informationen om Speech service spåra den [tal serviceblogg](https://azure.microsoft.com/blog/tag/speech-service/).
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
 Du kan hitta svaret du behöver i dokumentation är exempel eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor eller i exemplen.
 
@@ -65,7 +65,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 |Talsyntes |[[microsoft-cognitive + text-till-tal]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Talöversättning |[[microsoft-cognitive + translation]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
 |Avsikten med tal |[[microsoft-cognitive + luis]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Allmänna tal SDK |[[microsoft-cognitive + microsoft-tal-API: n]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|General Speech SDK |[[microsoft-cognitive + microsoft-tal-API: n]](http://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > I följande inlägg från Stack Overflow innehåller tips om hur du formuläret frågor och Lägg till källkoden. Följa dessa riktlinjer kan hjälpa till att öka sannolikheten för att medlemmar i communityn utvärdera och svara snabbt på din fråga:  
@@ -77,7 +77,7 @@ Om du inte hittar svar på ditt problem vid en sökning, skicka en ny fråga att
 Exempel är ofta publiceras med öppen källkod. För frågor och problem, skapar du en *problemet* i respektive GitHub-lagringsplatsen. Du kan skicka en pull-begäran för. Följande lista innehåller länkar till exempel databaser.
 
 * [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
-* [Enheter SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+* [Devices SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Du kan skapa en felrapport, funktionsförfrågan, eller be en allmän fråga och dela bästa praxis. Följ den angivna mallen för buggrapporter:
 

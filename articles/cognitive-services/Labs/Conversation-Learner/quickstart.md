@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 3d029c91debfc8ed3ac24e831224426a2780b763
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: MT
+ms.openlocfilehash: 02501cba75bd64d6a09fce671d2949759b5cd577
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53791088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207028"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Skapa en Konversationsdeltagare modell med hjälp av Node.js
 
@@ -171,9 +171,9 @@ Det här projektet använder sig av [Microsofts uppförandekod för öppen käll
 
 - [conversationlearner-exempel](https://github.com/Microsoft/ConversationLearner-Samples)
 - [conversationlearner-sdk](https://github.com/Microsoft/ConversationLearner-SDK)
-- [conversationlearner-modeller](https://github.com/Microsoft/ConversationLearner-Models)
+- [conversationlearner-models](https://github.com/Microsoft/ConversationLearner-Models)
 - [conversationlearner-ui](https://github.com/Microsoft/ConversationLearner-UI)
-- [conversationlearner webbchatten enligt vad](https://github.com/Microsoft/ConversationLearner-WebChat)
+- [conversationlearner-webchat](https://github.com/Microsoft/ConversationLearner-WebChat)
 
 ## <a name="next-steps"></a>Nästa steg
 

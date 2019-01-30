@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 273b54961adafb58fe9faa7993003ff74d50b6f9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646021"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218164"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Så här använder du CTF-rapportering (Collaborative Translation Framework)
 
@@ -36,10 +36,10 @@ Slutpunkten för CTF Reporting API: et är http://api.microsofttranslator.com/v2
 
 
 ## <a name="methods"></a>Metoder
-| Namn |    Beskrivning|
+| Name |    Beskrivning|
 |:---|:---|
-| GetUserTranslationCounts metod | Hämta antalet översättningar som har skapats av användaren. |
-| GetUserTranslations metod | Hämtar översättningar som har skapats av användaren. |
+| GetUserTranslationCounts Method | Hämta antalet översättningar som har skapats av användaren. |
+| GetUserTranslations Method | Hämtar översättningar som har skapats av användaren. |
 
 Dessa metoder kan du:
 * Hämta den fullständiga uppsättningen användare översättningar och ändringar under ditt konto-ID för hämtning.
@@ -49,7 +49,7 @@ Dessa metoder kan du:
 > [!NOTE]
 > Båda metoderna är relativt långsamt och dyrt. Det rekommenderas att använda dem sparsamt.
 
-## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts metod
+## <a name="getusertranslationcounts-method"></a>GetUserTranslationCounts method
 
 Den här metoden hämtar antalet översättningar som har skapats av användaren. Den innehåller en lista över translation antal grupperade efter uriPrefix, från, till användare, minRating och parametrarna som maxRating.
 
@@ -82,7 +82,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 | till | **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| Användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
+| användare | **Valfritt** en sträng som används för att filtrera resultatet baserat på avsändaren av överföringen. |
 | category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
 | minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format. |
 | maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format. |
@@ -153,7 +153,7 @@ UserTranslation[] GetUserTranslations (
 | till| **Valfritt** en sträng som representerar språkkoden att översätta text i.|
 | minRating| **Valfritt** ett heltalsvärde som representerar minimikvalitet-klassificering för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
 | maxRating| **Valfritt** ett heltalsvärde som representerar den högsta kvalitet klassificeringen för den översatta texten. Det giltiga värdet är mellan -10 och 10. Standardvärdet är 1.|
-| Användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
+| användare| **Valfritt. En sträng som används för att filtrera resultatet baserat på avsändaren av överföringen**|
 | category| **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet Allmänt.|
 | minDateUtc| **Valfritt** datum när du vill hämta översättningar. Datumet måste vara i UTC-format.|
 | maxDateUtc| **Valfritt** datum till när du vill hämta översättningar. Datumet måste vara i UTC-format.|

@@ -4,16 +4,16 @@ description: Använd avancerade algoritmer i Avvikelsesökare hjälper dig att i
 services: cognitive-services
 author: tonyxing
 ms.service: cognitive-services
-ms.component: anomaly-detection
+ms.subservice: anomaly-detection
 ms.topic: article
 ms.date: 04/19/2018
 ms.author: tonyxing
-ms.openlocfilehash: c0c15f077a0a7dd302a377aa6f82ba2f8533d862
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: ad0af6137e2a127e2f9981c2707906514bf8c591
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456260"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215205"
 ---
 # <a name="what-is-anomaly-finder"></a>Vad är avvikelsesökare?
 
@@ -30,15 +30,15 @@ Se vad du kan skapa med den här API:
 
 ![Anomaly_Finder](./media/anomaly_detection1.png) 
 
-Figur 1: Identifiera avvikelser i försäljning intäkter
+Fig. 1: Identifiera avvikelser i försäljning intäkter
 
 ![Anomaly_Finder](./media/anomaly_detection2.png)
 
-Figur 2: Identifiera ändringar i mönster i tjänstbegäranden
+Fig. 2: Identifiera ändringar i mönster i tjänstbegäranden
 
 ## <a name="requirements"></a>Krav
 
-- Minsta mängd data för indata time series: minst 13 data pekar för tidsserier utan tydliga periodicitet minst 4 cykler data pekar för tidsserier med kända periodicitet. 
+- Minsta mängd data för inkommande tidsserie: Minst 13 data pekar för tidsserier utan tydliga periodicitet minst 4 cykler data pekar för tidsserier med kända periodicitet. 
 - Dataintegritet: tid serie datapunkter är avgränsade i samma intervall och inga saknas punkter. 
 
 ## <a name="identify-anomalies"></a>Identifiera avvikelser

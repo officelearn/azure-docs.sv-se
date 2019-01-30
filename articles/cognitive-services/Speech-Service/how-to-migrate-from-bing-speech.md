@@ -6,16 +6,16 @@ services: cognitive-services
 author: wsturman
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: gracez
-ms.openlocfilehash: fdd22e14e0b7636dbc337a20dd69bf93696bb924
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: b862975cda4a73d087d9aa0d5816fdcb9e0149dc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416288"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218017"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrera från Bing-tal till Taltjänst
 
@@ -39,10 +39,10 @@ Med Taltjänsten liknar huvudsakligen Bing-taligenkänning med följande skillna
 
 Funktion | Bing-taligenkänning | Tjänst för taligenkänning | Information
 -|-|-|-
-SDK FÖR C++ | : heavy_minus_sign: | :heavy_check_mark: | Speech Service har stöd för Windows och Linux.
+C++ SDK | : heavy_minus_sign: | :heavy_check_mark: | Speech Service har stöd för Windows och Linux.
 Java SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service har stöd för Android- och taligenkänning enheter.
 C#-SDK | :heavy_check_mark: | :heavy_check_mark: | Speech Service har stöd för Windows 10, Universal Windows Platform (UWP) och .NET Standard 2.0.
-Kontinuerlig taligenkänning | 10 minuter | Obegränsat (med SDK) | Både tal för Bing och Speech Service WebSockets protokoll stöd för upp till 10 minuter per anrop. Men SDK tal automatiskt återansluts vid timeout eller koppla från.
+Kontinuerlig taligenkänning | 10 minuter | Obegränsat (med SDK) | Både tal för Bing och Speech Service WebSockets protokoll stöd för upp till 10 minuter per anrop. Men SDK tal automatiskt återansluts vid timeout eller koppla från.
 Partiell eller mellanliggande resultat | :heavy_check_mark: | :heavy_check_mark: | Med WebSockets-protokollet eller SDK.
 Anpassade talmodeller | :heavy_check_mark: | :heavy_check_mark: | Bing-taligenkänning kräver en separat prenumeration för anpassat tal.
 Anpassade rösttyper | :heavy_check_mark: | :heavy_check_mark: | Bing-taligenkänning kräver en separat anpassad Voice-prenumeration.
@@ -51,8 +51,8 @@ Igenkänning av talavsikt | Kräver separat LUIS-API-anrop | Integrerat (SDK) | 
 Enkel avsiktsigenkänning | : heavy_minus_sign: | :heavy_check_mark: 
 Batch transkription av länge ljudfiler | : heavy_minus_sign: | :heavy_check_mark:
 Igenkänningsläge | Manuell via slutpunkt URI | Automatisk | Igenkänning av läge är inte tillgänglig i Speech Service.
-Slutpunkten ort | Global | Regionala | Regionala slutpunkter förbättra svarstiden.
-REST API:er | :heavy_check_mark: | :heavy_check_mark: | REST API för taligenkänning är kompatibel med Bing-tal (olika slutpunkt). REST API: er stöd för text till tal och begränsade funktioner för tal till text.
+Slutpunkten ort | Global | Regional | Regionala slutpunkter förbättra svarstiden.
+REST-API:er | :heavy_check_mark: | :heavy_check_mark: | REST API för taligenkänning är kompatibel med Bing-tal (olika slutpunkt). REST API: er stöd för text till tal och begränsade funktioner för tal till text.
 WebSockets protokoll | :heavy_check_mark: | :heavy_check_mark: | API för taligenkänning Service WebSockets är kompatibel med Bing-tal (olika slutpunkt). Migrera till tal SDK: N om det är möjligt, för att förenkla din kod.
 Tjänst-till-tjänst-API-anrop | :heavy_check_mark: | : heavy_minus_sign: | Tillhandahålla i Bing-taligenkänning via C#-Tjänstbibliotek. 
 SDK med öppen källkod | :heavy_check_mark: | : heavy_minus_sign: |

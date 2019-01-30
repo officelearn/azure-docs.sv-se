@@ -5,16 +5,16 @@ description: En ordlista är ett justerade dokument som anger en lista med frase
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a92e41ad9611981777012cd231845587a6f947b
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: bc297fd4cdda8cdb3dc618b73e91d2f4e31e8b6a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627573"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212417"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ordlista?
 
@@ -32,7 +32,7 @@ Mening-ordlista kan du ange en översättning för exakta mål för en mening i 
 Du kan träna en modell med hjälp av endast ordlista data. Om du vill göra detta, Välj ordlista dokumentet (eller flera ordlista dokument) som du vill inkludera och tryck på modell. Eftersom det här är en ordlista endast utbildning, finns inga minsta antal utbildning meningar som krävs. Din modell slutförs vanligtvis utbildning som är mycket snabbare än en standard-utbildning.  De resulterande modellerna använder Microsoft baseline modeller för översättning med hjälp av ordlistor som du har lagt till.  Du kommer inte att hämta en testrapport.
 
 >[!Note]
->Anpassade Translator har inte meningen justera ordlistefiler, så det är viktigt att det finns ett jämnt antal käll- och fraser/meningar i dokumenten ordlista och att de exakt är justerade.
+>Anpassade Translator inte meningen justera ordlistefiler, så det är viktigt att det inte finns lika många av käll- och fraser / meningar i din ordlista dokument och att de exakt är justerade.
 
 ## <a name="recommendations"></a>Rekommendationer
 

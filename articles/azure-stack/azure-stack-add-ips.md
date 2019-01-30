@@ -15,15 +15,16 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: scottnap
-ms.openlocfilehash: b401139d417674cf58d2db264b442d7588cc34ba
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.lastreviewed: 09/17/2018
+ms.openlocfilehash: d81374b110523e48e06725d3d3153e61135471cc
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45986233"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251630"
 ---
 # <a name="add-public-ip-addresses"></a>Lägg till offentliga IP-adresser
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*  
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*  
 
 Lär dig hur du lägger till flera offentliga IP-adresser till Azure Stack.  Vi refererar till externa adresser som offentliga IP-adresser i den här artikeln, men i Azure Stack som detta är avsett att referera till att lägga till IP-Adressblock i det externa nätverket.  Om det externa nätverket är offentliga Internet-dirigerbara eller är i ett intranät och använder privata adressutrymmet spelar egentligen ingen enligt den här artikeln.  Stegen är desamma. 
 
@@ -49,7 +50,7 @@ Det första du behöver göra är att hämta adressblocket som du vill lägga ti
 5.  Klicka på den offentliga IP-pooler med användningsikonen.
 6.  Klicka på knappen Lägg till IP-pool.
 7.  Ange ett namn för IP-poolen.  Det namn du väljer är bara att du enkelt kan identifiera IP-adresspoolen så att du kan skriva vad du gillar.  Det är en bra idé att göra namnet identiskt adressintervallet, men som inte är nödvändiga.
-8.   Ange adressblocket som du vill lägga till i CIDR-notation.  Till exempel: 192.168.203.0/24
+8.   Ange adressblocket som du vill lägga till i CIDR-notation.  Exempel: 192.168.203.0/24
 9.  När du anger ett giltigt CIDR-intervall i adressfältet adressintervall (CIDR-block) första IP-adress, sista IP-adress och tillgängliga IP-adresser fält automatiskt fylls i.  De är skrivskyddad och genereras automatiskt så att du inte kan ändra dessa utan att ändra värdet i fältet adressintervall.
 10. När du har granskat informationen på bladet och bekräftar allt ser ut korrigera, klicka på Ok om du vill genomföra ändringen och lägga till adressintervallet i Azure Stack.
 

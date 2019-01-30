@@ -6,16 +6,16 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 50417e9e1722e69c24185c05ea5e286e6b13e8c7
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: b0078e27e4d06b814a62ed0f04a4f31230ab9838
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364949"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209402"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exportera din modell för användning med mobila enheter
 
@@ -24,7 +24,7 @@ Custom Vision Service gör klassificerare som ska exporteras för att köra offl
 Custom Vision Service har stöd för följande export:
 
 * __Tensorflow__ för __Android__.
-* __CoreML__ för __iOS11__.
+* __CoreML__ for __iOS11__.
 * __ONNX__ för __Windows ML__.
 * En Windows- eller Linux __behållare__. Behållaren innehåller en Tensorflow modellera och kod för att använda Custom Vision Service API-tjänsten. 
 

@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 01/19/2019
 ms.author: mayg
-ms.openlocfilehash: 9b26c80b59a57b4a9b2423e1a9028cf723f40fb1
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: a1b35d4c10246af7e4dab36585c2bb9b72fd0c01
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321236"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216973"
 ---
 # <a name="exclude-disks-from-replication"></a>Undanta diskar från replikering
 Den här artikeln beskriver hur du undantar diskar från replikering. Det här undantaget kan optimera replikeringsbandbredden som används eller optimera resurser som används av dessa diskar på målsidan.
@@ -59,7 +59,7 @@ Vi beskriver två scenarier för att du ska förstå hur undantag av diskar fung
 - SQL Server tempdb-disk
 - Växlingsfildisk (pagefile.sys)
 
-## <a name="excample-1-exclude-the-sql-server-tempdb-disk"></a>Exempel 1: Undanta en SQL Server tempdb-disk
+## <a name="example-1-exclude-the-sql-server-tempdb-disk"></a>Exempel 1: Undanta en SQL Server tempdb-disk
 Anta att du har en virtuell dator som kör SQL Server och som har en tmpdb som kan undantas.
 
 Namnet på den virtuella disken är SalesDB.
@@ -69,7 +69,7 @@ Diskarna på den virtuella källdatorn är följande:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
 DB-Disk1| Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (disken har undantagits från skydd) | Disk2 | E:\ | Tillfälliga filer
 DB-Disk3 (disken har undantagits från skydd) | Disk3 | F:\ | SQL tempdb-databas (mappsökväg(F:\MSSQL\Data\) </br /> </br />Notera mappsökvägen före redundansväxling.
@@ -156,7 +156,7 @@ Diskar på den virtuella Hyper-V-datorn (ursprunglig plats) efter planerad redun
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 |   C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 |   C:\ | Operativsystemsdisk
 DB-Disk1 | Disk1 | D:\ | SQL-systemdatabas och användardatabas1
 DB-Disk2 (utesluten disk) | Disk2 | E:\ | Tillfälliga filer
 DB-Disk3 (utesluten disk) | Disk3 | F:\ | SQL tempdb-databasen (mappsökväg (F:\MSSQL\Data\)
@@ -172,7 +172,7 @@ Här är diskkonfigurationen:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
 DB-Disk1 (disken har undantagits från skydd) | Disk1 | D:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
@@ -185,7 +185,7 @@ Efter redundansväxlingen av den virtuella datorn från Hyper-V till Azure är d
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
 DB-Disk1 | Disk1 | D:\ | Temporär lagring</br /> </br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
@@ -202,7 +202,7 @@ Här är diskkonfigurationen av den virtuella källdatorn:
 
 **Disknamn** | **Antal gästoperativsystem** | **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0 | C:\ | Operativsystemdisk
+DB-Disk0-OS | DISK0 | C:\ | Operativsystemsdisk
 DB-Disk1 (disken har undantagits från skydd) | Disk1 | G:\ | pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2
@@ -215,7 +215,7 @@ Efter redundansväxlingen av den virtuella datorn från Hyper-V till Azure är d
 
 **Disknamn**| **Antal gästoperativsystem**| **Enhetsbeteckning** | **Datatyp på disken**
 --- | --- | --- | ---
-DB-Disk0-OS | DISK0  |C:\ |Operativsystemdisk
+DB-Disk0-OS | DISK0  |C:\ |Operativsystemsdisk
 DB-Disk1 | Disk1 | D:\ | Temporär lagring</br /> </br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Användardata 1
 DB-Disk3 | Disk3 | F:\ | Användardata 2

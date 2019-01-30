@@ -6,16 +6,16 @@ services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: heidist
-ms.openlocfilehash: 139699fac1a84273174f2c3bd30da2a911de46b8
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.openlocfilehash: 04846ab2f1ade6f22898f88ac82bb36b42c5a1e1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54302269"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207198"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Extern & community-innehåll för Text Analytics Cognitive Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "54302269"
 
 + Power BI-bloggen: Extraktion av nyckelfraser från Facebook-meddelanden: [Del 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) och [del 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 + [Logic App för att identifiera sentiment och extrahera nyckelfraser i texten](https://www.youtube.com/watch?v=jVN9NObAzgk)
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 00ce83a7ec52e24ce858c720e834b8396c2f808c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 118ecc08604cbe05181dd3ba943fd73a34fd47f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523973"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212485"
 ---
 # <a name="addremove-an-azure-file-sync-server-endpoint"></a>Lägg till/ta bort en serverslutpunkt för Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -29,16 +29,16 @@ Om du vill skapa en serverslutpunkt, måste du först se till att följande vill
 - Se till att en synkroniseringsgrupp har distribuerats. Lär dig hur du [skapar en synkroniseringsgrupp](storage-sync-files-deployment-guide.md#create-a sync-group-and-a-cloud-endpoint).
 - Kontrollera att servern är ansluten till internet och att Azure är tillgänglig. Vi använder port 443 för all kommunikation mellan servern och vår tjänst.
 
-## <a name="add-a-server-endpoint"></a>Lägg till en serverslutpunkt
+## <a name="add-a-server-endpoint"></a>Lägga till en serverslutpunkt
 Gå till den önskade synkroniseringsgruppen för att lägga till en serverslutpunkt och välj ”Lägg till serverslutpunkt”.
 
-![Lägg till en ny serverslutpunkt i fönstret sync grupp](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
+![Lägga till en serverslutpunkt i fönstret för synkroniseringsgruppen](media/storage-sync-files-server-endpoint/add-server-endpoint-1.png)
 
 Följande information krävs **Lägg till serverslutpunkt**:
 
-- **Registrerad server**: namnet på servern eller klustret att skapa Serverslutpunkten på.
-- **Sökvägen**: sökväg på Windows-Server som ska synkroniseras som en del av synkroniseringsgruppen.
-- **Cloud Tiering**: en växel för att aktivera eller inaktivera lagringsnivåer. När aktiverad cloud lagringsnivåer kommer *nivå* filer till Azure-filresurser. Det konverterar lokala filresurser till en cache i stället för en fullständig kopia av datauppsättningen för att hjälpa dig att hantera utrymmeseffektivitet på servern.
+- **Registrerad server**: Namnet på servern eller klustret att skapa Serverslutpunkten på.
+- **Sökväg**: Sökvägen på den Windows-Server som ska synkroniseras som en del av synkroniseringsgruppen.
+- **Molnnivå**: En växel för att aktivera eller inaktivera lagringsnivåer. När aktiverad cloud lagringsnivåer kommer *nivå* filer till Azure-filresurser. Det konverterar lokala filresurser till en cache i stället för en fullständig kopia av datauppsättningen för att hjälpa dig att hantera utrymmeseffektivitet på servern.
 - **Ledigt utrymme på volym**: mängden ledigt utrymme för att reservera på volymen som Serverslutpunkten finns. Till exempel om volymens lediga utrymme är inställt på 50% på en volym med en enskild server-slutpunkt, ungefär hälften av data kommer att vara nivåindelad till Azure Files. Oavsett om molnet lagringsnivåer har aktiverats kan din Azure-filresurs har alltid en fullständig kopia av data i synkroniseringsgruppen.
 
 Välj **skapa** att lägga till Serverslutpunkten. Filerna i ett namnområde för en synkroniseringsgrupp kommer nu hålls synkroniserade. 
@@ -70,3 +70,4 @@ Ta bort Serverslutpunkten:
 ## <a name="next-steps"></a>Nästa steg
 - [Registrera/avregistrera en server med Azure File Sync](storage-sync-files-server-registration.md)
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
+- [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

@@ -1,26 +1,22 @@
 ---
 title: Felsöka redundans till Azure fel | Microsoft Docs
 description: Den här artikeln beskrivs olika sätt att felsöka vanliga fel i redundansväxel till Azure
-services: site-recovery
-documentationcenter: ''
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
+services: site-recovery
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/11/2018
+ms.date: 1/29/2019
 ms.author: mayg
-ms.openlocfilehash: 742e7891ec9c7151f23f1ad6eb57e728dd2a1ddd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 62b69364f0b3d3e14d0b2d877604cecfcc346dce
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53255099"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55207504"
 ---
-# <a name="troubleshoot-errors-when-failing-over-a-virtual-machine-to-azure"></a>Felsök fel när du växlar en virtuell dator till Azure
+# <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Felsök fel när redundansväxlingen VMware VM eller en fysisk dator till Azure
 
 Du får något av följande fel när du gör redundans för en virtuell dator till Azure. Felsök genom att använda beskrivs stegen för respektive feltillstånd.
 
@@ -48,7 +44,9 @@ Det gick inte att skapa en misslyckad över klassisk virtuell dator i Azure site
 
 Det gick inte att skapa en redundansväxlade virtuella datorn i Azure site Recovery. Det kan inträffa eftersom en intern aktivitet för hydrering misslyckades för den lokala virtuella datorn.
 
-Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutinerna i startavbildningen starta tillstånd och -tjänster som DHCP är i tillståndet autostart. Därför hydrering aktivitet, vid tidpunkten för växling vid fel, konverterar starttyp för **atapi, intelide, storflt, vmbus och storvsc drivrutiner** Start början. Det konverterar också starttypen för några tjänster som DHCP till autostart. Den här aktiviteten kan misslyckas på grund av problem med miljön. Så här ändrar du starttypen för drivrutiner manuellt i stegen nedan:
+Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutinerna i startavbildningen starta tillstånd och -tjänster som DHCP är i tillståndet autostart. Därför hydrering aktivitet, vid tidpunkten för växling vid fel, konverterar starttyp för **atapi, intelide, storflt, vmbus och storvsc drivrutiner** Start början. Det konverterar också starttypen för några tjänster som DHCP till autostart. Den här aktiviteten kan misslyckas på grund av problem med miljön. 
+
+Att manuellt ändra starttypen för drivrutiner för **Windows-Gästoperativsystem**, följer du de stegen nedan:
 
 1. [Ladda ned](http://download.microsoft.com/download/5/D/6/5D60E67C-2B4F-4C51-B291-A97732F92369/Script-no-hydration.ps1) nr hydrering skript och kör det som följer. Det här skriptet kontrollerar om virtuell dator kräver hydrering.
 
@@ -78,7 +76,7 @@ Om du vill ta fram en dator i Azure, kräver Azure-miljön några av drivrutiner
 
 Om den **Connect** knappen på den redundansväxlade virtuella datorn i Azure är nedtonad och du inte är ansluten till Azure via en Express Route eller plats-till-plats-VPN-anslutning, sedan
 
-1. Gå till **VM** > **nätverk**, klicka på namnet på nätverksgränssnittet som krävs.  ![nätverksskrivare](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Gå till **VM** > **nätverk**, klicka på namnet på nätverksgränssnittet som krävs.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Gå till **Ip-konfigurationer**, klicka sedan på namnfältet på IP-konfiguration som krävs. ![IP-konfigurationer](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
 3. Om du vill aktivera offentlig IP-adress, klickar du på **aktivera**. ![Aktivera IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
 4. Klicka på **konfigurera nödvändiga inställningar** > **Skapa ny**. ![Skapa en ny](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)

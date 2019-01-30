@@ -7,16 +7,16 @@ author: diberry
 ms.custom: seodec18
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: diberry
-ms.openlocfilehash: 9e0d1ae39431ca75b43680981802b82f16703d4d
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 160721560b6cf311f146cd0f48ae719d95b30a0f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53103939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206297"
 ---
 # <a name="prebuilt-entities-to-recognize-common-data-types"></a>Färdiga entiteter för att identifiera vanliga datatyper
 
@@ -60,7 +60,7 @@ Testa nya avsikten vid slutpunkten av lagt till ett värde för den **q** parame
 
  För att markera den här typen av token, där en del av den redan har markerats med en fördefinierade entitet, tar du bort fördefinierade entiteten från LUIS-app. Du behöver inte skapa appen. Markera sedan token med en egen anpassad entitet. Lägg sedan till den fördefinierade entitet tillbaka till LUIS-app.
 
- Överväg att uttryck som en lista över inställningar för klassen för ett annat exempel: `I want first year spanish, second year calculus, and fourth year english lit.` om LUIS-app har Prebuild ordningstalet lagts till, `first`, `second`, och `fourth` markeras redan med ordningstal. Om du vill avbilda ordningstalet och klassen kan du omsluta runt fördefinierade ordningstal och den anpassade entiteten för klassnamn skapar en sammansatt entitet.
+ Överväg att uttryck som en lista över inställningar för klassen för ett annat exempel är: `I want first year spanish, second year calculus, and fourth year english lit.` Om LUIS-app har Prebuild ordningstalet lagts till, `first`, `second`, och `fourth` markeras redan med ordningstal. Om du vill avbilda ordningstalet och klassen kan du omsluta runt fördefinierade ordningstal och den anpassade entiteten för klassnamn skapar en sammansatt entitet.
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]

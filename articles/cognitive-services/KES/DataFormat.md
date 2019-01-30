@@ -6,18 +6,18 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 2c67ff1f7a3713b9418458bb7904a35808532293
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c06a90b7c53067723280b6a1573ada9fbf65e10d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129292"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223246"
 ---
-# <a name="data-format"></a>Dataformat
+# <a name="data-format"></a>Data Format
 
 Datafilen beskriver listan med objekt som ska indexeras.
 Varje rad i filen anger attributvärden för ett objekt i [JSON-format](http://json.org/) med UTF-8-kodning.

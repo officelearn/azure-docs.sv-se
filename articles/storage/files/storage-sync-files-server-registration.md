@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a296576d3d7983b710727923043091f5660b693d
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
+ms.openlocfilehash: 196e2fadea10c1527576961b0e4b31c058cf9ba6
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002560"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223484"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Hantera registrerade servrar med Azure File Sync
 Med Azure File Sync kan du centralisera din organisations filresurser i Azure Files med samma flexibilitet, prestanda och kompatibilitet som du får om du använder en lokal filserver. Det gör du genom att omvandla dina Windows-servrar till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt data lokalt (inklusive SMB, NFS och FTPS) och du kan ha så många cacheminnen som du behöver över hela världen.
@@ -191,5 +191,6 @@ När Azure File Sync finns på en virtuell dator som körs på en Windows Server
 
 ## <a name="see-also"></a>Se också
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
-- [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md) 
+- [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Övervaka Azure File Sync](storage-sync-files-monitoring.md)
 - [Felsök Azure File Sync](storage-sync-files-troubleshoot.md)

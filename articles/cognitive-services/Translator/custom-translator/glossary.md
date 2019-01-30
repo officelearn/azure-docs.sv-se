@@ -5,16 +5,16 @@ description: Anpassade Translator ordlista
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 35d2ef734e1d1ce71ae6c8d7a607fe0dad1915fb
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 28f9ca2cdb622e54bf4938863e4dd826c28d92de
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627674"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206433"
 ---
 # <a name="glossary"></a>Ordlista
 
@@ -35,4 +35,4 @@ Den [anpassad Translator](https://portal.customtranslator.azure.ai) ordlista bes
 | Testa filer            | Dessa filer är ofta härledda filer, väljs slumpvis från träningsmängden (om du inte väljer några testmängd). Syftet med dessa meningar är att utvärdera translation modellens precision. Det här är meningar som du vill kontrollera att systemet översätter korrekt. Så kan du skapa en testmängden och överföra den till översättaren att se till att dessa meningar används i systemets utvärdering (generering av en BLEU poäng).   |
 | Kombinationsruta för fil               | En typ av fil där käll- och översatte meningar finns i samma fil. Filformat som stöds (”.tmx”, ”.xliff”, ”.xlf”, ”.lcl”, ”.xlsx”).                                                                                                                                                                                                                                                                                                                       |
 | Arkivfilen             | En fil som innehåller andra filer. Filformat (zip, gz, tgz) som stöds.                                                                                                                                                                                                                                                                                                                                                                                                |
-| BLEU poäng               | [BLEU](what-is-bleu-score.md) är bransch standardmetoden för att utvärdera ”precision” eller riktighet translation modellen. Även om det finns andra metoder för utvärdering, använder Microsoft Translator BLEU metod för att noggrannhet till projektet ägare.
+| BLEU-poäng               | [BLEU](what-is-bleu-score.md) är bransch standardmetoden för att utvärdera ”precision” eller riktighet translation modellen. Även om det finns andra metoder för utvärdering, använder Microsoft Translator BLEU metod för att noggrannhet till projektet ägare.

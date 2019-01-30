@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d57270a4db2129370da7336d8a7bf012848890c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: cca7b42c83be3ca428509ea48c387a1c35ddb35a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796847"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55206738"
 ---
 # <a name="how-to-use-branching-and-undo-operations"></a>Hur du använder branchning och ångra åtgärder
 I den här självstudien ska vi gå igenom Ångra och branchning åtgärder.
@@ -25,7 +25,7 @@ I den här självstudien ska vi gå igenom Ångra och branchning åtgärder.
 ### <a name="undo"></a>Ångra
 Kan utvecklare ”Ångra” senaste användarens indata eller åtgärd val. I bakgrunden ”Ångra” faktiskt skapar en ny dialogruta och spelar upp det upp till föregående steg.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
 
-### <a name="branch"></a>Branch
+### <a name="branch"></a>Gren
 Skapar en ny dialogruta träna börjar på samma sätt som en befintlig träna dialogrutan – detta sparar arbetet med manuellt återinföra dialogrutan stängs. I bakgrunden ”gren” skapar en ny dialogruta och spelar upp dialogrutan befintliga träna upp till det valda steget.  Det innebär att entiteten identifiering av återanrop och API-anrop i dialogrutan anropas igen.
 
 
@@ -51,7 +51,7 @@ Här är ett exempel på hur du ser den `Undo` funktionen fungerar i praktiken:
 6. Klicka på knappen `Undo`.
     - Den sista posten tas bort, lämna det senaste Bot-svaret för ”vad du vill på din pizza”?
 
-## <a name="branch"></a>Branch
+## <a name="branch"></a>Gren
 
 Den här demonstrationen vi öppna en befintlig Train-dialogruta och skapa en ny Train-dialogruta från den av förgrening.
 
@@ -68,7 +68,7 @@ Den här demonstrationen vi öppna en befintlig Train-dialogruta och skapa en ny
     - I det här läget roboten hämtar ett svar automatiskt, men du vill använda inte svaret vi kommer att ändra den.
 8. Klicka på det senaste Bot-svaret.
     - Detta väljer kan vi ett annat svar.
-9. Välj ”UseLastToppings”.
+9. Select "UseLastToppings".
 10. Klicka på knappen `Score Actions`.
     - Roboten hämtar igen automatiskt ett svar. Det bör stå, ”du har köttråvara, ost och svamp på din pizza”. 
     - Den här gången vi gillar svaret så vi kommer att behålla.

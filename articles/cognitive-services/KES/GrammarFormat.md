@@ -6,16 +6,16 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 4b4010152622cd9a1d8111ac92dd1960e78d4601
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f3cb307a52cfddebfa97c1b8608549acdd89169d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125161"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215082"
 ---
 # <a name="grammar-format"></a>Grammatikformat
 
@@ -77,7 +77,7 @@ När `item` element visas som underordnade till en `one-of` element de definiera
 </one-of>
 ```
 
-### <a name="one-of-element"></a>en-elementets
+### <a name="one-of-element"></a>one-of Element
 
 Den `one-of` elementet anger alternativa expanderar mellan en underordnad `item` element.  Endast `item` element kan förekomma inuti en `one-of` element.  Relativa sannolikhet mellan olika alternativ kan anges den `logprob` attribut i varje underordnad `item`.
 
@@ -128,9 +128,9 @@ I följande tabell visas de stöds `op` värden för varje attributtyp.  Deras a
 
 | Attributtyp | Op värde | Beskrivning | Indexåtgärden
 |----|----|----|----|
-| Sträng | EQ | Exakt matchning av sträng | lika med |
+| Sträng | eq | Exakt matchning av sträng | är lika med |
 | Sträng | starts_with | Prefix för strängmatchning | starts_with |
-| Int32, Int64, Double-värde | EQ |  Numeriska likhetsmatchning | lika med |
+| Int32, Int64, Double-värde | eq |  Numeriska likhetsmatchning | är lika med |
 | Int32, Int64, Double-värde | lt, le, gt, ge | Numeriska ojämlikhet matchning (<, < =, >, > =) | is_between |
 | Int32, Int64, Double-värde | starts_with | Prefixmatchning värde i decimalform | starts_with |
 

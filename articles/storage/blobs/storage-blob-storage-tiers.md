@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: kuhussai
-ms.component: blobs
-ms.openlocfilehash: 19a9ef3e3f6a33e1f8e4d1e47ddc7562c0b90e37
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.subservice: blobs
+ms.openlocfilehash: 3e89f5de247cf18abdb710577ce55c6e2cb5765e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54197682"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251902"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Azure Blob storage: Premium (förhandsversion), lagringsnivåerna frekvent, lågfrekvent lagring och Arkivlagring
 
@@ -123,7 +123,7 @@ När en blob flyttas till en mer lågfrekvent nivå (frekvent -> lågfrekvent, f
 
 | | **Skriva avgifter (åtgärden + åtkomst)** | **Läs avgifter (åtgärden + åtkomst)** 
 | ---- | ----- | ----- |
-| **SetBlobTier riktning** | Frekvent -> lågfrekvent, frekvent -> Arkiv, lågfrekvent -> Arkiv | Arkiv -> lågfrekvent, Arkiv -> frekvent, lågfrekvent -> frekvent
+| **SetBlobTier Direction** | Hot->Cool, Hot->Archive, Cool->Archive | Archive->Cool, Archive->Hot, Cool->Hot
 
 Om du ändrar kontonivån från frekvent till lågfrekvent debiteras du för skrivåtgärder (per 10 000) för alla blobbar utan en angiven lagringsnivå i GPv2-konton. Det finns ingen kostnad för den här ändringen i Blob storage-konton. Du kommer att debiteras för både läsåtgärder (per 10 000) och datahämtning (per GB) om du växlar ditt Blob storage eller GPv2-konto från lågfrekvent till frekvent. Avgifter för tidig borttagning för alla blobbar som flyttas från lågfrekvent nivå eller arkivnivå nivå kan också tillkomma.
 

@@ -5,16 +5,16 @@ description: Du kan ladda upp parallella dokument för dina utbildningar med hj�
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 3a0adb4b761121334e93f2b8d2d764ff3ab495e2
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: e08813c71a0b95b6b130ab71313bda6d044d730a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633256"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217228"
 ---
 # <a name="upload-a-document"></a>Ladda upp ett dokument
 
@@ -41,18 +41,18 @@ Från [anpassad Translator](https://portal.customtranslator.azure.ai) portal, kl
     -  Justering: Dessa dokument används för justering set.
     -  Testning: Dessa dokument används för att testa set.
     -  Fras ordlista: Dessa dokument ska användas för frasen ordlista.
-    -  Mening ordlista: Dessa dokument kommer att användas för meningen ordlista
+    -  Ordlista för meningen: Dessa dokument som ska användas för meningen ordlista
 
     b.  Språk-par
 
-    c.  Åsidosätta dokumentet om finns: Markera den här kryssrutan om du vill skriva över eventuella befintliga dokument med samma namn.
+    c.  Åsidosätta dokumentet om finns: Välj den här kryssrutan om du vill skriva över eventuella befintliga dokument med samma namn.
 
     d.  Fyll i relevanta avsnitt för parallella eller kombinationsruta för data.
 
     -  Parallell data:
-        -  Källfilen: Välj källspråk fil från din lokala dator.
+        -  Källfil: Välj källspråk fil från din lokala dator.
         -  Målfilen: Välj målspråk fil från din lokala dator.
-        -  Dokumentnamn: används endast om du laddar upp parallella filer.
+        -  Dokumentnamn: Används endast om du laddar upp parallella filer.
 
     - Kombinationsruta för data:
         -  Kombinationsruta för filen: Markera den kombinationsruta-fil från din lokala dator. Kombinationsruta för filen har både för källan och målspråk meningar. [Naming convention](document-formats-naming-convention.md) är viktigt för kombinationsruta för filer.

@@ -6,21 +6,21 @@ services: cognitive-services
 author: wolfma61
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 7485ca1e4b1143ed46c9b3bef9ca66af0638b4f8
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 80cf0d9970eb7052eeb19fb297176453864202cf
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599424"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55205703"
 ---
-# <a name="release-notes"></a>Viktig information
+# <a name="release-notes"></a>Viktigt
 
-## <a name="speech-sdk-120-2018-december-release"></a>Tal SDK 1.2.0 eller senare: 2018-December versionen
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018-December versionen
 
 **Nya funktioner**
 
@@ -52,7 +52,7 @@ ms.locfileid: "53599424"
 * Ett problem som kan leda till saknade slutresultatet för misslyckade översättningar har åtgärdats.
 * C#: Om en asynkron åtgärd inte har slutförts i huvudtråden, var det möjligt identifieraren kan tas bort innan den asynkron uppgiften slutfördes.
 * Java: Åtgärdat problem vilket resulterar i en krasch på Java-VM.
-* Mål för C: Fast enum mappningen; RecognizedIntent returnerades i stället för RecognizingIntent.
+* Objective-C: Fast enum mappningen; RecognizedIntent returnerades i stället för RecognizingIntent.
 * JavaScript: Ange Standardutdataformatet till enkel i SpeechConfig.
 * JavaScript: Tar bort inkonsekvens mellan egenskaper för konfigurationsobjekt i JavaScript och andra språk.
 
@@ -61,7 +61,7 @@ ms.locfileid: "53599424"
 * Uppdaterade och fasta flera exempel (till exempel utdata röster för översättning osv).
 * Lagt till Node.js-exempel i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-110"></a>Tal SDK 1.1.0
+## <a name="speech-sdk-110"></a>Speech SDK 1.1.0
 
 **Nya funktioner**
 
@@ -92,15 +92,15 @@ ms.locfileid: "53599424"
 
 * Lagt till C++ och C# samplea för pull och push stream-användning i den [exempellagringsplatsen](https://aka.ms/csspeech/samples).
 
-## <a name="speech-sdk-101"></a>Tal SDK 1.0.1
+## <a name="speech-sdk-101"></a>Speech SDK 1.0.1
 
 Förbättrad tillförlitlighet och felkorrigeringar:
 
 * Fast potentiella allvarligt fel på grund av konkurrenstillstånd i tar bort Igenkännande
 * Fast potentiella allvarligt fel vid Odefinierad egenskaper.
 * Har lagts till ytterligare fel och kontroll av parametern.
-* Mål för C: Fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
-* Mål för C: Justerade synligheten för API: et
+* Objective-C: Fast möjliga allvarligt fel på grund av att namnet åsidosätta i NSString.
+* Objective-C: Justerade synligheten för API: et
 * JavaScript: Fasta om händelser och sina nyttolaster.
 * Dokumentation om förbättringar.
 
@@ -152,7 +152,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Experimentella: Stöder UWP på Windows (version 1709 eller senare).
   * Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
-  * Obs! UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
+  * Anmärkning: UWP-appar som skapats med SDK: N för tal ännu skickar inte Windows App Certification Kit (WACK).
 * Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**
@@ -217,6 +217,6 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 
 Fler exempel har lagts till och uppdateras kontinuerligt. Den senaste uppsättningen exempel, finns det [tal SDK GitHub-lagringsplats med exempel](https://aka.ms/csspeech/samples).
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services tal SDK 0.2.12733: 2018-maj versionen
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018-maj versionen
 
 Den här versionen är den första offentliga förhandsversionen av Cognitive Services tal SDK.

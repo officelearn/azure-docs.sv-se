@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 8050008bbae4a23f09b5fa94874a6315e798b448
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576433"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211295"
 ---
 # <a name="default-values-and-boundaries"></a>Standardvärden och gränser
 
@@ -25,11 +25,11 @@ Det här dokumentet beskriver standardkonfigurationen av Konversationsdeltagare 
 
 Parameter | Standardvärde
 --- | --- 
-Tidsgräns för session standard | 30 minuter
+Tidsgräns för session standard | 30 minuter
 
 ## <a name="boundaries"></a>Gränser
 
-Parameter | Gräns
+Parameter | Begränsning
 --- | --- 
 Redigera API max HTTP-anrop per månad | 5M
 Redigerar API, max HTTP-anrop per sekund | 25

@@ -6,17 +6,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 8d6e768e5cf846cb2c34ceb61d269854418e1dc5
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 778005ee321c981fec1d1271cee54229bb3a522f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976604"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214186"
 ---
 # <a name="constituency-parsing"></a>Parsning av valkrets
 
@@ -70,9 +70,9 @@ Det finns flera fraser: *Jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybri
 |ADJP   | Adjective frasen | ”så oartigt” |
 |ADVP   | Adverb frasen | ”Rensa via” |
 |CONJP  | Tillsammans frasen | ”samt” |
-|HANTVARS   | Fragment som används för ofullständiga eller fragmentary indata | ”Rekommenderas starkt...” |
+|FRAG   | Fragment som används för ofullständiga eller fragmentary indata | ”Rekommenderas starkt...” |
 |INTJ   | interjection | ”Hurra” |
-|LISTA    | Lista markör, inklusive skiljetecken | ”#4)” |
+|LST    | Lista markör, inklusive skiljetecken | "#4)" |
 |NAC    | Inte en konstituerande, används för att ange omfång för en icke-komponent fras |  ”och för en hel” i ”du allt och en bra hantera” |
 |NP | Substantiv frasen | ”en lång ljus pannkaka” |
 |NX | Används i vissa komplexa NPs för att markera i sidhuvudet| |
@@ -89,7 +89,7 @@ Det finns flera fraser: *Jag*, *en ny bil hybrid*, *Bluetooth*, och *en ny hybri
 |UCP    | Till skillnad från samordnad frasen| ”små och med buggar” (Observera hur ett adjektiv och en fras preposition conjoined med ”och”)|
 |VP | Verb frasen | ”råkade ut för skogen” |
 |WHADJP | Vad adjektiv frasen | ”hur obekväm” |
-|WHADVP | Vad adverb frasen| ”När” |
+|WHADVP | Vad adverb frasen| "when" |
 |WHNP   | N-substantiv frasen| ”vilka ljus”, ”hur mycket från början”|
 |WHPP   | Vad prepositional frasen| ”i vilket land”|
 |X  | Okänd, osäker eller unbracketable.| första ”den” i ”den... det från början” |

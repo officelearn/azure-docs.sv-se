@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a14a685ba80dbd5e7e3d44e9032e5baaad5ef3fe
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239310"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55208643"
 ---
 # <a name="analyze-method"></a>Analysera metod
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Den **analysera** REST-API används för att analysera en viss naturligt språk som indata.
 Som kan innebära att bara söka efter den [meningar och token](Sentences-and-Tokens.md) inom som indata, att hitta den [av ordklasser taggar](POS-tagging.md), eller för att hitta den [constitutency trädet](Constituency-Parsing.md).
@@ -38,11 +38,11 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Begäranparametrar
 
-Namn | Typ | Krävs | Beskrivning
+Name | Type | Obligatoriskt | Beskrivning
 -----|-------|----------|------------
-**Språk**    | sträng | Ja | De två enhetsbokstaven ISO språkkoden som ska användas för analys. Engelska är till exempel ”SV”.
+**language**    | sträng | Ja | De två enhetsbokstaven ISO språkkoden som ska användas för analys. Engelska är till exempel ”SV”.
 **analyzerIds** | lista med strängar | Ja | Lista över GUID-numren för analysverktyg tillämpas. Analysverktyg dokumentationen för mer information.
-**Text**        | sträng | Ja | Rå-indata som ska analyseras. Det kan vara en kort sträng, till exempel ett ord eller fraser, en fullständig mening eller en fullständig punkt eller discourse.
+**text**        | sträng | Ja | Rå-indata som ska analyseras. Det kan vara en kort sträng, till exempel ett ord eller fraser, en fullständig mening eller en fullständig punkt eller discourse.
 
 ## <a name="response-json"></a>Svar (JSON)
 
@@ -50,7 +50,7 @@ En matris med analys av utdata, en för varje attribut som anges i begäran.
 
 Resultaten se ut så här:
 
-Namn | Typ | Beskrivning
+Name | Typ | Beskrivning
 -----|------|--------------
 analyzerId | sträng | GUID för analysatorn anges
 Resultatet | objekt | Analyzer-resultat
@@ -59,18 +59,18 @@ Observera att typ av resultatet beror på vilken typ av inkommande analyzer.
 
 ### <a name="tokens-response-json"></a>Token-svar (JSON)
 
-Namn | Typ | Beskrivning
+Name | Typ | Beskrivning
 -----|------|-------------
 Resultatet | lista över mening objekt | mening gränser som anges i texten |
-resultatet [x]. Förskjutning | int | Starta en teckenförskjutning av varje mening |
-resultatet [x]. Len | int | Längden i tecken för varje mening |
-resultatet [x]. Token | lista över token-objekt | token gränser som anges i meningen |
-resultatet [x]. Token [y]. Förskjutning | int | Starta en teckenförskjutning av token |
-resultatet [x]. Token [y]. Len | int | Längden i tecken för token |
-resultatet [x]. Token [y]. RawToken | sträng | tecknen inom denna token innan normalisering |
+result[x].Offset | int | Starta en teckenförskjutning av varje mening |
+result[x].Len | int | Längden i tecken för varje mening |
+result[x].Tokens | lista över token-objekt | token gränser som anges i meningen |
+result[x].Tokens[y].Offset | int | Starta en teckenförskjutning av token |
+result[x].Tokens[y].Len | int | Längden i tecken för token |
+result[x].Tokens[y].RawToken | sträng | tecknen inom denna token innan normalisering |
 resultatet [x]. Token [y]. NormalizedToken | sträng | en normaliserad form av tecknet säker för användning i en [parsa trädet](Constituency-Parsing.md); exempelvis ett öppna parentesen tecken ' (' blir - LRB - |
 
-Exempel på indata ”: det här är ett test. Hello ”.
+Exempel på indata ”: det här är ett test. Hello.'
 Exempel-JSON-svar:
 ```json
 [
@@ -132,7 +132,7 @@ Exempel-JSON-svar:
 ```
 
 
-### <a name="pos-tags-response-json"></a>POS-taggar svar (JSON)
+### <a name="pos-tags-response-json"></a>POS Tags Response (JSON)
 
 Resultatet är lista med listor med strängar.
 Det finns en lista över POS-taggar en POS-tagg för varje token för varje mening.
@@ -147,7 +147,7 @@ Parsa träd representeras i form av en du.
 
 `POST /analyze`
 
-Begärandetexten: JSON-nyttolast
+Brödtext i begäran: JSON-nyttolast
 ```json
 {
   "language": "en",

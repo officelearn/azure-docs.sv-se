@@ -6,16 +6,16 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: d0a6b7be62afcd8e9f51b6a9387c9aa33f62d9a9
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 296f9046b8409de2626296e5b6e654c015d4c962
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430076"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215273"
 ---
 # <a name="pricing-and-limits"></a>Priser och begränsningar
 
@@ -28,9 +28,9 @@ Antalet inlärningsbilder per projekt och taggar per projekt förväntas öka me
 ||**Begränsad utvärderingsversion**|**F0**|**S0**|
 |-----|-----|-----|-----|
 |Projekt|2|2|100|
-|Inlärningsbilder per projekt, klassificering|5 000|5 000|50,000|
-|Inlärningsbilder per projekt, objektidentifiering|5 000|5 000|10 000|
-|Förutsägelser / månad|10 000 |10 000|Obegränsat|
+|Inlärningsbilder per projekt, klassificering|5,000|5,000|50,000|
+|Inlärningsbilder per projekt, objektidentifiering|5,000|5,000|10 000|
+|Förutsägelser / månad|10 000 |10 000|Obegränsad|
 |Taggar / project|50|50|250|
 |Iterationer |10|10|10|
 |Minst några taggade bilder per tagg, klassificering (50 + rekommenderas) |5|5|5|

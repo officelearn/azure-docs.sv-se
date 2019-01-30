@@ -6,17 +6,17 @@ services: cognitive-services
 author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: f4f588ad9123ec98cbae9f9bf03c08ec551a31a5
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: b944325287593a028d28545731370dc9ea6a5ac2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232761"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224929"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Självstudier: Skapa en avbildning som app - C bearbetas&#35;
 
@@ -66,7 +66,7 @@ Du måste först skapa exempelappen så att Visual Studio kan lösa beroenden, i
 1. Se till att Visual Studio-lösningen innehåller två projekt:  
 
    * SampleUserControlLibrary
-   * VisionAPI-WPF-exempel  
+   * VisionAPI-WPF-Samples  
 
    Om SampleUserControlLibrary projektet är tillgänglig, bekräfta att du har klonat rekursivt den `Microsoft/Cognitive-Vision-Windows` lagringsplats.
 1. I Visual Studio, antingen tryck på Ctrl + Skift + B eller välj **skapa** menyfliksområdet-menyn och välj sedan **skapa lösning** att skapa lösningen.
@@ -113,7 +113,7 @@ Visual Studio-lösningen för visuellt innehåll exempelappen innehåller två p
     En sida som ger en standardiserad layout för att ange en prenumeration nyckel och slutpunkt-URL för exempelappen. Exempelapp för visuellt innehåll använder den här sidan för att hantera prenumerationsnyckeln och slutpunkts-URL som används av sidorna för scenariot.
   * VideoResultControl  
     En UserControl som ger en standardiserad presentation video information. Visuellt exempelappen använder inte den här kontrollen.
-* VisionAPI-WPF-exempel  
+* VisionAPI-WPF-Samples  
   Huvudsakliga projektet för exempelapp för visuellt innehåll, det här projektet innehåller alla intressanta funktioner för visuellt innehåll. Projektet innehåller följande:
   * AnalyzeInDomainPage.xaml  
     Scenario-sida för att analysera avbildningen med domänmodell scenario.

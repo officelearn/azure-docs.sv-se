@@ -1,20 +1,20 @@
 ---
-title: Meningen parkoppling och justering - anpassad Translator
+title: Sentence pairing and alignment - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Under körningen utbildning ihop eller justerad meningar som finns i parallella dokument. Anpassade Translator lär sig översättningar en mening i taget, genom att läsa en mening översättningen av den här meningen. Sedan justerar ord och fraser i dessa två meningarna till varandra.
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 557cd8d3af0c774d4dd0558d5d25dba8eec07268
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 663dba72619a14c66fdafe083454d0df9b3f6216
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627557"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209935"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Mening parkoppling och justering i parallella dokument
 
@@ -38,7 +38,7 @@ Tabellen nedan visar det minsta antalet extraherade meningar och justerade menin
 |------------|--------------------------------------------|------------------------------------------|--------------------------------|
 | Utbildning   | 10 000                                     | 2,000                                    | Ingen övre gräns                 |
 | Justering     | 2,000                                      | 500                                      | 2,500                          |
-| Testning    | 2,000                                      | 500                                      | 2,500                          |
+| Testar    | 2,000                                      | 500                                      | 2,500                          |
 | Ordlista | 0                                          | 0                                        | Ingen övre gräns                 |
 
 ## <a name="next-steps"></a>Nästa steg

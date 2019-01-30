@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 0459fdb63134598e65657e5e26020c2ee0dc0efc
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209799"
 ---
 # <a name="enable-custom-pronunciation"></a>Aktivera anpassad uttal
 
@@ -51,7 +51,7 @@ Anpassade uttal är för närvarande stöd för engelska (en-US) och tyska (de-d
 | Språk | Karaktärer |
 |---------- |----------|
 | Engelska (en-US) | a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
-| Tyska (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, frågor och, r, s, t, u, v, w, x, y, z |
+| Tyska (de-de) | ä, ö, ü, ẞ, a, b, c, d, e, f, g, h, i, j, k, l, o, p, q, r, s, t, u, v, w, x, y, z |
 
 >[OBS] En term Visa formulär (i en uttal-fil) ska skrivas på samma sätt i en datamängd för anpassning av språk.
 

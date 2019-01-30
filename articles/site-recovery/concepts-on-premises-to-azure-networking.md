@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7e682850d331770766a9b97c2b4b9102af143f2e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: a78e5c411c03aaff07818c4e45183f8eff40492d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52836278"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211363"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Konfigurera IP-adresser för att ansluta till virtuella Azure-datorer efter redundans
 
@@ -30,8 +30,8 @@ I den här artikeln lär du dig om:
 
 När du planerar din replikering och redundansstrategi, är en av de viktiga frågorna att ansluta Azure-datorn efter redundans. Det finns ett par alternativ när du utformar din strategi för nätverk för virtuella datorer i Azure-replikering:
 
-- **Använd olika IP-adressen**: du kan välja för att använda en annan IP-adressintervall för det replikerade Virtuella Azure-nätverket. I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxling, och en DNS-uppdatering krävs.
-- **Behålla samma IP-adress**: du kanske vill använda samma IP-adressintervall som på din primära lokala plats för Azure-nätverket efter redundans. Att behålla samma IP adresser förenklar återställningen genom att minska nätverksproblem efter en redundansväxling. När du replikerar till Azure kommer du dock behöva uppdatera vägar med den nya platsen för IP-adresser efter redundansväxling.
+- **Använd olika IP-adressen**: Du kan välja för att använda en annan IP-adressintervall för det replikerade Virtuella Azure-nätverket. I det här scenariot hämtar den virtuella datorn en ny IP-adress efter redundansväxling, och en DNS-uppdatering krävs.
+- **Behålla samma IP-adress**: Du kanske vill använda samma IP-adressintervall som på din primära lokala plats för Azure-nätverket efter redundans. Att behålla samma IP adresser förenklar återställningen genom att minska nätverksproblem efter en redundansväxling. När du replikerar till Azure kommer du dock behöva uppdatera vägar med den nya platsen för IP-adresser efter redundansväxling.
 
 ## <a name="retaining-ip-addresses"></a>Behålla IP-adresser
 

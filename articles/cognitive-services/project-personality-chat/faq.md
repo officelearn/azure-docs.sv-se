@@ -6,17 +6,17 @@ services: cognitive-services
 author: noellelacharite
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: personality-chat
+ms.subservice: personality-chat
 ms.topic: faq
 ms.date: 05/07/2018
 ms.author: nolachar
 comment: As a bot developer, I want my bot to be able to handle small talk in a consistent tone so that my bot appears more complete and conversational.
-ms.openlocfilehash: 274b232f321b3ad739d18a8580b4a178dbde633e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 95a6511ce818fda6db0cec507a1f9e3b034f17b0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219829"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219064"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -28,10 +28,10 @@ Projektet personlighet chatt förbättra en bot med vanliga små talk som presen
 
 Välj den närmaste person standardegenskaper personer. Idag kan du ta språkliga biblioteket och redigera svar för att bättre passa ditt varumärke. I framtiden, kan du ladda upp exempeldata yttranden från din valda personlighet och hitta den närmaste person-ID versionen. Det finns också sätt att träna om och anpassa modellen.
 
-## <a name="is-this-service-powering-existing-intelligent-agents-such-as-zo"></a>Den här tjänsten är är befintliga intelligent agenter, till exempel Zo?
+## <a name="is-this-service-powering-existing-intelligent-agents-such-aszo"></a>Den här tjänsten är är befintliga intelligent agenter, till exempel Zo?
 
 Tjänsterna är Zo, Cortana och projekt personlighet chatta delar vissa liknande teknik, men det finns olika stackar. Det har tagit hänsyn erfarenheter från upplevelser med Zo och Cortana.
 
 ## <a name="can-this-service-lead-to-bad-customer-experiences"></a>Den här tjänsten kan leda till dåliga kundupplevelser?
 
-Om du vill ge en rikare upplevelse personlighet chatta kan generera svar utöver de i språkliga datauppsättningen och försök att tolka alla användarindata. Det är därför möjligt ett svar inte verkar rätt i kontexten. Ett antal kontroller har försatts i för att förhindra att svaren, bygger på kunskap från intelligent agenter som Zo. Projektet personlighet chatta är som standard svarar enbart på identifierad användare avsikter. Du kanske vill testa om projektet personlighet chatta lämpar sig för ditt fall. Din feedback är Välkommen om du ser något som behöver mer utbildningsmaterial. Om du använder den här tjänsten med kunderna i framtiden, rekommenderar vi du överväger anonym loggning för att identifiera problem med live användarinteraktioner.
+Om du vill ge en rikare upplevelse personlighet chatta kan generera svar utöver de i språkliga datauppsättningen och försök att tolka alla användarindata. Det är därför möjligt ett svar inte verkar rätt i kontexten. Det finns ett antal kontroller som ska hjälpa till att undvika oönskade svar, och de bygger på kunskap från intelligenta agenter som Zo. Som standard är Project Personality Chat inställt på att bara svara på användaravsikter som kan identifieras. Du kan testa om Project Personality Chat passar bra i just din situation. Om du ser någonting där det krävs mer inlärning får du gärna säga det till oss. Om du använder den här tjänsten med kunderna i framtiden, rekommenderar vi du överväger anonym loggning för att identifiera problem med live användarinteraktioner.

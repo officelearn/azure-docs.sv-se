@@ -5,18 +5,18 @@ description: Modeller fliken under alla projekt Visar information om varje model
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 80ee99fc4490f1fdc591093f357c8db55a97abb9
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: d82d41a254164c635f4488db63766b39d922f002
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219130"
 ---
-# <a name="view-model-details"></a>Datavy för modellen
+# <a name="view-model-details"></a>Visa modellinformation
 
 Fliken modeller under projektet visas alla modeller i projektet. Alla modeller tränas för som projektet visas i den här fliken.
 
@@ -30,7 +30,7 @@ För varje modell i projektet visas följande modellinformation.
 
     -  TrainingQueued: Anger att utbildningen har placerats i kö till MT för den modellen.
 
-    -  Körning: Anger att utbildningen körs i MT system för den modellen.
+    -  Körs: Anger att utbildningen körs i MT system för den modellen.
 
     -  Lyckades: Anger att utbildningen har skapats i MT-system och en modell är tillgänglig. I den här statusen visas en BLEU poäng för den modellen.
 
@@ -38,9 +38,9 @@ För varje modell i projektet visas följande modellinformation.
 
     -  Den kan avinstalleras: Anger att distribuerad modell den kan avinstalleras.
 
-    -  Odistribuerade: Anger att processen undeployment för en modell har slutförts.
+    -  Avdistribuerats: Anger att processen undeployment för en modell har slutförts.
 
-    -  Utbildning misslyckades: Anger att utbildningen har misslyckats. Om ett utbildnings-fel uppstår, försöker du utbildningsjobbet. Om felet kvarstår, kontakta oss. Ta inte bort den misslyckade modellen.
+    -  Det gick inte att utbildning: Anger att utbildningen har misslyckats. Om ett utbildnings-fel uppstår, försöker du utbildningsjobbet. Om felet kvarstår, kontakta oss. Ta inte bort den misslyckade modellen.
 
     - DataProcessingFailed: Anger att databearbetning misslyckades för en eller flera dokument som hör till modellen.
 
@@ -58,11 +58,11 @@ För varje modell i projektet visas följande modellinformation.
 
 8.  Mono mening antal: Visar totalt antal meningar som används som mono.
 
-9.  Distribuera åtgärd knappen: för en har tränad modell, visar ”distribuera” knappen om inte distribuerats. Om en modell har distribuerats visas en ”Undeploy”-knapp.
+9.  Distribuera &: För en har tränad modell, den visar knappen ”distribuera” om inte distribuerats. Om en modell har distribuerats visas en ”Undeploy”-knapp.
 
 10. Ta bort: Du kan använda den här knappen om du vill ta bort modellen. Om du tar bort en modell bort inte någon av de dokument som används för att skapa den modellen.
 
-    ![Datavy för modellen](media/how-to/how-to-view-model-details.png)
+    ![Visa modellinformation](media/how-to/how-to-view-model-details.png)
 
 >[!Note]
 >Om du vill jämföra på varandra följande kurser för samma system, är det viktigt att hålla den justering ställa in och testa ange konstant.
@@ -71,25 +71,25 @@ För varje modell i projektet visas följande modellinformation.
 
 När utbildning är klar kan granska du information om utbildning från sidan. Välj ett projekt, leta upp och välj fliken modeller och välj en modell.
 
-Sidan modellen har två flikar: information om utbildning och testning.
+Sidan modellen har två flikar: Information om utbildning och testning.
 
-1.  **Utbildning information:** på den här fliken innehåller en lista över dokument som används i utbildningen:
+1.  **Information om utbildning:** Den här fliken innehåller en lista över dokument som används i utbildningen:
 
     -  Namn på dokument: Det här fältet visar namnet på dokumentet
 
     -  Typ av standarddokument: Det här fältet visar om det här dokumentet är parallell / mono.
 
-    -  Meningen antalet i källspråk: det här fältet visas antalet meningar är det som en del av källspråk.
+    -  Mening antal i källspråk: Det här fältet visas antalet meningar är det som en del av källspråk.
 
-    -  Meningen antalet i målspråk: det här fältet visas antalet meningar är det som en del av målspråk.
+    -  Mening antal i målspråk: Det här fältet visas antalet meningar är det som en del av målspråk.
 
-    -  Justerade meningar: Justera det här fältet visas antalet meningar har har justerats med anpassade Translator under processen.
+    -  Justerade meningar: Det här fältet visas antalet meningar har har justerats med anpassade Translator under justera processen.
 
-    -  Använda meningar: Det här fältet visas antalet meningar har använts av anpassade Translator under den här kursen.
+    -  Används meningar: Det här fältet visas antalet meningar har använts av anpassade Translator under den här kursen.
 
     ![Modelldetaljer för utbildning](media/how-to/how-to-model-training-details.png)
 
-2.  **Testning:** på den här fliken visas test-information för en lyckad utbildning.
+2.  **Test:** Den här fliken visar test-information för en lyckad utbildning.
 
 ## <a name="next-steps"></a>Nästa steg
 

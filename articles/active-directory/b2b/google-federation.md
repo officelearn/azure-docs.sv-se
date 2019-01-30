@@ -10,18 +10,18 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
-ms.openlocfilehash: 05216f62c45940c475f245c1b69c25219c438906
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: bc0a4d4ce13c4013d634748503f98451e5fae9be
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076272"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216164"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Lägga till Google som en identitetsprovider för gästanvändare för B2B
 
 Genom att konfigurera federation med Google, kan du tillåta inbjudna användare att logga in på din delade appar och resurser med sina egna Google-konton utan att behöva skapa Microsoft-Accounts (MSA: er) eller Azure AD-konton.  
 > [!NOTE]
-> Din Google-gästanvändare måste logga in med en länk som innehåller klient-kontext, till exempel `https://myapps.microsoft.com/<tenant id>`. Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel.
+> Din Google-gästanvändare måste logga in med en länk som innehåller klient-kontext (till exempel `https://myapps.microsoft.com/?tenantid=<tenant id>` eller `https://portal.azure.com/<tenant id>`, eller när det gäller en verifierad standarddomän `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Direktlänkar till program och resurser fungerar också så länge som de innehåller klient-kontext. Gästanvändare kan för närvarande inte att logga in med slutpunkter som har ingen klient-kontext. Till exempel `https://myapps.microsoft.com`, `https://portal.azure.com`, eller team vanliga slutpunkten kommer att orsaka fel.
  
 ## <a name="what-is-the-experience-for-the-google-user"></a>Vad är upplevelsen för Google-användare?
 När du skickar en inbjudan till en Google Gmail-användare bör gästanvändaren åtkomst till dina delade appar eller resurser med hjälp av en länk som innehåller klient-kontext. Upplevelse för dem som varierar beroende på om de har redan loggat in på Google:

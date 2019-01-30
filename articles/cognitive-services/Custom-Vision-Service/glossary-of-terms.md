@@ -6,16 +6,16 @@ services: cognitive-services
 author: anrothMSFT
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8d3962459bc173e2db19cfa4728e7eb683511eb3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363419"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217164"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Ordlista för Custom Vision Service
 
@@ -25,7 +25,7 @@ Här följer några termer som används i Custom Vision Service och deras inneb�
 
 En klassificerare är en modell som du skapar med Custom Vision Service med hjälp av några inlärningsbilder. När du är klar med utbildning för en ny klassificerare får du en utvärdering slutpunkt (HTTPS) som du kan lägga till din app. Varje klassificerare som du skapar är i sin egen projekt och du kan visa alla projekt när du har loggat in.
 
-## <a name="domain"></a>Domain
+## <a name="domain"></a>Domän
 
 När du skapar ett projekt kan välja du en ”domän” för projektet. Domänen optimerar en klassificerare för en viss typ av objekt i dina avbildningar. Till exempel, om ditt scenario är att klassificera mellan bilder av apple cirkel jämfört med avbildningar av man odlar Lammefjordsmorötter enkelt kan sedan välja ”mat”-domänen. Om du är osäker på vilken domän som du väljer, väljer du ”Generic” domän.
 
@@ -77,16 +77,16 @@ Det finns två typer av inställningar, inställningar och användarnivå.
   
   Inställningar gäller för ett projekt eller klassificerare. Dessa är:
 
-   - Projekt-domän
+   - Project-domain
    - Projektnamn
    - Projektbeskrivning
-   - Användning:
+   - Syntax:
       - Antal inlärningsbilder
       - Antal taggar som har skapats
       - Antal upprepningar som har skapats
 
 - Användarnivå inställningar: 
    - Prenumerationsnycklar: en för träning, en för utvärdering/förutsägelse.
-   - Användning:
+   - Syntax:
       - Antalet projekt som har skapats
       - Antal utvärdering/förutsägelse-API-anrop.

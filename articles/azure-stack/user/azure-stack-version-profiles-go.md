@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: f865d08f742ebd1072b80a95960609e6ae5f4a82
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: MT
+ms.openlocfilehash: 3c5a261eb5216c2dca93243d11b5d21b1d92846f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098416"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224164"
 ---
 # <a name="use-api-version-profiles-with-go-in-azure-stack"></a>Använd API-versionsprofiler med Go i Azure Stack
 
@@ -51,7 +51,7 @@ import "github.com/Azure/azure-sdk-for-go/profiles/2017-03-09/compute/mgmt/compu
 
 Du hittar mer information om SDK för Azure går du till följande länkar:
 
-- Azure går SDK på [installera Azure SDK för Go](/azure/azure-sdk-go-install).
+- Azure går SDK på [installera Azure SDK för Go](/go/azure/azure-sdk-go-install).
 - Azure Go SDK finns på GitHub i den [azure sdk för go](https://github.com/Azure/azure-sdk-for-go) lagringsplatsen.
 
 ### <a name="go-autorest-dependencies"></a>Go-AutoRest-beroenden

@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: dec903d8557145701e06ddd588a58eb11fef96f5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 42f1279e0459f113fbe9540a6a3a15b307c93763
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52879323"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225592"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrera från API för Talöversättning till Speech-tjänsten
 
@@ -43,7 +43,7 @@ Använd den här artikeln för att migrera dina program från Microsoft Translat
 | Andra filtyper som indata                         | : heavy_minus_sign:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Ofullständiga resultat                                   | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Tidsinställning info                                       | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                 |
-| Korrelations-ID                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
+| Korrelations-id                                    | :heavy_check_mark:                                              | : heavy_minus_sign:                 |                                                                                                                                                                                                                                                                                    |
 | Anpassade talmodeller                              | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Med Taltjänsten ger anpassade talmodeller som gör att du kan anpassa taligenkänning till din organisations unika ordförråd.                                                                                                                                           |
 | Anpassade översättningsmodeller                         | : heavy_minus_sign:                                              | :heavy_check_mark:                 | Prenumerera på Microsoft Text Translation-API kan du använda [anpassad Translator](https://www.microsoft.com/translator/business/customization/) att använda dina egna data för exaktare översättningar.                                                 |
 

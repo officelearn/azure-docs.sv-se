@@ -9,12 +9,12 @@ ms.reviewer: omidm
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 50c5838f576b6fd6775373f2dbe3c46d751545c1
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 3237932c66c77f979c4e95798163621e65735bed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53437596"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247161"
 ---
 # <a name="use-enterprise-security-package-in-hdinsight"></a>Använda Enterprise Security Package i HDInsight
 
@@ -55,9 +55,41 @@ Mer information finns i [konfigurera HDInsight-kluster med hjälp av Azure AD DS
 
 Om du har en lokal Active Directory-instans eller mer komplexa Active Directory-inställningar för din domän, kan du synkronisera dessa identiteter till Azure AD med hjälp av Azure AD Connect. Sedan kan du aktivera Azure AD DS på den Active Directory-klienten. 
 
-Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Om du använder federation med Active Directory Federation Services (AD FS), kan du också konfigurera lösenordshashsynkronisering som en säkerhetskopia om det inte går att AD FS-infrastrukturen. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
+Eftersom Kerberos är beroende av hashvärden för lösenord, måste du [aktivera lösenordshashsynkronisering på Azure AD DS](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). 
+
+Om du använder federation med Active Directory Federation Services (ADFS), måste du aktivera lösenordshashsynkronisering (en rekommenderad konfigurera, se [detta](https://youtu.be/qQruArbu2Ew)) som hjälper även med haveriberedskap om det inte går att din AD FS-infrastruktur och skydd av läckta autentiseringsuppgifter. Mer information finns i [aktivera lösenordshashsynkronisering med Azure AD Connect-synkronisering](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Använda en lokal Active Directory eller Active Directory på egen hand utan Azure AD och Azure AD DS, IaaS-datorer är inte en konfiguration som stöds för HDInsight-kluster med ESP.
+
+Om federation används och lösenords-hash är synkroniserade correcty, men du får autentiseringsfel,. Kontrollera om powershell tjänstens huvudnamn i molnet lösenord autentisering är aktiverad, om inte, måste du ställa in en [Start sfär identifiering (HRD ) princip](../../active-directory/manage-apps/configure-authentication-for-federated-users-portal.md) för din AAD-klient. Kontrolera och set HRD-princip:
+
+ 1. Installera AzureAD powershell-modulen
+
+ ```
+  Install-Module AzureAD
+ ```
+
+ 2. ```Connect-AzureAD``` med hjälp av autentiseringsuppgifterna för en global administratör (Innehavaradministratör)
+
+ 3. Kontrollera om det redan har skapats ”Azure powershell” tjänstens huvudnamn
+
+```
+ Get-AzureADServicePrincipal -SearchString "1950a258-227b-4e31-a9cf-717495945fc2"
+```
+
+ 4. Om det inte finns skapar du tjänstens huvudnamn
+
+```
+ New-AzureADServicePrincipal -AppId 1950a258-227b-4e31-a9cf-717495945fc2
+```
+
+ 5. Koppla principen till den här tjänstens huvudnamn: 
+
+```
+ $policy = New-AzureADPolicy -Definition @("{"HomeRealmDiscoveryPolicy":{"AllowCloudPasswordValidation":true}}") -DisplayName EnableDirectAuth -Type HomeRealmDiscoveryPolicy
+
+ Add-AzureADServicePrincipalPolicy -Id <Service Principal ID> -refObjectID $policy.ID
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

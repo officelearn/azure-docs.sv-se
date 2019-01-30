@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: c1714fd6ada45f2b4498a3f5972424200afa9aa3
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: c2151be1644cde0e737be7f026bdf63cef0b3686
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52838148"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221971"
 ---
-# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera haveriberedskap för ett skikt Dynamics AX-program 
+# <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera haveriberedskap för ett skikt Dynamics AX-program   
 
 
 
@@ -105,7 +105,7 @@ Du kan skapa en återställningsplan i Site Recovery för att automatisera redun
 
 3. Välj den **källa** och **Target**. Målet kan vara Azure eller en sekundär plats. Om du väljer Azure måste du ange distributionsmodellen.
 
-    ![Skapa en återställningsplan](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
+    ![Skapa återställningsplan](./media/site-recovery-dynamics-ax/recoveryplancreation1.png)
 
 4. Välj objektet programservern och klient-VM för återställningsplanen och välj ✓.
 
@@ -118,15 +118,15 @@ Du kan skapa en återställningsplan i Site Recovery för att automatisera redun
 Du kan anpassa återställningsplanen för Dynamics AX-program genom att lägga till följande steg. Föregående ögonblicksbild visar slutförd återställningsplanen när du har lagt till alla steg.
 
 
-* **Steg för SQL Server-redundans**: information om specifika återställningssteg till SQLServer finns i [replikering program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
+* **Steg för SQL Server-redundans**: Information om specifika återställningssteg till SQLServer finns i [replikering program med SQL Server och Azure Site Recovery](site-recovery-sql.md).
 
-* **Redundansgruppen 1**: växlar över programmet objektet Server-datorer.
+* **Redundansgruppen 1**: Växla över programmet objektet Server-datorer.
 Se till att den valda återställningspunkten är så nära som möjligt till databasen PIT, men inte före den.
 
-* **Skriptet**: Lägg till belastningsutjämnare (endast E-A).
+* **skriptet**: Lägg till belastningsutjämnare (endast E-A).
 Lägg till ett skript (via Azure Automation) efter program objektet Server VM-gruppen visas för att lägga till en belastningsutjämnare i den. Du kan använda ett skript för att göra detta. Mer information finns i [hur du lägger till en belastningsutjämnare för haveriberedskap för program med flera nivåer](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
 
-* **Redundans Grupp2**: växla över virtuella datorer för Dynamics AX-klienten. Växla över virtuella datorer på webbnivå som en del av återställningsplanen.
+* **Redundansgruppen 2**: Växla över virtuella datorer för Dynamics AX-klienten. Växla över virtuella datorer på webbnivå som en del av återställningsplanen.
 
 
 ### <a name="perform-a-test-failover"></a>Utför ett redundanstest

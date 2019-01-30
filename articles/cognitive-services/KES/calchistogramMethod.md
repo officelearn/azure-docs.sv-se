@@ -6,29 +6,29 @@ services: cognitive-services
 author: bojunehsu
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: knowledge-exploration
+ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f994a254e661cd245d2e953efd3bd595d50c6fc7
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122764"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55214321"
 ---
 # <a name="calchistogram-method"></a>calchistogram metod
 Den *calchistogram* metoden beräknar de objekt som matchar ett strukturerade frågeuttryck och beräknar fördelningen av deras attributvärden.
 
-## <a name="request"></a>Förfrågan
+## <a name="request"></a>Begäran
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
-Namn|Värde|Beskrivning
+Name|Value|Beskrivning
 ----|-----|-----------
 uttryck för Markörstorlek | Textsträngen | Strukturerade frågeuttryck som anger index-entiteter över som du vill beräkna histogram.
 Attribut | Textsträng (standard = ””) | Kommaavgränsad lista över attribut som ska inkluderas i svaret.
-count   | Antal (standard = 10) | Antalet resultat som ska returneras.
-förskjutning  | Antal (standard = 0) | Index för det första resultatet ska returneras.
+ antal   | Antal (standard = 10) | Antalet resultat som ska returneras.
+offset  | Antal (standard = 0) | Index för det första resultatet ska returneras.
 
 ## <a name="response-json"></a>Svar (JSON)
 JSONPath | Beskrivning
@@ -36,13 +36,13 @@ JSONPath | Beskrivning
 $.expr | *uttryck* parametern från begäran.
 $.num_entities | Totalt antal matchande entiteter.
 $.histograms |  Matris med histogram, en för varje begärda attribut.
-$.histograms [\*] .attribute | Namnet på attributet för vilken histogrammet beräknas.
-$.histograms [\*] .distinct_values | Antal distinkta värden mellan matchande entiteter för det här attributet.
-$.histograms [\*] .total_count | Totalt antal värdet instanser mellan matchande entiteter för det här attributet.
-$.histograms [\*] .histogram | Histogramdata för det här attributet.
-$.histograms [\*] .histogram [\*] .value | Attributvärdet.
-$.histograms [\*] .histogram [\*] .logprob  | Totalt antal naturliga loggen sannolikhet med matchande entiteter med det här attributvärdet.
-$.histograms [\*] .histogram [\*] .count    | Antal matchande entiteter med det här attributvärdet.
+$.histograms[\*].attribute | Namnet på attributet för vilken histogrammet beräknas.
+$.histograms[\*].distinct_values | Antal distinkta värden mellan matchande entiteter för det här attributet.
+$.histograms[\*].total_count | Totalt antal värdet instanser mellan matchande entiteter för det här attributet.
+$.histograms[\*].histogram | Histogramdata för det här attributet.
+$.histograms[\*].histogram[\*].value | Attributvärdet.
+$.histograms[\*].histogram[\*].logprob  | Totalt antal naturliga loggen sannolikhet med matchande entiteter med det här attributvärdet.
+$.histograms[\*].histogram[\*].count    | Antal matchande entiteter med det här attributvärdet.
 $.aborted | SANT om uppnåddes för begäran.
 
 ### <a name="example"></a>Exempel

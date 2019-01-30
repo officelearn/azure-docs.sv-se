@@ -5,16 +5,16 @@ description: När utbildning har genomförts, granskar tester för att analysera
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 701f97a006e7457fcbdcc835f87832b269f986a8
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: 6cad142c050ca1de7e4c5f9b4415132a82f38c7b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630350"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215259"
 ---
 # <a name="view-system-test-results"></a>Visa testresultat för system
 
@@ -38,7 +38,7 @@ Fliken test visar:
 
 2.  Klicka på resultaten av System och som tar dig att testa resultatet informationssida. Den här sidan visar maskinöversättning i meningar som ingick i test-datauppsättning.
 
-3.  Tabellen på informationssidan för test-resultatet har två kolumner – en för varje språk i paret. Kolumnen för en källspråket visar meningen översättas. Kolumnen för målspråket som innehåller två meningar i varje rad.
+3.  Tabellen på informationssidan för test-resultatet har två kolumner – en för varje språk i paret. The column for the source language shows the sentence to be translated. Kolumnen för målspråket som innehåller två meningar i varje rad.
 
     **Ref:** Den här meningen är referens översättningen av källa meningen som anges i test-datauppsättning.
 
@@ -54,7 +54,7 @@ Klicka på länken ladda ned översättningar för att ladda ned en zip-fil. ZIP
 
 Det här hämtade zip-arkivet innehåller tre filer.
 
-1.  **Custom.MT.txt:** Den här filen innehåller maskinöversättningar källspråk versal i målspråk utförd av modellen tränas med användarens data.
+1.  **custom.mt.txt:** Den här filen innehåller maskinöversättningar källspråk versal i målspråk utförd av modellen tränas med användarens data.
 
 2.  **Ref.txt:** Den här filen innehåller anges översättningar av källspråk meningar i målspråket av användaren.
 

@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4d03ccfddab9a4aab4a1eacde02d68652bf5103a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342338"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219081"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snabbstart: Använda Bing-taligenkänning API i C&#35; för .NET i Windows
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Snabbstart: Använd Bing-taligenkänning API i C&#35; för .NET i Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -63,7 +63,7 @@ API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxfo
 
 2. Tryck på Ctrl + Skift + B eller välj **skapa** på menyn i menyfliksområdet. Välj sedan **skapa lösning**.
 
-## <a name="step-3-run-the-sample-application"></a>Steg 3: Kör exempelprogrammet
+## <a name="step-3-run-the-sample-application"></a>Steg 3: Köra exempelprogrammet
 
 1. När bygget har slutförts, tryck på F5 eller välj **starta** på menyn menyfliksområdet för att köra exemplet.
 
@@ -78,9 +78,9 @@ API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxfo
 
    Varje kategori har tre lägen för igenkänning av:
 
-    * **ShortPhrase läge**: ett uttryck upp till 15 sekunder långa. När data skickas till servern, klienten tar emot flera delresultat och ett slutresultat med flera n bästa val.
-    * **LongDictation läge**: ett uttryck upp till två minuter lång tid. När data skickas till servern, tar klienten emot flera delresultat och flera slutresultat baserat på var servern indikerar paus i meningen.
-    * **Avsiktshantering identifiering**: servern returnerar mer strukturerad information om tal som indata. Om du vill använda avsikt identifiering, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+    * **ShortPhrase läge**: Ett uttryck upp till 15 sekunder långa. När data skickas till servern, klienten tar emot flera delresultat och ett slutresultat med flera n bästa val.
+    * **LongDictation läge**: Ett uttryck upp till två minuter lång. När data skickas till servern, tar klienten emot flera delresultat och flera slutresultat baserat på var servern indikerar paus i meningen.
+    * **Avsiktshantering identifiering**: Servern returnerar mer strukturerad information om tal som indata. Om du vill använda avsikt identifiering, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 Använd exemplet ljudfiler med det här exempelprogrammet. Hitta filerna i databasen som du laddade ned med det här exemplet under mappen samples/SpeechRecognitionServiceExample. Dessa exempel ljudfiler körs automatiskt om inga andra filer du väljer när du väljer **Använd wav-fil för Shortphrase läge** eller **Använd wav-fil för Longdictation läge** som ditt tal som indata. För närvarande stöds endast WAV ljudformat.
 
@@ -90,9 +90,9 @@ Använd exemplet ljudfiler med det här exempelprogrammet. Hitta filerna i datab
 
 ### <a name="recognition-events"></a>Igenkänning av händelser
 
-* **Partiell resultat händelser**: den här händelsen anropas varje gång Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
-* **Felhändelser**: kallas när tjänsten upptäcker ett fel.
-* **Avsiktshantering händelser**: namnet på ”WithIntent” klienter (endast i ShortPhrase läge) när slutgiltiga resultatet parsas till en strukturerade JSON-avsikt.
+* **Partiell resultat händelser**: Den här händelsen anropas varje gång Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
+* **Felhändelser**: Anropas när tjänsten upptäcker ett fel.
+* **Avsiktshantering händelser**: Namnet på ”WithIntent” klienter (endast i ShortPhrase läge) när slutgiltiga resultatet parsas till en strukturerade JSON-avsikt.
 * **Resultera händelser**:
   * I `ShortPhrase` läge, den här händelsen kallas och returnerar n-best-resultat när du har slutfört talar.
   * I `LongDictation` läge, händelsehanteraren anropas flera gånger, baserat på där tjänsten identifierar paus i meningen.

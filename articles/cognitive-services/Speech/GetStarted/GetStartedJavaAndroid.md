@@ -6,20 +6,20 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4c5243ec14a4494222168bb33b3e840b96f8465e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 3d7bbdb25815027625b6f56b25e64c4a07b3728f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345262"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55222498"
 ---
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
-# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snabbstart: Använda Bing-taligenkänning API i Java på Android
+# <a name="quickstart-use-the-bing-speech-recognition-api-in-java-on-android"></a>Snabbstart: Använd Bing-taligenkänning API i Java på Android
 
 Du kan utveckla Android-program som använder molnbaserade Bing Speech Service för att omvandla talat ljud till text med Taligenkänning för Bing. API: et stöder strömning i realtid, så att ditt program kan samtidigt och asynkront får delvisa igenkänningsresultat samtidigt som den skickar ljud till tjänsten.
 
@@ -118,7 +118,7 @@ Klientbiblioteket tillhandahåller redan implementerat erkännande klientklasser
 
 * `DataRecognitionClient`: Taligenkänning med PCM-data (till exempel från en källa för filen eller ljud). Data har delats upp i buffertar och varje buffert skickas till tal-tjänsten. Inga ändringar görs till buffertar, så att användaren kan använda sina egna identifiering av tystnad, om så önskas. Om data anges från WAV-filer, kan du skicka data från filen rätten att Speech Service. Om du har rådata, till exempel ljud kommer via Bluetooth, du först skicka ett sidhuvud i formatet till Speech Service följt av data.
 * `MicrophoneRecognitionClient`: Taligenkänning med ljud från mikrofonen. Kontrollera att mikrofonen är på och data från mikrofonen skickas till tjänsten för taligenkänning. En inbyggd ”tystnad detektor” tillämpas på mikrofonen data innan den skickas till tjänsten för taligenkänning.
-* `DataRecognitionClientWithIntent` och `MicrophoneRecognitionClientWithIntent`: dessa klienter returnera, förutom för text, strukturerad information om syftet för talare, som kan användas för att driva ytterligare åtgärder för programmen. Om du vill använda ”avsikt”, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
+* `DataRecognitionClientWithIntent` och `MicrophoneRecognitionClientWithIntent`: Dessa klienter returnera förutom igenkänning av text, strukturerade information om syftet för talare, som kan användas för att driva ytterligare åtgärder för programmen. Om du vill använda ”avsikt”, måste du först tränar en modell med hjälp av [LUIS](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/).
 
 ### <a name="recognition-language"></a>Språk
 
@@ -135,9 +135,9 @@ Du måste också ange `SpeechRecognitionMode` när du skapar klienten med `Speec
 
 Du kan koppla olika händelsehanterare till klienten du skapade:
 
-* **Partiell resultat händelser**: den här händelsen anropas varje gång Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
-* **Felhändelser**: kallas när tjänsten upptäcker ett fel.
-* **Avsiktshantering händelser**: namnet på ”WithIntent” klienter (endast i `ShortPhrase` läge) när den sista igenkänningsresultatet parsas till en strukturerade JSON-avsikt.
+* **Partiell resultat händelser**: Den här händelsen anropas varje gång Speech Service förutsäger vad du kan säger, även innan du slutför talar (om du använder `MicrophoneRecognitionClient`) eller har skickat data (om du använder `DataRecognitionClient`).
+* **Felhändelser**: Anropas när tjänsten upptäcker ett fel.
+* **Avsiktshantering händelser**: Namnet på ”WithIntent” klienter (endast i `ShortPhrase` läge) när den sista igenkänningsresultatet parsas till en strukturerade JSON-avsikt.
 * **Resultera händelser**:
   * I `ShortPhrase` läge, den här händelsen kallas och returnerar n bäst resultat när du har slutfört talar.
   * I `LongDictation` läge, händelsehanteraren anropas flera gånger, baserat på där tjänsten identifierar paus i meningen.

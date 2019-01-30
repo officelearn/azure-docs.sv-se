@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 9b462ba594122b86580b9d136a844db070eea92d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340366"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217653"
 ---
 # <a name="what-is-bing-speech"></a>Vad är Bing-taligenkänning?
 
@@ -28,10 +28,10 @@ Molnbaserade Microsoft Bing Speech API får utvecklare ett enkelt sätt att skap
 
 ## <a name="speech-to-text-speech-recognition"></a>Tal till text (Taligenkänning)
 
-Microsoft API för taligenkänning *transkriberar* ljudströmmar till text som ditt program kan visa för användaren eller vidta åtgärder som kommandot indata. Det ger dig två sätt för utvecklare att lägga till tal i sina appar: REST API: er **eller** Websocket-baserade klientbibliotek.
+Microsoft API för taligenkänning *transkriberar* ljudströmmar till text som ditt program kan visa för användaren eller vidta åtgärder som kommandot indata. Det finns två sätt för utvecklare att lägga till tal i sina appar: REST API: erna **eller** Websocket-baserade klientbibliotek.
 
-- [REST API: er](GetStarted/GetStartedREST.md): utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
-- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): för avancerade funktioner, utvecklare kan hämta Microsoft Speech klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC). Till skillnad från REST API: er använda klientbiblioteken Websocket-baserat protokoll.
+- [REST API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
+- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner, kan utvecklare hämta Microsoft Speech-klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC). Till skillnad från REST API: er använda klientbiblioteken Websocket-baserat protokoll.
 
 | Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klientbibliotek](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -60,4 +60,4 @@ Oavsett vilken metod utvecklare välja (REST API: er eller klientbibliotek), Mic
 
 ### <a name="next-steps"></a>Nästa steg
 
-- Kom igång med att använda Microsoft text till tal-tjänst: [Text till tal-API-referens](api-reference-rest/bingvoiceoutput.md). En fullständig lista över språk och röster som stöds av Text till tal, se [stöd för nationella inställningar och Rösttyper](api-reference-rest/bingvoiceoutput.md#SupLocales).
+- Börja använda Microsoft text till tal-tjänst: [API-referens för text till tal](api-reference-rest/bingvoiceoutput.md). En fullständig lista över språk och röster som stöds av Text till tal, se [stöd för nationella inställningar och Rösttyper](api-reference-rest/bingvoiceoutput.md#SupLocales).

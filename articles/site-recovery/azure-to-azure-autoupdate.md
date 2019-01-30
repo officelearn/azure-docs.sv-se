@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 275dd48e08aa74d84b0e1b91d5df9599ce524489
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: f31fccd2bf6d0daae03b025b53a41a0fad4ce2ef
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957699"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55210139"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatisk uppdatering av Mobilitetstjänsten i replikering från Azure till Azure
 
@@ -25,7 +25,7 @@ Azure Site Recovery har en månatlig frisläppningstakt där förbättringar av 
  
 ## <a name="how-does-automatic-update-work"></a>Hur fungerar automatisk uppdatering
 
-När du tillåter Site Recovery för att hantera uppdateringar distribueras en global runbook (som används av Azure-tjänster) via ett automation-konto som skapats i samma prenumeration som valvet. En automation-kontot används för ett specifikt valv. Runbook kontrollerar för varje virtuell dator i ett valv som uppdateras automatiskt är aktiverade och initierar en uppgradering av tillägget Mobilitetstjänsten om det finns en nyare version. Standardschemat för runbook-recurrs varje dag kl. 12:00 AM enligt tidszonen för den replikerade virtuella geo. Schemat för runbook kan också ändras via automation-kontot av användaren, om det behövs. 
+När du tillåter Site Recovery för att hantera uppdateringar distribueras en global runbook (som används av Azure-tjänster) via ett automation-konto som skapats i samma prenumeration som valvet. En automation-kontot används för ett specifikt valv. Runbook kontrollerar för varje virtuell dator i ett valv som uppdateras automatiskt är aktiverade och initierar en uppgradering av tillägget Mobilitetstjänsten om det finns en nyare version. Standardschemat för runbook återkommer varje dag kl. 12:00 AM enligt tidszonen för den replikerade virtuella geo. Schemat för runbook kan också ändras via automation-kontot av användaren, om det behövs. 
 
 > [!NOTE]
 > Aktivera automatiska uppdateringar kräver inte en omstart av virtuella datorer i Azure och påverkar inte pågående replikering.
@@ -46,14 +46,14 @@ Du kan välja att tillåta Site Recovery för att hantera uppdateringar på föl
 
 När du aktiverar replikering för en virtuell dator antingen startar [från vyn virtuell dator](azure-to-azure-quickstart.md), eller [från recovery services-valvet](azure-to-azure-how-to-enable-replication.md), får du ett alternativ för att välja att antingen tillåta Site Recovery till hantera uppdateringar för Site Recovery-tillägget eller för att hantera samma manuellt.
 
-![Aktivera-replikering – automatisk uppdatering](./media/azure-to-azure-autoupdate/enable-rep.png)
+![enable-replication-auto-update](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>Visa/Dölj tillägget uppdatera inställningarna i valvet
 
 1. I valvet, gå till **hantera**-> **Site Recovery-infrastruktur**
 2. Under **för Azure-datorer**-> **tillägget uppdateringsinställningar**, klickar på växlingsknappen för att välja om du vill tillåta *ASR att hantera uppdateringar* eller *hantera manuellt*. Klicka på **Spara**.
 
-![valvet växla-autuo-uppdatering](./media/azure-to-azure-autoupdate/vault-toggle.png)
+![vault-toggle-auto-update](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
 > [!Important] 
 > När du väljer *Tillåt ASR hanterar*, inställningen tillämpas på alla virtuella datorer i motsvarande valv.
@@ -81,7 +81,7 @@ Om det finns ett problem med automatiska uppdateringar, kommer du att meddelas a
 
 Om du har försökt att aktivera Automatiska uppdateringar och den misslyckades, se nedan för att felsöka.
 
-**Fel**: du har inte behörighet att skapa ett kör som-konto (tjänstens huvudnamn) och bevilja deltagarrollen till tjänstens huvudnamn. 
+**Fel**: Du har inte behörighet att skapa ett Kör som-konto i Azure (tjänsthuvudkonto) eller att bevilja tjänstens huvudnamn en deltagarroll. 
 - Rekommenderad åtgärd: Se till att det inloggade kontot har tilldelats ”Bidragsgivar” och försök igen. Referera till [detta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) dokumentet för ytterligare information om hur du tilldelar rätt behörigheter.
  
 När automatiska uppdateringar är aktiverade, de flesta av problem som kan vara lagats av tjänsten Site Recovery och kräver att du klickar på den ”**reparera**-knappen.
@@ -90,10 +90,10 @@ När automatiska uppdateringar är aktiverade, de flesta av problem som kan vara
 
 Om knappen reparera inte är tillgängligt finns i felmeddelandet visas under rutan inställningar för tillägget.
 
- - **Fel**: det kör som-konto har inte behörighet att få åtkomst till recovery services-resursen.
+ - **Fel**: Kör som-kontot har inte behörighet att få åtkomst till recovery services-resursen.
 
-    **Rekommenderad åtgärd**: ta bort och sedan [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account) eller se till att Automation kör som kontots Azure Active Directory-program har åtkomst till recovery services-resursen.
+    **Rekommenderad åtgärd**: Ta bort och sedan [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account) eller se till att Automation kör som kontots Azure Active Directory-program har åtkomst till recovery services-resursen.
 
-- **Fel**: Det gick inte att hitta kör som-konto. En av dessa har tagits bort eller inte skapats – Azure Active Directory-program, tjänstens huvudnamn, roll, Automation-certifikattillgång, Automation-anslutningstillgång, eller tumavtrycket är inte identiskt för certifikat och anslutning. 
+- **Fel**: Kör som-kontot hittades inte. En av dessa har tagits bort eller inte skapats – Azure Active Directory-program, tjänstens huvudnamn, roll, Automation-certifikattillgång, Automation-anslutningstillgång, eller tumavtrycket är inte identiskt för certifikat och anslutning. 
 
-    **Rekommenderad åtgärd**: ta bort och [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **Rekommenderad åtgärd**: Ta bort och [återskapa kör som-kontot](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

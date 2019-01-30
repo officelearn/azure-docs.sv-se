@@ -12,19 +12,19 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 80e807a8fcbd6c087ad0995a4481180fa28ef42f
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872899"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227904"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Hyperskala tjänstnivå (förhandsversion) för upp till 100 TB
 
 Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns tre arkitekturmodeller som används i Azure SQL Database:
 - Allmänt syfte/Standard 
 - Kritisk Business/Premium
-- Hyperskala
+- Storskalig
 
 Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här är en mycket skalbar lagring och beräkning prestandanivå som utnyttjar Azure-arkitektur för att skala ut lagring och beräkna resurser för en Azure SQL Database avsevärt utöver gränserna som är tillgängliga för generell användning och företag Kritiska tjänstnivåer.
 
@@ -40,7 +40,7 @@ Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i de
 Hyperskala tjänstnivån i Azure SQL Database tillhandahåller följande funktioner:
 
 - Stöd för upp till 100 TB databasstorlek
-- Stort sett ögonblickliga säkerhetskopior (baserat på ögonblicksbilder lagras i Azure Blob storage)-databas oavsett storlek utan i/o-inverkan på beräkning
+- Stort sett ögonblickliga säkerhetskopior (baserat på ögonblicksbilder lagras i Azure Blob storage)-databas oavsett storlek utan i/o-inverkan på beräkning   
 - Snabba återställningar för databasen (baserat på ögonblicksbilder) i minuter i stället för timmar eller dagar (inte en storlek på data igen)
 - Högre övergripande prestanda på grund av högre log dataflöde och transaktionen commit snabbare oavsett datavolymer
 - Snabb skala ut – du kan etablera en eller flera skrivskyddade noder för avlastning Läs arbetsbelastningen och användas som frekvent metoderna
@@ -133,9 +133,6 @@ ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen
 GO
 ```
 
-> [!IMPORTANT]
-> [Transparent databasen datakryptering (TDE)](transparent-data-encryption-azure-sql.md) bör stängas av innan du ändrar en databas för icke-hyperskala att hyperskala.
-
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>Ansluta till en lässkala replik av en storskalig databas
 
 I hyperskala databaser, den `ApplicationIntent` argumentet i anslutningssträngen som tillhandahålls av klienten avgör om anslutningen dirigeras till skrivning repliken eller till en skrivskyddad sekundär replik. Om den `ApplicationIntent` inställd `READONLY` och databasen har inte en sekundär replik, anslutningen kommer att dirigeras till den primära repliken och standardvärdet är `ReadWrite` beteende.
@@ -147,7 +144,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 
-Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och är tillgängliga i följande Azure-regioner: EastUS1, Usaöstra2, västra USA 2, CentralUS, Usanorracentrala, Europavästra, Europanorra, Västrastorbritannien, Australien, sydöstra Australien, SouthEastAsia, Sydostasien, Koreacentrala
+Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och är tillgängliga i följande Azure-regioner: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
 
 ## <a name="known-limitations"></a>Kända begränsningar
 
@@ -158,7 +155,8 @@ Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och ä
 | Om en databasfil växer under migreringen på grund av en aktiv arbetsbelastning och korsar 1 TB per fil gräns, misslyckas migreringen | Åtgärder: <br> -Om möjligt, migrera databasen när det finns ingen uppdatering av arbetsbelastningar som körs.<br> -Försök igen migreringen, kommer att kunna så länge gränsen på 1 TB inte uppnås under migreringen.|
 | Hanterad instans stöds inte för närvarande | Stöds för närvarande inte |
 | Migrering till hyperskala är för närvarande en enkel åtgärd | När en databas har migrerats till hyperskala, kan inte migreras direkt till en icke-hyperskala tjänstnivå. För närvarande är det enda sättet att migrera en databas från hyperskala till icke-hyperskala att exportera/importera med hjälp av en BACPAC-fil.|
-| Migrering av databaser med InMemory-objekt stöds inte för närvarande | InMemory-objekt måste släppas och återskapas som icke-InMemory-objekt innan du migrerar en databas på hyperskala tjänstnivån.
+| Migrering av databaser med InMemory-objekt stöds inte för närvarande | InMemory-objekt måste släppas och återskapas som icke-InMemory-objekt innan du migrerar en databas på hyperskala tjänstnivån.|
+| Data ändringsspårning stöds inte för närvarande. | Du kommer inte att kunna använda ändringsspårning Data med hyperskala databasess.
 
 ## <a name="next-steps"></a>Nästa steg
 

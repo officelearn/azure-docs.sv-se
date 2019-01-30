@@ -6,17 +6,17 @@ services: cognitive-services
 author: slivkins
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-decision-service
+ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: slivkins
 ms.reviewer: marcozo
-ms.openlocfilehash: 598300597856d858095ff7c2e2cf9e9264190a9d
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: f642e0d4e21c180a92b4b76d05fb2c9bac9f2976
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365408"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219744"
 ---
 # <a name="register-your-application"></a>Registrera ditt program
 
@@ -38,6 +38,6 @@ För att använda Custom Decision Service för ditt program måste du registrera
 
 ### <a name="next-steps"></a>Nästa steg
 
-* Kom igång för att optimera [en webbsida](custom-decision-service-get-started-browser.md) eller [en smartphone-app](custom-decision-service-get-started-app.md).
+* Kom igång med att optimera [en webbsida](custom-decision-service-get-started-browser.md) eller [en smartphone-app](custom-decision-service-get-started-app.md).
 * Gå igenom en [självstudien](custom-decision-service-tutorial-news.md) för en mer ingående exempel.
-* Läs den [API-referens](custom-decision-service-api-reference.md) mer information om de angivna funktionerna.
+* Mer information om de tillhandahållna funktionerna finns i [API-referensen](custom-decision-service-api-reference.md).

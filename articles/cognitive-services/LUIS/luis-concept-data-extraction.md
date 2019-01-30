@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: f2beb80619d03f0f7b41af95a8766eed23ffa784
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 256eb258a4f689f768919f2cac41367493baf747
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54260694"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224283"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extrahering av data från avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.

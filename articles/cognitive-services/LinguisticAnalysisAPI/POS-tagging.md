@@ -5,17 +5,17 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9af4f5223dfe269ace459c8a7de07fe6dd0c2427
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 41383b5bbad0eb5c32b98c57f3ea35e6018993e8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53973969"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218129"
 ---
 # <a name="part-of-speech-tagging"></a>En del av tal-märkning
 
@@ -30,7 +30,7 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 
 ## <a name="list-of-part-of-speech-tags"></a>Lista över taggar som en del av tal
 
-| Tagga | Beskrivning | Exempel ord |
+| Tagg | Beskrivning | Exempel ord |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | inledande citattecken | \` \`\` |
@@ -56,7 +56,7 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | NNP | substantiv rätt, rapportanvändare | Kennedy Roosevelt Chicago Weehauken |
 | NNPS | substantiv rätt, plural | Springfields buskar |
 | NNS | substantiv vanliga, plural | delar möss fält |
-| (stillahavstid) | före determiner | alla båda hälften många ganska sådana till detta |
+| (stillahavstid) | pre-determiner | alla båda hälften många ganska sådana till detta |
 | POS | genitive markör | ' 's |
 | PRP | pronomen, personliga | hon han det jag vi de du |
 | PRP$ | pronomen, Possessiv | hennes hans dess min vår sina din |
@@ -64,19 +64,19 @@ Dessa inkluderar kategorier som *substantiv* (som vanligtvis motsvarar personer,
 | RBR | ett adverb jämförande | ytterligare gloomier grander graver större grimmer svårare harsher sundare tyngre högre men större senare mer slimmade längre mindre perfekt mindre lonelier längre starkare lägre mer... |
 | RBS | ett adverb superlative | bästa största bluntest tidigaste längst bort första längst svåraste heartiest högsta största minst mindre de flesta närmaste andra hårdaste sämsta |
 | RP | Particle | på av uppåt reda på om |
-| SYM | Symbol | % & |
+| SYM | symbol | % & |
 | Till | ”till” som preposition eller infinitive markör | till |
-| HOPPSAN | interjection | hoppsan hurra howdy hello |
+| UH | interjection | hoppsan hurra howdy hello |
 | VB | verb, basformulär | ge tilldela direkt |
 | VBD | verb, tidigare Tempus | gav tilldelade reste |
 | VBG | verb, finns participle eller gerund | ge tilldela flyga |
 | VBN | verb, tidigare participle | beroende tilldelade leds |
 | VBP | verb, presens, inte 3 person rapportanvändare | ge tilldela direkt |
 | VBZ | verb, presens, 3 person rapportanvändare | ger tilldelar sig |
-| WDT | Vad determiner | som vilken som |
-| WP | Vad pronomen | vem som |
+| WDT | WH-determiner | som vilken som |
+| WP | WH-pronoun | vem som |
 | WP$ | Vad pronomen Possessiv | vars |
-| WRB | Vad adverb | hur men när det är där |
+| WRB | Wh-adverb | hur men när det är där |
 
 ## <a name="specification"></a>Specifikationen
 

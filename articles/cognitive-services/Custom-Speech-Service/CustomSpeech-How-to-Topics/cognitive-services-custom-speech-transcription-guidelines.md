@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7d9b8b5a2ad8ccb447462ef7d34a8c25e5af6ef4
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342474"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225031"
 ---
 # <a name="transcription-guidelines"></a>Riktlinjer för transkription
 
@@ -95,7 +95,7 @@ Det är viktigt att undvika användningen av halv bredd skiljetecken. Detta kan 
 | Unicode att undvika | ASCII-ersättning |
 |----- | ----- |
 | ”你好” (öppna och stänga dubbla citattecken) | ”你好” (dubbla citattecken) |
-| 需要什么帮助? (frågetecken) | 需要什么帮助? |
+| 需要什么帮助? (frågetecken) | 需要什么帮助？ |
 
 ### <a name="text-normalization-performed-by-the-custom-speech-service"></a>Text normalisering av Custom Speech Service
 
@@ -110,11 +110,11 @@ Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
-| 3,1415 | 三 点 一 四 一 五 |
+| 3.1415 | 三 点 一 四 一 五 |
 | ￥3.5 | 三 元 五 角 |
 | w f y z | W F Y Z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
-| 你吃饭了吗? | 你 吃饭 了 吗 |
+| 你吃饭了吗 ? | 你 吃饭 了 吗 |
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
@@ -176,9 +176,9 @@ Här följer några exempel
 | Originaltexten | Efter användarens normalisering | När du har system normalisering
 |--------  | ----- | -------- |
 | ES ist 12.23Uhr | ES ist 12:23Uhr | ES ist zwölf uhr drei und zwanzig uhr |
-| {12,45} | {12,45} | zwölf komma vier fünf |
-| 3 < 5 | 3 kleiner sensorn 5 | drei kleiner sensorn vier |
-| 2 + 3 – 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
+| {12.45} | {12,45} | zwölf komma vier fünf |
+| 3 < 5 | 3 kleiner als 5 | drei kleiner als vier |
+| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 | DAS macht 12€ | DAS macht 12 euro | DAS macht zwölf euro |
 
 

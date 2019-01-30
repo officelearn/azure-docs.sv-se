@@ -9,18 +9,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/15/2019
+ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: f5fc1385bff92851db81cd4ed397d66cb8a832f2
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 4668ff23710121e5495395d71902b9ffa4c01238
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54350939"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220356"
 ---
 # <a name="storage-accounts"></a>Lagringskonton
 
-När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. Media Services-kontot och lagringskontot som associerats med den måste vara en del av samma datacenter och samma resursgrupp.
+När du skapar ett Media Services-konto, måste du ange namnet på en Azure Storage-kontoresurs. Det angivna lagringskontot kopplas till ditt Media Services-konto. 
 
 Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekundära** lagringskonton associerade med ditt Media Services-konto. Media Services stöder konton av typen **General-purpose v2** (GPv2) och **General-purpose v1** (GPv1). 
 
@@ -28,6 +28,8 @@ Du måste ha ett **primärt** lagringskonto, men du kan även ha flera **sekund�
 > Endast blob-konton tillåts inte som **primära**. 
 
 Vi rekommenderar att du använder GPv2, så att du kan dra nytta av att välja mellan frekvent och lågfrekvent lagringsnivå. Mer information om lagringskonton finns [översikt över Azure Storage-konto](../../storage/common/storage-account-overview.md). 
+
+Media Services-kontot och alla tillhörande lagringskonton måste vara i samma Azure-prenumeration. Det rekommenderas att använda lagringskonton på samma plats som Media Services-kontot.
 
 ## <a name="assets-in-a-storage-account"></a>Tillgångar i ett lagringskonto
 

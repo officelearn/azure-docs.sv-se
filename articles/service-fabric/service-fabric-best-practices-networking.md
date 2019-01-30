@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 4118e52e8fac34e860f05e17effb01e9375582ec
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2571c4a1e5a3ff6228cd6647c4367555d0add866
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914070"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212600"
 ---
 # <a name="networking"></a>Nätverk
 
@@ -48,7 +48,7 @@ Maximera prestandan för din virtuella dator med Accelererat nätverk, genom att
 ```
 Service Fabric-kluster kan etableras på [Linux med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli), och [Windows med Accelererat nätverk](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell).
 
-Accelererat nätverk stöds för SKU: er för Azure VM-serier: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och Ms-/ Mms. Accelererat nätverk har testats med Standard_DS8_v3 SKU: N 1/23/2019.
+Accelererat nätverk stöds för SKU: er för Azure VM-serier: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 och Ms-/ Mms. Accelererat nätverk har testats har Standard_DS8_v3 SKU: N 1/23/2019 för ett Service Fabric Windows-kluster, samt använder Standard_DS12_v2 2019/01/29 för ett Service Fabric Linux-kluster.
 
 Om du vill aktivera Accelererat nätverk i ett befintligt Service Fabric-kluster, måste du först [skala ut ett Service Fabric-kluster genom att lägga till en Virtual Machine Scale Sets](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out), för att utföra följande:
 1. Etablera en NodeType med Accelererat nätverk aktiverat

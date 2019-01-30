@@ -10,14 +10,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: ba79365ec310c7d62d0a4de07991d516430b9d41
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: 370483b92dcd2c468cd676a32db0ded80e8814d0
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54886160"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216620"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Lösning för Office 365 i Azure (förhandsversion)
 
@@ -158,7 +158,7 @@ Om du vill aktivera administratörskonto för första gången, måste du ange ad
     AdminConsent -ErrorAction Stop
     ```
 
-2. Kör skriptet med följande kommando.
+2. Kör skriptet med följande kommando. Du uppmanas att två gånger för autentiseringsuppgifter. Ange autentiseringsuppgifter för Log Analytics-arbetsytan först och sedan autentiseringsuppgifterna som global administratör för Office 365-klient.
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
@@ -351,7 +351,7 @@ Det sista steget är att prenumerera på programmet till Log Analytics-arbetsyta
 
 ### <a name="troubleshooting"></a>Felsökning
 
-Du kan se följande fel om du försöker skapa en prenumeration när prenumerationen finns redan.
+Du kan se följande fel om programmet redan prenumererar på den här arbetsytan eller om den här klientorganisationen en prenumeration på en annan arbetsyta.
 
 ```
 Invoke-WebRequest : {"Message":"An error has occurred."}
@@ -394,7 +394,7 @@ Du kan ta bort Office 365-hanteringslösning som använder processen i [ta bort 
     $Subscription = (Select-AzureRmSubscription -SubscriptionId $($SubscriptionId) -ErrorAction Stop)
     $Subscription
     $option = [System.StringSplitOptions]::RemoveEmptyEntries 
-    $Workspace = (Set-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
+    $Workspace = (Get-AzureRMOperationalInsightsWorkspace -Name $($WorkspaceName) -ResourceGroupName $($ResourceGroupName) -ErrorAction Stop)
     $Workspace
     $WorkspaceLocation= $Workspace.Location
     
@@ -494,7 +494,7 @@ Instrumentpanelen innehåller kolumnerna i följande tabell. Varje kolumn visar 
 | Kolumn | Beskrivning |
 |:--|:--|
 | Åtgärder | Innehåller information om de aktiva användarna från alla övervakade Office 365-prenumerationer. Du kommer även att kunna se antalet aktiviteter som sker över tid.
-| Exchange | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
+| Utbyte | Visar fördelningen av Exchange Server-aktiviteter, till exempel Lägg till postlåda behörighet eller Set-postlåda. |
 | SharePoint | Visar de översta aktiviteterna att användarna kan utföra för SharePoint-dokument. När du går nedåt från den här panelen visar sidan Sök efter information om dessa aktiviteter, till exempel måldokumentet och platsen för den här aktiviteten. Till exempel för en fil åt händelse, du kommer att kunna se dokumentet som används, associerade kontonamn och IP-adress. |
 | Azure Active Directory | Innehåller översta användaraktiviteter, till exempel återställa användarlösenord och inloggningsförsök. När du detaljnivån, kommer du att kunna se information om dessa aktiviteter som resultat. Det här är mest användbart om du vill övervaka misstänkta aktiviteter på Azure Active Directory. |
 
@@ -510,10 +510,10 @@ Följande egenskaper är gemensamma för alla Office 365-poster.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| Typ | *OfficeActivity* |
+| Type | *OfficeActivity* |
 | ClientIP | IP-adressen för den enhet som användes när aktiviteten loggades. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
-| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Exchange<br>SharePoint|
-| Åtgärd | Namnet på användarens eller administratörens aktivitet.  |
+| OfficeWorkload | Office 365-tjänst som posten refererar till.<br><br>AzureActiveDirectory<br>Utbyte<br>SharePoint|
+| Operation | Namnet på användarens eller administratörens aktivitet.  |
 | OrganizationId | GUID för organisationens Office 365-klient. Det här värdet kommer alltid att samma för din organisation, oavsett Office 365-tjänst där det inträffar. |
 | RecordType | Typ av åtgärder som utförs. |
 | ResultStatus | Anger om åtgärden (anges i egenskapen Operation) lyckades eller inte. Möjliga värden är Succeeded eller PartiallySucceeded misslyckades. Värdet är för administratörsaktivitet för Exchange, antingen SANT eller FALSKT. |
@@ -541,7 +541,7 @@ Dessa poster skapas när en Active Directory-användare försöker logga in.
 | OfficeWorkload | AzureActiveDirectory |
 | RecordType     | AzureActiveDirectoryAccountLogon |
 | Program | Programmet som utlöser händelsen konto inloggning, till exempel Office 15. |
-| Client | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
+| Klient | Information om klienten enhet, enhetens operativsystem och enhetens webbläsare som användes för den händelsens konto logga in. |
 | LoginStatus | Den här egenskapen är direkt från OrgIdLogon.LoginStatus. Mappningen av olika intressanta inloggningsfel kan göras av avisering algoritmer. |
 | UserDomain | Klient ID-Information (TII). | 
 
@@ -583,7 +583,7 @@ Dessa poster skapas när ändringar görs i Exchange-konfiguration.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyte |
 | RecordType     | ExchangeAdmin |
 | ExternalAccess |  Anger om cmdleten kördes av en användare i din organisation, av Microsoft datacenter-personal eller ett tjänstkonto för datacenter eller genom en delegerad administratör. Värdet falskt anger att cmdleten kördes av någon i din organisation. Värdet True anger att cmdleten kördes av datacenter personal, ett tjänstkonto för datacenter eller en delegerad administratör. |
 | ModifiedObjectResolvedName |  Det här är användarvänligt namn på det objekt som har ändrats av cmdlet: en. Detta loggas endast om cmdleten ändrar objektet. |
@@ -597,7 +597,7 @@ Dessa poster skapas när ändringar eller tillägg görs till Exchange-postlådo
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyte |
 | RecordType     | ExchangeItem |
 | ClientInfoString | Information om e-postklienten som användes för att utföra åtgärden, till exempel en webbläsarversion, Outlook-version och information om mobila enheter. |
 | Client_IPAddress | IP-adressen för den enhet som användes när åtgärden har loggats. IP-adressen visas i en IPv4- eller IPv6-adressformat. |
@@ -619,7 +619,7 @@ Dessa poster skapas när en postlåda granskningspost skapas.
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyte |
 | RecordType     | ExchangeItem |
 | Objekt | Representerar det objektet som åtgärden utfördes | 
 | SendAsUserMailboxGuid | Exchange-GUID för postlådan som användes för att skicka e-post. |
@@ -633,7 +633,7 @@ Dessa poster skapas när ändringar eller tillägg som görs till Exchange-grupp
 
 | Egenskap  | Beskrivning |
 |:--- |:--- |
-| OfficeWorkload | Exchange |
+| OfficeWorkload | Utbyte |
 | OfficeWorkload | ExchangeItemGroup |
 | AffectedItems | Information om varje objekt i gruppen. |
 | CrossMailboxOperations | Anger om åtgärden involverad mer än en postlåda. |
@@ -697,7 +697,7 @@ Dessa poster skapas som svar på filåtgärder i SharePoint.
 ## <a name="sample-log-searches"></a>Exempel på loggsökningar
 Följande tabell innehåller exempel på sökningar i loggen för uppdateringsposter som har samlats in av den här lösningen.
 
-| Söka i data | Beskrivning |
+| Fråga | Beskrivning |
 | --- | --- |
 |Uppräkning av alla åtgärder på Office 365-prenumerationen |OfficeActivity &#124; sammanfatta antal() efter åtgärd |
 |Användningen av SharePoint-webbplatser|OfficeActivity &#124; där OfficeWorkload = ~ ”sharepoint” &#124; sammanfatta antal() efter SiteUrl | Sortera efter antal asc|

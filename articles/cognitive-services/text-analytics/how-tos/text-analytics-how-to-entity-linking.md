@@ -6,16 +6,16 @@ services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: e81428d5bdffb65b5e61a7aba7496da275f249a5
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 3f56bd4efafe506a95d46524713ebe49e3250f63
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230564"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55220400"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Hur du använder med namnet Entitetsidentifiering i Text Analytics (förhandsversion)
 
@@ -41,29 +41,29 @@ Med hjälp av entitetslänkning på olika språk kräver en motsvarande kunskaps
 
 ## <a name="supported-types-for-named-entity-recognition"></a>Typer som stöds för igenkänning av namngivna entiteter
 
-| Typ  | Undertyp | Exempel |
+| Type  | Undertyp | Exempel |
 |:-----------   |:------------- |:---------|
-| Person        | EJ TILLÄMPLIGT\*         | ”Jeff”, ”Bill Gates”     |
-| Plats      | EJ TILLÄMPLIGT\*         | ”Redmond, Washington”, ”Paris”  |
-| Organisation  | EJ TILLÄMPLIGT\*         | ”Microsoft”   |
-| Antal      | Tal        | ”6”, ”sex”     | 
-| Antal      | Procent    | ”50%”, ”50 procent”| 
-| Antal      | Ordningstal       | ”2”, ”andra”     | 
+| Person        | EJ TILLÄMPLIGT\*         | "Jeff", "Bill Gates"     |
+| Plats      | EJ TILLÄMPLIGT\*         | "Redmond, Washington", "Paris"  |
+| Organisation  | EJ TILLÄMPLIGT\*         | "Microsoft"   |
+| Antal      | Antal        | "6", "six"     | 
+| Antal      | Procent    | "50%", "fifty percent"| 
+| Antal      | Ordinal       | "2nd", "second"     | 
 | Antal      | NumberRange   | ”4 till 8”     | 
 | Antal      | Ålder           | ”90 dagar gamla”, ”30 år”    | 
-| Antal      | Valuta      | ”$10,99”     | 
-| Antal      | Dimension     | ”10 miles”, ”40 cm”     | 
-| Antal      | Temperatur   | ”32 grader”    |
+| Antal      | Valuta      | "$10.99"     | 
+| Antal      | Dimension     | "10 miles", "40 cm"     | 
+| Antal      | Temperatur   | "32 degrees"    |
 | DateTime      | EJ TILLÄMPLIGT\*         | ”18:30:00 den 4 februari 2012”      | 
-| DateTime      | Date          | ”Den 2 maj 2017”, ”2017-05-02”   | 
-| Tidpunkt     | Tid          | ”8 am”, ”8:00”  | 
+| DateTime      | Datum          | "May 2nd, 2017", "05/02/2017"   | 
+| Tidpunkt     | Tid          | "8am", "8:00"  | 
 | DateTime      | DateRange     | ”2 maj till 5 maj”    | 
-| DateTime      | timeRange     | ”18: 00 till 19: 00”     | 
+| DateTime      | TimeRange     | ”18: 00 till 19: 00”     | 
 | DateTime      | Varaktighet      | ”1 minut och 45 sekunder”   | 
-| DateTime      | Ange           | ”varje tisdag”     | 
+| DateTime      | Uppsättning           | ”varje tisdag”     | 
 | DateTime      | TimeZone      |    | 
 | URL           | EJ TILLÄMPLIGT\*         | "http://www.bing.com"    |
-| E-post         | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
+| E-post          | EJ TILLÄMPLIGT\*         | "support@contoso.com" |
 \* Beroende på indata- och extraherade entiteter, vissa entiteter kan utelämna den `SubType`.
 
 

@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 638020ab4f64d800bd9d42f226cb36701720f8d0
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: a1d71bb992276cb37c73a7ba27b427ccb617f688
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427210"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216106"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Förstå vad bra yttranden är avsedda för LUIS-app
 
@@ -94,7 +94,7 @@ Utvecklare bör börja testa sina LUIS-program med verklig trafik genom att skic
 
 När din modell är tränade publicerade och mottagande [endpoint](luis-glossary.md#endpoint) frågor, [granska talade](luis-how-to-review-endoint-utt.md) föreslås av LUIS. LUIS väljer endpoint yttranden som har låg poäng för avsikt eller entitet. 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Regelverk
 
 Granska [bästa praxis](luis-concept-best-practices.md) och använda dem som en del av din vanliga redigering cykel.
 

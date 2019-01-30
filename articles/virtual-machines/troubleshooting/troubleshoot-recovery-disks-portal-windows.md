@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/013/2018
 ms.author: genli
-ms.openlocfilehash: 0b6ade7a6031b957f2405e525d61c9ca1d2dac3d
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: 2c5fac377dfab4b4c85991dcb8f4e15f4e3cb61a
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53809105"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225945"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Felsöka en virtuell Windows-dator genom att koppla OS-disken till en virtuell dator med Azure-portalen för återställning
 Om din Windows virtuell dator (VM) i Azure påträffar ett fel vid start- eller disk, kan du behöva utföra felsökningssteg direkt på den virtuella hårddisken. Ett vanligt exempel är en misslyckad programuppdatering som förhindrar den virtuella datorn från att kunna starta. Den här artikeln beskriver hur du använder Azure-portalen för att ansluta den virtuella hårddisken till en annan virtuell Windows-dator att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
@@ -37,12 +37,11 @@ Vi kan nu använda Azure PowerShell ändra OS-disk för en virtuell dator för d
 ## <a name="determine-boot-issues"></a>Fastställa startproblem
 Granska startdiagnostik VM skärmbild för att avgöra varför den virtuella datorn är inte kan starta korrekt. Ett vanligt exempel skulle vara en misslyckad programuppdatering eller en underliggande virtuell hårddisk som tagits bort eller flyttats.
 
-Välj den virtuella datorn i portalen och rullar ned till den **stöd + felsökning** avsnittet. Klicka på **Startdiagnostik** att visa skärmbilden. Observera några felmeddelanden eller felkoder för att fastställa varför den virtuella datorn har uppstått ett problem. I följande exempel visas en virtuell dator som väntar på att stoppa tjänster:
+Välj den virtuella datorn i portalen och rullar ned till den **stöd + felsökning** avsnittet. Klicka på **Startdiagnostik** att visa skärmbilden. Observera några felmeddelanden eller felkoder för att fastställa varför den virtuella datorn har uppstått ett problem. 
 
 ![Visa VM datorloggar startdiagnostik](./media/troubleshoot-recovery-disks-portal-windows/screenshot-error.png)
 
-Du kan också klicka på **skärmbild** att hämta en avbildning av VM-skärmbild.
-
+Du kan också klicka på **ladda ned skärmbild** att hämta en avbildning av VM-skärmbild.
 
 ## <a name="view-existing-virtual-hard-disk-details"></a>Se information om en befintlig virtuell hårddisk
 Innan du kan koppla den virtuella hårddisken till en annan virtuell dator, måste du identifiera namnet på den virtuella hårddisken (VHD). 

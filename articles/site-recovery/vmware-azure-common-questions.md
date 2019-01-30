@@ -5,22 +5,22 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 12/31/2018
+ms.date: 1/29/2019
 ms.topic: conceptual
-ms.author: raynew
-ms.openlocfilehash: 703d255a962dbac7a430404835c6d45c358d99a7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.author: mayg
+ms.openlocfilehash: aa4b0fcdfecde181eea4481cc40b898ca74fce76
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478116"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55212247"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Vanliga frågor – VMware till Azure replikering
 
 Den här artikeln innehåller svar på vanliga frågor som vi kan se när du distribuerar haveriberedskap för lokala virtuella VMware-datorer till Azure. Om du har frågor när du har läst den här artikeln kan publicera dem på den [Azure Recovery Services-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
-## <a name="general"></a>Allmänt
+## <a name="general"></a>Generell
 ### <a name="how-is-site-recovery-priced"></a>Hur prissätts Site Recovery?
 Granska [priserna för Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/) information.
 
@@ -43,6 +43,9 @@ Du behöver ett LRS eller GRS-lagringskonto. Vi rekommenderar GRS så att dina d
 ### <a name="does-my-azure-account-need-permissions-to-create-vms"></a>Behöver Mina Azure-konto behörighet att skapa virtuella datorer?
 Om du är administratör för prenumerationen har Replikeringsbehörighet som du behöver. Om du inte behöver du behörighet att skapa en Azure-dator i resursgruppen och virtuellt nätverk som du anger när du konfigurerar Site Recovery och behörighet att skriva till det valda lagringskontot. [Läs mer](site-recovery-role-based-linked-access-control.md#permissions-required-to-enable-replication-for-new-virtual-machines).
 
+### <a name="can-i-use-guest-os-server-license-on-azure"></a>Kan jag använda gäst-OS server-licens i Azure?
+Ja, Microsoft Software Assurance-kunder kan använda Azure Hybrid-förmånen för att spara på licenskostnaden för **datorer med Windows Server** som migreras till Azure, eller att använda Azure för haveriberedskap.
+
 ## <a name="azure-site-recovery-components-upgrade"></a>Uppgradera Azure Site Recovery-komponenter
 
 ### <a name="my-mobility-agentconfiguration-serverprocess-server-version-is-very-old-and-my-upgrade-has-failed-how-should-i-upgrade-to-latest-version"></a>Min Mobility/Agentkonfiguration Server/processerverns version är mycket gammal och min uppgraderingen misslyckades. Hur ska jag uppgraderar till senaste versionen?
@@ -61,7 +64,7 @@ Se våra vägledningen [här](https://aka.ms/asr_vmware_upgrades) att uppgradera
 
 Alternativ som rekommenderas, är det inte obligatoriskt för varje uppgradering. Se [här](https://aka.ms/asr_vmware_upgrades) för tydliga anvisningar.
 
-## <a name="on-premises"></a>Lokal
+## <a name="on-premises"></a>Lokalt
 
 ### <a name="what-do-i-need-on-premises"></a>Vad gör jag behöver på plats?
 
@@ -250,7 +253,7 @@ Ja, om du växlas över till Azure, du kan växla tillbaka till en annan plats o
 När du växlar tillbaka från Azure kopieras data från Azure tillbaka till den lokala virtuella datorn och privat åtkomst krävs.
 
 ### <a name="can-i-resize-the-azure-vm-after-failover"></a>Kan jag ändra storlek på virtuella Azure-datorer efter redundans?
-Nej, du kan inte ändra storleken på den Virtuella måldatorn efter redundansen.
+Nej, du kan inte ändra storlek och typ av den Virtuella måldatorn efter redundansen.
 
 
 ## <a name="automation-and-scripting"></a>Automatisering och skript

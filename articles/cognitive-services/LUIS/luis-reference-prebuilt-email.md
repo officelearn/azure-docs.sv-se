@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: diberry
-ms.openlocfilehash: 1cb12bdc362955da907fb5a5ed64c2a1a43fdc32
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 080c4d08348265ea891dd02ff3aa2fe8ba2ad2f1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53140871"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221495"
 ---
 # <a name="email-prebuilt-entity-for-a-luis-app"></a>E-fördefinierade entitet för en LUIS-app
 Extrahering av e-post innehåller hela e-postadressen från ett uttryck. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller e-postmeddelande till programmet avsikter. E-entitet stöds i `en-us` kultur endast. 

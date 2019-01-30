@@ -4,19 +4,19 @@ titleSuffix: Azure Machine Learning service
 description: 'Lär dig mer om att exportera eller ta bort din arbetsyta med Azure-portalen, CLI, SDK och autentiserade REST API: er.'
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 author: ph-com
 ms.author: pahusban
 ms.date: 09/24/2018
 ms.custom: seodec18
-ms.openlocfilehash: 81215058095acfeedd320025457feec73d3b0d23
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 3f40606d5fae3b3784ac7f1fdcf4977b7fd9eb1f
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53192353"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251783"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Exportera eller ta bort arbetsyta för Machine Learning tjänstdata 
 

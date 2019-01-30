@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: f02c495c7448334529de2d5b42cda02206daea0d
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: e4e512a69fc783e6c4878298d848a9dccf8768c3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877980"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226935"
 ---
 # <a name="customize-your-text-translations"></a>Anpassa dina textöversättningar
 
@@ -40,7 +40,7 @@ Beroende på rätt typ och mängden utbildningsdata som det är inte ovanligt at
 Mer information om de olika nivåerna på anpassning som är baserad på tillgänglig data finns i den [användarhandboken för anpassad Translator](https://aka.ms/CustomTranslatorDocs).
 
 
-## <a name="microsoft-translator-hub"></a>Microsoft Translator-Hub
+## <a name="microsoft-translator-hub"></a>Microsoft Translator Hub
 
 Äldre Microsoft Translator Hub kan användas för att översätta statistiska maskinöversättning. [Läs mer](https://www.microsoft.com/en-us/translator/hub.aspx)
 
@@ -55,7 +55,7 @@ Mer information om de olika nivåerna på anpassning som är baserad på tillgä
 | Nya enhetliga Speech services anpassning | Nej    | Ja |
 | [Ingen spårning](https://www.aka.ms/notrace) | Ja  | Ja |
 
-## <a name="collaborative-translations-framework"></a>Samarbetsfunktioner översättningar Framework
+## <a name="collaborative-translations-framework"></a>Collaborative Translations Framework
 
 > [!NOTE]
 > Från och med den 1 februari 2018 AddTranslation() och AddTranslationArray() är inte längre tillgängliga för användning med Translator Text API V2.0. De här metoderna misslyckas och inget ska skrivas. Translator Text API V3.0 har inte stöd för dessa metoder.

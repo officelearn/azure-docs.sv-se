@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 18a32f5e07470f71ba276fbe3a2633150b1bf188
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: 43d72b88c96b45939cb394a26881b1272e250819
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754672"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217262"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Självstudier: Gruppera och extrahera relaterade data
 I den här självstudien lägger du till en sammansatt entitet för att paketera olika typer av extraherade data i en enda innehållande entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
@@ -33,7 +33,7 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Exempelapp för import
+> * Importera en exempelapp
 > * Skapa avsikt
 > * Lägg till sammansatt entitet 
 > * Träna
@@ -42,7 +42,7 @@ Sammansatta entiteten är ett bra alternativ för den här typen av data efterso
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="import-example-app"></a>Exempelapp för import
+## <a name="import-example-app"></a>Importera en exempelapp
 
 1.  Hämta och spara den [app JSON-fil](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/build-app/tutorial_list.json) från listan entitet självstudierna.
 
@@ -61,7 +61,7 @@ Exempel yttranden avsikt följande:
 |Exempel på yttranden|
 |--|
 |Flytta John W. Smith till ekonomiavdelningen|
-|överföra Jill Jones från till R & D|
+|överför Jill Jones till utvecklingsavdelningen|
  
 Begäran om att flytta bör innehålla avdelningsnamnet på och medarbetarnamn. 
 
@@ -104,15 +104,15 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 1. Kontrollera alla uttryck i avsikten är märkta med den sammansatta entitet. 
 
-## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att ändringarna ska avsikten kan testas 
+## <a name="train-the-app-so-the-changes-to-the-intent-can-be-tested"></a>Träna appen så att avsiktsändringarna kan testas 
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att den tränade modellen är frågningsbar från slutpunkten
+## <a name="publish-the-app-so-the-trained-model-is-queryable-from-the-endpoint"></a>Publicera appen så att frågor kan köras mot den tränade modellen från slutpunkten
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikt och entiteten förutsägelse från slutpunkten 
+## <a name="get-intent-and-entity-prediction-from-endpoint"></a>Hämta avsikts- och entitetsförutsägelser från slutpunkten 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -192,9 +192,9 @@ LUIS har flera fördefinierade entiteter för extrahering av data.
 
 * [Lista entitet självstudien](luis-quickstart-intents-only.md)
 * [Sammansatt entitet](luis-concept-entity-types.md) konceptuell information
-* [Hur du tränar](luis-how-to-train.md)
+* [Så här tränar du](luis-how-to-train.md)
 * [Så här publicerar du](luis-how-to-publish-app.md)
-* [Testa LUIS-portalen](luis-interactive-test.md)
+* [Så här testar du i LUIS-portalen](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

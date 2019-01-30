@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.component: files
-ms.openlocfilehash: aa01ffc196ba6ece41fac9a95db04b58ad962060
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 273d6b730f4b92da83e43a8fec3c1188e8111313
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259826"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224470"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -26,7 +26,7 @@ Den här artikeln ger insyn i specifika krav och tillgängliga alternativ för a
 ## <a name="overview"></a>Översikt
 Azure File Sync fungerar som en tjänst för samordning mellan Windows Server, Azure-filresursen och flera andra Azure-tjänster för att synkronisera data enligt beskrivningen i dina synkroniseringsgruppen. Du behöver för Azure File Sync ska fungera korrekt, att konfigurera dina servrar att kommunicera med följande Azure-tjänster:
 
-- Azure Storage
+- Azure-lagring
 - Azure File Sync
 - Azure Resource Manager
 - Autentiseringstjänster
@@ -43,7 +43,7 @@ Azure File Sync-agenten har inga krav angående särskilda kanaler som [ExpressR
 
 Azure File Sync fungerar på alla sätt att nå Azure automatiskt om anpassning till olika Nätverksegenskaper som bandbredd och latens samtidigt som den ger administratörskontroll för att finjustera. Inte alla funktioner är tillgängliga just nu. Om du vill konfigurera specifika beteende, berätta för oss [Azure filer UserVoice](https://feedback.azure.com/forums/217298-storage?category_id=180670).
 
-## <a name="proxy"></a>Proxy
+## <a name="proxy"></a>PROXY
 Azure File Sync stöder appspecifika och datoromfattande proxy-inställningar.
 
 **Appspecifika proxyinställningar** tillåter konfiguration av proxy specifikt för Azure File Sync-trafik. Appspecifika proxyinställningar stöds på agentversion 4.0.1.0 eller senare och kan konfigureras under agentinstallationen av eller med hjälp av cmdleten Set-StorageSyncProxyConfiguration PowerShell.
@@ -86,14 +86,14 @@ Följ stegen nedan om du vill konfigurera datoromfattande proxy-inställningar:
 
       net stop filesyncsvc
 
-      Obs! Storage Sync-agenten (filesyncsvc)-tjänsten ska starta automatiskt när den stoppats.
+      Anmärkning: Storage Sync-agenten (filesyncsvc)-tjänsten ska starta automatiskt när den stoppats.
 
 ## <a name="firewall"></a>Brandvägg
 Port 443 måste vara öppna utgående som nämns i föregående avsnitt. Baserat på principer i ditt datacenter, gren eller din region kan kan ytterligare begränsa trafik via den här porten till vissa domäner vara önskade eller krävs.
 
 I följande tabell beskrivs domänerna som krävs för kommunikation:
 
-| Tjänst | Domain | Användning |
+| Tjänst | Domän | Användning |
 |---------|----------------|------------------------------|
 | **Azure Resource Manager** | https://management.azure.com | Ett anrop för användaren (till exempel PowerShell) går till/igenom den här URL: en, inklusive inledande server registrering anropet. |
 | **Azure Active Directory** | https://login.windows.net | Azure Resource Manager-anrop måste göras av en autentiserad användare. Ska lyckas, används den här URL: en för autentisering av användare. |
@@ -111,19 +111,19 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 
 | Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL |
 |--------|---------------------------------------|--------|---------------------------------------|
-| Östra Australien | https://kailani-aue.one.microsoft.com | Australien Souteast | https://kailani-aue.one.microsoft.com |
-| Sydöstra Australien | https://kailani-aus.one.microsoft.com | Östra Australien | https://tm-kailani-aus.one.microsoft.com |
-| Centrala Kanada | https://kailani-cac.one.microsoft.com | Östra Kanada | https://tm-kailani-cac.one.microsoft.com |
-| Östra Kanada | https://kailani-cae.one.microsoft.com | Centrala Kanada | https://tm-kailani.cae.one.microsoft.com |
+| Australien, Öst | https://kailani-aue.one.microsoft.com | Australien Souteast | https://kailani-aue.one.microsoft.com |
+| Australien, Sydöst | https://kailani-aus.one.microsoft.com | Australien, Öst | https://tm-kailani-aus.one.microsoft.com |
+| Canada Central | https://kailani-cac.one.microsoft.com | Canada East | https://tm-kailani-cac.one.microsoft.com |
+| Canada East | https://kailani-cae.one.microsoft.com | Canada Central | https://tm-kailani.cae.one.microsoft.com |
 | Centrala USA | https://kailani-cus.one.microsoft.com | USA, östra 2 | https://tm-kailani-cus.one.microsoft.com |
 | Östasien | https://kailani11.one.microsoft.com | Sydostasien | https://tm-kailani11.one.microsoft.com |
 | Östra USA | https://kailani1.one.microsoft.com | Västra USA | https://tm-kailani1.one.microsoft.com |
 | USA, östra 2 | https://kailani-ess.one.microsoft.com | Centrala USA | https://tm-kailani-ess.one.microsoft.com |
-| Norra Europa | https://kailani7.one.microsoft.com | Västra Europa | https://tm-kailani7.one.microsoft.com |
+| Nordeuropa | https://kailani7.one.microsoft.com | Västeuropa | https://tm-kailani7.one.microsoft.com |
 | Sydostasien | https://kailani10.one.microsoft.com | Östasien | https://tm-kailani10.one.microsoft.com |
-| Storbritannien, södra | https://kailani-uks.one.microsoft.com | Storbritannien, västra | https://tm-kailani-uks.one.microsoft.com |
-| Storbritannien, västra | https://kailani-ukw.one.microsoft.com | Storbritannien, södra | https://tm-kailani-ukw.one.microsoft.com |
-| Västra Europa | https://kailani6.one.microsoft.com | Norra Europa | https://tm-kailani6.one.microsoft.com |
+| Södra Storbritannien | https://kailani-uks.one.microsoft.com | Västra Storbritannien | https://tm-kailani-uks.one.microsoft.com |
+| Västra Storbritannien | https://kailani-ukw.one.microsoft.com | Södra Storbritannien | https://tm-kailani-ukw.one.microsoft.com |
+| Västeuropa | https://kailani6.one.microsoft.com | Nordeuropa | https://tm-kailani6.one.microsoft.com |
 | Västra USA | https://kailani.one.microsoft.com | Östra USA | https://tm-kailani.one.microsoft.com |
 
 - Om du använder lokalt redundant (LRS) eller zonen redundant (ZRS)-lagringskonton, behöver du bara aktivera den URL som visas under ”primär slutpunkts-URL”.
@@ -144,3 +144,4 @@ Konfigurera domänen att begränsa brandväggsregler kan vara ett mått för att
 ## <a name="next-steps"></a>Nästa steg
 - [Planera för distribution av Azure File Sync](storage-sync-files-planning.md)
 - [Distribuera Azure File Sync](storage-sync-files-deployment-guide.md)
+- [Övervaka Azure File Sync](storage-sync-files-monitoring.md)

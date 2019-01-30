@@ -6,22 +6,22 @@ services: cognitive-services
 author: RichardSunMS
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: linguistic-analysis
+ms.subservice: linguistic-analysis
 ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 762ebf50999a88251dcd05824f2ed450cec97f04
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8bf13bffe763b88e95da94f885e30d271e36da42
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237407"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221699"
 ---
 # <a name="analyzers-method"></a>Analyzer-metod
 
 > [!IMPORTANT]
-> Förhandsversionen av Lingvistisk analys har ur den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning modulerna för textanalys](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för text-bearbetning och analys.
+> Förhandsversionen av Språkanalys upphörde den 9 augusti 2018. Vi rekommenderar att du använder [Azure Machine Learning-textanalysmoduler](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) för textbearbetning och -analys.
 
 Den **analysverktyg** REST API innehåller en lista över analysverktyg som för närvarande stöds av tjänsten.
 Svaret innehåller sina [namn](Analyzer-Names.md) och de språk som stöds av varje (till exempel ”SV” för engelska).
@@ -32,10 +32,10 @@ Ingen
 <br>
 
 ## <a name="response-parameters"></a>Svarsparametrar
-Namn | Typ | Beskrivning
+Name | Typ | Beskrivning
 -----|------|--------------
 Språk | lista med strängar | lista över två bokstaven ISO språkkoder som som den här analyzer kan användas.
-id   | sträng | unikt ID för den här analyzer
+ID   | sträng | unikt ID för den här analyzer
 typ | sträng | bred typ av analyzer här
 Specifikationen | sträng | namnet på den specifikation som används för den här analyzer
 Implementering | sträng | Beskrivning av modellen och/eller algoritmen bakom den här analyzer

@@ -7,16 +7,16 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 1c47f9d511cd6461ef5a31f308669eba751d1de4
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 3d91788544c49c260eff051185950bdfd164b802
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976009"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55217959"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>VMware till Azure disaster recovery-arkitekturen
 
-Den här artikeln beskrivs arkitekturen och processer som används när du distribuerar disaster recovery-replikering, redundans och återställning av virtuella VMware-datorer (VM) mellan en lokal VMware-platsen och Azure med hjälp av den [Azure Site Recovery](site-recovery-overview.md) servuce.
+Den här artikeln beskrivs arkitekturen och processer som används när du distribuerar disaster recovery-replikering, redundans och återställning av virtuella VMware-datorer (VM) mellan en lokal VMware-platsen och Azure med hjälp av den [Azure Site Recovery](site-recovery-overview.md) service.
 
 
 ## <a name="architectural-components"></a>Arkitekturkomponenter

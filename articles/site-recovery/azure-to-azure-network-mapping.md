@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 6140687d583534d21ee50652811c2fd1624a5cf5
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: fccc7379794b4b75ff53e517eddd95ff0f7db0e9
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840460"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223790"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverksmappning och IP-adresser för virtuella nätverk
 
@@ -62,8 +62,8 @@ Undernätet för målet virtuell dator baserat på namnet på undernätet för d
 
 IP-adressen för varje nätverkskort på en virtuell måldator konfigureras på följande sätt:
 
-- **DHCP**: om NIC för den Virtuella källdatorn använder DHCP, NIC för den Virtuella måldatorn är också konfigurerad att använda DHCP.
-- **Statisk IP-adress**: om NIC för den Virtuella källdatorn använder statisk IP-adressering, mål VM NIC också använder statisk IP-adress.
+- **DHCP**: Om nätverkskortet på den Virtuella källdatorn använder DHCP, är också NIC för den Virtuella måldatorn konfigurerad att använda DHCP.
+- **Statisk IP-adress**: Om nätverkskortet på källan virtuell dator använder statiska IP-adresser, mål VM NIC också att använda en statisk IP-adress.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>Tilldelning av IP-adress under redundansväxling
@@ -79,8 +79,8 @@ Olika adressutrymmen<br/><br/> Nästa tillgängliga IP-adress i målundernätet 
 
 **Målnätverk** | **Detaljer**
 --- | ---
-Målnätverket är redundans virtuellt nätverk | / Mål-IP-adressen är statisk men inte samma IP-adress som reserverats för redundans.<br/><br/>  -Tilldelade adressen är nästa tillgängliga adress från slutet av undernätsintervallet.<br/><br/> Till exempel: om källans IP-adress är 10.0.0.19 och redundansnätverk använder adressintervallet 10.0.0.0/24, så nästa IP-adress som tilldelats den Virtuella måldatorn är 10.0.0.254.
-Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  -Om samma IP-adress har redan tilldelats, är nästa kommando på eeach intervallets undernät med IP-adressen.<br/><br/> Till exempel: om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är redundansnätverk, med adressintervallet 10.0.0.0/24, och sedan den statiska IP-adressen för målet att 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.
+Målnätverket är redundans virtuellt nätverk | / Mål-IP-adressen är statisk men inte samma IP-adress som reserverats för redundans.<br/><br/>  -Tilldelade adressen är nästa tillgängliga adress från slutet av undernätsintervallet.<br/><br/> Exempel: Om källans IP-adress är 10.0.0.19 och redundansnätverk använder adressintervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den Virtuella måldatorn 10.0.0.254.
+Målnätverket är inte redundansväxlingen VNet | / Mål-IP-adressen är statisk med samma IP-adress reserveras för växling vid fel.<br/><br/>  – Om samma IP-adress har redan tilldelats, är det nästa tillgänglig för varje undernätsintervallet med IP-adressen.<br/><br/> Exempel: Om statiska IP-källadressen är 10.0.0.19 och växling vid fel är i ett nätverk som inte är nätverket för redundanstestet, med adressintervallet 10.0.0.0/24, kommer den statiska IP-adressen för målet vara 10.0.0.0.19 om det är tillgängligt och annars blir det 10.0.0.254.
 
 - Redundansväxlingen VNet är målnätverket som du väljer när du konfigurerar haveriberedskap.
 - Vi rekommenderar att du alltid använder en icke-produktion-nätverk för redundanstestning.

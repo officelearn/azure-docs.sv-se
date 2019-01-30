@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 4c9fe269ffa351c1efdb3f94a15a10bae65432d8
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 3013d8997660df95fb12c8b18c1120f726eead04
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199658"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55216028"
 ---
 # <a name="application-insights-connector-management-solution-preview"></a>Lösning för Application Insights-Anslutningsapp (förhandsversion)
 
@@ -55,7 +55,7 @@ Till skillnad från de flesta andra Log Analytics-lösningar, inte som samlas in
 
 ## <a name="configuration"></a>Konfiguration
 
-1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
+1. Aktivera Azure Web Apps Analytics-lösningen från den [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) eller genom att använda processen som beskrivs i [lägga till Log Analytics-lösningar från lösningsgalleriet](../../azure-monitor/insights/solutions.md).
 2. Bläddra till [Azure-portalen](https://portal.azure.com). Välj **alla tjänster** att öppna Application Insights. Sök sedan efter Application Insights. 
 3. Under **prenumerationer**, Välj en prenumeration med Application Insights-resurser och sedan under **namn**, Välj ett eller flera program.
 4. Klicka på **Spara**.

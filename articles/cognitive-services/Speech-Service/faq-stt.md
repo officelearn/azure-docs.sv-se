@@ -6,22 +6,22 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 21f7733f3f63fd4d7567830ab4c98ea1b04bf32e
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 965d690184071da3f01ba165ccb0edd7e15f99b8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904139"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225354"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga och frågor svar om tal till Text
 
 Om du inte hittar svar på dina frågor i den här vanliga frågor och svar kan du kolla [andra supportalternativ](support.md).
 
-## <a name="general"></a>Allmänt
+## <a name="general"></a>Generell
 
 **F: Vad är skillnaden mellan en baslinje-modell och ett anpassat tal till Text-modellen?**
 
@@ -85,7 +85,7 @@ Kontakta oss om du behöver en högre skala.
 
 Om du har fler sekretessfrågor som förhindrar att du använder med custom Speech service kan du kontakta någon av supportkanalerna.
 
-## <a name="importing-data"></a>Importera data
+## <a name="importing-data"></a>Importerar data
 
 **F: Vad är gränsen för storleken på en datauppsättning och varför är det gränsen?**
 

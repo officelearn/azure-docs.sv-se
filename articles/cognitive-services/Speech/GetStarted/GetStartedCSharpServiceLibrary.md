@@ -6,18 +6,18 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e9b3d3207f5aca6cba3555ba2578b5c66b3bd193
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49343699"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226051"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Snabbstart: Använda tjänstbibliotek för Bing-taligenkänning taligenkänning i C&#35; för .NET Windows
+# <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Snabbstart: Använd Bing-taligenkänning igenkänning av tjänsten-biblioteket i C&#35; för .NET Windows
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -56,7 +56,7 @@ API för taligenkänning är en del av Cognitive Services (tidigare projekt Oxfo
 
 Tryck på Ctrl + Skift + B eller välj **skapa** på menyn i menyfliksområdet. Välj sedan **skapa lösning**.
 
-## <a name="step-3-run-the-sample-application"></a>Steg 3: Kör exempelprogrammet
+## <a name="step-3-run-the-sample-application"></a>Steg 3: Köra exempelprogrammet
 
 1. När bygget har slutförts, tryck på F5 eller välj **starta** på menyn menyfliksområdet för att köra exemplet.
 
@@ -64,17 +64,17 @@ Tryck på Ctrl + Skift + B eller välj **skapa** på menyn i menyfliksområdet. 
 
 3. Kör `SpeechClientSample.exe` med följande argument:
 
-   * Arg [0]: Ange en inkommande ljudfil WAV.
-   * Arg [1]: Språkinställningen ljud.
-   * Arg [2]: Ange erkännande lägen: *kort* för den `ShortPhrase` läge och *lång* för den `LongDictation` läge.
-   * Arg [3]: Ange den prenumeration för att få åtkomst till tjänsten för taligenkänning.
+   * Arg[0]: Ange en inkommande ljudfil WAV.
+   * Arg[1]: Ljud språkinställningen.
+   * Arg[2]: Ange erkännande lägen: *Kort* för den `ShortPhrase` läge och *lång* för den `LongDictation` läge.
+   * Arg[3]: Ange prenumerationsnyckeln för att komma åt tjänsten för taligenkänning.
 
 ## <a name="samples-explained"></a>Exempel beskrivs
 
 ### <a name="recognition-modes"></a>Igenkänning av lägen
 
-* `ShortPhrase` läge: ett uttryck upp till 15 sekunder långa. När data skickas till servern, klienten tar emot flera delresultat och ett sista bästa resultat.
-* `LongDictation` läge: ett uttryck upp till 10 minuter lång tid. När data skickas till servern, tar klienten emot flera delresultat och flera slutresultat baserat på var servern indikerar paus i meningen.
+* `ShortPhrase` läge: Ett uttryck upp till 15 sekunder långa. När data skickas till servern, klienten tar emot flera delresultat och ett sista bästa resultat.
+* `LongDictation` läge: Ett uttryck upp till 10 minuter lång. När data skickas till servern, tar klienten emot flera delresultat och flera slutresultat baserat på var servern indikerar paus i meningen.
 
 ### <a name="supported-audio-formats"></a>Ljudformat som stöds
 
@@ -97,7 +97,7 @@ Om du vill skapa en SpeechClient, måste du först skapa ett objekt i inställni
 
 Objektet SpeechInput består av två fält:
 
-* **Ljud**: en stream-implementering av valfri som SDK: N hämtar ljud. Det kan vara något [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) som har stöd för läsning.
+* **Ljud**: En stream-implementering av valfri som SDK: N hämtar ljud. Det kan vara något [stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx) som har stöd för läsning.
    > [!NOTE]
    > SDK: N identifierar slutet på strömmen när strömmen returnerar **0** i read.
 
@@ -122,7 +122,7 @@ Den här händelsen anropas varje gång Speech Service förutsäger vad du kan s
 **Returnera formatet** | Beskrivning |
 ------|------
 **LexicalForm** | Det här formuläret är optimalt för användning av program som behöver råa, obearbetade tal resultat.
-**Visa text** | Frasen med inverterade text normalisering, versaler, interpunktion och svordomar maskning tillämpas. Svordomar maskeras med asterisker efter det första tecknet, till exempel ”d ***”. Det här formuläret är optimalt för användning av program som visar igenkänningsresultat tal för en användare.
+**DisplayText** | Frasen med inverterade text normalisering, versaler, interpunktion och svordomar maskning tillämpas. Svordomar maskeras med asterisker efter det första tecknet, till exempel ”d ***”. Det här formuläret är optimalt för användning av program som visar igenkänningsresultat tal för en användare.
 **förtroende** | Konfidensnivån frasen representerar för det associerade ljudet som definieras av tal igenkänning av servern.
 **MediaTime** | Den aktuella tiden i förhållande till början av ljudström (i 100 nanosekunder tidsenheter).
 **MediaDuration** | Aktuella frasen varaktighet/längden i förhållande till ljud-segment (i 100 nanosekunder tidsenheter).

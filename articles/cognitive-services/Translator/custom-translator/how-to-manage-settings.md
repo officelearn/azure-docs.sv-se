@@ -5,16 +5,16 @@ description: Så här att hantera inställningar, skapa arbetsyta, dela arbetsyt
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-ms.openlocfilehash: 7b6dd0ec271d335d1055381a8cb7256600be283f
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.openlocfilehash: 6fabbb57538f5e10e6cd91ebc109707045e54033
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51627569"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227088"
 ---
 # <a name="how-to-manage-settings"></a>Hantera inställningar
 
@@ -85,11 +85,11 @@ I anpassade Translator kan du dela din arbetsyta med andra, om en annan del av d
 
 ## <a name="sharing-permissions"></a>Delningsbehörigheter
 
-1.  **Läsare:** en läsare i arbetsytan kommer att kunna se all information på arbetsytan. 
+1.  **Läsare:** En läsare i arbetsytan kommer att kunna se all information på arbetsytan. 
 
-2.  **Redigerare:** redigerare i arbetsytan kommer att kunna lägga till dokument, skapa modeller och ta bort dokument och projekt. De kan lägga till en prenumerationsnyckel men det går inte att ändra vem arbetsytan delas med, ta bort arbetsytan eller ändra namnet på arbetsytan.
+2.  **Redigerare:** Redigerare i arbetsytan kommer att kunna lägga till dokument, skapa modeller och ta bort dokument och projekt. De kan lägga till en prenumerationsnyckel men det går inte att ändra vem arbetsytan delas med, ta bort arbetsytan eller ändra namnet på arbetsytan.
 
-3.  **Ägare:** ägare har fullständiga behörigheter till arbetsytan.
+3.  **Ägare:** En ägare har fullständiga behörigheter till arbetsytan.
 
 ## <a name="change-sharing-permission"></a>Ändra delning behörighet
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 5cbdad82e25baa95c0342eb514f39c7026f1618b
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53753088"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224062"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Snabbstart: Använd Bing-taligenkänning REST API
 
@@ -124,7 +124,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 Exemplet använder curl på Linux med bash. Om det inte är tillgänglig på din plattform, kan du behöva installera curl. Exemplet fungerar även på Cygwin på Windows, Git Bash, zsh och andra gränssnitt.
 
@@ -191,7 +191,7 @@ Följande kodavsnitt visar ett exempel på hur du kan läsa svaret från strömm
 ConvertTo-Json $RecoResponse
 ```
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 I det här exemplet returnerar curl direkt svarsmeddelandet i en sträng. Om du vill visa den i JSON-format kan du använda fler verktyg, till exempel jq.
 

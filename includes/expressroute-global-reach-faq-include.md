@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/23/2018
+ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81b2db2da7c1efe0d09c065270c3493f297e49ad
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "50035187"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55236012"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Vad är ExpressRoute Global räckvidd?
 
@@ -33,16 +33,7 @@ Med ExpressRoute kan anslutningar från ditt lokala nätverk till Microsofts mol
 
 ### <a name="where-is-expressroute-global-reach-supported"></a>Där stöds ExpressRoute Global räckvidd?
 
-ExpressRoute Global räckvidd stöds i följande länder. ExpressRoute-kretsar måste skapas på peering-platser i dessa länder.
-
-* Australien
-* Frankrike
-* Hongkong SAR
-* Irland
-* Japan
-* Nederländerna
-* Storbritannien
-* USA
+ExpressRoute Global räckvidd stöds i [Välj länder eller platser](../articles/expressroute/expressroute-global-reach.md). ExpressRoute-kretsar måste skapas på peering-platser i dessa länder eller platser.
 
 ### <a name="i-have-more-than-two-on-premises-networks-each-connected-to-an-expressroute-circuit-can-i-enable-expressroute-global-reach-to-connect-all-of-my-on-premises-networks-together"></a>Jag har fler än två lokala nätverk, som är anslutna till en ExpressRoute-krets. Kan jag aktivera ExpressRoute Global räckvidd att koppla ihop alla mitt lokala nätverk?
 

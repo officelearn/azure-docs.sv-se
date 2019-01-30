@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 210872a468f92f92edef9c8e29a26382c5646dae
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 8e46f47f1d3a95e4635609f24dc413141304d3c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321559"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228176"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -42,7 +42,7 @@ Du behöver först en lista över de virtuella datorer som ska profileras. Du ka
 
             Set-ExecutionPolicy –ExecutionPolicy AllSigned
 
-4. Du kan alternativt behöva köra följande kommando om Connect-VIServer inte identifieras som cmdletens namn.
+4. Du kan också behöva kör du följande kommando om Connect-VIServer inte identifieras som namnet på cmdlet.
 
             Add-PSSnapin VMware.VimAutomation.Core
 
@@ -135,7 +135,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >* När du skickar namn och nyckel för ett lagringskonto mäter verktyget dataflödet vid profileringens sista steg. Om verktyget avslutas innan profileringen har slutförts normalt beräknas inte dataflödet. Du kan hitta dataflödet innan du genererar rapporten genom att köra åtgärden GetThroughput från kommandotolken. Annars innehåller inte den genererade rapporten dataflödesinformationen.
 
 
-## <a name="generate-report"></a>Generera en rapport
+## <a name="generate-report"></a>Skapa rapport
 Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_<unique numeric identifier>.xlsm och placeras i den angivna katalogen.
 
 >[!NOTE]

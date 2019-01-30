@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 21615b09a7b9599597706e38b55072cf80f1b69b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ed270ed19959240bc1b90ba6171792cf4369e273
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345041"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55221607"
 ---
 # <a name="bing-speech-recognition-modes"></a>Lägen för taligenkänning för Bing-tal
 
@@ -25,7 +25,7 @@ Bing-tal till Text-API: er har stöd för flera lägen för taligenkänning. Vä
 
 | Läge | Beskrivning |
 |---|---|
-| *Interaktiv* | ”Kommando och kontroll” erkännande för interaktiv användare Programscenarier. Användare talar korta fraser som är avsett för kommandon till ett program. |
+| *interaktiv* | ”Kommando och kontroll” erkännande för interaktiv användare Programscenarier. Användare talar korta fraser som är avsett för kommandon till ett program. |
 | *diktering* | Kontinuerlig igenkänning av diktering scenarier. Användare talar längre meningar som visas som text. Användare anta ett mer formella samtalsstil. |
 | *konversationen* | Kontinuerlig erkännande för transkribera konversationer mellan människor. Användare använda en mindre formell samtalsstil och kan växla mellan längre meningar och kortare fraser.
 

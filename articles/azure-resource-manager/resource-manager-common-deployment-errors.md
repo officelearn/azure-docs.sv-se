@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/16/2018
 ms.author: tomfitz
-ms.openlocfilehash: 300ed77322f66150111ecda70dbf95ac373aad2c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 64af946c3f8f58808f1bca06f1ef21d92da8cda8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079179"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55223569"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsöka vanliga Azure-distributionsfel med Azure Resource Manager
 
@@ -71,7 +71,7 @@ Den här artikeln beskriver några vanliga Azure-distribution-fel och innehålle
 | RequestDisallowedByPolicy | Prenumerationen innehåller en resursprincip som förhindrar att en åtgärd som du försöker utföra under distributionen. Hitta den princip som blockerar åtgärden. Om möjligt ändra distributionen för att uppfylla begränsningarna från principen. | [Lösa principer](resource-manager-policy-requestdisallowedbypolicy-error.md) |
 | ReservedResourceName | Ange ett resursnamn som inte innehåller ett reserverat namn. | [Reserverade resursnamn](resource-manager-reserved-resource-name.md) |
 | ResourceGroupBeingDeleted | Vänta tills borttagningen att slutföra. | |
-| ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste redan finnas i din prenumeration. Kontrollera din prenumerationskontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/az.profile/set-azcontext) |
+| ResourceGroupNotFound | Kontrollera namnet på målresursgruppen för distributionen. Det måste redan finnas i din prenumeration. Kontrollera din prenumerationskontexten. | [Azure CLI](/cli/azure/account?#az-account-set) [PowerShell](/powershell/module/Az.Accounts/Set-AzContext) |
 | ResourceNotFound | Distributionen av refererar till en resurs som inte kan matchas. Kontrollera att din användning av den **referens** funktion innehåller de parametrar som krävs för ditt scenario. | [Åtgärda referenser](resource-manager-not-found-errors.md) |
 | ResourceQuotaExceeded | Distributionen försöker skapa resurser som överstiger kvoten för prenumerationen, resursgruppen eller region. Om möjligt ändra din infrastruktur för hålla dig inom kvoter. I annat fall du begär en ändring av dina kvoter. | [Lösa kvoter](resource-manager-quota-errors.md) |
 | SkuNotAvailable | Välj SKU (till exempel VM-storlek) som är tillgänglig för den plats som du har valt. | [Lösa SKU](resource-manager-sku-not-available-errors.md) |

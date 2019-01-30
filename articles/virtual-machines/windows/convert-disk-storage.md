@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/04/2018
 ms.author: ramankum
 ms.component: disks
-ms.openlocfilehash: 4f9e3468cc8ec94eeb3ba936b828e9adfd9a3e6d
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: MT
+ms.openlocfilehash: eacf2c2d2b732a16596afba622244a793a25924c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54478526"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227020"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>Uppdatera lagringstypen för en hanterad disk
 
@@ -83,7 +83,7 @@ Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="convert-a-managed-disk-from-standard-to-premium"></a>Konvertera en hanterad disk från standard till premium
 
-Du kanske vill en blandning av standard och premium-diskar för att minska dina kostnader för utveckling/testning-arbetsbelastning. Dessa diskar som behöver bättre prestanda för att göra-uppgifter så, uppgradera till premium storage. I följande exempel visas hur du växlar en enskild disk för en virtuell dator från standard till premium storage och vice versa. Om du vill använda premium-hanterade diskar, den virtuella datorn måste använda en [VM-storlek](sizes.md) som har stöd för premiumlagring. Det här exemplet visar också hur du växlar till en storlek som har stöd för premium storage:
+Du kanske vill en blandning av standard och premium-diskar för att minska dina kostnader för utveckling/testning-arbetsbelastning. Uppgradera till premium-lagring gör du dessa diskar som behöver bättre prestanda. I följande exempel visas hur du växlar en enskild disk för en virtuell dator från standard till premium storage och vice versa. Om du vill använda premium-hanterade diskar, den virtuella datorn måste använda en [VM-storlek](sizes.md) som har stöd för premiumlagring. Det här exemplet visar också hur du växlar till en storlek som har stöd för premium storage:
 
 ```azurepowershell-interactive
 

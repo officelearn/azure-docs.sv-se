@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: ce6446caf74e16f69369d5ee8ee7b6342870e826
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 6fa468308bb7187111a6f7f65366d83eaadd9494
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682608"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55227785"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2 till V3-migrering
 
@@ -41,14 +41,14 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 | V2 API-metoden   | V3 API-kompatibilitet |
 |:----------- |:-------------|
-| Translate     | [Översätt](reference/v3-0-translate.md)          |
+| Översätt     | [Översätt](reference/v3-0-translate.md)          |
 | TranslateArray      | [Översätt](reference/v3-0-translate.md)        |
 | GetLanguageNames      | [Språk](reference/v3-0-languages.md)         |
 | GetLanguagesForTranslate     | [Språk](reference/v3-0-languages.md)       |
-| GetLanguagesForSpeak      | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| Speak     | [Microsoft Speech-tjänsten](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| Detect     | [Identifiera](reference/v3-0-detect.md)         |
-| DetectArray     | [Identifiera](reference/v3-0-detect.md)         |
+| GetLanguagesForSpeak      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| Tala     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| Upptäcka     | [Detect](reference/v3-0-detect.md)         |
+| DetectArray     | [Detect](reference/v3-0-detect.md)         |
 | AddTranslation     | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)         |
 | AddTranslationArray    | [Microsoft Translator Hub API](https://hub.microsofttranslator.com/Help/Download/Microsoft%20Translator%20Hub%20API%20Guide.pdf)          |
 | BreakSentences      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -59,7 +59,7 @@ Följande lista över V2 och V3 metoder identifierar V3-metoder och API: er som 
 
 Microsoft Translator Text Translation V2 accepterat och returnerade data i XML-format. I V3 är alla data som skickas och tas emot med hjälp av API: et i JSON-format. XML-kommer inte längre godkända eller returneras i V3.
 
-Den här ändringen påverkar flera aspekter av ett program som skrivits för V2 Text Translation-API. Som exempel: språk API returnerar språkinformation om för textöversättning, transkriberingsspråk och två ordlista-metoder. Du kan begära språkinformation för alla för alla metoder i ett anrop eller begär dem individuellt.
+Den här ändringen påverkar flera aspekter av ett program som skrivits för V2 Text Translation-API. Som exempel: Språk-API: et returnerar språkinformation om för textöversättning, transkriberingsspråk och två ordlista-metoder. Du kan begära språkinformation för alla för alla metoder i ett anrop eller begär dem individuellt.
 
 Metoden språk kräver inte autentisering; Du kan se alla språkinformation för V3 i JSON genom att klicka på följande länk:
 
@@ -69,24 +69,24 @@ Metoden språk kräver inte autentisering; Du kan se alla språkinformation för
 
 Den autentiseringsnyckel som du använder för V2 kommer accepteras för V3. Du behöver inte skaffa en ny prenumeration. Du kommer att kunna blanda V2 och V3 i dina appar under yearlong migreringen, vilket gör det enklare för dig att släppa nya versioner medan du fortfarande migrerar från V2-XML till V3-JSON.
 
-## <a name="pricing-model"></a>Prismodell
+## <a name="pricing-model"></a>Prissättningsmodell
 
 Microsoft Translator V3 debiteras på samma sätt som V2 har prissätts; per tecken inklusive blanksteg. De nya funktionerna i V3 gör några ändringar i vilka tecken räknas för fakturering.
 
 | V3-metod   | Tecken som räknas för fakturering |
 |:----------- |:-------------|
-| Languages     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
-| Translate     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
-| Transliterate     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
-| Dictionary lookup & example     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
+| Språk     | Inga tecken som har skickats, ingen räknas, utan kostnad.          |
+| Översätt     | Antal baseras på hur många tecken har skickats för översättning och hur många språk tecknen översätts till. 50 tecken har skickats och 5 språk som begärs blir 50 x 5.           |
+| Transkribera     | Antalet tecken som skickats för transkriberingsspråk räknas.         |
+| Ordlista lookup & exempel     | Antalet tecken som skickats för ordlista Sök- och räknas.         |
 | BreakSentence     | Ingen extra kostnad.       |
-| Detect     | Ingen extra kostnad.      |
+| Upptäcka     | Ingen extra kostnad.      |
 
 ## <a name="v3-end-points"></a>V3-slutpunkter
 
 Global
 
-* API.cognitive.microsofttranslator.com
+* api.cognitive.microsofttranslator.com
 
 
 ## <a name="v3-api-text-translations-methods"></a>V3 API text översättningar-metoder
@@ -99,7 +99,7 @@ Global
 
 [BreakSentence](reference/v3-0-break-sentence.md)
 
-[Identifiera](reference/v3-0-detect.md)
+[Detect](reference/v3-0-detect.md)
 
 [Ordlista/sökning](reference/v3-0-dictionary-lookup.md)
 
@@ -113,8 +113,8 @@ Neural översättning med text API V3 stöder inte användning av standard kateg
 
 | |Slutpunkt|    Dataskyddsförordningen för Processor|  Använd Translator Hub| Använda anpassade Translator (förhandsversion)|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API-Version 2| API.microsofttranslator.com|    Nej  |Ja    |Nej|
-|Translator Text API-Version 3| API.cognitive.microsofttranslator.com|  Ja|    Nej| Ja|
+|Translator Text API-Version 2| api.microsofttranslator.com|    Nej  |Ja    |Nej|
+|Translator Text API-Version 3| api.cognitive.microsofttranslator.com|  Ja|    Nej| Ja|
 
 **Translator Text API-Version 3**
 * Är allmänt tillgängliga och stöds fullt ut.

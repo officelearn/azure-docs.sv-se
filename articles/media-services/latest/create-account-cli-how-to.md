@@ -12,19 +12,19 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: 7d5c093eba4af10847827900557a87efece954ae
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: b01958dc320ff6c81bb27c85ff4a5e508eabb01b
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196828"
+ms.locfileid: "55209952"
 ---
 # <a name="create-an-azure-media-services-account"></a>Skapa ett Azure Media Services-konto
 
 Om du vill starta kryptering, kodning, analysera, hantera och strömma medieinnehåll i Azure, måste du skapa ett Media Services-konto. Vid tidpunkt du skapar ett Media Services-konto, du också skapa en tillhörande storage-konto (eller Använd en befintlig).  
 
 > [!NOTE]
-> Media Services-kontot och lagringskontot som associerats med det måste vara en del av samma datacenter och samma resursgrupp.
+> Media Services-kontot och alla tillhörande lagringskonton måste vara i samma Azure-prenumeration. Det rekommenderas att använda lagringskonton på samma plats som Media Services-kontot.
 
 Den här artikeln beskriver steg för att skapa ett nytt Azure Media Services-konto med Azure CLI.  
 
@@ -32,10 +32,9 @@ Den här artikeln beskriver steg för att skapa ett nytt Azure Media Services-ko
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- Installera och använd CLI lokalt – du måste ha Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli). 
+En aktiv Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
 
-    För närvarande fungerar inte alla [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref)-kommandon i Azure Cloud Shell. Vi rekommenderar att du använder CLI lokalt.
+[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="set-the-azure-subscription"></a>Ange Azure-prenumeration
 

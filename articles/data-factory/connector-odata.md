@@ -273,20 +273,20 @@ När du kopierar data från OData-, används följande mappningar mellan OData-d
 
 | OData-datatypen | Data Factory tillfälliga datatyp |
 |:--- |:--- |
-| Edm.Binary | Byte] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
-| Edm.Double | Double-värde |
-| Edm.Single | Enkel |
-| Edm.Guid | GUID |
+| Edm.Double | Double |
+| Edm.Single | Single |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | Sträng |
-| Edm.Time | Tidsintervall |
+| Edm.String | String |
+| Edm.Time | TimeSpan |
 | Edm.DateTimeOffset | DateTimeOffset |
 
 > [!NOTE]

@@ -15,13 +15,14 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: scottnap
+ms.lastreviewed: 09/12/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: b17b1b077a1acac5ddb0e9eea8c4a2cf44697979
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 65bf3d7eb84f4a4e6fe6d74bd08c41ba4d9dd637
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078910"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247229"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Skapa en plats-till-plats VPN-anslutning mellan två virtuella nätverk i olika miljöer i Azure Stack Development Kit
 ## <a name="overview"></a>Översikt
@@ -35,7 +36,7 @@ Följande diagram visar hur konfigurationen ska se ut när du är klar.
 ### <a name="before-you-begin"></a>Innan du börjar
 Slutför konfigurationen genom att se till att du har följande innan du börjar:
 
-* Två servrar och andra krav som uppfyller maskinvarukraven för Azure Stack Development Kit enligt beskrivningen i [Snabbstart: utvärdera Azure Stack Development Kit](azure-stack-deploy-overview.md). 
+* Två servrar och andra krav som uppfyller maskinvarukraven för Azure Stack Development Kit enligt beskrivningen i [snabbstarten: Utvärdera Azure Stack Development Kit](azure-stack-deploy-overview.md). 
 * Den [Azure Stack Development Kit](https://azure.microsoft.com/overview/azure-stack/try/) distributionspaketet.
 
 ## <a name="deploy-the-azure-stack-development-kit-environments"></a>Distribuera Azure Stack Development Kit-miljöer
@@ -207,7 +208,7 @@ En tjänstadministratör kan logga in som en klient att testa de planer, erbjuda
 3. Listan med nätverksresurser, väljer **virtuell nätverksgateway**.
 4. I **namn**, ange **GW2**.
 5. Om du vill välja ett virtuellt nätverk, Välj **virtuellt nätverk**. Välj sedan **VNET-02** i listan.
-6. Välj **offentliga IP-adressen**. När den **Välj offentlig IP-adress** konfigurationsbladet öppnas, Välj **Skapa ny**.
+6. Välj **Offentlig IP-adress**. När den **Välj offentlig IP-adress** konfigurationsbladet öppnas, Välj **Skapa ny**.
 7. I **namn**, ange **GW2-PiP**, och välj sedan **OK**.
 8. Som standard för **VPN-typ**, **routningsbaserad** har valts.
     Behåll den **routningsbaserad** VPN-typ.

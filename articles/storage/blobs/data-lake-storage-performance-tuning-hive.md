@@ -3,17 +3,17 @@ title: Azure Data Lake Storage Gen2 Hive prestandajustering riktlinjer | Microso
 description: Azure Data Lake Storage Gen2 Hive prestandajustering riktlinjer
 services: storage
 author: swums
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: stewu
-ms.openlocfilehash: 90982491ecd64ff707bc47d71f374668ed74eb38
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 07be781c917a466b67580a99490eca4f6ff29985
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975272"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239799"
 ---
 # <a name="performance-tuning-guidance-for-hive-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Prestandajusteringsvägledning för Hive på HDInsight och Azure Data Lake Storage Gen2
 
@@ -22,7 +22,7 @@ Standardinställningarna har ställts in för att tillhandahålla bra prestanda 
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Ett konto för Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [Snabbstart: skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
+* **Ett konto för Data Lake Storage Gen2**. Anvisningar för hur du skapar ett finns i [snabbstarten: Skapa ett lagringskonto i Azure Data Lake Storage Gen2](data-lake-storage-quickstart-create-account.md)
 * **Azure HDInsight-kluster** med åtkomst till ett Data Lake Storage Gen2-konto.
 * **Köra Hive på HDInsight**.  Läs om hur du kör Hive-jobb på HDInsight i [använda Hive i HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-hive)
 * **Riktlinjer för Data Lake Storage Gen2 för prestandajustering**.  Allmänna prestanda begrepp, se [Data Lake Storage Gen2 justering Prestandavägledning](data-lake-storage-performance-tuning-guidance.md)

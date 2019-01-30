@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/18/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2e5ecf32782c86b236c4947d5d2793be9c3883d8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 26954c8f839ff0bfb2da484e4fb535f33d4e07ed
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223688"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239187"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Använda prenumerationsnycklar med LUIS-appen
 
@@ -32,7 +32,7 @@ Testning och prototyper endast kan du använda den kostnadsfria nivån av (F0). 
 
 Den här proceduren skapar en **Språkförståelse** resurs. Om du vill att en resurs som kan användas i Cognitive Services kan du skapa nyckeln allt-i-ett **[Cognitive Service](../cognitive-services-apis-create-account.md)** i stället för Language Understanding-resursen. 
 
-Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Gör inte att den här nyckeln för ändringar i den modell eller en app. 
+Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Använd inte den här nyckeln för ändringar i den modell eller en app. 
 
 1. Logga in på den  **[Azure-portalen](https://ms.portal.azure.com/)**. 
 1. Välj gröna **+** logga i den övre vänstra panelen och Sök efter `Language Understanding` i marketplace, och markera på **Language Understanding** och följ de  **Skapa upplevelse** att skapa en LUIS-prenumerationskonto. 
@@ -43,7 +43,7 @@ Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Gö
 
     ![Azure API-alternativ](./media/luis-azure-subscription/azure-api-choice.png) 
 
-1. När du skapar resursen Språkförståelse, du kan visa åtkomstnycklar som genererats i **resurshantering -> nycklar**. Gör inte nycklarna. Nästa avsnitt visas hur du ansluter den här nya resursen till en LUIS-app i LUIS-portalen. Du behöver namnet på LUIS-resursen från steg 3.
+1. När du skapar resursen Språkförståelse, du kan visa åtkomstnycklar som genererats i **resurshantering -> nycklar**. Nästa avsnitt visas hur du ansluter den här nya resursen till en LUIS-app i LUIS-portalen. Du behöver namnet på LUIS-resursen från steg 3.
 
     ![Azure-nycklar](./media/luis-azure-subscription/azure-keys.png)
 
@@ -71,7 +71,7 @@ Den här nyckeln bör endast användas för slutpunkt-förutsägelsefrågor. Gö
 
     ![Tilldela en resurs till din app](./media/luis-manage-keys/assign-key.png)
 
-1. Välj en klient i dialogrutan som är associerade med den e-postadressen din inloggning med LUIS-webbplatsen.  
+1. Väljer en klient i dialogrutan som är associerade med den e-postadressen för dina används för att logga in med LUIS-webbplatsen.  
 
 1. Välj den **prenumerationsnamn** som är associerade med Azure-resursen du vill lägga till.
 
@@ -122,7 +122,7 @@ Avsikter och deras resultat är också inkluderat endpoint-loggarna. Du kan [exp
 ### <a name="enable-bing-spell-checker"></a>Aktivera Bing-stavningskontroll 
 I den **slutpunkts-url-inställningar**, **Bing-stavningskontroll** växlingen möjliggör LUIS för att korrigera felstavade ord. innan förutsägelse. Skapa en  **[stavningskontroll i Bing nyckeln](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)**. 
 
-Lägg till den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}** . Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
+Lägg till den **stavningskontroll = true** Frågeparametern och **bing-stavningskontroll-kontroll-subscription-key = {YOUR_BING_KEY_HERE}**. Ersätt den `{YOUR_BING_KEY_HERE}` med din nyckel för Bing stavningskontroll för installation.
 
 ```JSON
 {
@@ -142,7 +142,7 @@ Läs mer om hur du publicerar [regioner](luis-reference-regions.md) inklusive pu
 
 ## <a name="assign-resource-without-luis-portal"></a>Tilldela resurs utan LUIS-portalen
 
-För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS-resurs till en LUIS-app. I ordning som måste du utföra följande steg:
+För automation, till exempel en CI/CD-pipeline, kanske du vill automatisera tilldelningen av en LUIS-resurs till en LUIS-app. För att kunna göra det, måste du utföra följande steg:
 
 1. Skaffa en Azure Resource Manager-token från detta [webbplats](https://resources.azure.com/api/token?plaintext=true). Denna token upphör så Använd den omedelbart. Begäran returnerar en Azure Resource Manager-token.
 

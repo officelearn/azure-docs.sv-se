@@ -9,18 +9,19 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
+ms.lastreviewed: 10/15/2018
 keywords: ''
-ms.openlocfilehash: bf412809f9d10296ad600e64abb6d870dbb88d3e
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: dce59cf012a8c3bc5b6b3baf705b5619bdf43104
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339686"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252327"
 ---
 # <a name="azure-stack-datacenter-integration---dns"></a>Integrering med Azure Stack datacenter - DNS
 För att kunna komma åt Azure Stack-slutpunkter (**portal**, **adminportal**, **management**, **adminmanagement**osv.)  från utanför Azure Stack måste du integrera Azure Stack-DNS-tjänster med DNS-servrar som är värdar för DNS-zoner som du vill använda i Azure Stack.
 
-## <a name="azure-stack-dns-namespace"></a>Azure Stack-DNS-namnområde
+## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS namespace
 Du måste tillhandahålla viss information relaterad till DNS när du distribuerar Azure Stack.
 
 
@@ -121,7 +122,7 @@ Om den virtuella datorn för distribution är inte längre tillgänglig eller in
 
 Det enklaste och säkraste sättet att integrera Azure Stack med DNS-infrastrukturen är att villkorlig vidarebefordran i zonen från den server som är värd för den överordnade zonen. Den här metoden rekommenderas om du har direkt kontroll över DNS-servrar som är värdar för den överordnade zonen för ditt externa DNS-namnområde för Azure Stack.
 
-Om du inte är bekant med hur du gör villkorlig vidarebefordran med DNS, finns i följande TechNet-artikel: [tilldela en villkorlig vidarebefordrare för ett domännamn](https://technet.microsoft.com/library/cc794735), eller i dokumentationen om specifika DNS-lösning.
+Om du inte är bekant med hur du gör villkorlig vidarebefordran med DNS, se följande TechNet-artikel: [Tilldela en villkorlig vidarebefordrare för ett domännamn](https://technet.microsoft.com/library/cc794735), eller i dokumentationen om specifika DNS-lösning.
 
 Villkorlig vidarebefordran kan inte användas i situationer där du har angett din externa Azure Stack DNS-zon ska se ut som en underordnad domän till företagets domännamn. DNS-delegering måste konfigureras.
 

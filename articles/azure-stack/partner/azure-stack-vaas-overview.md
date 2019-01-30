@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 12/20/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 12/20/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0461e33f8154d3d9004860737a844af0f9df258c
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: c0694a3839ae6b843abd1ddc8b67d1f3e3322e0e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245369"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246049"
 ---
 # <a name="what-is-validation-as-a-service-for-azure-stack"></a>Vad är verifiering som en tjänst för Azure Stack?
 
@@ -62,9 +63,9 @@ Mer information finns i [ Snabbstart: Använda verifieringen som en tjänst-port
 
 | Valideringsarbetsflödet | Tester som krävs |
 |----|------------|
-| [Ny solution-validering](azure-stack-vaas-validate-solution-new.md) | Simulering Molnteknik<br>Compute SDK operativa Suite<br>Disk identifiering Test<br>KeyVault-tillägget SDK operativa Suite<br>KeyVault SDK operativa Suite<br>Nätverket SDK operativa Suite<br>Storage-konto SDK operativa Suite<br> |
-| [Verifiera för OEM-paketet](azure-stack-vaas-validate-oem-package.md) | Verifiering av OEM-tillägg-paketet<br>Simulering Molnteknik |
-| [Månatliga verifiering av update](azure-stack-vaas-validate-microsoft-updates.md) | Månatliga AzureStack Update-verifiering<br>Simulering Molnteknik<br> |
+| [Ny solution-validering](azure-stack-vaas-validate-solution-new.md) | Cloud Simulation Engine<br>Compute SDK operativa Suite<br>Disk identifiering Test<br>KeyVault Extension SDK Operational Suite<br>KeyVault SDK Operational Suite<br>Network SDK Operational Suite<br>Storage-konto SDK operativa Suite<br> |
+| [Verifiera för OEM-paketet](azure-stack-vaas-validate-oem-package.md) | Verifiering av OEM-tillägg-paketet<br>Cloud Simulation Engine |
+| [Månatliga verifiering av update](azure-stack-vaas-validate-microsoft-updates.md) | Månatliga AzureStack Update-verifiering<br>Cloud Simulation Engine<br> |
 
 ## <a name="next-steps"></a>Nästa steg
 

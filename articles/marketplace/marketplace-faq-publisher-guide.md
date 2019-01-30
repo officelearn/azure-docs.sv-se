@@ -14,20 +14,18 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/31/2018
 ms.author: ellacroi
-ms.openlocfilehash: b86506fdf5fac78386f7eef2f90241225e6c583a
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 93b1b0c8288fb408e4af6aba2eb2267ce650208c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199292"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247127"
 ---
 # <a name="marketplace-faqs"></a>Vanliga frågor och svar om Marketplace
 
 Svar på vanliga frågor om Microsoft Azure Marketplace.
 
 ## <a name="faq-for-customers"></a>Vanliga frågor och svar för kunder
-
-Svar på vanliga frågor om Microsoft Azure Marketplace.
 
 ### <a name="what-you-need-to-know-about-azure-marketplace"></a>Vad du behöver veta om Azure Marketplace
 

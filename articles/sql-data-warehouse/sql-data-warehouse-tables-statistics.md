@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 05/09/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1a7ea00e8bdf4fa1a22dd765e5108dce72e2d380
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 699538666a3bdbea94d35844f9c5c4fb7b4fd0f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307470"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241057"
 ---
 # <a name="creating-updating-statistics-on-tables-in-azure-sql-data-warehouse"></a>Skapa, uppdatera statistik på tabellerna i Azure SQL Data Warehouse
 Rekommendationer och exempel för att skapa och uppdatera Frågeoptimeringen statistik på tabellerna i Azure SQL Data Warehouse.
@@ -50,7 +50,7 @@ Automatisk generering av statistik skapas synkront, så en liten försämrad fr�
 > Skapandet av statistik loggas också i [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) under en annan användare.
 > 
 
-När automatisk statistik skapas de ska vara i formatet: _WA_Sys_< 8 siffra kolumn-id i Hex > _ < 8 siffra tabell-id i Hex >. Du kan visa statistik som redan har skapats genom att köra den [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) kommando:
+När automatisk statistik skapas, kommer de att vara i formatet: _WA_Sys_< 8 siffra kolumn-id i Hex > _ < 8 siffra tabell-id i Hex >. Du kan visa statistik som redan har skapats genom att köra den [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) kommando:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
@@ -67,7 +67,7 @@ Här följer några rekommendationer som uppdaterar statistik:
 
 |||
 |-|-|
-| **Hur ofta den uppdateras stats**  | Konservativ: varje dag <br></br> När du läser in eller omvandla dina data |
+| **Hur ofta den uppdateras stats**  | Konservativ: Dagligen <br></br> När du läser in eller omvandla dina data |
 | **Sampling** |  Mindre än 1 miljard rader, Använd standard sampling (20 procent) <br></br> Med fler än 1 miljard rader är statistik över flera 2 procent bra |
 
 En av de första frågorna när du felsöker en fråga är **”är statistik uppdaterad”?**
@@ -390,12 +390,12 @@ Dessa data innehåller information om statistik:
 
 | Katalogvy | Beskrivning |
 |:--- |:--- |
-| [sys.Columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
-| [sys.Objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
+| [sys.columns](/sql/relational-databases/system-catalog-views/sys-columns-transact-sql) |En rad för varje kolumn. |
+| [sys.objects](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje objekt i databasen. |
 | [sys.schemas](/sql/relational-databases/system-catalog-views/sys-objects-transact-sql) |En rad för varje schema i databasen. |
 | [sys.stats](/sql/relational-databases/system-catalog-views/sys-stats-transact-sql) |En rad för varje objekt i statistik. |
 | [sys.stats_columns](/sql/relational-databases/system-catalog-views/sys-stats-columns-transact-sql) |En rad för varje kolumn i objektet statistik. Länkar tillbaka till sys.columns. |
-| [sys.Tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
+| [sys.tables](/sql/relational-databases/system-catalog-views/sys-tables-transact-sql) |En rad för varje tabell (inklusive externa tabeller). |
 | [sys.table_types](/sql/relational-databases/system-catalog-views/sys-table-types-transact-sql) |En rad för varje datatyp. |
 
 ### <a name="system-functions-for-statistics"></a>Systemfunktioner för statistik
@@ -448,7 +448,7 @@ AND     st.[user_created] = 1
 ## <a name="dbcc-showstatistics-examples"></a>DBCC SHOW_STATISTICS() exempel
 DBCC SHOW_STATISTICS() visar data som lagras i ett objekt med statistik. Dessa data finns i tre delar:
 
-- Sidhuvud
+- Huvud
 - Densitet vektor
 - Histogram
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d8382cac86abb112018195695340ed12663a2333
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.subservice: common
+ms.openlocfilehash: 15c37be3f3b1b3f72c32865e095091fa10ee9750
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427424"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251698"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources-preview"></a>Autentisera åtkomsten till blobbar och köer med hanterade identiteter för Azure-resurser (förhandsgranskning)
 
@@ -33,7 +33,7 @@ Innan du kan använda hanterade identiteter för Azure-resurser för att autenti
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
-- [Azure SDK: er](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
+- [Azure SDKs](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="assign-an-rbac-role-to-an-azure-ad-managed-identity"></a>Tilldela en RBAC-roll till en Azure AD som hanterad identitet
 
@@ -43,7 +43,7 @@ Om du vill autentisera en hanterad identitet från Azure Storage-program måste 
 
 Om du vill autentisera med en hanterad identitet måste hämta ditt program eller skript en åtkomsttoken för hanterad identitet. Läs om hur du hämta en åtkomsttoken i [hur du använder hanterade identiteter för Azure-resurser på en Azure virtuell dator för att hämta en åtkomsttoken](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
-## <a name="net-code-example-create-a-block-blob"></a>Kodexempel för .NET: skapa en blockblob
+## <a name="net-code-example-create-a-block-blob"></a>.NET-kodexempel: Skapa en blockblob
 
 Kodexemplet förutsätter att du har en åtkomsttoken för hanterad identitet. Åtkomsttoken används för att auktorisera den hanterade identitet för att skapa en blockblob.
 

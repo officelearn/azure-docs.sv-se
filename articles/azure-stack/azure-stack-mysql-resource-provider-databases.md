@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 78c4e7c6cdc8cf118a351d9030416318e51c69af
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: 3063a3f3f199a591fa94c3a665ea9ecc5457e502
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365109"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247603"
 ---
 # <a name="create-mysql-databases"></a>Skapa MySQL-databaser
 
@@ -66,4 +67,4 @@ Du kan ändra lösenordet genom att ändra MySQL-serverinstansen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Uppdatera MySQL-resursprovider](azure-stack-mysql-resource-provider-update.md)
+[Uppdatera MySQL-resursprovidern](azure-stack-mysql-resource-provider-update.md)

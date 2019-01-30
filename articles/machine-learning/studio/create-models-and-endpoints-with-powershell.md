@@ -1,6 +1,6 @@
 ---
 Rubrik: Skapa flera modeller från en Studio-experiment-titleSuffix: Beskrivning av Azure Machine Learning Studio: Använda PowerShell för att skapa flera Machine Learning-modeller och webbtjänstslutpunkter med samma algoritm men olika utbildning datauppsättningar.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/04/2017
 ---

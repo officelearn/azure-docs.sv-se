@@ -14,12 +14,13 @@ ms.topic: tutorial
 ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: anajod
-ms.openlocfilehash: 984f6713445b53429758d616945a6e64245b42bc
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/07/2018
+ms.openlocfilehash: 63d22aaa402c77b55591a15745b258cdd6f0ef0a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263228"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244359"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Självstudier: Distribuera appar till Azure och Azure Stack
 
@@ -166,7 +167,7 @@ Som en del av konfigurationen av slutpunkten, Azure DevOps-tjänsterna kräver d
 
 ### <a name="grant-the-service-principal-rights-to-deploy-resources-in-the-azure-stack-subscription"></a>Ge tjänstens huvudnamn behörighet att distribuera resurser i Azure Stack-prenumerationen
 
-För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar de bästa behörigheterna för programmet. Läs om tillgängliga roller i [RBAC: Inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar de bästa behörigheterna för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
 
 Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla dess resurser.
 
@@ -261,14 +262,14 @@ Genom att skapa slutpunkter kan distribuera en version av Visual Studio Online (
     ![Lägg till en medlem](media/azure-stack-solution-hybrid-pipeline/014_members_tab.png)
 
 5. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
-6. Välj **spara ändringar**.
+6. Välj **Spara ändringar**.
 7. I den **Azure DevOps tjänster grupper** väljer **Endpoint administratörer**.
 
     ![NorthwindCloud Endpoint Administrators](media/azure-stack-solution-hybrid-pipeline/015_save_endpoint.png)
 
 8. På den **medlemmar** fliken **Lägg till**.
 9. I **lägga till användare och grupper**, ange ett användarnamn och Välj användaren i listan med användare.
-10. Välj **spara ändringar**.
+10. Välj **Spara ändringar**.
 
 Nu när information om slutpunkten finns är Azure DevOps-tjänsterna till Azure Stack-anslutningen klar att användas. Build-agenten i Azure Stack får anvisningar från Azure DevOps-tjänsterna och agenten meddelar sedan slutpunktsinformation för kommunikation med Azure Stack.
 
@@ -280,7 +281,7 @@ Du kan följa anvisningarna i [skapa en tjänstanslutning för Azure Resource Ma
 
 Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
-| Namn | Exempel | Beskrivning |
+| Name | Exempel | Beskrivning |
 | --- | --- | --- |
 | Anslutningsnamn | Azure Stack Azure AD | Namnet på anslutningen. |
 | Miljö | AzureStack | Namnet på din miljö. |
@@ -305,7 +306,7 @@ Den senaste uppdateringen till Azure DevOps kan skapa en tjänstanslutning som a
 
 Du kan skapa en anslutning för tjänsten med hjälp av följande mappning:
 
-| Namn | Exempel | Beskrivning |
+| Name | Exempel | Beskrivning |
 | --- | --- | --- |
 | Anslutningsnamn | Azure Stack ADFS | Namnet på anslutningen. |
 | Miljö | AzureStack | Namnet på din miljö. |

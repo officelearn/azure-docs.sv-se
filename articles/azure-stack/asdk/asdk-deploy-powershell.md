@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.lastreviewed: 09/10/2018
+ms.openlocfilehash: 2513f397457c4866229605487149aa1fe03a2c68
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716034"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247739"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Distribuera ASDK från kommandoraden
 ASDK är en miljö för testning och utveckling som du kan distribuera för att utvärdera och demonstrera Azure Stack-funktioner och tjänster. Om du vill hämta den måste drift, att förbereda miljön maskinvara och köra några skript (det kan ta flera timmar). Efter det kan du logga in på portalerna administratörs- och att börja använda Azure Stack.
@@ -105,7 +106,7 @@ Distribuera i development kit **med hjälp av AD FS som identitetsleverantör**,
 
 I AD FS-distributioner används standard-stämpel katalogtjänst som identitetsleverantör. Logga in med standardkontot är azurestackadmin@azurestack.local, och lösenordet anges till vad du har angett som en del av installationen PowerShell-kommandon.
 
-Distributionsprocessen kan ta några timmar, under tiden systemet startar om automatiskt en gång. När distributionen är klar, PowerShell-konsolen visas: **Slutför: åtgärden ”distribution”**. Om distributionen misslyckas, kan du köra skriptet igen med kör parametern-. Du kan också [omdistribuera ASDK](asdk-redeploy.md) från grunden.
+Distributionsprocessen kan ta några timmar, under tiden systemet startar om automatiskt en gång. När distributionen är klar visas PowerShell-konsolen: **SLUTFÖR: Åtgärden ”distribution”**. Om distributionen misslyckas, kan du köra skriptet igen med kör parametern-. Du kan också [omdistribuera ASDK](asdk-redeploy.md) från grunden.
 
 > [!IMPORTANT]
 > Om du vill övervaka förloppet för distributionen när ASDK värden om måste du logga in som AzureStack\AzureStackAdmin. Om du loggar in som lokal administratör när värddatorn har startats om (och anslutna till domänen azurestack.local), visas inte förloppet för distributionen. Inte köra distributionen, i stället logga in som azurestack att verifiera att den körs.

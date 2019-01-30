@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.lastreviewed: 10/16/2018
+ms.openlocfilehash: f1b39601f0f6d254daadfafdd812549c6c95ed35
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362066"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239476"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Lägg till värdservrar för SQL-resursprovider
 
@@ -62,8 +63,8 @@ Det finns andra alternativ för att distribuera SQL virtuella datorer, inklusive
 Du kan skapa en administrativ användare med lägre behörighet än en SQL-sysadmin. Användaren behöver bara behörigheter för följande åtgärder:
 
 * Databas: Skapa, Alter, med inneslutning (för Always On endast), ta bort, säkerhetskopiera
-* Tillgänglighetsgruppen: Alter, ansluta, Lägg till/ta bort databasen
-* Inloggning: Skapa, Välj, Alter, Drop, återkalla
+* Tillgänglighetsgruppen: ALTER, ansluta, Lägg till/ta bort databasen
+* Inloggning: Create, Select, Alter, Drop, Revoke
 * Välj köras: \[master\].\[ sys\].\[ availability_group_listeners\] (AlwaysOn), sys.availability_replicas (AlwaysOn), sys.databases, \[master\].\[ sys\].\[ dm_os_sys_memory\], SERVERPROPERTY, \[master\].\[ sys\].\[ availability_groups\] (AlwaysOn), sys.master_files
 
 ### <a name="additional-security-information"></a>Ytterligare säkerhetsinformation
@@ -86,7 +87,7 @@ Följ dessa steg för att lägga till en fristående värd-server som redan har 
 
 2. Välj **alla tjänster** &gt; **ADMINISTRATIONSRESURSER** &gt; **som är värd för SQL-servrar**.
 
-   ![Som är värd för SQL-servrar](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
+   ![SQL Hosting Servers](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
    Under **som är värd för SQL-servrar**, kan du ansluta SQL-resursprovider till instanser av SQL Server som fungerar som serverdel för provider för nätverksresurser.
 

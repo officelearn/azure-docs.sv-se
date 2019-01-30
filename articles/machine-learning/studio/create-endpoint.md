@@ -1,6 +1,6 @@
 ---
 Rubrik: Skapa Web service slutpunkter titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa slutpunkter för webbtjänster i Azure Machine Learning. Varje slutpunkt i webbtjänsten är oberoende av varandra åtgärdas, begränsas och hanteras.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 10/04/2016
 ---

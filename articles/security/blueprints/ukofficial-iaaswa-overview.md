@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: 04de32b2df630eea918c786a7f065f404f4d8dca
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ceba377f72ced7d39f0a7e9b18e4fd563dbb39f1
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164528"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239931"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Azure-säkerhet och efterlevnad skissen - Trelagers-IaaS-webbprogram för UK-OFFICIAL
 

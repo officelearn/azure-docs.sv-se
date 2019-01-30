@@ -9,13 +9,14 @@ ms.topic: article
 ms.date: 12/06/2018
 ms.author: patricka
 ms.reviewer: fiseraci
+ms.lastreviewed: 12/06/2018
 keywords: ''
-ms.openlocfilehash: f9e76b255647f62b273fef8336ed845e365261cf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 563534424cad7f3e02be07ad582be0b3966950b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731721"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237990"
 ---
 # <a name="data-at-rest-encryption-in-azure-stack"></a>Data för kryptering av vilande data i Azure Stack
 
@@ -42,7 +43,7 @@ Get-AzsRecoveryKeys
 
 Valfria parametrar för *Get-AzsRecoveryKeys* cmdlet:
 
-| Parameter | Beskrivning | Typ | Krävs |
+| Parameter | Beskrivning | Type | Krävs |
 |---------|---------|---------|---------|
 |*rådata* | Returnerar rådata för mappning mellan återställningsnyckel, datornamn och lösenord ID på varje volym som är krypterad  | Växel | Ingen (utformad för supportscenarier)|
 

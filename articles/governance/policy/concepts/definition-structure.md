@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0fe15cc87e0d30f58dc26ae925efa6d65b243f5b
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: deaad5e7a04362ab021bfb90ab08377cb99694e0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851665"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250392"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -79,7 +79,7 @@ Den **läge** avgör vilka typer av resurser kommer att utvärderas för en prin
 
 Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla principdefinitioner som skapats via portalen användning i `all` läge. Om du använder PowerShell eller Azure CLI kan du ange den **läge** parametern manuellt. Om principdefinitionen inte innehåller en **läge** , den standardvärdet `all` i Azure PowerShell och till `null` i Azure CLI. En `null` läge är detsamma som att använda `indexed` att stödja bakåtkompatibilitet kompatibilitet.
 
-`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Obs Du måste, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md).
+`indexed` ska användas när du skapar principer som tillämpar taggar eller platser. Du måste inte, förhindrar resurser som inte stöder taggar och platser från dyker upp som icke-kompatibla i kompatibilitetsresultaten. Undantaget är **resursgrupper**. Principer som framtvinga plats eller taggar på en resursgrupp bör ange **läge** till `all` och specifikt mål den `Microsoft.Resources/subscriptions/resourceGroup` typen. Ett exempel finns i [framtvinga grupp resurstaggar](../samples/enforce-tag-rg.md).
 
 ## <a name="parameters"></a>Parametrar
 

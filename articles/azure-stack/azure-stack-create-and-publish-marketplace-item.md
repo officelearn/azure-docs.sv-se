@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 01/08/2019
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: b2520864589558a530f4f9dbfed83a9f3b8c727a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.lastreviewed: 01/08/2019
+ms.openlocfilehash: 44cf5b2cc7547a4e85c65215fdc1e4fe2cb585a9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104105"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243648"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Skapa och publicera ett Marketplace-objekt
 
@@ -128,34 +129,34 @@ ms.locfileid: "54104105"
 
 ### <a name="identity-information"></a>ID-information
 
-| Namn | Krävs | Typ | Villkor | Beskrivning |
+| Name | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
-| Namn |X |Sträng |[A-Za-z0-9]+ | |
+| Name |X |Sträng |[A-Za-z0-9]+ | |
 | Utgivare |X |Sträng |[A-Za-z0-9]+ | |
 | Version |X |Sträng |[SemVer v2](https://semver.org/) | |
 
 ### <a name="metadata"></a>Metadata
 
-| Namn | Krävs | Typ | Villkor | Beskrivning |
+| Name | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sträng |Rekommendation på 80 tecken |Portalen kanske inte visar dina objektnamn utan problem om det är mer än 80 tecken. |
 | PublisherDisplayName |X |Sträng |Rekommendationen 30 tecken |Portalen kanske inte visar utgivarens namn utan problem om det är längre än 30 tecken. |
 | PublisherLegalName |X |Sträng |Maximalt 256 tecken | |
 | Sammanfattning |X |Sträng |60 och 100 tecken | |
-| Underordnat LongSummary |X |Sträng |140 till 256 tecken |Inte ännu är tillämpliga i Azure Stack. |
+| LongSummary |X |Sträng |140 till 256 tecken |Inte ännu är tillämpliga i Azure Stack. |
 | Beskrivning |X |[HTML](https://auxdocs.azurewebsites.net/en-us/documentation/articles/gallery-metadata#html-sanitization) |500 5 000 tecken | |
 
 ### <a name="images"></a>Avbildningar
 
 Marketplace använder följande ikoner:
 
-| Namn | Bredd | Höjd | Anteckningar |
+| Name | Bredd | Höjd | Anteckningar |
 | --- | --- | --- | --- |
 | Brett |255 px |115 px |Krävs alltid |
 | Stor |115 px |115 px |Krävs alltid |
-| Medel |90 bildpunkter |90 bildpunkter |Krävs alltid |
-| Liten |40 bildpunkter |40 bildpunkter |Krävs alltid |
-| Skärmbild |533 px |32 bildpunkter |Valfri |
+| Medel |90 px |90 px |Krävs alltid |
+| Liten |40 px |40 px |Krävs alltid |
+| Skärmbild |533 px |32 px |Valfri |
 
 ### <a name="categories"></a>Kategorier
 
@@ -165,7 +166,7 @@ Varje Marketplace-objekt bör taggas med en kategori som identifierar där objek
 
 Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll. Länkarna har angetts som en lista med namn och URI: er:
 
-| Namn | Krävs | Typ | Villkor | Beskrivning |
+| Name | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sträng |Högst 64 tecken | |
 | URI |X |URI | | |
@@ -174,10 +175,10 @@ Varje Marketplace-objekt kan innehålla olika länkar till ytterligare innehåll
 
 Utöver föregående metadata, kan Marketplace författare ge anpassad nyckel/värde-par data i följande format:
 
-| Namn | Krävs | Typ | Villkor | Beskrivning |
+| Name | Krävs | Type | Villkor | Beskrivning |
 | --- | --- | --- | --- | --- |
 | DisplayName |X |Sträng |Högst 25 tecken | |
-| Värde |X |Sträng |Maximalt 30 tecken | |
+| Value |X |Sträng |Maximalt 30 tecken | |
 
 ### <a name="html-sanitization"></a>Gemensamt för HTML
 

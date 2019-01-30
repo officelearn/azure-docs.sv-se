@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: f8eb401d8bc4f348be3c84390d3422571bebe444
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: db13064c93381f87f82959ed3386abfc0a8e4593
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307333"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238670"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Temporära tabeller i SQL Data Warehouse
 Den här artikeln innehåller grundläggande information för att använda temporära tabeller och visar principerna för sessionen på temporära tabeller. Med hjälp av informationen i den här artikeln kan hjälpa dig modularize din kod, förbättra både återanvändning och enkelt underhåll av din kod.

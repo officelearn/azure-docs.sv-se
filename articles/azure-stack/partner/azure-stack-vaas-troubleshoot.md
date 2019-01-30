@@ -13,13 +13,14 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
+ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 0fb1afb1a07b31f7e261c958b8a03bec3b299433
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: a6fea6962c5e8864398cd80635d997407cf1d22e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245301"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250307"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Felsöka verifiering som en tjänst
 
@@ -76,10 +77,10 @@ Du kan använda **Get-HashFile** cmdlet för att hämta hash-värdet för den ne
 
 | Filnamn | SHA256 |
 |---------------------------------------|------------------------------------------------------------------|
-| Server2016DatacenterFullBYOL.VHD | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
+| Server2016DatacenterFullBYOL.vhd | 6ED58DCA666D530811A1EA563BA509BF9C29182B902D18FCA03C7E0868F733E9 |
 | WindowsServer2012R2DatacenterBYOL.vhd | 9792CBF742870B1730B9B16EA814C683A8415EFD7601DDB6D5A76D0964767028 |
-| Server2016DatacenterCoreBYOL.VHD | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
-| Ubuntu1404LTS.VHD | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
+| Server2016DatacenterCoreBYOL.vhd | 5E80E1A6721A48A10655E6154C1B90E320DF5558487D6A0D7BFC7DCD32C4D9A5 |
+| Ubuntu1404LTS.vhd | B24CDD12352AAEBC612A4558AB9E80F031A2190E46DCB459AF736072742E20E0 |
 | Ubuntu1604 20170619.1.vhd | C481B88B60A01CBD5119A3F56632A2203EE5795678D3F3B9B764FFCA885E26CB |
 
 ### <a name="failure-occurs-when-uploading-vm-image-in-the-vaasprereq-script"></a>Felet inträffar när du laddar upp avbildningen i den `VaaSPreReq` skript
@@ -98,7 +99,7 @@ Om miljön är felfri, manuellt Överför 5 VM-avbildningarna som krävs för Va
     > [!IMPORTANT]
     > Inte alla standardvärden är korrekta för det befintliga objektet i Marketplace.
 
-    | Fält  | Värde  |
+    | Fält  | Value  |
     |---------|---------|
     | Utgivare | MicrosoftWindowsServer |
     | Erbjudande | WindowsServer |

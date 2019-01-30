@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: 2f9c4c0b973efe26e6ece2235f2d0c7a6878ebef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 94b2ab0263ccb7b6835a7bbe76ed8776aadb1a65
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52844999"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228210"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Felsöka Hyper-V till Azure replikering och redundans
 
@@ -99,7 +99,7 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
         - Kontrollera programmets händelselogg på den virtuella datorn finns VSS-fel för åtgärden.
     - Försök att starta om tjänsterna som är associerade med den misslyckade skrivaren:
         - Volume Shadow Copy
-         - Azure Site Recovery VSS-providern
+         - Azure Site Recovery VSS Provider
     - När du gör det Vänta ett par timmar att se om appkonsekventa ögonblicksbilder skapas har.
     - Som en sista utväg försök att starta om den virtuella datorn. Detta kan lösa tjänster som har statusen inte svarar.
 3. Kontrollera att du inte har dynamiska diskar på den virtuella datorn. Detta stöds inte för appkonsekventa ögonblicksbilder. Du kan kontrollera i Diskhantering (diskmgmt.msc).
@@ -110,9 +110,9 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 5. Kontrollera att Backup-tjänsten är aktiverad. Kontrollera att den är aktiverad i **Hyper-V-inställningar** > **Integration Services**.
 6. Kontrollera att det finns några konflikter med appar med VSS-ögonblicksbilder. Om flera appar försöker ta VSS-ögonblicksbilder på samma gång konflikter kan uppstå. Om exempelvis en Backup-app tar VSS-ögonblicksbilder när Site Recovery med din replikeringsprincip har schemalagts för att ta en ögonblicksbild.   
 7. Kontrollera om den virtuella datorn upplever en hög omsättning hastighet:
-    - Du kan mäta dagliga förändringstakten för data för de virtuella gästdatorerna med prestandaräknare på Hyper-V-värd. Aktivera följande räknare för att mäta förändringstakten för data. Aggregrate ett exempel på det här värdet för VM-diskar för 5 till 15 minuter att hämta VM-omsättning.
+    - Du kan mäta dagliga förändringstakten för data för de virtuella gästdatorerna med prestandaräknare på Hyper-V-värd. Aktivera följande räknare för att mäta förändringstakten för data. Aggregera ett exempel på det här värdet för VM-diskar för 5 till 15 minuter för att få omsättning för virtuell dator.
         - Kategori: ”Hyper-V virtuell lagringsenhet”
-        - Räknaren ”: skrivna byte / sek”</br>
+        - Räknare: ”Skrivna byte / sek”</br>
         - Den här omsättningsfrekvensen data kommer att öka eller är kvar på en hög nivå, beroende på hur upptagna den virtuella datorn eller dess appar är.
         - Den genomsnittliga källa dataomsättningen för disken är 2 MB/s för standardlagring för Site Recovery. [Läs mer](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - Dessutom kan du [Kontrollera storage skalbarhetsmål](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#scalability-targets-for-a-storage-account).
@@ -125,7 +125,7 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 1. Kontrollera händelseloggarna för VSS-fel och rekommendationer:
     - Öppna loggen i Hyper-V-administratör på Hyper-V-värdservern **Loggboken** > **applikationer och tjänsteloggar** > **Microsoft**  >  **Windows** > **Hyper-V** > **Admin**.
     - Kontrollera om det finns några händelser som indikerar appkompatibel ögonblicksbild fel.
-    - En typisk felet är ”: Hyper-V kunde inte generera uppsättning av VSS-ögonblicksbilder för den virtuella datorn” XYZ ”: Det uppstod ett fel uppstod för skrivaren. Starta om VSS-tjänsten kan lösa problem om tjänsten inte svarar ”.
+    - En typisk felet är: ”Det gick inte att skapa uppsättning av VSS-ögonblicksbilder för den virtuella datorn” XYZ ”Hyper-V: Det uppstod ett fel uppstod för skrivaren. Starta om VSS-tjänsten kan lösa problem om tjänsten inte svarar ”.
 
 2. Kontrollera att Hyper-V-integreringstjänsterna är installerade på den virtuella datorn och att säkerhetskopiering (VSS) Integration-tjänsten är aktiverad för att generera VSS-ögonblicksbilder för den virtuella datorn.
     - Se till att Integration Services VSS-tjänsten/Daemon körs på gästen och finns i en **OK** tillstånd.
@@ -136,7 +136,7 @@ En appkompatibel ögonblicksbild är en point-in-time-ögonblicksbild av program
 
 **Felkod** | **meddelande** | **Detaljer**
 --- | --- | ---
-**0x800700EA** | ”Hyper-V kunde inte generera uppsättning av VSS-ögonblicksbilder för den virtuella datorn: flera data är tillgängliga. (0x800700EA). Ställ in VSS ögonblicksbildgenerering kan misslyckas om säkerhetskopiering pågår.<br/><br/> Replikeringsåtgärden för den virtuella datorn misslyckades: finns mer information ”. | Kontrollera om den virtuella datorn har en dynamisk disk som är aktiverad. Det stöds inte.
+**0x800700EA** | ”Hyper-V kunde inte generera uppsättning av VSS-ögonblicksbilder för den virtuella datorn: Det finns mer information. (0x800700EA). Ställ in VSS ögonblicksbildgenerering kan misslyckas om säkerhetskopiering pågår.<br/><br/> Det gick inte att replikera virtuella datorer: Flera data är tillgängliga ”. | Kontrollera om den virtuella datorn har en dynamisk disk som är aktiverad. Det stöds inte.
 **0x80070032** | ”Det gick inte att ansluta till det virtuella Hyper-V Volume Shadow Copy begärande <. / VMname > eftersom versionen inte matchar den version som förväntades av Hyper-V | Kontrollera om de senaste Windows-uppdateringarna är installerade.<br/><br/> [Uppgradera](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) till den senaste versionen av Integration Services.
 
 

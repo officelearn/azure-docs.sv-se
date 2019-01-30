@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 26abc338b617b967c6919ebbe556a81226ff47d8
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 5fd4297cdd6edb048e213503124f5ecc08589552
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247868"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243808"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Hantera användning och fakturering för Azure Stack som en Molntjänstleverantör 
 
@@ -41,7 +42,7 @@ I följande diagram visas de steg som du måste välja ditt konto för delade tj
 
 Du måste välja vilken typ av konto för delade tjänster som du använder för Azure Stack. Typer av prenumerationer som kan användas för registrering av en multitenant Azure Stack är:
 
- - Molntjänstleverantör 
+ - Cloud Service Provider 
  - Delade tjänster-partnerprenumeration 
 
 #### <a name="azure-partner-shared-services"></a>Azure-Partner delade tjänster

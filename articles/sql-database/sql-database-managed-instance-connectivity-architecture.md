@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 12/10/2018
-ms.openlocfilehash: 2077978ac9353531d10359edf396e4426e9d6988
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: b709bbacce23a89b8c60b77a524018b50ca1ca5e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104520"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245675"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Anslutningsarkitektur
 
@@ -98,7 +98,7 @@ Du kan distribuera hanterade instanser i ett dedikerat undernät (hanterad insta
 
 ### <a name="mandatory-inbound-security-rules"></a>Obligatorisk inkommande säkerhetsregler 
 
-| Namn       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
+| Name       |Port                        |Protokoll|Källa           |Mål|Åtgärd|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |hantering  |9000, 9003, 1438, 1440, 1452|TCP     |Alla              |Alla        |Tillåt |
 |mi_subnet   |Alla                         |Alla     |MI – UNDERNÄT        |Alla        |Tillåt |
@@ -106,11 +106,14 @@ Du kan distribuera hanterade instanser i ett dedikerat undernät (hanterad insta
 
 ### <a name="mandatory-outbound-security-rules"></a>Obligatorisk utgående säkerhetsregler 
 
-| Namn       |Port          |Protokoll|Källa           |Mål|Åtgärd|
+| Name       |Port          |Protokoll|Källa           |Mål|Åtgärd|
 |------------|--------------|--------|-----------------|-----------|------|
 |hantering  |80, 443, 12000|TCP     |Alla              |Internet   |Tillåt |
 |mi_subnet   |Alla           |Alla     |Alla              |MI – UNDERNÄT  |Tillåt |
 
+  > [!Note]
+  > MI – UNDERNÄT refererar till det IP-adressintervallet för undernätet i formuläret 10.x.x.x/y. Den här informationen kan hittas i Azure-portalen (via undernätsegenskaperna).
+  
   > [!Note]
   > Även om obligatoriska inkommande säkerhetsregler som tillåter trafik från _alla_ källa på portar 9000, 9003, 1438, 1440, 1452 portarna skyddas av inbyggda brandvägg. Detta [artikeln](sql-database-managed-instance-find-management-endpoint-ip-address.md) visar hur du kan identifiera hantering slutpunktens IP-adress och kontrollera brandväggsregler. 
   

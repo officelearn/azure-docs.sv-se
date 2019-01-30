@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/29/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 3017d92115a61dbf5ce647e75a01360224843f44
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e08af577bec463263045a0f0355acffaad5e599
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165038"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244172"
 ---
 # <a name="what-is-azure-active-directory-identity-protection"></a>Vad är Azure Active Directory Identity Protection?
 
@@ -48,7 +48,7 @@ Till följd av detta måste du:
 
 Identifiera komprometterade identiteter är ingen enkelt uppgift. Azure Active Directory använder anpassningsbara maskininlärningsalgoritmer och heuristik för att identifiera avvikelser och misstänkta incidenter som tyder på potentiellt komprometterade identiteter. Med dessa data genererar Identity Protection rapporter och aviseringar så att du kan utvärdera upptäckta problem och vidta lämpliga mitigerings- eller åtgärder.
 
-Azure Active Directory Identity Protection är mer än en övervakning och rapportering verktyget. För att skydda din organisations identiteter kan konfigurera du riskbaserade principer som automatiskt svarar på identifierade problem när en angiven risknivå har uppnåtts. Dessa principer, utöver andra kontroller för villkorlig åtkomst som tillhandahålls av Azure Active Directory och EMS, kan automatiskt blockera eller initiera anpassningsbar åtgärder inklusive lösenordsåterställning och multifaktorautentisering tvingande.
+Azure Active Directory Identity Protection är mer än en övervakning och rapportering verktyget. För att skydda din organisations identiteter kan konfigurera du riskbaserade principer som automatiskt svarar på identifierade problem när en angiven risknivå har uppnåtts. Dessa principer, utöver andra kontroller för villkorlig åtkomst som tillhandahålls av Azure Active Directory och [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security/) (EMS), kan automatiskt blockera eller initiera anpassningsbar åtgärder inklusive lösenordsåterställning och multifaktorautentisering tvingande.
 
 
 #### <a name="identity-protection-capabilities"></a>Identity Protection-funktioner

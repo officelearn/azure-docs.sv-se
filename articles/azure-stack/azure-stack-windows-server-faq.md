@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: bf70f9a74b58758e03800d7f6fb92a8f8754828a
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
+ms.lastreviewed: 11/12/2018
+ms.openlocfilehash: 03a6f649f15f6a4905433d6e2ec292a901340929
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51613103"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249688"
 ---
 # <a name="windows-server-in-azure-stack-marketplace-faq"></a>Windows Server i Azure Stack Marketplace vanliga frågor och svar
 
@@ -37,9 +38,9 @@ Sedan om alla Virtual Machine Scale Sets refererar till en specifik version, bö
 
 Microsoft erbjuder två versioner av Windows Server-avbildningar i Azure Stack Marketplace:
 
-- **Betala för det du använder**: dessa avbildningar kör Windows-mätare fullt pris. 
+- **Betala för det du använder**: Dessa avbildningar kör Windows-mätare fullt pris. 
    Vem ska använda: Enterprise Agreement (EA)-kunder som använder den *förbrukning faktureringsmodellen*; CSP: er som inte vill använda SPLA licensiering.
-- **Bring Your Own License (BYOL)**: dessa avbildningar kör grundläggande taxor.
+- **Använd din egen licens (BYOL)**: Dessa avbildningar som kör grundläggande taxor.
    Vem ska använda: EA-kunder med en Windows Server-licens; CSP: er som använder SPLA licensiering.
 
 Azure Hybrid Använd förmånen (AHUB) stöds inte på Azure Stack. Kunder som licensierar genom ”kapacitet” modellen måste använda BYOL-avbildning. Om du testar med Azure Stack Development Kit (ASDK), kan du använda något av dessa alternativ.

@@ -3,17 +3,17 @@ title: Datascenarier som omfattar Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Förstå de olika scenarier och verktyg med vilken data kan inhämtas, bearbetas, hämtas och visualiseras i Data Lake Storage Gen2 (kallades tidigare Azure Data Lake Store)
 services: storage
 author: normesta
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
-ms.openlocfilehash: 978f86141d72cc7be43f24909f9780ab9570605d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: dfc47c40ce82eb8e9d414cb49c22bee033d000a6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974894"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239040"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Med hjälp av Azure Data Lake Storage Gen2 för stordatakrav
 
@@ -37,7 +37,7 @@ Detta representerar mindre datamängder som används för prototyper ett program
 | Datakälla | Mata in den med hjälp av |
 | --- | --- |
 | Lokal dator |<ul> <li>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)</ul> |
-| Azure Storage-Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy-verktyget](../common/storage-use-azcopy-v10.md)</li><li>[DistCp som körs på HDInsight-kluster](data-lake-storage-use-distcp.md)</li> </ul> |
+| Azure Storage Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy-verktyget](../common/storage-use-azcopy-v10.md)</li><li>[DistCp som körs på HDInsight-kluster](data-lake-storage-use-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Strömmade data
 Detta representerar data som genereras av olika källor, till exempel program, enheter, sensorer, osv. Dessa data kan hämtas till Data Lake Storage Gen2 av en rad olika verktyg. De här verktygen kommer vanligtvis samla in och bearbeta data regelbundet en händelse med händelse i realtid, och sedan skriva händelser i batchar i Data Lake Storage Gen2 så att de kan bearbetas ytterligare.

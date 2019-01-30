@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: anwestg
 ms.reviewer: sethm
-ms.openlocfilehash: 632cf506477bdc6f35c66a473963168f81e22351
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 03/20/2018
+ms.openlocfilehash: 9288ffa406b0e5765b35fa9b23aa13dee5754e9a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52971903"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240037"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>App Service i Azure Stack update 1 viktig information
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Följande versionsinformation innehåller förbättringar och korrigeringar i Azure App Service på Azure Stack Update 1 och kända problem. Kända problem är indelade i problem som är direkt relaterade till distribution, uppdateringsprocessen och problem med build (efter installationen).
 
@@ -202,10 +203,10 @@ Plats-växling är uppdelad i den här versionen. För att återställa funktion
 
 Om du väljer att distribuera till ett befintligt virtuellt nätverk och en intern IP-adress för att ansluta till filservern, du måste lägga till en utgående säkerhetsregel att aktivera SMB-trafik mellan worker-undernät och filservern. Gör detta genom att gå till WorkersNsg i Admin Portal och Lägg till en utgående säkerhetsregel med följande egenskaper:
 
-- Källa: alla
+- Källa: Alla
 - Käll-portintervall: *
 - Mål: IP-adresser
-- Mål-IP-adressintervall: intervall av IP-adresser för din filserver
+- Mål-IP-adressintervall: Intervall av IP-adresser för din filserver
 - Målportintervall: 445
 - Protokoll: TCP
 - Åtgärd: Tillåt

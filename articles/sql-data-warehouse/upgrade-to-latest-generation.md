@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2f1a3c46c9d343c305292a217fff5750f442fa
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 173846e4828228bdc51fc42858e0c6c9b00cafd6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52682562"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242798"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Optimera prestanda genom att uppgradera SQL Data Warehouse
 Uppgradera Azure SQL Data Warehouse till senaste generationen i Azure maskin- och storage-arkitektur.
@@ -78,7 +78,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="start-the-upgrade"></a>Starta uppgraderingen
 
-1. Gå till din Compute Optimized Gen1 nivån datalager i Azure-portalen och klicka på den **uppgradera till Gen2** kortet under fliken aktiviteter: ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
+1. Gå till din Compute Optimized Gen1 nivån datalager i Azure-portalen och klicka på den **uppgradera till Gen2** kortet under fliken aktiviteter:  ![Upgrade_1](./media/sql-data-warehouse-upgrade-to-latest-generation/Upgrade_to_Gen2_1.png)
     
     > [!NOTE]
     > Om du inte ser den **uppgradera till Gen2** kortet under fliken aktiviteter, typ av prenumeration är begränsad i den aktuella regionen.
@@ -113,7 +113,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
    Det andra steget i uppgraderingsprocessen är datamigrering (”uppgradera - Online”). Migrering av data är en online takt bakgrundsprocess som långsamt flyttar kolumner data från den gamla lagringsarkitekturen till den nya storage-arkitekturen som att använda en lokal SSD-cache. Under denna tid kommer ditt informationslager att vara online för att fråga och läsa in. Alla dina data blir tillgängliga för frågor, oavsett om den har migrerats eller inte. Migrering av data sker på en varierande avgift beroende på datastorleken på din, din prestandanivån och antalet columnstore-segment. 
 
-5. **Valfri rekommendation:** för att bearbeta data bakgrund migreringsprocessen kan du direkt tvinga dataförflyttning genom att köra [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) på alla primära columnstore-tabeller som du skulle köras mot vid en större Servicenivåmål och resursklass. Den här åtgärden är **offline** jämfört med den takt bakgrundsprocess som kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller, migrering av data är dock mycket snabbare där du sedan kan dra full nytta Förbättrad lagringsarkitektur när du är klar med högkvalitativa radgrupper för den nya. 
+5. **Valfri rekommendation:** För att bearbeta data bakgrund migreringsprocessen kan du direkt tvinga dataförflyttning genom att köra [Alter Index rebuild](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-index) på alla primära columnstore-tabeller du skulle köras mot en större SLO och resurs-klass. Den här åtgärden är **offline** jämfört med den takt bakgrundsprocess som kan ta timmar att slutföra beroende på antalet och storleken på dina tabeller, migrering av data är dock mycket snabbare där du sedan kan dra full nytta Förbättrad lagringsarkitektur när du är klar med högkvalitativa radgrupper för den nya. 
 
 Följande fråga genererar nödvändiga Alter Index Rebuild kommandon att påskynda migreringen data:
 

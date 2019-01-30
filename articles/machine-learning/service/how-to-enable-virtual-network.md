@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning service
 description: Köra machine learning-experiment och inferensjobb skydda i ett virtuellt Azure-nätverk. Lär dig hur du skapar beräkningsmål för modellträning och hur du inferens inom ett Azure-nätverk. Den behandlar också kraven för skyddade virtuella nätverk, till exempel kräver inkommande och utgående portarna.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: 21c4a9042a64a58f67f1f94c300b6438895eea5d
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: fb67821d883317901617bda101ae91a9a92018c2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856289"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246406"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Kör säkert experiment och inferensjobb i Azure Virtual Network
 

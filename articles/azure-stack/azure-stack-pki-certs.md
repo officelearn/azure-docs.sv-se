@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 6cf32ba50e83b95d51493244ef8e8646433b0b02
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.lastreviewed: 01/02/2019
+ms.openlocfilehash: 93e6345ba50bab21e03fb7a30148ea51c52a10f2
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024951"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244257"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Certifikatkrav för Azure Stack-infrastruktur för offentliga nycklar
 
@@ -67,23 +68,23 @@ För din distribution [region] och [externalfqdn] värden måste matcha region o
 > [!note]  
 > För produktionsmiljöer rekommenderar vi certifikat genereras för varje slutpunkt och kopieras till motsvarande katalog. För utvecklingsmiljöer, kan certifikat anges som ett enda jokertecken-certifikat som täcker alla namnområden i fälten ämne och alternativt namn på CERTIFIKATMOTTAGARE kopieras till alla kataloger. Ett enda certifikat som täcker alla slutpunkter och tjänster är ett osäkert hållning därför utveckling endast. Kom ihåg att båda alternativen måste du använda jokerteckencertifikat för slutpunkter som **acs** och Key Vault där de är obligatoriska. 
 
-| Distributionsmappen | Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN) | Omfång (per region) | Underdomän namnområde |
+| Distributionsmappen | Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN) | Omfång (per region) | SubDomain namespace |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|
-| Offentlig Portal | portalen. &lt;region >. &lt;fqdn > | Portaler | &lt;region>.&lt;fqdn> |
-| Administratörsportalen | adminportal. &lt;region >. &lt;fqdn > | Portaler | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager-offentlig | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| Azure Resource Manager-administratör | adminmanagement. &lt;region >. &lt;fqdn > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Offentlig Portal | portal.&lt;region>.&lt;fqdn> | Portaler | &lt;region>.&lt;fqdn> |
+| Administratörsportalen | adminportal.&lt;region>.&lt;fqdn> | Portaler | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager Public | management.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
+| Azure Resource Manager-administratör | adminmanagement.&lt;region>.&lt;fqdn> | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
-| ACSTable | * .table. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) | Table Storage | tabell. &lt;region >. &lt;fqdn > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Queue Storage | kön. &lt;region >. &lt;fqdn > |
-| KeyVault | * .vault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) | Key Vault | valvet. &lt;region >. &lt;fqdn > |
-| KeyVaultInternal | *.adminvault. &lt;region >. &lt;fqdn ><br>(Jokertecken SSL-certifikat) |  Intern Keyvault |  adminvault. &lt;region >. &lt;fqdn > |
-| Admininistrationstillägg värden | *.adminhosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Admininistrationstillägg värden | adminhosting. \<region >. \<fqdn > |
-| Offentliga tillägget värd | * .hosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Offentliga tillägget värd | som är värd för. \<region >. \<fqdn > |
+| ACSTable | *.table.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Table Storage | table.&lt;region>.&lt;fqdn> |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Queue Storage | queue.&lt;region>.&lt;fqdn> |
+| KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) | Key Vault | vault.&lt;region>.&lt;fqdn> |
+| KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Jokertecken SSL-certifikat) |  Intern Keyvault |  adminvault.&lt;region>.&lt;fqdn> |
+| Admininistrationstillägg värden | *.adminhosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Admininistrationstillägg värden | adminhosting.\<region>.\<fqdn> |
+| Offentliga tillägget värd | * .hosting. \<region >. \<fqdn > (SSL-certifikat med jokertecken) | Offentliga tillägget värd | hosting.\<region>.\<fqdn> |
 
 Om du distribuerar Azure Stack med hjälp av Azure AD-distributionsläget, behöver du bara begära certifikat visas i föregående tabell. Om du distribuerar Azure Stack med hjälp av läget för AD FS-distribution måste du dock också begära certifikat beskrivs i följande tabell:
 
-|Distributionsmappen|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|Omfång (per region)|Underdomän namnområde|
+|Distributionsmappen|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|Omfång (per region)|SubDomain namespace|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat)|ADFS|*&lt;region>.&lt;fqdn>*|
 |Graph|graph.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat)|Graph|*&lt;region>.&lt;fqdn>*|
@@ -100,9 +101,9 @@ Om du planerar att distribuera ytterligare Azure Stack PaaS-tjänster (SQL, MySQ
 
 I följande tabell beskrivs de slutpunkter och certifikat som krävs för SQL- och MySQL-kort och för App Service. Du behöver inte kopiera dessa certifikat till mappen Azure Stack-distribution. Istället tillhandahåller du dessa certifikat när du installerar ytterligare resursleverantörer. 
 
-|Omfång (per region)|Certifikat|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|Underdomän namnområde|
+|Omfång (per region)|Certifikat|Nödvändiga certifikatämnet och Alternativt ämnesnamn (SAN)|SubDomain namespace|
 |-----|-----|-----|-----|
-|SQL, MySQL|SQL- och MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Jokertecken SSL-certifikat)|dbadapter.  *&lt;region >.&lt; FQDN >*|
+|SQL, MySQL|SQL- och MySQL|&#42;.dbadapter.*&lt;region>.&lt;fqdn>*<br>(Jokertecken SSL-certifikat)|dbadapter.*&lt;region>.&lt;fqdn>*|
 |App Service|Web Traffic standard SSL-certifikat|&#42;.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.scm.appservice.*&lt;region>.&lt;fqdn>*<br>&#42;.sso.appservice.*&lt;region>.&lt;fqdn>*<br>(Multi-domän med jokertecken SSL-certifikat<sup>1</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|API|api.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|
 |App Service|FTP|ftp.appservice.*&lt;region>.&lt;fqdn>*<br>(SSL-certifikat<sup>2</sup>)|appservice.*&lt;region>.&lt;fqdn>*<br>scm.appservice.*&lt;region>.&lt;fqdn>*|

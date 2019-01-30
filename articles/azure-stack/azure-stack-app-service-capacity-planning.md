@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: sethm
 ms.reviewer: anwestg
-ms.openlocfilehash: a769bb4cce84fe78f442cce8440e6e828ed7f76d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 03d29b7f072aaab09b0677031ee34bd61d876ce6
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354146"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242849"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Kapacitetsplanering för Azure App Service-serverroller i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Om du vill konfigurera en klar Produktionsdistribution av Azure App Service i Azure Stack, måste du planera för kapacitet som du förväntar dig att systemet stöder.  
 
@@ -43,31 +44,31 @@ Du kan planera din strategi för App Service-kapacitet som använder dessa riktl
 
 ## <a name="controller-role"></a>Kontrollantrollen
 
-**Rekommenderade lägsta**: två instanser av Standard A1
+**Rekommenderat**: Två instanser av Standard A1
 
 Azure App Service-controller inträffar normalt med låg användning av processor, minne och nätverksresurser. Du måste dock ha två domänkontrollanter för hög tillgänglighet. Två styrenheterna är också det maximala antalet domänkontrollanter som tillåts. Du kan skapa den andra styrenheten för webbplatser direkt från installationsprogrammet under distributionen.
 
 ## <a name="front-end-role"></a>Frontend-roll
 
-**Rekommenderade lägsta**: två instanser av Standard A1
+**Rekommenderat**: Två instanser av Standard A1
 
 Klientdelen dirigerar begäranden till webbarbetare beroende på tillgänglighet för web worker. Du bör ha fler än en klientdel för hög tillgänglighet, och du kan ha fler än två. Överväg att varje kärna kan hantera cirka 100 begäranden per sekund för planering-kapacitet.
 
 ## <a name="management-role"></a>Hanteringsroll
 
-**Rekommenderade lägsta**: två instanser av Standard A3
+**Rekommenderat**: Två instanser av Standard A3
 
 Azure App Service management-rollen är ansvarig för App Service Azure Resource Manager och API-slutpunkter, portal tillägg (admin, klient, funktionsportalen) och datatjänsten. Hanteringsserverrollen kräver normalt endast om 4 GB RAM-minne i en produktionsmiljö. Det kan dock uppstå höga CPU när många administrationsuppgifter (till exempel skapa en webbplats) utförs. Du bör ha fler än en server som har tilldelats den här rollen för hög tillgänglighet, och minst två kärnor per server.
 
 ## <a name="publisher-role"></a>Utgivarroll
 
-**Rekommenderade lägsta**: två instanser av Standard A1
+**Rekommenderat**: Två instanser av Standard A1
 
 Om många användare publicerar samtidigt, kan publisher-rollen uppstå vid hög CPU-användning. Kontrollera att mer än en utgivarroll är tillgänglig för hög tillgänglighet. Utgivaren hanterar endast FTP/FTPS-trafik.
 
 ## <a name="web-worker-role"></a>Web worker-roll
 
-**Rekommenderade lägsta**: två instanser av Standard A1
+**Rekommenderat**: Två instanser av Standard A1
 
 För hög tillgänglighet bör du ha minst fyra webbarbetsroller, två för delade webbplatsläget och två för varje dedikerad arbetarnivån som du planerar att erbjuda. Delade och dedikerade compute-lägen ge olika nivåer av tjänsten till klienter. Du kanske behöver mer webbarbetare om många av dina kunder är:
 
@@ -80,9 +81,9 @@ Om du vill ge användarna i planen förbrukningsmodell Azure Functions, måste d
 
 När du bestämmer dig antalet delade webbarbetsroller ska använda, granska dessa överväganden:
 
-- **Minne**: minne är den mest kritiska resursen för en web worker-roll. Otillräckligt med minne påverkar prestanda för webbplatsen när virtuellt minne växlar från disken. Varje server kräver cirka 1,2 GB RAM-minne för operativsystemet. RAM-minne över tröskeln kan användas för att köra webbplatser.
-- **Procentandelen aktiva webbplatser**: vanligtvis cirka 5 procent av program i en Azure App Service i Azure Stack-distributioner är aktiva. Procentandel program som är aktiva vid ett givet tillfälle kan dock vara högre eller lägre. Det maximala antalet program ska placeras i en Azure App Service i Azure Stack-distributionen ska vara mindre än 20 gånger antalet aktiva webbplatser (5 x 20 = 100) med en aktiv programmet hastighet av 5 procent.
-- **Genomsnittlig minneskrav**: genomsnittlig minnesavtrycket som krävs för program som observerats i produktionsmiljöer är cirka 70 MB. Med den här tjänsten kan kan det minne som allokerats över alla datorer med roller för web worker eller virtuella datorer beräknas enligt följande:
+- **Minne**: Minnet är den mest kritiska resursen för en web worker-roll. Otillräckligt med minne påverkar prestanda för webbplatsen när virtuellt minne växlar från disken. Varje server kräver cirka 1,2 GB RAM-minne för operativsystemet. RAM-minne över tröskeln kan användas för att köra webbplatser.
+- **Procentandelen aktiva webbplatser**: Vanligtvis är cirka 5 procent av program i en Azure App Service i Azure Stack-distributioner aktiva. Procentandel program som är aktiva vid ett givet tillfälle kan dock vara högre eller lägre. Det maximala antalet program ska placeras i en Azure App Service i Azure Stack-distributionen ska vara mindre än 20 gånger antalet aktiva webbplatser (5 x 20 = 100) med en aktiv programmet hastighet av 5 procent.
+- **Genomsnittlig minneskrav**: Genomsnittlig minnesavtrycket som krävs för program som observerats i produktionsmiljöer är cirka 70 MB. Med den här tjänsten kan kan det minne som allokerats över alla datorer med roller för web worker eller virtuella datorer beräknas enligt följande:
 
    `Number of provisioned applications * 70 MB * 5% - (number of web worker roles * 1044 MB)`
 

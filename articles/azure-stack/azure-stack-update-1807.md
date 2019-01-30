@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 82343daa9fafe27ac814b6246a303e661a0a22d1
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.lastreviewed: 10/07/2018
+ms.openlocfilehash: 2b36c5d31e9377335a9cc8a37d4e4e0e890bfc3b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231044"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245091"
 ---
 # <a name="azure-stack-1807-update"></a>Uppdatering av Azure Stack 1807
 
@@ -215,7 +216,7 @@ Här följer efter installation kända problem för den här build-versionen.
 <!-- 2403291 - IS ASDK --> 
 - Du kanske inte användning av den vågräta rullningslisten längst ned på administratörs- och portaler. Om du inte kommer åt den vågräta rullningslisten, Använd spåret och navigera till ett tidigare blad i portalen genom att välja namn på bladet du vill visa i dynamiska länkar på listan som finns längst upp till vänster i portalen.
 
-  ![Brödsmula](media/azure-stack-update-1804/breadcrumb.png)
+  ![Breadcrumb](media/azure-stack-update-1804/breadcrumb.png)
 
 <!-- TBD - IS --> 
 - Det kanske inte går att visa resurser för beräkning eller lagring i administratörsportalen. Orsaken till problemet är ett fel under installationen av uppdateringen som gör att uppdateringen ska rapporteras felaktigt som slutförd. Om det här problemet inträffar kan du kontakta Microsofts kundsupport om du behöver hjälp.

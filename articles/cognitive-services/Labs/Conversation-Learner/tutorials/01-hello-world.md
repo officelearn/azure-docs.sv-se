@@ -6,16 +6,16 @@ services: cognitive-services
 author: v-jaswel
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c08e3d2e8f712f5eb7c56585507a283c7fd040c1
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: b2c43ad2475ab75d251e57fca6009eb1fa2e1f00
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53796892"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225303"
 ---
 # <a name="how-to-create-a-hello-world-model-with-conversation-learner"></a>Hur du skapar en ”Hello World”-modell med Konversationsdeltagare
 
@@ -102,7 +102,7 @@ Detta kan du testa, visa och korrigera konversationer som du eller användarna h
 #### <a name="view-and-correct-a-user-conversation"></a>Visa och åtgärda en användare konversation
 Med hjälp av Log-dialogrutor, du kan visa listan över konversationer användare lagras med din robot. Du kan också redigera dem för att korrigera Robotens svar och spara interaktionerna som utbildning-dialogrutor. Att göra det:
 1. Klicka på en logg för konversationen i rutnätet.
-2. Klicka på den senaste åtgärden Bot t.ex. ”Hello”.
+2. Klicka på den senaste åtgärden Bot t.ex. "Hello".
 3. Välj ”Goodbye”! Korrigera roboten.
 4. Klicka på knappen ”Spara som träna dialogrutan”.
 

@@ -13,12 +13,13 @@ ms.topic: get-started-article
 ms.date: 10/22/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: ee247dcadd7ba8574bbdae1e25b0e39ca1ebc2da
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 10/22/2018
+ms.openlocfilehash: b12e696260793a79bab6b384fc7be810eb2a803c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54246236"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240836"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Ansluta Azure Stack till Azure med Azure ExpressRoute
 
@@ -105,11 +106,11 @@ Använd följande procedurer för att skapa de nödvändiga nätverksresurserna 
 
 5. Under **skapa virtuellt nätverk**, ange de värden som visas i följande tabell i lämpliga fält:
 
-   |Fält  |Värde  |
+   |Fält  |Value  |
    |---------|---------|
-   |Namn     |Tenant1VNet1         |
+   |Name     |Tenant1VNet1         |
    |Adressutrymme     |10.1.0.0/16|
-   |Namn på undernät     |Tenant1 Ab1|
+   |Namn på undernät     |Tenant1-Sub1|
    |Adressintervall för undernätet     |10.1.1.0/24|
 
 6. Du bör se prenumerationen du skapade tidigare i den **prenumeration** fält. För återstående fält:
@@ -297,7 +298,7 @@ När du har konfigurerat Azure Stack, kan du distribuera Azure-resurser. Följan
 
 *Bild 3. Virtuella Azure-nätverk*
 
-![Virtuella Azure-nätverk](media/azure-stack-connect-expressroute/AzureArchitecture.png)
+![Azure VNets](media/azure-stack-connect-expressroute/AzureArchitecture.png)
 
 De resurser som du distribuerar i Azure liknar de resurser som du distribuerade i Azure Stack. Du ska distribuera följande komponenter:
 

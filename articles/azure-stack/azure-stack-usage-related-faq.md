@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: alfredop
-ms.openlocfilehash: 95b63b525365a5a31856c2f14ac965aaa1113cff
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.lastreviewed: 11/08/2018
+ms.openlocfilehash: 0e5d799a5128f578900e4fa326b2e129964d0873
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515632"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243791"
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Vanliga frågor i Azure Stack användnings-API
 
@@ -31,14 +32,14 @@ Användning har rapporterats för följande resource providers:
 ### <a name="network"></a>Nätverk
   
 **Mäter ID**: F271A8A388C44D93956A063E1D2FA80B  
-**Mätarnamn**: användning av statisk IP-adress  
+**Mätarnamn**: Användning av statisk IP-adress  
 **Enhet**: IP-adresser  
-**Anteckningar**: antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
+**Anteckningar**: Antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
   
 **Mäter ID**: 9E2739BA86744796B465F64674B822BA  
-**Mätarnamn**: användning av dynamisk IP-adress  
+**Mätarnamn**: Användning av dynamisk IP-adress  
 **Enhet**: IP-adresser  
-**Anteckningar**: antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
+**Anteckningar**: Antal IP-adresser som används. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren IP-adress som multiplicerat med antalet timmar.  
   
 ### <a name="storage"></a>Storage
   
@@ -64,321 +65,321 @@ Användning har rapporterats för följande resource providers:
   
 **Mäter ID**: B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90  
 **Mätarnamn**: TableTransactions  
-**Enhet**: antal i 10, förfrågningar 000's  
-**Anteckningar**: tabellen tjänstbegäranden (i 10 000-tal).  
+**Enhet**: Antalet förfrågningar i 10, 000's  
+**Anteckningar**: Tabellen tjänstbegäranden (i 10 000-tal).  
   
 **Mäter ID**: 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D  
 **Mätarnamn**: TableDataTransIn  
-**Enhet**: inkommande data i GB  
-**Anteckningar**: Table service inkommande i GB.  
+**Enhet**: Inkommande data i GB  
+**Anteckningar**: Table service inkommande data i GB.  
   
 **Mäter ID**: 1B8C1DEC-EE42-414B-AA36-6229CF199370  
 **Mätarnamn**: TableDataTransOut  
-**Enhet**: utgående data i GB  
+**Enhet**: Utgående data i GB  
 **Anteckningar**: Table service datatrafik i GB  
   
 **Mäter ID**: 43DAF82B-4618-444A-B994-40C23F7CD438  
 **Mätarnamn**: BlobTransactions  
-**Enhet**: begäranden som räknar på 10, 000's  
-**Anteckningar**: Blob servicebegäranden (i 10 000-tal).  
+**Enhet**: Antal begäranden i 10, för 000's  
+**Anteckningar**: BLOB service-begäranden (i 10 000-tal).  
   
 **Mäter ID**: 9764F92C-E44A-498E-8DC1-AAD66587A810  
 **Mätarnamn**: BlobDataTransIn  
-**Enhet**: inkommande data i GB  
-**Anteckningar**: Blob service inkommande i GB.  
+**Enhet**: Inkommande data i GB  
+**Anteckningar**: BLOB service inkommande data i GB.  
   
 **Mäter ID**: 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8  
 **Mätarnamn**: BlobDataTransOut  
-**Enhet**: utgående data i GB  
-**Anteckningar**: Blob service datatrafik i GB.  
+**Enhet**: Utgående data i GB  
+**Anteckningar**: BLOB service utgående data i GB.  
   
 **Mäter ID**: EB43DD12-1AA6-4C4B-872C-FAF15A6785EA  
 **Mätarnamn**: QueueTransactions  
-**Enhet**: begäranden som räknar på 10, 000's  
-**Anteckningar**: tjänstbegäranden i kö (i 10 000-tal).  
+**Enhet**: Antal begäranden i 10, för 000's  
+**Anteckningar**: Kön tjänstbegäranden (i 10 000-tal).  
   
 **Mäter ID**: E518E809-E369-4A45-9274-2017B29FFF25  
 **Mätarnamn**: QueueDataTransIn  
-**Enhet**: inkommande data i GB  
-**Anteckningar**: Queue service inkommande i GB.  
+**Enhet**: Inkommande data i GB  
+**Anteckningar**: Queue service inkommande data i GB.  
   
 **Mäter ID**: DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2  
 **Mätarnamn**: QueueDataTransOut  
-**Enhet**: utgående data i GB  
-**Anteckningar**: Queue service datatrafik i GB  
+**Enhet**: Utgående data i GB  
+**Anteckningar**: Utgående kö tjänsten data i GB  
 
 ### <a name="compute"></a>Compute 
   
 **Mäter ID**: FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5  
-**Mätarnamn**: Base VM-storlek timmar  
-**Enhet**: virtuella kärntimmar  
-**Anteckningar**: antalet virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes.  
+**Mätarnamn**: Timmar för grundläggande VM-storlek  
+**Enhet**: Virtuell kärna timmar  
+**Anteckningar**: Antal virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes.  
   
 **Mäter ID**: 9CD92D4C-BAFD-4492-B278-BEDC2DE8232A  
 **Mätarnamn**: Windows VM-storlek timmar  
-**Enhet**: virtuella kärntimmar  
-**Anteckningar**: antalet virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes.  
+**Enhet**: Virtuell kärna timmar  
+**Anteckningar**: Antal virtuella kärnor multiplicerat med timmar som den virtuella datorn kördes.  
   
 **Mäter ID**: 6DAB500F-A4FD-49C4-956D-229BB9C8C793  
-**Mätarnamn**: timmar för VM-storlek  
+**Mätarnamn**: Timmar för VM-storlek  
 **Enhet**: VM-timmar  
-**Anteckningar**: samlar in både Base och Windows VM. Justeras inte för kärnor.  
+**Anteckningar**: Samlar in bas- och Windows-VM. Justeras inte för kärnor.  
   
 ### <a name="managed-disks"></a>Managed Disks
 
 **Mäter ID**: 380874f9-300c-48e0-95a0-d2d9a21ade8f   
 **Mätarnamn**: S4   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Standard Managed Disk – 32 GB 
 
 **Mäter ID**: 1b77d90f-427b-4435-b4f1-d78adec53222   
 **Mätarnamn**: S6   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Standard Managed Disk – 64 GB 
 
-**Mäter ID**: d5f7731b-f639-404a-89d0-e46186e22c8d   
+**Meter ID**: d5f7731b-f639-404a-89d0-e46186e22c8d   
 **Mätarnamn**: S10   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Standard Managed Disk – 128 GB 
 
 **Mäter ID**: ff85ef31-da5b-4eac-95dd-a69d6f97b18a   
 **Mätarnamn**: S15   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Standard Managed Disk – 256 GB 
 
 **Mäter ID**: 88ea9228-457a-4091-adc9-ad5194f30b6e   
 **Mätarnamn**: S20   
-**Enhet**: antal diskar\*månad      
+**Enhet**: Antal diskar\*månad      
 **Anteckningar**: Standard Managed Disk – 512 GB 
 
 **Mäter ID**: 5b1db88a-8596-4002-8052-347947c26940   
 **Mätarnamn**: S30   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Standard Managed Disk – 1 024 GB 
 
 **Mäter ID**: 7660b45b-b29d-49cb-b816-59f30fbab011   
 **Mätarnamn**: P4   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 32 GB 
 
 **Mäter ID**: 817007fd-a077-477f-bc01-b876f27205fd   
 **Mätarnamn**: P6   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 64 GB 
 
 **Mäter ID**: e554b6bc-96cd-4938-a5b5-0da990278519   
 **Mätarnamn**: P10   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 128 GB  
 
 **Mäter ID**: cdc0f53a-62a9-4472-a06c-e99a23b02907   
 **Mätarnamn**: P15  
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 256 GB 
 
 **Mäter ID**: b9cb2d1a-84c2-4275-aa8b-70d2145d59aa   
 **Mätarnamn**: P20   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 512 GB 
 
 **Mäter ID**: 06bde724-9f94-43c0-84c3-d0fc54538369   
 **Mätarnamn**: P30   
-**Enhet**: antal diskar\*månad   
+**Enhet**: Antal diskar\*månad   
 **Anteckningar**: Premium Managed Disk – 1 024 GB 
 
 **Mäter ID**: 7ba084ec-ef9c-4d64-a179-7732c6cb5e28   
 **Mätarnamn**: ActualStandardDiskSize   
 **Enhet**: GB\*månad      
-**Anteckningar**: den verkliga storleken på disken för hanterade standarddiskar  
+**Anteckningar**: Den verkliga storleken på disken för hanterade standarddiskar  
 
 **Mäter ID**: daef389a-06e5-4684-a7f7-8813d9f792d5  
 **Mätarnamn**: ActualPremiumDiskSize   
 **Enhet**: GB\*månad      
-**Anteckningar**: den verkliga storleken på disken för premium managed disk 
+**Anteckningar**: Den verkliga storleken på disken för premium managed disk 
 
 **Mäter ID**: 75d4b707-1027-4403-9986-6ec7c05579c8  
 **Mätarnamn**: ActualStandardSnapshotSize   
 **Enhet**: GB\*månad   
-**Anteckningar**: den verkliga storleken på disken för hanterade standardögonblicksbild.  
+**Anteckningar**: Den verkliga storleken på disken för hanterade standardögonblicksbild.  
 
 **Mäter ID**: 5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
 **Mätarnamn**: ActualPremiumSnapshotSize   
 **Enhet**: GB\*månad   
-**Anteckningar**: den verkliga storleken på disken för hanterade premium.   
+**Anteckningar**: Den verkliga storleken på disken för hanterade premium.   
 
 **Mäter ID**: 5d76e09f-4567-452a-94cc-7d1f097761f0   
 **Mätarnamn**: S4   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Standard Managed Disk – 32 GB (inaktuell) 
 
 **Mäter ID**: dc9fc6a9-0782-432a-b8dc-978130457494   
 **Mätarnamn**: S6   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Standard Managed Disk – 64 GB (inaktuell) 
 
 **Mäter ID**: e5572fce-9f58-49d7-840c-b168c0f01fff   
 **Mätarnamn**: S10   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Standard Managed Disk – 128 GB (inaktuell) 
 
 **Mäter ID**: 9a8caedd-1195-4cd5-80b4-a4c22f9302b8   
 **Mätarnamn**: S15   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Standard Managed Disk – 256 GB (inaktuell) 
 
 **Mäter ID**: 5938f8da-0ecd-4c48-8d5a-c7c6c23546be   
 **Mätarnamn**: S20   
-**Enhet**: antal diskar\*timmar      
+**Enhet**: Antal diskar\*timmar      
 **Anteckningar**: Standard Managed Disk – 512 GB (inaktuell) 
 
 **Mäter ID**: 7705a158-bd8b-4b2b-b4c2-0782343b81e6   
 **Mätarnamn**: S30   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Standard Managed Disk – 1 024 GB (inaktuell) 
 
 **Mäter ID**: 5c105f5f-cbdf-435c-b49b-3c7174856dcc   
 **Mätarnamn**: P4   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 32 GB (inaktuell) 
 
 **Mäter ID**: 518b412b-1927-4f25-985f-4aea24e55c4f   
 **Mätarnamn**: P6   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 64 GB (inaktuell) 
 
 **Mäter ID**: 5cfb1fed-0902-49e3-8217-9add946fd624   
 **Mätarnamn**: P10   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 128 GB (inaktuell)  
 
 **Mäter ID**: 8de91c94-f740-4d9a-b665-bd5974fa08d4   
 **Mätarnamn**: P15  
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 256 GB (inaktuell) 
 
 **Mäter ID**: c7e7839c-293b-4761-ae4c-848eda91130b   
 **Mätarnamn**: P20   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 512 GB (inaktuell) 
 
 **Mäter ID**: 9f502103-adf4-4488-b494-456c95d23a9f   
 **Mätarnamn**: P30   
-**Enhet**: antal diskar\*timmar   
+**Enhet**: Antal diskar\*timmar   
 **Anteckningar**: Premium Managed Disk – 1 024 GB (inaktuell) 
 
 **Mäter ID**: 8a409390-1913-40ae-917b-08d0f16f3c38   
 **Mätarnamn**: ActualStandardDiskSize   
 **Enhet**: Byte\*timmar      
-**Anteckningar**: den verkliga storleken på disken för hanterade standarddiskar (inaktuell)  
+**Anteckningar**: Den verkliga storleken på disken för hanterade standarddiskar (inaktuell)  
 
 **Mäter ID**: 1273b16f-8458-4c34-8ce2-a515de551ef6  
 **Mätarnamn**: ActualPremiumDiskSize   
 **Enhet**: Byte\*timmar      
-**Anteckningar**: den verkliga storleken på disken för premium managed disk (inaktuell) 
+**Anteckningar**: Den verkliga storleken på disken för premium managed disk (inaktuell) 
 
 **Mäter ID**: 89009682-df7f-44fe-aeb1-63fba3ddbf4c  
 **Mätarnamn**: ActualStandardSnapshotSize   
 **Enhet**: Byte\*timmar   
-**Anteckningar**: den verkliga storleken på disken för hanterade standardögonblicksbild (inaktuell) 
+**Anteckningar**: Den verkliga storleken på disken för hanterade standardögonblicksbild (inaktuell) 
 
 **Mäter ID**: 95b0c03f-8a82-4524-8961-ccfbf575f536   
 **Mätarnamn**: ActualPremiumSnapshotSize   
 **Enhet**: Byte\*timmar   
-**Anteckningar**: den verkliga storleken på disken för hanterade premium (inaktuell) 
+**Anteckningar**: Den verkliga storleken på disken för hanterade premium (inaktuell) 
 
-### <a name="sql-rp"></a>SQL-RP
+### <a name="sql-rp"></a>Sql RP
   
 **Mäter ID**: CBCFEF9A-B91F-4597-A4D3-01FE334BED82  
 **Mätarnamn**: DatabaseSizeHourSqlMeter  
 **Enhet**: MB\*timmar  
-**Anteckningar**: Totalt antal DB kapacitet när du skapar. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.  
+**Anteckningar**: Total DB-kapacitet vid skapandet. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.  
   
-### <a name="mysql-rp"></a>MySql-RP   
+### <a name="mysql-rp"></a>MySql RP   
   
 **Mäter ID**: E6D8CFCD-7734-495E-B1CC-5AB0B9C24BD3  
 **Mätarnamn**: DatabaseSizeHourMySqlMeter  
 **Enhet**: MB\*timmar  
-**Anteckningar**: Totalt antal DB kapacitet när du skapar. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.    
+**Anteckningar**: Total DB-kapacitet vid skapandet. Om du anropar API: et för användning med en daglig kornighet som returnerar mätaren MB multiplicerat med antalet timmar.    
 ### <a name="key-vault"></a>Key Vault   
   
 **Mäter ID**: EBF13B9F-B3EA-46FE-BF54-396E93D48AB4  
 **Mätarnamn**: Key Vault-transaktioner  
-**Enhet**: antal i 10, förfrågningar 000's  
-**Anteckningar**: antal av REST API-begäranden som tas emot av Key Vault dataplanet.  
+**Enhet**: Antalet förfrågningar i 10, 000's  
+**Anteckningar**: Antal REST API-begäranden som tas emot av Key Vault dataplanet.  
   
 **Mäter ID**: 2C354225-B2FE-42E5-AD89-14F0EA302C87  
-**Mätarnamn**: avancerade nycklar transaktioner  
-**Enhet**: 10 K transaktioner  
-**Anteckningar**: RSA 3 K/4 K, ECC viktiga transaktioner. (förhandsversion).  
+**Mätarnamn**: Avancerade nycklar transaktioner  
+**Enhet**:  10K transaktioner  
+**Anteckningar**: RSA 3K / 4K, ECC key transaktioner. (förhandsversion).  
   
 ### <a name="app-service"></a>Apptjänst   
   
 **Mäter ID**: 190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  
 **Mätarnamn**: App Service  
-**Enhet**: virtuella kärntimmar  
-**Anteckningar**: antal virtuella kärnor som används för att köra app service. Obs: Microsoft använder den här mätaren debiterar App Service på Azure Stack. Leverantörer av molntjänster kan använda andra App Service-mätare (nedan) för att beräkna förbrukning för sina klienter.  
+**Enhet**: Virtuell kärna timmar  
+**Anteckningar**: Antal virtuella kärnor som används för att köra app service. Obs! Microsoft använder den här mätaren debiterar App Service på Azure Stack. Leverantörer av molntjänster kan använda andra App Service-mätare (nedan) för att beräkna förbrukning för sina klienter.  
   
 **Mäter ID**: 67CC4AFC-0691-48E1-A4B8-D744D1FEDBDE  
 **Mätarnamn**: Functions-begäranden  
 **Enhet**: 10 förfrågningar  
-**Anteckningar**: sammanlagda antalet begärda körningar (per 10 körningar). Körningar räknas varje gång en funktion körs som svar på en händelse eller utlöses av en bindning.  
+**Anteckningar**: Antalet begärda körningar (per 10 körningar). Körningar räknas varje gång en funktion körs som svar på en händelse eller utlöses av en bindning.  
   
 **Mäter ID**: D1D04836-075C-4F27-BF65-0A1130EC60ED  
-**Mätarnamn**: Functions – Compute  
-**Enhet**: GB-s  
-**Anteckningar**: resursförbrukningen mätt i gigabyte-sekunder (GB/s). **Observerade resursförbrukningen** beräknas genom att den genomsnittliga minnesstorleken i GB med tiden i millisekunder som det tar för att köra funktionen. Minne som används av en funktion mäts genom avrundning till närmaste 128 MB, upp till den högsta minnesstorleken på 1,536 MB, körningstiden beräknas genom avrundning till närmaste 1 ms. Minsta körningstid och minne för körning av en enda funktion avseende att vara 100 ms och 128 mb.  
+**Mätarnamn**: Functions - beräkning  
+**Enhet**:  GB-s  
+**Anteckningar**:  Resursförbrukningen mätt i gigabyte-sekunder (GB/s). **Observerade resursförbrukningen** beräknas genom att den genomsnittliga minnesstorleken i GB med tiden i millisekunder som det tar för att köra funktionen. Minne som används av en funktion mäts genom avrundning till närmaste 128 MB, upp till den högsta minnesstorleken på 1,536 MB, körningstiden beräknas genom avrundning till närmaste 1 ms. Minsta körningstid och minne för körning av en enda funktion avseende att vara 100 ms och 128 mb.  
   
 **Mäter ID**: 957E9F36-2C14-45A1-B6A1-1723EF71A01D  
-**Mätarnamn**: delade App Service-timmar  
+**Mätarnamn**: Delade App Service-timmar  
 **Enhet**: 1 timme  
-**Anteckningar**: Per timme användningen av fragment App Service-Plan. Planer mäts på basis av per App.  
+**Anteckningar**: Per timme användning av fragment App Service-Plan. Planer mäts på basis av per App.  
   
 **Mäter ID**: 539CDEC7-B4F5-49F6-AAC4-1F15CFF0EDA9  
-**Mätarnamn**: kostnadsfri App Service-timmar  
+**Mätarnamn**: Kostnadsfria App Service-timmar  
 **Enhet**: 1 timme  
-**Anteckningar**: Per timme användningen av kostnadsfria App Service-Plan. Planer mäts på basis av per App.  
+**Anteckningar**: Per timme användning av kostnadsfria App Service-Plan. Planer mäts på basis av per App.  
   
 **Mäter ID**: 88039D51-A206-3A89-E9DE-C5117E2D10A6  
-**Mätarnamn**: liten Standard App Service-timmar  
+**Mätarnamn**: Standard-Apptjänsttimmar timmar  
 **Enhet**: 1 timme  
-**Anteckningar**: beräknas baserat på diskstorleken, antalet instanser.  
+**Anteckningar**: Beräknas baserat på diskstorleken, antalet instanser.  
   
 **Mäter ID**: 83A2A13E-4788-78DD-5D55-2831B68ED825  
-**Mätarnamn**: Medium Standard App Service-timmar  
+**Mätarnamn**: Standard Apptjänsttimmar (medelhög användning)  
 **Enhet**: 1 timme  
-**Anteckningar**: beräknas baserat på diskstorleken, antalet instanser.  
+**Anteckningar**: Beräknas baserat på diskstorleken, antalet instanser.  
   
 **Mäter ID**: 1083B9DB-E9BB-24BE-A5E9-D6FDD0DDEFE6  
-**Mätarnamn**: stora Standard App Service-timmar  
+**Mätarnamn**: Standard Apptjänsttimmar  
 **Enhet**: 1 timme  
-**Anteckningar**: beräknas baserat på diskstorleken, antalet instanser.  
+**Anteckningar**: Beräknas baserat på diskstorleken, antalet instanser.  
   
 ### <a name="custom-worker-tiers"></a>Anpassade arbetsnivåer   
   
-**Mäter ID**: *anpassade arbetsnivåer*  
-**Mätarnamn**: anpassad Arbetarnivåer  
-**Enhet**: timmar  
+**Mäter ID**: *Anpassade arbetsnivåer*  
+**Mätarnamn**: Anpassade arbetsnivåer  
+**Enhet**: Timmar  
 **Anteckningar**: Deterministisk mätnings-ID skapas baserat på SKU och namn på anpassade arbetarnivå. Den här mätnings-ID är unikt för varje anpassad worker-nivå.  
   
 **Mäter ID**: 264ACB47-AD38-47F8-ADD3-47F01DC4F473  
 **Mätarnamn**: SNI SSL  
 **Enhet**: Per SNI SSL-bindning  
-**Anteckningar**: App Service stöder två typer av SSL-anslutningar: (Servernamnindikator) SSL-anslutningar och SSL-anslutningar för IP-adress. SNI-baserat SSL fungerar på moderna webbläsare och IP-baserat SSL fungerar på alla webbläsare.  
+**Anteckningar**: App Service stöder två typer av SSL-anslutningar: SNI (Server Name Indication) SSL-anslutningar och SSL-anslutningar med IP-adress. SNI-baserat SSL fungerar på moderna webbläsare och IP-baserat SSL fungerar på alla webbläsare.  
   
 **Mäter ID**: 60B42D72-DC1C-472C-9895-6C516277EDB4  
 **Mätarnamn**: IP SSL  
 **Enhet**: Per IP baserat SSL-bindning  
-**Anteckningar**: App Service stöder två typer av SSL-anslutningar: (Servernamnindikator) SSL-anslutningar och SSL-anslutningar för IP-adress. SNI-baserat SSL fungerar på moderna webbläsare och IP-baserat SSL fungerar på alla webbläsare.  
+**Anteckningar**: App Service stöder två typer av SSL-anslutningar: SNI (Server Name Indication) SSL-anslutningar och SSL-anslutningar med IP-adress. SNI-baserat SSL fungerar på moderna webbläsare och IP-baserat SSL fungerar på alla webbläsare.  
   
 **Mäter ID**: 73215A6C-FA54-4284-B9C1-7E8EC871CC5B  
-**Mätarnamn**: webbprocess  
+**Mätarnamn**:  Webbprocess  
 **Enhet**:  
-**Anteckningar**: beräknas per aktiv webbplats per timme.  
+**Anteckningar**: Beräknas per aktiv webbplats per timme.  
   
 **Mäter ID**: 5887D39B-0253-4E12-83C7-03E1A93DFFD9  
-**Mätarnamn**: externa utgående bandbredd  
+**Mätarnamn**: Externa utgående bandbredd  
 **Enhet**: GB  
-**Anteckningar**: Totalt antal inkommande begäran och svaret byte + total utgående begäran byte + totalt antal inkommande FTP Begär svar byte + totalt antal inkommande web distribuera byte svar på begäran.  
+**Anteckningar**: Totalt antal inkommande byte svar på begäran och Totalt antal utgående begäran byte + totalt antal inkommande FTP Begär svar byte + totalt antal inkommande web distribuera byte svar på begäran.  
   
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsdocsmicrosoftcomazurebillingbilling-usage-rate-card-overviewazure-resource-usage-api-preview-currently-in-public-preview"></a>Hur gör Azure Stack-användning jämfört med API: er i [användningen av Azure API](https://docs.microsoft.com/azure/billing/billing-usage-rate-card-overview#azure-resource-usage-api-preview) (för närvarande i allmänt tillgänglig förhandsversion)?
@@ -412,4 +413,4 @@ För närvarande kan du fråga endast av *rapporterade tid*.
 
 [Providerresursanvändning](azure-stack-provider-resource-api.md)
 
-[Klientresursanvändning](azure-stack-tenant-resource-usage-api.md)
+[API för klientresursanvändning](azure-stack-tenant-resource-usage-api.md)

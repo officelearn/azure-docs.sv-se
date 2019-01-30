@@ -6,16 +6,16 @@ author: sachinpMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 131a2102ec3ede930de3cad7516e486d793fec3d
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686610"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55250572"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>SQL Data Warehouse kapacitetsbegränsningar
 Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
@@ -28,7 +28,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | Databasanslutning |Öppna samtidiga sessioner |1024<br/><br/>Var och en av 1024 aktiva sessioner kan skicka begäranden till en SQL Data Warehouse-databas på samma gång. Observera att det finns gränser för antalet frågor som kan köra samtidigt. När gränsen för samtidighet har överskridits, begäran som hamnar i en intern kö där det väntar på att bearbetas. |
 | Databasanslutning |Högsta mängd minne för förberedda satser |20 MB |
 | [Arbetsbelastningshantering](resource-classes-for-workload-management.md) |Maximalt antal samtidiga frågor |128<br/><br/> SQL Data Warehouse kan köra maximalt 128 samtidiga frågor och köer återstående frågor.<br/><br/>Antalet samtidiga frågor kan minska när användare har tilldelats högre resursklasser eller när SQL Data Warehouse har en lägre [informationslagerenheten](memory-and-concurrency-limits.md) inställningen. Vissa frågor, t.ex DMV frågor tillåts alltid att köra och gör inte påverkar gräns för samtidiga frågor. Mer information om samtidiga frågekörning finns i den [samtidighet maximum](memory-and-concurrency-limits.md#concurrency-maximums) artikeln. |
-| [TempDB](sql-data-warehouse-tables-temporary.md) |Maximal GB |399 GB per DW100. Vid DWU1000 storlek tempdb därför till 3,99 TB. |
+| [tempdb](sql-data-warehouse-tables-temporary.md) |Maximal GB |399 GB per DW100. Vid DWU1000 storlek tempdb därför till 3,99 TB. |
 
 ## <a name="database-objects"></a>Databasobjekt
 | Kategori | Beskrivning | Maximal |
@@ -69,7 +69,7 @@ Högsta värden som tillåts för olika komponenter i Azure SQL Data Warehouse.
 | VÄLJ |Kolumner per koppling |1 024 kolumner<br/><br/>Du kan aldrig ha högst 1 024 kolumner i KOPPLINGEN. Det är inte säkert att du alltid har 1024. Om koppling planen kräver en tillfällig tabell med fler kolumner än kopplingsresultatet, gäller 1024-gränsen för den temporära tabellen. |
 | VÄLJ |Byte per GROUP BY-kolumner. |8060<br/><br/>Kolumner i GROUP BY-satsen kan ha maximalt 8 060 byte. |
 | VÄLJ |Byte per ORDER BY kolumner |8 060 byte<br/><br/>Kolumner i ORDER BY-satsen kan ha maximalt 8 060 byte |
-| Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: en uttryckstjänstgräns har nåtts](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
+| Identifierare per instruktionen |Antal refererade identifierare |65,535<br/><br/>SQL Data Warehouse begränsar antalet identifierare som kan finnas i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632. Mer information finns i [internt fel: En uttryckstjänstgräns har nåtts](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Stränglitteraler | Antal stränglitteraler i en instruktion | 20,000 <br/><br/>SQL Data Warehouse begränsar antalet strängkonstanter i ett enda uttryck i en fråga. Som överstiger det här antalet resultatet i SQL Server-felet 8632.|
 
 ## <a name="metadata"></a>Metadata

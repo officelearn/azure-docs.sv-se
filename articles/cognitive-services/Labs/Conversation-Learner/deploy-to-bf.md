@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 44d4d3b7b82a2f23f973a9c94cb66c81c430efa8
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 56dab93087249082330c0f685e5457bc2585664c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55225320"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55237939"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Så här distribuerar du en robot som Konversationsdeltagare
 
@@ -118,6 +118,7 @@ Nedan finns stegvisa instruktioner för att distribuera en konversation Learner 
         CONVERSATION_LEARNER_SERVICE_URI | "https://westus.api.cognitive.microsoft.com/conversationlearner/v1.0/"
         CONVERSATION_LEARNER_MODEL_ID      | Program-Id-GUID som hämtas från konversationen Learner Användargränssnittet under ”inställningar” för modellen >
         LUIS_AUTHORING_KEY               | Redigera nyckel för den här modellen LUIS
+        LUIS_SUBSCRIPTION_KEY            | Inte obligatoriskt, men rekommenderas för publicerade robotar att undvika att använda din kvot för redigering.
     
     4. Klicka på ”Spara” längst upp på sidan
     5. Öppna ”Build” nav-objekt till vänster

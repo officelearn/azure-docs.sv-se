@@ -9,19 +9,19 @@ manager: cgronlun
 ms.custom: seodec18
 ms.assetid: 34ef0b10-9270-474f-8800-eecb183bbce4
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: ab07d656af6f79949c51f546434c57b5d63714da
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 0609cabd5a9898900580580d1f5f412722637bcf
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083826"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55242832"
 ---
 # <a name="using-the-deep-learning-virtual-machine"></a>Med hjälp av virtuell dator för Djupinlärning
 
@@ -34,13 +34,13 @@ Det finns ett antal verktyg som finns på den virtuell dator för Djupinlärning
 Förutom framework-baserad-exemplen finns också en uppsättning heltäckande genomgångar som har verifierats på DLVM. Dessa genomgångar dig rivstarta din utvecklingen av deep learning-program i domäner som bild och text/språkförståelse. Fler självstudier för slutpunkt till slutpunkt i olika domäner och teknik fortsätter som ska läggas till.   
 
 
-- [Köra neurala nätverk för olika ramverk](https://github.com/ilkarman/DeepLearningFrameworks): en omfattande genomgång som visar hur du migrerar kod från en ramverket till en annan. Den visar även hur du jämför modellen och köra tar över ramverk. 
+- [Köra neurala nätverk för olika ramverk](https://github.com/ilkarman/DeepLearningFrameworks): En omfattande genomgång som visar hur du migrerar kod från en ramverket till en annan. Den visar även hur du jämför modellen och köra tar över ramverk. 
 
-- [En instruktionsguide för att skapa en lösning för slutpunkt till slutpunkt för att identifiera produkterna i avbildningar](https://github.com/Azure/cortana-intelligence-product-detection-from-images): identifiering av avbildningen är en teknik som kan hitta och klassificera objekt i bilder. Den här tekniken finns risken för att ge enorma fördelar i många verkliga livet är vanligtvis affärsdomäner. Återförsäljare kan till exempel använda den här tekniken för att avgöra vilken produkt en kund har hämtas från hyllan. Den här informationen hjälper i sin tur butiker hantera produktlager. 
+- [En instruktionsguide för att skapa en lösning för slutpunkt till slutpunkt för att identifiera produkterna i avbildningar](https://github.com/Azure/cortana-intelligence-product-detection-from-images): Identifiering av avbildningen är en teknik som kan hitta och klassificera objekt i bilder. Den här tekniken finns risken för att ge enorma fördelar i många verkliga livet är vanligtvis affärsdomäner. Återförsäljare kan till exempel använda den här tekniken för att avgöra vilken produkt en kund har hämtas från hyllan. Den här informationen hjälper i sin tur butiker hantera produktlager. 
 
 - [Djupinlärning för ljud](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/) den här kursen visar hur du tränar en modell för djupinlärning för ljud händelse på den [urban ljud datauppsättning](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html) och ger en översikt över hur du arbetar med ljuddata.
 
-- [Klassificering av textdokument](https://github.com/anargyri/lstm_han): den här genomgången visar hur du skapar och träna två olika neuralt nätverksarkitekturer: hierarkisk uppmärksamhet nätverks- och lång kort sikt minne (LSTM) nätverk. Dessa neurala nätverk använder Keras-API för djupinlärning för att klassificera textdokument. Keras är en klientdel till tre av de mest populära ramverk för djupinlärning: Microsoft Cognitive Toolkit, TensorFlow och Theano.
+- [Klassificering av textdokument](https://github.com/anargyri/lstm_han): Den här genomgången visar hur du skapar och träna arkitekturer för två olika neuralt nätverk: Hierarkisk uppmärksamhet nätverks- och lång kort sikt minne (LSTM) nätverk. Dessa neurala nätverk använder Keras-API för djupinlärning för att klassificera textdokument. Keras är en klientdel till tre av de mest populära ramverk för djupinlärning: Microsoft Cognitive Toolkit, TensorFlow och Theano.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,16 +6,16 @@ author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 365b15f11409f985b71c9bba4372552321f162f2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 290230237a68730a908c6fd0fb0df1d63035b93b
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212557"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247348"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Utforma tabeller i Azure SQL Data Warehouse
 
@@ -44,8 +44,8 @@ För att visa hur tabellerna i SQL Data Warehouse, kan du använda fakta och dim
 
 | WideWorldImportersDW tabell  | Registertyp | SQL Server | SQL Data Warehouse |
 |:-----|:-----|:------|:-----|
-| Ort | Dimension | Dimension.City | wwi. DimCity |
-| Beställa | Fakta för | Fact.Order | wwi. FactOrder |
+| Ort | Dimension | Dimension.City | wwi.DimCity |
+| Beställa | Fakta för | Fact.Order | wwi.FactOrder |
 
 
 ## <a name="table-persistence"></a>Tabellen persistence 
@@ -134,7 +134,7 @@ SQL Data Warehouse stöder många, men inte alla, tabell-funktioner erbjuds av a
 - [Sekvens](/sql/t-sql/statements/create-sequence-transact-sql)
 - [Glesa kolumner](/sql/relational-databases/tables/use-sparse-columns)
 - Surrogate nycklar. Implementera med [identitet](sql-data-warehouse-tables-identity.md).
-- [Synonymer](/sql/t-sql/statements/create-synonym-transact-sql)
+- [Synonyms](/sql/t-sql/statements/create-synonym-transact-sql)
 - [Utlösare](/sql/t-sql/statements/create-trigger-transact-sql)
 - [Unika index](/sql/t-sql/statements/create-index-transact-sql)
 - [Användardefinierade typer](/sql/relational-databases/native-client/features/using-user-defined-types)

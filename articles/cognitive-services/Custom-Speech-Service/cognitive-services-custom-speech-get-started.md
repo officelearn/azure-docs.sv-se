@@ -5,16 +5,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: onano
 ms.service: cognitive-services
-ms.component: custom-speech
+ms.subservice: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7392459f0b80558aac22bd585c0d30bf4105d76f
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339941"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224453"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Kom igång med Custom Speech Service
 
@@ -28,15 +28,15 @@ Det är ett bra exempel som vi tillhandahåller för att komma igång som du hit
 ## <a name="prerequisites"></a>Förutsättningar  
 
 ### <a name="subscribe-to-custom-speech-service-and-get-a-subscription-key"></a>Prenumerera på Custom Speech Service och få en prenumerationsnyckel
-Innan du spelar med ovanstående exempel, du måste prenumerera på Custom Speech Service och få en prenumeration nyckel finns i [prenumerationer](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) eller följa förklaringarna [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Både den primära och sekundära nyckeln kan användas i den här självstudien. Se till att följa bästa praxis för att hålla din viktiga API-hemlighet och säkra.
+Innan du spelar med ovanstående exempel, du måste prenumerera på Custom Speech Service och få en prenumeration nyckel finns i [prenumerationer](https://portal.azure.com/#create/Microsoft.CognitiveServices/apitype/CustomSpeech) eller följa förklaringarna [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-subscribe.md). Både den primära och sekundära nyckeln kan användas i den här självstudien. Se till att följa bästa praxis för att hålla din API-nyckelhemlighet säker.
 
-### <a name="get-the-client-library-and-example"></a>Hämta bibliotek och exempel
-Du kan ladda ned en klientbiblioteket och alla exempel via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Den hämta zip-filen måste extraheras till en mapp väljer, många användare väljer du mappen för Visual Studio 2015.
+### <a name="get-the-client-library-and-example"></a>Hämta klientbiblioteket och exempel
+Du kan ladda ned en klientbiblioteket och alla exempel via [SDK](https://www.microsoft.com/cognitive-services/en-us/SDK-Sample?api=bing%20speech&category=sdk). Den nedladdade zip-filen måste extraheras till en mapp som du väljer. Många användare väljer mappen för Visual Studio 2015.
 
 ## <a name="creating-a-custom-acoustic-model"></a>Skapa en anpassad akustisk modell
 För att anpassa den akustiska modellen för en viss domän krävs en samling taldata. Den här samlingen består av en uppsättning ljudfiler med taldata och en textfil med transkriptioner av varje ljudfil. Ljuddata ska vara representativ för ett scenario där du vill använda Igenkännande
 
-Till exempel: Om du vill att känna igen tal i en miljö med bort störande factory ljudfiler ska bestå av personer som talar bort störande fabrik.
+Exempel: Om du vill känna igen tal bättre i en fabriksmiljö med mycket oljud bör ljudfilen bestå av personer som talar i en högljudd fabrik.
 Om du är intresserad av att optimera prestanda för en enda talare, t.ex. du skulle vilja transkribera alla FDR'S Fireside Chat och ljudfiler ska bestå av flera exempel på den talaren endast.
 
 Du hittar en detaljerad beskrivning om hur du skapar en anpassad akustisk modell [här](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).

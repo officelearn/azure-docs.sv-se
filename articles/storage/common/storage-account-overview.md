@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: d2940e1d8328ffaea799ddff4afc9669aaa85a2f
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.subservice: common
+ms.openlocfilehash: 880ae672409704ddcd5597ae758f8c786c3c0720
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065638"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244495"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure storage-konto
 
@@ -119,8 +119,8 @@ Exempel: om din Allmänt lagringskonto heter *mystorageaccount*, så är standar
 
 * BLOB-lagring: http://*mystorageaccount*. blob.core.windows.net
 * Tabellagring: http://*mystorageaccount*. table.core.windows.net
-* Köa lagring: http://*mystorageaccount*. queue.core.windows.net
-* Azure Files: http://*mystorageaccount*. file.core.windows.net
+* Queue storage: http://*mystorageaccount*.queue.core.windows.net
+* Azure Files: http://*mystorageaccount*.file.core.windows.net
 
 > [!NOTE]
 > Ett Blob storage-konto exponerar endast Blob service-slutpunkt.

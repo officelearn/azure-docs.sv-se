@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.lastreviewed: 08/30/2018
+ms.openlocfilehash: a4e04bc9071f4f677230d112a7baa708e9e8dc34
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340196"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55243240"
 ---
 # <a name="network-connectivity"></a>Nätverksanslutning
 Den här artikeln innehåller information om hur du bestämmer hur du integrerar Azure Stack bäst i din befintliga nätverksmiljö för Azure Stack nätverk infrastruktur. 
@@ -29,7 +30,7 @@ Den här artikeln innehåller information om hur du bestämmer hur du integrerar
 > För att lösa externa DNS-namn från Azure Stack (till exempel www.bing.com), måste du ange DNS-servrar för att vidarebefordra DNS-förfrågningar. Läs mer om Azure Stack DNS-krav, [Azure Stack datacenter-integrering - DNS-](azure-stack-integrate-dns.md).
 
 ## <a name="physical-network-design"></a>Fysiska nätverksdesign
-Azure Stack-lösning kräver en flexibel och högtillgänglig fysisk infrastruktur som stöd för dess drift och tjänster. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + eller SFP28 media och 1 GB, 10 GB eller 25 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:
+Driften och tjänsterna i Azure Stack-lösningen kräver en flexibel fysisk infrastruktur med hög tillgänglighet. Överordnade länkar från ToR till kantlinje växlar är begränsade till SFP + eller SFP28 media och 1 GB, 10 GB eller 25 GB hastigheter. Kontrollera med maskinvaruleverantören OEM-tillverkare (original equipment manufacturer) för tillgänglighet. Följande diagram visar våra rekommenderade design:
 
 ![Rekommenderade nätverksdesign för Azure Stack](media/azure-stack-network/recommended-design.png)
 

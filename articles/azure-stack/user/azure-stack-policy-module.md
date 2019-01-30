@@ -14,16 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: sethm
-ms.openlocfilehash: b0236a790200feec7f1d16724f351882056b2cd5
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.lastreviewed: 11/29/2018
+ms.openlocfilehash: 2e1b7257e7ffc4460d86018a6318e33f95e01700
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52678533"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246272"
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Hantera Azure policy som använder Azure Stack-principmodulen
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Principmodulen för Azure Stack kan du konfigurera en Azure-prenumeration med samma versionshantering och tjänsttillgänglighet som Azure Stack. Modulen använder den [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition) cmdlet för att skapa en Azure-princip som begränsar de typer av resurser och tjänster som är tillgängliga i en prenumeration. Du sedan skapa en principtilldelning inom det aktuella området med hjälp av den [New-AzureRmPolicyAssignment](/powershell/module/azurerm.resources/new-azurermpolicyassignment) cmdlet. Du kan använda din Azure-prenumeration när du har konfigurerat principen för att utveckla appar som är mål för Azure Stack.
 

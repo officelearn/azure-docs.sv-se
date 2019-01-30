@@ -6,16 +6,16 @@ services: cognitive-services
 author: PanosPeriorellis
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech-service
+ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 44f2cb9e95a9a79c85c23b0eebd919851b94c1f8
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49467743"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55228142"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Transkription riktlinjer för att använda Speech-tjänsten
 
@@ -50,10 +50,10 @@ Här följer några exempel:
 | Originaltexten | Efter normalisering |
 |----- | ----- |
 | ”Heliga ko”! Dessa Batman. | Heliga ko SA batman |
-| ”Vad”? Dessa Batman sidekick, (round robin). | vilka nämnda batman sidekick robin |
+| ”Vad”? said Batman's sidekick, Robin. | vilka nämnda batman sidekick robin |
 | Gå få - em! | Gå get em |
 | Jag är double-jointed | Jag är dubbelt sammankopplade |
-| 104 alm gata | en ojsan fyra alm gata |
+| 104 Elm Street | en ojsan fyra alm gata |
 | Justera till 102.7 | Justera till en ojsan två sju |
 | Pi är ungefär 3,14 | Pi är cirka tre punkt en fyra |
 | Det kostar $3,14 | Det kostar tre fjorton |
@@ -71,7 +71,7 @@ Här följer några exempel:
 | Originaltexten | Efter normalisering |
 |----- | ----- |
 | 14 NE 3 Dr. | fjorton nordöst tredje enhet |
-| Dr. Bruce banderoll | Läkare Bruce banderoll |
+| Dr. Bruce Banner | Läkare Bruce banderoll |
 | James Bond, 007 | James Bond dubbelklicka ojsan sju |
 | KE$ hög tillgänglighet | Kesha |
 | Hur lång är 2 × 4 | Hur lång är två av fyra |
@@ -90,7 +90,7 @@ Undvik att använda halv bredd skiljetecken. Dessa tecken kan ingå oavsiktligt 
 | Tecken för att undvika | Ersättning |
 |----- | ----- |
 | ”你好” (inledande och avslutande citattecken) | ”你好” (dubbla citattecken) |
-| 需要什么帮助? (frågetecken) | 需要什么帮助? |
+| 需要什么帮助? (frågetecken) | 需要什么帮助？ |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Text normalisering regler för kinesiska
 
@@ -105,7 +105,7 @@ Här följer några exempel:
 
 | Originaltexten | Efter normalisering |
 |----- | ----- |
-| 3,1415 | 三 点 一 四 一 五 |
+| 3.1415 | 三 点 一 四 一 五 |
 | ￥3.5 | 三 元 五 角 |
 | w f y z | W F Y Z |
 | 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
@@ -165,8 +165,8 @@ Här följer några exempel:
 | Originaltexten | Efter användarens normalisering | När du har system normalisering
 |--------  | ----- | -------- |
 | ES ist 12.23 Uhr | ES ist 12:23 Uhr | ES ist zwölf uhr drei und zwanzig uhr |
-| {12,45} | {12,45} | zwölf komma vier fünf ||
-| 2 + 3 – 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
+| {12.45} | {12,45} | zwölf komma vier fünf ||
+| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6089f053472faaa7fa8c957904f73c7061cb2d3f
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4f96302f1035500a10cebaa24efd4b8db329fdff
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344933"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55219778"
 ---
 # <a name="basic-concepts"></a>Grundläggande begrepp
 
@@ -75,8 +75,8 @@ Eftersom Microsoft Speech Service deltar i vissa av tillstånd, definierar proto
 
 Microsoft speech igenkänning av tjänsten ger dig två sätt för utvecklare att lägga till tal i sina appar.
 
-- [REST API: er](GetStarted/GetStartedREST.md): utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
-- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): för avancerade funktioner, utvecklare kan hämta Microsoft Speech klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC).
+- [REST API: er](GetStarted/GetStartedREST.md): Utvecklare kan använda HTTP-anrop från sina appar till tjänsten för taligenkänning.
+- [Klientbibliotek](GetStarted/GetStartedClientLibraries.md): För avancerade funktioner, kan utvecklare hämta Microsoft Speech-klientbibliotek och länka till sina appar.  Klientbiblioteken är tillgängliga på olika plattformar (Windows, Android, iOS) med olika språk (C#, Java, JavaScript, ObjectiveC).
 
 | Användningsfall | [REST API:er](GetStarted/GetStartedREST.md) | [Klientbibliotek](GetStarted/GetStartedClientLibraries.md) |
 |-----|-----|-----|
@@ -161,7 +161,7 @@ Svaren avskrift returnera den konvertera texten från ljud till klienter. En avs
 
 | Status | Beskrivning |
 | ------------- | ---------------- |
-| Lyckades | Erkännande lyckades och fältet text finns |
+| Klart | Erkännande lyckades och fältet text finns |
 | NoMatch | Tal påträffades i ljudströmmen, men inga ord från målspråket som kunde matchas. Se [NoMatch erkännande Status(#nomatch-recognition-status) för mer information  |
 | InitialSilenceTimeout | Början av ljudströmmen ingår endast tystnad och tjänsten tidsgränsen för tal |
 | BabbleTimeout | Början av ljudströmmen ingår endast bruset och tjänsten tidsgränsen för tal |

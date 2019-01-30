@@ -3,17 +3,17 @@ title: Översikt över åtkomstkontroll i Azure Data Lake Storage Gen2 | Microso
 description: Förstå åtkomstkontroll i Azure Data Lake Storage Gen2
 services: storage
 author: jamesbak
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 52af1a45f920139ddda1d02734de91372fe4719d
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 3005f19ffbc4771da442e36290a5803dddebfdbb
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52974915"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55240183"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Åtkomstkontroll i Azure Data Lake Storage Gen2
 
@@ -47,9 +47,9 @@ SAS-token är tillåtna behörigheter som en del av token. De behörigheter som 
 
 Det finns två sorters åtkomstkontrollistor (ACL): åtkomst-ACL: er och standard-ACL: er.
 
-* **Åtkomst-ACL**: åtkomst-ACL-behörighet till ett objekt. Filer och kataloger har du åtkomst-ACL: er.
+* **Åtkomst-ACL**: Åtkomst-ACL:er kontrollerar åtkomst till ett objekt. Filer och kataloger har båda åtkomst-ACL:er.
 
-* **Standard-ACL**: en mall av ACL: er som är associerade med en katalog som bestämmer åtkomst-ACL: er för underordnade objekt som skapats under den katalogen. Filer har inte standard-ACL: er.
+* **Standard-ACL**: En mall av ACL: er som är associerade med en katalog som bestämmer åtkomst-ACL: er för underordnade objekt som skapats under den katalogen. Filer har inte standard-ACL:er.
 
 Både åtkomst-ACL och standard-ACL har samma struktur.
 
@@ -130,8 +130,8 @@ I POSIX ACL: er är varje användare som är associerad med en *primär grupp*. 
 
 #### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>Tilldela den ägande gruppen för en ny fil eller katalog
 
-* **Fall 1**: rotkatalogen ”/”. Den här katalogen skapas när ett Data Lake Storage Gen2 filsystem skapas. I det här fallet den ägande gruppen angetts till användaren som skapade filsystemet om den har utförts med hjälp av OAuth. Om filsystemet har skapats med delad nyckel, en SAS-konto eller en SAS för tjänst så ägare och ägande grupp är inställda på **$superuser**.
-* **Fall 2** (alla andra fall): när ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade katalogen.
+* **Fall 1**: Rotkatalogen ”/”. Den här katalogen skapas när ett Data Lake Storage Gen2 filsystem skapas. I det här fallet den ägande gruppen angetts till användaren som skapade filsystemet om den har utförts med hjälp av OAuth. Om filsystemet har skapats med delad nyckel, en SAS-konto eller en SAS för tjänst så ägare och ägande grupp är inställda på **$superuser**.
+* **Fall 2** (alla andra fall): När ett nytt objekt skapas, kopieras den ägande gruppen från den överordnade katalogen.
 
 #### <a name="changing-the-owning-group"></a>Ändra den ägande gruppen
 

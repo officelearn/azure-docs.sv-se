@@ -15,14 +15,15 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: bee684409b2ef3fffeb9f175c2b469d3736b6484
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.lastreviewed: 10/23/2018
+ms.openlocfilehash: 8587b40bf6963d57fd510aefc17de4385b871590
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993844"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55249045"
 ---
-# <a name="tutorial-offer-highly-available-mysql-databases"></a>Självstudie: Erbjud högtillgängliga MySQL-databaser
+# <a name="tutorial-offer-highly-available-mysql-databases"></a>Självstudier: Erbjud högtillgängliga MySQL-databaser
 
 Du kan konfigurera server-datorer till värden MySQL Server-databaser som en Azure Stack-Operator. När du har en MySQL klustret är har skapas och hanteras av Azure Stack, användare som prenumererar på MySQL-tjänster kan enkelt skapa högtillgängliga MySQL-databaser.
 
@@ -46,7 +47,7 @@ Innan du börjar med stegen i den här självstudien, se till att den [MySQL Ser
 > Följande krävs för att skapa MySQL-kluster.
 
 - [MySQL med replikering](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/bitnami.mysql-cluster). Det här är Bitnami-lösningsmallen som ska användas för klusterdistribution MySQL.
-- [Debian 8 ”Jessie”](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 ”Jessie” med backportar kernel för Microsoft Azure tillhandahåller credativ. Debian GNU/Linux är en av de mest populära Linux-distributionerna.
+- [Debian 8 "Jessie"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian). Debian 8 ”Jessie” med backportar kernel för Microsoft Azure tillhandahåller credativ. Debian GNU/Linux är en av de mest populära Linux-distributionerna.
 - [Anpassat skript för linux 2.0](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft.custom-script-linux?tab=Overview). Tillägget för anpassat skript är ett verktyg för att köra dina VM-anpassning uppgifter post VM etablera. När det här tillägget har lagts till en virtuell dator kan den hämta skript från Azure storage och kör dem på den virtuella datorn. Anpassade skripttillägg uppgifter kan också automatiseras med hjälp av Azure PowerShell-cmdlets och plattformsoberoende för Azure-kommandoradsgränssnittet (xPlat CLI).
 - Åtkomst till virtuell dator för Linux-tillägget 1.4.7. VM Access-tillägg kan du återställa lösenordet eller SSH-nyckel SSH-konfigurationer, så att du kan få åtkomst till den virtuella datorn. Du kan också lägga till en ny användare med lösenord eller SSH-nyckel eller ta bort en användare som använder det här tillägget. Det här tillägget riktar sig mot virtuella Linux-datorer.
 

@@ -16,12 +16,13 @@ ms.custom: ''
 ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 91ac75f3cb41f73ea18595138969dfb7b1444173
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.lastreviewed: 11/05/2018
+ms.openlocfilehash: 2139b4c9a26aba829a0bfbe5cb5a56f2a8918aa7
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54263519"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239867"
 ---
 # <a name="redeploy-the-asdk"></a>Distribuera om ASDK
 I den här artikeln får du lära dig hur du distribuera om Azure Stack Development Kit (ASDK) i en produktionsmiljö. Eftersom uppgraderar ASDK inte stöds, måste du distribuera helt om den att flytta till en nyare version. Du kan också distribuera om ASDK när som helst som du vill börja om från början.

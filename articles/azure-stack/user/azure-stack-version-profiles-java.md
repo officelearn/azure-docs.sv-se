@@ -15,16 +15,17 @@ ms.topic: article
 ms.date: 09/28/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 5a97a683e7f25029199ba68ce3d5cee410c3cf29
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.lastreviewed: 09/28/2018
+ms.openlocfilehash: cd02845f648275ee17f763bd5a94b386f7ed64fd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886832"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55246372"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Använd API-versionsprofiler med Java i Azure Stack
 
-*Gäller för: integrerade Azure Stack-system och Azure Stack Development Kit*
+*Gäller för: Integrerade Azure Stack-system och Azure Stack Development Kit*
 
 Java SDK för Azure Stack Resource Manager innehåller verktyg som hjälper dig att skapa och hantera infrastrukturen. Resursprovidrar i SDK innehåller beräkning, nätverk, lagring, app services och [KeyVault](../../key-vault/key-vault-whatis.md). Java SDK innehåller API-profiler genom att inkludera beroenden i Pom.xml-filen som läser in de rätta modulerna i den .java-fil. Men du kan lägga till flera profiler som beroenden, till exempel den **2018-03-01-hybrid**, eller **senaste** som Azure-profil. Med hjälp av dessa beroenden läses in rätt modul så att när du skapar din resurstyp, du kan välja vilka API-versionen från profilerna som du vill använda. På så sätt kan du använda de senaste versionerna i Azure, när du utvecklar mot de senaste API-versionerna för Azure Stack. Med hjälp av Java SDK kan en verklig utvecklarupplevelse för molnet. API-profiler i Java SDK aktivera hybrid molnutveckling genom att hjälpa dig att växla mellan globala Azure-resurser och resurser i Azure Stack.
 
@@ -77,9 +78,9 @@ Använd följande steg för att installera Java SDK:
 
 4.  De paket som måste installeras beror på vilken profil-version som du vill använda. Paketnamn för profilversioner är:
     
-   - **com.microsoft.Azure.profile\_2018\_03\_01\_hybrid**
-   - **com.microsoft.Azure**
-      - **senaste**
+   - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
+   - **com.microsoft.azure**
+      - **latest**
 
 5.  Om det inte finns skapar du en prenumeration och spara prenumerations-ID för senare användning. Anvisningar om hur du skapar en prenumeration finns i [skapa prenumerationer för erbjudanden i Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
@@ -149,9 +150,9 @@ JSON-exempelfilen:
 
 ## <a name="existing-api-profiles"></a>Befintliga API-profiler
 
-1.  **com.microsoft.Azure.profile\_2018\_03\_01\_hybrid**: senaste profil som skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
+1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Senaste profil har skapats för Azure Stack. Använd den här profilen för tjänster som är mest kompatibla med Azure Stack så länge du är på 1808 stämpel eller ytterligare.
 
-2.  **com.microsoft.Azure**: profilen som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
+2.  **com.microsoft.azure**: Profil som består av de senaste versionerna av alla tjänster. Använd de senaste versionerna av alla tjänster.
 
 Mer information om Azure Stack och API-profiler finns i den [sammanfattning av API-profiler](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 

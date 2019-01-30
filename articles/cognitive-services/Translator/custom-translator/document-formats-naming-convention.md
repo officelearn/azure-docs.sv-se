@@ -5,16 +5,16 @@ description: Det här är en översikt över dokumentformat och namngivningskonv
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.component: custom-translator
+ms.subservice: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 74b421691f5d3536c44af16e99dc54451dfde3f7
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: afd3192117bd22c62fd8e36752515166e4c6e043
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52872772"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55225490"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Dokumentera format och naming convention vägledning
 
@@ -24,16 +24,16 @@ Den här tabellen innehåller alla filformat som stöds som du kan använda för
 
 | Format            | Tillägg   | Beskrivning                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| XLIFF             | . XLF. XLIFF | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
-| TMX               | . TMX         | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
-| ZIP               | . ZIP         | ZIP är ett arkivfilformat.                                                                                                                                                                                                        |
-| Locstudio         | . LCL         | Ett Microsoft-format för parallell dokument                                                                                                                                                                                                                                      |
-| Microsoft Word    | . DOCX        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
-| Adobe Acrobat     | . PDF         | Adobe Acrobat bärbar dokumentet                                                                                                                                                                                                                                                |
-| HTML              | . HTML. HTM  | HTML-dokument                                                                                                                                                                                                                                                                  |
-| Textfil         | . TXT         | UTF-16- eller UTF-8-kodade textfiler                                                                                                                                                                                                                                             |
-| Justerade textfil | . JUSTERA       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningar i dokumentet paret perfekt justerad. Om du anger en `.ALIGN` fil, anpassade Translator inte anpassas meningarna åt dig. |
-| Excel-fil        | . XLSX        | Excel-fil (2013 eller senare). Första raden / raden i kalkylbladet bör vara språkkod.                                                                                                                                                                                                                                                      |
+| XLIFF             | .XLF, .XLIFF | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
+| TMX               | .TMX         | En parallell dokumentformat, export av översättningsminnen system. De språk som används definieras i filen.                                                                                                                                                              |
+| ZIP               | .ZIP         | ZIP är ett arkivfilformat.                                                                                                                                                                                                        |
+| Locstudio         | .LCL         | Ett Microsoft-format för parallell dokument                                                                                                                                                                                                                                      |
+| Microsoft Word    | .DOCX        | Microsoft Word-dokument                                                                                                                                                                                                                                                        |
+| Adobe Acrobat     | .PDF         | Adobe Acrobat bärbar dokumentet                                                                                                                                                                                                                                                |
+| HTML              | .HTML, .HTM  | HTML-dokument                                                                                                                                                                                                                                                                  |
+| Textfil         | .TXT         | UTF-16- eller UTF-8-kodade textfiler                                                                                                                                                                                                                                             |
+| Justerade textfil | .ALIGN       | Tillägget `.ALIGN` är ett särskilt tillägg som du kan använda om du vet att meningar i dokumentet paret perfekt justerad. Om du anger en `.ALIGN` fil, anpassade Translator inte anpassas meningarna åt dig. |
+| Excel-fil        | .XLSX        | Excel-fil (2013 eller senare). Första raden / raden i kalkylbladet bör vara språkkod.                                                                                                                                                                                                                                                      |
 
 ## <a name="dictionary-formats"></a>Ordlista format
 

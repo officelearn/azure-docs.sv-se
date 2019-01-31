@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 1e630d4dee3629fc256fdc97eefad259aff909e2
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 45dcd87910e0dbfc57aa09751cbdaa7a043d7cf1
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53000290"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226663"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Snabbstart: Använd Translator Text API för att hämta en lista över språk som stöds med Go
 
@@ -87,7 +87,7 @@ func getLanguages(subscriptionKey string) {
 }
 ```
 
-Nu ska vi skapa URL:en. URL:en skapas med metoderna `Parse()` och `Query()`.
+Därefter ska vi skapa URL:en. URL:en skapas med metoderna `Parse()` och `Query()`.
 
 Kopiera den här koden till funktionen `getLanguages`.
 
@@ -103,7 +103,7 @@ u.RawQuery = q.Encode()
 
 ## <a name="build-the-request"></a>Skapa begäran
 
-Nu när du har kodat begärandetexten som JSON kan du skapa POST-begäran och anropa Translator Text API.
+Nu när du har kodat begärandetexten som JSON, kan du skapa din POST-begäran och anropa Translator Text API.
 
 ```go
 // Build the HTTP GET request
@@ -124,7 +124,7 @@ if err != nil {
 
 ## <a name="handle-and-print-the-response"></a>Hantera och skriva ut svaret
 
-Lägg till den här koden så att `getLanguages`-funktionen avkodar JSON-svaret, och formatera och skriv sedan ut resultatet.
+Lägg till den här koden i funktionen `getLanguages` för att avkoda JSON-svaret. Formatera och skriv sedan ut resultatet.
 
 ```go
 // Decode the JSON response
@@ -244,7 +244,7 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 
 ## <a name="see-also"></a>Se även
 
-Lär dig hur du använder Translator Text API för att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-go-translate.md)
 * [Translitterera text](quickstart-go-transliterate.md)

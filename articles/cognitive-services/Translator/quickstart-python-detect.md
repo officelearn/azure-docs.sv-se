@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: cfc2565c0ee2b51eaff40647cfcd7505e0479e64
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 23f1aa8e6356c9a0d3ce7e680ae1b0ca7d0b1bc3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993820"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55213811"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Snabbstart: Använda Translator Text API till att identifiera textspråk med hjälp av Python
 
@@ -163,7 +163,7 @@ Om du har hårdkodat din prenumerationsnyckel i programmet ser du till att ta bo
 
 ## <a name="see-also"></a>Se även
 
-Lär dig att använda Translator Text API till att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-python-translate.md)
 * [Translitterera text](quickstart-python-transliterate.md)

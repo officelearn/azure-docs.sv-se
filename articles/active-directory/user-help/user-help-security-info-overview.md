@@ -7,25 +7,25 @@ manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
 ms.workload: identity
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 1e55ad5c056bf76f8332ea84fa960b4482825bfe
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 918f711002530735b9b4e09273fac3021a97a091
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54826164"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55189144"
 ---
 # <a name="security-info-preview-overview"></a>Översikt över säkerhetsinformation (förhandsversion)
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
+Konfigurera din information tvåstegsverifiering och återställning av lösenord i **Säkerhetsinformation**. När du först har konfigurerat din säkerhetsinformation behöver du göra det igen. Du kan dock redigera informationen och ändra standardmetoden när som helst.
+
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Konfigurera din information tvåstegsverifiering och återställning av lösenord i **Säkerhetsinformation**. När du först har konfigurerat din säkerhetsinformation behöver du göra det igen. Du kan dock redigera informationen och ändra standardmetoden när som helst.
 
 Du kan lägga till någon av följande metoder, inklusive:
 

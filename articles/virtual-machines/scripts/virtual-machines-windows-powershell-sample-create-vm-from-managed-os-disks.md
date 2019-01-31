@@ -3,7 +3,7 @@ title: Skriptexempel för Azure PowerShell – Skapa en virtuell dator genom att
 description: Skriptexempel för Azure PowerShell – Skapa en virtuell dator genom att ansluta en hanterad disk och använda den som operativsystemdisk
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: d727b33c8b955667e78442387f27b9adecf66798
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 4fa3babbf8e757b6d40170440754c43e25ba83f8
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386025"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55252038"
 ---
 # <a name="create-a-virtual-machine-using-an-existing-managed-os-disk-with-powershell"></a>Skapa en virtuell dator med hjälp av en befintlig hanterad operativsystemdisk med PowerShell
 

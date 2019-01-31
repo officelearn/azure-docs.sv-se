@@ -11,17 +11,17 @@ Customer intent: I want to create a Basic Load balancer so that I can load balan
 ms.custom: mvc
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/19/2018
+ms.date: 01/25/2019
 ms.author: kumud
-ms.openlocfilehash: 18c5b8f31b2a912eade360ebc2c5845782667250
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 884d64c2d7286dde7a62ac5e9a6fd3054b683fcd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54230228"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245973"
 ---
 # <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-azure-cli"></a>Snabbstart: Skapa en lastbalanserare som lastbalanserar virtuella datorer med Azure CLI
 
@@ -33,7 +33,7 @@ Om du väljer att installera och använda CLI lokalt så kräver den här själv
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group#create). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Skapa en resursgrupp med [az group create](https://docs.microsoft.com/cli/azure/group). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på platsen *eastus*:
 
@@ -45,7 +45,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroupLB* på pla
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. Använd [az nätverket offentliga IP-skapa](https://docs.microsoft.com/cli/azure/network/public-ip#create) när du ska skapa en offentlig IP-adress med namnet *myPublicIP* i *myResourceGroupLB*.
+För att du ska kunna komma åt din webbapp på Internet behöver du en offentlig IP-adress för lastbalanseraren. Använd [az nätverket offentliga IP-skapa](https://docs.microsoft.com/cli/azure/network/public-ip) när du ska skapa en offentlig IP-adress med namnet *myPublicIP* i *myResourceGroupLB*.
 
 ```azurecli-interactive
   az network public-ip create --resource-group myResourceGroupLB --name myPublicIP
@@ -61,7 +61,7 @@ I det här avsnittet beskrivs hur du gör för att skapa och konfigurera följan
 
 ### <a name="create-the-load-balancer"></a>Skapa lastbalanseraren
 
-Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) med namnet **myLoadBalancer** som innehåller en klientdelspool med namnet **myFrontEndPool**, och en serverdelspool med namnet **myBackEndPool** som är associerad med den offentliga IP-adressen **myPublicIP** som du skapade i föregående steg.
+Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) med namnet **myLoadBalancer** som innehåller en klientdelspool med namnet **myFrontEndPool**, och en serverdelspool med namnet **myBackEndPool** som är associerad med den offentliga IP-adressen **myPublicIP** som du skapade i föregående steg.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Skapa en offentlig Azure Load Balancer med [az network lb create](https://docs.m
 
 ### <a name="create-the-health-probe"></a>Skapar hälsoavsökningen
 
-En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest#create) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
+En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerställa att de kan skicka nätverkstrafik. Den virtuella datorinstansen med misslyckad hälsoavsökning tas bort från lastbalanseraren tills den är tillbaka online och en avsökningskontroll visar att den är felfri. Skapa en hälsoavsökning med [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) så att du kan övervaka de virtuella datorernas hälsotillstånd. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ En hälsoavsökning kontrollerar alla virtuella datorinstanser för att säkerst
 
 ### <a name="create-the-load-balancer-rule"></a>Skapa lastbalanseringsregeln
 
-En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#create) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
+En lastbalanseringsregel definierar klientdelens IP-konfiguration för inkommande trafik och serverdelens IP-pool för att ta emot trafiken, tillsammans med nödvändiga käll- och målportar. Skapa lastbalanseringsregeln *myLoadBalancerRuleWeb* med [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) så att du kan lyssna på port 80 i klientdelspoolen *myFrontEndPool* och skicka lastbalanserad nätverkstrafik till serverdelsadresspoolen *myBackEndPool* som också använder port 80. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -108,7 +108,7 @@ Innan du kan distribuera virtuella datorer och testa din lastbalanserare måste 
 
 ### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
 
-Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create).
+Skapa ett virtuellt nätverk med namnet *myVnet* med undernätet *mySubnet* i *myResourceGroup* med [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet).
 
 ```azurecli-interactive
   az network vnet create \

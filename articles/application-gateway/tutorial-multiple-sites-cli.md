@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b1f1bb268223eb55270ff5dab5dbb346f6299d09
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: f9b09982e5552a85ce5800059b114f30b5f4bfad
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856255"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178587"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Självstudier: Skapa en programgateway som är värd för flera webbplatser med hjälp av Azure CLI
 
@@ -54,7 +54,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>Skapa nätverksresurser 
 
-Skapa det virtuella nätverket och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet#az-net). Du kan sedan lägga till undernätet som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network_vnet_subnet_create). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip#az-network_public_ip_create).
+Skapa det virtuella nätverket och ett undernät med namnet *myAGSubnet* med [az network vnet create](/cli/azure/network/vnet). Du kan sedan lägga till undernätet som servrarna i serverdelen behöver med [az network vnet subnet create](/cli/azure/network/vnet/subnet). Skapa den offentliga IP-adressen med namnet *myAGPublicIPAddress* med [az network public-ip create](/cli/azure/network/public-ip).
 
 ```azurecli-interactive
 az network vnet create \
@@ -106,7 +106,7 @@ Det kan ta flera minuter att skapa programgatewayen. När programgatewayen har s
 
 ### <a name="add-the-backend-pools"></a>Lägga till serverdelspoolerna
 
-Lägg till de serverdelspooler som ska innehålla servrarna med [az network application-gateway address-pool create](/cli/azure/network/application-gateway#az-network_application_gateway_address_pool_create).
+Lägg till de serverdelspooler som ska innehålla servrarna med [az network application-gateway address-pool create](/cli/azure/network/application-gatewaywork_application_gateway_address_pool_create).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -223,7 +223,7 @@ done
 
 ## <a name="create-a-cname-record-in-your-domain"></a>Skapa en CNAME-post i domänen
 
-När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta DNS-adressen och använda den till att skapa en CNAME-post i domänen. Hämta den DNS-adressen till programgatewayen med [az network public-ip show](/cli/azure/network/public-ip#az-network_public_ip_show). Kopiera värdet *fqdn* för DNSSettings och använd det som värde för CNAME-posten du skapar. 
+När du har skapat programgatewayen med dess offentliga IP-adress kan du hämta DNS-adressen och använda den till att skapa en CNAME-post i domänen. Hämta den DNS-adressen till programgatewayen med [az network public-ip show](/cli/azure/network/public-ipwork_public_ip_show). Kopiera värdet *fqdn* för DNSSettings och använd det som värde för CNAME-posten du skapar. 
 
 ```azurecli-interactive
 az network public-ip show \

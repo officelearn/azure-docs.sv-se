@@ -3,7 +3,7 @@ title: Azure CLI-skriptexempel – Skapa en virtuell dator från en ögonblicksb
 description: Azure CLI-skriptexempel – Skapa en virtuell dator från en ögonblicksbild
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: ramankum
+author: ramankumarlive
 manager: kavithag
 editor: ramankum
 tags: azure-service-management
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: f3e236cab559ffc1779ab301b153232d63ca2336
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: db0aa1781c3e35b68a59082cf7a1760f7e9a34b4
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29847506"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55239578"
 ---
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Skapa en virtuell dator från en ögonblicksbild med CLI
 
@@ -51,10 +51,10 @@ I det här skriptet används följande kommandon för att skapa en hanterad disk
 |---|---|
 | [az snapshot show](https://docs.microsoft.com/cli/azure/snapshot#az_snapshot_show) | Hämtar en ögonblicksbild med namnet på ögonblicksbilden och resursgruppens namn. ID-egenskapen för det returnerade objektet används för att skapa en hanterad disk.  |
 | [az disk create](https://docs.microsoft.com/cli/azure/disk#az_disk_create) | Skapar hanterade diskar från en ögonblicksbild med hjälp av ögonblicksbild-ID, namn på disk, lagringstyp och storlek  |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar en virtuell dator med hjälp av en hanterad OS-disk |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar en virtuell dator med hjälp av en hanterad operativsystemsdisk |
 
 ## <a name="next-steps"></a>Nästa steg
 
 Mer information om Azure CLI finns i [Azure CLI-dokumentationen](https://docs.microsoft.com/cli/azure).
 
-Ytterligare CLI-skriptexempel för virtuella datorer finns i [Dokumentation för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Ytterligare CLI-skriptexempel för virtuella datorer finns i [dokumentationen för virtuella Azure Linux-datorer](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

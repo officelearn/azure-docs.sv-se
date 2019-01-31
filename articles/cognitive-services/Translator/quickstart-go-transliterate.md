@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 6b86d94e53b1ecb7a0d0d7b1f325a425f05c9e4f
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 976ca2623667abc4e49ceb91ec97706723bc32c2
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52993296"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211754"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Snabbstart: Använda Translator Text API till att transkribera text med hjälp av Go
 
@@ -185,7 +185,7 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 
 ## <a name="see-also"></a>Se även
 
-Lär dig att använda Translator Text API till att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-go-translate.md)
 * [Identifiera språket efter indata](quickstart-go-detect.md)

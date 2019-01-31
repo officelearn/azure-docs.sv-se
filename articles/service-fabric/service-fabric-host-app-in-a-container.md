@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: twhitney
-ms.openlocfilehash: 1867702f0b33332ea4fa52374cd1452c3bc51a55
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5bd43378d626d48f2ce05423fc49f85305b5858b
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436985"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55151455"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Självstudier: Distribuera ett .NET-program i en Windows-container till Azure Service Fabric
 
@@ -273,7 +273,6 @@ I nästa del av självstudierna lär du dig hur du [distribuerar ett containerpr
 [link-servicefabric-create-secure-clusters]: service-fabric-cluster-creation-via-arm.md
 [link-visualstudio-cd-extension]: https://aka.ms/cd4vs
 [link-servicefabric-containers]: service-fabric-get-started-containers.md
-[link-servicefabric-createapp]: service-fabric-create-your-first-application-in-visual-studio.md
 [link-azure-portal]: https://portal.azure.com
 [link-sf-clustertemplate]: https://aka.ms/securepreviewonelineclustertemplate
 [link-azure-pricing-calculator]: https://azure.microsoft.com/pricing/calculator/

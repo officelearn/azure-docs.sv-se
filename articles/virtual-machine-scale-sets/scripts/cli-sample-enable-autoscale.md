@@ -3,7 +3,7 @@ title: Azure CLI-exempel – aktivera värdbaserad automatisk skalning | Microso
 description: Azure CLI-exempel
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1172d9a3a2c36d41bc081454936ef8b570d99aba
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4190a9c4ca89a0b57371f6b8d7d4e72ba480b0a6
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465913"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888498"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Skala automatiskt en VM-skalningsuppsättning med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu och använder värdbaserade mått för att automatiskt skala allteftersom CPU-belastningen ändras.

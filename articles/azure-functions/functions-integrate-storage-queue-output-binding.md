@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 0cd3d3044623e2265a4ef5f817ed41258e63ae1c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52995522"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54900365"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Lägga till meddelanden i en Azure Storage-kö med Functions
 
@@ -162,6 +162,6 @@ Hoppa över det här avsnittet om du redan har installerat Storage Explorer och 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten lade du till en utdatabindning i en befintlig funktion. Mer information om bindning till Queue Storage finns i [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Azure Functions-lagringsköbindningar). 
+I den här snabbstarten lade du till en utdatabindning i en befintlig funktion. Mer information om bindning till Queue Storage finns i [Azure Functions Storage queue bindings](functions-bindings-storage-queue.md) (Azure Functions-lagringsköbindningar).
 
-[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps-2.md)]

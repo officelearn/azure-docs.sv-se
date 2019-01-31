@@ -3,23 +3,23 @@ title: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dat
 description: En självstudie som steg för steg beskriver hur du använder en systemtilldelad hanterad identitet för en virtuell Linux-dator för att få åtkomst till Azure AD Graph API.
 services: active-directory
 documentationcenter: ''
-author: daveba
+author: priyamohanram
 manager: daveba
 editor: daveba
 ms.service: active-directory
-ms.component: msi
+ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
-ms.author: daveba
-ms.openlocfilehash: 25aca9ebe0e5bb618960f8526c4ca3e413ecf6bf
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.author: priyamo
+ms.openlocfilehash: ad2d20bc54a2de5a049beadac779fff47d39d9b4
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432650"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167962"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Självstudier: Använda en systemtilldelad hanterad identitet för en virtuell Linux-dator för åtkomst till Azure AD Graph API
 

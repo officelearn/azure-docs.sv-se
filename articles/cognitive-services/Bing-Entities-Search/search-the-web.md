@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-entity-search
+ms.subservice: bing-entity-search
 ms.topic: overview
 ms.date: 07/06/2016
 ms.author: scottwhi
-ms.openlocfilehash: 2b3adf07a8522322434a6596475fa06c0df978e8
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 98d624b51835f88d34ec7ffd9658e40985482498
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48813608"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55181834"
 ---
 # <a name="what-is-bing-entity-search"></a>Vad är entitetssökning i Bing?
 
@@ -48,7 +48,7 @@ Svaret innehåller ett [SearchResponse](https://docs.microsoft.com/rest/api/cogn
 > [!NOTE]
 > Entitetssvar stöder flera marknader, men svaret för platser stöder endast företagsplatser i USA. 
 
-Fältet `entities` är ett [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entityanswer)-objekt som innehåller en lista över [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)-objekt (se fältet `value`). Listan kan innehålla en enda dominerande entitet, flera entiteter som löser tvetydigheter eller båda. 
+Fältet `entities` är ett [EntityAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)-objekt som innehåller en lista över [Entity](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference#entity)-objekt (se fältet `value`). Listan kan innehålla en enda dominerande entitet, flera entiteter som löser tvetydigheter eller båda. 
 
 En dominerande enhet är en entitet som Bing tror är den enda entitet som uppfyller begäran (det finns inga tvetydigheter om vilken entitet som uppfyller begäran). Om flera entiteter kan uppfylla begäran innehåller listan mer än en entitet som löser tvetydigheter. Om denna begäran till exempel använder den generiska titeln för en filmserie innehåller listan sannolikt entiteter som löser tvetydigheter. Men om begäran anger en viss titel från serien innehåller listan sannolikt en enda dominerande enhet.
 

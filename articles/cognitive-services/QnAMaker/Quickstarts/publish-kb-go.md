@@ -7,16 +7,16 @@ author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/19/2018
 ms.author: diberry
-ms.openlocfilehash: e7f0d3c756988cc890b6560181727b5c80b5548d
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: 3750615cc1010bfe67d1b93937a424009d973e70
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53162094"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55209222"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-go"></a>Snabbstart: Publicera en kunskapsbas i QnA Maker med Go
 
@@ -34,7 +34,7 @@ Den här snabbstarten anropar API:er för QnA Maker:
 
     ![QnA Maker-kunskapsbas-ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-    Om du inte har någon kunskapsbas ännu, kan du skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas.](create-new-kb-csharp.md)
+    Om du inte har någon kunskapsbas ännu kan du skapa en exempelkunskapsbas för den här snabbstarten: [Skapa en ny kunskapsbas.](create-new-kb-csharp.md)
 
 > [!NOTE] 
 > Kompletta lösningsfiler finns på [**Azure-Samples/cognitive-services-qnamaker-go** GitHub-lagringsplatsen](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).

@@ -6,22 +6,22 @@ services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: pafarley
-ms.openlocfilehash: d720314e190c217857b026c25c85f5b8cf1dc626
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 67fa7a012923ba100c8d118f7e002b20c187f661
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54354647"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55224011"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>Självstudier: Använda Visuellt innehåll för att generera bildmetadata i Azure Storage
 
 I den här självstudien får du lära dig hur du integrerar Azure-tjänsten Visuellt innehåll i en webbapp för att generera metadata för uppladdade bilder. En fullständig appguide finns i [labbet för Azure Storage och Cognitive Services](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md) på GitHub, och den här självstudien omfattar i stort sett Övning 5 i labben. Du vill kanske skapa slutpunkt till slutpunkt-programmet genom att följa varje steg, men om du bara vill se hur Visuellt innehåll kan integreras i en befintlig webbapp läser du vidare här.
 
-I den här självstudien lär du dig att:
+I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > * Skapa en resurs för Visuellt innehåll i Azure

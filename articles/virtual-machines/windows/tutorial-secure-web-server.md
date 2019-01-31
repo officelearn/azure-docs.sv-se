@@ -3,7 +3,7 @@ title: Självstudier – Skydda en Windows-webbserver med SSL-certifikat i Azure
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skydda en virtuell Windows-dator som kör IIS-webbservern med SSL-certifikat som lagras i Azure Key Vault.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/09/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fe802567473ad84add4457ea64208d894893f15e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: e21352baa45cb5d19df26760bdab2e8fafff8bce
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433058"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886398"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudier: Skydda en webbserver på en virtuell Windows-dator i Azure med SSL-certifikat som lagras i Key Vault
 

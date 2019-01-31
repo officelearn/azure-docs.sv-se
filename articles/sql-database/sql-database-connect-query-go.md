@@ -12,12 +12,12 @@ ms.author: v-daveng
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 12/07/2018
-ms.openlocfilehash: 6f86312ee1d11e5ac4c7626f5fd4c8223dac8b52
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: e6b24e89297b875d0c4547ffe3200b1d5e2e58c2
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744708"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55161538"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>Snabbstart: Använda Golang för att fråga en Azure SQL-databas
 
@@ -28,8 +28,6 @@ I den här snabbstarten kommer du att använda programmeringsspråket [Golang](h
 För att slutföra den här kursen behöver du:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) konfigurerad för datorns offentliga IP-adress.
 
 - Golang och relaterad programvara för ditt operativsystem installerat:
 

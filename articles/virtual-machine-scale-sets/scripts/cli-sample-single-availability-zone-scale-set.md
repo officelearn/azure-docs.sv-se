@@ -3,7 +3,7 @@ title: Azure CLI-exempel – skalningsuppsättningar med en zon | Microsoft Docs
 description: Azure CLI-exempel
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e0975542be39bddae9fe21dd49bead98d17e9546
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 9c78e13b39468990286be2d869a699d7130856fb
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49469236"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54888363"
 ---
 # <a name="create-a-single-zone-virtual-machine-scale-set-with-powershell"></a>Skapa en VM-skalningsuppsättning med en zon med PowerShell
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu i en enda tillgänglighetszon. När du kört skriptet har du åtkomst till den virtuella datorn över RDP.

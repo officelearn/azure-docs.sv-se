@@ -1,49 +1,49 @@
 ---
-title: Attitydanalys
+title: Sentimentanalys
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en app som visar hur det går till att hämta positiva, negativa och neutrala attityder från yttranden. Attityderna bestäms utifrån hela yttrandet.
+description: I den här självstudien skapar du en app som visar hur det går till att hämta positiva, negativa och neutrala attityder från yttranden. Sentimenten bestäms utifrån hela yttrandet.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: ee50907d7965a66d09dc57113e87edecb1932083
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: b9465e7965c5f1c62134cf309ef0efe914e14f8d
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754296"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55215836"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Självstudier:  Hämta attityder för yttranden
 
-I den här självstudien skapar du en app som visar hur det går till att fastställa positiva, negativa och neutrala attityder från yttranden. Attityderna bestäms utifrån hela yttrandet.
+I den här självstudien skapar du en app som visar hur det går till att fastställa positiva, negativa och neutrala attityder från yttranden. Sentimenten bestäms utifrån hela yttrandet.
 
 **I den här självstudiekursen får du lära du dig att:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
 > * Skapa en ny app
-> * Lägga till attitydanalys som en publiceringsinställning
+> * Lägga till sentimentanalys som en publiceringsinställning
 > * Träna appen
 > * Publicera app
-> * Extrahera attityder från yttranden vid en slutpunkt
+> * Extrahera sentiment från yttranden vid en slutpunkt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="sentiment-analysis-is-a-publish-setting"></a>Attitydanalys är en publiceringsinställning
 
-Följande yttranden visar exempel på attityder:
+Följande yttranden visar exempel på sentiment:
 
-|Attityd|Poäng|Yttrande|
+|Sentiment|Poäng|Yttrande|
 |:--|:--|:--|
 |positivt|0,91 |John W. Smith gjorde ett riktigt bra jobb med presentationen i Paris.|
 |positivt|0,84 |Seattle-teknikerna gjorde ett fantastiskt jobb på Parker-säljpresentationen.|
 
-Attitydanalys är en publiceringsinställning som tillämpas på alla yttranden. Du behöver inte hitta de ord som indikerar attityden i yttrandet och märka dem. 
+Sentimentanalys är en publiceringsinställning som tillämpas på alla yttranden. Du behöver inte hitta de ord som indikerar attityden i yttrandet och märka dem. 
 
 Eftersom det är en publiceringsinställning ser du den inte på sidor för avsikter eller entiteter. Du kan se den i fönstret med [interaktiva test](luis-interactive-test.md#view-sentiment-results) och när du testar vid slutpunktens webbadress. 
 
@@ -100,7 +100,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera attitydanalys
+## <a name="configure-app-to-include-sentiment-analysis"></a>Konfigurera appen för att inkludera sentimentanalys
 
 1. Välj **Hantera** i det övre högra navigeringsfältet och välj sedan **Publiceringsinställningar** i den vänstra menyn.
 
@@ -116,7 +116,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-1. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med attitydanalysen extraherad.
+1. Gå till slutet av URL:en i adressen och ange `Jill Jones work with the media team on the public portal was amazing`. Den sista frågesträngsparametern är `q`, yttrande**frågan**. Det här yttrandet är inte samma som någon av de märkta yttrandena. Därför är det ett bra test och bör returnera avsikten `EmployeeFeedback` med sentimentanalysen extraherad.
     
     ```json
     {
@@ -165,7 +165,7 @@ Lägg till en ny avsikt för att samla in feedback om medarbetare från kollegor
 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien lägger du till attitydanalys som en publiceringsinställning för att extrahera attitydvärden från ett helt uttryck.
+I den här självstudien lägger du till sentimentanalys som en publiceringsinställning för att extrahera sentimentvärden från ett helt uttryck.
 
 > [!div class="nextstepaction"] 
 > [Granska slutpunktsyttranden i HR-appen](luis-tutorial-review-endpoint-utterances.md) 

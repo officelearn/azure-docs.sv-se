@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
+ms.subservice: report-monitor
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0560f4a4a815373f86592126b30edcc4ca10ba24
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 5c9567c08db25eaeb79e2d27ce1295a54ccf5595
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825331"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55174728"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub-preview"></a>Självstudier: Strömma Azure Active Directory-loggar till en Azure-händelsehubb (förhandsversion)
 

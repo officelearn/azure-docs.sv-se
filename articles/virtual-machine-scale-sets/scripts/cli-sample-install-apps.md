@@ -3,7 +3,7 @@ title: Azure CLI-exempel – Installera appar | Microsoft Docs
 description: Azure CLI-exempel
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2469eef981246da9bfd9132ea0164395078fd164
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 9c1b0d4ea794e5b3ed4f899addef18da2465562a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468462"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54882199"
 ---
 # <a name="install-applications-into-a-virtual-machine-scale-set-with-the-azure-cli"></a>Installera program till en skalningsuppsättning för en virtuell dator med Azure CLI
 Det här skriptet skapar en VM-skalningsuppsättning som kör Ubuntu och använder det anpassade skripttillägget för att installera ett grundläggande webbprogram. När skriptet har körts kan du komma åt webbappen via en webbläsare.

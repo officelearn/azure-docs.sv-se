@@ -6,24 +6,24 @@ author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f321e027b29aa719dd0620aadd2a8e1558d069e9
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f01209909812cbf86fe5cf6dee7cedc52d85480c
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825807"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197406"
 ---
 # <a name="manage-my-devices-overview"></a>Översikt över att hantera mina enheter
 
+Kontrollera att du kan komma åt alla organisationens potentiellt begränsade resurser från dina företagsägda och personliga enheter.
+
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
-
-Kontrollera att du kan komma åt alla organisationens potentiellt begränsade resurser från dina företagsägda och personliga enheter.
 
 |Artikel |Beskrivning |
 |------|------------|

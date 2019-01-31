@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: f0173940656581c8bf6b66b0d2a4744e1c751f82
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
+ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968296"
+ms.lasthandoff: 01/25/2019
+ms.locfileid: "54904292"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Skapa en funktion som utlöses av Azure Cosmos DB
 
@@ -140,8 +140,6 @@ När den samling som har angetts i funktionsbindningen väl har skapats kan du t
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har nu skapat en funktion som körs när ett dokument läggs till eller ändras i Azure Cosmos DB.
+Du har nu skapat en funktion som körs när ett dokument läggs till eller ändras i Azure Cosmos DB. Mer information om Cosmos DB-utlösare finns i [Azure Cosmos DB-bindningar för Azure Functions](functions-bindings-cosmosdb.md).
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
-
-Mer information om Cosmos DB-utlösare finns i [Azure Cosmos DB-bindningar för Azure Functions](functions-bindings-cosmosdb.md).

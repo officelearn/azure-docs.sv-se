@@ -3,7 +3,7 @@ title: Självstudier – Skapa en VM-skalningsuppsättning för Windows i Azure 
 description: I den här självstudiekursen lär du dig hur du använder Azure PowerShell för att skapa och distribuera ett program med hög tillgänglighet på virtuella Windows-datorer med hjälp av en skalningsuppsättning för virtuella datorer
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: ''
 ms.topic: tutorial
 ms.date: 11/07/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4d7d1ad57feab0c73b0f2e77b815bad746040b00
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: f4641125d15f159c6f50d2889e13b06ba954401b
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426598"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54886829"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-windows-with-azure-powershell"></a>Självstudier: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Windows med Azure PowerShell
 Med en VM-skalningsuppsättning kan du distribuera och hantera en uppsättning identiska, virtuella datorer med automatisk skalning. Du kan skala antalet virtuella datorer i skalningsuppsättningen manuellt. Du kan även definiera regler för automatisk skalning baserat på resursanvändning, till exempel CPU, minneskrav eller nätverkstrafik. I självstudien distribuerar du en VM-skalningsuppsättning i Azure och lär dig att:

@@ -8,7 +8,7 @@ manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 11/01/2018
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d61d0220a87f81ca68255d40c00a6b7783943231
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 64faed888352e641cb51200d81c038fe5caf7ef4
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960214"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55098552"
 ---
-# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (Universell Windows-plattform)
+# <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Snabbstart: Anropa Microsoft Graph API från en UWP-app (universell Windows-plattform)
 
 [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
@@ -36,7 +36,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > [!div renderon="docs" class="sxs-lookup"]
 > Det finns två alternativ för att starta snabbstartsprogrammet:
 > * [Express] [Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * [Manuellt] [Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Alternativ 1: Registrera och konfigurera appen automatiskt och ladda sedan ned ditt kodexempel
 >
@@ -60,7 +60,7 @@ Den här snabbstarten innehåller ett kodexempel som visar hur en UWP-app (Unive
 > 1. Välj **Spara**.
 
 > [!div renderon="portal" class="sxs-lookup alert alert-info"]
-> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera programmet
+> #### <a name="step-1-configure-your-application"></a>Steg 1: Konfigurera ditt program
 > För kodexemplet för den här snabbstarten måste du lägga till en omdirigerings-URI som **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()

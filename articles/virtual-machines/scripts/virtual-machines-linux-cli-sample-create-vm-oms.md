@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cedb8d9c2ef4acd9d7a896153bce6be790ed83a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: eab5545b4d2b911051d9803560d5efd1a09dafb0
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407976"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55158170"
 ---
 # <a name="monitor-a-vm-with-azure-monitoring"></a>Övervaka en virtuell dator med Azure Monitoring
 
@@ -50,7 +50,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 | Kommando | Anteckningar |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) | Skapar en resursgrupp där alla resurser lagras. |
-| [az vm create](https://docs.microsoft.com/cli/azure/vm#az_vm_create) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
+| [az vm create](https://docs.microsoft.com/cli/azure/vm) | Skapar den virtuella datorn och ansluter den till nätverkskortet, ett virtuellt nätverk, ett undernät och en NSG. Det här kommandot anger även den virtuella datoravbildning som ska användas samt administrativa autentiseringsuppgifter.  |
 | [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Kör ett VM-tillägg mot en virtuell dator. I det här fallet används Log Analytics-agenttillägget för att installera Log Analytics-agenten och registrera den virtuella datorn på en Log Analytics-arbetsyta. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Tar bort en resursgrupp, inklusive alla kapslade resurser. |
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 4674428cf96562670b0e24e5ac93a2f2979128da
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54042061"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226391"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrera virtuella AWS-datorer (Amazon Web Services) till Azure
 
@@ -169,7 +169,7 @@ När du är klar med alla fem avsnitt under **Förbered infrastrukturen** välje
 
 Aktivera replikering för varje virtuell dator som du vill migrera. När replikeringen har aktiverats, installerar Site Recovery automatiskt mobilitetstjänsten.
 
-1. Gå till [Azure-portalen](htts://portal.azure.com).
+1. Gå till [Azure-portalen](https://portal.azure.com).
 1. På sidan för ditt valv, under **Kom igång**, klickar du på **Site Recovery**.
 2. Under **För lokala datorer och virtuella Azure-datorer** klickar du på **Steg 1: Replikera program**. Slutför guidesidorna med följande information. Välj **OK** på varje sida när du är klar:
     - 1: Konfigurera källan

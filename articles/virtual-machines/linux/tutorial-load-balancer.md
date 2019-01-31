@@ -3,7 +3,7 @@ title: Självstudier – Belastningsutjämna virtuella Linux-datorer i Azure | M
 description: I den här självstudien lär du dig hur du använder Azure CLI för att skapa en lastbalanserare för ett säkert program med hög tillgänglighet på tre virtuella Linux-datorer
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 47e3f449ef3ef0b732dfcef2af595ce5ccd24f16
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66c6a565fff81e1c0e39075502a6a7d3d8ffa7a6
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856425"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55162301"
 ---
 # <a name="tutorial-load-balance-linux-virtual-machines-in-azure-to-create-a-highly-available-application-with-the-azure-cli"></a>Självstudier: Belastningsutjämna virtuella Linux-datorer i Azure för att skapa ett program med hög tillgänglighet med Azure CLI
 
@@ -148,7 +148,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtuella nätverkskort skapas med [az network nic create](/cli/azure/network/nic#az_network_nic_create). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
+Virtuella nätverkskort skapas med [az network nic create](/cli/azure/network/nic). I följande exempel skapas tre virtuella nätverkskort. (Det vill säga ett virtuellt nätverkskort för varje virtuell dator som du skapar för din app i följande steg.) Du kan skapa ytterligare virtuella nätverkskort och virtuella datorer när du vill och lägga till dem i lastbalanseraren:
 
 ```bash
 for i in `seq 1 3`; do

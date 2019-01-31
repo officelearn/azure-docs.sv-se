@@ -6,16 +6,16 @@ services: cognitive-services
 author: swhite-msft
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: quickstart
 ms.date: 09/06/2018
 ms.author: scottwhi
-ms.openlocfilehash: f5ede8d8dc2950551655e7e0331a68b15ba13cf8
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
+ms.openlocfilehash: 55a9982026e118e3c375908879967831a8121ede
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53555786"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55178247"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-c-sdk"></a>Snabbstart: Anropa slutpunkten för Anpassad Bing-sökning med hjälp av C# SDK 
 
@@ -23,7 +23,7 @@ Använd den här snabbstarten till att börja begära sökresultat från din ins
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
-- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av Anpassad Bing-sökning](quick-start.md) om du vill få mer information.
+- En instans av anpassad Bing-sökning. Gå till [Snabbstart: Skapa din första instans av anpassad Bing-sökning](quick-start.md) för mer information.
 - Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
 - Valfri version av [Visual Studio 2017](https://www.visualstudio.com/downloads/)
 - Om du använder Linux/Mac OS kan det här programmet köras med [Mono](http://www.mono-project.com/).

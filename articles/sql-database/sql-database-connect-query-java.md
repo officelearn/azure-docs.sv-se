@@ -11,14 +11,14 @@ ms.author: andrela
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/20/2018
-ms.openlocfilehash: 5c12bd54c0ea96ac915fedab94f03cf044330dcf
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 6b748ebdbdc443c5fa44c82323774cd12c82ba38
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52723303"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55197508"
 ---
-# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Använda Java för att fråga en Azure SQL-databas
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Java
 
 Den här artikeln visar hur du använder [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
@@ -27,8 +27,6 @@ Den här artikeln visar hur du använder [Java](/sql/connect/jdbc/microsoft-jdbc
 För att kunna slutföra det här exemplet behöver du följande:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till den dator som du använder
 
 - Java-relaterad programvara installerad för ditt operativsystem:
 

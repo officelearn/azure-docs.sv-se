@@ -3,17 +3,17 @@ title: 'Självstudier: Få åtkomst till Azure Data Lake Storage Gen2-data (för
 description: I den här självstudien lär du dig att köra Spark-frågor i ett Azure Databricks-kluster för att komma åt data i ett Azure Data Lake Storage Gen2-lagringskonto.
 services: storage
 author: dineshmurthy
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
 ms.date: 01/14/2019
 ms.author: dineshm
-ms.openlocfilehash: e72a4f71a42a892d14fad076b124426f0c32ac7d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 31d18d7ea4ee195f7ffcfa04fb247b5dfd525c6a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321814"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251494"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-preview-data-with-azure-databricks-using-spark"></a>Självstudier: Få åtkomst till Data Lake Storage Gen2-data (förhandsversion) med Azure Databricks med hjälp av Spark
 

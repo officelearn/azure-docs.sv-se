@@ -13,7 +13,7 @@ ms.date: 01/22/2019
 ms.author: diberry
 ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
 ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55219761"

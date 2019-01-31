@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: da4fda3d0cfa6cb33d2dd8bb3bb844f18654c30a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b2a9c6c31771be1316038d794d1c15ff9fa45916
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851903"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55166738"
 ---
 # <a name="deprecated-set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>(INAKTUELL) Konfigurera ett Azure AD-tjänstobjekt för ett Kubernetes-kluster i Container Service
 
@@ -26,7 +26,7 @@ ms.locfileid: "54851903"
 I Azure Container Service kräver ett Kubernetes-kluster ett [Azure Active Directory-tjänstobjekt](../../active-directory/develop/app-objects-and-service-principals.md) för att kunna interagera med Azure-API:er. Tjänstens huvudnamn krävs för att dynamiskt hantera resurser som [användardefinierade vägar](../../virtual-network/virtual-networks-udr-overview.md) och [lager 4 för Azure Load Balancer](../../load-balancer/load-balancer-overview.md).
 
 
-Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI](/cli/azure/install-az-cli2) så kan du köra kommandot [`az acs create`](/cli/azure/acs#az_acs_create) för att skapa Kubernetes-klustret och huvudkontot samtidigt.
+Den här artikeln beskriver hur du konfigurerar ett tjänstobjekt för ett Kubernetes-kluster på olika sätt. Om du till exempel har installerat och konfigurerat [Azure CLI](/cli/azure/install-az-cli2) så kan du köra kommandot [`az acs create`](/cli/azure/acs) för att skapa Kubernetes-klustret och huvudkontot samtidigt.
 
 
 ## <a name="requirements-for-the-service-principal"></a>Krav för tjänstens huvudnamn

@@ -3,7 +3,7 @@ title: Självstudie – skapa och använd diskar för skalningsuppsättningar me
 description: Läs hur du använder Azure PowerShell för att skapa och använda hanterade diskar med VM-skalningsuppsättningar, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: ebe4d877063f47cefcc5fd842fe2a096256a1702
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 9abfd410e9137a897753fcf04ee113bd04749a7a
+ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429471"
+ms.lasthandoff: 01/24/2019
+ms.locfileid: "54881689"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudier: Skapa och använda diskar med VM-skalningsuppsättningar med Azure PowerShell
 VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:

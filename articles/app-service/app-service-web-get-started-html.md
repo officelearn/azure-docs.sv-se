@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 11/20/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2a6378406272f502af107a151e69fe33954f7780
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 064466b73e03e9648b78c32b7e6ffcd83defd607
+ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187867"
+ms.lasthandoff: 01/26/2019
+ms.locfileid: "55079366"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Skapa en statisk HTML-webbapp i Azure
 
@@ -39,7 +39,7 @@ Skapa en snabbstartskatalog i Cloud Shell och ändra sedan till den.
 ```bash
 mkdir quickstart
 
-cd quickstart
+cd $HOME/quickstart
 ```
 
 Kör sedan följande kommando för att klona lagringsplatsen för exempelprogrammet till din snabbstartskatalog.

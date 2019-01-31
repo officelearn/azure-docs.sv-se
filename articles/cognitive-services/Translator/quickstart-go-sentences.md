@@ -6,16 +6,16 @@ services: cognitive-services
 author: erhopf
 manager: erhopf
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 12/05/2018
 ms.author: erhopf
-ms.openlocfilehash: 71b88afeb941e6b635548468e634e07597318116
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 5f4a4a4518eb973dc9d2c7cbcb34683fe0b3db08
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994087"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55226850"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-go"></a>Snabbstart: Använda Translator Text API för att fastställa meningslängd med hjälp av Go
 
@@ -190,7 +190,7 @@ Utforska Go-paket för API:er för Cognitive Services via [Azure SDK för Go](ht
 
 ## <a name="see-also"></a>Se även
 
-Lär dig att använda Translator Text API till att:
+Lär dig att använda Translator Text API för att:
 
 * [Översätta text](quickstart-go-translate.md)
 * [Translitterera text](quickstart-go-transliterate.md)

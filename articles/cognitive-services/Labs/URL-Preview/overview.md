@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: url-preview
+ms.subservice: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 2e974acb1a7583fbd1a961eda4daa3732fbeff7c
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465822"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55218181"
 ---
 # <a name="what-is-project-url-preview"></a>Vad är förhandsversion av projekt-URL?
 Slutpunkten för URL-förhandsgranskningen tar en URL-frågeparameter och returnerar ett JSON-svar med namnet på målresursen, en kort beskrivning och en länk till en bild som ska visas i en förhandsgranskning. Svaret innehåller även flaggan [isFamilyFriendly](url-preview-reference.md#query-parameters), som anger huruvida URL:en innehåller innehåll för vuxna eller piratkopierat eller annat olagligt innehåll. 
@@ -26,7 +26,7 @@ https://api.labs.cognitive.microsoft.com/urlpreview/v7.0/search?q=https://swiftk
 
 ```
 Svaret: 
-````
+```
 HTTP Headers:
 BingAPIs-TraceId: 3CC74C94769440C0851D9DF0869FCE7F
 BingAPIs-SessionId: 52219085A6364692958C9C83983A0DBA
@@ -44,7 +44,7 @@ X-MSEdge-Ref: Ref A: 3CC74C94769440C0851D9DF0869FCE7F Ref B: CO1EDGE0315 Ref C: 
   }
 }
 
-````
+```
 ## <a name="scenarios"></a>Scenarier 
 
 API:et för URL-förhandsgranskning stöder korta beskrivningar av webbresurser. Utvecklare använda det för att skapa omfattande förhandsgranskningsfunktioner.  Användare kan dela eller bokmärka webbplatser, nyheter, bloggar, forum osv. Detta API kan även användas för innehållsmoderering.    

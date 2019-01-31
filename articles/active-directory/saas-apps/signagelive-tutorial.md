@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 1/11/2019
 ms.author: jeedes
-ms.openlocfilehash: 4a8b45850ef609f908450fbcf35aad6b5c87540b
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c2e67adb93c34cc4421145964ee809e4423b4843
+ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54818514"
+ms.lasthandoff: 01/28/2019
+ms.locfileid: "55101736"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-signagelive"></a>Självstudier: Azure Active Directory-integrering med Signagelive
 
@@ -104,7 +104,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Signa
 
     ![Signagelive-domän och information om URL:er för enkel inloggning](common/sp-signonurl.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://login.signagelive.com/sso/<ORGANISATIONALUNITNAME>`
+    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://login.signagelive.com/sso/<ORGANIZATIONALUNITNAME>`
 
     > [!NOTE]
     > Värdet är inte verkligt. Uppdatera värdet med den faktiska inloggnings-URL:en. Kontakta [supportteamet för Signagelive-klienten](mailto:support@signagelive.com) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.

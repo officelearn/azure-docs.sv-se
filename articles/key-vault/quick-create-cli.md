@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/08/2019
 ms.author: barclayn
-ms.openlocfilehash: 9b57dfcd6ecd00f9f1bb8ec752e0996ee52305db
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: a78cc79031a8dc9b0c98beddf759fbc8674c6dd1
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159051"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55168268"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Snabbstart: Ställ in och hämta en hemlighet från Azure Key Vault med hjälp av Azure CLI
 
@@ -88,7 +88,7 @@ Nu har du skapat ett nyckelvalv, lagrat en hemlighet och hämtat den.
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du planerar att fortsätta med efterföljande snabbstarter och självstudier kan du lämna kvar de här resurserna.
-När du inte behöver resursgruppen längre kan du använda kommandot [az group delete](/cli/azure/group#delete) till att ta bort resursgruppen och alla relaterade resurser. Så här tar du bort resurserna:
+När du inte behöver resursgruppen längre kan du använda kommandot [az group delete](/cli/azure/group) till att ta bort resursgruppen och alla relaterade resurser. Så här tar du bort resurserna:
 
 ```azurecli
 az group delete --name ContosoResourceGroup

@@ -11,14 +11,14 @@ ms.author: carlrab
 ms.reviewer: v-masebo
 manager: craigg
 ms.date: 11/26/2018
-ms.openlocfilehash: 22c783574897076b697b4b2bb3e8fc1da284dcae
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: c6e518f644e8fc43db58ef481312f44b2071a0dc
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52724680"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55194312"
 ---
-# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Snabbstart: Använda Node.js för att köra frågor mot en Azure SQL-databas
+# <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Snabbstart: Använd Node.js för att fråga en Azure SQL-databas
 
 Den här artikeln visar hur du använder [Node.js](https://nodejs.org) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
 
@@ -27,8 +27,6 @@ Den här artikeln visar hur du använder [Node.js](https://nodejs.org) för att 
 För att kunna slutföra det här exemplet behöver du följande:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-- En [brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md) för den offentliga IP-adressen till den dator som du använder
 
 - Node.js-relaterad programvara för ditt operativsystem:
 

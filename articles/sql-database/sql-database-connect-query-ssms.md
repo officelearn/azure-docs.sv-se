@@ -13,12 +13,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: 636adcf15479fe8e072b833b59ddc78b5f820550
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 23f2d32b2323821155467bd1ad12e9baf8c33074
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53745082"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55150758"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Snabbstart: Använda SQL Server Management Studio för att ansluta till och fråga i en Azure SQL-databas
 
@@ -29,8 +29,6 @@ I den här snabbstarten får du använda [SQL Server Management Studio][ssms-ins
 För att slutföra den här kursen behöver du:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-* En konfigurerad brandväggsregel på servernivå. Mer information finns i [Skapa brandväggsregel på servernivå](sql-database-get-started-portal-firewall.md).
 
 #### <a name="install-the-latest-ssms"></a>Installera den senaste SSMS
 

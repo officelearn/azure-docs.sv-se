@@ -3,7 +3,7 @@ title: Självstudie – Skala en skalningsuppsättning automatiskt med Azure CLI
 description: Läs hur du använder Azure CLI för att automatiskt skala en VM-skalningsuppsättning allteftersom CPU-kraven varierar
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: zr-msft
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: fdc1cb7c4b95a72aa55ccce57b2fa331f7c9615d
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471313"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55170716"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure CLI
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Självstudier: Skala automatiskt en VM-skalningsuppsättning med Azure CLI
 
 När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
 
@@ -41,13 +41,13 @@ Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.
 
 ## <a name="create-a-scale-set"></a>Skapa en skalningsuppsättning
 
-Skapa en resursgrupp med [az group create](/cli/azure/group#create) enligt följande:
+Skapa en resursgrupp med [az group create](/cli/azure/group) enligt följande:
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
 ```
 
-Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss#create). Följande exempel skapar en skalningsuppsättning instansantalet *2* och genererar SSH-nycklar om de inte redan finns:
+Skapa nu en skalningsuppsättning för en virtuell dator med [az vmss create](/cli/azure/vmss). Följande exempel skapar en skalningsuppsättning instansantalet *2* och genererar SSH-nycklar om de inte redan finns:
 
 ```azurecli-interactive
 az vmss create \
@@ -137,7 +137,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+När **stress** visar utdata som liknar *stress: info: [2688] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* trycker du på *RETUR* för att återgå till prompten.
 
 Kontrollera att **stress** genererar CPU-belastning genom att granska den aktiva systembelastningen med **top**-verktyget:
 
@@ -165,7 +165,7 @@ sudo apt-get -y install stress
 sudo stress --cpu 10 --timeout 420 &
 ```
 
-När **stress** återigen visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd*, trycker du på *Retur* för att återgå till prompten.
+Igen gäller at när **stress** visar utdata som liknar *stress: info: [2713] dispatching hogs: 10 cpu, 0 io, 0 vm, 0 hdd* trycker du på *RETUR* för att återgå till prompten.
 
 Stäng din anslutning till den andra virtuella datorinstansen. **stress** fortsätter att köras på den virtuella datorinstansen.
 

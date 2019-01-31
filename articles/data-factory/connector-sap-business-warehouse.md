@@ -167,27 +167,27 @@ När du kopierar data från SAP BW, används följande mappningar från SAP BW-d
 | SAP BW-datatypen | Data factory tillfälliga datatyp |
 |:--- |:--- |
 | ACCP | Int |
-| CHAR | Sträng |
-| CLNT | Sträng |
-| AKTUELLT DATUM | Decimal |
-| CUKY | Sträng |
+| CHAR | String |
+| CLNT | String |
+| CURR | Decimal |
+| CUKY | String |
 | DEC | Decimal |
-| FLTP | Double-värde |
+| FLTP | Double |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | Int |
-| LANG | Sträng |
-| LCHR | Sträng |
-| LRAW | Byte] |
+| LANG | String |
+| LCHR | String |
+| LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
-| RÅDATA | Byte] |
-| RAWSTRING | Byte] |
-| STRÄNG | Sträng |
-| ENHET | Sträng |
-| DATS | Sträng |
-| NUMC | Sträng |
-| TIMS | Sträng |
+| RAW | Byte[] |
+| RAWSTRING | Byte[] |
+| STRING | String |
+| UNIT | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="next-steps"></a>Nästa steg

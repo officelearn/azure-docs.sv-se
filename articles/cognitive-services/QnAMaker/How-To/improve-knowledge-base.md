@@ -6,18 +6,18 @@ author: diberry
 manager: cgronlun
 displayName: active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 01/29/2019
 ms.author: diberry
-ms.openlocfilehash: da32d1e7a3cc9fc0c37418e24c1f1f270a104b09
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 7f519729f3ad94324b847ca6b15b254ea7c6abbb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55105679"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463743"
 ---
-# <a name="use-active-learning-to-improve-knowledge-base"></a>Använda active learning för att förbättra kunskapsbas
+# <a name="use-active-learning-to-improve-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
 Aktiv inlärning kan du förbättra kvaliteten på din kunskapsbas genom att föreslå alternativa frågor, baserat på användare-bidrag till dina frågor och svar-par. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. 
 
@@ -39,6 +39,10 @@ När liknande frågor är klustrade föreslår QnA Maker användarbaserade fråg
 Aktiv inlärning utlöses baserat på poäng för övre några svar returnerades av QnA Maker för en viss fråga. Om skillnaderna poäng ligger inom ett mindre intervall kommer frågan betraktas som ett möjligt _förslag_ för var och en av de möjliga svar. 
 
 Alla förslag är klustrade tillsammans efter likhet och övre förslag på alternativa frågor visas baserat på åtkomstfrekvensen för de specifika frågorna av slutanvändare. Aktiv inlärning ger bästa möjliga förslagen i fall där slutpunkterna får ett rimligt antal och mängd användningsfrågor.
+
+## <a name="upgrade-version-to-use-active-learning"></a>Uppgradera versionen om du vill använda aktiv inlärning
+
+Aktiv inlärning stöds i körningsversion 4.4.0 och senare. Om din kunskapsbas skapades på en tidigare version [uppgradera din runtime](troubleshooting-runtime.md#how-to-get-latest-qnamaker-runtime-updates) att använda den här funktionen. 
 
 ## <a name="best-practices"></a>Bästa praxis
 
@@ -152,7 +156,9 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
+Mer information om hur du använder aktiv inlärning med en [Azure Bot C# exempel](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot)
+
 ## <a name="next-steps"></a>Nästa steg
  
 > [!div class="nextstepaction"]
-> [Använd om API för QnAMaker](./upgrade-qnamaker-service.md)
+> [Använd API för QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)

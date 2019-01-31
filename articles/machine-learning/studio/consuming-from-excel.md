@@ -1,6 +1,6 @@
 ---
-Rubrik: Använda webbtjänst i Excel titleSuffix: Beskrivning av Azure Machine Learning Studio: Azure Machine Learning Studio gör det enkelt att anropa webbtjänster direkt från Excel utan att behöva skriva någon kod.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Använda webbtjänst i Excel titleSuffix: Beskrivning av Azure Machine Learning Studio: Azure Machine Learning Studio gör det enkelt att anropa webbtjänster direkt från Excel utan att behöva skriva någon kod.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
 ---

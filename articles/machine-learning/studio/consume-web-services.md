@@ -1,8 +1,21 @@
 ---
-Rubrik: Använda web service titleSuffix: Beskrivning av Azure Machine Learning Studio: När en machine learning-tjänsten har distribuerats från Azure Machine Learning Studio, kan RESTFul-webb-tjänsten användas som i realtid begäranden och svar-tjänsten eller som en tjänst för batch-körningen.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
+title: Använda webbtjänst
+titleSuffix: Azure Machine Learning Studio
+description: När en machine learning-tjänsten har distribuerats från Azure Machine Learning Studio, kan RESTFul-webb-tjänsten användas som i realtid begäranden och svar-tjänsten eller som en tjänst för batch-körningen.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: c3f10e268101cfa5aff6506a64aab98b07fb948a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464389"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Hur du använder en Azure Machine Learning Studio-webbtjänst
 

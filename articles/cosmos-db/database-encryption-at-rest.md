@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8ad5b167977059f0749da4221effd427427920e9
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 308e5f829425741b4fbef3eff6738f8c95dca97f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040225"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471274"
 ---
-# <a name="azure-cosmos-db-database-encryption-at-rest"></a>Azure Cosmos DB-databas-kryptering i vila
+# <a name="data-encryption-in-azure-cosmos-db"></a>Datakryptering i Azure Cosmos DB 
 
 Vilande kryptering är en fras som ofta refererar till kryptering av data på nonvolatile lagringsenheter, t.ex. solid state-hårddiskar (SSD) och hårddiskar (HDD). Cosmos DB lagrar dess primära databaser på SSD-enheter. Dess media bifogade filer och säkerhetskopior lagras i Azure Blob storage, det stöds vanligtvis av hårddiskar. Med lanseringen av kryptering i vila för Cosmos DB krypteras alla databaser, media bifogade filer och säkerhetskopior. Dina data nu krypteras under överföring (via nätverket) och i vila (nonvolatile lagring), vilket ger dig kryptering från slutpunkt till slutpunkt.
 

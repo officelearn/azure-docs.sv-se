@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: 77ef1fed7bbdb53898a688f14944b9b6b16773c7
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.date: 01/25/2019
+ms.openlocfilehash: a9c857ab9e9a3cfc0d1314600b612c4e6293173d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200980"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476799"
 ---
 # <a name="scale-out-databases-with-the-shard-map-manager"></a>Skala ut databaser med fragmentkartehanteraren
 
@@ -40,11 +40,11 @@ För en enda klient-modell, skapar du en **lista-mappning** fragmentkartan. Ensk
 
 ![Lista mappning][1]
 
-Modell för flera klienter tilldelas flera klienter till en enskild databas (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje klient har liten databehov. I den här modellen kan du tilldela olika klienter till en databas med **intervallet mappning**.
+Modell för flera klienter tilldelas en individuell databas flera klienter (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje klient har liten databehov. I den här modellen kan du tilldela olika klienter till en databas med **intervallet mappning**.
 
 ![Mappning av intervall][2]
 
-Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* att tilldela flera klienter till en enskild databas. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för 7-klient- och klienttrafik 10.
+Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* ska tilldelas en individuell databas med flera klienter. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för 7-klient- och klienttrafik 10.
 
 ![Flera klienter i en enda DB][3]
 
@@ -60,7 +60,7 @@ Elastisk skalning stöder följande typer som horisontell partitionering nycklar
 | byte  |byte |
 | datetime | tidsstämpel |
 | Tidsintervall | varaktighet|
-| DateTimeOffset |offsetdatetime |
+| datetimeoffset |offsetdatetime |
 
 ### <a name="list-and-range-shard-maps"></a>Lista och intervallet shardkartor
 

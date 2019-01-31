@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: de395dc4f862e57030fba1d77de78eabe44a3da8
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6ec0742c205204ee74ac9f9474af0394f9d1ab31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53278465"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472661"
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Skapa och hantera SQL Database elastiska jobb med PowerShell (förhandsversion)
 
@@ -189,7 +189,7 @@ I följande tabell visas ut alla objekttyper för **elastiska databasjobb** till
 </table>
 
 ## <a name="supported-elastic-database-jobs-group-types"></a>Stöds elastiska databasjobb gruppen typer
-Jobbet körs Transact-SQL (T-SQL)-skript eller program för DACPACs för en grupp med databaser. När ett jobb skickas som ska köras i en grupp med databaser jobbet ”expanderar” den i underordnade jobb där vart och ett utför begärda körning mot en enskild databas i gruppen. 
+Jobbet körs Transact-SQL (T-SQL)-skript eller program för DACPACs för en grupp med databaser. När ett jobb skickas som ska köras i en grupp med databaser jobbet ”expanderar” den i underordnade jobb där vart och ett utför begärda körning mot en individuell databas i gruppen. 
 
 Det finns två typer av grupper som du kan skapa: 
 
@@ -428,7 +428,7 @@ RemoteSigned använder följande värden:
 * Inledande återförsöksintervallet:  100 millisekunder
 * Maximalt antal försök intervall: 30 minuter
 * Gör om intervall koefficienten: 2
-* Maximalt antal försök: 2 147 483 647
+* Maximalt antal försök: 2,147,483,647
 
 Skapa önskade körningsprincipen:
 

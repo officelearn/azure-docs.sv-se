@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 10/24/2018
-ms.openlocfilehash: b1ef03b97f9fe95286d427effc40e69ae07b6b3c
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 3d6010df64c4e3c75bd05e2eb9828c07cf3fb342
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601499"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471393"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Store Azure SQL Database-säkerhetskopior i upp till 10 år
 
 Många program har föreskrifter, efterlevnad och andra affärsrelaterade syften som kräver att du behåller säkerhetskopior av databasen efter de 7-35 dagar som tillhandahålls av Azure SQL Database [automatiska säkerhetskopieringar](sql-database-automated-backups.md). Med hjälp av funktionen för långsiktig kvarhållning av säkerhetskopior (LTR), kan du lagra angiven SQL database fullständiga säkerhetskopieringar i [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) blob-lagring för upp till 10 år. Du kan sedan återställa alla säkerhetskopiering som en ny databas.
 
 > [!NOTE]
-> LTR kan aktiveras på de databaser som finns i Azure SQL Database logiska servrar. Det är inte ännu tillgängliga för databaser som finns i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [endast kopiering databassäkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till LTR utöver 35 dagar.
+> LTR kan aktiveras för fristående och pooler databaser. Det är ännu inte tillgängliga för instans-databaser i hanterade instanser. Du kan använda SQL Agent-jobb för att schemalägga [endast kopiering databassäkerhetskopior](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server) som ett alternativ till LTR utöver 35 dagar.
 > 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Hur fungerar SQL-databas med långsiktig kvarhållning
@@ -37,11 +37,11 @@ Exempel:
 -  W = 0, M = 0, Y = 5, WeekOfYear = 3
 
    3 fullständig säkerhetskopiering varje år är kvar i fem år.
-- W = 0, M = 3, Y = 0
+- W=0, M=3, Y=0
 
    Den första fullständiga säkerhetskopian för varje månad sparas i tre månader.
 
-- W = 12, M = 0, Y = 0
+- W=12, M=0, Y=0
 
    Varje fullständig säkerhetskopiering varje vecka är kvar i 12 veckor.
 

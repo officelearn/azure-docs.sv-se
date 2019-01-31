@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
-ms.component: common
-ms.openlocfilehash: fd5df50128885f6a96e68c8ad46204bc21d80264
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531861"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473773"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Cross-Origin Resource Sharing (CORS) Support för Azure Storage-tjänster
 Från och med version 2013-08-15, stöder Azure storage-tjänster Cross-Origin Resource Sharing (CORS) för tjänsterna Blob, tabell, kö och filen. CORS är en HTTP-funktion som gör ett webbprogram som körs i en domän att komma åt resurser i en annan domän. Webbläsare implementerar en säkerhetsbegränsning som kallas [princip om samma ursprung](http://www.w3.org/Security/wiki/Same_Origin_Policy) som förhindrar att en webbsida från anropa API: er i en annan domän. CORS erbjuder ett säkert sätt att tillåta en domän (ursprungsdomänen) att anropa API: er i en annan domän. Se den [CORS-specifikationen](http://www.w3.org/TR/cors/) mer information om CORS.
@@ -67,11 +67,11 @@ Här är ett exempel på en enda CORS-regel som angetts via en ange egenskaper f
 
 Varje element som ingår i CORS-regel beskrivs nedan:
 
-* **AllowedOrigins**: ursprungsdomäner som tillåts att göra en begäran mot lagringstjänsten via CORS. Den ursprungliga domänen är den domän som förfrågan kommer från. Observera att ursprunget måste vara en skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ”*” så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
-* **AllowedMethods**: de metoder (HTTP-förfrågningsverb) som ursprungsdomänen kan använda för en CORS-förfrågan. I exemplet ovan tillåts endast PUT- och GET-begäranden.
-* **AllowedHeaders**: begärandehuvuden som ursprungsdomänen kan ange vid CORS-förfrågan. I exemplet ovan får alla rubriker för arbetsflödesmetadata som börjar med x-ms-metadata, x-ms-meta-mål och x-ms-meta-abc. Observera att jokertecknet ”*” anger att alla rubrik som börjar med det angivna prefixet tillåts.
-* **ExposedHeaders**: de svarshuvuden som kan skickas som svar på CORS-förfrågan och visas i webbläsaren för utfärdaren av förfrågan. I exemplet ovan instrueras webbläsaren att exponera alla rubrik som börjar med x-ms-metadata.
-* **MaxAgeInSeconds**: den längsta tid att en webbläsare får cachelagra den preliminära OPTIONS-begäran.
+* **AllowedOrigins**: Ursprungsdomäner som tillåts att göra en begäran mot lagringstjänsten via CORS. Den ursprungliga domänen är den domän som förfrågan kommer från. Observera att ursprunget måste vara en skiftlägeskänslig matchning med ursprung som användaren ålder skickar till tjänsten. Du kan också använda jokertecknet ”*” så att alla ursprungsdomäner att göra förfrågningar via CORS. I exemplet ovan domänerna [ http://www.contoso.com ](http://www.contoso.com) och [ http://www.fabrikam.com ](http://www.fabrikam.com) kan göra förfrågningar till tjänsten med hjälp av CORS.
+* **AllowedMethods**: De metoder (HTTP-förfrågningsverb) som ursprungsdomänen kan använda för en CORS-förfrågan. I exemplet ovan tillåts endast PUT- och GET-begäranden.
+* **AllowedHeaders**: Sidhuvuden för begäran som ursprungsdomänen kan ange vid CORS-förfrågan. I exemplet ovan får alla rubriker för arbetsflödesmetadata som börjar med x-ms-metadata, x-ms-meta-mål och x-ms-meta-abc. Observera att jokertecknet ”*” anger att alla rubrik som börjar med det angivna prefixet tillåts.
+* **ExposedHeaders**: De svarshuvuden som kan skickas som svar på CORS-förfrågan och visas i webbläsaren för utfärdaren av förfrågan. I exemplet ovan instrueras webbläsaren att exponera alla rubrik som börjar med x-ms-metadata.
+* **MaxAgeInSeconds**: Den längsta tid att en webbläsare får cachelagra den preliminära OPTIONS-begäran.
 
 Azure storage-tjänster stöder konfiguration av återskrivningscachens sidhuvuden för både den **AllowedHeaders** och **ExposedHeaders** element. Du kan ange ett vanligt prefix till den kategorin för att tillåta en kategori med rubriker. Till exempel ange *x-ms-meta** som ett prefix huvud upprättar en regel som matchar alla rubriker som börjar med x-ms-metadata.
 
@@ -129,7 +129,7 @@ Därefter ska du tänka på följande CORS-begäranden:
 
 | Förfrågan |  |  | Svar |  |
 | --- | --- | --- | --- | --- |
-| **Metoden** |**Ursprung** |**Begärandehuvuden** |**Regeln matchar** |**Resultatet** |
+| **Metod** |**Ursprung** |**Begärandehuvuden** |**Regeln matchar** |**Resultatet** |
 | **PUT** |http://www.contoso.com |x-ms-blob-content-type |Första regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-blob-content-type |Andra regeln |Lyckades |
 | **GET** |http://www.contoso.com |x-ms-client-request-id |Andra regeln |Fel |

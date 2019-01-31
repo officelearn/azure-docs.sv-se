@@ -2,7 +2,7 @@
 title: Spara resultatet eller loggar från slutförda jobb och aktiviteter till ett datalager – Azure Batch | Microsoft Docs
 description: Läs mer om olika alternativ för att spara utdata från Batch-aktiviteter och jobb. Du kan spara data till Azure Storage eller till ett annat datalager.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 463c3605f96774b6f05235f3c9d7fe0e5a7139f2
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: ff7224b342aa421c576c170f3c23ac64cad9f161
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51705726"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474353"
 ---
 # <a name="persist-job-and-task-output"></a>Bevara jobb- och uppgiftsutdata
 
@@ -77,13 +77,13 @@ Du kan också implementera en egen lösning för flytt av fullständig fil. Anv�
 
 När du skapar Batch-lösning bör du beakta följande faktorer rör jobb- och utdata.
 
-- **Compute livslängd**: Compute-noder är ofta tillfälligt, särskilt i pooler för automatisk skalning aktiverat. Utdata från en aktivitet som körs på en nod är bara tillgänglig när noden finns, och endast inom kvarhållningsperioden för filen som har angetts för aktiviteten. Om en aktivitet producerar utdata som kan behövas när aktiviteten har slutförts, uppgiften måste ladda upp sina utdatafiler till robust lagring som Azure Storage.
+- **Compute livslängd för**: Compute-noder är ofta tillfälligt, särskilt i pooler för automatisk skalning aktiverat. Utdata från en aktivitet som körs på en nod är bara tillgänglig när noden finns, och endast inom kvarhållningsperioden för filen som har angetts för aktiviteten. Om en aktivitet producerar utdata som kan behövas när aktiviteten har slutförts, uppgiften måste ladda upp sina utdatafiler till robust lagring som Azure Storage.
 
 - **Utgående lagring**: Azure Storage rekommenderas som ett datalager för uppgiftens utdata, men du kan använda någon beständig lagring. Skriva uppgiftens utdata till Azure Storage är integrerad i API: et för Batch-tjänsten. Om du använder en annan form av beständig lagring, måste du skriva programlogiken för att bevara uppgiften utdata själv.
 
-- **Utdata hämtning**: du kan hämta aktivitetsutdata direkt från beräkningsnoderna i din pool eller från Azure Storage eller ett annat datalager om du har gjorts beständiga uppgiftsutdata. Om du vill hämta en aktivitets utdata direkt från en beräkningsnod, behöver du filnamnet och dess utdata plats på noden. Om du bevara uppgiftens utdata till Azure Storage, måste den fullständiga sökvägen till filen i Azure Storage för att ladda ned utdatafiler med Azure Storage SDK.
+- **Utdata hämtning**: Du kan hämta aktivitetsutdata direkt från beräkningsnoderna i din pool eller från Azure Storage eller ett annat datalager, om du har gjorts beständiga uppgiftsutdata. Om du vill hämta en aktivitets utdata direkt från en beräkningsnod, behöver du filnamnet och dess utdata plats på noden. Om du bevara uppgiftens utdata till Azure Storage, måste den fullständiga sökvägen till filen i Azure Storage för att ladda ned utdatafiler med Azure Storage SDK.
 
-- **Visa utdata**: när du navigerar till en Batch-aktiviteter i Azure-portalen och välj **filer på noden**, visas alla filer som är associerade med aktiviteten, inte bara utdatafilerna som du är intresserad av. Igen, filer på compute-noder är tillgängliga när noden finns och att endast inom kvarhållningstid för filer som har angetts för aktiviteten. Om du vill visa uppgiftsutdata som du har gjorts beständiga i Azure Storage, du kan använda Azure-portalen eller ett Azure Storage-klientprogram som den [Azure Storage Explorer][storage_explorer]. Om du vill visa utdata i Azure Storage med portalen eller något annat verktyg, måste du känner till filens plats och navigera till den direkt.
+- **Visa utdata**: När du navigerar till en Batch-aktiviteter i Azure-portalen och välj **filer på noden**, visas alla filer som är associerade med aktiviteten, inte bara utdatafilerna som du är intresserad av. Igen, filer på compute-noder är tillgängliga när noden finns och att endast inom kvarhållningstid för filer som har angetts för aktiviteten. Om du vill visa uppgiftsutdata som du har gjorts beständiga i Azure Storage, du kan använda Azure-portalen eller ett Azure Storage-klientprogram som den [Azure Storage Explorer][storage_explorer]. Om du vill visa utdata i Azure Storage med portalen eller något annat verktyg, måste du känner till filens plats och navigera till den direkt.
 
 ## <a name="next-steps"></a>Nästa steg
 

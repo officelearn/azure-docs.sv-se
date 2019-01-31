@@ -6,16 +6,16 @@ author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4a45d00559a84c178ab760acf8616f97ce7bb57c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466293"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Metodtips för elastisk fråga i Azure SQL Database att komma åt data i Azure SQL Data Warehouse
 Läs om bästa praxis för att använda Elastic Query få åtkomst till data i Azure SQL Data Warehouse från Azure SQL Database. 
@@ -61,7 +61,7 @@ Använd dessa bästa metoder för att använda elastic query effektivt.
 ### <a name="general"></a>Allmänt
 
 - När du använder fjärranslutna frågekörning, se till att du bara välja nödvändiga kolumner och tillämpa rätt filter. Inte bara tillåter denna ökning beräkningarna som behövs, men det också ökar storleken på resultatuppsättningen och därför mängden data som behöver flyttas mellan de två instanserna.
-- Lagra data för analys i både SQL Data Warehouse och SQL Database i klustrade columnstore för analytiIcal prestanda.
+- Lagra data för analys i både SQL Data Warehouse och SQL Database i klustrade columnstore för analytiska prestanda.
 - Se till att källtabellerna partitioneras för frågor och förflyttning.
 - Se till att SQL database-instanser används som ett cacheminne partitioneras för att möjliggöra mer detaljerade uppdateringar och enklare hantering. 
 - Använd helst PremiumRS databaserna eftersom de ger analytiska fördelarna med grupperade indexering med fokus på i/o-intensiva arbetsbelastningar till ett rabatterat pris från Premium-databaser.
@@ -125,29 +125,29 @@ Använda Azure SQL-databas när:
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-F: kan jag använda databaser inom en elastisk pool med elastisk fråga?
+F: Kan jag använda databaser inom en elastisk pool med elastisk fråga?
 
 S: Ja. SQL-databaser inom en elastisk pool kan använda elastisk fråga. 
 
-F: finns det en gräns för hur många databaser som jag kan använda för elastisk fråga?
+F: Finns det en gräns för hur många databaser som jag kan använda för elastisk fråga?
 
-S: det finns inga hård gräns på hur många databaser kan användas för elastisk fråga. Men tillgodoräkna varje elastisk förfrågan (frågor som når SQL Data Warehouse) dig normala samtidighetsgränser.
+S: Det finns inga hård gräns på hur många databaser kan användas för elastisk fråga. Men tillgodoräkna varje elastisk förfrågan (frågor som når SQL Data Warehouse) dig normala samtidighetsgränser.
 
-F: finns det DTU-gränserna med elastisk fråga?
+F: Finns det DTU-gränserna med elastisk fråga?
 
 S: DTU-gränserna är inte införts något annorlunda med elastisk fråga. Standard principen är så att logiska servrar har DTU-gränserna för att förhindra kunder från oavsiktliga höga kostnader. Om du aktiverar flera databaser för elastisk fråga tillsammans med en instans av SQL Data Warehouse, kan du nått gränsen oväntat. Om detta inträffar kan du ansöka om att öka DTU-gränsen för din logiska server. Du kan öka din kvot genom [skapar en supportbegäran](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) och välja *kvot* som typ av begäran
 
-F: kan jag använda raden på security/Dynamic Data Masking med elastisk fråga?
+F: Kan jag använda raden på security/Dynamic Data Masking med elastisk fråga?
 
-S: kunder som vill använda mer avancerade säkerhetsfunktioner med SQL Database kan göra det genom att först flytta och lagra data i SQL-databasen. Du kan inte användas säkerhet på radnivå eller DDM på data som efterfrågas via externa tabeller. 
+S: Kunder som vill använda mer avancerade säkerhetsfunktioner med SQL Database kan göra det genom att först flytta och lagra data i SQL-databasen. Du kan inte användas säkerhet på radnivå eller DDM på data som efterfrågas via externa tabeller. 
 
-F: kan jag skriva från SQL-databasinstans till data warehouse-instans?
+F: Kan jag skriva från SQL-databasinstans till data warehouse-instans?
 
-S: för närvarande stöds den här funktionen inte. Besök vår [feedbacksidan] [ Feedback page] att skapa/rösta för den här funktionen om det här är en funktion som du skulle vilja se i framtiden. 
+S: Den här funktionen stöds för närvarande inte. Besök vår [feedbacksidan] [ Feedback page] att skapa/rösta för den här funktionen om det här är en funktion som du skulle vilja se i framtiden. 
 
-F: kan jag använda spatial typer som geometry/geografisk plats?
+F: Kan jag använda spatial typer som geometry/geografisk plats?
 
-S: du kan lagra spatial typer i SQL Data Warehouse som varbinary(max)-värden. När du frågar dessa kolumner med hjälp av elastisk fråga kan du konvertera dem till lämplig typer vid körning.
+S: Du kan lagra spatial typer i SQL Data Warehouse som varbinary(max)-värden. När du frågar dessa kolumner med hjälp av elastisk fråga kan du konvertera dem till lämplig typer vid körning.
 
 ![spatial typer](./media/sql-data-warehouse-elastic-query-with-sql-database/geometry-types.png)
 

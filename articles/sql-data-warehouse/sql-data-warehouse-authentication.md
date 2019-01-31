@@ -2,20 +2,20 @@
 title: Autentisera till Azure SQL Data Warehouse | Microsoft Docs
 description: Lär dig hur du autentiserar till Azure SQL Data Warehouse med hjälp av Azure Active Directory (AAD) eller SQL Server-autentisering.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f26ded5fae1bde5b2e6485ae2a2f99eebb17563
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307860"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463336"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autentisera till Azure SQL Data Warehouse
 Lär dig hur du autentiserar till Azure SQL Data Warehouse med hjälp av Azure Active Directory (AAD) eller SQL Server-autentisering.

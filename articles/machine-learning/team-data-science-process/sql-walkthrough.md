@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 97ef7b02690110f571e87960add34b45f683b615
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 2e71cf90c6e894946a2f3a1c8bfce2179f214a29
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141415"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453662"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
@@ -46,15 +46,15 @@ Den unika nyckeln för att ansluta till resans\_data och resans\_avgiften bestå
 ## <a name="mltasks"></a>Exempel på uppgifter för förutsägelse
 Vi kommer att formulera tre förutsägelse problem baserat på den *tips\_belopp*, nämligen:
 
-1. Binär klassificering: förutsäga huruvida ett tips har betalat för en resa, dvs. en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är en negativt exempel.
-2. Multiklass-baserad klassificering: att förutsäga vilka tips som har betalat för resan. Vi dela upp den *tips\_belopp* i fem lagerplatser eller klasser:
+1. Binär klassificering: Förutsäga huruvida ett tips har betalat för en resa, dvs. en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är ett exempel på negativt.
+2. Multiklass-baserad klassificering: Att förutsäga vilka tips som har betalat för resan. Vi dela upp den *tips\_belopp* i fem lagerplatser eller klasser:
    
         Class 0 : tip_amount = $0
         Class 1 : tip_amount > $0 and tip_amount <= $5
         Class 2 : tip_amount > $5 and tip_amount <= $10
         Class 3 : tip_amount > $10 and tip_amount <= $20
         Class 4 : tip_amount > $20
-3. Regression uppgift: att förutsäga mängden tips som har betalat för en resa.  
+3. Regression uppgift: Att förutsäga mängden tips som har betalat för en resa.  
 
 ## <a name="setup"></a>In the Azure datavetenskapsmiljö för avancerad analys
 Som du kan se den [Plan Your Environment](plan-your-environment.md) guide, det finns flera alternativ för att arbeta med NYC Taxi och RETUR-datauppsättningen i Azure:
@@ -79,7 +79,7 @@ Du ställer in din Azure Data Science-miljö:
    > 
    > 
 
-Baserat på storleken på datauppsättningen och datakällplats valda Azure målmiljön kan det här scenariot är liknar [scenariot \#5: stor datauppsättning i lokala filer, rikta SQL Server i Azure VM](plan-sample-scenarios.md#largelocaltodb).
+Baserat på storleken på datauppsättningen och datakällplats valda Azure målmiljön kan det här scenariot är liknar [scenariot \#5: Stor datauppsättning i lokala filer, rikta SQL Server i Azure VM](plan-sample-scenarios.md#largelocaltodb).
 
 ## <a name="getdata"></a>Hämta Data från offentliga källa
 Att hämta den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning från dess offentlig plats, kan du använda någon av metoderna som beskrivs i [flytta Data till och från Azure Blob Storage](move-azure-blob.md) att kopiera data till din nya virtuella dator.
@@ -163,7 +163,7 @@ En snabb kontroll av antalet rader och kolumner i tabellerna fylls i tidigare me
     -- Report number of columns in table nyctaxi_trip
     SELECT COUNT(*) FROM information_schema.columns WHERE table_name = 'nyctaxi_trip'
 
-#### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resa distribution enligt medallion
+#### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resans distribution enligt medallion
 Det här exemplet identifierar medallion (taxi-nummer) med fler än 100 kommunikation inom en viss tidsperiod. Frågan skulle ha nytta av partitionerade tabellåtkomst eftersom det villkor som partitionsschemat för **upphämtning\_datetime**. Fråga hela datauppsättningen innebär även att använda partitionerade tabellen och/eller index-genomsökning.
 
     SELECT medallion, COUNT(*)
@@ -172,14 +172,14 @@ Det här exemplet identifierar medallion (taxi-nummer) med fler än 100 kommunik
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Utforskning: Resa distribution enligt medallion och hack_license
+#### <a name="exploration-trip-distribution-by-medallion-and-hacklicense"></a>Utforskning: Resans distribution enligt medallion och hack_license
     SELECT medallion, hack_license, COUNT(*)
     FROM nyctaxi_fare
     WHERE pickup_datetime BETWEEN '20130101' AND '20130131'
     GROUP BY medallion, hack_license
     HAVING COUNT(*) > 100
 
-#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Data utvärdering: Verifiera poster med felaktig longitud och/eller latitud
+#### <a name="data-quality-assessment-verify-records-with-incorrect-longitude-andor-latitude"></a>Data utvärdering: Kontrollera poster med felaktig longitud och/eller latitud
 Det här exemplet undersöker om något av fälten för longitud och/eller latitud antingen innehåller ett ogiltigt värde (radian grader bör vara mellan-90 och 90), eller så har (0, 0) koordinater.
 
     SELECT COUNT(*) FROM nyctaxi_trip
@@ -191,7 +191,7 @@ Det här exemplet undersöker om något av fälten för longitud och/eller latit
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Utforskning: Lutad jämfört med Inte lutad och RETUR-distribution
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>Utforskning: Lutad vs. Inte lutad och RETUR-distribution
 Det här exemplet hittar antalet turer som har lutad jämfört med lutad inte i en given tidpunkt tidsperiod (eller i hela datauppsättningen om som täcker hela året). Den här distributionen återspeglar distribution av binära etiketter ska användas senare för binär klassificering modellering.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -328,14 +328,14 @@ Antal rader och kolumner hämtas = (84952, 21)
 
     df1['trip_distance'].describe()
 
-#### <a name="visualization-box-plot-example"></a>Visualiseringen: Exempel rityta
+#### <a name="visualization-box-plot-example"></a>Visualisering: Exempel på diagram
 Därefter tittar vi på Låddiagram för resans avståndet till visualisera quantiles
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Rita #1][1]
 
-#### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel Distribution diagram
+#### <a name="visualization-distribution-plot-example"></a>Visualisering: Exempel för distribution-diagram
     fig = plt.figure()
     ax1 = fig.add_subplot(1,2,1)
     ax2 = fig.add_subplot(1,2,2)
@@ -344,7 +344,7 @@ Därefter tittar vi på Låddiagram för resans avståndet till visualisera quan
 
 ![Rita #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>Visualisering: Fältet och rad områden
+#### <a name="visualization-bar-and-line-plots"></a>Visualisering: -Fältet och rad områden
 I det här exemplet vi bin resans avståndet till fem lagerplatser och visualisera datagrupperingen resultat.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -416,7 +416,7 @@ I det här avsnittet ska utforska vi data distributioner med hjälp av 1% sampla
 
     pd.read_sql(query,conn)
 
-#### <a name="exploration-trip-distribution-per-medallion"></a>Utforskning: Resa distribution per medallion
+#### <a name="exploration-trip-distribution-per-medallion"></a>Utforskning: Resans distribution per medallion
     query = '''
         SELECT medallion,count(*) AS c
         FROM nyctaxi_one_percent
@@ -486,7 +486,7 @@ Det här exemplet omvandlar ett kategoriskt fält till ett numeriskt fält genom
     cursor.execute(nyctaxi_one_percent_update_col)
     cursor.commit()
 
-#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Funktionsframställning: Bin funktioner för numeriska kolumner
+#### <a name="feature-engineering-bin-features-for-numerical-columns"></a>Funktionsframställning: Bin-funktioner för numeriska kolumner
 Det här exemplet omvandlar en kontinuerlig numeriskt fält till förinställda kategori intervall, d.v.s. transformeringen numeriskt fält i ett kategoriska fält.
 
     nyctaxi_one_percent_insert_col = '''
@@ -546,9 +546,9 @@ Det här exemplet eliminerar formatet för ett latitud/longitud eller fält i fl
 
 Vi är nu redo att gå vidare till modellskapandet och distribution av modeller i [Azure Machine Learning](https://studio.azureml.net). Data är redo för någon av de förutsägelse problem som konstaterats tidigare, nämligen:
 
-1. Binär klassificering: för att förutsäga om ett tips har betalat för en resa.
-2. Multiklass-baserad klassificering: att förutsäga vilka tips betalt enligt de tidigare definierade klasserna.
-3. Regression uppgift: att förutsäga mängden tips som har betalat för en resa.  
+1. Binär klassificering: För att förutsäga om ett tips har betalat för en resa.
+2. Multiklass-baserad klassificering: Att förutsäga vilka tips betalt enligt de tidigare definierade klasserna.
+3. Regression uppgift: Att förutsäga mängden tips som har betalat för en resa.  
 
 ## <a name="mlmodel"></a>Skapa modeller i Azure Machine Learning
 Logga in på din Azure Machine Learning-arbetsyta om du vill börja modellering. Om du inte har skapat en machine learning-arbetsytan finns i [skapar en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).

@@ -11,31 +11,36 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 50c5071ce672e3a2aba130817628ad0d26f656e5
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: f51b31903953f9a1d4959f78d570d3de92478f50
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653492"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455311"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>Läsa in data från CSV till Azure SQL Database (flat-filer)
+
 Du kan använda kommandoradsverktyget bcp för att importera data från en CSV-fil till Azure SQL Database.
 
 ## <a name="before-you-begin"></a>Innan du börjar
+
 ### <a name="prerequisites"></a>Förutsättningar
+
 Du behöver följande för att slutföra stegen i den här artikeln:
 
-* Skapa en logisk Azure SQL Database-server och -databas
+* En Azure SQL Database-server och databas
 * Kommandoradsverktyget bcp installerat
 * Kommandoradsverktyget sqlcmd installerat
 
 Du kan hämta verktygen bcp och sqlcmd från [Microsoft Download Center][Microsoft Download Center].
 
 ### <a name="data-in-ascii-or-utf-16-format"></a>Data i ASCII- eller UTF-16-format
+
 Om du använder egna data i självstudierna, måste de använda sig av ASCII- eller UTF-16-kodning eftersom bcp inte stöder UTF-8. 
 
 ## <a name="1-create-a-destination-table"></a>1. Skapa en måltabell
+
 Definiera en tabell i SQL Database som måltabellen. Kolumnerna i tabellen måste motsvara data i varje rad i din datafil.
 
 För att skapa en tabell, öppnar du en kommandotolk och använder sqlcmd.exe för att köra följande kommando:
@@ -54,6 +59,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 
 
 ## <a name="2-create-a-source-data-file"></a>2. Skapa en källdatafil
+
 Öppna Anteckningar och kopiera följande datarader till en ny textfil. Spara sedan filen till din lokala temp-katalog, C:\Temp\DimDate2.txt. Den här datan är i ASCII-format.
 
 ```
@@ -78,6 +84,7 @@ bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName
 ```
 
 ## <a name="3-load-the-data"></a>3. Läs in data
+
 För att läsa in data, öppnar du en kommandotolk och kör följande kommando, där du ersätter värdena för servernamn, databasnamn, användarnamn och lösenord med din egen information.
 
 ```bcp
@@ -108,6 +115,7 @@ Resultatet borde se ut så här:
 | 20151201 |4 |2 |
 
 ## <a name="next-steps"></a>Nästa steg
+
 Om du vill migrera en SQL Server-databas hittar du mer information i [SQL Server-databasmigrering](sql-database-cloud-migrate.md).
 
 <!--MSDN references-->

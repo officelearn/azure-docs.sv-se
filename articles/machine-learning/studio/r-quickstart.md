@@ -1,6 +1,6 @@
 ---
-Rubrik: Snabbstartssjälvstudier R språk titleSuffix: Beskrivning av Azure Machine Learning Studio: Använd den här programming R-självstudiekursen för att komma igång snabbt med R-språket med Azure Machine Learning Studio för att skapa en lösning för prognostisering.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Snabbstartssjälvstudier R språk titleSuffix: Beskrivning av Azure Machine Learning Studio: Använd den här programming R-självstudiekursen för att komma igång snabbt med R-språket med Azure Machine Learning Studio för att skapa en lösning för prognostisering.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/06/2017
 ---

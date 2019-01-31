@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 20e5c96110f07d8eaec218ed167c87a48fd65782
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 73d4ba0c82f26a6249528f2dbef1fd30f99ccedb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037386"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475881"
 ---
-# <a name="unique-keys-in-azure-cosmos-db"></a>Unika nycklar i Azure Cosmos DB
+# <a name="unique-key-constraints-in-azure-cosmos-db"></a>Unika viktiga begränsningar i Azure Cosmos DB
 
 Unika nycklar ger dig möjlighet att lägga till ett lager med dataintegritet till en Cosmos-behållare. Du kan skapa en unik nyckel princip när du skapar en Cosmos-behållare. Se till att en eller flera värden i en logisk partition är unikt med unika nycklar (du kan garantera unikhet per [partitionsnyckel](partition-data.md)). När du skapar en behållare med en unik nyckel princip förhindrar det att skapa nya (eller uppdaterade) dubbletterna i en logisk partition som den anges av det unika nyckelvillkoret. Partitionsnyckeln kombineras med unika nyckeln garanterar unikhet för ett objekt i omfånget för behållaren.
 

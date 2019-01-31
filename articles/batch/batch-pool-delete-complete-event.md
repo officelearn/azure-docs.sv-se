@@ -1,8 +1,8 @@
 ---
-title: Azure Batch-pool ta bort händelsen klar | Microsoft Docs
-description: Referens för Batch-pool att ta bort händelsen klar.
+title: Azure Batch-pool ta bort Sluthändelse | Microsoft Docs
+description: Referens för Batch-pool ta bort händelsen klar.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,19 +11,19 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: bfcbcf40efc64ab1c79ee1a86e02502c68ad6d47
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.author: lahugh
+ms.openlocfilehash: e715ccd0f5e79f9c640a3c060b0252b798748b4d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30310322"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474556"
 ---
 # <a name="pool-delete-complete-event"></a>Sluthändelse för borttagning av pool
 
- Denna händelse genereras när en programpool borttagningen har slutförts.
+ Den här händelsen genereras när en pool delete-åtgärd har slutförts.
 
- I följande exempel visar innehållet i en pool delete complete-händelse.
+ I följande exempel visar innehållet i en pool delete fullständig händelse.
 
 ```
 {
@@ -33,11 +33,11 @@ ms.locfileid: "30310322"
 }
 ```
 
-|Element|Typ|Anteckningar|
+|Element|Type|Anteckningar|
 |-------------|----------|-----------|
-|id|Sträng|Id för poolen.|
-|startTime|DateTime|Den tid som poolen ta bort startas.|
-|endTime|DateTime|Den tid poolen ta bort slutförts.|
+|id|String|Id för poolen.|
+|startTime|DateTime|Den tid som poolen ta bort igång.|
+|endTime|DateTime|Den tid ta bort poolen har slutförts.|
 
 ## <a name="remarks"></a>Kommentarer
-Mer information om tillstånd och felkoder för åtgärden Ändra storlek för poolen finns [ta bort poolen från ett konto](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+Läs mer om tillstånd och felkoder för poolen storleksändringen [ta bort en pool från ett konto](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 77c67c491b3157103b267864417678c83326814c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c4acb3b779821193949c69d440edaafec5e3d803
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141160"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474062"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Datainsamling och förstå steget i Team Data Science Process
 
@@ -66,9 +66,9 @@ I det här steget kan du utveckla en lösningsarkitektur av din datapipeline fö
 ## <a name="artifacts"></a>Artefakter
 Följande är slutprodukter i det här steget:
 
-   * [Data quality rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): den här rapporten omfattar sammanfattningar av data, relationerna mellan varje attribut och mål, variabel rangordning och mycket mer. Den [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyg som tillhandahålls som en del av TDSP kan snabbt skapa den här rapporten på valfri tabular datamängd, till exempel en CSV-fil eller en relationsdatabastabell. 
-   * **Lösningsarkitektur**: lösningsarkitekturen kan vara ett diagram eller beskrivning av dina data i pipeline som du använder för att köra bedömning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipeline för att träna din modell som baseras på nya data. Store dokument i den [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory när du använder TDSP directory struktur mall.
-   * **Kontrollpunkt beslut**: innan du börjar fullständig funktionsframställning och modellskapandet du omvärdera projektet för att avgöra om det förväntade värdet är tillräckliga för att fortsätta arbetar den. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
+   * [Data quality rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/DataSummaryReport.md): Den här rapporten omfattar sammanfattningar av data, relationerna mellan varje attribut och mål, variabel rangordning och mycket mer. Den [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyg som tillhandahålls som en del av TDSP kan snabbt skapa den här rapporten på valfri tabular datamängd, till exempel en CSV-fil eller en relationsdatabastabell. 
+   * **Lösningsarkitektur**: Lösningsarkitekturen kan vara ett diagram eller beskrivning av din pipeline för data som används för att köra bedömning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipeline för att träna din modell som baseras på nya data. Store dokument i den [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory när du använder TDSP directory struktur mall.
+   * **Kontrollpunkt beslut**: Innan du börjar fullständig funktionsframställning och modellskapandet omvärdera du projektet för att avgöra om det förväntade värdet är tillräckliga för att fortsätta arbetar den. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 

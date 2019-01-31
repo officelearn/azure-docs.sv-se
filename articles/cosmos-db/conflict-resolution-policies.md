@@ -1,5 +1,5 @@
 ---
-title: Konflikt upplösning-typer och upplösning principer i Azure Cosmos DB
+title: Konflikt upplösning-typer och principer för lösning med flera skriva regioner i Azure Cosmos DB
 description: Den här artikeln beskriver konflikt kategorier och principer för lösning av konflikt i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 4af3f4c60f186c34d0f5522461ba70c68b59d1ab
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 31e6fa596bb053ee8cd19f641349f02ee169b6eb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54033901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472345"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Konflikttyper och matchningsprinciper
 
@@ -39,7 +39,7 @@ Azure Cosmos DB erbjuder en flexibel principstyrda mekanism för att lösa Uppda
 
   Mer information finns i [exempel som använder LWW står i konflikt upplösning principer](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-- **Anpassad**: Den här principen är utformat för programdefinierade semantik för avstämningen av konflikter. När du anger den här principen på din Azure Cosmos DB-behållare kan behöva du också registrera en merge lagrad procedur. Den här proceduren anropas automatiskt när konflikter upptäcks under en databastransaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
+- **Anpassat**: Den här principen är utformat för programdefinierade semantik för avstämningen av konflikter. När du anger den här principen på din Azure Cosmos DB-behållare kan behöva du också registrera en merge lagrad procedur. Den här proceduren anropas automatiskt när konflikter upptäcks under en databastransaktion på servern. Systemet innehåller exakt en gång garanterar för körning av en merge-procedur som en del av protokollet åtagande.  
 
   Det finns två saker att komma ihåg att om du konfigurerar din behållare med alternativet för anpassad lösning. Om du inte kan registreras en merge-procedur på behållaren eller merge-procedur genereras ett undantag vid körning, har det är i konflikt skrivits till konflikter feed. Sedan ditt program måste manuellt lösa konflikter i konflikter feed. Mer information finns i [exempel på hur du använder den anpassade principen och hur du använder det orsakar en konflikt feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: 0db6cc02be385ab82d41ecef214c5b158892c415
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: 7fbbcefde583d7e464633d9011e591b4c9bf6f65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53628142"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460326"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Använda Azure PowerShell med Azure Storage
 
@@ -181,9 +181,9 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 Som standard är alla lagringskonton är tillgängliga för några nätverk som har åtkomst till internet. Du kan dock konfigurera Nätverksregler för att endast tillåta att program från specifika virtuella nätverk till ett lagringskonto. Mer information finns i [konfigurera Azure Storage-brandväggar och virtuella nätverk](storage-network-security.md). 
 
 Artikeln visar hur du hanterar de här inställningarna med hjälp av följande PowerShell-cmdletar:
-* [Lägg till AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
-* [Uppdatera AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
-* [Ta bort AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
+* [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
+* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Med storage analytics  
 
@@ -222,9 +222,9 @@ Azure Cosmos DB Table API ger premium-funktioner för tabellagring, till exempel
 
 De flesta använda Azures offentliga moln för sin globala Azure-distribution. Det finns även vissa oberoende distributioner av Microsoft Azure på grund av landsbaserad placering och så vidare. Dessa oberoende distributioner kallas ”miljöer”. Dessa är tillgängliga miljöer:
 
-* [Azure Government-molnet](https://azure.microsoft.com/features/gov/)
+* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
 * [Azure Kina-molnet som drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
-* [Azure Tyskland-molnet](../../germany/germany-welcome.md)
+* [Azure German Cloud](../../germany/germany-welcome.md)
 
 Information om hur du kommer åt dessa moln och deras lagringsutrymmen med PowerShell finns i [hantera lagring i Azure-oberoende molnet med hjälp av PowerShell](storage-powershell-independent-clouds.md).
 

@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: de8070906f7b2470378fb631f2e94a96b4a2960d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: a74f2c21746deb16372174d4a769f9abb825a1cd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138661"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473318"
 ---
 # <a name="feature-selection-in-the-team-data-science-process-tdsp"></a>Funktionsval i TDSP (Team Data Science Process)
 Den här artikeln förklarar för val av funktioner och innehåller exempel på dess roll i processen för data förbättring av machine learning. Följande exempel hämtas från Azure Machine Learning Studio. 
@@ -25,8 +25,8 @@ Den här artikeln förklarar för val av funktioner och innehåller exempel på 
 
 Teknik- och urval funktioner är en del av Team Data Science Process (TDSP) som beskrivs i artikeln [vad är Team Data Science Process?](overview.md). Funktioner och egenskapsval är delar av den **utveckla funktioner** steg i TDSP.
 
-* **funktionstekniker**: den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften att Inlärningsalgoritmen.
-* **Funktionsval**: den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
+* **egenskapsval**: Den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften att Inlärningsalgoritmen.
+* **Funktionsval**: Den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
 
 Normalt **funktionstekniker** tillämpas först för att generera ytterligare funktioner, och sedan den **Funktionsval** steg utförs för att ta bort irrelevanta, redundant eller mycket korrelerade funktioner.
 

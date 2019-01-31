@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: fc7bf4eaeb073b0337be68632e5057bfce96e06a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: a09037f2e33d87446696dd11477c4e8b45af4187
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474181"
 ---
 # <a name="migrate-your-data"></a>Migrera dina Data
 Data kan flyttas från olika källor i SQL Data Warehouse med en mängd verktyg.  ADF kopia och SSIS bcp kan alla användas för att uppnå det här målet. Som mängden data ökar bör du dock tänka bryta ned data migreringsprocessen i steg. Detta får du möjlighet att optimera varje steg både för prestanda och flexibilitet i fokus att säkerställa en smidig datamigrering.
@@ -157,7 +157,7 @@ En sammanfattning av generella kan vara följande:
 3. AZCopy dina data i Azure Blob Storage-behållare
 4. Läsa in data till SQL Data Warehouse med PolyBase
 
-Fullständig dokumentation tillgänglig: [AZCopy][AZCopy].
+Fullständig dokumentation som är tillgängliga: [AZCopy][AZCopy].
 
 ## <a name="optimizing-data-export"></a>Optimera export av data
 Förutom att säkerställa att exporten uppfyller kraven som anges av PolyBase kan du också försöka optimera export av data att förbättra den ytterligare.

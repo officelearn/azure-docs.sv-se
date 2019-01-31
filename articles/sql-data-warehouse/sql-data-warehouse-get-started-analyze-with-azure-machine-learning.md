@@ -2,20 +2,20 @@
 title: Analysera data med Azure Machine Learning | Microsoft Docs
 description: Använd Azure Machine Learning för att skapa en förutsägbar Machine Learning-modell som baseras på data lagrade i Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 8a33d733f4737bf19e7baad6d80d8fa72999268f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247534"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477666"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Analysera data med Azure Machine Learning
 > [!div class="op_single_selector"]
@@ -84,7 +84,7 @@ För att rensa data kommer vi att släppa vissa kolumner som inte är relevanta 
    ![Ta bort onödiga kolumner][5]
 
 ## <a name="3-build-the-model"></a>3. Skapa modellen
-Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
+Vi delar data 80 – 20: 80% för att träna en maskininlärningsmodell och 20% för att testa modellen. Vi använder ”Tvåklassalgoritmer” för detta binära klassificeringsproblem.
 
 1. Dra modulen **Dela** till arbetsytan.
 2. Ange 0,8 för andel av rader i den första utdatamängden i fönstret Egenskaper.
@@ -101,7 +101,7 @@ Vi delar data 80–20: 80 % för att träna en maskininlärningsmodell och 20 % 
 Vi kommer nu att testa hur modellen presterar på testdata. Vi kommer att jämföra algoritmen vi valt med en annan algoritm för att se vilken som presterar bäst.
 
 1. Dra modulen **Poängmodell** till arbetsytan.
-    Första indata: tränad modell, andra indata: testdata ![poängsätt modellen][9]
+    Första indata: Tränad modell, andra indata: Testa data ![Poängsätt modellen][9]
 2. Dra **Tvåklass, Bayes Point-dator** till arbetsytan för experimentet. Vi kommer att jämföra hur den här algoritmen presterar i jämförelse med det tvåklassförhöjda beslutsträdet.
 3. Kopiera och klistra in modulerna Träningsmodell och Poängmodell i arbetsytan.
 4. Dra modulen **Utvärdera modell** till arbetsytan för att jämföra de två algoritmerna.

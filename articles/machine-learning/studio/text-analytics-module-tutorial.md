@@ -1,5 +1,5 @@
 ---
-Rubrik: Skapa en sentiment analysis modellen titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa textanalysmodeller i Azure Machine Learning Studio med moduler för text Förbearbeta N-gram eller funktionen hash tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Skapa en sentiment analysis modellen titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa textanalysmodeller i Azure Machine Learning Studio med moduler för text Förbearbeta N-gram eller funktionen hash tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2018
 ---

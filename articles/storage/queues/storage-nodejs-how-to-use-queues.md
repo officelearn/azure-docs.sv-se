@@ -9,13 +9,13 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 38da370e8e3cd81e209d0fd592d6b2afa8c82e44
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.subservice: queues
+ms.openlocfilehash: 295ca353530fb438d0bd77a9144813543102b997
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138528"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472719"
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Använda Queue Storage från Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -64,7 +64,7 @@ var azure = require('azure-storage');
 ## <a name="setup-an-azure-storage-connection"></a>Skapa ett Azure Storage-anslutning
 Azure-modulen läses miljövariablerna AZURE\_STORAGE\_konto och AZURE\_STORAGE\_åtkomst\_nyckel eller AZURE\_STORAGE\_anslutning\_ STRÄNG information som krävs för att ansluta till Azure storage-kontot. Om de här miljövariablerna inte har angetts måste du ange informationen när du anropar **createQueueService**.
 
-## <a name="how-to-create-a-queue"></a>Så här: Skapa en kö
+## <a name="how-to-create-a-queue"></a>Instruktioner: Skapa en kö
 Följande kod skapar en **QueueService** -objektet, vilket gör det möjligt att arbeta med köer.
 
 ```javascript
@@ -105,7 +105,7 @@ var retryOperations = new azure.ExponentialRetryPolicyFilter();
 var queueSvc = azure.createQueueService().withFilter(retryOperations);
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Så här: Infoga ett meddelande i en kö
+## <a name="how-to-insert-a-message-into-a-queue"></a>Instruktioner: Infoga ett meddelande i en kö
 Om du vill infoga ett meddelande i en kö, använda den **createMessage** metod för att skapa ett nytt meddelande och lägga till den i kön.
 
 ```javascript
@@ -116,7 +116,7 @@ queueSvc.createMessage('myqueue', "Hello world!", function(error, results, respo
 });
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: En titt på nästa meddelande
+## <a name="how-to-peek-at-the-next-message"></a>Instruktioner: En titt på nästa meddelande
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa den **peekMessages** metod. Som standard **peekMessages** tittar på ett enda meddelande.
 
 ```javascript
@@ -134,7 +134,7 @@ Den `result` innehåller meddelandet.
 > 
 > 
 
-## <a name="how-to-dequeue-the-next-message"></a>Så här: Ta bort från kön nästa meddelande
+## <a name="how-to-dequeue-the-next-message"></a>Instruktioner: Ta bort från kön nästa meddelande
 Bearbetar ett meddelande som är en process i två steg:
 
 1. Ta bort från kön meddelandet.
@@ -164,7 +164,7 @@ queueSvc.getMessages('myqueue', function(error, results, response){
 > 
 > 
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här: Ändra innehållet i ett meddelande i kön
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Instruktioner: Ändra innehållet i ett meddelande i kön
 Du kan ändra innehållet i ett meddelande direkt i kön med **updateMessage**. I följande exempel uppdateras texten i meddelandet:
 
 ```javascript
@@ -181,7 +181,7 @@ queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
 });
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Så här: Ytterligare alternativ för mellan köer meddelanden
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Instruktioner: Ytterligare alternativ för meddelanden mellan köer
 Det finns två sätt som du kan anpassa meddelandehämtningen från en kö:
 
 * `options.numOfMessages` – Hämta en grupp med meddelanden (upp till 32).
@@ -206,7 +206,7 @@ queueSvc.getMessages('myqueue', {numOfMessages: 15, visibilityTimeout: 5 * 60}, 
 });
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: Hämta kölängden
+## <a name="how-to-get-the-queue-length"></a>Instruktioner: Hämta kölängden
 Den **getQueueMetadata** returnerar metadata om kön, inklusive det ungefärliga antalet väntande meddelanden i kön.
 
 ```javascript
@@ -217,7 +217,7 @@ queueSvc.getQueueMetadata('myqueue', function(error, results, response){
 });
 ```
 
-## <a name="how-to-list-queues"></a>Så här: Lista köer
+## <a name="how-to-list-queues"></a>Instruktioner: Lista köer
 Använd för att hämta en lista över köer **listQueuesSegmented**. Använd för att hämta en lista som filtreras efter ett specifikt prefix **listQueuesSegmentedWithPrefix**.
 
 ```javascript
@@ -230,7 +230,7 @@ queueSvc.listQueuesSegmented(null, function(error, results, response){
 
 Om alla köer inte kan returneras, `result.continuationToken` kan användas som den första parametern i **listQueuesSegmented** eller den andra parametern för **listQueuesSegmentedWithPrefix** att hämta fler resultat.
 
-## <a name="how-to-delete-a-queue"></a>Så här: Ta bort en kö
+## <a name="how-to-delete-a-queue"></a>Instruktioner: Ta bort en kö
 Ta bort en kö och alla meddelanden som finns i den genom att anropa den **deleteQueue** metoden för köobjektet.
 
 ```javascript
@@ -243,7 +243,7 @@ queueSvc.deleteQueue(queueName, function(error, response){
 
 Om du vill ta bort alla meddelanden från en kö utan att ta bort det, Använd **clearMessages**.
 
-## <a name="how-to-work-with-shared-access-signatures"></a>Så här: arbeta med signaturer för delad åtkomst
+## <a name="how-to-work-with-shared-access-signatures"></a>Anvisningar: Arbete med signaturer för delad åtkomst
 Signaturer för delad åtkomst (SAS) är ett säkert sätt att ge detaljerad åtkomst till köer utan att ange ditt lagringskontonamn eller nycklar. SAS används ofta för att bevilja begränsad åtkomst till din köer, till exempel att en mobil app att skicka meddelanden.
 
 En betrodda program, till exempel en molnbaserad tjänst som genererar en SAS med hjälp av den **generateSharedAccessSignature** av den **QueueService**, och ger den till ett program som inte är betrodd eller delvis betrodd. Exempelvis kan en mobil app. Signaturen för delad åtkomst genereras med hjälp av en princip, som definierar mellan vilket start- och slutdatum signaturen för delad åtkomst är giltig, samt vilken åtkomstnivå SAS-innehavaren beviljas.

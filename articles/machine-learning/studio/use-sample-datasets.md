@@ -1,6 +1,6 @@
 ---
-Rubrik: Använd exemplet datauppsättningar titleSuffix: Beskrivning av Azure Machine Learning Studio: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Använd exemplet datauppsättningar titleSuffix: Beskrivning av Azure Machine Learning Studio: Beskrivningar av de datauppsättningar som används i exemplet modeller som ingår i Machine Learning Studio. Du kan använda dessa exempel på datauppsättningar för dina experiment.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/19/2018
 ---

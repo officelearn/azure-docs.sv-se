@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a37c200e52e1d2786690a8a0e669af57312294d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: f733b2c9bcd8dc8ad8c068c465e1beda00b45d28
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139188"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471019"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Plattformar och verktyg för dataforskningsprojekt
 
@@ -73,7 +73,7 @@ Mer information om Azure SQL Data Warehouse finns i den [SQL Data Warehouse](htt
 
 Azure data lake är som en företagsomfattande lagringsplats för alla typer av data som samlas in på en enda plats innan några formella krav eller schemat som införts. Den här flexibiliteten gör att alla typer av data som ska lagras i en datasjö, oavsett dess storlek eller struktur eller hur snabbt det matas in. Organisationer kan sedan använda Hadoop eller avancerad analys för att hitta mönster i dessa data Lake-sjöar. Data Lake-sjöar kan också fungera som en lagringsplats för förberedelse av data för lägre kostnad innan curating data och flytta den till ett datalager.
 
-Mer information om Azure Data Lake finns i [introduktion till Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Läs hur du skapar en skalbar slutpunkt till slutpunkt data science-lösning med Azure Data Lake i [skalbar datavetenskap i Azure Data Lake: genomgång för en slutpunkt till slutpunkt](data-lake-walkthrough.md)
+Mer information om Azure Data Lake finns i [introduktion till Azure Data Lake](https://azure.microsoft.com/blog/introducing-azure-data-lake/). Läs hur du skapar en skalbar slutpunkt till slutpunkt data science-lösning med Azure Data Lake i [skalbar datavetenskap i Azure Data Lake: En slutpunkt till slutpunkt genomgång](data-lake-walkthrough.md)
 
 
 ## <a name="azure-hdinsight-hive-hadoop-clusters"></a>Azure HDInsight Hive (Hadoop)-kluster
@@ -103,7 +103,7 @@ R Services (databasintern) stöder språk R med öppen källkod med en omfattand
 TDSP-teamet från Microsoft har publicerat två slutpunkt till slutpunkt genomgång som visar hur du skapar datavetenskapliga lösningar i SQL Server 2016 R Services: en för R-programmerare och en för SQL-utvecklare. För **R-programmerare**, se [Data Science slutpunkt till slutpunkt genomgång](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough). För **SQL utvecklare**, se [i databasen Advanced Analytics för SQL-utvecklare (självstudier)](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers).
 
 
-## <a name="appendix"></a>Bilaga: Verktyg för att ställa in dataforskningsprojekt
+## <a name="appendix"></a>Tillägg: Verktyg för att ställa in dataforskningsprojekt
 
 ### <a name="install-git-credential-manager-on-windows"></a>Installera Git Credential Manager på Windows
 

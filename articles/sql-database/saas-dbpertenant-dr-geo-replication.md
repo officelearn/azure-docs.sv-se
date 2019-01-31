@@ -11,20 +11,20 @@ author: AyoOlubeko
 ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
-ms.date: 04/09/2018
-ms.openlocfilehash: f24c76fb6b7ca24573a97aa122659fe5ca019550
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b2be42e4984ac7000cfb31ce6575c529b752db2d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056343"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471155"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Haveriberedskap för en SaaS-program med hjälp av database geo-replikering
 
-I den här självstudien får utforska du fullständig haveriberedskap för ett SaaS-program för flera innehavare som implementeras med hjälp av modellen databas-per-klient. För att skydda appen från ett avbrott kan du använda [ _georeplikering_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) att skapa repliker för catalog och klient-databaser i en annan återställningsregion. Om ett avbrott uppstår kan växlar du snabbt över till de här replikeringarna att återuppta normal verksamheten. Vid redundans blir databaser i den ursprungliga regionen sekundära repliker för databaserna i återställningsregionen. När dessa repliker är online igen fånga de automatiskt upp till tillståndet för databaserna i återställningsregionen. När driftstörningarna har åtgärdats, växla tillbaka till databaserna i produktionsregionen.
+I den här självstudien får utforska du fullständig haveriberedskap för ett SaaS-program för flera innehavare som implementeras med hjälp av modellen databas-per-klient. För att skydda appen från ett avbrott kan du använda [ _georeplikering_ ](sql-database-geo-replication-overview.md) att skapa repliker för catalog och klient-databaser i en annan återställningsregion. Om ett avbrott uppstår kan växlar du snabbt över till de här replikeringarna att återuppta normal verksamheten. Vid redundans blir databaser i den ursprungliga regionen sekundära repliker för databaserna i återställningsregionen. När dessa repliker är online igen fånga de automatiskt upp till tillståndet för databaserna i återställningsregionen. När driftstörningarna har åtgärdats, växla tillbaka till databaserna i produktionsregionen.
 
 Den här guiden utforskar arbetsflöden för både redundans och återställning efter fel. Du lär dig följande:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
 >* Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
@@ -53,9 +53,9 @@ En DR-planen baserat på geo-replikering består av tre separata delar:
 Alla delar måste planeras noggrant, särskilt om du kör i skala. Övergripande måste planen utföra flera mål:
 
 * Konfiguration
-    * Upprätta och upprätthålla en spegelbild miljö i återställningsregionen. Skapa elastiska pooler och replikering av alla enskilda databaser i den här Återställningsmiljö reserverar kapacitet i återställningsregionen. Underhåll av den här miljön innehåller replikera nya klientdatabaserna när de har etablerats.  
+    * Upprätta och upprätthålla en spegelbild miljö i återställningsregionen. Skapa elastiska pooler och replikering av alla databaser i den här Återställningsmiljö reserverar kapacitet i återställningsregionen. Underhåll av den här miljön innehåller replikera nya klientdatabaserna när de har etablerats.  
 * Återställning
-    * Om en skalas ned Återställningsmiljö används för att minimera dagliga kostnader, måste pooler och enskilda databaser skalas upp för att hämta fullständig driftskapacitet i återställningsregionen
+    * Om en skalas ned Återställningsmiljö används för att minimera dagliga kostnader, måste pooler och databaser skalas upp för att hämta fullständig driftskapacitet i återställningsregionen
     * Aktivera etableringen i återställningsregionen så snart som möjligt av nya klienter  
     * Optimeras för att återställa klienter i prioritetsordning
     * Optimeras för att hämta klienter online så snabbt som möjligt genom att göra steg parallellt där praktiska
@@ -67,10 +67,10 @@ Alla delar måste planeras noggrant, särskilt om du kör i skala. Övergripande
 I de här självstudierna behandlas svårigheter med hjälp av funktionerna i Azure SQL Database och Azure-plattformen:
 
 * [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), för att reservera alla nödvändiga kapacitet så snabbt som möjligt. Azure Resource Manager-mallar används för att etablera en spegelbild av produktionsservrar och elastiska pooler i återställningsregionen.
-* [GEO-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview), för att skapa asynkront replikerade sekundärservrar för alla databaser som skrivskyddad. Vid driftsstopp växlar du över till repliker i återställningsregionen.  När driftstörningarna har åtgärdats, växla tillbaka till databaserna i den ursprungliga regionen utan att förlora data.
+* [GEO-replikering](sql-database-geo-replication-overview.md), för att skapa asynkront replikerade sekundärservrar för alla databaser som skrivskyddad. Vid driftsstopp växlar du över till repliker i återställningsregionen.  När driftstörningarna har åtgärdats, växla tillbaka till databaserna i den ursprungliga regionen utan att förlora data.
 * [Asynkron](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) failover-åtgärder som skickas i klient-prioritetsordning, minimera redundanstiden för många databaser.
-* [Shard för recovery hanteringsfunktioner](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager), ändra databasposter i katalogen under återställning och hemtransport. De här funktionerna kan appen att ansluta till klientdatabaser, oavsett plats utan att konfigurera om appen.
-* [SQL server-DNS-alias](https://docs.microsoft.com/azure/sql-database/dns-alias-overview), för att aktivera sömlös etablering av nya klienter oavsett vilken region appen körs i. DNS-alias används också för att tillåta catalog synkroniseringen att ansluta till den aktiva katalogen oavsett var.
+* [Shard för recovery hanteringsfunktioner](sql-database-elastic-database-recovery-manager.md), ändra databasposter i katalogen under återställning och hemtransport. De här funktionerna kan appen att ansluta till klientdatabaser, oavsett plats utan att konfigurera om appen.
+* [SQL server-DNS-alias](dns-alias-overview.md), för att aktivera sömlös etablering av nya klienter oavsett vilken region appen körs i. DNS-alias används också för att tillåta catalog synkroniseringen att ansluta till den aktiva katalogen oavsett var.
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Hämta disaster recovery skript 
 
@@ -92,8 +92,8 @@ Senare, i ett separat hemtransport steg växlar över katalog- och klienttrafik 
 Granska det normala felfritt tillståndet innan du startar återställningsprocessen.
 1. Öppna i webbläsaren, Evenemangshubben Wingtip biljetter (http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net - Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution).
     * Bläddra längst ned på sidan och Lägg märke till katalogen servernamnet och en plats i sidfoten. Platsen är den region där du har distribuerat appen.
-    *Tips: Pekar på platsen för att visa.*
-    ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
+    *TIPS: Hovra med musen över platsen som förstora visningen. * 
+     ![Händelser hub felfritt tillstånd i ursprungliga region](media/saas-dbpertenant-dr-geo-replication/events-hub-original-region.png)
 
 2. Klicka på Contosos Konserthall-klient och öppna appens sida för händelsen.
     * Observera klient servernamnet i sidfoten. Platsen ska vara samma som den katalogservern plats.
@@ -126,7 +126,7 @@ Lämna fönstret PowerShell som körs i bakgrunden och fortsätter med resten av
 I den här uppgiften ska starta du en process som distribuerar en duplicerad app-instansen och replikerar katalogen och alla klientdatabaser till en återställningsregion.
 
 > [!Note]
-> Den här självstudien lägger till skydd för geo-replikering till exempelprogrammet Wingtip biljetter. Varje klient skulle etableras med en geo-replikerad databas redan från början i ett produktionsscenario med för ett program som använder geo-replikering. Se [utforma högtillgängliga tjänster med Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
+> Den här självstudien lägger till skydd för geo-replikering till exempelprogrammet Wingtip biljetter. Varje klient skulle etableras med en geo-replikerad databas redan från början i ett produktionsscenario med för ett program som använder geo-replikering. Se [utforma högtillgängliga tjänster med Azure SQL Database](sql-database-designing-cloud-solutions-for-disaster-recovery.md#scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime)
 
 1. I den *PowerShell ISE*genom att öppna ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 skript och ange följande värden:
     * **$DemoScenario = 2**, skapa spegelbild Återställningsmiljö och replikera katalog- och klienttrafik databaser
@@ -135,12 +135,14 @@ I den här uppgiften ska starta du en process som distribuerar en duplicerad app
 ![Synkroniseringen](media/saas-dbpertenant-dr-geo-replication/replication-process.png)  
 
 ## <a name="review-the-normal-application-state"></a>Granska det normala programtillståndet
+
 Nu körs normalt i regionen ursprungliga programmet och nu är skyddat av geo-replikering.  Skrivskyddade sekundära repliker, finns i återställningsregionen för alla databaser. 
+
 1. I Azure-portalen, titta på dina resursgrupper och Observera att gruppen har skapats med - recovery-suffix i återställningsregionen. 
 
-1. Utforska resurser i resursgruppen för återställning.  
+2. Utforska resurser i resursgruppen för återställning.  
 
-1. Klicka på Contosos Konserthall databasen på den _tenants1-dpt -&lt;användaren&gt;-recovery_ server.  Klicka på Geo-replikering till vänster. 
+3. Klicka på Contosos Konserthall databasen på den _tenants1-dpt -&lt;användaren&gt;-recovery_ server.  Klicka på Geo-replikering till vänster. 
 
     ![Contoso samklang geo-replikeringslänken](media/saas-dbpertenant-dr-geo-replication/contoso-geo-replication.png) 
 
@@ -193,6 +195,7 @@ Nu imagine det uppstår ett avbrott i regionen där programmet distribueras och 
 > Granska PowerShell-skript i mappen ...\Learning Modules\Business affärskontinuitet och Haveriberedskap Recovery\DR-FailoverToReplica\RecoveryJobs för att utforska koden för återställningsjobben.
 
 ### <a name="review-the-application-state-during-recovery"></a>Granska programmets tillstånd under återställningen
+
 Programslutpunkten är inaktiverad i Traffic Manager, är programmet inte tillgänglig. När katalogen har redundansväxlats till återställningsregionen och alla klienter markeras offline, kan programmet tas online igen. Även om programmet är tillgängligt, visas varje klient som offline evenemangshubben förrän databasen har redundansväxlats. Det är viktigt att utforma ditt program hantera offline klientdatabaser.
 
 1. Omgående när katalogdatabasen har återställts, uppdatera Evenemangshubben Wingtip biljetter i webbläsaren.
@@ -301,7 +304,7 @@ Klientdatabaser kan spridas för återställning och ursprungliga regioner under
 ## <a name="next-steps"></a>Nästa steg
 
 I den här självstudiekursen lärde du dig att:
-> [!div classs="checklist"]
+> [!div class="checklist"]
 
 >* Synkronisera databaser och elastiska konfigurationsinformation för lagringspool i klient-katalogen
 >* Konfigurera en Återställningsmiljö i en annan region, som består av program, servrar och pooler
@@ -313,4 +316,4 @@ Du kan läsa mer om de tekniker som Azure SQL-databas tillhandahåller för att 
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Ytterligare självstudier som bygger på Wingtip SaaS-program](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+* [Ytterligare självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

@@ -11,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/03/2018
+ms.date: 01/29/2019
 ms.author: kumud
-ms.openlocfilehash: 0b3e8fc72eb22a67c0672be19f60d4956d3377b7
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 18e4a7ae5010730054dd110828c63e8418b93f39
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53257313"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296927"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>Belastningsutjämnare med TCP-återställning på inaktiv (offentlig förhandsversion)
 
-Du kan använda [Standardbelastningsutjämnare](load-balancer-standard-overview.md) skapar du en mer förutsägbar programmets beteende för dina scenarier med dubbelriktad TCP återställer (TCP RSTA paketet) för varje konfigurerbara timeout för inaktivitet.  Standardbeteendet för Load Balancer är att släppa tyst flöden när tidsgränsen för inaktivitet i ett flöde har uppnåtts.
+Du kan använda [Standardbelastningsutjämnare](load-balancer-standard-overview.md) att skapa en mer förutsägbar programmets beteende för dina scenarier genom att aktivera TCP nollställs inaktiv för en viss regel. Standardbeteendet för Load Balancer är att släppa tyst flöden när tidsgränsen för inaktivitet i ett flöde har uppnåtts.  Den här funktionen aktiveras medför Load Balancer för att skicka dubbelriktad TCP återställer (TCP RSTA paketet) vid tidsgränsen för inaktivitet.  Detta informerar slutpunkterna för din att anslutningen har nått sin tidsgräns och kan inte användas längre.  Slutpunkter kan omedelbart att införa en ny anslutning om det behövs.
 
 ![Load Balancer TCP-återställning](media/load-balancer-tcp-reset/load-balancer-tcp-reset.png)
 
@@ -69,31 +69,10 @@ Med API-versionen 2018-07-01 kan aktivera du utskick av dubbelriktad TCP återst
 
 ## <a name="regions"></a> Regiontillgänglighet
 
-Den här parametern är giltiga för närvarande i följande regioner.  Parametern har ingen effekt i regioner som inte visas här.
-
-| Region |
-|---|
-| Sydostasien |
-| Södra Brasilien |
-| Centrala Kanada |
-| Västeuropa |
-| Centrala Indien |
-| Västra Indien |
-| Västra Japan |
-| Sydkorea, centrala |
-| Sydkorea, södra |
-| Storbritannien, norra |
-| Storbritannien, södra 2 |
-| USA, Östra |
-| USA, östra 2 |
-| USA, Norra |
-| USA, Västra |
-
-Den här tabellen kommer att uppdateras när förhandsversionen utökas till andra regioner.  
+Tillgänglig i alla regioner.
 
 ## <a name="limitations"></a>Begränsningar
 
-- Begränsad [regiontillgänglighet](#regions).
 - Portalen kan inte användas för att konfigurera eller visa TCP-återställning.  Använd mallar, REST API, Az CLI 2.0 eller PowerShell i stället.
 
 ## <a name="next-steps"></a>Nästa steg

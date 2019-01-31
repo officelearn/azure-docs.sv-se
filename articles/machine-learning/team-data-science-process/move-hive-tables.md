@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be257b49e5ad5acc47a6daeec203e8513995e52e
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: be953621dbadee74361b2170c2a532cfec6ef77a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390941"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477870"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Skapa Hive-tabeller och läsa in data från Azure Blob Storage
 
@@ -25,12 +25,12 @@ Den här artikeln beskriver vi allmän Hive-frågor som skapar Hive-tabeller och
 ## <a name="prerequisites"></a>Förutsättningar
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver mer information, se [om Azure storage-konton](../../storage/common/storage-create-storage-account.md).
-* Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten.  Om du behöver mer information, se [anpassa Azure HDInsight Hadoop-kluster för avancerade analyser](customize-hadoop-cluster.md).
-* Aktiverade fjärråtkomst till klustret, loggat in och öppnas Hadoop-Kommandotolken. Om du behöver mer information, se [åt Head noden av Hadoop-klustret](customize-hadoop-cluster.md).
+* Skapa ett Azure storage-konto. Om du behöver mer information, se [om Azure storage-konton](../../storage/common/storage-introduction.md).
+* Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten.  Om du behöver mer information, se [installationsprogrammet kluster i HDInsight](../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
+* Aktiverade fjärråtkomst till klustret, loggat in och öppnas Hadoop-Kommandotolken. Om du behöver mer information, se [hantera Apache Hadoop-kluster](../../hdinsight/hdinsight-administer-use-portal-linux.md).
 
 ## <a name="upload-data-to-azure-blob-storage"></a>Ladda upp data till Azure blob storage
-Om du har skapat en Azure virtuell dator genom att följa instruktionerna i [ställa in Azure-datorer för avancerade analyser](../data-science-virtual-machine/setup-virtual-machine.md), den här skriptfilen bör har hämtats till den *C:\\användare \\ \<användarnamn\>\\dokument\\Data Science skript* på den virtuella datorn. De här Hive-frågor behöver bara att du ansluter ditt eget dataschema och Azure blob storage-konfiguration i lämpliga fält är klar att skicka.
+Om du har skapat en Azure virtuell dator genom att följa instruktionerna i [ställa in Azure-datorer för avancerade analyser](../../machine-learning/data-science-virtual-machine/overview.md), den här skriptfilen bör har hämtats till den *C:\\användare \\ \<användarnamn\>\\dokument\\Data Science skript* på den virtuella datorn. De här Hive-frågor behöver bara att du ansluter ditt eget dataschema och Azure blob storage-konfiguration i lämpliga fält är klar att skicka.
 
 Vi antar att data för Hive-tabeller finns i en **okomprimerade** tabellformat och att data har överförts till standardvärdet (eller till en ytterligare) behållare för det lagringskonto som används av Hadoop-kluster.
 
@@ -38,7 +38,7 @@ Om du vill att öva på det **NYC Taxi Resedata**, måste du:
 
 * **ladda ned** 24 [NYC Taxi Resedata](http://www.andresmh.com/nyctaxitrips) filer (12 resans filer och 12 avgiften-filer)
 * **Packa upp** alla filer i CSV-filer, och sedan
-* **ladda upp** dem till standard (eller att rätt behållare) för Azure storage-konto som har skapats med proceduren som beskrivs i den [anpassa Azure HDInsight Hadoop-kluster för Advanced Analytics Process and Technology](customize-hadoop-cluster.md)avsnittet. Processen för att ladda upp CSV-filer till standardbehållaren för lagringskontot finns på den här [sidan](hive-walkthrough.md#upload).
+* **ladda upp** dem till standard (eller att rätt behållare) av Azure storage-konto; alternativ för något sådant konto visas på [Använd Azure storage med Azure HDInsight-kluster](../../hdinsight/hdinsight-hadoop-use-blob-storage.md) avsnittet. Processen för att ladda upp CSV-filer till standardbehållaren för lagringskontot finns på den här [sidan](hive-walkthrough.md#upload).
 
 ## <a name="submit"></a>Hur du skickar in Hive-frågor
 Du kan skicka hive-frågor med hjälp av:

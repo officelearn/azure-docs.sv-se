@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/23/2018
-ms.openlocfilehash: 09035b19ee48602fde70736ab918fccae71108a5
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 864cf49634e4f9452829a30ce4b260179bdeb8db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166267"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476221"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Påskynda i realtid stordataanalyser med Spark-anslutningsapp för Azure SQL Database och SQL Server
 
@@ -161,7 +161,7 @@ collection.show()
 #### <a name="setup-requirement"></a>Konfigurera krav
 Om du använder åtkomstläge för tokenbaserad autentisering, måste du ladda ned [azure-activedirectory-biblioteket-för-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) och dess beroenden och inkludera dem i Java build path.
 
-Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) och lär dig att hämta åtkomsttoken till din Azure SQL-databas.
+Se [Använd Azure Active Directory-autentisering för autentisering med SQL Database](sql-database-aad-authentication.md) och lär dig att hämta åtkomsttoken till din Azure SQL-databas.
 
 ```scala
 import com.microsoft.azure.sqldb.spark.config.Config

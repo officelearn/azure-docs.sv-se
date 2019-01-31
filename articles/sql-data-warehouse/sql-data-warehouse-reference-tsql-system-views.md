@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: c4663c71bb3aee3547174345cfe9fb1d06c4015e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6e68fe624a92d0a2d5a8accd3f34b1c5c10f2868
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51256212"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472175"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systemvyer som stöds i Azure SQL Data Warehouse
 Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
@@ -74,18 +74,18 @@ Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom
 * [sys.assemblies](https://msdn.microsoft.com/library/ms189790.aspx)
 * [sys.assembly_modules](https://msdn.microsoft.com/library/ms180052.aspx)
 * [sys.assembly_types](https://msdn.microsoft.com/library/ms178020.aspx)
-* [sys.Certificates](https://msdn.microsoft.com/library/ms189774.aspx)
+* [sys.certificates](https://msdn.microsoft.com/library/ms189774.aspx)
 * [sys.check_constraints](https://msdn.microsoft.com/library/ms187388.aspx)
-* [sys.Columns](https://msdn.microsoft.com/library/ms176106.aspx)
+* [sys.columns](https://msdn.microsoft.com/library/ms176106.aspx)
 * [sys.computed_columns](https://msdn.microsoft.com/library/ms188744.aspx)
-* [sys.Credentials](https://msdn.microsoft.com/library/ms189745.aspx)
+* [sys.credentials](https://msdn.microsoft.com/library/ms189745.aspx)
 * [sys.data_spaces](https://msdn.microsoft.com/library/ms190289.aspx)
 * [sys.database_credentials](https://msdn.microsoft.com/library/mt270282.aspx)
 * [sys.database_files](https://msdn.microsoft.com/library/ms174397.aspx)
 * [sys.database_permissions](https://msdn.microsoft.com/library/ms188367.aspx)
 * [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx)
 * [sys.database_role_members](https://msdn.microsoft.com/library/ms189780.aspx)
-* [sys.Databases](https://msdn.microsoft.com/library/ms178534.aspx)
+* [sys.databases](https://msdn.microsoft.com/library/ms178534.aspx)
 * [sys.default_constraints](https://msdn.microsoft.com/library/ms173758.aspx)
 * [sys.external_data_sources](https://msdn.microsoft.com/library/dn935019.aspx)
 * [sys.external_file_formats](https://msdn.microsoft.com/library/dn935025.aspx)
@@ -95,10 +95,10 @@ Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom
 * [sys.foreign_keys](https://msdn.microsoft.com/library/ms189807.aspx)
 * [sys.identity_columns](https://msdn.microsoft.com/library/ms187334.aspx)
 * [sys.index_columns](https://msdn.microsoft.com/library/ms175105.aspx)
-* [sys.Indexes](https://msdn.microsoft.com/library/ms173760.aspx)
+* [sys.indexes](https://msdn.microsoft.com/library/ms173760.aspx)
 * [sys.key_constraints](https://msdn.microsoft.com/library/ms174321.aspx)
 * [sys.numbered_procedures](https://msdn.microsoft.com/library/ms179865.aspx)
-* [sys.Objects](https://msdn.microsoft.com/library/ms190324.aspx)
+* [sys.objects](https://msdn.microsoft.com/library/ms190324.aspx)
 * [sys.parameters](https://msdn.microsoft.com/library/ms176074.aspx)
 * [sys.partition_functions](https://msdn.microsoft.com/library/ms187381.aspx)
 * [sys.partition_parameters](https://msdn.microsoft.com/library/ms175054.aspx)
@@ -113,7 +113,7 @@ Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom
 * [sys.stats](https://msdn.microsoft.com/library/ms177623.aspx)
 * [sys.stats_columns](https://msdn.microsoft.com/library/ms187340.aspx)
 * [sys.symmetric_keys](https://msdn.microsoft.com/library/ms189446.aspx)
-* [sys.SYNONYMS](https://msdn.microsoft.com/library/ms189458.aspx)
+* [sys.synonyms](https://msdn.microsoft.com/library/ms189458.aspx)
 * [sys.syscharsets](https://msdn.microsoft.com/library/ms190300.aspx)
 * [sys.syscolumns](https://msdn.microsoft.com/library/ms186816.aspx)
 * [sys.sysdatabases](https://msdn.microsoft.com/library/ms179900.aspx)
@@ -127,9 +127,9 @@ Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom
 * [sys.system_views](https://msdn.microsoft.com/library/ms187764.aspx)
 * [sys.systypes](https://msdn.microsoft.com/library/ms175109.aspx)
 * [sys.sysusers](https://msdn.microsoft.com/library/ms179871.aspx)
-* [sys.Tables](https://msdn.microsoft.com/library/ms187406.aspx)
+* [sys.tables](https://msdn.microsoft.com/library/ms187406.aspx)
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
-* [sys.Views](https://msdn.microsoft.com/library/ms190334.aspx)
+* [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server DMV: er tillgängliga i SQL Data Warehouse
 SQL Data Warehouse visar många av de dynamiska hanteringsvyerna (DMV) för SQL Server. Dessa vyer när en förfrågan i SQL Data Warehouse rapporterar tillståndet för SQL-databaser som körs på distributionerna.
@@ -220,9 +220,9 @@ Följande DMV: er kan användas för SQL Data Warehouse, men måste köras genom
 * [sys.dm_exec_external_work](https://msdn.microsoft.com/library/mt146375.aspx)
 
 ## <a name="sql-server-informationschema-views"></a>SQL Server INFORMATION_SCHEMA vyer
-* [FEL VID](https://msdn.microsoft.com/library/ms189772.aspx)
+* [CHECK_CONSTRAINTS](https://msdn.microsoft.com/library/ms189772.aspx)
 * [KOLUMNER](https://msdn.microsoft.com/library/ms188348.aspx)
-* [PARAMETRAR](https://msdn.microsoft.com/library/ms173796.aspx)
+* [PARAMETERS](https://msdn.microsoft.com/library/ms173796.aspx)
 * [RUTINER](https://msdn.microsoft.com/library/ms188757.aspx)
 * [SCHEMAN](https://msdn.microsoft.com/library/ms182642.aspx)
 * [TABELLER](https://msdn.microsoft.com/library/ms186224.aspx)

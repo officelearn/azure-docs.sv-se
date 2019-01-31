@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 85d69db2f94e4bddf1258233c34c64dcf78a3eeb
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.subservice: common
+ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219230"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467075"
 ---
-# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GEO-redundant lagring (GRS): tvärregional replikering för Azure Storage
+# <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
 
 ## <a name="read-access-geo-redundant-storage"></a>Läsåtkomst till geografiskt redundant lagring
@@ -34,7 +34,7 @@ Några saker att tänka på när du använder RA-GRS:
 * Förslag på hur du utformar för hög tillgänglighet med RA-GRS finns i [utforma högtillgängliga program med hjälp av RA-GRS-lagring](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>Vad är RPO och RTO med GRS?
-**Mål för återställningspunkt (RPO):** i GRS och RA-GRS-lagringen tjänst asynkront geo-replikeras data från primärt till den sekundära platsen. I händelse av en regional större katastrof på den primära regionen utför Microsoft en växling till den sekundära regionen. Om en redundans sker gå ändringar som ännu inte har geo-replikerade förlorade. Hur många minuter av eventuella data som har förlorat kallas rpo-MÅLET. Återställningspunktmålet anger punkten i tiden som data kan återställas. Azure Storage vanligtvis har ett Återställningspunktmål på mindre än 15 minuter, även om det finns för närvarande inga serviceavtal för hur länge geo-replikering tar.
+**Mål för återställningspunkt (RPO):** I GRS och RA-GRS-lagringen tjänsten asynkront geo-replikeras data från primärt till den sekundära platsen. I händelse av en regional större katastrof på den primära regionen utför Microsoft en växling till den sekundära regionen. Om en redundans sker gå ändringar som ännu inte har geo-replikerade förlorade. Hur många minuter av eventuella data som har förlorat kallas rpo-MÅLET. Återställningspunktmålet anger punkten i tiden som data kan återställas. Azure Storage vanligtvis har ett Återställningspunktmål på mindre än 15 minuter, även om det finns för närvarande inga serviceavtal för hur länge geo-replikering tar.
 
 **Återställningstid (RTO):** RTO är ett mått på hur lång tid det tar att utföra redundansväxlingen och hämta lagringskontot online igen. Tid för att utföra redundansväxlingen innehåller följande åtgärder:
 
@@ -44,9 +44,9 @@ Några saker att tänka på när du använder RA-GRS:
 Microsoft ansvarar för att bevara dina data på allvar. Om det finns några risken för att återställa data i den primära regionen, Microsoft fördröjer växling vid fel och fokuserar på att återställa dina data. 
 
 ## <a name="paired-regions"></a>Länkade regioner 
-När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Den kopplade sekundära regionen fastställs baserat på den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regioner](../../best-practices-availability-paired-regions.md).
+När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Den kopplade sekundära regionen fastställs baserat på den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner](../../best-practices-availability-paired-regions.md).
 
 ## <a name="see-also"></a>Se också
 - [Azure Storage-replikering](storage-redundancy.md)
-- [Lokalt redundant lagring (LRS): låg kostnad dataredundans för Azure Storage](storage-redundancy-lrs.md)
+- [Lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage](storage-redundancy-lrs.md)
 - [Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet](storage-redundancy-zrs.md)

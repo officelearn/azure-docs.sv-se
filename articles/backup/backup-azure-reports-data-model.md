@@ -2,19 +2,18 @@
 title: Datamodell för Azure Backup
 description: Den här artikeln handlar om Power BI data modellinformation för Azure Backup-rapporter.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/26/2017
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 573b7e9c5c44c7162b4020f1ef54b8986003c0b5
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: c6160570644da108ba713e8229b38f9587495c92
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52877141"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299426"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Datamodell för Azure Backup-rapporter
 Den här artikeln beskriver Power BI-datamodell som används för att skapa Azure Backup-rapporter. Med den här datamodellen kan du filtrera befintliga rapporter baserat på relevanta fälten och mer är dock skapa egna rapporter med hjälp av tabeller och fält i modellen. 
@@ -31,8 +30,8 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | #AlertsCreatedInPeriod |Heltal |Antal aviseringar skapade i den valda tidsperioden |
-| % ActiveAlertsCreatedInPeriod |Procent |Procentandelen aktiva aviseringar under vald tidsperiod |
-| % CriticalAlertsCreatedInPeriod |Procent |Procentandel av kritiska aviseringar under vald tidsperiod |
+| %ActiveAlertsCreatedInPeriod |Procent |Procentandelen aktiva aviseringar under vald tidsperiod |
+| %CriticalAlertsCreatedInPeriod |Procent |Procentandel av kritiska aviseringar under vald tidsperiod |
 | AlertOccurrenceDate |Date |Datum då aviseringen skapades |
 | AlertSeverity |Text |Aviseringens exempelvis kritisk allvarlighetsgrad |
 | AlertStatus |Text |Status för aviseringen till exempel aktiv |
@@ -83,7 +82,7 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
 | #JobsCreatedInPeriod |Heltal |Antalet jobb som skapats i den valda tidsperioden |
-| % FailuresForJobsCreatedInPeriod |Procent |Procentandel total köras i den valda tidsperioden |
+| %FailuresForJobsCreatedInPeriod |Procent |Procentandel total köras i den valda tidsperioden |
 | 80thPercentileDataTransferredInMBForBackupJobsCreatedInPeriod |Decimaltal |80 percentilvärdet för data som överförs i MB för **säkerhetskopiering** jobb som skapats i den valda tidsperioden |
 | AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
 | AvgBackupDurationInMinsForJobsCreatedInPeriod |Decimaltal |Genomsnittlig tid i minuter för **slutförda backup** jobb som skapats i den valda tidsperioden |
@@ -117,7 +116,7 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 | MonthlyRetentionFormat |Text |Typ av konfigurationen för kvarhållning av månatlig till exempel varje dag för dag-baserat, varje vecka för vecka baserat |
 | MonthlyRetentionTimes |Text |Datum och tid när månatliga kvarhållning har konfigurerats |
 | MonthlyRetentionWeeksOfTheMonth |Text |Veckor i månaden när kvarhållning av månatlig är konfigurerats exempelvis första, sista osv. |
-| Principnamn |Text |Namnet på den princip som har definierats |
+| PolicyName |Text |Namnet på den princip som har definierats |
 | PolicyUniqueId |Text |Unikt Id för att identifiera principen |
 | RetentionType |Text |Typ av bevarandeprincipen till exempel, varje dag, vecka, månad, varje år |
 | WeeklyRetentionDaysOfTheWeek |Text |Dagar i veckan har valts för kvarhållning av veckovis |
@@ -178,7 +177,7 @@ Den här tabellen innehåller grundläggande fält och aggregeringar över olika
 
 | Fält | Datatyp | Beskrivning |
 | --- | --- | --- |
-| #Vaults |Heltal |Antalet valv |
+| #Vaults |Heltal |Antal valv |
 | AsOnDateTime |Datum/tid |Senaste Uppdateringstid för den markerade raden |
 | AzureDataCenter |Text |Datacenter där valvet finns |
 | EntityState |Text |Aktuell status för valvobjekt till exempel aktiv, har tagits bort |

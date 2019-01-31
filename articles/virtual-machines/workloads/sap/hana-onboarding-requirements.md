@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d287f79f4161c509f96b679d4b794c2906f2e020
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9a445e5a7d230195472c2202d3f40458a23883e9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028487"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477866"
 ---
 # <a name="onboarding-requirements"></a>Värvningskrav
 
@@ -28,12 +28,12 @@ Den här listan monterar krav för att köra SAP HANA på Azure (stora instanser
 **Microsoft Azure**
 
 - En Azure-prenumeration som kan länkas till SAP HANA på Azure (stora instanser).
-- Microsoft Premier support-kontrakt. Specifik information som rör köra SAP i Azure finns i [SAP Support Obs! #2015553 – SAP på Microsoft Azure: supportkrav](https://launchpad.support.sap.com/#/notes/2015553). Om du använder stora HANA-instansen enheter 384 och mer CPU: er kan du också behöva utöka Premier support-kontrakt med Azure Rapid Response.
+- Microsoft Premier support-kontrakt. Specifik information som rör köra SAP i Azure finns i [SAP Support Obs! #2015553 – SAP på Microsoft Azure: Supportkrav](https://launchpad.support.sap.com/#/notes/2015553). Om du använder stora HANA-instansen enheter 384 och mer CPU: er kan du också behöva utöka Premier support-kontrakt med Azure Rapid Response.
 - Medvetenhet om HANA stora instans SKU: er du behöver när du har utfört en storlek Övning med SAP.
 
 **Nätverksanslutning**
 
-- ExpressRoute mellan en lokal plats till Azure: se till att beställa på minst 1 Gbit/s-anslutning från Leverantören för att ansluta ditt lokala Datacenter till Azure. 
+- ExpressRoute mellan en lokal plats till Azure: Se till att beställa på minst 1 Gbit/s-anslutning från Leverantören för att ansluta ditt lokala Datacenter till Azure. Anslutningen mellan stora HANA-instansen enheter och Azure använder ExpressRoute-teknik. Den här ExpressRoute-anslutning mellan stora HANA-instansen enheter och Azure ingår i priset för enheter för stora HANA-instansen. Därför som kund inte uppstå ytterligare kostnader utöver din ExpressRoute-länken mellan lokala och Azure.
 
 **Operativsystem**
 
@@ -50,7 +50,7 @@ Den här listan monterar krav för att köra SAP HANA på Azure (stora instanser
 
 - Red Hat prenumeration Manager distribueras i Azure på en virtuell dator. Red Hat prenumeration Manager innehåller funktioner för SAP HANA på Azure (stora instanser) ska registreras och uppdateras respektive från Red Hat. (Det finns ingen direkt Internetåtkomst från den klient som distribuerats på stora Azure-instanser stämpeln.)
 - SAP kräver att du har stöd för ett avtal med din Linux-leverantör. Det här kravet tas inte bort med hjälp av lösningen på stora HANA-instansen eller det faktum att du kör Linux i Azure. Till skillnad från med några av galleriavbildningar Linux Azure serviceavgiften är *inte* ingår i erbjudandet lösning för stora HANA-instansen. Det är ditt ansvar att uppfylla kraven i SAP om supportkontrakt med Linux-distributören. 
-   - För SUSE Linux, leta upp kraven för supportkontrakt i [SAP Obs! #1984787 - SUSE Linux Enterprise Server 12: installationsinformation](https://launchpad.support.sap.com/#/notes/1984787) och [SAP Obs! #1056161 - SUSE prioriterad support för SAP-program](https://launchpad.support.sap.com/#/notes/1056161).
+   - För SUSE Linux, leta upp kraven för supportkontrakt i [SAP Obs! #1984787 - SUSE Linux Enterprise Server 12: Installationsinformation](https://launchpad.support.sap.com/#/notes/1984787) och [SAP Obs! #1056161 - SUSE prioriterad support för SAP-program](https://launchpad.support.sap.com/#/notes/1056161).
    - Du måste ha rätt prenumerationsnivåer som omfattar support och uppdateringar för operativsystem för stora HANA-instansen av tjänsten för Red Hat Linux. Red Hat rekommenderar prenumerationen Red Hat Enterprise Linux för SAP-lösning. Se https://access.redhat.com/solutions/3082481. 
 
 Stödmatris för de olika versionerna för SAP HANA med olika Linux-versioner, se [SAP Obs! #2235581](https://launchpad.support.sap.com/#/notes/2235581).
@@ -69,13 +69,13 @@ Kompatibilitetsöversikten av operativsystemet och HLI firmware/drivrutinsversio
 **Program**
 
 - Licenser och programvarukomponenter i installationen för alla SAP-program som ansluter till SAP HANA och relaterade SAP supportavtal.
-- Licenser och programvarukomponenter i installationen för alla icke-SAP-program används i förhållande till SAP HANA på Azure (stora instanser)-miljöer och relaterade supportavtal.
+- Licenser och programvarukomponenter i installationen för alla icke-SAP-program används med SAP HANA på Azure (stora instanser)-miljöer och relaterade supportavtal.
 
 **Kunskaper**
 
 - Erfarenhet och kunskap om Azure IaaS och dess komponenter.
 - Erfarenhet och kunskap om hur du distribuerar en SAP-arbetsbelastning i Azure.
-- SAP HANA-installation-certifierad personal.
+- SAP HANA-installation certifierade personliga.
 - SAP architect kunskaper för att utforma hög tillgänglighet och katastrofåterställning recovery runt SAP HANA.
 
 **SAP**

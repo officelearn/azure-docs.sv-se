@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 03d307a324826a4805da5ed6ff8b995b7c3eab62
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.subservice: common
+ms.openlocfilehash: d28ea2972b8b73921bb078d8570afe9a6dffce8f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019317"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461785"
 ---
 # <a name="transfer-data-with-the-azcopy-on-windows"></a>Överföra data med AzCopy i Windows
 AzCopy är ett kommandoradsverktyg som utformats för att kopiera data till och från Microsoft Azure-Blob, File och Table storage med hjälp av enkla kommandon som är utformad för bästa prestanda. Du kan kopiera data mellan ett filsystem och ett lagringskonto, eller mellan lagringskonton.  
@@ -650,7 +650,7 @@ Anger att kopiera till målet. Målet kan vara en katalog i filsystemet, en blob
 
 **Gäller:** Blobar, filer, tabeller
 
-### <a name="patternfile-pattern"></a>/ Mönster: ”filmönster”
+### <a name="patternfile-pattern"></a>/Pattern:"file-pattern"
 
 Anger ett filmönster som anger vilka filer som ska kopieras. Beteendet för parametern /Pattern bestäms av platsen för datakällan och förekomsten av alternativ för rekursiv-läge. Rekursiva läge har angetts via alternativet/s.
 
@@ -672,7 +672,7 @@ Anger lagringskontots åtkomstnyckel för målresursen.
 
 **Gäller:** Blobar, filer, tabeller
 
-### <a name="destsassas-token"></a>/ DestSAS: ”sas-token”
+### <a name="destsassas-token"></a>/DestSAS:"sas-token"
 
 Anger en signatur för delad åtkomst (SAS) med läsning och skrivning behörigheter för mål (om tillämpligt). Omge SAS med dubbla citattecken, eftersom den kan innehåller specialtecken för kommandoraden.
 
@@ -704,7 +704,7 @@ Anger rekursiv läge för kopieringsåtgärder. I läget för rekursiv kopierar 
 
 **Gäller:** Blobar, filer
 
-### <a name="blobtypeblock--page--append"></a>/ BlobType: ”blockera” | ”page” | ”Lägg till”
+### <a name="blobtypeblock--page--append"></a>/BlobType:"block" | "page" | "append"
 
 Anger om målblobben är en blockblob, en sidblobb eller en tilläggsblobb. Det här alternativet gäller bara när du laddar upp en blob. Annars genereras ett fel. Om målet är en blob och det här alternativet inte anges som standard skapar AzCopy en blockblob.
 
@@ -730,7 +730,7 @@ Som standard kopieras inte ögonblicksbilder.
 
 **Gäller:** Blobar
 
-### <a name="vverbose-log-file"></a>/ V: [utförlig log-fil]
+### <a name="vverbose-log-file"></a>/V:[verbose-log-file]
 
 Utdata utförlig statusmeddelanden till en loggfil.
 
@@ -873,13 +873,13 @@ Anger att den `source` resursen är en blob som är tillgängliga i den lokala u
 
 **Gäller:** Blobbar, tabeller
 
-### <a name="desttypeblob--table"></a>/ DestType: ”Blob” | ”Tabell”
+### <a name="desttypeblob--table"></a>/DestType:"Blob" | "Table"
 
 Anger att den `destination` resursen är en blob som är tillgängliga i den lokala utvecklingsmiljö, som körs i storage-emulatorn.
 
 **Gäller:** Blobbar, tabeller
 
-### <a name="pkrskey1key2key3"></a>/ PKRS ”: key1 #key2 key3 #...”
+### <a name="pkrskey1key2key3"></a>/PKRS:"key1#key2#key3#..."
 
 Delar upp partitionsnyckelintervall om du vill aktivera dataexport tabell parallellt, vilket ökar hastigheten på exportåtgärden.
 
@@ -895,7 +895,7 @@ Varje åtgärd exporterar en av tre viktiga partitionsintervall, enligt nedan:
 
 **Gäller:** Tabeller
 
-### <a name="splitsizefile-size"></a>/ SplitSize: ”filstorlek”
+### <a name="splitsizefile-size"></a>/SplitSize:"file-size"
 
 Anger den exporterade filen dela storlek i MB, det minsta tillåtna värdet är 32.
 
@@ -905,7 +905,7 @@ Om data exporteras till en blob och exporterade filens storlek når gränsen 200
 
 **Gäller:** Tabeller
 
-### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/ EntityOperation: ”InsertOrSkip” | ”InsertOrMerge” | ”InsertOrReplace”
+### <a name="entityoperationinsertorskip--insertormerge--insertorreplace"></a>/EntityOperation:"InsertOrSkip" | "InsertOrMerge" | "InsertOrReplace"
 
 Anger Tabellfunktioner för import av data.
 
@@ -915,7 +915,7 @@ Anger Tabellfunktioner för import av data.
 
 **Gäller:** Tabeller
 
-### <a name="manifestmanifest-file"></a>/ Manifest: ”manifest-fil”
+### <a name="manifestmanifest-file"></a>/Manifest:"manifest-file"
 
 Anger manifestfilen för tabellen exportera och importera igen.
 
@@ -925,7 +925,7 @@ Det här alternativet krävs under importen för att hitta datafilerna.
 
 **Gäller:** Tabeller
 
-### <a name="synccopy"></a>/ SyncCopy
+### <a name="synccopy"></a>/SyncCopy
 
 Anger om synkront kopiera blobar och filer mellan två Azure Storage-slutpunkter.
 
@@ -945,7 +945,7 @@ Om du anger det här alternativet om inget värde anger AzCopy varje blob eller 
 
 **Gäller:** Blobar, filer
 
-### <a name="payloadformatjson--csv"></a>/ PayloadFormat: ”JSON” | ”CSV”
+### <a name="payloadformatjson--csv"></a>/PayloadFormat:"JSON" | "CSV"
 
 Anger formatet för den exporterade datafilen i tabellen.
 

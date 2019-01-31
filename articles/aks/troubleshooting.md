@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: fd3d1c464c6f2d4cbecd715db0689581ca141769
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: 17f6971cfa2dcd8c8988edc063c89859abec5367
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53654078"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468843"
 ---
 # <a name="aks-troubleshooting"></a>AKS felsökning
 
@@ -66,28 +66,3 @@ Se till att nätverkssäkerhetsgruppen (NSG) som standard inte ändrats och att 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error--how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får en ”meddelande: Är inte tillåtet att ändra egenskapen 'imageReference' ”fel.  Hur kan jag åtgärda det här problemet?
 
 Du kanske får felet eftersom du har ändrat taggar i agentnoder i AKS-klustret. Ändra och ta bort taggar och andra egenskaper för resurser i resursgruppen MC_ * kan leda till oväntade resultat. Ändra resurser under den MC_ *-gruppen i AKS delar kluster mål för servicenivå (SLO).
-
-## <a name="how-do-i-renew-the-service-principal-secret-on-my-aks-cluster"></a>Hur förnyar jag tjänstens huvudhemlighet på mitt AKS-kluster?
-
-Som standard skapas AKS-kluster med ett huvudnamn för tjänsten som har en förfallotid för ett år. Du kan återställa autentiseringsuppgifter för att utöka tjänstens huvudnamn under en ytterligare tid som du nära förfallodatum.
-
-I följande exempel utförs dessa steg:
-
-1. Hämtar ID för tjänstens huvudnamn på klustret med hjälp av den [az aks show](/cli/azure/aks#az-aks-show) kommando.
-1. Visar en lista över klienthemlighet för tjänstens huvudnamn med hjälp av den [az ad sp credential lista](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. Utökar tjänstens huvudnamn för ett annat ett år genom att använda den [az ad sp credential-återställning](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) kommando. Klienthemlighet för tjänstens huvudnamn måste vara samma för AKS-klustret ska fungera korrekt.
-
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
-
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
-
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```

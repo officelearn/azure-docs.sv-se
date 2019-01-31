@@ -7,25 +7,25 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: fryu
-ms.component: common
-ms.openlocfilehash: 293067b2d76f7ef88b6946aee9d39d4c6da97230
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 49ea6a3c6be2325acdcdf61188ced777bd36f0da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229552"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478142"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Azure Storage-efterlevnadserbjudanden
 
 För att hjälpa organisationer efterleva erbjuder nationella, regionala och branschspecifika krav för insamling och användning av enskilda personers data, Microsoft Azure och Azure Storage den mest omfattande uppsättningen certifieringar och attesteringar för någon molntjänstleverantör.
 
-Du kan hitta nedan efterlevnads-erbjudanden på Azure Storage för att se till att din tjänst regleras i med hjälp av Azure Storage-tjänsten. De är tillämpliga på följande erbjudanden i Azure Storage: Blobbar, filer, köer, tabeller, diskar, lågfrekvent lagring och Premiumlagring.
+Du kan hitta nedan efterlevnads-erbjudanden på Azure Storage för att se till att din tjänst regleras i med hjälp av Azure Storage-tjänsten. De är tillämpliga på följande erbjudanden i Azure Storage: Blobar, filer, köer, tabeller, diskar, lågfrekvent lagring och Premiumlagring.
 
 ## <a name="global"></a>Global
 
-* [CSA-STAR-attestering](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-attestation)
-* [CSA-Star-certifiering](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification)
-* [CSA STAR-Self-bedömning](https://www.microsoft.com/en-us/trustcenter/compliance/csa-self-assessment)
+* [CSA-STAR-Attestation](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-attestation)
+* [CSA-Star-Certification](https://www.microsoft.com/en-us/trustcenter/compliance/csa-star-certification)
+* [CSA-STAR-Self-Assessment](https://www.microsoft.com/en-us/trustcenter/compliance/csa-self-assessment)
 * [ISO 20000-1:2011](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-20000-1)
 * [STANDARDEN ISO 22301](https://www.microsoft.com/en-us/trustcenter/compliance/iso-22301)
 * [ISO 27001](https://www.microsoft.com/en-us/trustcenter/compliance/iso-iec-27017)
@@ -36,7 +36,7 @@ Du kan hitta nedan efterlevnads-erbjudanden på Azure Storage för att se till a
 
 ## <a name="us-government"></a>Amerikanska myndigheter
 
-* [DoD DISA L2 L4, L5](https://www.microsoft.com/en-us/trustcenter/compliance/disa)
+* [DoD DISA L2, L4, L5](https://www.microsoft.com/en-us/trustcenter/compliance/disa)
 * [DoE 10 CFR del 810](https://aka.ms/AzureCompliance)
 * [ENSA (USA exportera exportregler)](https://aka.ms/AzureCompliance)
 * [FDA CFR, förordning 21 del 11](https://aka.ms/AzureCompliance)
@@ -69,29 +69,29 @@ Du kan hitta nedan efterlevnads-erbjudanden på Azure Storage för att se till a
 * [Delade utvärderingar](https://aka.ms/AzureCompliance)
 * [SOX](https://www.microsoft.com/en-us/trustcenter/compliance/SOX)
 
-## <a name="regional"></a>Regionala
+## <a name="regional"></a>Regional
 
 * [BIR 2012 (Nederländerna)](https://www.microsoft.com/en-us/TrustCenter/Compliance/bir-2012)
 * [C5 (Tyskland)](https://www.microsoft.com/en-us/TrustCenter/Compliance/C5)
 * [CCSL/IRAP (Australien)](https://www.microsoft.com/en-us/trustcenter/compliance/ccsl)
 * [CS Gold Markera (Japan)](https://www.microsoft.com/en-us/trustcenter/compliance/cloud-security-mark)
-* [DJCP (Kina)](https://www.trustcenter.cn/compliance/default.html#DJCP)
-* [ENISA: IAF (EU)](https://aka.ms/AzureCompliance)
+* [DJCP (China)](https://www.trustcenter.cn/compliance/default.html#DJCP)
+* [ENISA IAF (EU)](https://aka.ms/AzureCompliance)
 * [ENS (Spanien)](https://www.microsoft.com/en-us/trustcenter/compliance/spainens)
-* [EU: S Modellklausuler](https://www.microsoft.com/en-us/trustcenter/compliance/eu-model-clauses)
-* [EU-US Privacy Shield](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
+* [EU-Model-Clauses](https://www.microsoft.com/en-us/trustcenter/compliance/eu-model-clauses)
+* [EU-U.S. Privacy Shield](https://privacy.microsoft.com/en-US/microsoft-eu-us-privacy-shield)
 * [GB 18030 (Kina)](https://www.trustcenter.cn/compliance/default.html#GB18030)
 * [GDPR (EU)](https://www.microsoft.com/en-us/trustcenter/privacy/gdpr)
 * [IT Grundschutz arbetsbok (Tyskland)](https://www.microsoft.com/en-us/TrustCenter/Compliance/IT-Grundschutz)
 * [LOPD (Spanien)](https://aka.ms/AzureCompliance)
 * [MTCS (Singapore)](https://www.microsoft.com/en-us/trustcenter/compliance/mtcs)
 * [Mitt nummer (Japan)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#my_number)
-* [NZ CC Framework (Nya Zeeland)](https://www.microsoft.com/en-us/trustcenter/compliance/nzcc)
-* [PASF (STORBRITANNIEN)](https://aka.ms/AzureCompliance)
+* [NZ CC Framework (New Zealand)](https://www.microsoft.com/en-us/trustcenter/compliance/nzcc)
+* [PASF (UK)](https://aka.ms/AzureCompliance)
 * [PDPA (Argentina)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#argentina)
-* [PIPEDA (Kanada)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
-* [TRUCS (Kina)](https://www.trustcenter.cn/compliance/default.html#TCS)
-* [-G-Cloud i Storbritannien](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud)
+* [PIPEDA (Canada)](https://www.microsoft.com/en-us/trustcenter/privacy/we-set-and-adhere-to-stringent-standards#canadian_privacy_laws)
+* [TRUCS (China)](https://www.trustcenter.cn/compliance/default.html#TCS)
+* [UK-G-Cloud](https://www.microsoft.com/en-us/trustcenter/compliance/uk-g-cloud)
 
 ## <a name="next-steps"></a>Nästa steg
 

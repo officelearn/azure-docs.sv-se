@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8cd7fc5b69fd3ef124a96f00466a0d9a8c4e2240
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d8cb0829698b13e2193850c29f98492df6c48d4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134360"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468520"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Flytta data till eller från Azure Blob Storage med SSIS-anslutningsappar
 Den [Funktionspaketet för SQL Server Integration Services för Azure](https://msdn.microsoft.com/library/mt146770.aspx) innehåller komponenter för att ansluta till Azure, överföra data mellan Azure och lokala datakällor och bearbeta data som lagras i Azure.
@@ -42,8 +42,8 @@ Du måste ha en Azure-prenumeration och konfigurera Azure-lagringskonton för at
 
 Du använder den **SSIS-anslutningsappar**, måste du ladda ned:
 
-* **SQL Server 2014 eller 2016 Standard (eller senare)**: installationen inkluderar SQL Server Integration Services.
-* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: dessa kan laddas ned, från den [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016-Integration Tjänster](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
+* **SQL Server 2014 eller 2016 Standard (eller senare)**: Installationen inkluderar SQL Server Integration Services.
+* **Microsoft SQL Server 2014 eller 2016 Integration Services Feature Pack för Azure**: Dessa kan laddas ned, från den [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) och [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) sidor.
 
 > [!NOTE]
 > SSIS installeras med SQL Server, men ingår inte i Express-version. Information om vilka program som ingår i olika utgåvor av SQL Server finns i [SQL Server-versioner](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
@@ -52,7 +52,7 @@ Du använder den **SSIS-anslutningsappar**, måste du ladda ned:
 
 Utbildningsmaterial på SSIS, se [händerna på utbildning för SSIS](https://www.microsoft.com/sql-server/training-certification)
 
-Information om hur du får upp och som körs med SISS för att skapa enkel extrahering, transformering och laddning (ETL)-paket, se [SSIS-självstudie: skapa ett enkelt ETL-paket](https://msdn.microsoft.com/library/ms169917.aspx).
+Information om hur du får upp och som körs med SISS för att skapa enkel extrahering, transformering och laddning (ETL)-paket, se [SSIS självstudien: Skapa en enkel ETL-paketet](https://msdn.microsoft.com/library/ms169917.aspx).
 
 ## <a name="download-nyc-taxi-dataset"></a>Hämta NYC Taxi datauppsättningen
 Exemplet som beskrivs här använda en offentligt tillgänglig datauppsättning – den [NYC Taxi kommunikation](http://www.andresmh.com/nyctaxitrips/) datauppsättning. Datauppsättningen består av cirka 173 miljoner taxi bilar i NYC år 2013. Det finns två typer av data: resa information om data och avgiften data. Eftersom det finns en fil för varje månad, har vi 24-filer i alla som är cirka 2GB okomprimerad.

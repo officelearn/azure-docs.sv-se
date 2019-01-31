@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 01/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b486831118ace7d2112acf1562f5df4a64d1e1b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 70cf6c65592eef94ce657c9aaef7dc78de4ffa11
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092148"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468401"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Felsökningsguide för Azure Disk Encryption
 
@@ -87,7 +87,7 @@ När anslutningen är begränsad av en brandvägg eller proxy kravet nätverkss�
 Alla inställningar för nätverkssäkerhetsgrupper som tillämpas måste fortfarande tillåta slutpunkten så att den uppfyller dokumenterade nätverkskonfigurationen [krav](azure-security-disk-encryption-prerequisites.md#bkmk_GPO) för diskkryptering.
 
 ### <a name="azure-key-vault-behind-a-firewall"></a>Azure Key Vault bakom en brandvägg
-Den virtuella datorn måste kunna komma åt ett nyckelvalv. Referera till vägledning för åtkomst till nyckelvalv bakom en brandvägg som den [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) teamet bibehåller. 
+När kryptering aktiveras med [autentiseringsuppgifter för Azure AD](azure-security-disk-encryption-prerequisites-aad.md), den Virtuella måldatorn måste beviljas åtkomst till slutpunkter för Azure AD-autentisering samt Key Vault-slutpunkter.  Mer information om den här processen finns i vägledning för att få åtkomst till nyckelvalv bakom en brandvägg som den [Azure Key Vault](../key-vault/key-vault-access-behind-firewall.md) teamet bibehåller. 
 
 ### <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service 
 Den virtuella datorn måste kunna komma åt den [tjänsten Azure Instance Metadata](../virtual-machines/windows/instance-metadata-service.md) slutpunkt som använder en välkänd icke-dirigerbara IP-adress (`169.254.169.254`) som kan nås från den virtuella datorn.

@@ -6,16 +6,16 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.openlocfilehash: 3599875f96c6bd79ecace1d59c3580027fab3168
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28c945223d225d7e91df1041bcbe02ee87b93c6a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040361"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475065"
 ---
-# <a name="global-data-distribution-with-azure-cosmos-db"></a>Globala data-distribution med Azure Cosmos DB
+# <a name="global-data-distribution-with-azure-cosmos-db---overview"></a>Globala data-distribution med Azure Cosmos DB – översikt
 
-Dagens program måste vara tillgängliga och alltid online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå med låg fördröjning och hög tillgänglighet. Dessa program distribueras vanligen i flera datacenter och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som kan transparent replikerar data överallt i världen att programmen ska fungera på en kopia av de data som ligger nära dess användare. 
+Dagens program måste alltid vara mycket responsiva och ständigt online. Instanser av dessa program måste distribueras i datacenter som ligger nära användarna för att uppnå kort svarstid och hög tillgänglighet. Dessa program distribueras vanligen i flera datacenter och kallas globalt distribuerade. Globalt distribuerade program behöver en globalt distribuerad databas som kan transparent replikerar data överallt i världen att programmen ska fungera på en kopia av de data som ligger nära dess användare. 
 
 Azure Cosmos DB är en globalt distribuerad databastjänst som har utformats för att ge låg latens, elastisk skalbarhet för dataflödet, väldefinierade semantik för datakonsekvens och hög tillgänglighet. Om ditt program behöver tid för garanterade snabba svar var som helst i världen, om det krävs för att alltid vara online och behöver obegränsad och elastisk skalbarhet för dataflöde och lagring, Överväg du kort sagt: att skapa program med hjälp av Azure Cosmos DB.
 

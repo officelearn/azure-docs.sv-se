@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 8dfcee6e7f0e2fd21c35ed2507b572c6e8cffc42
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/29/2019
+ms.openlocfilehash: 57c08fc8e3b7c655bcb59affcde5e37510f98920
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217245"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466600"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL databasdata identifiering och klassificering
 
@@ -123,7 +123,7 @@ När du har definierat principen klienttäckande kan du fortsätta med klassific
 
 ## <a id="subheading-3"></a>Granska åtkomst till känsliga data
 
-En viktig aspekt av information protection-paradigm är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) har förbättrats för att inkludera ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar känslighet klassificeringar (etiketter) faktiska data som returnerades av frågan.
+En viktig aspekt av information protection-paradigm är möjligheten att övervaka åtkomsten till känsliga data. [Azure SQL Database Auditing](sql-database-auditing.md) har förbättrats för att inkludera ett nytt fält i granskningsloggen kallas *data_sensitivity_information*, som loggar känslighet klassificeringar (etiketter) faktiska data som returnerades av frågan.
 
 ![Granskningslogg](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
@@ -148,7 +148,7 @@ Du kan också använda REST API: er för att programmässigt hantera klassificer
 ## <a id="subheading-5"></a>Nästa steg
 
 - Läs mer om [SQL Advanced datasäkerhet](sql-advanced-threat-protection.md).
-- Överväg att konfigurera [Azure SQL Database Auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
+- Överväg att konfigurera [Azure SQL Database Auditing](sql-database-auditing.md) för övervakning och granskning av åtkomst till dina klassificerade känsliga data.
 
 <!--Anchors-->
 [SQL Data Discovery & Classification overview]: #subheading-1

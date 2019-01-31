@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 79aa9cd3e634238702419d01650c7ef29c4dbb95
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 1059dec80dcca80380b58aa8057162679496adc6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242033"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467381"
 ---
 # <a name="transfer-data-with-azcopy-on-linux"></a>Överföra data med AzCopy i Linux
 
@@ -92,7 +92,7 @@ azcopy --source <source> --destination <destination> [Options]
 
 Följande exempel visar olika scenarier för att kopiera data till och från Microsoft Azure-Blobbar och filer. Referera till den `azcopy --help` menyn för en detaljerad förklaring av de parametrar som används i varje exempel.
 
-## <a name="blob-download"></a>BLOB: ladda ned
+## <a name="blob-download"></a>Blob: Ladda ned
 ### <a name="download-single-blob"></a>Hämta en enda blob
 
 ```azcopy
@@ -211,7 +211,7 @@ azcopy \
     --exclude-older
 ```
 
-## <a name="blob-upload"></a>BLOB: ladda upp
+## <a name="blob-upload"></a>Blob: Ladda upp
 ### <a name="upload-single-file"></a>Ladda upp en fil
 
 ```azcopy
@@ -346,7 +346,7 @@ azcopy \
 ### <a name="customizing-the-mime-content-type-mapping"></a>Anpassa MIME-innehållstyp mappning
 AzCopy använder en konfigurationsfil som innehåller en mappning av filnamnstillägg som innehållstyp. Du kan anpassa den här mappningen och lägga till nya par efter behov. Mappningen finns i  ```/usr/lib/azcopy/AzCopyConfig.json```
 
-## <a name="blob-copy"></a>BLOB: kopiera
+## <a name="blob-copy"></a>Blob: Kopiera
 ### <a name="copy-single-blob-within-storage-account"></a>Enkel kopiering av blob Storage-konto
 
 ```azcopy
@@ -420,7 +420,7 @@ azcopy \
 
 `--sync-copy` kan generera ytterligare utgående kostnader jämfört med asynkron kopia. Den rekommenderade metoden är att använda det här alternativet i en Azure virtuell dator som är i samma region som din källagringskontot för att undvika kostnader för utgående trafik.
 
-## <a name="file-download"></a>Fil: ladda ned
+## <a name="file-download"></a>Fil: Ladda ned
 ### <a name="download-single-file"></a>Hämta enstaka fil
 
 ```azcopy
@@ -444,7 +444,7 @@ azcopy \
 
 Observera att alla tomma mappar inte laddas ned.
 
-## <a name="file-upload"></a>Fil: ladda upp
+## <a name="file-upload"></a>Fil: Ladda upp
 ### <a name="upload-single-file"></a>Ladda upp en fil
 
 ```azcopy
@@ -477,7 +477,7 @@ azcopy \
     --recursive
 ```
 
-## <a name="file-copy"></a>Fil: kopiera
+## <a name="file-copy"></a>Fil: Kopiera
 ### <a name="copy-across-file-shares"></a>Kopiera på filresurser
 
 ```azcopy
@@ -717,7 +717,7 @@ Mer information om Azure Storage och AzCopy finns i följande resurser:
 * [Introduktion till Azure Storage Data Movement Library förhandsversion](https://azure.microsoft.com/blog/introducing-azure-storage-data-movement-library-preview-2/)
 * [AzCopy: Introduktion till synkron kopia och anpassade innehållstyp](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/01/13/azcopy-introducing-synchronous-copy-and-customized-content-type.aspx)
 * [AzCopy: Meddelande om allmän tillgänglighet av AzCopy 3.0 plus förhandsversionen av AzCopy 4.0 med stöd för tabell och fil](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/10/29/azcopy-announcing-general-availability-of-azcopy-3-0-plus-preview-release-of-azcopy-4-0-with-table-and-file-support.aspx)
-* [AzCopy: Optimerats för storskaliga kopia scenarier](https://go.microsoft.com/fwlink/?LinkId=507682)
+* [AzCopy: Optimerad för storskaliga kopia scenarier](https://go.microsoft.com/fwlink/?LinkId=507682)
 * [AzCopy: Stöd för läsåtkomst till geografiskt redundant lagring](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/04/07/azcopy-support-for-read-access-geo-redundant-account.aspx)
 * [AzCopy: Överföra data med omstartsläge och SAS-token](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/09/07/azcopy-transfer-data-with-re-startable-mode-and-sas-token.aspx)
 * [AzCopy: Med hjälp av flera konto kopiering av Blob](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/04/01/azcopy-using-cross-account-copy-blob.aspx)

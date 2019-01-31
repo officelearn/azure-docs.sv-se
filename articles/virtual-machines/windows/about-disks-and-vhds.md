@@ -8,13 +8,13 @@ ms.tgt_pltfrm: windows
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: rogarana
-ms.component: disks
-ms.openlocfilehash: b1127475b873c5679946121e570ef2bb51f25be1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: disks
+ms.openlocfilehash: 968c8aa74a35bf753d92e7c417aaec2a1361f425
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467976"
 ---
 # <a name="about-disks-storage-for-azure-windows-vms"></a>Om disklagring för virtuella Azure Windows-datorer
 
@@ -55,7 +55,7 @@ Du kan lägga till datadiskar till en virtuell dator när som helst av **koppla*
 
 Förhandsgranska storlekar, se vår [vanliga frågor och svar](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) vill veta vilka regioner som de är tillgängliga i.
 
-## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En senaste rekommendation: Använd TRIM med ohanterade standarddiskar
+## <a name="one-last-recommendation-use-trim-with-unmanaged-standard-disks"></a>En rekommendation för senaste: Använd Rensa med ohanterade standarddiskar
 
 Om du använder ohanterade standarddiskar (HDD), bör du aktivera TRIMNING. TRIM ignorerar oanvända block på disken så att du debiteras endast för lagring som du faktiskt använder. Detta kan sänka kostnaderna om du skapar stora filer och ta bort dem.
 
@@ -72,7 +72,7 @@ fsutil behavior set DisableDeleteNotify 0
 ```
 
 > [!NOTE]
-> Obs: Stöd för Trim börjar med Windows Server 2012 / Windows 8 och senare, se [nytt API kan appar skicka ”TRIMMA och Avmappa” tips till lagringsmedia](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
+> Obs! Stöd för trim börjar med Windows Server 2012 / Windows 8 och senare, se [nytt API kan appar skicka ”TRIMMA och Avmappa” tips till lagringsmedia](https://msdn.microsoft.com/windows/compatibility/new-api-allows-apps-to-send-trim-and-unmap-hints).
 > 
 
 <!-- Might want to match next-steps from overview of managed disks -->

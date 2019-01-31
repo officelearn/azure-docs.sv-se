@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/22/2018
-ms.openlocfilehash: d8af5e3919b731677b40726c37462832adc06677
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: ee9e9389962cd454f9861e561dd76c96d019a1f0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449103"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469350"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Skapa, konfigurera och hantera elastiska jobb
 
@@ -34,7 +34,7 @@ I den här artikeln får lära du dig att skapa, konfigurera och hantera elastis
 
 1. Skapa autentiseringsuppgifter för jobbkörning i *jobbdatabasen* med [PowerShell](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets) eller [T-SQL](elastic-jobs-tsql.md#create-a-credential-for-job-execution).
 2. Definiera målgruppen (de databaser som du vill köra jobbet mot) med [PowerShell](elastic-jobs-powershell.md#define-the-target-databases-you-want-to-run-the-job-against) eller [T-SQL](elastic-jobs-tsql.md#create-a-target-group-servers).
-3. Skapa autentiseringsuppgifter för en jobbagent i varje databas som jobbet ska köras mot [(lägg till användaren (eller rollen) till varje databas i gruppen)](https://docs.microsoft.com/azure/sql-database/sql-database-control-access). Exempel finns i [PowerShell-självstudien](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
+3. Skapa autentiseringsuppgifter för en jobbagent i varje databas som jobbet ska köras mot [(lägg till användaren (eller rollen) till varje databas i gruppen)](sql-database-control-access.md). Exempel finns i [PowerShell-självstudien](elastic-jobs-powershell.md#create-job-credentials-so-that-jobs-can-execute-scripts-on-its-targets).
 4. Skapa ett jobb med [PowerShell](elastic-jobs-powershell.md#create-a-job) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 5. Lägg till jobbsteg med [PowerShell](elastic-jobs-powershell.md#create-a-job-step) eller [T-SQL](elastic-jobs-tsql.md#deploy-new-schema-to-many-databases).
 6. Kör ett jobb med [PowerShell](elastic-jobs-powershell.md#run-the-job) eller [T-SQL](elastic-jobs-tsql.md#begin-ad-hoc-execution-of-a-job).

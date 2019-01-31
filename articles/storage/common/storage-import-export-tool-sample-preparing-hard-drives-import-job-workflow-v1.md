@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ae792df428d897277e15df9db3ff6f99a5b8859e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: e183ed5ecda3053ed052952f4db5adfb016bfa68
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527298"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459062"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 Den här artikeln vägleder dig genom processen med att förbereda enheter för ett importjobb.  
@@ -88,7 +88,7 @@ Du kan också ange vissa egenskaper för den `FavoriteMovie.ISO` blob:
   
 -   **Content-Type:** application/octet-ström  
   
--   **Innehåll MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==  
+-   **Innehåll MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==  
   
 -   **Cache-Control:** no-cache  
   
@@ -169,4 +169,4 @@ När kopia sessioner har slutfört du koppla de två enheterna från datorn som 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [Snabbreferens för ofta använda kommandon](../storage-import-export-tool-quick-reference-v1.md) 
+* [Snabbreferens för ofta använda kommandon](../storage-import-export-tool-quick-reference-v1.md) 

@@ -1,8 +1,21 @@
 ---
-Rubrik: Skapa anpassade neurala nätverk med Net # titleSuffix: Beskrivning av Azure Machine Learning Studio: Syntax guide för det Net # språket för neurala nätverk. Lär dig hur du skapar anpassade neurala nätverk modeller i Azure Machine Learning Studio.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: referens
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/01/2018
+title: 'Skapa anpassade neurala nätverk med Net #'
+titleSuffix: Azure Machine Learning Studio
+description: 'Syntax guide för det Net # språket för neurala nätverk. Lär dig hur du skapar anpassade neurala nätverk modeller i Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: reference
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/01/2018
+ms.openlocfilehash: be6c04fe31aaa8d4b9081942b054575ff548cf5a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300378"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guide till Net # språket för neurala nätverk för Azure Machine Learning Studio
 

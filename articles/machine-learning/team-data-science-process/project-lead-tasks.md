@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 39e8c5b8dab33ba95b34c4edb9d0a994bc8ec6dc
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d574f62a51b8aed7acbd1ba7f8b427395add854a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135172"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454138"
 ---
 # <a name="tasks-for-the-project-lead-in-the-team-data-science-process"></a>Uppgifter för projektet leda i Team Data Science Process
 
@@ -35,10 +35,10 @@ Det här avsnittet innehåller för närvarande uppgifter 1,2 och 6 av det här 
 
 Den här självstudien använder förkortade namnen för databaser och kataloger. Dessa namn gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen (R för Git-lagringsplatser) och D för lokala kataloger på din DSVM används i följande avsnitt:
 
-- **R3**: teamet **ProjectTemplate** databasen på Git din gruppledare har konfigurerat.
-- **R5**: på projektets lagringsplats på Git som du konfigurerar för ditt projekt.
-- **D3**: den lokala katalogen klonas från R3.
-- **D5**: den lokala katalogen klonas från R5.
+- **R3**: Teamet **ProjectTemplate** databasen på Git din gruppledare har konfigurerat.
+- **R5**: På projektets lagringsplats på Git som du konfigurerar för ditt projekt.
+- **D3**: Den lokala katalogen klonas från R3.
+- **D5**: Den lokala katalogen klonas från R5.
 
 
 ## <a name="0-prerequisites"></a>0. Förutsättningar
@@ -84,15 +84,15 @@ Följande krav måste uppfylla innan du börjar lead gruppaktiviteter för att s
 
 ## <a name="2-seed-the-dsproject1-project-repository"></a>2. Dirigera DSProject1 projektets lagringsplats
 
-Den här uppgiften är att seed den **DSProject1** projektets lagringsplats (R5) från ditt projekt mallagret (R3). Seeding proceduren använder kataloger D3 och D5 på din lokala DSVM som mellanliggande mellanlagring platser. Sammanfattningsvis seeding sökvägen är: R3 -> D3 -> D5 R5 ->.
+Den här uppgiften är att seed den **DSProject1** projektets lagringsplats (R5) från ditt projekt mallagret (R3). Seeding proceduren använder kataloger D3 och D5 på din lokala DSVM som mellanliggande mellanlagring platser. Sammanfattningsvis är seeding sökvägen: R3 -> D3 -> D5 -> R5.
 
 Om du vill anpassa din **DSProject1** projektet projektets lagringsplats för att uppfylla vissa specifika behov, gör du det i det näst sista steget i följande procedur. Här är en sammanfattning av de steg som används till att dirigera innehållet i den **DSProject1** projektets lagringsplats. De enskilda stegen motsvarar underavsnitt i seeding procedur:
 
 - Klona projektet mallagret till lokal katalog: team R3 - klona om du vill -> lokala D3.
 - Klonade DSProject1 lagringsplats till en lokal katalog: team R5 - klona om du vill -> lokala D5.
-- Kopiera klonade projektinnehåll till lokal klon av lagringsplatsen för DSProject1: D3 - innehållet kopieras till D5 ->.
+- Kopiera klonade projektinnehåll till lokal klon av lagringsplatsen för DSProject1:  D3 - innehållet kopieras till D5 ->.
 - (Valfritt) Anpassning av lokala D5.
-- Dra lokala DSProject1 innehåll till teamet databaser: D5 - innehållet Lägg till team R5 ->.
+- Skicka lokala DSProject1-innehåll till teamet databaser: D5 - innehållet Lägg till team R5 ->.
 
 
 ### <a name="clone-your-project-template-repository-r3-to-a-directory-d3-on-your-local-machine"></a>Klona projektet malldatabasen (R3) till en katalog (D3) på den lokala datorn.

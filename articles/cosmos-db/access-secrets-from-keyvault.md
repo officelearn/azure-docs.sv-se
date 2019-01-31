@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
 ms.reviewer: sngun
-ms.openlocfilehash: c80f555a3789a12420cef0dc91ef7accc6a4388d
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 8a3863ff67549c77692f8629c2e7315aec94faf8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54036196"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463318"
 ---
-# <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Använd Key Vault för att lagra och komma åt Azure Cosmos DB-nycklar
+# <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Säkra Azure Cosmos-nycklar med hjälp av Azure Key Vault 
 
 När du använder Azure Cosmos DB för dina program kan du komma åt databasen, samlingar, dokument med hjälp av slutpunkt URI och nyckeln i appens konfigurationsfilen.  Det är dock inte säkert att placera nycklar och URL: en direkt i programkoden eftersom de är tillgängliga i klartext för alla användare. Du vill se till att URI och nycklar är tillgänglig men via en säker mekanism. Det här är där Azure Key Vault kan hjälpa dig att säkert lagra och hantera programhemligheter.
 

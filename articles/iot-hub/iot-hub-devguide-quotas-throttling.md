@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: 23dbc8d935e46fc4fb12257f360371d4cc61235a
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827388"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466820"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub-kvoter och begränsningar
 
@@ -85,7 +85,7 @@ IoT Hub tillämpar andra begränsningar:
 <sup>1</sup>den här funktionen är inte tillgänglig i basic-nivån för IoT Hub. Mer information finns i [hur du väljer rätt IoT-hubb](iot-hub-scaling.md).
 
 > [!NOTE]
-> Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är för närvarande 500 000. Om du vill utöka gränsen kontaktar du [Microsoft Support](https://azure.microsoft.com/support/options/).
+> Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är för närvarande 1 000 000. Om du vill utöka gränsen kontaktar du [Microsoft Support](https://azure.microsoft.com/support/options/).
 
 ## <a name="latency"></a>Svarstid
 IoT Hub strävar efter att ge låg latens för alla åtgärder. Men på grund av nätverkets tillstånd och andra oförutsägbara faktorer kan inte garantera en maximal fördröjning. När du utformar din lösning, bör du:

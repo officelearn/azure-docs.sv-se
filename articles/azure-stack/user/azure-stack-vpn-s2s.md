@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 01/19/2019
 ms.author: sethm
 ms.lastreviewed: 01/19/2019
-ms.openlocfilehash: e9e24bd19243f13b89d54f0105195b5c17505925
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9a14c819acbc46d8a281f73fd4f3185caa8a1e02
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251521"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478159"
 ---
-# <a name="configure-ipsecike-policy-for-site-to-site-vpn-or-vnet-to-vnet-connections"></a>Konfigurera IPsec/IKE-princip för plats-till-plats VPN- eller VNet-till-VNet-anslutningar
+# <a name="configure-ipsecike-policy-for-site-to-site-vpn-connections"></a>Konfigurera IPsec/IKE-princip för plats-till-plats VPN-anslutningar
 
 Den här artikeln beskriver hur du konfigurerar en IPsec/IKE-princip för plats-till-plats (S2S) VPN-anslutningar i Azure Stack.
 

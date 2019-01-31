@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: d8ddbb2590852ed80ce02f147886dc125815fc23
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 94b793d4ab68ae4d2b8a28961d76eed1ea875ff7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468639"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Hantera utrymmet i Azure SQL Database
 Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database och steg som kan utföras när utrymmet som allokerats för databaser och elastiska pooler måste hanteras uttryckligen.
@@ -27,6 +27,7 @@ Den här artikeln beskrivs olika typer av lagringsutrymme i Azure SQL Database o
 I Azure SQL Database finns arbetsbelastningmönster där allokeringen av underliggande datafiler för databaser kan bli större än mängden data som används sidor. Den här situationen kan uppstå när mängden utnyttjat utrymme ökar och data därefter raderas. Anledningen är allokerade utrymmet inte frigörs automatiskt när data tas bort.
 
 I följande scenarier kan det vara nödvändigt att övervaka användningen av filutrymmet och att krympa datafiler:
+
 - Tillåt datatillväxt i en elastisk pool när filutrymmet som tilldelats dess databaser når poolens maxstorlek.
 - Tillåt att maxstorleken för en enskild databas eller elastisk pool minskas.
 - Tillåt att en enskild databas eller elastisk pool ändras till en annan tjänstnivå eller prestandanivå med en mindre maxstorlek.
@@ -118,6 +119,7 @@ Förstå följande storage utrymme kvantiteter är viktiga för att hantera filu
 Följande frågor kan användas för att fastställa storage utrymme kvantiteter för en elastisk pool.  
 
 ### <a name="elastic-pool-data-space-used"></a>Elastisk pool datautrymme används
+
 Ändra följande fråga om du vill returnera mängden utrymme som data i en elastisk pool och används.  Enheter av frågeresultatet är i MB.
 
 ```sql
@@ -234,9 +236,9 @@ När data för databasfilerna är krympas index kan bli fragmenterad och förlor
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om databasernas maximala storlek finns i:
-  - [Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases)
-  - [Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-single-databases)
-  - [Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)
-  - [Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen](https://docs.microsoft.com/azure/sql-database/sql-database-dtu-resource-limits-elastic-pools)
+  - [Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md)
+  - [Resursgränser för enskilda databaser med hjälp av den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-single-databases.md)
+  - [Azure SQL Database vCore-baserade köpa modellen lagringsgränser för elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md)
+  - [Resurser-gränser för elastiska pooler med den DTU-baserade inköpsmodellen](sql-database-dtu-resource-limits-elastic-pools.md)
 - Mer information om den `SHRINKDATABASE` kommandot, se [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 - Mer information om fragmentering och bygga om index finns i [Reorganize och bygg om index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).

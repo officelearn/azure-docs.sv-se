@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: fd2d9bd325d79a1fd8aa0da74da64f6ba98decda
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bd1ffcfd915fe9ece683ec88d27f54b3a9214621
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101064"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475693"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Skala automatiskt Azure HDInsight-kluster (förhandsversion)
 
@@ -27,17 +27,17 @@ Azure HDInsight-kluster Autoskala funktionen skalas automatiskt antalet arbetarn
 > [!Note]
 > Automatisk skalning är för närvarande stöds endast för Azure HDInsight Hive, MapReduce och Spark-kluster version 3.6.
 
-Fullständig HDInsight-kluster i separata steg med hjälp av Azure-portalen finns på [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  Aktivera automatisk skalning när du skapar måste några avvikelser från vanliga installationsstegen.  
+Om du vill aktivera funktionen för automatisk skalning, gör du följande som en del av normal klusterskapningsprocessen:
 
 1. Välj **anpassad (storlek, inställningar, appar)** snarare än **Snabbregistrering**.
-2. Steg 5 i anpassade **klusterstorlek**, kontrollera den **Worker noden Autoskala** kryssrutan.
+2. På **anpassade** steg 5 (**klusterstorlek**) kontrollera den **Worker noden Autoskala** kryssrutan.
 3. Ange de önskade värdena för:  
-  &#8226;Inledande **många av arbetsnoder**.  
-  &#8226;**Minsta** antalet arbetsnoder.  
-  &#8226;**Maximala** antalet arbetsnoder.  
+
+    * Inledande **många av arbetsnoder**.  
+    * **Minsta** antalet arbetsnoder.  
+    * **Maximal** antalet arbetsnoder.  
 
 ![Aktivera alternativet för automatisk skalning av worker noden](./media/hdinsight-autoscale-clusters/usingAutoscale.png)
-
 
 Det inledande antalet arbetarnoder måste ligga mellan lägsta och högsta, inklusive. Det här värdet anger den ursprungliga storleken för klustret när den skapas. Det minsta antalet arbetarnoder måste vara större än noll.
 
@@ -48,9 +48,11 @@ Din prenumeration har en kapacitet kvot för varje region. Det totala antalet k�
 > [!Note]  
 > Om du överskrider den totala grundkvoten får du ett felmeddelande om ”maximalt antal nod överskrider de tillgängliga kärnorna i den här regionen, Välj en annan region eller kontakta supporten för att öka kvoten”.
 
+Mer information om HDInsight-kluster med Azure portal finns i [skapa Linux-baserade kluster i HDInsight med Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md).  
+
 ### <a name="create-a-cluster-with-a-resource-manager-template"></a>Skapa ett kluster med en Resource Manager-mall
 
-Fullständig HDInsight-kluster i separata steg med hjälp av Resource Manager-mallar finns på [skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  När du skapar ett HDInsight-kluster med en Azure Resource Manager-mall kan behöva du lägga till följande inställningar i avsnittet ”computeProfile” ”workernode” och redigera den i enlighet med detta:
+När du skapar ett HDInsight-kluster med en Azure Resource Manager-mall till en `autoscale` noden till den `computeProfile`  >  `workernode` avsnittet med egenskaper `minInstanceCount` och `maxInstanceCount` som visas i json-kodfragmentet nedan.
 
 ```json
 {                            
@@ -73,6 +75,8 @@ Fullständig HDInsight-kluster i separata steg med hjälp av Resource Manager-ma
     "scriptActions": []
 }
 ```
+
+För mer information om hur du skapar kluster med Resource Manager-mallar, se [skapa Apache Hadoop-kluster i HDInsight med hjälp av Resource Manager-mallar](hdinsight-hadoop-create-linux-clusters-arm-templates.md).  
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Aktivera och inaktivera automatisk skalning för ett kluster som körs
 
@@ -106,7 +110,7 @@ När följande villkor har identifierats, utfärdar automatisk skalning en skala
 * Totalt antal väntande CPU är större än totalt ledigt CPU i mer än 1 minut.
 * Totalt antal väntande minne är större än totala lediga minnet i mer än 1 minut.
 
-Vi beräknar att N nya arbetsnoderna behövs för att uppfylla kraven på aktuella CPU och minne och sedan utfärdar en skala upp begäran genom att begära N nya arbetsnoderna.
+Vi beräknar att ett visst antal nya arbetsnoderna behövs för att uppfylla kraven på aktuella CPU och minne och utfärda en skala upp begäran som lägger till det antalet nya arbetsnoderna.
 
 ### <a name="cluster-scale-down"></a>Klustret skala ned
 
@@ -115,7 +119,7 @@ När följande villkor har identifierats, utfärdar automatisk skalning en skala
 * Totalt antal väntande CPU är mindre än totalt ledigt CPU i mer än 10 minuter.
 * Totalt antal väntande minne är mindre än totala lediga minnet i mer än 10 minuter.
 
-Baserat på antalet AM behållare per nod samt kraven på aktuella CPU och minne, utfärdar automatisk skalning en begäran att ta bort N noder att ange vilka noder som är möjliga kandidater för borttagning. Som standard tas två noder bort i en cykel.
+Baserat på antalet AM behållare per nod samt kraven på aktuella CPU och minne, utfärdar automatisk skalning en begäran att ta bort ett visst antal noder, anger vilka noder som är möjliga kandidater för borttagning. Som standard tas två noder bort i en cykel.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-title: Så här konfigurerar du Azure SQL Database - Singleton | Microsoft Docs
-description: Lär dig hur du konfigurerar och hanterar Azure SQL Database - databas.
+title: Så här konfigurerar du Azure SQL Database - fristående | Microsoft Docs
+description: Lär dig hur du konfigurerar och hanterar Azure SQL Database - fristående databas
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,21 +11,21 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: d34853220e423e73c6ca8cf7c76ba616b815b8bd
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477802"
 ---
-# <a name="how-to-use-single-database"></a>Hur du använder enkel databas
+# <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Hur du använder en enkel databas i Azure SQL Database
 
-I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera Azure SQL Database - databas.
+I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan hjälpa dig att hantera och konfigurera din databas i Azure SQL Database
 
 ## <a name="migrate"></a>Migrera
 
-- [Migrera till SQL Database](sql-database-cloud-migrate.md) – Lär dig mer om rekommenderade migreringsprocessen och verktyg för migrering till Managed Instance.
+- [Migrera till SQL Database](sql-database-cloud-migrate.md) – Lär dig mer om rekommenderade migreringsprocessen och verktyg för migrering till en hanterad instans.
 - Lär dig hur du [hanterar SQL-databas efter migreringen](sql-database-manage-after-migration.md).
 
 ## <a name="configure-features"></a>Konfigurera funktioner
@@ -66,7 +66,7 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 - Kör [Multi-shard-frågor](sql-database-elastic-scale-multishard-querying.md).
 - [Flytta shardade data](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
 - [Konfigurera säkerhet](sql-database-elastic-scale-split-merge-security-configuration.md) i databasshards.
-- [Lägg till en shard](sql-database-elastic-scale-add-a-shard.md) till aktuellt ange od databasshards.
+- [Lägg till en shard](sql-database-elastic-scale-add-a-shard.md) till den aktuella uppsättningen databasshards.
 - [Lösa problem i shardkarta](sql-database-elastic-database-recovery-manager.md).
 - [Migrera shardad databas](sql-database-elastic-convert-to-use-elastic-tools.md).
 - [Skapa räknare](sql-database-elastic-database-perf-counters.md).
@@ -74,4 +74,4 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 - [Använd Dapper framework](sql-database-elastic-scale-working-with-dapper.md) att fråga efter shardade data.
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [anvisningar hjälper i Managed Instance](sql-database-howto-managed-instance.md)
+- Läs mer om [anvisningar hjälper för den hanterade instansen](sql-database-howto-managed-instance.md)

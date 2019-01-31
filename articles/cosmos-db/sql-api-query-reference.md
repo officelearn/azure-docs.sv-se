@@ -8,14 +8,14 @@ ms.topic: reference
 ms.date: 12/07/2018
 ms.author: mjbrown
 ms.custom: seodec18
-ms.openlocfilehash: b099848f2d0392a25a0906a96dba53885962c79b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bfc3ed5553802c8a87776dc1a5372bc27ac8d13d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102353"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475201"
 ---
-# <a name="azure-cosmos-db-sql-language-reference"></a>Azure Cosmos DB SQL-Språkreferens 
+# <a name="sql-language-reference-for-azure-cosmos-db"></a>SQL-Språkreferens för Azure Cosmos DB 
 
 Azure Cosmos DB stöder Frågedokument med hjälp av en välbekant SQL (Structured Query Language) som grammatik över hierarkisk JSON-dokument utan uttryckliga scheman eller att sekundära index. Den här artikeln innehåller dokumentation för SQL-fråga språksyntax, som är kompatibla med SQL API-konton. En genomgång av exempel på SQL-frågor finns i [SQL-frågor i Cosmos DB](how-to-sql-query.md).  
   

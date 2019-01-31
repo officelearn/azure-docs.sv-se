@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5faa7a58a252a5d3b8cc044f9e81a6d7cb2df7d5
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0cf9ffddffe7f97008e69c9c4fb7945faeb779da
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138049"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469608"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 Vilka resurser bör du planera att inkludera när du konfigurerar en miljö för att göra avancerade analyser på en datauppsättning? Den här artikeln tyder på ett antal frågor som hjälper dig att identifiera aktiviteter och resurser som är relevanta ditt scenario. Anvisningar för förutsägande analyser beskrivs i [vad är Team Data Science Process (TDSP)?](overview.md). Var och en av de här stegen kräver specifika resurser för uppgifterna som är relevanta för din specifika scenario. Viktiga frågor för att identifiera ditt scenario avse datalogistik, egenskaper, kvaliteten på datauppsättningar, och de verktyg och språk du föredrar att göra analysen.
@@ -65,14 +65,14 @@ Dessa frågor är att planera din lagring och bearbetning av miljöer, som är l
    * SQL Server-tabeller
 3. **Hur stora är dina data?**
    
-   * Små: mindre än 2 GB
-   * Medel: Är större än 2 GB och mindre än 10 GB
-   * Stora: Är större än 10 GB
+   * Små: Mindre än 2 GB
+   * Medel: Större än 2 GB och mindre än 10 GB
+   * Stora: Större än 10 GB
 
 Ta till exempel Azure Machine Learning Studio-miljön:
 
 * En lista över dataformat och typer som stöds av Azure Machine Learning Studio finns i [dataformat och datatyper som stöds](../studio/import-data.md#data-formats-and-data-types-supported) avsnittet.
-* Information om begränsningar för Azure Machine Learning Studio finns i den **hur stor kan datauppsättningen vara för Mina moduler?** delen av [importera och exportera data för Machine Learning](../studio/faq.md#machine-learning-studio-questions)
+
 
 Information om begränsningarna i andra Azure-tjänster används i analytics-processen finns i [Azure-prenumeration och tjänstbegränsningar, kvoter och begränsningar](../../azure-subscription-service-limits.md).
 

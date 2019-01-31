@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 06/19/2018
 ms.author: anuragm
 ms.custom: ''
-ms.openlocfilehash: 89344b6e06dbc62fe56c0aebc30a049aebf5c097
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 0d910269a16223c610e4606cdd6660cc5d43947f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53339526"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296129"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Felsöka säkerhetskopiering av SQL Server på Azure
 
 Den här artikeln innehåller felsökningsinformation för att skydda SQL Server-datorer på Azure (förhandsversion).
 
-## <a name="public-preview-limitations"></a>Offentliga begränsningar i förhandsversionen
+## <a name="public-preview-limitations"></a>Begränsningar för offentlig förhandsversion
 
 Om du vill visa de offentliga begränsningarna i förhandsversionen finns i artikeln [säkerhetskopiera SQL Server-databas i Azure](backup-azure-sql-database.md#public-preview-limitations).
 
@@ -37,6 +37,15 @@ Konfigurera skydd för en SQL Server-databas på en virtuell dator i **AzureBack
 ## <a name="troubleshooting-errors"></a>Felsöka fel
 
 Använd informationen i följande tabeller för att felsöka problem och fel påträffades när du skyddar SQL Server till Azure.
+
+## <a name="alerts"></a>Aviseringar
+
+### <a name="backup-type-unsupported"></a>Typ av säkerhetskopiering stöds inte
+
+| Severity | Beskrivning | Möjliga orsaker | Rekommenderad åtgärd |
+|---|---|---|---|
+| Varning | Aktuella inställningar för den här databasen stöder inte vissa typer av säkerhetskopieringstyper som finns i den associerade principen. | <li>**Master DB**: Endast en fullständig säkerhetskopiering databasåtgärd kan utföras i master-databasen; varken **differentiell** säkerhetskopiering eller transaktion **loggar** backup som möjligt. </li> <li>Alla databaser i **enkla återställningsmodellen** tillåter inte transaktionen **loggar** säkerhetskopia som ska vidtas.</li> | Ändra databasinställningarna så att alla säkerhetskopieringstyper i principen stöds. Du kan också ändra den aktuella principen om du vill inkludera endast säkerhetskopiering typer som stöds. I annat fall stöds inte säkerhetskopieringstyper kommer att åsidosättas vid schemalagd säkerhetskopiering eller säkerhetskopieringen misslyckas för ad hoc-säkerhetskopiering.
+
 
 ## <a name="backup-failures"></a>Fel vid säkerhetskopiering
 

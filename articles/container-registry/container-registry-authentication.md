@@ -2,19 +2,19 @@
 title: Autentisera med ett Azure container registry
 description: Alternativ för autentisering för ett Azure container registry, inklusive logga in med en Azure Active Directory-identitet, med hjälp av tjänstens huvudnamn och med valfritt administratörsautentiseringsuppgifter.
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/21/2018
-ms.author: stevelas
+ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 665ceabe062fce454db377a384b1d12ba6868c40
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 66f9c41e2551dffc32932f1cfa53fa444251b303
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54851733"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301058"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Autentisera med ett privat Docker-behållarregister
 
@@ -32,9 +32,11 @@ När du arbetar med registret direkt, till exempel hämtar avbildningar till och
 az acr login --name <acrName>
 ```
 
-När du loggar in med `az acr login`, CLI använder token skapas när du körde [az-inloggning](/cli/azure/reference-index#az-login) att sömlöst autentisera din session med ditt register. När du har loggat in på så sätt kan dina autentiseringsuppgifter är cachelagrat och efterföljande `docker` kommandon kräver inte något användarnamn eller lösenord. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras på nytt. Med hjälp av `az acr login` med Azure-identiteter tillhandahåller [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md).
+När du loggar in med `az acr login`, CLI använder token skapas när du körde [az-inloggning](/cli/azure/reference-index#az-login) att sömlöst autentisera din session med ditt register. När du har loggat in på så sätt kan dina autentiseringsuppgifter är cachelagrat och efterföljande `docker` kommandon i sessionen kräver inte något användarnamn eller lösenord. 
 
-För vissa scenarier kan du logga in till ett register med din egen individuell identitet i Azure AD. För scenarier för cross-tjänst eller för att hantera behov i en arbetsgrupp där du inte vill hantera enskilda åtkomst, du kan också logga in med en [hanterad identitet för Azure-resurser](container-registry-authentication-managed-identity.md).
+För åtkomst till behållarregistret, token som används av `az acr login` är giltig för 1 timme, så vi rekommenderar att du alltid logga in i registret innan du kör en `docker` kommando. Om din token upphör att gälla, kan du uppdatera den med hjälp av den `az acr login` kommandot igen för att autentiseras på nytt. 
+
+Med hjälp av `az acr login` med Azure-identiteter tillhandahåller [rollbaserad åtkomst](../role-based-access-control/role-assignments-portal.md). För vissa scenarier kan du logga in till ett register med din egen individuell identitet i Azure AD. För scenarier för cross-tjänst eller för att hantera behov i en arbetsgrupp där du inte vill hantera enskilda åtkomst, du kan också logga in med en [hanterad identitet för Azure-resurser](container-registry-authentication-managed-identity.md).
 
 ## <a name="service-principal"></a>Tjänstens huvudnamn
 
@@ -58,15 +60,13 @@ Tjänstens huvudnamn aktivera fjärradministrerad anslutning till ett register i
 
   * *Push-*: Skapa behållaravbildningar och skicka dem till ett register med kontinuerlig integrering och distribution av lösningar som Azure Pipelines eller Jenkins.
 
-Du kan också logga in direkt med ett huvudnamn för tjänsten. Ange app-ID och lösenord för tjänstens huvudnamn till den `docker login` kommando:
+Du kan också logga in direkt med ett huvudnamn för tjänsten. När du kör följande kommando interaktivt ange tjänstens huvudnamn appID (användarnamn) och lösenord när du uppmanas till detta. Metodtips att hantera autentiseringsuppgifter för inloggning, finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens:
 
-```
-docker login myregistry.azurecr.io -u <SP_APP_ID> -p <SP_PASSWD>
+```Docker
+docker login myregistry.azurecr.io
 ```
 
 När du har loggat cachelagrar Docker autentiseringsuppgifter, så du inte behöver att komma ihåg app-ID.
-
-Beroende på vilken version av Docker som du har installerat kan du kanske ser en säkerhetsvarning som rekommenderar användning av den `--password-stdin` parametern. Även om användning av denna ligger utanför vad som tas upp i denna artikel rekommenderar vi att du följer denna bästa metod. Mer information finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens.
 
 > [!TIP]
 > Du kan återskapa lösenordet för ett huvudnamn för tjänsten genom att köra den [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) kommando.
@@ -74,19 +74,18 @@ Beroende på vilken version av Docker som du har installerat kan du kanske ser e
 
 ## <a name="admin-account"></a>Administratörskonto
 
-Varje behållarregister innehåller ett administratörskonto för användare som är inaktiverad som standard. Du kan aktivera administratörsanvändaren och hantera dess autentiseringsuppgifter i den [Azure-portalen](container-registry-get-started-portal.md#create-a-container-registry), eller med hjälp av Azure CLI eller andra Azure-verktyg.
+Varje behållarregister innehåller ett administratörskonto för användare som är inaktiverad som standard. Du kan aktivera administratörsanvändaren och hantera dess autentiseringsuppgifter i Azure portal eller med hjälp av Azure CLI eller andra Azure-verktyg.
 
 > [!IMPORTANT]
 > Administratörskontot som har utformats för en enskild användare åtkomst till registret, främst i testsyfte. Vi rekommenderar inte att dela autentiseringsuppgifterna som administratör-konto med flera användare. Alla användare som autentiseras med administratörskontot som visas som en enskild användare med push och pull åtkomst till registret. Ändra eller inaktivera det här kontot inaktiverar registeråtkomst för alla användare som använder autentiseringsuppgifterna. Individuell identitet rekommenderas för användare och tjänsthuvudnamn för fjärradministrerad scenarier.
 >
 
-Administratörskontot som har angetts med två lösenord som kan återskapas. Två lösenord kan du upprätthålla anslutning till registret genom att använda ett lösenord medan du återskapar den andra. Om administratörskontot som är aktiverad, du kan skicka användarnamn och antingen lösenord för att den `docker login` kommandot för grundläggande autentisering till registret. Exempel:
+Administratörskontot som har angetts med två lösenord som kan återskapas. Två lösenord kan du upprätthålla anslutning till registret genom att använda ett lösenord medan du återskapar den andra. Om administratörskontot som är aktiverad, du kan skicka användarnamn och antingen lösenord för att den `docker login` kommandot när du tillfrågas om grundläggande autentisering till registret. Exempel:
 
-```
-docker login myregistry.azurecr.io -u myAdminName -p myPassword1
+```Docker
+docker login myregistry.azurecr.io 
 ```
 
-Igen, Docker rekommenderar att du använder den `--password-stdin` parameter i stället för att tillhandahålla det på kommandoraden för ökad säkerhet. Du kan också ange endast ditt användarnamn, utan `-p`, och ange ditt lösenord när du tillfrågas.
 
 Om du vill aktivera administratörsanvändare för ett befintligt register, du kan använda den `--admin-enabled` -parametern för den [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) i Azure-CLI:
 

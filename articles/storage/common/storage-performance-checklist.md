@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: d627fa1ca52356c43c9a771f612ae6d043299678
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231796"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460837"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Prestanda och skalbarhetschecklista för Microsoft Azure Storage
 ## <a name="overview"></a>Översikt
@@ -40,9 +40,9 @@ Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade
 | &nbsp; | Alla tjänster |Dirigera klientåtkomst |[Använder du SAS- och CORS för direkt åtkomst till lagring i stället för proxy?](#subheading6) |
 | &nbsp; | Alla tjänster |Cachelagring |[Är din cachelagring programdata som används flera gånger och ändringar sällan?](#subheading7) |
 | &nbsp; | Alla tjänster |Cachelagring |[Ditt program är grupperade uppdateringar (cachelagring på klientsidan av dem och sedan laddas upp i större sets)?](#subheading8) |
-| &nbsp; | Alla tjänster |Konfiguration av .NET |[Har du konfigurerat din klient som använder ett tillräckligt antal samtidiga anslutningar](#subheading9) |
-| &nbsp; | Alla tjänster |Konfiguration av .NET |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar?](#subheading10) |
-| &nbsp; | Alla tjänster |Konfiguration av .NET |[Du använder .NET 4.5 eller senare, vilket har förbättrat skräpinsamling?](#subheading11) |
+| &nbsp; | Alla tjänster |.NET Configuration |[Har du konfigurerat din klient som använder ett tillräckligt antal samtidiga anslutningar](#subheading9) |
+| &nbsp; | Alla tjänster |.NET Configuration |[Har du konfigurerat .NET för att använda ett tillräckligt antal trådar?](#subheading10) |
+| &nbsp; | Alla tjänster |.NET Configuration |[Du använder .NET 4.5 eller senare, vilket har förbättrat skräpinsamling?](#subheading11) |
 | &nbsp; | Alla tjänster |Parallellitet |[Har du sett att parallellitet avgränsas på lämpligt sätt så att du inte överbelasta dina klientfunktioner eller det för skalbarhetsmål?](#subheading12) |
 | &nbsp; | Alla tjänster |Verktyg |[Är du med hjälp av den senaste versionen av Microsoft tillhandahöll klientbibliotek och verktyg?](#subheading13) |
 | &nbsp; | Alla tjänster |Antal försök |[Är du med hjälp av en exponentiell backoff återförsöksprincip för begränsning av fel och tidsgränser?](#subheading14) |
@@ -67,10 +67,10 @@ Den här artikeln organiserar beprövade metoder i följande grupper. Beprövade
 | &nbsp; | Tabeller |Begränsa returnerade Data |[Du använder filtrering för att undvika att de enheter som inte behövs?](#subheading32) |
 | &nbsp; | Tabeller |Begränsa returnerade Data |[Använder du projektion för att undvika att egenskaper som inte behövs?](#subheading33) |
 | &nbsp; | Tabeller |Denormalisering |[Har du Avnormaliserade data så att du undviker ineffektiva frågor eller flera läsbegäranden vid försök att hämta data?](#subheading34) |
-| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Är du batchbearbetning av begäranden som behöver vara transaktionella eller kan göras på samma gång för att minska turer?](#subheading35) |
-| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Är du undvika hämtning av en entitet bara för att avgöra om att anropa insert eller update?](#subheading36) |
-| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[Har du tänkt lagra serien med data som hämtas ofta tillsammans i en enda entitet som egenskaper i stället för flera enheter](#subheading37) |
-| &nbsp; | Tabeller |Infoga/Uppdatera/ta bort |[För entiteter som alltid att hämtas tillsammans och kan skrivas i batchar (t.ex. time series-data), har du tänkt använda blobar i stället för tabeller](#subheading38) |
+| &nbsp; | Tabeller |Insert/Update/Delete |[Är du batchbearbetning av begäranden som behöver vara transaktionella eller kan göras på samma gång för att minska turer?](#subheading35) |
+| &nbsp; | Tabeller |Insert/Update/Delete |[Är du undvika hämtning av en entitet bara för att avgöra om att anropa insert eller update?](#subheading36) |
+| &nbsp; | Tabeller |Insert/Update/Delete |[Har du tänkt lagra serien med data som hämtas ofta tillsammans i en enda entitet som egenskaper i stället för flera enheter](#subheading37) |
+| &nbsp; | Tabeller |Insert/Update/Delete |[För entiteter som alltid att hämtas tillsammans och kan skrivas i batchar (t.ex. time series-data), har du tänkt använda blobar i stället för tabeller](#subheading38) |
 | &nbsp; | Köer |Skalbarhetsmål |[Du närmar dig skalbarhetsmål för meddelanden per sekund?](#subheading39) |
 | &nbsp; | Köer |Konfiguration |[Har du stängt Nagle av för att förbättra prestanda för små begäranden?](#subheading40) |
 | &nbsp; | Köer |Meddelandestorlek |[Är dina meddelanden CD för att förbättra prestanda för kön?](#subheading41) |
@@ -164,7 +164,7 @@ Ett exempel på hur du kan hämta en blob-egenskaper för att identifiera senast
 #### <a name="subheading8"></a>Ladda upp Data i batchar
 I vissa Programscenarier du aggregera data lokalt och sedan regelbundet ladda upp den i en grupp i stället för att ladda upp varje datadel omedelbart. Till exempel ett program kan hålla en loggfil av aktiviteter: programmet kan antingen ladda upp information om varje aktivitet, när det händer som en tabell och enhet (som kräver många lagringsåtgärder) eller Aktivitetsinformation bespara till en lokal loggfil och sedan ladda upp alla aktivitetsinformation regelbundet som en avgränsad fil till en blob. Om varje loggpost är 1KB i storlek, kan du ladda upp tusentals i en enda ”placera Blob”-transaktion (du kan ladda upp en blob med upp till 64MB i storlek i en enskild transaktion). Naturligtvis om den lokala datorn går sönder före överföringen potentiellt förlorar du vissa loggdata: programutvecklaren måste utforma möjlighet till klientenheten eller ladda upp fel.  Om aktivitetsdata ska hämtas för tidsintervallen (inte bara enkel aktivitet), bör blobar över tabeller.
 
-### <a name="net-configuration"></a>Konfiguration av .NET
+### <a name="net-configuration"></a>.NET Configuration
 Om du använder .NET Framework, innehåller det här avsnittet flera snabbt vill konfigurera inställningar som du kan använda för att göra betydande prestandaförbättringar.  Kontrollera om liknande koncept gäller i ditt valda språk om du använder andra språk.  
 
 #### <a name="subheading9"></a>Öka Standardgränsen för anslutning
@@ -178,7 +178,7 @@ Du måste ange anslutningsgränsen innan du öppnar några anslutningar.
 
 Andra programmeringsspråk, finns i dokumentationen för respektive språk att fastställa hur du ställer in anslutningsgränsen.  
 
-Mer information finns i bloggposten [webbtjänster: samtidiga anslutningar](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Mer information finns i bloggposten [webbtjänster: Samtidiga anslutningar](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Öka ThreadPool Min Threads om använder synkron kod med asynkrona åtgärder
 Den här koden ökar tråd pool min trådar:  
@@ -255,10 +255,10 @@ För att ladda upp blobar snabbt svara på den första frågan är: är du ladda
 #### <a name="subheading21"></a>Ladda upp en stor blob snabbt
 Om du vill överföra en enda stor blob snabbt bör klientprogrammet ladda upp sin block eller sidor parallellt (att beakta också kolumnerna skalbarhetsmål för enskilda blobar och storage-konto som helhet).  Observera att de officiella Microsoft tillhandahåller RTM Storage-klientbibliotek (.NET, Java) har möjlighet att göra detta.  För var och en av bibliotek som använder den under angivna objektegenskap att ställa in samtidighet:  
 
-* .NET: Set ParallelOperationThreadCount på ett BlobRequestOptions-objekt som ska användas.
-* Java/Android: Använda BlobRequestOptions.setConcurrentRequestCount()
+* .NET: Ange ParallelOperationThreadCount för ett BlobRequestOptions som ska användas.
+* Java/Android: Use BlobRequestOptions.setConcurrentRequestCount()
 * Node.js: Använd parallelOperationThreadCount alternativen begäran eller blobtjänsten.
-* C++: Använda metoden blob_request_options::set_parallelism_factor.
+* C++: Använd metoden blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Ladda upp många blobar snabbt
 Ladda upp blobar parallellt för att ladda upp många blobar snabbt. Det här är snabbare än att överföra enda blobar i taget med parallella block uppladdningar eftersom det sprids överföringen över flera partitioner av storage-tjänsten. En enda blob har endast stöd för ett dataflöde på 60 MB per sekund (cirka 480 Mbit/s). Vid tidpunkten som skrivs stöder upp till 20 Gbit/s ingångshändelser som är större än det dataflöde som stöds av en enskild blob i ett amerikanska LRS-konto.  [AzCopy](#subheading18) utför uppladdningar parallellt som standard och rekommenderas för det här scenariot.  
@@ -286,7 +286,7 @@ Det här avsnittet innehåller flera snabb konfigurationsinställningar som du k
 #### <a name="subheading25"></a>Använd JSON
 Från och med storage service-version 2013-08-15, stöder table service användningen av JSON i stället för XML-baserade AtomPub-format för att överföra data från tabeller. Detta kan minska nyttolaststorlekar med så mycket som 75% och förbättrar programmets prestanda.
 
-Mer information finns i inlägget [Microsoft Azure Tables: introduktion till JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
+Mer information finns i inlägget [Microsoft Azure-tabeller: Introduktion till JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) och [Nyttolastformatet för tabellen tjänståtgärder](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Nagle av
 Nagles algoritmen implementeras över TCP/IP-nätverk som ett sätt att förbättra nätverkets prestanda. Det är dock inte optimal i samtliga fall (till exempel interaktiva miljöer). Nagles algoritmen har en negativ inverkan på prestanda för förfrågningar till tabell och kö-tjänster för Azure Storage, och bör du inaktivera den om möjligt.  
@@ -304,7 +304,7 @@ Hur du representerar och skicka frågor till dina data är den största enda fak
 Tabeller är indelade i partitioner. Varje entitet som lagras i en partition delar samma partitionsnyckel och har en unik rad för att identifiera den i partitionen. Partitioner ger fördelar, men medför också skalbarhetsbegränsningar.  
 
 * Fördelar: Du kan uppdatera entiteter i samma partition i en enda,-atomiska, batch-transaktion som innehåller upp till 100 separat lagringsåtgärder (högst 4MB total storlek). Anta att samma antal entiteter som ska hämtas och kan du också fråga data på en enda partition mer effektivt än data från flera partitioner (dock läsa på ytterligare rekommendationer för hämtar data från tabeller).
-* Skalbarhetsgränsen: åtkomst till entiteter som lagras i en enda partition kan inte vara Utjämning av nätverksbelastning eftersom partitioner stöder Batchtransaktioner atomiska. Därför är skalbarhetsmålen för en enskild tabellpartition lägre än för tabelltjänsten som helhet.  
+* Gräns för skalbarhet: Åtkomst till entiteter som lagras i en enda partition kan inte vara Utjämning av nätverksbelastning eftersom partitioner stöder Batchtransaktioner atomiska. Därför är skalbarhetsmålen för en enskild tabellpartition lägre än för tabelltjänsten som helhet.  
 
 På grund av följande egenskaper för tabeller och partitioner bör du anta följande designprinciper:  
 
@@ -350,7 +350,7 @@ Om klientprogrammet behöver endast en begränsad uppsättning egenskaper från 
 ##### <a name="subheading34"></a>Denormalisering
 Till skillnad från arbetar med relationsdatabaser, leda beprövade metoder för att effektivt fråga tabelldata till avnormalisera data. Det vill säga duplicera samma data på flera enheter (en för varje nyckel som du kan använda för att hitta data) att minimera antalet enheter som en fråga måste genomsöka för att hitta data klienten måste du, i stället för att skanna stort antal entiteter för att hitta data din app ogrampool måste.  Till exempel webbplatser för e-handel, du kanske vill hitta en beställning båda efter kund-ID (jag den här kundens order) och efter datumet (jag order på ett datum).  I Table Storage, är det bäst att lagra entiteten (eller en referens till den) två gånger – en gång med namnet på tabellen PK och Rksskrivare för att underlätta att hitta av kund-ID: T, en gång för att underlätta att söka efter datumet.  
 
-#### <a name="insertupdatedelete"></a>Infoga/Uppdatera/ta bort
+#### <a name="insertupdatedelete"></a>Insert/Update/Delete
 Det här avsnittet beskrivs några beprövade metoder för att ändra entiteter som lagras i tabelltjänsten.  
 
 ##### <a name="subheading35"></a>Batchbearbetning
@@ -359,8 +359,8 @@ Batchtransaktioner är kända som entiteten grupp transaktioner (ETG) i Azure-la
 ##### <a name="subheading36"></a>Upsert
 Användningstabell **Upsert** åtgärder när så är möjligt. Det finns två typer av **Upsert**, som kan vara effektivare än en traditionell **infoga** och **uppdatering** åtgärder:  
 
-* **InsertOrMerge**: Använd det här när du vill ladda upp en delmängd av egenskaperna för den entiteten, men är osäker på om entiteten finns redan. Om entiteten finns det här anropet uppdaterar egenskaperna som ingår i den **Upsert** åtgärd, och lämnar alla befintliga egenskaper som de är, om entiteten inte finns, infogas den nya entiteten. Det här är ungefär som att använda projektion i en fråga, eftersom du behöver bara överför de egenskaper som ändrar.
-* **InsertOrReplace**: Använd det här när du vill ladda upp en helt ny entitet, men du är osäker på om den redan finns. Du bör endast använda detta när du vet att den nyligen uppladdade entiteten är helt korrekt eftersom det helt skriver över den gamla entiteten. Exempelvis kan vill du uppdatera det entitet som lagrar användarens aktuella plats, oavsett om programmet har tidigare lagrade platsdata för användaren. den nya plats-entiteten är klar och du behöver inte någon information från föregående entiteter.
+* **InsertOrMerge**: Använd det här alternativet när du vill ladda upp en delmängd av egenskaperna för den entiteten, men är osäker på om entiteten finns redan. Om entiteten finns det här anropet uppdaterar egenskaperna som ingår i den **Upsert** åtgärd, och lämnar alla befintliga egenskaper som de är, om entiteten inte finns, infogas den nya entiteten. Det här är ungefär som att använda projektion i en fråga, eftersom du behöver bara överför de egenskaper som ändrar.
+* **InsertOrReplace**: Använd det här alternativet när du vill ladda upp en helt ny entitet, men du är osäker på om den redan finns. Du bör endast använda detta när du vet att den nyligen uppladdade entiteten är helt korrekt eftersom det helt skriver över den gamla entiteten. Exempelvis kan vill du uppdatera det entitet som lagrar användarens aktuella plats, oavsett om programmet har tidigare lagrade platsdata för användaren. den nya plats-entiteten är klar och du behöver inte någon information från föregående entiteter.
 
 ##### <a name="subheading37"></a>Lagra dataserien i en enda entitet
 Ibland kan ett program lagrar en serie med data som ofta behöver hämta allt samtidigt: ett program kan till exempel Spåra processoranvändning över tid för att rita ett rullande diagram av data från de senaste 24 timmarna. En metod är att ha tabellen enheter per timme, med varje entitet som representerar en viss timme och lagrar CPU-användningen för den timmen. Om du vill rita ut dessa data, måste programmet hämta entiteter som innehåller data från de senaste 24 timmarna.  
@@ -395,7 +395,7 @@ Aktuell kostnadsinformation finns i [priser för Azure Storage](https://azure.mi
 ### <a name="subheading44"></a>UpdateMessage
 Du kan använda **UpdateMessage** att öka tidsgränsen för osynlighet eller för att uppdatera information om tillstånd för ett meddelande. Detta är kraftfulla, Kom ihåg att varje **UpdateMessage** åtgärden räknas mot skalbarhetsmålen. Detta kan dock vara ett mycket effektivare sätt än med ett arbetsflöde som skickar ett jobb från en kö till nästa, eftersom varje steg i jobbet har slutförts. Med hjälp av den **UpdateMessage** åtgärden tillåter programmet att spara jobbets status till meddelandet och sedan fortsätta arbeta i stället för queuing meddelandet för nästa steg i jobbet igen varje gång ett steg har slutförts.  
 
-Mer information finns i artikeln [så här: ändra innehållet i ett meddelande i kön](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
+Mer information finns i artikeln [så här: Ändra innehållet i ett meddelande i kön](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
 ### <a name="subheading45"></a>Programarkitektur
 Du bör använda köer för att göra din programarkitektur skalbara. Här nedan listas några sätt som du kan använda köer för att göra programmet mer skalbart:  

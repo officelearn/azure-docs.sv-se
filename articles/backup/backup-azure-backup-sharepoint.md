@@ -2,18 +2,18 @@
 title: DPM/Azure Backup server-skydd i en SharePoint-servergrupp till Azure
 description: Den här artikeln innehåller en översikt över DPM/Azure Backup serverskydd av en SharePoint-servergrupp till Azure
 services: backup
-author: adigan
-manager: Nkolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 79b4962e1c37858fbd52d65aff56476e55ffa371
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49946053"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296468"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av System Center Data Protection Manager (DPM) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. DPM ger möjlighet att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -21,9 +21,9 @@ Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp a
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint-versioner som stöds och relaterade scenarier för dataskydd
 Azure Backup för DPM har stöd för följande scenarier:
 
-| Arbetsbelastning | Version | SharePoint-distributionen | DPM-distributionstyp | DPM – System Center 2012 R2 | Skydd och återställning |
+| Arbetsbelastning | Version | SharePoint-distributionen | DPM-distributionstyp | DPM - System Center 2012 R2 | Skydd och återställning |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007 SharePoint 3.0 |SharePoint som distribueras som fysisk server eller VMware-Hyper-V-dator <br> -------------- <br> SQL AlwaysOn |Fysisk server eller en lokal Hyper-V-dator |Har stöd för säkerhetskopiering till Azure från Samlad uppdatering 5 |Skydda SharePoint-servergruppen återställningsalternativ: återställningsgruppen, databas och fil- eller listobjekt från diskåterställningspunkter.  Servergruppen och återställning av databaser från återställningspunkter i Azure. |
+| SharePoint |SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint som distribueras som fysisk server eller VMware-Hyper-V-dator <br> -------------- <br> SQL AlwaysOn |Fysisk server eller en lokal Hyper-V-dator |Har stöd för säkerhetskopiering till Azure från Samlad uppdatering 5 |Skydda SharePoint-servergruppen återställningsalternativ: Återställningsgruppen, databas och fil- eller listobjekt från diskåterställningspunkter.  Servergruppen och återställning av databaser från återställningspunkter i Azure. |
 
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du behöver för att bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
@@ -229,14 +229,14 @@ I följande exempel visas den *återställa SharePoint-objektet* har tagits bort
 5. Nu följer den [recovery stegen tidigare i den här artikeln](#restore-a-sharepoint-item-from-disk-using-dpm) att återställa en SharePoint-innehållsdatabas från disken.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
-F: vilka versioner av DPM har stöd för SQL Server 2014 och SQL 2012 (SP2)?<br>
+F: Vilka versioner av DPM har stöd för SQL Server 2014 och SQL 2012 (SP2)?<br>
 S: DPM 2012 R2 med Samlad uppdatering 4 stöder både.
 
-F: kan jag återställa ett SharePoint-objekt till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn (med skydd på disk)?<br>
+F: Kan jag återställa ett SharePoint-objekt till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn (med skydd på disk)?<br>
 S: Ja, objektet kan återställas till den ursprungliga SharePoint-webbplatsen.
 
-F: kan jag återställa en SharePoint-databas till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn?<br>
-S: eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan inte de ändras om inte tillgänglighetsgruppen tas bort. Därför kan kan inte DPM återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
+F: Kan jag återställa en SharePoint-databas till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn?<br>
+S: Eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan inte de ändras om inte tillgänglighetsgruppen tas bort. Därför kan kan inte DPM återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om DPM-skydd av SharePoint - Se [Video-serien – DPM skydd av SharePoint](http://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)

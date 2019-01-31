@@ -1,6 +1,6 @@
 ---
-Rubrik: Utvärdera modellen prestanda titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Utvärdera modellen prestanda titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här artikeln visar hur du utvärderar prestanda för en modell i Azure Machine Learning Studio och ger en kort förklaring av mått som är tillgängliga för den här uppgiften.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

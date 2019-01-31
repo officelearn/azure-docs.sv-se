@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1c83ebd0153e7a28365317b02d3debbe43d976f9
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 49743130966589cceedb7756540c723a6f3276ff
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53601584"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471675"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Dynamiskt skala databasresurser med minimal avbrottstid
 
@@ -54,9 +54,9 @@ Du kan ändra [DTU tjänstnivåerna](sql-database-service-tiers-dtu.md) eller [v
 
 Alla tre varianter av Azure SQL Database erbjuder vissa möjlighet att dynamiskt skala dina databaser:
 
-- I [Azure SQL-databas](sql-database-single-database-scale.md), du kan använda antingen [DTU](sql-database-dtu-resource-limits-single-databases.md) eller [vCore](sql-database-vcore-resource-limits-single-databases.md) modeller för att definiera maximal mängd resurser som ska tilldelas varje databas.
-- [Azure SQL Managed Instance](sql-database-managed-instance.md) använder [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) läge och du kan definiera högsta CPU-kärnor och maximalt lagringsutrymme som allokerats till din instans. Alla databaser i instansen kommer att dela resurser allokeras till instansen.
-- [Azure SQL-elastiska pooler](sql-database-elastic-pool-scale.md) kan du definiera högsta gräns för varje grupp med databaser i poolen.
+- Med en [enkel databas](sql-database-single-database-scale.md), du kan använda antingen [DTU](sql-database-dtu-resource-limits-single-databases.md) eller [vCore](sql-database-vcore-resource-limits-single-databases.md) modeller för att definiera maximal mängd resurser som ska tilldelas varje databas.
+- En [Managed Instance](sql-database-managed-instance.md) använder [vCores](sql-database-managed-instance.md#vcore-based-purchasing-model) läge och du kan definiera högsta CPU-kärnor och maximalt lagringsutrymme som allokerats till din instans. Alla databaser i instansen kommer att dela resurser allokeras till instansen.
+- [Elastiska pooler](sql-database-elastic-pool-scale.md) kan du definiera högsta gräns för varje grupp med databaser i poolen.
 
 ## <a name="alternative-scale-methods"></a>Skala alternativa metoder
 

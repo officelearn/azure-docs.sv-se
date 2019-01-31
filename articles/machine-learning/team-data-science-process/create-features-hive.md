@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0ade4ac054f345084cf0bc0a6dc7885329eb8b9c
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: be95a75e7cdcaa11ef3e90093ef52c5615608eac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141891"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458031"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. De här Hive-frågor använder inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
@@ -136,26 +136,26 @@ De matematiska formler som beräknar avståndet mellan två GPS-koordinater kan 
 
 En fullständig lista över Hive embedded UDF: er finns i den **inbyggda funktioner** avsnittet på den <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Avancerade ämnen: justera Hive-parametrar för att fråga snabbare
+## <a name="tuning"></a> Avancerade ämnen: Justera Hive parametrar för att fråga snabbare
 Standardinställning för Hive-kluster är kanske inte lämpligt för Hive-frågor och data som bearbetar frågor. Det här avsnittet beskrivs vissa parametrar som användare kan justera för att förbättra prestanda för Hive-frågor. Användare måste lägga till parametern justering frågor innan frågor för bearbetning av data.
 
-1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetar långa poster **slut på utrymme heap** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
+1. **Java heap utrymme**: För frågor som rör koppla stora datauppsättningar eller bearbetar långa poster **slut på utrymme heap** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Den här parametern allokerar 4GB minne till Java heap utrymme så att det blir sortering effektivare genom att allokera mer minne för den. Det är en bra idé att experimentera med dessa allokeringar om det finns jobb felen som rör heap utrymme.
 
-1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Till exempel om DFS-blockstorlek är 128 MB, sedan valfria data med storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
+1. **DFS-blockstorlek**: Den här parametern anger den minsta enheten av data som lagras i filsystemet. Till exempel om DFS-blockstorlek är 128 MB, sedan valfria data med storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
 2. Välja en liten blockstorlek gör stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevant block som hör till filen. En rekommenderad inställning när gäller gigabyte (eller större) data är:
 
         set dfs.block.size=128m;
 
-2. **Optimera join-åtgärd i Hive**: medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). För att dirigera Hive för att göra det möjligt att ange:
+2. **Optimera join-åtgärd i Hive**: Medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland kan enorma vinster uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). För att dirigera Hive för att göra det möjligt att ange:
    
        set hive.auto.convert.join=true;
 
-3. **Anger antalet Mappningskomponenter till Hive**: medan Hadoop gör att användaren kan ange antalet reducerare, antal Mappningskomponenter är vanligtvis inte anges av användaren. Ett tips som gör att en viss grad av kontroll för det här numret är att välja Hadoop-variabler *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje kartan uppgift avgörs av:
+3. **Anger antalet Mappningskomponenter till Hive**: Med Hadoop kan användaren att ange antalet reducerare, antalet Mappningskomponenter är vanligtvis inte anges av användaren. Ett tips som gör att en viss grad av kontroll för det här numret är att välja Hadoop-variabler *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje kartan uppgift avgörs av:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

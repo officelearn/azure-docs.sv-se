@@ -12,12 +12,12 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 2f52cbaf5d50eca13a87ff8e745b0f8baefbe23e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 4c9700344ca5b973b8dad9fd1505d15f58c06126
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210385"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451724"
 ---
 # <a name="azure-sql-database-threat-detection"></a>Hotidentifiering för Azure SQL Database
 
@@ -27,7 +27,6 @@ Hotidentifiering är en del av den [SQL avancerade datasäkerhet](sql-advanced-t
 
 > [!NOTE]
 > Det här avsnittet gäller för Azure SQL-servern, och för både SQL Database- och SQL Data Warehouse-databaser som skapas på Azure SQL-servern. För enkelhetens skull används SQL Database när det gäller både SQL Database och SQL Data Warehouse.
-
 
 ## <a name="what-is-threat-detection"></a>Vad är identifiering av hot
 
@@ -78,7 +77,7 @@ Klicka på **Threat varning** för att starta Azure Security Center-aviseringar 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [Hotidentifiering i enkel databas](sql-database-threat-detection.md).
+- Läs mer om [Hotidentifiering i fristående och pooldatabaser](sql-database-threat-detection.md).
 - Läs mer om [Hotidentifiering i Managed Instance](sql-database-managed-instance-threat-detection.md).
 - Läs mer om [SQL Advanced datasäkerhet](sql-advanced-threat-protection.md).
 - Läs mer om [Azure SQL Database Auditing](sql-database-auditing.md)

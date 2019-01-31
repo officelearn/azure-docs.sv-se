@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 841982a4ecbfa5241d826beaaae81921b2859596
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: a37b069d533dc51067aba4f9d9bd87608b116ae6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52967341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466463"
 ---
-# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: transkribera
+# <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterate
 
 Konverterar text på ett språk från ett skript till ett annat skript.
 
@@ -60,11 +60,11 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_Rubrik_</td>
+    <td>_En auktorisering_<br/>_header_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -163,7 +163,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 
 I följande exempel visas hur du konverterar två japanska strängar till Romanized japanska.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 JSON-nyttolast för begäran i det här exemplet:
 

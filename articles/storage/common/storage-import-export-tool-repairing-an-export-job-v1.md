@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: ef5a5f81c5eb3994f62469139c6e835bd802eaa9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 395ff654bcacf1a4f70a9032492deb2a9d5202f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522731"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454767"
 ---
 # <a name="repairing-an-export-job"></a>Reparera ett exportjobb
 När en export-jobbet har slutförts kan köra du de Microsoft Azure Import/Export-verktyget lokalt till:  
@@ -32,15 +32,15 @@ Följande parametrar kan bara anges med **RepairExport**:
   
 |Parameter|Beskrivning|  
 |---------------|-----------------|  
-|**/ r: < RepairFile\>**|Krävs. Sökväg till filen reparation som spårar förloppet för reparation och gör att du kan återuppta en avbruten reparation. Varje enhet måste ha en repair-fil. När du startar en reparation för en viss enhet, ska du skicka i sökvägen till en repair-fil som inte finns ännu. Om du vill återuppta en avbruten reparation, överför du namnet på en befintlig repair-fil. Reparera filen motsvarar målenheten måste alltid anges.|  
+|**/r:<RepairFile\>**|Krävs. Sökväg till filen reparation som spårar förloppet för reparation och gör att du kan återuppta en avbruten reparation. Varje enhet måste ha en repair-fil. När du startar en reparation för en viss enhet, ska du skicka i sökvägen till en repair-fil som inte finns ännu. Om du vill återuppta en avbruten reparation, överför du namnet på en befintlig repair-fil. Reparera filen motsvarar målenheten måste alltid anges.|  
 |**/logdir: < LogDirectory\>**|Valfri. Loggkatalogen. Utförliga loggfiler ska skrivas till den här katalogen. Om inga loggkatalogen anges, används den aktuella katalogen som log-katalogen.|  
-|**/ d: < TargetDirectory\>**|Krävs. Katalogen för att verifiera och reparera. Detta är vanligtvis rotkatalogen för export-enhet, men kan också vara en nätverksansluten filresurs som innehåller en kopia av de exporterade filerna.|  
-|**/BK: < BitLockerKey\>**|Valfri. Du bör ange BitLocker-nyckel om du vill att verktyget för att låsa upp ett krypterat där de exporterade filerna lagras.|  
-|**/SN: < StorageAccountName\>**|Krävs. Namnet på lagringskontot för export-jobbet.|  
-|**/Sk: < StorageAccountKey\>**|**Krävs** endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
-|**/csas: < ContainerSas\>**|**Krävs** endast om lagringskontonyckeln inte har angetts. Behållare SAS för åtkomst till blobbarna som är associerade med export-jobbet.|  
-|**/ CopyLogFile: < DriveCopyLogFile\>**|Krävs. Sökvägen till loggfilen enhet kopia. Filen har genererats av Windows Azure Import/Export-tjänsten och kan laddas ned från blob-lagringen som är kopplade till jobbet. Kopiera loggfilen innehåller information om misslyckade blobar eller filer som kommer att repareras.|  
-|**/ ManifestFile: < DriveManifestFile\>**|Valfri. Sökvägen till export enhetens manifestfilen. Den här filen av Windows Azure Import/Export-tjänsten och lagras på enheten för export och eventuellt i en blob i lagringskontot som är associerat med jobbet.<br /><br /> Innehållet i filerna på export enheten kontrolleras med MD5-hashar i den här filen. Alla filer som bestäms är skadade ska hämtas och har skrivits till mål-kataloger.|  
+|**/d:<TargetDirectory\>**|Krävs. Katalogen för att verifiera och reparera. Detta är vanligtvis rotkatalogen för export-enhet, men kan också vara en nätverksansluten filresurs som innehåller en kopia av de exporterade filerna.|  
+|**/bk:<BitLockerKey\>**|Valfri. Du bör ange BitLocker-nyckel om du vill att verktyget för att låsa upp ett krypterat där de exporterade filerna lagras.|  
+|**/sn:<StorageAccountName\>**|Krävs. Namnet på lagringskontot för export-jobbet.|  
+|**/sk:<StorageAccountKey\>**|**Krävs** endast om en SAS-behållare inte har angetts. Kontonyckel för lagringskontot för export-jobbet.|  
+|**/csas:<ContainerSas\>**|**Krävs** endast om lagringskontonyckeln inte har angetts. Behållare SAS för åtkomst till blobbarna som är associerade med export-jobbet.|  
+|**/CopyLogFile:<DriveCopyLogFile\>**|Krävs. Sökvägen till loggfilen enhet kopia. Filen har genererats av Windows Azure Import/Export-tjänsten och kan laddas ned från blob-lagringen som är kopplade till jobbet. Kopiera loggfilen innehåller information om misslyckade blobar eller filer som kommer att repareras.|  
+|**/ManifestFile:<DriveManifestFile\>**|Valfri. Sökvägen till export enhetens manifestfilen. Den här filen av Windows Azure Import/Export-tjänsten och lagras på enheten för export och eventuellt i en blob i lagringskontot som är associerat med jobbet.<br /><br /> Innehållet i filerna på export enheten kontrolleras med MD5-hashar i den här filen. Alla filer som bestäms är skadade ska hämtas och har skrivits till mål-kataloger.|  
   
 ## <a name="using-repairexport-mode-to-correct-failed-exports"></a>Använda RepairExport läge för att korrigera misslyckade export  
 Du kan använda Azure Import/Export-verktyget för att hämta filer som inte gick att exportera. Kopiera loggfilen innehåller en lista över filer som inte gick att exportera.  

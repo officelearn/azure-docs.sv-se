@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: c5120cdb743e031c081f727c947752419db3a9d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
+ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081117"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55211448"
 ---
 # <a name="r-developers-guide-to-azure"></a>R utvecklarens guide till Azure
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -114,7 +114,7 @@ Ett tredje alternativ är att använda den [Azure distribuerade Data Engineering
 
 [Azure anteckningsböcker](https://notebooks.azure.com) är en låg kostnad, smidig metod för R-utvecklare som föredrar att arbeta med bärbara datorer att ta med sin kod till Azure.  Det är en kostnadsfri tjänst för alla att utveckla och köra kod i sin webbläsare med hjälp av [Jupyter](https://jupyter.org/), vilket är ett projekt med öppen källkod som gör att nyhetsnotiser genomsöks markdown prose och körbar kod grafik på en enda arbetsyta.
 
-Kostnadsfria tjänstenivå för Azure-datorer är ett genomförbart alternativ för småskalig projekt, eftersom det begränsar varje notebook processen till 4GB minne och 1GB datauppsättningar. Om du behöver beräknings- och power utöver dessa begränsningar, men kan du köra anteckningsböcker i en Data Science Virtual Machine-instans. Mer information finns i [hantera och konfigurera Azure anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
+Kostnadsfria tjänstenivå för Azure-datorer är ett genomförbart alternativ för småskalig projekt, eftersom det begränsar varje notebook processen till 4GB minne och 1GB datauppsättningar. Om du behöver beräknings- och power utöver dessa begränsningar, men kan du köra anteckningsböcker i en Data Science Virtual Machine-instans. Mer information finns i [hantera och konfigurera Azure anteckningsböcker projekt - Beräkningsnivån](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) är databastjänst för Microsofts intelligent, fullt hanterad relationsdatabastjänst i molnet.  På så sätt kan du använda den fulla kraften hos SQL Server utan någon besväret med att konfigurera infrastrukturen.  Detta inkluderar [Maskininlärningstjänster](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning?view=sql-server-2017), vilket är en av de nyare tillägg till SQL-tjänsten.

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f3e30309b230ec44ddf39648b943f3f76dc7805d
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 34902016578d92847bd83a7dede8ef73bb640b3e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722659"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301585"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Avancerad användning av autentisering och auktorisering i Azure App Service
 
@@ -176,13 +176,13 @@ Skicka en HTTP från klientkoden (till exempel en mobilapp eller JavaScript i we
 > [!NOTE]
 > Åtkomsttoken är för att komma åt provider-resurser, så att de finns bara om du konfigurerar din provider med en klienthemlighet. Så här hämtar du uppdateringstoken finns i [uppdatera åtkomsttoken](#refresh-access-tokens).
 
-## <a name="refresh-access-tokens"></a>Uppdatera åtkomsttoken
+## <a name="refresh-identity-provider-tokens"></a>Uppdatera providern identitetstoken
 
-När din provider åtkomst-token upphör att gälla måste autentiseras användaren. Du kan undvika giltighetstid för token genom att göra en `GET` anrop till den `/.auth/refresh` slutpunkten för ditt program. När den anropas, uppdaterar App Service automatiskt åtkomsttoken i arkivet token för autentiserade användare. Efterföljande begäranden om token genom din Appkod hämta uppdateras token. Men för tokenuppdatering ska fungera, av tokenarkiv måste innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för din provider. Sättet att få uppdaterings-tokens dokumenteras av varje provider, men i följande lista är en kort sammanfattning:
+När din provider åtkomst-token (inte den [sessionstoken](#extend-session-token-expiration-grace-period)) upphör att gälla, måste du autentiseras på nytt användaren innan du använder denna token igen. Du kan undvika giltighetstid för token genom att göra en `GET` anrop till den `/.auth/refresh` slutpunkten för ditt program. När den anropas, uppdaterar App Service automatiskt åtkomsttoken i arkivet token för autentiserade användare. Efterföljande begäranden om token genom din Appkod hämta uppdateras token. Men för tokenuppdatering ska fungera, av tokenarkiv måste innehålla [uppdateringstoken](https://auth0.com/learn/refresh-tokens/) för din provider. Sättet att få uppdaterings-tokens dokumenteras av varje provider, men i följande lista är en kort sammanfattning:
 
 - **Google**: Lägg till en `access_type=offline` frågesträngparametern till din `/.auth/login/google` API-anrop. Om du använder SDK för Mobile Apps, du kan lägga till parametern till en av de `LogicAsync` överlagringar (se [Google uppdatera token](https://developers.google.com/identity/protocols/OpenIDConnect#refresh-tokens)).
 - **Facebook**: Ger inte uppdateringstoken. Långlivade token går ut inom 60 dagar (se [Facebook förfallodatum och tillägg av åtkomsttoken](https://developers.facebook.com/docs/facebook-login/access-tokens/expiration-and-extension)).
-- **Twitter-**: Åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
+- **Twitter**: Åtkomsttoken inte upphör att gälla (se [Twitter OAuth vanliga frågor och svar](https://developer.twitter.com/en/docs/basics/authentication/FAQ)).
 - **Microsoft-konto**: När [konfigurera autentiseringsinställningar för Microsoft-konto](configure-authentication-provider-microsoft.md)väljer den `wl.offline_access` omfång.
 - **Azure Active Directory**: I [ https://resources.azure.com ](https://resources.azure.com), gör följande:
     1. Längst ned på sidan Välj **Läs/Skriv**.
@@ -213,9 +213,9 @@ function refreshTokens() {
 
 Om en användare återkallas behörigheterna för din app, anrop till `/.auth/me` kan misslyckas med ett `403 Forbidden` svar. Kontrollera programloggarna för information om du vill diagnostisera fel.
 
-## <a name="extend-session-expiration-grace-period"></a>Utöka respitperiod för sessionen upphör att gälla
+## <a name="extend-session-token-expiration-grace-period"></a>Utöka respitperiod för sessionen giltighetstid för token
 
-När en autentiserad session har gått ut, finns det en respitperiod för 72 timmar som standard. I den här tiden kan har du behörighet att uppdatera sessions-cookie eller sessionstoken med App Service utan autentiserades på nytt användaren. Du kan bara anropa `/.auth/refresh` när din sessions-cookie eller sessionstoken blir ogiltiga och du inte behöver spåra giltighetstid för token själv. När respitperioden 72 timmar är uppnås kan måste användaren logga in igen att hämta en giltig sessions-cookie eller sessionstoken.
+Den autentiserade sessionen upphör att gälla efter åtta timmar. När en autentiserad session har gått ut, finns det en respitperiod för 72 timmar som standard. I den här tiden kan har du behörighet att uppdatera sessionstoken med App Service utan autentiserades på nytt användaren. Du kan bara anropa `/.auth/refresh` när din sessionstoken blir ogiltiga och du inte behöver spåra giltighetstid för token själv. När respitperioden 72 timmar är uppnås kan måste användaren logga in igen att hämta en giltig session-token.
 
 Om 72 timmar inte tillräckligt med tid för dig, kan du utöka det här fönstret upphör att gälla. Utöka giltighetstid under en längre tid kan ha betydande säkerhetsaspekter (till exempel när en autentiseringstoken läcka ut eller blir stulen). Du bör så lämnar du standardinställningen 72 timmar eller anger tillägg du det minsta värdet.
 

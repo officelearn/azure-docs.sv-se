@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 81796e30ea9f1277f9265e86a712fbefea5adee3
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ff346f9c842672b426a75eadaa278ca91de5d9c6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160410"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297505"
 ---
-# <a name="how-to-configure-the-sign-in-risk-policy"></a>Hur: Konfigurera riskprincipen för inloggning
+# <a name="how-to-configure-the-sign-in-risk-policy"></a>Instruktioner: Konfigurera riskprincipen för inloggning
 
 Azure Active Directory identifierar [riskhändelsetyper](../reports-monitoring/concept-risk-events.md#risk-event-types) i realtid och offline. Varje riskhändelsen har upptäckts för en inloggning för en användare bidrar till ett logiskt koncept som kallas riskfyllda inloggningen. En riskfylld inloggning är du en indikator för en inloggningsförsök som inte kanske har utförts av är tillförlitligt ägare för ett användarkonto.
 
@@ -77,7 +77,7 @@ Men av säkerhetsskäl fungerar den här inställningen bara för användare som
 
 Om du vill kräva MFA för riskfyllda inloggningar, bör du:
 
-1. Aktivera den [registreringsprincip för multi-Factor authentication](#multi-factor-authentication-registration-policy) för de berörda användarna.
+1. Aktivera den [registreringsprincip för multi-Factor authentication](howto-mfa-policy.md) för de berörda användarna.
 
 2. Kräv att berörda användare att logga in på en icke-riskfyllda session att utföra en MFA-registrering.
 

@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 01/28/2019
 ms.author: curtand
 ms.reviewer: sumitp
-ms.custom: seo-update-jan
-ms.openlocfilehash: 49756f516a2e8132d4c3829b07a30f631380cad1
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.custom: it-pro;seo-update-azuread-jan
+ms.openlocfilehash: 3d2c15d3658ed93348c5ec23198d2cc97a94e0aa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182195"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297879"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Produktnamn och service-plan identifierare för licensiering
 
@@ -27,7 +27,7 @@ När du hanterar licenser i [Azure-portalen](https://portal.azure.com/#blade/Mic
 
 - **Produktnamn**: Används i hanteringsportalen
 - **Sträng-ID**: Används av PowerShell v1.0-cmdletar när du utför åtgärder på licenser
-- **GUID-ID**: GUID som används av Azure AD Graph och Microsoft Graph
+- **GUID**: GUID som används av Azure AD Graph och Microsoft Graph
 - **Tjänsten planer som ingår**: En lista över service-planer i produkten som motsvarar sträng-ID och GUID
 
 >[!NOTE]

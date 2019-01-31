@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 8b4ae066edc1c62c25762b5c6feebce1ecfff5a2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521548"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470747"
 ---
 # <a name="design-for-querying"></a>Utforma för frågor
 Table service-lösningar kan läsas intensiva, Skriv intensiva eller en blandning av båda. Den här artikeln handlar om saker att ha i åtanke när du utformar din tabelltjänsten för läsåtgärder effektivt. Normalt är också en design som stöder läsåtgärder effektivt effektivt för skrivåtgärder. Men det finns fler saker att ha i åtanke när du utformar för skrivåtgärder, beskrivs i artikeln [Design för dataändringar](table-storage-design-for-modification.md).
@@ -42,7 +42,7 @@ I följande exempel förutsätter tabelltjänsten lagrar medarbetare entiteter m
 | **Förnamn** |Sträng |
 | **Efternamn** |Sträng |
 | **Ålder** |Integer |
-| **E-postadress** |Sträng |
+| **E-postadress** |String |
 
 Artikeln [översikt över Azure Table storage](table-storage-overview.md) beskriver några av de viktigaste funktionerna i Azure Table service som har en direkt inverkan på utformning av frågan. Dessa resultera i följande allmänna riktlinjer för att utforma Table service-frågor. Observera att syntaxen för filtret som används i exemplen nedan är från tabelltjänsten REST API för mer information finns i [fråga entiteter](https://docs.microsoft.com/rest/api/storageservices/Query-Entities).  
 

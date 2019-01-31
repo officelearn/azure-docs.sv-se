@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 593388c143c31bb4736aa317522ed4c52a8a5296
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: de31ab4e617b872239c1b83324e5b8d52b0b4094
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388341"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469129"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -34,7 +34,7 @@ Den här artikeln förklarar Azure SQL Database och SQL Data Warehouse-anslutnin
 >
 > Användare av tjänsten endpoint kan fortfarande påverkas i följande scenarier:
 > - Programmet ansluter till en befintlig server sällan så att våra telemetri att avläsa information om dessa program
-> - Logik för automatisk distribution skapar en logisk server förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
+> - Automatisk distribution logic skapar en SQL-databasserver förutsatt att det är standardbeteendet för slutpunkten Tjänstanslutningar `Proxy`
 >
 > Om slutpunkten Tjänstanslutningar inte kunde upprättas till Azure SQL-server och du misstänka att du påverkas av den här ändringen, kontrollera att anslutningstypen är explicit inställd på `Redirect`. Om så är fallet, måste du öppna brandväggsregler för virtuell dator och Nätverkssäkerhetsgrupper (NSG) till alla Azure-IP-adresser i regionen som tillhör Sql [servicetagg](../virtual-network/security-overview.md#service-tags) för portar 11000 12000. Om det inte är ett alternativ för dig, växla server explicit till `Proxy`.
 > [!NOTE]

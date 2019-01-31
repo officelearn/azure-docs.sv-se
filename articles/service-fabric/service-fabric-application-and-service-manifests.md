@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: fa3c94854f8f67da9caa2955f5c62581843e39c8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9e8ca50970ff4a845174d7061b60a88a8f5ce578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156113"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465631"
 ---
 # <a name="service-fabric-application-and-service-manifests"></a>Service Fabric-program och tjänstmanifest
 Den här artikeln beskriver hur Service Fabric-program och tjänster är definierad och version med hjälp av filen ApplicationManifest.xml och ServiceManifest.xml.  Mer detaljerade exempel finns i [och en tjänst manifest exempel](service-fabric-manifest-examples.md).  XML-schemat för dessa manifestfiler dokumenteras i [ServiceFabricServiceModel.xsd schemat dokumentation](service-fabric-service-model-schema.md).
@@ -96,7 +96,7 @@ Läs mer om hur du konfigurerar SetupEntryPoint [konfigurera principen för en t
 </Settings>
 ```
 
-**Resurser**, till exempel slutpunkter, som används av tjänsten vara deklarerats/ändras utan att ändra den kompilerade koden.  Åtkomst till resurser som anges i tjänstmanifestet kan styras via den **Tilldelningsmodulen** i manifestet.  När en **Endpoint** resurs som definierats i tjänstmanifestet, Service Fabric tilldelar portar från portintervallet för reserverade programmet när en port inte anges explicit.  Läs mer om [att ange eller åsidosätter slutpunkten resurser](service-fabric-service-manifest-resources.md).
+Ett Service Fabric-tjänst **Endpoint** är ett exempel på ett Service Fabric-resurs. En Service Fabric-resurs kan vara deklarerats/ändras utan att ändra den kompilerade koden. Åtkomst till Service Fabric-resurser som anges i tjänstmanifestet kan styras via den **Tilldelningsmodulen** i manifestet. När en Slutpunktsresurs har definierats i tjänstmanifestet tilldelar Service Fabric portar från portintervallet för reserverade programmet när en port inte anges explicit. Läs mer om [att ange eller åsidosätter slutpunkten resurser](service-fabric-service-manifest-resources.md).
 
 
 <!--

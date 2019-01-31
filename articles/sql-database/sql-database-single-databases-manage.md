@@ -1,9 +1,9 @@
 ---
-title: Skapa, hantera Azure SQL-servrar och enskilda databaser | Microsoft Docs
-description: Läs mer om att skapa och hantera logiska servrar och enskilda databaser.
+title: Skapa, hantera Azure SQL Database-servrar och enskilda databaser | Microsoft Docs
+description: Läs mer om att skapa och hantera SQL Database-servrar och enskilda databaser.
 services: sql-database
 ms.service: sql-database
-ms.subservice: single-database
+ms.subservice: standalone-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,29 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: f43c2cd5a3c155258cd698f6b55854bc0df9f861
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 32b532cab7e970d01c3963729658c32ac4a020b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388600"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465052"
 ---
-# <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera logiska servrar och enskilda databaser i Azure SQL Database
+# <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Skapa och hantera SQL Database-servrar och enskilda databaser i Azure SQL Database
 
-Du kan skapa och hantera Azure SQL Database logiska servrar och enskilda databaser med hjälp av Azure portal, PowerShell, Azure CLI, REST API och Transact-SQL.
+Du kan skapa och hantera SQL Database-servrar och enskilda databaser med hjälp av Azure portal, PowerShell, Azure CLI, REST API och Transact-SQL.
 
-## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure-portalen: Hantera logiska servrar och databaser
+## <a name="azure-portal-manage-sql-database-servers-and-single-databases"></a>Azure-portalen: Hantera SQL Database-servrar och enskilda databaser
 
 Du kan skapa resursgrupp för Azure SQL-databas förbereds i förväg eller när du skapar själva servern. Det finns flera metoder för att komma till ett nytt SQL server-format, antingen genom att skapa en ny SQLServer eller som del av att skapa en ny databas.
 
-### <a name="create-a-blank-sql-server-logical-server"></a>Skapa en tom SQLServer (logisk server)
+### <a name="create-a-blank-sql-database-server"></a>Skapa en tom SQL-databasserver
 
-Skapa en Azure SQL Database-server (utan en databas) med hjälp av den [Azure-portalen](https://portal.azure.com), navigera till ett tomt formulär för SQL server (logisk server).  
+Att skapa en SQL Database-server med den [Azure-portalen](https://portal.azure.com), navigera till ett tomt formulär för SQL server (logisk server).  
 
-### <a name="create-a-blank-or-sample-sql-database"></a>Skapa en tom eller exemplet SQL-databas
+### <a name="create-a-blank-or-sample-sql-single-database"></a>Skapa en tom eller exemplet SQL databas
 
-Att skapa en Azure SQL-databas med den [Azure-portalen](https://portal.azure.com)går du till en tom SQL Database-formuläret och anger önskad information. Du kan skapa Azure SQL-databasen resursgrupp och logiska server förbereds i förväg eller när du skapade själva databasen. Du kan skapa en tom databas eller skapa en exempeldatabas baserad på Adventure Works med
+Skapa en Azure SQL-databas med den [Azure-portalen](https://portal.azure.com)går du till en tom SQL Database-formuläret och anger önskad information. Du kan skapa Azure SQL-databasen resursgruppen och SQL Database-server förbereds i förväg eller när du skapar en enda databasen. Du kan skapa en tom databas eller skapa en exempeldatabas baserad på Adventure Works med
 
   ![skapa databas-1](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -42,9 +42,9 @@ Att skapa en Azure SQL-databas med den [Azure-portalen](https://portal.azure.com
 
 Om du vill skapa en hanterad instans [skapar en hanterad instans](sql-database-managed-instance-get-started.md)
 
-## <a name="manage-an-existing-sql-server"></a>Hantera en befintlig SQLServer
+## <a name="manage-an-existing-sql-database-server"></a>Hantera en befintlig SQL Database-server
 
-Navigera till servern med ett antal metoder – till exempel från specifika SQL database-sidan, om du vill hantera en befintlig server i **SQL-servrar** sidan eller **alla resurser** sidan.
+Navigera till servern med ett antal metoder – till exempel från specifika SQL database-sidan, om du vill hantera en befintlig SQL Database-server i **SQL-servrar** sidan eller **alla resurser** sidan.
 
 För att hantera en befintlig databas, gå till den **SQL-databaser** och klicka på den databas du vill hantera. Skärmbilden nedan visar hur du börjar ställa in en brandväggsregel på servernivå för en databas från den **översikt** för en databas.
 
@@ -55,12 +55,12 @@ För att hantera en befintlig databas, gå till den **SQL-databaser** och klicka
 > [!TIP]
 > Läs en Azure-portalen Snabbstart, [skapa en Azure SQL database i Azure-portalen](sql-database-get-started-portal.md).
 
-## <a name="powershell-manage-logical-servers-and-databases"></a>PowerShell: Hantera logiska servrar och databaser
+## <a name="powershell-manage-sql-database-servers-and-single-databases"></a>PowerShell: Hantera SQL Database-servrar och enskilda databaser
 
-Använd följande PowerShell-cmdletar för att skapa och hantera logiska Azure SQL-servrar, enskild och delade databaser och brandväggar logisk server med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
+Använd följande PowerShell-cmdletar för att skapa och hantera Azure SQL Database-servrar, fristående och databaser i pooler och brandväggar för SQL Database-servern med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps).
 
 > [!TIP]
-> Exempelskript för PowerShell, se [Använd PowerShell för att skapa en Azure SQL-databas och konfigurera en brandväggsregel för logisk server](scripts/sql-database-create-and-configure-database-powershell.md) och [övervaka och skala en enskild SQL-databas med hjälp av PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> Exempelskript för PowerShell, se [Använd PowerShell för att skapa en enskild Azure SQL-databas och konfigurera en brandväggsregel för SQL Database-server](scripts/sql-database-create-and-configure-database-powershell.md) och [Övervakare och skalning av en SQL-databas med PowerShell med enkel](scripts/sql-database-monitor-and-scale-database-powershell.md) .
 
 | Cmdlet | Beskrivning |
 | --- | --- |
@@ -79,12 +79,12 @@ Använd följande PowerShell-cmdletar för att skapa och hantera logiska Azure S
 |[Remove-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/remove-azurermsqlserverfirewallrule)|Tar bort en brandväggsregel från en server.|
 | New-AzureRmSqlServerVirtualNetworkRule | Skapar en [ *virtuell nätverksregel*](sql-database-vnet-service-endpoint-rule-overview.md), baserat på ett undernät som är en tjänstslutpunkt för virtuellt nätverk. |
 
-## <a name="azure-cli-manage-logical-servers-and-databases"></a>Azure CLI: Hantera logiska servrar och databaser
+## <a name="azure-cli-manage-sql-database-servers-and-single-databases"></a>Azure CLI: Hantera SQL Database-servrar och enskilda databaser
 
 Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/cli/azure), Använd följande [Azure CLI SQL Database](/cli/azure/sql/db) kommandon. Använd [Cloud Shell](/azure/cloud-shell/overview) för att köra CLI i webbläsaren eller [installera](/cli/azure/install-azure-cli) det på macOS, Linux eller Windows. Skapa och hantera elastiska pooler finns i [elastiska pooler](sql-database-elastic-pool.md).
 
 > [!TIP]
-> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med hjälp av Azure CLI](sql-database-cli-samples.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en Azure SQL-databas och konfigurera en brandväggsregel](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
+> En Snabbstart för Azure CLI, se [skapa en enskild Azure SQL-databas med Azure CLI](sql-database-cli-samples.md). Exempelskript för Azure CLI, se [Använd CLI för att skapa en enskild Azure SQL-databas och konfigurera en brandväggsregel för SQL Database](scripts/sql-database-create-and-configure-database-cli.md) och [Använd CLI för att övervaka och skala en enskild Azure SQL-databas](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 | Cmdlet | Beskrivning |
@@ -109,7 +109,7 @@ Skapa och hantera Azure SQL server, databaser och brandväggar med [Azure CLI](/
 |[AZ sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-update)|Uppdaterar en brandväggsregel|
 |[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-delete)|Tar bort en brandväggsregel|
 
-## <a name="transact-sql-manage-logical-servers-and-databases"></a>Transact-SQL: Hantera logiska servrar och databaser
+## <a name="transact-sql-manage-sql-database-servers-and-single-databases"></a>Transact-SQL: Hantera SQL Database-servrar och enskilda databaser
 
 Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server, databaser och brandväggar med Transact-SQL. Du kan skicka dessa kommandon med hjälp av Azure-portalen [SQL Server Management Studio](/sql/ssms/use-sql-server-management-studio), [Visual Studio Code](https://code.visualstudio.com/docs), eller andra program som kan ansluta till en Azure SQL Database-server och skicka Transact-SQL -kommandon. Hantera elastiska pooler finns i [elastiska pooler](sql-database-elastic-pool.md).
 
@@ -135,7 +135,7 @@ Använd följande T-SQL-kommandon för att skapa och hantera Azure SQL server, d
 |[sys.database_firewall_rules (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-firewall-rules-azure-sql-database)|Returnerar information om inställningarna för brandväggen på databasnivå som är associerade med Microsoft Azure SQL Database. |
 |[sp_delete_database_firewall_rule (Azure SQL Database)](/sql/relational-databases/system-stored-procedures/sp-delete-database-firewall-rule-azure-sql-database)|Tar bort brandväggsregel på databasnivå inställningen från Azure SQL Database eller SQL Data Warehouse. |
 
-## <a name="rest-api-manage-logical-servers-and-databases"></a>REST-API: Hantera logiska servrar och databaser
+## <a name="rest-api-manage-sql-database-servers-and-single-databases"></a>REST-API: Hantera SQL Database-servrar och enskilda databaser
 
 Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan du använda dessa REST API-begäranden.
 
@@ -150,13 +150,13 @@ Om du vill skapa och hantera Azure SQL server, databaser och brandväggar, kan d
 |[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – ta bort](https://docs.microsoft.com/rest/api/sql/databases/delete)|Tar bort en databas.|
 |[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
+|[Databaser – lista med elastisk pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
+|[Databaser – listan efter server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
 |[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
 |[Brandväggsregler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Skapar eller uppdaterar en brandväggsregel.|
 |[Brandväggsregler – ta bort](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Tar bort en brandväggsregel.|
 |[Brandväggsregler - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Hämtar en brandväggsregel.|
-|[Brandväggsregler - listan efter Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brandväggsregler.|
+|[Brandväggsregler - listan efter server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returnerar en lista med brandväggsregler.|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 80a2ed779fa65c669be81fdf8212b7d018325ee5
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: ce884b95daf8c02e51c79068c360ffe4a4fe0d07
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634515"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473212"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Slutpunkt till slutpunkt felsökning med hjälp av Azure Storage-mätvärden och loggning, AzCopy och Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -344,17 +344,17 @@ Nu när du är van vid att använda Message Analyzer för att analysera loggdata
 | Att undersöka... | Använd filteruttrycket... | Uttrycket som gäller för Log (klient, Server, nätverk, alla) |
 | --- | --- | --- |
 | Oväntade fördröjningar i en köad meddelandeleverans |AzureStorageClientDotNetV4.Description innehåller ”försöker igen misslyckades åtgärden”. |Client |
-| HTTP-ökning i PercentThrottlingError |HTTP. Response.StatusCode == 500 &#124; &#124; HTTP. Response.StatusCode == 503 |Nätverk |
-| Öka i PercentTimeoutError |HTTP. Response.StatusCode == 500 |Nätverk |
-| Öka i PercentTimeoutError (alla) |* StatusCode == 500 |Alla |
+| HTTP-ökning i PercentThrottlingError |HTTP.Response.StatusCode   == 500 &#124;&#124; HTTP.Response.StatusCode == 503 |Nätverk |
+| Öka i PercentTimeoutError |HTTP.Response.StatusCode   == 500 |Nätverk |
+| Öka i PercentTimeoutError (alla) |*StatusCode   == 500 |Alla |
 | Öka i PercentNetworkError |AzureStorageClientDotNetV4.EventLogEntry.Level   < 2 |Client |
-| HTTP 403 (förbjudet) meddelanden |HTTP. Response.StatusCode == 403 |Nätverk |
-| HTTP 404 (hittades inte) meddelanden |HTTP. Response.StatusCode == 404 |Nätverk |
-| 404 (alla) |* StatusCode == 404 |Alla |
-| Delad åtkomst (Signatur) auktorisering problem |AzureStorageLog.RequestStatus == ”SASAuthorizationError” |Nätverk |
+| HTTP 403 (förbjudet) meddelanden |HTTP.Response.StatusCode   == 403 |Nätverk |
+| HTTP 404 (hittades inte) meddelanden |HTTP.Response.StatusCode   == 404 |Nätverk |
+| 404 (alla) |*StatusCode   == 404 |Alla |
+| Delad åtkomst (Signatur) auktorisering problem |AzureStorageLog.RequestStatus ==  "SASAuthorizationError" |Nätverk |
 | HTTP 409 (konflikt) meddelanden |HTTP. Response.StatusCode == 409 |Nätverk |
-| 409 (alla) |* StatusCode == 409 |Alla |
-| Låg PercentSuccess eller analytics loggposter har åtgärder med transaktionsstatus av ClientOtherErrors |AzureStorageLog.RequestStatus == ”ClientOtherError” |Server |
+| 409 (alla) |*StatusCode   == 409 |Alla |
+| Låg PercentSuccess eller analytics loggposter har åtgärder med transaktionsstatus av ClientOtherErrors |AzureStorageLog.RequestStatus ==   "ClientOtherError" |Server |
 | Nagle varning |((AzureStorageLog.EndToEndLatencyMS-AzureStorageLog.ServerLatencyMS) > (AzureStorageLog.ServerLatencyMS * 1.5)) och (AzureStorageLog.RequestPacketSize < 1 460) och (AzureStorageLog.EndToEndLatencyMS - AzureStorageLog.ServerLatencyMS > = 200) |Server |
 | Tidsintervall i Server- och loggar |#Timestamp > = 2014-10-20T16:36:38 och #Timestamp < = 2014-10-20T16:36:39 |Server, nätverk |
 | Tidsintervall i serverloggar |AzureStorageLog.Timestamp > = 2014-10-20T16:36:38 och AzureStorageLog.Timestamp < = 2014-10-20T16:36:39 |Server |

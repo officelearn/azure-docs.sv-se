@@ -8,13 +8,13 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: a62af881efd4f6f3422db19850a0ce9987c6ae7b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 431a4ef4e84c88467dc7e36bb12d406309f9a8b7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51245128"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467840"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt
@@ -145,8 +145,8 @@ När du kör en version måste du kontrollera build historik konsolens utdata el
 Följande innehåller en översikt över tjänstkomponenter Blob.
 
 * **Storage-konto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Det här är den högsta nivån av namnområdet för att komma åt blobar. Ett konto kan innehålla ett obegränsat antal behållare, så länge som deras totala storlek är under 100 TB.
-* **Behållaren**: en behållare grupperar en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
-* **BLOB**: en fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block- och sidblobbar. De flesta filer som är blockblobar. En enda blockblobb kan vara upp till 200 GB i storlek. Den här självstudien använder blockblobar. Sidblobar, en annan blobtyp kan vara upp till 1 TB i storlek, och är mer effektivt när intervallen för byte i en fil ändras ofta. Läs mer om BLOB-objekt, [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
+* **behållaren**: En behållare grupperar en uppsättning blobbar. Alla blobar måste vara i en container. Ett konto kan innehålla ett obegränsat antal containrar. En container kan lagra ett obegränsat antal blobar.
+* **Blob**: En fil av valfri typ och storlek. Det finns två typer av blobbar som kan lagras i Azure Storage: block- och sidblobbar. De flesta filer som är blockblobar. En enda blockblobb kan vara upp till 200 GB i storlek. Den här självstudien använder blockblobar. Sidblobar, en annan blobtyp kan vara upp till 1 TB i storlek, och är mer effektivt när intervallen för byte i en fil ändras ofta. Läs mer om BLOB-objekt, [förstå Blockblobbar, Tilläggsblobbar och Sidblobbar](https://msdn.microsoft.com/library/azure/ee691964.aspx).
 * **URL-format**: BLOB-lagring är adresserbara via följande URL-format:
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`

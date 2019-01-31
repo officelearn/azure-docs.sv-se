@@ -1,6 +1,6 @@
 ---
-Rubrik: Importera data till Machine Learning Studio från ett annat experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att spara träningsdata i Azure Machine Learning Studio och använda den i ett annat experiment.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Importera data till Machine Learning Studio från ett annat experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att spara träningsdata i Azure Machine Learning Studio och använda den i ett annat experiment.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=deguhath, previous-author=deguhath ms.date: 03/20/2017
 ---

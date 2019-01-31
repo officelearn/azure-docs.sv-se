@@ -2,20 +2,20 @@
 title: Använd Azure Stream Analytics med SQL Data Warehouse | Microsoft Docs
 description: Tips för att använda Azure Stream Analytics med Azure SQL Data Warehouse för utveckling av lösningar.
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: consume
+ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 3aca356b9caadc3a4ffee98ca7dc330eb1c520d8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 7c940b10e88e50988b574dbc1fa365dc9d8fd7d5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50962953"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452404"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Använd Azure Stream Analytics med SQL Data Warehouse
 Azure Stream Analytics är en helt hanterad tjänst som ger låg latens, hög tillgänglighet och skalbar komplex händelsebearbetning över strömmande data i molnet. Du kan lära dig grunderna genom att läsa [introduktion till Azure Stream Analytics][Introduction to Azure Stream Analytics]. Sedan kan du lära dig hur du skapar en slutpunkt till slutpunkt-lösning med Stream Analytics genom att följa den [komma igång med Azure Stream Analytics] [ Get started using Azure Stream Analytics] självstudien.
@@ -53,9 +53,9 @@ Ange följande värden på nästa sida:
 
 ![][server-name]
 
-* *Användarnamnet*: Ange användarnamnet för ett konto som har skrivbehörighet för databasen.
+* *Användarnamn*: Ange användarnamnet för ett konto som har skrivbehörighet för databasen.
 * *Lösenord*: Ange lösenordet för det angivna användarkontot.
-* *Tabellen*: Ange namnet på måltabellen i databasen.
+* *tabellen*: Ange namnet på måltabellen i databasen.
 
 ![][add-database]
 

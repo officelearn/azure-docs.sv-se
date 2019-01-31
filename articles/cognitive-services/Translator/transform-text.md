@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9586ffac2fc1f4d3e0a03d0e20052ad16b88cbe9
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.openlocfilehash: 66371fcdc3afba7a5974d8db047242c0c1646bc0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51684796"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476867"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Hur du använder metoden TransformText
 
@@ -30,7 +30,7 @@ Metoden är en RESTful-tjänst med hjälp av GET via HTTP. Det stöder enkel XML
 
 | Parameter | Beskrivning |
 |:---|:---|
-| Auktoriseringsrubrik | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd en nyckel: ”Authorization” och värdet: ”ägar” + ”” + åtkomst-token. Gå hit för mer information.|
+| Auktoriseringsrubrik | **Krävs** HTTP-huvud som används för att identifiera programmet. Använd nyckeln: ”Authorization” och värdet: ”Ägar” + ”” + åtkomst-token. Gå hit för mer information.|
 | language | **Krävs** en sträng som representerar språkkoden. Den här parametern stöder endast på engelska med **en** som språkets namn.|
 | category | **Valfritt** en sträng som innehåller den kategori eller domän översättningens. Den här parametern stöder endast standardalternativet **Allmänt**.|
 | mening | **Krävs** en mening som du vill korrigera. |

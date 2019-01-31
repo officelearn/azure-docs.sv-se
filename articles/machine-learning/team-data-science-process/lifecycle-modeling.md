@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dac686878ff128e3d556c0dbd7e9a2d51ac1756d
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139967"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474028"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Modellering steg i livscykeln för Team Data Science Process
 
@@ -41,8 +41,8 @@ Här är en visuell representation av TDSP-livscykeln:
 ## <a name="how-to-do-it"></a>Gör så
 Det finns tre huvudsakliga uppgifter som beskrivs i det här steget:
 
-  * **Funktionstekniker**: skapa datafunktioner från rådata för att underlätta modellträning.
-  * **Modellera utbildning**: hitta modellen som svar på frågan så exakt som möjligt genom att jämföra deras framgångsmått.
+  * **Funktionstekniker**: Skapa datafunktioner från rådata för att underlätta modellträning.
+  * **Modellera utbildning**: Hitta den modell som besvaras bäst genom att jämföra deras framgångsmått.
   * Avgöra om din modell är **lämplig för produktion.**
 
 ### <a name="feature-engineering"></a>Funktionstekniker
@@ -72,9 +72,9 @@ Vi tillhandahåller en [automatiserad modellering och Rapporteringsverktyg](http
 ## <a name="artifacts"></a>Artefakter
 Artefakter som skapats i den här fasen inkluderar:
 
-   * [Egenskapsuppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): funktioner som har utvecklats för modellering beskrivs den **egenskapsuppsättningar** delen av den **datadefinition** rapporten. Det finns länkar till koden för att generera funktionerna och en beskrivning av hur funktionen skapades.
-   * [Modellera rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): för varje modell som testas, en standard-mallbaserade rapport som innehåller information om varje experiment skapas.
-   * **Kontrollpunkt beslut**: utvärdera om modellen presterar bra för att distribuera den till ett produktionssystem. Vissa viktiga frågor är:
+   * [Egenskapsuppsättningar](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): Funktioner som har utvecklats för modellering beskrivs den **egenskapsuppsättningar** delen av den **datadefinition** rapporten. Det finns länkar till koden för att generera funktionerna och en beskrivning av hur funktionen skapades.
+   * [Modellera rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): För varje modell som testas, en standard skapas-mallbaserade rapport som innehåller information om varje experiment.
+   * **Kontrollpunkt beslut**: Utvärdera om modellen presterar bra för att distribuera den till ett produktionssystem. Vissa viktiga frågor är:
      * Modellen besvara frågan med tillräckligt med tillförsikt beroende testdata? 
      * Bör du försöka eventuella alternativa metoder? Ska du samla in ytterligare data, göra mer funktionsframställning eller experimentera med andra algoritmer?
 

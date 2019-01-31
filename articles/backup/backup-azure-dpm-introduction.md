@@ -2,19 +2,18 @@
 title: Förbereda DPM-servern att säkerhetskopiera arbetsbelastningar till Azure
 description: En introduktion till säkerhetskopiering av DPM-data till ett Azure Recovery Services-valv.
 services: backup
-author: adigan
-manager: nkolli
-keywords: System Center Data Protection Manager, data protection manager, dpm-säkerhetskopiering
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: ac89f0f2e2f86fa34fc754ee23e9b67329560fa4
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: 1f2defd2adb580aee71482a699c7987ca3fa7807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024485"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301075"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Förbereda säkerhetskopiering av arbetsbelastningar till Azure med System Center DPM
 
@@ -50,8 +49,8 @@ DPM på en fysisk server | System Center 2012 SP1 eller senare. System Center 20
 DPM på en Hyper-V-dator | System Center 2012 SP1 eller senare. System Center 2012 R2. 
 DPM på en virtuell VMware-dator | System Center 2012 R2 med Samlad uppdatering 5 eller senare.
 Komponenter | DPM-servern bör ha Windows PowerShell och .net Framework 4.5 installerat.
-Appar som stöds | [Lär dig](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) vad DPM kan säkerhetskopiera.
-Filtyper som stöds | Dessa filtyper kan säkerhetskopieras med Azure Backup: krypterade (endast fullständiga säkerhetskopior); Komprimerade (inkrementella säkerhetskopior stöds). Sparse-filer (inkrementella säkerhetskopior stöds); Komprimerade och sparse-filer (hanteras som sparse).
+Appar som stöds | [Läs mer om](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix) vad som kan säkerhetskopieras av DPM.
+Filtyper som stöds | Dessa filtyper kan säkerhetskopieras med Azure Backup: Krypterade (endast fullständiga säkerhetskopior); Komprimerade (inkrementella säkerhetskopior stöds). Sparse-filer (inkrementella säkerhetskopior stöds); Komprimerade och sparse-filer (hanteras som sparse).
 Filtyper som inte stöds | Servrar i skiftlägeskänsliga filsystem; hårda länkar (ignoreras); referenspunkt (ignoreras); krypterade och komprimerade (ignoreras); krypterade och utspridda (ignoreras); Komprimerad dataström; parsa dataströmmen.
 Lokal lagring | Varje dator som du vill säkerhetskopiera måste ha lokala ledigt lagringsutrymme som är minst 5% av storleken på de data som säkerhetskopieras.  Till exempel kräver säkerhetskopiera 100 GB data minst 5 GB ledigt utrymme i den tillfälliga platsen.
 Valvet lagring | Det finns ingen gräns för mängden data som du kan säkerhetskopiera till ett Azure Backup-valv, men storleken på en datakälla (till exempel en virtuell dator eller en databas) får inte överskrida 54400 GB.

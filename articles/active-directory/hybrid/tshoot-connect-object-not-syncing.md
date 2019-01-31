@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: d10b8760409d5deb0828d15e8c0daf50853a9624
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7b43b0e0676cc31938bf64cf84f9e6799c2dd3dd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158272"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296613"
 ---
 # <a name="troubleshoot-an-object-that-is-not-synchronizing-to-azure-ad"></a>Felsök ett objekt som inte synkroniseras med Azure AD
 
@@ -28,6 +28,34 @@ Om ett objekt inte synkroniseras som förväntat till Azure AD, kan det bero på
 
 >[!IMPORTANT]
 >För Azure Active Directory (AAD) ansluta distribution med version 1.1.749.0 eller högre, använda den [felsökning uppgift](tshoot-connect-objectsync.md) i guiden för att felsöka problem med synkronisering av objektet. 
+
+## <a name="synchronization-process"></a>Processen för synkronisering
+
+Innan man har undersökt synkroniseringsproblem, låt oss se på **Azure AD Connect** synkroniseringsprocessen:
+
+  ![Azure AD Connect-synkronisering](./media/tshoot-connect-object-not-syncing/syncingprocess.png)
+
+### <a name="terminology"></a>**Terminologi**
+
+* **CS:** En tabell i databasen i anslutningsplatsen.
+* **MV:** Metaversum, en tabell i databasen.
+* **AD:** Active Directory
+* **AAD:** Azure Active Directory
+
+### <a name="synchronization-steps"></a>**Synkroniseringssteg**
+Synkroniseringsprocessen omfattar följande steg:
+
+1. **Importera från AD:** **Active Directory** objekt förs in **AD CS**.
+
+2. **Importera från AAD:** **Azure Active Directory** objekt förs in **AAD CS**.
+
+3. **Synkronisering:** **Inkommande Synkroniseringsregler** och **utgående Synkroniseringsregler** körs i den ordning som siffran från lägre till högre. Om du vill visa de Synkroniseringsregler som du kan gå till **Synchronization Rules Editor** från program. Den **inkommande Synkroniseringsregler** ger i data från CS MV. Den **utgående Synkroniseringsregler** flyttar data från MV till CS.
+
+4. **Exportera till AD:** När synkronisering har körts kan exporteras objekt från AD CS att **Active Directory**.
+
+5. **Exportera till AAD:** När du har kört synkronisering objekt exporteras från AAD CS till **Azure Active Directory**.
+
+## <a name="troubleshooting"></a>Felsökning
 
 Om du vill hitta fel som ska du titta på några olika platser i följande ordning:
 
@@ -123,7 +151,28 @@ I **hanteraren för synkroniseringstjänsten**, klickar du på **Metaversumsökn
 
 I den **sökresultat** fönstret klickar du på objektet.
 
-Om du inte gick att hitta objektet, har sedan den ännu inte nått metaversum. Fortsätta att söka efter objekt i Active Directory [anslutarplatsen](#connector-space-object-properties). Det kan vara ett fel i synkronisering som blockerar objektet från kommer till metaversum eller det kan finnas ett applicerat filter.
+Om du inte gick att hitta objektet, har sedan den ännu inte nått metaversum. Fortsätta att söka efter objektet i den **Active Directory** [anslutarplatsen](#connector-space-object-properties). Om du hittar objekt i den **Active Directory** anslutningsplatsen sedan det uppstå ett fel i synkronisering som blockerar objektet från kommer till metaversum eller så kanske en synkroniseringsregel Omfångsfilter tillämpas.
+
+### <a name="object-not-found-in-the-mv"></a>Objektet hittades inte i MV
+Om objektet är i den **Active Directory** CS, men finns inte i MV och sedan Omfångsfilter tillämpas. 
+
+* För att titta på Omfångsfilter går du till menyn skrivbordsprogram och klicka på **Synchronization Rules Editor**. Filtrera reglerna som gäller objektet genom att justera i filtreringen nedan.
+
+  ![Inkommande synkronisering regler sökning](./media/tshoot-connect-object-not-syncing/syncrulessearch.png)
+
+* Visa varje regel i listan ovan och kontrollera den **Scoping filter**. I den nedan Omfångsfilter om den **isCriticalSystemObject** värdet är null eller FALSKT eller tomt så är det i omfånget.
+
+  ![Inkommande synkronisering regler sökning](./media/tshoot-connect-object-not-syncing/scopingfilter.png)
+
+* Gå till den [CS Import](#cs-import) attributet lista och kontrollera vilka filter blockerar objektet för att flytta till MV. Det sig den **Anslutarplatsen** attributlistan visas bara attribut för icke-null och inte är tom. Till exempel om **isCriticalSystemObject** inte visas i listan och sedan det innebär att värdet för det här attributet är null eller tomt.
+
+### <a name="object-not-found-in-the-aad-cs"></a>Objektet hittades inte i AAD-CS
+Om objektet inte finns i den **Anslutarplatsen** av **Azure Active Directory**. Men den finns i MV, titta sedan på Scoping filtret för den **utgående** reglerna för motsvarande **Anslutarplatsen** och kontrollera om objektet är filtrerats bort eftersom den [MV attribut](#mv-attributes) uppfyller inte kriterierna.
+
+* Om du vill titta på utgående Omfångsfilter, väljer du de tillämpliga reglerna för objektet genom att justera i filtreringen nedan. Visa varje regel och titta på motsvarande [MV-attributet](#mv-attributes) värde.
+
+  ![Sök efter utgående Synchroniztion-regler](./media/tshoot-connect-object-not-syncing/outboundfilter.png)
+
 
 ### <a name="mv-attributes"></a>MV-attribut
 Du kan se värdena och vilken anslutning som tillförts det på fliken attribut.  

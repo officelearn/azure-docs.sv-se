@@ -3,7 +3,7 @@ title: Använd SSH-nycklar med Windows för virtuella Linux-datorer | Microsoft 
 description: Lär dig hur du skapar och använder SSH-nycklar på en Windows-dator för att ansluta till en Linux-dator på Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: danlep
-ms.openlocfilehash: abb0ba6eace2e837ea2f74a0d919097f8801101e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.date: 11/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 247d09e58ded2de12fb7cc6b5a036b695e715077
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407424"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298661"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Hur du använder SSH-nycklar med Windows på Azure
 
@@ -72,7 +72,7 @@ Skapa ett SSH-RSA-nyckelpar med PuTTYgen:
 
 4. Flytta runt musen i det tomma utrymmet för att tillhandahålla slumpmässighet för nyckeln.
 
-5. När den offentliga nyckeln genereras, du kan också ange och bekräfta en lösenfras. Du uppmanas att lösenfrasen när du autentiserar till den virtuella datorn med den privata SSH-nyckeln. Utan en lösenfras om någon får tag på din privata nyckel, kan de logga in på en virtuell dator eller tjänst som använder nyckeln. Vi rekommenderar att du skapar en lösenfras. Men om du glömmer bort lösenfrasen finns inget sätt att återställa den.
+5. När den offentliga nyckeln genereras, du kan också ange och bekräfta en lösenfras. Du uppmanas att lösenfrasen när du autentiserar till den virtuella datorn med den privata SSH-nyckeln. Utan en lösenfras om någon får tag på din privata nyckel, kan de logga in på alla virtuella datorer och tjänster som använder nyckeln. Vi rekommenderar att du skapar en lösenfras. Men om du glömmer bort lösenfrasen finns inget sätt att återställa den.
 
 6. Den offentliga nyckeln visas överst i fönstret. Du kan kopiera den här hela offentlig nyckel och klistra sedan in den i Azure portal eller en Azure Resource Manager-mall när du skapar en Linux-VM. Du kan också välja **spara offentlig nyckel** att spara en kopia på datorn:
 
@@ -93,7 +93,7 @@ I följande exempel visas hur du kan kopiera och klistra in den offentliga nycke
    ![Använda offentlig nyckel när du skapar en virtuell dator i Azure portal](./media/ssh-from-windows/use-public-key-azure-portal.png)
 
 
-## <a name="connect-to-your-vm"></a>Ansluta till den virtuella datorn
+## <a name="connect-to-your-vm"></a>Ansluta till din virtuella dator
 
 Ett sätt att göra en SSH-anslutning till Linux VM från Windows är att använda en SSH-klient. Detta är den bästa metoden om du har en SSH-klient installerad på din Windows-system eller om du använder SSH-verktyg i Bash i Azure Cloud Shell. Om du föredrar ett GUI-baserade verktyg kan du ansluta med PuTTY.  
 
@@ -105,6 +105,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Om du har konfigurerat en lösenfras när du skapade ditt nyckelpar ska du ange lösenfrasen när frågan kommer under inloggningen.
+
+Om den virtuella datorn använder just-in-time-åtkomstprincip, måste du begära åtkomst innan du kan ansluta till den virtuella datorn. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
 
 ### <a name="connect-with-putty"></a>Ansluta med PuTTY
 

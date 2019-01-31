@@ -1,6 +1,6 @@
 ---
-Rubrik: Azure AI-galleriet titleSuffix: Beskrivning av Azure Machine Learning Studio: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Azure AI-galleriet titleSuffix: Beskrivning av Azure Machine Learning Studio: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/11/2019
 ---

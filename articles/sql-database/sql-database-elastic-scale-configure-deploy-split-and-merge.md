@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: e8a849fdc6674a0c6ab801bd8f26a01f89fb8857
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7939de5cf45535dc911c25ae8fa8c914a214fa3c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969591"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458065"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuera en tjänst för dela / sammanslå som flyttar data mellan shardade databaser
 
@@ -143,7 +143,7 @@ Om din arbetsroll inte går att använda, men din webbroll lyckas, är det troli
    ```
 
 * Se till att servernamnet inte börjar med **https://**.
-* Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. Gör detta genom att öppna databasen i portalen och se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på **på**\*\*.
+* Se till att din Azure SQL DB-server tillåter Azure Services för att ansluta till den. Gör detta genom att öppna databasen i portalen och se till att den **Tillåt åtkomst till Azure-tjänster** är inställt på ** på ***.
 
 ## <a name="test-the-service-deployment"></a>Testa service-distributionen
 ### <a name="connect-with-a-web-browser"></a>Ansluta med en webbläsare
@@ -204,7 +204,7 @@ Skriptfilerna som ingår är:
    
 ## <a name="use-powershell-to-verify-your-deployment"></a>Använd PowerShell för att kontrollera distributionen
 1. Öppna ett nytt PowerShell-fönster och navigera till katalogen där du hämtade paketet dela / Sammanslå och gå sedan till katalogen ”powershell”.
-2. Skapa en Azure SQL database-server (eller välj en befintlig server) där karthanteraren och shards kommer att skapas.
+2. Skapa en Azure SQL Database-server (eller välj en befintlig server) där karthanteraren och shards kommer att skapas.
    
    > [!NOTE]
    > SetupSampleSplitMergeEnvironment.ps1 skriptet skapar de här databaserna på samma server som standard att skriptet är enkel. Detta är inte en begränsning av tjänsten dela / Sammanslå själva.

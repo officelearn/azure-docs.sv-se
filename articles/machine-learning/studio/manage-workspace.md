@@ -1,5 +1,5 @@
 ---
-Rubrik: Hantera en Machine Learning Studio-arbetsyta titleSuffix: Beskrivning av Azure Machine Learning Studio: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-tjänster webbtjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Hantera en Machine Learning Studio-arbetsyta titleSuffix: Beskrivning av Azure Machine Learning Studio: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-tjänster webbtjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
 ---

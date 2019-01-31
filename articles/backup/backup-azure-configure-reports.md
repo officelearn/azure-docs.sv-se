@@ -2,26 +2,25 @@
 title: Konfigurera rapporter för Azure Backup
 description: Konfigurera Power BI-rapporter för Azure Backup med Recovery Services-valvet.
 services: backup
-author: adiganmsft
+author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 01/30/2019
 ms.author: adigan
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e93c51365adfc867082e180d8e4db804d02003ca
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418287"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297738"
 ---
 # <a name="configure-azure-backup-reports"></a>Konfigurera Azure Backup-rapporter
 Den här artikeln visar stegen för att följa för att konfigurera rapporter för Azure Backup med Recovery Services-valvet. Den visar också hur du kommer åt rapporter med hjälp av Power BI. När du har slutfört de här stegen kan du gå direkt till Power BI för att visa, anpassa och skapa rapporter.
 
 > [!IMPORTANT]
-> Från den 1 November 2018, kan vissa kunder problem uppstå vid inläsning av data i Azure Backup-App i Power BI, säger ”extra tecken påträffades i slutet av JSON-indata. Undantaget orsakades av gränssnittet IDataReader ”.
-Detta är p.g.a. en ändring i formatet där data läses in i lagringskontot.
+> Från den 1 November 2018, kan vissa kunder problem uppstå vid inläsning av data i Azure Backup-App i Power BI, säger ”extra tecken påträffades i slutet av JSON-indata. Undantaget returnerades av gränssnittet IDataReader.”
+Det beror på en ändring i formatet som används när data läses in på lagringskontot.
 Hämta den senaste appen (version 1.8) för att undvika det här problemet.
 >
 >

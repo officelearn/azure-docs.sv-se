@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/21/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 718a8fb82c3d85baf94e2e9c316f40b964749912
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231371"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454951"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -24,7 +24,7 @@ En vanlig funktion för molnbaserade infrastrukturer som Azure Storage är att d
 
 Den här artikeln fokuserar på GRS och RA-GRS. Med GRS hålls tre kopior av dina data i den primära regionen som du valde när du konfigurerar storage-konto. Tre ytterligare kopior bevaras asynkront i en sekundär region som anges av Azure. RA-GRS erbjuder geo-redundant lagring med läsbehörighet till den sekundära kopian.
 
-Information om vilka primära regioner är länkat till vilka sekundära regioner finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): parade Azure-regionerna](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Information om vilka primära regioner är länkat till vilka sekundära regioner finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Det finns kodavsnitt som ingår i den här artikeln och en länk till ett fullständigt exempel i slutet som du kan ladda ned och köra.
 
@@ -200,7 +200,7 @@ Med RA-GRS replikeras transaktioner från den primära regionen till den sekund�
 
 I följande tabell visar ett exempel på vad som händer när du uppdaterar information om en anställd att göra henne medlem i den *administratörer* roll. För det här exemplet är detta kräver att du uppdaterar den **medarbetare** entitet och uppdatera en **administratörsroll** entitet med en uppräkning av det totala antalet administratörer. Observera hur uppdateringarna tillämpas inte i den sekundära regionen.
 
-| **tid** | **Transaktionen**                                            | **Replikering**                       | **Senaste synkroniseringstid** | **Resultatet** |
+| **Time** | **Transaktionen**                                            | **Replikering**                       | **Senaste synkroniseringstid** | **Resultatet** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktionen A: <br> Infoga medarbetare <br> entiteten i primär |                                   |                    | Transaktionen A infogas till primär,<br> inte har replikerats än. |
 | T1       |                                                            | Transaktionen A <br> replikeras till<br> sekundär | T1 | Transaktionen A replikeras till sekundär. <br>Senaste synkronisering har uppdaterats.    |

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: rogarana
-ms.component: common
-ms.openlocfilehash: d2182942b8d1ce78fd4a72ff387c7a6a1cfead5a
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: common
+ms.openlocfilehash: ca1012e0f1b0b7a9e0d8bd88d94876c20d22dec5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52975090"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473791"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Säkerhetsguiden för Azure Data Lake Storage Gen2
 
@@ -79,7 +79,7 @@ Här är de viktigaste aspekterna som du behöver veta om hur du använder RBAC 
 * [Azure Active Directory rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md)
 
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
-* [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Inbyggda roller](../../role-based-access-control/built-in-roles.md)
 
   Den här artikeln beskriver alla inbyggda roller som är tillgängliga i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -217,7 +217,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
 * Det här är referensartiklar.
 
-  * [Tjänst-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Den här artikeln innehåller exempel på användning av en tjänstnivå SAS med BLOB-objekt, Kömeddelanden, tabell-intervall och filer.
   * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)

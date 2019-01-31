@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 55d73d51cf7d1867b868b3a9b8385340e01cdd02
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 246b7ae21ceca80c2d1af74330691e527c73cf51
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223408"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452744"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -132,7 +132,7 @@ Så här visar resultatet i CSV:
 - En lokalt ansluten volym som formaterats med NTFS-filsystemet.
 
 ### <a name="file-system-features"></a>Filsystem: funktioner
-| Funktion | Supportstatus | OBS! |
+| Funktion | Supportstatus | Anteckningar |
 |---------|----------------|-------|
 | Åtkomstkontrollistor (ACL) | Stöds fullt ut | Windows-ACL: er bevaras av Azure File Sync och tillämpas av Windows Server på server-slutpunkter. Windows-ACL: er (ännu inte) stöds av Azure Files om filer används direkt i molnet. |
 | Hårda länkar | Hoppades över | |
@@ -148,7 +148,7 @@ Så här visar resultatet i CSV:
 > NTFS-volymer stöds. ReFS, FAT, FAT32 och andra filsystem stöds inte.
 
 ### <a name="files-skipped"></a>Filer som hoppades över
-| Fil/mapp | Observera |
+| Fil/mapp | Obs! |
 |-|-|
 | Desktop.ini | Filen som är specifika för system |
 | ethumbs.DB$ | Temporär fil för miniatyrbilder |
@@ -229,24 +229,24 @@ Azure File Sync är tillgänglig i följande regioner:
 
 | Region | Plats för datacenter |
 |--------|---------------------|
-| Australien, Öst | New South Wales |
-| Australien, Sydöst | Victoria |
-| Canada Central | Toronto |
-| Canada East | Quebec City |
+| Östra Australien | New South Wales |
+| Sydöstra Australien | Victoria |
+| Centrala Kanada | Toronto |
+| Östra Kanada | Quebec City |
 | Indien, centrala | Pune |
 | Centrala USA | Iowa |
 | Östasien | Hongkong SAR |
 | Östra USA | Virginia |
 | USA, östra 2 | Virginia |
-| USA, Central nord | Illinois |
-| Nordeuropa | Irland |
-| USA, Central syd | Texas |
-| Indien, södra | Chennai |
+| Norra centrala USA | Illinois |
+| Norra Europa | Irland |
+| Södra centrala USA | Texas |
+| Södra Indien | Chennai |
 | Sydostasien | Singapore |
-| Södra Storbritannien | London |
-| Västra Storbritannien | Cardiff |
-| Västeuropa | Nederländerna |
-| Västra USA | California |
+| Storbritannien, södra | London |
+| Storbritannien, västra | Cardiff |
+| Västra Europa | Nederländerna |
+| Västra USA | Kalifornien |
 
 Azure File Sync stöder synkronisering endast med en Azure-filresurs som finns i samma region som Storage Sync-tjänsten.
 
@@ -257,22 +257,22 @@ Stöd för redundans-integrering mellan geo-redundant lagring och Azure File Syn
 
 | Primär region      | Länkad region      |
 |---------------------|--------------------|
-| Australien, Öst      | Australien, Sydöst |
-| Australien, Sydöst | Australien, Öst     |
-| Canada Central      | Canada East        |
-| Canada East         | Canada Central     |
-| Indien, centrala       | Indien, södra        |
+| Östra Australien      | Sydöstra Australien |
+| Sydöstra Australien | Östra Australien     |
+| Centrala Kanada      | Östra Kanada        |
+| Östra Kanada         | Centrala Kanada     |
+| Indien, centrala       | Södra Indien        |
 | Centrala USA          | USA, östra 2          |
 | Östasien           | Sydostasien     |
 | Östra USA             | Västra USA            |
 | USA, östra 2           | Centrala USA         |
-| Nordeuropa        | Västeuropa        |
-| USA, Central nord    | USA, Central syd   |
-| Indien, södra         | Indien, centrala      |
+| Norra Europa        | Västra Europa        |
+| Norra centrala USA    | Södra centrala USA   |
+| Södra Indien         | Indien, centrala      |
 | Sydostasien      | Östasien          |
-| Södra Storbritannien            | Västra Storbritannien            |
-| Västra Storbritannien             | Södra Storbritannien           |
-| Västeuropa         | Nordeuropa       |
+| Storbritannien, södra            | Storbritannien, västra            |
+| Storbritannien, västra             | Storbritannien, södra           |
+| Västra Europa         | Norra Europa       |
 | Västra USA             | Östra USA            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Uppdateringsprincip för Azure File Sync-agenten

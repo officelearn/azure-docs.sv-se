@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: e63dd0a6feaedf95bb4845a3c5eded89e6585e36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318851"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463505"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Juli 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i juli 2018.
@@ -24,11 +24,11 @@ Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artike
 [Azure SQL Data Warehouse](https://aka.ms/sqldw) anger nya prestandamått med introduktionen av direktåtkomst till Data som förbättrar blanda åtgärder. Direktåtkomst till Data minskar CPU-användningen för dataflyttningsåtgärder genom att använda direkt SQL-Server till SQL Server native dataåtgärder. Integrering med SQL Server-motorn direkt för dataförflyttning innebär det att SQL Data Warehouse är nu **67% snabbare än Amazon Redshift** genom att använda en arbetsbelastning fås från välkänd branschstandard [TPC Benchmark™ H (TPC-H)](http://www.tpc.org/tpch/).
 
 ![Azure SQL Data Warehouse är snabbare och billigare än Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/eb3b908a-464d-4847-b384-9f296083a737.png)
-<sub>källa: [Gigaom Forskningsrapport analytiker: datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>källa: [Analysrapport för Gigaom Research: Datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 Utöver runtime-prestanda i [Gigaom Research](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) rapporten också mäts prisprestanda förhållandet för att kvantifiera USD kostnaden för specifika arbetsbelastningar. SQL Data Warehouse har **minst 23 procent mindre** än Redshift för 30 TB arbetsbelastningar. Med SQL Data Warehouse möjligheten att Elastiskt skala databearbetning och pausa och återuppta arbetsbelastningar kan kunderna betalar bara när tjänsten är i användning, ytterligare minska sina kostnader.
 ![Azure SQL Data Warehouse är snabbare och billigare än Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
-<sub>källa: [Gigaom Forskningsrapport analytiker: datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
+<sub>källa: [Analysrapport för Gigaom Research: Datalager i molnet-Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
 ### <a name="query-concurrency"></a>Fråga samtidighet
 SQL Data Warehouse innebär också att data är tillgängliga i ditt företag. Microsoft har förbättrats tjänsten för att stödja 128 samtidiga frågor så att fler användare kan söka i samma databasen och inte blockeras av andra förfrågningar. Däremot begränsar Amazon Redshift maximalt antal samtidiga frågor till 50, begränsa åtkomst till data i organisationen.

@@ -1,6 +1,6 @@
 ---
-Rubrik: ”Steg 2: Ladda upp data till en Machine Learning Studio-experiment' titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 2 av utveckla en förutsägelselösning genomgång: Ladda upp lagras offentliga data till Azure Machine Learning Studio ”.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: ”Steg 2: Ladda upp data till en Machine Learning Studio-experiment' titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 2 av utveckla en förutsägelselösning genomgång: Ladda upp lagras offentliga data till Azure Machine Learning Studio ”.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 03/23/2017
 ---

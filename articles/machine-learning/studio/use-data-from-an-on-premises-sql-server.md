@@ -1,6 +1,6 @@
 ---
-Rubrik: En lokal SQL Server-titleSuffix: Beskrivning av Azure Machine Learning Studio: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: En lokal SQL Server-titleSuffix: Beskrivning av Azure Machine Learning Studio: Använda data från en lokal SQL Server-databas för att utföra avancerade analyser med Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/13/2017
 ---

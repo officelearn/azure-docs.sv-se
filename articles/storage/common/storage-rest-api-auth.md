@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 05/22/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 78e2620ba6e5e29a1f1ac9719b709d5a2f468122
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39531161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476204"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Använda Azure Storage REST API
 
@@ -62,11 +62,11 @@ Om du tittar på den [REST-API för Blob Service](/rest/api/storageservices/Blob
 
 Låt oss titta på sidan i REST API-referens för den [ListContainers](/rest/api/storageservices/List-Containers2) igen så att du förstå några av fälten varifrån i begäran och svaret i nästa avsnitt med kod.
 
-**Begärandemetod**: hämta. Den här verbet är HTTP-metod som du anger som en egenskap för Begäranobjektet. Andra värden för den här verb är HEAD, PUT och DELETE, beroende på du anropar API: et.
+**Begärandemetod**: HÄMTA. Den här verbet är HTTP-metod som du anger som en egenskap för Begäranobjektet. Andra värden för den här verb är HEAD, PUT och DELETE, beroende på du anropar API: et.
 
-**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list detta har skapats från blob storage-konto-slutpunkten `http://myaccount.blob.core.windows.net` och resurssträngen `/?comp=list`.
+**Begärande-URI**: https://myaccount.blob.core.windows.net/?comp=list  Det här skapas från blob storage-konto-slutpunkten `http://myaccount.blob.core.windows.net` och resurssträngen `/?comp=list`.
 
-[URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Några av parametrarna är *timeout* för anrop (i sekunder) och *prefix*, som används för filtrering.
+[URI-parametrar](/rest/api/storageservices/List-Containers2#uri-parameters): Det finns ytterligare frågeparametrar som du kan använda när du anropar ListContainers. Några av parametrarna är *timeout* för anrop (i sekunder) och *prefix*, som används för filtrering.
 
 En annan bra parametern är *maxresults:* om fler behållare är tillgängliga än det här värdet, svarstexten innehåller en *NextMarker* element som anger nästa behållaren ska returneras vid nästa begäran. Om du vill använda denna funktion kan du ange den *NextMarker* värdet som den *markör* parameter i URI: N när du gör nästa begäran. Det är detsamma som sidindelning igenom resultat som när du använder den här funktionen. 
 
@@ -76,15 +76,15 @@ Om du vill använda ytterligare parametrar, lägger du till dem till resurssträ
 /?comp=list&timeout=60&maxresults=100
 ```
 
-[Begärandehuvuden](/rest/api/storageservices/List-Containers2#request-headers)**:** det här avsnittet innehåller obligatoriska och valfria begärandehuvuden. Tre av rubrikerna som krävs: en *auktorisering* rubrik, *x-ms-date* (innehåller UTC-tid för begäran), och *x-ms-version* (anger vilken version av RESTEN API för användning). Inklusive *x-ms-client-request-id* i sidhuvud är valfritt – du kan ange värdet för det här fältet till något; de skrivs till loggarna storage analytics när loggning är aktiverat.
+[Begärandehuvuden](/rest/api/storageservices/List-Containers2#request-headers)**:** Det här avsnittet innehåller obligatoriska och valfria begärandehuvuden. Tre av rubrikerna som krävs: en *auktorisering* rubrik, *x-ms-date* (innehåller UTC-tid för begäran), och *x-ms-version* (anger vilken version av RESTEN API för användning). Inklusive *x-ms-client-request-id* i sidhuvud är valfritt – du kan ange värdet för det här fältet till något; de skrivs till loggarna storage analytics när loggning är aktiverat.
 
-[Brödtext i begäran](/rest/api/storageservices/List-Containers2#request-body)**:** det finns inga begärandetexten för ListContainers. Begärandetexten används på alla PUT-åtgärder när du överför blobbar, samt SetContainerAccessPolicy, vilket gör att du skickar in en XML-lista över åtkomstprinciper har lagrats tillämpas. Åtkomstprinciper har lagrats beskrivs i artikeln [med signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+[Brödtext i begäran](/rest/api/storageservices/List-Containers2#request-body)**:** Det finns inga begärandetexten för ListContainers. Begärandetexten används på alla PUT-åtgärder när du överför blobbar, samt SetContainerAccessPolicy, vilket gör att du skickar in en XML-lista över åtkomstprinciper har lagrats tillämpas. Åtkomstprinciper har lagrats beskrivs i artikeln [med signaturer för delad åtkomst (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 
-[Svarets statuskod](/rest/api/storageservices/List-Containers2#status-code)**:** Tells av alla statuskoder som du behöver veta. I det här exemplet är en HTTP-statuskod 200 ok. En fullständig lista över HTTP-statuskoder finns [statuskoddefinitioner](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Felkoder som är specifika för Storage REST API: er finns i [vanliga REST API-felkoder](/rest/api/storageservices/common-rest-api-error-codes)
+[Svarets statuskod](/rest/api/storageservices/List-Containers2#status-code)**:** Talar om för alla statuskoder som du behöver veta. I det här exemplet är en HTTP-statuskod 200 ok. En fullständig lista över HTTP-statuskoder finns [statuskoddefinitioner](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). Felkoder som är specifika för Storage REST API: er finns i [vanliga REST API-felkoder](/rest/api/storageservices/common-rest-api-error-codes)
 
-[Svarshuvuden](/rest/api/storageservices/List-Containers2#response-headers)**:** dessa inkluderar *innehållstyp*; *x-ms-request-id* (begäran-id du löpt ut, om tillämpligt). *x-ms-version* (anger versionen av den Blob-tjänst som används), och *datum* (UTC, anges vilken tid en begäran har gjorts).
+[Svarshuvuden](/rest/api/storageservices/List-Containers2#response-headers)**:** Dessa inkluderar *innehållstyp*; *x-ms-request-id* (begäran-id du löpt ut, om tillämpligt). *x-ms-version* (anger versionen av den Blob-tjänst som används), och *datum* (UTC, anges vilken tid en begäran har gjorts).
 
-[Svarstexten](/rest/api/storageservices/List-Containers2#response-body): det här fältet är en XML-struktur som tillhandahåller data som begärs. I det här exemplet är svaret en lista över behållare och deras egenskaper.
+[Svarstexten](/rest/api/storageservices/List-Containers2#response-body): Det här fältet är en XML-struktur som tillhandahåller data som begärs. I det här exemplet är svaret en lista över behållare och deras egenskaper.
 
 ## <a name="creating-the-rest-request"></a>Skapar en REST-förfrågan
 
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**Svarstext (XML):** för ListContainers detta visar en lista över behållare och deras egenskaper.
+**Svarstext (XML):** Detta visar listan över behållare och deras egenskaper för ListContainers.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -283,24 +283,24 @@ Det här kodstycket visar formatet för strängen som signatur för delad nyckel
 
 ```csharp  
 StringToSign = VERB + "\n" +  
-               Content-Encoding + "\n" +  
-               Content-Language + "\n" +  
-               Content-Length + "\n" +  
-               Content-MD5 + "\n" +  
-               Content-Type + "\n" +  
-               Date + "\n" +  
-               If-Modified-Since + "\n" +  
-               If-Match + "\n" +  
-               If-None-Match + "\n" +  
-               If-Unmodified-Since + "\n" +  
-               Range + "\n" +  
-               CanonicalizedHeaders +  
-               CanonicalizedResource;  
+               Content-Encoding + "\n" +  
+               Content-Language + "\n" +  
+               Content-Length + "\n" +  
+               Content-MD5 + "\n" +  
+               Content-Type + "\n" +  
+               Date + "\n" +  
+               If-Modified-Since + "\n" +  
+               If-Match + "\n" +  
+               If-None-Match + "\n" +  
+               If-Unmodified-Since + "\n" +  
+               Range + "\n" +  
+               CanonicalizedHeaders +  
+               CanonicalizedResource;  
 ```
 
 De flesta av de här fälten används sällan. För Blob-lagring anger du VERB, md5, innehållslängd, Kanoniseras rubriker och Kanoniseras resurs. Du kan lämna de andra tomt (men placera i den `\n` så att den vet att de är tom).
 
-Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga. I själva verket vad gör kanoniseras medelvärdet? Inte ens att känna igen det som ett ord Microsoft Word. Här är vad [Wikipedia säger om auktorisering](http://en.wikipedia.org/wiki/Canonicalization): *i datavetenskap, auktorisering (ibland standardisering eller normalisering) är en process för att konvertera data som har mer än en möjligt representation till en ”standard”, ”normal” eller kanoniska form.* I normal talar, det innebär att listan över objekt (till exempel rubriker när det gäller Kanoniseras huvuden) och standardisera dem i ett format som krävs. I praktiken, Microsoft valt ett format och du behöver för matchning.
+Vad är CanonicalizedHeaders och CanonicalizedResource? Bra fråga. I själva verket vad gör kanoniseras medelvärdet? Inte ens att känna igen det som ett ord Microsoft Word. Här är vad [Wikipedia säger om auktorisering](http://en.wikipedia.org/wiki/Canonicalization): *I datavetenskap är auktorisering (ibland standardisering eller normalisering) en process för att konvertera data som har mer än en möjlig återgivning till en ”standard”, ”normal” eller kanoniska form.* I normal talar, det innebär att listan över objekt (till exempel rubriker när det gäller Kanoniseras huvuden) och standardisera dem i ett format som krävs. I praktiken, Microsoft valt ett format och du behöver för matchning.
 
 Låt oss börja med dessa två av kanoniserade fält, eftersom de behövs för att skapa auktoriseringsrubriken.
 
@@ -512,7 +512,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Svarstext (XML):** den här XML-svaret innehåller en lista över BLOB-objekt och deras egenskaper. 
+**Svarstext (XML):** Den här XML-svaret visar en lista över BLOB-objekt och deras egenskaper. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

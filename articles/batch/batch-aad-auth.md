@@ -3,7 +3,7 @@ title: Använd Azure Active Directory för att autentisera lösningar för Azure
 description: Batch har stöd för Azure AD för autentisering från Batch-tjänsten.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/18/2018
-ms.author: danlep
-ms.openlocfilehash: 964ef3bd988d71bfb90dbaa473b4b259769064b3
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.author: lahugh
+ms.openlocfilehash: 574a9ae1e283a3918e316d2daa84df727d729471
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52722063"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477613"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera lösningar för Batch-tjänsten med Active Directory
 
@@ -171,7 +171,7 @@ Kodexemplen i det här avsnittet visar hur du autentiserar med Azure AD med inte
 >
 >
 
-### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kodexempel: använda Azure AD-integrerad autentisering med Batch .NET
+### <a name="code-example-using-azure-ad-integrated-authentication-with-batch-net"></a>Kodexempel: Använda Azure AD-integrerad autentisering med Batch .NET
 
 Om du vill autentisera med integrerad autentisering från Batch .NET måste referera till den [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) paketet och [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paketet.
 
@@ -244,7 +244,7 @@ public static async Task PerformBatchOperations()
 }
 ```
 
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kodexempel: med hjälp av en Azure AD-tjänstobjekt med Batch .NET
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-net"></a>Kodexempel: Med hjälp av en Azure AD-tjänstobjekt med Batch .NET
 
 Om du vill autentisera med ett huvudnamn för tjänsten från Batch .NET måste referera till den [Azure Batch .NET](https://www.nuget.org/packages/Azure.Batch/) paketet och [ADAL](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) paketet.
 
@@ -311,7 +311,7 @@ public static async Task PerformBatchOperations()
     }
 }
 ```
-### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kodexempel: använda en Azure AD-tjänstobjekt med Batch Python
+### <a name="code-example-using-an-azure-ad-service-principal-with-batch-python"></a>Kodexempel: Med hjälp av en Azure AD-tjänstobjekt med Batch Python
 
 För att autentisera med ett huvudnamn för tjänsten från Batch Python, installera och referera till den [azure-batch](https://pypi.org/project/azure-batch/) och [azure gemensamma](https://pypi.org/project/azure-common/) moduler.
 

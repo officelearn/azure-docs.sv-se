@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: c3aef8c0c05c8f018a3218e15fd102163b89084f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 693d66c6b56fd759086236ae0252d2c6f1b5693e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214750"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301262"
 ---
 # <a name="log-analytics-faq"></a>Vanliga frågor och svar om Log Analytics
 Den här Microsoft-FAQ är en lista över vanliga frågor om Log Analytics i Microsoft Azure. Om du har ytterligare frågor om Log Analytics kan du gå till den [diskussionsforum](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) och ställa frågor. När en fråga är vanliga vi lägga till det i den här artikeln så att den finns snabbt och enkelt.
@@ -49,9 +49,9 @@ S: Anpassade fält extrahering stöds för närvarande i klassiskt loggar upplev
 
 S: Listvyn är inte tillgänglig i de nya loggarna. Det finns en pil till vänster om varje post i resultattabellen. Klicka på pilen för att öppna informationen för en viss post. 
 
-### <a name="q-after-running-a-query-a-list-of-suggested-filters-shows-up-but-it-doesnt-include-all-filters-how-can-i-see-the-rest"></a>F. En lista över föreslagna filter som visas när du har kört en fråga, men de omfattar inte alla filter. Hur kan jag se resten? 
+### <a name="q-after-running-a-query-a-list-of-suggested-filters-are-available-how-can-i-see-filters"></a>F. En lista över föreslagna filter är tillgängliga när du har kört en fråga. Hur kan jag se filter? 
 
-S: Vad som för närvarande visas är en förhandsgranskning av hur nya filter. Detta är nu baserat på hela resultatuppsättningen i stället för att vara begränsad till 10 000 postgränsen av Användargränssnittet. Det här är en lista över de mest populära filter och 10 vanligaste värden för varje filter. 
+S: Klicka på ”filter” på den vänstra pan att visa en förhandsgranskning av hur nya filter. Detta är nu baserat på hela resultatuppsättningen i stället för att vara begränsad till 10 000 postgränsen av Användargränssnittet. Det här är en lista över de mest populära filter och 10 vanligaste värden för varje filter. 
 
 ### <a name="q-why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-in-logs-after-drilling-in-from-vm"></a>F. Varför får jag felet: ”Registrera resursprovidern” Microsoft.Insights ”för den här prenumerationen om du vill aktivera den här frågan” i loggar efter Detaljgranskning i från virtuell dator? 
 

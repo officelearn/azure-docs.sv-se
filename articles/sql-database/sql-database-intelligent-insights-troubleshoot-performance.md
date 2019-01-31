@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: ad7d56b3a23d163cfbc6c9ca14c2788c5f96486b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 156d06b3c3fab5df1cd4360fb9e6ec2648d8d0b6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600870"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455073"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Felsöka Azure SQL Database prestandaproblem med intelligenta insikter
 
@@ -43,14 +43,14 @@ Intelligent Insights identifierar automatiskt prestandaproblem med SQL-databas o
 | [Ny fråga](sql-database-intelligent-insights-troubleshoot-performance.md#new-query) | Ny fråga har identifierats som påverkar prestandan för SQL-databas. | Ny fråga har identifierats som påverkar prestandan i databasen. |
 | [Ökad vänta statistik](sql-database-intelligent-insights-troubleshoot-performance.md#increased-wait-statistic) | Ökad databasen väntetider har identifierats som påverkar prestanda för SQL-databas. | Ökad databasen väntetider identifierades påverka databasens prestanda. |
 | [TempDB konkurrens](sql-database-intelligent-insights-troubleshoot-performance.md#tempdb-contention) | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestandan för SQL Database. | Flera trådar försöker komma åt samma TempDB-resurs som orsakar en flaskhals. Detta påverkar prestanda för databasen. |
-| [Brist för elastisk Pool-DTU](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. | Inte tillgängligt för hanterad instans som den använder vCore-modellen. |
+| [Elastisk pool DTU brist](sql-database-intelligent-insights-troubleshoot-performance.md#elastic-pool-dtu-shortage) | Brist på tillgängliga edtu: er i den elastiska poolen påverkar prestandan för SQL Database. | Inte tillgängligt för hanterad instans som den använder vCore-modellen. |
 | [Planera Regression](sql-database-intelligent-insights-troubleshoot-performance.md#plan-regression) | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestandan för SQL Database. | Ny plan eller en ändring i arbetsbelastningen för en befintlig plan har identifierats. Detta påverkar prestanda för databasen. |
 | [Databasbegränsade konfigurationen ändras](sql-database-intelligent-insights-troubleshoot-performance.md#database-scoped-configuration-value-change) | Konfigurationsändring på SQL-databasen har identifierats som påverkar prestanda för databasen. | Konfigurationsändring på databasen har identifierats som påverkar prestanda för databasen. |
 | [Långsam klienten](sql-database-intelligent-insights-troubleshoot-performance.md#slow-client) | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestandan för SQL Database. | Långsamma programklienten kan inte använda utdata från databasen tillräckligt snabbt. Detta påverkar prestanda för databasen. |
 | [Priser för nedgradering av nivå](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestandan för SQL Database. | Priser nivån nedgradering åtgärd minskade tillgängliga resurser. Detta påverkar prestanda för databasen. |
 
 > [!TIP]
-> Kontinuerlig prestandaoptimering i SQL Database, aktivera [automatisk justering i Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller fråga körning plan korrigeringar.
+> Kontinuerlig prestandaoptimering i SQL Database, aktivera [automatisk justering i Azure SQL Database](sql-database-automatic-tuning.md). Den här unika funktionen i SQL Database inbyggd intelligens kontinuerligt övervakar din SQL-databas, automatiskt justerar index och gäller fråga körning plan korrigeringar.
 >
 
 I följande avsnitt beskrivs flashminnet prestandamönster i detalj.
@@ -61,7 +61,7 @@ I följande avsnitt beskrivs flashminnet prestandamönster i detalj.
 
 Det här mönstret flashminnet prestanda kombinerar prestandaproblem som är relaterade till når tillgängliga resursbegränsningar, worker begränsningar och tidsgränser för sessioner. Om det här prestandaproblemet har identifierats, anger en beskrivningsfält för diagnostikloggen om prestandaproblemet är relaterat till resursen, worker eller tidsgränser för sessioner.
 
-Resurser på SQL-databas är normalt refererade till [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) eller [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
+Resurser på SQL-databas är normalt refererade till [DTU](sql-database-what-is-a-dtu.md) eller [vCore](sql-database-service-tiers-vcore.md) resurser. Mönstret för att nå resursgränser kan identifieras när identifierats fråga prestandaförsämring orsakas av når någon av de uppmätta resursbegränsningar.
 
 Sessionen gränser resursen avser antalet tillgängliga samtidiga inloggningar till SQL-databasen. Det här mönstret prestanda känns igen när program som är anslutna till SQL-databaser har nått antalet tillgängliga samtidiga inloggningar till databasen. Om program försöker att använda fler sessioner än vad som finns på en databas, påverkas prestanda för frågor.
 
@@ -73,7 +73,7 @@ Diagnostikloggen matar ut fråga hash-värden för frågor som påverkas prestan
 
 Om du har nått gränserna tillgänglig, kan du optimera dina program genom att minska antalet inloggningar som gjorts i databasen. Om du inte att minska antalet inloggningar från dina program till databasen kan du överväga att öka prisnivån för din databas. Eller så kan du dela upp och flytta databasen till flera databaser för en mer avvägd arbetsbelastningsfördelning.
 
-Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
+Fler förslag om hur du löser tidsgränser för sessioner finns [hur du arbetar med gränserna för högsta inloggningar för SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
 
 ## <a name="workload-increase"></a>Ökning av arbetsbelastning
 
@@ -231,7 +231,7 @@ Diagnostikloggen visar tempDB konkurrens information. Du kan använda informatio
 
 Mer information finns i [introduktion till minnesoptimerade tabeller](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
-## <a name="elastic-pool-dtu-shortage"></a>Brist för elastisk Pool-DTU
+## <a name="elastic-pool-dtu-shortage"></a>Elastisk pool DTU brist
 
 ### <a name="what-is-happening"></a>Vad händer
 

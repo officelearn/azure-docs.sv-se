@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 95a9f3d553bb3d8ca07ed90578861f6267058532
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 3186261b935d48343eab2fd818cd8ed936f41f3f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54463753"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472792"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL skillnader från SQL Server
 
@@ -228,7 +228,7 @@ Odokumenterade DBCC-uttryck som är aktiverade i SQL Server stöds inte i hanter
 
 ### <a name="distributed-transactions"></a>Distribuerade transaktioner
 
-Varken MSDTC eller [elastiska transaktioner](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-transactions-overview) stöds för närvarande i Managed Instance.
+Varken MSDTC eller [elastiska transaktioner](sql-database-elastic-transactions-overview.md) stöds för närvarande i Managed Instance.
 
 ### <a name="extended-events"></a>Extended Events
 
@@ -279,8 +279,8 @@ Länkade servrar i Managed Instance stöder ett begränsat antal mål:
 - SQL-inloggningar som skapats `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, och `FROM SID` stöds. Se [skapa inloggningen](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (AAD)-inloggningar som skapats med [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax eller [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax som stöds (**förhandsversion**).
 - Windows-inloggningar som skapats med `CREATE LOGIN ... FROM WINDOWS` syntaxen stöds inte. Använd Azure Active Directory-inloggningar och användare.
-- Azure Active Directory (Azure AD)-användare som skapade instansen har [obegränsad administratörsprivilegier](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#unrestricted-administrative-accounts).
-- Icke-Azure Active Directory (Azure AD) på databasnivå administratörer kan skapas med `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. Se [skapa användare... FRÅN EXTERN PROVIDER](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins#non-administrator-users)
+- Azure Active Directory (Azure AD)-användare som skapade instansen har [obegränsad administratörsprivilegier](sql-database-manage-logins.md#unrestricted-administrative-accounts).
+- Icke-Azure Active Directory (Azure AD) på databasnivå administratörer kan skapas med `CREATE USER ... FROM EXTERNAL PROVIDER` syntax. Se [skapa användare... FRÅN EXTERN PROVIDER](sql-database-manage-logins.md#non-administrator-users)
 
 ### <a name="polybase"></a>Polybase
 
@@ -362,17 +362,17 @@ Cross-instans service broker stöds inte:
 
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
-- Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser.  
+- Inställningar för SQL Agent är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterad instans.  
 - Jobb
   - Steg för T-SQL-jobb stöds.
   - Följande replikeringsjobb stöds:
-    - Transaktionsloggen läsare.  
+    - Transaktionsloggläsare.  
     - Ögonblicksbild.
     - Distributören
   - Steg för SSIS-jobb som stöds
-  - Andra typer av jobb steg stöds för närvarande inte, inklusive:
+  - Andra typer av jobbsteg stöds för närvarande inte, däribland:
     - Jobbsteg för sammanslagen replikering stöds inte.  
-    - Kön läsare stöds inte.  
+    - Köläsare stöds inte.  
     - Kommandogränssnitt (shell) stöds inte ännu
   - Hanterad instans kan inte komma åt externa resurser (till exempel nätverksresurser via robocopy).  
   - PowerShell stöds inte ännu.
@@ -381,9 +381,9 @@ Cross-instans service broker stöds inte:
 - E-postmeddelande stöds, kräver att du konfigurerar en Database Mail-profil. Det kan vara endast en database mail-profilen och den måste anropas `AzureManagedInstance_dbmail_profile` i offentlig förhandsversion (tillfällig begränsning).  
   - Personsökare stöds inte.  
   - NetSend stöds inte.
-  - Aviseringar stöds inte ännu inte.
+  - Aviseringar stöds ännu inte.
   - Proxyservrar stöds inte.  
-- Eventlog stöds inte.
+- EventLog stöds inte.
 
 Följande funktioner stöds inte för närvarande, men kommer att aktiveras i framtiden:
 

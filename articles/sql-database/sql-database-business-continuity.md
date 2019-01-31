@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 3b3f1268866c936ae4674188f8e3297702167415
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: b3b48c923b10fc201c5ac06b2dd805ee8638a18c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599441"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473433"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Översikt över affärskontinuitet med Azure SQL Database
 
@@ -46,7 +46,7 @@ Sedan kan du lära dig om de ytterligare mekanismer som du kan använda för att
 
 - [Temporala tabeller](sql-database-temporal-tables.md) gör det möjligt att återställa radversioner från valfri punkt i tiden.
 - [Inbyggda automatiska säkerhetskopior](sql-database-automated-backups.md) och [tidpunkt för återställning till tidpunkt](sql-database-recovery-using-backups.md#point-in-time-restore) gör det möjligt att återställa fullständig till någon gång under de senaste 35 dagarna.
-- Du kan [återställa en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om den **logisk server inte har tagits bort**.
+- Du kan [återställa en borttagen databas](sql-database-recovery-using-backups.md#deleted-database-restore) till den tidpunkt då den togs bort om den **SQL Database-server inte har tagits bort**.
 - [Långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md) gör det möjligt för dig att hålla säkerhetskopior till 10 år.
 - [Aktiv geo-replikering](sql-database-active-geo-replication.md) kan du skapa läsbara repliker och manuellt växla över till alla repliker vid en data center avbrott eller programmet uppgradering.
 - [Automatisk redundans grupp](sql-database-auto-failover-group.md#auto-failover-group-terminology-and-capabilities) kan programmet automatiskt återhämtning vid avbrott i datacentret.
@@ -59,11 +59,11 @@ I följande tabell jämförs ERT och RPO för varje tjänstnivå för de tre van
 | --- | --- | --- | --- |--- |--- |
 | Återställning till tidpunkt från säkerhetskopia |En återställningspunkt inom sju dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom 35 dagar |En återställningspunkt inom konfigurerade period (upp till 35 dagar)|En återställningspunkt inom konfigurerade period (upp till 35 dagar)|
 | GEO-återställning från geo-replikerade säkerhetskopior |ERT < 12 timme<br> RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme |ERT < 12 timme<br>RPO < 1 timme|ERT < 12 timme<br>RPO < 1 timme|
-| Automatiska redundansgrupper |RTO = 1 timme<br>RPO < 5 SEK |RTO = 1 timme<br>RPO < 5 s |RTO = 1 timme<br>RPO < 5 s |RTO = 1 timme<br>RPO < 5 s|RTO = 1 timme<br>RPO < 5 s|
+| Automatiska redundansgrupper |RTO = 1 h<br>RPO < 5 SEK |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Återställa en databas på den befintliga servern
 
-SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar som är allmänt var tolfte timme och transaktionen loggsäkerhetskopior var 5 – 10 minuter för att skydda ditt företag mot dataförlust. Säkerhetskopiorna lagras i RA-GRS-lagring i 35 dagar för alla tjänstnivåer förutom grundläggande DTU tjänstnivåerna där säkerhetskopiorna lagras i 7 dagar. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md). Du kan återställa ett befintligt databasformulär automatiska säkerhetskopior till en tidigare tidpunkt som en ny databas på samma logiska server med hjälp av Azure portal, PowerShell eller REST API. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL Database utför automatiskt en kombination av fullständiga databassäkerhetskopieringar varje vecka, differentiella säkerhetskopieringar som är allmänt var tolfte timme och transaktionen loggsäkerhetskopior var 5 – 10 minuter för att skydda ditt företag mot dataförlust. Säkerhetskopiorna lagras i RA-GRS-lagring i 35 dagar för alla tjänstnivåer förutom grundläggande DTU tjänstnivåerna där säkerhetskopiorna lagras i 7 dagar. Mer information finns i [automatiska databassäkerhetskopieringar](sql-database-automated-backups.md). Du kan återställa ett befintligt databasformulär automatiska säkerhetskopior till en tidigare tidpunkt som en ny databas på samma SQL Database-server med hjälp av Azure portal, PowerShell eller REST API. Mer information finns i [Point-in-time-återställning](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Om den maximala stöds point-in-time-återställning (PITR) kvarhållningsperioden är inte tillräcklig för ditt program, kan du utöka den genom att konfigurera en långsiktig kvarhållning av säkerhetskopior (LTR)-princip för databaserna. Mer information finns i [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 

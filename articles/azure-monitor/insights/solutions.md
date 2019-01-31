@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 574391fd64d0525d3d77b80bb488bea8109729af
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 0103225803ca98cb9d8e27eb57f150e0660cd7ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187345"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299145"
 ---
 # <a name="management-solutions-in-azure-monitor"></a>Lösningar för hantering i Azure Monitor
 Lösningar för hantering av utnyttja tjänster i Azure för att ge ytterligare insikter i driften av ett visst program eller tjänst. Den här artikeln innehåller en kort översikt över lösningar för hantering i Azure och information om hur du använder och installeras.
@@ -60,7 +60,7 @@ Klicka på namnet på en lösning för att öppna dess sammanfattningssidan. Den
 ## <a name="install-a-management-solution"></a>Installera en lösning för hantering
 Lösningar från Microsoft och partner som är tillgängliga från den [Azure Marketplace](https://azuremarketplace.microsoft.com). Du kan söka efter tillgängliga lösningar och installera dem med hjälp av följande procedur. När du installerar en lösning måste du välja en [Log Analytics-arbetsyta](../platform/manage-access.md) var lösningen ska installeras och där data samlas in.
 
-1. Från den [listan med lösningar för din prenumeration](#list-installed-monitoring-solutions), klickar du på **Lägg till**. 
+1. Från den [listan med lösningar för din prenumeration](#list-installed-management-solutions), klickar du på **Lägg till**. 
 1. Till höger om **hanteringslösningar**, klickar du på **mer**. 
 1. Leta upp den hanteringslösning som du vill ha och Läs igenom en beskrivning.
 1. Klicka på **skapa** att starta installationen.

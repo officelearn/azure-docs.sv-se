@@ -6,13 +6,13 @@ author: RenaShahMSFT
 ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
-ms.component: files
-ms.openlocfilehash: cce2254ef54483e7d0c4d26fbc4b08de3b2366c3
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.subservice: files
+ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54825161"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457028"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -260,7 +260,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 **Hur delar jag säkerhetskopiera min Azure?**  
     Du kan använda periodiska [resursögonblicksbilder](storage-snapshots-files.md) för skydd mot oavsiktliga borttagningar. Du kan också använda AzCopy, Robocopy eller ett verktyg för säkerhetskopiering från tredje part som kan säkerhetskopiera en monterad filresurs. Azure Backup erbjuder säkerhetskopiering av Azure Files. Läs mer om [säkerhetskopiera Azure-filresurser med Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
-## <a name="share-snapshots"></a>Ögonblicksbilder av filresurser
+## <a name="share-snapshots"></a>Resursögonblicksbilder
 
 ### <a name="share-snapshots-general"></a>Ögonblicksbilder av filresurser: Allmänt
 * <a id="what-are-snaphots"></a>

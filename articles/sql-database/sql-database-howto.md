@@ -3,7 +3,7 @@ title: Så här konfigurerar du Azure SQL Database | Microsoft Docs
 description: Lär dig hur du konfigurerar och hanterar Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: howto
@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
-ms.date: 12/14/2018
-ms.openlocfilehash: b4dd21324591075d7625a82fbbb661c4a8e84b1d
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.date: 01/25/2019
+ms.openlocfilehash: f63f929f21d4df06e409784e2ccab611e951a1bc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53440508"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477717"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Hur du använder Azure SQL Database
 
@@ -25,75 +25,76 @@ I det här avsnittet kan du hitta olika guider, skript och förklaringar som kan
 
 ## <a name="load-data"></a>Läsa in data
 
-- [Kopiera en enkel databas i Azure](https://docs.microsoft.com/azure/sql-database/sql-database-copy)
-- [Importera en databas från en BACPAC](https://docs.microsoft.com/azure/sql-database/sql-database-import)
-- [Exportera en databas till BACPAC](https://docs.microsoft.com/azure/sql-database/sql-database-export)
-- [Läs in data med BCP](https://docs.microsoft.com/azure/sql-database/sql-database-load-from-csv-with-bcp)
-- [Läs in data med ADF](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database?toc=/azure/sql-database/toc.json)
+- [Kopiera en enkel databas eller en databas i Azure](sql-database-copy.md)
+- [Importera en databas från en BACPAC](sql-database-import.md)
+- [Exportera en databas till BACPAC](sql-database-export.md)
+- [Läs in data med BCP](sql-database-load-from-csv-with-bcp.md)
+- [Läs in data med ADF](../data-factory/connector-azure-sql-database.md?toc=/azure/sql-database/toc.json)
 
 ### <a name="data-sync"></a>Datasynkronisering
 
-- [SQL Data Sync](https://docs.microsoft.com/azure/sql-database/sql-database-sync-data)
-- [Data Sync-agenten](https://docs.microsoft.com/azure/sql-database/sql-database-data-sync-agent)
-- [Replikera schemaändringar](https://docs.microsoft.com/azure/sql-database/sql-database-update-sync-schema)
-- [Övervaka med OMS](https://docs.microsoft.com/azure/sql-database/sql-database-sync-monitor-oms)
-- [Metodtips för datasynkronisering](https://docs.microsoft.com/azure/sql-database/sql-database-best-practices-data-sync)
-- [Felsöka datasynkronisering](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-data-sync)
+- [SQL Data Sync](sql-database-sync-data.md)
+- [Data Sync-agenten](sql-database-data-sync-agent.md)
+- [Replikera schemaändringar](sql-database-update-sync-schema.md)
+- [Övervaka med OMS](sql-database-sync-monitor-oms.md)
+- [Metodtips för datasynkronisering](sql-database-best-practices-data-sync.md)
+- [Felsöka datasynkronisering](sql-database-troubleshoot-data-sync.md)
 
 ## <a name="monitoring-and-tuning"></a>Övervakning och justering
 
--  [Manuell inställning](https://docs.microsoft.com/azure/sql-database/sql-database-performance-guidance)
-- [Använda DMV: er för att övervaka prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-monitoring-with-dmvs)
-- [Använda Query store för att övervaka prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-operate-query-store)
-- [Felsöka prestanda med smarta insikter](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-troubleshoot-performance)
-- [Använda diagnostiklogg med smarta insikter](https://docs.microsoft.com/azure/sql-database/sql-database-intelligent-insights-use-diagnostics-log)
-- [Övervaka minnesintern OLTP-utrymme](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-monitoring)
+- [Manuell inställning](sql-database-performance-guidance.md)
+- [Använda DMV: er för att övervaka prestanda](sql-database-monitoring-with-dmvs.md)
+- [Använda Query store för att övervaka prestanda](sql-database-operate-query-store.md)
+- [Felsöka prestanda med smarta insikter](sql-database-intelligent-insights-troubleshoot-performance.md)
+- [Använda diagnostiklogg med smarta insikter](sql-database-intelligent-insights-use-diagnostics-log.md)
+- [Övervaka minnesintern OLTP-utrymme](sql-database-in-memory-oltp-monitoring.md)
 
 ### <a name="extended-events"></a>Utökade händelser
 
-- [Utökade händelser](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr)
-- [Store utökade händelser till event-fil](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-code-event-file)
-- [Store utökade händelser i ringbufferten](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-code-ring-buffer)
+- [Utökade händelser](sql-database-xevent-db-diff-from-svr.md)
+- [Store utökade händelser till event-fil](sql-database-xevent-code-event-file.md)
+- [Store utökade händelser i ringbufferten](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Konfigurera funktioner
 
-- [Konfigurera Azure AD-autentisering](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure)
-- [Konfigurera villkorlig åtkomst](https://docs.microsoft.com/azure/sql-database/sql-database-conditional-access)
-- [Multifaktorautentisering för AAD](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication)
-- [Konfigurera multifaktorautentisering](https://docs.microsoft.com/azure/sql-database/sql-database-ssms-mfa-authentication-configure)
-- [Konfigurera temporala bevarandeprincip](https://docs.microsoft.com/azure/sql-database/sql-database-temporal-tables-retention-policy)
-- [Konfigurera transparent Datakryptering med BYOK](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql-configure)
-- [Rotera TDE BYOK nycklar](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql-key-rotation)
-- [Ta bort TDE-skydd](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-byok-azure-sql-remove-tde-protector)
-- [Konfigurera minnesintern OLTP](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory-oltp-migration)
-- [Konfigurera Azure Automation](https://docs.microsoft.com/azure/sql-database/sql-database-manage-automation)
+- [Konfigurera Azure AD-autentisering](sql-database-aad-authentication-configure.md)
+- [Konfigurera villkorlig åtkomst](sql-database-conditional-access.md)
+- [Multifaktorautentisering för AAD](sql-database-ssms-mfa-authentication.md)
+- [Konfigurera multifaktorautentisering](sql-database-ssms-mfa-authentication-configure.md)
+- [Konfigurera temporala bevarandeprincip](sql-database-temporal-tables-retention-policy.md)
+- [Konfigurera transparent Datakryptering med BYOK](transparent-data-encryption-byok-azure-sql-configure.md)
+- [Rotera TDE BYOK nycklar](transparent-data-encryption-byok-azure-sql-key-rotation.md)
+- [Ta bort TDE-skydd](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
+- [Konfigurera minnesintern OLTP](sql-database-in-memory-oltp-migration.md)
+- [Konfigurera Azure Automation](sql-database-manage-automation.md)
 
 ## <a name="develop-applications"></a>Utveckla program
 
-- [Anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-libraries)
-- [Använda Spark-Anslutningsappen](https://docs.microsoft.com/azure/sql-database/sql-database-spark-connector)
-- [Autentisera app](https://docs.microsoft.com/azure/sql-database/sql-database-client-id-keys)
-- [Felmeddelanden](https://docs.microsoft.com/azure/sql-database/sql-database-develop-error-messages)
-- [Använda batchbearbetning för bättre prestanda](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance)
-- [Vägledning för anslutning](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues)
-- [DNS-alias](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)
-- [Konfigurera DNS-alias PowerShell](https://docs.microsoft.com/azure/sql-database/dns-alias-powershell)
-- [Portar – ADO.NET](https://docs.microsoft.com/azure/sql-database/sql-database-develop-direct-route-ports-adonet-v12)
-- [C och C ++](https://docs.microsoft.com/azure/sql-database/sql-database-develop-cplusplus-simple)
-- [Excel](https://docs.microsoft.com/azure/sql-database/sql-database-connect-excel)
+- [Anslutning](sql-database-libraries.md)
+- [Använda Spark-Anslutningsappen](sql-database-spark-connector.md)
+- [Autentisera app](sql-database-client-id-keys.md)
+- [Felmeddelanden](sql-database-develop-error-messages.md)
+- [Använda batchbearbetning för bättre prestanda](sql-database-use-batching-to-improve-performance.md)
+- [Vägledning för anslutning](sql-database-connectivity-issues.md)
+- [DNS-alias](dns-alias-overview.md)
+- [Konfigurera DNS-alias PowerShell](dns-alias-powershell.md)
+- [Portar – ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
+- [C och C ++](sql-database-develop-cplusplus-simple.md)
+- [Excel](sql-database-connect-excel.md)
 
 ## <a name="design-applications"></a>Utforma program
 
-- [Utformning för katastrofåterställning](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery)
-- [Design för elastiska pooler](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool)
-- [Design för uppgraderingar av appar](https://docs.microsoft.com/azure/sql-database/sql-database-manage-application-rolling-upgrade)
+- [Utforma för haveriberedskap](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
+- [Design för elastiska pooler](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
+- [Design för uppgraderingar av appar](sql-database-manage-application-rolling-upgrade.md)
 
 ### <a name="design-multi-tenant-saas-applications"></a>Utforma flera innehavare SaaS-program
 
-- [Designmönster för SaaS](https://docs.microsoft.com/azure/sql-database/saas-tenancy-app-design-patterns)
-- [SaaS-videoindexerare](https://docs.microsoft.com/azure/sql-database/saas-tenancy-video-index-wingtip-brk3120-20171011)
-- [Säkerhet för SaaS-app](https://docs.microsoft.com/azure/sql-database/saas-tenancy-elastic-tools-multi-tenant-row-level-security)
+- [Designmönster för SaaS](saas-tenancy-app-design-patterns.md)
+- [SaaS-videoindexerare](saas-tenancy-video-index-wingtip-brk3120-20171011.md)
+- [Säkerhet för SaaS-app](saas-tenancy-elastic-tools-multi-tenant-row-level-security.md)
 
 ## <a name="next-steps"></a>Nästa steg
-- Läs mer om [anvisningar hjälper i Managed Instance](sql-database-howto-managed-instance.md).
-- Läs mer om [anvisningar hjälper i enkel databas](sql-database-howto-single-database.md).
+
+- Läs mer om [anvisningar hjälper för hanterade instanser](sql-database-howto-managed-instance.md).
+- Läs mer om [anvisningar hjälper för enskilda databaser](sql-database-howto-single-database.md).

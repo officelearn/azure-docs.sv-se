@@ -1,6 +1,6 @@
 ---
-Rubrik: ”Steg 4: Träna förutsägbara analytiska modeller titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 4 i utveckla en förutsägelselösning genomgång: Träna, poäng och utvärdera flera modeller i Azure Machine Learning Studio ”.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: ”Steg 4: Träna förutsägbara analytiska modeller titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 4 i utveckla en förutsägelselösning genomgång: Träna, poäng och utvärdera flera modeller i Azure Machine Learning Studio ”.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 03/23/2017
 ---

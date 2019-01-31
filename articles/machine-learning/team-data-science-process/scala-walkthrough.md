@@ -6,23 +6,23 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bf4e65b95211fc03ea4a319fd4e503396b893522
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 3109c4e6190cd8e485ae9b28117c4688836dfc26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135155"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470322"
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Datavetenskap med Scala och Spark på Azure
 Den här artikeln visar hur du använder Scala för övervakade machine learning-aktiviteter med Spark skalbar MLlib och Spark ML paketen på ett Azure HDInsight Spark-kluster. Vi går igenom de aktiviteter som utgör den [Data Science process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/): datainmatning och utforskning, visualisering, funktionsframställning, modellering och förbrukning av modellen. Modeller i artikeln är logistic och linjär regression, slumpmässiga skogar och gradient-förstärkta träd (GBTs), utöver de två vanliga övervakade machine learning-aktiviteter:
 
-* Ordinal regression: förutsägelse av tips belopp ($) för en taxi-resa
-* Binär klassificering: förutsägelser av tips eller inga tips (1/0) för en taxi-resa
+* Regressionsproblem: Förutsägelse av tips belopp ($) för en taxi-resa
+* Binär klassificering: Förutsägelser av tips eller inga tips (1/0) för en taxi-resa
 
 Modelleringsprocessen kräver träning och utvärdering av på en datauppsättning för testning och relevanta Precision mått. I den här artikeln får du lära dig hur du lagrar dessa modeller i Azure Blob storage och hur du bedöma och utvärdera deras förutsägande prestanda. Den här artikeln beskriver också mer avancerade avsnitt om hur du optimerar modeller med hjälp av oinskränkt korsvalidering och hyper-parametern. De data som används är ett exempel på 2013 NYC taxi resa och avgiften datauppsättningen finns på GitHub.
 
@@ -41,7 +41,7 @@ Steg för konfiguration och kod i den här artikeln är för Azure HDInsight 3.4
 
 ## <a name="prerequisites"></a>Förutsättningar
 * Du måste ha en Azure-prenumeration. Om du inte redan har en, [få en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Du behöver ett Azure HDInsight 3.4 Spark 1.6-kluster för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Ange typ av kluster och version på den **Välj typ av kluster** menyn.
+* Du behöver ett Azure HDInsight 3.4 Spark 1.6-kluster för att slutföra följande procedurer. Om du vill skapa ett kluster, se anvisningarna i [komma igång: Skapa Apache Spark på Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Ange typ av kluster och version på den **Välj typ av kluster** menyn.
 
 ![Konfiguration av HDInsight-kluster](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -66,7 +66,7 @@ Du kan ladda upp anteckningsboken direkt från GitHub för att Jupyter Notebook-
 
 [Exploration-Modeling-and-Scoring-using-Scala.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration-Modeling-and-Scoring-using-Scala.ipynb)
 
-## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Konfiguration: Förinställning Spark och Hive-kontexterna, användbara funktioner Spark och Spark-bibliotek
+## <a name="setup-preset-spark-and-hive-contexts-spark-magics-and-spark-libraries"></a>Konfigurera: Förinställda kontexter för Spark och Hive, användbara funktioner Spark och Spark-bibliotek
 ### <a name="preset-spark-and-hive-contexts"></a>Förinställda kontexter för Spark och Hive
     # SET THE START TIME
     import java.util.Calendar
@@ -532,7 +532,7 @@ Här är koden för dessa två aktiviteter.
 
 
 
-## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binär klassificeringsmodell: förutsäga om ett tips ska betalas
+## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>Binär klassificeringsmodell: Förutsäga om ett tips ska betalas
 I det här avsnittet skapar du tre typer av binär klassificering modeller för att förutsäga om ett tips ska betalas:
 
 * En **logistic regression-modellen** med hjälp av Spark ML `LogisticRegression()` funktion
@@ -725,7 +725,7 @@ Skapa sedan en modell för klassificering av GBT med hjälp av Mllib's `Gradient
 
 Området under ROC-kurvan: 0.9846895479241554
 
-## <a name="regression-model-predict-tip-amount"></a>Regressionsmodell: förutsäga tips belopp
+## <a name="regression-model-predict-tip-amount"></a>Regression-modellen: Förutsäga tips belopp
 I det här avsnittet skapar du två typer av regressionsmodeller att förutsäga hur tips:
 
 * En **reglerats linjär regressionsmodell** med hjälp av Spark ML `LinearRegression()` funktion. Du spara modellen och utvärdera modellen på testdata.
@@ -848,7 +848,7 @@ Skapa områden med hjälp av Python matplotlib.
 
 **Utdata:**
 
-![Tips belopp: faktiska intäkter jämfört med förväntade](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
+![Tips belopp: Faktiska intäkter jämfört med förväntade](./media/scala-walkthrough/plot-actual-vs-predicted-tip-amount.png)
 
 ### <a name="create-a-gbt-regression-model"></a>Skapa en regressionsmodell för GBT
 Skapa en GBT regressionsmodell med hjälp av Spark ML `GBTRegressor()` fungera, och sedan utvärdera modellen på testdata.

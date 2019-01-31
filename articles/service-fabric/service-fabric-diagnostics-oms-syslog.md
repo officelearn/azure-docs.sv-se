@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 32e67343c5d799157d67408b34753da5a38b6f8e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197253"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297675"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Service Fabric Linux klusterhändelser i Syslog
 
@@ -84,7 +84,7 @@ Om du vill aktivera SyslogConsumer som du behöver utföra en uppgradering av kl
 Här är ändringarna att anropa
 1. Det finns en ny parameter med namnet i avsnittet vanliga `LinuxStructuredTracesEnabled`. **Det är nödvändigt att ha Linux händelser strukturerad och serialiseras om skickas till Syslog.**
 2. I avsnittet diagnostik, en ny ConsumerInstance: SyslogConsumer har lagts till. Det här visar plattformen finns på en annan konsumenter av händelserna. 
-3. Det nya avsnittet SyslogConsumer måste ha `IsEnabled` som `true`. Det är konfigurerat att använda funktionen Local0 automatiskt. Du kan åsidosätta detta genom att lägga till en annan parameter.
+3. Det nya avsnittet SyslogConsumer måste ha `IsEnabled` som `true`. Den är konfigurerad för att använda funktionen Local0 automatiskt. Du kan åsidosätta detta genom att lägga till en annan parameter.
 
 ```json
     {

@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: a36c5cfc977920f43b7f73e3e7cf9176de7c1f8a
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 9f61748a489987bf6c3f38e8ebfdab660198e10a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52867094"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463029"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Skala ut med Azure SQL Database
 Du kan enkelt skala ut Azure SQL-databaser med hjälp av den **Elastic Database** verktyg. Dessa verktyg och funktioner kan du använda databasresurser av **Azure SQL Database** att skapa lösningar för transaktionsbelastningar och särskilt programvara som en tjänst (SaaS)-program. Elastic Database-funktioner består av den:
 
-* [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md): klientbiblioteket är en funktion som gör det möjligt att skapa och hantera shardade databaser.  Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
+* [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md): Klientbiblioteket är en funktion som gör det möjligt att skapa och hantera shardade databaser.  Se [Kom igång med elastiska Databasverktyg](sql-database-elastic-scale-get-started.md).
 * [Verktyg för elastisk databas dela / sammanslå](sql-database-elastic-scale-overview-split-and-merge.md): flyttar data mellan shardade databaser. Det här verktyget är användbart för att flytta data från en databas för flera innehavare till en enda klient databas (eller vice versa). Se [elastiska databaser dela och slå samman verktyget självstudien](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Elastic Database-jobb](sql-database-elastic-jobs-overview.md) (förhandsversion): Använd jobb för att hantera stora mängder Azure SQL-databaser. Enkelt utföra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund) telemetriinsamling med jobb.
-* [Elastisk databasfråga](sql-database-elastic-query-overview.md) (förhandsversion): gör att du kan köra en Transact-SQL-fråga som sträcker sig över flera databaser. På så sätt kan anslutningen till verktyg som Excel, Power BI, Tableau, osv.
-* [Elastiska transaktioner](sql-database-elastic-transactions-overview.md): den här funktionen kan du köra transaktioner som sträcker sig över flera databaser i Azure SQL Database. Transaktioner elastiska databaser är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med en bekant programmering upplevelse med hjälp av den [System.Transaction klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
+* [Elastic Database-jobb](sql-database-elastic-jobs-overview.md) (förhandsversion): Du kan använda jobb för att hantera stora mängder Azure SQL-databaser. Enkelt utföra administrativa åtgärder, till exempel schemaändringar, hantering av autentiseringsuppgifter, uppdateringar av referensdata, insamling av prestandadata eller klient (kund) telemetriinsamling med jobb.
+* [Elastisk databasfråga](sql-database-elastic-query-overview.md) (förhandsversion): Kan du köra en Transact-SQL-fråga som sträcker sig över flera databaser. På så sätt kan anslutningen till verktyg som Excel, Power BI, Tableau, osv.
+* [Elastiska transaktioner](sql-database-elastic-transactions-overview.md): Den här funktionen kan du köra transaktioner som sträcker sig över flera databaser i Azure SQL Database. Transaktioner elastiska databaser är tillgängliga för .NET-program med hjälp av ADO .NET och integrera med en bekant programmering upplevelse med hjälp av den [System.Transaction klasser](https://msdn.microsoft.com/library/system.transactions.aspx).
 
 Följande bild visar en arkitektur som innehåller den **elastiska databasfunktionerna** i förhållande till en uppsättning databaser.
 

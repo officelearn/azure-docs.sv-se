@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 430a0b3ade96019ae07c032fd9733562c981960e
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 916ef921bf2ad183e3fb74c640ccfa7049559a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075743"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295874"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminera felaktiga lösenord i din organisation
 
@@ -28,7 +28,7 @@ Branschledare berättar inte ska använda samma lösenord på flera platser, så
 
 ## <a name="global-banned-password-list"></a>Lista med globala förbjudna lösenord
 
-Microsoft försöker alltid ligga steget före cyberbrottslingarna. Azure AD Identity Protection-teamet letar därför kontinuerligt efter vanligt förekommande och komprometterade lösenord. De kan sedan blockera dessa lösenord som bedöms för vanligt i något som kallas listan globala förbjudna lösenord. Cyberbrottslingar använder också liknande strategier i sina attacker, därför Microsoft publicerar inte innehållet i den här listan offentligt. Dessa sårbara lösenord blockeras innan de blir ett verkligt hot för Microsofts kunder. Mer information om säkerhetsarbete finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/intelligence-report).
+Microsoft försöker alltid ligga steget före cyberbrottslingarna. Azure AD Identity Protection-teamet letar därför kontinuerligt efter vanligt förekommande och komprometterade lösenord. De kan sedan blockera dessa lösenord som bedöms för vanligt i något som kallas listan globala förbjudna lösenord. Cyberbrottslingar använder också liknande strategier i sina attacker, därför Microsoft publicerar inte innehållet i den här listan offentligt. Dessa sårbara lösenord blockeras innan de blir ett verkligt hot för Microsofts kunder. Mer information om säkerhetsarbete finns i den [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
 ## <a name="preview-custom-banned-password-list"></a>Förhandsversion: Lista över anpassade förbjudna lösenord
 
@@ -42,15 +42,69 @@ Anpassat förbjuden lösenordslista och möjligheten att aktivera en lokal Activ
 
 Skyddar molnbaserad konton är användbar men många organisationer behåller hybridscenarier, inklusive lokala Windows Server Active Directory. Det är möjligt att installera Azure AD-lösenordsskydd för Windows Server Active Directory (förhandsversion) agenter lokalt att utöka listor med förbjudna lösenord till din befintliga infrastruktur. Nu användare och administratörer som ändrar, ange eller återställa lösenord krävs lokala att följa principen med samma lösenord som molnexklusiva användare.
 
-## <a name="how-does-the-banned-password-list-work"></a>Hur fungerar lista med förbjudna lösenord
+## <a name="how-are-passwords-evaluated"></a>Hur utvärderas lösenord
 
-Lista med förbjudna lösenord matchar lösenord i listan genom att konvertera strängen till gemener och jämförelse till kända förbjudna lösenorden inom en redigera avståndet från 1 med partiell matchning.
+När en användare ändrar eller återställer sitt lösenord, kontrolleras det nya lösenordet för styrka och komplexiteten genom att verifiera mot den globala och anpassade förbjudna lösenord listan (om det senare är konfigurerat).
 
-Exempel: Word-lösenordet är blockerad för en organisation
-   - En användare försöker att ange sitt lösenord till ”P@ssword” som konverteras till ”lösenord” och eftersom det är en variant av lösenord är blockerad.
-   - En administratör försöker ställa in en användares lösenord kan ”/ Password123”! som konverteras till ”/ password123”! och eftersom det är en variant av lösenord är blockerad.
+Även om en användares lösenord innehåller en förbjudna lösenord, godtas fortfarande lösenordet om det övergripande lösenordet är starkt nog annars. Ett nyligen konfigurerade lösenord går igenom följande steg för att utvärdera den övergripande styrkan för att avgöra om det ska godkännas eller avvisas.
 
-Varje gång en användare återställer eller ändrar deras Azure AD-lösenord som den förs vidare via den här processen för att bekräfta att det inte finns på listan med förbjudna lösenord. Den här kontrollen ingår i hybrid scenarier med självbetjäning återställa lösenordets hash-synkronisering och direktautentisering.
+### <a name="step-1-normalization"></a>Steg 1: Normalisering
+
+Ett nytt lösenord först går igenom en normaliseringsprocessen. Det möjliggör en liten uppsättning med förbjudna lösenord som ska mappas till ett mycket större antal potentiellt svaga lösenord.
+
+Normalisering består av två delar.  Första, versaler bokstäver ändras till gemener.  Andra, vanliga tecken ersättningar som utförs, till exempel:  
+
+| Ursprungliga bokstav  | Ersatta bokstav |
+| --- | --- |
+| '0'  | ' formatmönster |
+| '1'  | 'l' |
+| '$'  | 's' |
+| '@'  | ”a” |
+
+Exempel: Anta att lösenordet ”blank” är bannlyst och en användare försöker att ändra sina lösenord till ”Bl@nK”. Även om ”Bl@nk” är inte specifikt förbjuden normaliseringsprocessen konverterar det här lösenordet till ”blank”, som är förbjudna lösenord.
+
+### <a name="step-2-check-if-password-is-considered-banned"></a>Steg 2: Kontrollera om lösenordet betraktas som bannlyst
+
+#### <a name="fuzzy-matching-behavior"></a>Fuzzy matchande beteende
+
+Partiell matchning används på normaliserad lösenord för att identifiera om den innehåller ett lösenord som finns på antingen den globala eller ett anpassat förbjudna lösenordslistor. Matchningsprocessen baseras på en redigera avståndet från ett (1) jämförelse.  
+
+Exempel: Anta att lösenordet ”abcdef” är bannlyst och en användare försöker att ändra sina lösenord till något av följande:
+
+'abcdeg'    *(senaste tecken har ändrats från ”f” till ”g”)* 'innehållet abcdefg'   *”(g' tillagda slutet)* 'abcde'     *(avslutande f har tagits bort från slutet)*
+
+Var och en av de ovanstående lösenorden matchar inte specifikt förbjudna lösenord ”abcdef”. Men eftersom varje exempel är inom ett redigera avståndet från 1 i den förbjudna token ”abcdef”, betraktas de alla som en matchning för att ”abcdef”.
+
+#### <a name="substring-matching-on-specific-terms"></a>Delsträngen som matchar (på specifika villkor)
+
+Delsträngen matchar används på normaliserad lösenordet för att kontrollera om användarens första och sista namnet samt klientnamnet (Observera att klienten namn matchar inte görs vid verifiering av lösenord på en Active Directory-domänkontrollant).
+
+Exempel: Anta att vi har en användare John Berg som vill återställa sitt lösenord till ”J0hn123fb”. Efter normalisering blir det här lösenordet ”john123fb”. Delsträngen matchar söker du efter att lösenordet innehåller användarens förnamn ”John”. Även om ”J0hn123fb” inte var särskilt på antingen lista med förbjudna lösenord, hitta delsträngen matchar ”John” i lösenordet. Det här lösenordet skulle därför avvisas.
+
+#### <a name="score-calculation"></a>Poängberäkningen
+
+Nästa steg är att identifiera alla instanser av förbjudna lösenord i användarens normaliserade nytt lösenord. Sedan:
+
+1. Varje förbjudna lösenord som finns i en användares lösenord får en punkt.
+2. Varje återstående unika tecken får en punkt.
+3. Ett lösenord måste vara minst 5 punkter för att det ska godkännas.
+
+I de två exemplen antar vi att Contoso använder Azure AD-lösenordsskydd och har ”contoso” på sina anpassade listor. Vi antar också att ”tom” finns på den globala listan.
+
+Exempel: en användare ändrar sina lösenord till ”C0ntos0Blank12”
+
+Efter normalisering blir det här lösenordet ”contosoblank12”. Matchningsprocessen hittar att det här lösenordet innehåller två förbjudna lösenord: contoso och tom. Det här lösenordet sedan får en poäng:
+
+[contoso] + [tomma] = [1] + [2] = 4 punkter eftersom det här lösenordet används under 5 punkter, avvisas.
+
+Exempel: en användare ändrar sina lösenord för att ”ContoS0Bl@nkf9”!.
+
+Efter normalisering blir det här lösenordet ”contosoblankf9”!. Matchningsprocessen hittar att det här lösenordet innehåller två förbjudna lösenord: contoso och tom. Det här lösenordet sedan får en poäng:
+
+[contoso] + [tomma] + [f] + [9] + [!] = 5 punkter eftersom det här lösenordet är minst 5 punkter kan accepteras.
+
+   > [!IMPORTANT]
+   > Observera att algoritmen förbjudna lösenord tillsammans med den globala listan kan och ändra när som helst i Azure baserat på pågående säkerhetsanalyser och forskning. För en lokal DC agent-tjänsten träder uppdaterade algoritmer endast i kraft när DC-agentprogramvaran är installerades.
 
 ## <a name="license-requirements"></a>Licenskrav
 

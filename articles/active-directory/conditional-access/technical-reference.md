@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: dbb8417975d051b4a13d6f94fca76fd3bf321a35
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6c340cde488ee37d2454468356f1ceee03f74844
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55074251"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302112"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Inställningsreferens för villkorlig åtkomst till Azure Active Directory
 
@@ -151,7 +151,7 @@ För att automatiskt distribuera det här tillägget till Chrome webbläsare, sk
 |--- | ---|
 |Sökväg | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 |Namn | 1 |
-|Typ | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx
 
 Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
@@ -160,7 +160,7 @@ Chrome stöd i **Windows 8.1 och 7**, skapa följande registernyckel:
 |--- | ---|
 |Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
 |Namn | 1 |
-|Typ | REG_SZ (String) |
+|Type | REG_SZ (String) |
 |Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}}|
 
 Dessa webbläsare har stöd för autentisering, vilket gör att enheten har identifierats och verifieras mot en princip. Enhet-kontrollen misslyckas om webbläsaren körs i privat läge. 
@@ -244,7 +244,7 @@ Den här inställningen gäller för klientappar som följande:
 
 - Den **Kräv godkänd klientapp** krav:
 
-    - Stöder endast iOS och Android för [enheten plattform villkor](#device-platforms-condition).
+    - Stöder endast iOS och Android för [enheten plattform villkor](#device-platform-condition).
 
 
 ## <a name="next-steps"></a>Nästa steg

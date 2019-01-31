@@ -1,5 +1,5 @@
 ---
-Rubrik: Enkelt experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
+Rubrik: Enkelt experiment titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här självstudien om Machine Learning vägleder dig genom ett enkelt dataexperiment. Vi kommer förutsäga priset för en bil med hjälp av en regressionsalgoritm.
 tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: självstudien
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/20/2017

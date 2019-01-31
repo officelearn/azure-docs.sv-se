@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/31/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 3d9da96e5bf6c88f76089dea930b02248cfa1d24
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 72d4a9cd9a8b9244c428d49b5270952deb6f5162
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51243802"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454495"
 ---
 # <a name="azure-storage-security-guide"></a>Säkerhetsguiden för Azure Storage
 
@@ -89,7 +89,7 @@ Här är de viktigaste aspekterna som du behöver veta om hur du använder RBAC 
 * [Azure Active Directory rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md)
 
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
-* [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
+* [RBAC: Inbyggda roller](../../role-based-access-control/built-in-roles.md)
 
   Den här artikeln beskriver alla inbyggda roller som är tillgängliga i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -98,7 +98,7 @@ Här är de viktigaste aspekterna som du behöver veta om hur du använder RBAC 
 * [Hantera rollbaserad åtkomstkontroll med REST API](../../role-based-access-control/role-assignments-rest.md)
 
   Den här artikeln visar hur du använder REST API för att hantera RBAC.
-* [Azure Storage Resource Provider REST API-referens](https://msdn.microsoft.com/library/azure/mt163683.aspx)
+* [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Den här API-referens beskriver API: er som du kan använda för att hantera ditt lagringskonto via programmering.
 * [Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer](../../azure-resource-manager/resource-manager-api-authentication.md)
@@ -148,7 +148,7 @@ En annan fördel med att använda Azure Key Vault är att du kan också kontroll
 #### <a name="resources"></a>Resurser
 
 * [Hantera inställningar för lagringskonto i Azure portal](storage-account-manage.md)
-* [Azure Storage Resource Provider REST API-referens](https://msdn.microsoft.com/library/mt163683.aspx)
+* [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/mt163683.aspx)
 
 ## <a name="data-plane-security"></a>Plan för datasäkerhet
 Plan för datasäkerhet refererar till de metoder som används för att skydda dataobjekt som lagras i Azure-lagring – blobar, köer, tabeller och filer. Vi har sett metoder för att kryptera data och security under överföring av data, men hur skaffar du styr åtkomst till objekten?
@@ -232,7 +232,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
 
 * Det här är referensartiklar.
 
-  * [Tjänst-SAS](https://msdn.microsoft.com/library/dn140256.aspx)
+  * [Service SAS](https://msdn.microsoft.com/library/dn140256.aspx)
 
     Den här artikeln innehåller exempel på användning av en tjänstnivå SAS med BLOB-objekt, Kömeddelanden, tabell-intervall och filer.
   * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
@@ -405,7 +405,7 @@ Vi har tre fall som vi är intresserade.
 
 1. Bloben är offentliga och den kan nås med hjälp av en URL utan en signatur för delad åtkomst. I det här fallet begäran-status är ”AnonymousSuccess” och auktorisering-typ är ”anonym”.
 
-   1.0; 2015-11-17T02:01:29.0488963Z; GetBlob; **AnonymousSuccess**, 200, 124, 37; **anonym**; mystorage...
+   1.0;2015-11-17T02:01:29.0488963Z;GetBlob;**AnonymousSuccess**;200;124;37;**anonymous**;;mystorage…
 2. Bloben är privat och användes med en signatur för delad åtkomst. I det här fallet begäran-status är ”SASSuccess” och auktorisering-typ är ”sas”.
 
    1.0; 2015-11-16T18:30:05.6556115Z; GetBlob; **SASSuccess**, 200, 416, 64; **SAS**; mystorage...
@@ -504,6 +504,6 @@ Mer information om CORS och hur du aktiverar det finns dessa resurser.
 * [FIPS 140 verifiering](https://technet.microsoft.com/library/cc750357.aspx)
 
   Den här artikeln innehåller information om hur Microsoft-produkter och kryptografiska moduler som överensstämmer med den FIPS-standarden för USA Federala myndigheter.
-* [”Systemkryptografi: Använd FIPS kompatibla algoritmer för kryptering, hashing och signering” security inställningar effekterna i Windows XP och senare versioner av Windows](https://support.microsoft.com/kb/811833)
+* [”Systemkryptografi: Använd FIPS-kompatibla algoritmer för kryptering, hashing och signering ”inställningar effekterna på säkerheten i Windows XP och senare versioner av Windows](https://support.microsoft.com/kb/811833)
 
   Den här artikeln handlar om användning av FIPS-läge i äldre Windows-datorer.

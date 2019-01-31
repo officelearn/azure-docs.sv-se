@@ -3,7 +3,7 @@ title: Bevara jobb- och utdata till Azure Storage med File Conventions-bibliotek
 description: Lär dig hur du använder Azure Batch File Conventions-bibliotek för .NET för att spara Batch-uppgift och jobbet utdata till Azure Storage och visa beständiga utdata i Azure-portalen.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/14/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2f6ac523d7944f80da1b75993bfd05d617eb8f85
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 970cab2c782e71defbda828a42273f317dee80e4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706610"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472991"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Bevara jobb- och data till Azure Storage med Batch File Conventions-bibliotek för .NET
 
@@ -71,7 +71,7 @@ Mer information om hur du arbetar med behållare och blobbar i Azure Storage fin
 > [!WARNING]
 > Alla jobb- och utdata sparas med filen konventioner biblioteket lagras i samma behållare. Om ett stort antal aktiviteter som försöker att spara filerna på samma gång, [storage nätverksbegränsningar](../storage/common/storage-performance-checklist.md#blobs) eventuellt att startas.
 
-### <a name="create-storage-container"></a>Skapa en lagringscontainer
+### <a name="create-storage-container"></a>Skapa lagringscontainer
 
 För att bevara uppgiftens utdata till Azure Storage, skapar du först en behållare genom att anropa [CloudJob][net_cloudjob].[ PrepareOutputStorageAsync][net_prepareoutputasync]. Den här metoden för tillägget tar en [CloudStorageAccount] [ net_cloudstorageaccount] objektet som en parameter. Den skapar en behållare med namnet enligt File Conventions-standarden så att innehållet inte är kan identifieras av Azure-portalen och hämtning av metoderna som beskrivs senare i artikeln.
 
@@ -115,7 +115,7 @@ Den `kind` -parametern för den [TaskOutputStorage](https://msdn.microsoft.com/l
 Dessa typer av utdata kan du ange vilken typ av utdata till när du senare frågor mot Batch för beständiga utdata för en viss uppgift. Med andra ord kan du filtrera listan på en av utdatatyper som när du listar utdata för en aktivitet. Till exempel ”ge mig den *förhandsversion* utdata för aktiviteten *109*”. Mer information om lista och hämta utdata visas i [hämta utdata](#retrieve-output) senare i artikeln.
 
 > [!TIP]
-> Vilken typ av utdata anger också var i Azure-portalen en viss fil visas: *TaskOutput*-kategoriserade filer visas under **uppgift utdatafiler**, och *TaskLog* filer som visas under **uppgift loggar**.
+> Vilken typ av utdata anger också var i Azure-portalen en viss fil visas: *TaskOutput*-kategoriserade filer visas under **uppgift utdatafiler**, och *TaskLog* filer visas under **uppgift loggar**.
 
 ### <a name="store-job-outputs"></a>Store-jobbutdata
 

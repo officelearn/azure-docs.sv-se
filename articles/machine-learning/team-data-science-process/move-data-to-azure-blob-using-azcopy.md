@@ -1,22 +1,22 @@
 ---
-title: Flytta Data till och från Azure Blob Storage med AzCopy | Microsoft Docs
+title: Flytta Blob storage-data med AzCopy - Team Data Science Process
 description: Flytta data till och från Azure Blob Storage med AzCopy
 services: machine-learning
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
-ms.custom: (previous author=deguhath, ms.author=deguhath)
-ms.openlocfilehash: 9e8b852b9f13e8f41daff27e305bc9c0cda78cb7
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
+ms.openlocfilehash: 3165aad326ad476eb5064f0b99acd8c3f5a036d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52443006"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474708"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Flytta data till och från Azure Blob Storage med AzCopy
 AzCopy är ett kommandoradsverktyg som utformats för att ladda upp, ladda ned och kopiera data till och från Microsoft Azure blob-, fil- och tabellagring.

@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9616a4f80a3105118b82ce3f4106a65fdd9ddfe
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134312"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55451996"
 ---
 # <a name="tracking-the-progress-of-data-science-projects"></a>Spårning av dataforskningsprojekt
 
@@ -39,7 +39,7 @@ Här är ett enkelt exempel instrumentpanel som har utformats för att spåra sp
 
 Panelerna återstående visar den ackumulerade Flödesdiagram (CFD) och burndown burnup för ett projekt:
 
-- **Längst ned till vänster**: CFD mängden arbete i en viss status, som visar godkända grå utförts i blått och gjort i grönt.
+- **Längst ned till vänster**:  CFD mängden arbete i en viss status, som visar godkända grå utförts i blått och gjort i grönt.
 - **Överst till höger**: burndown-diagram arbetet kvar för att slutföra jämfört med återstående tid).
 - **Nedre högra hörnet**: burnup diagrammets det arbete som har slutförts och den totala mängden arbete.
 

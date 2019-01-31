@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a0f4e4dd5cea9c3ea7b682e6372d2ffa8726e6ef
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: ea409a4295cb07800e3f48ab408135071d0faea6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646481"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464831"
 ---
 # <a name="how-to-return-n-best-translations"></a>Hur du returnerar N-Best översättningar
 
@@ -46,11 +46,11 @@ Signaturen är:
 
 * Kategori: Det går endast att och standard, alternativet är ”Allmänt”.
 * ContentType: Det går endast att och standard, alternativet är ”text/plain”.
-* Tillstånd: Användartillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
+* Tillstånd: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
 * IncludeMultipleMTAlternatives: flagga för att bestämma om du vill returnera fler än ett alternativ från MT-motorn. Standard är FALSKT och innehåller endast 1 alternativ.
 
 ## <a name="ratings"></a>Klassificeringar
-Klassificeringarna som tillämpas på följande sätt: bästa automatisk översättning har en klassificering på 5.
+Klassificeringarna som tillämpas på följande sätt: Den bästa automatisk översättningen har en klassificering på 5.
 Alternativen för översättning av automatiskt genererade (N-Best) har en klassificering på 0 och har en matchning på 100.
 
 ## <a name="number-of-alternatives"></a>Antalet alternativ

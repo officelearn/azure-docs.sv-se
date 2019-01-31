@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: d26ae755b658ce39df04788b7edeee6da7e20a47
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 0ffb9b9105ee455d35d080bb45063c158cadce1e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288100"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463403"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-may-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Maj 2018 
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i maj 2018. 
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artike
 Se den [Turbocharge molnbaserade analyser med Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) bloggmeddelandet från Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## <a name="auto-statistics"></a>Automatisk statistik
-Statistik är viktiga för att optimera en frågeplan i moderl kostnadsbaserad optimerare, till exempel motorn i SQL Data Warehouse. När alla frågor är kända i förväg, är avgör vad statistik objekt måste du skapa en uppgift som kan uppnås. Men när systemet är möter med ad hoc och slumpmässiga frågor som är vanliga för arbetsbelastningar för informationslager, systemadministratörer kan behöva kämpa för att förutsäga statistik måste du skapa ett ledande att potentiellt icke-optimal frågeplaner för körning och fråga längre svarstider. Ett sätt att minimera det här problemet är att skapa statistik objekt på alla tabellkolumner i förväg. Men levereras den här processen med en särskilda avgifter eftersom statistik objekt måste finnas kvar under tabellen processen för inläsning och ge längre inläsning av gånger.
+Statistik är viktiga för att optimera en frågeplan i moderna kostnadsbaserad optimerare, till exempel motorn i SQL Data Warehouse. När alla frågor är kända i förväg, är avgör vad statistik objekt måste du skapa en uppgift som kan uppnås. Men när systemet är möter med ad hoc och slumpmässiga frågor som är vanliga för arbetsbelastningar för informationslager, systemadministratörer kan behöva kämpa för att förutsäga statistik måste du skapa ett ledande att potentiellt icke-optimal frågeplaner för körning och fråga längre svarstider. Ett sätt att minimera det här problemet är att skapa statistik objekt på alla tabellkolumner i förväg. Men levereras den här processen med en särskilda avgifter eftersom statistik objekt måste finnas kvar under tabellen processen för inläsning och ge längre inläsning av gånger.
 
 SQL Data Warehouse stöder nu automatisk generering av statistik objekt, vilket ger större flexibilitet, produktivitet och användarvänlighet för administratörer och utvecklare, samtidigt som systemet fortsätter att erbjuda körningsplaner för kvalitet och bästa svarstider.
 

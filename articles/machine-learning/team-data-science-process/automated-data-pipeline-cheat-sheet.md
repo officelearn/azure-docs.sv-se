@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=garyericson, previous-ms.author=garye
-ms.openlocfilehash: 627729ef4f2b6a8df96d9e3b794a1ba24143b4d7
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 1245255e65412f9bbcba3c8d9caa76b9ffd2dcc3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53132677"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453050"
 ---
 # <a name="cheat-sheet-for-an-automated-data-pipeline-for-azure-machine-learning-predictions"></a>Facit för en automatiserad datapipeline för Azure Machine Learning-förutsägelser
 Den **Microsoft Azure Machine Learning automated data pipeline-facit** kan du navigera genom den teknik som du kan använda för att få dina data till din Machine Learning-webbtjänsten där det kan mätas genom dina förutsägande analys modell.
@@ -27,7 +27,7 @@ Den här lathunden vägleder dig genom de beslut som du behöver göra och ger l
 ## <a name="download-the-machine-learning-automated-data-pipeline-cheat-sheet"></a>Ladda ned facit för Machine Learning automatiserade pipeline
 När du har hämtat facit kan du skriva ut det i tabloidformat (11 x 17 tum).
 
-Ladda ned här facit:  **[Microsoft Azure Machine Learning automatiserad pipeline-facit för data](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
+Hämta facit här: **[Microsoft Azure Machine Learning automatiserad pipeline-facit för data](https://download.microsoft.com/download/C/C/7/CC726F8B-2E6F-4C20-9B6F-AFBEE8253023/microsoft-machine-learning-operationalization-cheat-sheet_v1.pdf)**
 
 ![Översikt över funktioner i Microsoft Azure Machine Learning Studio][op-cheat-sheet]
 

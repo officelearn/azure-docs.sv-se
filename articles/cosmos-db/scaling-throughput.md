@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c5e4720a6b830158581d17bbdcb9aba49e13183b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: dd17b08a16dedf474b2a1eca8fa8034672610c1f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54064499"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454444"
 ---
-# <a name="scaling-throughput-in-azure-cosmos-db"></a>Skalning av dataflöden i Azure Cosmos DB
+# <a name="globally-scale-provisioned-throughput"></a>Skala globalt etablerat dataflöde 
 
-I Azure Cosmos DB, etablerat dataflöde representeras som begäran begärandeenheter/sekund (RU/s, plural: RU: er). RU: er mäta kostnaden för både läs- och skrivåtgärder mot din Cosmos-behållare som du ser i följande bild:
+I Azure Cosmos DB, etablerat dataflöde representeras som begäran begärandeenheter/sekund (RU/s, plural: RUs). RU: er mäta kostnaden för både läs- och skrivåtgärder mot din Cosmos-behållare som du ser i följande bild:
 
 ![Begäransenheter](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 

@@ -1,6 +1,6 @@
 ---
-Rubrik: Ställ en fråga data kan besvara titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig att formulera en sharp data science-fråga i datavetenskap för nybörjare video 3. Innehåller en jämförelse av klassificerings- och regressionsmodeller frågor.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Ställ en fråga data kan besvara titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig att formulera en sharp data science-fråga i datavetenskap för nybörjare video 3. Innehåller en jämförelse av klassificerings- och regressionsmodeller frågor.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 01/03/2018
 ---

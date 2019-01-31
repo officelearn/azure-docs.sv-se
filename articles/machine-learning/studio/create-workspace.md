@@ -1,5 +1,5 @@
 ---
-Rubrik: Skapa en arbetsyta titleSuffix: Beskrivning av Azure Machine Learning Studio: Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
+Rubrik: Skapa en arbetsyta titleSuffix: Beskrivning av Azure Machine Learning Studio: Du måste ha en Machine Learning Studio-arbetsyta om du vill använda Azure Machine Learning Studio. Den här arbetsytan innehåller de verktyg du behöver för att skapa, hantera och publicera experiment.
 tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 12/07/2017

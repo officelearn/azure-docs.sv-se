@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 85c5ff33fbf5979dd07ab27ccf5993149151b38a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 7941938b089034565307b0104034589ee44c24bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252419"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470408"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuera och utforska en enda klient fristående program som använder Azure SQL Database
 
@@ -48,7 +48,7 @@ Distribuera appen för de tre angivna innehavarna:
 <br><br>
     <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Skogskornell Dojo**
 <br><br>
-    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazzklubb**
+    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
 2. Ange nödvändiga parametervärden för varje distribution.
 
@@ -76,9 +76,9 @@ Appen visar platser som är värdar för händelser.  Platser är innehavare av 
 
 1. Öppna sidan händelser för var och en av tre klienter i separata flikar i webbläsaren:
 
-    - http://events.contosoconcerthall.&lt; användare&gt;. trafficmanager.net
-    - http://events.dogwooddojo.&lt; användare&gt;. trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt; användare&gt;. trafficmanager.net
+    - http://events.contosoconcerthall.&lt;user&gt;.trafficmanager.net
+    - http://events.dogwooddojo.&lt;user&gt;.trafficmanager.net
+    - http://events.fabrikamjazzclub.&lt;user&gt;.trafficmanager.net
 
     (I varje URL ersätter &lt;användaren&gt; med värdet för användarnamn för din distribution.)
 
@@ -105,9 +105,9 @@ Varje klientdatabas är en 50 DTU *fristående* databas.
 ## <a name="additional-resources"></a>Ytterligare resurser
 
 <!--
-* Additional [tutorials that build on the Wingtip SaaS application](sql-database-wtp-overview.md#sql-database-wingtip-saas-tutorials)
-* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
-* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
+* Additional [tutorials that build on the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
+* To learn about elastic pools, see [*What is an Azure SQL elastic pool*](sql-database-elastic-pool.md)
+* To learn about elastic jobs, see [*Managing scaled-out cloud databases*](sql-database-elastic-jobs-overview.md)
 -->
 
 - Mer information om delade SaaS-program, se [designmönster för SaaS-program för flera innehavare](saas-tenancy-app-design-patterns.md).

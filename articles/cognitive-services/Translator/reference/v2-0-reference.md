@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 9491550aae8f88621d947572741f492adcf9cdd0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127866"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463233"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -57,14 +57,14 @@ Vid översättning av innehåll med taggar som HTML (`contentType=text/html`), k
 <div>This will be translated. </div>
 ```
 
-## <a name="get-translate"></a>Hämta / översätta
+## <a name="get-translate"></a>GET /Translate
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Omvandlar en textsträng från ett språk till ett annat.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/Translate`.
 
-**Returvärde:** en sträng som representerar den översatta texten.
+**Returvärdet:** En sträng som representerar den översatta texten.
 
 Om du tidigare använt `AddTranslation` eller `AddTranslationArray` att ange en översättning med en klassificering på 5 eller högre för samma käll-mening `Translate` returnerar endast toppvalet som är tillgänglig i systemet. ”Samma källa mening” innebär att exakt samma (100%-matchning), förutom versaler, blanksteg, taggvärden och skiljetecken i slutet av en mening. Om ingen klassificering lagras med en klassificering på 5 eller senare vara automatisk översättning av Microsoft Translator returnerade resultat.
 
@@ -78,13 +78,13 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning    |Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID  |(tom)    |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB|sträng|
+|appid  |(tom)    |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB|sträng|
 |text|(tom)   |Krävs. En sträng som representerar text för översättning. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|sträng|
 |från|(tom)   |Valfri. En sträng som representerar språkkoden för Översättningstext. Till exempel en för engelska.|DocumentDB|sträng|
 |till|(tom) |Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|sträng|
 |contentType|(tom)    |Valfri. Formatet på den text som översätts. Format som stöds är text/plain (standard) och text/html. All HTML-kod måste vara en korrekt strukturerad, fullständig element.|DocumentDB|sträng|
 |category|(tom)   |Valfri. En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är ”Allmänt”.|DocumentDB|sträng|
-|Auktorisering|(tom)  |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken: ”ägar” + ”” + ”access_token”.|sidhuvud|sträng|
+|Auktorisering|(tom)  |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|sträng|
 
 
@@ -93,11 +93,11 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="post-translatearray"></a>Publicera /TranslateArray
+## <a name="post-translatearray"></a>POST /TranslateArray
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Använd den `TranslateArray` metod för att hämta översättningar för flera källa texter.
@@ -130,12 +130,12 @@ Element i den `TranslateArrayRequest` är:
 
 
 * `appid`: Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.
-* `from`: Valfritt. En sträng som representerar språkkoden att översätta text från. Om fältet lämnas tomt innehåller svaret resultatet av automatisk identifiering av språk.
-* `options`: Valfritt. En `Options` objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
+* `from`: Valfri. En sträng som representerar språkkoden att översätta text från. Om fältet lämnas tomt innehåller svaret resultatet av automatisk identifiering av språk.
+* `options`: Valfri. En `Options` objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
     - `Category`: En sträng som innehåller kategorin (domän) för översättningen. Som standard `general`.
-    - `ContentType`: Formatet för den text som översätts. Format som stöds är `text/plain` (standard), `text/xml` och `text/html`. All HTML-kod måste vara en korrekt strukturerad, fullständig element.
+    - `ContentType`: Formatet på den text som översätts. Format som stöds är `text/plain` (standard), `text/xml` och `text/html`. All HTML-kod måste vara en korrekt strukturerad, fullständig element.
     - `ProfanityAction`: Anger hur profanities hanteras enligt beskrivningen ovan. Godkända värden för `ProfanityAction` är `NoAction` (standard), `Marked` och `Deleted`.
-    - `State`: Användartillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
+    - `State`: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
     - `Uri`: Filtrera resultaten av den här URI: N. Standard: `all`.
     - `User`: Filtrera resultaten av den här användaren. Standard: `all`.
 * `texts`: Krävs. En matris som innehåller text för översättning. Alla strängar måste vara av samma språk. Summan av alla texter översättas får inte överstiga 10000 tecken. Det maximala antalet matriselement är 2000.
@@ -145,13 +145,13 @@ Valfria element kan utelämnas. Element som är direkt underordnade TranslateArr
 
 TranslateArray metoden godkänner `application/xml` eller `text/xml` för `Content-Type`.
 
-**Returvärde:** A `TranslateArrayResponse` matris. Varje `TranslateArrayResponse` har följande element:
+**Returvärdet:** En `TranslateArrayResponse` matris. Varje `TranslateArrayResponse` har följande element:
 
-* `Error`: Anger om ett har inträffat ett fel. Annars inställt på null.
+* `Error`: Anger ett fel om ett har inträffat. Annars inställt på null.
 * `OriginalSentenceLengths`: En matris av heltal som anger längden på varje mening i den ursprungliga källa texten. Längden på matrisen anger hur många meningar.
 * `TranslatedText`: Den översatta texten.
 * `TranslatedSentenceLengths`: En matris av heltal som anger längden på varje mening i den översatta texten. Längden på matrisen anger hur många meningar.
-* `State`: Användartillstånd för att korrelera begäran och svaret. Returnerar samma innehåll som begäran.
+* `State`: Användarens tillstånd för att korrelera begäran och svaret. Returnerar samma innehåll som begäran.
 
 Formatet för svarstexten är som följer.
 
@@ -183,7 +183,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)) |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken: ”ägar” + ”” + ”access_token”.|sidhuvud|sträng|
+|Auktorisering|(tom)) |Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -191,7 +191,7 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod   |Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret. Vanliga fel är: <ul><li>Matriselement får inte vara tomt</li><li>Ogiltig kategori</li><li>Från språk är ogiltigt</li><li>Språk är ogiltigt</li><li>Förfrågan innehåller för många element</li><li>From-språket stöds inte</li><li>Till språket stöds inte</li><li>Översätt begäran har för mycket data</li><li>HTML har inte rätt format</li><li>För många strängar skickades i översätta begäran</li></ul>|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
@@ -211,7 +211,7 @@ Begärandetexten innehåller en strängmatris som representerar ISO 639-1 språk
 </ArrayOfstring>
 ```
 
-**Returvärde:** en strängmatris som innehåller namn på språk som stöds av tjänsten Translator lokaliserad till det begärda språket.
+**Returvärdet:** En strängmatris som innehåller namn på språk som stöds av tjänsten Translator lokaliserad till det begärda språket.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 En strängmatris som innehåller namn på språk som stöds av tjänsten Translator lokaliserad till det begärda språket.
@@ -224,8 +224,8 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
-|Nationella inställningar|(tom) |Krävs. En sträng som representerar en kombination av en ISO 639 gemener kultur för två bokstäver kod som är associerad med ett språk och en ISO 3166 två bokstäver versaler subkultur kod för att hitta Språknamnen eller en ISO 639 gemener Kulturkod ensamt.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|nationella inställningar|(tom) |Krävs. En sträng som representerar en kombination av en ISO 639 gemener kultur för två bokstäver kod som är associerad med ett språk och en ISO 3166 två bokstäver versaler subkultur kod för att hitta Språknamnen eller en ISO 639 gemener Kulturkod ensamt.|DocumentDB|sträng|
 |Auktorisering|(tom)  |Krävs om fältet appid eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)  |Krävs om fältet appid eller `Authorization` huvud har inte angetts.|sidhuvud|sträng|
 
@@ -234,18 +234,18 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="get-getlanguagesfortranslate"></a>Hämta /GetLanguagesForTranslate
+## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Hämta en lista med språkkoder som representerar språk som stöds av tjänsten översättning.  `Translate` och `TranslateArray` kan översätta mellan två av dessa språk.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
-**Returvärde:** en strängmatris som innehåller språkkoder som stöds av Translator-tjänster.
+**Returvärdet:** En strängmatris som innehåller språkkoder som stöds av Translator-tjänster.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 En strängmatris som innehåller språkkoder som stöds av Translator-tjänster.
@@ -258,7 +258,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |Auktorisering|(tom)  |Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|sträng|
 
@@ -267,18 +267,18 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503|Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="get-getlanguagesforspeak"></a>Hämta /GetLanguagesForSpeak
+## <a name="get-getlanguagesforspeak"></a>GET /GetLanguagesForSpeak
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Hämtar de språk som är tillgängliga för talsyntes.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForSpeak`.
 
-**Returvärde:** en strängmatris som innehåller språkkoder som stöds för talsyntes av Translator-tjänsten.
+**Returvärdet:** En strängmatris som innehåller språkkoder som stöds för talsyntes av Translator-tjänsten.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 En strängmatris som innehåller språkkoder som stöds för talsyntes av Translator-tjänsten.
@@ -291,7 +291,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|sträng|
  
@@ -300,18 +300,18 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400|Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401|Ogiltiga autentiseringsuppgifter|
+|401|Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="get-speak"></a>Hämta / tala
+## <a name="get-speak"></a>GET /Speak
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Returnerar en wave eller mp3 dataström textens skickas in som sägs i önskat språk.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/Speak`.
 
-**Returvärde:** rad wave eller mp3-för skickas in som sägs i önskat språk.
+**Returvärdet:** En wave eller mp3 dataström textens skickas in som sägs i önskat språk.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 
@@ -323,9 +323,9 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |text|(tom)   |Krävs. En sträng som innehåller en mening eller meningar för angivna språket som ska läsas för wave-dataström. Storleken på texten som ska tala får inte överskrida 2 000 tecken.|DocumentDB|sträng|
-|Språk|(tom)   |Krävs. En sträng som representerar den språkkod som stöds för att tala texten i. Koden måste finnas i listan över koder som returneras från metoden `GetLanguagesForSpeak`.|DocumentDB|sträng|
+|language|(tom)   |Krävs. En sträng som representerar den språkkod som stöds för att tala texten i. Koden måste finnas i listan över koder som returneras från metoden `GetLanguagesForSpeak`.|DocumentDB|sträng|
 |Format|(tom)|Valfri. En sträng som anger innehållstypen-ID. För närvarande `audio/wav` och `audio/mp3` är tillgängliga. Standardvärdet är `audio/wav`.|DocumentDB|sträng|
 |alternativ|(tom)    |<ul><li>Valfri. En sträng som anger egenskaperna för syntetiskt tal:<li>`MaxQuality` och `MinSize` är tillgängliga för att ange ljud signaler kvalitet. Med `MaxQuality`, du kan hämta röster med högsta kvalitet och `MinSize`, du kan hämta röster med den minsta storleken. Standardvärdet är `MinSize`.</li><li>`female` och `male` är tillgängliga för att ange den önskade kön för röst. Standardvärdet är `female`. Använder vertikalstreck '|` to include multiple options. For example  `MaxQuality|Man ”.</li></li></ul> |DocumentDB|sträng|
 |Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
@@ -336,18 +336,18 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="get-detect"></a>Hämta / identifiera
+## <a name="get-detect"></a>GET /Detect
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Använd den `Detect` metod för att identifiera språket i en vald typ av text.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/Detect`.
 
-**Returvärde:** en sträng som innehåller en två-teckens språkkod för den angivna texten. .
+**Returvärdet:** En sträng som innehåller en två-teckens språkkod för den angivna texten. .
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 
@@ -359,7 +359,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)  |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)  |Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |text|(tom)|Krävs. En sträng som innehåller text vars språk ska identifieras. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB| sträng|
 |Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key  |(tom)    |Krävs om de `appid` fält eller `Authorization` huvud har inte angetts.|sidhuvud|sträng|
@@ -369,12 +369,12 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400|Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
 
-## <a name="post-detectarray"></a>Publicera /DetectArray
+## <a name="post-detectarray"></a>POST /DetectArray
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Använd den `DetectArray` metod för att identifiera språket i en strängmatris på samma gång. Utför oberoende identifiering av varje enskild matriselement och returnerar ett resultat för varje rad i matrisen.
@@ -392,7 +392,7 @@ Formatet för förfrågans text ska vara på följande sätt.
 
 Storleken på texten får inte överstiga 10000 tecken.
 
-**Returvärde:** en strängmatris som innehåller ett två-teckens språk koder för varje rad i Indatamatrisen.
+**Returvärdet:** En strängmatris som innehåller en två-teckens språkkoder för varje rad i Indatamatrisen.
 
 Formatet för svarstexten är som följer.
 
@@ -414,7 +414,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |Auktorisering|(tom)|Krävs om de `appid` fält eller `Ocp-Apim-Subscription-Key` huvud har inte angetts. Autentiseringstoken: `"Bearer" + " " + "access_token"`.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om de `appid` fält eller auktoriseringsrubrik har inte angetts.|sidhuvud|sträng|
 
@@ -423,7 +423,7 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
@@ -432,7 +432,7 @@ Innehållstyp för svar: application/xml
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 
 > [!IMPORTANT]
-> **UTFASNINGEN Obs:** efter den 31 januari 2018 den här metoden ska inte ta emot nya mening bidrag, och du får ett felmeddelande. Läs det här meddelandet om ändringar av funktionerna Collaborative Translation.
+> **UTFASNINGEN OBS:** Den här metoden ska inte ta emot nya mening bidrag efter den 31 januari 2018 och du får ett felmeddelande. Läs det här meddelandet om ändringar av funktionerna Collaborative Translation.
 
 Lägger till en translation translation-minne.
 
@@ -448,9 +448,9 @@ Innehållstyp för svar: program: xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp   |
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
-|OriginalText|(tom)|Krävs. En sträng som innehåller texten att översätta från. Strängen har en maximal längd på 1000 tecken.|DocumentDB|sträng|
-|TranslatedText|(tom) |Krävs. En sträng som innehåller översatt text på språket som mål. Strängen har en maximal längd på 2 000 tecken.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|originalText|(tom)|Krävs. En sträng som innehåller texten att översätta från. Strängen har en maximal längd på 1000 tecken.|DocumentDB|sträng|
+|translatedText|(tom) |Krävs. En sträng som innehåller översatt text på språket som mål. Strängen har en maximal längd på 2 000 tecken.|DocumentDB|sträng|
 |från|(tom)   |Krävs. En sträng som representerar språkkoden för Översättningstext. en = engelska, de = tyska osv...|DocumentDB|sträng|
 |till|(tom)|Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|sträng|
 |rating|(tom) |Valfri. Ett heltal som representerar den kvalitet klassificeringen för den här strängen. Värde mellan -10 och 10. Standardvärdet är 1.|DocumentDB|heltal|
@@ -466,17 +466,17 @@ Innehållstyp för svar: program: xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |410|AddTranslation stöds inte längre.|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="post-addtranslationarray"></a>Publicera /AddTranslationArray
+## <a name="post-addtranslationarray"></a>POST /AddTranslationArray
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 
 > [!IMPORTANT]
-> **UTFASNINGEN Obs:** efter den 31 januari 2018 den här metoden ska inte ta emot nya mening bidrag, och du får ett felmeddelande. Läs det här meddelandet om ändringar av funktionerna Collaborative Translation.
+> **UTFASNINGEN OBS:** Den här metoden ska inte ta emot nya mening bidrag efter den 31 januari 2018 och du får ett felmeddelande. Läs det här meddelandet om ändringar av funktionerna Collaborative Translation.
 
 Lägger till en matris med översättningar för att lägga till translation minne. Det här är en matris version av `AddTranslation`.
 
@@ -525,7 +525,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken: ”ägar” + ”” + ”access_token”.|sidhuvud|sträng|
+|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.|sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -533,19 +533,19 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |410    |AddTranslation stöds inte längre.|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503|Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="get-breaksentences"></a>Hämta /BreakSentences
+## <a name="get-breaksentences"></a>GET /BreakSentences
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Delar upp en del av texten i meningar och returnerar en matris som innehåller längder i varje mening.
 
 Förfrågans URI är `https://api.microsofttranslator.com/V2/Http.svc/BreakSentences`.
 
-**Returvärde:** en matris med heltal som representerar längden på meningarna. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
+**Returvärdet:** En matris med heltal som representerar längden på meningarna. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
 En matris med heltal som representerar längden på meningarna. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
@@ -558,10 +558,10 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)  |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB| sträng|
+|appid|(tom)  |Krävs. Om auktorisering eller Ocp-Apim-Subscription-Key-huvud används, lämna appid fältet tomt eller innehålla en sträng som innehåller ”ägar” + ”” + ”access_token”.|DocumentDB| sträng|
 |text|(tom)   |Krävs. En sträng som representerar texten som ska delas upp i meningar. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|sträng|
-|Språk   |(tom)    |Krävs. En sträng som representerar språkkoden för indatatext.|DocumentDB|sträng|
-|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken: ”ägar” + ”” + ”access_token”.    |sidhuvud|sträng|
+|language   |(tom)    |Krävs. En sträng som representerar språkkoden för indatatext.|DocumentDB|sträng|
+|Auktorisering|(tom)|Krävs om appid fält eller Ocp-Apim-Subscription-Key-huvud inte har angetts. Autentiseringstoken:  ”Ägar” + ”” + ”access_token”.    |sidhuvud|sträng|
 |OCP-Apim-Subscription-Key|(tom)|Krävs om appid fält eller auktoriseringsrubrik inte har angetts.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
@@ -569,7 +569,7 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400|Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401|Ogiltiga autentiseringsuppgifter|
+|401|Felaktiga autentiseringsuppgifter|
 |500|Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID i rubriken X-MS-Trans-Info.|
 |503|Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
@@ -598,16 +598,16 @@ Den `TranslateOptions` objektet innehåller de värden som anges nedan. De är v
 * `Category`: En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är ”Allmänt”.
 * `ContentType`: Det går endast att och standard, alternativet är ”text/plain”.
 * `IncludeMultipleMTAlternatives`: boolesk flagga för att avgöra om fler än en alternativ ska returneras från MT-motorn. Giltiga värden är true och false (skiftlägeskänsligt). Standard är FALSKT och innehåller endast 1 alternativ. Om flaggan till true kan för att generera artificiella alternativ i översättning, helt integrerat med samarbetsfunktioner översättningar framework (CTF). Funktionen kan för att returnera alternativ för meningar som har inga alternativ i CTF, genom att lägga till artificiella alternativ från listan över avkodaren n bästa.
-    - Klassificeringarna klassificeringarna som tillämpas på följande sätt: 1) den bästa automatisk översättningen har en klassificering på 5. 2) alternativ från CTF återspeglar den granskare från att -10 + 10-utfärdaren. 3) alternativ de automatiskt genererade (n-bäst) translation har en klassificering på 0 och har en matchning på 100.
+    - Klassificeringarna klassificeringarna som tillämpas på följande sätt: (1) den bästa automatisk översättningen har en klassificering på 5. 2) alternativ från CTF återspeglar den granskare från att -10 + 10-utfärdaren. 3) alternativ de automatiskt genererade (n-bäst) translation har en klassificering på 0 och har en matchning på 100.
     - Antal alternativ antalet returnerade alternativ som är upp till maxTranslations, men kan vara mindre.
     - Språkpar den här funktionen är inte tillgänglig för översättningar mellan förenklad och traditionell kinesiska, båda riktningarna. Det är tillgängligt för alla andra språkpar med Microsoft Translator stöds.
-* `State`: Användartillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
+* `State`: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
 * `Uri`: Filtrera resultaten av den här URI: N. Standardvärdet är alla om inget värde har angetts.
 * `User`: Filtrera resultaten av den här användaren. Standardvärdet är alla om inget värde har angetts.
 
 Begär `Content-Type` ska vara `text/xml`.
 
-**Returvärde:** har följande format för svaret.
+**Returvärdet:** Formatet på svaret är som följer.
 
 ```
 <GetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2"
@@ -628,17 +628,17 @@ Begär `Content-Type` ska vara `text/xml`.
 
 Detta inkluderar en `GetTranslationsResponse` element som innehåller följande värden:
 
-* `Translations`: En matris med matchar objekt som hittas används, lagras i TranslationMatch (se nedan). Översättningarna kan omfatta liten varianter av den ursprungliga texten (partiell matchning). Översättningar kommer att sorteras: 100% matchar först fuzzy matchningar nedan.
+* `Translations`: En matris med matchningar hittas, lagras i TranslationMatch (se nedan)-objekt. Översättningarna kan omfatta liten varianter av den ursprungliga texten (partiell matchning). Översättningarna ska sorteras: 100% matchar först fuzzy matchningar nedan.
 * `From`: Om metoden inte angav en From-språk, är det här resultatet av automatisk språkidentifiering. Annars blir det den angivna från språk.
-* `State`: Användartillstånd för att korrelera begäran och svaret. Innehåller samma värde som anges i parametern TranslateOptions.
+* `State`: Användarens tillstånd för att korrelera begäran och svaret. Innehåller samma värde som anges i parametern TranslateOptions.
 
 TranslationMatch består av följande:
 
 * `Error`: Om ett fel har uppstått för en specifik Indatasträngen lagras felkoden. Annars är fältet tomt.
 * `MatchDegree`: Systemet matchar inkommande meningar mot butiken, inklusive inexakt matchningar.  MatchDegree anger hur nära indatatexten matchar den ursprungliga texten finns i arkivet. Värdet som returneras adressintervallen från 0 till 100, där 0 är inga likheter och 100 är en exakt skiftlägeskänslig matchning.
-MatchedOriginalText: Ursprungliga text som har matchat för det här resultatet. Returneras bara om den ursprungliga matchade texten har skiljer sig från den inmatade texten. Används för att returnera en ungefärlig matchning källtext. Inte returneras för Microsoft Translator resultat.
+MatchedOriginalText: Originaltexten som var matchade för det här resultatet. Returneras bara om den ursprungliga matchade texten har skiljer sig från den inmatade texten. Används för att returnera en ungefärlig matchning källtext. Inte returneras för Microsoft Translator resultat.
 * `Rating`: Anger behörighet för den person som du beslutar kvalitet. Maskinöversättning resultat kommer att ha en klassificering på 5. Anonymt angivna översättningar har vanligtvis en klassificering på 1 till 4, även om auktoritärt angivna översättningar har vanligtvis en klassificering på 6 och 10.
-* `Count`: Antalet gånger som den här translation med denna klassificering har valts. Värdet ska vara 0 för automatiskt översatta svaret.
+* `Count`: Antal gånger som den här translation med denna klassificering har valts. Värdet ska vara 0 för automatiskt översatta svaret.
 * `TranslatedText`: Den översatta texten.
 
 ### <a name="response-class-status-200"></a>Svaret klass (Status 200)
@@ -652,7 +652,7 @@ Innehållstyp för svar: application/xml
 
 |Parameter|Värde|Beskrivning|Parametertyp|Datatyp|
 |:--|:--|:--|:--|:--|
-|AppID|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
+|appid|(tom)|Krävs. Om den `Authorization` eller `Ocp-Apim-Subscription-Key` huvud används, lämna appid fältet tomt eller innehåller en sträng som innehåller `"Bearer" + " " + "access_token"`.|DocumentDB|sträng|
 |text|(tom)|Krävs. En sträng som representerar text för översättning. Storleken på texten får inte överstiga 10000 tecken.|DocumentDB|sträng|
 |från|(tom)|Krävs. En sträng som representerar språkkoden för Översättningstext.|DocumentDB|sträng|
 |till |(tom)    |Krävs. En sträng som representerar språkkoden att översätta text i.|DocumentDB|sträng|
@@ -665,11 +665,11 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503|Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 
-## <a name="post-gettranslationsarray"></a>Publicera /GetTranslationsArray
+## <a name="post-gettranslationsarray"></a>POST /GetTranslationsArray
 
 ### <a name="implementation-notes"></a>Implementeringsanteckningar
 Använd den `GetTranslationsArray` metod för att hämta flera translation kandidater för flera källa texter.
@@ -703,14 +703,14 @@ Formatet för förfrågans text är som följer.
 * `AppId`: Krävs. Om auktoriseringsrubrik används, lämna appid fältet tomt eller innehålla en sträng som innehåller `"Bearer" + " " + "access_token"`.
 * `From`: Krävs. En sträng som representerar språkkoden för Översättningstext.
 * `MaxTranslations`: Krävs. Ett heltal som representerar det maximala antalet översättningar ska returneras.
-* `Options`: Valfritt. Ett alternativ för objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
-    - Kategorin ': en sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är allmänna.
+* `Options`: Valfri. Ett alternativ för objekt som innehåller de värden som anges nedan. De är valfria och de vanligaste inställningarna som standard. Angivna elementen måste anges i alfabetisk ordning.
+    - Kategorin ': En sträng som innehåller kategorin (domän) för översättningen. Standardvärdet är allmänna.
     - `ContentType`: Det går endast att och standard, alternativet är text/plain.
     - `IncludeMultipleMTAlternatives`: boolesk flagga för att avgöra om fler än en alternativ ska returneras från MT-motorn. Giltiga värden är true och false (skiftlägeskänsligt). Standard är FALSKT och innehåller endast 1 alternativ. Om flaggan till true kan för att generera artificiella alternativ i översättning, helt integrerat med samarbetsfunktioner översättningar framework (CTF). Funktionen kan för att returnera alternativ för meningar som har inga alternativ i CTF, genom att lägga till artificiella alternativ från listan över avkodaren n bästa.
-        - Klassificeringarna klassificeringarna som tillämpas på följande sätt: 1) den bästa automatisk översättningen har en klassificering på 5. 2) alternativ från CTF återspeglar den granskare från att -10 + 10-utfärdaren. 3) alternativ de automatiskt genererade (n-bäst) translation har en klassificering på 0 och har en matchning på 100.
+        - Klassificeringarna klassificeringarna som tillämpas på följande sätt: (1) den bästa automatisk översättningen har en klassificering på 5. 2) alternativ från CTF återspeglar den granskare från att -10 + 10-utfärdaren. 3) alternativ de automatiskt genererade (n-bäst) translation har en klassificering på 0 och har en matchning på 100.
         - Antal alternativ antalet returnerade alternativ som är upp till maxTranslations, men kan vara mindre.
         - Språkpar den här funktionen är inte tillgänglig för översättningar mellan förenklad och traditionell kinesiska, båda riktningarna. Det är tillgängligt för alla andra språkpar med Microsoft Translator stöds.
-* `State`: Användartillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
+* `State`: Användarens tillstånd för att korrelera begäran och svaret. Samma innehåll returneras i svaret.
 * `Uri`: Filtrera resultaten av den här URI: N. Standardvärdet är alla om inget värde har angetts.
 * `User`: Filtrera resultaten av den här användaren. Standardvärdet är alla om inget värde har angetts.
 * `Texts`: Krävs. En matris som innehåller text för översättning. Alla strängar måste vara av samma språk. Summan av alla texter översättas får inte överstiga 10000 tecken. Det maximala antalet matriselement är 10.
@@ -720,7 +720,7 @@ Valfria element kan utelämnas. Element som är direkt underordnade till `GetTra
 
 Begär `Content-Type` ska vara `text/xml`.
 
-**Returvärde:** har följande format för svaret.
+**Returvärdet:** Formatet på svaret är som följer.
 
 ```
 <ArrayOfGetTranslationsResponse xmlns="http://schemas.datacontract.org/2004/07/Microsoft.MT.Web.Service.V2" xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
@@ -749,16 +749,16 @@ Begär `Content-Type` ska vara `text/xml`.
 
 Varje `GetTranslationsResponse` elementet innehåller följande värden:
 
-* `Translations`: En matris med matchningar hittas, lagras i `TranslationMatch` objekt (se nedan). Översättningarna kan omfatta liten varianter av den ursprungliga texten (partiell matchning). Översättningar kommer att sorteras: 100% matchar först fuzzy matchningar nedan.
+* `Translations`: En matris med matchningar hittas, lagras i `TranslationMatch` objekt (se nedan). Översättningarna kan omfatta liten varianter av den ursprungliga texten (partiell matchning). Översättningarna ska sorteras: 100% matchar först fuzzy matchningar nedan.
 * `From`: Om metoden inte angav en `From` språk, detta kan bero på automatisk språkidentifiering. Annars blir det den angivna från språk.
-* `State`: Användartillstånd för att korrelera begäran och svaret. Innehåller samma värde som anges i den `TranslateOptions` parametern.
+* `State`: Användarens tillstånd för att korrelera begäran och svaret. Innehåller samma värde som anges i den `TranslateOptions` parametern.
 
 `TranslationMatch` objektet består av följande:
 * `Error`: Om ett fel har uppstått för en specifik Indatasträngen lagras felkoden. Annars är fältet tomt.
 * `MatchDegree`: Systemet matchar inkommande meningar mot butiken, inklusive inexakt matchningar.  `MatchDegree` Anger hur nära indatatexten matchar den ursprungliga texten finns i arkivet. Värdet som returneras adressintervallen från 0 till 100, där 0 är inga likheter och 100 är en exakt skiftlägeskänslig matchning.
-* `MatchedOriginalText`: Ursprungliga text som har matchat för det här resultatet. Returneras bara om den ursprungliga matchade texten har skiljer sig från den inmatade texten. Används för att returnera en ungefärlig matchning källtext. Inte returneras för Microsoft Translator resultat.
+* `MatchedOriginalText`: Originaltexten som var matchade för det här resultatet. Returneras bara om den ursprungliga matchade texten har skiljer sig från den inmatade texten. Används för att returnera en ungefärlig matchning källtext. Inte returneras för Microsoft Translator resultat.
 * `Rating`: Anger behörighet för den person som du beslutar kvalitet. Maskinöversättning resultat kommer att ha en klassificering på 5. Anonymt angivna översättningar har vanligtvis en klassificering på 1 till 4, även om auktoritärt angivna översättningar har vanligtvis en klassificering på 6 och 10.
-* `Count`: Antalet gånger som den här translation med denna klassificering har valts. Värdet ska vara 0 för automatiskt översatta svaret.
+* `Count`: Antal gånger som den här translation med denna klassificering har valts. Värdet ska vara 0 för automatiskt översatta svaret.
 * `TranslatedText`: Den översatta texten.
 
 
@@ -780,7 +780,7 @@ Innehållstyp för svar: application/xml
 |HTTP-statuskod|Orsak|
 |:--|:--|
 |400    |Felaktig begäran. Kontrollera indataparametrarna och det detaljerade felsvaret.|
-|401    |Ogiltiga autentiseringsuppgifter|
+|401    |Felaktiga autentiseringsuppgifter|
 |500    |Serverfel. Om felet kvarstår, berätta för oss. Ge oss med ungefärliga datum och tid för begäran och med begäran-ID som ingår i svarshuvudet `X-MS-Trans-Info`.|
 |503    |Tjänsten är inte tillgänglig för tillfället. Försök igen och berätta för oss om felet kvarstår.|
 

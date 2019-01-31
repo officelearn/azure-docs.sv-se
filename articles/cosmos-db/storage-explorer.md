@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: dech
 ms.custom: seodec18
-ms.openlocfilehash: 24df1cb5b7a9cc1209940bbaaa1217a80ea74918
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: c99b22a5dad1e64525b2b2ebcd214c3dc5bfb28f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473603"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-storage-explorer"></a>Hantera Azure Cosmos DB-resurser med Azure Storage Explorer
+# <a name="work-with-data-using-azure-storage-explorer"></a>Arbeta med data med Azure Storage Explorer
 
 Med hjälp av Azure Cosmos DB i Azure Storage Explorer kan du hantera Azure Cosmos DB-entiteter, manipulera data och uppdatera lagrade procedurer och utlösare, och även andra Azure-entiteter som lagringsblobar och köer. Nu kan du använda samma verktyg för att hantera olika Azure-entiteter på ett och samma ställe. För närvarande stöder Azure Storage Explorer Cosmos-konton som konfigurerats för SQL, MongoDB, diagram och tabell-API: er.
 

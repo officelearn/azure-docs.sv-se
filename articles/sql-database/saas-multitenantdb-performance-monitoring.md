@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 7681e3fabe9eb216da81d9f09dc584097bcbaf84
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 01/25/2019
+ms.openlocfilehash: 4257baf437ec6c77ccf9fe4a7f0e6195ddd933be
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830013"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458133"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för shardade flera innehavare Azure SQL-databas i en SaaS-app för flera innehavare
 
@@ -161,7 +161,7 @@ Hoppa över följande steg om du redan har etablerat en ny klient i en egen data
 
 Skriptet etablerar den här klienten i en separat databas, registrera databasen och klienten i katalogen och öppnar du klientens händelser i webbläsaren. Uppdatera Evenemangshubben sidan och du ser ”Salix Salsa” har lagts till som en plats.
 
-## <a name="manage-performance-of-a-single-database"></a>Hantera prestanda för en enkel databas
+## <a name="manage-performance-of-an-individual-database"></a>Hantera prestanda för en enskild databas
 
 Om en enda klient i en databas för flera klienter får en varaktigt hög belastning, kan det brukar dominera databasresurserna och påverka andra klienter i samma databas. Om aktiviteten är sannolikt kommer att fortsätta under en viss tid, kan klienten flyttas tillfälligt från databasen och i en egen databas för enstaka klientorganisationer. Detta gör att klienten har extra resurser den behöver och fullständigt isolerar den från andra klienter.
 

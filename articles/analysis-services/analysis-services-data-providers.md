@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f7be89a2c02769d09f93e8d5d1545cf814c86bba
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: c67b9185f38137113b34c8f3a74ae199e50091f1
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54102747"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296332"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klientbibliotek för att ansluta till Azure Analysis Services
 
@@ -55,7 +55,7 @@ Klientbibliotek för klientanslutningar skiljer sig från dataleverantörer som 
   
  Analysis Services OLE DB-providern installeras automatiskt som de flesta verktyg och klientprogram som används för åtkomst till Analysis Services-databaser. Den måste installeras på datorer som används för åtkomst till Analysis Services-data.  
   
- OLE DB-providers anges ofta i anslutningssträngar. En anslutningssträng för Analysis Services använder en annan terminologi för att referera till OLE DB-providern: MSOLAP. \<version > .dll.
+ OLE DB-providers anges ofta i anslutningssträngar. En anslutningssträng för Analysis Services använder en annan terminologi för att referera till OLE DB-providern: MSOLAP.\<version>.dll.
 
 ### <a name="amo"></a>AMO  
 

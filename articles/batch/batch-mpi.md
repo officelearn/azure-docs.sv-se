@@ -3,7 +3,7 @@ title: Använda aktiviteter med flera instanser för att köra MPI-program – A
 description: Lär dig hur du kör Message Passing Interface (MPI)-program med flera instanser uppgiftstypen i Azure Batch.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 83e34bd7-a027-4b1b-8314-759384719327
@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.date: 06/12/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a443dd7ed4f95b3e283603fa8938a08c2c177827
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f2c7d6f75b9f2d6932ae3c8de863ad277fea8ffe
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39174425"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460547"
 ---
 # <a name="use-multi-instance-tasks-to-run-message-passing-interface-mpi-applications-in-batch"></a>Använda aktiviteter med flera instanser för att köra Message Passing Interface (MPI) program i Batch
 
@@ -286,7 +286,7 @@ Den [MultiInstanceTasks] [ github_mpi] kodexempel på GitHub visar hur du använ
     `azure-batch-samples\CSharp\ArticleProjects\MultiInstanceTasks\`
 3. Ange dina autentiseringsuppgifter för Batch och Storage-konto i `AccountSettings.settings` i den **Microsoft.Azure.Batch.Samples.Common** projekt.
 4. **Skapa och köra** MultiInstanceTasks lösningen att köra MPI exempelprogrammet på beräkningsnoder i en Batch-pool.
-5. *Valfritt*: Använd den [Azure-portalen] [ portal] eller [Batch Explorer] [ batch_labs] att undersöka de exempelpool, jobb och uppgift (” MultiInstanceSamplePool ”,” MultiInstanceSampleJob ”,” MultiInstanceSampleTask ”) innan du tar bort resurserna.
+5. *Valfritt*: Använd den [Azure-portalen] [ portal] eller [Batch Explorer] [ batch_labs] att undersöka de exempelpool, jobb och uppgift (”MultiInstanceSamplePool” ”, MultiInstanceSampleJob ”,” MultiInstanceSampleTask ”) innan du tar bort resurserna.
 
 > [!TIP]
 > Du kan ladda ned [Visual Studio Community] [ visual_studio] kostnadsfritt om du inte har Visual Studio.

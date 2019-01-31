@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 01/16/2019
-ms.openlocfilehash: 568b239cf41c802cc5d25b638f6d1501f58eccdf
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.date: 01/25/2019
+ms.openlocfilehash: b0188a0983ea18490f3997b857386e313daa58ed
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54360096"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467671"
 ---
 # <a name="configure-replication-in-azure-sql-database-managed-instance"></a>Konfigurera replikering i Azure SQL Database Managed Instance
 
-Transaktionsreplikering kan du replikera data från SQL Server eller Azure SQL Database Managed Instance databaserna till den hanterade instansen eller att push-ändringar som gjorts i dina databaser i Managed Instance till andra SQL Server, enskild Azure-databas eller annan Hanterad instans. Replikeringen är i offentlig förhandsversion på [Azure SQL Database Managed Instance](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Se [Transaktionsreplikering konfigurationer](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
+Transaktionsreplikering gör det möjligt att replikera data från SQL Server eller Azure SQL Database Managed Instance databaserna till den hanterade instansen eller att skicka ändringar som gjorts i dina databaser i Managed Instance till andra SQL Server, SQL Database enkel databas eller elastisk pool eller andra Managed Instance. Replikeringen är i offentlig förhandsversion på [Azure SQL Database Managed Instance](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivaren och distributören prenumerant databaser. Se [Transaktionsreplikering konfigurationer](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
 
 ## <a name="requirements"></a>Krav
 
@@ -46,7 +46,7 @@ Stöder:
 
 - Transaktions- och replikering blandning av både lokala och Azure SQL Database Managed Instance instanser.
 
-- Prenumeranter kan vara en lokal, enskilda databaser i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
+- Prenumeranter kan vara en lokal, enkel databas i Azure SQL Database eller databaser i pooler i elastiska pooler i Azure SQL Database.
 
 - Enkelriktade eller dubbelriktade replikering.
 
@@ -71,7 +71,7 @@ Följande funktioner stöds inte:
 
    I exemplet skripten nedan använder `<SQL_USER>` och `<PASSWORD>` med det här kontot för SQL Server-databas användare och lösenord.
 
-5. [Ansluta till SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Ansluta till SQL Database Managed Instance](sql-database-connect-query-ssms.md).
 
 6. Kör följande fråga för att lägga till distributören och distributionsdatabasen.
 
@@ -172,4 +172,4 @@ Följande funktioner stöds inte:
 ## <a name="see-also"></a>Se även
 
 - [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md)
-- [Vad är en hanterad instans?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Vad är en hanterad instans?](sql-database-managed-instance.md)

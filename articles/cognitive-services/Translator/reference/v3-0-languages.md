@@ -6,22 +6,22 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 7489c4298abe91755a2bf9edd8335061ed42d6d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129649"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470934"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: språk
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
 
 Hämtar antal språk som stöds för närvarande av andra åtgärder för Translator Text API. 
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `GET` begäran om att:
 ```HTTP
@@ -51,8 +51,8 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>Acceptera språk</td>
-    <td>*Begärandehuvud i valfritt*.<br/>Språket som ska användas för användaren gränssnittet strängar. Vissa av fälten i svaret är namnen på språk eller namnen på regioner. Använd den här parametern för att ange språket där dessa namn returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.<br/>Namn tillhandahålls på engelska när ett målspråk inte har angetts eller när lokalisering inte är tillgänglig.
+    <td>Accept-Language</td>
+    <td>*Begärandehuvud i valfritt*.<br/>Språket som ska användas för användargränssnittssträngar. Vissa av fälten i svaret är namnen på språk eller namnen på regioner. Använd den här parametern för att ange språket där dessa namn returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.<br/>Namn tillhandahålls på engelska när ett målspråk inte har angetts eller när lokalisering inte är tillgänglig.
     </td>
   </tr>
   <tr>
@@ -97,9 +97,9 @@ Värdet för varje egenskap är som följer.
 
   Värdet för den `translation` egenskapen är en ordlista med (nyckel, värde) par. Varje nyckel är en BCP-47 som språktagg. En nyckel identifierar ett språk som text kan översättas till eller översättas från. Värdet kopplat till nyckeln är en JSON-objekt med egenskaper som beskriver språket:
 
-  * `name`: Visningsnamnet på språket på det språk som begärs `Accept-Language` rubrik.
+  * `name`: Visningsnamnet för språket på det språk som begärs `Accept-Language` rubrik.
 
-  * `nativeName`: Visar namnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
 
   * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
 
@@ -123,9 +123,9 @@ Värdet för varje egenskap är som följer.
 
   Värdet för den `transliteration` egenskapen är en ordlista med (nyckel, värde) par. Varje nyckel är en BCP-47 som språktagg. En nyckel identifierar ett språk som text kan konverteras från ett skript till ett annat skript. Värdet kopplat till nyckeln är en JSON-objekt med egenskaper som beskriver språket och dess stöds skript:
 
-  * `name`: Visningsnamnet på språket på det språk som begärs `Accept-Language` rubrik.
+  * `name`: Visningsnamnet för språket på det språk som begärs `Accept-Language` rubrik.
 
-  * `nativeName`: Visar namnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
 
   * `scripts`: Lista över skript för att konvertera från. Varje element i den `scripts` listan har egenskaper:
 
@@ -133,7 +133,7 @@ Värdet för varje egenskap är som följer.
 
     * `name`: Visningsnamnet för skriptet på det språk som begärs `Accept-Language` rubrik.
 
-    * `nativeName`: Visar namnet för språket på språket som är interna för språket.
+    * `nativeName`: Visningsnamn för språket som visas på språket som är interna för språket.
 
     * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
 
@@ -190,19 +190,19 @@ Värdet för varje egenskap är som följer.
 
   * `name`: Visningsnamnet för källspråk på det språk som begärs `Accept-Language` rubrik.
 
-  * `nativeName`: Visar namnet för språket på språket som är interna för det här språket.
+  * `nativeName`: Visningsnamnet för språket på språket som är interna för det här språket.
 
   * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
 
   * `translations`: Lista med alternativt översättningar och exempel för frågan som uttrycks i källspråket. Varje element i den `translations` listan har egenskaper:
 
-    * `name`: Visningsnamnet på målspråket på det språk som begärs `Accept-Language` rubrik.
+    * `name`: Visningsnamnet för målspråk på det språk som begärs `Accept-Language` rubrik.
 
-    * `nativeName`: Visar namnet på målspråket på språket som är interna för mål-språk.
+    * `nativeName`: Visningsnamn för målspråket på språket som är interna för mål-språk.
 
     * `dir`: Riktningen, vilket är `rtl` för höger-till-vänster-språk eller `ltr` för vänster till höger språk.
     
-    * `code`: Språk kod som identifierar målspråket.
+    * `code`: Språkkoden som identifierar målspråket.
 
   Ett exempel är:
 
@@ -279,7 +279,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 
 I följande exempel visas hur du hämtar språk som stöds för textöversättning.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

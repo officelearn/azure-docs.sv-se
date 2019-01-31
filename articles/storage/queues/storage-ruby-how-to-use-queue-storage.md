@@ -9,13 +9,13 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.component: queues
-ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: queues
+ms.openlocfilehash: 7ebb4326a8ec8a3382a5488ce3b966526bef446a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231574"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456280"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Använda Queue Storage från Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -63,7 +63,7 @@ Du kan hämta dessa värden från ett klassiskt eller Resource Manager-baserat l
 4. Åtkomstnyckel 1 och åtkomstnyckel 2 visas på bladet som öppnas. Du kan använda vilken av nycklarna du vill. 
 5. Kopiera nyckeln till Urklipp genom att klicka på kopieringsikonen. 
 
-## <a name="how-to-create-a-queue"></a>Så här: Skapa en kö
+## <a name="how-to-create-a-queue"></a>Instruktioner: Skapa en kö
 Följande kod skapar en **Azure::QueueService** -objektet, vilket gör det möjligt att arbeta med köer.
 
 ```ruby
@@ -80,14 +80,14 @@ rescue
 end
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Så här: Infoga ett meddelande i en kö
+## <a name="how-to-insert-a-message-into-a-queue"></a>Instruktioner: Infoga ett meddelande i en kö
 Om du vill infoga ett meddelande i en kö, använda den **create_message()** metod för att skapa ett nytt meddelande och lägga till den i kön.
 
 ```ruby
 azure_queue_service.create_message("test-queue", "test message")
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: En titt på nästa meddelande
+## <a name="how-to-peek-at-the-next-message"></a>Instruktioner: En titt på nästa meddelande
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa den **peek\_messages()** metod. Som standard **peek\_messages()** peeks på ett enda meddelande. Du kan även ange hur många meddelanden som du vill granska.
 
 ```ruby
@@ -95,7 +95,7 @@ result = azure_queue_service.peek_messages("test-queue",
   {:number_of_messages => 10})
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>Så här: Ta bort från kön nästa meddelande
+## <a name="how-to-dequeue-the-next-message"></a>Instruktioner: Ta bort från kön nästa meddelande
 Du kan ta bort ett meddelande från en kö i två steg.
 
 1. När du anropar **lista\_messages()**, du får nästa meddelande i en kö som standard. Du kan även ange hur många meddelanden som du vill hämta. Meddelanden som returneras från **lista\_messages()** blir osynligt för andra kod som läser meddelanden från den här kön. Du skickar i synlighet tidsgräns i sekunder som en parameter.
@@ -109,7 +109,7 @@ azure_queue_service.delete_message("test-queue",
   messages[0].id, messages[0].pop_receipt)
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här: Ändra innehållet i ett meddelande i kön
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Instruktioner: Ändra innehållet i ett meddelande i kön
 Du kan ändra innehållet i ett meddelande direkt i kön. Koden nedan används den **update_message()** metod för att uppdatera ett meddelande. Metoden returnerar en tuppel som innehåller pop mottagandet av kömeddelandet och ett tidsvärde för UTC-datum som representerar när meddelandet kommer att visas i kön.
 
 ```ruby
@@ -119,7 +119,7 @@ pop_receipt, time_next_visible = azure_queue_service.update_message(
   30)
 ```
 
-## <a name="how-to-additional-options-for-dequeuing-messages"></a>Så här: Ytterligare alternativ för mellan köer meddelanden
+## <a name="how-to-additional-options-for-dequeuing-messages"></a>Instruktioner: Ytterligare alternativ för meddelanden mellan köer
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö.
 
 1. Du kan få en batch med meddelandet.
@@ -135,7 +135,7 @@ azure_queue_service.list_messages("test-queue", 300
 end
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: Hämta kölängden
+## <a name="how-to-get-the-queue-length"></a>Instruktioner: Hämta kölängden
 Du kan få en uppskattning av antalet meddelanden i kön. Den **hämta\_kö\_metadata()** metoden ber kötjänsten att returnera antalet ungefärliga meddelanden och metadata om kön.
 
 ```ruby
@@ -143,7 +143,7 @@ message_count, metadata = azure_queue_service.get_queue_metadata(
   "test-queue")
 ```
 
-## <a name="how-to-delete-a-queue"></a>Så här: Ta bort en kö
+## <a name="how-to-delete-a-queue"></a>Instruktioner: Ta bort en kö
 Ta bort en kö och alla meddelanden som finns i den genom att anropa den **ta bort\_queue()** metoden för köobjektet.
 
 ```ruby

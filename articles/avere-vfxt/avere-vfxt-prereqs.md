@@ -1,17 +1,17 @@
 ---
-title: Avere vFXT krav – Azure
+title: Avere vFXT prerequisites - Azure
 description: Krav för Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: d32c664049b7e7c1231e78c552e7c61d016fbe84
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
+ms.openlocfilehash: 9c3301ba16bfaeb7014658a380e287a36a505be8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51286766"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299215"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -33,22 +33,20 @@ Skapa en ny Azure-prenumeration i Azure portal:
 En användare med behörigheter för prenumerationen som ska skapa vFXT-kluster. Ägarbehörighet för prenumerationen krävs för dessa åtgärder, bland annat:
 
 * Acceptera villkoren för Avere vFXT programvara
-* Skapa klusterrollen noden åtkomst
-* Tillåt controller klusternod att hantera resursgrupper och virtuella nätverk 
-* Tillåt att kluster-kontrollanten för att skapa och ändra klusternoderna 
+* Skapa klusterrollen noden åtkomst 
 
 Det finns två lösningar om du inte vill ge ägaråtkomst till de användare som skapar vFXT:
 
 * En resursgruppägare kan skapa ett kluster om dessa villkor är uppfyllda:
 
-  * En prenumerant måste [acceptera Licensvillkor för programvara i Avere vFXT](#accept-software-terms-in-advance) och [skapa klusterrollen noden åtkomst](avere-vfxt-deploy.md#create-the-cluster-node-access-role).
+  * En prenumerant måste [acceptera Licensvillkor för programvara i Avere vFXT](#accept-software-terms) och [skapa klusterrollen noden åtkomst](#create-the-cluster-node-access-role). 
   * Alla Avere vFXT resurser måste distribueras i resursgruppen, inklusive:
     * Kluster-domänkontrollant
     * Klusternoder
     * Blob Storage
     * Nätverkselement
  
-* Användare med ingen ägare kan skapa vFXT kluster om en extra rollen skapas och tilldelas till användaren i tid. Den här rollen ger dock betydande behörigheter till dessa användare. [Den här artikeln](avere-vfxt-non-owner.md) förklarar hur du godkänner icke-ägare att skapa kluster.
+* Användare med ingen ägare kan skapa vFXT kluster med hjälp av rollbaserad åtkomstkontroll (RBAC i tid) för att tilldela behörigheter till användaren. Den här metoden ger betydande behörigheter till dessa användare. [Den här artikeln](avere-vfxt-non-owner.md) förklarar hur du skapar en åtkomstroll för att auktorisera icke-ägare att skapa kluster.
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kvoten för vFXT klustret
 
@@ -64,12 +62,12 @@ Du måste ha tillräckligt många följande Azure-komponenterna. Om det behövs 
 |Lagringskonto (valfritt) |v2|
 |Datalagring i serverdel (valfritt) |En ny LRS Blob-behållare |
 
-## <a name="accept-software-terms-in-advance"></a>Acceptera villkoren i förväg för programvara
+## <a name="accept-software-terms"></a>Acceptera licensvillkoren för programvara
 
 > [!NOTE] 
 > Det här steget krävs inte om en prenumerationsägare skapar Avere vFXT klustret.
 
-Innan du kan skapa ett kluster, måste du acceptera villkoren för Avere vFXT programvaran. Om du inte är en prenumerationsägare, har du en prenumerationsägare accepterar villkoren i tid. Det här steget behöver bara göras en gång per prenumeration.
+Du måste acceptera användarvillkoren för Avere vFXT programvaran när du skapar klustret. Om du inte är en prenumerationsägare, har du en prenumerationsägare accepterar villkoren i tid. Det här steget behöver bara göras en gång per prenumeration.
 
 Accepterar villkoren i förväg för programvaran: 
 
@@ -86,6 +84,74 @@ Accepterar villkoren i förväg för programvaran:
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Nästa steg: skapa vFXT-kluster
+## <a name="create-access-roles"></a>Skapa roller för åtkomst 
+
+[Rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) ger vFXT styrenhet och klustret klusternoderna behörighet att utföra åtgärderna.
+
+* Kontrollanten klustret behöver behörighet för att skapa och ändra virtuella datorer för att skapa klustret. 
+
+* Enskilda vFXT noder måste till exempel läsa Azure resursegenskaper, hantera lagring och styra inställningar för nätverksgränssnittet andra noder som en del av normal klusteråtgärden.
+
+Innan du kan skapa Avere vFXT klustret, måste du definiera en anpassad roll som ska användas med noderna i klustret. 
+
+Du kan acceptera standardroll från mallen för kluster-styrenheten. Standard ger klustret ägarprivilegier för controller resource group. Om du vill skapa en anpassad roll för styrenheten Se [anpassad åtkomst kontrollantrollen](avere-vfxt-controller-role.md).
+
+> [!NOTE] 
+> Endast en prenumerationsägare eller en användare med rollen ägare eller administratör för användaråtkomst, skapa roller. Rollerna som kan skapas i förväg.  
+
+### <a name="create-the-cluster-node-access-role"></a>Skapa klusterrollen noden åtkomst
+
+<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
+
+Du måste skapa noden klusterrollen innan du kan skapa Avere vFXT för Azure-kluster.
+
+> [!TIP] 
+> Interna Microsoft-användare bör använda befintlig roll med namnet ”Avere kluster Runtime-operatör” i stället för att försök för att skapa en. 
+
+1. Kopiera den här filen. Lägg till ditt prenumerations-ID i AssignableScopes-rad.
+
+   (Den aktuella versionen av den här filen lagras i databasen som github.com/Azure/Avere [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).)  
+
+   ```json
+   {
+      "AssignableScopes": [
+          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
+      ],
+      "Name": "Avere Operator",
+      "IsCustom": "true",
+      "Description": "Used by the Avere vFXT cluster to manage the cluster",
+      "NotActions": [],
+      "Actions": [
+          "Microsoft.Compute/virtualMachines/read",
+          "Microsoft.Network/networkInterfaces/read",
+          "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/subnets/read",
+          "Microsoft.Network/virtualNetworks/subnets/join/action",
+          "Microsoft.Network/networkSecurityGroups/join/action",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
+      ],
+      "DataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
+      ]
+   }
+   ```
+
+1. Spara filen som ``avere-operator.json`` eller liknande egen filnamn. 
+
+
+1. Öppna ett Azure Cloud shell och logga in med ditt prenumerations-ID (beskrivs [tidigare i det här dokumentet](#accept-software-terms)). Använd följande kommando för att skapa rollen:
+
+   ```bash
+   az role definition create --role-definition /avere-operator.json
+   ```
+
+Rollnamnet används när klustret skapas. I det här exemplet heter ``avere-operator``.
+
+## <a name="next-step-create-the-vfxt-cluster"></a>Nästa steg: Skapa vFXT-kluster
 
 När du har slutfört dessa krav, kan du gå vidare till skapa själva klustret. Läs [distribuera vFXT klustret](avere-vfxt-deploy.md) anvisningar.

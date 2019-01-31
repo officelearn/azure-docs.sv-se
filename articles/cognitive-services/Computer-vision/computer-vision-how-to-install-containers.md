@@ -6,21 +6,19 @@ services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.subservice: text-analytics
+ms.subservice: computer-vision
 ms.topic: article
-ms.date: 01/22/2019
+ms.date: 01/29/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: eb586a71747bb1708b069f30a86421c691cb3d46
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1e7f62d35e9850202b7d55c3c3440ff88413931d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55186407"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55473501"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installera och köra Identifiera Text behållare
-
-Skapa behållare är en metod för distribution av programvara där ett program eller tjänst kommer som en behållaravbildning. Konfiguration och beroenden för programmet eller tjänsten ingår i behållaravbildningen. Behållaravbildningen kan sedan distribueras på en behållarvärd med lite eller ingen ändring. Behållare är isolerade från varandra och det underliggande operativsystemet, med mindre avtryck än en virtuell dator. Behållare kan instansieras behållaravbildningar för kortsiktig uppgifter och tas bort när den inte längre behövs.
 
 Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Docker-behållare. Det kan du identifiera och extrahera utskrivna text från bilder för olika objekt med olika ytor och bakgrunder, till exempel kvitton och affischer visitkort.  
 > [!IMPORTANT]
@@ -28,108 +26,101 @@ Identifiera Text-delen av visuellt innehåll är också tillgängligt som en Doc
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="preparation"></a>Förberedelse
+## <a name="prerequisites"></a>Förutsättningar
 
-Du måste uppfylla följande krav innan du använder behållaren identifiera Text:
+Du måste uppfylla följande krav innan du använder identifiera Text behållare:
 
-**Docker-motorn**: Du måste ha Docker-motorn installerad lokalt. Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), och [Windows](https://docs.docker.com/docker-for-windows/). På Windows, måste Docker konfigureras för att stödja Linux-behållare. Docker-behållare kan också distribueras direkt till [Azure Kubernetes Service](../../aks/index.yml), [Azure Container Instances](../../container-instances/index.yml), eller till en [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](../../azure-stack/index.yml). Mer information om hur du distribuerar Kubernetes i Azure Stack finns i [distribuera Kubernetes i Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+|Krävs|Syfte|
+|--|--|
+|Docker-motorn| Du behöver Docker-motorn installerad på en [värddatorn](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> **På Windows**, Docker måste också konfigureras för att stödja Linux-behållare.<br><br>|
+|Liknar processen med Docker | Du bör ha grundläggande kunskaper om Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.| 
+|Identifiera Text resurs |För att kunna använda behållaren måste du ha:<br><br>En [ _identifiera Text_ ](vision-api-how-to-topics/howtosubscribe.md) Azure-resurs att hämta associerade krypteringsnyckeln och fakturering slutpunkt URI. Båda värdena är tillgängliga på Azure portal identifiera Text översikt och nycklar sidor och krävs för att starta behållaren.<br><br>**{BILLING_KEY}** : Resursnyckeln<br><br>**{BILLING_ENDPOINT_URI}** : endpoint URI exempel är: `https://westus.api.cognitive.microsoft.com/vision/v2.0`|
 
-Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure.
-
-**Liknar processen med Microsoft Container Registry och Docker**: Du bör ha grundläggande kunskaper om både Microsoft Container Registry och Docker-begrepp som register, databaser, behållare, och behållaravbildningar samt kunskaper om grundläggande `docker` kommandon.  
-
-Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).
-
-### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
-
-Identifiera Text-behållare kräver minst 1 processorkärna, minst 2,6 GHz (gigahertz) eller snabbare och 8 gigabyte (GB) för allokerat minne, men vi rekommenderar minst 2 CPU-kärnor och 8 GB allokerat minne.
 
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
-Du måste först slutför och skicka den [Cognitive Services Vision behållare formulär](https://aka.ms/VisionContainersPreview) att begära åtkomst till behållaren identifiera Text. Formuläret begär information om dig, ditt företag och Användarscenario som du använder behållaren. När skickat, Azure Cognitive Services-teamet har granskat formuläret för att säkerställa att du uppfyller villkoren för åtkomst till det privata behållarregistret.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-> [!IMPORTANT]
-> Du måste använda en e-postadress som är associerad med ett Microsoft-konto (MSA) eller Azure Active Directory (Azure AD)-konto i formuläret.
+### <a name="the-host-computer"></a>Värddatorn
 
-Om din begäran har godkänts får du ett e-postmeddelande med instruktioner om hur du hämtar dina autentiseringsuppgifter och komma åt det privata behållarregistret.
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
-## <a name="create-a-computer-vision-resource-on-azure"></a>Skapa en resurs för visuellt innehåll på Azure
 
-Du måste skapa en resurs för visuellt innehåll i Azure om du vill identifiera Text-behållare. När du skapar resursen kan använda du sedan prenumeration nyckel och slutpunkt URL: en från resursen att skapa en instans av behållaren. Läs mer om att skapa instanser en behållare, [skapa en instans av en behållare från en hämtade behållaravbildning](#instantiate-a-container-from-a-downloaded-container-image).
+### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
-Utför följande steg för att skapa och hämta information från en Azure-resurs:
+I följande tabell beskrivs de minsta och rekommenderade processorkärnor och minne för att allokera för varje behållare identifiera Text.
 
-1. Skapa en Azure-resurs i Azure-portalen.  
-   Om du vill identifiera Text-behållare måste du först skapa en resurs med motsvarande visuellt i Azure-portalen. Mer information finns i [ Snabbstart: Skapa ett Cognitive Services-konto i Azure portal](../cognitive-services-apis-create-account.md).
+| Container | Minimum | Rekommenderas |
+|-----------|---------|-------------|
+|Identifiera Text|1 kärna, 8 GB minne, 0,5 TPS|2 kärnor, 8 GB minne, 1 TPS|
 
-1. Hämta slutpunktsnyckeln för URL: en och -prenumeration för Azure-resursen.  
-   När Azure-resursen har skapats måste du använda slutpunktsnyckeln för URL: en och -prenumeration från den här resursen för att skapa en instans av behållaren motsvarande identifiera Text. Du kan kopiera URL: en och prenumeration slutpunktsnyckeln från respektive sidorna Snabbstart och nycklar för visuellt innehåll resursen på Azure-portalen.
+Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
 
-## <a name="log-in-to-the-private-container-registry"></a>Logga in på privat behållarregister
+Kärnor och minne som motsvarar den `--cpus` och `--memory` inställningar som används som en del av den `docker run` kommando.
 
-Det finns flera sätt att autentisera med det privata behållarregistret för Cognitive Services-behållare, men den rekommenderade metoden från kommandoraden är med hjälp av den [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
 
-Använd den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot, som visas i följande exempel för att logga in på `containerpreview.azurecr.io`, privat behållarregister för Cognitive Services-behållare. Ersätt *\<användarnamn\>* med användarnamnet och *\<lösenord\>* med det angivna inloggningsuppgifterna lösenordet som du fick från Azure Cognitive Services-teamet.
+## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållaravbildningen med `docker pull`
 
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
+Behållaravbildningar för identifiera Text är tillgängliga. 
 
-Om du har skyddat dina autentiseringsuppgifter i en textfil kan du sammanfoga innehållet i texten fil, använda den `cat` för att den `docker login` kommandot som visas i följande exempel. Ersätt *\<{passwordFile\>* med sökvägen och namnet på den textfil som innehåller lösenordet och *\<användarnamn\>* med användarnamnet tillhandahålla i dina autentiseringsuppgifter.
+| Container | Lagringsplats |
+|-----------|------------|
+|Identifiera Text | `containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest` |
 
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
+Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning.
 
-## <a name="download-container-images-from-the-private-container-registry"></a>Hämta behållaravbildningar från privata container registry
 
-Behållaravbildning för behållaren identifiera Text är tillgänglig från ett privat Docker-behållarregister, med namnet `containerpreview.azurecr.io`, i Azure Container Registry. Behållaravbildning för identifiera Text behållaren måste laddas ned från lagringsplatsen till kör behållaren lokalt.
-
-Använd den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning från databasen. Till exempel för att hämta den senaste identifiera Text-behållaravbildningen från databasen, använder du följande kommando:
+### <a name="docker-pull-for-the-recognize-text-container"></a>Docker pull för behållaren identifiera Text
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-rocognize-text:latest
 ```
 
-En fullständig beskrivning av tillgängliga taggar för behållaren identifiera Text, se [identifiera Text](https://go.microsoft.com/fwlink/?linkid=2018655) på Docker Hub.
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-> [!TIP]
-> Du kan använda den [docker-avbildningar](https://docs.docker.com/engine/reference/commandline/images/) kommando för att lista din hämtade behållaravbildningar. Till exempel visar följande kommando ID, databasen och taggen för varje hämtade behållaravbildningen, formaterad som en tabell:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->  ```
->
+## <a name="how-to-use-the-container"></a>Hur du använder behållare
 
-## <a name="instantiate-a-container-from-a-downloaded-container-image"></a>Skapa en instans av en behållare från en hämtade behållaravbildning
+När behållaren är på den [värddatorn](#the-host-computer), använder du följande process för att arbeta med behållaren.
 
-Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att skapa en instans av en behållare från en hämtade behållaravbildning. Till exempel följande kommando:
+1. [Kör behållaren](#run-the-container-with-docker-run), med de nödvändiga fakturering inställningar. Mer [exempel](computer-vision-resource-container-config.md) av den `docker run` kommandot är tillgängliga. 
+1. [Fråga förutsägelse behållarslutpunkten](#query-the-containers-prediction-endpoint). 
 
-* Skapar en instans av en behållare från behållaravbildningen identifiera Text
-* Allokerar två CPU-kärnor och 8 gigabyte (GB) minne
+## <a name="run-the-container-with-docker-run"></a>Kör behållaren med `docker run`
+
+Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra behållaren. Kommandot använder följande parametrar:
+
+| Platshållare | Värde |
+|-------------|-------|
+|{BILLING_KEY} | Den här nyckeln används för att starta behållaren och är tillgänglig på sidan för Azure-portalens identifiera Text nycklar.  |
+|{BILLING_ENDPOINT_URI} | Fakturering slutpunkten URI-värdet.|
+
+Ersätt parametrarna med dina egna värden i följande exempel `docker run` kommando.
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
+containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
+Eula=accept \
+Billing={BILLING_ENDPOINT_URI} \
+ApiKey={BILLING_KEY}
+```
+
+Det här kommandot:
+
+* Kör en identifiera behållare från behållaravbildningen
+* Allokerar en CPU-kärna och 4 gigabyte (GB) minne
 * Visar TCP-port 5000 och allokerar en pseudo-TTY för behållaren
-* Automatiskt att ta bort behållaren när avslutas
+* Tar automatiskt bort behållaren när avslutas. Behållaravbildningen finns kvar på värddatorn. 
 
-```docker
-docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text Eula=accept Billing=https://westus.api.cognitive.microsoft.com/vision/v2.0 ApiKey=0123456789
-```
-
-När instansierats, kan du anropa åtgärder från behållaren med hjälp av behållarvärd URI. Följande värden URI representerar till exempel identifiera Text-behållare som har initierats i föregående exempel:
-
-```http
-http://localhost:5000/
-```
+Mer [exempel](./computer-vision-resource-container-config.md#example-docker-run-commands) av den `docker run` kommandot är tillgängliga. 
 
 > [!IMPORTANT]
-> Du kan komma åt den [OpenAPI-specifikation](https://swagger.io/docs/specification/about/) (tidigare Swagger-specifikation), som beskriver de åtgärder som stöds av en initierad behållare från den `/swagger` relativ URI för den behållaren. Följande URI: N innehåller till exempel åtkomst till den OpenAPI-specifikationen för behållaren identifiera Text som har initierats i föregående exempel:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+> Den `Eula`, `Billing`, och `ApiKey` alternativ måste anges för att köra behållaren, i annat fall startar inte behållaren.  Mer information finns i [fakturering](#billing).
 
-Du kan antingen [anropa REST API-åtgärder](https://docs.microsoft.com/azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi) tillgängliga från en behållare för synkront eller asynkront söker efter text, eller Använd den [Azure Cognitive Services datorn Vision SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) klienten biblioteket för att anropa dessa åtgärder.  
-> [!IMPORTANT]
-> Du måste ha Azure Cognitive Services datorn Vision SDK version 3.2.0 eller senare om du vill använda klientbiblioteket med din behållare.
+## <a name="query-the-containers-prediction-endpoint"></a>Fråga behållarslutpunkten förutsägelse
+
+Behållaren innehåller REST-baserade frågan förutsägelse endpoint API: er. 
+
+Använd värden https://localhost:5000, för behållaren API: er.
 
 ### <a name="asynchronous-text-recognition"></a>Asynkron textigenkänning
 
@@ -139,33 +130,49 @@ Du kan använda den `POST /vision/v2.0/recognizeText` och `GET /vision/v2.0/text
 
 Du kan använda den `POST /vision/v2.0/recognizeTextDirect` åtgärden att synkront känna igen utskrivna text i en bild. Eftersom åtgärden sker synkront, förfrågans brödtext för den här åtgärden är samma som för den `POST /vision/v2.0/recognizeText` igen, men svaret brödtext för den här åtgärden är samma som returneras av den `GET /vision/v2.0/textOperations/*{id}*` igen.
 
-### <a name="billing"></a>Fakturering
+## <a name="stop-the-container"></a>Stoppa behållaren
 
-Identifiera Text behållaren skickar faktureringsinformation till Azure, med en motsvarande visuellt-resurs på ditt Azure-konto. Följande alternativ används för faktureringsändamål behållaren identifiera Text:
+[!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
+
+## <a name="troubleshooting"></a>Felsökning
+
+Om du kör behållaren med ett utgående [montera](./computer-vision-resource-container-config.md#mount-settings) och loggning är aktiverat, behållaren genererar loggfiler som är användbara för att felsöka problem som kan inträffa när startas eller körs i behållaren. 
+
+## <a name="containers-api-documentation"></a>Behållarens API-dokumentation
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+## <a name="billing"></a>Fakturering
+
+Identifiera Text behållare skicka faktureringsinformation till Azure, med en _identifiera Text_ resurs på ditt Azure-konto. 
+
+Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata till Microsoft. 
+
+Den `docker run` kommando använder följande argument för fakturering:
 
 | Alternativ | Beskrivning |
 |--------|-------------|
-| `ApiKey` | API-nyckel för den resursen för visuellt innehåll som används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en API-nyckel för den etablerade datorn Vision Azure-resursen som anges i `Billing`. |
-| `Billing` | Slutpunkten för visuellt innehåll resursen används för att spåra faktureringsinformation.<br/>Värdet för det här alternativet måste anges till en etablerade datorn Vision Azure-resurs-URI-slutpunkten.|
+| `ApiKey` | API-nyckeln för den _identifiera Text_ resurs som används för att spåra faktureringsinformation. |
+| `Billing` | Slutpunkten för den _identifiera Text_ resurs som används för att spåra faktureringsinformation.|
 | `Eula` | Anger att du har godkänt licensen för behållaren.<br/>Värdet för det här alternativet måste anges till `accept`. |
 
 > [!IMPORTANT]
 > Alla tre alternativ måste anges med giltiga värden eller behållaren startar inte.
 
-Mer information om alternativen finns i [konfigurera behållare](computer-vision-resource-container-config.md).
+Mer information om alternativen finns i [konfigurera behållare](./computer-vision-resource-container-config.md).
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och visuellt behållare som körs. Sammanfattningsvis:
+I den här artikeln beskrivs begrepp och arbetsflöde för att ladda ned, installera och identifiera Text behållare som körs. Sammanfattningsvis:
 
-* Visuellt innehåll ger en Linux-behållare för Docker för att identifiera och extrahera utskrivna text.
-* Avbildningar hämtas från ett privat behållarregister i Azure.
+* Identifiera Text innehåller en Linux-behållare för Docker, kapslar in identifiera text.
+* Behållaravbildningar laddas ned från Microsoft Container Registry (MCR) i Azure.
 * Behållaravbildningar som körs i Docker.
-* Du kan använda antingen SDK eller REST API för att anropa åtgärder i visuellt behållare genom att ange värden URI: N för behållaren.
+* Du kan använda antingen SDK eller REST API för att anropa åtgärder i identifiera Text behållare genom att ange värden URI: N för behållaren.
 * Du måste ange faktureringsinformation när instanser skapades av en behållare.
 
 > [!IMPORTANT]
-> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex. bild eller text som analyseras) till Microsoft.
+> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services-behållare Skicka inte kunddata (t.ex, bild eller text som analyseras) till Microsoft.
 
 ## <a name="next-steps"></a>Nästa steg
 

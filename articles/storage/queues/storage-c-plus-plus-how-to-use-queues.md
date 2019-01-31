@@ -9,13 +9,13 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: cbrooksmsft
-ms.component: queues
-ms.openlocfilehash: 36fa2e5bc7eda7c47017713008aec2a245213462
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: queues
+ms.openlocfilehash: 1f2f52fc08ab4da4a7525f3018b7a9aea2f7c576
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521575"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457369"
 ---
 # <a name="how-to-use-queue-storage-from-c"></a>Använda Queue Storage från C++
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -75,7 +75,7 @@ Om du vill starta Azure storage-emulatorn, Välj den **starta** knapp eller geno
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.
 
-## <a name="retrieve-your-connection-string"></a>Hämtar anslutningssträngen
+## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
 Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen för lagring. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.
 
 ```cpp
@@ -83,7 +83,7 @@ Du kan använda den **cloud_storage_account** klass för att representera kontoi
 azure::storage::cloud_storage_account storage_account = azure::storage::cloud_storage_account::parse(storage_connection_string);
 ```
 
-## <a name="how-to-create-a-queue"></a>Så här: skapa en kö
+## <a name="how-to-create-a-queue"></a>Anvisningar: Skapa en kö
 En **cloud_queue_client** objektet kan användas för att hämta referensobjekt för köer. Följande kod skapar en **cloud_queue_client** objekt.
 
 ```cpp
@@ -104,7 +104,7 @@ azure::storage::cloud_queue queue = queue_client.get_queue_reference(U("my-sampl
  queue.create_if_not_exists();  
 ```
 
-## <a name="how-to-insert-a-message-into-a-queue"></a>Anvisning: Infoga ett meddelande i en kö
+## <a name="how-to-insert-a-message-into-a-queue"></a>Anvisningar: Infoga ett meddelande i en kö
 Om du vill infoga ett meddelande i en befintlig kö, först skapa ett nytt **cloud_queue_message**. Därefter anropar den **add_message** metod. En **cloud_queue_message** kan skapas från antingen en sträng eller en **byte** matris. Här är kod som skapar en kö (om den inte finns) och som infogar meddelandet ”Hello World”:
 
 ```cpp
@@ -125,7 +125,7 @@ azure::storage::cloud_queue_message message1(U("Hello, World"));
 queue.add_message(message1);  
 ```
 
-## <a name="how-to-peek-at-the-next-message"></a>Så här: en titt på nästa meddelande
+## <a name="how-to-peek-at-the-next-message"></a>Anvisningar: En titt på nästa meddelande
 Du kan kika på meddelandet först i en kö utan att ta bort det från kön genom att anropa den **peek_message** metod.
 
 ```cpp
@@ -145,7 +145,7 @@ azure::storage::cloud_queue_message peeked_message = queue.peek_message();
 std::wcout << U("Peeked message content: ") << peeked_message.content_as_string() << std::endl;
 ```
 
-## <a name="how-to-change-the-contents-of-a-queued-message"></a>Så här: ändra innehållet i ett meddelande i kön
+## <a name="how-to-change-the-contents-of-a-queued-message"></a>Anvisningar: Ändra innehållet i ett meddelande i kön
 Du kan ändra innehållet i ett meddelande direkt i kön. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar kömeddelandet med nytt innehåll och utökar tidsgränsen för visning med ytterligare 60 sekunder. Koden sparar statusen för arbetsuppgiften som associeras med meddelandet och ger klienten ytterligare en minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt ser du till att även antalet omförsök och om meddelandet görs ett nytt fler än n gånger, tar bort den. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
 
 ```cpp
@@ -171,7 +171,7 @@ queue.update_message(changed_message, std::chrono::seconds(60), true);
 std::wcout << U("Changed message content: ") << changed_message.content_as_string() << std::endl;  
 ```
 
-## <a name="how-to-de-queue-the-next-message"></a>Så här: ta bort nästa meddelande från kön
+## <a name="how-to-de-queue-the-next-message"></a>Anvisningar: Ta bort nästa meddelande från kön
 Koden tar bort ett meddelande från en kö i två steg. När du anropar **get_message**, du får nästa meddelande i en kö. Ett meddelande som returneras från **get_message** blir osynligt för andra kod som läser meddelanden från den här kön. Om du vill slutföra borttagningen av meddelandet från kön, måste du även anropa **delete_message**. Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Koden anropar **delete_message** direkt efter att meddelandet har bearbetats.
 
 ```cpp
@@ -192,7 +192,7 @@ std::wcout << U("Dequeued message: ") << dequeued_message.content_as_string() <<
 queue.delete_message(dequeued_message);
 ```
 
-## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Så här: använda fler alternativ för att hämta meddelanden ur kön
+## <a name="how-to-leverage-additional-options-for-de-queuing-messages"></a>Anvisningar: Använda fler alternativ för att hämta meddelanden ur kön
 Det finns två metoder som du kan använda för att anpassa meddelandehämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. Följande kodexempel används den **get_messages** metod för att hämta 20 meddelanden i ett anrop. Sedan bearbetas varje meddelande med hjälp av en **för** loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att de fem minuterna startar för alla meddelanden samtidigt, efter 5 minuter har gått sedan anropet till **get_messages**, alla meddelanden som inte har tagits bort kommer att bli synliga igen.
 
 ```cpp
@@ -220,7 +220,7 @@ for (auto it = messages.cbegin(); it != messages.cend(); ++it)
 }
 ```
 
-## <a name="how-to-get-the-queue-length"></a>Så här: hämta kölängden
+## <a name="how-to-get-the-queue-length"></a>Anvisningar: Hämta kölängden
 Du kan hämta en uppskattning av antalet meddelanden i en kö. Den **download_attributes** metoden ber kötjänsten att hämta köattributen, inklusive meddelandeantalet. Den **approximate_message_count** metoden hämtar Ungefärligt antal meddelanden i kön.
 
 ```cpp
@@ -243,7 +243,7 @@ int cachedMessageCount = queue.approximate_message_count();
 std::wcout << U("Number of messages in queue: ") << cachedMessageCount << std::endl;  
 ```
 
-## <a name="how-to-delete-a-queue"></a>Så här: ta bort en kö
+## <a name="how-to-delete-a-queue"></a>Anvisningar: Ta bort en kö
 Ta bort en kö och alla meddelanden som finns i den genom att anropa den **delete_queue_if_exists** metoden för köobjektet.
 
 ```cpp

@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: howto
 ms.date: 01/10/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9a1d0775c12d424c35e9e9d366f69e07ec9b1468
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a44e53d7a32ab151fa951d1bc89b741390a70dfb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55096984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464797"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster
 
@@ -27,6 +27,8 @@ Azure Data Lake Storage Gen2 är tillgängligt som ett lagringsalternativ för n
 > När du har valt Data Lake Storage Gen2 som din **primär lagringstyp**, du kan inte välja ett Data Lake Storage Gen1-konto som ytterligare lagringsutrymme.
 
 ## <a name="creating-an-hdinsight-cluster-with-data-lake-storage-gen2"></a>Skapar ett HDInsight-kluster med Data Lake Storage Gen2
+
+## <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för lagring, Använd följande steg för att skapa ett Data Lake Storage Gen2-konto som har konfigurerats korrekt.
 
@@ -62,6 +64,48 @@ Om du vill skapa ett HDInsight-kluster som använder Data Lake Storage Gen2 för
         * Under **identitet** Välj rätt prenumeration och den nyligen skapade användartilldelade hanterad identitet.
         
             ![Inställningarna för att använda Data Lake Storage Gen2 med Azure HDInsight](./media/hdinsight-hadoop-data-lake-storage-gen2/managed-identity-cluster-creation.png)
+
+### <a name="using-a-resource-manager-template-deployed-with-azure-cli"></a>Med en Resource Manager-mall som distribueras med Azure CLI
+
+Du kan hämta ett exempel [mallfilen här](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) och en [exempel parameterfilen här](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json). Innan du använder mallen, ersätter du ditt faktiska Azure prenumerations-ID för strängen `<SUBSCRIPTION_ID>`. Dessutom ersätter du ditt valda lösenord för strängen `<PASSWORD>` att ange både inloggningslösenordet som du använder för att logga in på ditt kluster, samt SSH-lösenordet.
+
+Kodfragmentet nedan utför följande förberedelser:
+
+1. Logga in på ditt Azure-konto.
+1. Ange aktiv prenumeration där du vill skapa-åtgärder ska utföras.
+1. Skapa en ny resursgrupp för de nya distribution aktiviteterna `hdinsight-deployment-rg`.
+1. Skapa en användare hanterad tjänstidentitet (MSI) `test-hdinsight-msi`.
+1. Lägga till ett tillägg till Azure CLI för att använda funktioner för Data Lake Storage Gen2.
+1. Skapa ett nytt konto för Data Lake Storage Gen2 `hdinsightadlsgen2`, med hjälp av den `--hierarchical-namespace true` flaggan.
+
+```azurecli
+az login
+az account set --subscription <subscription_id>
+
+#create resource group
+az group create --name hdinsight-deployment-rg --location eastus
+
+# Create managed identity
+az identity create -g hdinsight-deployment-rg -n test-hdinsight-msi
+
+az extension add --name storage-preview
+
+az storage account create --name hdinsightadlsgen2 \
+    --resource-group hdinsight-deployment-rg \
+    --location eastus --sku Standard_LRS \
+    --kind StorageV2 --hierarchical-namespace true
+```
+
+Nästa, logga in på portalen och Lägg till ny MSI till den **Storage Blob Data-deltagare (förhandsgranskning)** -rollen på storage-konto, enligt beskrivningen i steg 3 ovan under [med Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md#using-the-azure-portal).
+
+När du har slutfört MSI-rolltilldelning i portalen, fortsätter du att distribuera mallen med hjälp av kodfragmentet nedan.
+
+```azurecli
+az group deployment create --name HDInsightADLSGen2Deployment \
+    --resource-group hdinsight-deployment-rg \
+    --template-file hdinsight-adls-gen2-template.json \
+    --parameters parameters.json
+```
 
 ## <a name="access-control-for-data-lake-storage-gen2-in-hdinsight"></a>Åtkomstkontroll för Data Lake Storage Gen2 i HDInsight
 

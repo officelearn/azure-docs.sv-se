@@ -11,17 +11,17 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
-ms.date: 11/09/2018
-ms.openlocfilehash: 6fbfaaa82095fbf093560e65076b40a392356da8
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.date: 01/25/2019
+ms.openlocfilehash: 78858ba888986b75a1da77caaec1ef02ffcdf307
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54330168"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467704"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>Replikering till SQL Database enkel och delade databaser
 
-SQL Server-replikering kan konfigureras för enkel och delade databaser på en [logisk server](sql-database-logical-servers.md) i Azure SQL Database.  
+SQL Server-replikering kan konfigureras för enkel och delade databaser på en [SQL-databasserver](sql-database-servers.md) i Azure SQL Database.  
 
 ## <a name="supported-configurations"></a>**Konfigurationer som stöds:**
   
@@ -65,7 +65,7 @@ SQL Server-replikering kan konfigureras för enkel och delade databaser på en [
 
 1. Skapa en Transaktionsreplikering publikation på en lokal SQL Server-databas.  
 2. På en lokal SQL Server använder du den **New Subscription Wizard** eller Transact-SQL-uttryck för att skapa en distribution till Azure SQL Database-prenumeration.  
-3. Med enkel och delade databaser i Azure SQL Database är den första datauppsättningen en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten. Med Azure SQL Database Managed Instance, kan du också använda en säkerhetskopia av databasen för att seeda prenumerationsdatabasen.
+3. Med enkel och delade databaser i Azure SQL Database är den första datauppsättningen en ögonblicksbild som skapats av Ögonblicksbildagenten och distribueras och tillämpas av Distributionsagenten. Du kan också använda en säkerhetskopia av databasen för att seeda prenumerationsdatabasen med en hanterad instans-databas.
 
 ### <a name="data-migration-scenario"></a>Data Migration Scenario  
 
@@ -107,7 +107,7 @@ Följande alternativ stöds inte för Azure SQL Database-prenumerationer:
 Skapa en publikation och en utgivarinitierad prenumeration. Mer information finns i:
   
 - [Skapa en publikation](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Skapa en Push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) genom att använda Azure SQL-databasnamn för logisk server som prenumeranten (till exempel **N'azuresqldbdns.database.windows.net'**) och Azure SQL-databasnamn som mål-databasen ( till exempel **AdventureWorks**).  
+- [Skapa en Push-prenumeration](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) genom att använda Azure SQL Database-servernamnet som prenumeranten (till exempel **N'azuresqldbdns.database.windows.net'**) och Azure SQL-databasnamn som måldatabasen (för exempel **AdventureWorks**).  
 
 ## <a name="see-also"></a>Se även  
 

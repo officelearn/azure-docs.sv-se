@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fdb51bf249990a10b8476a55be1103cb05c5821b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301090"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466991"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
 Den här artikeln beskriver hur du använder dynamiska hanteringsvyer (DMV) för att övervaka din arbetsbelastning. Detta inkluderar att undersöka Frågekörningen i Azure SQL Data Warehouse.
@@ -80,7 +80,7 @@ OPTION (LABEL = 'My Query')
 ;
 ```
 
-### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersök frågeplanen
+### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersöka frågeplanen
 Använda ID för begäran för att hämta frågans distribuerade SQL (DSQL) planen från [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
@@ -99,7 +99,7 @@ Att undersöka vidare information om ett enskilt steg i *operation_type* kolumne
 * Fortsätt med steg 3a för **SQL operations**: OnOperation, RemoteOperation, ReturnOperation.
 * Fortsätt med steg 3b för **dataförflyttning operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STEG 3a: Undersök SQL på distribuerade databaser
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STEG 3a: Undersöka SQL på distribuerade databaser
 Använd ID för begäran och steg indexet för att hämta information från [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], som innehåller information om körning av fråga steg på alla distribuerade databaser.
 
 ```sql
@@ -119,7 +119,7 @@ När frågesteg körs [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN]
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3b: Undersök dataförflyttning på distribuerade databaser
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3b: Undersöka dataförflyttning på distribuerade databaser
 Använda ID för begäran och indexet steg för att hämta information om ett steg för flytt av data som körs på varje distributionsplats från [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql

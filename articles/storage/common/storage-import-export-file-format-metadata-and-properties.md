@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 5a886244b43ad006a95e9be0350d9c69fd987ad9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 2066d4a2ed6db97285d92d15e14dbd21629dbdfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526240"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457011"
 ---
 # <a name="azure-importexport-service-metadata-and-properties-file-format"></a>Azure Import/Export-tjänstens metadata och egenskapers filformat
 Du kan ange egenskaper för en eller flera blobbar och metadata som en del av ett importjobb eller en export-jobbet. Om du vill ange egenskaper för BLOB-objekt som skapas som en del av ett importjobb eller metadata, kan du ange en metadata eller egenskaper-fil på hårddisken som innehåller data som ska importeras. För ett exportjobb skrivs metadata och egenskapers till en fil för metadata eller egenskaper som ingår på hårddisken till dig.  
@@ -30,10 +30,10 @@ Formatet för en metadatafil är följande:
 </Metadata>  
 ```
   
-|XML-Element|Typ|Beskrivning|  
+|XML Element|Type|Beskrivning|  
 |-----------------|----------|-----------------|  
 |`Metadata`|Rotelement|Rotelementet filens metadata.|  
-|`metadata-name`|Sträng|Valfri. XML-elementet anger namnet på metadata för bloben och dess värde anger värdet för inställningen metadata.|  
+|`metadata-name`|String|Valfri. XML-elementet anger namnet på metadata för bloben och dess värde anger värdet för inställningen metadata.|  
   
 ## <a name="properties-file-format"></a>Egenskaper för filformat  
 Formatet för en egenskapsfil är följande:  
@@ -52,17 +52,17 @@ Formatet för en egenskapsfil är följande:
 </Properties>  
 ```
   
-|XML-Element|Typ|Beskrivning|  
+|XML Element|Type|Beskrivning|  
 |-----------------|----------|-----------------|  
 |`Properties`|Rotelement|Rotelementet filens egenskaper.|  
-|`Last-Modified`|Sträng|Valfri. Tid för senaste ändring för bloben. För export-jobb.|  
-|`Etag`|Sträng|Valfri. Blobens ETag-värdet. För export-jobb.|  
-|`Content-Length`|Sträng|Valfri. Storleken på blobben i byte. För export-jobb.|  
-|`Content-Type`|Sträng|Valfri. Innehållstypen för blobben.|  
-|`Content-MD5`|Sträng|Valfri. Blobens MD5-hash.|  
-|`Content-Encoding`|Sträng|Valfri. Blobens innehåll kodning.|  
-|`Content-Language`|Sträng|Valfri. Blobens innehåll språk.|  
-|`Cache-Control`|Sträng|Valfri. Kontroll av cache sträng för bloben.|  
+|`Last-Modified`|String|Valfri. Tid för senaste ändring för bloben. För export-jobb.|  
+|`Etag`|String|Valfri. Blobens ETag-värdet. För export-jobb.|  
+|`Content-Length`|String|Valfri. Storleken på blobben i byte. För export-jobb.|  
+|`Content-Type`|String|Valfri. Innehållstypen för blobben.|  
+|`Content-MD5`|String|Valfri. Blobens MD5-hash.|  
+|`Content-Encoding`|String|Valfri. Blobens innehåll kodning.|  
+|`Content-Language`|String|Valfri. Blobens innehåll språk.|  
+|`Cache-Control`|String|Valfri. Kontroll av cache sträng för bloben.|  
 
 ## <a name="next-steps"></a>Nästa steg
 

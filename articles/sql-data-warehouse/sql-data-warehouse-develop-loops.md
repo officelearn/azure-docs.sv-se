@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: b7c21566916c9728900e69dc6480098fadae7622
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5aa26aeb27d962e6e6289a754ef57b49158b68db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456297"
 ---
 # <a name="using-t-sql-loops-in-sql-data-warehouse"></a>Med hjälp av T-SQL-slingor i SQL Data Warehouse
 Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data Warehouse för utveckling av lösningar.
@@ -25,7 +25,7 @@ Tips för att använda T-SQL-slingor och ersätta markörer i Azure SQL Data War
 SQL Data Warehouse stöder den [medan](/sql/t-sql/language-elements/while-transact-sql) loop för att köra instruktionen block upprepade gånger. Den här tag-loopen fortsätter så länge de angivna villkoren är sant, eller tills koden särskilt avbryter loopen med hjälp av nyckelordet BREAK. Loopar är användbara för att ersätta markörer som definierats i SQL-kod. Nästan alla markörer som är skrivna i SQL-kod är som tur är kan sortens snabba framåtriktade, skrivskyddade. Därför [medan] slingor är ett perfekt alternativ för att ersätta markörer.
 
 ## <a name="replacing-cursors-in-sql-data-warehouse"></a>Ersätt markörer i SQL Data Warehouse
-Men innan du börjar i head först bör du fråga dig själv följande fråga ”: kan den här markören skrivas om för att använda set-baserade åtgärder?”. I många fall svaret är Ja och är ofta det bästa sättet. En set-baserade åtgärden ofta utförs snabbare än en iterativ, rad för rad metod.
+Men innan du börjar i head först bör du fråga dig själv följande fråga: ”Kan den här markören skrivas om för att använda set-baserade åtgärder?”. I många fall svaret är Ja och är ofta det bästa sättet. En set-baserade åtgärden ofta utförs snabbare än en iterativ, rad för rad metod.
 
 Snabba framåtriktade skrivskyddade markörer kan enkelt ersättas med uvozuje konstruktor cyklu. Följande är ett enkelt exempel. Det här kodexemplet uppdaterar statistik för varje tabell i databasen. Genom att gå över tabeller i loopen körs varje kommando i följd.
 

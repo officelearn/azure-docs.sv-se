@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: ramamill
-ms.openlocfilehash: ee5cc1f185640c9ea22ceb80b1fabb20df245fe2
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: 824c7c70cf3e79df3aa04bbe86674ed9486b79f2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54823088"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300446"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Hantera konfigurationsservern för fysisk server disaster recovery
 
@@ -20,7 +20,7 @@ Du ställer in en konfigurationsservern lokalt när du använder den [Azure Site
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-I tabell sammanfattas de nödvändiga förutsättningarna för att distribuera den lokala configuration server-datorn.
+I tabell sammanfattas kraven för att distribuera den lokala configuration server-datorn.
 
 | **Komponent** | **Krav** |
 | --- |---|
@@ -106,7 +106,7 @@ Kör installationsfilen på följande sätt:
 
 ### <a name="parameters"></a>Parametrar
 
-|Parameternamn| Typ | Beskrivning| Värden|
+|Parameternamn| Type | Beskrivning| Värden|
 |-|-|-|-|
 | /ServerMode|Krävs|Anger om både konfigurations- och processervrar eller endast processervern ska installeras|CS<br>PS|
 |/InstallLocation|Krävs|Den mapp där komponenterna installeras| Vilken mapp på datorn som helst|
@@ -128,7 +128,7 @@ Kör installationsfilen på följande sätt:
 ### <a name="create-file-input-for-mysqlcredsfilepath"></a>Skapa fil som indata för MYSQLCredsFilePath
 
 Parametern MySQLCredsFilePath använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till MySQLCredsFilePath.
-```
+```ini
 [MySQLCredentials]
 MySQLRootPassword = "Password>"
 MySQLUserPassword = "Password"
@@ -136,7 +136,7 @@ MySQLUserPassword = "Password"
 ### <a name="create-file-input-for-proxysettingsfilepath"></a>Skapa fil som indata för ProxySettingsFilePath
 ProxySettingsFilePath parametern använder en fil som indata. Skapa filen med följande format och skickar den som indataparameter till ProxySettingsFilePath.
 
-```
+```ini
 [ProxySettings]
 ProxyAuthentication = "Yes/No"
 Proxy IP = "IP Address"
@@ -157,7 +157,7 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 5. Ange nya proxyinformationen och klicka på den **registrera** knappen.
 6. Öppna en Admin PowerShell-kommandofönster.
 7. Kör följande kommando:
-  ```
+  ```powershell
   $pwd = ConvertTo-SecureString -String MyProxyUserPassword
   Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
   net stop obengine
@@ -177,7 +177,7 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
   6. Öppna en Admin PowerShell-kommandofönster.
   7. Kör följande kommando
 
-      ```
+      ```powershell
       $pwd = ConvertTo-SecureString -String MyProxyUserPassword
       Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
       net stop obengine
@@ -205,7 +205,7 @@ Du kan ändra proxyinställningarna för configuration server-dator på följand
 6. Ange proxyservern information och klicka på den **registrera** knappen.  
 7. Öppna en Admin PowerShell-kommandofönster.
 8. Kör följande kommando
-    ```
+    ```powershell
     $pwd = ConvertTo-SecureString -String MyProxyUserPassword
     Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
     net stop obengine
@@ -273,7 +273,7 @@ Uppgradera servern på följande sätt:
      `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
 3.  Nu ställa in valvets sammanhang
     
-    ```
+    ```powershell
     $vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
     Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
     ```

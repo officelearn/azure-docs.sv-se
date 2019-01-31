@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 5af305a2e0d4754cf4fad8557db9d367c828ecc5
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 044fe3de265d298ecd366a50b9db77eeea32bbb7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54389103"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457946"
 ---
-# <a name="database-transactions-and-optimistic-concurrency-control"></a>Databastransaktioner och optimistisk samtidighetskontroll
+# <a name="transactions-and-optimistic-concurrency-control"></a>Transaktioner och optimistisk samtidighetskontroll
 
 Databastransaktioner ger en säker och förutsägbar programmeringsmodell utan samtidiga ändringar av data. Traditionella relationsdatabaser som SQL Server kan du skriva affärslogik med lagrade procedurer och/eller utlösare, skicka den till servern för körning direkt i databasmotorn. Med traditionella relationsdatabaser du krävs för att hantera två olika programmeringsspråk språk - programmet (icke-transaktionell) programmeringsspråk, till exempel JavaScript, Python, C#, Java, etc. och transaktionell programmeringsspråk (T-SQL) som är internt körs av databasen.
 

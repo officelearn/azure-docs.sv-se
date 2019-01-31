@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 07/03/2018
-ms.openlocfilehash: c24fedcc2ab42825950ca6a93fc954d7e6d36b00
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 116a465a0ddc913e342e0ffcc1fb29f5bf969419
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52864918"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464169"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Kom igång med databasöverskridande frågor (vertikala partitioner) (förhandsversion)
 
@@ -33,7 +33,7 @@ Behörigheten ALTER ANY extern DATAKÄLLA krävs. Den här behörigheten ingår 
 
 ## <a name="create-the-sample-databases"></a>Skapa exemplet-databaser
 
-Börja med att skapa två databaserna, **kunder** och **order**, antingen i samma eller olika logiska servrar.
+Börja med att skapa två databaserna, **kunder** och **order**, antingen i samma eller en annan SQL-databasservrar.
 
 Kör följande frågor på den **order** databasen för att skapa den **OrderInformation** tabellen och ange exempeldata.
 

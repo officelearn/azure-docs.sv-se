@@ -14,14 +14,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 01/30/2019
 ms.author: markvi
-ms.openlocfilehash: 6698aa7e16b351190f9a5cdde62766cf5d7e1809
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: ff607ed44f19e915b6ba94c1d217367d1012f062
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095999"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300242"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referens för Windows 10-växlingsinställningar
 Följande är en fullständig lista över alla inställningar som ska flyttade eller säkerhetskopierats i Windows 10. 
@@ -50,15 +50,15 @@ Följande inställningsgrupper med är tillgängliga för slutanvändarna att ak
 * Andra inställningar för Windows: se information om Windows-inställningar
 * Inställningen för Microsoft Edge-webbläsaren: Microsoft Edge-Favoriter, läsning lista och andra inställningar
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Synkronisera dina inställningar](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Inställningen för Microsoft Edge-webbläsare (Favoriter, läsa listan) Gruppsynkronisering kan aktiveras eller inaktiveras av slutanvändare via Microsoft Edge-webbläsaren menyalternativet för inställningar.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Konto](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 För Windows 10 version 1803 eller senare, Internet Explorer i gruppen (Favoriter har angett URL: er) synkroniseras kan aktiveras eller inaktiveras av slutanvändare via Internet Explorer-inställningar. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Inställningar](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## <a name="windows-settings-details"></a>Information om Windows-inställningar
 I följande tabell, andra posterna i kolumnen Enhetsinställningsgruppen refererar till inställningar som kan inaktiveras genom att gå till Inställningar > konton > Synkronisera dina inställningar > andra Windows-inställningar. 

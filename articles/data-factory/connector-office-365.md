@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 01/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 1ed5f3db3f9f8f7231d8f865f69cd11c2430054b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: b86aef7de048690d689a87d4fb844f77ea986445
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024322"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297497"
 ---
 # <a name="copy-data-from-office-365-into-azure-using-azure-data-factory-preview"></a>Kopiera data från Office 365 till Azure med hjälp av Azure Data Factory (förhandsversion) 
 
@@ -42,9 +42,10 @@ Om du vill kopiera data från Office 365 till Azure, måste du utföra följande
 - Din Office 365-klientadministratör slutföra registreringen av åtgärder enligt [här](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
 - Skapa och konfigurera ett Azure AD-webbprogram i Azure Active Directory.  Anvisningar finns i [skapa ett Azure AD-program](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Anteckna följande värden som du använder för att definiera den länkade tjänsten för Office 365:
-    - Klient-ID.  Anvisningar finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Klient-ID. Anvisningar finns i [hämta klient-ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
     - Nyckel för program-ID och program.  Anvisningar finns i [Get ID och autentiseringsnyckel programnyckel](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
-- Lägg till användar-ID som ska upprätta data förfrågan som ägare till Azure AD-webbappen (från Azure AD-webbprogram > Inställningar > ägare > Lägg till ägare).
+- Lägg till användar-ID som ska upprätta data förfrågan som ägare till Azure AD-webbappen (från Azure AD-webbprogram > Inställningar > ägare > Lägg till ägare). 
+    - Användar-ID måste vara i Office 365-organisation du får data från och får inte vara en gästanvändare.
 
 ## <a name="approving-new-data-access-requests"></a>Godkänna åtkomstbegäranden för nya data
 

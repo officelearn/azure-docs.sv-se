@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 89aad876eb087817c8514b4268a18fa20925f810
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d52d2aa5e218007aed4510f537fb061ef8d1fbe
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52167086"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301568"
 documentType: LandingData
 title: Azure SQL Database - plattform som en tjänst
 metadata:
@@ -54,7 +54,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/sql-database/sql-database-security-index">Avancerad säkerhet</a> identifierar hot och vunerabilities i dina databaser och gör det möjligt för dig att skydda dina data.
+    - html: <a href="/azure/sql-database/sql-database-security-index">Avancerad säkerhet</a> identifierar hot och säkerhetsrisker i dina databaser och gör det möjligt för dig att skydda dina data.
     - html: <a href="/azure/sql-database/sql-database-automatic-tuning">Automatisk justering</a> analyserar din arbetsbelastning och ger dig rekommendationer som kan optimera prestanda för dina program genom att lägga till index, ta bort oanvända index och automatiskt åtgärda frågan plan problem.
     - html: <a href="/azure/log-analytics/log-analytics-azure-sql">Inbyggda funktioner för övervakning</a> kan du få insikter om prestanda för dina databaser och arbetsbelastning och Felsök problem med prestanda.
     - html: <a href="/azure/sql-database/sql-database-intelligent-insights">Inbyggd intelligens</a> automatiskt identifierar potentiella problem i din arbetsbelastning och ger dig rekommendationer som kan hjälpa dig att åtgärda problem.

@@ -16,19 +16,19 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ac5b3bec9915574dd33d40ae2dcbc5aa3c91280a
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: df3f4dc163f94ddab08ecdad7f8d4cc625b8917d
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332174"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300276"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 ## <a name="overview"></a>Översikt
 [Azure Premium Storage](../premium-storage.md) är nästa generation av lagring som ger mindre fördröjning och högt dataflöde i/o. Det fungerar bäst för viktiga i/o-intensiva arbetsbelastningar, till exempel SQL Server på IaaS [virtuella datorer](https://azure.microsoft.com/services/virtual-machines/).
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Den här artikeln innehåller planering och vägledning för att migrera en virtuell dator med SQL Server att använda Premium Storage. Detta omfattar Azure-infrastrukturen (nätverk, lagring) och Gäst Windows VM steg. I exemplet i den [bilaga](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) visar en fullständig omfattande från slutpunkt till slutpunkt-migrering av hur du flyttar större virtuella datorer för att dra nytta av förbättrad lokal SSD-lagring med PowerShell.
 
@@ -545,7 +545,7 @@ Det här dokumentet visar inte ett komplett exempel från slutpunkt till slutpun
 * Uppdatera lyssnare genom att antingen:
   * Koppla från alltid på gruppen och uppdatera alltid på lyssnaren med nya ILB / ELB IP-adress.
   * Eller lägga till IP-adressresurs med nya Cloud Service ILB/ELB via PowerShell i Windows-kluster. Sedan ange de möjliga ägarna av IP-adressresursen till noden migrerade SQL2, och ange detta eller-beroende i nätverksnamn. Se avsnittet ”lägga till IP-adressresurs i samma undernät” i den [bilaga](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage).
-* Kontrollera DNS-konfiguration/spridningsuppgift till klienterna.
+* Kontrollera DNS-konfiguration/spridning till klienterna.
 * Migrera SQL1 virtuell dator och gå igenom steg 2 – 4.
 * Om du använder stegen 5ii Lägg sedan till SQL1 som möjlig ägare för den extra IP-adressresursen
 * Redundanstestningen.

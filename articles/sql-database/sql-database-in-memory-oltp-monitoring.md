@@ -11,20 +11,22 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: c41420e46a0bd4afbaed96da0e2fb9775d49c6fc
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 7542e9fa04eb838baca37dbe13f7cdacdfaf041b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470271"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Övervaka Minnesintern OLTP-lagring
+
 När du använder [In-Memory OLTP](sql-database-in-memory.md), finns data i minnesoptimerade tabeller och tabellvariabler i InMemory-OLTP-lagring. Varje Premium och affärskritisk tjänstenivå har en maximal storlek för In-Memory OLTP-lagring. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 När den här gränsen överskrids, infognings- och åtgärder kan börjar misslyckas med fel 41823 för enskilda databaser och 41840 för elastiska pooler. I det här läget måste du antingen ta bort data för att frigöra minne, eller uppgradera tjänstnivån eller beräkna databasens storlek.
 
 ## <a name="determine-whether-data-fits-within-the-in-memory-oltp-storage-cap"></a>Avgöra om data passar In-Memory OLTP-lagringstak
+
 Kontrollera storage-begränsningar för olika tjänstnivåer. Se [DTU-baserade resursbegränsningar - enkel databas](sql-database-dtu-resource-limits-single-databases.md), [DTU-baserade resursbegränsningar - elastiska pooler](sql-database-dtu-resource-limits-elastic-pools.md),[vCore-baserade resursbegränsningar - enskilda databaser](sql-database-vcore-resource-limits-single-databases.md) och [vCore-baserade resursbegränsningar - elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Uppskatta minneskraven för en minnesoptimerad tabell fungerar på samma sätt för SQL Server som den har i Azure SQL Database. Ta en stund att granska den här artikeln på [MSDN](https://msdn.microsoft.com/library/dn282389.aspx).
@@ -40,10 +42,12 @@ Du kan övervaka användning av InMemory-minne som en procentandel av lagringsta
 
 Eller Använd följande fråga för att visa lagringsanvändning i minnet:
 
+```sql
     SELECT xtp_storage_percent FROM sys.dm_db_resource_stats
-
+```
 
 ## <a name="correct-out-of-in-memory-oltp-storage-situations---errors-41823-and-41840"></a>Korrigera ut av InMemory OLTP-lagring situationer - fel 41823 och 41840
+
 Träffa InMemory-OLTP-lagringstak i databasresultat i INSERT, uppdatera, ändra och skapa-åtgärder misslyckas med felmeddelandet 41823 (för enkla databaser) eller fel 41840 (för elastiska pooler). Båda fel orsakar den aktiva transaktionen att avbryta.
 
 Felmeddelanden 41823 och 41840 tyda på att de minnesoptimerade tabeller och tabellvariabler i databasen eller poolen har nått den maximala storleken för In-Memory OLTP-lagring.

@@ -8,18 +8,18 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 8408d620ba78fed07c44feae74c607a555d5563b
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 9ef400a5c7b42f6782fefa28e2351b09d8667861
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910593"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470254"
 ---
 # <a name="administrator-roles-for-microsoft-365-workloads"></a>Administratörsroller för Microsoft 365 arbetsbelastningar
 
@@ -35,7 +35,7 @@ exchange online| [Exchange-rollbaserad åtkomstkontroll](https://docs.microsoft.
 sharepoint online | [Azure AD-administratörsroller](directory-assign-admin-roles.md)<br>Även [om SharePoint-administratörsrollen i Office 365](https://docs.microsoft.com/sharepoint/sharepoint-admin-role) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Team/Skype för företag | [Azure AD-administratörsroller](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Säkerhets- och Efterlevnadscenter (Office 365 Advanced Threat Protection, Exchange Online-skydd, Information Protection) | [Office 365-administratörsroller](https://docs.microsoft.com/office365/SecurityCompliance/permissions-in-the-security-and-compliance-center) | [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/role-based-access-control/add-managementroleentry?view=exchange-ps)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/powershell/module/exchange/role-based-access-control/get-rolegroup?view=exchange-ps)
-Säkerhetspoäng | [Azure AD-administratörsroller](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
+Säker poäng | [Azure AD-administratörsroller](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Compliance Manager | [Compliance Manager roller](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud#permissions-and-role-based-access-control) | Inte tillgängligt
 Azure Information Protection | [Azure AD-administratörsroller](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Hämta rolltilldelningar](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Microsoft Cloud App Security | [Rollbaserad åtkomstkontroll](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API-referens](https://docs.microsoft.com/cloud-app-security/api-tokens) 

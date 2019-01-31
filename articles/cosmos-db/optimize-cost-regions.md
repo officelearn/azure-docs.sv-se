@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: b4c873e319dd611221c81deb948db3a64062631e
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 1bf65883ecf23f726aefd2cd889a2bcb08e9b6a6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032609"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457657"
 ---
-# <a name="optimize-the-cost-for-multi-region-deployments-in-azure-cosmos-db"></a>Optimera kostnader för distributioner över flera regioner i Azure Cosmos DB
+# <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Optimera kostnader för flera regioner i Azure Cosmos DB
 
 Du kan lägga till och ta bort regioner till ditt Azure Cosmos-konto när som helst. Dataflödet som du konfigurerar för olika Azure-Cosmos-databaser och behållare är reserverad i varje region som är associerade med ditt konto. Om dataflödet etablerat per timme, som är summan av RU/s som konfigurerats på alla databaser och behållare för ditt Azure Cosmos-konto är `T` och antal Azure-regioner som associeras med ditt databaskonto är `N`, sedan det totala antalet dataflöde för ditt Cosmos-konto för en viss timme är lika med:
 
@@ -35,7 +35,7 @@ I ett system med flera huvudservrar kan skriva net tillgängliga antalet enheter
 |----|----|----|----|
 |Dataflödesfaktura för behållare i västra USA (flera Skriv-regioner) |10 K RU/s * 24 * 31 |$0.016 per 100 RU/s per timme |$1,190.40 |
 |Dataflödesfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien (flera Skriv-regioner) |(3 + 1) * 10 K RU/s * 24 * 31 |$0.016 per 100 RU/s per timme |$4,761.60 |
-|Lagringsfaktura för containrar i USA, västra |100 GB |$0.25/ GB |25 USD |
+|Lagringsfaktura för containrar i USA, västra |100 GB |$0.25/ GB |$25 |
 |Lagringsfaktura för 3 ytterligare regioner – östra USA, Nordeuropa och Östasien |3 * 1 TB |$0.25/ GB |$75 |
 |**Totalt**|||**$6,052** |
 

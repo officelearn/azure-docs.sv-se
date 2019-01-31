@@ -14,12 +14,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 04c4bba2647b9b17b1282c9a1608fd2e9325f661
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 3a445fbc135e0d7dc19907339506fd0c32bffb45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427924"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456042"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Kom igång med Azure SQL Database hanterad instans-granskning
 
@@ -207,7 +207,7 @@ Det finns flera metoder som du kan använda för att visa blob granskningsloggar
 
 - Du kan utforska granskningsloggar genom att använda ett verktyg som [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/). Granskningsloggarna sparas i Azure storage som en samling blobfiler i en behållare som har definierats för att lagra granskningsloggar. Ytterligare information om hierarkin för mappen storage namngivningskonventioner och loggformat, finns det [referens till Blob granskningslogg Format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](sql-database-auditing.md).
 
   > [!IMPORTANT]
   > Visning av granskningsposter från Azure portal (”granskningsposter”-rutan) är inte tillgänglig för hanterad instans.
@@ -242,7 +242,7 @@ Nyckeln skillnader i den `CREATE AUDIT` syntaxen för granskning till Azure blob
 
 ## <a name="next-steps"></a>Nästa steg
 
-- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
+- En fullständig lista över audit log förbrukningsmetoder finns i den [Kom igång med SQL-databasgranskning](sql-database-auditing.md).
 - Mer information om Azure program som stöd för överensstämmelse med standarder, finns i den [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
 
 <!--Image references-->

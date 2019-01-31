@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 08/13/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 11125fb1c78852a048787e99d78bf4cb941184fa
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 492bdd30a656a37196cf4d27a2510dbc3a79807d
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320369"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463573"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-august-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Augusti 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i augusti 2018.
@@ -30,9 +30,9 @@ Du kan öka detaljnivån i varje kategori om du vill se rekommendationer för de
 
 ## <a name="bug-fixes"></a>Felkorrigeringar
 
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 |:---|:---|
-| **Potentiella frågefel när överskrider maxgränsen för antal delningar** |När filen dela gränsen 1 miljon övre gränsen ett ohanterat undantag orsakade SQL-motorn att dumpa och det gick inte att alla frågor. Den här korrigeringen adress problemet genom att hantera undantaget korrekt och returnera ett fel utan att orsaka frågor att misslyckas. |
+| **Potentiella frågefel när överskrider maxgränsen för antal delningar** |När filen dela gränsen 1 miljon övre gränsen ett ohanterat undantag orsakade SQL-motorn att dumpa och det gick inte att alla frågor. Den här snabbkorrigeringen åtgärdas problemet genom att hantera undantaget korrekt och returnera ett fel utan att orsaka frågor att misslyckas. |
 | **Standardvärdet för ökad ExternalMoveReadersPerNode att förbättra prestandan** |Det här problemet orsakades av egenskapsinställningen ExternalMoveReadersPerNode är osynkroniserad med service fabric-inställningen. Den här regression orsakades av en försämrad Gen2 inläsningsprestanda. Korrigeringen ger Gen2 inläsningsprestanda igen inom optimerad design parametrar.|
 
 

@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 10/29/2018
-ms.openlocfilehash: 6a5ee991ca21e60e6c2b14d5e3be560183eae4fa
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.date: 01/25/2019
+ms.openlocfilehash: 957652a63768d25e6b180feb826551ec340b9bf0
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50232910"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453679"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en multitenant SaaS-app som använder mönstret databas-per-klient med SQL Database
 
@@ -113,7 +113,7 @@ En central **Evenemangshubben** sidan innehåller en lista med länkar till klie
 
 1. Använd URL: en för att öppna Evenemangshubben i webbläsaren: http://events.wingtip-dpt.&lt; användare&gt;. trafficmanager.net. Ersätt &lt;användaren&gt; med värdet för användarnamn för din distribution.
 
-    ![Evenemangshubben](media/saas-dbpertenant-get-started-deploy/events-hub.png)
+    ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
 2. Välj **Fabrikam Jazzklubb** i Evenemangshubben.
 
@@ -123,14 +123,14 @@ En central **Evenemangshubben** sidan innehåller en lista med länkar till klie
 
 Wingtip-programmet använder [*Azure Traffic Manager* ](../traffic-manager/traffic-manager-overview.md) att styra distributionen av inkommande begäranden. URL till sidan händelser för en specifik klient använder följande format:
 
-- http://events.wingtip-dpt.&lt; användare&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     Delar av det föregående formatet beskrivs i följande tabell.
 
     | URL-del        | Beskrivning       |
     | :-------------- | :---------------- |
-    | http://events.wingtip-dpt | Händelser som delar av Wingtip-app.<br /><br /> *-dpt* särskiljer den *databas-per-klient* implementeringen av Wingtip biljetter från andra implementeringar. Exempel är den *fristående* app-per-klient (*-sa*) eller *multitenant databasen* (*- mt*) implementeringar. |
-    | .  *&lt;användare&gt;* | *af1* i det här exemplet. |
+    | http://events.wingtip-dpt | Händelser som delar av Wingtip-app.<br /><br /> *-dpt* särskiljer den *databas-per-klient* implementeringen av Wingtip biljetter från andra implementeringar. Exempel är den *enda* app-per-klient (*-sa*) eller *multitenant databasen* (*- mt*) implementeringar. |
+    | .*&lt;user&gt;* | *af1* i det här exemplet. |
     | .trafficmanager.net/ | Traffic Manager, bas-URL. |
     | fabrikamjazzclub | Identifierar de klient med namnet Fabrikam Jazzklubb. |
     | &nbsp; | &nbsp; |
@@ -248,7 +248,7 @@ Bläddra till servern **tenants1-dpt -&lt;användaren&gt;**, och välj **Pool1*
 - Det första diagrammet som är märkt **resursutnyttjande**, visar poolens eDTU-användningen.
 - Det andra diagrammet visar eDTU-användningen av de fem mest aktiva databaserna i poolen.
 
-De två diagrammen visar att elastiska pooler och SQL-databas är utmärkt för arbetsbelastningar med oförutsägbara SaaS-program. Diagrammen visar att fyra databaser är varje burst-överförs till så mycket som 40 edtu: er och ännu alla databaser bekvämt stöds av en 50 eDTU-pool. 50 eDTU-pool har stöd för ännu större arbetsbelastningar. Om databaserna har etablerats som enskilda databaser, var och en måste vara en S2 (50 DTU) för att stödja topparna. Kostnaden för 4 fristående S2-databaser är nästan tre gånger priset för poolen. I verkliga situationer kör SQL-databaskunder upp till 500 databaser i 200 eDTU-pooler. Mer information finns i den [guide för prestandaövervakning](saas-dbpertenant-performance-monitoring.md).
+De två diagrammen visar att elastiska pooler och SQL-databas är utmärkt för arbetsbelastningar med oförutsägbara SaaS-program. Diagrammen visar att fyra databaser är varje burst-överförs till så mycket som 40 edtu: er och ännu alla databaser bekvämt stöds av en 50 eDTU-pool. 50 eDTU-pool har stöd för ännu större arbetsbelastningar. Om databaserna har etablerats som enskilda databaser, var och en måste vara en S2 (50 DTU) för att stödja topparna. Kostnaden för fyra enkla S2-databaser är nästan tre gånger priset för poolen. I verkliga situationer kör SQL-databaskunder upp till 500 databaser i 200 eDTU-pooler. Mer information finns i den [guide för prestandaövervakning](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

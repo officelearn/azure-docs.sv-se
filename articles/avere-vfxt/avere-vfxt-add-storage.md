@@ -4,29 +4,23 @@ description: Hur du lägger till en backend-lagringssystemet Avere-vFXT för Azu
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: procedural
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a7036f6fbab771dc090e97034a6191cf82b707a7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 8cd9bece53cd7fb961c5d81ae0c709dc89300ab9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190865"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299460"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
-Det här steget konfigurerar serverdelen lagringssystemet för vFXT klustret.
+Det här steget ställer in en backend-lagringssystemet för vFXT klustret.
 
 > [!TIP]
-> Om du har använt den `create-cloudbacked-cluster` prototyp skript för att skapa en ny blobbehållare tillsammans med Avere vFXT klustret, att behållaren har redan ställts in för användning och du behöver inte lägga till lagring.
->
-> Men om den nya Blob-behållaren har krypterats med en standard-krypteringsnyckel måste antingen Filnedladdning återställning av nyckel från klustret eller ersätta standardnyckeln med en ny nyckel innan du lagrar data. Standardnyckeln sparas endast i klustret och går inte att hämta om klustret tappas bort eller blir otillgänglig.
->
-> När du ansluter till Avere på Kontrollpanelen, klicka på den **inställningar** och sedan välja **Core Filer** > **molnet krypteringsinställningar**. I den **lokal nyckel Store** väljer du något av följande alternativ: 
-> * Använd den **hämta Recovery filen** för att visa filen för den befintliga nyckeln. Filen krypteras med det administrativa lösenordet för klustret. Se till att spara filen på en tillförlitlig plats. 
-> * Följ instruktionerna i den **Generera en ny huvudnyckel** avsnitt på sidan för att skapa en ny krypteringsnyckel som du bestämmer. Det här alternativet kan du ange en unik lösenfras och du måste ladda upp och ladda ned filen för att verifiera lösenfrasfilen paret.
+> Om du har skapat en ny Azure Blob-behållare tillsammans med Avere vFXT klustret, att behållaren har redan ställts in för användning och du behöver inte lägga till lagring.
 
-Följ dessa anvisningar om du använde den `create-minimal-cluster` prototyp skript för klustret, eller om du vill lägga till ett ytterligare maskinvara eller molnbaserade lagringssystem.
+Följ dessa instruktioner om du inte har skapat en ny blobbehållare med ditt kluster, eller om du vill lägga till en ytterligare maskin- eller molnbaserade lagringssystem.
 
 Det finns två huvudsakliga uppgifter:
 
@@ -43,12 +37,11 @@ De här stegen används Avere på Kontrollpanelen. Läs [åtkomst till klustret 
 Välj någon av de två viktigaste typerna av core filter för att lägga till en core-filer:
 
   * [NAS viktiga filer](#nas-core-filer) – beskriver hur du lägger till en NAS core-filer 
-  * [Azure Storage-konto molnet core filer](#azure-storage-account-cloud-core-filer) – beskriver hur du lägger till ett Azure Storage-konto som molnet core arkiverar
+  * [Azure Storage molnet core filer](#azure-storage-cloud-core-filer) – beskriver hur du lägger till ett Azure Storage-konto som molnet core arkiverar
 
 ### <a name="nas-core-filer"></a>NAS core filer
 
-En NAS core-filer kan vara en lokal NetApp eller Isilon eller en NAS-slutpunkt i molnet.  
-Lagringssystemet måste ha en tillförlitlig höghastighetsanslutning till Avere vFXT kluster – till exempel en 1 Gbit/s ExpressRoute-anslutning (inte en VPN) - och den måste ge rotåtkomst kluster NAS-export som används.
+En NAS core-filer kan vara en lokal NetApp eller Isilon eller en NAS-slutpunkt i molnet. Lagringssystemet måste ha en tillförlitlig höghastighetsanslutning till Avere vFXT kluster – till exempel en 1 Gbit/s ExpressRoute-anslutning (inte en VPN) - och den måste ge rotåtkomst kluster NAS-export som används.
 
 Följande steg lägger du till en NAS core-filer:
 
@@ -79,7 +72,7 @@ Gå sedan vidare till [skapa knutpunkt](#create-a-junction).
 Om du vill använda Azure Blob storage som serverdelslagring för ditt vFXT kluster behöver du en tom behållare för att lägga till som en core-filer.
 
 > [!TIP] 
-> Den ``create-cloudbacked-cluster`` exempelskriptet skapar en lagringsbehållare, definierar det som en core-filer och skapar namnområdet knutpunkt som en del av vFXT klustret skapas. Den ``create-minimal-cluster`` exempelskript skapar inte en Azure storage-behållare. Om du vill undvika att behöva skapa och konfigurera ett Azure Storage core filer när du har skapat klustret, använda den ``create-cloudbacked-cluster`` skript för att distribuera klustret vFXT.
+> Om du vill skapa en blobbehållare samtidigt som du skapar klustret Avere vFXT Distributionsmall eller skript skapar en lagringsbehållare, definierar det som en core-filer och skapar namnområdet knutpunkt som en del av vFXT klustret skapas. 
 
 Lägger till Blob-lagring i klustret kräver dessa uppgifter:
 

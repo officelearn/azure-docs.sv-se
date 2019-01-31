@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: b51067b9e854566991d49aeb1ff2b1ad13999a51
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b6178c4e9c197539359058347b2409210d976569
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957750"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458932"
 ---
-# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Ordlista sökning
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3.0: Slå upp i ordlista
 
 Tillhandahåller alternativa översättningar för ett ord och ett litet antal idiomatiskt fraser. Varje översättning har en del av tal- och en lista över tillbaka översättningar. Tillbaka-översättningar att en användare kan förstå översättningen i kontexten. Den [ordlista exempel](./v3-0-dictionary-examples.md) åtgärden tillåter ytterligare detaljnivån finns i exemplet används varje par för översättning.
 
@@ -56,11 +56,11 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_Rubrik_</td>
+    <td>_En auktorisering_<br/>_header_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
   * `normalizedSource`: En sträng som ger formuläret normaliserade källa har löpt ut. Till exempel om begäran är ”JOHN”, att formuläret normaliserade ”john”. Innehållet i det här fältet blir indata till [lookup exempel](./v3-0-dictionary-examples.md).
     
-  * `displaySource`: En sträng som ger källa termen i form av en bäst passar för visning av slutanvändaren. Till exempel, om indata är ”JOHN”, visa formulär visas vanliga stavningen av namnet: ”John”. 
+  * `displaySource`: En sträng som ger källa termen i form av en bäst passar för visning av slutanvändaren. Om indata är ”JOHN”, till exempel visas Visa formulär vanliga stavningen av namnet: "John". 
 
   * `translations`: En lista över översättningar för käll-period. Varje element i listan är ett objekt med följande egenskaper:
 
@@ -106,7 +106,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
         | Taggnamn | Beskrivning  |
         |----------|--------------|
-        | JUSTERBART      | Adjektiv   |
+        | ADJ      | Adjektiv   |
         | ADV      | Adverb      |
         | CONJ     | Konjunktioner |
         | DET      | Determiners  |
@@ -140,7 +140,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Det här exemplet visar hur du leta upp alternativa översättningar på spanska engelska har löpt ut `fly` .
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -191,7 +191,7 @@ Svarstexten (förkortat för tydlighetens skull) är:
 
 Det här exemplet visar vad som händer när termen som du söker efter inte finns för giltiga ordlista paret.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

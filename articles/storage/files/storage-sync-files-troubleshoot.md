@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
-ms.component: files
-ms.openlocfilehash: fe712648cf3e76f4161f9f3a7b97b7990bc692a1
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214474"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471410"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -156,7 +156,7 @@ En serverslutpunkt kan inte logga synkronisering av följande skäl:
 > [!Note]  
 > Om servertillståndet på bladet registrerade servrar är ”visas Offline”, kan du utföra stegen i den [Serverslutpunkten har en hälsostatus ”ingen aktivitet” eller ”väntande” och Servertillstånd på bladet registrerade servrar är ”visas som offline” ](#server-endpoint-noactivity) avsnittet.
 
-## <a name="sync"></a>Synkronisering
+## <a name="sync"></a>Sync
 <a id="afs-change-detection"></a>**Om jag har skapat en fil direkt i min Azure-filresurs via SMB eller via portalen, hur lång tid tar det för den fil som ska synkroniseras till servrar i synkroniseringsgruppen?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
@@ -852,6 +852,9 @@ Antivirusprogram, säkerhetskopiering och andra program som läser stort antal f
 Kontakta programleverantören för information om hur du konfigurerar deras lösning så att offlinefiler ignoreras.
 
 Oönskade konsumenternas kan uppstå i andra scenarier, t.ex. när du försöker nå filer i Utforskaren. Om en mapp med filer på molnnivå öppnas i Utforskaren på servern kan det leda till oväntad återkallning. Det är ännu mer troligt om en antiviruslösning är aktiverad på servern.
+
+> [!NOTE]
+>Använd Event ID 9059 i händelseloggen telemetri för att avgöra vilka program som orsakar konsumenternas. Den här händelsen ger återkallande av programdistribution för en serverslutpunkt och loggas en gång i timmen.
 
 ## <a name="general-troubleshooting"></a>Allmän felsökning
 Om du stöter på problem med Azure File Sync på en server kan starta genom att utföra följande steg:

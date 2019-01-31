@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7fbf86a24ca6b2ba55ca33b20e67dea6a6e0c994
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b66b293e5d6e422c994e2b7cef13fd4100144cbf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53731715"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297012"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -64,7 +64,7 @@ App Service tillhandahåller en inbyggd token store, som är en lagringsplats i 
 - Publicera till den autentiserade användarens Facebook-tidslinje
 - läsa användarens företagsdata från Azure Active Directory Graph API eller även Microsoft Graph
 
-Vanligtvis måste du skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med token store, som du precis [hämta token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver dem och [berätta för App Service för att uppdatera dem](app-service-authentication-how-to.md#refresh-access-tokens) när de blir ogiltig. 
+Vanligtvis måste du skriva kod för att samla in, lagra och uppdatera dessa token i ditt program. Med token store, som du precis [hämta token](app-service-authentication-how-to.md#retrieve-tokens-in-app-code) när du behöver dem och [berätta för App Service för att uppdatera dem](app-service-authentication-how-to.md#refresh-identity-provider-tokens) när de blir ogiltig. 
 
 Id-token, åtkomsttoken och uppdateringstoken cachelagras för den autentiserade sessionen och de är endast kan nås av den associerade användaren.  
 
@@ -151,7 +151,7 @@ Provider-specifik instruktionsguider:
 * [Så här konfigurerar du din app för att använda Google-inloggning][Google]
 * [Så här konfigurerar du din app om du vill använda Microsoft Account login][MSA]
 * [Så här konfigurerar du din app för att använda Twitter-inloggning][Twitter]
-* [Hur: Använd anpassad autentisering för ditt program][custom-auth]
+* [Anvisningar: Använd anpassad autentisering för ditt program][custom-auth]
 
 [AAD]: configure-authentication-provider-aad.md
 [Facebook]: configure-authentication-provider-facebook.md

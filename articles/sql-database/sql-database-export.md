@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 804202149234a55de4f7f99b18dc40b8136463a3
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: e980ec81f66e1045a4d9df33b3392589f5c1a668
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651053"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463760"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Exportera en Azure SQL-databas till en BACPAC-fil
 
@@ -47,7 +47,7 @@ Så här exporterar du en databas med den [Azure-portalen](https://portal.azure.
 
 ![databasexport](./media/sql-database-export/database-export.png)
 
-Öppna sidan för den logiska servern som innehåller databasen för att övervaka förloppet för exportåtgärden. Rulla ned till **Operations** och klicka sedan på **Import/Export** historik.
+Öppna sidan för SQL Database-server som innehåller databasen för att övervaka förloppet för exportåtgärden. Rulla ned till **Operations** och klicka sedan på **Import/Export** historik.
 
 ![Exportera tidigare](./media/sql-database-export/export-history.png)
 ![Exportera tidigare status](./media/sql-database-export/export-history2.png)
@@ -97,7 +97,7 @@ $exportStatus
 
 - Mer information om långsiktig kvarhållning av säkerhetskopior av en Azure SQL database-säkerhetskopia som ett alternativ till exporterade en databas för att se [långsiktig kvarhållning av säkerhetskopior](sql-database-long-term-retention.md).
 - En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
-- Läs om hur du importerar en BACPAC till en SQL Server-databas i [importera en BACPCAC till en SQL Server-databas](https://msdn.microsoft.com/library/hh710052.aspx).
+- Läs om hur du importerar en BACPAC till en SQL Server-databas i [importera en BACPAC till en SQL Server-databas](https://msdn.microsoft.com/library/hh710052.aspx).
 - Läs om hur du exporterar en BACPAC från en SQL Server-databas i [exporterar en Data-tier-program](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
 - Läs om hur du använder Data Migration Service för att migrera en databas i [migrera SQL Server till Azure SQL Database med DMS](../dms/tutorial-sql-server-to-azure-sql.md).
 - Om du exporterar från SQL Server som en prelude till migrering till Azure SQL Database, se [migrera en SQL Server-databas till Azure SQL Database](sql-database-cloud-migrate.md).

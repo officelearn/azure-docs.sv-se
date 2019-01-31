@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: a87f3861a74bbc7a482423d5f2a2f1b859f83a10
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 1f3aaf34283f4e7c81f97b8e2ec4987749f3935c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53604437"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465290"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>Övervakning av prestanda Azure SQL Database med dynamiska hanteringsvyer
 
@@ -549,7 +549,7 @@ Andra programtyper kan tolka i samma diagram på olika sätt. Till exempel om et
 Azure SQL Database visar förbrukas resursinformation för varje aktiv databas i den **sys.resource_stats** vy av den **master** databasen i varje server. Data i tabellen sammanställs för 5 minuters intervall. Data kan ta mer än 5 minuter innan den visas i tabellen, så att dessa data är mer användbar för historisk analys i stället för analys i nära realtid med tjänstnivåer Basic, Standard och Premium. Fråga den **sys.resource_stats** visas för att se den senaste historiken för en databas och validera om reservationen du valde levereras önskad prestanda när det behövs.
 
 > [!NOTE]
-> Du måste vara ansluten till den **master** databasen för din logiska SQL database-server till frågan **sys.resource_stats** i följande exempel.
+> Du måste vara ansluten till den **master** databas med SQL Database-server för att fråga **sys.resource_stats** i följande exempel.
 
 Det här exemplet visar hur data i den här vyn visas:
 

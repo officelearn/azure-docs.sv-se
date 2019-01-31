@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/04/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a3c2ea1e28ebbc6859db135b743d579d3c632133
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54901147"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301449"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -62,7 +62,7 @@ Om du vill börja spåra ändringar, måste du aktivera lösningen ändringsspå
 
 ## <a name="configuring-change-tracking-and-inventory"></a>Konfigurera ändringsspårning och inventering
 
-Läs hur att integrera datorer till lösningen finns: [Onboarding-automatiseringslösningar](automation-onboard-solutions-from-automation-account.md). Du kan konfigurera de objekt som ska spåra när du har en dator onboarding med lösningen ändringsspårning och inventering. När du aktiverar en ny fil eller registernyckel att spåra kan aktiveras för ändringsspårning och inventering.
+Läs hur att integrera datorer till lösningen finns: [Onboarding-automatiseringslösningar](automation-onboard-solutions-from-automation-account.md). När du har en dator onboarding med lösningen ändringsspårning och inventering kan konfigurera du de objekt som ska spåra. När du aktiverar en ny fil eller registernyckel att spåra kan aktiveras för ändringsspårning och inventering.
 
 MD5-hash-värden för filerna som används för att spåra ändringar i filer på både Windows och Linux. Dessa hashvärden används sedan för att identifiera om en ändring har gjorts sedan den senaste inventeringen.
 
@@ -108,7 +108,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>Inställningar för jokertecken, rekursion och miljö
 
-Rekursion kan du ange jokertecken för att förenkla spårning i kataloger och miljövariabler att spåra filer i miljöer med flera eller dynamisk enhet namn. Här följer en lista över vanliga information som du bör känna till när du konfigurerar rekursion:
+Rekursion kan du ange jokertecken för att förenkla spårning i kataloger och miljövariabler att spåra filer i miljöer med flera eller dynamisk enhet namn. I följande lista visas vanliga information som du bör känna till när du konfigurerar rekursion:
 
 * Jokertecken krävs för att spåra flera filer
 * Om du använder jokertecken, kan de bara användas i det sista segmentet i en sökväg. (till exempel C:\folder\\**filen** eller /etc/*.conf)
@@ -138,7 +138,7 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 
 ## <a name="limitations"></a>Begränsningar
 
-Lösningen ändringsspårning stöder för närvarande inte följande objekt:
+Lösningen ändringsspårning stöder inte för närvarande följande objekt:
 
 * Rekursion för Windows-registret spårning
 * Network file system
@@ -154,7 +154,7 @@ Andra begränsningar:
 
 Lösningen ändringsspårning har för närvarande följande problem:
 
-* Hotfix-uppdateringar har inte samlats in för Windows 10 Creators Update och Windows Server 2016 Core RS3 datorer.
+* Hotfix-uppdateringar har inte samlats in på Windows Server 2016 Core RS3 datorer.
 
 ## <a name="change-tracking-data-collection-details"></a>Ändra spårningsinformation data samling
 
@@ -183,11 +183,11 @@ I följande tabell visar de spårade objekt gränserna per dator för ändringss
 
 ### <a name="windows-service-tracking"></a>Windows service-spårning
 
-Insamlingsfrekvens standard för Windows-tjänster är 30 minuter. Konfigurera hur ofta genom att gå till **ändringsspårning**. Under **redigera inställningar för** på den **Windows Services** fliken finns det ett skjutreglage som gör det möjligt att ändra insamlingsfrekvens för Windows-tjänster från så snabbt som 10 sekunder till upp till 30 minuter. Flytta skjutreglaget till hur ofta du vill och det sparas automatiskt.
+Insamlingsfrekvens standard för Windows-tjänster är 30 minuter. Om du vill ange hur ofta, gå till **ändringsspårning**. Under **redigera inställningar för** på den **Windows Services** fliken finns det ett skjutreglage som gör det möjligt att ändra insamlingsfrekvens för Windows-tjänster från så snabbt som 10 sekunder till upp till 30 minuter. Flytta skjutreglaget till hur ofta du vill och det sparas automatiskt.
 
 ![Skjutreglaget för Windows-tjänster](./media/automation-change-tracking/windowservices.png)
 
-Agenten endast spårar ändringar, detta optimerar prestanda för agenten. Genom att ange för hög tröskel kan ändringar missats om tjänsten har återställts till deras ursprungliga tillstånd. Ange frekvensen till ett mindre värde kan du fånga ändringar som annars kan missas.
+Agenten endast spårar ändringar, detta optimerar prestanda för agenten. Ange en hög tröskel kan missa ändringar om tjänsten har återställts till deras ursprungliga tillstånd. Ange frekvensen till ett mindre värde kan du fånga ändringar som annars kan missas.
 
 > [!NOTE]
 > Agenten kan spåra ändringar till ett 10 andra intervall, data fortfarande tar några minuter som ska visas i portalen. Ändringar under den tid som ska visas i portalen är fortfarande spåras och loggas.
@@ -269,6 +269,41 @@ Följande tabell innehåller exempel på loggsökningar för ändra poster som s
 |---------|---------|
 |ConfigurationData<br>&#124;där ConfigDataType == ”WindowsServices” och SvcStartupType == ”automatisk”<br>&#124;där SvcState == ”stoppad”<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar senaste lagerposter för Windows-tjänster som har ställts in på automatisk men har rapporterats som stoppas<br>Frågeresultaten har begränsats till den senaste posten för den SoftwareName och Computer      |
 |ConfigurationChange<br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”borttagen”<br>&#124;order by-TimeGenerated fall|Visar ändringsposter för borttagna program|
+
+## <a name="alert-on-changes"></a>Avisera om ändringar
+
+En viktig funktion för ändringsspårning och inventering är möjligheten att Avisera om konfigurationstillståndet och eventuella ändringar gällande konfigurationstillståndet för din hybridmiljön.  
+
+I följande exempel skärmbilden visar att filen `C:\windows\system32\drivers\etc\hosts` har ändrats på en dator. Den här filen är viktigt eftersom Hosts-filen används av Windows för att matcha värdnamn till IP-adresser och har företräde framför även DNS, vilket kan leda till problem med nätverksanslutningen eller omdirigering av trafik till skadliga eller annars farliga webbplatser.
+
+![Ett diagram som visar värdarna filändring](./media/automation-change-tracking/changes.png)
+
+Om du vill analysera den här ändringen ytterligare, gå till loggsökning från att klicka på **Log Analytics**. En gång i loggsökning, Sök efter innehållet ändras Hosts-filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som innehöll en ändring av filinnehåll för filer vars fullständigt kvalificerade sökvägen innehåller ordet ”värdar”. Du kan också fråga efter en viss fil genom att ändra sökvägsdelen till dess fullständigt kvalificerade (till exempel `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+
+När frågan returnerar det önskade resultatet, klickar du på den **ny aviseringsregel** knappen i loggen sökupplevelsen att öppna sidan skapande av varning. Du kan också navigera till den här upplevelsen via **Azure Monitor** i Azure-portalen. Kontrollera frågan igen och ändra avisering logiken i skapande av varning-upplevelse. I detta fall använder vill du att aviseringen ska utlösas om det finns även en ändring som har identifierats för alla datorer i miljön.
+
+![En bild som visar ändra frågan för att spåra ändringar i värdfilen](./media/automation-change-tracking/change-query.png)
+
+Tilldela åtgärdsgrupper för att utföra åtgärder som svar på aviseringen utlöses när du har angett villkorsstyrd logik. I det här fallet har jag ställa in e-postmeddelanden som ska skickas och ITSM-biljett som ska skapas.  Många andra användbara åtgärder kan också hämtas som att utlösa en Azure-funktion, Automation-runbook, Webhook eller Logikapp.
+
+![En avbildning som konfigurerar en åtgärdsgrupp att aviseringen på ändringar](./media/automation-change-tracking/action-groups.png)
+
+Efter alla parametrar och logik ställs in, kan vi använda aviseringen för miljön.
+
+### <a name="alert-suggestions"></a>Aviseringen förslag
+
+Varna vid ändringar i värdfilen är en bra tillämpning av aviseringar för ändringsspårning och inventering data, finns men det många fler scenarier för avisering, inklusive fall som definierats tillsammans med deras exempelfrågor i avsnittet nedan.
+
+|Söka i data  |Beskrivning  |
+|---------|---------|
+|ConfigurationChange <br>&#124;där ConfigChangeType == ”filer” och FileSystemPath innehåller ”c:\\windows\\system32\\drivrutiner\\”|Användbart för att spåra ändringar av kritiska systemfiler|
+|ConfigurationChange <br>&#124;där FieldsChanged innehåller ”FileContentChecksum” och FileSystemPath == ”c:\\windows\\system32\\drivrutiner\\osv\\värdar”|Användbart för att spåra ändringar av viktiga konfigurationsfiler|
+|ConfigurationChange <br>&#124;där ConfigChangeType == ”WindowsServices” och SvcName innehåller ”w3svc” och SvcState == ”stoppad”|Användbart för att spåra ändringar av kritiska systemtjänster|
+|ConfigurationChange <br>&#124;där ConfigChangeType == ”Daemons” och SvcName innehåller ”ssh” och SvcState! = ”körs”|Användbart för att spåra ändringar av kritiska systemtjänster|
+|ConfigurationChange <br>&#124;där ConfigChangeType == ”programvara” och ChangeCategory == ”har lagts till”|Användbart för miljöer som behöver låsta konfigurationer|
+|ConfigurationData <br>&#124;där SoftwareName innehåller ”Monitoring Agent” och CurrentVersion! = ”8.0.11081.0”|Användbar för att se vilka datorer har en inaktuell eller icke-kompatibla program-version som är installerad. Rapporterar den senaste rapporterade Konfigurationsstatus, inte ändringar.|
+|ConfigurationChange <br>&#124; where RegistryKey == "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Användbart för att spåra ändringar av avgörande antivirus-nycklar|
+|ConfigurationChange <br>&#124;där RegistryKey innehåller ”HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\parametrar\\FirewallPolicy”| Användbart för att spåra ändringar av brandväggsinställningar|
 
 ## <a name="next-steps"></a>Nästa steg
 

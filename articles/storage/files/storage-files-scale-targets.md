@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: 05e5c0a37d2de78393048728b73d9bcf6e56c491
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.subservice: files
+ms.openlocfilehash: 277c570079e8c3f051916452492ff62758688e03
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159174"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454869"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Skalbarhets- och prestandamål i Azure filer
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Den här artikeln beskriver skalbarhets- och prestandamål för Azure Files och Azure File Sync.
@@ -59,7 +59,7 @@ När du planerar distributionen för vart och ett av stegen, observeras nedan re
 |-|-|
 | Antal objekt | 10 miljoner objekt | 
 | Datauppsättningens storlek| ~ 4 TiB |
-| Genomsnittlig filstorlek | ~ 500 KiB (största filen: 100 giB) |
+| Genomsnittlig filstorlek | ~ 500 KiB (största filen: 100 GiB) |
 | Ladda upp dataflöde | 20 objekt per sekund |
 | Namespace Download dataflöde * | 400 objekt per sekund |
  

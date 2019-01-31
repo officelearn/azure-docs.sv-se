@@ -3,7 +3,7 @@ title: Installera programpaket på compute-noder – Azure Batch | Microsoft Doc
 description: Använd funktionen programmet paket i Azure Batch för att enkelt hantera flera program och versioner för installation på Batch compute-noder.
 services: batch
 documentationcenter: .net
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: 3b6044b7-5f65-4a27-9d43-71e1863d16cf
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/15/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 333161042e968b4baf4b962869d688fd0b696b24
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 6fd3eccf3de5d46520dc5a50cab66667c875799e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094143"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454617"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuera program till beräkningsnoder med Batch-programpaket
 
@@ -46,7 +46,7 @@ I Azure Batch, en *program* refererar till en uppsättning version binärfiler s
 
 ![Översiktsdiagram över program och programpaket][1]
 
-### <a name="applications"></a>Program
+### <a name="applications"></a>Appar
 Ett program i Batch innehåller en eller flera program paket och anger alternativ för programmet. Ett program kan till exempel ange standardversion för program som paketet ska installeras på compute-noder och om dess paket kan uppdateras eller tas bort.
 
 ### <a name="application-packages"></a>Programpaket
@@ -113,9 +113,9 @@ Om du väljer alternativet öppnas den **program** fönster:
 
 Det här fönstret visar ID för varje program i ditt konto och följande egenskaper:
 
-* **Paket**: antalet versioner som är associerade med det här programmet.
-* **Standardversion**: programversionen installeras om du inte anger en version när du anger att programmet för en pool. Den här inställningen är valfri.
-* **Tillåt uppdateringar**: det värde som anger om paketet uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **nr**, paketuppdateringar och borttagningar är inaktiverat för programmet. Endast nya programpaketversioner kan läggas till. Standardinställningen är **Ja**.
+* **Paket**: Antal versioner som är associerade med det här programmet.
+* **Standardversion**: Programmets version installeras om du inte anger en version när du anger att programmet för en pool. Den här inställningen är valfri.
+* **Tillåt uppdateringar**: Det värde som anger om paketet uppdateringar, borttagningar och tillägg är tillåtna. Om detta är inställt på **nr**, paketuppdateringar och borttagningar är inaktiverat för programmet. Endast nya programpaketversioner kan läggas till. Standardinställningen är **Ja**.
 
 ### <a name="view-application-details"></a>Visa programinformation
 Om du vill se information om ett program, väljer du programmet i den **program** fönster.

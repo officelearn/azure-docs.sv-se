@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 95ada2cb146bdbc972afee883a1d174c95aa67d7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713977"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297590"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Tillgänglighet för SAP HANA i Azure-regioner
 
@@ -39,7 +39,7 @@ Azure-nätverk använder en annan IP-adressintervall. IP-adresser har distribuer
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Enkel tillgänglighet mellan två Azure-regioner
 
-Du kan välja inte att upprätta någon konfiguration för tillgänglighet inom en enda region och har fortfarande begäran ha arbetsbelastningen hanteras om en olycka inträffar. Typiska fall då system som detta är icke-produktionsmiljöer system. Även om det är hållbar med systemet ned för en halv dag eller ännu en dag, kan du tillåta systemet var tillgänglig i 48 timmar eller mer. Kör ett annat system som är även mindre viktiga på den virtuella datorn för att göra installationen blir kostnadseffektivare. Det andra systemet fungerar som ett mål. Du kan också ändra storlek på den virtuella datorn i den sekundära regionen ska vara mindre och väljer att inte förinstallera data. Eftersom växling vid fel är manuell och innebär många fler steg för att växla över hela appen stack, är extra tid att Stäng av den virtuella datorn, ändra storlek på den och sedan starta om den virtuella datorn acceptabelt.
+Du kan välja inte att upprätta någon konfiguration för tillgänglighet inom en enda region och har fortfarande begäran ha arbetsbelastningen hanteras om en olycka inträffar. Typiska fall sådana scenarier är icke-produktionsmiljöer system. Även om det är hållbar med systemet ned för en halv dag eller ännu en dag, kan du tillåta systemet var tillgänglig i 48 timmar eller mer. Kör ett annat system som är även mindre viktiga på den virtuella datorn för att göra installationen blir kostnadseffektivare. Det andra systemet fungerar som ett mål. Du kan också ändra storlek på den virtuella datorn i den sekundära regionen ska vara mindre och väljer att inte förinstallera data. Eftersom växling vid fel är manuell och innebär många fler steg för att växla över hela appen stack, är extra tid att Stäng av den virtuella datorn, ändra storlek på den och sedan starta om den virtuella datorn acceptabelt.
 
 Om du använder oss av delar DR-målet med en QA-dator i en virtuell dator kan behöva du dessa tänka:
 
@@ -64,14 +64,24 @@ En kombination av tillgänglighet inom och mellan regioner kan styras av dessa f
 - Organisationen är inte vill eller kan ha globala åtgärder som påverkas av en större naturlig allvarliga händelser som påverkar en större region. Detta var fallet för vissa orkaner som når Karibien de senaste åren.
 - Förordningar som begäran sträckor mellan primära och sekundära platser som är tydligt utöver vad Azure availability zones kan ge.
 
-I dessa fall kan du kan konfigurera vilka SAP-anrop en [replikeringskonfigurationen för SAP HANA-skikt system](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) med hjälp av HANA-systemreplikering. Arkitekturen skulle se ut så här:
+I dessa fall kan du kan konfigurera vilka SAP-anrop en [replikeringskonfigurationen för SAP HANA-skikt system](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/ca6f4c62c45b4c85a109c7faf62881fc.html) med hjälp av HANA-systemreplikering. Arkitekturen ser ut som:
 
 ![Diagram över tre virtuella datorer över två regioner](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
+
+SAP introduceras [flera målsystemet replikering](https://help.sap.com/viewer/42668af650f84f9384a3337bcd373692/2.0.03/en-US/0b2c70836865414a8c65463180d18fec.html) med HANA 2.0 SPS3. Flera målsystemet replikering skyddar vissa fördelar i uppdateringsscenarier. Till exempel påverkas inte DR-plats (Region 2) när den sekundära platsen för hög tillgänglighet är nere för underhåll och uppdateringar. Du hittar mer information om replikering av HANA flera målsystemet [här](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.03/en-US/ba457510958241889a459e606bbcf3d3.html).
+Möjlig arkitektur med flera mål replikering ser ut som:
+
+![Diagram över tre virtuella datorer över två regioner milti-mål](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_3VMs.PNG)
+
+Om organisationen har krav för beredskap för hög tillgänglighet i second(DR) Azure-region, ser arkitekturen ut som:
+
+![Diagram över tre virtuella datorer över två regioner milti-mål](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+
 
 Med hjälp av logreplay som arbetsläge för den här konfigurationen ger ett RPO = 0, med lågt RTO inom den primära regionen. Konfigurationen innehåller också vettigt RPO om en övergång till den andra regionen som ingår. RTO gånger i den andra regionen som är beroende av om data är förinstallerade. Många kunder använder den virtuella datorn i den sekundära regionen för att köra ett testsystem. I som användningsfall, det går inte att i förväg data.
 
 > [!IMPORTANT]
-> Arbetslägen mellan de olika nivåerna måste vara homogena. Du **kan** använda logreply som arbetsläge mellan 1 och nivå 2 och delta_datashipping Ange nivå 3. Du kan bara välja den eller de andra arbetsläge som måste vara konsekvent för alla nivåer. Eftersom delta_datashipping inte är lämpligt att ge dig en RPO = 0, endast rimliga arbetsläge för sådan multi nivån konfiguration förblir logreplay. Mer information om arbetslägen och vissa begränsningar, finns i SAP-artikeln [arbetslägen för SAP HANA-systemreplikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
+> Arbetslägen mellan de olika nivåerna måste vara homogena. Du **kan** använda logreply som arbetsläge mellan 1 och nivå 2 och delta_datashipping Ange nivå 3. Du kan bara välja den eller de andra arbetsläge som måste vara konsekvent för alla nivåer. Eftersom delta_datashipping inte är lämpligt att ge dig en RPO = 0, endast rimliga arbetsläge för sådan flerskiktade konfiguration förblir logreplay. Mer information om arbetslägen och vissa begränsningar, finns i SAP-artikeln [arbetslägen för SAP HANA-systemreplikering](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html). 
 
 ## <a name="next-steps"></a>Nästa steg
 

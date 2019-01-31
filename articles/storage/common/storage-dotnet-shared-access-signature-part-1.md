@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 1bc93b083b0f6f0d813f209c9371ce38e8a9daa6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228818"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470356"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Använda signaturer för delad åtkomst (SAS)
 
@@ -40,11 +40,11 @@ Ett vanligt scenario där en SAS är användbart är en tjänst där användare 
 
 1. Klienter ladda upp och ned data via en för frontend-proxytjänst som utför autentisering. Den här tjänsten för klientdelen proxy har fördelen att det tillåter validering av affärsregler, men för stora mängder data eller hög volym transaktioner, skapa en tjänst som kan skalas för att möta efterfrågan kan vara dyrt eller svårt.
 
-  ![Diagram över scenariot: frontend proxy-tjänst](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+  ![Scenario-diagram: Frontend-proxytjänst](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. En förenklad tjänst autentiserar klienten efter behov och genererar en SAS. När klienten får SAS, kan de komma åt lagringskontoresurserna direkt med de behörigheter som definierats av SAS och för intervallet som tillåts av SAS. SAS minskar behovet av Routning av alla data via frontend proxytjänsten.
 
-  ![Diagram över scenariot: SAS provider-tjänsten](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+  ![Scenario-diagram: SAS provider-tjänsten](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Många verkliga tjänster kan använda en kombination av dessa två metoder. Exempelvis kanske vissa data bearbetas och godkänts via frontend proxy, medan andra data har sparats och/eller läsa direkt med hjälp av SAS.
 
@@ -57,7 +57,7 @@ Dessutom behöver du använder en SAS för att bevilja åtkomst till objektet i 
 ## <a name="types-of-shared-access-signatures"></a>Typer av signaturer för delad åtkomst
 Du kan skapa två typer av signaturer för delad åtkomst:
 
-* **Tjänst-SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [konstruera en SAS för tjänst](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) detaljerad information om hur du skapar SAS-token för tjänsten.
+* **Service SAS.** En tjänst-SAS delegerar åtkomst till en resurs i en av lagringstjänsterna: blobb-, kö-, tabell- eller filtjänsten. Se [konstruera en SAS för tjänst](https://msdn.microsoft.com/library/dn140255.aspx) och [Service SAS exempel](https://msdn.microsoft.com/library/dn140256.aspx) detaljerad information om hur du skapar SAS-token för tjänsten.
 * **SAS-konto.** Konto SAS delegerar åtkomst till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst-SAS är också tillgängliga via en konto-SAS. Med kontot med delad Åtkomstsignatur, kan du dessutom delegera åtkomst till åtgärder som gäller för en viss tjänst, till exempel **Get/Set-tjänstegenskaper** och **få statistik för tjänsten**. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobcontainrar, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Se [konstruera en konto-SAS](https://msdn.microsoft.com/library/mt584140.aspx) detaljerad information om hur du skapar kontot SAS-token.
 
 ## <a name="how-a-shared-access-signature-works"></a>Så här fungerar en signatur för delad åtkomst
@@ -140,8 +140,8 @@ Tanke på att behörigheterna är begränsade till servicenivån, tillgängliga 
 ## <a name="controlling-a-sas-with-a-stored-access-policy"></a>Kontrollera en SAS med en lagrad åtkomstprincip
 En signatur för delad åtkomst kan ta ett av två sätt:
 
-* **Ad hoc-SAS:** när du skapar en ad hoc-SAS starttid, förfallotid, och behörigheter för SAS är alla angivna i SAS-URI (eller underförstådda, i de fall där starttiden utelämnas). Den här typen av SAS kan skapas som en konto-SAS eller en tjänst-SAS.
-* **SAS med lagrad åtkomstprincip:** en lagrad åtkomstprincip har definierats för en resurs behållare – en blob-behållare, tabell, kö, eller filresurs – och kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst. När du kopplar en SAS med en lagrad åtkomstprincip, ärver SAS begränsningar, starttid, förfallotid och behörigheter--har definierats för lagrad åtkomstprincip.
+* **Ad hoc-SAS:** När du skapar en ad hoc-SAS är starttid, förfallotid och behörigheter för SAS alla angivna i SAS-URI (eller underförstådda, i de fall där starttiden utelämnas). Den här typen av SAS kan skapas som en konto-SAS eller en tjänst-SAS.
+* **SAS med lagrad åtkomstprincip:** En lagrad åtkomstprincip har definierats för en resurs behållare – en blob-behållare, tabell, kö, eller filresurs – och kan användas för att hantera begränsningar för en eller flera signaturer för delad åtkomst. När du kopplar en SAS med en lagrad åtkomstprincip, ärver SAS begränsningar, starttid, förfallotid och behörigheter--har definierats för lagrad åtkomstprincip.
 
 > [!NOTE]
 > För närvarande måste en konto-SAS vara en ad hoc-SAS. Lagrade åtkomst principer inte stöds ännu för SAS-konto.

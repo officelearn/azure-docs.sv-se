@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 30ee4f1f56a3c8df44e7a14a131371acfebc6c9e
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.date: 01/25/2019
+ms.openlocfilehash: 78879947ae0e702604b56f1cb9c914acc4d4d592
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052725"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478482"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Ny DBA i molnet – hantera din databas i Azure SQL Database
 
@@ -80,10 +80,10 @@ SQL Database tar allvar säkerhet och sekretess. Säkerheten i SQL-databas är t
 
 Det finns [två autentiseringsmetoder](sql-database-control-access.md#authentication) erbjuds i SQL-databas:
 
-- [Azure Active Directory-autentisering](sql-database-aad-authentication.md)
+- [Azure Active Directory Authentication](sql-database-aad-authentication.md)
 - SQL-autentisering
 
-Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och med en [få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss logisk server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
+Traditionella windows-autentisering stöds inte. Azure Active Directory (AD) är en centraliserad tjänst för identitets- och åtkomsthantering. Med detta kan du mycket bekvämt tillhandahålla en enkel inloggning för åtkomst (SSO) till all personal i din organisation. Det innebär att autentiseringsuppgifterna som är gemensamma för alla Azure-tjänster för enklare autentisering. Har stöd för AAD [MFA (Multifaktorautentisering)](sql-database-ssms-mfa-authentication.md) och med en [få klick](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan integreras med Windows Server Active Directory. SQL-autentisering fungerar på exakt samma sätt som du har använt den tidigare. Du anger ett användarnamn/lösenord och du kan autentisera användare till valfri databas på en viss SQL Database-server. Detta kan också SQL Database och SQL Data Warehouse att erbjuda Multi-Factor authentication och Gäst användarkonton i en Azure AD-domän. Om du redan har en Active Directory lokalt kan du federera katalogen med Azure Active Directory för att utöka din katalog till Azure.
 
 |**Om du...**|**SQL-databas / SQL Data Warehouse**|
 |---|---|
@@ -106,7 +106,7 @@ Det finns flera metoder till ditt förfogande som du kan använda för att uppn�
 
 #### <a name="firewall"></a>Brandvägg
 
-En brandvägg förhindrar åtkomst till din server från en extern entitet genom att tillåta endast specifika entiteter åtkomst till din logiska server. Som standard alla anslutningar och databaserna på den logiska servern är inte tillåtna, förutom anslutningar kommer från andra Azure-tjänster. Du kan använda en brandväggsregel för att öppna åtkomst till din server endast för enheter (till exempel en utvecklare-dator) som du godkänner, genom att tillåta att datorns IP-adress via brandväggen. Du kan också ange ett intervall av IP-adresser som du vill tillåta åtkomst till den logiska servern. Developer datorns IP-adresser i din organisation kan till exempel läggas på en gång genom att ange ett intervall i sidan med brandväggsinställningar.
+En brandvägg förhindrar åtkomst till din server från en extern entitet genom att tillåta endast specifika entiteter åtkomst till din SQL Database-server. Som standard alla anslutningar och databaser i SQL Database-servern är inte tillåtna, förutom anslutningar kommer från andra Azure-tjänster. Du kan använda en brandväggsregel för att öppna åtkomst till din server endast för enheter (till exempel en utvecklare-dator) som du godkänner, genom att tillåta att datorns IP-adress via brandväggen. Du kan också ange ett intervall av IP-adresser som du vill tillåta åtkomst till SQL Database-servern. Developer datorns IP-adresser i din organisation kan till exempel läggas på en gång genom att ange ett intervall i sidan med brandväggsinställningar.
 
 Du kan skapa brandväggsregler på servernivå eller på databasnivå. Nivån brandväggsregler för servern kan antingen skapas med hjälp av Azure portal eller med SSMS. Mer information om hur du anger en server och databas på brandväggsregel finns: [Skapa brandväggsregler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
@@ -240,7 +240,7 @@ Du kan använda intelligenta insikter i plattformen för att övervaka prestanda
 
 #### <a name="azure-portal"></a>Azure Portal
 
-Azure-portalen visar en enskild databas resursutnyttjning genom att välja databasen och klicka på diagrammet i översiktsfönstret i. Du kan ändra diagram om du vill visa flera mått, som CPU-procent, DTU-procent, Data-IO-procent, sessioner procent och databasstorlek i procent.
+Azure-portalen visar databasens användning genom att välja databasen och klicka på diagrammet i översiktsfönstret i. Du kan ändra diagram om du vill visa flera mått, som CPU-procent, DTU-procent, Data-IO-procent, sessioner procent och databasstorlek i procent.
 
 ![Övervakningsdiagrammet](./media/sql-database-manage-after-migration/monitoring-chart.png)
 
@@ -287,7 +287,7 @@ SQL Database erbjuder olika tjänstnivåerna Basic, Standard och Premium. Varje 
 
 För att se till att du använder rätt beräkningsstorleken, kan du övervaka din fråga och databasen resursförbrukning genom någon av ovan nämnda sätt i ”hur övervakar jag prestanda och Resursanvändning i SQL-databas”. Du bör märka att dina frågor/databaser konsekvent kör frekvent på processor/minne etc. kan du skala till en högre beräkningsstorleken. På samma sätt, om du Observera att även under din belastning du verkar inte använda resurserna så mycket; Överväg att skala från den aktuella beräkningsstorleken.
 
-Om du har ett mönster för SaaS-app eller ett scenario för konsolidering av databasen kan du använda en elastisk pool för kostnadsoptimeringar. Elastisk pool är ett bra sätt att uppnå databasen konsoliderings- och kostnadsoptimeringar. Läsa mer om hur du hanterar flera databaser med hjälp av elastisk Pool, se: [Hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
+Om du har ett mönster för SaaS-app eller ett scenario för konsolidering av databasen kan du använda en elastisk pool för kostnadsoptimeringar. Elastisk pool är ett bra sätt att uppnå databasen konsoliderings- och kostnadsoptimeringar. Läsa mer om hur du hanterar flera databaser med hjälp av elastisk pool, se: [Hantera pooler och databaser](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases).
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hur ofta behöver jag kör databasen integritetskontroller min databas
 

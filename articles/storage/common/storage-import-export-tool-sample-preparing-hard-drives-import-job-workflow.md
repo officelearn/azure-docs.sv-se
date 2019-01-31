@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: b21c378d58590e33c7b6aeffe627ce5602074fa2
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: de2cfbf2b4119daf965c95d8973b8528799c9502
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524628"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454637"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb
 
@@ -36,7 +36,7 @@ Importjobbet importerar data till med följande mål i storage-konto:
 
 |Källa|Virtuell katalog för mål- eller blob|
 |------------|-------------------------------------------|
-|H:\Video\ |video /|
+|H:\Video\ |video/|
 |H:\Photo\ |foto /|
 |K:\Temp\FavoriteMovie.ISO|favorite/FavoriteMovies.ISO|
 |\\\bigshare\john\music\ |Musik|
@@ -88,7 +88,7 @@ Ange metadata för de importerade filerna genom att skapa en textfil, `c:\WAImpo
 Du kan också ange vissa egenskaper för den `FavoriteMovie.ISO` blob:
 
 * **Content-Type:** application/octet-ström
-* **Innehåll MD5:** Q2hlY2sgSW50ZWdyaXR5IQ ==
+* **Innehåll MD5:** Q2hlY2sgSW50ZWdyaXR5IQ==
 * **Cache-Control:** no-cache
 
 Skapa en textfil, om du vill ange att egenskaperna `c:\WAImportExport\SampleProperties.txt`:

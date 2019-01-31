@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 6fc3aa3810fa79e0995fd94708d03310cc5cef53
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 76db38a59d2239de79ebcdcfd454ac60a8f514be
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244988"
+ms.locfileid: "55299902"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>Informationslagerenheter (dwu: er) och beräkning Informationslagerenheter (cDWUs)
 Rekommendationer om hur du väljer perfekt antalet informationslagerenheter (dwu: er, cDWUs) för att optimera pris och prestanda och hur du ändrar antalet enheter. 
@@ -62,7 +62,7 @@ WITH
 Varje prestandanivå använder en något annorlunda måttenhet för sina informationslagerenheter. Den här skillnaden syns på fakturan som enheten skala direkt översätts till fakturering.
 
 - Gen1 informationslager mäts i Informationslagerenheter (dwu: er).
-- Gen2 data warehousesr mäts i beräkning Informationslagerenheter (cDWUs). 
+- Gen2 data informationslager mäts i compute-Informationslagerenheter (cDWUs). 
 
 Både dwu: er och cDWUs stöder skalningsberäkning upp eller ned, och pausa när du inte behöver använda datalagret. Dessa åtgärder är alla på begäran. Gen2 använder en lokal diskbaserad cacheminne på beräkningsnoderna för att förbättra prestanda. När du skalar eller pausa systemet cachen betraktas som inaktuella och därför en viss cache värmer krävs innan optimala prestanda uppnås.  
 

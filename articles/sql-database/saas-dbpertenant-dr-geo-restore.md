@@ -12,16 +12,16 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: acc1b9e9561b9468a4638c7073a066e4cb34d911
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: d430a9f1ddec785d236f2501178bd3c7d493f716
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264758"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470609"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Använda geo-återställning för att återställa en SaaS-program med flera klienter från säkerhetskopior av databasen
 
-Den här guiden utforskar en fullständig katastrofåterställning för ett program för flera SaaS som implementeras med databasen per klient modell. Du använder [geo-återställning](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) återställer katalog- och klienttrafik databaser från automatiskt behålla geo-redundanta säkerhetskopieringar till en annan återställningsregion. När driftstörningarna har åtgärdats kan du använda [geo-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) till hem ändrade databaser till deras ursprungliga region.
+Den här guiden utforskar en fullständig katastrofåterställning för ett program för flera SaaS som implementeras med databasen per klient modell. Du använder [geo-återställning](sql-database-recovery-using-backups.md) återställer katalog- och klienttrafik databaser från automatiskt behålla geo-redundanta säkerhetskopieringar till en annan återställningsregion. När driftstörningarna har åtgärdats kan du använda [geo-replikering](sql-database-geo-replication-overview.md) till hem ändrade databaser till deras ursprungliga region.
 
 ![GEO-återställning-arkitektur](media/saas-dbpertenant-dr-geo-restore/geo-restore-architecture.png)
 
@@ -63,12 +63,12 @@ Haveriberedskap (DR) är viktigt för många program, vare sig det gäller efter
 Den här guiden använder funktioner för Azure SQL Database och Azure-plattformen för att åtgärda dessa problem:
 
 * [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template), för att reservera alla nödvändiga kapacitet så snabbt som möjligt. Azure Resource Manager-mallar används för att etablera en spegelbild av de ursprungliga servrarna och elastiska pooler i återställningsregionen. En separat server och en pool skapas också för att etablera nya klienter.
-* [Klientbibliotek för elastiska databaser](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-client-library) (EDCL) att skapa och underhålla en klientkatalog för databasen. Utökade katalogen innehåller med jämna mellanrum pool- och konfigurationsinformation.
-* [Shard för recovery hanteringsfunktioner](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-database-recovery-manager) av EDCL att underhålla databasen plats poster i katalogen under återställning och hemtransport.  
-* [GEO-återställning](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery), återställer katalog- och klienttrafik databaser från automatiskt behålla geo-redundanta säkerhetskopieringar. 
+* [Klientbibliotek för elastiska databaser](sql-database-elastic-database-client-library.md) (EDCL) att skapa och underhålla en klientkatalog för databasen. Utökade katalogen innehåller med jämna mellanrum pool- och konfigurationsinformation.
+* [Shard för recovery hanteringsfunktioner](sql-database-elastic-database-recovery-manager.md) av EDCL att underhålla databasen plats poster i katalogen under återställning och hemtransport.  
+* [GEO-återställning](sql-database-disaster-recovery.md), återställer katalog- och klienttrafik databaser från automatiskt behålla geo-redundanta säkerhetskopieringar. 
 * [Asynkron återställningsåtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations), skickas i prioritetsordning för klienten, är i kö för varje pool av systemet och bearbetas i batchar så att poolen inte är överbelastad. De här åtgärderna kan avbrytas före eller under körningen om det behövs.   
-* [GEO-replikering](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview)att hem databaser till den ursprungliga regionen när avbrottet. Det finns inga data går förlorade och minimal inverkan på klienten när du använder geo-replikering.
-* [SQL server-DNS-alias](https://docs.microsoft.com/azure/sql-database/dns-alias-overview)för att synkroniseringen catalog att ansluta till den aktiva katalogen, oavsett dess plats.  
+* [GEO-replikering](sql-database-geo-replication-overview.md)att hem databaser till den ursprungliga regionen när avbrottet. Det finns inga data går förlorade och minimal inverkan på klienten när du använder geo-replikering.
+* [SQL server-DNS-alias](dns-alias-overview.md)för att synkroniseringen catalog att ansluta till den aktiva katalogen, oavsett dess plats.  
 
 ## <a name="get-the-disaster-recovery-scripts"></a>Hämta disaster recovery skript
 
@@ -378,4 +378,4 @@ Prova den [haveriberedskap för en multitenant SaaS-program med hjälp av databa
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-[Ytterligare självstudier som bygger på Wingtip SaaS-program](https://docs.microsoft.com/azure/sql-database/sql-database-wtp-overview#sql-database-wingtip-saas-tutorials)
+[Ytterligare självstudier som bygger på Wingtip SaaS-program](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

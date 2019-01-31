@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 06/13/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.component: disks
-ms.openlocfilehash: c39079b2624e8b77ac43e2d37a14ef71d173f6c7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.subservice: disks
+ms.openlocfilehash: aa38fe3da118515b20d9b743a9a22b54e338051a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54461305"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463720"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Lägg till en disk till en virtuell Linux-dator
 Den här artikeln visar hur du kopplar en permanent disk till den virtuella datorn så att du kan behålla dina data, även om den virtuella datorn är nätverkskonfigurationsinställningar på grund av underhåll eller ändra storlek på. 

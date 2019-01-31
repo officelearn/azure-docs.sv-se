@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 12764574c92c494e27290f98f274d2b76c7a4dc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 3ce5c79d3565a0b9396b15f54d9ab854e8b8d0d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183244"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462349"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Säkerhetskopiering och återställning i Azure SQL Data Warehouse
 Lär dig hur säkerhetskopiering och återställning fungerar i Azure SQL Data Warehouse. Användningsdata warehouse ögonblicksbilder till recovery eller kopiera ditt informationslager till en tidigare återställningspunkt i den primära regionen. Användningsdata warehouse geo-redundanta säkerhetskopieringar att återställa till en annan geografisk region. 

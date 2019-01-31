@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: yuemlu
-ms.component: common
-ms.openlocfilehash: c9e9dd0eab127fcb0deb3085915bd51eeb309089
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: d42183e1db49850afc115fcb5645baf7290cf3c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53632848"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477614"
 ---
 # <a name="migrating-to-azure-premium-storage-unmanaged-disks"></a>Migrera till Azure Premium Storage (ohanterade diskar)
 
@@ -182,7 +182,7 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
    * **/ Källa:  *&lt;källa&gt;:*** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
    * **/ SourceKey:  *&lt;källa kontonyckel&gt;:*** Lagringskontonyckel för källagringskontot.
    * **/ Dest:  *&lt;mål&gt;:*** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/ DestKey:  *&lt;dest kontonyckel&gt;:*** Lagringskontonyckel för mållagringskontot.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** Lagringskontonyckel för mållagringskontot.
    * **/ Mönster:  *&lt;filnamn&gt;:*** Ange namnet på den virtuella Hårddisken för att kopiera.
 
 Mer information om hur du använder AzCopy-verktyget, se [överföra data med kommandoradsverktyget Azcopy](storage-use-azcopy.md).
@@ -279,7 +279,7 @@ Med AzCopy kan överföra du enkelt den virtuella Hårddisken via Internet. Det 
    * **/ Källa:  *&lt;källa&gt;:*** Platsen för mappen eller storage-behållarens Webbadress som innehåller den virtuella Hårddisken.
    * **/ SourceKey:  *&lt;källa kontonyckel&gt;:*** Lagringskontonyckel för källagringskontot.
    * **/ Dest:  *&lt;mål&gt;:*** Storage-behållarens Webbadress att kopiera den virtuella Hårddisken till.
-   * **/ DestKey:  *&lt;dest kontonyckel&gt;:*** Lagringskontonyckel för mållagringskontot.
+   * **/DestKey: *&lt;dest-account-key&gt;:*** Lagringskontonyckel för mållagringskontot.
    * **/ BlobType: sidan:** Anger att målet är en sidblob.
    * **/ Mönster:  *&lt;filnamn&gt;:*** Ange namnet på den virtuella Hårddisken för att kopiera.
 
@@ -765,7 +765,7 @@ Se även följande resurser för att lära dig mer om Azure Storage och Azure Vi
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på Azure virtuella datorer](../../virtual-machines/windows/premium-storage.md)
+* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar för virtuella Azure-datorer](../../virtual-machines/windows/premium-storage.md)
 
 [1]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png
 [2]:./media/storage-migration-to-premium-storage/migration-to-premium-storage-1.png

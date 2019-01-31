@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/28/2019
 ms.author: juliako
-ms.openlocfilehash: d162f8caef0a14d86547539681f1da9b1b07ea1d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fcde97c76e11c6ecbdb22befcb1a8d1ce0437942
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55190504"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299036"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Självstudier: Använda Video Indexer-API:et
 
@@ -82,7 +82,7 @@ De värden som beskrivs i tabellen nedan gäller. **Parametervärde** är det v�
 
 |**Namn**|**Parametervärde**|**Beskrivning**|
 |---|---|---|
-|Utvärdering|trial|Används för utvärderingskonton.|
+|Utvärdering|spårning|Används för utvärderingskonton.|
 |Västra USA|westus2|Används för Azure-regionen Västra USA 2.|
 |Norra Europa |northeurope|Används för Azure-regionen Norra Europa.|
 |Östasien|eastasia|Används för Azure-regionen Östasien.|

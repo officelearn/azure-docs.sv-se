@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/30/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 28c9e342aec3eb3ba61b46f4f80c7d097b0653b6
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: common
+ms.openlocfilehash: 211051254e08d69c06afd4242599c909048e7e17
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51258722"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464848"
 ---
 # <a name="using-the-azure-classic-cli-with-azure-storage"></a>Använda den klassiska Azure CLI med Azure Storage
 
@@ -35,7 +35,7 @@ Den här guiden förutsätter att du förstår de grundläggande principerna fö
 ## <a name="get-started-with-azure-storage-and-the-azure-classic-cli-in-5-minutes"></a>Kom igång med Azure Storage och Azure klassiskt CLI på 5 minuter
 Den här guiden använder Ubuntu exempel, men andra OS-plattformar som ska utföras på samma sätt.
 
-**Nybörjare på Azure:** får en Microsoft Azure-prenumeration och ett Microsoft-konto som är associerade med den aktuella prenumerationen. Information om köpalternativ för Azure finns i [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [Inköpsalternativ](https://azure.microsoft.com/pricing/purchase-options/), och [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network och BizSpark och andra Microsoft-program).
+**Nybörjare på Azure:** Få en Microsoft Azure-prenumeration och ett Microsoft-konto som är associerade med den aktuella prenumerationen. Information om köpalternativ för Azure finns i [kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/), [Inköpsalternativ](https://azure.microsoft.com/pricing/purchase-options/), och [Medlemserbjudanden](https://azure.microsoft.com/pricing/member-offers/) (för medlemmar i MSDN, Microsoft Partner Network och BizSpark och andra Microsoft-program).
 
 Se [Tilldela administratörsroller i Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) för mer information om Azure-prenumerationer.
 
@@ -78,7 +78,7 @@ Se [Tilldela administratörsroller i Azure Active Directory (Azure AD)](https://
 5. Öppna din önskade textredigerare (vim till exempel) i din lokala dator. Ange skriptet ovan till en textredigerare.
 6. Nu kan behöva du uppdatera skriptvariabler baserat på dina inställningar.
 
-   * **< Storage_account_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för ditt lagringskonto. **Viktigt:** namnet på lagringskontot måste vara unikt i Azure. Det måste vara gemener, för!
+   * **< Storage_account_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för ditt lagringskonto. **Viktigt!** Namnet på lagringskontot måste vara unikt i Azure. Det måste vara gemener, för!
    * **< Storage_account_key >** åtkomstnyckeln för ditt lagringskonto.
    * **< Container_name >** använder det angivna namnet i skriptet eller ange ett nytt namn för din behållare.
    * **< Image_to_upload >** ange en sökväg till en bild på din lokala dator, till exempel ”: ~ / images/HelloWorld.png”.
@@ -132,7 +132,7 @@ azure storage container create mycontainer
 ```
 
 > [!NOTE]
-> Det finns tre nivåer av anonym läsbehörighet: **av**, **Blob**, och **behållare**. Om du vill förhindra anonym åtkomst till blobbar, kan du ange parametern behörighet **av**. Som standard den nya behållaren är privat och kan endast användas av ägare. Tillåt anonyma offentlig läsbehörighet till blob-resurser, men inte till metadata för behållaren eller till listan över blobar i behållaren ange parametern behörighet **Blob**. Tillåt fullständig offentlig läsbehörighet för blob-resurser, metadata för behållaren och listan över blobar i behållaren genom att ange parametern behörighet **behållare**. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).
+> Det finns tre nivåer av anonym läsbehörighet: **Inaktivera**, **Blob**, och **behållare**. Om du vill förhindra anonym åtkomst till blobbar, kan du ange parametern behörighet **av**. Som standard den nya behållaren är privat och kan endast användas av ägare. Tillåt anonyma offentlig läsbehörighet till blob-resurser, men inte till metadata för behållaren eller till listan över blobar i behållaren ange parametern behörighet **Blob**. Tillåt fullständig offentlig läsbehörighet för blob-resurser, metadata för behållaren och listan över blobar i behållaren genom att ange parametern behörighet **behållare**. Mer information finns i [Hantera anonym läsbehörighet till containrar och blobbar](../blobs/storage-manage-access-to-resources.md).
 >
 >
 

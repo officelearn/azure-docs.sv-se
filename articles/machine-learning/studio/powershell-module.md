@@ -1,5 +1,5 @@
 ---
-Rubrik: PowerShell-moduler för Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa och hantera Azure Machine Learning Studio-arbetsytor, experiment, webbtjänster och annat med hjälp av PowerShell. tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: PowerShell-moduler för Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Skapa och hantera Azure Machine Learning Studio-arbetsytor, experiment, webbtjänster och annat med hjälp av PowerShell. tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 01/25/2019
 ---

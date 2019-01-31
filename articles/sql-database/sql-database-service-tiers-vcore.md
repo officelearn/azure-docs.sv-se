@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 01/08/2019
-ms.openlocfilehash: 6b5ff7294735048347c500d64b411f16bda5422f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.date: 01/25/2019
+ms.openlocfilehash: 0d55b5d4c8d42a89a51fa5342d1ed747659a441b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54212949"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465103"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>vCore-tjänstnivåer, Azure Hybrid-förmånen och migrering
 
@@ -42,7 +42,7 @@ Tabellen nedan hjälper dig att förstå skillnaderna mellan de tre nivåerna:
 |Bäst för|De flesta företags arbetsbelastningar. Erbjudanden budgetera objektorienterad balanserade och skalbara beräknings- och lagringsalternativ.|Affärsprogram med höga I/O-krav. Erbjuder den högsta uthålligheten mot fel tack vare flera isolerade repliker.|De flesta företags arbetsbelastningar med mycket skalbar lagring och läs-och skalningskrav|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1-80 vCore|
 |Minne|Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna | Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna |Gen4: 7 GB per kärna<br>Gen5: 5.1 GB per kärna|
-|Storage|Använder [premium Fjärrlagring](../virtual-machines/windows/premium-storage.md):<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB TILL 8 TB |Använder lokal SSD-lagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB TILL 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
+|Storage|Använder [premium Fjärrlagring](../virtual-machines/windows/premium-storage.md):<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 8 TB |Använder lokal SSD-lagring:<br/>Databas: 5 GB – 4 TB<br/>Hanterad instans: 32 GB - 4 TB |Flexibel, automatisk storleksökning av lagring vid behov. Har stöd för upp till 100 TB lagring och mycket mer. Lokal SSD-lagring för lokala buffertminne för poolen och lokal datalagring. Azure Fjärrlagring sista långsiktig datalagring. |
 |I/o-genomströmning (ungefärlig)|Databas: 500 IOPS per vCore med 7000 högsta IOPS</br>Hanterad instans: Beror på [storleken på filen](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOPS per kärna med 200 000 högsta IOPS|TBD|
 |Tillgänglighet|1 repliken, inga lässkala|3 repliker, 1 [lässkala repliken](sql-database-read-scale-out.md),<br/>zonen redundant hög tillgänglighet|?|
 |Säkerhetskopior|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 dagar (7 dagar som standard)|ögonblicksbild-baserad säkerhetskopiering i Azure Fjärrlagring och återställningar kan du använda de här ögonblicksbilderna för snabb återställning. Säkerhetskopior är omedelbara och påverkar inte i/o-prestanda för databearbetning. Återställningar är mycket snabbt och är inte en storlek på data igen (tar några minuter i stället för timmar eller dagar).|
@@ -71,7 +71,7 @@ Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrast
 
 - Att ställa in eller uppdatera licenstypen med hjälp av PowerShell:
 
-  - [Ny AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
+  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase):
   - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql)
   - [Ny AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
   - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql)
@@ -81,7 +81,7 @@ Med Azure Hybrid-förmånen kan du betalar bara för underliggande Azure-infrast
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
   - [Skapa AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [uppdatering av AZ sql mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - Att ställa in eller uppdatera licenstypen med hjälp av REST-API:
 

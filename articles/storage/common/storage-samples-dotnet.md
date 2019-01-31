@@ -8,13 +8,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/12/2017
 ms.author: seguler
-ms.component: common
-ms.openlocfilehash: 663df77a7fb574f05cfaa9378dff53ca5db21c49
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c4dcb3f42d97624e66258228ce27e130a05cac70
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526117"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456144"
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage-exempel med hjälp av .NET
 
@@ -25,7 +25,7 @@ Följande tabell innehåller en översikt över vår lagringsplats med exempel o
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Slutpunkt</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Exempelkod</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
-<td>Bifoga Blob</td> 
+<td>Bifoga blob</td> 
 <td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference metoden exempel</a></td> 
 </tr> 
 <tr> 

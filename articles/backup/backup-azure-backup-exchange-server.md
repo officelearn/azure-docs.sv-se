@@ -2,18 +2,18 @@
 title: Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 description: Lär dig hur du säkerhetskopierar en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 services: backup
-author: adigan
-manager: NKolli1
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/19/2018
-ms.author: adigan
-ms.openlocfilehash: 7e95fa0cc6b5f9476df68ab44e5dbc8bb5432d52
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/31/2019
+ms.author: kasinh
+ms.openlocfilehash: ef976667ec580ea75dd1b8566c7bdddf35eeb0fc
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234468"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298321"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Säkerhetskopiera en Exchange-server till Azure Backup med System Center 2012 R2 DPM
 Den här artikeln beskriver hur du konfigurerar en server för System Center 2012 R2 Data Protection Manager (DPM) för säkerhetskopiering av en Microsoft Exchange-server till Azure Backup.  
@@ -110,11 +110,11 @@ Följ dessa steg om du vill installera DPM-skyddsagenten på Exchange-servern:
 
 Onlineåterställningspunkter finns det fem typer av återställning:
 
-* **Återställ till den ursprungliga Exchange-serverplatsen:** data kommer att återställas till den ursprungliga Exchange-servern.
-* **Återställ till en annan databas på en Exchange-Server:** data kommer att återställas till en annan databas på en annan Exchange server.
-* **Återställ till Återställningsdatabas:** data kommer att återställas till en Exchange Recovery databasen (RDB).
-* **Kopiera till en nätverksmapp:** data kommer att återställas till en nätverksmapp.
-* **Kopiera till band:** om du har ett bandbibliotek eller en fristående bandenhet ansluten och konfigurerats på DPM-servern, återställningspunkten som ska kopieras till ett ledigt band.
+* **Återställa till den ursprungliga Exchange-serverplatsen:** Data återställs till den ursprungliga Exchange-servern.
+* **Återställa till en annan databas på en Exchange Server:** Data återställs till en annan databas på en annan Exchange server.
+* **Återställ till Återställningsdatabas:** Data återställs till en Exchange Recovery databasen (RDB).
+* **Kopiera till en nätverksmapp:** Data återställs till en nätverksmapp.
+* **Kopiera till band:** Om du har ett bandbibliotek eller en fristående bandenhet ansluten och konfigurerats på DPM-servern, kopieras återställningspunkten på ett ledigt band.
 
     ![Välj onlinereplikering](./media/backup-azure-backup-exchange-server/choose-online-replication.png)
 

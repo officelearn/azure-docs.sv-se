@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: e0a3f5239e9d0f16312894dee598c0fc490f1e73
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.date: 01/25/2019
+ms.openlocfilehash: 6b4bc5a75f49287ad0425a7fe94f099204b73e44
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53270016"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469557"
 ---
 # <a name="the-azure-sql-database-service"></a>Azure SQL Database-tjänsten
 
@@ -26,8 +26,8 @@ SQL-databasen är en hanterad, allmän relationsdatabastjänst i Microsoft Azure
 
 Azure SQL Database innehåller följande distributionsalternativ för en Azure SQL-databas:
 
-- Som en enda databas med en egen uppsättning resurser som hanteras via en logisk server
-- Som en poolindelad databas i en [elastisk pool](sql-database-elastic-pool.md) med en delad uppsättning resurser som hanteras via en logisk server
+- Som en enkel databas med en egen uppsättning resurser som hanteras via SQL-databasserver
+- Som en databas i pool i ett [elastisk pool](sql-database-elastic-pool.md) med en delad uppsättning resurser som hanteras via SQL-databasserver
 - Som en del av en uppsättning databaser som kallas en [hanterad instans](sql-database-managed-instance.md) som innehåller system- och användardatabaser och dela en uppsättning resurser
 
 Följande bild visar dessa distributionsalternativ:
@@ -68,7 +68,7 @@ Du kan skapa din första app på en liten, enkel databas till en låg kostnad pe
 > [!IMPORTANT]
 > Den [hyperskala tjänstnivå](sql-database-service-tier-hyperscale.md) finns för närvarande i offentlig förhandsversion. Vi rekommenderar inte någon produktionsarbetsbelastning körs ännu i hyperskala databaser. Du kan inte uppdatera en storskalig databas till andra tjänstnivåer. För testning syfte rekommenderar vi du gör en kopia av den aktuella databasen och uppdatera kopian hyperskala tjänstnivån.
 
-Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. Enskilda Azure SQL-databaser stöder manuell dynamisk skalbarhet, men inte Autoskala. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en Azure SQL-databas. Mer information finns i [Använd PowerShell till att övervaka och skala en enskild SQL-databas](scripts/sql-database-monitor-and-scale-database-powershell.md).
+Dynamisk skalbarhet skiljer sig från autoskalning. Med Autoskala avses när en tjänst skalar automatiskt utifrån olika kriterier, medan dynamisk skalbarhet möjliggör manuell skalning utan avbrott. En enkel databas har stöd för manuell dynamisk skalbarhet, men inte automatisk skalning. Om du vill ha en mer *automatisk* upplevelse bör du använda elastiska pooler, vilka tillåter databaser att dela resurser i en pool utifrån enskilda databasbehov. Det finns dock skript som kan hjälpa dig att automatisera skalbarhet för en enskild databas. Ett exempel finns i [Använd PowerShell för att övervaka och skala en enskild databas](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>Elastiska pooler som maximerar resursutnyttjandet
 
@@ -94,7 +94,7 @@ Men hur kan man jämföra den relativa prestandan för enskilda databaser och el
 Dessutom kan SQL-databasen [skapa mått och diagnostikloggar](sql-database-metrics-diag-logging.md) för lättare övervakning. Du kan konfigurera SQL-databasen för att lagra resursanvändning, personal och sessioner och anslutning till en av dessa Azure-resurser:
 
 - **Azure Storage**: För arkivering av stora mängder telemetri till ett lågt pris
-- **Azure-Händelsehubb**: För att integrera telemetri för SQL-databas med din anpassade övervakningslösning eller med heta pipelines
+- **Azure Event Hub**: För att integrera telemetri för SQL-databas med din anpassade övervakningslösning eller med heta pipelines
 - **Azure Log Analytics**: För inbyggd övervakningslösning med rapporter, aviseringar och problemlösningsfunktioner.
 
     ![Arkitektur](./media/sql-database-metrics-diag-logging/architecture.png)
@@ -148,7 +148,7 @@ SQL-databasen innehåller en uppsättning [inbyggda funktioner för säkerhet oc
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
-SQL Advanced Threat Protection är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. Det innefattar funktioner för att identifiera och klassificera känsliga data, hantera säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
+SQL avancerade datasäkerhet är en enhetlig paketet för avancerade funktioner för SQL-säkerhet. Det innefattar funktioner för att identifiera och klassificera känsliga data, hantera säkerhetsrisker i databasen och identifiera avvikande aktiviteter som kan indikera ett hot mot databasen. Det ger en samlad plats för aktivering och hantering av dessa funktioner.
 
 - [Dataidentifiering och klassificering](sql-database-data-discovery-and-classification.md):
 
@@ -198,7 +198,7 @@ Skapa program med Python, Java, Node.js, PHP, Ruby och .NET på MacOS, Linux och
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Tala med teknikteamet för SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): Ställ frågor om databasadministration
-- [Stackspill](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
+- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): Ställ frågor om utveckling
 - [MSDN-forum](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): Ställa tekniska frågor
 - [Feedback](https://aka.ms/sqlfeedback): Rapportera buggar och förslag
 - [Reddit](https://www.reddit.com/r/SQLServer/): Diskutera SQLServer

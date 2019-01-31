@@ -1,6 +1,6 @@
 ---
-Rubrik: Importera data från filen titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du överför en utbildning datafil från hårddisken till Azure Machine Learning Studio. Detta skapar en datauppsättning modul på arbetsytan.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Importera data från filen titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du överför en utbildning datafil från hårddisken till Azure Machine Learning Studio. Detta skapar en datauppsättning modul på arbetsytan.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

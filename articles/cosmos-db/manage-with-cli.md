@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: mjbrown
-ms.openlocfilehash: d45f5b5c5945796e30c86b2e3ef48d6b8e693b99
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c3028fd18bd9afefaa18f7f515a43a852ddef78a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464407"
 ---
-# <a name="manage-azure-cosmos-db-resources-using-azure-cli"></a>Hantera Azure Cosmos DB-resurser med hjälp av Azure CLI
+# <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med hjälp av Azure CLI
 
 Enligt följande anvisningar beskriver kommandon för att automatisera hanteringen av dina Azure Cosmos DB-konton, databaser och behållare med hjälp av Azure CLI. Den innehåller också kommandon för att skala dataflöden i behållare. Det finns referenssidor för alla Azure Cosmos DB CLI-kommandon i [referensguiden för Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb). Du kan också hitta fler exempel i [Azure CLI-exempel för Azure Cosmos DB](cli-samples.md), inklusive hur du skapar och hanterar Cosmos DB-konton, databaser och behållare för MongoDB, Gremlin, Cassandra och tabell-API.
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 58ba44488e8ef211e7c318fc9ba6497a5b1b69bb
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 9a4e47143515c7f9c21d701809c35d61853d91ec
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523282"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471920"
 ---
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Felsökning av Azures import-/exportverktyg
 Microsoft Azure Import/Export-verktyget returnerar felmeddelanden om den körs i problem. Det här avsnittet innehåller några vanliga problem som användarna kan köra i.  
@@ -24,7 +24,7 @@ Microsoft Azure Import/Export-verktyget returnerar felmeddelanden om den körs i
  Om felet är återförsökbart, till exempel om nätverksresursen var offline under en kort period och nu är online igen kan återuppta du session för kopiering. Om felet inte är återförsökbart, till exempel om du har angett fel filen källkatalogen i parametrarna för kommandoraden, måste du avbryta kopia sessionen. Se [förbereda hårddiskar för ett importjobb](../storage-import-export-tool-preparing-hard-drives-import-v1.md) för mer information om att återuppta och avbryts kopia sessioner.  
   
 ## <a name="i-cant-resume-or-abort-a-copy-session"></a>Jag kan inte återuppta eller avbryta en kopia-session.  
- Om sessionen kopia är den första kopia sessionen för en enhet så felmeddelandet ska ange: ”den första kopia sessionen inte kan återupptas eller avbröts”. I det här fallet kan du ta bort den gamla journalfilen och kör kommandot igen.  
+ Om sessionen kopia är den första kopia sessionen för en enhet, ska felmeddelandet ange: ”Den första kopia sessionen inte kan återupptas eller avbröts”. I det här fallet kan du ta bort den gamla journalfilen och kör kommandot igen.  
   
  Om en kopia session inte är den första mallen för en enhet kan det alltid återupptas eller avbröts.  
   

@@ -1,6 +1,6 @@
 ---
-Rubrik: TitleSuffix för utvärdering av data: Beskrivning av Azure Machine Learning Studio: Fyra villkor som måste uppfylla för att vara klara för datavetenskap. Den här videon har konkreta exempel som hjälper med grundläggande data utvärdering.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: TitleSuffix för utvärdering av data: Beskrivning av Azure Machine Learning Studio: Fyra villkor som måste uppfylla för att vara klara för datavetenskap. Den här videon har konkreta exempel som hjälper med grundläggande data utvärdering.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

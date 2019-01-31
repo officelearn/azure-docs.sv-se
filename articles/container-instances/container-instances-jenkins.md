@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: danlep
-ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 85b67fb4fa474bb00b5b7ca66580273671081cdf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354197"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478204"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Använd Azure Container Instances som en Jenkins skapa agenten
 
@@ -26,7 +26,7 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
 
 2. Ange följande information den **grunderna** formuläret och välj sedan **OK**.
 
-   - **Namn på**: Ange ett namn för Jenkins-distribution.
+   - **Namn**: Ange ett namn för Jenkins-distribution.
    - **Användarnamnet**: Ange ett namn för administratören för den virtuella Jenkins-datorn.
    - **Autentiseringstyp**: Vi rekommenderar en offentlig SSH-nyckel för autentisering. Om du väljer det här alternativet kan du klistra in en offentlig SSH-nyckel som ska användas för att logga in på Jenkins-dator.
    - **Prenumeration**: Välj en Azure-prenumeration.
@@ -37,17 +37,17 @@ Mer information om Azure Container Instances finns [om Azure Container Instances
 
 3. På den **ytterligare inställningar** formuläret, Slutför följande objekt:
 
-   - **Storlek**: väljer du lämplig storlek för den virtuella Jenkins-datorn.
-   - **Typ av virtuell datordisk**: ange antingen **HDD** (hårddiskenheten) eller **SSD** (SSD) för Jenkins-servern.
+   - **Storlek**: Välj alternativet lämplig storlek för den virtuella Jenkins-datorn.
+   - **Typ av virtuell datordisk**: Ange antingen **HDD** (hårddiskenheten) eller **SSD** (SSD) för Jenkins-servern.
    - **Virtuellt nätverk**: Markera pilen om du vill ändra standardinställningarna.
-   - **Undernät**: Markera pilen, kontrollerar du informationen och väljer **OK**.
-   - **Offentliga IP-adressen**: Välj pilen för att ge ett anpassat namn för offentliga IP-adress, konfigurera SKU: N och ange tilldelningsmetoden.
+   - **Undernät**: Välj pilen, kontrollerar du informationen och väljer **OK**.
+   - **Offentlig IP-adress**: Välj pilen för att ge ett anpassat namn för offentliga IP-adress, konfigurera SKU: N och ange tilldelningsmetoden.
    - **Domännamnsetiketten**: Ange ett värde för att skapa en fullständig URL till den virtuella Jenkins-datorn.
-   - **Jenkins versionstyp**: Markera den önskade versionen i alternativen: **LTS**, **varje vecka skapa**, eller **Azure verifierat**.
+   - **Jenkins versionstyp**: Markera önskade versionen i alternativen: **LTS**, **varje vecka skapa**, eller **Azure verifierat**.
 
    ![Ytterligare inställningar för distributioner av Jenkins-portalen](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** till har [hanterade identiteter för Azure-resurser] [hanterade-identiteter-azure-resurser] automatiskt skapa en autentiseringsidentitet för Jenkins-instansen. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
+4. Tjänstens huvudnamn integration, Välj **Auto(MSI)** ha [hanterade identiteter för Azure-resurser] [ managed-identities-azure-resources] automatiskt skapa en autentiseringsidentitet för den Jenkins-instansen. Välj **manuell** att ge dina egna autentiseringsuppgifter för tjänstens huvudnamn.
 
 5. Molnet agenter konfigurera en molnbaserad plattform för Jenkins build jobb. För den här artikeln väljer **ACI**. Varje Jenkins-byggjobb körs i en behållarinstans med ACI-molnagent.
 
@@ -138,4 +138,4 @@ Läs mer om Jenkins på Azure i [Azure och Jenkins][jenkins-azure].
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md
 [jenkins-azure]: ../jenkins/overview.md
-[managed-service-identity]: ../active-directory/managed-service-identity/overview.md
+[managed-identities-azure-resources]: ../active-directory/managed-identities-azure-resources/overview.md

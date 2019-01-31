@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/19/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: eb9c66c23440d2fd55c62de02b6c0070245c6d67
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: f5e0b2b75ac111f3221108936f84e5883aebfc1a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247927"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476272"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Optimera transaktioner i Azure SQL Data Warehouse
 Lär dig att optimera prestandan för transaktionell kod i Azure SQL Data Warehouse och minimerar risken för lång återställningar.
@@ -65,7 +65,7 @@ Följande åtgärder har kapacitet för minimalt som du loggar in:
 ## <a name="minimal-logging-with-bulk-load"></a>Minimal loggning med massinläsning
 CTAS och INSERT... Välj är båda belastningen massåtgärder. Men båda påverkas av tabelldefinitionen mål och beror på scenariot belastningen. I följande tabell förklaras när massåtgärder helt eller minimalt loggas:  
 
-| Primärt Index | Läs in Scenario | Loggningsläge |
+| Primärt Index | Load Scenario | Loggningsläge |
 | --- | --- | --- |
 | Heap |Alla |**Minimal** |
 | Grupperat Index |Tom måltabellen |**Minimal** |

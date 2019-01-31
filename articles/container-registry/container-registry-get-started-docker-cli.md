@@ -2,19 +2,19 @@
 title: Överför Docker-avbildningen till privat Azure container registry
 description: Skicka och hämta Docker-avbildningar till ett privat containerregister i Azure med hjälp av Docker CLI
 services: container-registry
-author: stevelas
+author: dlepow
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/29/2017
-ms.author: stevelas
+ms.date: 01/23/2019
+ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 3cbc9f30f180913fefa79f24612e50db75f5c9cd
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e4963ebae73bdd81246433fe43206139caa1661c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53260590"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295788"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Skicka din första avbildning till ett privat Docker-containerregister med hjälp av Docker CLI
 
@@ -25,7 +25,7 @@ I följande steg ska du ladda ned en officiell [Nginx-avbildningen](https://stor
 ## <a name="prerequisites"></a>Förutsättningar
 
 * **Azure-containerregister** – Skapa ett containerregister i din Azure-prenumeration. Till exempel använda den [Azure-portalen](container-registry-get-started-portal.md) eller [Azure CLI](container-registry-get-started-azure-cli.md).
-* **Docker CLI** – om du vill konfigurera din lokala dator som Docker-värd och komma åt Docker CLI-kommandon, installera [Docker](https://docs.docker.com/engine/installation/).
+* **Docker CLI** -du måste också ha Docker installerat lokalt. Docker innehåller paket som enkelt kan konfigurera Docker på alla [macOS] [docker-mac], [Windows] [docker-windows] eller [Linux] [docker-linux].
 
 ## <a name="log-in-to-a-registry"></a>Logga in i ett register
 
@@ -35,13 +35,13 @@ Det finns [flera olika sätt att autentisera](container-registry-authentication.
 az acr login --name myregistry
 ```
 
-Du kan också logga in med [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/). I följande exempel skickas ID:t och lösenordet för ett Azure Active Directory [-tjänstobjekt](../active-directory/develop/app-objects-and-service-principals.md). Du kan till exempel ha [tilldelat ett tjänstobjekt](container-registry-authentication.md#service-principal) till registret för ett automation-scenario.
+Du kan också logga in med [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/). Du kan till exempel ha [tilldelat ett tjänstobjekt](container-registry-authentication.md#service-principal) till registret för ett automation-scenario. När du kör följande kommando interaktivt ange tjänstens huvudnamn appID (användarnamn) och lösenord när du uppmanas till detta. Metodtips att hantera autentiseringsuppgifter för inloggning, finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens:
 
-```Bash
-docker login myregistry.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
+```Docker
+docker login myregistry.azurecr.io
 ```
 
-Båda kommandona returnerar `Login Succeeded` när det har slutförts. Om du använder `docker login`, kan du också se en säkerhetsvarning som rekommenderar användning av den `--password-stdin` parametern. Även om användning av denna ligger utanför vad som tas upp i denna artikel rekommenderar vi att du följer denna bästa metod. Mer information finns i den [docker-inloggning](https://docs.docker.com/engine/reference/commandline/login/) kommandot referens.
+Båda kommandona returnerar `Login Succeeded` när det har slutförts.
 
 > [!TIP]
 > Ange alltid fullständigt kvalificerade registernamnet (endast gemener) när du använder `docker login` och när du tagga bilder för push-överföring till registret. I exemplen i den här artikeln är det fullständigt kvalificerade namnet är *myregistry.azurecr.io*.
@@ -50,7 +50,7 @@ Båda kommandona returnerar `Login Succeeded` när det har slutförts. Om du anv
 
 Först hämta den offentliga Nginx-avbildningen till den lokala datorn.
 
-```Bash
+```Docker
 docker pull nginx
 ```
 
@@ -58,7 +58,7 @@ docker pull nginx
 
 Kör följande [docker kör](https://docs.docker.com/engine/reference/run/) kommando för att starta en lokal instans av Nginx-behållaren interaktivt (`-it`) på port 8080. Den `--rm` argumentet anger att behållaren ska tas bort när du stoppar den.
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 nginx
 ```
 
@@ -74,7 +74,7 @@ Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 
 Använd [dockertagg](https://docs.docker.com/engine/reference/commandline/tag/) att skapa ett alias för avbildningen med den fullständiga sökvägen till registret. I det här exemplet anges `samples`-namnområdet för att undvika oreda i registrets rot.
 
-```Bash
+```Docker
 docker tag nginx myregistry.azurecr.io/samples/nginx
 ```
 
@@ -84,7 +84,7 @@ Mer information om taggar med namnområden finns i den [namnrymder](container-re
 
 Nu när du har taggat avbildningen med den fullständiga sökvägen till ditt privata register, kan du skicka den till registret med [docker push](https://docs.docker.com/engine/reference/commandline/push/):
 
-```Bash
+```Docker
 docker push myregistry.azurecr.io/samples/nginx
 ```
 
@@ -92,7 +92,7 @@ docker push myregistry.azurecr.io/samples/nginx
 
 Använd den [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) kommando för att hämta avbildningen från registret:
 
-```Bash
+```Docker
 docker pull myregistry.azurecr.io/samples/nginx
 ```
 
@@ -100,7 +100,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/run/) kommando för att köra avbildningen du har samlat från ditt register:
 
-```Bash
+```Docker
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
@@ -112,7 +112,7 @@ Stoppa och ta bort behållaren genom att trycka på `Control` + `C`.
 
 Om du inte längre behöver Nginx-avbildningen kan du radera den lokalt med den [docker rmi](https://docs.docker.com/engine/reference/commandline/rmi/) kommando.
 
-```Bash
+```Docker
 docker rmi myregistry.azurecr.io/samples/nginx
 ```
 
@@ -124,7 +124,7 @@ az acr repository delete --name myregistry --repository samples/nginx --tag late
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du känner till grunderna är redo du att börja använda registret! Distribuera behållaravbildningar från ditt register till:
+Nu när du känner till grunderna är redo du att börja använda registret! Till exempel distribuera behållaravbildningar från ditt register till:
 
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)

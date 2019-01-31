@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 25a05df42029fe444b8d5ceddb2972f779f1b232
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: 199e1dda3e4629c0298d4aae1cb5d09e20e4b3b8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358736"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452049"
 ---
-# <a name="access-azure-cosmos-db-resources-from-virtual-networks"></a>Få åtkomst till Azure Cosmos DB-resurser från virtuella nätverk
+# <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Åtkomst till Azure Cosmos DB från virtuella nätverk (VNet)
 
-Du kan konfigurera Azure Cosmos-konto för att tillåta åtkomst från ett specifikt undernät för virtuellt nätverk (VNET). Genom att aktivera [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) för att komma åt Azure Cosmos DB i undernät inom ett virtuellt nätverk, trafik från undernätet är skickas till Azure Cosmos DB med identiteten för undernät och virtuellt nätverk. När Azure Cosmos DB-tjänstslutpunkt har aktiverats kan du begränsa åtkomsten till undernätet genom att lägga till ditt Azure Cosmos-konto.
+Du kan konfigurera Azure Cosmos-konto för att tillåta åtkomst från ett specifikt undernät för virtuellt nätverk (VNet). Genom att aktivera [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) för att komma åt Azure Cosmos DB i undernät inom ett virtuellt nätverk, trafik från undernätet är skickas till Azure Cosmos DB med identiteten för undernät och virtuellt nätverk. När Azure Cosmos DB-tjänstslutpunkt har aktiverats kan du begränsa åtkomsten till undernätet genom att lägga till ditt Azure Cosmos-konto.
 
 Som standard är ett Azure Cosmos-konto kan nås från valfri källa om begäran åtföljs av en giltig auktoriseringstoken. När du lägger till en eller flera undernät i virtuella nätverk får ett giltigt svar med endast de förfrågningar som kommer från dessa undernät. Förfrågningar som kommer från någon annan källa får ett 403 (förbjudet)-svar. 
 

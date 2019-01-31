@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan, moslake
 manager: craigg
-ms.date: 11/30/2018
-ms.openlocfilehash: 7de4415dd332254c595b6687dfb9d8db01c42362
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 61a413fc0b27db66091c8e4a401de654455ebe7c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871724"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471002"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database-tjänstnivåer
 
@@ -57,7 +57,7 @@ Du övervakar den aktuella totala storleken på MDF-filen och IDF med [sp_spaceu
 
 Lagring för säkerhetskopior av databasen har allokerats för att stödja punkten i tiden återställa (PITR) och [Long Term Retention (LTR)](sql-database-long-term-retention.md) funktionerna i SQL-databas. Den här lagringen är tilldelat separat för varje databas och faktureras som två separata per databas avgifter.
 
-- **PITR**: säkerhetskopiering av enskilda databaser kopieras till [RA-GRS-lagring](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatiskt. Storlek ökar dynamiskt när nya säkerhetskopior har skapats.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Lagringsanvändningen beror på ändringsfrekvensen i databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minimimängd lagringsutrymme som är lika med 1 x av storleken på data tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra säkerhetskopiorna i 7 dagar.
+- **PITR**: Säkerhetskopiering av enskilda databaser kopieras till [RA-GRS-lagring](../storage/common/storage-designing-ha-apps-with-ragrs.md) automatiskt. Storlek ökar dynamiskt när nya säkerhetskopior har skapats.  Lagringsutrymmet används av veckovisa, fullständiga säkerhetskopior, dagliga differentiella säkerhetskopior och säkerhetskopior av transaktionsloggar var femte minut. Lagringsanvändningen beror på ändringsfrekvensen i databasen och kvarhållningsperioden. Du kan konfigurera en separat kvarhållningsperiod för varje databas mellan 7 och 35 dagar. En minimimängd lagringsutrymme som är lika med 1 x av storleken på data tillhandahålls utan extra kostnad. För de flesta databaser är beloppet tillräckligt för att lagra säkerhetskopiorna i 7 dagar.
 - **LTR**: SQL Database erbjuder alternativet att konfigurera långsiktig kvarhållning av fullständiga säkerhetskopior för upp till 10 år. Om LTR principen är aktiverad, dessa säkerhetskopior lagras i RA-GRS-lagring automatiskt, men du kan styra hur ofta säkerhetskopiorna kopieras. Du kan välja olika kvarhållningsperioder för veckovisa, månatliga och årliga säkerhetskopior för att uppfylla olika krav. Den här konfigurationen definierar hur mycket lagringsutrymme som ska användas för LTR-säkerhetskopieringar. Du kan använda LTR priskalkylatorn för att beräkna kostnaden för LTR-lagring. Mer information finns i avsnittet om [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
 ## <a name="next-steps"></a>Nästa steg

@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 7c0a48c22e6fe1d1904771915aef401ffa58d588
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: cf38b2096e958a7484e5161277a608ec2cb88224
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152545"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470494"
 ---
 # <a name="design-process-overview"></a>Processöversikt för design
 Du kan uttrycka design avsikt i alla tre faser av projektet Akustik arbetsflödet: förväg skapa scen konfiguration, ljudkälla placering och efter ändamålet design. Processen kräver mindre markup som är associerade med placera eko volymer samtidigt som du behåller designer kontroll över hur en scen låter.
@@ -39,7 +39,7 @@ Visa voxels och avsökning punkter vid körning kan hjälpa att felsöka problem
 Voxel visningen kan avgöra om visuella komponenter i spelet har en transformering som tillämpas. I så fall gäller samma transformering för värd för GameObject den **Akustik Manager**.
 
 ### <a name="voxel-size-discrepancies"></a>Voxel storlek avvikelser
-Du kanske märker att storleken på voxels som används för att illustrera som från scenen nät som deltar i Akustik ändamålet är olika i designvyerna tid och runtime. Detta påverkar inte kvalitet/Granulariteten för din valda simulering frekvens men är i stället en biproduct av runtime voxelized scenen. Simulering voxels är ”förfinade” för att stödja interpolering mellan källplatser vid körning. Detta kan också design tid placeringen av ljud källor närmare scen-nät än simulering voxel storlek tillåter – eftersom datakällor i en voxel som innehåller ett akustiskt behandlade nät inte ska du göra något ljud.
+Du kanske märker att storleken på voxels som används för att illustrera som från scenen nät som deltar i Akustik ändamålet är olika i designvyerna tid och runtime. Detta påverkar inte kvalitet/Granulariteten för din valda simulering frekvens men är i stället en biproduct av runtime voxelized scenen. Vid körning är simulering voxels ”förfinade” för att stödja interpolering mellan källplatser. Detta kan också design tid placeringen av ljud källor närmare scen-nät än simulering voxel storlek tillåter – eftersom datakällor i en voxel som innehåller ett akustiskt behandlade nät inte ska du göra något ljud.
 
 Här följer två bilder som visar skillnaden mellan design (före ändamålet) voxels och runtime (efter ändamålet) voxels som visualiseras av Unity-plugin-programmet:
 
@@ -61,24 +61,30 @@ Ljudet DSP tillhandahålls av den **Microsoft Acoustics** Unity spatializer plug
 
 ![Avståndet dämpning](media/distanceattenuation.png)
 
-Akustik utför beräkning i en ”simulering region” heldag player-platsen. Om en bra källa är långt från spelare, utanför den här regionen för simulering, påverkas endast geometri i rutan ljud spridning (till exempel orsakar ocklusion) som fungerar förhållandevis bra när occluders är i närheten av spelaren. Men i fall kan när spelaren är i öppet område men occluders närmar sig avlägsna ljudkälla ljudet bli orealistiskt disoccluded. Vår Föreslagen lösning är att säkerställa i sådana fall att ljud dämpning ligger till 0 på ungefär 45m, standardavståndet spelaren vid gränsen till rutan.
+Akustik utför beräkning i en ”simulering region” heldag player-platsen. Om en bra källa är långt från spelare, utanför den här regionen för simulering, påverkas endast geometri i rutan ljud spridning (till exempel orsakar ocklusion) som fungerar förhållandevis bra när occluders är i närheten av spelaren. Men i fall kan när spelaren är i öppet område men occluders närmar sig avlägsna ljudkälla ljudet bli orealistiskt disoccluded. Vår Föreslagen lösning är att säkerställa i sådana fall att ljud dämpning ligger till 0 på ungefär 45 m, standardavståndet spelaren vid gränsen till rutan.
 
 ### <a name="tuning-scene-parameters"></a>Justering scenparametrar
-Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i Unity's **ljud Mixer**, och justera parametrarna på den **Akustik Mixer** effekt.
+Om du vill justera parametrarna för alla källor, klicka på kanalen remsans i Unity's **ljud Mixer**, och justera parametrarna på den **projekt Akustik Mixer** effekt.
 
 ![Mixer-anpassning](media/MixerParameters.png)
+
+* **Wetness justera** -justerar eko-kraften i dB från alla källor i scenen baserat på käll-listener avstånd. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr.
+* **RT60 skala** – Multiplicerande skalära för eko tid.
+* **Använd panorering** -kontroller om ljud returneras som binaural (0) eller multichannel panorering (1). Vilket värde som helst förutom 1 anger binaural. Binaural utdata spatialized med HRTFs för användning med hörlurar och multichannel utdata är spatialized med VBAP för användning med flerkanals omge talare system. Om du använder flera panner måste du markera högtalarläge som matchar dina Enhetsinställningar, finns under **Projektinställningar** > **ljud**.
+
+![SpeakerMode](media/SpeakerMode.png)
 
 ### <a name="tuning-source-parameters"></a>Justering källparametrar
 Koppla den **AcousticsAdjust** skriptet till en datakälla kan justering parametrar för den här källan. Om du vill koppla skriptet, klickar du på **Lägg till komponent** längst ned på den **Inspector** panelen och gå till **skript > Akustik justera**. Skriptet har sex kontroller:
 
 ![AcousticsAdjust](media/AcousticsAdjust.png)
 
-* **Aktivera Akustik** – styr om Akustik tillämpas på den här källan. När alternativet är avmarkerat spatialized källan med HRTFs, men utan Akustik, vilket innebär utan hinder, är spärrat och dynamiska genljudet parametrar, t.ex nivå och decay tid. Genljudet används fortfarande med ett fast nivå och decay tid.
+* **Aktivera Akustik** – styr om Akustik tillämpas på den här källan. När alternativet är avmarkerat källan ska vara spatialized med HRTFs eller panorering men det finns inga Akustik. Det innebär att inga hinder och är spärrat dynamisk genljudet parametrar, t.ex nivå och decay tid. Genljudet används fortfarande med ett fast nivå och decay tid.
 * **Ocklusion** -gäller en multiplikator för ocklusion dB-nivån beräknas av Akustik-system. Om den här multiplikatorn är större än 1, är spärrat vara överdrivna när värden mindre än 1 är spärrat effekten mer diskreta och kontrollera värdet 0 inaktiverar ocklusion.
 * **Överföring (dB)** -ange dämpning (i dB) på grund av överföring via geometri. Ange det här reglaget till den lägsta nivån att inaktivera överföringen. Akustik spatializes inledande torr ljud som inkommer runt scen geometri (portaling). Överföringen ger ett ytterligare torr ankomst spatialized i linje med för att se riktning. Observera att tillämpas också avståndet dämpning kurvan för källan.
-* **Wetness (dB)** -justerar eko-kraften i dB enligt avståndet från källan. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr. Klicka på kontrollen kurvan (gröna linjen) att ta fram kurvan redigeraren. Ändra kurvan genom vänsterklicka för att lägga till punkterna och dra dessa datapunkter för att skapa funktionen som du vill. X-axeln är avståndet från källan och y-axeln är eko justering i dB. Se den här [Unity manuell](https://docs.unity3d.com/Manual/EditingCurves.html) för mer information om hur du redigerar kurvor. Om du vill återställa kurvan till standard, högerklicka på **Wetness** och välj **återställa**.
+* **Wetness (dB)** -justerar eko-kraften i dB enligt avståndet från källan. Positiva värden göra ett ljud mer reverberant medan negativa värden göra ett ljud mer torr. Klicka på kontrollen kurvan (gröna linjen) att ta fram kurvan redigeraren. Ändra kurvan genom vänsterklicka för att lägga till punkterna och dra dessa datapunkter för att skapa funktionen som du vill. X-axeln är avståndet från källan och y-axeln är eko justering i dB. Mer information om hur du redigerar kurvor finns i den här [Unity manuell](https://docs.unity3d.com/Manual/EditingCurves.html). Om du vill återställa kurvan till standard, högerklicka på **Wetness** och välj **återställa**.
 * **Decay skala** -justerar en multiplikator för decay-tid. Om resultatet ändamålet anger en decay tid på 750 millisekunder, men det här värdet anges till 1.5, är decay-tiden som tillämpas på källan 1,125 millisekunder.
-* **Outdoorness** -additiva justering på systemet Akustik uppskattning av hur ”utomhus” genljudet på en källa bör ljud. Om du anger detta till 1 gör att en källa alltid ljud helt utomhus, när inställningen det till-1 gör en källa ljud inne.
+* **Outdoorness** -additiva justering på systemet Akustik uppskattning av hur ”utomhus” genljudet på en källa bör ljud. Ange det här värdet till 1 gör en källa alltid ljud helt utomhus när ange den till -1 gör en källa ljud inne.
 
 Olika källor kan kräva olika inställningar att uppnå vissa dess estetiska egenskaper eller spelupplevelse effekter. Dialogrutan är ett exempel som möjligt. Mänskliga ensa är mer attuned genljudet i tal, medan dialogrutan ofta måste vara begriplig för spel. Du kan ta hänsyn till detta utan att göra dialogrutan icke-diegetic genom att flytta den **Wetness** nedåt, justera den **Perceptuell avståndet tänja** parameter som beskrivs nedan, som att lägga till några  **Överföringen** för vissa torr ljud boost sprider via väggar och/eller minska den **ocklusion** från 1 till har flera ljud som tas emot via portaler.
 
@@ -86,5 +92,5 @@ Koppla den **AcousticsAdjustExperimental** skriptet till en datakälla kan ytter
 
 ![AcousticsAdjustExperimental](media/AcousticsAdjustExperimental.png)
 
-* **Perceptuell avståndet tänja** -använda en exponentiell förvrängning avståndet används för att beräkna förhållandet torr igång. Akustik beräknas våt nivåer i hela utrymmet som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Förvrängning värden som är större än 1 exaggerate detta genom att öka avståndet-relaterade genljudet nivåer, och den ljud ”avlägsna”, medan förvrängning värden mindre än 1 gör mer diskreta, vilket gör ljudet mer avståndet-baserade genljudet ändringen ”finns”.
+* **Perceptuell avståndet tänja** -använda en exponentiell förvrängning avståndet används för att beräkna förhållandet torr igång. Akustik beräknas våt nivåer i hela utrymmet som kan variera smidigt med avståndet och ger Perceptuell avståndet tips. Skev värden som är större än 1 exaggerate detta genom att öka avståndet-relaterade genljudet nivåer, vilket gör ljudet ”avlägsna”. Avståndet-baserade genljudet förvrängning värden mindre än 1 Kontrollera ändra mer diskreta, och det bra mer ”aktuella”.
 

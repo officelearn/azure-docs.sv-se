@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
-ms.component: common
-ms.openlocfilehash: 22c7adc5db044568b4aa49dbbb0e36d2c919f6a6
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.subservice: common
+ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629636"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454291"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Använd Azure storage-emulatorn för utveckling och testning
 
@@ -172,7 +172,7 @@ Om du vill visa en lista över alternativ skriver du `/help` i kommandotolken.
 | **Börja** |Startar storage-emulatorn. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Starta emulatorn i den aktuella processen istället för att skapa en ny process. |
 | **Stanna** |Stoppar storage-emulatorn. |`AzureStorageEmulator.exe stop` | |
 | **Status** |Skriver status för storage-emulatorn. |`AzureStorageEmulator.exe status` | |
-| **Rensa** |Tar bort data i alla tjänster som anges på kommandoraden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*BLOB*: Raderar blob-data. <br/>*kön*: Tar bort kön data. <br/>*tabellen*: Raderar tabelldata. <br/>*Alla*: Tar bort alla data i alla tjänster. |
+| **Rensa** |Tar bort data i alla tjänster som anges på kommandoraden. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: Raderar blob-data. <br/>*queue*: Tar bort kön data. <br/>*tabellen*: Raderar tabelldata. <br/>*Alla*: Tar bort alla data i alla tjänster. |
 | **Init** |Utför enstaka initiering att konfigurera emulatorn. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-servern ServerNamn\InstansNamn*: Anger den server som är värd för SQL-instansen. <br/>*-sqlinstance instanceName*: Anger namnet på den SQL-instansen som ska användas i standardserverinstansen. <br/>*-forcecreate*: Tvingar skapandet av SQL-databasen, även om den redan finns. <br/>*-skipcreate*: Hoppar över skapandet av SQL-databasen. Detta har företräde framför - forcecreate.<br/>*-reserveports*: Försök att reservera HTTP-portar som är associerade med tjänsterna.<br/>*-unreserveports*: Försöker ta bort reservationer för HTTP-portar som är associerade med tjänsterna. Detta har företräde framför - reserveports.<br/>*-inprocess*: Utför initiering i den aktuella processen i stället för att skapa en ny process. Den aktuella processen måste startas med förhöjd behörighet om ändring av porten reservationer. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Skillnader mellan storage-emulatorn och Azure Storage

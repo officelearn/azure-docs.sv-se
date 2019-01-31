@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: ea81cb52b8492e429903de15a9ff0156c91abae2
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cdaa151f0603cddc9ca1bf17b0ff304f646cfdde
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309594"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462842"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använda Azure Import/Export-tjänsten för att importera data till Azure Blob Storage
 
@@ -68,9 +68,9 @@ Utför följande steg för att förbereda enheterna.
     |---------|---------|
     |/j:     |Namnet på journal-fil med tillägget .jrn. En journalfil genereras per enhet. Vi rekommenderar att du använder disk-serienummer som namn på filen.         |
     |/ ID:     |Sessions-ID. Använd ett unikt sessions-nummer för varje instans av kommandot.      |
-    |/Sk:     |Azure Storage-kontonyckel.         |
-    |/ t:     |Enhetsbeteckningen för disken som ska levereras. Till exempel enhet `D`.         |
-    |/BK:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för ` manage-bde -protectors -get D: `      |
+    |/sk:     |Azure Storage-kontonyckel.         |
+    |/t:     |Enhetsbeteckningen för disken som ska levereras. Till exempel enhet `D`.         |
+    |/bk:     |BitLocker-nyckel för enheten. Dess numeriskt lösenord från utdata för ` manage-bde -protectors -get D: `      |
     |/srcdir:     |Enhetsbeteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på Målbehållaren i Azure Storage.         |
     |/skipwrite:     |Det alternativ som anger att det finns inga nya data som krävs för att kopiera och befintliga data på disken är förberedas.          |

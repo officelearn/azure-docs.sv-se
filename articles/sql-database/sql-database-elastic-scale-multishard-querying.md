@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: ed7e8346cba2a2243ef71cb9782219fb26481dc7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: 35759f03d7cf09a4114ca6dca74bd3ee92fdcbfa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462179"
 ---
 # <a name="multi-shard-querying-using-elastic-database-tools"></a>Multi-shard-frågor med hjälp av verktyg för elastiska databaser
 
@@ -59,7 +59,7 @@ using (MultiShardConnection conn = new MultiShardConnection(myShardMap.GetShards
 }
 ```
 
-En viktig skillnad är konstruktion av Multi-shard-anslutningar. Där **SqlConnection** körs på en enkel databas, den **MultiShardConnection** tar en ***samling shards*** som indata. Lägg till i samlingen med shards från en skärvkarta. Frågan körs sedan i samling av shards med **UNION ALL** semantik sätta ihop ett enskilt övergripande resultat. Du kan också namnet på den shard som raden kommer från kan läggas till utdata med den **ExecutionOptions** -egenskapen i kommandot.
+En viktig skillnad är konstruktion av Multi-shard-anslutningar. Där **SqlConnection** körs på en enskild databas i **MultiShardConnection** tar en ***samling shards*** som indata. Lägg till i samlingen med shards från en skärvkarta. Frågan körs sedan i samling av shards med **UNION ALL** semantik sätta ihop ett enskilt övergripande resultat. Du kan också namnet på den shard som raden kommer från kan läggas till utdata med den **ExecutionOptions** -egenskapen i kommandot.
 
 Observera anropet till **myShardMap.GetShards()**. Den här metoden hämtar alla shards från fragmentkartan och gör det enkelt att köra en fråga över alla relevanta databaser. Insamling av shards för en Multi-shard-fråga kan vara förfinade ytterligare genom att utföra en LINQ-fråga över denna datainsamling returneras vid anrop till **myShardMap.GetShards()**. I kombination med ofullständiga resultat principen, har den aktuella funktionen Multi-shard-frågor utformats för att fungera bra med tiotals upp till hundratals shards.
 

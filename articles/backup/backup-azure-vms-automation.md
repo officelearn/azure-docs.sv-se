@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: raynew
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f0a18931c037a1cf34d8a296a6330264bc8d38af
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: fa53a7e598b42e93e86eb059c36ff89f38bb7093
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424531"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300599"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Använd PowerShell för att säkerhetskopiera och återställa virtuella datorer
 
@@ -355,11 +355,17 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Återställa hanterade diskar
 
 > [!NOTE]
-> Om den säkerhetskopierade virtuella datorn har hanterade diskar och du vill återställa dem som hanterade diskar, har vi lagt funktionen från Azure PowerShell v 6.7.0. och senare
+> Om den säkerhetskopierade virtuella datorn har hanterade diskar och du vill återställa dem som hanterade diskar, har vi lagt funktionen från RM för Azure PowerShell-modulen v 6.7.0. och senare
 >
 >
 
-Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas.
+Ange en extra parameter **TargetResourceGroupName** ange RG som hanterade diskar kommer att återställas. 
+
+> [!NOTE]
+> Vi rekommenderar starkt att använda den **TargetResourceGroupName** parametern för att återställa hanterade diskar eftersom det leder till betydande prestandaförbättringar. Dessutom från Az för Azure Powershell-modulen 1.0 och senare, den här parametern är obligatorisk vid en återställning med hanterade diskar
+>
+>
+
 
 ```powershell
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"

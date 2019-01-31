@@ -1,6 +1,6 @@
 ---
-Rubrik: Felsöka omtrimning av en Machine Learning Studio klassiska web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Identifiera och åtgärda vanliga problem som kan uppstå när du träna modellen för en Azure Machine Learning Studio-webbtjänst.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Felsöka omtrimning av en Machine Learning Studio klassiska web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Identifiera och åtgärda vanliga problem som kan uppstå när du träna modellen för en Azure Machine Learning Studio-webbtjänst.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
 ---

@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: bf13ca603927c85784e446157a79cd96fb70ca05
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 77edf892c3c2ca1434331fb5560f0db8ca16e306
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52956995"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470883"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: översätta
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
 Översätter text.
 
@@ -61,7 +61,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfri parameter*.<br/>Anger hur profanities ska hanteras på översättningar. Möjliga värden är: `NoAction` (standard), `Marked` eller `Deleted`. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
   </tr>
   <tr>
-    <td>ProfanityMarker</td>
+    <td>profanityMarker</td>
     <td>*Valfri parameter*.<br/>Anger hur profanities bör markeras i översättningar. Möjliga värden är: `Asterisk` (standard) eller `Tag`. Information om olika sätt att behandla svordomar finns i [svordomar hantering](#handle-profanity).</td>
   </tr>
   <tr>
@@ -85,7 +85,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Valfri parameter*.<br/>Anger skriptet på den översatta texten.</td>
   </tr>
   <tr>
-    <td>AllowFallback</td>
+    <td>allowFallback</td>
     <td>*Valfri parameter*.<br/>Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns. Möjliga värden är: `true` (standard) eller `false`.<br/><br/>`allowFallback=false` Anger att översättningen bara ska använda system som har tränats för den `category` anges i begäran. Om en översättning för språk X språk Y kräver länkning via en pivot-språk E, sedan alla system i kedjan (X -> E- och E -> Y) måste vara anpassad och har samma kategori. Om inga så är fallet med viss kategori returnerar begäran 400-statuskod. `allowFallback=true` Anger att tjänsten ska kunna återgå till ett allmänt system när en anpassad system inte finns.
 </td>
   </tr>
@@ -97,11 +97,11 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_Rubrik_</td>
+    <td>_En auktorisering_<br/>_header_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -159,9 +159,9 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
     * `sentLen`: Ett objekt som returnerar mening gränser i inkommande och utgående texter.
 
-      * `srcSentLen`: En heltalsmatris med som representerar längden på meningarna i indatatexten. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
+      * `srcSentLen`: En heltalsmatris som representerar längden på meningarna i indatatexten. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
 
-      * `transSentLen`: En heltalsmatris med som representerar längden på meningarna i den översatta texten. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
+      * `transSentLen`:  En heltalsmatris som representerar längden på meningarna i den översatta texten. Längden på matrisen är antalet meningar och värdena är längden på varje mening.
 
     Mening gränser är endast ingår när parameter för förfrågan `includeSentenceLength` är `true`.
 
@@ -231,7 +231,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 
 Det här exemplet visar hur du översätta en mening från engelska till kinesiska (förenklad).
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -257,7 +257,7 @@ Den `translations` matris innehåller ett element som tillhandahåller översät
 
 Det här exemplet visar hur du översätta en mening från engelska till kinesiska (förenklad). Begäran anger inte språket. Automatisk identifiering av källspråket används i stället.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -283,7 +283,7 @@ Svaret liknar svaret från föregående exempel. Eftersom automatisk språkident
 
 Vi utökar det tidigare exemplet genom att lägga till transkriberingsspråk. Följande begäran begär en kinesiska översättning som skrivits i Latin-skript.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -314,7 +314,7 @@ Svarstexten är:
 
 Översättning av flera strängar på samma gång är bara att ange en matris med strängar i begärandetexten.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
@@ -343,7 +343,7 @@ Svarstexten är:
 
 Det här exemplet visar hur du översätta samma indata för flera språk i en begäran.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
@@ -377,14 +377,14 @@ Du kan använda svordomar filtrering alternativet om du vill undvika svordomar i
     <td>`NoAction`</td>
     <td>Detta är standardbeteendet. Svordomar skickas från källan till målet.<br/><br/>
     **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: han är en jackass.
+    **Exempel Translation (på engelska)**: Han är en jackass.
     </td>
   </tr>
   <tr>
     <td>`Deleted`</td>
     <td>Olämpliga ord. tas bort från utdata utan ersättning.<br/><br/>
     **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: han är en.
+    **Exempel Translation (på engelska)**: Han är en.
     </td>
   </tr>
   <tr>
@@ -392,16 +392,16 @@ Du kan använda svordomar filtrering alternativet om du vill undvika svordomar i
     <td>Olämpliga ersättas med en markör i utdata. Markörens beror på den `ProfanityMarker` parametern.<br/><br/>
 För `ProfanityMarker=Asterisk`, olämpliga ord har ersatts med `***`:<br/>
     **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: han är en \* \* \*.<br/><br/>
+    **Exempel Translation (på engelska)**: Han är en \* \* \*.<br/><br/>
 För `ProfanityMarker=Tag`, olämpliga ord. omges av XML-taggar &lt;svordomar&gt; och &lt;/profanity&gt;:<br/>
     **Exempel källan (japanska)**: 彼はジャッカスです。<br/>
-    **Exempel Translation (på engelska)**: han är en &lt;svordomar&gt;jackass&lt;/profanity&gt;.
+    **Exempel Translation (på engelska)**: Han är en &lt;svordomar&gt;jackass&lt;/profanity&gt;.
   </tr>
 </table> 
 
 Exempel:
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -423,7 +423,7 @@ Detta returnerar:
 
 Jämför med:
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a fucking good idea.'}]"
@@ -454,7 +454,7 @@ Det är vanligt att översätta innehåll som innehåller markup, till exempel i
 
 Här är ett exempel på begäran för att illustrera.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
@@ -478,7 +478,7 @@ Svaret är:
 
 För att få information om justering, ange `includeAlignment=true` i frågesträngen.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
@@ -516,7 +516,7 @@ Observera följande begränsningar:
 
 För att få information om Meningslängd i källtext och översatt text, ange `includeSentenceLength=true` i frågesträngen.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"

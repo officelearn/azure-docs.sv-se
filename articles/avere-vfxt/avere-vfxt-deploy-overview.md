@@ -4,26 +4,26 @@ description: Översikt över distribution Avere vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: aa5737d67ea2c9cb8cc7c7098764ae67fc91137d
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1be11fff7139b250e85fe15cec9082a2c85cf857
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50634467"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298542"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT för Azure – distributionsöversikt
 
 Den här artikeln ger en översikt över de steg som krävs för att hämta en Avere vFXT för Azure-kluster vara igång och körs.
 
-Första gången du distribuerar ett Avere vFXT system, märker du att den omfattar fler steg än att distribuera de flesta andra Azure-verktyg. Att ha en tydlig uppfattning om hur start till slut kan du begränsa det arbete som behövs. När systemet är igång, gör språkets kraft att påskynda molnbaserad beräkning uppgifter det värt att arbetet.
+Flera aktiviteter som krävs innan och när du har skapat klustret vFXT från Azure Marketplace. Att ha en tydlig uppfattning om hur start till slut kan du begränsa det arbete som behövs. 
 
 ## <a name="deployment-steps"></a>Distributionssteg
 
 Efter [planera systemet](avere-vfxt-deploy-plan.md), kan du börja skapa Avere vFXT klustret. 
 
-Börja med att skapa en kluster-styrenhet VM som används för att skapa klustret vFXT.
+En Azure Resource Manager-mall i Azure Marketplace samlar in nödvändig information och distribuerar automatiskt hela klustret. 
 
 När vFXT klustret är igång kan du vill veta hur du ansluter klienter till den vid behov, hur du flyttar dina data till den nya Blob storage-behållaren.  
 
@@ -33,25 +33,30 @@ Här är en översikt över alla steg.
 
    Innan du skapar en virtuell dator måste du skapa en ny prenumeration för Avere vFXT projektet, konfigurera äganderätten till prenumerationen, kontrollera kvoter och begära en ökning om det behövs och acceptera villkoren för att använda Avere vFXT programvara. Läs [förberedelser för att skapa Avere vFXT](avere-vfxt-prereqs.md) detaljerade anvisningar.
 
-1. Skapa kluster-kontrollant
+1. Skapa en åtkomst för klusternoderna
 
-   Den *kluster controller* är en enkel virtuell dator som finns i samma virtuella nätverk som Avere vFXT klustret. Kontrollanten skapar vFXT noderna och formulär klustret och det ger också ett kommandoradsgränssnitt för att hantera klustret under dess livslängd.
+   Azure använder [rollbaserad åtkomstkontroll](../role-based-access-control/index.yml) (RBAC) för att auktorisera klusternodens virtuella datorer att utföra vissa uppgifter. Till exempel måste klusternoderna kunna tilldela eller omtilldelar IP-adresser till andra noder i klustret. Innan du skapar klustret måste du definiera en roll som ger dem behörighet.
 
-   Om du konfigurerar din kontrollant med en offentlig IP-adress måste kan den också fungera som en jump-värd för att ansluta till klustret från utanför det virtuella nätverket.
+   Läs [skapa klusterrollen noden åtkomst](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) anvisningar.
 
-   Alla program som behövs för att skapa klustret vFXT och hantera dess noder är förinstallerade på kontrollanten kluster.
-
-   Läs [skapa klustret kontrollant VM](avere-vfxt-deploy.md#create-the-cluster-controller-vm) mer information.
-
-1. Skapa en körningsrollen för klusternoderna 
-
-   Azure använder [rollbaserad åtkomstkontroll](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC) för att auktorisera klusternodens virtuella datorer att utföra vissa uppgifter. Till exempel måste klusternoderna kunna tilldela eller omtilldelar IP-adresser till andra noder i klustret. Innan du skapar klustret måste du definiera en roll som ger dem behörighet.
-
-   Kontrollanten kluster förinstallerade program innehåller en prototyp roll som du kan anpassa. Läs [skapa klusterrollen noden åtkomst](avere-vfxt-deploy.md#create-the-cluster-node-access-role) anvisningar.
+   Kontrollanten klustret använder också en åtkomstroll, men du kan acceptera standardroll, ägare, istället för att skapa dina egna. Om du vill skapa en anpassad roll för kluster-styrenheten läsa [anpassad åtkomst kontrollantrollen](avere-vfxt-controller-role.md). 
 
 1. Skapa Avere vFXT kluster 
 
-   Redigera skriptet lämpliga kluster skapas på Kontrollpanelen och kör den för att skapa klustret. [Redigera skriptet för distribution](avere-vfxt-deploy.md#edit-the-deployment-script) har detaljerade anvisningar. 
+   Använd Azure Marketplace för att skapa Avere vFXT för Azure-kluster. En mall samlar in informationen som krävs och kör skript för att skapa den slutgiltiga produkten.
+
+   Skapa kluster omfattar följande steg som utförs av marketplace-mall: 
+
+   * Skapa nytt nätverk infrastruktur och resursgrupper, om det behövs
+   * Skapa en *kluster controller*  
+
+     Kluster-styrenheten är en enkel virtuell dator som finns i samma virtuella nätverk som Avere vFXT klustret och anpassad programvara som behövs för att skapa och hantera klustret. Kontrollanten skapar vFXT noderna och formulär klustret och det ger också ett kommandoradsgränssnitt för att hantera klustret under dess livslängd.
+
+     Om du konfigurerar din kontrollant med en offentlig IP-adress måste kan den också fungera som en jump-värd för att ansluta till klustret från utanför det virtuella nätverket.
+
+   * Klustret skapas noden virtuella datorer
+   * Konfigurera virtuella datorer i klusternoden som klustret
+   * Du kan också skapa en ny blobbehållare och konfigurera den som backend-lagring för klustret
 
 1. Konfigurera klustret 
 

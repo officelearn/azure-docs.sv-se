@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/30/2018
+ms.date: 01/30/2019
 ms.author: alkohli
-ms.openlocfilehash: 5166e154e1a67cea777933b6bf8757661a9c3ad5
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242967"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456059"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -41,15 +41,17 @@ De kunder som använder StorSimple 5000-7000-serien har du följande alternativ:
 
     Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
 
-- **Alternativ för tredjeparts**:
+- **Alternativ för tredje parts**:
 
     - **Migrera till Panzura frihet NAS** -StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
+
+    - **Migrera till Cohesity** -Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. Läs mer på [migrering till Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 
 ### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>F. När StorSimple 5000- och 7000-serieenheter når slutet av tjänsten? 
 
-A. StorSimple 5000-7000-serien nå [slutet av tjänsten](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) i juli 2019. Slutet av tjänsten innebär att Microsoft inte längre att kunna ge stöd för både maskin- och programvara för dessa enheter efter juli 2019. Vi rekommenderar starkt att du börjar utforma en plan för att migrera data från dina enheter nu.
+A. StorSimple 5000-7000-serien nå [slutet av tjänsten](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) i juli 2019. Slutet av tjänsten innebär att Microsoft inte längre att kunna ge stöd för både maskin- och av dessa enheter efter juli 2019. Vi rekommenderar starkt att du börjar utforma en plan för att migrera data från dina enheter nu.
 
 ### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>F. Vad händer med de data som jag har lagras i Azure?  
 

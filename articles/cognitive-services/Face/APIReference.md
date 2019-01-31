@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: dd36147688f4c53383d31db8b4aa860b5bbf39a7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 6c5bfb052fc887bb189edb06247642419b14ecf7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214175"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296978"
 ---
 # <a name="api-reference"></a>API-referens
 
@@ -28,5 +28,6 @@ Ansikts-API i Azure är ett moln-baserad API som ger algoritmer för ansiktsigen
 - [LargeFaceList Management API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/largefacelist): Används för att hantera en LargeFaceList för [Sök liknande](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/findsimilar).
 - [PersonGroup Person Management API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroupperson): Används för att hantera PersonGroup Personansikten för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
 - [PersonGroup Management API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup): Används för att hantera en PersonGroup datauppsättning för [identifiering](https://docs.microsoft.com/rest/api/cognitiveservices/face/face/identify).
+- [Ta en ögonblicksbild av API: er](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot): Används för att hantera en ögonblicksbild för migrering av data mellan prenumerationer.
 
 <!-- Linguist question: Please confirm that the following are API names and should be left as is: "Person Management, LargePersonGroup/PersonGroup Management, LargeFaceList/FaceList Management, and Face Algorithms" -->

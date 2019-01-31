@@ -11,17 +11,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 12/04/2018
-ms.openlocfilehash: c25dd911b5648cdf4b64053ef26a7b70c9156074
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599764"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468911"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
 
-Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enkel och delade databaser] på en logisk server(sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) i SQL-databas med hjälp av [Azure-portalen](http://portal.azure.com) och för att initiera redundans.
+Den här artikeln visar hur du konfigurerar [aktiv geo-replikering för enkel och delade databaser](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities) i Azure SQL Database med hjälp av den [Azure-portalen](http://portal.azure.com) och för att initiera redundans.
 
 Information om automatisk redundans grupper med enkel och delade databaser finns i [bästa praxis att använda grupper för växling vid fel med enkel och delade databaser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools). Information om automatisk redundans grupper med hanterade instanser (förhandsversion) finns i [bästa praxis att använda grupper för växling vid fel med enkel och delade databaser](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances).
 
@@ -40,7 +40,7 @@ Följande steg kan du skapa en ny sekundär databas i en koppling för geo-repli
 
 Om du vill lägga till en sekundär databas, måste du vara Prenumerationens ägare eller Medägare.
 
-Den sekundära databasen har samma namn som den primära databasen och som standard har samma tjänst, nivå och beräkna storleken. Den sekundära databasen kan vara en enkel databas eller en databas i en elastisk pool. Mer information finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
+Den sekundära databasen har samma namn som den primära databasen och som standard har samma tjänst, nivå och beräkna storleken. Den sekundära databasen kan vara en enkel databas eller en databas i pool. Mer information finns i [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 När sekundärt skapas och dirigeras, börjar data replikeras från den primära databasen till den nya sekundära databasen.
 
 > [!NOTE]

@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: 03e1974a91a8c3cceacab777e28e8e4a01ccb313
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.date: 01/25/2019
+ms.openlocfilehash: 8449462f144590e4fe7048366a21090c95a303cb
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251601"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455600"
 ---
 # <a name="migrate-existing-databases-to-scale-out"></a>Migrera befintliga databaser för att skala ut
 Enkelt hantera dina befintliga shardade utskalade-databaser som använder Azure SQL Database databaser (till exempel den [Elastic Database-klientbiblioteket](sql-database-elastic-database-client-library.md)). Först konvertera en befintlig uppsättning databaser som ska användas i [karthanteraren](sql-database-elastic-scale-shard-map-management.md). 
@@ -69,11 +69,11 @@ För en enda klient-modell, skapar du en **lista mappning** fragmentkartan. Ensk
 
 ![Lista mappning][1]
 
-Modell för flera klienter tilldelas flera klienter till en enskild databas (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje klient har liten databehov. I den här modellen kan du tilldela olika klienter till en databas med **intervallet mappning**. 
+Modell för flera klienter tilldelas en individuell databas flera klienter (och du kan distribuera grupper av klienter över flera databaser). Använd den här modellen när du förväntar dig varje klient har liten databehov. I den här modellen kan du tilldela olika klienter till en databas med **intervallet mappning**. 
 
 ![Mappning av intervall][2]
 
-Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* att tilldela flera klienter till en enskild databas. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för 7-klient- och klienttrafik 10. 
+Eller du kan implementera en databas för flera innehavare modellen med hjälp av en *lista mappning* ska tilldelas en individuell databas med flera klienter. Till exempel DB1 används för att lagra information om klient-ID 1 och 5 och DB2 lagrar data för 7-klient- och klienttrafik 10. 
 
 ![Flera klienter i en enda DB][3] 
 
@@ -98,10 +98,10 @@ Om du vill använda det här mönstret för mappning av klient-ID-värden måste
     -RangeShardMapName 'RangeShardMap' 
     -ShardMapManager $ShardMapManager 
 
-### <a name="option-3-list-mappings-on-a-single-database"></a>Alternativ 3: Lista över mappningar på en enskild databas
+### <a name="option-3-list-mappings-on-an-individual-database"></a>Alternativ 3: Lista över mappningar på en enskild databas
 Ställa in det här mönstret kräver också skapa en karta i listan som visas i steg 2, alternativ 1.
 
-## <a name="step-3-prepare-individual-shards"></a>Steg 3: Förbered enskilda fragment
+## <a name="step-3-prepare-individual-shards"></a>Steg 3: Förbereda enskilda fragment
 Lägg till varje shard (databas) i fragmentkartehanteraren. Detta förbereder de enskilda databaserna för att lagra mappningsinformation. Köra den här metoden på varje shard.
 
     Add-Shard 
@@ -111,7 +111,7 @@ Lägg till varje shard (databas) i fragmentkartehanteraren. Detta förbereder de
     # The $ShardMap is the shard map created in step 2.
 
 
-## <a name="step-4-add-mappings"></a>Steg 4: Lägg till mappningar
+## <a name="step-4-add-mappings"></a>Steg 4: Lägga till mappningar
 Att lägga till mappningar beror på vilken typ av fragmentkartan som du skapade. Om du har skapat en karta i listan kan du lägga till listan mappningar. Om du har skapat en karta för intervall du lägger till mappningar för intervallet.
 
 ### <a name="option-1-map-the-data-for-a-list-mapping"></a>Alternativ 1: mappa data för en lista-mappning
@@ -138,7 +138,7 @@ Lägg till intervall mappningar för alla klient-ID intervallet - database-assoc
     -SqlDatabaseName '<shard_database_name>' 
 
 
-### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Steg 4 alternativ 3: mappa data för flera klienter i en enskild databas
+### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-an-individual-database"></a>Steg 4 alternativ 3: mappa data för flera klienter i en enskild databas
 Kör Add-ListMapping (alternativ 1) för varje klient. 
 
 ## <a name="checking-the-mappings"></a>Kontrollera mappningarna
@@ -154,7 +154,7 @@ När du har slutfört installationen, kan du börja använda Elastic Database-kl
 ## <a name="next-steps"></a>Nästa steg
 Hämta PowerShell-skript från [Azure SQL DB-Elastic Database-verktyg skript](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
 
-Verktygen finns också på GitHub: [Azure/elastisk-db-tools](https://github.com/Azure/elastic-db-tools).
+Verktygen finns även på GitHub: [Azure/elastisk-db-tools](https://github.com/Azure/elastic-db-tools).
 
 Verktyget Dela / sammanslå används för att flytta data till eller från en modell för flera innehavare till en enda klient-modell. Se [dela merge verktyget](sql-database-elastic-scale-get-started.md).
 

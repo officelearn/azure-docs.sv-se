@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: d5714e43c9ba58cdec33ca5fd1eae31eb6a88f51
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54107743"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468146"
 ---
-# <a name="working-with-azure-cosmos-databases-containers-and-items"></a>Arbeta med Azure Cosmos-databaser, behållare och objekt
+# <a name="work-with-databases-containers-and-items"></a>Arbeta med databaser, behållare och objekt
 
 När du har skapat en [Azure Cosmos DB-konto](account-overview.md) under din Azure-prenumeration kan du hantera data i ditt konto genom att skapa databaser, behållare och objekt. Den här artikeln beskrivs var och en av dessa entiteter: databaser, behållare och objekt. Följande bild visar hierarkin för olika enheter i ett Azure Cosmos-konto:
 

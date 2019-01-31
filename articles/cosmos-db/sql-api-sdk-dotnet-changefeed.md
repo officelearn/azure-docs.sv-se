@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 10/24/2018
+ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: 03862f88bb5debc66940ebae5308771525f51b0b
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 0f6fff5047bc72fa1171e06bb2f160196ecef807
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54351654"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300616"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET change Feed Processor SDK: Ladda ned och viktig information
 > [!div class="op_single_selector"]
@@ -40,6 +40,12 @@ ms.locfileid: "54351654"
 ## <a name="release-notes"></a>Viktig information
 
 ### <a name="v2-builds"></a>v2-versioner
+
+### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
+* Förbättrad hantering av Övervakare undantag.
+* Mer omfattande information om Övervakare-fel:
+ * När en observatör stängs på grund av ett undantag som utlöses av Övervakares ProcessChangesAsync, får CloseAsync nu orsak parametern inställd ChangeFeedObserverCloseReason.ObserverError.
+ * Har lagts till spårningar identifiera fel i användarkod i observatör.
 
 ### <a name="a-name225225"></a><a name="2.2.5"/>2.2.5
 * Stöd har lagts till för att hantera delning i samlingar som använder delade databasen dataflöde.
@@ -157,6 +163,7 @@ Varje begäran till Cosmos DB med hjälp av en pensionerad SDK avvisas av tjäns
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.2.6](#2.2.6) |Den 29 januari 2019 |--- |
 | [2.2.5](#2.2.5) |13 december 2018 |--- |
 | [2.2.4](#2.2.4) |Den 29 november 2018 |--- |
 | [2.2.3](#2.2.3) |19 november 2018 |--- |

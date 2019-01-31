@@ -1,6 +1,6 @@
 ---
-Rubrik: Förutsäga svar med regression modeller titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här skapar du en enkel regressionsmodell för att förutsäga ett pris i datavetenskap för nybörjare video 4. Innehåller en linjär regression med måldata.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Förutsäga svar med regression modeller titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här skapar du en enkel regressionsmodell för att förutsäga ett pris i datavetenskap för nybörjare video 4. Innehåller en linjär regression med måldata.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

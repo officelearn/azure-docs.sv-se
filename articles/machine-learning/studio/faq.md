@@ -1,15 +1,24 @@
 ---
-Rubrik: Machine Learning Studio vanliga frågor (FAQ) titleSuffix: Beskrivning av Azure Machine Learning Studio: 'Azure Machine Learning Studio: Vanliga frågor och svar som täcker fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering ”.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: Konceptuell
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 06/02/2017
+title: Vanliga frågor (FAQ) om Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: 'Azure Machine Learning Studio: Vanliga frågor och svar som täcker fakturering, funktioner och begränsningar i en molntjänst för effektiv förutsägelsemodellering.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: conceptual
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 06/02/2017
+ms.openlocfilehash: 8c381ca02dcfb194b2807735415ef894d72f74fa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462287"
 ---
-# <a name="azure-machine-learning-studio-faq-billing-capabilities-limitations-and-support"></a>Vanliga frågor och svar för Azure Machine Learning-Studio: Fakturering, funktioner, begränsningar och support
-Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. Avsnittet ger svar på frågor om hur du använder tjänsten, inklusive faktureringsmodellen, funktioner, begränsningar och support.
-
-**Har en fråga som du inte kan hitta här?**
-
-Azure Machine Learning har även ett forum på MSDN där datatekniker kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure Machine Learning-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning)för att söka efter svar eller ställa en ny fråga.
+# <a name="azure-machine-learning-studio-faq-capabilities-and-limitations"></a>Azure Machine Learning Studio vanliga frågor och svar: funktioner och begränsningar
+Här får du svar på vanliga frågor om molntjänsten Azure Machine Learning som tillhandahåller förutsägelsemodeller och operationaliseringslösningar genom webbtjänster. 
 
 ## <a name="general-questions"></a>Allmänna frågor
 **Vad är Machine Learning Studio?**
@@ -52,8 +61,7 @@ Du kan också använda Microsoft Excel-exempelarbetsboken som skapas åt dig. De
 
 De senaste uppdateringarna finns i [Nyheter i Azure Machine Learning](../../active-directory/fundamentals/whats-new.md).
 
-## <a name="machine-learning-studio-questions"></a>Frågor om Machine Learning Studio
-### <a name="import-and-export-data-for-machine-learning"></a>Importera och exportera data för Machine Learning
+## <a name="import-and-export-data-for-machine-learning"></a>Importera och exportera data för Machine Learning
 **Vilka datakällor stöder Machine Learning?**
 
 Du kan ladda ned data till ett Machine Learning Studio-experiment på tre sätt:
@@ -64,7 +72,7 @@ Du kan ladda ned data till ett Machine Learning Studio-experiment på tre sätt:
 
 Mer information om vilka filformat som stöds finns i [Importera träningsdata till Machine Learning Studio](import-data.md).
 
-#### <a id="ModuleLimit"></a>Hur stor kan datauppsättningen vara för mina moduler?
+### <a id="ModuleLimit"></a>Hur stor kan datauppsättningen vara för mina moduler?
 Modulerna i Machine Learning Studio stöder datauppsättningar på upp till 10 GB med kompakta numeriska data för vanliga användningsfall. Om en modul hämtar indata från mer än ett ställe är värdet 10 GB summan av alla indata. Du kan också ta prover av större datauppsättningar med frågor från Hive eller Azure SQL Database, eller så kan du bearbeta data i förväg med modulen Inlärning med antal före införandet.  
 
 Följande typer av data kan expanderas till större datauppsättningar under funktionsnormalisering och är begränsade till mindre än 10 GB:
@@ -82,7 +90,7 @@ Följande moduler är begränsade till datauppsättningar som är mindre än 10�
 * Moduler där den utgående datastorleken kan vara större än den inkommande datastorleken, till exempel kopplings- eller funktions-hashning
 * Korsvalidering, hyperparametrar för justeringsmodeller, ordningstalsregression och ”en eller alla”-multiklasser, om antalet iterationer är mycket stort
 
-#### <a id="UploadLimit"></a>Vilka gränser gäller för datauppladdningar?
+### <a id="UploadLimit"></a>Vilka gränser gäller för datauppladdningar?
 För datauppsättningar som är större än ett par GB laddar du upp data till Azure Storage eller Azure SQL Database. Du kan också använda Azure HDInsight i stället för att ladda upp direkt från en lokal fil.
 
 **Kan jag läsa data från Amazon S3?**
@@ -97,7 +105,7 @@ Om du har en liten mängd data och vill exponera dem via en HTTP-URL kan du anv�
 
 Mer information om bildinmatningsfunktioner finns i referensen för [bildimport][image-reader].
 
-### <a name="modules"></a>Moduler
+## <a name="modules"></a>Moduler
 **Algoritmen, datakällan, dataformatet eller datatransformeringsåtgärden som jag söker efter finns inte i Azure Machine Learning Studio. Vad har jag för alternativ?**
 
 I vårt [forum för användarfeedback](https://go.microsoft.com/fwlink/?LinkId=404231) ser du vilka funktionsförfrågningar som vi följer upp. Lägg din röst på en begäran om en funktion som du letar efter redan har begärts. Om funktionen som du letar efter inte finns skapar du en ny begäran. Du kan även visa statusen för din begäran i det här forumet. Vi följer noga den här listan och uppdaterar statusen för funktionstillgänglighet med jämna mellanrum. Du kan också använda det inbyggda stödet för R och Python för att skapa anpassade transformeringar vid behov.
@@ -114,7 +122,7 @@ Nej, PMML (Predictive Model Markup Language) stöds inte. Du kan använda anpass
 
 Du kan köra upp till fyra moduler parallellt i ett experiment.
 
-### <a name="data-processing"></a>Databearbetning
+## <a name="data-processing"></a>Databearbetning
 **Går det att visualisera data (utöver R-visualiseringar) interaktivt i experimentet?**
 
 Du kan visualisera data och få statistik genom att klicka på utdata från en modul.
@@ -123,7 +131,7 @@ Du kan visualisera data och få statistik genom att klicka på utdata från en m
 
 Eftersom stora mängder data kan skickas till en webbläsare är datastorleken begränsad för att förhindra att Machine Learning Studio går långsamt. Om du vill visualisera alla data/resultat är det bättre att ladda ned data och använda Excel eller något annat verktyg.
 
-### <a name="algorithms"></a>Algoritmer
+## <a name="algorithms"></a>Algoritmer
 **Vilka befintliga algoritmer stöds i Machine Learning Studio?**
 
 Machine Learning Studio tillhandahåller avancerade algoritmer som skalbara förstärkta beslutsträd, Bayesian Recommendation-system, djupa neurala nätverk och beslutsdjungler utvecklade av Microsoft Research. Skalbara maskininlärningspaket med öppen källkod, som Vowpal Wabbit, ingår också. Machine Learning Studio stöder maskininlärningsalgoritmer för multiklass-baserad och binär klassificering, regression och kluster. Se den fullständiga listan med [Machine Learning-moduler][machine-learning-modules].
@@ -156,7 +164,7 @@ Nej.
 
 För närvarande kan du bara använda R för att skapa nya anpassade moduler.
 
-### <a name="r-module"></a>R-modulen
+## <a name="r-module"></a>R-modulen
 **Vilka R-paket är tillgängliga i Machine Learning Studio?**
 
 För närvarande stöder Machine Learning Studio mer än 400 R CRAN-paket. Här är den [uppdaterade listan](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) över alla paket som ingår. Se även [Utöka ditt experiment med R](extend-your-experiment-with-r.md) om du vill lära dig hur du kan hämta den här listan själv. Om det paket som du behöver inte finns med i listan lägger du in namnet på paketet i vårt [forum för användarfeedback](https://go.microsoft.com/fwlink/?LinkId=404231).
@@ -169,7 +177,7 @@ Ja. Mer information finns i [Redigera anpassade R-moduler i Azure Machine Learni
 
 Nej, det finns ingen REPL-miljö (Read-Eval-Print-Loop) för R i Studio.
 
-### <a name="python-module"></a>Python-modulen
+## <a name="python-module"></a>Python-modulen
 **Går det att skapa en anpassad Python-modul?**
 
 Det går inte för närvarande, men du kan använda en eller flera moduler av typen [Kör Python-skript][python] för att få samma resultat.
@@ -179,12 +187,11 @@ Det går inte för närvarande, men du kan använda en eller flera moduler av ty
 Du kan använda Jupyter Notebooks i Machine Learning Studio. Mer information finns i [Introduktion till Jupyter Notebooks i Azure Machine Learning Studio](http://blogs.technet.com/b/machinelearning/archive/2015/07/24/introducing-jupyter-notebooks-in-azure-ml-studio.aspx).
 
 ## <a name="web-service"></a>Webbtjänst
-### <a name="retrain"></a>Omträning
+
 **Hur tränar jag om Azure Machine Learning-modeller via programmering?**
 
 Använd omtränings-API:erna. Mer information finns i [Träna om Machine Learning-modeller via programmering](retrain-models-programmatically.md). Exempelkod är också tillgänglig i demonstrationen [Microsoft Azure Machine Learning Retraining](https://azuremlretrain.codeplex.com/).
 
-### <a name="create"></a>Skapa
 **Kan jag distribuera modellen lokalt eller i ett program som saknar Internetanslutning?**
 
 Nej.
@@ -193,7 +200,6 @@ Nej.
 
 Mer information finns i [Azure-prenumerationsbegränsningar](../../azure-subscription-service-limits.md).
 
-### <a name="use"></a>Användning
 **När ska jag köra min förutsägelsemodell som en batchkörningstjänst (BES) eller som en svar på begäran-tjänst (RRS)?**
 
 RR-tjänsten är en högskalig webbtjänst med korta svarstider som används för att tillhandahålla ett gränssnitt för tillståndslösa modeller som skapas och distribueras från experimentmiljön. BES (Batch Execution Service) är en tjänst som asynkront poängsätter en samling dataposter. Indata för BES är som de indata som används av RRS. Den största skillnaden är att BES läser ett block med poster från olika källor, till exempel Azure Blob Storage, Azure Table Storage, Azure SQL Database, HDInsight (hive-fråga) och HTTP-källor. Mer information finns i [Använda Azure Machine Learning-webbtjänster](consume-web-services.md).
@@ -221,7 +227,6 @@ Nej, du kan också skapa webbtjänster direkt med Jupyter Notebooks och RStudio.
 
 En lista med felkoder och beskrivningar finns i [Felkoder för Machine Learning-moduler](https://msdn.microsoft.com/library/azure/dn905910.aspx).
 
-## <a name="scalability"></a>Skalbarhet
 **Hur skalbar är webbtjänsten?**
 
 För närvarande är standardslutpunkten etablerad med 20 samtidiga RRS-förfrågningar per slutpunkt. Du kan skala det här till 200 samtidiga begäranden per slutpunkt, och du kan skala varje webbtjänst till 10 000 slutpunkter per webbtjänst. Mer information finns i [Skala en webbtjänst](scaling-webservice.md). För BES kan varje slutpunkt bearbeta 40 begäranden i taget. Ytterligare begäranden utöver dessa placeras i kö. Dessa köade förfrågningar körs automatiskt när kön krymper.
@@ -276,256 +281,11 @@ Machine Learning Studio behöver ett Azure-lagringskonto för att kunna spara me
 
 Om du har ändrat åtkomstnycklarna för lagringskontot synkroniserar du om åtkomstnycklarna på arbetsytan med hjälp av Azure Portal.  
 
-## <a name="support-and-training"></a>Support och utbildning
-**Var kan jag lära mig mer om Azure Machine Learning?**
-
-På [Azure Machine Learning Documentation Center](https://azure.microsoft.com/services/machine-learning/) hittar du videokurser och instruktionsguider. Dessa stegvisa guider ger en introduktion till tjänsterna och förklarar datalivscykeln för import, rensning, utveckling av förutsägelsemodeller och distribution av dem till produktionsmiljön med hjälp av Azure Machine Learning.
-
-Vi lägger till nytt material på Machine Learning Center med jämna mellanrum. Du kan skicka dina önskemål om ytterligare utbildningsmaterial på Machine Learning Center via vårt [forum för användarfeedback](https://windowsazure.uservoice.com/forums/257792-machine-learning).
-
-Du kan också hitta kurser på [Microsoft Virtual Academy](http://www.microsoftvirtualacademy.com/training-courses/getting-started-with-microsoft-azure-machine-learning).
-
-**Hur får jag support för Azure Machine Learning?**
-
-Om du behöver teknisk support för Azure Machine Learning går du till [Azure-support](https://azure.microsoft.com/support/options/) och väljer **Machine Learning**.
-
-Azure Machine Learning har även ett community-forum på MSDN där du kan ställa frågor om Azure Machine Learning. Forumet övervakas av Azure Machine Learning-teamet. Gå till [Azure-forumet](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## <a name="billing-questions"></a>Frågor om fakturering
-**Hur fungerar faktureringen av Machine Learning?**
 
-Azure Machine Learning har två komponenter: Machine Learning Studio och Machine Learning-webbtjänster.
+Information om fakturering och priser finns i avsnittet om [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
 
-När du utvärderar Machine Learning Studio kan du använda den kostnadsfria faktureringsnivån. På den kostnadsfria nivån kan du distribuera en klassisk webbtjänst med begränsad kapacitet.
-
-När du har bekräftat att Azure Machine Learning uppfyller dina behov kan du registrera dig för standardnivån. Du måste ha en Microsoft Azure-prenumeration för att registrera dig.
-
-På standardnivån debiteras du varje månad för varje arbetsyta som du definierar i Machine Learning Studio. När du kör ett experiment i Studio debiteras du för beräkningsresurser när du kör ett experiment. När du distribuerar en klassisk webbtjänst debiteras du för transaktioner och beräkningstimmar enligt ”betala per användning”-modellen.
-
-De nya Resource Manager-baserade webbtjänsterna har faktureringsplaner som gör det lättare att förutse kostnaderna. Nivåindelade priser ger rabatterade hastigheter till kunder som behöver stor kapacitet.
-
-När du skapar en plan förbinder du dig att betala en fast kostnad som inkluderar ett antal API-beräkningstimmar och API-transaktioner. Om du behöver ytterligare kapacitet kan du lägga till instanser i din faktureringsplan. Om du behöver betydligt större kapacitet kan du välja en plan på en högre nivå med avsevärt mycket större kapacitet och rabatt.
-
-När det inkluderade antalet beräkningstimmar och transaktioner i befintliga instanser har förbrukats debiteras du för ytterligare användning enligt överförbrukningstaxan för faktureringsplanen på relevant nivå.
-
-> [!NOTE]
-Det inkluderade antalet tilldelas på nytt var 30:e dag och eventuell outnyttjad användning förs inte över till nästa period.
-
-Mer information om fakturering och priser finns i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
-
-**Finns det någon kostnadsfri utvärderingsversion för Machine Learning?**
-
- Azure Machine Learning har ett kostnadsfritt prenumerationsalternativ som beskrivs i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/). Machine Learning Studio har en snabbutvärdering på åtta timmar som är tillgänglig när du loggar in på [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2).
-
- När du registrerar dig för en kostnadsfri utvärderingsversion av Azure kan du dessutom prova alla Azure-tjänster i en månad. Mer information om den kostnadsfria utvärderingsversionen av Azure finns i [vanliga frågor och svar om den kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial-faq/).
-
-**Vad är en transaktion?**
-
-En transaktion representerar ett API-anrop som Azure Machine Learning svarar på. Transaktioner från RRS- (Request-Response Service) och BES-anrop (Batch Execution Service) aggregeras och debiteras mot din faktureringsplan.
-
-**Kan jag använda det inkluderade transaktionsantalet i en plan för både RRS- och BES-transaktioner?**
-
-Ja, dina transaktioner från RRS och BES summeras och debiteras mot din faktureringsplan.
-
-**Vad är en API-beräkningstimme?**
-
-En API-beräkningstimme är faktureringsenheten för den tid det tar att köra API-anrop med hjälp av Machine Learning-beräkningsresurserna. Alla dina anrop summeras för faktureringsändamål.
-
-**Hur lång tid tar ett typiskt API-anrop i produktionsmiljön?**
-
-Tiden för API-anrop i produktionsmiljö kan variera avsevärt, från några hundratals millisekunder till ett par sekunder. Vissa API-anrop kan ta minuter om databehandlingen och maskininlärningsmodellen är komplexa. Det bästa sättet att uppskatta tidsåtgången för API-anrop i produktionsmiljön är att mäta prestanda för en modell i Machine Learning-tjänsten.
-
-**Vad är en Studio-beräkningstimme?**
-
-En Studio-beräkningstimme är faktureringsenheten för den sammanlagda tid du experimenterar med beräkningsresurser i Studio.
-
-**Vad är utvecklings- och testnivån till för i de nya Azure Resource Manager-baserade webbtjänsterna?**
-
-De nya Resource Manager-webbtjänsterna tillhandahåller flera nivåer som du kan använda för att etablera en lämplig faktureringsplan. I utvecklings- och testnivån ingår ett begränsat antal så att du kan testa ditt experiment som en ny webbtjänst utan att dra på dig kostnader. Du har möjlighet att testa och se hur det fungerar.
-
-**Finns det separata lagringskostnader?**
-
-På den kostnadsfria nivån för Machine Learning varken krävs eller tillåts separat lagring. På standardnivån för Machine Learning måste användaren ha ett Azure-lagringskonto. Azure Storage [faktureras separat](https://azure.microsoft.com/pricing/details/storage/).
-
-**Hur stöder Machine Learning arbete som kräver hög tillgänglighet?**
-
-Ja. Mer information och en beskrivning av serviceavtalet finns i [Machine Learning-priser](https://azure.microsoft.com/pricing/details/machine-learning/).
-
-**Vilka specifika beräkningsresurser körs mina API-anrop på i produktionsmiljön?**
-
-Machine Learning-tjänsten är en multitenant-tjänst. De faktiska beräkningsresurser som används på serverdelen varierar och är optimerade för prestanda och förutsägbarhet.
-
-### <a name="management-of-new-resource-manager-based-web-services"></a>Hantering av de nya Resource Manager-baserade webbtjänsterna
-**Vad händer om jag bort tar bort min plan?**
-
-Planen tas bort från din prenumeration och du debiteras för en proportionellt beräknad förbrukning.
-
-> [!NOTE]
-Du kan inte ta bort en plan som används av en webbtjänst. Om du vill ta bort planen måste du tilldela en ny plan till webbtjänsten eller ta bort webbtjänsten.
-
-**Vad är en planinstans?**
-
-En planinstans är en enhet med ett inkluderat antal som du kan lägga till i din faktureringsplan. När du väljer en faktureringsnivå för din faktureringsplan medföljer en instans. Om du behöver ett större inkluderat antal kan du lägga till instanser på den valda faktureringsnivån i din plan.
-
-**Hur många planinstanser kan jag lägga till?**
-
-Du kan ha en instans av utvecklings- och testnivån i en prenumeration.
-
-För nivåerna Standard S1, Standard S2 och Standard S3 kan du lägga till så många du behöver.
-
-> [!NOTE]
-Beroende på din förväntade användning kan det vara mer kostnadseffektivt att uppgradera till en nivå med ett större inkluderat antal i stället för att lägga till instanser på den nuvarande nivån.
-
-**Vad händer om jag byter till en betalningsplan på en annan nivå (uppgraderar/nedgraderar)?**
-
-Den gamla planen tas bort och den aktuella förbrukningen faktureras baserat på en proportionell beräkning. En ny plan med hela det inkluderade antalet för nivån som du uppgraderar eller nedgraderar till skapas för resten av perioden.
-
-> [!NOTE]
-Det inkluderade antalet tilldelas per period och eventuell outnyttjad användning förs inte över till nästa period.
-
-**Vad händer om jag öka antalet instanser i en plan?**
-
-Antalet inkluderas baserat på en proportionell beräkning och det kan ta 24 timmar innan ändringen tillämpas.
-
-**Vad händer om jag tar bort en instans i en plan?**
-
-Instansen tas bort från din prenumeration och du debiteras för en proportionellt beräknad förbrukning.
-
-### <a name="sign-up-for-new-resource-manager-based-web-services-plans"></a>Registrera dig för planerna i de nya Resource Manager-baserade webbtjänsterna
-**Hur registrera jag mig för en plan?**
-
-Du kan skapa faktureringsplaner på två sätt.
-
-Första gången du distribuerar en ny Resource Manager-baserad webbtjänst kan du välja en befintlig plan eller skapa en ny plan.
-
-De planer som du skapar på det här sättet finns i din standardregion, och din webbtjänst distribueras till den regionen.
-
-Om du vill distribuera tjänster till andra regioner än din standardregion kanske du vill definiera dina faktureringsplaner innan du distribuerar tjänsten.
-
-I så fall kan du logga in på portalen för Azure Machine Learning Web Services och gå till sidan för betalningsplaner. Där kan du lägga till och ta bort planer och ändra befintliga planer.
-
-**Vilken plan ska jag börja med?**
-
-Vi rekommenderar att du börjar med standardnivån S1 och övervakar hur tjänsten används. Om du märker att du snabbt förbrukar det inkluderade antalet kan du lägga till instanser eller byta till en högre nivå med bättre rabatt. Du kan justera din faktureringsplan efter behov genom faktureringscykeln.
-
-**I vilka regioner är de nya planerna tillgängliga?**
-
-De nya faktureringsplanerna är tillgängliga i de tre produktionsregioner där vi stöder de nya webbtjänsterna:
-
-* Södra centrala USA
-* Västra Europa
-* Sydostasien
-
-**Jag har webbtjänster i flera regioner. Behöver jag en plan för varje region?**
-
-Ja. Priserna för planer varierar beroende på region. När du distribuerar en webbtjänst till en annan region måste du associera den med en plan som är specifik för den regionen. Mer information finns i [Produkttillgänglighet per region]( https://azure.microsoft.com/regions/services/).
-
-### <a name="new-web-services-overages"></a>Nya webbtjänster: Överförbrukning
-**Hur kontrollerar jag om jag överskrider webbtjänstanvändningen?**
-
-Du kan visa förbrukningen för alla dina planer på sidan för faktureringsplaner på Azure Machine Learning Web Services-portalen. Logga in på portalen och klicka på menyalternativet för **planer**.
-
-I kolumnerna **Transaktioner** och **Beräkning** i tabellen ser du det inkluderade antalet för planen och förbrukningen i procent.
-
-**Vad händer om jag förbrukar det inkluderade antalet på utvecklings- och testnivån?**
-
-Tjänster som är kopplade till en utvecklings- och testnivå stoppas fram till nästa period eller tills du flyttar dem till en betalnivå.
-
-**Hur beräknas priser för RRS- och BES-arbetsbelastningar för de klassiska webbtjänsterna och överförbrukning för de nya Resource Manager-baserade webbtjänsterna?**
-
-För en RRS-arbetsbelastning debiteras du för varje API-transaktionsanrop som du gör samt för beräkningstiden som associeras med dessa förfrågningar. Dina API-transaktionskostnader för RRS i produktionsnivån beräknas som det sammanlagda antalet API-anrop som du gör multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för RRS i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje API-anrop multiplicerat med det totala antalet API-transaktioner multiplicerat med priset per API-beräkningstimme i produktionsmiljön.
-
-För överförbrukning på standardnivån S1 resulterar exempelvis 1 000 000 API-transaktioner som tar 0,72 sekunder vardera att köra (1 000 000 * 0,50 USD/1K API-transaktioner) i 500 USD i API-transaktionskostnader i produktionsmiljön och (1 000 000 * 0,72 sek * 2 USD/h) 400 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en summa på 900 USD.
-
-För en BES-arbetsbelastning debiteras du på samma sätt. Men API-transaktionskostnaderna representerar antalet batch-jobb som du skickar och beräkningskostnaderna representerar beräkningstiden som associeras med batch-jobben. Dina API-transaktionskostnader för BES i produktionsmiljön beräknas därför som det sammanlagda antalet jobb som skickats multiplicerat med priset per 1 000 transaktioner (proportionellt beräknat baserat på enskilda transaktioner). Dina kostnader för API-beräkningstimmar för BES i produktionsmiljön beräknas som den mängd tid som krävs för att köra varje rad i jobbet multiplicerat med det sammanlagda antalet rader i jobbet multiplicerat med det sammanlagda antalet jobb multiplicerat med priset per API-beräkningstimme i produktionsmiljön. När du använder Machine Learning-kalkylatorn representerar transaktionsmätaren antalet jobb som du planerar att skicka och fältet för tid per transaktion representerar den kombinerade tid som krävs för att köra alla rader i varje jobb.
-
-Anta att du har en överförbrukning på standardnivån S1. Du skickar 100 jobb per dag och varje jobb består av 500 rader som tar 0,72 sekunder vardera. Din månatliga överförbrukning skulle vara (100 jobb per dag = 3 100 jobb/månad * 0,50 USD/1 000 API-transaktioner) 1,55 USD i API-transaktionskostnader i produktionsmiljön och (500 rader * 0,72 sek * 3 100 jobb * 2 USD/tim) 620 USD i API-beräkningstimmar i produktionsmiljön, vilket ger en totalsumma på 621,55 USD.
-
-### <a name="azure-machine-learning-classic-web-services"></a>Klassiska Azure Machine Learning-webbtjänster
-**Kan jag fortfarande betala per användning?**
-
-Ja, de klassiska webbtjänsterna finns kvar i Azure Machine Learning.  
-
-### <a name="azure-machine-learning-free-and-standard-tier"></a>Den kostnadsfria nivån och standardnivån för Azure Machine Learning
-**Vad ingår i den kostnadsfria Azure Machine Learning-nivån?**
-
-Den kostnadsfria Azure Machine Learning-nivån är avsedd att ge en detaljerad introduktion till Azure Machine Learning Studio. Allt du behöver är ett Microsoft-konto för att registrera dig. Den kostnadsfria nivån tillhandahåller gratis åtkomst till en Azure Machine Learning Studio-arbetsyta per [Microsoft-konto](https://account.microsoft.com/account). I den här nivån kan du använda upp till 10 GB lagringsutrymme och operationalisera modeller som API:er för mellanlagring. Arbetsbelastningar på den kostnadsfria nivån omfattas inte av något SLA och är endast avsedda för utveckling och personligt bruk. 
-
-Arbetsytor på den kostnadsfria nivån har följande begränsningar:
-
-* Arbetsbelastningar kan inte få åtkomst till data genom att ansluta till en lokal server som kör SQL Server.
-* Du kan inte distribuera nya grundläggande Resource Manager-webbtjänster.
-
-
-**Vad ingår i standardnivån och standardplanerna för Azure Machine Learning?**
-
-Standardnivån för Azure Machine Learning är en betald produktionsversion av Azure Machine Learning Studio. Avgiften för Azure Machine Learning Studio faktureras månadsvis per arbetsyta och beräknas proportionellt för ofullständiga månader. Experimenttimmar i Studio för Azure Machine Learning debiteras per beräkningstimme för aktiva experiment. Faktureringen beräknas proportionellt för ofullständiga timmar.  
-
-Azure Machine Learning API-tjänsten debiteras beroende på om det rör sig om en klassisk webbtjänst eller en ny Resource Manager-webbtjänst.
-
-Följande avgifter beräknas per arbetsyta för din prenumeration.
-
-* Prenumerationen: Prenumerationen för Machine Learning-arbetsyta är en månadsavgift som ger åtkomst till en Machine Learning Studio-arbetsyta. Prenumerationen krävs för att köra experiment i Studio och för att använda API:er i produktionsmiljön.
-* Experimenttimmar i Studio: Den här mätaren räknar ihop alla beräkningsrelaterade avgifter som ackumuleras av kör experiment i Machine Learning Studio och API-anrop för produktion i mellanlagringsmiljön.
-* Kom åt data genom att ansluta till en lokal server som kör SQL Server i dina modeller för utbildning och bedömning.
-* För de klassiska webbtjänsterna:
-  * Beräkningstimmar för produktions-API: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av webbtjänster som körs i produktionsmiljön.
-  * Produktions-API-transaktioner (i 1000-tal): Den här mätaren visar avgifter som ackumuleras per anrop till produktionswebbtjänsten.
-
-Förutom föregående kostnader räknas avgifter för den valda planen in för den nya Resource Manager-baserade webbtjänsten:
-
-* Standard S1/S2/S3-Plan för API (enheter): Den här mätaren representerar typ av instans som valts för Resource Manager-baserade webbtjänster.
-* Standard S1/S2/S3 – överförbrukning API-Beräkningstimmar: Den här mätaren visar beräkningsrelaterade avgifter som ackumuleras av Resource Manager-baserade webbtjänster som körs i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S1/S2/S3.
-* Standard S1/S2/S3 – överförbrukning av API-transaktioner (i 1 000-tal): Den här mätaren visar avgifter som ackumuleras per anrop till din Resource Manager-baserade webbtjänst i produktionsmiljön när det inkluderade antalet i befintliga instanser har förbrukats. Den ytterligare användningen debiteras enligt överförbrukningstaxan för plannivå S3/S1/S2.
-* Inkluderade API-Beräkningstimmar: Med Resource Manager-baserade webbtjänster representerar den här mätaren inkluderade antalet API-beräkningstimmar.
-* Inkluderade API-transaktioner (i 1 000-tal): Med Resource Manager-baserade webbtjänster representerar den här mätaren inkluderade antalet API-transaktioner.
-
-**Hur jag registrerar jag mig för den kostnadsfria Azure Machine Learning-nivån?**
-
-Allt du behöver är ett Microsoft-konto. Gå till [startsidan för Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) och klicka på **Starta nu**. Logga in med ditt Microsoft-konto så skapas en arbetsyta på den kostnadsfria nivån. Du kan börja utforska och skapa Machine Learning-experiment direkt.
-
-**Hur jag registrerar jag mig för Azure Machine Learning-standardnivån?**
-
-Du måste först ha åtkomst till en Azure-prenumeration för att kunna skapa en Machine Learning-arbetsyta på standardnivån. Du kan registrera dig för en 30-dagars kostnadsfri utvärderingsversion av en Azure-prenumeration och senare uppgradera till en Azure-betalprenumeration eller köpa en betald Azure-prenumeration direkt. När du har fått tillgång till prenumerationen kan du skapa en Machine Learning-arbetsyta från Microsoft Azure Portal. Se [de stegvisa anvisningarna](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
-
-Du kan också bli inbjuden till en Machine Learning-arbetsyta på standardnivån av arbetsytans ägare.
-
-**Kan jag välja att använda mitt eget Azure Blob Storage-konto på den kostnadsfria nivån?**
-
-Nej, standardnivån motsvarar den version av Machine Learning-tjänsten som var tillgänglig innan nivåerna introducerades.
-
-**Kan jag distribuera mina maskininlärningsmodeller som API:er på den kostnadsfria nivån?**
-
-Ja, du kan operationalisera maskininlärningsmodeller till API-tjänster i mellanlagringsmiljön som en del av den kostnadsfria nivån. Du måste använda standardnivån för att flytta API-mellanlagringstjänsten till produktionsmiljön och få en produktionsslutpunkt för operationaliseringstjänsten.
-
-**Vad är skillnaden mellan den kostnadsfria Azure-utvärderingsversionen och den kostnadsfria Azure Machine Learning-nivån?**
-
-Med en [kostnadsfri utvärderingsversion av Microsoft Azure](https://azure.microsoft.com/free/) får du krediter som du kan använda för valfri Azure-tjänst under en månad. Den kostnadsfria Azure Machine Learning-nivån ger tillgång till Azure Machine Learning för arbetsbelastningar som inte är för produktion.
-
-**Hur flyttar jag ett experiment från den kostnadsfria nivån till standardnivån?**
-
-Så här kopierar du experiment från den kostnadsfria nivån till standardnivån:
-
-1. Logga in i Azure Machine Learning Studio och kontrollera att både den kostnadsfria arbetsytan och standardarbetsytan visas i arbetsyteväljaren i det övre navigeringsfältet.
-2. Växla till den kostnadsfria arbetsytan om du befinner dig på standardarbetsytan.
-3. Välj ett experiment som du vill kopiera i experimentlistvyn och klicka sedan på kommandoknappen **Kopiera**.
-4. Välj arbetsytan Standard i dialogrutan som öppnas och klicka på knappen **Kopiera**.
-   Alla associerade datauppsättningar, tränade modeller osv. kopieras tillsammans med experimentet till standardarbetsytan.
-5. Du måste köra om experimentet och publicera om webbtjänsten på standardarbetsytan.
-
-### <a name="studio-workspace"></a>Studio-arbetsytan
-**Får jag olika fakturor för olika arbetsytor?**
-
-Avgifterna för en arbetsyta visas separat för varje tillämplig mätare på samma faktura.
-
-**Vilka specifika typer av beräkningsresurser körs mina experiment på?**
-
-Machine Learning-tjänsten är en multitenant-tjänst. De faktiska beräkningsresurser som används på serverdelen varierar och är optimerade för prestanda och förutsägbarhet.
-
-### <a name="guest-access"></a>Gäståtkomst
-**Vad är gäståtkomst i Azure Machine Learning Studio?**
-
-Gäståtkomst är en begränsad utvärderingsmiljö. Du kan skapa och köra experiment i Azure Machine Learning Studio utan kostnad och utan autentisering. Gästsessioner är icke-beständiga (går inte att spara) och begränsade till åtta timmar. Exempel på andra begränsningar är avsaknaden av stöd för R och Python, frånvaron av mellanlagrings-API:er samt storleksbegränsningar för datauppsättningar och lagringskapacitet. Jämförelsevis har användare som väljer att logga in med ett Microsoft-konto fullständig åtkomst till den kostnadsfria Machine Learning Studio-nivån som beskrivs ovan, som innehåller en beständig arbetsyta och mer omfattande funktioner. Välj din kostnadsfria Machine Learning-miljö genom att klicka på **Kom igång** på [https://studio.azureml.net](https://studio.azureml.net). Välj sedan **Gästbehörighet** eller logga in med ditt Microsoft-konto.
 
 <!-- Module References -->
 [image-reader]: https://msdn.microsoft.com/library/azure/893f8c57-1d36-456d-a47b-d29ae67f5d84/

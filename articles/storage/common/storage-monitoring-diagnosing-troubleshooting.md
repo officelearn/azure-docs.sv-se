@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
-ms.component: common
-ms.openlocfilehash: e451fd2c2dad5c411d0a8faa8e9c044648759001
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.subservice: common
+ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121744"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474011"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -47,7 +47,7 @@ En praktisk guide till slutpunkt till slutpunkt felsökning i Azure Storage-prog
   * [Korrelera loggdata]
   * [ID för klientbegäran]
   * [Server-begäran-ID]
-  * [Tidsstämplar]
+  * [Timestamps]
 * [Felsökningsanvisningar]
   * [Mätningar visar ett högt värde för AverageE2ELatency och ett lågt värde för AverageServerLatency]
   * [Mätningar visar låga värden för AverageE2ELatency och AverageServerLatency, men klienten har ändå långa svarstider]
@@ -293,7 +293,7 @@ catch (StorageException storageException)
 }
 ```
 
-### <a name="timestamps"></a>Tidsstämplar
+### <a name="timestamps"></a>Timestamps
 Du kan också använda tidsstämplar för att hitta relaterade poster, men tänk på alla klockan skeva mellan klienten och servern som kan finnas. Sök plus eller minus 15 minuter för matchande serversidan poster baserat på tidsstämpeln på klienten. Kom ihåg att blob-metadata för objekt som innehåller mått visar tidsintervall för de mått som lagras i blob. Det här tidsintervallet är användbart om du har många mått blobar för samma minut eller timme.
 
 ## <a name="troubleshooting-guidance"></a>Felsökningsinformation
@@ -471,12 +471,12 @@ Om klientprogrammet som utlöste HTTP 403 (förbjudet) fel, är en trolig orsak 
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar åtgärden med platsen primära per platsläget PrimaryOnly. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Startar synkron begäran om att https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig = OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % 3D&amp;api-version = 2014-02-14. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Väntar på svar. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) förbjuden. |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Statuskod = 403, ID för begäran = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, innehåll MD5 = ETag =. |
-| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) nekad... |
-| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden ska göras. Antal nya försök = 0, HTTP-statuskod = 403, undantag = fjärrservern returnerade ett fel: (403) nekad... |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under väntan på svar: Fjärrservern returnerade ett fel: (403) Förbjuden. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Svaret togs emot. Status code = 403, Request ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.WindowsAzure.Storage |Varning |2 |85d077ab-... |Ett undantag uppstod under åtgärden: Fjärrservern returnerade ett fel: (403) Forbidden.. |
+| Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Kontrollerar om åtgärden ska göras. Antal nya försök = 0, HTTP-statuskod = 403, undantag = fjärrservern returnerade ett fel: (403) Forbidden.. |
 | Microsoft.WindowsAzure.Storage |Information |3 |85d077ab-... |Nästa plats har angetts till primär, beroende på plats. |
-| Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) förbjuden. |
+| Microsoft.WindowsAzure.Storage |Fel |1 |85d077ab-... |Återförsöksprincipen tillät inte för ett nytt försök. Misslyckas med fjärrservern returnerade ett fel: (403) Förbjuden. |
 
 Du bör undersöka varför SAS-token upphör att gälla innan klienten skickar token till servern i det här scenariot:
 
@@ -515,7 +515,7 @@ Loggposter:
 | ID för förfrågan | Åtgärden Text |
 | --- | --- |
 | 07b26a5d-... |Startar synkron begäran till https://domemaildist.blob.core.windows.net/azuremmblobcontainer. |
-| 07b26a5d-... |StringToSign = HEAD...x-ms-client-request-id:07b26a5d-...x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = HEAD............x-ms-client-request-id:07b26a5d-....x-ms-date:Tue, 03 Jun 2014 10:33:11 GMT.x-ms-version:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |Väntar på svar. |
 | 07b26a5d-... |Svaret togs emot. Statuskod = 200, ID för begäran = eeead849... Innehåll MD5 = ETag = &quot;0x8D14D2DC63D059B&quot;. |
 | 07b26a5d-... |Svarshuvuden bearbetades, fortsätter med resten av åtgärden. |
@@ -570,7 +570,7 @@ I följande tabell visas ett exempel från serversidan loggmeddelande från logg
 | Typ av tjänst       | Blob                         |
 | URL för begäran        | https://domemaildist.blob.core.windows.net/azureimblobcontainer/blobCreatedViaSAS.txt |
 | &nbsp;                 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
-| Rubrik för begäran-ID  | a1f348d5-8032-4912-93EF-b393e5252a3b |
+| Rubrik för begäran-ID  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | ID för klientförfrågan  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
 
 
@@ -737,7 +737,7 @@ Följande procedur visar hur du kan få detaljerad paketinformationen för trafi
 4. Lägg till ett filter för att den **Capture Filter** textrutan. Till exempel **värd contosoemaildist.table.core.windows.net** konfigurerar Wireshark för att samla in endast paket som skickas till eller från table service-slutpunkt i den **contosoemaildist** storage-konto. Kolla in den [fullständig lista över avbilda filter](http://wiki.wireshark.org/CaptureFilters).
    
    ![][6]
-5. Klicka på **Start**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
+5. Klicka på **Starta**. Wireshark avbildar nu alla paketen skickar till eller från table service-slutpunkt som du använder klientprogrammet på den lokala datorn.
 6. När du är klar, klicka på huvudmenyn **avbilda** och sedan **stoppa**.
 7. Om du vill spara insamlade data i en Wireshark avbilda fil på huvudmenyn klickar du på **filen** och sedan **spara**.
 
@@ -829,7 +829,7 @@ Du hittar mer information på [vad är Application Insights](../../azure-monitor
 [Korrelera loggdata]: #correlating-log-data
 [ID för klientbegäran]: #client-request-id
 [Server-begäran-ID]: #server-request-id
-[Tidsstämplar]: #timestamps
+[Timestamps]: #timestamps
 
 [Felsökningsanvisningar]: #troubleshooting-guidance
 [Mätningar visar ett högt värde för AverageE2ELatency och ett lågt värde för AverageServerLatency]: #metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency

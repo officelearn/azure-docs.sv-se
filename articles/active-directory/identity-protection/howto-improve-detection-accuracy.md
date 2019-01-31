@@ -8,7 +8,7 @@ author: MarkusVi
 manager: mtillman
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: 6624b65e7aa71dc22a3dfe27a691a23030928ec2
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 2ba6e3b8b844d72b762e9a66629f16b36193a69f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914166"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478397"
 ---
-# <a name="how-to-improve-the-detection-accuracy"></a>Hur: Förbättra identifieringen 
+# <a name="how-to-improve-the-detection-accuracy"></a>Instruktioner: Förbättra identifieringen 
 
 Identity Protection tillhandahåller mekanismer för att ge feedback till Azure AD på risk identifieringar i miljön. Du kan bekräfta status för identifierade riskfylld användare eller logga in händelsen du vill ge feedback. Användare med Microsoft denna feedback att vidta åtgärder för den aktuella risk identifieringar och förbättra framtida identifieringar. 
 

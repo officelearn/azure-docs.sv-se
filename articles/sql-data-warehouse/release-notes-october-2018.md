@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: 9160a5f4e3a452682787ff500199e43e7fad0c77
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
+ms.openlocfilehash: 81096eeb1edcd6681bdc887d267ee477d78a8578
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213697"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472090"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-october-2018"></a>Vad är nytt i Azure SQL Data Warehouse? Oktober 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i oktober 2018.
@@ -57,7 +57,7 @@ Azure SQL Data Warehouse (SQL DW) har nu integrering med Azure Data Lake Storage
 
 ## <a name="bug-fixes"></a>Felkorrigeringar
 
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 |:---|:---|
 | **CETAS Parquet-fel i små resursklasser på informationslager DW2000 och mycket mer** | Den här snabbkorrigeringen identifierar en null-referens i den Skapa extern tabell som att Parquet kodsökvägar. |
 |**Identity-kolumnvärdet kan förlora i CTAS åtgärder** | Värdet för en identifiera kolumnen bevaras inte när CTASed till en annan tabell. Rapporteras i en blogg: [ https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/ ](https://blog.westmonroepartners.com/azure-sql-dw-identity-column-bugs/). |

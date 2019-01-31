@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 011bb74a10b12c5170579d3b4c507fcfe0fc01b1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 95fd5b753d2018ebf422c4d9c88c2e3f6aba7bd8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040735"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452268"
 ---
-# <a name="change-feed-in-azure-cosmos-db"></a>Ändringsflödet i Azure Cosmos DB
+# <a name="change-feed-in-azure-cosmos-db---overview"></a>Ändringsflödet i Azure Cosmos DB - översikt
 
 Stöd för ändringsfeed i Azure Cosmos DB fungerar genom att lyssna på en Azure Cosmos DB-behållare efter ändringar. Sedan returnerar den sorterade listan över dokument som har ändrats i den ordning som de har ändrats. Ändringarna är beständiga, kan bearbetas asynkront och inkrementellt, och utdata kan distribueras bland en eller flera konsumenter för parallell bearbetning. 
 

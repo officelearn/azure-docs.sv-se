@@ -4,17 +4,17 @@ description: Beskriver hur resource principdefinitionen används av Azure Policy
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: deaad5e7a04362ab021bfb90ab08377cb99694e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d54fd12125902aa5019643df24d78ae81f7fc31f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250392"
+ms.locfileid: "55296672"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
@@ -137,7 +137,7 @@ Om den definition lagras a:
 
 ## <a name="display-name-and-description"></a>Namn och beskrivning
 
-Du använder **displayName** och **beskrivning** identifiera principdefinitionen och ge ett sammanhang för när den används.
+Du använder **displayName** och **beskrivning** identifiera principdefinitionen och ge ett sammanhang för när den används. **displayName** har en maximal längd på _128_ tecken och **beskrivning** en maximal längd på _512_ tecken.
 
 ## <a name="policy-rule"></a>Principregel
 

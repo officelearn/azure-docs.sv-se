@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4b24ba4b4d83ac3f0c8291308debb6317efa4a55
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: b12b9d56f42911da606e3bdcfedbe3f789d2c4e8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52968005"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466945"
 ---
-# <a name="translator-text-api-30-dictionary-examples"></a>Translator Speech API 3.0: Exempel ordlista
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ordlisteexempel
 
 Innehåller exempel som visar hur termer i ordlistan används i kontexten. Den här åtgärden används tillsammans med [ordlista lookup](./v3-0-dictionary-lookup.md).
 
@@ -56,11 +56,11 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_Rubrik_</td>
+    <td>_En auktorisering_<br/>_header_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -123,7 +123,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
 Det här exemplet visar hur du leta upp exempel för paret består av engelska termen `fly` och dess spanska translation `volar`.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

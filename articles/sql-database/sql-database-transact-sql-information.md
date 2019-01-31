@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/03/2018
-ms.openlocfilehash: 48f8bb2e8251191fac456549cfca7a37e75d7f8c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 4d9618bbceacf4167aac843e3d5fd818f225d297
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997684"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467823"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa Transact-SQL skillnader vid migrering till SQL-databas
 
@@ -39,14 +39,14 @@ Core DDL (data definition language)-instruktionerna är tillgängliga, men vissa
 
 - Skapa och ändra databas har över tre dussin alternativ. Instruktionerna är filplacering, FILESTREAM och service broker-alternativ som endast gäller för SQL Server. Detta inte har någon betydelse om du skapar databaser innan du migrerar, men om du migrerar T-SQL-kod som skapar databaser du bör jämföra [Skapa databas (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) med SQL Server-syntax på [skapa DATABAS (SQL Server Transact-SQL)](https://msdn.microsoft.com/library/ms176061.aspx) att kontrollera att alla alternativ som du använder stöds. Skapa databas för Azure SQL Database har även tjänstmålet och elastisk skalningsalternativ som endast tillämpas på SQL-databas.
 - Skapa och ALTER TABLE-instruktioner har FileTable alternativ som inte kan användas i SQL-databas eftersom FILESTREAM inte stöds.
-- Skapa och ändra inloggnings-satser stöds men SQL Database erbjuder inte alla alternativ. Om du vill göra databasen mer portabel uppmuntrar SQL Database använder oberoende databasanvändare i stället för inloggningar när det är möjligt. Mer information finns i [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) och [styra och bevilja åtkomst till databasen](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
+- Skapa och ändra inloggnings-satser stöds men SQL Database erbjuder inte alla alternativ. Om du vill göra databasen mer portabel uppmuntrar SQL Database använder oberoende databasanvändare i stället för inloggningar när det är möjligt. Mer information finns i [CREATE/ALTER LOGIN](https://msdn.microsoft.com/library/ms189828.aspx) och [styra och bevilja åtkomst till databasen](sql-database-manage-logins.md).
 
 ## <a name="transact-sql-syntax-not-supported-in-azure-sql-database"></a>Transact-SQL-syntaxen stöds inte i Azure SQL Database
 
 Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [Azure SQL Database funktionsjämförelse](sql-database-features.md), följande uttryck och grupper av uttryck stöds inte. Därför om databasen som ska migreras använder någon av följande funktioner, nytt supporttekniker T-SQL för att ta bort dessa T-SQL-funktioner och -uttryck.
 
 - Sortering av systemobjekt
-- Anslutningsrelaterade: slutpunktsrapporter. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Du hittar mer information i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md).
+- Anslutningsrelaterade: Slutpunktsrapporter. SQL Database har inte stöd för Windows-autentisering, men stöder den liknande Azure Active Directory-autentiseringen. Vissa typer av autentiseringar kräver den senaste versionen av SSMS. Du hittar mer information i [Ansluta till SQL Database eller SQL Data Warehouse med Azure Active Directory-autentisering](sql-database-aad-authentication.md).
 - Frågor mellan databaser med tre eller fyra delnamn. (Skrivskyddade frågor över flera databaser stöds med hjälp av [Elastic Database-fråga](sql-database-elastic-query-overview.md).)
 - Länkning av ägarskap mellan databaser, `TRUSTWORTHY`-inställning
 - `EXECUTE AS LOGIN` Använd EXECUTE AS USER i stället.
@@ -54,15 +54,15 @@ Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [A
 - Eventing: Händelser, händelsemeddelanden, frågemeddelanden
 - Filplacering: Syntax som avser databasens filplacering, storlek och databasfiler som hanteras automatiskt av Microsoft Azure.
 - Hög tillgänglighet: Syntax som avser hög tillgänglighet, som hanteras av Microsoft Azure-kontot. Detta inkluderar syntax för säkerhetskopiering, återställa, Alltid på, databasspegling, loggöverföring återställningslägen.
-- Logga läsare: Syntax som använder log Reader, som inte är tillgänglig på SQL Database: Push-replikering, sammanställning av ändringsdata. SQL Database kan vara en prenumerant för en artikel för push-replikering.
+- Log reader: Syntax som använder log Reader, som inte är tillgänglig på SQL Database: Push-replikering, sammanställning av ändringsdata. SQL Database kan vara en prenumerant för en artikel för push-replikering.
 - Funktioner: `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
 - Maskinvara: Syntax för maskinvarurelaterade maskinvarurelaterade serverinställningar: till exempel minne, arbetstrådar, processortillhörighet, spåra flaggor. Använd tjänstnivåer och compute storlekar i stället.
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, och fyrdelade namn
-- .NET framework: CLR-integrering med SQL Server
+- .NET Framework: CLR-integrering med SQL Server
 - Semantisk sökning
-- Serverautentiseringsuppgifter: Använd [databasbegränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.
-- Servernivåobjekt: serverroller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
+- Autentiseringsuppgifterna för servern: Använd [databasbegränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) i stället.
+- Servernivåobjekt: Serverroller, `sys.login_token`. `GRANT`, `REVOKE` och `DENY` av serverbehörigheter inte är tillgängliga även om vissa ersätts med databasbehörigheter. Vissa användbara DMV:er på servernivå har motsvarande DMV:er på databasnivå.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
@@ -70,12 +70,12 @@ Förutom Transact-SQL-uttryck som rör stöds inte funktioner som beskrivs i [A
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
 - SQL ServerAgent: Syntax som bygger på SQL Server Agent eller MSDB-databasen: aviseringar, operatörer, centrala hanteringsservrar. Använd skript, till exempel Azure PowerShell i stället.
-- Granskning av SQL Server: Använd SQL Database-granskning i stället.
+- Granskning av SQL Server: Använd granskning av SQL Database i stället.
 - Spårning av SQL Server
-- Spåra flaggor: vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
+- Spåra flaggor: Vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
 - Felsökning av Transact-SQL
-- Utlösare: Serveromfattande eller inloggningsutlösare
-- `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du göra en ny anslutning till den nya databasen.
+- Utlösare: Serveromfattande eller logga in utlösare
+- `USE` Instruktion: Om du vill ändra databasens kontext till en annan databas, måste du göra en ny anslutning till den nya databasen.
 
 ## <a name="full-transact-sql-reference"></a>Fullständig referens för Transact-SQL
 

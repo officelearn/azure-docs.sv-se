@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: c5f5b43a96d5fad5d5f7737ef82585593cd05a7b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.date: 01/25/2019
+ms.openlocfilehash: 470a00e62aba4baf5dd13a9c80a0c72df04a81c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240666"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478346"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL hyperskala databaser
 
@@ -75,9 +75,9 @@ Tjänstnivån hyperskala är främst avsett för kunder som har stora lokala SQL
 
 Hyperskala är nu tillgänglig för enskilda databaser i följande regioner:  Västra US1, USA, västra 2, östra US1, centrala USA, Västeuropa, Nordeuropa, Storbritannien, västra, Sydostasien, östra Japan, Korea, centrala, Australien, sydöstra och Östra Australien.
 
-### <a name="can-i-create-multiple-hyperscale-databases-per-logical-server"></a>Jag kan skapa flera hyperskala databaser per logisk server
+### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>Jag kan skapa flera databaser i hyperskala per SQL Database-server
 
-Ja. Mer information och gränser för hur många storskaliga databaser per logisk server, finns i [SQL Database-resursgränser för enkel och delade databaser på en logisk server](sql-database-resource-limits-logical-server.md).
+Ja. Mer information och gränser för hur många storskaliga databaser per SQL Database-server finns i [SQL Database-resursgränser för enkel och delade databaser på en SQL-databasserver](sql-database-resource-limits-database-server.md).
 
 ### <a name="what-are-the-performance-characteristic-of-a-hyperscale-database"></a>Vad är prestandaegenskap för en storskalig databas
 
@@ -98,7 +98,7 @@ SQL Database hyperskala ger snabb skalbarhet på begäran för din arbetsbelastn
 
 ## <a name="deep-dive-questions"></a>Djupdykning frågor
 
-### <a name="can-i-mix-hyperscale-and-single-databases-on-my-logical-server"></a>Jag kan blanda hyperskala och enskilda databaser på min logisk server
+### <a name="can-i-mix-hyperscale-and-single-databases-a-my-sql-database-server"></a>Kan jag blanda hyperskala och enskilda databaser en min SQL Database-server
 
 Ja, det kan du.
 
@@ -235,7 +235,7 @@ Avbrottstid är samma som stilleståndstid när du migrerar dina databaser till 
 
 Du kan läsa data från Azure Storage och läsa in datainläsning i en storskalig databas (precis som du kan göra med en vanlig enkel databas). Polybase stöds inte för närvarande på Azure SQL Database. Du kan göra med Polybase [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) eller kör ett Spark-jobb [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) med den [Spark-anslutningsappen för SQL](sql-database-spark-connector.md). Massinfogning stöder i Spark-anslutningen till SQL.
 
-Enkel återställning eller bulk loggning modellen stöds inte i hyperskala. Fullständiga återställningsmodellen krävs för att tillhandahålla hög tillgänglighet. Dock hyperskala ger bättre pris jämfört med en Azure SQL-databas på grund av den nya arkitekturen i loggen för inmatning av data.
+Enkel återställning eller bulk loggning modellen stöds inte i hyperskala. Fullständiga återställningsmodellen krävs för att tillhandahålla hög tillgänglighet. Dock hyperskala ger bättre pris jämfört med en enkel databas på grund av den nya arkitekturen i loggen för inmatning av data.
 
 ### <a name="does-sql-database-hyperscale-allow-provisioning-multiple-nodes-for-ingesting-large-amounts-of-data"></a>SQL Database hyperskala tillåter att etablera flera noder för att föra in stora mängder data
 

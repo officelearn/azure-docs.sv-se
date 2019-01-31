@@ -1,6 +1,6 @@
 ---
-Rubrik: Felsöka din modell titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Felsöka din modell titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här felsöker du fel som genereras av modulerna Träningsmodell och Poängmodell i Azure Machine Learning Studio.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/14/2017
 ---

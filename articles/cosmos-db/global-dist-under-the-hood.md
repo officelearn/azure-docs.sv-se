@@ -1,5 +1,5 @@
 ---
-title: Azure global distribution Cosmos DB – under huven
+title: Global distribution med Azure Cosmos DB – under huven
 description: Den här artikeln ger teknisk information som rör global distribution av Azure Cosmos DB
 author: dharmas-cosmos
 ms.service: cosmos-db
@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: e1c84bb28747cf1799b39c70b6df3dc0cb9f8d78
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 86e4441174fa89fc688fa4e411ead0a7b3ebc8ee
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038950"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475388"
 ---
-# <a name="azure-cosmos-db-global-distribution---under-the-hood"></a>Azure global distribution Cosmos DB – under huven
+# <a name="global-data-distribution-with-azure-cosmos-db---under-the-hood"></a>Globala data-distribution med Azure Cosmos DB – under huven
 
 Azure Cosmos DB är en grundläggande tjänst i Azure, så att den har distribuerats i alla Azure-regioner över hela världen, inklusive offentlig, suveräna, Department of Defense (DoD) och government-moln. Inom ett datacenter, vi distribuera och hantera Azure Cosmos DB på enorma stämplar av datorer, var och en med dedikerad lokal lagring. Inom ett datacenter, är Azure Cosmos DB distribuerade över många kluster vart och ett potentiellt körs flera generationer av maskinvara. Datorer i ett kluster är vanligtvis fördelade på 10-20-feldomäner. Följande bild visar Cosmos DB globalt system topologin:
 

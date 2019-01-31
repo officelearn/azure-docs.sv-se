@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: e6f13994d404d58082b953fc98ac6028eea2e43e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 97f11523c0418caaee66930c87a7de64570097d6
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55216214"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296910"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS docker-behållare
  
@@ -40,21 +40,19 @@ För att kunna köra LUIS-behållare, måste du ha följande:
 
 ### <a name="the-host-computer"></a>Värddatorn
 
-Den **värden** är den dator som kör docker-behållaren. Det kan vara en dator i din lokala enhet eller en docker som är värd för tjänsten i Azure, inklusive:
-
-* [Azure Kubernetes Service](../../aks/index.yml)
-* [Azure Container Instances](../../container-instances/index.yml)
-* [Kubernetes](https://kubernetes.io/) kluster som distribueras till [Azure Stack](../../azure-stack/index.yml). Mer information finns i [distribuera Kubernetes i Azure Stack](../../azure-stack/user/azure-stack-solution-template-kubernetes-deploy.md).
+[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
 Den här behållaren har stöd för minsta och rekommenderade värden för inställningarna:
 
-|Inställning| Minimum | Rekommenderad |
+|Inställning| Minimum | Rekommenderas |
 |-----------|---------|-------------|
-|Kärnor<BR>`--cpus`|1 kärna<BR>minst 2,6 GHz (gigahertz) eller snabbare|1 kärna|
+|Kärnor<BR>`--cpus`|1 kärna|1 kärna|
 |Minne<BR>`--memory`|2 GB|4 GB|
 |Transaktioner per sekund<BR>(TPS)|20 TPS|40 TPS|
+
+Varje kärna måste vara minst 2,6 GHz (gigahertz) eller snabbare.
 
 Den `--cpus` och `--memory` inställningarna används som en del av den `docker run` kommando.
 
@@ -66,17 +64,12 @@ Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandli
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
 ```
 
+Använd den [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) för att ladda ned en behållaravbildning.
+
 En fullständig beskrivning av tillgängliga taggar som `latest` används i det föregående kommandot, se [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) på Docker Hub.
 
-> [!TIP]
-> Du kan använda den [docker-avbildningar](https://docs.docker.com/engine/reference/commandline/images/) kommando för att lista din hämtade behållaravbildningar. Till exempel visar följande kommando ID, databasen och taggen för varje hämtade behållaravbildningen, formaterad som en tabell:
->
->  ```Docker
->  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
->
->  IMAGE ID            REPOSITORY                                                                TAG
->  ebbee78a6baa        mcr.microsoft.com/azure-cognitive-services/luis                           latest
->  ``` 
+[!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
+
 
 ## <a name="how-to-use-the-container"></a>Hur du använder behållare
 
@@ -169,7 +162,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för den publicerade LUIS-appen. |
 |{APPLICATION_ENVIRONMENT} | Miljö av den publicerade LUIS-appen. Använd någon av följande värden:<br/>```PRODUCTION```<br/>```STAGING``` |
@@ -197,7 +190,7 @@ Host: {AZURE_REGION}.api.cognitive.microsoft.com
 Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 ```
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{APPLICATION_ID} | Program-ID för tränade LUIS-programmet. |
 |{APPLICATION_VERSION} | Programversion för tränade LUIS-programmet. |
@@ -219,7 +212,7 @@ Om detta lyckas är svaret en LUIS-paketfil. Spara filen på den lagringsplats s
 
 Använd den [docker kör](https://docs.docker.com/engine/reference/commandline/run/) kommando för att köra behållaren. Kommandot använder följande parametrar:
 
-| Platshållare | Value |
+| Platshållare | Värde |
 |-------------|-------|
 |{ENDPOINT_KEY} | Den här nyckeln används för att starta behållaren. Använd inte den starter-nyckeln. |
 |{BILLING_ENDPOINT} | Fakturering slutpunktsvärdet är tillgänglig på Azure portal Language Understanding översiktssidan.|
@@ -271,7 +264,7 @@ Frågeparametrarna konfigurera hur och vad returneras i svaret på frågan:
 |Frågeparameter|Type|Syfte|
 |--|--|--|
 |`q`|sträng|Användarens uttryck.|
-|`timezoneOffset`|tal|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
+|`timezoneOffset`|nummer|TimezoneOffset kan du [ändra tidszonen](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) används av färdiga entitet datetimeV2.|
 |`verbose`|boolesk|Returnerar alla avsikter och deras resultat om värdet är true. Standardvärdet är false, vilket returnerar endast de översta avsikten.|
 |`staging`|boolesk|Returnerar frågan från mellanlagring resultat miljön om inställd true. |
 |`log`|boolesk|Loggar frågor som kan användas senare för [aktiv inlärning](luis-how-to-review-endoint-utt.md). Standardvärdet är true.|
@@ -325,14 +318,7 @@ Om du kör behållaren med ett utgående [montera](luis-container-configuration.
 
 ## <a name="containers-api-documentation"></a>Behållarens API-dokumentation
 
-Behållaren innehåller en fullständig uppsättning av dokumentationen för slutpunkter som en `Try it now` funktionen. Den här funktionen kan du ange dina inställningar i en webbaserad HTML-formulär och gör att frågan utan att behöva skriva någon kod. När frågan returnerar, ett exempel CURL-kommando har angetts för att visa de HTTP-rubrikerna och brödtext format som krävs. 
-
-> [!TIP]
-> Läs den [OpenAPI-specifikation](https://swagger.io/docs/specification/about/), som beskriver API-åtgärder som stöds av behållare, från den `/swagger` relativ URI. Exempel:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Fakturering
 

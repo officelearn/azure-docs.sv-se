@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: d055ea9b30732e1cc0fc4ae5471bae26adc08b35
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: tables
+ms.openlocfilehash: 3ba2009ef1ea8fdf5916baab296c7ff5eee953db
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238904"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55469200"
 ---
 # <a name="table-design-patterns"></a>Mönster för tabelldesign
 Den här artikeln beskrivs vissa mönster som är lämplig för användning med lösningar för Table service. Dessutom visas hur du praktiskt taget kan lösa vissa problem och kompromisser diskuteras i andra artiklar i Table storage design. Följande diagram sammanfattar relationerna mellan de olika mönster:  
@@ -201,7 +201,7 @@ Om du vill aktivera sökning efter efternamn med entitetsstruktur som anges ovan
 
 För det första alternativet, du skapa en blob för varje unikt efternamn och varje blob store en lista över de **PartitionKey** (avdelning) och **RowKey** (anställnings-ID) värden för anställda som har det senaste namnet. När du lägger till eller ta bort en medarbetare bör du kontrollera att innehållet i den relevanta blobben är konsekvent med enheterna som anställda.  
 
-<u>Alternativ #2:</u> skapa index entiteter i samma partition  
+<u>Alternativ #2:</u> Skapa index entiteter i samma partition  
 
 För det andra alternativet, använder du index entiteter som lagrar följande data:  
 
@@ -223,7 +223,7 @@ Följande steg beskriver hur du bör följa när du behöver leta upp alla anst�
 2. Parsa listan över anställnings-ID i fältet EmployeeIDs.  
 3. Om du behöver ytterligare information om var och en av dessa anställda (till exempel sina e-postadresser) kan du hämta var och en av anställdas entiteter med hjälp av **PartitionKey** värdet ”Försäljning” och **RowKey** värden från den lista över anställda som du hämtade i steg 2.  
 
-<u>Alternativ #3:</u> skapa index entiteter i en separat partition eller tabell  
+<u>Alternativ #3:</u> Skapa index entiteter i en separat partition eller tabell  
 
 Det tredje alternativet Använd index entiteter som lagrar följande data:  
 
@@ -916,7 +916,7 @@ Resten av det här avsnittet beskrivs några av de funktioner i Storage-klientbi
 ### <a name="retrieving-heterogeneous-entity-types"></a>Hämtning av heterogena entitetstyper
 Om du använder Storage-klientbiblioteket, har du tre alternativ för att arbeta med flera typer av enheter.  
 
-Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **PartitionKey** värden, kan du ange entitetstypen när du hämtar entitet som du ser i föregående två exempel som Hämta entiteter av typen **EmployeeEntity**: [kör en punkt-fråga med hjälp av Storage-klientbiblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med hjälp av LINQ](#retrieving-multiple-entities-using-linq).  
+Om du vet vilken typ av enhet som lagras med ett visst **RowKey** och **PartitionKey** värden, kan du ange entitetstypen när du hämtar entitet som du ser i föregående två exempel som Hämta entiteter av typen **EmployeeEntity**: [Kör en punkt-fråga med hjälp av Storage-klientbiblioteket](#executing-a-point-query-using-the-storage-client-library) och [hämtar flera entiteter med hjälp av LINQ](#retrieving-multiple-entities-using-linq).  
 
 Det andra alternativet är att använda den **DynamicTableEntity** typ (en egenskapsuppsättning) i stället för en konkret POCO entitetstypen (det här alternativet kan också förbättra prestanda eftersom det finns inget behov att serialisera och deserialisera entiteten till .NET-typer). Följande C#-kod potentiellt hämtar flera entiteter av olika typer från tabellen, men returnerar alla entiteter som **DynamicTableEntity** instanser. Därefter använder den **EntityType** som bestämmer vilken typ av varje entitet:  
 

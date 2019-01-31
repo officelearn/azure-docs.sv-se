@@ -11,13 +11,13 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/22/2018
-ms.openlocfilehash: b2312534cdd63f5672f6b2294e3aef6b50be229a
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: c4776d2c6f8ca2b23ba2df379b2682a6844f9a1b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600054"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461601"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Manuell justering av frågeprestanda i Azure SQL Database
 
@@ -235,12 +235,12 @@ Om en arbetsbelastning har en uppsättning frågor, är det ofta meningsfullt at
 
 ### <a name="cross-database-sharding"></a>Horisontell partitionering över flera databaser
 
-Eftersom Azure SQL Database körs på vanlig maskinvara, är kapacitetsbegränsningarna för en enskild databas lägre än för en traditionella lokala SQL Server-installation. Vissa kunder använda horisontell partitionering för att sprida databasåtgärder över flera databaser när åtgärderna inte ryms inom ramen för en enskild databas i Azure SQL Database. De flesta kunder som använder tekniker för horisontell partitionering i Azure SQL Database dela sina data på en enda dimension över flera databaser. För den här metoden måste du förstå att OLTP ofta programmens transaktioner som gäller för bara en rad eller till en liten grupp av rader i schemat.
+Eftersom Azure SQL Database körs på vanlig maskinvara, är kapacitetsbegränsningarna för en individuell databas lägre än för en traditionella lokala SQL Server-installation. Vissa kunder använda horisontell partitionering för att sprida databasåtgärder över flera databaser när åtgärderna inte ryms inom ramen för en enskild databas i Azure SQL Database. De flesta kunder som använder tekniker för horisontell partitionering i Azure SQL Database dela sina data på en enda dimension över flera databaser. För den här metoden måste du förstå att OLTP ofta programmens transaktioner som gäller för bara en rad eller till en liten grupp av rader i schemat.
 
 > [!NOTE]
 > SQL-databasen innehåller nu ett bibliotek som hjälper till med horisontell partitionering. Mer information finns i [översikt över Elastic Database-klientbibliotek](sql-database-elastic-database-client-library.md).
 
-Till exempel om en databas har kundens namn, ordning och beställningsinformation (till exempel traditionella exemplet Northwind-databasen som levereras med SQL Server), du kan dela upp dessa data i flera databaser genom att gruppera en kund med relaterade ordning och ordning information information. Du kan garantera att kundens data förblir i en enda databas. Programmet kan dela upp olika kunder på databaser som effektivt kan sprida belastningen över flera databaser. Med horisontell partitionering, kunder inte bara kan undvika den maximala storleksgränsen, men Azure SQL Database kan också bearbeta arbetsbelastningar som är betydligt större än gränserna för de olika instansstorlekarna, förutsatt att varje enskild databas passar in i dess DTU.
+Till exempel om en databas har kundens namn, ordning och beställningsinformation (till exempel traditionella exemplet Northwind-databasen som levereras med SQL Server), du kan dela upp dessa data i flera databaser genom att gruppera en kund med relaterade ordning och ordning information information. Du kan garantera att kundens data förblir i en enskild databas. Programmet kan dela upp olika kunder på databaser som effektivt kan sprida belastningen över flera databaser. Med horisontell partitionering, kunder inte bara kan undvika den maximala storleksgränsen, men Azure SQL Database kan också bearbeta arbetsbelastningar som är betydligt större än gränserna för de olika instansstorlekarna, förutsatt att varje enskild databas passar in i dess DTU.
 
 Database sharding inte minska sammanställda resursdata kapaciteten för en lösning, är det mycket effektiva för att stödja mycket stora lösningar som är fördelade över flera databaser. Varje databas kan köra på en annan beräkningsstorleken för mycket stora ”effektiva” databaser med höga resurskrav.
 

@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: dea32146c1e00869de43b50823e81853e6543411
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: e1796b2cb3efee6ff610f9dade7a10b2c2637bba
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259434"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466191"
 ---
 # <a name="translator-speech-api"></a>Translator Speech API
 
@@ -72,17 +72,17 @@ Ljudindata är i formatet Wave ljud (WAVE eller mer, ofta kallade WAV på grund 
 |Offset|Värde|
 |:---|:---|
 |0 - 3|”RIFF”|
-|4 – 7|0|
-|8 – 11|”WAVE”|
-|12 – 15|”fmt”|
-|16 – 19|16|
-|20, 21|1|
+|4 - 7|0|
+|8 - 11|”WAVE”|
+|12 - 15|”fmt”|
+|16 - 19|16|
+|20 - 21|1|
 |22 - 23|1|
 |24 - 27|16000|
 |28 - 31|32000|
 |32 - 33|2|
 |34 - 35|16|
-|36 - 39|”data”|
+|36 - 39|"data"|
 |40 - 43|0|
 
 Observera att total filstorlek (byte 4-7) och storleken på ”data” (byte 40-43) är inställda på noll. Det här är OK för strömmande scenariot där den totala storleken inte är nödvändigtvis känd förskott.
@@ -171,7 +171,7 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 |från|(tom)   |Anger språket inkommande tal. Värdet är en av de språk som identifierarna från den `speech` omfång i svaret från språk-API: et.|DocumentDB|sträng|
 |till|(tom)|Anger de språk för att översätta den transkriberade texten till. Värdet är en av de språk som identifierarna från den `text` omfång i svaret från språk-API: et.|DocumentDB|sträng|
 |funktioner|(tom)   |CSV-uppsättning funktioner som markerats av klienten. Tillgängliga funktioner:<ul><li>`TextToSpeech`: Anger att tjänsten måste returnera översatta ljudet från den sista översatta meningen.</li><li>`Partial`: Anger att tjänsten måste returnera mellanliggande resultat när ljudet strömmar till tjänsten.</li><li>`TimingInfo`: Anger att tjänsten måste returnera tidsinformation som är associerade med varje av.</li></ul>Exempelvis kan en klient anger `features=partial,texttospeech` att ta emot ofullständiga resultat och text till tal, men inga tidsinformation. Observera att strömmas alltid slutliga resultaten till klienten.|DocumentDB|sträng|
-|Röst|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|DocumentDB|sträng|
+|voice|(tom)|Identifierar vilka röst för text till tal återgivningen av den översatta texten. Värdet är en röst-identifierare från text till tal-omfång i svaret från språk-API: et. Om en röst inte har angetts systemet kommer automatiskt väljer du en när text till tal-funktionen är aktiverad.|DocumentDB|sträng|
 |Format|(tom)|Anger formatet för text till tal ljudström som returnerats av tjänsten. De tillgängliga alternativen är:<ul><li>`audio/wav`: Ljudström i Wave. Klienten bör använda WAV-huvudet kan tolka ljudformatet. WAV-ljud för text till tal är 16-bitars, enskild kanal PCM med en samplingsfrekvensen av 24 eller 16kHz.</li><li>`audio/mp3`: MP3 ljudström.</li></ul>Standardvärdet är `audio/wav`.|DocumentDB|sträng|
 |ProfanityAction    |(tom)    |Anger hur tjänsten ska hantera profanities som identifieras i tal. Giltiga åtgärder är:<ul><li>`NoAction`: Profanities lämnas skick.</li><li>`Marked`: Profanities ersätts med en markör. Se `ProfanityMarker` parametern.</li><li>`Deleted`: Profanities tas bort. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a .".`</li></ul>Standardvärdet är markerat.|DocumentDB|sträng|
 |ProfanityMarker|(tom)    |Anger hur identifierade profanities hanteras när `ProfanityAction` är inställd på `Marked`. Giltiga alternativ är:<ul><li>`Asterisk`: Profanities ersätts med strängen `***`. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a ***.".`</li><li>`Tag`: Svordomar omges av ett olämpligt språk XML-kod. Till exempel om ordet `"jackass"` behandlas som en svordomar frasen `"He is a jackass."` blir `"He is a <profanity>jackass</profanity>."`.</li></ul>Standardvärdet är `Asterisk`.|DocumentDB|sträng|
@@ -180,9 +180,9 @@ När ett klientprogram har slutförts strömning av ljud och har tagit emot de s
 |access_token|(tom)   |Alternativa sätt att skicka en giltig OAuth-åtkomsttoken. Ägartoken tillhandahålls vanligtvis med rubriken `Authorization`. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `access_token` frågeparameter för att skicka en giltig token. När du använder en åtkomsttoken för autentisering, om `Authorization` huvud har inte angetts, sedan `access_token` måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter ska bara använda en metod för att skicka token.|DocumentDB|sträng|
 |prenumerationsnyckel|(tom)   |Alternativa sätt att överföra prenumerationsnyckel. Vissa websocket-bibliotek tillåter inte klientkod för att ange huvuden. I detta fall är klienten kan använda den `subscription-key` frågeparameter för att skicka en giltig prenumeration-nyckel. När du använder en prenumerationsnyckel för autentisering, om `Ocp-Apim-Subscription-Key` huvud har inte angetts och prenumerationsnyckel måste anges. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern. Klienter bör endast använda en metod för att skicka den `subscription key`.|DocumentDB|sträng|
 |X-ClientTraceId    |(tom)    |En klientgenererade GUID som används för att spåra en begäran. Klienter ska för rätt felsökning av problem, ange ett nytt värde för varje begäran och logga den.<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-ClientTraceId`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
-|X-Korrelations-ID|(tom)    |En klientgenererade identifierare som används för att kombinera flera kanaler i en konversation. Du kan skapa flera speech translation-sessioner för att aktivera konversationer mellan användare. I sådana fall kan använda alla speech translation-sessioner samma Korrelations-ID för att koppla ihop kanaler. Detta underlättar spårning och diagnostik. Identifieraren ska följa: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-CorrelationId`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
-|X-ClientVersion|(tom)    |Identifierar versionen av klientprogrammet. Exempel: ”2.1.0.123”.<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-ClientVersion`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
-|X-OsPlatform|(tom)   |Anger namnet och versionen av operativsystemet klientprogrammet körs på. Exempel: ”Android 5.0”, ”iOs 8.1.3” ”, Windows 8.1”.<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-OsPlatform`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
+|X-CorrelationId|(tom)    |En klientgenererade identifierare som används för att kombinera flera kanaler i en konversation. Du kan skapa flera speech translation-sessioner för att aktivera konversationer mellan användare. I sådana fall kan använda alla speech translation-sessioner samma Korrelations-ID för att koppla ihop kanaler. Detta underlättar spårning och diagnostik. Identifieraren ska följa: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-CorrelationId`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
+|X-ClientVersion|(tom)    |Identifierar versionen av klientprogrammet. Exempel: "2.1.0.123".<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-ClientVersion`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
+|X-OsPlatform|(tom)   |Anger namnet och versionen av operativsystemet klientprogrammet körs på. Exempel: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Istället för att använda en rubrik, kan det här värdet skickas med Frågeparametern `X-OsPlatform`. Om både rubrik och frågeparameter har angetts, ignoreras Frågeparametern.|sidhuvud|sträng|
 
 ### <a name="response-messages"></a>Svarsmeddelanden
 

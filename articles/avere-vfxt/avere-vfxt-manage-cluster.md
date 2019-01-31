@@ -4,24 +4,24 @@ description: Hur du hantera Avere kluster – lägga till eller ta bort noder, s
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: a47b18972e945e495e5a5d3dd90e383390612865
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 0eb5941bfecc023429556434a45460c8727056ec
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54189617"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300194"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
 När du har skapat klustret, kan du behöva lägga till noder eller stoppa eller starta om klustret. Och när projektet är klar måste du veta hur du stoppar och permanent ta bort klustret. 
 
-Beroende på hanteringsaktivitet kluster kan du behöva använda Kontrollpanelen Avere vfxt.py kluster Skapandeskriptet eller Azure-portalen för att göra det. 
+Beroende på hanteringsaktivitet kluster kan du behöva använda Kontrollpanelen Avere vfxt.py kommandoraden kluster Skapandeskriptet eller Azure-portalen för att göra det. 
 
 Den här tabellen innehåller en översikt av vilka verktyg kan användas för varje aktivitet. 
 
-| Åtgärd | Avere Kontrollpanelen | vfxt.PY  | Azure Portal |
+| Åtgärd | Avere Kontrollpanelen | vfxt.py  | Azure Portal |
 | --- | --- | --- | --- |
 | Lägg till noder | nej | ja | nej |
 | Tar bort klusternoder | ja | nej | nej |
@@ -71,7 +71,11 @@ Den **systemunderhåll** inställningssidan har kommandon för att starta om klu
 
 När ett kluster stängs av, den publicerar meddelanden till den **instrumentpanelen** fliken först. Efter en liten stund svarar Avere Kontrollpanelen sessionen, vilket innebär att klustret har avslutats.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Hantera kluster med vfxt.py 
+## <a name="manage-the-cluster-with-vfxtpy"></a>Hantera kluster med vfxt.py
+
+vfxt.PY är ett kommandoradsverktyg för att skapa och hantera kluster. 
+
+vfxt.PY förinstallerats på kontrollanten kluster VM. Om du vill installera det på ett annat system finns i dokumentationen på <https://github.com/Azure/AvereSDK>.
 
 Skriptet vfxt.py kan användas för dessa hanteringsaktiviteter för klustret:
 
@@ -80,8 +84,6 @@ Skriptet vfxt.py kan användas för dessa hanteringsaktiviteter för klustret:
 * Ta bort ett kluster
 
 Vfxt.py operations försöker kontrollera ändrade data lagras permanent på backend-storage innan du stänger av eller förstöra det kluster eller en nod som Avere på Kontrollpanelen. Detta gör det till en säkrare alternativ än Avere-portalen.
-
-vfxt.PY förinstallerats på kontrollanten kluster VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 En fullständig vfxt.py användningsguiden finns på GitHub: [Hantering av molnet med vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 

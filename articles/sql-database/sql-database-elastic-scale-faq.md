@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: f3192aafb6f19695bc99310dd980382510bc633b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.date: 01/25/2019
+ms.openlocfilehash: b5ba5fadd229fa7119f9af791f7eaedbc984c92a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188126"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457198"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om elastiska Databasverktyg
 
@@ -43,13 +43,13 @@ Nej – skapandet av Fragmentkartehanteraren (till exempel [ShardMapManagerFacto
 
 ## <a name="i-have-questions-about-using-elastic-database-tools-how-do-i-get-them-answered"></a>Jag har frågor om hur du använder Verktyg för elastiska databaser, hur kan jag få dem besvarade
 
-Kontakta oss på den [Azure SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
+Kontakta oss på den [SQL Database-forumet](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted).
 
 ## <a name="when-i-get-a-database-connection-using-a-sharding-key-i-can-still-query-data-for-other-sharding-keys-on-the-same-shard--is-this-by-design"></a>När jag får en databasanslutning med en shardingnyckel, men jag kan fortfarande köra frågor mot data för andra horisontell partitionering nycklar till samma fragment.  Är det avsiktligt
 
 Elastic Scale APIs ger en anslutning till rätt databas för din shardingnyckel men anger inte viktiga filtrering för horisontell partitionering.  Lägg till **där** satser i frågan för att begränsa omfånget till den angivna shardingnyckel om det behövs.
 
-## <a name="can-i-use-a-different-azure-database-edition-for-each-shard-in-my-shard-set"></a>Jag kan använda en annan Azure Database-utgåva för varje fragment i min fragment set
+## <a name="can-i-use-a-different-sql-database-edition-for-each-shard-in-my-shard-set"></a>Jag kan använda en annan utgåva av SQL-databas för varje fragment i min fragment set
 
 Ja, en shard är en individuell databas och en shard kan därför vara en Premium-versionen medan en annan vara en Standard-utgåva. Dessutom kan utgåvan av ett fragment skala upp eller ned flera gånger under livslängden för fragmentet.
 

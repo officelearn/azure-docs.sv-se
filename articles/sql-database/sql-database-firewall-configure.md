@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e4079a4dcaadab8e9cea0cc1b30a609a091e5937
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.date: 01/25/2019
+ms.openlocfilehash: 0579746bc4dc554fd7e082f6258f2c13ce22f69b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54035278"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477683"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Azure SQL Database och SQL Data Warehouse brandväggsregler
 
@@ -47,11 +47,11 @@ Anslutningsförsök från Internet och Azure måste först passera brandväggen 
 
 - **Brandväggsregler på servernivå:**
 
-  Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser i samma logiska server. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå med Azure Portal eller PowerShell. För att skapa en brandväggsregel på servernivå med hjälp av Transact-SQL, måste du ansluta till SQL Database-instansen med huvudsaklig inloggning på servernivå eller som Azure Active Directory-administratör (vilket innebär att en brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
+  Dessa regler gör att klienterna kan komma åt hela Azure SQL-servern, det vill säga alla databaser i samma SQL-databasserver. Dessa regler lagras i **huvuddatabasen**. Brandväggsregler på servernivå kan konfigureras via portalen eller med hjälp av Transact-SQL-instruktioner. Du måste vara prenumerationsägare eller prenumerationsdeltagare för att skapa brandväggsregler på servernivå med Azure Portal eller PowerShell. För att skapa en brandväggsregel på servernivå med hjälp av Transact-SQL, måste du ansluta till SQL Database-instansen med huvudsaklig inloggning på servernivå eller som Azure Active Directory-administratör (vilket innebär att en brandväggsregel på servernivå först måste ha skapats av en användare med Azure-behörighet).
 
 - **Brandväggsregler på databasnivå:**
 
-  Dessa regler gör att klienterna kan komma åt vissa (säkra) databaser inom samma logiska server. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. Brandväggsregler på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln på databasnivå som ligger utanför det intervall som angetts i brandväggsregeln på servernivå kan endast klienter som har IP-adresser som ligger i intervallet som angetts för databasnivån komma åt databasen. Du kan skapa upp till 128 brandväggsregler på databasnivå för en databas. Mer information om hur du konfigurerar brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
+  Dessa regler gör att klienterna kan komma åt vissa (säkra) databaser på samma SQL-databasserver. Du kan skapa dessa regler för varje databas (inklusive den **master** databas) och de lagras i de enskilda databaserna. Brandväggsregler på databasnivå för huvud- och användardatabaser kan bara skapas och hanteras med hjälp av Transact-SQL-instruktioner och bara när du har konfigurerat den första brandväggen på servernivå. Om du anger ett IP-adressintervall i brandväggsregeln på databasnivå som ligger utanför det intervall som angetts i brandväggsregeln på servernivå kan endast klienter som har IP-adresser som ligger i intervallet som angetts för databasnivån komma åt databasen. Du kan skapa upp till 128 brandväggsregler på databasnivå för en databas. Mer information om hur du konfigurerar brandväggsregler på databasnivå finns i exemplet senare i den här artikeln och se [sp_set_database_firewall_rule (Azure SQL Database)](https://msdn.microsoft.com/library/dn270010.aspx).
 
 ### <a name="recommendation"></a>Rekommendation
 
@@ -94,7 +94,7 @@ För att förbättra prestanda cachelagras brandväggsregler på servernivå til
 
 ## <a name="manage-firewall-rules-using-the-azure-portal"></a>Hantera brandväggsregler med hjälp av Azure-portalen
 
-Om du vill ställa in en brandväggsregel på servernivå på Azure-portalen, går antingen du till sidan Översikt för Azure SQL database eller översiktssidan för din logiska Azure Database-server.
+Om du vill ställa in en brandväggsregel på servernivå på Azure-portalen, går antingen du till sidan Översikt för Azure SQL database eller översiktssidan för din SQL Database-server.
 
 > [!TIP]
 > En självstudiekurs finns i [skapa en databas med Azure portal](sql-database-get-started-portal.md).
@@ -165,7 +165,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 ```
 
 > [!TIP]
-> PowerShell-exempel i kontexten för en Snabbstart finns [skapa DB – PowerShell](sql-database-powershell-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel med hjälp av PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
+> PowerShell-exempel i kontexten för en Snabbstart finns [skapa DB – PowerShell](sql-database-powershell-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel för SQL Database med hjälp av PowerShell](scripts/sql-database-create-and-configure-database-powershell.md)
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Hantera brandväggsregler med hjälp av Azure CLI
 
@@ -185,7 +185,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 ```
 
 > [!TIP]
-> Azure CLI exempelvis i kontexten för en Snabbstart Se [skapa DB – Azure CLI](sql-database-cli-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel med hjälp av Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
+> Azure CLI exempelvis i kontexten för en Snabbstart Se [skapa DB – Azure CLI](sql-database-cli-samples.md) och [skapar en enkel databas och konfigurerar en brandväggsregel för SQL Database med hjälp av Azure CLI](scripts/sql-database-create-and-configure-database-cli.md)
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Hantera brandväggsregler med hjälp av REST API
 

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 63a7602deee402bed056937c8465fd87c8256cd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d442d09c8c8ded3aa50faf74e28c8d95ded24a5e
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962856"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300208"
 ---
-# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabba steg: skapa och använda ett SSH offentligt / privat nyckelpar för virtuella Linux-datorer i Azure
+# <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabba steg: Skapa och använda ett SSH offentligt / privat nyckelpar för virtuella Linux-datorer i Azure
 
-Med ett SSH-nyckelpar kan du skapa virtuella datorer i Azure som använder SSH-nycklar för autentisering, vilket gör att inga lösenord krävs för att logga in. Den här artikeln visar hur du snabbt skapa och använda ett offentligt / privat nyckelfil SSH-nyckelpar för virtuella Linux-datorer. Du kan utföra dessa steg med Azure Cloud Shell, en macOS eller Linux-värd, Windows-undersystem för Linux och andra verktyg som stöder OpenSSH. 
+Du kan skapa virtuella datorer (VM) i Azure som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord för att logga in med ett secure shell (SSH)-nyckelpar. Den här artikeln visar hur du snabbt skapa och använda ett offentligt / privat nyckelfil SSH-nyckelpar för virtuella Linux-datorer. Du kan utföra dessa steg med Azure Cloud Shell, en macOS eller Linux-värd, Windows-undersystem för Linux och andra verktyg som stöder OpenSSH. 
 
 > [!NOTE]
 > Virtuella datorer som skapas med SSH-nycklar är som standard lösenord inaktiveras, vilket ökar svårigheten att gissa brute-force-attacker. 
@@ -65,7 +65,7 @@ Om du inte är bekant med formatet för en offentlig SSH-nyckel kan du visa din 
 cat ~/.ssh/id_rsa.pub
 ```
 
-En typisk offentliga nyckelvärde ser ut så här:
+En typisk offentliga nyckelvärde ser ut som i följande exempel:
 
 ```
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
@@ -88,6 +88,8 @@ ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
 Om du angav en lösenfras när du skapade ditt nyckelpar, ange den lösenfrasen när frågan kommer under inloggningen. Den virtuella datorn har lagts till i din ~/.ssh/known_hosts-fil, och du blir inte ombedd att ansluta igen förrän den offentliga nyckeln på dina Virtuella Azure-ändringar eller servernamnet tas bort från ~/.ssh/known_hosts.
+
+Om den virtuella datorn använder just-in-time-åtkomstprincip, måste du begära åtkomst innan du kan ansluta till den virtuella datorn. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,6 +1,6 @@
 ---
-Rubrik: Använd Azure Machine Learning Studio-webbtjänster portal titleSuffix: Beskrivning av Azure Machine Learning Studio: Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Använd Azure Machine Learning Studio-webbtjänster portal titleSuffix: Beskrivning av Azure Machine Learning Studio: Du kan hantera dina Machine Learning nya och klassiska webbtjänster med hjälp av Microsoft Azure Machine Learning Web Services-portalen. Eftersom klassiska webbtjänster och nya Web services baseras på olika underliggande teknik, har du lite olika hanteringsfunktioner för var och en av dem.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 02/28/2017
 ---

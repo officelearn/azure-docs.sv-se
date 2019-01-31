@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: dineshmurthy
-ms.component: common
-ms.openlocfilehash: 55fa63e75768662a0f909cef0e3cc04b9c2dae41
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: c45c70055817eeeed19f9c8a832a76b10beceaa6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526206"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467041"
 ---
 # <a name="azure-storage-client-tools"></a>Azure Storage-klientverktyg
 Användare av Azure Storage vill ofta kunna visa/interagera med sina data med ett Azure Storage-klientverktyg. I tabellerna nedan listas vi ett antal verktyg som gör det möjligt att göra detta. Vi placera ett ”X” i varje block om tjänsten ger möjlighet att antingen räkna upp och/eller få åtkomst till data abstraction. Tabellen visar även om verktyg är kostnadsfria eller inte. ”Utvärderingsversion” anger att det finns en kostnadsfri utvärderingsversion, men den fullständiga produkten är inte kostnadsfri. ”J/N” anger att en version är tillgänglig kostnadsfritt, medan en annan version är tillgänglig för köp.
@@ -27,7 +27,7 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga Blob</th>
+    <th rowspan="2">Bifoga blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -41,7 +41,7 @@ Vi tillhandahåller endast en ögonblicksbild av de tillgängliga Azure Storage-
     <td>Linux</td>
   </tr>
   <tr>
-    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure-portalen</a></td>
+    <td><a href="https://azure.microsoft.com/features/azure-portal/">Microsoft Azure Portal</a></td>
     <td>X</td>
     <td>X</td>
     <td>X</td>
@@ -93,7 +93,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <th rowspan="2">Azure Storage-klientverktyg</th>
     <th rowspan="2">Blockblob</th>
     <th rowspan="2">Sidblob</th>
-    <th rowspan="2">Bifoga Blob</th>
+    <th rowspan="2">Bifoga blob</th>
     <th rowspan="2">Tabeller</th>
     <th rowspan="2">Köer</th>
     <th rowspan="2">Filer</th>
@@ -191,7 +191,7 @@ Vi har inte kontrollerat funktioner eller kvalitet som ägs av följande verktyg
     <td></td>
   </tr>
   <tr>
-    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet molnet</a></td>
+    <td><a href="http://www.gladinet.com/Azure-Storage/index.htm">Gladinet Cloud</a></td>
     <td>X</td>
     <td></td>
     <td></td>

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 1f7921093bc97aa6dc776213be4dbdf9537b7fe2
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 007f7fe95be77a2b1661cd6c82118eb875401f24
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55075711"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472583"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Förfina grupper med beroendemappning för grupp
 
@@ -73,6 +73,10 @@ Installera agenten på en Linux-dator:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-system-center-operations-manager"></a>Installera agenten på en dator som övervakas av System Center Operations Manager
+
+Det finns datorer som övervakas av Operations Manager 2012 R2 eller senare, behöver inte installera MMA-agenten. Tjänstkarta har en integrering med Operations Manager som utnyttjar MMA Operations Manager för att samla in nödvändiga beroendedata. Du kan aktivera integrationen genom att följa vägledningen [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Observera dock att beroendeagenten måste installeras på dessa datorer.
+
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 1. Installera beroendeagenten på en Windows-dator, dubbelklicka på installationsfilen och följ anvisningarna i guiden.
 2. Installera beroendeagenten på en Linux-dator, installera som rot med följande kommando:
@@ -115,7 +119,7 @@ Om du vill kontrollera beroenden för en specifik dator som visas i beroendekart
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Fråga efter data för programberoende från Log Analytics
 
-Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
+Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics-workspare som är associerade med Azure Migrate-projekt. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
 
 Köra Log Analytics-frågor:
 

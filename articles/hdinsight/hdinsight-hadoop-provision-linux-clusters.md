@@ -9,13 +9,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: ce39b431adfd333db1e771913ed28881a193b327
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.date: 01/28/2019
+ms.openlocfilehash: 0878fc4b069f7c1ca34f8954320af6e69ceea717
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53790851"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299886"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera
 
@@ -27,7 +27,6 @@ Ett Hadoop-kluster består av flera virtuella datorer (noder) som används för 
 
 > [!IMPORTANT]  
 > Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Debiteringen görs i förväg per minut, så du ska alltid ta bort ditt kluster när det inte används. Lär dig hur du [ta bort ett kluster.](hdinsight-delete-cluster.md)
->
 
 ## <a name="cluster-setup-methods"></a>Metoder för installation av kluster
 I följande tabell visas de olika metoderna som du kan använda för att konfigurera ett HDInsight-kluster.
@@ -36,7 +35,7 @@ I följande tabell visas de olika metoderna som du kan använda för att konfigu
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
-| [Klassisk Azure CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
+| [Azure Classic CLI](hdinsight-hadoop-create-linux-clusters-azure-cli.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md) |&nbsp; |✔ |&nbsp; |&nbsp; |
 | [cURL](hdinsight-hadoop-create-linux-clusters-curl-rest.md) |&nbsp; |✔ |✔ |&nbsp; |
 | [.NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |&nbsp; |&nbsp; |&nbsp; |✔ |
@@ -67,8 +66,6 @@ Azure HDInsight ger för närvarande följande klustertyper, var och en med en u
 
 > [!IMPORTANT]  
 > HDInsight-kluster finns i olika typer för en enskild arbetsbelastning eller teknik. Det finns ingen metod som stöds för att skapa ett kluster som kombinerar flera typer, till exempel Storm och HBase i ett kluster. Om din lösning kräver tekniker som är fördelade på flera HDInsight-klustertyper en [Azure-nätverk](https://docs.microsoft.com/azure/virtual-network) kan ansluta vilka krävs för klustret. 
->
->
 
 | Klustertyp | Funktioner |
 | --- | --- |
@@ -84,20 +81,12 @@ Azure HDInsight ger för närvarande följande klustertyper, var och en med en u
 ### <a name="hdinsight-version"></a>HDInsight-version
 Välj versionen av HDInsight för det här klustret. Mer information finns i [stöds HDInsight versioner](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-### <a name="enterprise-security-package"></a>Säkerhetspaketet för företag
 
-För Hadoop, Spark och Interactive Query klustertyper, kan du välja att aktivera den **Enterprise Security Package**. Det här paketet ger möjlighet att ha en säkrare konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [säkerhetspaketet för företag i Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
-
-![alternativ för att skapa hdinsight väljer säkerhetspaketet för företag](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
-
-För mer information om hur du skapar domänanslutna HDInsight-kluster, se [skapa domänanslutna HDInsight testmiljö](./domain-joined/apache-domain-joined-configure.md).
-
-
-## <a name="cluster-login-and-ssh-user-name"></a>Klusterinloggning och SSH-användarnamn
+## <a name="cluster-login-and-ssh-username"></a>Klusterinloggning och SSH-användarnamn
 Du kan konfigurera två användarkonton när klustret skapas med HDInsight-kluster:
 
 * HTTP-användare: Standardanvändarnamnet är *admin*. Den använder den grundläggande konfigurationen på Azure portal. Ibland kallas ”kluster användare”.
-* SSH-användare (Linux-kluster): Används för att ansluta till klustret via SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
+* SSH-användare: Används för att ansluta till klustret via SSH. Mer information finns i [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) (Använda SSH med HDInsight).
 
 Säkerhetspaketet för företag kan du integrera HDInsight med Active Directory och Apache Ranger. Flera användare kan skapas med säkerhetspaketet för företag.
 
@@ -143,10 +132,19 @@ Använd en anpassad metaarkiv för att öka prestandan när du använder Oozie. 
 
 ## <a name="custom-cluster-setup"></a>Anpassad konfiguration
 Anpassade kluster installationen bygger på Snabbstartsidan skapa inställningar och lägger till följande alternativ:
+- [Säkerhetspaketet för företag](#enterprise-security-package)
 - [HDInsight-program](#install-hdinsight-applications-on-clusters)
 - [Klusterstorlek](#configure-cluster-size)
 - [Skriptåtgärder](#advanced-settings-script-actions)
 - [Virtuellt nätverk](#advanced-settings-extend-clusters-with-a-virtual-network)
+ 
+## <a name="enterprise-security-package"></a>Säkerhetspaketet för företag
+
+För Hadoop, Spark, HBase, Kafka och interaktiv fråga klustertyper, kan du välja att aktivera den **Enterprise Security Package**. Det här paketet ger möjlighet att ha en säkrare konfiguration genom att använda Apache Ranger och integrera med Azure Active Directory. Mer information finns i [säkerhetspaketet för företag i Azure HDInsight](./domain-joined/apache-domain-joined-introduction.md).
+
+![alternativ för att skapa hdinsight väljer säkerhetspaketet för företag](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-creation-enterprise-security-package.png)
+
+För mer information om hur du skapar domänanslutna HDInsight-kluster, se [skapa domänanslutna HDInsight testmiljö](./domain-joined/apache-domain-joined-configure.md). 
 
 ## <a name="install-hdinsight-applications-on-clusters"></a>Installera HDInsight-program i kluster
 
@@ -161,7 +159,7 @@ Du debiteras för användning av noden för så länge klustret finns. Debiterin
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Antalet noder för varje typ av kluster
 Varje typ av kluster har en egen antal noder, terminologi för noder och standardstorleken för virtuella datorer. I följande tabell är antalet noder för varje nodtyp inom parentes.
 
-| Typ | Noder | Diagram |
+| Type | Noder | Diagram |
 | --- | --- | --- |
 | Hadoop |Huvudnod (2), datanod (1 +) |![HDInsight Hadoop-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
 | HBase |Huvud-server (2), regionsserver (1 +), master-/ ZooKeeper-noder (3) |![HDInsight HBase-klusternoder](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
@@ -221,14 +219,14 @@ Vissa interna Java-komponenter, t.ex. Apache Mahout och kaskad, kan köras på k
 Ibland vill du konfigurera följande konfigurationsfilerna under skapandeprocessen:
 
 * clusterIdentity.xml
-* Core-site.xml
+* core-site.xml
 * gateway.XML
 * hbase-env.xml
 * hbase-site.xml
 * hdfs-site.xml
 * hive-env.xml
 * hive-site.xml
-* mapred-plats
+* mapred-site
 * oozie-site.xml
 * oozie-env.xml
 * storm-site.xml
@@ -245,9 +243,6 @@ Mer information om hur du använder Azure-nätverk med HDInsight finns i [utöka
 
 Ett exempel på hur du använder två klustertyper inom en Azure-nätverk finns i [använda Apache Spark Structured Streaming med Apache Kafka](hdinsight-apache-kafka-spark-structured-streaming.md). Läs mer om hur du använder HDInsight med ett virtuellt nätverk, inklusive konfigurationskraven för det virtuella nätverket, [utöka HDInsight-funktioner med hjälp av Azure Virtual Network](hdinsight-extend-hadoop-virtual-network.md).
 
-## <a name="troubleshoot-access-control-issues"></a>Felsöka åtkomstproblem för kontroll
-
-Om du får problem med att skapa HDInsight-kluster läser du [åtkomstkontrollkrav](hdinsight-hadoop-create-linux-clusters-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

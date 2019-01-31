@@ -1,8 +1,21 @@
 ---
-Rubrik: Algoritmen exempel titleSuffix: Beskrivning av Azure Machine Learning Studio: Översiktligt lätt att förstå grunderna i machine learning innehåller algoritmexempel. Nedladdningsbar infografik omfattar de flesta frågor för maskininlärning.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: garyericson ms.author: garye ms.custom: seodc18 ms.date: 12/18/2017
+title: Algoritmexempel
+titleSuffix: Azure Machine Learning Studio
+description: Översiktligt lätt att förstå grunderna i machine learning innehåller algoritmexempel. Nedladdningsbar infografik omfattar de flesta frågor för maskininlärning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodc18
+ms.date: 12/18/2017
+ms.openlocfilehash: bffdbf58929a0cb7525726be53d83794adf315bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295584"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>Nedladdningsbar Infografik: Machine learning-grunder med algoritmexempel
 Ladda ned den här lätt att förstå informationsgrafik över grunderna i machine learning att lära dig om populära algoritmer som används för att besvara vanliga frågor för machine learning. Algoritmexempel hjälpa machine learning-nybörjare förstå vilka algoritmer som ska användas och vad de används för.

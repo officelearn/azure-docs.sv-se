@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 1de0f9b77bd1248d77f182a2e32e490c2814f42b
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.date: 01/25/2019
+ms.openlocfilehash: 5b3a77a28945b597fe4fdd57aadfc3e05196a353
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382774"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478261"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Aktivera automatisk inställning att övervaka frågor och förbättra prestanda för arbetsbelastning
 
@@ -26,9 +26,11 @@ Azure SQL Database är ett automatiskt hanterad tjänst som ständigt övervakar
 Automatisk justering kan aktiveras på servern eller databasnivå via den [Azure-portalen](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) anrop och [T-SQL](sql-database-automatic-tuning-enable.md#t-sql) kommandon.
 
 ## <a name="enable-automatic-tuning-on-server"></a>Aktivera automatisk justering på servern
+
 Du kan välja att ärver automatiska justeringskonfigurationer från ”Azure standard” eller inte ärver konfigurationen på servernivå. Azure-standardinställningar är FORCE_LAST_GOOD_PLAN är aktiverad, CREATE_INDEX är aktiverad och DROP_INDEX är inaktiverad.
 
 ### <a name="azure-portal"></a>Azure Portal
+
 Aktivera automatisk justering på Azure SQL Database logiska **server**, gå till servern i Azure-portalen och välj **automatisk justering** på menyn.
 
 ![Server](./media/sql-database-automatic-tuning-enable/server.png)
@@ -44,7 +46,6 @@ Alternativen för automatisk justering på en server som tillämpas på alla dat
 ### <a name="rest-api"></a>REST-API
 
 Lär dig mer om hur du använder REST API för att aktivera automatisk justering på en server finns [SQL Server automatisk justering uppdatering och GET HTTP-metoder](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
-
 
 ## <a name="enable-automatic-tuning-on-an-individual-database"></a>Aktivera automatisk justering på en enskild databas
 
@@ -74,27 +75,28 @@ Lär dig mer om hur du använder REST API för att aktivera automatisk justering
 
 Om du vill aktivera automatisk justering på en enda databas via T-SQL, ansluta till databasen och kör följande fråga:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING = AUTO | INHERIT | CUSTOM
+```
+
 Ställa in automatisk justering Auto gäller Azure som standard. Ange värdet till ÄRV, ärvs konfigurationen för automatisk justering från den överordnade servern. Välja anpassade behöver du du manuellt konfigurera automatisk justering.
 
 Om du vill konfigurera enskilda alternativen för automatisk justering via T-SQL, ansluta till databasen och köra frågor som följande:
 
-   ```T-SQL
-   ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
-   ```
-   
+```SQL
+ALTER DATABASE current SET AUTOMATIC_TUNING (FORCE_LAST_GOOD_PLAN = ON, CREATE_INDEX = DEFAULT, DROP_INDEX = OFF)
+```
+
 Ställa in ett justeringsalternativ för enskilda på, åsidosätter inställningar som databasen ärvt och aktivera ett justeringsalternativ. Ange värdet till OFF, kommer också åsidosätter inställningar som databasen ärvt och inaktiverar alternativet justering. Alternativ för automatisk justering, som standard anges ärver konfigurationen från automatisk justering inställningen databasnivå.  
 
 > [!IMPORTANT]
 > I följande fall [aktiv geo-replikering](sql-database-auto-failover-group.md), automatisk justering måste konfigureras på den primära databasen. Tillämpas automatiskt justera åtgärder, är till exempel för exempel index skapa eller ta bort replikeras automatiskt till sekundärt skrivskyddade. Försök att aktivera automatisk justering via T-SQL på den skrivskyddade sekundärt resulterar i ett fel som har en annan justering konfiguration på den skrivskyddade sekundärt inte stöds.
 >
 
-Hitta mer om datorns T-SQL-alternativ för att konfigurera automatisk justering, se [ALTER DATABASE SET-alternativ (Transact-SQL) för SQL Database-logisk server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
+Hitta mer om datorns T-SQL-alternativ för att konfigurera automatisk justering, se [ALTER DATABASE SET-alternativ (Transact-SQL) för SQL Database-server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 ## <a name="disabled-by-the-system"></a>Inaktiverad av systemet
+
 Automatisk justering övervakar alla de åtgärder som utförs på databasen och i vissa fall kan bestämma att automatisk justering inte kan fungerar korrekt på databasen. I det här fallet inaktiveras inställning av alternativet av systemet. I de flesta fall inträffar detta eftersom Query Store inte är aktiverat eller är i skrivskyddat läge på en viss databas.
 
 ## <a name="configure-automatic-tuning-e-mail-notifications"></a>Konfigurera automatisk justering e-postaviseringar
@@ -102,6 +104,7 @@ Automatisk justering övervakar alla de åtgärder som utförs på databasen och
 Se [automatisk justering e-postaviseringar](sql-database-automatic-tuning-email-notifications.md) guide.
 
 ## <a name="next-steps"></a>Nästa steg
+
 * Läs den [automatisk justering artikeln](sql-database-automatic-tuning.md) mer information om automatisk justering och hur det kan hjälpa dig att förbättra prestanda.
 * Se [prestandarekommendationer](sql-database-advisor.md) en översikt över Azure SQL Database prestandarekommendationer.
 * Se [fråga Prestandainsikter](sql-database-query-performance.md) att lära dig om hur du visar prestandapåverkan från återställning av dina viktigaste frågor.

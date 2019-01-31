@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: c2b2ba0e238887531297f6ac2a486d42d885794d
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 41bdc2497ff19f0033a5253814771072b47eef62
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079094"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475194"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Så här fungerar det: Återställning av lösenord för självbetjäning av Azure AD
 
@@ -50,7 +50,7 @@ Läs igenom följande steg för att lära dig om logiken bakom lösenordet för 
        * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
      * Om principen kräver två metoder, sedan ser till att användaren har rätt data som definierats för minst två av de autentiseringsmetoder som aktiveras av administratörsprincipen.
        * Om autentiseringsmetoderna som inte har konfigurerats, rekommenderas du att kontakta administratören om du vill återställa sina lösenord.
-     * Om en Azure-administratörsroller tilldelas användaren tillämpas starkt lösenord för två gate-principen. Mer information om den här principen finns i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).
+     * Om en administratör för Azure-roll tilldelas till användaren, tillämpas starkt lösenord för två gate-principen. Mer information om den här principen finns i avsnittet [administratören återställa principen skillnader](concept-sspr-policy.md#administrator-reset-policy-differences).
    * Kontrollerar om användarens lösenord måste hanteras lokalt (federerade direkt autentisering eller synkroniseras lösenords-hash).
      * Om tillbakaskrivning av distribueras och användarens lösenord måste hanteras lokalt, tillåts användaren att fortsätta att autentisera och återställa sina lösenord.
      * Om tillbakaskrivning av inte har distribuerats och användarens lösenord måste hanteras lokalt, uppmanas användaren att kontakta administratören om du vill återställa sina lösenord.
@@ -84,7 +84,7 @@ Om en användare inte har de minsta nödvändiga metoderna som registrerats, vis
 
 #### <a name="mobile-app-and-sspr-preview"></a>Mobilappen och SSPR (förhandsversion)
 
-När du använder en mobilapp som Microsoft Authenticator-appen som en metod för återställning av lösenord, bör du vara medveten om följande:
+När du använder en mobilapp som Microsoft Authenticator-appen som en metod för återställning av lösenord, bör du vara medveten om följande villkor:
 
 * När administratörer behöver en metod används för att återställa ett lösenord, verifieringskoden är det enda tillgängliga alternativet.
 * När administratörer kräver två metoder används för att återställa ett lösenord, användare ska kunna använda **antingen** meddelande **eller** Verifieringskod utöver eventuella övriga aktiverat metoder.
@@ -119,7 +119,7 @@ Exempel:
 
 ### <a name="require-users-to-register-when-they-sign-in"></a>Kräv att användare registrerar vid inloggning
 
-Aktivera det här alternativet måste en användare för att slutföra registreringen för lösenordsåterställning om de loggar in på de program som använder Azure AD. Detta omfattar följande program:
+Aktivera det här alternativet måste en användare för att slutföra registreringen för lösenordsåterställning om de loggar in på de program som använder Azure AD. Det här arbetsflödet innehåller följande program:
 
 * Office 365
 * Azure Portal
@@ -132,7 +132,7 @@ När kräver registrering har inaktiverats kan registrera användare manuellt. D
 > [!NOTE]
 > Användare kan stänga registreringsportalen för lösenordsåterställning genom att välja **Avbryt** eller genom att stänga fönstret. Men uppmanas de att registrera varje gång de loggar in förrän de har slutfört registreringen.
 >
-> Det innebära inte att användarens anslutning om de redan har loggat in.
+> Det här avbrottet bryta inte anslutningen om de redan har loggat in.
 
 ### <a name="set-the-number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Ange antal dagar innan användare uppmanas att bekräfta sin autentiseringsinformation
 
@@ -169,7 +169,7 @@ Den här sidan innehåller en snabb status för den lokala tillbakaskrivningskli
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Skriv tillbaka lösenord till din lokala katalog
 
-Den här kontrollen avgör om tillbakaskrivning av lösenord är aktiverat för den här katalogen. Om tillbakaskrivning av finns på, anger status för en lokal tillbakaskrivning av tjänsten. Detta är användbart om du vill att tillfälligt inaktivera tillbakaskrivning av lösenord utan att behöva konfigurera om Azure AD Connect.
+Den här kontrollen avgör om tillbakaskrivning av lösenord är aktiverat för den här katalogen. Om tillbakaskrivning av finns på, anger status för en lokal tillbakaskrivning av tjänsten. Den här kontrollen är användbart om du tillfälligt vill inaktivera tillbakaskrivning av lösenord utan att behöva konfigurera om Azure AD Connect.
 
 * Om växeln har angetts till **Ja**sedan tillbakaskrivning aktiveras och autentisering för federerade, direkt eller lösenordshash synkroniserade användare ska kunna återställa sina lösenord.
 * Om växeln har angetts till **nr**sedan tillbakaskrivning är inaktiverad och autentisering för federerade, direkt eller lösenordshash synkroniserade användare går inte att återställa sina lösenord.
@@ -180,6 +180,10 @@ Den här kontrollen anger om användare som besöker portalen för återställni
 
 * Om inställd **Ja**, och användarna har du möjlighet att återställa sina lösenord och låsa upp kontot eller att låsa upp sitt konto utan att behöva återställa lösenordet.
 * Om inställd **nr**, användare är sedan endast att kunna utföra en kombinerad lösenordsåterställning och kontoupplåsning igen.
+
+### <a name="on-premises-active-directory-password-filters"></a>Den lokala Active Directory-lösenordsfilter
+
+Lösenord för självbetjäning av Azure AD lösenordsåterställning utför samma sak som en administratör-initierad för återställning av lösenord i Active Directory. Om du använder ett för tredje parts-lösenordsfilter för att tillämpa anpassade lösenordsregler och du kräver att den här lösenordsfiltret har markerats under Azure AD via Självbetjäning för återställning av lösenord, kontrollera att filtret-lösning från tredje part lösenord har konfigurerats för att använda i den adminlösenord återställa scenariot. [Azure AD-lösenordsskydd för Windows Server Active Directory](concept-password-ban-bad-on-premises.md) stöds som standard.
 
 ## <a name="password-reset-for-b2b-users"></a>Återställning av lösenord för B2B-användare
 

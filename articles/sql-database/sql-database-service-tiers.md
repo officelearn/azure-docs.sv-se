@@ -11,22 +11,24 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 9d566c0f95325635c5ce5030f4d3b22dba7ceb08
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 01/25/2019
+ms.openlocfilehash: 719e8c605dfc91b1d9c358158aa3dca248173f90
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53726039"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472022"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Azure SQL Database köpa modeller
 
 Azure SQL Database kan du enkelt köpa helt hanterad PaaS-databasmotor som passar ditt behov av prestanda och kostnader. Beroende på distributionsmodell för Azure SQL Database, kan du välja den inköpsmodellen som passar dina behov:
+
 - [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) (rekommenderas) som gör det möjligt för dig att välja den exakta mängden lagringskapacitet och compute att du behöver för din arbetsbelastning.
 - [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) där du kan välja paketeras beräknings- och paket belastningsutjämnade för vanliga arbetsbelastningar.
 
 Olika inköpschef modeller är tillgängliga i Azure SQL Database-distributionsmodeller:
-- [Logiska servrar](sql-database-logical-servers.md) i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md). I den här inköpsmodellen kan du välja [enkla databaser](sql-database-single-databases-manage.md) eller [elastiska pooler](sql-database-elastic-pool.md).
+
+- [Enkla databaser](sql-database-single-databases-manage.md) och [elastiska pooler](sql-database-elastic-pool.md) i [Azure SQL Database](sql-database-technical-overview.md) erbjuder både [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodell](sql-database-service-tiers-vcore.md). 
 - [Hanterade instanser](sql-database-managed-instance.md) i Azure SQL Database endast erbjudandet den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md).
 
 > [!IMPORTANT]
@@ -64,7 +66,7 @@ Database Transaction Unit (DTU) representerar ett blandat mått på processor, m
 
 ### <a name="database-transaction-units-dtus"></a>Databastransaktionsenheter (dtu: er)
 
-För en enskild Azure SQL-databas på en specifik compute storlek i en [tjänstnivå](sql-database-single-database-scale.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av någon annan databas i Azure-molnet), vilket ger en förutsägbar nivån på prestanda. Mängden resurser beräknas som ett antal Databastransaktionsenheter eller dtu: er och är ett paketerat mått av beräkning, lagring och IO-resurser. Förhållandet mellan här resursernas fördelning har ursprungligen bestämts av en [OLTP-benchmarkarbetsbelastning](sql-database-benchmark-overview.md), utformade för att representera verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överstiger mängden av någon av dessa resurser, är ditt dataflöde begränsade - resulterande långsammare prestanda och tidsgränser. De resurser som används av din arbetsbelastning inverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och de resurser som används av andra arbetsbelastningar inverkar inte resurserna som är tillgängliga för din SQL-databas.
+För en enkel databas på en specifik compute storlek i en [tjänstnivå](sql-database-single-database-scale.md), Microsoft garanterar en viss nivå av resurser för den här databasen (oberoende av någon annan databas i Azure-molnet), vilket ger en förutsägbar säkerhetsnivå prestanda. Mängden resurser beräknas som ett antal Databastransaktionsenheter eller dtu: er och är ett paketerat mått av beräkning, lagring och IO-resurser. Förhållandet mellan här resursernas fördelning har ursprungligen bestämts av en [OLTP-benchmarkarbetsbelastning](sql-database-benchmark-overview.md), utformade för att representera verkliga OLTP-arbetsbelastningar. När din arbetsbelastning överstiger mängden av någon av dessa resurser, är ditt dataflöde begränsade - resulterande långsammare prestanda och tidsgränser. De resurser som används av din arbetsbelastning inverkar inte resurserna som är tillgängliga för andra SQL-databaser i Azure-molnet och de resurser som används av andra arbetsbelastningar inverkar inte resurserna som är tillgängliga för din SQL-databas.
 
 ![avgränsningsruta](./media/sql-database-what-is-a-dtu/bounding-box.png)
 

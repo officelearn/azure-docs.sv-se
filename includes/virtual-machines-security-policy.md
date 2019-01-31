@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 801266ed13aa993ad04ed8a3b21d6a6b3e1d6603
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: c44b39effdc6d8fcdc144915ec7b51489e3798cd
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54841461"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302367"
 ---
 Det är viktigt för att skydda din virtuella dator (VM) för de program som du kör. Skydda dina virtuella datorer kan innehålla en eller flera Azure-tjänster och funktioner som täcker säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som hjälper dig att skydda dina virtuella datorer och program.
 
@@ -20,6 +20,8 @@ Moderna hotbilden i grunden för molnmiljöer är dynamiskt öka trycket att upp
 ## <a name="azure-security-center"></a>Azure Security Center
 
 [Azure Security Center](../articles/security-center/security-center-intro.md) hjälper till att förhindra, upptäcka och svara på hot mot dina virtuella datorer. Security Center tillhandahåller integrerad säkerhet övervaka och hantera principer för alla Azure-prenumerationer, upptäcka hot som kan annars oupptäckta och fungerar med ett vittomfattande ekosystem med säkerhetslösningar.
+
+Security Centers just-in-time-åtkomst kan tillämpas i din distribution av virtuella datorer att låsa inkommande trafik till dina virtuella Azure-datorer minskar exponeringen för attacker samtidigt som det ger enkel åtkomst till att ansluta till virtuella datorer när det behövs. När just-in-time är aktiverat och en användare begär åtkomst till en virtuell dator, kontrollerar Security Center vilka behörigheter som användaren har för den virtuella datorn. Om de har tillräckliga behörigheter för begäran har godkänts och konfigurerar Security Center automatiskt Nätverkssäkerhetsgrupper (NSG) för att tillåta inkommande trafik till de markerade portarna under en begränsad tid. När tiden har gått ut, återställer Security Center NSG: erna till sina tidigare tillstånd. 
 
 ## <a name="encryption"></a>Kryptering
 
@@ -33,7 +35,7 @@ Hemligheter och certifikat kan modelleras som resurser och tillhandahålls av [K
 
 Åtkomstprinciper för nyckelvalvet ger separata behörigheter till nycklar, hemligheter och certifikat. Du kan till exempel ge en användare åtkomst till bara nycklar, men inte hemligheter. Behörighet att komma åt nycklar eller hemligheter eller certifikat är dock valvnivå. Med andra ord [nyckeln åtkomstprinciper](../articles/key-vault/key-vault-secure-your-key-vault.md) stöder inte behörigheter på objektsnivå.
 
-Du bör använda kryptografi med offentliga nycklar för att tillhandahålla ett säkrare sätt att logga in på dem när du ansluter till virtuella datorer. Den här processen innefattar en offentliga och privata nyckelutbyte som kommandot secure shell (SSH) för att autentisera dig själv i stället för ett användarnamn och lösenord. Lösenord är sårbara för brute force-attacker, särskilt på Internet-riktade virtuella datorer, till exempel webbservrar. Med en secure shell (SSH)-nyckelpar kan du skapa en [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord för inloggning. Du kan också använda SSH-nycklar för att ansluta från en [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) till en Linux-VM.
+Du bör använda kryptografi med offentliga nycklar för att tillhandahålla ett säkrare sätt att logga in på dem när du ansluter till virtuella datorer. Den här processen innefattar en offentliga och privata nyckelutbyte som kommandot secure shell (SSH) för att autentisera dig själv i stället för ett användarnamn och lösenord. Lösenord är sårbara för brute force-attacker, särskilt på Internet-riktade virtuella datorer, till exempel webbservrar. Med en secure shell (SSH)-nyckelpar kan du skapa en [Linux VM](../articles/virtual-machines/linux/mac-create-ssh-keys.md) som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord för att logga in. Du kan också använda SSH-nycklar för att ansluta från en [Windows VM](../articles/virtual-machines/linux/ssh-from-windows.md) till en Linux-VM.
 
 ## <a name="managed-identities-for-azure-resources"></a>Hanterade identiteter för Azure-resurser
 

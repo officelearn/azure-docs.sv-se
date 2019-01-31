@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: d7f0a40710d0cd7f017d9caa0da8e1644cdf56d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 6d8cf874032449e362a35d106bba3b430a80ea48
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526520"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467619"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Konfigurera Azure Import/Export-verktyget
 Microsoft Azure Import/Export-verktyget är den enhet förberedelser och reparera verktyg som du kan använda med Microsoft Azure Import/Export-tjänsten. Du kan använda verktyget för följande funktioner:  
@@ -70,7 +70,7 @@ Om du vill reparera en import misslyckades delvis, behöver du:
   
 -   Microsoft.WindowsAzure.Storage.dll  
   
--   hddid.dll  
+-   Hddid.dll  
   
  Kopiera filerna till arbetskatalogen, till exempel `c:\WAImportExport`. Sedan öppnar ett kommandotolksfönster i administratörsläge och ange ovan katalog som den aktuella katalogen.  
   

@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ee8e3e3ef33a8b09b92d4dfc262fce26dd60abb3
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: adf713fc3f875168f99b302b0a9affef88e8414f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53134411"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457694"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av dataforskningsprojekt
 
@@ -38,20 +38,20 @@ Följande bild visar en typisk sprint planering, kodning och källkontroll arbet
 
 ##  1. <a name='Terminology-1'></a>Terminologi 
 
-I TDSP sprint planering framework finns det fyra vanliga typer av **arbetsobjekt**: **funktionen**, **Användarhistoria**, **uppgift**, och **Bugg**. Varje projekt har en enda kvarvarande uppgifter för alla arbetsobjekt. Det finns några kvarvarande uppgifter på nivån för Git-lagringsplatsen under ett projekt. Här är deras definitioner:
+I TDSP sprint planering framework finns det fyra vanliga typer av **arbetsobjekt**: **Funktionen**, **Användarhistoria**, **uppgift**, och **bugg**. Varje projekt har en enda kvarvarande uppgifter för alla arbetsobjekt. Det finns några kvarvarande uppgifter på nivån för Git-lagringsplatsen under ett projekt. Här är deras definitioner:
 
-- **Funktionen**: en funktion som motsvarar ett projekt engagement. Olika engagemang med en klient betraktas som olika funktioner. På samma sätt är det bäst att tänka på olika faser i ett projekt med en klient som olika funktioner. Om du väljer ett schema som ***ClientName EngagementName*** för att namnge dina funktioner, sedan du känner enkelt kontexten för projekt/engagement från namnen själva.
-- **Berättelse**: berättelser är olika arbetsobjekt som behövs för att slutföra en funktion (projekt) slutpunkt till slutpunkt. Exempel på artiklar:
+- **Funktionen**: En funktion som motsvarar ett projekt engagement. Olika engagemang med en klient betraktas som olika funktioner. På samma sätt är det bäst att tänka på olika faser i ett projekt med en klient som olika funktioner. Om du väljer ett schema som ***ClientName EngagementName*** för att namnge dina funktioner, sedan du känner enkelt kontexten för projekt/engagement från namnen själva.
+- **Berättelse**: Berättelser är olika arbetsobjekt som behövs för att slutföra en funktion (projekt) slutpunkt till slutpunkt. Exempel på artiklar:
     - Hämta Data 
     - Utforska Data 
     - Generera funktioner
     - Skapa modeller
     - Operationalisera modeller 
     - Träna modeller
-- **Uppgiften**: uppgifter är tilldelningsbara arbetsobjekt i kod eller ett dokument eller andra aktiviteter som måste utföras för att slutföra en specifik historia. Till exempel aktiviteter i artikeln *hämta Data* kan vara:
+- **Uppgiften**: Uppgifter är tilldelningsbara kod eller arbetsobjekt för dokumentet eller andra aktiviteter som måste utföras för att slutföra en specifik historia. Till exempel aktiviteter i artikeln *hämta Data* kan vara:
     -  Hämta autentiseringsuppgifterna för SQLServer 
     -  Ladda upp Data till SQL Data Warehouse. 
-- **Bugg**: buggar avser vanligtvis korrigeringar som behövs för en befintlig kod eller ett dokument som utförs när du går igenom en uppgift. Om felet orsakas av respektive saknas steg eller uppgifter, eskalera den till som en artikel eller en uppgift. 
+- **Bugg**: Buggar avser vanligtvis korrigeringar som behövs för en befintlig kod eller ett dokument som utförs när du går igenom en uppgift. Om felet orsakas av respektive saknas steg eller uppgifter, eskalera den till som en artikel eller en uppgift. 
 
 > [!NOTE]
 > Begrepp lånar av funktioner, artiklar, uppgifter och buggar från programvaruhantering kod (SCM) som ska användas i datavetenskap. De kan skilja sig något från deras vanliga SCM-definitioner.

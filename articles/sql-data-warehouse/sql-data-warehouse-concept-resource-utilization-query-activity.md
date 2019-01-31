@@ -6,19 +6,19 @@ author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 11/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: b53a3f99f601f540723a9a383e3bf7bd2908de23
-ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
+ms.openlocfilehash: 4613a16ee27168dd5c00435ee04fa5a7f95f4d97
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52499574"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460428"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka användning och fråga aktivitet för resurs i Azure SQL Data Warehouse
-Azure SQL Data Warehouse är en omfattande övervakning i Azure portal och ytinsikter till din arbetsbelastning i informationslager. Azure-portalen är det rekommendera verktyget när du övervakar ditt informationslager eftersom den innehåller konfigurerbara innehållna perioder, aviseringar, rekommendationer, och anpassningsbara diagram och instrumentpaneler för mått och loggar. På portalen kan du integrera med andra Azure-övervakningstjänster, till exempel Operations Management Suite (OMS) / Log Analytics och Azure Monitor för att tillhandahålla en holistisk övervakning av inte bara din data warehouse utan även din hela Azure analysplattform för en integrerad upplevelse för övervakning. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera dina analysplattform med SQL Data Warehouse. 
+Azure SQL Data Warehouse är en omfattande övervakning i Azure portal och ytinsikter till din arbetsbelastning i informationslager. Azure-portalen är det rekommendera verktyget när du övervakar ditt informationslager eftersom den innehåller konfigurerbara kvarhållningsperioder, aviseringar, rekommendationer, och anpassningsbara diagram och instrumentpaneler för mått och loggar. På portalen kan du integrera med andra Azure-övervakningstjänster, till exempel Operations Management Suite (OMS) / Log Analytics och Azure Monitor för att tillhandahålla en holistisk övervakning av inte bara din data warehouse utan även din hela Azure analysplattform för en integrerad upplevelse för övervakning. Den här dokumentationen beskriver vilka övervakningsfunktioner som är tillgängliga för att optimera och hantera dina analysplattform med SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Resursutnyttjande 
 Följande mått är tillgängliga i Azure-portalen för SQL Data Warehouse. De här måtten exponeras via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).

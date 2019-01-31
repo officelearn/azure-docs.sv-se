@@ -6,22 +6,22 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 00d29ac1938a1abb63fca50afe3d66253a1e29bf
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51577992"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55460734"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Vad är nytt i Azure SQL Data Warehouse? September 2018
 Azure SQL Data Warehouse tar emot förbättringar kontinuerligt. Den här artikeln beskriver nya funktioner och ändringar som har införts i September 2018.
 
 ## <a name="new-lower-entry-point-for-sql-data-warehouse-gen2"></a>Nya lägre startpunkten för SQL Data Warehouse Gen2
-I April 2018 [Microsoft annouced](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 som erbjuder 5 gånger prestandan, 5 x beräkning skalan, 4 x samtidighet och obegränsad lagring. Enligt vad som anges i den [datalager i molnet Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) av Gigaom, SQL-informationslager Gen2 **överlägsen Amazon Redshift med 42%**.
+I April 2018 [tillkännagav Microsoft](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) Azure SQL Data Warehouse Gen2 som erbjuder 5 gånger prestandan, 5 x beräkning skalan, 4 x samtidighet och obegränsad lagring. Enligt vad som anges i den [datalager i molnet Benchmark](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/) av Gigaom, SQL-informationslager Gen2 **överlägsen Amazon Redshift med 42%**.
 
 Gen2 är nu allmänt tillgängligt på en lägre post punkt för DWU500c så att du kan köra en mindre storlek data warehouse eller dev/test-miljöer med alla de senaste förbättringarna för tjänsten. Den nya startpunkten behåller alla Gen2 funktioner inklusive [Adaptiv cachelagring](https://azure.microsoft.com/blog/adaptive-caching-powers-azure-sql-data-warehouse-performance-gains/), [belysning snabbt Data blandning](https://azure.microsoft.com/blog/lightning-fast-query-performance-with-azure-sql-data-warehouse/), samt stöd för [i realtid datalagret](https://azure.microsoft.com/blog/enabling-real-time-data-warehousing-with-azure-sql-data-warehouse/).
 
@@ -96,7 +96,7 @@ Slutligen minskar förbättring övergripande körningen av instruktioner som k�
 
 ## <a name="bug-fixes"></a>Felkorrigeringar
 
-| Titel | Beskrivning |
+| Rubrik | Beskrivning |
 |:---|:---|
 | **Åtgärda när du skapar statistik på distributioner för unika restriktioner** | Den här snabbkorrigeringen löser ett fel som användarna stöter på när du anger som kör UPDATE STATISTICS med endast tabellen när tabellen har en unik begränsning som definierats. |
 | **Åtgärda vid kompilering frågor via externa tabeller** | Den här snabbkorrigeringen löser ett fel som påverkas kompileringstid för frågor som rör externa tabeller.|

@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 1ba98598a88973c5d5ae09cffda931a54d521b74
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.date: 01/25/2019
+ms.openlocfilehash: d02e552ede4480ee0c4977dc32bbe347ca7db393
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259145"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459493"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Övervaka och hantera prestanda för Azure SQL-databaser och pooler i en SaaS-app för flera innehavare
 
 I den här självstudien beskrivs flera prestandarelaterade hanteringsscenarier som används i SaaS-program. Använder en belastningsgenerator för att simulera aktivitet för alla klientdatabaser, är inbyggda övervaknings- och aviseringsfunktionerna i SQL Database och elastiska pooler visas.
 
-Wingtip biljetter SaaS databas Per klient appen använder en enda klient datamodell, där varje lokal (klient) har sin egen databas. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. För att dra nytta av det här typiska databasanvändningsmönstret, distribueras klientdatabaserna i elastiska databaspooler. Elastiska pooler optimerar kostnaderna för en lösning genom att dela resurser över flera databaser. Med den här typen av mönster är det viktigt att övervaka användningen av databas- och poolresurser för att försäkra att belastningarna balanseras över poolerna. Du behöver också se till att enskilda databaser har tillräckliga resurser och att pooler inte träffar sina [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)-gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och pooler och hur man vidtar åtgärder i respons på belastningsvariationer.
+Wingtip biljetter SaaS databas Per klient appen använder en enda klient datamodell, där varje lokal (klient) har sin egen databas. Precis som för flera SaaS-program så är de förväntade belastningsmönstren för klienterna oberäkneliga och sporadiska. Biljettförsäljningar kan med andra ord ske när som helst. Om du vill dra nytta av den här typiska databasanvändningsmönstret, distribueras klientdatabaserna i elastiska pooler. Elastiska pooler optimerar kostnaderna för en lösning genom att dela resurser över flera databaser. Med den här typen av mönster är det viktigt att övervaka användningen av databas- och poolresurser för att försäkra att belastningarna balanseras över poolerna. Du behöver också se till att enskilda databaser har tillräckliga resurser och att pooler inte träffar sina [eDTU](sql-database-service-tiers.md#dtu-based-purchasing-model)-gränser. Den här guiden går igenom sätt att övervaka och hantera databaser och pooler och hur man vidtar åtgärder i respons på belastningsvariationer.
 
 I den här guiden får du lära dig hur man:
 
@@ -42,7 +42,7 @@ Följande krav måste uppfyllas för att kunna köra den här självstudiekursen
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introduktion till SaaS-prestandahanteringsmönster
 
-Hantering av databasprestanda innebär kompilering och analys av prestandadata för att sedan reagera på den genom att justera parametrarna för att bibehålla en acceptabel svarstid för programmet. När du är värd för flera klientorganisationer, är elastiska databaspooler ett kostnadseffektivt sätt att tillhandahålla och hantera resurser för en grupp databaser med oförutsägbara arbetsbelastningar. Med vissa arbetsbelastningmönster, kan så få som två S3-databaser dra nytta av att hanteras i en pool.
+Hantering av databasprestanda innebär kompilering och analys av prestandadata för att sedan reagera på den genom att justera parametrarna för att bibehålla en acceptabel svarstid för programmet. När du har flera klienter, är elastiska pooler ett kostnadseffektivt sätt att tillhandahålla och hantera resurser för en grupp med databaser med oförutsägbara arbetsbelastningar. Med vissa arbetsbelastningmönster, kan så få som två S3-databaser dra nytta av att hanteras i en pool.
 
 ![Diagram för program](./media/saas-dbpertenant-performance-monitoring/app-diagram.png)
 
@@ -169,7 +169,7 @@ Som ett alternativ till att skala upp poolen, kan du skapa en andra pool och fly
 
 1. I den [Azure-portalen](https://portal.azure.com)öppnar den **tenants1-dpt -&lt;användaren&gt;**  server.
 1. Klicka på **+ ny pool** att skapa en pool på den aktuella servern.
-1. På den **Elastic database-pool** mall:
+1. På den **elastisk pool** mall:
 
     1. Ange **namn** till *Pool2*.
     1. Lämna prisnivån som **standardpool**.
@@ -189,9 +189,9 @@ Bläddra till **Pool2** (på den *tenants1-dpt -\<användaren\>*  server) att ö
 
 Du nu se att resursanvändningen på *Pool1* har sänkts och att *Pool2* läses nu på samma sätt.
 
-## <a name="manage-performance-of-a-single-database"></a>Hantera prestanda för en enkel databas
+## <a name="manage-performance-of-an-individual-database"></a>Hantera prestanda för en enskild databas
 
-Om en enskild databas i poolen har problem med en varaktigt hög belastning, kan det beroende poolkonfigurationen dominera resurserna i poolen och påverka andra databaser. Om aktiviteten är sannolikt kommer att fortsätta under en viss tid, kan databasen tillfälligt flyttas från poolen. På så sätt kan databasen extra resurser den behöver och isolerar den från andra databaser.
+Om en enskild databas i en pool får en varaktigt hög belastning, beroende på poolkonfiguration kan det brukar dominera resurserna i poolen och påverka andra databaser. Om aktiviteten är sannolikt kommer att fortsätta under en viss tid, kan databasen tillfälligt flyttas från poolen. På så sätt kan databasen extra resurser den behöver och isolerar den från andra databaser.
 
 Den här övningen simulerar effekten av att Contosos konserthall upplever en hög belastning när biljetter börjar säljas för ett populärt evenemang.
 
@@ -203,7 +203,7 @@ Den här övningen simulerar effekten av att Contosos konserthall upplever en h�
 
 1. I den [Azure-portalen](https://portal.azure.com), bläddra i listan över databaser på den *tenants1-dpt -\<användaren\>*  server. 
 1. Klicka på den **contosoconcerthall** databas.
-1. Klicka på poolen som **contosoconcerthall** finns i. Leta upp poolen i den **Elastic database-pool** avsnittet.
+1. Klicka på poolen som **contosoconcerthall** finns i. Leta upp poolen i den **elastisk pool** avsnittet.
 
 1. Granska den **övervakning av elastiska pooler** diagram och leta efter ökad pool-eDTU-användning. Efter någon minut sätter den högre belastningen in och du borde snabbt se att poolen når 100% användning.
 2. Granska den **elastisk databasövervakning** visa, som visar de hetaste databaserna under den senaste timmen. Den *contosoconcerthall* databasen borde snart visas som en av de fem hetaste databaserna.

@@ -1,6 +1,6 @@
 ---
-Rubrik: Utöka ditt experiment med R titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här utökar funktionerna i Azure Machine Learning Studio via R-språket med hjälp av modulen köra R-skript.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Utöka ditt experiment med R titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här utökar funktionerna i Azure Machine Learning Studio via R-språket med hjälp av modulen köra R-skript.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

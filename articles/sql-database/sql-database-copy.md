@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: fa76762fc9a2eb178e2edce2de254894bde1934c
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.date: 01/25/2019
+ms.openlocfilehash: 6066ca586ce9923158026fbeaa405de16681de9b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651426"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461347"
 ---
 # <a name="copy-an-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktionsmässigt konsekvent kopia av en Azure SQL database
 
@@ -32,11 +32,11 @@ En databaskopia är en ögonblicksbild av källdatabasen vid tidpunkten för kop
 
 ## <a name="logins-in-the-database-copy"></a>Inloggningar i databaskopian
 
-När du kopierar en databas till samma logiska server, kan du använda samma inloggningar på båda databaserna. Säkerhetsobjektet du använda för att kopiera databasen blir databasägare på den nya databasen. Alla användare, deras behörigheter och deras säkerhetsidentifierare (SID) kopieras till databaskopian.  
+När du kopierar en databas till samma SQL-databasserver, kan du använda samma inloggningar på båda databaserna. Säkerhetsobjektet du använda för att kopiera databasen blir databasägare på den nya databasen. Alla användare, deras behörigheter och deras säkerhetsidentifierare (SID) kopieras till databaskopian.  
 
-När du kopierar en databas till en annan logisk server, blir säkerhetsobjekt på den nya servern databasägaren på den nya databasen. Om du använder [innehöll databasanvändare](sql-database-manage-logins.md) för dataåtkomst, se till att båda primära och sekundära databaserna alltid har samma autentiseringsuppgifter, så att när kopieringen är klar kan du omedelbart använda tjänsten med samma autentiseringsuppgifter . 
+När du kopierar en databas till en annan SQL Database-server blir säkerhetsobjekt på den nya servern databasägaren på den nya databasen. Om du använder [innehöll databasanvändare](sql-database-manage-logins.md) för dataåtkomst, se till att båda primära och sekundära databaserna alltid har samma autentiseringsuppgifter, så att när kopieringen är klar kan du omedelbart använda tjänsten med samma autentiseringsuppgifter . 
 
-Om du använder [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), du kan helt eliminera behovet för hantering av autentiseringsuppgifter i kopian. Men när du kopierar databasen till en ny server kanske åtkomst inloggningsbaserade inte fungerar, eftersom inloggningarna inte finns på den nya servern. Läs om hur du hanterar inloggningar när du kopierar en databas till en annan logisk server i [hur du hanterar Azure SQL database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md). 
+Om du använder [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), du kan helt eliminera behovet för hantering av autentiseringsuppgifter i kopian. Men när du kopierar databasen till en ny server kanske åtkomst inloggningsbaserade inte fungerar, eftersom inloggningarna inte finns på den nya servern. Läs om hur du hanterar inloggningar när du kopierar en databas till en annan SQL Database-server i [hur du hanterar Azure SQL database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md). 
 
 När kopieringen lyckas och innan andra användare mappas om logga inloggningen som initierade kopierar, databasägaren, in på den nya databasen. För att lösa inloggningar efter kopiering åtgärden har slutförts, se [lösa inloggningar](#resolve-logins).
 
@@ -78,7 +78,7 @@ Det här kommandot kopierar Databas1 till en ny databas med namnet Databas2 på 
 
 ### <a name="copy-a-sql-database-to-a-different-server"></a>Kopiera en SQL-databas till en annan server
 
-Logga in på master-databasen på målservern, SQL database-server där den nya databasen ska skapas. Använd en inloggning som har samma namn och lösenord som databasens ägare av källdatabasen på källservern för SQL-databas. Logga in på målservern måste också vara medlem i rollen dbmanager eller vara den primära inloggningen på servernivå.
+Logga in på master-databasen på målservern, SQL Database-servern där den nya databasen ska skapas. Använd en inloggning som har samma namn och lösenord som databasens ägare av källdatabasen på källservern för SQL-databas. Logga in på målservern måste också vara medlem i rollen dbmanager eller vara den primära inloggningen på servernivå.
 
 Det här kommandot kopierar Databas1 på server1 till en ny databas med namnet Databas2 på server2. Kopiera åtgärden kan ta lite tid att slutföra beroende på databasens storlek.
 
@@ -104,7 +104,7 @@ När den nya databasen är online på målservern, använda den [ALTER USER](htt
 
 Alla användare i den nya databasen och behålla de behörigheter som de hade i källdatabasen. Användaren som initierat databaskopian blir databasägare för den nya databasen och tilldelas en ny säkerhetsidentifierare (SID). När kopieringen lyckas och innan andra användare mappas om logga inloggningen som initierade kopierar, databasägaren, in på den nya databasen.
 
-Läs om hur du hanterar användare och inloggningar när du kopierar en databas till en annan logisk server i [hur du hanterar Azure SQL database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md).
+Läs om hur du hanterar användare och inloggningar när du kopierar en databas till en annan SQL Database-server i [hur du hanterar Azure SQL database-säkerhet efter haveriberedskap](sql-database-geo-replication-security-config.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

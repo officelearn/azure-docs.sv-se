@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 0a0a5a046bd1afefe3f4c72e713a0dafe0c856e4
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: ccc97adadef43390d2b82e206adb60962d6e1fb2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54390376"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453935"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql"></a>Använda tjänstslutpunkter i virtuella nätverk och regler för Azure SQL
 
@@ -162,7 +162,7 @@ För närvarande finns det två sätt att aktivera granskning på SQL-databasen.
 
 ### <a name="impact-on-data-sync"></a>Påverkan på datasynkronisering
 
-Azure SQL Database har Data Sync-funktion som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder Tjänsteslutpunkter, är det troligt att du stänger av **Tillåt Azure-tjänster åtkomst till servern** åtkomst till din logiska server. Detta bryter funktionen datasynkronisering.
+Azure SQL Database har Data Sync-funktion som ansluter till dina databaser med hjälp av Azure IP-adresser. När du använder Tjänsteslutpunkter, är det troligt att du stänger av **Tillåt Azure-tjänster åtkomst till servern** åtkomst till din SQL Database-server. Detta bryter funktionen datasynkronisering.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Effekten av att använda tjänstslutpunkter för virtuellt nätverk med Azure storage
 
@@ -173,17 +173,18 @@ Azure Storage har implementerats i samma funktion som låter dig begränsa anslu
 PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure Storage-konton. Om Azure Storage-kontot som du läser in data från begränsar endast åtkomst till en uppsättning VNet-undernät, bryter anslutningen från PolyBase till kontot. För att aktivera båda PolyBase importera och exportera scenarier med Azure SQL Data Warehouse anslutningen till Azure Storage som skyddas till virtuellt nätverk, följer du stegen som anges nedan:
 
 #### <a name="prerequisites"></a>Förutsättningar
+
 1.  Installera Azure PowerShell använder det här [guide](https://docs.microsoft.com/powershell/azure/install-az-ps).
 2.  Om du har ett allmänt v1- eller blob storage-konto, måste du först uppgradera till gpv2 med det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 3.  Du måste ha **Tillåt att betrodda Microsoft-tjänster för att komma åt det här lagringskontot** markerade under Azure Storage-konto **brandväggar och virtuella nätverk** inställningsmenyn. Referera till denna [guide](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för mer information.
  
 #### <a name="steps"></a>Steg
-1.  I PowerShell **registrera din logiska SQL Server** med Azure Active Directory (AAD):
+1.  I PowerShell **registrera din SQL Database-server** med Azure Active Directory (AAD):
 
     ```powershell
     Add-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionId your-subscriptionId
-    Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+    Set-AzureRmSqlServer -ResourceGroupName your-database-server-resourceGroup -ServerName your-database-servername -AssignIdentity
     ```
     
  1. Skapa en **Allmänt gpv2-Lagringskonto** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
@@ -192,7 +193,7 @@ PolyBase är vanligt att läsa in data till Azure SQL Data Warehouse från Azure
     > - Om du har ett allmänt v1- eller blob storage-konto, måste du **först uppgradera till v2** använder det här [guide](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
     > - Kända problem med Azure Data Lake Storage Gen2 finns i det här [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1.  Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till din logiska SQL-Server.
+1.  Under ditt storage-konto går du till **åtkomstkontroll (IAM)**, och klicka på **Lägg till rolltilldelning**. Tilldela **Storage Blob Data-deltagare (förhandsgranskning)** RBAC-roll till SQL Database-servern.
 
     > [!NOTE] 
     > Endast medlemmar med ägare behörighet kan utföra det här steget. För olika inbyggda roller för Azure-resurser, referera till denna [guide](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

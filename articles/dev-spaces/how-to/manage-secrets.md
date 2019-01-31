@@ -3,7 +3,7 @@ title: Hantera hemligheter när du arbetar med ett Azure Dev adressutrymme | Mic
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
@@ -11,12 +11,12 @@ ms.topic: article
 ms.technology: azds-kubernetes
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: e155b4151a3b974e9ccc56a88028a89c35896522
-ms.sourcegitcommit: 698ba3e88adc357b8bd6178a7b2b1121cb8da797
+ms.openlocfilehash: 7081412172b617632073cad4e76d7c8fc4e81519
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/07/2018
-ms.locfileid: "53014009"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466565"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Hantera hemligheter när du arbetar med ett adressutrymme för Azure-utveckling
 
@@ -67,7 +67,7 @@ Azure Dev blanksteg innehåller två rekommenderade alternativ för att lagra he
 7. Se till att du lägger till _values.dev.yaml_ till den _.gitignore_ fil för att undvika transaktionen hemligheter i källkontrollen.
  
  
-## <a name="method-2-inline-directly-in-azdsyaml"></a>Metod 2: Infogade direkt i azds.yaml
+## <a name="method-2-inline-directly-in-azdsyaml"></a>Metod 2: Infogat direkt i azds.yaml
 1.  I _azds.yaml_, ange hemligheter under yaml avsnittet konfigurationer/utveckla/installationen. Men du kan ange hemlighet värden direkt där det inte rekommenderas eftersom _azds.yaml_ kontrolleras i källkontrollen. Lägg till platshållare med hjälp av ”$PLACEHOLDER”-syntax i stället.
 
     ```yaml

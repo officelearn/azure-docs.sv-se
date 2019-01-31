@@ -11,19 +11,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/03/2019
-ms.openlocfilehash: e44ac8dca3b27a21e1a7564bbee31c156f80e929
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.date: 01/25/2019
+ms.openlocfilehash: 40dd963a4aad7ffdd092d6835e8444cf0789e129
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55102197"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462808"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database-mått och diagnostikloggning
 
 Azure SQL-databas, elastiska pooler, Managed Instance och databaser i Managed Instance kan strömma loggar för mått och diagnostik för lättare prestandaövervakning. Du kan konfigurera en databas för överföring av Resursanvändning, personal och sessioner och anslutning till en av följande Azure-resurser:
 
-- **Azure SQL-analys**: få intelligent övervakning av din Azure-databaser som innehåller prestandarapporter, aviseringar och rekommendationer för problemlösning.
+- **Azure SQL-analys**: få intelligent övervakning av din Azure SQL-databaser som innehåller prestandarapporter, aviseringar och rekommendationer för problemlösning.
 - **Azure Event Hubs**: integrera telemetri för SQL-databas med din anpassade övervakningslösningar eller med heta pipelines.
 - **Azure Storage**: att arkivera stora mängder telemetri för en bråkdel av priset.
 

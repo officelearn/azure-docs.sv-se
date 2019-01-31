@@ -7,15 +7,15 @@ ms.service: storage
 ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
-ms.component: common
-ms.openlocfilehash: 101c7a9bdcb5337f06bb3e2464ecefeb5564d4f3
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.subservice: common
+ms.openlocfilehash: 8c0d23ef14b671541af2eeeec0fe50c321450c09
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739965"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465409"
 ---
-# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Lokalt redundant lagring (LRS): låg kostnad dataredundans för Azure Storage
+# <a name="locally-redundant-storage-lrs-low-cost-data-redundancy-for-azure-storage"></a>Lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage
 
 [!INCLUDE [storage-common-redundancy-LRS](../../../includes/storage-common-redundancy-lrs.md)]
 
@@ -23,4 +23,4 @@ ms.locfileid: "50739965"
 
 - [Azure Storage-replikering](storage-redundancy.md)
 - [Zonredundant lagring (ZRS): Azure Storage-program med hög tillgänglighet](storage-redundancy-zrs.md)
-- [GEO-redundant lagring (GRS): tvärregional replikering för Azure Storage](storage-redundancy-grs.md)
+- [GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage](storage-redundancy-grs.md)

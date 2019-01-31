@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: ac50078dcc60e925f1e2e27a1296b2644939baef
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e7d08ec0d25e7666acb510c4bae5533975b21039
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55153733"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296553"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Kopiera aktivitet i Azure Data Factory
 
@@ -155,7 +155,10 @@ Klicka om du vill se en lista över aktiviteter i denna pipeline-körning. I den
 
 ![Övervaka aktivitetskörningar](./media/load-data-into-azure-data-lake-store/monitor-activity-runs.png)
 
-Klicka på den ”**information**” länka **åtgärder** visa körningsinformation om Kopieringsaktivitet och prestandaegenskaper. Den visar information inklusive volym/rader/filer av data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande tid och används av konfigurationer för ditt scenario kopia. För vissa scenarier, du kan även se en ”**prestandajustering tips**” avsnittet överst som talar om flaskhalsen identifieras och vägleder dig om hur du öka kopia genomströmning för detta kopia fall, se exempel [här](#performance-and-tuning).
+Klicka på den ”**information**” länka **åtgärder** visa körningsinformation om Kopieringsaktivitet och prestandaegenskaper. Den visar information inklusive volym/rader/filer av data som kopieras från källan till mottagare, dataflöde, steg den går igenom med motsvarande tid och används av konfigurationer för ditt scenario kopia. 
+
+>[!TIP]
+>För vissa scenarier, du kan även se ”**prestandajustering tips**” ovanpå kopian övervakning som talar om flaskhalsen identifieras och hjälper dig på vad du kan ändra för att öka dataflödet kopia, se exempel med information [här](#performance-and-tuning).
 
 **Exempel: kopiera från Amazon S3 till Azure Data Lake Store**
 ![övervakaren aktivitetskörningsinformation](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -233,10 +236,13 @@ Som standard kopieringsaktiviteten stoppar kopiering av data och returnerar fel 
 
 Se den [Kopieringsaktiviteten prestanda- och Justeringsguiden](copy-activity-performance.md), som beskriver viktiga faktorer som påverkar prestandan för dataflytt (Kopieringsaktivitet) i Azure Data Factory. Den visar en lista över de observerade prestandan under interna tester och beskriver olika sätt att optimera prestandan för Kopieringsaktiviteten.
 
-För vissa scenarier, när du kör en Kopieringsaktivitet i ADF, du kan även se en ”**prestandajustering tips**” avsnittet av den [kopiera aktivitetsövervakning sidan](#monitor-visually), som anger flaskhalsen identifieras av och vägledning om hur du öka kopia dataflöde för sådana kopia.
+I vissa fall när du kör en Kopieringsaktivitet i ADF, direkt ser du ”**prestandajustering tips**” ovanpå den [kopiera aktivitetsövervakning sidan](#monitor-visually) som visas i följande exempel. Det inte bara berättar flaskhalsen identifieras för den angivna kopia körningen, men även hjälper dig på vad du kan ändra för att öka dataflödet kopia. Tips vid prestandajustering för närvarande erbjuder förslag vilja använda PolyBase när du kopierar data till Azure SQL Data Warehouse för att öka Azure Cosmos DB RU eller Azure SQL DB DTU när resursen på data lagrar sida prestanda är flaskhalsen, ta bort onödiga mellanlagrad Kopiera, osv. Regler för prestandajustering kommer gradvis utökas även.
 
-**Exempel: kopiera till Azure SQL DB med tips för prestandajustering**
-![kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+**Exempel: kopiera i Azure SQL DB med tips för prestandajustering**
+
+I det här exemplet är vid kopiering kör ADF-meddelande som mottagaren Azure SQL DB når hög DTU-användningen som saktar ned skrivåtgärder, vilket förslaget att öka Azure SQL DB-nivån med högre DTU. 
+
+![Kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## <a name="incremental-copy"></a>Inkrementell kopia 
 Data Factory stöder scenarier för att kopiera deltadata stegvis från ett källdatalager till ett måldatalager. Se [självstudie: kopiera data stegvis](tutorial-incremental-copy-overview.md). 

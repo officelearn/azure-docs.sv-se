@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: d20ba372a23d2d4865bd9d6c5c004f955c896201
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 74061eb081fcc7c2c84707f2414a2edfbfde3289
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55199268"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299545"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Kopiera data från SAP Business Warehouse via Open-hubb med Azure Data Factory
 
@@ -37,14 +37,14 @@ Du kan kopiera data från SAP Business Warehouse via öppna hubben till alla dat
 
 Mer specifikt stöder den här öppna hubben för SAP Business Warehouse-anslutningen:
 
-- SAP Business Warehouse **version 7.30 eller senare med SAPK 73013INPIBASIS stöd för paketet**.
+- SAP Business Warehouse **version 7.30 eller senare (i en senaste SAP Support paketet Stack lanseras efter år 2015)**.
 - Kopiering av data via öppna Hub lokala måltabell som under kan vara DSO, InfoCube, MultiProvider, datakällan, osv.
 - Kopiera data med hjälp av grundläggande autentisering.
 - Ansluta till programservern.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill använda denna SAP Business Warehouse-anslutning måste du:
+Om du vill använda denna anslutning för SAP Business Warehouse öppna Hub måste du:
 
 - Konfigurera en lokal Integration Runtime med version 3.13 eller senare. Se [lokal Integration Runtime](create-self-hosted-integration-runtime.md) nedan för information.
 
@@ -57,17 +57,17 @@ Om du vill använda denna SAP Business Warehouse-anslutning måste du:
     - Auktorisering för RFC och SAP BW. 
     - Behörigheter för att aktiviteten ”kör” för auktorisering objektet ”S_SDSAUTH”.
 
-- Typ av Craete SAP öppna Hub mål som **databastabell** med ”teknisk Key”-alternativet är markerat.  Vi rekommenderar också att lämna Data tas bort från tabellen som avmarkerat även om det inte krävs. Köra DTP att placera data från källobjektet (till exempel kub) som du har valt att öppna hub måltabellen.
+- Skapa SAP öppna Hub måltypen som **databastabell** med ”teknisk Key”-alternativet är markerat.  Vi rekommenderar också att lämna Data tas bort från tabellen som avmarkerat även om det inte krävs. Utnyttja DTP (direkt köra eller integrera befintliga processen kedja) hamnar data från källobjektet (till exempel kub) som du har valt att öppna hub måltabellen.
 
 ## <a name="getting-started"></a>Komma igång
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifik för SAP Business Warehouse-anslutningsappen.
+Följande avsnitt innehåller information om egenskaper som används för att definiera Data Factory-entiteter som är specifik för SAP Business Warehouse öppna Hub connector.
 
 ## <a name="linked-service-properties"></a>Länkade tjänstegenskaper
 
-Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänsten:
+Följande egenskaper har stöd för SAP Business Warehouse öppna hubben som är länkad tjänst:
 
 | Egenskap  | Beskrivning | Krävs |
 |:--- |:--- |:--- |
@@ -75,6 +75,7 @@ Följande egenskaper har stöd för SAP Business Warehouse (BW) länkade tjänst
 | server | Namnet på den server som SAP BW-instansen finns. | Ja |
 | systemNumber | Systemnummer för SAP BW-system.<br/>Tillåtna värdet: tvåsiffrig decimaltal representeras som en sträng. | Ja |
 | ClientId | Klient-ID för klienten i SAP W systemet.<br/>Tillåtna värdet: tresiffrig decimaltal representeras som en sträng. | Ja |
+| language | Språk som använder SAP-system. | Nej (standardvärdet är **EN**)|
 | Användarnamn | Namnet på den användare som har åtkomst till SAP-server. | Ja |
 | lösenord | Lösenordet för användaren. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. En lokal Integration Runtime krävs enligt [krav](#prerequisites). |Ja |
@@ -128,7 +129,7 @@ För att kopiera data från och till SAP BW Open Hub, ange typegenskapen på dat
     "properties": {
         "type": "SapOpenHubTable",
         "linkedServiceName": {
-            "referenceName": "<SAP BW linked service name>",
+            "referenceName": "<SAP BW Open Hub linked service name>",
             "type": "LinkedServiceReference"
         },
         "typeProperties": {
@@ -140,7 +141,7 @@ För att kopiera data från och till SAP BW Open Hub, ange typegenskapen på dat
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW-källa.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av SAP BW Open Hub källa.
 
 ### <a name="sap-bw-open-hub-as-source"></a>SAP BW Open Hub som källa
 
@@ -179,18 +180,18 @@ För att kopiera data från SAP BW Open Hub, ange typ av datakälla i kopierings
 
 ## <a name="data-type-mapping-for-sap-bw-open-hub"></a>Datatypsmappningen för SAP BW Open Hub
 
-När du kopierar data från SAP BW, används följande mappningar från SAP BW-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
+När du kopierar data från SAP BW Open Hub, används följande mappningar från SAP BW-datatyper till Azure Data Factory tillfälliga-datatyper. Se [Schema och data skriver mappningar](copy-activity-schema-and-type-mapping.md) vill veta mer om hur kopieringsaktiviteten mappar källtypen schema och data till mottagaren.
 
 | SAP ABAP-typ | Data factory tillfälliga datatyp |
 |:--- |:--- |
-| C (sträng) | Sträng |
+| C (sträng) | String |
 | Jag (heltal) | Int32 |
-| F (Float) | Double-värde |
-| D (datum) | Sträng |
-| T (tid) | Sträng |
+| F (Float) | Double |
+| D (datum) | String |
+| T (tid) | String |
 | P (BCD späckad, valuta, Decimal, kvantitet) | Decimal |
-| N (Numc) | Sträng |
-| X (binär och Raw) | Sträng |
+| N (Numc) | String |
+| X (binär och Raw) | String |
 
 ## <a name="next-steps"></a>Nästa steg
 En lista över datalager som stöds som källor och mottagare av kopieringsaktiviteten i Azure Data Factory finns i [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -10,12 +10,12 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 80c413c874ca3e1bf46bfa4e5becb184223c5eeb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 4da89e0f99832c429091e0a028fafd8943df811a
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091305"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300123"
 ---
 # <a name="send-events-to-azure-event-hubs-using-java"></a>Skicka händelser till Azure Event Hubs med Java
 
@@ -33,21 +33,21 @@ För att slutföra den här självstudien, finns följande förhandskrav:
 * En Java-utvecklingsmiljön. Den här självstudien används [Eclipse](https://www.eclipse.org/).
 
 ## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Skapa ett namnområde för Event Hubs och en händelsehubb
-Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md).
+Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du behöver skapa ett namnområde och en händelsehubb följer du anvisningarna i [den här artikeln](event-hubs-create.md).
 
-Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [hämta anslutningssträngen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
+Hämta värdet för åtkomstnyckeln för event hub genom att följa instruktionerna från artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckelnamnet är: **RootManageSharedAccessKey**.
 
 Nu kan fortsätta med följande steg i den här självstudien.
 
 ## <a name="add-reference-to-azure-event-hubs-library"></a>Lägg till referens till Azure Event Hubs-biblioteket
 
-Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Du kan referera till det här biblioteket med följande beroendedeklaration i Maven-projektfilen. Den aktuella versionen är 1.0.2:    
+Java-klientbibliotek för Event Hubs är tillgängliga för användning i Maven-projekt från den [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). Du kan referera till det här biblioteket med följande beroendedeklaration i Maven-projektfilen:
 
 ```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
-    <version>1.0.2</version>
+    <version>2.2.0</version>
 </dependency>
 ```
 
@@ -57,11 +57,9 @@ För en enkel händelse utgivare och importera den *com.microsoft.azure.eventhub
 
 ## <a name="write-code-to-send-messages-to-the-event-hub"></a>Skriva kod för att skicka meddelanden till händelsehubben
 
-För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Namnge klassen `SimpleSend`:     
+För följande exempel skapar du först ett nytt Maven-projekt för ett konsol-/gränssnittsprogram i din favorit Java Development Environment. Lägg till en klass med namnet `SimpleSend`, och Lägg till följande kod i klassen:
 
 ```java
-package com.microsoft.azure.eventhubs.samples.send;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.microsoft.azure.eventhubs.ConnectionStringBuilder;
@@ -74,7 +72,7 @@ import java.nio.charset.Charset;
 import java.time.Instant;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ScheduledExecutorService;
 
 public class SimpleSend {
 
@@ -91,11 +89,11 @@ public class SimpleSend {
 Använda klassen ConnectionStringBuilder för att konstruera ett Anslutningssträngens värde att skicka till Event Hubs klientinstans. Ersätt platshållarna med de värden du erhöll när du skapade namnområde och en händelsehubb:
 
 ```java
-final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
-        .setNamespaceName("Your Event Hubs namespace name")
-        .setEventHubName("Your event hub")
-        .setSasKeyName("Your policy name")
-        .setSasKey("Your primary SAS key");
+        final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
+                .setNamespaceName("speventhubns") 
+                .setEventHubName("speventhub")
+                .setSasKeyName("RootManageSharedAccessKey")
+                .setSasKey("2+WMsyyy1XmUtEnRsfOmTTyGasfJgsVjGAOIN20J1Y8=");
 ```
 
 ### <a name="send-events"></a>Skicka händelser
@@ -103,15 +101,40 @@ final ConnectionStringBuilder connStr = new ConnectionStringBuilder()
 Skapa en enda händelse genom att omvandla en sträng till UTF-8 byte kodningen. Sedan skapar en ny instans för Event Hubs-klienten från anslutningssträngen och skicka meddelandet:   
 
 ```java 
-String payload = "Message " + Integer.toString(i);
-byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
-EventData sendEvent = EventData.create(payloadBytes);
+        final Gson gson = new GsonBuilder().create();
 
-final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
-ehClient.sendSync(sendEvent);
-    
-// close the client at the end of your program
-ehClient.closeSync();
+        // The Executor handles all asynchronous tasks and this is passed to the EventHubClient instance.
+        // This enables the user to segregate their thread pool based on the work load.
+        // This pool can then be shared across multiple EventHubClient instances.
+        // The following sample uses a single thread executor, as there is only one EventHubClient instance,
+        // handling different flavors of ingestion to Event Hubs here.
+        final ScheduledExecutorService executorService = Executors.newScheduledThreadPool(4);
+
+        // Each EventHubClient instance spins up a new TCP/SSL connection, which is expensive.
+        // It is always a best practice to reuse these instances. The following sample shows this.
+        final EventHubClient ehClient = EventHubClient.createSync(connStr.toString(), executorService);
+
+
+        try {
+            for (int i = 0; i < 10; i++) {
+
+                String payload = "Message " + Integer.toString(i);
+                byte[] payloadBytes = gson.toJson(payload).getBytes(Charset.defaultCharset());
+                EventData sendEvent = EventData.create(payloadBytes);
+
+                // Send - not tied to any partition
+                // Event Hubs service will round-robin the events across all Event Hubs partitions.
+                // This is the recommended & most reliable way to send to Event Hubs.
+                ehClient.sendSync(sendEvent);
+            }
+
+            System.out.println(Instant.now() + ": Send Complete...");
+            System.out.println("Press Enter to stop.");
+            System.in.read();
+        } finally {
+            ehClient.closeSync();
+            executorService.shutdown();
+        }
 
 ``` 
 
@@ -119,7 +142,7 @@ Skapa och kör programmet och kontrollera att det inte finns några fel.
 
 Grattis! Du har nu skickat meddelanden till en händelsehubb.
 
-### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Bilaga: Hur meddelanden skickas till EventHub-partitioner
+### <a name="appendix-how-messages-are-routed-to-eventhub-partitions"></a>Tillägg: Hur meddelanden skickas till EventHub-partitioner
 
 Innan meddelanden hämtas av användare, har de publiceras till partitionerna först av utgivarna. När meddelanden har publicerats till event hub synkront med metoden sendSync() com.microsoft.azure.eventhubs.EventHubClient-objektet visas kan meddelandet skickas till en specifik partition eller distribueras till alla tillgängliga partitioner på ett sätt för resursallokering beroende på om partitionsnyckel anges eller inte.
 

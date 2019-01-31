@@ -1,6 +1,6 @@
 ---
-Rubrik: Azure Batch-tjänsten för Machine Learning Studio jobb titleSuffix: Beskrivning av Azure Machine Learning Studio: Översikt över Azure Batch-tjänster för Machine Learning-jobb. Batchbearbetning för IP-Pool kan du skapa pooler där du kan skicka batch-jobb.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Azure Batch-tjänsten för Machine Learning Studio jobb titleSuffix: Beskrivning av Azure Machine Learning Studio: Översikt över Azure Batch-tjänster för Machine Learning-jobb. Batchbearbetning för IP-Pool kan du skapa pooler där du kan skicka batch-jobb.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 Författare: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, tidigare title = ”dedikerad kapacitet för batch-körningen service-jobb – Azure Machine Learning Studio | Microsoft Docs ms.date: 04/19/2017
 ---

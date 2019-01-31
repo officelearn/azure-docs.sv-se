@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Läsa in data till Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudier: Läsa in data till Azure SQL Data Warehouse | Microsoft Docs'
 description: I den här självstudien används Azure Portal och SQL Server Management Studio för att läsa in informationslagret WideWorldImportersDW från en offentlig Azure-blob till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 44ad37120034d59161fe3b5f0ed521fc6f630b0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286941"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454342"
 ---
-# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudie: Läsa in data till Azure SQL Data Warehouse
+# <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Självstudier: Läsa in data till Azure SQL Data Warehouse
 
 I den här självstudien används PolyBase för att läsa in informationslagret WideWorldImportersDW från Azure Blob Storage till Azure SQL Data Warehouse. I självstudierna används [Azure-portalen](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
 

@@ -10,23 +10,20 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi
-ms.date: 04/06/2018
+ms.date: 01/25/2019
 manager: craigg
-ms.openlocfilehash: 0b8b83651fb5466f5d9a2f703667d7645b498e89
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a05c6b4fac031482d77827a817ef56920a0c314
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52958825"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55464559"
 ---
 # <a name="use-activedirectoryinteractive-mode-to-connect-to-azure-sql-database"></a>Använda ActiveDirectoryInteractive läge för att ansluta till Azure SQL Database
 
 Den här artikeln innehåller ett körbara C# kodexempel som ansluter till din Microsoft Azure SQL Database. C#-programmet använder interaktiva läget för autentisering, som stöder Azure AD multifaktorautentisering (MFA). Ett anslutningsförsök kan exempelvis innehålla en Verifieringskod som skickas till din mobiltelefon.
 
 Mer information om MFA-stöd för SQL-verktyg som finns i [Azure Active Directory-stöd i SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/azure-active-directory).
-
-
-
 
 ## <a name="sqlauthenticationmethod-activedirectoryinteractive-enum-value"></a>SqlAuthenticationMethod. ActiveDirectoryInteractive enum-värde
 
@@ -54,11 +51,9 @@ Skärmdumpar av dessa dialogrutor, se [konfigurera Multi-Factor authentication f
 >
 > [https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)
 
-
 ## <a name="preparations-for-c-by-using-the-azure-portal"></a>Förberedelser för C# med hjälp av Azure portal
 
 Vi förutsätter att du redan har en [Azure SQL Database-server som skapade](sql-database-get-started-portal.md) och är tillgängliga.
-
 
 ### <a name="a-create-an-app-registration"></a>A. Skapa en appregistrering
 
@@ -87,7 +82,7 @@ Om du vill använda Azure AD-autentisering, ditt C#-klientprogram måste ange et
 
 ### <a name="b-set-azure-ad-admin-on-your-sql-database-server"></a>B. Ange Azure AD-administratören för din SQL Database-server
 
-Varje Azure SQL Database-server har en egen logisk SQL-server i Azure AD. Vårt C# scenario, måste du ange en Azure AD-administratör för Azure SQL-servern.
+Varje enskild Azure SQL-databas och elastisk pool har en egen SQL Database-server i Azure AD. Vårt C# scenario, måste du ange en Azure AD-administratör för Azure SQL-servern.
 
 1. **SQL Server** &gt; **Active Directory-administratör** &gt; **konfigurera administratör**
 
@@ -124,13 +119,13 @@ C#-program som förlitar sig på namnområdet **Microsoft.IdentityModel.Clients.
 
 En namnområden som C#-exempel som förlitar sig på är **System.Data.SqlClient**. Är särskilt intressanta i uppräkningen **SqlAuthenticationMethod**. Den här uppräkningen har följande värden:
 
-- **SqlAuthenticationMethod.ActiveDirectory * interaktiv ***:&nbsp; Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Interactive***:&nbsp;  Använd det här med ett användarnamn för Azure AD för att uppnå multifaktorautentisering MFA.
     - Det här värdet är fokus i den här artikeln. Den genererar en interaktiv upplevelse genom att visa dialogrutor för användarens lösenord och sedan för MFA-verifieringen om MFA har införts på den här användaren.
     - Det här värdet är tillgängliga från och med .NET Framework version 4.7.2.
 
-- **SqlAuthenticationMethod.ActiveDirectory * integrerad ***:&nbsp; Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Integrated***:&nbsp;  Använd detta för en *federerad* konto. Användarnamnet är ett federerat konto kända till Windows-domän. Den här metoden har inte stöd för MFA.
 
-- **SqlAuthenticationMethod.ActiveDirectory * lösenord ***:&nbsp; använder detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
+- **SqlAuthenticationMethod.ActiveDirectory *Password***:&nbsp;  Använd detta för autentisering som kräver en Azure AD-användare och användarens lösenord. Azure SQL Database utför autentiseringen. Den här metoden har inte stöd för MFA.
 
 
 
@@ -142,10 +137,10 @@ För en lyckad körning av C#-programmet, måste du tilldela rätt värden för 
 
 | Statisk fältnamn | Föreställ dig värde | Var i Azure-portalen |
 | :---------------- | :------------ | :-------------------- |
-| Az_SQLDB_svrName | ”my-favorit-sqldb-svr.database.windows.net” | **SQL-servrar** &gt; **filtrera efter namn** |
+| Az_SQLDB_svrName | "my-favorite-sqldb-svr.database.windows.net" | **SQL-servrar** &gt; **filtrera efter namn** |
 | AzureAD_UserID | "user9@abc.onmicrosoft.com" | **Azure Active Directory** &gt; **användaren** &gt; **ny gästanvändare** |
-| Initial_DatabaseName | ”huvud” | **SQL-servrar** &gt; **SQL-databaser** |
-| ClientApplicationID | ”a94f9c62-97fe-4d19-b06d-111111111111” | **Azure Active Directory** &gt; **appregistreringar**<br /> &nbsp; &nbsp; &gt; **Sök efter namn** &gt; **program-ID** |
+| Initial_DatabaseName | "master" | **SQL-servrar** &gt; **SQL-databaser** |
+| ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** &gt; **appregistreringar**<br /> &nbsp; &nbsp; &gt; **Sök efter namn** &gt; **program-ID** |
 | RedirectUri | ny Uri (”https://bing.com/”) | **Azure Active Directory** &gt; **appregistreringar**<br /> &nbsp; &nbsp; &gt; **Sök efter namn** &gt; *[Your-App-regis]* &gt;<br /> &nbsp; &nbsp; **Inställningar för** &gt; **RedirectURIs**<br /><br />För den här artikeln är ett giltigt värde bra för RedirectUri. Värdet används inte i vårt fall verkligen. |
 | &nbsp; | &nbsp; | &nbsp; |
 
@@ -183,11 +178,11 @@ För att kompilera den här C#-exemplet, måste du lägga till en referens till 
 
 - **System.Data.SqlClient** namnområde:
     - Sökning:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/?term=System.Data.SqlClient)
-    - Direct:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
+    - Direkt:&nbsp; [System.Data.Client](https://docs.microsoft.com/dotnet/api/system.data.sqlclient)
 
 - **Microsoft.IdentityModel.Clients.ActiveDirectory** namnområde:
     - Sökning:&nbsp; [https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/?term=Microsoft.IdentityModel.Clients.ActiveDirectory)
-    - Direct:&nbsp; [Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
+    - Direkt:&nbsp; Microsoft.IdentityModel.Clients.ActiveDirectory](https://docs.microsoft.com/dotnet/api/microsoft.identitymodel.clients.activedirectory)
 
 
 #### <a name="c-source-code-in-two-parts"></a>C#-källkod, i två delar

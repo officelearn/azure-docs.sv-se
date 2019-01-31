@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: mstewart
 ms.date: 12/17/2018
 ms.custom: seodec18
-ms.openlocfilehash: 27204710cb6a94efaebc0b8f075b0a8f50b45a6c
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 608cc7a9e7c3b09c4b033397cbae6ac68e0a503a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079842"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478448"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Aktivera Azure Disk Encryption för virtuella Linux IaaS-datorer 
 
@@ -24,7 +24,7 @@ Ta en [ögonblicksbild](../virtual-machines/windows/snapshot-copy-managed-disk.m
 >[!WARNING]
 > - Om du tidigare har använt [Azure Disk Encryption med Azure AD-app](azure-security-disk-encryption-prerequisites-aad.md) för att kryptera den här virtuella datorn, måste du fortsätta använda det här alternativet för att kryptera den virtuella datorn. Du kan inte använda [Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md) på den här krypterade virtuella datorn eftersom det är inte ett scenario som stöds, betydelse växla från AAD-programmet för det här krypterade virtuella datorer stöds inte ännu.
  > - Azure Disk Encryption måste Key Vault och de virtuella datorerna för att finnas i samma region. Skapa och använda ett Nyckelvalv som är i samma region som den virtuella datorn måste vara krypterade.
-> - När du krypterar Linux OS-volymer, kan ta några timmar. Det är normalt för Linux-operativsystem volymer tar längre tid än datavolymer för att kryptera. 
+> - När du krypterar Linux OS-volymer, den virtuella datorn blir otillgänglig och SSH kommer att inaktiveras. Kontrollera förloppet, den [Get-AzureRmVmDiskEncryptionStatus](/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus) eller [vm encryption show](/cli/azure/vm/encryption#az-vm-encryption-show) kommandon kan användas. Den här processen kan förväntas ta några timmar för en 30GB OS-volym, plus extra tid för att kryptera datavolymer. Data volym kryptering tiden kommer att vara proportion till storleken och antalet datavolymerna såvida inte encrypt formatera alla alternativet används. 
 > - Inaktivera kryptering på den virtuella Linux-datorer stöds bara för datavolymer. Det stöds inte på data eller operativsystemvolymer om operativsystemvolymen har krypterats.  
 
 

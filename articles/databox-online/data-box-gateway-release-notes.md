@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/07/2019
+ms.date: 01/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 738cc5b4e90d9572b65f122076973e2d9f1b264f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 34e7a578fb04b617221376f5d1065997b12d2613
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450498"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302129"
 ---
 # <a name="azure-data-box-gateway-preview-release-notes"></a>Viktig information om Azure Data Box Gateway förhandsversion
 
@@ -50,7 +50,9 @@ Följande tabell innehåller en sammanfattning av kända problem för Data Box-G
 | **5.** |Filtyper | Följande Linux-filtyper stöds inte: tecknet filer, filer, sockets, pipes eller symboliska länkar.  |Kopiera filerna resultat i 0-length-filer som skapas på NFS dela. Dessa filer finns kvar i ett feltillstånd och rapporteras även i *error.xml*. |
 | **6.** |Ta bort | På grund av ett fel i den här versionen, om en NFS-resurs raderas kan sedan resursen inte tas bort. Resurs-status visas *tas bort*.  |Detta inträffar bara när resursen använder ett namn för filen stöds inte. |
 | **7.** |Uppdatera | Behörigheter och åtkomstkontrollistor (ACL) bevaras inte över en uppdatering.  | |
-| **8.** |Onlinehjälp |Hjälplänkar i Azure-portalen kan inte länka till dokumentationen.|Länken i fungerar i den allmänt tillgängliga versionen. |
+| **8.** |Kopiera | Kopiering av data misslyckas med fel:  Den begärda åtgärden kunde inte slutföras på grund av en begränsning i filsystemet.  |Det här felet uppstår när den alternativa Data Stream (AD) som är associerade med filen överskrider 128 KB (maxgränsen för ReFS).  |
+| **9.** |Symboliska länkar |Symboliska länkar stöds inte.  |Symboliska länkar till kataloger resultera i kataloger aldrig komma markerade offline. Därför kan du inte ser grå mellan på de kataloger som anger att katalogerna som är offline och allt tillhörande innehåll helt har överförts till Azure. |
+| **10.** |Onlinehjälp |Hjälplänkar i Azure-portalen kan inte länka till dokumentationen.|Länken i fungerar i den allmänt tillgängliga versionen. |
 
 
 

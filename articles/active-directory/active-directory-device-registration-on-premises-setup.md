@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: abdeeacc22d2709a3107c9e9e05bd982705d7dea
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 00921fd82463a75e81e1279d436a576461e02f78
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079077"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301653"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Konfigurera lokal villkorlig åtkomst med hjälp av Azure Active Directory-enhetsregistrering
 
@@ -109,9 +109,9 @@ Distributionen är nu klar och du kan prova några scenarier. Använd följande 
 
 | Aktivitet | Referens |
 | --- | --- |
-| Ansluta till vissa enheter till arbetsplatsen med hjälp av enhetsregistreringstjänsten för Azure Active Directory. Du kan ansluta till iOS-, Windows- och Android-enheter. |[Ansluta enheter till arbetsplatsen med hjälp av enhetsregistreringstjänsten för Azure Active Directory](#join-devices-to-your-workplace-using-azure-active-directory-device-registration) |
+| Ansluta till vissa enheter till arbetsplatsen med hjälp av enhetsregistreringstjänsten för Azure Active Directory. Du kan ansluta till iOS-, Windows- och Android-enheter. |[Ansluta enheter till arbetsplatsen med hjälp av enhetsregistreringstjänsten för Azure Active Directory](#join-devices-to-your-workplace-by-using-azure-active-directory-device-registration-service) |
 | Visa och aktivera eller inaktivera registrerade enheter med hjälp av administratörsportalen. I den här uppgiften ska visa du några registrerade enheter med hjälp av administratörsportalen. |[Azure Active Directory device registration tjänstöversikt](active-directory-device-registration-get-started.md) |
-| Kontrollera att enhetsobjekt skrivs tillbaka från Azure Active Directory till Windows Server Active Directory. |[Verifiera registrerade enheter skrivs tillbaka till Active Directory](#verify-registered-devices-are-written-back-to-active-directory) |
+| Kontrollera att enhetsobjekt skrivs tillbaka från Azure Active Directory till Windows Server Active Directory. |[Verifiera registrerade enheter skrivs tillbaka till Active Directory](#verify-that-registered-devices-are-written-back-to-active-directory) |
 | Nu när användare kan registrera sina enheter, kan du skapa program åtkomstprinciper i AD FS som endast tillåta registrerade enheter. I det här steget skapar du en regel för åtkomst av programmet och ett anpassat meddelande för nekad åtkomst. |[Skapa en programåtkomstprincip och ett anpassat meddelande för nekad åtkomst](#create-an-application-access-policy-and-custom-access-denied-message) |
 
 ## <a name="integrate-azure-active-directory-with-on-premises-active-directory"></a>Integrera Azure Active Directory med en lokal Active Directory

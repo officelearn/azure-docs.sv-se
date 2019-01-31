@@ -11,13 +11,13 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
-ms.date: 01/24/2019
-ms.openlocfilehash: 2638617679e1aaadfdb18f1d8580f3aef28ab127
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.date: 01/25/2019
+ms.openlocfilehash: 1f2dcb43878359d20d737cef6ceb492eb79b7f4c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884359"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468333"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -34,14 +34,14 @@ Du har följande alternativ för övervakning och felsökning databasprestanda:
 - Använd [SQL Database Advisor](sql-database-advisor-portal.md) att visa rekommendationer för att skapa och släppa index, Parameterisera frågorna och åtgärda problem med databasscheman.
 - Använd [smarta insikter för Azure SQL](sql-database-intelligent-insights.md) för automatisk övervakning av databasens prestanda. När ett prestandaproblem har identifierats genereras en diagnostiklogg med information om och rot orsak Analysis (RCA) av problemet. Rekommendation för förbättring av prestanda tillhandahålls när det är möjligt.
 - [Aktivera automatisk justering](sql-database-automatic-tuning-enable.md) och låta Azure SQL-databasen automatiskt korrigering identifieras prestandaproblem.
-- Använd [dynamiska hanteringsvyer (DMV)](sql-database-monitoring-with-dmvs.md), [utökade händelser](https://docs.microsoft.com/azure/sql-database/sql-database-xevent-db-diff-from-svr), och [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) mer detaljerad felsökning av problem med prestanda.
+- Använd [dynamiska hanteringsvyer (DMV)](sql-database-monitoring-with-dmvs.md), [utökade händelser](sql-database-xevent-db-diff-from-svr.md), och [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) mer detaljerad felsökning av problem med prestanda.
 
 > [!TIP]
 > Se [prestandavägledning](sql-database-performance-guidance.md) att hitta tekniker som du kan använda för att förbättra prestanda i Azure SQL Database när du har identifierat prestandaproblemet med hjälp av en eller flera av metoderna ovan.
 
 ## <a name="monitor-databases-using-the-azure-portal"></a>Övervaka databaser med Azure-portalen
 
-I den [Azure-portalen](https://portal.azure.com/), du kan övervaka en enskild databas s användning genom att välja databasen och klicka på den **övervakning** diagram. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
+I den [Azure-portalen](https://portal.azure.com/), du kan övervaka en individuell databas s användning genom att välja databasen och klicka på den **övervakning** diagram. Det öppnar **Mått**-fönstret, vilket du kan ändra genom att klicka på **Redigera diagram**-knappen. Lägg till följande mått:
 
 - CPU-procent
 - DTU-procent
@@ -204,7 +204,7 @@ I det föregående diagrammet visas är den vanligaste väntar:
 
 Slutligen, om det finns inga användbara objekt som kan förbättra databasens prestanda kan du ändra mängden resurser som är tillgängliga i Azure SQL Database. Du kan tilldela mer resurser genom att ändra den [DTU tjänstnivå](sql-database-service-tiers-dtu.md) för en enkel databas eller öka edtu: er för en elastisk pool när som helst. Du kan också om du använder den [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md), du kan ändra antingen tjänstnivå eller öka resurserna för din databas.
 
-1. För enskilda databaser kan du [ändra tjänstnivåer](sql-database-service-tiers-dtu.md) eller [beräkningsresurser](sql-database-service-tiers-vcore.md) på begäran för att förbättra databasprestanda.
+1. För enskilda databaser kan du [ändra tjänstnivåer](sql-database-single-database-scale.md) eller [beräkningsresurser](sql-database-single-database-scale.md) på begäran för att förbättra databasprestanda.
 2. Överväg att använda för flera databaser [elastiska pooler](sql-database-elastic-pool-guidance.md) att skala resurser automatiskt.
 
 ## <a name="tune-and-refactor-application-or-database-code"></a>Justera och omstrukturera program eller databasen

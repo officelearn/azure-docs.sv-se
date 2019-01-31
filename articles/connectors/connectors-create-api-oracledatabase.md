@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9d606dd4faf324d68e4365eae0802de2384471ab
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230241"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295366"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Kom igång med Oracle Database-anslutning
 
@@ -97,25 +97,25 @@ Den här artikeln visar hur du använder Oracle Database-anslutningen i en logik
 
 #### <a name="error-cannot-reach-the-gateway"></a>**Fel**: Det går inte att nå en Gateway
 
-**Orsak**: den lokala datagatewayen kan inte ansluta till molnet. 
+**Orsak**: Den lokala datagatewayen är inte kan ansluta till molnet. 
 
 **Minskning**: Kontrollera att din gateway körs på den lokala datorn där du har installerat och att den kan ansluta till internet.  Vi rekommenderar att du inte installerar gatewayen på en dator som kan stängas av eller strömsparläge. Du kan också starta om den lokala data gateway-tjänsten (PBIEgwService).
 
-#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fel**: den leverantör som används är föråldrad: ' System.Data.OracleClient kräver Oracle klientprogramversionen 8.1.7 eller senare.'. Se [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) att installera den officiella providern.
+#### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Fel**: Providern som används är föråldrad: ' System.Data.OracleClient kräver Oracle klientprogramversionen 8.1.7 eller senare ”. Se [ https://go.microsoft.com/fwlink/p/?LinkID=272376 ](https://go.microsoft.com/fwlink/p/?LinkID=272376) att installera den officiella providern.
 
-**Orsak**: Oracle-klient SDK inte är installerad på datorn där den lokala datagatewayen körs.  
+**Orsak**: Oracle-klientens SDK är inte installerad på datorn där den lokala datagatewayen körs.  
 
-**Lösning**: hämta och installera Oracle-klientens SDK på samma dator som den lokala datagatewayen.
+**Upplösning**: Ladda ned och installera Oracle-klientens SDK på samma dator som den lokala datagatewayen.
 
-#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fel**: tabellen ”[tabellnamn]” definierar inga nyckelkolumner
+#### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Fel**: Tabellen ”[tabellnamn]” definierar inga nyckelkolumner
 
-**Orsak**: tabellen inte har någon primärnyckel.  
+**Orsak**: Tabellen har inte någon primärnyckel.  
 
-**Lösning**: The Oracle Database-anslutningsprogrammet kräver att en tabell med en primärnyckelkolumn.
+**Upplösning**: Oracle Database-anslutningen kräver att en tabell med en primärnyckelkolumn.
 
 #### <a name="currently-not-supported"></a>För närvarande inte
 
-* Vyer och lagrade procedurer 
+* Vyer 
 * Valfri tabell med sammansatta nycklar
 * Kapslade objekttyper i tabeller
  

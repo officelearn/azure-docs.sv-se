@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
-ms.component: files
-ms.openlocfilehash: d530bfce0dfda44a467bdbf1f729e51b4250e824
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.subservice: files
+ms.openlocfilehash: 23f1f4e8b6a3b71c3792a08645122779e4e629b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214491"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465834"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuera Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -87,7 +87,7 @@ Om du vill distribuera en tjänst för Lagringssynkronisering, går du till den 
 
 I fönstret som öppnas anger du följande information:
 
-- **Namn på**: Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.
+- **Namn**: Ett unikt namn (per prenumeration) för tjänsten för synkronisering av lagring.
 - **Prenumeration**: Den prenumeration där du vill skapa Storage Sync-tjänsten. Beroende på organisationens Konfigurationsstrategi, kanske du har åtkomst till en eller flera prenumerationer. En Azure-prenumeration är den mest grundläggande behållaren för fakturering för varje tjänst i molnet (till exempel Azure Files).
 - **Resursgrupp**: En resursgrupp är en logisk grupp av Azure-resurser, till exempel ett lagringskonto eller en Lagringssynkroniseringstjänst. Du kan skapa en ny resursgrupp eller Använd en befintlig resursgrupp för Azure File Sync. (Vi rekommenderar att använda resursgrupper som behållare för att isolera resurser logiskt för din organisation, till exempel gruppera HR resurser eller resurser för ett specifikt projekt.)
 - **Plats**: Den region där du vill distribuera Azure File Sync. Endast regioner som stöds är tillgängliga i den här listan.

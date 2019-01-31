@@ -2,18 +2,18 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 11/25/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: a2ee8705be3f34b6df113c68d88e375411f84bf2
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 7c081b3bc5f9e6273f680b24897f9aced4999afa
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52440468"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55302350"
 ---
 ## <a name="deploy-template-from-cloud-shell"></a>Distribuera mallen från Cloud Shell
 
-Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Dock måste du först läsa in mallen till lagringskontot för Cloud Shell. Om du inte har använt Cloud Shell tidigare läser du [Overview of Azure Cloud Shell](../articles/cloud-shell/overview.md) (Översikt över Azure Cloud Shell), som innehåller information om hur du konfigurerar Cloud Shell.
+Du kan använda [Cloud Shell](../articles/cloud-shell/overview.md) till att distribuera mallen. Ange URI för mallen för att distribuera en mall för externa, precis som för alla externa distributioner. Om du vill distribuera en lokal mall måste du först läsa in mallen till lagringskontot för Cloud Shell. Det här avsnittet beskriver hur du läsa in mallen till ditt konto för cloud shell och distribuera det som en lokal fil. Om du inte har använt Cloud Shell, se [översikt av Azure Cloud Shell](../articles/cloud-shell/overview.md) information om hur du konfigurerar.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 

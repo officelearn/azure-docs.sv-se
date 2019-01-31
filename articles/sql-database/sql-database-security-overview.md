@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: f1376e98dc1a018bd6c0b263939cecbc012d4815
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 7eb3b115c1d16c2a5c380178d316a60b854e80df
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55250780"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462026"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>En översikt över säkerhetsfunktionerna i Azure SQL Database
 
@@ -45,7 +45,7 @@ IP-brandväggsregler bevilja åtkomst till databaser baserat på den ursprunglig
 ## <a name="access-management"></a>Åtkomsthantering
 
 > [!IMPORTANT]
-> Hantering av databaser och logiska servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
+> Hantera databaser och databasservrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md).
 
 ### <a name="authentication"></a>Autentisering
 
@@ -53,7 +53,7 @@ Autentisering är processen för att bevisa att användaren är som de påstår 
 
 - **SQL-autentisering**:
 
-    SQL-Databasautentisering refererar till autentisering av en användare när du ansluter till [Azure SQL Database](sql-database-technical-overview.md) med användarnamn och lösenord. En ”serveradministratörsinloggning” med ett användarnamn och lösenord måste anges när det logiska servern skapandet för databasen. Med dessa autentiseringsuppgifter kan ”serveradministratör” autentisera till valfri databas på den logiska servern som databasens ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av serveradministratören, som gör det möjligt för användarna att ansluta med användarnamn och lösenord.
+    SQL-Databasautentisering refererar till autentisering av en användare när du ansluter till [Azure SQL Database](sql-database-technical-overview.md) med användarnamn och lösenord. En ”serveradministratörsinloggning” med ett användarnamn och lösenord måste anges när databasen server skapas för databasen. Med dessa autentiseringsuppgifter kan ”serveradministratör” autentisera till valfri databas på den databasservern som databasens ägare. Efter det kan ytterligare SQL-inloggningar och användare skapas av serveradministratören, som gör det möjligt för användarna att ansluta med användarnamn och lösenord.
 
 - **Azure Active Directory Authentication**:
 
@@ -63,7 +63,8 @@ Autentisering är processen för att bevisa att användaren är som de påstår 
 
     Ytterligare Azure AD authentication alternativen är [Active Directory Universal-autentisering för SQL Server Management Studio](sql-database-ssms-mfa-authentication.md) anslutningar inklusive [Multifaktorautentisering](../active-directory/authentication/concept-mfa-howitworks.md) och [ Villkorlig åtkomst](sql-database-conditional-access.md).
 
-### <a name="authorization"></a>Auktorisering
+> [!IMPORTANT]
+> Hantera databaser och servrar inom Azure kontrolleras av din portalanvändarkontos rolltilldelningar. Mer information om den här artikeln finns [rollbaserad åtkomstkontroll i Azure-portalen](../role-based-access-control/overview.md). Kontrollera åtkomst med brandväggsregler har *inte* avser **Azure SQL Database Managed Instance**. Finns i följande artikel om [ansluter till en hanterad instans](sql-database-managed-instance-connect-app.md) för mer information om nätverkskonfiguration som krävs.
 
 Auktorisering hänvisar till de behörigheter som tilldelas till en användare i en Azure SQL Database och avgör vad användaren har tillåtelse att göra. Behörigheter kontrolleras genom att lägga till användarkonton till [databasroller](/sql/relational-databases/security/authentication-access/database-level-roles) som definierar databasbehörigheter och bevilja användaren vissa [objektnivå behörigheter](/sql/relational-databases/security/permissions-database-engine). Mer information finns i [inloggningar och användare](sql-database-manage-logins.md)
 
@@ -75,7 +76,7 @@ Säkerhet på radnivå ger kunder möjlighet att styra åtkomsten till rader i e
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
-### <a name="permissions"></a>Behörigheter
+  Den här autentiseringsmetoden använder ett användarnamn och lösenord. 
 
 En översikt över behörigheter i Azure SQL Database finns i [inloggningar och användare](sql-database-manage-logins.md#permissions)
 

@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
-ms.component: tables
-ms.openlocfilehash: 5f67a8ffde24d3c3e39065806b07bdd5cba2857a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: tables
+ms.openlocfilehash: 5e9ade0f6076a34a5662330bab64e9dd71275ba8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522051"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470543"
 ---
 # <a name="design-for-data-modification"></a>Utforma för dataändring
 Den här artikeln fokuserar på designöverväganden för att optimera infogningar, uppdateringar och borttagningar. I vissa fall behöver du utvärdera det är säkerhetsaspekten Designer som optimerar för frågor mot Designer som optimerar för dataändringar precis som i utformning för relationsdatabaser (även om teknikerna för att hantera design avvägningarna är skiljer sig i en relationsdatabas). Avsnittet [tabell designmönster](#table-design-patterns) beskriver vissa detaljerad designmönster för Table service och visar några dessa kompromisser. I praktiken märker du att många Designer som optimerats för att fråga entiteter också fungerar bra för att ändra entiteter.  

@@ -3,19 +3,19 @@ title: Hur du delar Azure Dev blanksteg | Microsoft Docs
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 05/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 57ca0f7b7704b179a55ac75fea99d35e1024ee8e
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
+ms.openlocfilehash: 86a9400aca099bb79ca95dfc1c4ac2c4c241a6b2
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51706423"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466429"
 ---
 # <a name="share-azure-dev-spaces"></a>Dela Azure Dev blanksteg
 
@@ -26,8 +26,8 @@ Med Azure Dev blanksteg, kan du dela ditt dev-adressutrymme med andra i din grup
 1. Skapa ett utrymme för utveckling i Azure. Välj [.NET Core och VS Code](../get-started-netcore.md), [.NET Core och Visual Studio](../get-started-netcore-visualstudio.md), eller [Node.js och VS Code](../get-started-nodejs.md). Du måste ha ägare eller deltagare åtkomst till den valda Azure-prenumerationen.
 1. Konfigurera Azure Dev utrymme **resursgrupp** till [bevilja deltagaråtkomst](/azure/active-directory/role-based-access-control-configure) för varje medlem i gruppen. Du kan kontrollera en dev-utrymme resursgrupp genom att köra det här kommandot: `azds list-up`
 1. Be teammedlemmar möjlighet att **väljer området dev** för att utveckla i den.
-     * **Från kommandoraden eller i VS Code**: för att se befintliga Azure Dev blanksteg du har åtkomst till: `azds space list`. Att välja en dev-utrymme: `azds space select`.
-     * **Visual Studio IDE**: öppna ett projekt i Visual Studio väljer **Azure Dev blanksteg** från Start Inställningar listrutan. I dialogrutan som öppnas väljer du ett befintligt kluster.
+     * **Från kommandoraden eller i VS Code**: Befintliga Azure Dev utrymmen du har åtkomst till: `azds space list`. Att välja en dev-utrymme: `azds space select`.
+     * **Visual Studio IDE**: Öppna ett projekt i Visual Studio, markera **Azure Dev blanksteg** från Start Inställningar listrutan. I dialogrutan som öppnas väljer du ett befintligt kluster.
 
     ![Visual Studio starta inställningar listrutan](../media/get-started-netcore-visualstudio/LaunchSettings.png)
 

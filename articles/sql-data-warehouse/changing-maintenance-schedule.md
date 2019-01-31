@@ -6,16 +6,16 @@ author: antvgski
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 10/15018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 75384aed8c354cf2d549d92cdb75f87038f33ab8
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: c1029d5efe0c8e87cd9bc84887826ddf837d32c5
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713273"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456263"
 ---
 # <a name="change-a-maintenance-schedule"></a>Ändra ett underhållsschema 
 
@@ -40,9 +40,9 @@ Om du vill ändra underhållsschema för ditt informationslager, gör du följan
    ![Bladet med inställningar för underhåll](media/sql-data-warehouse-maintenance-scheduling/maintenance-settings-page.png)
 
 5. Välj din önskade primära och sekundära underhållsfönster med hjälp av de nedrullningsbara listrutorna:
-   - **Dag**: önskade dag för att utföra underhåll under det markerade fönstret.
-   - **Starttid**: önskad starttid för underhållsperioden.
-   - **Tidsfönster**: önskade varaktigheten för tidsfönstret.
+   - **Dag**: Prioriterade dag för att utföra underhåll under det markerade fönstret.
+   - **Starttid**: Önskad starttid för underhållsperioden.
+   - **Tidsfönster**: Önskade varaktigheten för tidsfönstret.
 
    Den **Schemalägg sammanfattning** området längst ned på bladet uppdateras baserat på de värden som du har valt. 
   

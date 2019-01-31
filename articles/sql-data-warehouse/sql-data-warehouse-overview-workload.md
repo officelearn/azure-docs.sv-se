@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f0489d9c018abac380cd0f8b1aa51fa5bb81707a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302174"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463624"
 ---
 # <a name="data-warehouse-workload"></a>Arbetsbelastning i informationslager
 En arbetsbelastning i ett informationslager innefattar alla åtgärder som utförs mot informationslagret. Arbetsbelastningen i informationslagret innefattar hela processen med att läsa in data i lagret, genomföra analys och rapportering av informationslagret, hantera data i informationslagret och exportera data från informationslagret. Hur djupa och breda de här komponenterna är, står ofta i proportion till åldern på informationslagret.

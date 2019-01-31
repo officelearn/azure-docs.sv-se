@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: jingwang
-ms.openlocfilehash: 0a8a229beab03dd8cb26d9cfb9c3b945059d6f70
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 835ba407fb72a8cb512425e59cf56ba1a1cc8a4b
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55164953"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301279"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Kopiera aktivitet prestanda- och justeringsguide
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -243,11 +243,15 @@ Vi rekommenderar att du gör följande för att finjustera prestanda för Data F
 
 2. **Diagnostisera och optimera prestanda**. Om du se prestanda inte uppfyller dina förväntningar kan behöva du identifiera flaskhalsar i prestanda. Sedan kan optimera prestanda för att ta bort eller minska effekten av flaskhalsar. 
 
-    För vissa scenarier, du kan även se en ”**prestandajustering tips**” avsnittet av den [kopiera aktivitetsövervakning sidan](copy-activity-overview.md#monitor-visually), som talar om flaskhalsen identifieras och vägleder dig om hur du förbättrar kopia dataflöde för sådana kopia.
+    I vissa fall när du kör en Kopieringsaktivitet i ADF, direkt ser du ”**prestandajustering tips**” ovanpå den [kopiera aktivitetsövervakning sidan](copy-activity-overview.md#monitor-visually) som visas i följande exempel. Det inte bara berättar flaskhalsen identifieras för den angivna kopia körningen, men även hjälper dig på vad du kan ändra för att öka dataflödet kopia. Tips vid prestandajustering för närvarande erbjuder förslag vilja använda PolyBase när du kopierar data till Azure SQL Data Warehouse för att öka Azure Cosmos DB RU eller Azure SQL DB DTU när resursen på data lagrar sida prestanda är flaskhalsen, ta bort onödiga mellanlagrad Kopiera, osv. Regler för prestandajustering kommer gradvis utökas även.
 
-    **Exempel: kopiera till Azure SQL DB med tips för prestandajustering** ![kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+    **Exempel: kopiera i Azure SQL DB med tips för prestandajustering**
 
-    En fullständig beskrivning av Prestandadiagnostik ligger utanför omfånget för den här artikeln, men här följer några vanliga överväganden:
+    I det här exemplet är vid kopiering kör ADF-meddelande som mottagaren Azure SQL DB når hög DTU-användningen som saktar ned skrivåtgärder, vilket förslaget att öka Azure SQL DB-nivån med högre DTU. 
+
+    ![Kopiera övervakning med tips för prestandajustering](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
+
+    Dessutom här följer några vanliga överväganden. En fullständig beskrivning av Prestandadiagnostik ligger utanför omfånget för den här artikeln.
 
    * Prestandafunktioner:
      * [Parallell kopia](#parallel-copy)

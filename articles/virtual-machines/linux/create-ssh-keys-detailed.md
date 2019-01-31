@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: danlep
-ms.openlocfilehash: 804b7c0ff31575e6d62497fd5166e1a38a273076
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7167e31261ce029a6a0a6fe070232d1086942162
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965593"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297709"
 ---
-# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade steg: skapa och hantera SSH-nycklar för autentisering till en Linux-VM i Azure 
+# <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>Detaljerade anvisningar: Skapa och hantera SSH-nycklar för autentisering till en Linux-VM i Azure 
 Du kan skapa en Linux-dator på Azure som använder SSH-nycklar för autentisering, vilket eliminerar behovet av lösenord för att logga in med ett secure shell (SSH)-nyckelpar. Virtuella datorer som har skapats med Azure portal, Azure CLI, Resource Manager mallar eller andra verktyg kan inkludera din offentliga SSH-nyckel som en del av distributionen, som konfigurerar SSH-nyckelautentisering för SSH-anslutningar. 
 
 Den här artikeln innehåller detaljerade bakgrund och steg för att skapa och hantera ett SSH RSA-nyckelpar med offentliga och den privata nyckelfilen för SSH-klientanslutningar. Om du vill snabbkommandon, se [skapa ett SSH offentligt / privat nyckelpar för virtuella Linux-datorer i Azure](mac-create-ssh-keys.md).
@@ -38,7 +38,7 @@ Den privata SSH-nyckeln bör ha en mycket säker lösenfras som skyddar den. Lö
 
 ## <a name="ssh-keys-use-and-benefits"></a>Användning och fördelar med SSH-nycklar
 
-När du skapar en Azure-dator genom att ange den offentliga nyckeln, kopierar Azure den offentliga nyckeln (i den `.pub` format) till den `~/.ssh/authorized_keys` mapp på den virtuella datorn. SSH-nycklar i `~/.ssh/authorized_keys` används för att tvinga klienten att matcha motsvarande privata nyckel vid en SSH-inloggningsanslutning. I en virtuell Linux-dator som använder SSH-nycklar för autentisering, konfigurerar Azure SSHD-servern för att inte tillåter lösenordsinloggningar, utan enbart SSH-nycklar. Därför genom att skapa en virtuell Linux-dator med SSH-nycklar kan du skydda VM-distributionen och bespara dig vanliga konfigurationsstegen efter distribution steg för att inaktivera lösenord i den `sshd_config` filen.
+När du skapar en Azure-dator genom att ange den offentliga nyckeln, kopierar Azure den offentliga nyckeln (i den `.pub` format) till den `~/.ssh/authorized_keys` mapp på den virtuella datorn. SSH-nycklar i `~/.ssh/authorized_keys` används för att tvinga klienten att matcha motsvarande privata nyckel på en SSH-anslutning. I en virtuell Linux-dator som använder SSH-nycklar för autentisering, konfigurerar Azure SSHD-servern för att inte tillåta lösenord för inloggning, SSH-nycklar. Därför genom att skapa en virtuell Linux-dator med SSH-nycklar kan du skydda VM-distributionen och bespara dig vanliga konfigurationsstegen efter distribution steg för att inaktivera lösenord i den `sshd_config` filen.
 
 Om du inte vill använda SSH-nycklar kan du konfigurera din Linux-VM du använder lösenordsautentisering. Om den virtuella datorn inte är exponerad för Internet kan med hjälp av lösenord vara tillräckligt. Du behöver dock fortfarande att hantera dina lösenord för varje Linux-VM och underhålla felfri lösenordsprinciper och praxis som minsta längd på lösenord och regelbundna uppdateringar. Använda SSH-nycklar minskar komplexiteten med att hantera enskilda autentiseringsuppgifter mellan flera virtuella datorer.
 
@@ -148,7 +148,7 @@ Utdata liknar följande (borttagen här):
 ssh-rsa XXXXXXXXXXc2EAAAADAXABAAABAXC5Am7+fGZ+5zXBGgXS6GUvmsXCLGc7tX7/rViXk3+eShZzaXnt75gUmT1I2f75zFn2hlAIDGKWf4g12KWcZxy81TniUOTjUsVlwPymXUXxESL/UfJKfbdstBhTOdy5EG9rYWA0K43SJmwPhH28BpoLfXXXXXG+/ilsXXXXXKgRLiJ2W19MzXHp8z3Lxw7r9wx3HaVlP4XiFv9U4hGcp8RMI1MP1nNesFlOBpG4pV2bJRBTXNXeY4l6F8WZ3C4kuf8XxOo08mXaTpvZ3T1841altmNTZCcPkXuMrBjYSJbA8npoXAXNwiivyoe3X2KMXXXXXdXXXXXXXXXXCXXXXX/ azureuser@myserver
 ```
 
-Om du kopierar och klistrar in innehållet i den offentliga nyckelfilen i Azure-portalen eller en Resource Manager-mall, kontrollera att du inte kopiera några extra blanksteg eller införa ytterligare linebreaks. Om du använder macOS kan du till exempel skicka den offentliga nyckelfilen (som standard `~/.ssh/id_rsa.pub`) till **pbcopy** att kopiera innehållet (det finns andra Linux-program som gör samma sak, till exempel **xclip**).
+Om du kopierar och klistrar in innehållet i den offentliga nyckelfilen i Azure-portalen eller en Resource Manager-mall, kontrollera att du inte kopiera några extra blanksteg eller införa ytterligare radbrytningar. Om du använder macOS kan du till exempel skicka den offentliga nyckelfilen (som standard `~/.ssh/id_rsa.pub`) till **pbcopy** att kopiera innehållet (det finns andra Linux-program som gör samma sak, till exempel `xclip`).
 
 Om du föredrar att använda en offentlig nyckel som är i multiline-format kan du generera en RFC4716-formaterad nyckel i en pem-behållare från den offentliga nyckeln som du skapade tidigare.
 
@@ -168,7 +168,9 @@ Med den offentliga nyckeln som distribuerats på den virtuella Azure-datorn och 
 ssh azureuser@myvm.westus.cloudapp.azure.com
 ```
 
-Om du angav en lösenfras när du skapade ditt nyckelpar ska du ange lösenfrasen när frågan kommer under inloggningen. (Servern läggs till i din `~/.ssh/known_hosts`-mapp, och du blir inte ombedd att ansluta igen förrän den offentliga nyckeln på din virtuella Azure-dator ändras eller när servernamnet tas bort från `~/.ssh/known_hosts`.)
+Om du angav en lösenfras när du skapade ditt nyckelpar, kan du ange lösenfrasen när frågan kommer under inloggningen. (Servern läggs till i din `~/.ssh/known_hosts`-mapp, och du blir inte ombedd att ansluta igen förrän den offentliga nyckeln på din virtuella Azure-dator ändras eller när servernamnet tas bort från `~/.ssh/known_hosts`.)
+
+Om den virtuella datorn använder just-in-time-åtkomstprincip, måste du begära åtkomst innan du kan ansluta till den virtuella datorn. Mer information om just-in-time-principen finns i [hantera VM-åtkomst med hjälp av just i time-princip](../../security-center/security-center-just-in-time.md).
 
 ## <a name="use-ssh-agent-to-store-your-private-key-passphrase"></a>Använda ssh-agent för att lagra dina privata nyckeln
 
@@ -213,7 +215,7 @@ touch ~/.ssh/config
 vim ~/.ssh/config
 ```
 
-### <a name="example-configuration"></a>Exempel på konfiguration
+### <a name="example-configuration"></a>Exempelkonfiguration
 
 Lägg till konfigurationsinställningar som är lämpliga för din Virtuella värddator.
 
@@ -227,17 +229,17 @@ Host myvm
 
 Du kan lägga till konfigurationer för ytterligare värdar så att var och en att använda ett eget dedikerat nyckelpar. Se [SSH-konfigurationsfil](https://www.ssh.com/ssh/config/) för mer avancerade konfigurationsalternativ.
 
-Nu när du har ett SSH-nyckelpar och en konfigurerad SSH-konfigurationsfil kan du snabbt och säkert logga in på din virtuella Linux-dator. När du kör följande kommando, SSH hittar och läser in inställningarna från den `Host myvm` blockera i SSH-konfigurationsfilen.
+Nu när du har en SSH-nyckelpar och en konfigurerad SSH-konfigurationsfil kan kan du logga in på din Linux-VM snabbt och säkert. När du kör följande kommando, SSH hittar och läser in inställningarna från den `Host myvm` blockera i SSH-konfigurationsfilen.
 
 ```bash
 ssh myvm
 ```
 
-Första gången du loggar in till en server med en SSH-nyckel frågar kommandot du efter lösenfrasen för nyckelfilen.
+Första gången du loggar in på en server med en SSH-nyckel frågar kommandot du efter lösenfrasen för nyckelfilen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentliga SSH-nyckeln. Virtuella Azure-datorer som skapas med en offentlig SSH-nyckel för inloggning är bättre skyddade än virtuella datorer som skapas med vanliga lösenordsbaserade inloggningsmetoder.
+Nästa uppgift är att skapa virtuella Azure Linux-datorer med den nya offentliga SSH-nyckeln. Azure virtuella datorer som skapas med en offentlig SSH-nyckel som inloggningen är bättre skyddade än virtuella datorer som skapats med inloggning standardmetoden, lösenord.
 
 * [Skapa en Linux-dator med Azure portal](quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Skapa en Linux-dator med Azure CLI](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

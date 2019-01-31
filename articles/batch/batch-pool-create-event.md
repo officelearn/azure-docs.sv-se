@@ -2,7 +2,7 @@
 title: Händelse för skapande av Azure Batch-pool | Microsoft Docs
 description: Referens för Batch-pool Skapa händelse.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
-ms.openlocfilehash: 794b3c83ff58967ef8169bed98f7b369335029ae
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.author: lahugh
+ms.openlocfilehash: 176f00de77c2d353d6efeb8b5a535a607b8f3204
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54259852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470610"
 ---
 # <a name="pool-create-event"></a>Händelse för skapande av pool
 
@@ -47,11 +47,11 @@ ms.locfileid: "54259852"
 }
 ```
 
-|Element|Typ|Anteckningar|
+|Element|Type|Anteckningar|
 |-------------|----------|-----------|
-|id|Sträng|Id för poolen.|
-|displayName|Sträng|Visningsnamnet för poolen.|
-|vmSize|Sträng|Storleken på de virtuella datorerna i poolen. Alla virtuella datorer i en pool har samma storlek. <br/><br/> Mer information om tillgängliga storlekar för virtuella datorer för Cloud Services pooler (pooler som skapats med cloudServiceConfiguration), finns i [storlekar för Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch stöder alla Cloud Services VM-storlekar utom `ExtraSmall`.<br/><br/> Information om tillgängliga VM för pooler med hjälp av avbildningar från Marketplace för virtuella datorer (pooler som skapats med virtualMachineConfiguration) finns i [storlekar för virtuella datorer](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) eller [storlekar för virtuella Datorer](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch har stöd för alla storlekar för virtuella datorer i Azure utom `STANDARD_A0` och de med Premium Storage (`STANDARD_GS`, `STANDARD_DS`- och `STANDARD_DSV2`-serien).|
+|id|String|Id för poolen.|
+|displayName|String|Visningsnamnet för poolen.|
+|vmSize|String|Storleken på de virtuella datorerna i poolen. Alla virtuella datorer i en pool har samma storlek. <br/><br/> Mer information om tillgängliga storlekar för virtuella datorer för Cloud Services pooler (pooler som skapats med cloudServiceConfiguration), finns i [storlekar för Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-sizes-specs/). Batch stöder alla Cloud Services VM-storlekar utom `ExtraSmall`.<br/><br/> Information om tillgängliga VM för pooler med hjälp av avbildningar från Marketplace för virtuella datorer (pooler som skapats med virtualMachineConfiguration) finns i [storlekar för virtuella datorer](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-sizes/) (Linux) eller [storlekar för virtuella Datorer](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-sizes/) (Windows). Batch har stöd för alla storlekar för virtuella datorer i Azure utom `STANDARD_A0` och de med Premium Storage (`STANDARD_GS`, `STANDARD_DS`- och `STANDARD_DSV2`-serien).|
 |[cloudServiceConfiguration](#bk_csconf)|Komplex typ|Konfigurationen för Molntjänsten för poolen.|
 |[virtualMachineConfiguration](#bk_vmconf)|Komplex typ|Konfigurationen av virtuell dator för poolen.|
 |[networkConfiguration](#bk_netconf)|Komplex typ|Nätverkskonfiguration för poolen.|
@@ -61,40 +61,40 @@ ms.locfileid: "54259852"
 |enableInterNodeCommunication|Bool|Anger om poolen har ställts in för direktkommunikation mellan noder.|
 |isAutoPool|Bool|Anger om poolen har skapats via ett jobb AutoPool mekanism.|
 |maxTasksPerNode|Int32|Högsta antal aktiviteter som kan köras samtidigt på en enda beräkningsnod i poolen.|
-|vmFillType|Sträng|Definierar hur Batch-tjänsten distribuerar uppgifter mellan beräkningsnoder i poolen. Giltiga värden är fördelade eller Pack.|
+|vmFillType|String|Definierar hur Batch-tjänsten distribuerar uppgifter mellan beräkningsnoder i poolen. Giltiga värden är fördelade eller Pack.|
 
 ###  <a name="bk_csconf"></a> cloudServiceConfiguration
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|Type|Anteckningar|
 |------------------|----------|-----------|
-|osFamily|Sträng|Azures gäst-OS-familj som ska installeras på de virtuella datorerna i poolen.<br /><br /> Möjliga värden:<br /><br /> **2** – OS-familjen 2, som motsvarar Windows Server 2008 R2 SP1.<br /><br /> **3** – OS-familjen 3, motsvarande till Windows Server 2012.<br /><br /> **4** – OS-familjen 4, motsvarande till Windows Server 2012 R2.<br /><br /> Mer information finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
-|targetOSVersion|Sträng|Azures gäst-OS-version som ska installeras på de virtuella datorerna i poolen.<br /><br /> Standardvärdet är **\*** som anger den senaste Operativsystemversionen för den angivna familjen.<br /><br /> Andra tillåtna värden finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|osFamily|String|Azures gäst-OS-familj som ska installeras på de virtuella datorerna i poolen.<br /><br /> Möjliga värden:<br /><br /> **2** – OS-familjen 2, som motsvarar Windows Server 2008 R2 SP1.<br /><br /> **3** – OS-familjen 3, motsvarande till Windows Server 2012.<br /><br /> **4** – OS-familjen 4, motsvarande till Windows Server 2012 R2.<br /><br /> Mer information finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
+|targetOSVersion|String|Azures gäst-OS-version som ska installeras på de virtuella datorerna i poolen.<br /><br /> Standardvärdet är **\*** som anger den senaste Operativsystemversionen för den angivna familjen.<br /><br /> Andra tillåtna värden finns i [Azure Gästoperativsystemversioner](https://azure.microsoft.com/documentation/articles/cloud-services-guestos-update-matrix/#releases).|
 
 ###  <a name="bk_vmconf"></a> virtualMachineConfiguration
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|Type|Anteckningar|
 |------------------|----------|-----------|
 |[imageReference](#bk_imgref)|Komplex typ|Anger information om plattform eller Marketplace-avbildningen som ska användas.|
-|nodeAgentSKUId|Sträng|SKU: N för Batch-nodagenten som etablerats på Beräkningsnoden.|
+|nodeAgentSKUId|String|SKU: N för Batch-nodagenten som etablerats på Beräkningsnoden.|
 |[windowsConfiguration](#bk_winconf)|Komplex typ|Anger inställningar för Windows-operativsystemet på den virtuella datorn. Den här egenskapen får inte anges om imageReference refererar till en Linux OS-avbildning.|
 
 ###  <a name="bk_imgref"></a> imageReference
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|Type|Anteckningar|
 |------------------|----------|-----------|
-|utgivare|Sträng|Utgivaren av avbildningen.|
-|erbjudande|Sträng|Erbjudande för avbildningen.|
-|sku|Sträng|SKU för avbildningen.|
-|version|Sträng|Version för avbildningen.|
+|utgivare|String|Utgivaren av avbildningen.|
+|erbjudande|String|Erbjudande för avbildningen.|
+|sku|String|SKU för avbildningen.|
+|version|String|Version för avbildningen.|
 
 ###  <a name="bk_winconf"></a> windowsConfiguration
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|Type|Anteckningar|
 |------------------|----------|-----------|
 |enableAutomaticUpdates|Boolesk|Anger om den virtuella datorn har aktiverats för automatiska uppdateringar. Om den här egenskapen inte anges är standardvärdet är sant.|
 
 ###  <a name="bk_netconf"></a> networkConfiguration
 
-|Elementnamn|Typ|Anteckningar|
+|Elementnamn|Type|Anteckningar|
 |------------------|--------------|----------|
-|subnetId|Sträng|Anger resursidentifieraren för undernätet där poolens beräkningsnoder skapas.|
+|subnetId|String|Anger resursidentifieraren för undernätet där poolens beräkningsnoder skapas.|

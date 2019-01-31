@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 12/10/2018
-ms.openlocfilehash: 77cb60c1a459d7c3f98d902d82e5fef86e8c34f4
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: a7ebf246300fdafe69f45aca0237964c8e669d5c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541632"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55463964"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om SQL-databas
 
@@ -35,7 +35,7 @@ Nej. Effekten av korrigeringar är vanligtvis inte märkbar om du [använder log
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Vad är den nya vCore-baserade inköpsmodellen för Azure SQL Database
 
-Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. Den vCore-baserade modellen är utformad för att ge kunder flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Det gör också kunderna möjlighet att skala sina resurser för beräkning och lagring utifrån deras arbetsbelastningsbehov. Enkel databas och elastisk pool alternativ med vCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för mer information.
+Den nya inköpsmodellen är ett tillägg till den befintliga DTU-baserade modellen. Den vCore-baserade modellen är utformad för att ge kunder flexibilitet, kontroll, transparens och ett enkelt sätt att överföra lokala arbetsbelastningskrav till molnet. Det gör också kunderna möjlighet att skala sin beräknings- och lagringsresurser utifrån deras arbetsbelastningsbehov. Enkel databas och elastisk pool alternativ med vCore-modellen är också berättigade till upp till 30 procent med den [Azure Hybrid-förmånen för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Se [DTU-baserade inköpsmodellen](sql-database-service-tiers-dtu.md) och [vCore-baserade inköpsmodellen](sql-database-service-tiers-vcore.md) för mer information.
 
 ## <a name="what-is-a-vcore"></a>Vad är en virtuell kärna
 
@@ -43,7 +43,7 @@ En virtuell kärna representerar en logisk CPU med möjligheten att välja mella
 
 ## <a name="is-moving-to-the-vcore-based-model-required"></a>Flytta till den vCore-baserade modellen som krävs
 
-Nej, introduktionen av den vCore-baserade modellen för elastisk Pool och distributionsalternativ för enkel databas återspeglar vår satsning på valfrihet och flexibilitet. Kunder kan fortsätta att använda den DTU-baserade modellen behöver de inte göra något med det här meddelandet och deras upplevelse och fakturan förblir oförändrad.
+Nej, introduktionen av den vCore-baserade modellen för elastisk pool och distributionsalternativ för enkel databas återspeglar vår satsning på valfrihet och flexibilitet. Kunder kan fortsätta att använda den DTU-baserade modellen behöver de inte göra något med det här meddelandet och deras upplevelse och fakturan förblir oförändrad.
 
 I många fall utnyttja program enkelheten med ett förkonfigurerade paket av resurser. Därför kan fortsätter vi att erbjuda och stöd för dessa DTU-baserade alternativ till våra kunder. Om du använder dem och den uppfyller dina affärskrav, bör du fortsätta att göra detta.
 
@@ -141,9 +141,9 @@ Så ofta du vill. Se [hantera elastiska pooler](sql-database-elastic-pool.md).
 
 ## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hur lång tid tar det att ändra tjänstnivå eller beräkna storleken på en enskild databas eller flytta en databas och från en elastisk pool
 
-När du byter tjänstenivå för en databas och flyttas till eller från en pool måste du databasen som ska kopieras på plattformen som en bakgrundsåtgärd. När du byter tjänstenivå kan ta från några minuter till flera timmar beroende på storleken på databaserna. I båda fallen är databaserna online och tillgängliga under flytten. Mer information om hur du ändrar enskilda databaser finns i [ändra tjänstnivå för en databas](sql-database-service-tiers-dtu.md).
+När du byter tjänstenivå för en databas och flyttas till eller från en pool måste du databasen som ska kopieras på plattformen som en bakgrundsåtgärd. När du byter tjänstenivå kan ta från några minuter till flera timmar beroende på storleken på databaserna. I båda fallen är databaserna online och tillgängliga under flytten. Mer information om hur du ändrar enskilda databaser finns i [ändra tjänstnivå för en databas](sql-database-single-database-scale.md).
 
-## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>När ska jag använda en enkel databas jämfört med elastiska databaser
+## <a name="when-should-i-use-a-single-database-vs-elastic-pools"></a>När ska jag använda en enkel databas jämfört med elastiska pooler
 
 I allmänhet elastiska pooler är utformade för en typisk [programvara som tjänst (SaaS)-mönster](sql-database-design-patterns-multi-tenancy-saas-applications.md), där det finns en databas per kund eller klient. Att köpa enskilda databaser och behöver etablera för att möta varierande och högsta kraven för varje databas är ofta inte kostnadseffektivt. Du hantera databaspoolens sammanlagda prestanda i poolen med poolerna och databaserna skalas automatiskt upp och ned. Azures intelligent motorn rekommenderar en pool för databaser när en användningsmönstret på grund av den. Mer information finns i [vägledning databaspool](sql-database-elastic-pool.md).
 

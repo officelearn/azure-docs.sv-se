@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 2ae44edf0d9356000f64ab72fd609f1921cf095c
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.subservice: common
+ms.openlocfilehash: cd3ae85e88151e234d42a29ad871a18c7829b05c
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316598"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454852"
 ---
 # <a name="azure-importexport-service-log-file-format"></a>Azure Import/Export-tjänsten loggfilsformat
 När Microsoft Azure Import/Export-tjänsten utför en åtgärd på en enhet som en del av ett importjobb eller ett exportjobb, skrivs loggarna till blockblobbar i lagringskontot som associerats med jobbet.  
@@ -101,19 +101,19 @@ properties-status ::=
 
 I följande tabell beskriver elementen i loggfilen.  
   
-|XML-Element|Typ|Beskrivning|  
+|XML Element|Type|Beskrivning|  
 |-----------------|----------|-----------------|  
-|`DriveLog`|XML-Element|Representerar en logg för enheten.|  
+|`DriveLog`|XML Element|Representerar en logg för enheten.|  
 |`Version`|Attribut, sträng|Versionen av loggformatet.|  
-|`DriveId`|Sträng|Enhetens serienummer för maskinvara.|  
-|`Status`|Sträng|Status för enhet-bearbetning. Se den `Drive Status Codes` tabellen nedan för mer information.|  
+|`DriveId`|String|Enhetens serienummer för maskinvara.|  
+|`Status`|String|Status för enhet-bearbetning. Se den `Drive Status Codes` tabellen nedan för mer information.|  
 |`Blob`|Kapslade XML-element|Representerar en blob.|  
-|`Blob/BlobPath`|Sträng|URI för blob.|  
-|`Blob/FilePath`|Sträng|Den relativa sökvägen till filen på enheten.|  
+|`Blob/BlobPath`|String|URI för blob.|  
+|`Blob/FilePath`|String|Den relativa sökvägen till filen på enheten.|  
 |`Blob/Snapshot`|DateTime|Versionen ögonblicksbild av blob för ett exportjobb endast.|  
 |`Blob/Length`|Integer|Den totala längden på blob i byte.|  
 |`Blob/LastModified`|DateTime|Tidsvärdet blob senast ändrades, för ett exportjobb endast.|  
-|`Blob/ImportDisposition`|Sträng|Importera disposition av blob för ett importjobb endast.|  
+|`Blob/ImportDisposition`|String|Importera disposition av blob för ett importjobb endast.|  
 |`Blob/ImportDisposition/@Status`|Attribut, sträng|Status för import-disposition.|  
 |`PageRangeList`|Kapslade XML-element|Representerar en lista över sidintervall för en sidblob.|  
 |`PageRange`|XML-element|Representerar ett sidintervall.|  
@@ -130,17 +130,17 @@ I följande tabell beskriver elementen i loggfilen.
 |`Block/@Status`|Attribut, sträng|Status för bearbetning av blocket.|  
 |`Metadata`|Kapslade XML-element|Representerar den blob-metadata.|  
 |`Metadata/@Status`|Attribut, sträng|Status för bearbetning av blobmetadata.|  
-|`Metadata/GlobalPath`|Sträng|Relativ sökväg till globala metadatafilen.|  
+|`Metadata/GlobalPath`|String|Relativ sökväg till globala metadatafilen.|  
 |`Metadata/GlobalPath/@Hash`|Attribut, sträng|Base16-kodad MD5-hashen för global metadatafilen.|  
-|`Metadata/Path`|Sträng|Relativ sökväg till metadatafilen.|  
+|`Metadata/Path`|String|Relativ sökväg till metadatafilen.|  
 |`Metadata/Path/@Hash`|Attribut, sträng|Base16-kodad MD5-hash filens metadata.|  
 |`Properties`|Kapslade XML-element|Representerar blobegenskaper.|  
 |`Properties/@Status`|Attribut, sträng|Status för bearbetning av blobegenskaper, t.ex. inte att hitta filen, har slutförts.|  
-|`Properties/GlobalPath`|Sträng|Relativ sökväg till filen globala egenskaper.|  
+|`Properties/GlobalPath`|String|Relativ sökväg till filen globala egenskaper.|  
 |`Properties/GlobalPath/@Hash`|Attribut, sträng|Base16-kodad MD5-hashen för den globala egenskaper-filen.|  
-|`Properties/Path`|Sträng|Relativ sökväg till filen egenskaper.|  
+|`Properties/Path`|String|Relativ sökväg till filen egenskaper.|  
 |`Properties/Path/@Hash`|Attribut, sträng|Base16-kodad MD5-hash filens egenskaper.|  
-|`Blob/Status`|Sträng|Status för bearbetning av blobben.|  
+|`Blob/Status`|String|Status för bearbetning av blobben.|  
   
 ## <a name="drive-status-codes"></a>Statuskoder för enhet  
 I följande tabell visas statuskoder för bearbetning av en enhet.  

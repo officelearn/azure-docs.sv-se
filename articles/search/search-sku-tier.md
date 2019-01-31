@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4b6e6cf3fb030f5f9706ded19f85575baed69b39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: cf2359834aa79b1d3fef8b65e4ef4191eb6ff867
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471828"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467449"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en prisnivå för Azure Search
 
@@ -108,7 +108,7 @@ Flytta fokus till de vanliga standard-nivåerna **S1 S3** är en följd av höja
 
 |  | S1 | S2 | S3 |  |  |  |  |
 |--|----|----|----|--|--|--|--|
-| Partitionsstorlek|  25 GB | 100 GB | 250 GB |  |  |  |  |
+| Partitionsstorlek|  25 GB | 100 GB | 200 GB |  |  |  |  |
 | begränsningar för index och indexerare| 50 | 200 | 200 |  |  |  |  |
 
 **S1** är ett vanligt val när dedikerade resurser och flera partitioner blir nödvändigt. Med partitioner av 25 GB för upp till 12 partitioner, begränsa per-tjänsten på **S1** är 300 GB total om du maximerar partitioner över repliker (se [allokera partitioner och -repliker](search-capacity-planning.md#chart) för mer belastningsutjämnade sammansättning.)

@@ -4,17 +4,17 @@ description: Lär dig hur Azure Policy använder gäst-konfiguration för att gr
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 01/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0a571084819c5dfed3f8d6891b59032ef2eecdd6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: 77d99c90e65647a1f4a4efb07ff5520596fa54cf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856408"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295176"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -63,6 +63,16 @@ I följande tabell visas en lista över de lokala verktyg som används på varje
 |Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby och Python installeras av tillägget gäst-konfiguration. |
 
+### <a name="validation-frequency"></a>Frekvens för verifiering
+
+Gäst-konfigurationen kontrollerar klienten för nytt innehåll var femte minut.
+När en gäst-tilldelning tas emot, kontrolleras inställningarna med 15 minuters intervall.
+Resultaten skickas till resursprovidern gäst konfiguration när granskningen är klar.
+När en princip [utvärdering utlösaren](../how-to/get-compliance-data.md#evaluation-triggers) inträffar, tillståndet för datorn skrivs till resursprovidern gäst-konfiguration.
+Detta leder till Azure Policy att utvärdera Azure Resource Manager-egenskaper.
+En på begäran principutvärdering hämtar det senaste värdet från resursprovidern gäst-konfiguration.
+Dock utlöser inte den en ny granskning av konfigurationen på den virtuella datorn.
+
 ### <a name="supported-client-types"></a>Stöds klienttyper
 
 I följande tabell visas en lista över operativsystem som stöds på Azure-avbildningar:
@@ -90,7 +100,7 @@ I följande tabell visas operativsystem som inte stöds:
 
 ## <a name="guest-configuration-definition-requirements"></a>Definition av gäst konfigurationskrav
 
-Varje audit köras av gäst-konfigurationen kräver två principdefinitioner, en **DeployIfNotExists** och **AuditIfNotExists**. **DeployIfNotExists** används för att förbereda den virtuella datorn med gästen Configuration-agenten och andra komponenter för att stödja den [verifieringsverktyg](#validation-tools).
+Varje audit köras av gäst-konfigurationen kräver två principdefinitioner, en **DeployIfNotExists** och **granska**. **DeployIfNotExists** används för att förbereda den virtuella datorn med gästen Configuration-agenten och andra komponenter för att stödja den [verifieringsverktyg](#validation-tools).
 
 Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följande objekt:
 
@@ -99,14 +109,14 @@ Den **DeployIfNotExists** principdefinitionen kontrollerar och korrigerar följa
   - Installera den senaste versionen av den **Microsoft.GuestConfiguration** tillägg
   - Installera [verifieringsverktyg](#validation-tools) och beroenden, om det behövs
 
-När den **DeployIfNotExists** är kompatibel, den **AuditIfNotExists** principdefinition använder lokal validering-verktyg för att avgöra om tilldelningen tilldelade konfiguration är kompatibel eller Icke-kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
+När den **DeployIfNotExists** är kompatibel, den **Audit** principdefinition använder lokal validering-verktyg för att avgöra om tilldelningen tilldelade konfiguration är kompatibel eller icke-kompatibel. Verktyget verifiering ger resultatet till gäst-konfiguration-klienten. Klienten vidarebefordrar resultaten till gäst-tillägg, vilket gör dem tillgängliga via resursprovidern gäst-konfiguration.
 
 Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus** egenskapen att rapportera kompatibilitet i den **efterlevnad** noden. Mer information finns i [komma kompatibilitetsdata](../how-to/getting-compliance-data.md).
 
 > [!NOTE]
-> För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **AuditIfNotExists** principdefinitioner måste finnas.
+> För varje gäst-konfigurationsdefinition både den **DeployIfNotExists** och **Audit** principdefinitioner måste finnas.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Inbyggda initiativ med namnet *[förhandsversion]: Granska säkerhetsinställningarna för lösenord i Linux och Windows-datorer* innehåller 18 principer. Det finns sex **DeployIfNotExists** och **Audit** par för Windows och tre par för Linux. I båda fallen logiken i definitionen verifierar endast målet operativsystemet ska utvärderas baserat på den [principregeln](definition-structure.md#policy-rule) definition.
 
 ## <a name="next-steps"></a>Nästa steg
 

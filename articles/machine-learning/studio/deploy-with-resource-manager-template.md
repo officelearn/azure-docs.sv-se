@@ -1,5 +1,5 @@
 ---
-Rubrik: Distribuera Studio-arbetsyta med Azure Resource Manager titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av tjänster för Azure Resource Manager-mall: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Distribuera Studio-arbetsyta med Azure Resource Manager titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här distribuerar du en arbetsyta för Azure Machine Learning med hjälp av tjänster för Azure Resource Manager-mall: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/05/2018
 ---

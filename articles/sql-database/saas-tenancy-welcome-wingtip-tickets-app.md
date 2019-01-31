@@ -12,13 +12,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 manager: craigg
-ms.date: 04/01/2018
-ms.openlocfilehash: a05a8ad495e33734a531405902ce34e3591bfe15
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.date: 01/25/2019
+ms.openlocfilehash: b27877e25dd3bdd4711d1c036e2f203e1b8c0e7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056326"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462151"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip biljetter SaaS-program
 
@@ -46,7 +46,7 @@ Kolla in den [självstudier] [ docs-tutorials-for-wingtip-dpt] och kod på GitHu
 
 ## <a name="sharded-multi-tenant-database-pattern"></a>Mönster för fragmenterade (sharded) databas för flera innehavare
 
-Databaser för flera innehavare är effektiva för tjänsteleverantörer söker lägre kostnad per klient och OK med lägre klientisolering. Det här mönstret kan paketera stort antal klienter i en enkel databas, att kostnaden per klient minska. Nästan obegränsad skalning är möjlig horisontell partitionering klienter över flera databaser. En katalogdatabas mappar klienter till databaser.  
+Databaser för flera innehavare är effektiva för tjänsteleverantörer söker lägre kostnad per klient och OK med lägre klientisolering. Det här mönstret kan paketera stort antal klienter till en individuell databas, att kostnaden per klient minska. Nästan obegränsad skalning är möjlig horisontell partitionering klienter över flera databaser. En katalogdatabas mappar klienter till databaser.  
 
 Det här mönstret kan också en *hybrid* modell där du kan optimera för kostnaden med flera klienter i en databas eller optimera för isolering med en enda klient i sin egen databas. Valet kan göras på basis av klient-av-klient, antingen när klienten är etablerade eller senare, utan någon inverkan på programmet.  Den här modellen kan användas effektivt när grupper av klienter behöver behandlas annorlunda. Låg kostnad klienter kan till exempel tilldelas till delade databaser, medan premium-klienter kan tilldelas till sina egna databaser. 
 

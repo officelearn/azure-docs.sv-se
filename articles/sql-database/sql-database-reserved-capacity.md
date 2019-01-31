@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 05c237eb071b48f2373ecfd78eeab6f7bceb8c5c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.date: 01/25/2019
+ms.openlocfilehash: 4c8e93948532da02c64eb9eb1277abb425abc250
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52584170"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455764"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betala i förskott för beräkningsresurser för SQL-databas med Azure SQL Database reserverad kapacitet
 
@@ -34,9 +34,9 @@ Information om hur företagskunder och kunder med användningsbaserad betalning 
 
 ## <a name="determine-the-right-sql-size-before-purchase"></a>Fastställa lämplig storlek enligt SQL före köp
 
-Storleken på reservationen ska baseras på den totala mängden beräkning som används av befintliga eller snart-till--distribueras SQL enskilda databaser och/eller elastiska pooler på en specifik region och använda samma prestanda nivå och maskinvara generation. 
+Storleken på reservationen ska baseras på den totala mängden beräkning som används av den befintliga eller snart-till--distribueras enskilt databaser och/eller elastiska pooler på en specifik region och använda samma prestanda nivå och maskinvara generation. 
 
-Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk pool, och två affärskritisk, Gen5 – 4 vCore enskilda databaser. Dessutom kan anta vi att du planerar att distribuera under nästa månad en ytterligare generell användning, Gen5 – 16 vCore elastisk pool, och en affärskritisk, Gen5 – 32 vCore elastisk pool. Anta också att du vet att du behöver dessa resurser för minst 1 år. I det här fallet ska du köpa en 32 virtuella kärnor (2 x 16), 1 år reservation för SQL Database enkel/elastisk Pool för generell användning – Compute Gen5 och ett 40 (2 x 4 + 32) vCore 1 år reservation för SQL Database enkel/elastisk Pool affärskritisk - Compute Gen5.
+Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk pool, och två affärskritisk, Gen5 – 4 vCore enskilda databaser. Dessutom kan anta vi att du planerar att distribuera under nästa månad en ytterligare generell användning, Gen5 – 16 vCore elastisk pool, och en affärskritisk, Gen5 – 32 vCore elastisk pool. Anta också att du vet att du behöver dessa resurser för minst 1 år. I det här fallet ska du köpa en 32 virtuella kärnor (2 x 16), 1 år reservation för SQL Database fristående/elastisk pool generella - Compute Gen5 och 40 (2 x 4 + 32) vCore 1 år reservation för SQL Database fristående/elastisk pool affärskritisk - Compute Gen5.
 
 ## <a name="buy-sql-database-reserved-capacity"></a>Köpa SQL Database reserverad kapacitet
 
@@ -50,7 +50,7 @@ Låt oss anta att du kör en generell användning, Gen5 – 16 vCore elastisk po
     | Fält      | Beskrivning|
     |:------------|:--------------|
     |Namn        |Namnet på den här reservationen.| 
-    |Prenumeration|Den prenumeration som används för att betala för SQL Database reserverad kapacitetsreservationen. Betalningsmetoden för prenumerationen debiteras startavgifter reservationens SQL-databas som reserverad kapacitet. Prenumerationstypen måste vara ett företagsavtal (erbjudandets nummer: MS-AZR-0017P) eller Betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
+    |Prenumeration|Den prenumeration som används för att betala för SQL Database reserverad kapacitetsreservationen. Betalningsmetoden för prenumerationen debiteras startavgifter reservationens SQL-databas som reserverad kapacitet. Prenumerationstypen måste vara ett enterprise-avtal (erbjudandets nummer: MS-AZR-0017P) eller betala per användning (erbjudandets nummer: MS-AZR-0003P). För en företagsprenumeration dras avgifterna från registreringens återstående åtagandebelopp eller debiteras som överförbrukning. Får en Betala per användning-prenumeration faktureras avgifterna från kreditkortet eller enligt fakturabetalningsmetoden.|    
     |Scope       |VCore reservationsomfånget kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>Enstaka prenumeration - vCore reservationsrabatten tillämpas på SQL Database-instanser i den här prenumerationen. </li><li>Delad – tillämpas vCore reservationsrabatten på SQL Database-instanser som körs i alla prenumerationer i din faktureringskontexten. För företagskunder, den delade omfattningen registreringen och innehåller alla prenumerationer (utom prenumerationer för utveckling och testning) i registreringen. För kunder med användningsbaserad betalning är den delade omfattningen alla betala per användning-prenumerationer som skapas av kontoadministratören.</li></ul>|
     |Region      |Azure-regionen som omfattas av SQL-databasen reserverad kapacitet reservation.|    
     |Distributionstyp|Den SQL-resurstyp som du vill köpa reservationer för.|

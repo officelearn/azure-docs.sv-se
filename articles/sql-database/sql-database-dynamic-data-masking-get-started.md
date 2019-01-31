@@ -11,13 +11,13 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 12/16/2018
-ms.openlocfilehash: 3e807033b109b8281057f6881a315f5c1c783a22
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 01/25/2019
+ms.openlocfilehash: 7ca54117b014cb093b63e265864b0b0efa787865
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53536380"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461227"
 ---
 # <a name="sql-database-dynamic-data-masking"></a>SQL Database dynamisk datamaskning
 
@@ -28,12 +28,15 @@ Dynamisk datamaskning förhindrar obehörig åtkomst till känsliga data genom a
 Till exempel en representant på ett Callcenter kan identifiera anropare genom flera siffrorna i sina kreditkortsnummer, men de dataobjekt bör inte exponeras fullständigt för servicerepresentant. Du kan definiera en maskningsregel att masker alla men de sista fyra siffrorna i alla kreditkortsnummer i resultatet som angetts av en fråga. Ett annat exempel är en mask för lämpliga data kan du definiera i syfte för att skydda personligt identifierbar information (PII), så att utvecklare kan fråga produktionsmiljöer för felsökning utan brott mot kompatibilitetsföreskrifter.
 
 ## <a name="sql-database-dynamic-data-masking-basics"></a>SQL Database dynamisk datamaskning grunderna
+
 Du ställer in en dynamisk datamaskning principen i Azure portal genom att välja åtgärden i din SQL Database konfigurationsbladet eller inställningsbladet för dynamisk datamaskning.
 
 ### <a name="dynamic-data-masking-permissions"></a>Dynamiska data maskning behörigheter
-Dynamisk datamaskning kan konfigureras med Azure Database-administratör kan-serveradministratören eller [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roller.
+
+Dynamisk datamaskning kan konfigureras av administratören för Azure SQL Database,-serveradministratören eller [SQL-säkerhetsansvarig](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager) roller.
 
 ### <a name="dynamic-data-masking-policy"></a>Dynamiska data maskning princip
+
 * **SQL-användare uteslutna från maskering** – en uppsättning SQL-användare eller AAD-identiteter som hämtar omaskerat data i SQL-frågeresultat. Användare med administratörsbehörighet är alltid uteslutna från maskering och finns i den ursprungliga informationen utan någon mask.
 * **Maskera regler** – en uppsättning regler som definierar de avsedda fält som ska vara dold och maskningsfunktion som används. De angivna fält kan definieras med ett databasnamn för schemat, tabellnamnet och kolumnnamnet.
 * **Maskera funktioner** – en uppsättning metoder som styr exponering av data för olika scenarier.
@@ -49,11 +52,13 @@ Dynamisk datamaskning kan konfigureras med Azure Database-administratör kan-ser
 <a name="Anchor1"></a>
 
 ### <a name="recommended-fields-to-mask"></a>Rekommenderade fält att maskera
+
 Rekommendationsmotorn DDM flaggar vissa fält från databasen som potentiellt känsliga, vilket kan vara bra kandidater för Maskning. Dynamisk Datamaskning-bladet i portalen visas de rekommendera kolumnerna för din databas. Allt du behöver göra är att klicka på **Lägg till Mask** för en eller flera kolumner och sedan **spara** att tillämpa en mask för dessa fält.
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-powershell-cmdlets"></a>Konfigurera dynamisk datamaskering för din databas med Powershell-cmdletar
+
 Se [cmdlet: ar för Azure SQL Database](https://docs.microsoft.com/powershell/module/azurerm.sql).
 
 ## <a name="set-up-dynamic-data-masking-for-your-database-using-rest-api"></a>Konfigurera dynamisk datamaskning för din databas med hjälp av REST API
-Se [åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).
 
+Se [åtgärder för Azure SQL Database](https://msdn.microsoft.com/library/dn505719.aspx).

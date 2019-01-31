@@ -12,19 +12,19 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 4339782304f1bc175f1066954f1050bc00f25005
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5b6bef8194123ed6c83a48dd5e819085d4bc5424
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434248"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453475"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Skapa Azure-SSIS Integration Runtime i Azure Data Factory
 Den här artikeln innehåller steg för etablering Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF). Du kan sedan använda SQL Server Data Tools (SSDT) eller SQL Server Management Studio (SSMS) för att distribuera och köra SQL Server Integration Services (SSIS)-paket på den här integration runtime i Azure. 
 
 Den [självstudien: Distribuera SSIS-paket till Azure](tutorial-create-azure-ssis-runtime-portal.md) visar hur du skapar Azure-SSIS IR med Azure SQL Database-server till värd SSIS-katalogdatabasen (SSISDB). Den här artikeln utökas med självstudien och visar hur du gör du följande: 
 
-- Du kan också använda Azure SQL Database-server med virtuellt nätverk tjänstens slutpunkter/hanterad instans som värd för SSISDB. Vägledning i att välja vilken typ av database-server som värd för SSISDB finns i [jämför Azure SQL Database-server och Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter/inställningar för virtuella nätverk efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
+- Du kan också använda Azure SQL Database-server med virtuellt nätverk tjänstens slutpunkter/hanterad instans som värd för SSISDB. Vägledning i att välja vilken typ av database-server som värd för SSISDB finns i [jämför Azure SQL Database enkel databaser/elastiska pooler och Managed Instance](create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). Som ett krav måste du ansluta till din Azure-SSIS IR till ett virtuellt nätverk och konfigurera behörigheter/inställningar för virtuella nätverk efter behov. Se [ansluta till Azure-SSIS IR till ett virtuellt nätverk](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). 
 
 - Du kan också använda Azure Active Directory (AAD)-autentisering med den hanterade identitet för din ADF för att ansluta till databasservern. Som ett krav, måste du lägga till den hanterade identitet för din ADF som en oberoende databasanvändare som kan skapa SSISDB i din Azure SQL Database-server/hanterad instans [aktiverar AAD-autentisering för Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). 
 
@@ -55,11 +55,11 @@ När du etablerar Azure-SSIS IR installeras också Azure Feature Pack för SSIS 
 ### <a name="region-support"></a>Regionsstöd
 En lista över Azure-regioner, där ADF och Azure-SSIS IR är för närvarande tillgängligt i [ADF + SSIS IR tillgänglighet efter region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all). 
 
-### <a name="compare-sql-database-logical-server-and-sql-database-managed-instance"></a>Jämför logisk SQL Database-server och SQL Database Managed Instance
+### <a name="compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance"></a>Jämför SQL Database enkel databas/elastisk pool och SQL Database Managed Instance
 
 I följande tabell jämförs vissa funktioner i Azure SQL Database-server och hanterad instans som är relaterade till Azure-SSIR IR:
 
-| Funktion | Azure SQL Database server| Managed Instance |
+| Funktion | enkel databas/elastisk pool| Managed Instance |
 |---------|--------------|------------------|
 | **Scheduling** | SQL Server Agent är inte tillgänglig.<br/><br/>Se [schemalägga en körning av paket i ADF pipeline](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| Hanterad instans-Agent är tillgänglig. |
 | **Autentisering** | Du kan skapa SSISDB med en oberoende databasanvändare som representerar alla AAD-grupp med den hanterade identitet för din ADF som en medlem i den **db_owner** roll.<br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database-server](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Du kan skapa SSISDB med en oberoende databasanvändare som representerar din ADF hanterad identitet. <br/><br/>Se [aktivera Azure AD-autentisering för att skapa SSISDB i Azure SQL Database Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
@@ -69,9 +69,11 @@ I följande tabell jämförs vissa funktioner i Azure SQL Database-server och ha
 | | | |
 
 ## <a name="azure-portal"></a>Azure Portal
+
 I det här avsnittet använder Azure-portalen, särskilt ADF User Interface (UI) / appen att skapa Azure-SSIS IR. 
 
 ### <a name="create-a-data-factory"></a>Skapa en datafabrik 
+
 1. Starta webbläsaren **Microsoft Edge** eller **Google Chrome**. Användargränssnittet för Data Factory stöds för närvarande bara i webbläsarna Microsoft Edge och Google Chrome. 
 1. Logga in på [Azure-portalen](https://portal.azure.com/). 
 1. Klicka på **Ny** på den vänstra menyn, klicka på **Data + Analys**, och klicka på **Data Factory**. 

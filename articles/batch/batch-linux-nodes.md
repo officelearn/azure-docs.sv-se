@@ -3,7 +3,7 @@ title: Kör Linux på VM-beräkningsnoder – Azure Batch | Microsoft Docs
 description: Lär dig mer om att bearbeta din parallell beräkning av arbetsbelastningar i pooler på Linux-datorer i Azure Batch.
 services: batch
 documentationcenter: python
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: na
 ms.date: 06/01/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 45407fb2eca5527c8b24f199c9470311a0e5d6a9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: a841fae791648d179975c2a5330bb41d48d388dd
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51976765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453560"
 ---
 # <a name="provision-linux-compute-nodes-in-batch-pools"></a>Etablera Linux-beräkningsnoder i Batch-pooler
 
@@ -32,7 +32,7 @@ Du kan använda Azure Batch för att köra parallella beräkning av arbetsbelast
 >
 
 ## <a name="virtual-machine-configuration"></a>Konfiguration av virtuell dator
-När du skapar en pool med beräkningsnoder i Batch har du två alternativ att välja nodstorlek och operativsystemet: Cloud Services-konfiguration och konfiguration av virtuell dator.
+När du skapar en pool med beräkningsnoder i Batch har två alternativ att välja nodstorlek och operativsystem: Cloud Services-konfiguration och konfiguration av virtuell dator.
 
 En **Cloud Services-konfiguration** tillhandahåller *endast*Windows-beräkningsnoder. Tillgängliga storlekar på noden visas i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md), och tillgängliga operativsystem visas i den [Azures gäst-OS-versioner och SDK-kompatibilitetsöversikten](../cloud-services/cloud-services-guestos-update-matrix.md). När du skapar en pool som innehåller Azure Cloud Services-noder kan ange du nodstorleken och OS-familj som beskrivs i de tidigare nämnda artiklarna. För pooler med Windows beräkningsnoder, används oftast molntjänster.
 
@@ -67,7 +67,7 @@ Batch-nodagenten är ett program som körs på varje nod i poolen och ger komman
 >
 >
 
-## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: Batch Python
+## <a name="create-a-linux-pool-batch-python"></a>Skapa en Linux-pool: Python för Batch
 Följande kodavsnitt visar ett exempel på hur du använder den [Microsoft Azure Batch-klientbiblioteket för Python] [ py_batch_package] att skapa en pool med Ubuntu Server compute-noder. Referensdokumentation för Batch Python-modulen finns på [azure.batch paketet] [ py_batch_docs] vid läsning dokumenten.
 
 Det här kodfragmentet skapar en [ImageReference] [ py_imagereference] explicit och anger var och en av dess egenskaper (utgivare, erbjudande, SKU och version). I produktionskoden, men vi rekommenderar att du använder den [list_node_agent_skus] [ py_list_skus] metod för att fastställa och välj från de tillgängliga avbildning och node agent SKU kombinationerna vid körning.
@@ -145,7 +145,7 @@ vmc = batchmodels.VirtualMachineConfiguration(
     node_agent_sku_id = ubuntu1404agent.id)
 ```
 
-## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: Batch .NET
+## <a name="create-a-linux-pool-batch-net"></a>Skapa en Linux-pool: .NET för Batch
 Följande kodavsnitt visar ett exempel på hur du använder den [Batch .NET] [ nuget_batch_net] -klientbiblioteket för att skapa en pool med Ubuntu Server compute-noder. Du hittar den [Batch .NET-referensdokumentation] [ api_net] på docs.microsoft.com.
 
 I följande kod kodfragment används den [PoolOperations][net_pool_ops].[ ListNodeAgentSkus] [ net_list_skus] metod för att välja från listan över för närvarande Marketplace-avbildning och node agent SKU kombinationer som stöds. Den här tekniken är önskvärt eftersom listan över kombinationer som stöds kan ändras då och då. Oftast läggs kombinationer som stöds.
@@ -216,33 +216,33 @@ I följande tabell visas de virtuella datorn Marketplace-avbildningar som är ko
 
 | **Utgivare** | **Erbjudande** | **Bild-SKU** | **Version** | **Nodagentens SKU-ID** |
 | ------------- | --------- | ------------- | ----------- | --------------------- |
-| batch | rendering centos73 | rendering | senaste | batch.node.centos 7 |
-| batch | rendering windows2016 | rendering | senaste | batch.node.Windows amd64 |
-| Canonical | UbuntuServer | 16.04-LTS | senaste | batch.node.Ubuntu 16.04 |
+| batch | rendering-centos73 | rendering | senaste | batch.node.centos 7 |
+| batch | rendering-windows2016 | rendering | senaste | batch.node.Windows amd64 |
+| Canonical | UbuntuServer | 16.04-LTS | senaste | batch.node.ubuntu 16.04 |
 | Canonical | UbuntuServer | 14.04.5-LTS | senaste | batch.node.Ubuntu 14.04 |
 | credativ | Debian | 9 | senaste | batch.node.debian 9 |
 | credativ | Debian | 8 | senaste | batch.node.debian 8 |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | senaste | batch.node.centos 7 |
-| microsoft-ads | standard –--virtuell dator för datavetenskap | standard –--virtuell dator för datavetenskap | senaste | batch.node.Windows amd64 |
-| Microsoft azure batch | centos-behållare | 7 – 4 | senaste | batch.node.centos 7 |
-| Microsoft azure batch | centos-container-rdma | 7 – 4 | senaste | batch.node.centos 7 |
-| Microsoft azure batch | Ubuntu-server-behållare | 16-04-lts | senaste | batch.node.Ubuntu 16.04 |
-| Microsoft azure batch | Ubuntu-server-behållare – rdma | 16-04-lts | senaste | batch.node.Ubuntu 16.04 |
+| microsoft-ads | standard-data-science-vm | standard-data-science-vm | senaste | batch.node.Windows amd64 |
+| microsoft-azure-batch | centos-behållare | 7-4 | senaste | batch.node.centos 7 |
+| microsoft-azure-batch | centos-container-rdma | 7-4 | senaste | batch.node.centos 7 |
+| microsoft-azure-batch | ubuntu-server-container | 16-04-lts | senaste | batch.node.ubuntu 16.04 |
+| microsoft-azure-batch | ubuntu-server-container-rdma | 16-04-lts | senaste | batch.node.ubuntu 16.04 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2016 Datacenter med behållare | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-R2-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2012 – Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2012-Datacenter-smalldisk | senaste | batch.node.Windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | senaste | batch.node.Windows amd64 |
-| MicrosoftWindowsServer | WindowsServer | 2008-R2 SP1-smalldisk | senaste | batch.node.Windows amd64 |
+| MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1-smalldisk | senaste | batch.node.Windows amd64 |
 | OpenLogic | CentOS | 7.4 | senaste | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.4 | senaste | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.3 | senaste | batch.node.centos 7 |
 | OpenLogic | CentOS-HPC | 7.1 | senaste | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7.4 | senaste | batch.node.centos 7 |
-| SUSE | SLES-HPC | 12 SP2 | senaste | batch.node.OpenSuSE 42.1 |
+| SUSE | SLES-HPC | 12-SP2 | senaste | batch.node.OpenSuSE 42.1 |
 
 ## <a name="connect-to-linux-nodes-using-ssh"></a>Ansluta till Linux-noder med SSH
 Under utvecklingen eller vid felsökning, kan det vara nödvändigt att logga in på noderna i poolen. Till skillnad från Windows-beräkningsnoder, kan inte du använda Remote Desktop Protocol (RDP) för att ansluta till Linux-noder. Med Batch-tjänsten kan i stället SSH-åtkomst på varje nod för fjärranslutning.

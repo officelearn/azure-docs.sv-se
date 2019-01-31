@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database Managed Instance översikt | Microsoft Docs
-description: Det här avsnittet beskrivs en Azure SQL Database Managed Instance och hur det fungerar och hur den skiljer sig från en enskild databas i Azure SQL Database.
+description: Det här avsnittet beskrivs en Azure SQL Database Managed Instance och hur det fungerar och hur den skiljer sig från en enda eller grupperade databas i Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/03/2018
-ms.openlocfilehash: 2807e989436aa80fa812b337340db8cb534b2b28
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
+ms.date: 01/25/2019
+ms.openlocfilehash: ac9a7c081515b35348d10a2968b10647af29ef61
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994767"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465715"
 ---
 # <a name="use-sql-database-managed-instance-with-virtual-networks-and-near-100-compatibility"></a>Använda SQL Database Managed Instance med virtuella nätverk och nästan 100% kompatibilitet
 
@@ -34,7 +34,7 @@ Azure SQL Database Managed Instance är utformat för kunder som vill migrera et
 
 Vid allmän tillgänglighet syftar Managed Instance till att leverera nära 100% ytan kompatibilitet med den senaste lokala SQL Server-versionen via en mellanlagrad version-plan.
 
-Att välja mellan Azure SQL Database enkel databas, Azure SQL Database Managed Instance och SQL Server IaaS i virtuell dator finns i [hur du väljer rätt version av SQL Server i Azure-molnet](sql-database-paas-vs-sql-server-iaas.md).
+Om du vill välja mellan Azure SQL Database enkel databas, databas, hanterad instans och SQL Server på virtuella datorer, se [hur du väljer rätt version av SQL Server i Azure-molnet](sql-database-paas-vs-sql-server-iaas.md).
 
 ## <a name="key-features-and-capabilities"></a>Viktiga funktioner och funktioner
 
@@ -165,7 +165,7 @@ Hanterad instans autentisering refererar till hur användarna bekräfta sin iden
 - **SQL-autentisering**:
 
   Den här autentiseringsmetoden använder ett användarnamn och lösenord.
-- **Azure Active Directory-autentisering**:
+- **Azure Active Directory Authentication**:
 
   Den här autentiseringsmetoden använder identiteter som hanteras av Azure Active Directory och har stöd för hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode).
 
@@ -185,7 +185,7 @@ Förhållningssätt till Databasmigrering utnyttjar SQL-säkerhetskopior till Az
 - Information om återställning från URL: en finns i [interna ÅTERSTÄLLA från URL: en](sql-database-managed-instance-migrate.md#native-restore-from-url).
 
 > [!IMPORTANT]
-> Säkerhetskopior från en hanterad instans kan bara återställas till en annan hanterad instans. De kan inte återställas till en lokal SQL Server eller till en Azure SQL Database logiska servern enkel eller grupperade databas.
+> Säkerhetskopior från en hanterad instans kan bara återställas till en annan hanterad instans. De kan inte återställas till en lokal SQL Server eller till en enda databas/elastisk pool.
 
 ### <a name="data-migration-service"></a>Data Migration Service
 
@@ -210,7 +210,7 @@ Hanterad instans fördelar från att alltid upp-hittills i molnet, vilket inneb�
 - Hanterad instans tillåter inte att ange fullständig fysiska sökvägar så att alla motsvarande scenarier behöver stödjas på olika sätt: ÅTERSTÄLLA DB stöder inte WITH MOVE, skapa DB tillåter inte fysiska sökvägar, BULK INSERT fungerar med Azure Blobs endast osv.
 - Hanterad instans stöder [Azure AD-autentisering](sql-database-aad-authentication.md) som molnet alternativ till Windows-autentisering.
 - Hanterad instans hanterar automatiskt XTP-filgruppen och filer för databaser som innehåller In-Memory OLTP-objekt
-- Hanterad instans har stöd för SQL Server Integration Services (SSIS) och kan värden SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Jämförelse mellan SSIS-funktioner i SQL Database och Managed Instance finns [logisk jämför SQL Database-server och Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-logical-server-and-sql-database-managed-instance).
+- Hanterad instans har stöd för SQL Server Integration Services (SSIS) och kan värden SSIS-katalogen (SSISDB) som lagrar SSIS-paket, men de körs på en hanterad Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). Jämförelse mellan SSIS-funktioner i SQL Database och Managed Instance finns [jämför Azure SQL Database enkel databaser/elastiska pooler och Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance).
 
 ### <a name="managed-instance-administration-features"></a>Hanterad instans-funktioner för administration
 

@@ -11,13 +11,13 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: 49da7704c3b1c3c119528201f34f1352b0afbba4
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.date: 01/25/2019
+ms.openlocfilehash: 6153fbdb6e085d1c817fac5db5eddb5e2c6ae7fa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362134"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465450"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Åtkomstkontroll för Azure SQL Database och SQL Data Warehouse
 
@@ -40,8 +40,8 @@ SQL Database stöder två typer av autentisering:
 
 - **SQL-autentisering**:
 
-  Den här autentiseringsmetoden använder ett användarnamn och lösenord. När du skapade den logiska servern för databasen angav du en "serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till en databas på servern som databasens ägare eller "dbo." 
-- **Azure Active Directory-autentisering**:
+  Den här autentiseringsmetoden använder ett användarnamn och lösenord. När du har skapat SQL Database-server för databasen kan du har angett en ”serveradministratörsinloggning” med ett användarnamn och lösenord. Med dessa autentiseringsuppgifter kan du autentisera till en databas på servern som databasens ägare eller "dbo." 
+- **Azure Active Directory Authentication**:
 
   Den här autentiseringsmetoden använder identiteter som hanteras av Azure Active Directory och har stöd för hanterade och integrerade domäner. Använd Active Directory-autentisering (integrerad säkerhet) [närhelst det går](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode). Om du vill använda Azure Active Directory-autentisering måste du skapa en annan serveradministratör som kallas "Azure AD-admin," som tillåts administrera Azure AD-användare och -grupper. Den här administratören kan också utföra alla åtgärder som en vanlig serveradministratören kan. Se [Ansluta till SQL Database genom att använda Azure Active Directory-autentisering](sql-database-aad-authentication.md) för en genomgång av hur du skapar en Azure AD-administratör för att aktivera Azure Active Directory-autentisering.
 

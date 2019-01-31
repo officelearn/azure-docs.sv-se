@@ -1,6 +1,6 @@
 ---
 title: Accelererad databasåterställning – Azure SQL Database | Microsoft Docs
-description: Azure SQL-databasen har en ny funktion som ger snabb och konsekvent databasåterställning och omedelbar transaktionsåterställning aggressiva loggtrunkering för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
+description: Azure SQL-databasen har en ny funktion som ger snabb och konsekvent databasåterställning och omedelbar transaktionsåterställning aggressiva loggtrunkering för enskilda databaser och databaser i en pool i Azure SQL Database och databaser i Azure SQL Data Datalager.
 ms.service: sql-database
 ms.subservice: high-availability
 ms.custom: ''
@@ -10,17 +10,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/11/2018
-ms.openlocfilehash: deaf5c9180841f8c5b2d21a820f2ab2362dc2453
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53600733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55475456"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Snabbare återställning av databas (förhandsversion)
 
-**Accelerated Database Recovery (ADR)** en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse. De främsta fördelarna med ADR är:
+**Accelerated Database Recovery (ADR)** en ny SQL database engine-funktion som avsevärt förbättrar databastillgänglighet, särskilt om det förekommer långa körs transaktioner, genom att göra om SQL database engine återställningsprocessen. Regel för automatisk distribution är för närvarande tillgängligt för enskilda databaser och databaser i en pool i Azure SQL Database och databaser i Azure SQL Data Warehouse. De främsta fördelarna med ADR är:
 
 - **Snabbt och konsekvent databasåterställning**
 
@@ -127,4 +127,4 @@ Följande typer av kunder bör överväga att aktivera automatisk Distributionsr
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Aktivera ADR under denna förhandsgranskningsperiod
 
-Under utvärderingsperioden för den här funktionen, skicka ett e- [ adr@microsoft.com ](mailto:adr@microsoft.com) vill veta mer och försök ut Accelerated Database Recovery (ADR). I e-post, inkluderar du namnet på den logiska servern (för enkla databaser, elastiska pooler och Azure Data Warehouse). Eftersom detta är en förhandsgranskningsfunktion måste testservern vara en icke-produktion-server.
+Under utvärderingsperioden för den här funktionen, skicka ett e- [ adr@microsoft.com ](mailto:adr@microsoft.com) vill veta mer och försök ut Accelerated Database Recovery (ADR). I e-post, inkluderar du namnet på din SQL Database-server (för enkla databaser och databaser i pooler i SQL-databas och databaser i Azure Data Warehouse). Eftersom detta är en förhandsgranskningsfunktion måste testservern vara en icke-produktion-server.

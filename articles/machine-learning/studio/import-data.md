@@ -1,6 +1,6 @@
 ---
-Rubrik: Importera data till Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Importera data till Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Hur du importerar dina data till Azure Machine Learning Studio från olika datakällor. Lär dig vilka datatyper och dataformat stöds.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---
@@ -53,12 +53,12 @@ Du kan uttryckligen ange eller ändra rubriker och datatyper för kolumner med h
 
 Följande **datatyper** som identifieras av Machine Learning Studio:
 
-* Sträng
+* String
 * Integer
-* Double-värde
+* Double
 * Boolesk
 * DateTime
-* Tidsintervall
+* TimeSpan
 
 Machine Learning Studio använder en intern datatyp som kallas ***datatabell*** att överföra data mellan moduler. Du kan uttryckligen omvandla dina data till datatabell format med hjälp av den [konvertera till datauppsättningen] [ convert-to-dataset] modulen.
 

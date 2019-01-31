@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fbc23d53687b908245ffe25bdd418cbe64af080b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136196"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478499"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Flytta data till SQL Server på en virtuell Azure-dator
 
@@ -64,20 +64,23 @@ BCP är ett kommandoradsverktyg som installerats med SQL Server och ett av de sn
 
 1. Se till att databasen och tabellerna har skapats i måldatabasen i SQL Server. Här är ett exempel på hur du använder den `Create Database` och `Create Table` kommandon:
 
-        CREATE DATABASE <database_name>
+```sql
+CREATE DATABASE <database_name>
 
-        CREATE TABLE <tablename>
-        (
-            <columnname1> <datatype> <constraint>,
-            <columnname2> <datatype> <constraint>,
-            <columnname3> <datatype> <constraint>
-        )
+CREATE TABLE <tablename>
+(
+    <columnname1> <datatype> <constraint>,
+    <columnname2> <datatype> <constraint>,
+    <columnname3> <datatype> <constraint>
+)
+```
+
 2. Generera-fil som beskriver schemat för tabellen genom att följande kommando från kommandoraden för datorn där bcp är installerad.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
 3. Infoga data i databasen med kommandot bcp på följande sätt. Detta bör fungera från kommandoraden, förutsatt att SQL Server är installerad på samma dator:
 
-    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attemp -t \t -r \n`
+    `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
 > **Optimera BCP infogar** finns i följande artikel [”riktlinjer för att optimera massimport'](https://technet.microsoft.com/library/ms177445%28v=sql.105%29.aspx) att optimera sådana infogningar.
 >
@@ -87,46 +90,47 @@ BCP är ett kommandoradsverktyg som installerats med SQL Server och ett av de sn
 Om du flyttar data är stort, kan du påskynda processen genom att samtidigt köra flera BCP kommandon parallellt i ett PowerShell-skript.
 
 > [!NOTE]
-> **Stordata inmatning** partitionera logiska och fysiska databastabeller med flera filgrupper och partition tabeller för att optimera datainläsning för stora och mycket stora datauppsättningar. Läs mer om att skapa och läser in data till partitionstabeller [parallell inläsning SQL-partitionstabeller](parallel-load-sql-partitioned-tables.md).
+> **Stordata inmatning** för att optimera datainläsning för stora och mycket stora datauppsättningar, partitionera dina logiska och fysiska databastabeller som använder flera filgrupper och partitionera tabeller. Läs mer om att skapa och läser in data till partitionstabeller [parallell inläsning SQL-partitionstabeller](parallel-load-sql-partitioned-tables.md).
 >
 >
 
-PowerShell-exempelskriptet nedan visar parallella infogningar med bcp:
+Följande PowerShell-exempelskript visar parallella infogningar med bcp:
 
-    $NO_OF_PARALLEL_JOBS=2
+```powershell
+$NO_OF_PARALLEL_JOBS=2
 
-     Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
-     # Define what each job does
-       $ScriptBlock = {
-           param($partitionnumber)
+Set-ExecutionPolicy RemoteSigned #set execution policy for the script to execute
+# Define what each job does
+$ScriptBlock = {
+    param($partitionnumber)
 
-           #Explictly using SQL username password
-           bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
+    #Explicitly using SQL username password
+    bcp database..tablename in datafile_path.csv -F 2 -f format_file_path.xml -U username@servername -S tcp:servername -P password -b block_size_to_move_in_single_attempt -t "," -r \n -o path_to_outputfile.$partitionnumber.txt
 
-            #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
-            #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
-      }
-
-
-    # Background processing of all partitions
-    for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
-    {
-      Write-Debug "Submit loading partition # $i"
-      Start-Job $ScriptBlock -Arg $i      
-    }
+    #Trusted connection w.o username password (if you are using windows auth and are signed in with that credentials)
+    #bcp database..tablename in datafile_path.csv -o path_to_outputfile.$partitionnumber.txt -h "TABLOCK" -F 2 -f format_file_path.xml  -T -b block_size_to_move_in_single_attempt -t "," -r \n
+}
 
 
-    # Wait for it all to complete
-    While (Get-Job -State "Running")
-    {
-      Start-Sleep 10
-      Get-Job
-    }
+# Background processing of all partitions
+for ($i=1; $i -le $NO_OF_PARALLEL_JOBS; $i++)
+{
+    Write-Debug "Submit loading partition # $i"
+    Start-Job $ScriptBlock -Arg $i      
+}
 
-    # Getting the information back from the jobs
-    Get-Job | Receive-Job
-    Set-ExecutionPolicy Restricted #reset the execution policy
 
+# Wait for it all to complete
+While (Get-Job -State "Running")
+{
+    Start-Sleep 10
+    Get-Job
+}
+
+# Getting the information back from the jobs
+Get-Job | Receive-Job
+Set-ExecutionPolicy Restricted #reset the execution policy
+```
 
 ### <a name="insert-tables-bulkquery"></a>Bulk Insert SQL-fråga
 [Bulk Insert SQL-fråga](https://msdn.microsoft.com/library/ms188365) kan användas för att importera data till databasen från rad/kolumn baserad filer (typerna som stöds beskrivs i den[förbereda Data för Bulk exportera eller importera (SQL Server)](https://msdn.microsoft.com/library/ms188609)) avsnittet.
@@ -135,18 +139,22 @@ Här följer några exempelkommandon för Bulk Insert är enligt nedan:
 
 1. Analysera dina data och ange några anpassade alternativ innan du importerar för att se till att SQL Server-databasen förutsätter samma format för eventuella särskilda fält, till exempel datum. Här är ett exempel på hur du konfigurerar datumformatet som år-månad-dag (om dina data innehåller datumet i formatet år-månad-dag):
 
-        SET DATEFORMAT ymd;    
+```sql
+SET DATEFORMAT ymd;
+```
 2. Importera data med hjälp av bulk importuttryck:
 
-        BULK INSERT <tablename>
-        FROM    
-        '<datafilename>'
-        WITH
-        (
-        FirstRow=2,
-        FIELDTERMINATOR =',', --this should be column separator in your data
-        ROWTERMINATOR ='\n'   --this should be the row separator in your data
-        )
+```sql
+BULK INSERT <tablename>
+FROM
+'<datafilename>'
+WITH
+(
+    FirstRow = 2,
+    FIELDTERMINATOR = ',', --this should be column separator in your data
+    ROWTERMINATOR = '\n'   --this should be the row separator in your data
+)
+```
 
 ### <a name="sql-builtin-utilities"></a>Inbyggda verktyg i SQLServer
 Du kan använda SQL Server integration Services (SSIS) för att importera data till SQL Server-VM på Azure från en platt fil.

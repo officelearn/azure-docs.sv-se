@@ -12,16 +12,16 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: bd766dfb712921a57dd23c4fdecc25dd623eb833
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: f63a42afd9dc629bd87dfb23e07e14737ea42a2f
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393272"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299851"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Flera klienter analytics med hjälp av extraherade data - enda klient
  
-I den här självstudien får gå igenom ett scenario med fullständig analytics för en enskild klient implementatoin. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från varje klientdatabas kan använda du analytics och få insikter om klient beteendet, inklusive deras användning av Wingtip biljetter SaaS-exempelprogram. Det här scenariot omfattar tre steg: 
+I den här självstudien får gå igenom ett scenario med fullständig analytics för en enskild klient-implementering. Scenariot visar hur analytics kan aktivera företag att fatta smarta beslut. Med data som extraheras från varje klientdatabas kan använda du analytics och få insikter om klient beteendet, inklusive deras användning av Wingtip biljetter SaaS-exempelprogram. Det här scenariot omfattar tre steg: 
 
 1.  **Extrahera** data från varje klientdatabas och **belastningen** till en analytics-arkivet.
 2.  **Omvandla de extraherade data** för bearbetning av trafikanalys.

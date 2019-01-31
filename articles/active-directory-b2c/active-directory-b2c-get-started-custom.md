@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 01/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2d5cc846b6ca2eadacfcc8223e4ba3932e961ece
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173606"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55298747"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Kom igång med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. I den här artikeln skapar du en anpassad princip som har stöd för lokalt konto registrerings- eller logga in med en e-postadress och lösenord. Du kan även förbereda din miljö för att lägga till identitetsleverantörer, till exempel Facebook.
+[Anpassade principer](active-directory-b2c-overview-custom.md) är konfigurationsfiler som definierar beteendet för din Azure Active Directory (Azure AD) B2C-klient. I den här artikeln skapar du en anpassad princip som har stöd för lokalt konto registrerings- eller logga in med en e-postadress och lösenord. Du kan även förbereda din miljö för att lägga till identitetsleverantörer.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -63,17 +63,32 @@ Om du redan har en [Facebook programhemlighet](active-directory-b2c-setup-fb-app
 5. För **nyckelanvändning**väljer **signatur**.
 6. Klicka på **Skapa**.
 
-## <a name="register-an-application"></a>Registrera ett program
+## <a name="register-applications"></a>Registrera program
 
-Ett program registreras i Azure Active Directory (Azure AD) B2C för att aktivera en användare att registrera dig och logga in med ett lokalt konto som finns i din klient. Dina användare registrera sig med en unik e-postadress och lösenord för att få åtkomst till det registrerade programmet.
+Azure AD B2C måste du registrera två program som används för att registrera dig och logga in användare: IdentityExperienceFramework (en webbapp) och ProxyIdentityExperienceFramework (en inbyggd app) med delegerad behörighet från IdentityExperienceFramework app. Lokala konton finns bara i din klientorganisation. Dina användare registrera sig med en unik e-postadress/lösenord kombination åtkomst till din klient-registrerade program.
+
+### <a name="register-the-identityexperienceframework-application"></a>Registrera IdentityExperienceFramework-program
 
 1. Välj **alla tjänster** i det övre vänstra hörnet i Azure Portal Sök efter och välj **appregistreringar**.
 2. Välj **Ny programregistrering**.
-3. För **namn**, ange `ProxyIdentityExperienceFramework`.
-4. För **programtyp**, Välj **interna**.
-5. För **omdirigerings-URI**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är namnet på din Azure AD B2C-klient.
-6. Klicka på **Skapa**. När den har skapats kan du kopiera program-ID och spara den för senare användning.
-7. Välj **bevilja behörigheter**, och bekräfta sedan genom att välja **Ja**.
+3. För **namn**, ange `IdentityExperienceFramework`.
+4. För **programtyp**, Välj **Web app/API**.
+5. För **inloggnings-URL**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `your-tenant-name` är ditt domännamn i Azure AD B2C-klient.
+6. Klicka på **Skapa**. 
+7. När den har skapats kan du kopiera program-ID och spara den för senare användning.
+
+### <a name="register-the-proxyidentityexperienceframework-application"></a>Registrera ProxyIdentityExperienceFramework-program
+
+1. Välj **appregistreringar**, och välj sedan **ny programregistrering**.
+2. För **namn**, ange `ProxyIdentityExperienceFramework`.
+3. För **programtyp**, Välj **interna**.
+4. För **omdirigerings-URI**, ange `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, där `yourtenant` är din Azure AD B2C-klient.
+5. Klicka på **Skapa**. När den har skapats kan du kopiera program-ID och spara den för senare användning.
+6. På sidan Inställningar väljer **nödvändiga behörigheter**, och välj sedan **Lägg till**.
+7. Välj alternativet **Välj ett API**.
+8. Sök efter och välj **IdentityExperienceFramework**, och klicka sedan på **Välj**.
+9. Markera kryssrutan bredvid **åtkomst IdentityExperienceFramework**, klickar du på **Välj**, och klicka sedan på **klar**.
+10. Välj **bevilja behörigheter**, och bekräfta sedan genom att välja **Ja**.
 
 ## <a name="download-starter-pack-and-modify-policies"></a>Ladda ned startpaket och ändra principer
 
@@ -87,8 +102,8 @@ Anpassade principer är en uppsättning XML-filer som behöver överföras till 
 Varje startpaket innehåller:
 
 - Grundläggande filen. Det krävs några ändringar för basen.
-* Tilläggsfilen.  Den här filen är där de flesta konfigurationsändringar görs.
-* Förlitande part-filer. Uppgiftsspecifika filer som anropas av ditt program.
+- Tilläggsfilen.  Den här filen är där de flesta konfigurationsändringar görs.
+- Förlitande part-filer. Uppgiftsspecifika filer som anropas av ditt program.
 
 >[!NOTE]
 >Om XML-redigerare har stöd för verifiering, verifiera filer mot TrustFrameworkPolicy_0.3.0.0.xsd XML-schemat som finns i rotkatalogen för startpaket. XML-schemavalideringen identifierar fel innan du laddar upp.
@@ -106,7 +121,7 @@ Varje startpaket innehåller:
 Lägg till program-ID i tilläggsfilen *TrustFrameworkExtensions.xml*.
 
 1. Öppna den *TrustFrameworkExtensions.xml* filen och hitta elementet `<TechnicalProfile Id="login-NonInteractive">`.
-2. Ersätt båda värdet för `client_id` och `resource_id` med program-ID för ProxyIdentityExperienceFramework programmet som du skapade tidigare.
+2. Ersätt båda förekomsterna av `IdentityExperienceFrameworkAppId` med program-ID för programmet för Identitetsupplevelse som du skapade tidigare. Ersätt båda förekomsterna av `ProxyIdentityExperienceFrameworkAppId` med program-ID för det Identitetsramverk för Proxy-program som du skapade tidigare.
 3. Spara tilläggsfilen.
 
 ## <a name="upload-the-policies"></a>Ladda upp principer

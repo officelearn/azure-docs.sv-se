@@ -1,6 +1,6 @@
 ---
-Rubrik: Omtrimma en ny Machine Learning Studio-webbtjänst med PowerShell titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning med Machine Learning Management PowerShell-cmdletar.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Omtrimma en ny Machine Learning Studio-webbtjänst med PowerShell titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning med Machine Learning Management PowerShell-cmdletar.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
 ---

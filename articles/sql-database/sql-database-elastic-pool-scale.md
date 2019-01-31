@@ -11,19 +11,19 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 04fcb84b22e84060652b4a3743cb73e4543ee573
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.date: 01/25/2019
+ms.openlocfilehash: 310d662782ff7d9713007b59f0d9b75620a03f5f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52868454"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455107"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Skala resurser för elastisk pool i Azure SQL Database
 
 Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som är tillgängliga för elastiska pooler och databaser i pooler i Azure SQL Database.
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>vCore-baserade inköpsmodellen: ändra lagringsstorleken för elastisk pool
+## <a name="vcore-based-purchasing-model-change-elastic-pool-storage-size"></a>vCore-baserade inköpsmodellen: Ändra lagringsstorleken för elastisk pool
 
 - Storage kan etableras upp till den maximala storleksgränsen:
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver hur du skalar beräknings- och lagringsresurser som 
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore-baserade inköpsmodellen: ändra elastisk pool beräkningsresurser (virtuella kärnor)
+## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>vCore-baserade inköpsmodellen: Ändra elastisk pool beräkningsresurser (virtuella kärnor)
 
 Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
@@ -44,7 +44,7 @@ Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på res
 - I allmänhet varaktighet att ändra min virtuella kärnor per databas eller högsta antal virtuella kärnor per databas är fem minuter eller mindre.
 - När downsizing pool virtuella kärnor, måste poolutrymmet används vara mindre än det högsta tillåtna storleken på tjänsten target vCores nivå och pool.
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU-baserade inköpsmodellen: ändra lagringsstorleken för elastisk pool
+## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>DTU-baserade inköpsmodellen: Ändra lagringsstorleken för elastisk pool
 
 - EDTU-priset för en elastisk pool innehåller en viss mängd lagringsutrymme utan extra kostnad. Extra lagringsutrymme utöver mängden kan etableras för en ytterligare kostnad upp till den maximala storleksgränsen i steg om 250 GB upp till 1 TB och sedan i steg om 256 GB mer än 1 TB. Inkluderad lagring belopp och max storleksgränser finns i [elastisk pool: lagringsstorlekar och storlekar på](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
 - Extra lagringsutrymme för en elastisk pool kan etableras genom att öka sin maximala storlek med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [REST API ](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
@@ -53,7 +53,7 @@ Du kan öka eller minska beräkningsstorleken i en elastisk pool baserat på res
 > [!IMPORTANT]
 > Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
-## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU-baserade inköpsmodellen: ändra elastisk pool beräkningsresurser (edtu: er)
+## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>DTU-baserade inköpsmodellen: Ändra elastisk pool beräkningsresurser (edtu: er)
 
 Du kan öka eller minska resurserna som är tillgängliga i en elastisk pool baserat på resursen behov med hjälp av den [Azure-portalen](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update), eller [ REST-API](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 

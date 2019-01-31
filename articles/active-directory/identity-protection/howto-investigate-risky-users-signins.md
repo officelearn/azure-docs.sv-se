@@ -9,21 +9,21 @@ manager: mtillman
 ms.author: markvi
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
-ms.component: identity-protection
+ms.subservice: identity-protection
 ms.date: 01/25/2019
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.reviewer: raluthra
-ms.openlocfilehash: 25482d9cfc634b63b05e944cf7ca91f90b24f5f1
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: f72819bacd7c65ced7ccff3665789d3b96c5e30f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54914088"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478380"
 ---
-# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Hur: Undersöka riskabla användare och inloggningar 
+# <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instruktioner: Undersöka riskfyllda användare och inloggningar 
 
 
 Använda rapporter för riskfyllda inloggningar och riskfylld användare du undersöka och få insyn i risker i din miljö. Möjlighet att filtrera och sortera riskfyllda inloggningar och användare, kan du bättre förstår potentiella intrång i din organisation. 
@@ -55,7 +55,7 @@ Rapporten över riskfyllda användare har en standard-vy som visar:
 
 - Risk senast uppdaterad
 
-- Typ
+- Type
 
 - Status
  
@@ -112,7 +112,7 @@ Om du vill begränsa data som rapporteras till en nivå som passar dig kan filtr
 
 - Risknivå
 
-- Typ
+- Type
 
 - Status
 

@@ -1,6 +1,6 @@
 ---
-Rubrik: Skala en Machine Learning Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Skala en Machine Learning Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig mer om att öka parallellkörningen av en Azure Machine Learning Studio-webbtjänst genom att lägga till ytterligare slutpunkter.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/23/2017
 ---

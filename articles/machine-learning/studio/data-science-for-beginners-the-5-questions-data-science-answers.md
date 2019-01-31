@@ -1,6 +1,6 @@
 ---
 Rubrik: Datavetenskap för nybörjare titleSuffix: Beskrivning av Azure Machine Learning Studio: Datavetenskap Lär för nybörjare är grundläggande begrepp i 5 korta videor från och med den 5 frågor och svar om datavetenskap. Från Azure Machine Learning.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/03/2018
 ---

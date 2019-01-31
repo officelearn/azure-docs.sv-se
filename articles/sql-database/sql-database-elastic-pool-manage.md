@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/17/2019
-ms.openlocfilehash: 93b7fb0cd303f34d4afadf461f8886aaac52e4c3
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.date: 01/25/2019
+ms.openlocfilehash: 38f0d9cc6f507aa7d521aba0ff737f7bbaf2b211
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388579"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55468129"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Skapa och hantera elastiska pooler i Azure SQL Database
 
@@ -39,7 +39,7 @@ Härifrån kan du valfri kombination av följande ändringar och spara dem alla 
 
 ## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell: Hantera elastiska pooler och databaser i en pool
 
-Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera logiska servrar för en elastisk pool, se [skapa och hanterade logiska servrar](sql-database-logical-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
+Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database elastiska pooler och databaser i en pool med Azure PowerShell. Om du behöver installera eller uppgradera PowerShell kan du läsa [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Om du vill skapa och hantera SQL Database-servrar för en elastisk pool, se [skapa och hantera SQL Database-servrar](sql-database-servers.md). För att skapa och hantera brandväggsregler, se [skapa och hantera brandväggsregler med hjälp av PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
 > [!TIP]
 > Exempelskript för PowerShell, se [skapa elastiska pooler och flytta databaser mellan pooler och från en pool med PowerShell](scripts/sql-database-move-database-between-pools-powershell.md) och [använda PowerShell för att övervaka och skala en elastisk SQL-pool i Azure SQL Database](scripts/sql-database-monitor-and-scale-pool-powershell.md).
@@ -47,11 +47,11 @@ Använd följande PowerShell-cmdletar för att skapa och hantera SQL Database el
 
 | Cmdlet | Beskrivning |
 | --- | --- |
-|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk databaspool på en logisk SQLServer.|
-|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hämtar elastiska pooler och deras värden på en logisk SQLServer.|
-|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Ändrar egenskaper för en elastisk databaspool på en logisk SQLServer. Till exempel använda den **StorageMB** egenskapen att ändra det maximala lagringsutrymmet för en elastisk pool.|
-|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk databaspool på en logisk SQLServer.|
-|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool på en logisk SQLServer.|
+|[New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool)|Skapar en elastisk pool.|
+|[Get-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/get-azurermsqlelasticpool)|Hämtar elastiska pooler och deras värden.|
+|[Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool)|Ändrar egenskaperna för en elastisk pool till exempel den **StorageMB** egenskapen att ändra det maximala lagringsutrymmet för en elastisk pool.|
+|[Remove-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/remove-azurermsqlelasticpool)|Tar bort en elastisk pool.|
+|[Get-AzureRmSqlElasticPoolActivity](/powershell/module/azurerm.sql/get-azurermsqlelasticpoolactivity)|Hämtar status för åtgärder på en elastisk pool|
 |[New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase)|Skapar en ny databas i en befintlig pool eller som en enskild databas. |
 |[Get-AzureRmSqlDatabase](/powershell/module/azurerm.sql/get-azurermsqldatabase)|Hämtar en eller flera databaser.|
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Anger egenskaperna för en databas eller flyttar en befintlig databas till, från eller mellan elastiska pooler.|
@@ -90,7 +90,7 @@ Skapa och flytta databaser i befintliga elastiska pooler, eller för att returne
 |[Skapa databas (Azure SQL Database)](/sql/t-sql/statements/create-database-azure-sql-database)|Skapar en ny databas i en befintlig pool eller som en enskild databas. Du måste vara ansluten till huvuddatabasen för att skapa en ny databas.|
 | [ALTER DATABASE (Azure SQL-databas)](/sql/t-sql/statements/alter-database-azure-sql-database) |Flytta en databas till, från eller mellan elastiska pooler.|
 |[Ta bort databasen (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Tar bort en databas.|
-|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar resource användningsstatistik för elastic database-pooler i en logisk server. För varje elastisk databaspool finns det en rad för varje 15 sekund reporting fönstret (fyra rader per minut). Detta inkluderar CPU, IO, Log, lagringsanvändningen och samtidig begäran/sessionen utnyttjande av alla databaser i poolen.|
+|[sys.elastic_pool_resource_stats (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Returnerar resource användningsstatistik för elastiska pooler i SQL-databasserver. För varje elastisk pool finns en rad för varje 15 sekund reporting fönstret (fyra rader per minut). Detta inkluderar CPU, IO, Log, lagringsanvändningen och samtidig begäran/sessionen utnyttjande av alla databaser i poolen.|
 |[sys.database_service_objectives (Azure SQL Database)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Returnerar edition (tjänstnivå), tjänstmålet (prisnivå) och namn på elastisk pool, om sådant finns, för en Azure SQL database eller en Azure SQL Data Warehouse. Returnerar information om alla databaser om inloggad på master-databasen i en Azure SQL Database-server. Du måste vara ansluten till huvuddatabasen för för Azure SQL Data Warehouse.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>REST-API: Hantera elastiska pooler och databaser i en pool
@@ -102,14 +102,14 @@ Använd dessa REST API-begäranden för att skapa och hantera SQL Database elast
 |[Elastiska pooler – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Skapar en ny elastisk pool eller uppdaterar en befintlig elastisk pool.|
 |[Elastiska pooler – ta bort](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Tar bort den elastiska poolen.|
 |[Elastiska pooler – Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Hämtar en elastisk pool.|
-|[Elastiska pooler – lista med Server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista med elastiska pooler på en server.|
+|[Elastiska pooler – listan efter server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Returnerar en lista med elastiska pooler på en server.|
 |[Elastiska pooler – uppdatera](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Uppdaterar en befintlig elastisk pool.|
-|[Elastisk pool aktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
+|[Elastisk pool-aktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Returnerar elastisk pool aktiviteter.|
 |[Elastisk pool databasaktiviteter](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Returnerar aktivitet på databaser i en elastisk pool.|
 |[Databaser – skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Skapar en ny databas eller uppdaterar en befintlig databas.|
 |[Databaser – Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Hämtar en databas.|
-|[Databaser – lista med elastisk Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
-|[Databaser – listan efter Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
+|[Databaser – lista med elastisk pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returnerar en lista över databaser i en elastisk pool.|
+|[Databaser – listan efter server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returnerar en lista över databaser i en server.|
 |[Databaser – uppdatering](https://docs.microsoft.com/rest/api/sql/databases/update)|Uppdaterar en befintlig databas.|
 
 ## <a name="next-steps"></a>Nästa steg

@@ -6,16 +6,16 @@ author: hirokib
 manager: jrj
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 10/12/2018
 ms.author: elbutter
 ms.reviewer: craigg
-ms.openlocfilehash: 50f5f813444ddf38d15863d028b1f61bb9b0d55c
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: 3b354ebf5436a6637fe126085225b0ae6c8f1dcc
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52580540"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465868"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Kom igång snabbt med Fivetran och SQL Data Warehouse
 
@@ -35,7 +35,7 @@ Den här snabbstarten beskriver hur du ställer in en ny Fivetran användare att
 
 3. Lägg till IP-adressen **52.0.2.4** att brandväggen på servernivå för att tillåta inkommande anslutningar till din SQL Data Warehouse-instans från Fivetran.
 
-   Mer information finns i [skapa en brandväggsregel på servernivå](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
+   Mer information finns i [Skapa en brandväggsregel på servernivå](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
 ## <a name="set-up-user-credentials"></a>Konfigurera användarautentiseringsuppgifter för
 

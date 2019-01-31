@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5767399189e4ed5168fbcc083ef9b4830cac1421
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: b7c10884682b6537bbfcbb1b1f8b89b38751d05b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138984"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478057"
 ---
 # <a name="feature-engineering-in-data-science"></a>Funktionstekniker i datavetenskap
 Den här artikeln förklarar syftet funktionsframställning och innehåller exempel på dess roll i processen för data förbättring av machine learning. I exemplen som används för att illustrera denna process hämtas från Azure Machine Learning Studio. 
@@ -25,8 +25,8 @@ Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https:/
 
 Funktionen engineering försöker ökar förutsägande learning-algoritmer genom att skapa funktioner från rådata som underlättar learning processen. Teknik- och urval funktioner är en del av TDSP som beskrivs i den [vad är Team Data Science Process-livscykeln?](overview.md) Funktioner och egenskapsval är delar av den **utveckla funktioner** steg i TDSP. 
 
-* **funktionstekniker**: den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften i Inlärningsalgoritmen.
-* **Funktionsval**: den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
+* **egenskapsval**: Den här processen försöker att skapa ytterligare relevanta funktioner från de befintliga raw-funktionerna i data och för att öka förutsägande kraften i Inlärningsalgoritmen.
+* **Funktionsval**: Den här processen väljer viktiga delmängd av den ursprungliga datafunktioner i ett försök att minska dimensionaliteten för utbildning-problem.
 
 Normalt **funktionstekniker** tillämpas först för att generera ytterligare funktioner, och sedan den **Funktionsval** steg utförs för att ta bort irrelevanta, redundant eller mycket korrelerade funktioner.
 
@@ -49,7 +49,7 @@ När du börjar med Azure Machine Learning är det enklast att förstå själva 
 * Ett exempel på regression [förutsägelse av antalet uthyrda cyklar](http://gallery.cortanaintelligence.com/Experiment/Regression-Demand-estimation-4) i ett övervakat experiment där målvärden är kända
 * En text utvinning klassificering exempel med hjälp av [funktions-hashning](https://msdn.microsoft.com/library/azure/c9a82660-2d9c-411d-8122-4d9e0b3ce92a/)
 
-## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exempel 1: Lägg till den temporala funktioner för en regressionsmodell
+## <a name="example-1-add-temporal-features-for-a-regression-model"></a>Exempel 1: Lägga till den temporala funktioner för en regressionsmodell
 Vi använder experiment ”efterfrågeprognostisering av cyklar” i Azure Machine Learning Studio för att visar hur du kan skapa funktioner för en regression aktivitet. Målet med det här experimentet är att förutse behovet av cyklar, det vill säga antalet uthyrda cyklar inom en viss månad/dag/timme. Datauppsättningen ”cykel hyra cykeluthyrningsdata från datauppsättningen” används som indata rådata. Den här datauppsättningen är baserad på verkliga data från kapital Bikeshare företaget som underhåller ett cykel hyra nätverk i Washington DC i USA. Datauppsättningen representerar antalet uthyrda cyklar inom en viss timme per dag under år 2011 och år 2012 och innehåller 17379 rader och 17 kolumner. Rå funktionsuppsättningen innehåller väderförhållanden (temperatur/fuktighet/vindhastighet) och vilken typ av dagen (helgdag/veckodag). Fältet för att förutsäga är ”cnt” antal, som representerar uthyrda cyklar inom en viss timme och vilket mellan 1 och 977.
 
 Med målet att konstruera effektiva funktioner i träningsdata fyra regression modeller skapas med samma algoritm men med datauppsättningar för fyra olika utbildning. De fyra datauppsättningarna representerar samma inkommande rådata, men med ett större antal funktioner. Dessa funktioner är grupperade i fyra kategorier:

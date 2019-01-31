@@ -5,17 +5,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: faf0e06a0649c31cec840a5043a11af601ba5c47
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139647"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465273"
 ---
 # <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Uppgifter för teamet leda i Team Data Science Process-teamet
 
@@ -45,12 +45,12 @@ När du har flera förutsättningar uppgifter som anges i följande avsnitt är 
 
 Det här avsnittet använder förkortade namnen för databaser och kataloger. Dessa namn gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen (**R** för Git-lagringsplatser och **D** för lokala kataloger på din DSVM) används i följande avsnitt:
 
-- **R1**: den **GroupProjectTemplate** databasen på Git som din gruppansvarig ställts in på din server för Azure DevOps-gruppen.
-- **R3**: teamet **ProjectTemplate** databasen på Git som du har konfigurerat.
-- **R4**: den **TeamUtilities** databasen på Git som du har konfigurerat.
-- **D1**: den lokala katalogen klonas från R1 och kopieras till D3.
-- **D3**: den lokala katalogen klonas från R3, anpassa och kopieras till R3.
-- **D4**: den lokala katalogen klonas från R4, anpassa och kopieras till R4.
+- **R1**: Den **GroupProjectTemplate** databasen på Git som din gruppansvarig ställts in på din server för Azure DevOps-gruppen.
+- **R3**: Teamet **ProjectTemplate** databasen på Git som du har konfigurerat.
+- **R4**: Den **TeamUtilities** databasen på Git som du har konfigurerat.
+- **D1**: Den lokala katalogen klonas från R1 och kopieras till D3.
+- **D3**: Den lokala katalogen klonas från R3, anpassa och kopieras till R3.
+- **D4**: Den lokala katalogen klonas från R4, anpassa och kopieras till R4.
 
 Namnen på har angetts för databaser och kataloger i den här självstudien har angetts på antagandet att målet är att upprätta en separat projekt för ditt team i en större grupp för data science. Men det finns andra alternativ som är öppna för dig som gruppledare:
 
@@ -140,9 +140,9 @@ Seeding proceduren använder katalogerna på din lokala DSVM som mellanliggande 
 
 - Klonade grupp lagringsplats till lokal katalog: team R1 - klonas för att lokala D1 ->
 - Klona team-databaser till lokala kataloger: team R3 & R4 - klonas för att lokal D3 och D4 ->
-- Kopiera gruppinnehåll för mallen i projektet till mappen lokala team: D1 - innehållet kopieras till D3 ->
+- Kopiera gruppinnehåll för mallen i projektet till mappen lokala team:  D1 - innehållet kopieras till D3 ->
 - (Valfritt) anpassning av lokal D3 och D4
-- Skicka lokala katalogens innehåll till teamet databaser: D3 & D4 - innehållet Lägg till -> team R3 & R4
+- Skicka lokala katalogens innehåll till teamet databaser: D3 & D4 - contents add to -> team R3 & R4
 
 
 ### <a name="initialize-the-team-repositories"></a>Initiera team-databaser
@@ -355,7 +355,7 @@ Bekräfta att en ny F-enhet har monterats på din dator.
 
 ![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
 
-**Hur du manuellt anger informationen om Azure file storage:** om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, storage-konto och Azure information om filen:
+**Så här anger du Azure file storage information manuellt:** Om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, lagringskontot och information om Azure storage:
 
 ![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
 
@@ -384,7 +384,7 @@ Bekräfta att en ny F-enhet har monterats på din dator.
 
 ![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
 
-**Hur du manuellt anger informationen om Azure file storage:** om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, storage-konto och Azure information om filen:
+**Så här anger du Azure file storage information manuellt:** Om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, lagringskontot och information om Azure storage:
 
 - Indata **n**.
 - Välj indexet som namnet på prenumerationen där Azure file storage har skapats i föregående steg:

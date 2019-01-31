@@ -2,20 +2,20 @@
 title: Transparent datakryptering i SQL Data Warehouse (T-SQL) | Microsoft Docs
 description: Transparent datakryptering (TDE) i SQL Data Warehouse (T-SQL)
 services: sql-data-warehouse
-author: kavithaj
+author: KavithaJonnakuti
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ccdba241a2921a59f7db9668ec2b6f0921aa9f44
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 50b6077687da2ed24a3a90b227d129c43f70bfc9
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307695"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465817"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>Kom igång med Transparent datakryptering (TDE)
 > [!div class="op_single_selector"]
@@ -71,7 +71,7 @@ FROM
 Ett resultat av ```1``` anger en krypterad databas ```0``` anger en icke-krypterade databas.
 
 ## <a name="encryption-dmvs"></a>Kryptering DMV: er
-* [sys.Databases][sys.databases] 
+* [sys.databases][sys.databases] 
 * [sys.dm_pdw_nodes_database_encryption_keys][sys.dm_pdw_nodes_database_encryption_keys]
 
 <!--Anchors-->

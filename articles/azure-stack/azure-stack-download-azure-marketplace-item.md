@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/10/2018
+ms.date: 01/30/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 465f9d51f724bf1c8713259cd1d0b6ebabc230fe
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 8c699f8b3241694f36b73ae75b25754e551c91f6
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470713"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Hämta marketplace-objekt från Azure till Azure Stack
 
@@ -168,7 +168,13 @@ Det finns två delar i det här scenariot:
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -armendpoint "Environment Arm Endpoint" -AzsCredential $credential
    ```
+
+   Den `-origin` parametern anger den översta mappen som innehåller alla hämtade produkterna, till exempel `"D:\downloadfolder"`.
+
    Den `-AzsCredential` parametern är valfri. Den används för att förnya åtkomsttoken, om det har gått ut. Om den `-AzsCredential` parametern inte anges och token upphör att gälla, du får en uppmaning att ange autentiseringsuppgifter för operatorn.
+
+    > [!Note]  
+    > AD FS har endast stöd för interaktiv autentisering med användaridentiteter. Om ett autentiseringsuppgiftobjekt krävs måste du använda ett huvudnamn för tjänsten (SPN). Mer information om hur du skapar ett huvudnamn för tjänsten med Azure Stack och AD FS som identity management-tjänsten finns i [Hantera tjänstens huvudnamn för AD FS](azure-stack-create-service-principals.md#manage-service-principal-for-ad-fs).
 
 4. När skriptet har slutförts ska objektet vara tillgänglig i Azure Stack Marketplace.
 

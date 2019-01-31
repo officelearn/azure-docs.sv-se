@@ -11,13 +11,13 @@ author: douglaslMS
 ms.author: douglasl
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 12/05/2018
-ms.openlocfilehash: 9e79aa2315118bcd9ce4328e74d51d7a22ea6247
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.date: 01/25/2019
+ms.openlocfilehash: c1b6c55475c1600c89c1ac1cae9dee0068b92070
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744572"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478227"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-new-azure-sql-database"></a>Snabbstart: Importera en BACPAC-fil till en ny Azure SQL Database
 
@@ -33,7 +33,7 @@ Det här avsnittet visas hur i den [Azure-portalen](https://portal.azure.com), f
 > [!NOTE]
 > [Azure SQL Database Managed Instance](sql-database-managed-instance.md) stöder import från en BACPAC-fil med hjälp av de andra metoderna i den här artikeln, men stöder för närvarande inte migrering i Azure-portalen.
 
-Du importerar en databas i Azure portal genom att öppna sidan för den logiska server som är värdar för import och, i verktygsfältet och välj **Importera databas**.  
+Du importerar en databas i Azure portal genom att öppna sidan för SQL Database-server som är värdar för import och, i verktygsfältet och välj **Importera databas**.  
 
    ![databasimport](./media/sql-database-import/import.png)
 
@@ -41,7 +41,7 @@ Välj lagringskontot, behållaren och BACPAC-fil som du vill importera. Ange den
 
 ### <a name="monitor-imports-progress"></a>Övervaka förloppet för import's
 
-Övervaka en import pågår kan du öppna den importerade databasen logiska server-sida, och under **inställningar**väljer **Import/Export-historik**. När återställningen har genomförts, importen har en **slutförd** status.
+Övervaka en import pågår kan du öppna den importerade databasen serversidan och under **inställningar**väljer **Import/Export-historik**. När återställningen har genomförts, importen har en **slutförd** status.
 
 Om du vill kontrollera att databasen är aktiv på servern, Välj **SQL-databaser** och kontrollera den nya databasen är **Online**.
 
@@ -51,14 +51,14 @@ Importera en SQL-databas med den [SqlPackage](https://docs.microsoft.com/sql/too
 
 Vi rekommenderar för skalbarhet och prestanda med hjälp av SqlPackage i de flesta produktionsmiljöer. En SQL Server Customer Advisory Team-blogg om migrering med BACPAC-filer finns i [Migrera från SQL Server till Azure SQL Database med BACPAC-filer](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (på engelska).
 
-Följande SqlPackage kommando importerar den **AdventureWorks2008R2** databas från lokal lagring till en logisk Azure SQL Database-server kallas **mynewserver20170403**. Den skapar en ny databas med namnet **myMigratedDatabase** med en **Premium** tjänstnivå och en **P6** Tjänstmål. Ändra dessa värden som passar din miljö.
+Följande SqlPackage kommando importerar den **AdventureWorks2008R2** databas från lokal lagring till en Azure SQL Database-server som kallas **mynewserver20170403**. Den skapar en ny databas med namnet **myMigratedDatabase** med en **Premium** tjänstnivå och en **P6** Tjänstmål. Ändra dessa värden som passar din miljö.
 
 ```cmd
 SqlPackage.exe /a:import /tcs:"Data Source=mynewserver20170403.database.windows.net;Initial Catalog=myMigratedDatabase;User Id=<your_server_admin_account_user_id>;Password=<your_server_admin_account_password>" /sf:AdventureWorks2008R2.bacpac /p:DatabaseEdition=Premium /p:DatabaseServiceObjective=P6
 ```
 
 > [!IMPORTANT]
-> En logisk Azure SQL Database-server avlyssnar port 1433. Brandväggen måste ha den här porten som är öppna för att ansluta till en logisk server innanför företagets brandvägg.
+> En SQL Database-server lyssnar på port 1433. Om du vill ansluta till en SQL Database-server bakom en företagsbrandvägg, måste brandväggen ha den här porten som är öppna.
 >
 
 Det här exemplet visar hur du importerar en databas med hjälp av SqlPackage med Active Directory Universal-autentisering.
@@ -107,7 +107,7 @@ Ett annat skript exempel finns i [importerar en databas från en BACPAC-fil](scr
 
 ## <a name="limitations"></a>Begränsningar
 
-Importera till en databas i elastiska poolen stöds inte. Du kan importera data till en enkel databas och sedan flytta databasen till en pool.
+Importera till en databas i elastiska poolen stöds inte. Du kan importera data till en enkel databas och sedan flytta databasen till en elastisk pool.
 
 ## <a name="import-using-wizards"></a>Importera med hjälp av guider
 

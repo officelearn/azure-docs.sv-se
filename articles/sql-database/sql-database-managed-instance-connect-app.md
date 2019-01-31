@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: fe73d5a2aa63cf127f5df835484cfcc75ef702aa
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: ac0513e2298877c63bb25c26de32834c07a55474
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514969"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294156"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Anslut ditt program till Azure SQL Database Managed Instance
 
@@ -92,7 +92,7 @@ Det här scenariot illustreras i följande diagram:
 
 För att felsöka problem med nätverksanslutningen, kontrollerar du följande:
 - Om det inte går att ansluta till Managed Instance från en Azure virtuell dator i samma virtuella nätverk men olika undernät kan du kontrollera om du har en Nätverkssäkerhetsgrupp som angetts på VM-undernät som blockerar åtkomst. Dessutom Observera att du behöver öppna utgående anslutning på SQL-port 1433 samt portar i intervallet 11000 12000 eftersom de behövs för att ansluta via omdirigering inom gränsen för Azure. 
-- Kontrollera att BGP spridningsuppgift är inställd på **aktiverad** för routningstabellen som är associerade med det virtuella nätverket.
+- Kontrollera att BGP-spridning är inställd på **aktiverad** för routningstabellen som är associerade med det virtuella nätverket.
 - Om du använder P2S VPN, kontrollera konfigurationen i Azure portal för att se om du ser **ingående/utgående trafik** siffror. Inte är noll talen anger att Azure är dirigera trafiken till och från den lokala.
 
    ![ingående/utgående trafik siffror](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)

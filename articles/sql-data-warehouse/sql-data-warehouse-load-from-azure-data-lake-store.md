@@ -1,21 +1,21 @@
 ---
-title: 'Självstudie: Läsa in från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudier: Belastningen från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse | Microsoft Docs'
 description: Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c3902061264b75ba177ba150176d784ad5384a9f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 32ac5b0841365acfc0a52e343eafc4f3760dffaa
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297204"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472243"
 ---
 # <a name="load-data-from-azure-data-lake-storage-gen1-to-sql-data-warehouse"></a>Läsa in data från Azure Data Lake Storage Gen1 till SQL Data Warehouse
 Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake Storage Gen1 till Azure SQL Data Warehouse. Även om du kan köra ad hoc-frågor på data som lagras i Data Lake Storage Gen1, rekommenderar vi importerar data till SQL Data Warehouse för bästa prestanda.
@@ -23,7 +23,7 @@ Använd PolyBase externa tabeller för att läsa in data från Azure Data Lake S
 > [!div class="checklist"]
 > * Skapa databasobjekt som krävs för att läsa in från Data Lake Storage Gen1.
 > * Anslut till en Data Lake Storage Gen1 katalog.
-> * Läs in data i Azure SQL Data Warehouse.
+> * Läs in data till Azure SQL Data Warehouse.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 

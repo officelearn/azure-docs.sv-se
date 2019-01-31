@@ -6,18 +6,18 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ms.openlocfilehash: ac8de247f09ba3b4e38cabb565fe332eba909ccc
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.openlocfilehash: f377e073f42e96264fe4c7edb31ea58c68c46494
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118140"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55474980"
 ---
-# <a name="translator-speech-api-languages"></a>API för Talöversättning: Språk
+# <a name="translator-speech-api-languages"></a>API för Talöversättning: Languages
 
 [!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
@@ -131,7 +131,7 @@ Langagues {tal (object, valfritt), text (object, valfritt), text till tal (objec
 
 ### <a name="headers"></a>Rubriker
 
-|Huvud|Beskrivning|Typ|
+|Huvud|Beskrivning|Type|
 :--|:--|:--|
 X-RequestId|Värde som genereras av server för att identifiera begäran och används för felsökning.|sträng|
 
@@ -142,7 +142,7 @@ X-RequestId|Värde som genereras av server för att identifiera begäran och anv
 |API-versionen    |Versionen av API: et som begärs av klienten. Tillåtna värden är: `1.0`.|DocumentDB|sträng|
 |omfång  |Uppsättningar med språk som stöds eller röster för att återgå till klienten. Den här parametern har angetts som en kommaavgränsad lista över nyckelord. Följande nyckelord är tillgängliga:<ul><li>`speech`: Innehåller en uppsättning språk som stöds för att transkribera tal.</li><li>`tts`: Innehåller antal röster som stöds för text till tal-konvertering.</li><li>`text`: Innehåller en uppsättning språk som stöds för att översätta text.</li></ul>Om ett värde inte anges värdet för `scope` som standard `text`.|DocumentDB|sträng|
 |X-ClientTraceId    |En klientgenererade GUID som används för att spåra en begäran. För att underlätta felsökning av problem bör klienter ange ett nytt värde med varje begäran och logga den.|sidhuvud|sträng|
-|Acceptera språk    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|sträng|
+|Accept-Language    |Vissa av fälten i svaret är namnen på språk eller regioner. Använd den här parametern för att ange språket där namnen som returneras. Språket har angetts genom att tillhandahålla en korrekt strukturerad BCP-47 som språktagg. Välj en tagg i listan över språkidentifierare som returneras med den `text` omfång. Språk som stöds inte tillhandahålls namnen på engelska.<br/>Till exempel använda värdet `fr` att begära namnen på franska eller använda värdet `zh-Hant` i begäran namn i traditionell kinesiska.|sidhuvud|sträng|
     
 ### <a name="response-messages"></a>Svarsmeddelanden
 

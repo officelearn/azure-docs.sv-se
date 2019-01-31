@@ -6,16 +6,16 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9025eccabcbf7052131fee741a1e1f6a2139366b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248101"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476765"
 ---
 # <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analysera din arbetsbelastning i Azure SQL Data Warehouse
 Tekniker för att analysera fråga prioritering för arbetsbelastningen i Azure SQL Data Warehouse.
@@ -144,10 +144,10 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 
 SQL Data Warehouse har följande vänta typer:
 
-* **LocalQueriesConcurrencyResourceType**: frågor som finns utanför ramen för samtidighet fack. DMV frågor och systemet fungerar som `SELECT @@VERSION` är exempel på lokala frågor.
-* **UserConcurrencyResourceType**: frågor som finns inom ramen för samtidighet fack. Frågor mot slutanvändare tabeller representerar exempel som använder den här resurstypen.
-* **DmsConcurrencyResourceType**: väntar härrör från dataflyttningsåtgärder.
-* **BackupConcurrencyResourceType**: den här vänta indikerar att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärts på samma gång, de andra kön.
+* **LocalQueriesConcurrencyResourceType**: Frågor som finns utanför ramen för samtidighet fack. DMV frågor och systemet fungerar som `SELECT @@VERSION` är exempel på lokala frågor.
+* **UserConcurrencyResourceType**: Frågor som finns inom ramen för samtidighet fack. Frågor mot slutanvändare tabeller representerar exempel som använder den här resurstypen.
+* **DmsConcurrencyResourceType**: Väntar som härrör från dataflyttningsåtgärder.
+* **BackupConcurrencyResourceType**: Den här vänta indikerar att en databas säkerhetskopieras. Det maximala värdet för den här resurstypen är 1. Om flera säkerhetskopieringar har begärts på samma gång, de andra kön.
 
 Den `sys.dm_pdw_waits` DMV kan användas för att se vilka resurser som väntar på en begäran.
 

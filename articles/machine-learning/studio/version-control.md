@@ -1,5 +1,5 @@
 ---
-Rubrik: Application lifecycle management titleSuffix: Beskrivning av Azure Machine Learning Studio: Tillämpa Application Lifecycle Management bästa praxis i Azure Machine Learning Studio services: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Application lifecycle management titleSuffix: Beskrivning av Azure Machine Learning Studio: Tillämpa Application Lifecycle Management bästa praxis i Azure Machine Learning Studio services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 10/27/2016
 ---

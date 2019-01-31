@@ -6,16 +6,16 @@ author: twounder
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 06/13/2018
 ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: fa497979349346016e1c176ace98407d98eebdca
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4cec5dd38d41f354f4d1430240a23f0b328cbb7b
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307858"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452438"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>T-SQL-uttryck som stöds i Azure SQL Data Warehouse
 Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Warehouse.
@@ -45,18 +45,18 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [SLÄPP EXTERN TABELL](https://msdn.microsoft.com/library/mt130698.aspx)
 * [TA BORT INDEXET](https://msdn.microsoft.com/library/ms176118.aspx)
 * [SLÄPPA PROCEDUREN](https://msdn.microsoft.com/library/ms174969.aspx)
-* [SLÄPP STATISTIK](https://msdn.microsoft.com/library/ms175075.aspx)
+* [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [TA BORT TABELL](https://msdn.microsoft.com/library/ms173790.aspx)
 * [TA BORT SCHEMA](https://msdn.microsoft.com/library/ms186751.aspx)
 * [TA BORT VY](https://msdn.microsoft.com/library/ms173492.aspx)
-* [BYT NAMN PÅ](https://msdn.microsoft.com/library/mt631611.aspx)
+* [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
 ## <a name="data-manipulation-language-dml-statements"></a>Uttryck för data Manipulation Language (DML)
 * [DELETE](https://msdn.microsoft.com/library/ms189835.aspx)
 * [INSERT](https://msdn.microsoft.com/library/ms174335.aspx)
-* [UPPDATERING](https://msdn.microsoft.com/library/ms177523.aspx)
+* [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx)
 
 ## <a name="database-console-commands"></a>Databasen konsolkommandon
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
@@ -68,19 +68,19 @@ Länkar till dokumentationen för T-SQL-uttryck som stöds i Azure SQL Data Ware
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)
 
 ## <a name="query-statements"></a>Uttryck för fråga
-* [VÄLJ](https://msdn.microsoft.com/library/ms189499.aspx)
+* [SELECT](https://msdn.microsoft.com/library/ms189499.aspx)
 * [MED common_table_expression](https://msdn.microsoft.com/library/ms175972.aspx)
 * [Förutom och SKÄR](https://msdn.microsoft.com/library/ms188055.aspx)
 * [FÖRKLARA](https://msdn.microsoft.com/library/mt631615.aspx)
-* [FRÅN](https://msdn.microsoft.com/library/ms177634.aspx)
+* [FROM](https://msdn.microsoft.com/library/ms177634.aspx)
 * [Med hjälp av PIVOT och UNPIVOT](https://msdn.microsoft.com/library/ms177410.aspx)
 * [GRUPPERA EFTER](https://msdn.microsoft.com/library/ms177673.aspx)
 * [MED](https://msdn.microsoft.com/library/ms180199.aspx)
-* [SORTERA EFTER](https://msdn.microsoft.com/library/ms188385.aspx)
+* [ORDER BY](https://msdn.microsoft.com/library/ms188385.aspx)
 * [OPTION](https://msdn.microsoft.com/library/ms190322.aspx)
 * [UNION](https://msdn.microsoft.com/library/ms180026.aspx)
-* [DÄR](https://msdn.microsoft.com/library/ms188047.aspx)
-* [LÄNGST UPP](https://msdn.microsoft.com/library/ms189463.aspx)
+* [WHERE](https://msdn.microsoft.com/library/ms188047.aspx)
+* [TOP](https://msdn.microsoft.com/library/ms189463.aspx)
 * [Alias](https://msdn.microsoft.com/library/mt631614.aspx)
 * [Sökvillkor](https://msdn.microsoft.com/library/ms173545.aspx)
 * [Underfrågor](https://msdn.microsoft.com/library/mt631613.aspx)

@@ -1,6 +1,6 @@
 ---
-Rubrik: Hantera Machine Learning Studio-webbtjänster som använder API Management titleSuffix: Beskrivning av Azure Machine Learning Studio: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management. Hantera din REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Hantera Machine Learning Studio-webbtjänster som använder API Management titleSuffix: Beskrivning av Azure Machine Learning Studio: En guide som visar hur du hanterar AzureML-webbtjänster som använder API Management. Hantera din REST API-slutpunkter genom att definiera användaråtkomst, begränsning av nätverksbandbredd och instrumentpanelen för övervakning.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/03/2017
 ---

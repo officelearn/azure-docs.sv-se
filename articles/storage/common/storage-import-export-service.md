@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: alkohli
-ms.component: common
-ms.openlocfilehash: 480d67917abf3a8aaca64aa9aae30be5acf55e11
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: ccfc91e85196cbc8295bce71e512d9cf856a23c8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528564"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453391"
 ---
 # <a name="what-is-azure-importexport-service"></a>Vad är tjänsten Azure Import/Export?
 
@@ -27,18 +27,18 @@ Om du vill överföra data med hjälp av diskenheter som tillhandahålls av Micr
 
 Överväg att använda Azure Import/Export-tjänsten när överföra eller hämta data över nätverket är långsamt eller få ytterligare nätverksbandbredd är oöverkomligt. Använd den här tjänsten i följande scenarier:
 
-* **Migrering av data till molnet**: flytta stora mängder data till Azure snabbt och kostnadseffektivt sätt.
-* **Distribution av innehåll**: skicka snabbt data till dina kundplatser.
-* **Backup**: ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
-* **Dataåterställning**: återställa stora mängder data som lagras i storage och levereras till din lokala plats.
+* **Migrering av data till molnet**: Flytta stora mängder data till Azure snabbt och kostnadseffektivt sätt.
+* **Distribution av innehåll**: Skicka snabbt data till dina kundplatser.
+* **Backup**: Ta säkerhetskopior av dina lokala data och lagra dem i Azure Storage.
+* **Dataåterställning**: Återställa stora mängder data som lagras i storage och levereras till din lokala plats.
 
 ## <a name="importexport-components"></a>Import/Export-komponenter
 
 Import/Export-tjänsten använder följande komponenter:
 
-- **Import/Export-tjänsten**: den här tjänsten som är tillgänglig i Azure portal hjälper användaren att skapa och spåra importera (överföringen) och exportera (nedladdning) jobb.  
+- **Import/Export-tjänsten**: Den här tjänsten som är tillgänglig i Azure portal hjälper användaren att skapa och spåra dataimporten (överföringen) och exportera (nedladdning) jobb.  
 
-- **WAImportExport verktyget**: det här är ett kommandoradsverktyg som gör följande: 
+- **WAImportExport verktyget**: Det här är ett kommandoradsverktyg som gör följande: 
     - Förbereder diskenheterna som levereras för import.
     - Underlättar kopierar dina data till enheten.
     - Krypterar data på enheten med BitLocker.
@@ -52,7 +52,7 @@ Import/Export-tjänsten använder följande komponenter:
 >
 > Verktyget WAImportExport är endast kompatibel med 64-bitars Windows-operativsystem. För specifika OS-versioner som stöds, gå till [krav för Azure Import/Export](storage-import-export-requirements.md#supported-operating-systems).
 
-- **Diskenheter**: du kan leverera SSD (solid-state drive) eller -hårddiskar (HDD) till Azure-datacentret. När du skapar ett importjobb kan leverera du diskenheter som innehåller dina data. När du skapar ett export-jobb kan leverera du tomma enheter till Azure-datacentret. För specifika disktyper, gå till [stöds disktyper](storage-import-export-requirements.md#supported-hardware).
+- **Diskenheter**: Du kan leverera SSD (solid-state drive) eller hårddiskar (HDD) till Azure-datacentret. När du skapar ett importjobb kan leverera du diskenheter som innehåller dina data. När du skapar ett export-jobb kan leverera du tomma enheter till Azure-datacentret. För specifika disktyper, gå till [stöds disktyper](storage-import-export-requirements.md#supported-hardware).
 
 ## <a name="how-does-importexport-work"></a>Hur fungerar Import/Export?
 

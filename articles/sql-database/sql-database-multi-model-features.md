@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 0c46ba3d2fcd59f43df2383c3e0471fa36217536
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d833d6ea695c05f80f7823f391142fee28872c40
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53551718"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300259"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Flera datamodeller funktionerna i Azure SQL Database
 
@@ -50,7 +50,7 @@ Graph relationer och graph-frågefunktioner är integrerade i Transact-SQL och f
 
 Det finns inget en grafdatabas kan uppnå som inte kan tillgodoses med en relationsdatabas. En grafdatabas kan dock gör det enklare att uttrycka vissa frågor. Bestämma dig för att välja ett av alternativen kan baseras på följande faktorer:
 
-- Modellen hierarkiska data där en nod kan ha flera överordnade så HieararchyId inte kan användas
+- Modellen hierarkiska data där en nod kan ha flera överordnade så HierarchyId inte kan användas
 - Modellen har ditt program har komplexa många-till-många-relationer; allteftersom programmet utvecklas, läggs nya relationer.
 - Du behöver analysera sammankopplade data och relationer.
 
@@ -96,7 +96,7 @@ Azure SQL Database innehåller också specialiserade [spatialindex](https://docs
 SQL Server är en kraftfull plattform för utveckling av omfattande program för hantering av halvstrukturerade data. Stöd för XML är integrerad i alla komponenter i SQL Server och omfattar följande:
 
 - Xml-datatypen. XML-värden kan lagras i en kolumn av XML-data-typ som kan skrivits enligt en uppsättning XML-scheman eller vänster frågans internt. Du kan indexera XML-kolumnen.
-- Möjligheten att ange en XQuery-fråga mot XML-data som lagras i kolumner och variabler av typen xml. XQUery-funktioner kan användas i en Transact-SQL-fråga som har åtkomst till någon datamodell som du använder i din databas.
+- Möjligheten att ange en XQuery-fråga mot XML-data som lagras i kolumner och variabler av typen xml. XQuery-funktioner kan användas i en Transact-SQL-fråga som har åtkomst till någon datamodell som du använder i din databas.
 - Automatiskt indexerar alla element i XML-dokument med hjälp av [primärt XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#primary-xml-index) eller ange de exakta sökvägar som ska indexeras med [sekundärt XML-index](https://docs.microsoft.com/sql/relational-databases/xml/xml-indexes-sql-server#secondary-xml-indexes).
 - OPENROWSET som tillåter massinläsning av XML-data.
 - Omvandla relationsdata i XML-format.

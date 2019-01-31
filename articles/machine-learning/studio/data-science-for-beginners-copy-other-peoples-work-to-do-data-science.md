@@ -1,6 +1,6 @@
 ---
-Rubrik: Kopiera andras data science exempel titleSuffix: Beskrivning av Azure Machine Learning Studio: ' Affärshemlighet för datavetenskap: Hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet ”.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Kopiera andras data science exempel titleSuffix: Beskrivning av Azure Machine Learning Studio: ' Affärshemlighet för datavetenskap: Hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet ”.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/05/2018
 ---

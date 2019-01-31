@@ -6,17 +6,17 @@ author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
-ms.component: team-data-science-process
+ms.subservice: team-data-science-process
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 680a47dae057b68957c58bbaab1ec35407d67952
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: 291872ca25b8674528b47e695c0d5135296e3451
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268645"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472753"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 
@@ -26,7 +26,7 @@ Ett avsnitt som visar alternativ för att flytta data till en lokal SQL Server f
 
 I följande tabell sammanfattas alternativen för att flytta data till en Azure SQL Database.
 
-| <b>KÄLLA</b> | <b>MÅL: Azure SQL-databas</b> |
+| <b>KÄLLA</b> | <b>MÅL: Azure SQL Database</b> |
 | --- | --- |
 | <b>Flat fil (CSV- eller TSV formaterad)</b> |[Bulk Insert SQL-fråga](#bulk-insert-sql-query) |
 | <b>En lokal SQLServer</b> |1.[exportera till Flat fil](#export-flat-file)<br> 2. [Migreringsguide för SQL-databas](#insert-tables-bcp)<br> 3. [Databasen tillbaka upp och återställa](#db-migration)<br> 4. [Azure Data Factory](#adf) |

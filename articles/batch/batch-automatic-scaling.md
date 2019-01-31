@@ -3,7 +3,7 @@ title: Skala beräkningsnoder automatiskt i en Azure Batch-pool | Microsoft Docs
 description: Aktivera automatisk skalning för en cloud-pool för att dynamiskt justera antalet beräkningsnoder i poolen.
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: c624cdfc-c5f2-4d13-a7d7-ae080833b779
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: multiple
 ms.date: 06/20/2017
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab41211fb0b0b6360bdbc255e367d0492c2438ed
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fa5588ae31e63ae54e654ef26563c7570fe4cd13
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39331083"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459850"
 ---
 # <a name="create-an-automatic-scaling-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en formel för automatisk skalning för att skala beräkningsnoder i en Batch-pool
 
@@ -136,7 +136,7 @@ Dessa typer stöds i en formel:
   * timme (i 24-timmarsformat talformatet; exempelvis 13 innebär 1 PM)
   * minut (00-59)
   * sekund (00-59)
-* TimeInterval
+* timeinterval
 
   * TimeInterval_Zero
   * TimeInterval_100ns
@@ -155,16 +155,16 @@ Dessa är tillåtet för de typer som anges i föregående avsnitt.
 | Åtgärd | Operatorer som stöds | Resultattyp |
 | --- | --- | --- |
 | dubbla *operatorn* dubbla |+, -, *, / |double |
-| dubbla *operatorn* timeinterval |* |TimeInterval |
+| dubbla *operatorn* timeinterval |* |timeinterval |
 | doubleVec *operatorn* dubbla |+, -, *, / |doubleVec |
 | doubleVec *operatorn* doubleVec |+, -, *, / |doubleVec |
-| TimeInterval *operatorn* dubbla |*, / |TimeInterval |
-| TimeInterval *operatorn* timeinterval |+, - |TimeInterval |
+| TimeInterval *operatorn* dubbla |*, / |timeinterval |
+| TimeInterval *operatorn* timeinterval |+, - |timeinterval |
 | TimeInterval *operatorn* tidsstämpel |+ |tidsstämpel |
 | tidsstämpel *operatorn* timeinterval |+ |tidsstämpel |
-| tidsstämpel *operatorn* tidsstämpel |- |TimeInterval |
+| tidsstämpel *operatorn* tidsstämpel |- |timeinterval |
 | *operatorn*dubbla |-, ! |double |
-| *operatorn*timeinterval |- |TimeInterval |
+| *operator*timeinterval |- |timeinterval |
 | dubbla *operatorn* dubbla |<, <=, ==, >=, >, != |double |
 | sträng *operatorn* sträng |<, <=, ==, >=, >, != |double |
 | tidsstämpel *operatorn* tidsstämpel |<, <=, ==, >=, >, != |double |
@@ -178,24 +178,24 @@ Dessa fördefinierade **functions** är tillgängliga som du kan använda för a
 
 | Funktion | Returtyp | Beskrivning |
 | --- | --- | --- |
-| AVG(doubleVecList) |double |Returnerar medelvärdet för alla värden i doubleVecList. |
-| Len(doubleVecList) |double |Returnerar längden på vektor som skapas från doubleVecList. |
+| avg(doubleVecList) |double |Returnerar medelvärdet för alla värden i doubleVecList. |
+| len(doubleVecList) |double |Returnerar längden på vektor som skapas från doubleVecList. |
 | LG(Double) |double |Returnerar loggen bas 2 av på dubbel. |
-| LG(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| lg(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
 | LN(Double) |double |Returnerar den naturliga loggen av på dubbel. |
-| LN(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
+| ln(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 2 av doubleVecList. En vec(double) måste uttryckligen angavs för parametern. I annat fall antas den dubbla lg(double)-versionen. |
 | log(Double) |double |Returnerar loggen bas 10 av på dubbel. |
 | log(doubleVecList) |doubleVec |Returnerar component-wise loggen bas 10 för doubleVecList. En vec(double) måste vara explicit angavs för parametern för enkel dubbla. I annat fall antas den dubbla log(double)-versionen. |
-| Max(doubleVecList) |double |Returnerar det största värdet i doubleVecList. |
+| max(doubleVecList) |double |Returnerar det största värdet i doubleVecList. |
 | min(doubleVecList) |double |Returnerar det minsta värdet i doubleVecList. |
 | norm(doubleVecList) |double |Returnerar de två normen för vektor som skapas från doubleVecList. |
 | : e percentilen (doubleVec v dubbla p) |double |Returnerar elementet: e percentilen i vektor v. |
 | SLUMP() |double |Returnerar ett slumpmässigt värde mellan 0,0 och 1,0. |
-| Range(doubleVecList) |double |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
-| Std(doubleVecList) |double |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
-| Stop) | |Stoppar utvärderingen av uttrycket för automatisk skalning. |
-| SUM(doubleVecList) |double |Returnerar summan av alla komponenter i doubleVecList. |
-| tid (string dateTime = ””) |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-strängen om den skickas. Stöds dateTime-format är W3C-DTF och RFC 1123. |
+| range(doubleVecList) |double |Returnerar skillnaden mellan lägsta och högsta värden i doubleVecList. |
+| std(doubleVecList) |double |Returnerar standardavvikelsen för urvalet av värdena i doubleVecList. |
+| stop() | |Stoppar utvärderingen av uttrycket för automatisk skalning. |
+| sum(doubleVecList) |double |Returnerar summan av alla komponenter i doubleVecList. |
+| time(string dateTime="") |tidsstämpel |Returnerar tidsstämpeln för den aktuella tiden om inga parametrar skickas eller tidsstämpeln för dateTime-strängen om den skickas. Stöds dateTime-format är W3C-DTF och RFC 1123. |
 | val (doubleVec v dubbla i) |double |Returnerar värdet för det element som är på plats i i vektor v, med ett startIndex noll. |
 
 Några av de funktioner som beskrivs i föregående tabell kan acceptera en lista som ett argument. Kommaavgränsad lista är en kombination av *dubbla* och *doubleVec*. Exempel:
@@ -386,7 +386,7 @@ Förutom Batch .NET kan du använda någon av de andra [Batch SDK: erna](batch-a
 ### <a name="automatic-scaling-interval"></a>Intervall för automatisk skalning
 Som standard justerar Batch-tjänsten en poolstorlek enligt dess autoskalningsformel var 15: e minut. Det här intervallet kan konfigureras med hjälp av följande egenskaper för poolen:
 
-* [CloudPool.AutoScaleEvaluationInterval] [ net_cloudpool_autoscaleevalinterval] (Batch .NET)
+* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
 * [autoScaleEvaluationInterval] [ rest_autoscaleinterval] (REST API)
 
 Den minsta är fem minuter och högsta är 168 timmar. Om ett intervall utanför det här intervallet har angetts returnerar Batch-tjänsten en felaktig begäran (400) fel.
@@ -400,7 +400,7 @@ Den minsta är fem minuter och högsta är 168 timmar. Om ett intervall utanför
 
 Varje Batch-SDK är ett sätt att aktivera automatisk skalning. Exempel:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync] [ net_enableautoscaleasync] (Batch .NET)
+* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
 * [Aktivera automatisk skalning för en pool] [ rest_enableautoscale] (REST API)
 
 När du aktiverar automatisk skalning på en befintlig pool, Tänk på följande saker övervägas:
@@ -611,7 +611,7 @@ $TargetDedicatedNodes = max(0, min($targetVMs, 20));
 $NodeDeallocationOption = taskcompletion;
 ```
 
-### <a name="example-3-accounting-for-parallel-tasks"></a>Exempel 3: Redovisning för parallella uppgifter
+### <a name="example-3-accounting-for-parallel-tasks"></a>Exempel 3: För parallella uppgifter
 Det här exemplet justerar poolstorleken baserat på antalet uppgifter. Den här formeln tar även hänsyn till den [MaxTasksPerComputeNode] [ net_maxtasks] värde som har ställts in för poolen. Den här metoden är användbar i situationer där [parallell körning av aktiviteten](batch-parallel-node-tasks.md) har aktiverats på din pool.
 
 ```csharp

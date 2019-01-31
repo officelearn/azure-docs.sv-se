@@ -6,16 +6,16 @@ author: ckarst
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 8407fcdabecbb4f6ed9c0028a4a74916913591ba
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: be3843dc8dfbb45ebb981123bf3df4bb741c82d8
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199195"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55466091"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Designa en PolyBase för datainläsning strategi för Azure SQL Data Warehouse
 
@@ -106,7 +106,7 @@ Du kan använda något av dessa inläsning av alternativ för att läsa in data 
 Om dina data inte är kompatibelt med PolyBase kan du använda [bcp](/sql/tools/bcp-utility) eller [SqlBulkCopy körs API](https://msdn.microsoft.com/library/system.data.sqlclient.sqlbulkcopy.aspx). BCP läser in direkt till SQL Data Warehouse utan att gå via Azure Blob storage och är endast avsett för små belastning. Observera att inläsningsprestanda av dessa alternativ är avsevärt långsammare än PolyBase. 
 
 
-## <a name="5-transform-the-data"></a>5. Omvandla data
+## <a name="5-transform-the-data"></a>5. Transformera data
 
 När data är i mellanlagringstabellen kan utföra omvandlingar som kräver att din arbetsbelastning. Flytta data i en produktionstabell.
 

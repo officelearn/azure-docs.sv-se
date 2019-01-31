@@ -9,18 +9,22 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 12/06/2018
+ms.date: 1/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 59af9bef586393726222e8d4d306ea806e31efe3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: a9c26a2a0eaf9c2669a71cdca729a6e64fe5cd5c
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252089"
+ms.locfileid: "55301313"
 ---
 # <a name="deploy-a-model-as-a-web-service-on-an-fpga-with-azure-machine-learning-service"></a>Distribuera en modell som en webbtjänst på en FPGA med Azure Machine Learning-tjänsten
 
-Du kan distribuera en modell som en webbtjänst på [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md).  FPGA ger extremt låg latens inferensjobb, även med en enda gruppstorlek.   
+Du kan distribuera en modell som en webbtjänst på [fältet programmable gate matriser (FPGA)](concept-accelerate-with-fpgas.md).  FPGA ger extremt låg latens inferensjobb, även med en enda gruppstorlek.  Dessa modeller är tillgängliga:
+  - ResNet 50
+  - ResNet 152
+  - DenseNet 121
+  - VGG-16   
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -34,10 +38,20 @@ Du kan distribuera en modell som en webbtjänst på [fältet programmable gate m
 
     ```shell
     pip install --upgrade azureml-sdk[contrib]
-    ```  
+    ```
+
+  - För närvarande endast tensorflow version < = 1.10 stöds, så installera när alla andra installationer har slutförts:
+
+    ```shell
+    pip install "tensorflow==1.10"
+    ```
+
+### <a name="get-the-notebook"></a>Hämta anteckningsboken
+
+Självstudien finns tillgänglig som en Jupyter Notebook. Följ kod här eller kör den [Snabbstart notebook](https://github.com/Azure/aml-real-time-ai/blob/master/notebooks/project-brainwave-quickstart.ipynb).
 
 ## <a name="create-and-deploy-your-model"></a>Skapa och distribuera din modell
-Skapa en pipeline för att Förbearbeta inmatad bild, förtränade med ResNet-50 på en FPGA och kör sedan funktionerna via en classifer tränats på ImageNet-datauppsättning.
+Skapa en pipeline för att Förbearbeta inmatad bild, förtränade med ResNet-50 på en FPGA och kör sedan funktionerna via en klassificerare som tränats på ImageNet-datauppsättning.
 
 Följ anvisningarna för att:
 
@@ -69,7 +83,7 @@ print(image_tensors.shape)
 Initiera modellen och ladda ned en TensorFlow kontrollpunkt för den quantized versionen av ResNet50 som ska användas som en upplärda.
 
 ```python
-from azureml.contrib.brainwave.models import QuantizedResnet50, Resnet50
+from azureml.contrib.brainwave.models import QuantizedResnet50
 model_path = os.path.expanduser('~/models')
 model = QuantizedResnet50(model_path, is_frozen = True)
 feature_tensor = model.import_graph_def(image_tensors)
@@ -82,11 +96,11 @@ print(feature_tensor.shape)
 Den här klassificerare har tränats på ImageNet-datauppsättning.
 
 ```python
-classifier_input, classifier_output = Resnet50.get_default_classifier(feature_tensor, model_path)
+classifier_output = model.get_default_classifier(feature_tensor)
 ```
 
 ### <a name="create-service-definition"></a>Skapa tjänstdefinition
-Nu när du har definied bild Förbearbeta, upplärda och klassificerare som körs på tjänsten, kan du skapa en tjänstdefinition. Tjänstdefinitionen är en uppsättning filer som genereras från den modell som har distribuerats till FPGA-tjänsten. Tjänstdefinitionen består av en pipeline. Pipelinen är en serie steg som körs i ordning.  TensorFlow faser, Keras faser och steg BrainWave stöds.  Stegen körs på tjänsten, med utdata för varje steg som indata i efterföljande steg i ordning.
+Nu när du har definierat bild Förbearbeta, upplärda och klassificerare som körs på tjänsten, kan du skapa en tjänstdefinition. Tjänstdefinitionen är en uppsättning filer som genereras från den modell som har distribuerats till FPGA-tjänsten. Tjänstdefinitionen består av en pipeline. Pipelinen är en serie steg som körs i ordning.  TensorFlow faser, Keras faser och steg BrainWave stöds.  Stegen körs på tjänsten, med utdata i varje fas blir indata i efterföljande steg i ordning.
 
 Att skapa ett TensorFlow-steg, ange en session som innehåller diagrammet (i det här fallet används standard-graph) och indata och utdata tensors till den här fasen.  Den här informationen används för att spara diagrammet så att den kan köras på tjänsten.
 
@@ -94,13 +108,13 @@ Att skapa ett TensorFlow-steg, ange en session som innehåller diagrammet (i det
 from azureml.contrib.brainwave.pipeline import ModelDefinition, TensorflowStage, BrainWaveStage
 
 save_path = os.path.expanduser('~/models/save')
-model_def_path = os.path.join(save_path, 'service_def.zip')
+model_def_path = os.path.join(save_path, 'model_def.zip')
 
 model_def = ModelDefinition()
 with tf.Session() as sess:
     model_def.pipeline.append(TensorflowStage(sess, in_images, image_tensors))
     model_def.pipeline.append(BrainWaveStage(sess, model))
-    model_def.pipeline.append(TensorflowStage(sess, classifier_input, classifier_output))
+    model_def.pipeline.append(TensorflowStage(sess, feature_tensor, classifier_output))
     model_def.save(model_def_path)
     print(model_def_path)
 ```
@@ -129,7 +143,7 @@ except WebserviceException:
     image_config = BrainwaveImage.image_configuration()
     deployment_config = BrainwaveWebservice.deploy_configuration()
     service = Webservice.deploy_from_model(ws, service_name, [registered_model], image_config, deployment_config)
-    service.wait_for_deployment(true)
+    service.wait_for_deployment(True)
 ```
 
 ### <a name="test-the-service"></a>Testa tjänsten

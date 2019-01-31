@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: a8c371d9d221ac6232c9293f6ca3192f163dfacb
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 115be0ad1b7dec44f036f6d50c2ac30ceba37ba7
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156297"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55457096"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -82,7 +82,7 @@ Informationen beror på vilken typ av projekt. För ett webbprogram:
 * Infogar objekt i:
 
   * Web.config
-  * Packages.config
+  * packages.config
 * (Nytt projekt – endast om du [Lägg till Application Insights till ett befintligt projekt][start], du behöver göra detta manuellt.) Infogar kodfragment i koden för klienten och servern att initiera dem med Application Insights-resurs-ID. Till exempel i en MVC-app matas kod in huvudsida Views/Shared/_Layout.cshtml
 
 ## <a name="how-do-i-upgrade-from-older-sdk-versions"></a>Hur uppgraderar jag från äldre versioner av SDK?
@@ -245,42 +245,51 @@ Vi rekommenderar att du använder våra SDK: er och använder den [SDK API](../.
 
 ## <a name="can-i-monitor-an-intranet-web-server"></a>Kan jag övervaka en intranät-webbserver?
 
-Här följer två metoder:
+Ja, men du måste tillåta trafik till våra tjänster genom att antingen brandväggsundantag eller proxy omdirigeringar.
+- QuickPulse `rt.services.visualstudio.com:443` 
+- ApplicationIdProvider `https://dc.services.visualstudio.com:443` 
+- TelemetryChannel `https://dc.services.visualstudio.com:443` 
 
-### <a name="firewall-door"></a>Dörren för brandvägg
 
-Tillåter webbservern att skicka telemetri till vår slutpunkter https://dc.services.visualstudio.com:443 och https://rt.services.visualstudio.com:443. 
+Läs igenom vår lista över tjänster och IP-adresser [här](../../azure-monitor/app/ip-addresses.md).
 
-### <a name="proxy"></a>Proxy
+### <a name="firewall-exception"></a>Undantag i brandväggen
 
-Dirigera trafik från servern till en gateway på intranätet, genom att skriva över de här inställningarna i det här exemplet ApplicationInsights.config. Om egenskaperna ”slutpunkten” inte finns i din konfiguration, använder de här klasserna standardvärden som visas i exemplet nedan.
+Tillåt en webbserver för att skicka telemetri till vår slutpunkter. 
 
-#### <a name="example-applicationinsightsconfig"></a>Exempel ApplicationInsights.config:
+### <a name="proxy-redirect"></a>Proxy-omdirigering
+
+Dirigera trafik från servern till en gateway på intranätet genom att skriva över slutpunkter i din konfiguration.
+Om egenskaperna ”slutpunkten” inte finns i din konfiguration, använder de här klasserna standardvärden som visas nedan i det här exemplet ApplicationInsights.config. 
+
+Din gateway ska dirigera trafik till vår endpoint basadress. I din konfiguration, ersätter du standardvärdena med `http://<your.gateway.address>/<relative path>`.
+
+
+#### <a name="example-applicationinsightsconfig-with-default-endpoints"></a>Exempel ApplicationInsights.config med standard-slutpunkter:
 ```xml
 <ApplicationInsights>
+  ...
+  <TelemetryModules>
+    <Add Type="Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse.QuickPulseTelemetryModule, Microsoft.AI.PerfCounterCollector"/>
+      <QuickPulseServiceEndpoint>https://rt.services.visualstudio.com/QuickPulseService.svc</QuickPulseServiceEndpoint>
+    </Add>
+  </TelemetryModules>
     ...
-    <TelemetryChannel>
-         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
-    </TelemetryChannel>
-    ...
-    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
-        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
-    </ApplicationIdProvider>
-    ...
+  <TelemetryChannel>
+     <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+  </TelemetryChannel>
+  ...
+  <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+    <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+  </ApplicationIdProvider>
+  ...
 </ApplicationInsights>
 ```
 
 _Obs ApplicationIdProvider är tillgänglig från och med v2.6.0_
 
-Din gateway ska vidarebefordra trafiken till https://dc.services.visualstudio.com:443
 
-Ersätt värdena ovan med: `http://<your.gateway.address>/<relative path>`
  
-Exempel: 
-```
-http://<your.gateway.endpoint>/v2/track 
-http://<your.gateway.endpoint>/api/profiles/{0}/apiId
-```
 
 ## <a name="can-i-run-availability-web-tests-on-an-intranet-server"></a>Kan jag köra webbtester för tillgänglighet på en intranätserver?
 

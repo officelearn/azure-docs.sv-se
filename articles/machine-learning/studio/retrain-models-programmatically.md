@@ -1,6 +1,6 @@
 ---
-Rubrik: Omtrimning Machine Learning Studio-modeller via programmering titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell med hjälp av C# och Machine Learning Batch Execution service.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Omtrimning Machine Learning Studio-modeller via programmering titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell med hjälp av C# och Machine Learning Batch Execution service.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

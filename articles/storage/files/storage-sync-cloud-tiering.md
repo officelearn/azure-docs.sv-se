@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: sikoo
-ms.component: files
-ms.openlocfilehash: a0f427ef84a6540522f521cd365e2422a70eb0cd
-ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.subservice: files
+ms.openlocfilehash: e73a11d7849d6e304be0844a55ddad46e6966f6e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2018
-ms.locfileid: "51623659"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55470459"
 ---
 # <a name="cloud-tiering-overview"></a>Molnet lagringsnivåer översikt
 Molnet lagringsnivåer är en valfri funktion i Azure File Sync som ofta öppnade filer cachelagras lokalt på servern medan alla andra filer nivåindelas till Azure Files utifrån principinställningar. När en fil är nivåindelad ersätter Azure File Sync filsystemsfilter (StorageSync.sys) filen lokalt med en pekare eller en referenspunkt. Referenspunkten representerar en URL till filen i Azure Files. En nivåindelad fil har både ”offline”-attributet och FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS attributuppsättningen i NTFS så att program från tredje part kan på ett säkert sätt identifiera nivåindelade filer.
@@ -105,7 +105,7 @@ Du kan också använda PowerShell om du vill tvinga en fil som ska återställas
 
 <a id="sizeondisk-versus-size"></a>
 ### <a name="why-doesnt-the-size-on-disk-property-for-a-file-match-the-size-property-after-using-azure-file-sync"></a>Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync? 
-Windows Utforskaren exponerar två egenskaper för att representera storleken på en fil: **storlek** och **storlek på disken**. De här egenskaperna skriftspråk i betydelse. **Storlek** representerar fullständig storleken på filen. **Storlek på disken** representerar storleken på fildataströmmen som lagras på disken. Värden för dessa egenskaper kan variera för olika skäl, till exempel komprimering, användning av Datadeduplicering eller molnnivå med Azure File Sync. Om en fil är nivåindelad till en Azure-filresurs, är storleken på disken noll, eftersom fildataströmmen lagras i din Azure-filresurs och inte på disken. Det är också möjligt för en fil som ska innehålla delvis nivåindelade (eller delvis återkallade). I en delvis nivåindelad fil är en del av filen på disken. Detta kan inträffa när filer läses delvis av program, t.ex. multimedia spelare eller zip-verktyg. 
+Windows Utforskaren visar två egenskaper för att representera storleken på en fil: **Storlek** och **storlek på disken**. De här egenskaperna skriftspråk i betydelse. **Storlek** representerar fullständig storleken på filen. **Storlek på disken** representerar storleken på fildataströmmen som lagras på disken. Värden för dessa egenskaper kan variera för olika skäl, till exempel komprimering, användning av Datadeduplicering eller molnnivå med Azure File Sync. Om en fil är nivåindelad till en Azure-filresurs, är storleken på disken noll, eftersom fildataströmmen lagras i din Azure-filresurs och inte på disken. Det är också möjligt för en fil som ska innehålla delvis nivåindelade (eller delvis återkallade). I en delvis nivåindelad fil är en del av filen på disken. Detta kan inträffa när filer läses delvis av program, t.ex. multimedia spelare eller zip-verktyg. 
 
 <a id="afs-force-tiering"></a>
 ### <a name="how-do-i-force-a-file-or-directory-to-be-tiered"></a>Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?

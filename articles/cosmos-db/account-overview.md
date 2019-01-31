@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 7c4c1a5991445448f015dc0912383baf53f4e38c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: cbc11e2fc54ecffbea22a66354f334f3562e3339
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034938"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459221"
 ---
-# <a name="working-with-azure-cosmos-account"></a>Arbeta med ett Azure Cosmos-konto
+# <a name="work-with-azure-cosmos-account"></a>Arbeta med Azure Cosmos-konto
 
 Azure Cosmos DB är en fullständigt hanterad platform-as-a-service (PaaS). För att börja använda Azure Cosmos DB, bör du först skapa ett Azure Cosmos-konto i Azure-prenumerationen. Ditt Azure Cosmos-konto innehåller ett unikt DNS-namn och du kan hantera ett konto med hjälp av Azure-portalen, Azure CLI eller genom att använda olika språkspecifika SDK: er. Mer information finns i [så här hanterar du ditt Azure Cosmos-konto](how-to-manage-database-account.md).
 

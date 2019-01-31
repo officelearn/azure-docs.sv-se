@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e1a001a60151136be6bde9de38f971807cf0c288
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: 92c2d59ffe8c144bea6e7f8676880c866e234885
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188410"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299052"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Datakällor som stöds i Azure Analysis Services
 
@@ -23,17 +23,20 @@ Datakällor och anslutningsappar som visas i hämta Data eller Importguiden i Vi
 
 |Datakälla  |Minnesintern  |DirectQuery  |
 |---------|---------|---------|
-|Azure SQL Database     |   Ja      |    Ja      |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   Ja      |    Ja      |
 |Azure SQL Data Warehouse     |   Ja      |   Ja       |
-|Azure Blob Storage*     |   Ja       |    Nej      |
-|Azure Table Storage *    |   Ja       |    Nej      |
-|Azure Cosmos DB *     |  Ja        |  Nej        |
-|Azure Data Lake Store *     |   Ja       |    Nej      |
-|Azure HDInsight HDFS *     |     Ja     |   Nej       |
-|Azure HDInsight Spark *     |   Ja       |   Nej       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   Ja       |    Nej      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   Ja       |    Nej      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  Ja        |  Nej        |
+|Azure Data Lake Store<sup>[1](#tab1400a)</sup>     |   Ja       |    Nej      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     Ja     |   Nej       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   Ja       |   Nej       |
 ||||
 
-\* 1400-tabellmodeller endast.
+<a name="tab1400a">1</a> tabell 1400 och högre modeller.   
+<a name="azsqlmanaged">2</a> finns stöd för azure SQL Database Managed Instance. Eftersom en hanterad instans körs i Azure virtuellt nätverk med en privat IP-adress, krävs en lokal Datagateway.   
+<a name="databricks">3</a> azure Databricks med Spark-anslutningsappen stöds inte för tillfället.
+
 
 **Providern**   
 InMemory- och DirectQuery-modeller som ansluter till Azure-datakällor använder du .NET Framework Data Provider för SQL Server.
@@ -57,31 +60,31 @@ Ansluta till lokala datakällor från och Azure-AS-servern kräver en lokal gate
 |Datakälla  |  
 |---------|---------|
 |Access-databas     |  
-|Active Directory *     |  
+|Active Directory<sup>[1](#tab1400b)</sup>     |  
 |Analysis Services     |  
 |Analytics Platform System     |  
-|Dynamics CRM *     |  
+|Dynamics CRM<sup>[1](#tab1400b)</sup>     |  
 |Excel-arbetsbok     |  
-|Exchange*     |  
-|Mappen *     |
-|IBM Informix * (Beta) |
-|JSON-dokument *     |  
-|Rader från binär *     | 
+|Exchange<sup>[1](#tab1400b)</sup>     |  
+|Folder<sup>[1](#tab1400b)</sup>     |
+|IBM Informix<sup>[1](#tab1400b) </sup> (Beta) |
+|JSON-dokumentet<sup>[1](#tab1400b)</sup>     |  
+|Rader från binär<sup>[1](#tab1400b)</sup>     | 
 |MySQL-databas     | 
-|OData-Feed *     |  
+|OData Feed<sup>[1](#tab1400b)</sup>     |  
 |ODBC-fråga     | 
 |OLE DB     |   
-|Postgre SQL-databas *    | 
-|Salesforce-objekt * |  
-|Salesforce-rapporter * |
-|SAP HANA *    |  
-|SAP Business Warehouse *    |  
-|SharePoint*     |   
+|Postgre SQL Database<sup>[1](#tab1400b)</sup>    | 
+|Salesforce Objects<sup>[1](#tab1400b)</sup> |  
+|Salesforce-rapporter<sup>[1](#tab1400b)</sup> |
+|SAP HANA<sup>[1](#tab1400b)</sup>    |  
+|SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
+|SharePoint<sup>[1](#tab1400b)</sup>     |   
 |Sybase-databas     |  
-|XML-tabellen *    |  
+|XML-tabeller<sup>[1](#tab1400b)</sup>    |  
 |||
  
-\* 1400-tabellmodeller endast.
+<a name="tab1400b">1</a> tabell 1400 och högre modeller.
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan leverantör
 

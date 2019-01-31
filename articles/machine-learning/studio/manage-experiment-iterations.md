@@ -1,6 +1,6 @@
 ---
-Rubrik: Hantera iterationer av experiment i Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att hantera iterationer av experiment i Azure Machine Learning Studio. Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Hantera iterationer av experiment i Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att hantera iterationer av experiment i Azure Machine Learning Studio. Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
 ---

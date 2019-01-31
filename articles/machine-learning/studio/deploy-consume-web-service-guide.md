@@ -1,5 +1,5 @@
 ---
-Rubrik: Distribution och användning titleSuffix: Beskrivning av Azure Machine Learning Studio: Du kan använda Azure Machine Learning för att distribuera machine learning arbetsflöden och modeller som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program via internet för att göra förutsägelser i realtid eller i batchläge. tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Distribution och användning titleSuffix: Beskrivning av Azure Machine Learning Studio: Du kan använda Azure Machine Learning för att distribuera machine learning arbetsflöden och modeller som webbtjänster. Dessa webbtjänster kan sedan användas för att anropa maskininlärningsmodeller från program via internet för att göra förutsägelser i realtid eller i batchläge. tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
 ---

@@ -13,15 +13,15 @@ ms.topic: article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/14/2018
+ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: b474c0fdabbe5c2a2bb9731fbeb24c1715f7c859
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 6276231f8d63840dcf46f7456d584880315533bf
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55080744"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299919"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Snabbstart: Kräva MFA för specifika appar med villkorlig åtkomst i Azure Active Directory 
 
@@ -43,6 +43,9 @@ För att slutföra scenariot i den här snabbstarten behöver du:
 - **Åtkomst till en Azure AD Premium-versionen** -villkorlig åtkomst i Azure AD är en Azure AD Premium-funktion. 
 
 - **Ett testkonto kallas Isabella Simonsen** – om du inte vet hur du skapar ett testkonto finns [lägga till molnbaserade användare](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
+
+
+Scenariot i den här snabbstarten kräver att per användare MFA inte har aktiverats för ditt konto för testning. Mer information finns i [kräva tvåstegsverifiering för en användare](../authentication/howto-mfa-userstates.md).
 
 
 ## <a name="test-your-sign-in"></a>Testa din inloggning

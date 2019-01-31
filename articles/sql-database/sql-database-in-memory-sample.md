@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 51cf04509608435117e0368b25952a58f7fc3557
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 9a394c0dff74ec5f926356a3d700c5bbba4c0e4f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53609709"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55478295"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -55,7 +55,7 @@ En mer förenklad, men mer visuellt tilltalande prestanda demo för In-Memory OL
 4. Klistra in T-SQL-skript i SSMS och sedan köra skriptet. Den `MEMORY_OPTIMIZED = ON` satsen CREATE TABLE-instruktioner är avgörande. Exempel:
 
 
-```
+```sql
 CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
     [SalesOrderID] int IDENTITY NOT NULL PRIMARY KEY NONCLUSTERED ...,
     ...
@@ -69,7 +69,7 @@ CREATE TABLE [SalesLT].[SalesOrderHeader_inmem](
 Om du får fel 40536 när du kör T-SQL-skript, kör du följande T-SQL-skript för att kontrollera om databasen stöder i minnet:
 
 
-```
+```sql
 SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
@@ -94,7 +94,7 @@ Du kan inspektera minnesoptimerade tabeller via den **Object Explorer** i SSMS. 
 Eller du kan fråga katalogvyer, till exempel:
 
 
-```
+```sql
 SELECT is_memory_optimized, name, type_desc, durability_desc
     FROM sys.tables
     WHERE is_memory_optimized = 1;
@@ -104,7 +104,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 **Internt kompilerade lagrade procedurer**: Du kan visa SalesLT.usp_InsertSalesOrder_inmem via en catalog view-fråga:
 
 
-```
+```sql
 SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
     FROM sys.sql_modules
     WHERE uses_native_compilation = 1;
@@ -145,7 +145,7 @@ Följande skript infogar ett exempel på försäljningsorder med fem radobjekt i
 - SalesLT.SalesOrderDetail_inmem
 
 
-```
+```sql
 DECLARE
     @i int = 0,
     @od SalesLT.SalesOrderDetailType_inmem,
@@ -244,7 +244,7 @@ När du har resultatet från den *_inmem* kör, utför följande steg för den *
 
 
 1. Återställ databasen genom att köra följande kommando i SSMS för att ta bort alla data som infogats av den tidigare körningen:
-```
+```sql
 EXECUTE Demo.usp_DemoReset;
 ```
 
@@ -315,7 +315,7 @@ Ett grupperat columnstore-index är i FactResellerSalesXL\_CCI tabell.
 I följande T-SQL-skript utdrag skriver ut statistik för i/o och tid för frågan i varje tabell.
 
 
-```
+```sql
 /*********************************************************************
 Step 2 -- Overview
 -- Page Compressed BTree table v/s Columnstore table performance differences

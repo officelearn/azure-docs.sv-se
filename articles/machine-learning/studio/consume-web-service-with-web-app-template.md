@@ -1,8 +1,21 @@
 ---
-Rubrik: Använda Studio-webbtjänst med web app mallen titleSuffix: Beskrivning av Azure Machine Learning Studio: Använd en mall för webbappar i Azure Marketplace för att använda en förutsägbar webbtjänst i Azure Machine Learning.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Använda Studio-webbtjänst med mall för webbappar
+titleSuffix: Azure Machine Learning Studio
+description: Använd en mall för webbappar i Azure Marketplace för att använda en förutsägbar webbtjänst i Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 164aae7c6a4df18b8a28e1ff152e9c61c60f06b9
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299069"
 ---
 # <a name="consume-an-azure-machine-learning-studio-web-service-by-using-a-web-app-template"></a>Använda en Azure Machine Learning Studio-webbtjänst med hjälp av en mall för webbappar
 

@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 17e0cf170197b99037e2892d1b74a699a3a9eef5
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: a91778f1646807a092a3c8cda66bd3bd104ff8b5
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275337"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301891"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Utvecklarguide för Azure Functions JavaScript
 
@@ -271,10 +271,10 @@ Gör att du kan skriva till direktuppspelningsloggarna funktion på standardniv�
 
 | Metod                 | Beskrivning                                |
 | ---------------------- | ------------------------------------------ |
-| **fel (_meddelande_)**   | Skriver till Felnivån loggningen eller lägre.   |
-| **Varna (_meddelande_)**    | Skriver till varningsnivå loggningen eller lägre. |
-| **information (_meddelande_)**    | Skriver till info-nivån loggningen eller lägre.    |
-| **utförlig (_meddelande_)** | Skriver till utförlig loggning för nivån.           |
+| **error(_message_)**   | Skriver till Felnivån loggningen eller lägre.   |
+| **warn(_message_)**    | Skriver till varningsnivå loggningen eller lägre. |
+| **info(_message_)**    | Skriver till info-nivån loggningen eller lägre.    |
+| **verbose(_message_)** | Skriver till utförlig loggning för nivån.           |
 
 I följande exempel skriver en logg vid spårningsnivån varning:
 
@@ -326,7 +326,7 @@ context.log('Request Headers = ', JSON.stringify(req.headers));
 
 ### <a name="configure-the-trace-level-for-console-logging"></a>Konfigurera Spårningsnivån för konsolen loggning
 
-Functions kan du definiera spårningsnivån tröskelvärdet för att skriva till konsolen, vilket gör det enkelt att styra sätt spårningar skrivs till konsolen från din funktion. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `tracing.consoleLevel` egenskap i host.json-fil. Den här inställningen gäller för alla funktioner i din funktionsapp. I följande exempel anger tröskelvärdet spårning för att aktivera utförlig loggning:
+Functions 1.x kan du ange tröskelvärdet Spårningsnivån för skrivning till konsolen, vilket gör det enkelt att styra hur spårningar skrivs till konsolen från din funktion. Ange tröskelvärdet för alla spårningar som skrivs till konsolen och den `tracing.consoleLevel` egenskap i host.json-fil. Den här inställningen gäller för alla funktioner i din funktionsapp. I följande exempel anger tröskelvärdet spårning för att aktivera utförlig loggning:
 
 ```json
 {
@@ -336,7 +336,7 @@ Functions kan du definiera spårningsnivån tröskelvärdet för att skriva till
 }  
 ```
 
-Värden för **consoleLevel** motsvarar namnen på de `context.log` metoder. För att inaktivera alla spårningsloggning till konsolen, ange **consoleLevel** till _av_. Mer information finns i [referens för host.json](functions-host-json.md).
+Värden för **consoleLevel** motsvarar namnen på de `context.log` metoder. För att inaktivera alla spårningsloggning till konsolen, ange **consoleLevel** till _av_. Mer information finns i [referens för host.json](functions-host-json-v1.md).
 
 ## <a name="http-triggers-and-bindings"></a>HTTP-utlösare och bindningar
 
@@ -348,7 +348,7 @@ Den `context.req` (begäran) objekt har följande egenskaper:
 
 | Egenskap       | Beskrivning                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _Brödtext_        | Ett objekt som innehåller brödtext för begäran.               |
+| _body_        | Ett objekt som innehåller brödtext för begäran.               |
 | _Rubriker_     | Ett objekt som innehåller de begärda rubrikerna.                   |
 | _Metoden_      | HTTP-metod för begäran.                                |
 | _originalUrl_ | URL för begäran.                                        |
@@ -363,10 +363,10 @@ Den `context.res` ()-svarsobjekt har följande egenskaper:
 
 | Egenskap   | Beskrivning                                               |
 | --------- | --------------------------------------------------------- |
-| _Brödtext_    | Ett objekt som innehåller brödtexten i svaret.         |
+| _body_    | Ett objekt som innehåller brödtexten i svaret.         |
 | _Rubriker_ | Ett objekt som innehåller svarshuvuden.             |
 | _isRaw_   | Anger att formatering hoppas för svaret.    |
-| _Status_  | HTTP-statuskod i svaret.                     |
+| _status_  | HTTP-statuskod i svaret.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Åtkomst till begäranden och svar 
 

@@ -1,6 +1,6 @@
 ---
-Rubrik: ”Steg 1: Skapa en arbetsyta ”titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 1 av utveckla en förutsägelselösning genomgång: Lär dig hur du ställer in en ny Azure Machine Learning Studio-arbetsyta ”.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: ”Steg 1: Skapa en arbetsyta ”titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 1 av utveckla en förutsägelselösning genomgång: Lär dig hur du ställer in en ny Azure Machine Learning Studio-arbetsyta ”.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 03/23/2017
 ---

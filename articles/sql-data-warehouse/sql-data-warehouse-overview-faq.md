@@ -6,16 +6,16 @@ author: acomet
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: design
+ms.subservice: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: d55c9db9af2eea9a56afe34c7a8689947a689bac
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306748"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55462553"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse vanliga frågor och svar
 
@@ -82,19 +82,19 @@ F. Vilka klientdrivrutiner som stöder ni?
 
 A. Stödet för DW kan hittas på den [anslutningssträngar] sidan
 
-F: vilka filformat som stöds av PolyBase med SQL Data Warehouse?
+F: Vilka filformat som stöds av PolyBase med SQL Data Warehouse?
 
 S: Orc, RC, Parquet och fast avgränsad text
 
 F: Vad kan jag ansluta till från SQL DW med PolyBase? 
 
-S: [Azure Data Lake Store] och [Azure Storage-Blobbar]
+S: [Azure Data Lake Store] och [Azure Storage Blobs]
 
-F: är beräkning pushdown möjligt vid anslutning till Azure Storage-Blobbar eller ADLS? 
+F: Går beräkning pushdown vid anslutning till Azure Storage-Blobbar eller ADLS? 
 
 S: SQL DW PolyBase interagerar Nej, endast lagringskomponenter. 
 
-F: kan jag ansluta till HDI?
+F: Kan jag ansluta till HDI?
 
 S: HDI kan använda antingen ADLS eller WASB som det HDFS-lagret. Om du har antingen som HDFS-lager, kan du läsa in dessa data i SQL DW. Men kan inte du generera pushdown beräkning till HDI-instans. 
 
@@ -113,7 +113,7 @@ Mer information om SQL Data Warehouse som helhet finns i vår [översikt] sidan.
 [datatyper]: ./sql-data-warehouse-tables-data-types.md
 [Funktioner som inte stöds tabell]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
 [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage-Blobbar]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
 [Funktionsförfrågan för databas-projekt]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [Översikt]: ./sql-data-warehouse-overview-faq.md

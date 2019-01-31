@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: eff6859dda771bfc2ca2e709578983b6113c6057
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.date: 01/25/2019
+ms.openlocfilehash: 2775ceb3cf27b6feedfd73cd43855204490ebc31
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227494"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471206"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Flera innehavare SaaS innehavare mönster
 
@@ -33,8 +33,8 @@ Tack vare att de betala hyra varje klient tar emot åtkomst till beroenderelatio
 
 Termen *innehavare modellen* avser hur klienternas lagrade data ordnas:
 
-- *Single-innehavare:* &nbsp; varje databas som lagrar data från endast en klient.
-- *Multitenans:* &nbsp; varje databas som lagrar data från flera olika klienter (med mekanismer för att skydda integriteten).
+- *Single-innehavare:*&nbsp; Varje databas lagrar data från endast en klient.
+- *Multitenans:*&nbsp; Varje databas lagrar data från flera olika klienter (med mekanismer för att skydda integriteten).
 - Det finns också hybridmodeller för innehavare.
 
 ## <a name="b-how-to-choose-the-appropriate-tenancy-model"></a>B. Så här väljer du lämplig innehavare modellen
@@ -47,9 +47,9 @@ I allmänhet innehavare modellen påverkar inte funktionen för ett program, men
     - Lagring i samlingen.
     - Arbetsbelastning.
 
-- **Klientisolering:** &nbsp; dataisolering och prestanda (om en klientarbetsbelastning påverkar andra).
+- **Klientisolering:**&nbsp; Dataisolering och prestanda (om en klientarbetsbelastning påverkar andra).
 
-- **Kostnad per klient:** &nbsp; databasen kostnader.
+- **Kostnad per klient:**&nbsp; Databaskostnader.
 
 - **Utveckling komplexiteten:**
     - Ändringar i schemat.
@@ -61,7 +61,7 @@ I allmänhet innehavare modellen påverkar inte funktionen för ett program, men
     - Återställa en klient.
     - Haveriberedskap.
 
-- **Anpassningsbarhet:** &nbsp; enkel stöder schemat anpassningar som är klientspecifika eller klass-specifika-klient.
+- **Anpassningsbarhet:**&nbsp; Enkel stöder schemat anpassningar som är klientspecifika eller klass-specifika-klient.
 
 Innehavare diskussion fokuserar på de *data* lager.  Men hänsyn till vid en tidpunkt då den *program* lager.  Programlagret behandlas som en monolitisk entitet.  Om du delar upp programmet i många små komponenter kan ditt val av innehavare modell ändras.  Du kan hantera vissa komponenter annorlunda än andra om både innehavare och lagringsteknik eller plattform.
 
@@ -95,7 +95,7 @@ Med databas-per-klient är det enkelt att uppnå att anpassa schemat för en ell
 
 #### <a name="elastic-pools"></a>Elastiska pooler
 
-När databaser distribueras i samma resursgrupp, kan du gruppera dem i elastiska databaspooler.  Poolerna ger ett prisvärt sätt att dela resurser över flera databaser.  Det här alternativet om poolen är billigare än att kräva att varje databas ska vara tillräckligt stor för att hantera användningstopparna som det inträffar.  Även om pooldatabaser delar åtkomst till resurser kan de fortfarande uppnå en hög grad av isolering av prestandan.
+När databaser distribueras i samma resursgrupp, kan du gruppera dem i elastiska pooler.  Poolerna ger ett prisvärt sätt att dela resurser över flera databaser.  Det här alternativet om poolen är billigare än att kräva att varje databas ska vara tillräckligt stor för att hantera användningstopparna som det inträffar.  Även om pooldatabaser delar åtkomst till resurser kan de fortfarande uppnå en hög grad av isolering av prestandan.
 
 ![Utformningen av app för flera klienter med databas-per-klient, med hjälp av elastisk pool.][image-mt-app-db-per-tenant-pool-153p]
 
@@ -126,9 +126,9 @@ En annan tillgänglig mönster är att lagra många klienter i en databas för f
 
 #### <a name="tenant-isolation-is-sacrificed"></a>Klientisolering bort
 
-*Data:* &nbsp; en databas för flera innehavare nödvändigtvis offrar klientisolering.  Data för flera klienter lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från fler än en klient under utvecklingen.  SQL Database stöder [säkerhet på radnivå][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enda klient.
+*Data:*&nbsp; En databas för flera innehavare offrar nödvändigtvis klientisolering.  Data för flera klienter lagras tillsammans i en databas.  Se till att frågor aldrig exponera data från fler än en klient under utvecklingen.  SQL Database stöder [säkerhet på radnivå][docu-sql-svr-db-row-level-security-947w], som kan tillämpa dessa data som returnerats från en fråga vara begränsad till en enda klient.
 
-*Bearbetar:* &nbsp; en databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
+*Bearbetar:*&nbsp; En databas för flera klienter delar resurser för beräkning och lagring över alla klienter.  Databasen som helhet kan övervakas för att se till att den fungerar bra.  Azure-systemet har dock inget inbyggt sätt att övervaka eller hantera användningen av dessa resurser genom att en enskild klientorganisation.  Databas för flera innehavare innebär därför löper ökad risk för bort störande grannar, där arbetsbelastningen på en overactive klientorganisation påverkar prestandaupplevelse med andra klienter i samma databas.  Ytterligare programnivå övervakning kan övervaka på klientnivå prestanda.
 
 #### <a name="lower-cost"></a>Lägre kostnader
 

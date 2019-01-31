@@ -1,5 +1,5 @@
 ---
-title: Mått i Azure Monitor (förhandsversion), Azure Event Hubs | Microsoft Docs
+title: Mått i Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du använder Azure-övervakning för att övervaka Azure Event Hubs
 services: event-hubs
 documentationcenter: .NET
@@ -15,14 +15,14 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 148071d71030638ddec4095ef2e33482327f3db3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 31aaa24dd6020cb8203e4ab1bfec8ce3e0ffd2b8
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537928"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55299698"
 ---
-# <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Azure Event Hubs-mått i Azure Monitor (förhandsversion)
+# <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Azure Event Hubs-mått i Azure Monitor
 
 Event Hubs mått ger dig tillståndet för Event Hubs-resurser i Azure-prenumerationen. Med en omfattande uppsättning mätvärden, kan du utvärdera den övergripande hälsan för händelsehubbar inte bara på namnområdesnivå, utan även på enhetsnivå. Statistiken kan vara viktigt eftersom de hjälper dig att övervaka status för dina event hubs. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
 
@@ -40,7 +40,7 @@ Du kan övervaka mått med tiden i den [Azure-portalen](https://portal.azure.com
 
 ![Visa lyckad mått][1]
 
-Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på **mått (Peview)**. Välj event hub för att visa mått som filtrerats till i omfånget för event hub, och klicka sedan på **mått (förhandsgranskning)**.
+Du kan också komma åt mått direkt via namnområdet. Ditt namnområde för att göra det, och klicka sedan på ** mått **. Välj event hub för att visa mått som filtrerats till i omfånget för event hub, och klicka sedan på **mått**.
 
 För mätvärden som stöd för dimensioner, måste du filtrera med önskad dimension-värde som visas i följande exempel:
 
@@ -48,7 +48,7 @@ För mätvärden som stöd för dimensioner, måste du filtrera med önskad dime
 
 ## <a name="billing"></a>Fakturering
 
-Använda mått i Azure Monitor är för närvarande kostnadsfritt i förhandsversionen. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma mätvärden till Log Analytics för avancerad analys.
+Med hjälp av mätvärden i Azure Monitor är för närvarande kostnadsfritt. Om du använder ytterligare lösningar som mata in måttdata kan debiteras du dock av dessa lösningar. Exempelvis debiteras du per Azure Storage om du arkiverar måttdata till ett Azure Storage-konto. Du debiteras också av Azure om du strömma mätvärden till Log Analytics för avancerad analys.
 
 Följande mått ger dig en översikt över hälsotillståndet för din tjänst. 
 

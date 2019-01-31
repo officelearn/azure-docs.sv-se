@@ -9,13 +9,13 @@ ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.component: disks
-ms.openlocfilehash: 5c7a136149bac2fb5b6368bf891e5d8021e12bdd
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.subservice: disks
+ms.openlocfilehash: 6b5605a8e3a80d597a4a4a78d015fa556c282357
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715360"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55465732"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrera till Premium Storage med hjälp av Azure Site Recovery
 
@@ -74,7 +74,7 @@ Det här är Azure-kraven för det här migreringsscenariot:
 
 Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mellan regioner eller i samma region. Följande instruktioner är skräddarsydda för den här Migreringsscenario från artikeln [replikera virtuella VMware-datorer eller fysiska servrar till Azure](../../site-recovery/vmware-walkthrough-overview.md). Följ länkarna för detaljerade anvisningar förutom anvisningarna i den här artikeln.
 
-### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: Skapa ett Recovery Services-valv
+### <a name="step-1-create-a-recovery-services-vault"></a>Steg 1: skapar ett Recovery Services-valv
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
 2. Välj **skapa en resurs** > **Management** > **Backup** och **Site Recovery (OMS)**. Du kan även välja **Bläddra** > **Recovery Services-valv** > **Lägg till**. 
@@ -83,7 +83,7 @@ Du kan använda Site Recovery för att migrera virtuella Azure IaaS-datorer mell
 ### <a name="step-2-choose-your-protection-goals"></a>Steg 2: Välja skyddsmål 
 
 1. På den virtuella datorn där du vill installera konfigurationsservern, öppna den [Azure-portalen](https://portal.azure.com).
-2. Gå till **Recovery Services-valv** > **inställningar** > **Site Recovery** > **steg 1: Förbered Infrastruktur** > **skyddsmål**.
+2. Gå till **Recovery Services-valv** > **inställningar** > **Site Recovery** > **steg 1: Förbered infrastrukturen** > **Skyddsmål**.
 
    ![Bläddra till målet i rutan][2]
 
@@ -160,7 +160,7 @@ Så här kontrollerar du att konfigurationsservern är har associerats med den r
    3. I steg 2, ange postredundant distributionsmodell, ett premium storage-konto för att migrera till ett standardlagringskonto för att spara loggarna och ett virtuellt nätverk för att växla till.
    4. I steg 3, lägger du till skyddade virtuella datorer efter IP-adress. (Du kanske behöver en intern IP-adress för att hitta dem.)
    5. I steg 4 konfigurera egenskaper genom att välja de konton som du skapade tidigare på processervern.
-   6. I steg 5, Välj den replikeringsprincip som du skapade tidigare i ”steg 5: Konfigurera replikeringsinställningar”.
+   6. I steg 5, Välj den replikeringsprincip som du skapade tidigare i ”steg 5: Konfigurera replikeringsinställningar ”.
    7. Välj **OK**.
 
    > [!NOTE]
@@ -185,7 +185,7 @@ Efter den inledande replikeringen är klar, köra ett redundanstest för att ver
 
 Du kan se statusen för din testning av redundans i **inställningar** > **jobb** > *YOUR_FAILOVER_PLAN_NAME*. Du kan se en specifikation av steg och lyckade/misslyckade resultat i fönstret. Om redundanstestningen misslyckas i något steg, väljer du steget för att kontrollera felmeddelandet. 
 
-### <a name="step-9-run-a-failover"></a>Steg 9: Kör en redundans
+### <a name="step-9-run-a-failover"></a>Steg 9: Köra en redundansväxling
 
 När testet har redundans slutförts, köra en redundans för att migrera dina diskar till Premium Storage och replikera de Virtuella datorinstanserna. Följ de detaljerade steg i [köra en redundans](../../site-recovery/site-recovery-failover.md#run-a-failover). 
 
@@ -196,8 +196,8 @@ Site Recovery skapar en VM-instans vars typ är samma som eller liknande till en
 ## <a name="post-migration-steps"></a>Eftermigreringen
 
 1. **Konfigurera replikerade virtuella datorerna i tillgänglighetsuppsättningen förekommande**. Site Recovery stöder inte migrera virtuella datorer tillsammans med tillgänglighetsuppsättningen. Beroende på distributionen för den replikerade virtuella datorn, gör du något av följande:
-   * För en virtuell dator som skapats via den klassiska distributionsmodellen: lägga till den virtuella datorn i tillgänglighetsuppsättningen i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability-classic.md).
-   * För en virtuell dator som skapats via distributionsmodellen resurshanteraren: spara din konfiguration av den virtuella datorn och ta sedan bort och återskapa de virtuella datorerna i tillgänglighetsuppsättningen. Du gör detta genom att använda skriptet på [ange Azure Resource Manager VM-Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Innan du kör det här skriptet, kontrollera dess begränsningar och planera din driftstopp.
+   * För en virtuell dator som skapats via den klassiska distributionsmodellen: Lägg till den virtuella datorn i tillgänglighetsuppsättningen i Azure-portalen. Detaljerade anvisningar finns i [lägga till en befintlig virtuell dator i en tillgänglighetsuppsättning](../linux/classic/configure-availability-classic.md).
+   * För en virtuell dator som skapats via Resource Manager-distributionsmodellen: Spara din konfiguration av den virtuella datorn och ta sedan bort och återskapa de virtuella datorerna i tillgänglighetsuppsättningen. Du gör detta genom att använda skriptet på [ange Azure Resource Manager VM-Tillgänglighetsuppsättning](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Innan du kör det här skriptet, kontrollera dess begränsningar och planera din driftstopp.
 
 2. **Ta bort gamla virtuella datorer och diskar**. Kontrollera att Premium-diskar är konsekventa med källdiskarna och att de nya virtuella datorerna utför samma funktion som virtuella datorer. Ta bort den virtuella datorn och ta bort diskar från källan lagringskonton i Azure-portalen. Om det finns ett problem i som disken är inte bort även om du har tagit bort den virtuella datorn, se [felsöka fel vid borttagning av storage resource](storage-resource-deletion-errors.md).
 
@@ -220,7 +220,7 @@ Se även följande resurser för att lära dig mer om Azure Storage och Azure Vi
 
 * [Azure Storage](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
-* [Premium Storage: Lagring med höga prestanda för virtuella Azure-datorarbetsbelastningar](premium-storage.md)
+* [Premium Storage: Lagring med höga prestanda för arbetsbelastningar på Azure virtuella datorer](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png
 [2]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-2.png

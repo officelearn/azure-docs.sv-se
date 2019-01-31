@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: e21a3ae23ca6a856c9524e52e80f33362f53cae1
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7f99b6d2f6fc1c6d1c270bd66965d978749ac63f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54040854"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455940"
 ---
-# <a name="how-to-restore-azure-cosmos-db-data-from-a-backup"></a>Hur du återställer Azure Cosmos DB-data från en säkerhetskopia
+# <a name="restore-data-from-a-backup-in-azure-cosmos-db"></a>Återställa data från en säkerhetskopia i Azure Cosmos DB 
 
 Om du råkar ta bort din databas eller en behållare kan du [öppna ett supportärende]( https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) eller [anropa Azure-supporten]( https://azure.microsoft.com/support/options/) att återställa data från automatiska säkerhetskopior online. Azure-support är tillgängligt för planerna i de valda endast som **Standard**, ** Developer och planer som är högre än dem. Azure-support är inte tillgänglig med **grundläggande** plan. Läs mer om olika supportplaner, i den [supportavtal](https://azure.microsoft.com/support/plans/) sidan. 
 

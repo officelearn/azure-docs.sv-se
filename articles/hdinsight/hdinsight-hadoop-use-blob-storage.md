@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 01/04/2019
-ms.openlocfilehash: 05793afc5de8b6c8285c1f700929e4f110bdfc8d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.date: 01/28/2019
+ms.openlocfilehash: a48e9a21c97ecb881798b0f944e91cfcf81f0a72
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54912577"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55295771"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Använda Azure-lagring med Azure HDInsight-kluster
 
@@ -35,7 +35,7 @@ Azure Storage är en robust lagringslösning för allmänna ändamål som smidig
 | General-Purpose V1   | Blob               | Standard                    | Gäller inte                    |
 | Blob Storage         | Blob               | Standard                    | Frekvent, lågfrekvent, Arkiv *    |
 
-Vi rekommenderar att du inte använder standardcontainern för att lagra företagsdata. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Observera att standardcontainern innehåller program- och systemloggar. Se till att hämta loggarna innan du tar bort containern.
+Vi rekommenderar att du inte använder standardcontainern för att lagra företagsdata. Ta bort standardcontainern efter varje användning för att minska lagringskostnaden. Standardbehållaren innehåller program- och loggar. Se till att hämta loggarna innan du tar bort containern.
 
 Det går inte att dela en blob-container som standardfilsystem över flera kluster.
  
@@ -63,8 +63,7 @@ Här är några saker att tänka på när du använder Azure Storage-konton med 
   
   > [!NOTE]  
   > Offentliga containrar låter dig hämta en lista över alla blobar som är tillgängliga i containern samt hämta metadata för containern. Du kan endast komma åt offentliga blobar om du känner till den exakta webbadressen. Mer information finns i <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">hantera åtkomst till behållare och blobbar</a>.
-  > 
-  > 
+
 * **Privata behållare på lagringskonton som inte är anslutna till ett kluster:** Du kan inte komma åt blobarna i behållarna om du inte definierar lagringskontot när du skickar WebHCat-jobben. Detta beskrivs senare i artikeln.
 
 De lagringskonton som definieras under skapandeprocessen och deras nycklar lagras i %HADOOP_HOME%/conf/core-site.xml i klusternoderna. Standardbeteendet för HDInsight är att använda de lagringskonton som definieras i filen core-site.xml. Du kan ändra den här inställningen med hjälp av [Apache Ambari](./hdinsight-hadoop-manage-ambari.md).
@@ -102,7 +101,7 @@ Standardcontainern lagrar klusterspecifik information, till exempel jobbhistorik
 ### <a name="use-the-azure-portal"></a>Använda Azure-portalen
 När du skapar ett HDInsight-kluster från portalen kan du använda ett befintligt lagringskonto (enligt nedan) och ange uppgifterna för lagringskontot. Du kan också ange om du vill att ett annat lagringskonto som är associerade med klustret och i så fall, Välj Data Lake-lagring eller en annan Azure Storage-blob som ytterligare lagringsutrymme.
 
-![HDInsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/hdinsight.provision.data.source.png)
+![HDInsight hadoop, skapa datakälla](./media/hdinsight-hadoop-use-blob-storage/storage.png)
 
 > [!WARNING]  
 > Du kan inte använda ett annat lagringskonto på en annan plats än HDInsight-klustret.
@@ -184,7 +183,7 @@ wasb:///example/jars/hadoop-mapreduce-examples.jar
 > [!NOTE]  
 > Filnamnet är <i>hadoop examples.jar</i> i HDInsight-kluster av version 2.1 och 1.6.
 
-&lt;Sökvägen&gt; är filens eller katalogens HDFS-sökvägsnamn. Eftersom containrar i Azure Storage helt enkelt är lagringsplatser för nyckel-/värdepar finns det inte något faktiskt hierarkiskt filsystem. Ett snedstreck (/) i en blob-nyckel tolkas som en katalogavgränsare. Blob-namnet för *hadoop-mapreduce-examples.jar* är till exempel:
+&lt;Sökvägen&gt; är filens eller katalogens HDFS-sökvägsnamn. Eftersom behållare i Azure storage är nyckel / värde-lager, finns det inga något faktiskt hierarkiskt filsystem. Ett snedstreck (/) i en blob-nyckel tolkas som en katalogavgränsare. Blob-namnet för *hadoop-mapreduce-examples.jar* är till exempel:
 
 ```bash
 example/jars/hadoop-mapreduce-examples.jar
@@ -348,7 +347,7 @@ Mer information finns i:
 [hdinsight-use-hive]:hadoop/hdinsight-use-hive.md
 [hdinsight-use-pig]:hadoop/hdinsight-use-pig.md
 
-[blob-storage-restAPI]: https://msdn.microsoft.com/library/windowsazure/dd135733.aspx
+[blob-storage-restAPI]: https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
 [azure-storage-create]:../storage/common/storage-create-storage-account.md
 
 [img-hdi-powershell-blobcommands]: ./media/hdinsight-hadoop-use-blob-storage/HDI.PowerShell.BlobCommands.png

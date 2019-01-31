@@ -1,6 +1,6 @@
 ---
-Rubrik: Köra Python-maskininlärning skript titleSuffix: Beskrivning av Azure Machine Learning Studio: Beskrivs designprinciper underliggande stöd för Python-skript i Azure Machine Learning Studio och grundläggande Användningsscenarier, funktioner och begränsningar.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: Köra Python-maskininlärning skript titleSuffix: Beskrivning av Azure Machine Learning Studio: Beskrivs designprinciper underliggande stöd för Python-skript i Azure Machine Learning Studio och grundläggande Användningsscenarier, funktioner och begränsningar.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 11/29/2017
 ---

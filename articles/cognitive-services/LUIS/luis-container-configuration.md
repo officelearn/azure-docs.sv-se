@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: diberry
-ms.openlocfilehash: 40cfadd3880b1875e775aae21e667ba0e20086ef
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5437e81397182ede37ef98ad40b54c64f94e2092
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219761"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55294731"
 ---
-# <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding docker-behållare 
+# <a name="configure-language-understanding-docker-containers"></a>Konfigurera Language Understanding Docker-behållare 
 
-Körningsmiljö för Språkförståelse (LUIS) behållare konfigureras med hjälp av den `docker run` kommandot argument. LUIS har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. Behållare-specifika inställningarna är indata [Monteringsinställningar](#mount-settings) och fakturering inställningarna. 
+Den **Språkförståelse** (LUIS) behållare körningsmiljö konfigureras med hjälp av den `docker run` kommandot argument. LUIS har flera inställningar som krävs, tillsammans med några valfria inställningar. Flera [exempel](#example-docker-run-commands) kommandots är tillgängliga. Behållare-specifika inställningarna är indata [Monteringsinställningar](#mount-settings) och fakturering inställningarna. 
 
 Behållarinställningar är [hierarkiska](#hierarchical-settings) och kan ställas in med [miljövariabler](#environment-variable-settings) eller docker [kommandoradsargument](#command-line-argument-settings).
 

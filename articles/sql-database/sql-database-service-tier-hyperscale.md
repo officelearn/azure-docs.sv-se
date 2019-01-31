@@ -11,20 +11,21 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 2d5fdde14c1a33ace81e8999dbb365dac9de3e6e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.date: 01/25/2019
+ms.openlocfilehash: 25936fa1156dea4beff6e593646d0468a4687f36
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227904"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476187"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Hyperskala tjänstnivå (förhandsversion) för upp till 100 TB
 
 Azure SQL Database är baserad på SQL Server Database Engine-arkitektur som justeras för molnmiljön för att säkerställa 99,99% tillgänglighet även i fall av infrastrukturfel. Det finns tre arkitekturmodeller som används i Azure SQL Database:
+
 - Allmänt syfte/Standard 
 - Kritisk Business/Premium
-- Storskalig
+- Hyperskala
 
 Hyperskala tjänstnivån i Azure SQL Database är den senaste tjänstnivån i den vCore-baserade inköpsmodellen. Den här är en mycket skalbar lagring och beräkning prestandanivå som utnyttjar Azure-arkitektur för att skala ut lagring och beräkna resurser för en Azure SQL Database avsevärt utöver gränserna som är tillgängliga för generell användning och företag Kritiska tjänstnivåer.
 
@@ -150,7 +151,7 @@ Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och ä
 
 | Problem | Beskrivning |
 | :---- | :--------- |
-| Fönstret hantera säkerhetskopior för en logisk server inte visar filtreras hyperskala databaser från SQLServer ->  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
+| Fönstret hantera säkerhetskopior för en SQL Database server inte visar filtreras hyperskala databaser från SQLServer ->  | Hyperskala har en annan metod för att hantera säkerhetskopior, och därför långsiktig kvarhållning och punkt i tiden säkerhetskopiering kvarhållningsinställningar gäller inte / ogiltigförklaras. Hyperskala databaser visas därför inte i fönstret hantera säkerhetskopiering. |
 | Återställning från tidpunkt | När en databas har migrerats till hyperskala tjänstnivån, stöds inte återställning till en punkt i tid före migreringen.|
 | Om en databasfil växer under migreringen på grund av en aktiv arbetsbelastning och korsar 1 TB per fil gräns, misslyckas migreringen | Åtgärder: <br> -Om möjligt, migrera databasen när det finns ingen uppdatering av arbetsbelastningar som körs.<br> -Försök igen migreringen, kommer att kunna så länge gränsen på 1 TB inte uppnås under migreringen.|
 | Hanterad instans stöds inte för närvarande | Stöds för närvarande inte |
@@ -162,6 +163,6 @@ Hyperskala tjänstnivå är för närvarande i offentlig förhandsversion och ä
 
 - Frågor och svar i hyperskala, se [vanliga frågor och svar om hyperskala](sql-database-service-tier-hyperscale-faq.md).
 - Information om tjänstnivåer finns i [tjänstnivåer](sql-database-service-tiers.md)
-- Se [översikt över resource begränsar på en logisk server](sql-database-resource-limits-logical-server.md) information om begränsningar på de server och prenumeration.
+- Se [översikt över resource begränsar på en SQL-databasserver](sql-database-resource-limits-database-server.md) information om begränsningar på de server och prenumeration.
 - Köpa modellen gränser för en enskild databas, finns i [Azure SQL Database vCore-baserade köpa modellen gränser för en enskild databas](sql-database-vcore-resource-limits-single-databases.md).
 - För en funktioner och jämförelse lista, se [SQL vanliga funktioner](sql-database-features.md).

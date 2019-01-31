@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
-ms.component: disks
-ms.openlocfilehash: f6d875ee9bbc9d7a61ebca9dfa0726f50e2044d7
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.subservice: disks
+ms.openlocfilehash: 2c1b46f1c1726a473fe15e490f3000f3c5235a77
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904054"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55477513"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Använda portalen för att koppla en datadisk till en Linux VM 
 Den här artikeln visar hur du kopplar både nya och befintliga diskar till en Linux-dator via Azure portal. Du kan också [ansluter en datadisk till en virtuell Windows-dator i Azure-portalen](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 

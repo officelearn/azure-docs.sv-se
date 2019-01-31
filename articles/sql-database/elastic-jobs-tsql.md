@@ -11,13 +11,13 @@ ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
-ms.date: 06/14/2018
-ms.openlocfilehash: e00722259abaa02d3dce6ca26c8cd0ea7c42db29
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.date: 01/25/2019
+ms.openlocfilehash: bb7908c5ed72bf58f1bd8920983d76cb674286a3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54449409"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458099"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Använd Transact-SQL (T-SQL) för att skapa och hantera elastiska Databasjobb
 
@@ -75,9 +75,9 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ```
 
 
-## <a name="exclude-a-single-database"></a>Undanta en enkel databas
+## <a name="exclude-an-individual-database"></a>Undanta en individuell databas
 
-I följande exempel visas hur du kör ett jobb mot alla databaser i en server, förutom för databasen med namnet *MappingDB*.  
+I följande exempel visas hur du kör ett jobb mot alla databaser i en SQL Database-servern, förutom databasen med namnet *MappingDB*.  
 Ansluta till den [ *jobbet databasen* ](sql-database-job-automation-overview.md#job-database) och kör följande kommando:
 
 ```sql
@@ -103,7 +103,7 @@ EXEC [jobs].sp_add_target_group_member
 @server_name='server2.database.windows.net'
 GO
 
---Excude a database target member from the server target group
+--Exclude a database target member from the server target group
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @membership_type = N'Exclude',
@@ -1032,10 +1032,10 @@ Anger om gruppmedlem mål ska inkluderas eller uteslutas. target_group_name är 
 Typ av måldatabasen eller samling databaser, till exempel alla databaser i en server, alla databaser i en elastisk pool, alla databaser i en skärvkarta eller en individuell databas. target_type är nvarchar(128) med inget standardvärde. Giltiga värden för target_type är ”SqlServer', 'SqlElasticPool”, ”SqlDatabase” eller ”SqlShardMap”. 
 
 [  **@refresh_credential_name =** ] 'refresh_credential_name'  
-Namnet på den logiska servern. refresh_credential_name är nvarchar(128) med inget standardvärde.
+Namnet på SQL Database-servern. refresh_credential_name är nvarchar(128) med inget standardvärde.
 
 [  **@server_name =** ] 'servernamn'  
-Namnet på den logiska server som ska läggas till den angivna målgruppen. servernamn måste anges när target_type är ”SqlServer'. Servernamn är nvarchar(128) med inget standardvärde.
+Namnet på den SQL-databasserver som ska läggas till den angivna målgruppen. servernamn måste anges när target_type är ”SqlServer'. Servernamn är nvarchar(128) med inget standardvärde.
 
 [  **@database_name =** ] 'database_name'  
 Namnet på databasen som ska läggas till den angivna målgruppen. database_name bör anges när target_type är ”SqlDatabase”. database_name är nvarchar(128) med inget standardvärde.
@@ -1051,7 +1051,7 @@ Mål-ID-nummer till gruppmedlem mål om skapat läggs till i målgruppen. target
 Returnera kodvärden 0 (lyckades) eller 1 (misslyckades)
 
 #### <a name="remarks"></a>Kommentarer
-Ett jobb körs på alla databaser i en server eller elastisk pool vid tidpunkten för körning när en logisk server eller en elastisk pool ingår i målgruppen.
+Ett jobb körs på alla enskilda databaser i en SQL Database-server eller i en elastisk pool vid tidpunkten för körning när en SQL Database-server eller elastisk pool ingår i målgruppen.
 
 #### <a name="permissions"></a>Behörigheter
 Som standard kan medlemmar i den fasta serverrollen sysadmin köra den här lagrade proceduren. Du kan de hindra en användare om du bara vill övervaka jobb för att bevilja användaren som en del av rollen följande i jobbagentdatabas som anges när du skapar jobbagenten:
@@ -1229,7 +1229,7 @@ Visar jobbhistorik körning.
 |**target_type**|   nvarchar(128)   |Typ av måldatabasen eller samling databaser, till exempel alla databaser i en server, alla databaser i en elastisk pool eller en databas. Giltiga värden för target_type är ”SqlServer', 'SqlElasticPool” eller ”SqlDatabase”. NULL anger det här är den överordnade jobbkörningen.
 |**target_id**  |uniqueidentifier|  Unikt ID för mål-gruppmedlem.  NULL anger det här är den överordnade jobbkörningen.
 |**target_group_name**  |nvarchar(128)  |Namnet på målgruppen. NULL anger det här är den överordnade jobbkörningen.
-|**target_server_name**|    nvarchar(256)|  Namnet på den logiska servern i målgruppen. Bara anges om target_type är ”SqlServer'. NULL anger det här är den överordnade jobbkörningen.
+|**target_server_name**|    nvarchar(256)|  Namnet på SQL Database-server som ingår i målgruppen. Bara anges om target_type är ”SqlServer'. NULL anger det här är den överordnade jobbkörningen.
 |**target_database_name**   |nvarchar(128)| Namnet på databasen i målgruppen. Ange bara när target_type är ”SqlDatabase”. NULL anger det här är den överordnade jobbkörningen.
 
 
@@ -1253,7 +1253,7 @@ Visar alla jobb.
 
 ### <a name="jobversions-view"></a>job_versions view
 
-[jobs].[job_verions]
+[jobs].[job_versions]
 
 Visar alla jobbversioner.
 
@@ -1332,7 +1332,7 @@ Visar alla medlemmar i alla målgrupper.
 |**refresh_credential_name**    |nvarchar(128)  |Namnet på databasen-omfattande autentisering som används för att ansluta till gruppmedlem mål.|
 |**subscription_id**    |uniqueidentifier|  Unikt ID för prenumerationen.|
 |**resource_group_name**    |nvarchar(128)| Namnet på resursgruppen där gruppmedlem target finns.|
-|**server_name**    |nvarchar(128)  |Namnet på den logiska servern i målgruppen. Bara anges om target_type är ”SqlServer'. |
+|**server_name**    |nvarchar(128)  |Namnet på SQL Database-server som ingår i målgruppen. Bara anges om target_type är ”SqlServer'. |
 |**databasnamn**  |nvarchar(128)  |Namnet på databasen i målgruppen. Ange bara när target_type är ”SqlDatabase”.|
 |**elastic_pool_name**  |nvarchar(128)| Namnet på den elastiska poolen i målgruppen. Ange bara när target_type är 'SqlElasticPool'.|
 |**shard_map_name** |nvarchar(128)| Namnet på fragmentkartan i målgruppen. Ange bara när target_type är 'SqlShardMap'.|

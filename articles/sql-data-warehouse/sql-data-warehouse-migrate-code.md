@@ -6,16 +6,16 @@ author: jrowlandjones
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: f36ee3ce6a8d678cdd846474576fc049df0b4f88
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301379"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55472311"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrera din SQL-kod till SQL Data Warehouse
 Den här artikeln förklarar ändringar i koden behöver du förmodligen göra när du migrerar din kod från en annan databas till SQL Data Warehouse. Vissa SQL Data Warehouse-funktioner kan avsevärt förbättra prestanda eftersom de har utformats för att arbeta i en distribuerad sätt. Men för att upprätthålla prestanda och skalning, är vissa funktioner också inte tillgängliga.
@@ -28,7 +28,7 @@ I följande lista sammanfattas de vanligaste funktioner som inte har stöd för 
 * [merge-instruktion][merge statement]
 * kopplingar mellan databaser
 * [Markörer][cursors]
-* [INFOGA... EXEC][INSERT..EXEC]
+* [INSERT..EXEC][INSERT..EXEC]
 * Output-sats
 * infogade användardefinierade funktioner
 * flera instruktioner funktioner

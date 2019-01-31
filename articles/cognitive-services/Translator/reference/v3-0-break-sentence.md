@@ -6,22 +6,22 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2a97c55c7caa7b0b2c4aa10b01abd2714b8ace7a
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124991"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55458541"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
 Anger placeringen av mening gränser i en del av texten.
 
-## <a name="request-url"></a>Fråge-URL
+## <a name="request-url"></a>URL för begäran
 
 Skicka en `POST` begäran om att:
 
@@ -41,7 +41,7 @@ Parametrarna som skickades mot frågesträngen är:
     <td>*Krävs Frågeparametern*.<br/>Versionen av API: et som begärs av klienten. Värdet måste vara `3.0`.</td>
   </tr>
   <tr>
-    <td>Språk</td>
+    <td>language</td>
     <td>*Valfritt Frågeparametern*.<br/>Språktaggen som identifierar språket i indatatexten. Om en kod inte anges används automatisk språkidentifiering.</td>
   </tr>
   <tr>
@@ -56,11 +56,11 @@ Begärandehuvuden är:
   <th width="20%">Rubriker</th>
   <th>Beskrivning</th>
   <tr>
-    <td>_En auktorisering_<br/>_Rubrik_</td>
+    <td>_En auktorisering_<br/>_header_</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Se [tillgängliga alternativ för autentisering](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
-    <td>Innehållstyp</td>
+    <td>Content-Type</td>
     <td>*Nödvändiga begärandehuvudet*.<br/>Anger innehållstypen för nyttolasten. Möjliga värden är: `application/json`.</td>
   </tr>
   <tr>
@@ -98,7 +98,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i Indatam
 
   * `detectedLanguage`: Ett objekt som beskriver det identifierade språket via följande egenskaper:
 
-     * `language`: Kod av identifierat språk.
+     * `language`: Kod för identifierat språk.
 
      * `score`: Ett flyttalsvärde som anger förtroende i resultatet. Poängen är mellan noll och ett och en låg poäng indikerar ett låga förtroende.
      
@@ -170,7 +170,7 @@ Här följer möjliga HTTP-statuskoder som returnerar en begäran.
 
 I följande exempel visas hur du skaffar mening gränser för en enskild mening. Språket i meningen identifieras automatiskt av tjänsten.
 
-# <a name="curltabcurl"></a>[CURL](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'How are you? I am fine. What did you do today?'}]"

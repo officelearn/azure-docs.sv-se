@@ -2,18 +2,18 @@
 title: Azure Backup för SQL Server-arbetsbelastningar med DPM
 description: En introduktion till att säkerhetskopiera SQL Server-databaser med Azure Backup-tjänsten
 services: backup
-author: adigan
-manager: Nkolli
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
-ms.date: 10/18/2018
-ms.author: adigan
-ms.openlocfilehash: 232885398c996d0c744ac55b6c6967fd398eec0b
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.date: 01/30/2019
+ms.author: kasinh
+ms.openlocfilehash: d7d94c7b238f8d413d8837c3c34468c6cd653fe3
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945662"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55300701"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>Säkerhetskopiera SQL Server till Azure som en DPM-arbetsbelastning
 Den här artikeln leder dig genom konfigurationsstegen för säkerhetskopiering av SQL Server-databaser med hjälp av Azure Backup.
@@ -66,9 +66,9 @@ Innan du börjar måste du kontrollera att alla de [krav](backup-azure-dpm-intro
     Om **Utöka automatiskt volymerna** alternativet väljs, DPM kan beakta för ökad säkerhetskopieringsvolymen när de produktion växer. Om **Utöka automatiskt volymerna** alternativet inte är markerat, DPM begränsar säkerhetskopieringslagring som används för att datakällorna i skyddsgruppen.
 9. Administratörer får välja att överföra den första säkerhetskopieringen manuellt (av network) för att undvika överbelastning av bandbredd eller via nätverket. De kan också konfigurera tiden då den inledande överföringen kan inträffa. Klicka på **Nästa**.
 
-    ![Inledande Replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
+    ![Inledande replikeringsmetod](./media/backup-azure-backup-sql/pg-manual.png)
 
-    Den första säkerhetskopian kräver överföring av hela datakällan (SQL Server-databas) från produktionsservern (SQL Server-dator) till DPM-servern. Dessa data kan vara stora och överföra data via nätverket kan överstiga bandbredd. Därför kan administratörer välja att överföra den första säkerhetskopieringen: **manuellt** (med flyttbara medier) att undvika överbelastning av bandbredd, eller **automatiskt över nätverket** (vid en viss tidpunkt).
+    Den första säkerhetskopian kräver överföring av hela datakällan (SQL Server-databas) från produktionsservern (SQL Server-dator) till DPM-servern. Dessa data kan vara stora och överföra data via nätverket kan överstiga bandbredd. Administratörer kan välja att överföra den första säkerhetskopieringen av den anledningen: **Manuellt** (med flyttbara medier) att undvika överbelastning av bandbredd, eller **automatiskt över nätverket** (vid en viss tidpunkt).
 
     När den första säkerhetskopieringen har slutförts, är resten av säkerhetskopiorna säkerhetskopior på den första säkerhetskopian. Inkrementella säkerhetskopieringar tenderar att vara liten och överföras enkelt via nätverket.
 10. Välj när du vill att konsekvenskontrollen att köra och klicka på **nästa**.
@@ -90,7 +90,7 @@ Innan du börjar måste du kontrollera att alla de [krav](backup-azure-dpm-intro
     >
     >
 
-    **Bästa praxis**: se till att Azure-säkerhetskopieringar är schemalagda på lokal disk säkerhetskopior med hjälp av DPM är färdig. Detta gör att den senaste disksäkerhetskopian som ska kopieras till Azure.
+    **Bästa praxis**: Se till att Azure-säkerhetskopieringar är schemalagda på lokal disk säkerhetskopior med hjälp av DPM är färdig. Detta gör att den senaste disksäkerhetskopian som ska kopieras till Azure.
 
 13. Välj bevarandeschema för principen. Information om hur bevarandeprincipen fungerar finns på [Använd Azure Backup för att ersätta band infrastruktur artikeln](backup-azure-backup-cloud-as-tape.md).
 

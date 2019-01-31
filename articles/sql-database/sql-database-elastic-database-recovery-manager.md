@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: d5bb914de1cded7c70516bfb4bfdaa93c83fe0e4
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: c4eeb73e3b0abfe2558fc387953023254952a515
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188682"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55296876"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Korrigera shard-kartproblem med RecoveryManager-klassen
 
@@ -52,7 +52,7 @@ Mer information om Azure SQL Database Elastic Database-verktyg, geo-replikering 
 Det första steget är att skapa en RecoveryManager-instans. Den [GetRecoveryManager metoden](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) returnerar recovery manager för aktuellt [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager) instans. För att åtgärda eventuella inkonsekvenser i fragmentkartan, måste du först hämta RecoveryManager för viss fragmentkartan.
 
    ```java
-    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
+    ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager();
    ```

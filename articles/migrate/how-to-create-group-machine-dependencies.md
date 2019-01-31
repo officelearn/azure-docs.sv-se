@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: a345b410dcf256e8cd07e7708906f5582b5f1828
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077395"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456025"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Gruppera datorer med datorberoende mappning
 
@@ -73,6 +73,11 @@ Installera agenten på en Linux-dator:
 
 [Läs mer](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) om listan över support för Linux-operativsystem genom att MMA.
 
+#### <a name="install-the-agent-on-a-machine-monitored-by-scom"></a>Installera agenten på en dator som övervakas av SCOM
+
+Det finns datorer som övervakas av System Center Operations Manager 2012 R2 eller senare, behöver inte installera MMA-agenten. Tjänstkarta har en integrering med SCOM som utnyttjar SCOM MMA för datainsamling nödvändiga beroendet. Du kan aktivera integrationen genom att följa vägledningen [här](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). Observera dock att beroendeagenten måste installeras på dessa datorer.
+
+
 ### <a name="install-the-dependency-agent"></a>Installera beroendeagenten
 1. Installera beroendeagenten på en Windows-dator, dubbelklicka på installationsfilen och följ anvisningarna i guiden.
 2. Installera beroendeagenten på en Linux-dator, installera som rot med följande kommando:
@@ -82,6 +87,7 @@ Installera agenten på en Linux-dator:
 Mer information om stöd för beroende-agenten för den [Windows](../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) och [Linux](../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) operativsystem.
 
 [Läs mer](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) om hur du kan använda skript för att installera beroendeagenten.
+
 
 ## <a name="create-a-group"></a>Skapa en grupp
 
@@ -115,7 +121,7 @@ När gruppen har skapats, rekommenderar vi att du installerar agenter på alla d
 
 ## <a name="query-dependency-data-from-log-analytics"></a>Fråga efter data för programberoende från Log Analytics
 
-Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
+Beroendedata som hämtats av Tjänstkarta är tillgänglig för frågor i Log Analytics-arbetsyta som är associerade med Azure Migrate-projekt. [Läs mer](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) om Tjänstkarta datatabeller att fråga i Log Analytics. 
 
 Köra Log Analytics-frågor:
 

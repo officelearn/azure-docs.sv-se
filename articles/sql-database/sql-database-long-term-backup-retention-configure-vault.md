@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma,carlrab
 manager: craigg
-ms.date: 10/05/2018
-ms.openlocfilehash: d8ff07d43d1efbadf1ddd397b6690c93c54c4f27
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 01/25/2019
+ms.openlocfilehash: 5100ef307bc125b21e1c42c87856492a4a496065
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53603556"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55455650"
 ---
 # <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Konfigurera långsiktig kvarhållning av säkerhetskopior med hjälp av Azure Recovery Services-valv
 
@@ -71,7 +71,7 @@ Du konfigurerar ett Azure Recovery Services-valv till [automatiska säkerhetskop
    ![Skapa valv](./media/sql-database-get-started-backup-recovery/create-new-vault.png)
 
    > [!IMPORTANT]
-   > Valvet måste finnas i samma region som den logiska Azure SQL-servern och måste använda samma resursgrupp som den logiska servern.
+   > Valvet måste finnas i samma region som SQL Database-servern och måste använda samma resursgrupp som SQL Database-servern.
 
 10. När det nya valvet har skapats följer du stegen för att återgå till den **Recovery services-valv** sidan.
 
@@ -154,7 +154,7 @@ I följande avsnitt visas hur du använder PowerShell för att konfigurera Azure
 Använd den [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) att skapa ett recovery services-valv.
 
 > [!IMPORTANT]
-> Valvet måste finnas i samma region som den logiska Azure SQL-servern och måste använda samma resursgrupp som den logiska servern.
+> Valvet måste finnas i samma region som SQL Database-servern och måste använda samma resursgrupp som SQL Database-servern.
 
 ```PowerShell
 # Create a recovery services vault

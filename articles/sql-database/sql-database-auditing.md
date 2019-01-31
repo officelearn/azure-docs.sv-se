@@ -12,12 +12,12 @@ ms.author: vainolo
 ms.reviewer: vanto
 manager: craigg
 ms.date: 01/03/2019
-ms.openlocfilehash: 598d2b86e7aeeac9525f37b1ab9422d854e75392
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 0c79554d2db4c1dc17cfbdeed052c1ae16cd68c2
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034037"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55297692"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -154,7 +154,7 @@ Om du väljer att skriva granskningsloggar till ett Azure storage-konto, finns d
 
     4. Sammanfogade filen öppnas i SSMS, där du kan visa och analysera dem, samt exportera den till en XEL eller CSV-fil, eller till en tabell.
 
-- Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Mer information och för att komma åt en nedladdningsbar mall finns i [Analyzie granskningsloggdata i Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+- Använda Powerbi. Du kan visa och analysera granskningsloggdata i Power BI. Mer information och för att komma åt en nedladdningsbar mall finns i [analysera granskningsloggdata i Power BI](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
 - Ladda ned loggfiler från dina Azure Storage blob-behållare via portalen eller genom att använda ett verktyg som [Azure Storage Explorer](http://storageexplorer.com/).
   - När du har hämtat en loggfil lokalt, dubbelklicka på filen för att öppna, visa och analysera loggar i SSMS.
   - Du kan också hämta flera filer samtidigt via Azure Storage Explorer. Du gör detta genom att högerklicka på en viss undermapp och välj **Spara som** att spara i en lokal mapp.

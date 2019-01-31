@@ -6,16 +6,16 @@ services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5c952370908919deb6531e0b175063dc2657ae98
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.openlocfilehash: 4d1c33480e408f892517cde6d42e103b34218f26
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52870411"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55459101"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -34,7 +34,7 @@ Version 3 av Translator Text API innehåller ett moderna JSON-baserade webb-API.
 Microsoft Translator hanteras från flera datacenter-platser. För närvarande de befinner sig i 6 [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions):
 
 * **Americas:** USA, västra 2 och USA, västra centrala 
-* **Asien/Stillahavsområdet:** Sydostasien och Korea, södra
+* **Asien/Stillahavsområdet:** Asien, sydöstra och Korea, södra
 * **Europa:** Norra Europa och västra Europa
 
 Förfrågningar till Microsoft Translator Text API är oftast hanteras av datacentret som är närmast som begäran kom från. Om ett fel uppstår i datacenter, kan begäran skickas utanför regionen.
@@ -43,10 +43,10 @@ Om du vill tvinga begäran som ska hanteras av en specifik datacenter, ändrar d
 
 |Beskrivning|Region|Grundläggande URL|
 |:--|:--|:--|
-|Azure|Global|  API.cognitive.microsofttranslator.com|
-|Azure|Nordamerika|   API-nam.cognitive.microsofttranslator.com|
-|Azure|Europa|  API-eur.cognitive.microsofttranslator.com|
-|Azure|Asien och stillahavsområdet|    API-apc.cognitive.microsofttranslator.com|
+|Azure|Global|  api.cognitive.microsofttranslator.com|
+|Azure|Nordamerika|   api-nam.cognitive.microsofttranslator.com|
+|Azure|Europa|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Asien och stillahavsområdet|    api-apc.cognitive.microsofttranslator.com|
 
 
 ## <a name="authentication"></a>Autentisering
@@ -59,7 +59,7 @@ Det finns tre rubriker som du kan använda för att autentisera din prenumeratio
 |:----|:----|
 |OCP-Apim-Subscription-Key|*Använd med Cognitive Services-prenumeration om du skickar din hemliga nyckel*.<br/>Värdet är Azure hemlig nyckel för din prenumeration till Translator Text API.|
 |Auktorisering|*Använd med Cognitive Services-prenumeration om du skickar en autentiseringstoken.*<br/>Värdet är ägartoken: `Bearer <token>`.|
-|OCP-Apim-prenumeration-Region|*Använd med Cognitive Services i-ett-prenumeration om du skickar en allt-i-ett hemlig nyckel.*<br/>Värdet är regionen som allt-i-ett-prenumeration. Det här värdet är valfritt när du inte använder en allt-i-ett-prenumeration.|
+|Ocp-Apim-Subscription-Region|*Använd med Cognitive Services i-ett-prenumeration om du skickar en allt-i-ett hemlig nyckel.*<br/>Värdet är regionen som allt-i-ett-prenumeration. Det här värdet är valfritt när du inte använder en allt-i-ett-prenumeration.|
 
 ###  <a name="secret-key"></a>Hemlig nyckel
 Det första alternativet är att autentisera med hjälp av den `Ocp-Apim-Subscription-Key` rubrik. Lägg bara till den `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` rubrik på din begäran.

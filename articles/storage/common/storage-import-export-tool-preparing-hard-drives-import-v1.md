@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.component: common
-ms.openlocfilehash: 861b3302e065689a4ea9c0df0879f9c0df12e619
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55454682"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 Följ dessa steg för att förbereda en eller flera hårddiskar för ett importjobb:
@@ -104,13 +104,13 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 
 |Kommandoradsparametern|Beskrivning|
 |-----------------------------|-----------------|
-|**/Sk:**< StorageAccountKey\>|`Optional.` Lagringskontots åtkomstnyckel för lagringskontot som data ska importeras. Du måste innehålla antingen **/sk:**< StorageAccountKey\> eller **/csas:**< ContainerSas\> i kommandot.|
+|**/sk:**<StorageAccountKey\>|`Optional.` Lagringskontots åtkomstnyckel för lagringskontot som data ska importeras. Du måste innehålla antingen **/sk:**< StorageAccountKey\> eller **/csas:**< ContainerSas\> i kommandot.|
 |**/csas:**< ContainerSas\>|`Optional`. Behållaren SAS du använder för att importera data till lagringskontot. Du måste innehålla antingen **/sk:**< StorageAccountKey\> eller **/csas:**< ContainerSas\> i kommandot.<br /><br /> Värdet för den här parametern måste börja med behållarens namn följt av ett frågetecken (?) och SAS-token. Exempel:<br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Behörighet, om anges i URL: en eller i en lagrad åtkomstprincip, måste innehålla läsa, skriva och ta bort för importjobb, och Läs-, Skriv- och listan av export-jobb.<br /><br /> När den här parametern anges, måste alla BLOB-och importeras eller exporteras vara inom den behållare som angavs i signaturen för delad åtkomst.|
-|**/ t:**< TargetDriveLetter\>|`Required.` Enhetsbeteckningen för target hårddisken för den aktuella kopia-sessionen utan avslutande kolon.|
+|**/t:**<TargetDriveLetter\>|`Required.` Enhetsbeteckningen för target hårddisken för den aktuella kopia-sessionen utan avslutande kolon.|
 |**/ format**|`Optional.` Ange den här parametern när enheten måste vara formaterad; i annat fall utelämna den. Innan verktyget formaterar enheten, uppmanas du en bekräftelse från konsolen. Ange parametern /silentmode för att ignorera bekräftelsen.|
 |**/silentmode**|`Optional.` Ange den här parametern om du vill ignorera bekräftelse för att formatera targert-enhet.|
 |**/ kryptera**|`Optional.` Ange den här parametern när enheten inte har ännu krypterats med BitLocker och måste krypteras av verktyget. Om enheten har redan har krypterats med BitLocker, utelämnar den här parametern och ange den `/bk` parameter, vilket ger befintliga BitLocker-nyckel.<br /><br /> Om du anger den `/format` parametern och du måste också ange den `/encrypt` parametern.|
-|**/BK:**< BitLockerKey\>|`Optional.` Om `/encrypt` är anges utelämna den här parametern. Om `/encrypt` är utelämnas, måste du ha har redan krypterat enheten med BitLocker. Använd den här parametern för att ange BitLocker-nyckel. BitLocker-kryptering krävs för alla hårddiskar för importjobb.|
+|**/bk:**<BitLockerKey\>|`Optional.` Om `/encrypt` är anges utelämna den här parametern. Om `/encrypt` är utelämnas, måste du ha har redan krypterat enheten med BitLocker. Använd den här parametern för att ange BitLocker-nyckel. BitLocker-kryptering krävs för alla hårddiskar för importjobb.|
 |**/logdir:**< LogDirectory\>|`Optional.` Loggkatalogen anger en katalog som används för att lagra utförliga loggar samt tillfällig manifestfiler. Om den inte anges används den aktuella katalogen som log-katalogen.|
 
 ### <a name="parameters-required-for-all-copy-sessions"></a>Parametrar som krävs för alla kopia sessioner
@@ -119,8 +119,8 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 |||
 |-|-|
 |Kommandoradsparametern|Beskrivning|
-|**/j:**< JournalFile\>|`Required.` Sökvägen till filen ändringsjournalen. Varje enhet måste ha exakt en journalfil. Observera att journalfilen inte måste finnas på målenheten. Filnamnstillägget journalen `.jrn`.|
-|**/ID:**< sessions-ID\>|`Required.` Sessions-ID identifierar en kopia-session. Den används för att säkerställa att korrekt återställning av en session avbryts kopia. Filer som kopieras i en session för kopiering lagras i en katalog med namnet efter sessions-ID på målenheten.|
+|**/j:**<JournalFile\>|`Required.` Sökvägen till filen ändringsjournalen. Varje enhet måste ha exakt en journalfil. Observera att journalfilen inte måste finnas på målenheten. Filnamnstillägget journalen `.jrn`.|
+|**/id:**<SessionId\>|`Required.` Sessions-ID identifierar en kopia-session. Den används för att säkerställa att korrekt återställning av en session avbryts kopia. Filer som kopieras i en session för kopiering lagras i en katalog med namnet efter sessions-ID på målenheten.|
 
 ### <a name="parameters-for-copying-a-single-directory"></a>Parametrar för att kopiera en enskild katalog
  När du kopierar en enskild katalog, gäller följande obligatoriska och valfria parametrar:
@@ -128,9 +128,9 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 |Kommandoradsparametern|Beskrivning|
 |----------------------------|-----------------|
 |**/srcdir:**< SourceDirectory\>|`Required.` Källkatalogen som innehåller filer som ska kopieras till målenheten. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg).|
-|**/dstdir:**< DestinationBlobVirtualDirectory\>|`Required.` Sökvägen till den virtuella målkatalogen i Windows Azure storage-kontot. Den virtuella katalogen kanske eller kanske inte redan finns.<br /><br /> Du kan ange en behållare eller ett blob-prefix som `music/70s/`. Målkatalogen måste börja med behållarens namn följt av ett snedstreck ”/”, och du kan också omfatta en virtuell blob-katalog som slutar med ”/”.<br /><br /> När till Målbehållaren är Rotbehållare, måste du uttryckligen ange root-behållaren, inklusive snedstreck, som `$root/`. Eftersom blobar i behållaren för roten inte får innehålla ”/” i sina namn, kopieras inte eventuella underkataloger i källkatalogen när målkatalogen är Rotbehållare.<br /><br /> Glöm inte att använda giltiga behållarnamn när du anger målet virtuella kataloger eller blobar. Tänk på att behållarnamn måste vara gemener. Namngivningsregler för behållaren, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
+|**/dstdir:**<DestinationBlobVirtualDirectory\>|`Required.` Sökvägen till den virtuella målkatalogen i Windows Azure storage-kontot. Den virtuella katalogen kanske eller kanske inte redan finns.<br /><br /> Du kan ange en behållare eller ett blob-prefix som `music/70s/`. Målkatalogen måste börja med behållarens namn följt av ett snedstreck ”/”, och du kan också omfatta en virtuell blob-katalog som slutar med ”/”.<br /><br /> När till Målbehållaren är Rotbehållare, måste du uttryckligen ange root-behållaren, inklusive snedstreck, som `$root/`. Eftersom blobar i behållaren för roten inte får innehålla ”/” i sina namn, kopieras inte eventuella underkataloger i källkatalogen när målkatalogen är Rotbehållare.<br /><br /> Glöm inte att använda giltiga behållarnamn när du anger målet virtuella kataloger eller blobar. Tänk på att behållarnamn måste vara gemener. Namngivningsregler för behållaren, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).|
 |**/ Disposition:**< Byt namn på&#124;nr skriva över&#124;skriva över >|`Optional.` Anger beteendet när en blob med den angivna adressen finns redan. Giltiga värden för den här parametern är: `rename`, `no-overwrite` och `overwrite`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `rename`.<br /><br /> Värdet som angetts för den här parametern påverkar alla filer i katalogen som anges av den `/srcdir` parametern.|
-|**/ BlobType:**< BlockBlob&#124;PageBlob >|`Optional.` Anger blobbtypen för mål-BLOB. Giltiga värden är: `BlockBlob` och `PageBlob`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `BlockBlob`.<br /><br /> I de flesta fall `BlockBlob` rekommenderas. Om du anger `PageBlob`, längden på varje fil i katalogen måste vara en multipel av 512, storleken på en sida för sidblobar.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Anger blobbtypen för mål-BLOB. Giltiga värden är: `BlockBlob` och `PageBlob`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `BlockBlob`.<br /><br /> I de flesta fall `BlockBlob` rekommenderas. Om du anger `PageBlob`, längden på varje fil i katalogen måste vara en multipel av 512, storleken på en sida för sidblobar.|
 |**/ PropertyFile:**< PropertyFile\>|`Optional.` Sökvägen till filen egenskapen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information.|
 |**/ MetadataFile:**< MetadataFile\>|`Optional.` Sökvägen till metadatafilen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information.|
 
@@ -139,10 +139,10 @@ Följ dessa steg för att förbereda en eller flera hårddiskar för ett importj
 
 |Kommandoradsparametern|Beskrivning|
 |----------------------------|-----------------|
-|**/srcfile:**< SourceFile\>|`Required.` Den fullständiga sökvägen till filen som ska kopieras. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg).|
-|**/dstblob:**< DestinationBlobPath\>|`Required.` Sökvägen till målblobben i Windows Azure storage-kontot. Blobben kanske eller kanske inte redan finns.<br /><br /> Ange den blob namn som början med behållarens namn. Blob-namnet får inte börja med ”/” eller namnet på lagringskontot. Regler för namngivning blob, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> När till Målbehållaren är Rotbehållare, måste du uttryckligen ange `$root` som behållare, till exempel `$root/sample.txt`. Observera att BLOB-objekt i root-behållaren får inte innehålla ”/” i sina namn.|
+|**/srcfile:**<SourceFile\>|`Required.` Den fullständiga sökvägen till filen som ska kopieras. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg).|
+|**/dstblob:**<DestinationBlobPath\>|`Required.` Sökvägen till målblobben i Windows Azure storage-kontot. Blobben kanske eller kanske inte redan finns.<br /><br /> Ange den blob namn som början med behållarens namn. Blob-namnet får inte börja med ”/” eller namnet på lagringskontot. Regler för namngivning blob, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).<br /><br /> När till Målbehållaren är Rotbehållare, måste du uttryckligen ange `$root` som behållare, till exempel `$root/sample.txt`. Observera att BLOB-objekt i root-behållaren får inte innehålla ”/” i sina namn.|
 |**/ Disposition:**< Byt namn på&#124;nr skriva över&#124;skriva över >|`Optional.` Anger beteendet när en blob med den angivna adressen finns redan. Giltiga värden för den här parametern är: `rename`, `no-overwrite` och `overwrite`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `rename`.|
-|**/ BlobType:**< BlockBlob&#124;PageBlob >|`Optional.` Anger blobbtypen för mål-BLOB. Giltiga värden är: `BlockBlob` och `PageBlob`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `BlockBlob`.<br /><br /> I de flesta fall `BlockBlob` rekommenderas. Om du anger `PageBlob`, längden på varje fil i katalogen måste vara en multipel av 512, storleken på en sida för sidblobar.|
+|**/BlobType:**<BlockBlob&#124;PageBlob>|`Optional.` Anger blobbtypen för mål-BLOB. Giltiga värden är: `BlockBlob` och `PageBlob`. Observera att dessa värden är skiftlägeskänsliga. Om inget värde anges är standardvärdet `BlockBlob`.<br /><br /> I de flesta fall `BlockBlob` rekommenderas. Om du anger `PageBlob`, längden på varje fil i katalogen måste vara en multipel av 512, storleken på en sida för sidblobar.|
 |**/ PropertyFile:**< PropertyFile\>|`Optional.` Sökvägen till filen egenskapen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information.|
 |**/ MetadataFile:**< MetadataFile\>|`Optional.` Sökvägen till metadatafilen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information.|
 
@@ -172,7 +172,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 * [Konfigurera Azure Import/Export-verktyget](storage-import-export-tool-setup-v1.md)
 * [Konfigurera egenskaper och metadata under importeringsprocessen](storage-import-export-tool-setting-properties-metadata-import-v1.md)
 * [Exempelarbetsflöde för att förbereda hårddiskar för ett importjobb](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)
-* [Snabbreferens för ofta använda kommandon](storage-import-export-tool-quick-reference-v1.md) 
+* [Snabbreferens för ofta använda kommandon](storage-import-export-tool-quick-reference-v1.md) 
 * [Granska jobbstatus med kopiera loggfiler](storage-import-export-tool-reviewing-job-status-v1.md)
 * [Reparera ett importjobb](storage-import-export-tool-repairing-an-import-job-v1.md)
 * [Reparera ett exportjobb](storage-import-export-tool-repairing-an-export-job-v1.md)

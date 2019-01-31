@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/29/2019
-ms.openlocfilehash: 1aa3960e3a974703cfecec2bd28fc41f74f7df96
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 50f6f114a4d90f48218f751e1649e8694e664491
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238415"
+ms.locfileid: "55295754"
 ---
 # <a name="managing-rolling-upgrades-of-cloud-applications-using-sql-database-active-geo-replication"></a>Hantera löpande uppgraderingar av molnprogram med SQL Database aktiv geo-replikering
 
@@ -54,7 +54,7 @@ Programmet är redo för den faktiska uppgraderingen när förberedelsesteg har 
 Om uppgraderingen har slutförts, är du nu redo att växla slutanvändarna till den uppgraderade kopian programmet. Nu blir det en produktionsplatsen.  Växling innebär några fler steg som illustreras i följande diagram.
 
 1. Aktivera en växlingen mellan produktions- och mellanlagringsplatser för webbprogram (6). Det växlar URL: er av två platserna. Nu `contoso.azurewebsites.net` pekar till V2-versionen av webbplatsen och databasen (produktionsmiljö).  
-2. Om du inte längre behöver den V1-versionen, vilket blev en mellanlagrings kopia efter växlingen inaktivera du mellanlagring envoronment (7).
+2. Om du inte längre behöver den V1-versionen, vilket blev en mellanlagrings kopia efter växlingen kan du inaktivera mellanlagringsmiljön (7).
 
 ![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option1-3.png)
 
@@ -111,7 +111,7 @@ När de förberedande stegen har slutförts, är mellanlagringsmiljön kan uppgr
 Om uppgraderingen har slutförts, är du nu redo att växla slutanvändarna till V2-versionen av programmet. Följande diagram illustrerar stegen som ingår.
 
 1. Aktivera en växlingen mellan produktions- och mellanlagringsplatser för webbprogram i den primära regionen (13) och i regionen säkerhetskopiering (14). V2 av programmet blir en produktionsplatsen med en identisk kopia i regionen säkerhetskopiering.
-2. Du kan inaktivera den mellanlagringsmiljön om du inte längre behöver V1-program (15 och 16).  
+2. Du kan utföra avställning mellanlagringsmiljön om du inte längre behöver V1-program (15 och 16).  
 
 ![Konfiguration för SQL Database geo-replikering. Katastrofåterställning i molnet.](media/sql-database-manage-application-rolling-upgrade/option2-3.png)
 

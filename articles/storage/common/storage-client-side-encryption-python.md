@@ -8,13 +8,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: lakasa
-ms.component: common
-ms.openlocfilehash: 6a6508393fe935b456cde815d35f2fd4447cd2d4
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.subservice: common
+ms.openlocfilehash: dfff159d7e0204a752935458a2b4845499c0d652
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528130"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55453407"
 ---
 # <a name="client-side-encryption-with-python-for-microsoft-azure-storage"></a>Client Side Encryption med Python för Microsoft Azure Storage
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -125,12 +125,12 @@ När du har skapat ett service lagringsobjekt (d.v.s. blockblobservice) du kan t
 
 KEK måste implementera följande metoder för att kryptera data har:
 
-* wrap_key(cek): omsluter den angivna CEK (byte) som använder en algoritm för användarens val. Returnerar den omslutna nyckeln.
-* get_key_wrap_algorithm(): returnerar den algoritm som används för att omsluta nycklar.
-* get_kid(): returnerar strängen nyckel-id för den här KEK.
+* wrap_key(cek): Omsluter den angivna CEK (byte) som använder en algoritm för användarens val. Returnerar den omslutna nyckeln.
+* get_key_wrap_algorithm(): Returnerar den algoritm som används för att omsluta nycklar.
+* get_kid(): Returnerar strängen nyckel-id för den här KEK.
   KEK måste implementera de följande metoderna för att dekryptera data har:
-* unwrap_key (cek, algoritmen): returnerar packats upp form av den angivna CEK med angiven sträng-algoritmen.
-* get_kid(): returnerar en sträng nyckel-id för den här KEK.
+* unwrap_key (cek, algoritmen): Returnerar packats upp form av den angivna CEK med angiven sträng-algoritmen.
+* get_kid(): Returnerar en sträng nyckel-id för den här KEK.
 
 Viktiga matcharen verkställer minst en metod som, givet ett nyckel-id, returnerar den motsvarande KEK som implementerar gränssnittet ovan. Endast den här metoden är att tilldelas till egenskapen key_resolver_function på objektet.
 

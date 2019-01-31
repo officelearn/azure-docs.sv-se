@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: mayg
-ms.openlocfilehash: 8e46f47f1d3a95e4635609f24dc413141304d3c2
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 55d6f1393f4f180776557ea9a2651064d61c3e06
+ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228176"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55301517"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Kör Distributionshanteraren för Azure Site Recovery för VMware-haveriberedskap till Azure
 Den här artikeln utgör användarhandboken för Azure Site Recovery Deployment Planner för produktionsdistribution av VMware till Azure.
@@ -135,7 +135,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 >* När du skickar namn och nyckel för ett lagringskonto mäter verktyget dataflödet vid profileringens sista steg. Om verktyget avslutas innan profileringen har slutförts normalt beräknas inte dataflödet. Du kan hitta dataflödet innan du genererar rapporten genom att köra åtgärden GetThroughput från kommandotolken. Annars innehåller inte den genererade rapporten dataflödesinformationen.
 
 
-## <a name="generate-report"></a>Skapa rapport
+## <a name="generate-report"></a>Generera en rapport
 Verktyget genererar en makroaktiverad Microsoft Excel-fil (XLSM) som rapportutdata med en sammanfattning av alla distributionsrekommendationer. Rapporten har namnet DeploymentPlannerReport_<unique numeric identifier>.xlsm och placeras i den angivna katalogen.
 
 >[!NOTE]
@@ -169,7 +169,7 @@ När profileringen är färdig kan köra du verktyget i läget för rapportgener
 |-Currency|(Valfritt) Valutan i vilken kostnaden visas i den genererade rapporten. Standard är amerikanska dollar ($) eller den senast använda valutan.<br>Läs mer i listan med [valutor som stöds](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
 Som standard är verktyget konfigurerat att profilera och generera rapporten upp till 1000 virtuella datorer. Du kan ändra gränsen genom att ändra nyckelvärdet i filen *ASRDeploymentPlanner.exe.config*.
-```
+```xml
 <!-- Maximum number of vms supported-->
 <add key="MaxVmsSupported" value="1000"/>
 ```
@@ -192,7 +192,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Serve
 
 #### <a name="example-4-generate-a-report-with-a-5-percent-growth-factor-instead-of-the-default-30-percent"></a>Exempel 4: Generera en rapport med 5 procents tillväxtfaktor i stället för standardvärdet 30 procent
 ```
-ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualzation VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
+ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware -Server vCenter1.contoso.com -Directory “E:\vCenter1_ProfiledData” -VMListFile “E:\vCenter1_ProfiledData\ProfileVMList1.txt” -GrowthFactor 5
 ```
 
 #### <a name="example-5-generate-a-report-with-a-subset-of-profiled-data"></a>Exempel 5: Generera en rapport med en delmängd av profileringsdata
@@ -219,7 +219,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 Standardvärdet i verktyget är den 95:e percentilen för läs/skriv-IOPS och dataomsättningar som samlas in när alla de virtuella datorerna profileras. Det här måttet garanterar att den topp vid den 100:e percentilen som de virtuella datorerna kan nå eftersom de tillfälliga händelserna inte används för att fastställa mållagringskontot och kraven på källbandbredd. Till exempel kan en tillfällig händelse vara ett säkerhetskopieringsjobb som körs en gång om dagen, periodisk databasindexering eller en analysrapportgenereringsaktivitet eller andra liknande kortvariga händelser vid vissa tidpunkter.
 
 Med värden från den 95:e percentilen får du en korrekt bild av den faktiska arbetsbelastningen, och då får du bästa möjliga prestanda när dessa arbetsbelastningar sedan körs på Azure. Vi tror inte att du kommer att behöva ändra det här antalet. Om du inte ändrar det här värdet (till 90:e percentilen exempelvis) kan du uppdatera konfigurationsfilen *ASRDeploymentPlanner.exe.config*i standardmappen, spara den och generera en ny rapport för befintliga profileringsdata.
-```
+```xml
 <add key="WriteIOPSPercentile" value="95" />      
 <add key="ReadWriteIOPSPercentile" value="95" />      
 <add key="DataChurnPercentile" value="95" />

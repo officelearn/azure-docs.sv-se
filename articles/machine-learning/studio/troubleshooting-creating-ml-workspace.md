@@ -1,6 +1,6 @@
 ---
-Rubrik: ”Felsöka: Skapa, ansluta till en Machine Learning Studio-arbetsyta ”titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här guiden innehåller lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning Studio-arbetsytor.
-tjänster: machine learning ms.service: machine learning ms.component: studio ms.topic: artikel
+Rubrik: ”Felsöka: Skapa, ansluta till en Machine Learning Studio-arbetsyta ”titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här guiden innehåller lösningar för några vanliga påträffade utmaningar när du ställer in Azure Machine Learning Studio-arbetsytor.
+tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
 
 author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 03/20/2017
 ---

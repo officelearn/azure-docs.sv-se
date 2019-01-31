@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: fbbaefc62adedc2374c47fd0736368d3dec3e6a4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043438"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461176"
 ---
-# <a name="time-to-live-for-azure-cosmos-db-data"></a>Time to Live för Azure Cosmos DB-data
+# <a name="time-to-live-in-azure-cosmos-db"></a>TTL-värde i Azure Cosmos DB 
 
 Med ”Time to Live” eller TTL kan Azure Cosmos DB du ta bort objekt automatiskt från en behållare efter en viss tidsperiod. Du kan ange tiden för live på behållarenivån och åsidosättningsvärde på basis av per objekt som standard. När du ställer in TTL-Perioden på en behållare eller på en nivå, tar Azure Cosmos DB automatiskt bort dessa objekt efter hur lång tid sedan du de senast ändrades. Tid TTL-värde konfigureras på några sekunder. När du konfigurerar TTL systemet automatiskt att ta bort inaktuella objekt baserat på TTL-värdet, till skillnad från en borttagningsåtgärd som uttryckligen har utfärdats av klientprogrammet.
 

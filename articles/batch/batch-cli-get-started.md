@@ -3,7 +3,7 @@ title: Komma igång med Azure CLI för Batch | Microsoft Docs
 description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser
 services: batch
 documentationcenter: ''
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9b5c1df8776b63fc8ceecfa0377e74c757ba503c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0d51052f4e04a1497ccf2e91427e3465bdc5bf2f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950156"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55476833"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -62,7 +62,7 @@ När du ska använda Azure CLI med Batch måste du logga in och autentisera. Det
 
 Det finns några olika sätt att logga in på Azure, läs mer i [Logga in med Azure CLI](/cli/azure/authenticate-azure-cli):
 
-1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-interactive-log-in). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
+1. [Logga in interaktivt](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Logga in interaktivt när du själv kör Azure CLI-kommandon från kommandoraden.
 2. [Logga in med ett huvudnamn för tjänsten](https://docs.microsoft.com/cli/azure/authenticate-azure-cli#az-authenticate-azure-cli-logging-in-with-a-service-principal). Logga in med ett huvudnamn för tjänsten när du använder Azure CLI-kommandon från ett skript eller ett program.
 
 I den här artikeln beskrivs hur du loggar in på Azure interaktivt. Skriv [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login) på kommandoraden:

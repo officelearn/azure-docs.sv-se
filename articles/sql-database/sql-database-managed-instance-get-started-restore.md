@@ -12,32 +12,32 @@ ms.author: srbozovi
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: 40d07827cbd856fe3be3d797dde793b1a7f50207
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: f75ea7bd728b16c91122119c3e14da2a1e123d45
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53653246"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55452319"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Snabbstart: Återställa en databas till en hanterad instans 
 
-I den här snabbstarten får du använda SQL Server Management Studio (SSMS) för att återställa en databas (Wide World Importers – standardsäkerhetskopian) från Azure Blob Storage till en [hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) för Azure SQL Database. 
+I den här snabbstarten får du använda SQL Server Management Studio (SSMS) för att återställa en databas (Wide World Importers – standardsäkerhetskopian) från Azure Blob Storage till en [hanterad instans](sql-database-managed-instance.md) för Azure SQL Database. 
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> * Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i avsnittet [Migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> * Mer information om de olika migreringsmetoderna finns i [SQL Server-instansmigrering till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
+> - Mer information om migrering med hjälp av Azure Database Migration Service (DMS) finns i avsnittet [Migrering av hanterade instanser med DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
+> - Mer information om de olika migreringsmetoderna finns i [SQL Server-instansmigrering till Azure SQL Database Managed Instance](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Nödvändiga komponenter
 
 Den här snabbstarten:
+
 - Använder resurser från snabbstarten [Skapa en hanterad instans](sql-database-managed-instance-get-started.md).
 - Kräver att datorn har den senaste versionen av [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) installerad.
 - Kräver att du använder SSMS för att kunna ansluta till din hanterade instans. Läs följande snabbstarter om hur man ansluter:
-  * [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md) (Ansluta till en hanterad Azure SQL Database-instans från en virtuell Azure-dator)
-  * [Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
-
+  - [Connect to an Azure SQL Database Managed Instance from an Azure VM](sql-database-managed-instance-configure-vm.md) (Ansluta till en hanterad Azure SQL Database-instans från en virtuell Azure-dator)
+  - [Konfigurera en punkt-till-plats-anslutning till en hanterad Azure SQL Database-instans lokalt](sql-database-managed-instance-configure-p2s.md).
 
 > [!NOTE]
 > Mer information om hur man säkerhetskopierar och återställer en SQL Server-databas med hjälp av Azure Blob Storage och en [SAS-nyckel](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) finns i [SQL Server-säkerhetskopiering till URL](sql-database-managed-instance-get-started-restore.md).
@@ -47,9 +47,7 @@ Den här snabbstarten:
 Återställ Wide World Importers-databasen till din hanterade instans i SSMS enligt dessa steg. Säkerhetskopian av databasfilen lagras i ett förkonfigurerat Azure Blob Storage-konto.
 
 1. Öppna SMSS och anslut till din hanterade instans.
-
 2. Högerklicka på din hanterade instans på den vänstra menyn och välj **Ny fråga** så öppnas ett nytt frågefönster.
-
 3. Använd följande skript, som använder ett förkonfigurerat lagringskonto och SAS-nyckel, för att [skapa en autentiseringsuppgift](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql?view=sql-server-2017) i den hanterade instansen.
 
    ```sql
@@ -60,8 +58,7 @@ Den här snabbstarten:
 
     ![skapa autentiseringsuppgift](./media/sql-database-managed-instance-get-started-restore/credential.png)
 
-  
-3. Kontrollera dina autentiseringsuppgifter genom att köra följande skript som använder en [behållare](https://azure.microsoft.com/services/container-instances/)-URL för att hämta en lista över säkerhetskopior.
+4. Kontrollera dina autentiseringsuppgifter genom att köra följande skript som använder en [behållare](https://azure.microsoft.com/services/container-instances/)-URL för att hämta en lista över säkerhetskopior.
 
    ```sql
    RESTORE FILELISTONLY FROM URL = 
@@ -70,7 +67,7 @@ Den här snabbstarten:
 
     ![file list](./media/sql-database-managed-instance-get-started-restore/file-list.png)
 
-4. Återställ Wide World Importers-databasen genom att köra följande skript.
+5. Återställ Wide World Importers-databasen genom att köra följande skript.
 
    ```sql
    RESTORE DATABASE [Wide World Importers] FROM URL =
@@ -79,7 +76,7 @@ Den här snabbstarten:
 
     ![återställ](./media/sql-database-managed-instance-get-started-restore/restore.png)
 
-5. Spåra återställningsstatusen genom att köra följande skript.
+6. Spåra återställningsstatusen genom att köra följande skript.
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
@@ -89,7 +86,7 @@ Den här snabbstarten:
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-6. När återställningen är klar kan du visa den i Object Explorer. 
+7. När återställningen är klar kan du visa den i Object Explorer. 
 
 ## <a name="next-steps"></a>Nästa steg
 

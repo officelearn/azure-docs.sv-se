@@ -3,19 +3,19 @@ title: Skapa en Kubernetes-utvecklarmiljö i molnet med .NET Core och VS Code | 
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.component: azds-kubernetes
+ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: b5de5ccdf98d6d0a2952a694a253feaac9d6e07d
-ms.sourcegitcommit: b254db346732b64678419db428fd9eb200f3c3c5
+ms.openlocfilehash: b51bf83d2e44239ebd6bc17e25efaa2fe94250f3
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53413633"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55467143"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Komma igång med Azure Dev Spaces med .NET Core
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: bf86a1d50b8c63b90a05d0b05bc6a1a037d300d5
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 7a15b04e9e0fbd2cedf07c2833df30e4f0ca3db7
+ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468766"
+ms.lasthandoff: 01/29/2019
+ms.locfileid: "55167945"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installation av Azure AD Connect Health Agent
 Det här dokumentet beskriver hur du installerar och konfigurerar Azure AD Connect Health-agenterna. Du kan ladda ned agenterna [här](how-to-connect-install-roadmap.md#download-and-install-azure-ad-connect-health-agent).
@@ -171,10 +171,6 @@ Observera att granskningsnivån ”basic” är aktiverad som standard. Läs mer
 
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-sync"></a>Installera Azure AD Connect Health-agenten för synkronisering
-> [!NOTE]
-> Synkroniseringsservern bör inte vara samma som din AD FS-server. Installera inte synkroniseringsagenten på din AD FS-server.
->
-
 Azure AD Connect Health-agenten för synkronisering installeras automatiskt i den senaste versionen av Azure AD Connect. Om du vill använda Azure AD Connect för synkronisering måste du ladda ned den senaste versionen av Azure AD Connect och installera den. Du kan hämta den senaste versionen [här](https://www.microsoft.com/download/details.aspx?id=47594).
 
 Kontrollera att agenten har installerats genom att leta efter följande tjänster på servern. Dessa tjänster bör köras om du har slutfört konfigurationen. Annars startar de inte förrän konfigurationen är klar.

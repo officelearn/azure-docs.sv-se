@@ -75,10 +75,10 @@ Följande tabeller visar de olika fel-typer (id under resultat i listan ovan) so
 | ConnectionIsMarkedDisconnected | Anslutningen har markerats ”frånkopplad” |Nej|
 | ConnectionNotConfiguredOnGateway | Den underliggande tjänsten har inte den anslutningen har konfigurerats. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten har markerats som vänteläge.| Ja|
-| Autentisering | I förväg delad nyckel matchar inte | Ja|
+| Authentication | I förväg delad nyckel matchar inte | Ja|
 | PeerReachability | Peer-gatewayen kan inte nås. | Ja|
 | IkePolicyMismatch | Peer-gateway har IKE-principer som inte stöds av Azure. | Ja|
-| WfpParse fel | Ett fel uppstod parsning WFP-loggen. |Ja|
+| WfpParse Error | Ett fel uppstod parsning WFP-loggen. |Ja|
 
 ## <a name="supported-gateway-types"></a>Gateway-typer som stöds
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: alkohli
-ms.openlocfilehash: bbf1eb623232332ed025fa0806e942e638c39974
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: e3412e31ae976efc8164076b30ad61360a030db4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456059"
+ms.locfileid: "55511946"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Alternativ för att migrera data från StorSimple 5000-7000-serien 
 
@@ -29,23 +29,31 @@ StorSimple 5000-7000-serien når [supporten](https://support.microsoft.com/lifec
 
 ## <a name="migration-options"></a>Migreringsalternativ
 
-De kunder som använder StorSimple 5000-7000-serien har du följande alternativ:
+Kunder som använder StorSimple har 5000-7000-serien Azure eller från tredje part alternativ.
 
-- **Alternativ för Azure**:
+### <a name="azure-options"></a>Alternativ för Azure
 
-    - **Uppgradera till StorSimple 8000-serien** – uppgradera till StorSimple 8000-serien och således att fortsätta på StorSimple-plattformen.  Den här uppgraderingsvägen kräver kunder för att ersätta sina serieenheter för 5000 – 7000-med 8000-serien. Data migreras från 5000 – 7000-serieenhet med hjälp av migreringsverktyget. När migreringen är slutförd fortsätter StorSimple 8000-serieenheter att Datacenter till Azure Blob Storage. 
+#### <a name="upgrade-to-storsimple-8000-series"></a>Uppgradera till StorSimple 8000-serien
 
-    Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serien, går du till [migrera data från StorSimple 5000-7000-serien 8000-serien enheten](storsimple-8000-migrate-from-5000-7000.md).
+Uppgradera till StorSimple 8000-serien och således att fortsätta på StorSimple-plattformen.  Den här uppgraderingsvägen kräver kunder för att ersätta sina serieenheter för 5000 – 7000-med 8000-serien. Data migreras från 5000 – 7000-serieenhet med hjälp av migreringsverktyget. När migreringen är slutförd fortsätter StorSimple 8000-serieenheter att Datacenter till Azure Blob Storage. 
 
-    - **Migrera till Azure File Sync** – den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
+Mer information om hur du migrerar data med hjälp av en StorSimple 8000-serien, går du till [migrera data från StorSimple 5000-7000-serien 8000-serien enheten](storsimple-8000-migrate-from-5000-7000.md).
 
-    Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
+#### <a name="migrate-to-azure-file-sync"></a>Migrera till Azure File Sync
 
-- **Alternativ för tredje parts**:
+Den här helt nya migreringsalternativ ger kunder möjlighet att lagra sin organisations filresurser i Azure-filer. Dessa filresurser är sedan centraliserade för lokal åtkomst med hjälp av Azure File Sync (AFS). AFS kan distribueras på en Windows Server-värd. Faktiska datamigreringen utförs sedan som en värd kopia eller med hjälp av migreringsverktyget.
 
-    - **Migrera till Panzura frihet NAS** -StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
+Mer information om hur du migrerar data till Azure File Sync går du till [migrera data från StorSimple 5000-7000-serien till Azure File Sync](https://aka.ms/StorSimpleMigrationAFS).
 
-    - **Migrera till Cohesity** -Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. Läs mer på [migrering till Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
+### <a name="third-party-options"></a>Tredjeparts-alternativ
+
+#### <a name="migrate-to-panzura-freedom-nas"></a>Migrera till Panzura frihet NAS
+
+StorSimple 5000-7000-kunder kan välja att migrera till Panzura frihet NAS att behålla sina data i Azure. Panzura frihet-lösningen innehåller en NAS-lösning som sträcker sig över datacenter, kontor, offentliga och privata moln. Den här lösningen kan lokala, hybrid och data i molnet arbetsflöden för NFS, SMB och mobila klienter. Den här migreringen stöds av Panzura och kunder kan komma igång genom att begära Migreringsstöd för från den [Panzura webbplats](https://panzura.com/storsimple-migration/).
+
+#### <a name="migrate-to-cohesity"></a>Migrera till Cohesity
+
+Cohesity kan du migrera data från din aktuella StorSimple 5000 – 7000 till Cohesity Data Platform på Azure. Cohesity Data Platform är en programvarudefinierad webbskalade-lösning som konsoliderar filer, säkerhetskopieringar, objekt och virtuella datorer till en enda lösning i molnet. Du kan hantera, skydda och etablera data och appar från molnet till kärna via en enda glasruta efter migrering till Dataplattformen. Med Cohesity, börjar du med bara tre noder. Läs mer på [migrering till Cohesity DataPlatform](https://info.cohesity.com/migrate-from-storsimple-to-cohesity.html).
 
 ## <a name="migration---frequently-asked-questions"></a>Migrering – vanliga frågor och svar
 

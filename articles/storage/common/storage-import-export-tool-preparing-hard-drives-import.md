@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: cdcb7dbe726582e525b401bfa765ccc423928610
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454410"
+ms.locfileid: "55510144"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Förbereda hårddiskar för ett importjobb
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | BasePath | **[Krävs]**<br/>Värdet för den här parametern representerar källan där data som ska importeras finns. Verktyget kommer rekursivt kopiera alla data som finns under den här sökvägen.<br><br/>**Tillåtna värden**: Detta måste vara en giltig sökväg på lokal dator eller en giltig resurssökväg och ska vara tillgängliga för användaren. Katalogsökvägen måste vara en absolut sökväg (inte en relativ sökväg). Om sökvägen som slutar med ”\\”, en annan katalog representerar en sökväg som slutar utan ”\\” representerar en fil.<br/>Inga regex tillåts i det här fältet. Om sökvägen innehåller blanksteg, placerar du den i ””.<br><br/>**Exempel**: ”c:\Directory\c\Directory\File.txt”<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory\"  |
 | DstBlobPathOrPrefix | **[Krävs]**<br/> Sökvägen till den virtuella målkatalogen i Windows Azure storage-kontot. Den virtuella katalogen kanske eller kanske inte redan finns. Om det inte finns, skapas en Import/Export-tjänsten.<br/><br/>Glöm inte att använda giltiga behållarnamn när du anger målet virtuella kataloger eller blobar. Tänk på att behållarnamn måste vara gemener. Namngivningsregler för behållaren, se [namngivning och referens av behållare, Blobar och Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata). Om det bara rot har angetts, replikeras katalogstrukturen på källan i mål-blob-behållare. Om en annan katalogstrukturen är det önskade än som i källan, flera rader med mappning i CSV<br/><br/>Du kan ange en behållare eller ett blob-prefix som musik/70-talet /. Målkatalogen måste börja med behållarens namn följt av ett snedstreck ”/”, och du kan också omfatta en virtuell blob-katalog som slutar med ”/”.<br/><br/>När till Målbehållaren är Rotbehållare, måste du uttryckligen ange root-behållaren, inklusive snedstreck som $root /. Eftersom blobar i behållaren för roten inte får innehålla ”/” i sina namn, kopieras inte eventuella underkataloger i källkatalogen när målkatalogen är Rotbehållare.<br/><br/>**Exempel**<br/>Om målblobbsökvägen är https://mystorageaccount.blob.core.windows.net/video, värdet för det här fältet kan vara video /  |
 | BlobType | **[Valfritt]**  blockera &#124; sidan<br/>Import/Export-tjänsten stöder för närvarande 2 typer av Blobar. Sidan blobbar och blockera BlobsBy standard alla filer som ska importeras som Blockblobar. Och \*.vhd och \*vhdx kommer att importeras eftersom Page BlobsThere finns en gräns för blockblob och sidblob tillåtna storleken. Se [Storage skalbarhetsmål](storage-scalability-targets.md) för mer information.  |
-| Disposition | **[Valfritt]**  Byt namn på &#124; nr skriva över &#124; skriva över <br/> Det här fältet anger kopieringsbeteendet-under importen dvs När data överförs till storage-kontot från disken. Alternativen är: Byt namn på&#124;säkerhetslagring&#124;nr skrivs över. Som standard ”Byt namn på” om inget angavs. <br/><br/>**Byt namn på**: Om ett objekt med samma namn finns skapar du en kopia på målet.<br/>Skriv över: ersätts filen med nyare fil. Senaste ändring wins filen.<br/>**Nej, skriva över**: Hoppar över skrivning till filen om redan finns.|
+| Disposition | **[Valfritt]**  Byt namn på &#124; nr skriva över &#124; skriva över <br/> Det här fältet anger kopieringsbeteendet-under importen dvs När data överförs till storage-kontot från disken. Alternativen är: Byt namn på&#124;skriva över&#124;nr skrivs över. Som standard ”Byt namn på” om inget angavs. <br/><br/>**Byt namn på**: Om ett objekt med samma namn finns skapar du en kopia på målet.<br/>Skriv över: ersätts filen med nyare fil. Senaste ändring wins filen.<br/>**Nej, skriva över**: Hoppar över skrivning till filen om redan finns.|
 | MetadataFile | **[Valfritt]** <br/>Värdet för det här fältet är metadatafilen som kan anges om den måste bevara metadata för objekt eller ange anpassade metadata. Sökvägen till metadatafilen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information |
 | PropertiesFile | **[Valfritt]** <br/>Sökvägen till filen egenskapen för mål-BLOB. Se [Import/Export-tjänsten Metadata och egenskaper filformat](../storage-import-export-file-format-metadata-and-properties.md) för mer information. |
 
@@ -319,7 +319,7 @@ Samma session för kopiering kan inte användas att importera data till olika la
 
 När kopia-sessionsnamnet är samma från de många körningarna av verktyget, loggfilen (/ logdir) och lagringskontonyckeln (/ sk) förväntas också vara samma.
 
-Sessions-ID kan bestå av bokstäver, 0 ~ 9, understore (\_), bindestreck (-) eller hash (#), och längden måste vara 3 ~ 30.
+Sessions-ID kan bestå av bokstäver, 0 ~ 9, understreck (\_), bindestreck (-) eller hash (#), och längden måste vara 3 ~ 30.
 
 t.ex. sessions-1 eller session #1 eller session\_1
 
@@ -388,7 +388,7 @@ Ja. BitLocker-kryptering aktiveras och krävs för den här processen.
 
 #### <a name="how-many-of-the-input-disks-will-have-active-io-in-parallel-when-copy-is-in-progress"></a>Hur många av indata diskar har active-i/o parallellt, när kopia pågår?
 
-Verktyget distribuerar data i de inkommande diskar baserat på storleken på indatafilerna. Det finns dock antalet aktiva diskar parallellt delends helt på typen av indata. Beroende på storleken på enskilda filer i den inkommande datauppsättningen kan indikera en eller flera diskar active-i/o parallellt. Se nästa fråga för mer information.
+Verktyget distribuerar data i de inkommande diskar baserat på storleken på indatafilerna. Det finns dock antalet aktiva diskar parallellt helt beror på typen av indata. Beroende på storleken på enskilda filer i den inkommande datauppsättningen kan indikera en eller flera diskar active-i/o parallellt. Se nästa fråga för mer information.
 
 #### <a name="how-does-the-tool-distribute-the-files-across-the-disks"></a>Hur verktyget distribuerar filerna på diskarna?
 

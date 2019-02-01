@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7951044f850d93659ca458d3bcc46376e7e6b34a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 2720d239c31a0cbfab215c7e297627c9f0d8c781
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077369"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510246"
 ---
 # <a name="what-are-authentication-methods"></a>Vad är autentiseringsmetoder?
 
@@ -171,6 +171,8 @@ En gång korrekt formaterade som en CSV-fil, en administratör kan logga in på 
 Beroende på storleken på CSV-filen kan dröja det några minuter att bearbeta. Klicka på den **uppdatera** för att visa aktuell status. Om det finns några fel i filen, kommer du har möjlighet att hämta en CSV-fil som innehåller alla fel för dig att lösa.
 
 När du har åtgärdat eventuella fel administratören kan aktivera varje nyckel genom att klicka på **aktivera** för token som ska aktiveras och anger OTP visas i token.
+
+Användare kan ha en kombination av upp till 5 OATH-maskinvarutoken eller authenticator-program, till exempel Microsoft Authenticator-appen som konfigurerats för användning när som helst.
 
 ## <a name="mobile-phone"></a>Mobiltelefon
 

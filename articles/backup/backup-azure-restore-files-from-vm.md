@@ -8,13 +8,13 @@ keywords: återställning på objektnivå; filåterställning från virtuell Azu
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
-ms.author: pullabhk
-ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.author: pvrk
+ms.openlocfilehash: c267b3a8289d87402647a399376161cf18716112
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638315"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488500"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Återställa filer från säkerhetskopiering av Azure virtuella datorer
 
@@ -105,7 +105,7 @@ I Linux, när anslutningen till återställningspunkten är avskiljes Operativsy
 
 ## <a name="special-configurations"></a>Särskilda konfigurationer
 
-### <a name="dynamic-disks"></a>Dynamiska diskar
+### <a name="dynamic-disks"></a>Dynamic Disks
 
 Om den skyddade virtuella Azure-datorn har volymer med en eller båda av följande egenskaper kan köra du inte körbara skriptet på samma virtuella dator.
 
@@ -179,7 +179,7 @@ Om RAID-disk har en annan LVM som konfigurerats i den, sedan använder föregåe
 
 I följande tabell visar kompatibiliteten mellan servern och datorn operativsystem. När du återställer filer, kan du återställa filer till en tidigare och framtida operativsystemversion. Exempelvis kan du inte återställa en fil från en Windows Server 2016 VM till Windows Server 2012 eller en dator med Windows 8. Du kan återställa filer från en virtuell dator till samma server-operativsystem eller operativsystemet kompatibel klient.
 
-|Serveroperativsystem | Kompatibel klient-OS  |
+|Server OS | Kompatibel klient-OS  |
 | --------------- | ---- |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
@@ -214,10 +214,10 @@ Om du har problem vid återställning av filer från de virtuella datorerna, kon
 
 | Felmeddelande / Scenario | Möjlig orsak | Rekommenderad åtgärd |
 | ------------------------ | -------------- | ------------------ |
-| Exe-utdata: *undantag som ansluter till mål* |Skriptet kan inte komma åt återställningspunkten    | Kontrollera om datorn uppfyller de tidigare åtkomstkraven. |  
-| Exe-utdata: *målet har redan loggats in via en iSCSI-session.* | Skriptet har redan gjorts på samma dator och enheterna som har bifogats | Volymer för återställningspunkten har redan bifogats. De kan inte monteras med samma enhetsbeteckningar för den ursprungliga virtuella datorn. Bläddra igenom alla tillgängliga volymer i Utforskaren-filen |
-| Exe-utdata: *det här skriptet är ogiltig eftersom diskarna har demonterats via portalen/överskred 12-hr gränsen. Hämta ett nytt skript från portalen.* |    Diskarna har demonterats från portalen eller den 12 – hr har överskridits | Den här specifika exe nu är ogiltig och kan inte köras. Om du vill komma åt den recovery point-in-time-filer, gå till portalen för en ny exe-fil|
-| På den dator där den exe-filen kör: nya volymer är inte demonteras när du klickar på knappen dismount | ISCSI-initieraren på datorn inte svarar/uppdatera sin anslutning till målet och underhålla cachen. |  När du klickar på **demontera**, Vänta några minuter. Om de nya volymerna inte är demonteras, bläddra igenom alla volymer. Bläddra alla volymer tvingar initieraren att uppdatera anslutningen och volymen demonteras med ett felmeddelande att disken inte är tillgänglig.|
-| Exe-utdata: skript köras men ”nya volymer ansluten” visas inte på utdata från skriptet |    Det här är ett tillfälligt fel    | Volymerna skulle har redan bifogats. Öppna Utforskaren och Bläddra. Om du använder samma dator för att köra skript varje gång, Överväg att starta om datorn och listan ska visas i efterföljande exe-körningar. |
-| Linux specifikt: går inte att visa de önskade volymerna | Operativsystemet där skriptet körs kanske inte kan identifiera det underliggande filsystemet för skyddad virtuell dator | Kontrollera om krascher konsekvent eller filkonsekvent återställningspunkten. Om filen konsekvent, kör skriptet på en annan dator vars operativsystem kan du identifierar den skyddade Virtuella datorns filsystem |
-| Windows-specifika: går inte att visa de önskade volymerna | Diskarna har bifogats men volymerna har inte konfigurerats | Identifiera ytterligare diskar rör återställningspunkten från hanteringsskärmen disk. Om något av dessa diskar är offline tillstånd försök att göra dem online genom att högerklicka på disken och klicka på ”Online”|
+| Exe-utdata: *Undantag som ansluter till mål* |Skriptet kan inte komma åt återställningspunkten    | Kontrollera om datorn uppfyller de tidigare åtkomstkraven. |  
+| Exe-utdata: *Målet har redan loggats in via en iSCSI-session.* | Skriptet har redan gjorts på samma dator och enheterna som har bifogats | Volymer för återställningspunkten har redan bifogats. De kan inte monteras med samma enhetsbeteckningar för den ursprungliga virtuella datorn. Bläddra igenom alla tillgängliga volymer i Utforskaren-filen |
+| Exe-utdata: *Det här skriptet är ogiltig eftersom diskarna har demonterats via portalen/överskred 12-hr gränsen. Hämta ett nytt skript från portalen.* |    Diskarna har demonterats från portalen eller den 12 – hr har överskridits | Den här specifika exe nu är ogiltig och kan inte köras. Om du vill komma åt den recovery point-in-time-filer, gå till portalen för en ny exe-fil|
+| Kör på datorn där den exe-filen är: De nya volymerna är inte demonteras när du klickar på knappen dismount | ISCSI-initieraren på datorn inte svarar/uppdatera sin anslutning till målet och underhålla cachen. |  När du klickar på **demontera**, Vänta några minuter. Om de nya volymerna inte är demonteras, bläddra igenom alla volymer. Bläddra alla volymer tvingar initieraren att uppdatera anslutningen och volymen demonteras med ett felmeddelande att disken inte är tillgänglig.|
+| Exe-utdata: Skriptet har körts men ”nya volymer ansluten” visas inte på utdata från skriptet |    Det här är ett tillfälligt fel    | Volymerna skulle har redan bifogats. Öppna Utforskaren och Bläddra. Om du använder samma dator för att köra skript varje gång, Överväg att starta om datorn och listan ska visas i efterföljande exe-körningar. |
+| Linux specifika: Det går inte att visa de önskade volymerna | Operativsystemet där skriptet körs kanske inte kan identifiera det underliggande filsystemet för skyddad virtuell dator | Kontrollera om krascher konsekvent eller filkonsekvent återställningspunkten. Om filen konsekvent, kör skriptet på en annan dator vars operativsystem kan du identifierar den skyddade Virtuella datorns filsystem |
+| Windows specifika: Det går inte att visa de önskade volymerna | Diskarna har bifogats men volymerna har inte konfigurerats | Identifiera ytterligare diskar rör återställningspunkten från hanteringsskärmen disk. Om något av dessa diskar är offline tillstånd försök att göra dem online genom att högerklicka på disken och klicka på ”Online”|

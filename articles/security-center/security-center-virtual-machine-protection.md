@@ -3,7 +3,7 @@ title: Skydda dina datorer och program i Azure Security Center | Microsoft Docs
 description: Det här dokumentet belyser rekommendationer i Security Center som hjälper dig att skydda dina virtuella datorer och datorer och webbappar och App Service-miljöer.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: MBaldwin
 editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/15/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2c8f91c6915b23193129ed9e82688ad5967eb6ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: 411fc025f5a25e961f69f5e6f66a9f6d115689a7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181477"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487751"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Skydda dina datorer och program i Azure Security Center
 Azure Security Center analyserar säkerhetstillståndet hos dina Azure-resurser. När Security Center identifierar potentiella säkerhetsproblem skapas rekommendationer som guidar dig genom processen med att konfigurera kontrollfunktioner som behövs. Rekommendationer gäller för Azure-resurstyper: virtuella datorer (VM) och datorer, program, nätverk, SQL, och identitet och åtkomst.
@@ -42,7 +42,7 @@ Under **Compute och appar**, finns följande flikar:
 - **Översikt**: Övervakning och rekommendationer som identifierats av Security Center.
 - **Virtuella datorer och datorer**: Listar alla dina virtuella datorer, datorer och det aktuella säkerhetstillståndet för var och en.
 - **Molntjänster**: Listar alla dina webb- och arbetarroller som övervakas av Security Center.
-- **App services (förhandsversion)**: lista över dina App service-miljöer och aktuella säkerhetstillståndet för var och en.
+- **Apptjänster**: lista över dina App service-miljöer och aktuella säkerhetstillståndet för var och en.
 - **Behållare (förhandsgranskning)**: lista över dina behållare på IaaS Linux-datorer och säkerhetsbedömning för sina Docker-konfigurationer.
 - **Beräkningsresurser (förhandsversion)**: lista över rekommendationer för dina beräkningsresurser, till exempel Service Fabric-kluster och Event hubs.
 
@@ -124,12 +124,11 @@ Om du vill få en mer ingående förklaring av den här rekommendationen klickar
 
 ![Uppdatera OS-versionen](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
-### <a name="app-services-preview"></a>App Services (förhandsversion)
+### <a name="app-services"></a>App Services
+Du måste aktivera App Service i din prenumeration för att visa information för App Service. Anvisningar om hur du aktiverar den här funktionen finns i [skydda App Service med Azure Security Center](security-center-app-services.md).
+[!NOTE]
+> Övervakning av App Service finns i förhandsversion och bara tillgängliga på standardnivån i Security Center.
 
-> [!NOTE]
-> Övervakning av App Service finns i förhandsversion och bara tillgängliga på standardnivån i Security Center. Mer information om prisalternativen för Security Center finns i [Priser](security-center-pricing.md).
->
->
 
 Under **apptjänster**, du hittar en lista över App service-miljöer och hälsoöversikt baserat på utvärderingen Security Center utförs.
 
@@ -171,19 +170,9 @@ Det finns tre typer av ikoner i den här listan:
 |Apptjänst|10|Fjärrfelsökning bör stängas av för webbprogram|Inaktivera felsökning för webbprogram, om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp.|
 |Apptjänst|10|Fjärrfelsökning bör stängas av för Funktionsprogram|Inaktivera felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp.|
 |Apptjänst|10|Konfigurera IP-begränsningar för webbprogram|Definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker.|
-|Apptjänst|10|Konfigurera IP-begränsningar för Funktionsappen| Definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker.|
 |Apptjänst|10|Tillåt inte alla ('* ') resurser för att komma åt ditt program| Tillåt inte parametern website_load_certificates. den uppsättning ””. Ställa in parametern ”innebär att alla certifikat läses in till din web program personliga certifikatarkiv. Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning.|
-|Apptjänst|5|Webbsockets bör inaktiveras för webbprogram|Granska användningen av Web Sockets i webbappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot.|
-|Apptjänst|5|Webbsockets bör inaktiveras för Funktionsappen|Granska användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot.|
-|Apptjänst|5|Använd anpassade domäner för ditt webbprogram|Använd anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker.|
-|Apptjänst|5|Använd anpassade domäner för Funktionsappen|Använd anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker.|
 |Apptjänst|20|CORS bör inte bevilja alla resurser att komma åt dina webbprogram|Tillåt endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram.|
 |Apptjänst|20|CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp| Tillåt endast nödvändiga domäner att interagera med ditt funktionsprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram.|
-|Apptjänst|10|Använd senast stöds .NET Framework för webbprogram|Använd den senaste versionen av .NET Framework för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart.|
-|Apptjänst|10|Använd den senaste Java versionen för webbprogram|Använd den senaste Java-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart.|
-|Apptjänst|10|Använd den senaste PHP versionen för webbprogram|Använd den senaste PHP-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart.|
-|Apptjänst|10|Använd den senaste Node.js versionen för webbprogram|Använd den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart.|
-|Apptjänst|10|Använd den senaste Python versionen för webbprogram|Använd den senaste Python-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart.|
 |Beräkningsresurser (batch)|1|Konfigurera måttaviseringsregler på Batch-konto|Konfigurera måttaviseringsregler på Batch-konto och aktivera mätvärden Pool ta bort klar händelser och poolen ta bort starta händelser|
 |Beräkningsresurser (service fabric)|10|Använd Azure Active Directory för klientautentisering i Service Fabric|Utför klientautentisering endast via Azure Active Directory i Service Fabric.|
 |Beräkningsresurser (automation-konto)|5| Aktivera kryptering av Automation-konto|Aktivera kryptering av Automation-konto variabler för tillgångar vid lagring av känsliga data.|

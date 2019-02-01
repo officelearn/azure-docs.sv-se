@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 351231fb50b60be1163c787913ef7ab944ba01b6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: fab27ba36e8d1fcf7931945d23e41244afcb4337
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55172178"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491781"
 ---
 # <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure AD Connect-synkronisering: Förstå användare, grupper och kontakter
 Det finns flera olika orsaker varför du skulle ha flera Active Directory-skogar och det finns flera olika distributionstopologier. Vanliga modeller är en distribution för resursen för lagringskonton och GAL sync'ed skogar efter en sammanslagning & förvärv. Men även om det finns endast modeller, hybridmodeller är gemensamma samt. Med standardkonfigurationen i Azure AD Connect-synkronisering förutsätter inte någon särskild modell men beroende på hur användaren matchar valdes i installationsguiden för olika beteenden kan observeras.
@@ -73,6 +73,6 @@ Antagandet är att om ett inaktiverat konto hittas, och sedan vi kommer inte att
 När ett objekt som har exporterats till Azure AD och det inte går att ändra sourceAnchor längre. När objektet har exporterats attribut för metaversum **cloudSourceAnchor** anges med den **sourceAnchor** värdet som godkänns av Azure AD. Om **sourceAnchor** ändras och inte matchar **cloudSourceAnchor**, regeln **ut till AAD – användare ansluta** genereras felet **sourceAnchor-attribut har ändra**. I det här fallet måste konfiguration eller data åtgärdas så samma sourceAnchor finns i metaversum igen innan du kan synkronisera objektet igen.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
-* [Azure AD Connect Sync: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)
 

@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 2b9702dbae0414ba597b6e1f6080d9de86f624fc
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 439b68edf1d50d5d5292542640793b8b526b5891
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077091"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485780"
 ---
-# <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudie: Optimera kostnaderna från rekommendationer
+# <a name="tutorial-optimize-costs-from-recommendations"></a>Självstudier: Optimera kostnader från rekommendationer
 
 Azure Cost Management fungerar med Azure Advisor för att tillhandahålla kostnadsrekommendationer för optimering. Azure Advisor hjälper dig att optimera och förbättra effektiviteten genom att identifiera inaktiv och underutnyttjade resurser. Den här självstudien visar ett exempel där du identifiera underutnyttjade Azure-resurser och sedan du vidta åtgärder för att minska kostnaderna.
 
@@ -53,7 +53,7 @@ Den **inverkan** kategori, tillsammans med den **potentiella årliga besparingar
 
 Azure Advisor övervakar din användning av virtuella datorer under 14 dagar och identifierar underutnyttjade virtuella datorer. Virtuella datorer vars CPU-belastningen är fem procent eller mindre och nätverkets användning är sju MB eller mindre för fyra eller flera dagar betraktas som låg användning virtuella datorer.
 
-5% eller mindre CPU användning är standardinställningen, men du kan justera inställningarna. Mer information om hur du justerar inställningen finns i den [konfigurera regeln för Genomsnittlig CPU-användning](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation) artikeln [för den virtuella dator med låg användning-rekommendationen](../advisor/advisor-get-started.md#configure-the-average-cpu-utilization-rule-for-the-low-usage-virtual-machine-recommendation).
+5% eller mindre CPU användning är standardinställningen, men du kan justera inställningarna. Mer information om hur du justerar inställningen finns i den [konfigurera regeln för Genomsnittlig CPU-användning eller rekommendationen för virtuella datorer med låg användning](../advisor/advisor-get-started.md#configure-low-usage-vm-recommendation).
 
 Även om vissa scenarier kan resultera i låg användning av design, kan du ofta spara pengar genom att ändra storleken på dina virtuella datorer till billigare storlekar. Dina faktiska besparingar kan variera om du väljer en åtgärd för storleksändring. Låt oss gå igenom ett exempel på att ändra storlek på en virtuell dator.
 

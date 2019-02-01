@@ -3,7 +3,7 @@ title: Skydda App Services i Azure Security Center | Microsoft Docs
 description: Den här artikeln hjälper dig att komma igång med att skydda dina App Services i Azure Security Center.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: mbaldwin
 editor: ''
 ms.assetid: e8518710-fcf9-44a8-ae4b-8200dfcded1a
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/9/2018
-ms.author: rkarlin
-ms.openlocfilehash: b38ba140a1e2b853c07e1ffe53405b58663653b5
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.date: 1/27/2019
+ms.author: monhaber
+ms.openlocfilehash: bf3ceb0d5f12783957e127b3596ab07b7531ad5a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53343878"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491951"
 ---
 # <a name="protect-app-service-with-azure-security-center"></a>Skydda App Service med Azure Security Center
 Den här artikeln hjälper dig att använda Azure Security Center att övervaka och skydda dina program som körs på App Service.
@@ -65,6 +65,7 @@ I den här artikeln har du fått lära dig hur du använder övervakningsfunktio
 
 * [Ange säkerhetsprinciper i Azure Security Center](tutorial-security-policy.md): Lär dig hur du konfigurerar säkerhetsinställningar i Azure Security Center.
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md): Lär dig att hantera och åtgärda säkerhetsaviseringar.
+* [Apptjänster](security-center-virtual-machine-protection.md#app-services):  Visa en lista över App service-miljöer med health sammanfattningar.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md): Lär dig att övervaka hälsotillståndet för dina partnerlösningar.
 * [Vanliga frågor om Azure Security Center](security-center-faq.md): Här finns vanliga frågor om att använda tjänsten.
 * [Azures Säkerhetsblogg](http://blogs.msdn.com/b/azuresecurity/): Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/30/2019
+ms.date: 01/31/2019
 ms.author: magoedte
-ms.openlocfilehash: 58da86140b97c5292d390b6f91502b7f0622986a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 90cd6f640188408771b3a64a31aadf89cfefcaae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476850"
+ms.locfileid: "55487871"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Förstå hälsotillståndet för virtuella datorer i Azure med Azure Monitor för virtuella datorer (förhandsversion)
 Azure innehåller flera tjänster som individuellt utför en viss roll eller en uppgift i övervakningsutrymmet, men ger en djupgående hälsotillstånd perspektiv av operativsystemet som körs på virtuella Azure-datorer inte var tillgänglig.  Medan du kan övervaka för olika villkor med hjälp av Log Analytics och Azure Monitor, har de inte utvecklats modellera och representerar hälsan för kärnkomponenter eller övergripande hälsa för den virtuella datorn.  Med Azure Monitor för virtuella datorer hälsotillstånd funktion kan övervakar det proaktivt tillgänglighet och prestanda för Windows eller Linux gästoperativsystemet med en modell som representerar viktiga komponenter och deras relationer villkor som anger hur hälsotillståndet för de komponenter, och varnar dig när ett feltillstånd har identifierats.  
@@ -30,11 +30,11 @@ Den här artikeln hjälper dig att snabbt utvärdera, undersöka och lösa probl
 Information om hur du konfigurerar Azure Monitor för virtuella datorer finns i [aktivera Azure Monitor för virtuella datorer](vminsights-onboard.md).
 
 >[!NOTE]
->Startar den 15 februari 2019 börjar vi migrerar du från den aktuella hälsomodellen i Azure Monitor för virtuella datorer hälsotillstånd funktion, som visas när du är i hälsotillstånd diagnostik upplevelse idag, till en ny version av hälsomodellen. Den här uppdateringen innehåller en förfinade hälsomodellen som visas i vyn hälsotillstånd diagnostik förbättrar prestandan vid hälsotillstånd samlad bearbetning. 
+>Startar den 11 februari 2019 börjar vi migrerar du från den aktuella hälsomodellen i Azure Monitor för virtuella datorer hälsotillstånd funktion, som visas när du är i hälsotillstånd diagnostik upplevelse idag, till en ny version av hälsomodellen. Den här uppdateringen innehåller en förfinade hälsomodellen som visas i vyn hälsotillstånd diagnostik förbättrar prestandan vid hälsotillstånd samlad bearbetning. 
 >
 >Med den nya hälsomodellen blir sammanslagning av underordnade Hälsokriterier som överordnade/entiteten på health-villkor snabbare och därmed hälsotillståndet för de överordnade uppdateringarna till önskade eller aktuella tillstånd med mindre fördröjning. Du kan fortfarande filtrera health-villkor under den **prestanda** och **tillgänglighet** kategorier till skillnad från den föregående flik-baserade metoden för att välja antingen kategori i vyn.
 >
->Mer information om den nya upplevelsen för Health diagnostik finns hälsotillstånd diagnostiken [avsnittet](#health-diagnostics) i den här artikeln. 
+>Mer information om hälsotillstånd diagnostik upplevelse finns hälsotillstånd diagnostiken [avsnittet](#health-diagnostics) i den här artikeln. 
 >
 >Den här uppdateringen kommer att förbättra följande: 
 >
@@ -106,14 +106,16 @@ Om du vill visa hälsotillståndet för en Azure-dator, Välj **Insights (förha
 
 ![Azure Monitor för översikt av hälsotillstånd för virtuella datorer för en vald Azure-dator](./media/vminsights-health/vminsights-directvm-health.png)
 
-På den **hälsotillstånd** fliken, under avsnittet **gäst VM-hälsa**, visas det aktuella hälsotillståndet för den virtuella datorn och det totala antalet VM-hälsa aviseringar som aktiverats av en defekt komponent. Referera till [aviseringar och en aviseringshantering](#alerting-and-alert-management) för mer information.  
+På den **hälsotillstånd** fliken, under avsnittet **gäst VM-hälsa**, visas det aktuella hälsotillståndet för den virtuella datorn och det totala antalet VM-hälsa aviseringar som aktiverats av en defekt komponent. Referera till [aviseringar](#alerting-and-alert-management) mer information om aviseringar upplevelse.  
 
-Hälsotillstånden som definierats för en virtuell dator finns: 
+Hälsotillstånden som definierats för en virtuell dator beskrivs i följande tabell: 
 
-* **Felfria** – inga problem har identifierats för den virtuella datorn och den fungerar som krävs.  
-* **Kritiska** – en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift som förväntat. 
-* **Varning** – ett eller flera problem har identifierats som behöver åtgärdas eller hälsostatus kan bli kritiska.  
-* **Okänd** – om tjänsten inte kunde upprätta en anslutning med den virtuella datorn att status ändras till ett okänt tillstånd.  
+|Ikon |Hälsotillstånd |Betydelse |
+|-----|-------------|------------|
+| |Felfri |Hälsotillståndet är felfri om det är inom de definierade hälsovillkoren, som anger inga problem hittades för den virtuella datorn och den fungerar som krävs. När det gäller en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
+| |Kritisk |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. När det gäller en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
+| |Varning |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre hälsotillstånd tillstånd tröskelvärden kan kan konfigureras), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. När det gäller en insamling av överordnad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
+| |Okänt |Hälsotillståndet är i ett *okänd* tillstånd när hälsotillståndet inte kan beräknas av flera skäl, till exempel inte kunna samla in data, tjänsten som ej initierad, osv. Den här hälsotillstånd kan inte konfigureras.| 
 
 Att välja **visa hälsotillstånd diagnostik** öppnas en sida som visar alla komponenter i den virtuella datorn, tillhörande hälsostatus kriterier, tillståndsändringar och andra problem som uppstod genom att övervaka komponenter som hör till den virtuella datorn. Mer information finns i [hälsotillstånd diagnostik](#health-diagnostics). 
 
@@ -191,16 +193,7 @@ Diagnostik för hälsa ordnar hälsoinformation i följande kategorier:
  
 Alla health-villkor som definierats för en viss komponent, till exempel logisk disk, CPU, osv. Dessutom kategorin för övervakaren visas bredvid den i den **Hälsokriterier** kolumn.  
 
-Tillståndet för en health-villkor definieras av något av fyra tillstånd – *kritisk*, *varning*, *felfri*, och *okänd*. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för Övervakare med hjälp av den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Okänd* inte är konfigurerbar och reserverade för specifika scenarier som beskrivs i tabellen nedan.  
-
-I följande tabell innehåller information om hälsotillstånd som representeras i hälsotillstånd diagnostik.
-
-|Ikon |Hälsotillstånd |Betydelse |
-|-----|-------------|------------|
-| |Felfri |Hälsotillståndet är felfri om det är inom de definierade hälsovillkoren, som anger inga problem hittades för den virtuella datorn så att den fungerar som krävs. När det gäller en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Kritisk |Hälsotillståndet är kritiskt om den inte är inom definierad hälsostatus, som anger att en eller flera kritiska problem har identifierats som behöver åtgärdas om du vill återställa normal drift. När det gäller en överordnad Övervakare för insamling visar hälsotillstånd samlar in och du det bästa eller sämsta tillståndet för underordnat.|
-| |Varning |Hälsotillståndet är en varning om det är mellan två tröskelvärden för definierade hälsostatus, där en anger en *varning* tillstånd och den andra anger en *kritisk* tillstånd (tre användarstyrd tillstånd är möjligt), eller när ett icke-kritiska problem har identifierats som kan orsaka problem om inte lösas. När det gäller en insamling av överordnad Övervakare, om en eller flera av de underordnade objekten är i varningstillstånd så kommer att användas i överordnat *varning* tillstånd. Om det finns en underordnad som tillhör en *kritisk* och en annan underordnade i en *varning* tillstånd, den överordnade samlade visar ett hälsotillstånd *kritisk*.|
-| |Okänt |Hälsotillståndet är i ett *okänd* tillstånd när hälsotillståndet inte kan beräknas av flera skäl, till exempel inte kunna samla in data, tjänsten oinitierad osv. Detta är inte ett användarstyrd tillstånd.| 
+Tillståndet för en health-villkor definieras av något av fyra tillstånd – *kritisk*, *varning*, *felfri*, och *okänd*. De första tre kan konfigureras, vilket innebär att du kan ändra tröskelvärdena för Övervakare med hjälp av den [arbetsbelastning övervakaren API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Okänd* inte är konfigurerbar och reserverade för specifika scenarier.  
 
 Sidan för Health-diagnostik har tre huvudområden:
 
@@ -230,10 +223,10 @@ Den övergripande hälsan för ett mål bestäms av hälsotillståndet för var 
 
 ![Konfigurera ett hälsotillstånd kriterier-exempel](./media/vminsights-health/health-diagnostics-vm-example-02.png)
 
-I fönstret konfiguration för valda health-villkor med hjälp av exempel **genomsnittliga Disk sekunder Per skriva**, dess tröskeln kan konfigureras med ett annat numeriskt värde. Det är en Övervakare med två tillstånd, vilket innebär att det endast ändringar från felfri till varning. Andra health-villkor kan vara tre tillstånd, där du kan konfigurera värdet för tillståndströskeln varning och kritiskt hälsotillstånd.  
+I fönstret konfiguration för valda health-villkor med hjälp av exempel **genomsnittliga Disk sekunder Per skriva**, dess tröskeln kan konfigureras med ett annat numeriskt värde. Det är en Övervakare med två tillstånd, vilket innebär att det endast ändringar från felfri till varning. Andra health-villkor kan vara tre lägen, där du kan konfigurera värdet för tillståndströskeln varning och kritiskt hälsotillstånd.  
 
 >[!NOTE]
->Tillämpa hälsotillstånd kriterier konfigurationsändringar på en instans tillämpas på alla övervakade instanser.  Exempel: Om du väljer **fysisk Disk -1 D:** och ändra den **genomsnittliga Disk sekunder Per skriva** tröskelvärde för det gäller inte för endast den instansen, men om alla andra diskinstanser identifieras och övervakas på den virtuella datorn.
+>Tillämpa hälsotillstånd kriterier konfigurationsändringar på en instans tillämpas på alla övervakade instanser.  Exempel: Om du väljer **Disk-1 D:** och ändra den **genomsnittliga Disk sekunder Per skriva** tröskelvärde för det gäller inte för endast den instansen, men om alla andra diskinstanser identifieras och övervakas på den virtuella datorn.
 >
 
 ![Konfigurera en health-villkor för till exempel övervaka en enhet](./media/vminsights-health/health-diagnostics-criteria-config-01.png)
@@ -252,9 +245,9 @@ De tre kolumnerna är sammankopplade med varandra. När du väljer en identifier
 
 ![Exempel på att välja övervakade instans och resultat](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-I exemplet ovan, när du väljer **fysisk Disk - 1 D:**, Health-villkor trädet är filtrerats till **fysisk Disk - 1 D:**. Den **tillståndsändring** kolumnen visar tillståndsändringen baserat på tillgängligheten för **fysisk Disk - 1 D:**. 
+I exemplet ovan, när du väljer **Disk – 1 D:**, Health-villkor trädet är filtrerats till **Disk - 1 D:**. Den **tillståndsändring** kolumnen visar tillståndsändringen baserat på tillgängligheten för **Disk – 1 D:**. 
 
-Om du vill se det uppdaterade hälsotillståndet, kan du uppdatera sidan diagnostik för hälsa genom att klicka på den **uppdatera** länk.  Om det finns en uppdatering till villkoret hälsotillstånd hälsotillstånd baserat på fördefinierade avsökningsintervallet, kan du undvika att vänta på den här uppgiften och återspeglar det senaste hälsotillståndet.  Den **kriterier hälsotillstånd** är ett filter så att du kan begränsa resultatet baserat på valda hälsotillståndet - *felfri*, *varning*, *kritisk*, *Okänd*, och *alla*.  Den **senaste uppdaterade** tid i övre högra hörnet representerar den senaste gången när sidan diagnostik för hälsotillstånd har uppdaterats.  
+Om du vill se det uppdaterade hälsotillståndet, kan du uppdatera sidan diagnostik för hälsa genom att klicka på den **uppdatera** länk.  Om det finns en uppdatering till villkoret hälsotillstånd hälsotillstånd baserat på fördefinierade avsökningsintervallet, kan du undvika att vänta på den här uppgiften och återspeglar det senaste hälsotillståndet.  Den **kriterier hälsotillstånd** är ett filter så att du kan begränsa resultatet baserat på valda hälsotillståndet - *felfri*, *varning*, *kritisk*, *Okänd*, och *alla*.  Den **senaste uppdaterade** tid i det övre högra hörnet representerar den senaste gången när sidan diagnostik för hälsotillstånd har uppdaterats.  
 
 ## <a name="alerts"></a>Aviseringar
 Azure Monitor för virtuella datorer Health-funktionen kan integreras med [Azure Alerts](../../azure-monitor/platform/alerts-overview.md) och aktiverar en avisering när fördefinierade health-villkor ändras från felfri till feltillstånd när villkoret har identifierats. Aviseringar kategoriserade efter allvarlighetsgrad - allvarlighetsgrad 0 och 4, med allvarlighetsgrad 0 som representerar den högsta allvarlighetsgraden.  

@@ -9,11 +9,11 @@ ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: 4d2edeaf7423d3a46becf386294d2dd8c46e9ab7
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405012"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508342"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av portalen
 
@@ -171,7 +171,7 @@ Innan du skapar en virtuell nätverksgateway måste du först skapa gateway-unde
 
 ### <a name="createlng"></a>4. Skapa en lokal nätverksgateway
 
-**Exempelvärden:** lokal nätverksgateway = ClassicVNetLocal
+**Exempelvärden:** Lokal nätverksgateway = ClassicVNetLocal
 
 | Virtual Network | Adressutrymme | Region | Ansluter till lokal nätverksplats |Gatewayens offentliga IP-adress|
 |:--- |:--- |:--- |:--- |:--- |
@@ -261,7 +261,7 @@ Select-AzureSubscription -SubscriptionName "Name of subscription"
 
 ### <a name="2-view-the-network-configuration-file-values"></a>2. Visa filen konfigurationsvärden nätverk
 
-När du skapar ett virtuellt nätverk i Azure-portalen, visas inte det fullständiga namnet som använder Azure i Azure-portalen. Ett virtuellt nätverk som verkar ha namnet ”ClassicVNet” i Azure-portalen kan till exempel ha en mycket längre namn i nätverkskonfigurationsfilen. Namnet kan se ut ungefär som: ”grupp ClassicRG ClassicVNet'. I följande steg ska du hämta nätverkskonfigurationsfilen och visa värdena.
+När du skapar ett virtuellt nätverk i Azure-portalen, visas inte det fullständiga namnet som använder Azure i Azure-portalen. Ett virtuellt nätverk som verkar ha namnet ”ClassicVNet” i Azure-portalen kan till exempel ha en mycket längre namn i nätverkskonfigurationsfilen. Namnet kan se ut ungefär som: 'Group ClassicRG ClassicVNet'. I följande steg ska du hämta nätverkskonfigurationsfilen och visa värdena.
 
 Skapa en katalog på datorn och exportera sedan nätverkskonfigurationsfilen till katalogen. I det här exemplet exporteras nätverkskonfigurationsfilen till C:\AzureNet.
 

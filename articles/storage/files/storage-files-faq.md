@@ -7,12 +7,12 @@ ms.service: storage
 ms.date: 01/02/2019
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: b3329f591d8478499b8270eb8a211d311465b020
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 273039ec271d5d81329ab475ffd2eda82dca7b58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457028"
+ms.locfileid: "55511012"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Vanliga frågor (och svar FAQ) om Azure Files
 [Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via vanliga [Server Message Block (SMB) protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx). Du kan montera Azure-filresurser samtidigt på molnet eller lokala distributioner av Windows, Linux och macOS. Du kan också cachelagra Azure-filresurser på Windows Server-datorer med hjälp av Azure File Sync för snabb åtkomst nära där data används.
@@ -104,7 +104,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="afs-storage-redundancy"></a>
 **Stöds geo-redundant lagring för Azure File Sync?**  
-    Ja, Azure Files stöder både lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). Om det uppstår redundans GRS mellan länkade regioner, rekommenderar vi att du ska hantera den nya regionen som en säkerhetskopia av data endast. Azure File Sync börjar automatiskt inte synkroniseras med den nya primära regionen. 
+    Ja, Azure Files stöder både lokalt redundant lagring (LRS) och geo-redundant lagring (GRS). Om du startar storage-konto växling mellan länkade regioner från ett konto som konfigurerats för GRS rekommenderar Microsoft att du ska hantera den nya regionen som en säkerhetskopia av data endast. Azure File Sync börjar automatiskt inte synkroniseras med den nya primära regionen. 
 
 * <a id="sizeondisk-versus-size"></a>
 **Varför inte den *storlek på disken* -egenskapen för en fil matchar den *storlek* egenskapen när du har använt Azure File Sync?**  
@@ -116,7 +116,6 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="afs-recall-file"></a>**En fil som jag vill använda har varit nivåindelade. Hur kan jag återställa filen till disk för att använda den lokalt?**  
  Se [förstå Molnnivå](storage-sync-cloud-tiering.md#afs-recall-file).
-
 
 * <a id="afs-force-tiering"></a>
 **Hur gör jag för att tvinga en fil eller katalog för att vara nivåindelad?**  
@@ -149,7 +148,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Varför finns nivåindelade filer utanför den slutpunkten namnrymden?**  
-    Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet som Utforskaren och andra Windows-API: er har som flyttar åtgärder på samma volym är (nästan) instanenous Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är instaneous och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
+    Innan Azure File Sync-agentversion 3 blockeras Azure File Sync flytt av nivåindelade filer utanför Serverslutpunkten men på samma volym som Serverslutpunkten. Kopieringsåtgärder, flyttas av icke-nivåindelade filer och flyttas av nivåindelade andra volymer har påverkas inte. Orsaken till detta var det underförstådda antagandet att Utforskaren och andra Windows-API: er har att flyttåtgärder på samma volym är (nästan) omedelbara Byt namn på åtgärder. Det innebär att flytta gör Utforskaren eller andra move-metoder (till exempel från kommandoraden eller PowerShell) visas inte svarar medan Azure File Sync återställer data från molnet. Från och med [Azure File Sync-agentversion 3.0.12.0](storage-files-release-notes.md#supported-versions), Azure File Sync kan du flytta en nivåindelad fil utanför Serverslutpunkten. Vi undvika negativa effekter som vi nämnde tidigare genom att nivåindelade filen finns som en nivåindelad fil utanför Serverslutpunkten och sedan återställa filen i bakgrunden. Det innebär som flyttas på samma volym är omedelbara och vi gör allt arbete för att återställa filen till disk när förflyttningen har slutförts. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Jag har problem med Azure File Sync på Min server (sync molnet lagringsnivåer, etc). Ta bort och återskapa min serverslutpunkt**  
@@ -202,7 +201,7 @@ Den här artikeln innehåller vanliga frågor och svar om Azure Files och funkti
 * <a id="ad-vm-subscription"></a>
 **Kan jag komma åt Azure Files med Azure AD-autentiseringsuppgifter från en virtuell dator under en annan prenumeration?**
 
-    Om den prenumeration som har distribuerats för filresursen är associerad med samma Azure AD-klient som Azure AD Domain Services-deploymnet som den virtuella datorn är ansluten till domänen och du kan sedan komma åt Azure Files med samma Azure AD-autentiseringsuppgifter. Orsakas begränsningen inte i prenumerationen, men i den associerade Azure AD-klient.    
+    Om den prenumeration som har distribuerats för filresursen är associerad med samma Azure AD-klient som Azure AD Domain Services-distribution som den virtuella datorn är ansluten till domänen och du kan sedan komma åt Azure Files med samma Azure AD-autentiseringsuppgifter. Orsakas begränsningen inte i prenumerationen, men i den associerade Azure AD-klient.    
     
 * <a id="ad-support-subscription"></a>
 **Kan jag aktivera Azure AD-autentisering över SMB för Azure Files med en Azure AD-klient som skiljer sig från den primära klienten som är associerad till filresursen?**

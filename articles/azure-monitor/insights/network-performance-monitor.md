@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 1ba1f11029e98f6bf324466627c465507829dc4d
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
+ms.openlocfilehash: 0a364724c72a7bd6dd75dd9720e2e966d07ff297
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229854"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496355"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Network Performance Monitor-lösning i Azure
 
@@ -59,7 +59,7 @@ Regioner som listan över stöds för ExpressRoute-övervakning är tillgänglig
 
 ### <a name="install-and-configure-agents"></a>Installera och konfigurera agenter 
 
-Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Log Analytics](../../azure-monitor/platform/om-agents.md) och [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
+Använd basic-processer för att installera agenter på [ansluta Windows-datorer till Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) och [ansluta Operations Manager till Log Analytics](../../azure-monitor/platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Var du vill installera agenter 
 
@@ -158,8 +158,8 @@ Alla noder som har en agent installerad visas på den **noder** fliken.
 Konfigurera de funktioner du vill:
 
 - [Övervakare av nätverksprestanda](network-performance-monitor-performance-monitor.md#configuration)
-- [Övervakning av tjänstens slutpunkt](network-performance-monitor-performance-monitor.md#configuration)
-- [ExpressRoute-övervakning](network-performance-monitor-expressroute.md#configuration)
+- [Service Endpoint Monitor](network-performance-monitor-performance-monitor.md#configuration)
+- [ExpressRoute Monitor](network-performance-monitor-expressroute.md#configuration)
 
  
 

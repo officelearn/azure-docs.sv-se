@@ -2,18 +2,18 @@
 title: Azure Backup - Använd PowerShell för att säkerhetskopiera DPM-arbetsbelastningar
 description: Lär dig hur du distribuerar och hanterar Azure Backup för Data Protection Manager (DPM) med hjälp av PowerShell
 services: backup
-author: NKolli1
-manager: shreeshd
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/23/2017
 ms.author: adigan
-ms.openlocfilehash: d8241385cde61647222f85c29f45bdaabd621610
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 5ef9d61e880d3252eae2d8ef924ff39a5d2f6acf
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497918"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-data-protection-manager-dpm-servers-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för DPM-servrar (Data Protection Manager) med PowerShell
 Den här artikeln visar hur du använder PowerShell för att konfigurera Azure Backup på en DPM-server och för att hantera säkerhetskopiering och återställning.
@@ -318,7 +318,7 @@ När en datakälla för första gången, måste DPM säkerhetskopierar skapar f�
 PS C:\> Set-DPMReplicaCreationMethod -ProtectionGroup $MPG -NOW
 ```
 ### <a name="changing-the-size-of-dpm-replica--recovery-point-volume"></a>Ändra storlek på DPM-Replikvolymen och återställningspunktvolymen
-Du kan också ändra storleken på DPM-replikvolymen och Shadow Copy volym med [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet som i följande exempel: Get-DatasourceDiskAllocation - Datasource $DS Set-DatasourceDiskAllocation - DataSource $DS - protectiongroup $MPG-manuella - ReplicaArea (2 gb) - ShadowCopyArea (2 gb)
+Du kan också ändra storleken på DPM-replikvolymen och Shadow Copy volym med [Set-DPMDatasourceDiskAllocation](https://technet.microsoft.com/library/hh881618.aspx) cmdlet som i följande exempel: Get-DatasourceDiskAllocation -Datasource $DS Set-DatasourceDiskAllocation -Datasource $DS -ProtectionGroup $MPG -manual -ReplicaArea (2gb) -ShadowCopyArea (2gb)
 
 ### <a name="committing-the-changes-to-the-protection-group"></a>Genomför ändringarna i skyddsgruppen
 Slutligen måste ändringarna genomföras innan DPM kan säkerhetskopiera per den nya Skyddsgruppen-konfigurationen. Detta kan uppnås med hjälp av den [Set-DPMProtectionGroup](https://technet.microsoft.com/library/hh881758) cmdlet.

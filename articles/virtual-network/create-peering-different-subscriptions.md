@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: f06f0b5392ebb60cd852d3c2eb201478b31ae167
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 3b929c3f85bab4319fe2fef1b5c0575f0d1d972a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014978"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511684"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Skapa en virtuell nätverkspeering - resurshanteraren, olika prenumerationer
 
@@ -27,7 +27,7 @@ Stegen för att skapa en virtuell nätverkspeering är olika, beroende på om de
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
-|[Båda Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |Samma|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models-subscriptions.md) |Annorlunda|
 
@@ -46,7 +46,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som *UserA*. Det konto som du loggar in med måste ha tillräcklig behörighet för att skapa vnet-peering. En lista över behörigheter finns i [peeringbehörigheter i virtuella nätverk](virtual-network-manage-peering.md#permissions).
 2. Välj **+ skapa en resurs**väljer **nätverk**, och välj sedan **virtuellt nätverk**.
 3. Välj eller ange följande exempelvärden för följande inställningar och sedan **skapa**:
-    - **Namnet**: *myVnetA*
+    - **Name**: *myVnetA*
     - **Adressutrymme**: *10.0.0.0/16*
     - **Undernätsnamn**: *standard*
     - **Adressintervall för undernätet**: *10.0.0.0/24*
@@ -63,7 +63,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 11. Logga ut från portalen som UserA och sedan logga in som användare b.
 12. Slutför steg 2 – 3, att ange eller markera följande värden i steg 3:
 
-    - **Namnet**: *myVnetB*
+    - **Name**: *myVnetB*
     - **Adressutrymme**: *10.1.0.0/16*
     - **Undernätsnamn**: *standard*
     - **Adressintervall för undernätet**: *10.1.0.0/24*
@@ -72,7 +72,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
     - **Plats**: *USA, östra*
 
 13. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetB*. Välj **myVnetB** när den visas i sökresultaten.
-14. Under **myVnetB**väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
+14. Under **myVnetB**väljer **egenskaper** från en lodrät lista över alternativ till vänster. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB.
 15. Välj **åtkomstkontroll (IAM)** under **myVnetB**, och utför steg 5 – 10 för myVnetB, att ange **UserA** i steg 8.
 16. Logga ut från portalen som UserB och logga in som UserA.
 17. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Välj **myVnetA** när den visas i sökresultaten.
@@ -80,7 +80,7 @@ Följande steg kan du använda olika konton för varje prenumeration. Om du anv�
 19. Under **inställningar**väljer **Peerings**.
 20. Under **myVnetA - Peerings**väljer **+ Lägg till**
 21. Under **Lägg till peering**, anger, eller Välj följande alternativ och väljer sedan **OK**:
-     - **Namnet**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Distributionsmodell för virtuellt nätverk**:  Välj **Resource Manager**.
      - **Jag vet mitt resurs-ID**: Markera den här kryssrutan.
      - **Resurs-ID**: Ange resurs-ID från steg 14.

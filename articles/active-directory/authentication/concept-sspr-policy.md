@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
-ms.openlocfilehash: 45cd9188b420f9c6db3f1adaa4244b30cce0ccc6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 735bc2569436b99d3366d1ce5ff01f40ab7f587a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081899"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510467"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Lösenordsprinciper och begränsningar i Azure Active Directory
 
@@ -86,7 +86,7 @@ I följande tabell beskrivs de tillgängliga lösenordsprincip som kan tillämpa
 | Lösenordet förfaller |<ul><li>Standardvärde: **FALSKT** dagar (anger att lösenordet förfaller är aktiverad).</li><li>Värdet kan konfigureras för enskilda användarkonton med hjälp av den `Set-MsolUser` cmdlet.</li></ul> |
 | Ändra lösenord |Det sista lösenordet *kan inte* användas igen när användaren ändrar ett lösenord. |
 | Historik för återställning av lösenord | Det sista lösenordet *kan* användas igen när du återställer en glömda lösenord. |
-| Kontoutelåsning |Efter 10 misslyckade inloggningsförsök med fel lösenord utelåsta användaren för en minut. Ytterligare inloggningsförsök felaktiga utelåst från användaren för att öka varaktigheten för tid. |
+| Kontoutelåsning |Efter 10 misslyckade inloggningsförsök med fel lösenord utelåsta användaren för en minut. Ytterligare inloggningsförsök felaktiga utelåst från användaren för att öka varaktigheten för tid. [Smart kontoutelåsning](howto-password-smart-lockout.md) spårar tre sista felaktiga lösenords-hash för att undvika räknaren för kontoutelåsning för samma lösenord som ökar. Om någon anger samma felaktiga lösenord flera gånger, orsakar det här beteendet inte kontot som ska kontoutelåsning. |
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Ange lösenord upphör att gälla principer i Azure AD
 

@@ -4,17 +4,17 @@ description: Den här artikeln beskriver hur du programmässigt kan skapa och ha
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/26/2019
+ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 575e2974131a09bdbdbc96d3ad252365ac9da86e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: afdd6a238671bf41252eae8b55f1b6e61f358336
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55101795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510841"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Programmässigt skapa principer och visa data för kompatibilitetsinställningar
 
@@ -30,7 +30,7 @@ Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
 1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
 
-1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps) detaljerad information. Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
+1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
 1. Registrera resursprovidern Policy Insights med Azure PowerShell för att verifiera att din prenumeration fungerar med resursprovidern. Om du vill registrera en resursleverantör måste du ha behörighet att köra registeringsåtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
@@ -96,8 +96,9 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
 
    Den **omfång** parametern på `New-AzPolicyAssignment` fungerar även med prenumerationer och hanteringsgrupper. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt.
-   Ersätt `{rgName}`, `{subId}`, och `{mgName}` med din resurs gruppera namn, prenumerations-ID och namn på hanteringsgrupp, respektive.
+   Ersätt `{rName}`, `{rgName}`, `{subId}`, och `{mgName}` med resursnamnet på din resursgrupp namn, prenumerations-ID och namn på hanteringsgrupp, respektive. `{rType}` skulle ersättas med det **resurstyp** av resurs, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
+   - Resurs- `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subId}/`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`

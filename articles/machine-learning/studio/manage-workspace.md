@@ -1,7 +1,21 @@
 ---
-Rubrik: Hantera en Machine Learning Studio-arbetsyta titleSuffix: Beskrivning av Azure Machine Learning Studio: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-tjänster webbtjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 02/27/2017
+title: Hantera en Machine Learning Studio-arbetsyta
+titleSuffix: Azure Machine Learning Studio
+description: Hantera åtkomst till Azure Machine Learning-arbetsytor och distribuera och hantera ML API-webbtjänster
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 02/27/2017
+ms.openlocfilehash: f1904552b6c43cadd611659ed544b9f4bafcb465
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487291"
 ---
 # <a name="manage-an-azure-machine-learning-studio-workspace"></a>Hantera en Azure Machine Learning Studio-arbetsyta
 

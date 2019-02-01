@@ -6,16 +6,16 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 531ba32125479528b1a847b32d711049e699dda0
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9d58751bc9379d6d9a5a492bee35e349c36087c7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55191669"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497901"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Konfigurera behörigheterna för AD DS-koppling 
 
@@ -129,7 +129,7 @@ Set-ADSyncBasicReadPermissions -ADConnectorAccountDN <String> [-ADobjectDN <Stri
 Denna cmdlet kommer att ange följande behörigheter: 
  
 
-|Type |Name |Access |Gäller| 
+|Type |Namn |Access |Gäller| 
 |-----|-----|-----|-----|
 |Tillåt |Kontot för AD DS-koppling |Läsa alla egenskaper |Underordnade enhetsobjekt| 
 |Tillåt |Kontot för AD DS-koppling|Läsa alla egenskaper |Underordnade InetOrgPerson-objekt| 
@@ -155,7 +155,7 @@ Set-ADSyncMsDsConsistencyGuidPermissions -ADConnectorAccountDN <String> [-ADobje
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt|Kontot för AD DS-koppling|Läs/Skriv-egenskapen|MS-DS-Consistency-Guid|Underordnade objekt|
 
@@ -175,7 +175,7 @@ Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <String> [<CommonPar
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Replikera katalogändringar |Endast det här objektet (domänroten)| 
 |Tillåt |Kontot för AD DS-koppling |Replikera ändringar av alla |Endast det här objektet (domänroten)| 
@@ -195,7 +195,7 @@ Set-ADSyncPasswordWritebackPermissions -ADConnectorAccountDN <String> [-ADobject
 ```
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Återställ lösenord |Underordnade objekt| 
 |Tillåt |Kontot för AD DS-koppling |Skriva egenskapen lockoutTime |Underordnade objekt| 
@@ -215,7 +215,7 @@ Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADob
  
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Allmän Läs/Skriv |Alla attribut för grupp av objekt och underobjekt| 
 |Tillåt |Kontot för AD DS-koppling |Skapa/ta bort underordnade objekt |Alla attribut för grupp av objekt och underobjekt| 
@@ -238,7 +238,7 @@ Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN 
 Denna cmdlet kommer att ange följande behörigheter:  
  
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Läs/Skriv alla egenskaper |Underordnade objekt| 
 |Tillåt |Kontot för AD DS-koppling |Läs/Skriv alla egenskaper |Underordnade InetOrgPerson-objekt| 
@@ -260,7 +260,7 @@ Set-ADSyncExchangeMailPublicFolderPermissions -ADConnectorAccountDN <String> [-A
 ```
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |Kontot för AD DS-koppling |Läsa alla egenskaper |Underordnade PublicFolder objekt| 
 
@@ -285,7 +285,7 @@ Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=U
 
 Denna cmdlet kommer att ange följande behörigheter: 
 
-|Type |Name |Access |Gäller|
+|Type |Namn |Access |Gäller|
 |-----|-----|-----|-----| 
 |Tillåt |SYSTEM |Fullständig behörighet |Det här objektet 
 |Tillåt |Företagsadministratörer |Fullständig behörighet |Det här objektet 

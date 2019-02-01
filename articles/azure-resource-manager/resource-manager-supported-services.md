@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 109c740ee92e82b6d18879da6839ce6341353cba
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344951"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495521"
 ---
 # <a name="resource-providers-and-types"></a>Resursprovidrar och resurstyper
 
@@ -34,12 +34,14 @@ När du distribuerar resurser kan behöva du ofta hämta information om resurspr
 
 Du kan utföra dessa steg via portalen, PowerShell eller Azure CLI.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="powershell"></a>PowerShell
 
 Om du vill se alla resursprovidrar i Azure och registreringsstatus för din prenumeration, använder du:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
+Get-AzResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
 Som returnerar resultat liknar:
@@ -57,7 +59,7 @@ Microsoft.CognitiveServices      Registered
 Registrera en resursleverantör konfigurerar din prenumeration för att arbeta med resursprovidern. Omfattningen för registrering är alltid prenumerationen. Många resursproviders registreras automatiskt som standard. Du kan dock behöva registrera några resursproviders manuellt. Om du vill registrera en resursleverantör måste du ha behörighet att utföra den `/register/action` åtgärden för resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Som returnerar resultat liknar:
@@ -74,7 +76,7 @@ Du kan inte avregistrera en resursprovider när du fortfarande har resurstyper f
 Om du vill se information för en viss resursprovider, använder du:
 
 ```azurepowershell-interactive
-Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
+Get-AzResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
 Som returnerar resultat liknar:
@@ -91,7 +93,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 Om du vill visa resurstyperna för en resursprovider, använder du:
 
 ```azurepowershell-interactive
-(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
+(Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
 Som returnerar:
@@ -108,7 +110,7 @@ API-versionen motsvarar en version av REST API-åtgärder som ges ut av resurspr
 Hämta tillgängliga API-versioner för en resurstyp med:
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
 Som returnerar:
@@ -126,7 +128,7 @@ Resource Manager stöds i alla regioner, men de resurser som du distribuerar st�
 Använd följande för att få platser som stöds för en resurstyp.
 
 ```azurepowershell-interactive
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
 Som returnerar:

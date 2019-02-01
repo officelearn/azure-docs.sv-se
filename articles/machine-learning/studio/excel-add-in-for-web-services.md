@@ -1,8 +1,21 @@
 ---
-Rubrik: Excel-tillägg för web services titleSuffix: Beskrivning av Azure Machine Learning Studio: Hur du använder Azure Machine Learning Web services direkt i Excel utan att behöva skriva någon kod.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 02/01/2018
+title: Excel-tillägg för webbtjänster
+titleSuffix: Azure Machine Learning Studio
+description: Hur du använder Azure Machine Learning Web services direkt i Excel utan att behöva skriva någon kod.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 02/01/2018
+ms.openlocfilehash: 57c9f9a0b6f3a0502a07ca3124cbe157d8008117
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486902"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Excel-tillägget för Azure Machine Learning Studio-webbtjänster
 Excel gör det enkelt att anropa webbtjänster direkt utan att behöva skriva någon kod.

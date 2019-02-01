@@ -1,20 +1,20 @@
 ---
-title: Utforma högtillgängliga program med hjälp av Azure Read-Access Geo-Redundant lagring (RA-GRS) | Microsoft Docs
+title: Utforma högtillgängliga Aaplications med hjälp av read-access geo-redundant lagring (RA-GRS) | Microsoft Docs
 description: Hur du använder Azure RA-GRS-lagring för att skapa ett program som är tillräckligt flexibelt för att hantera avbrott och som har med hög tillgänglighet.
 services: storage
 author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 01/17/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3e2083b03b8463907c6d80fb5a9e1f25cca9beb5
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 47ca2febeffe395ba2482165f04ee29aa0193c63
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454951"
+ms.locfileid: "55512252"
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Utforma högtillgängliga program med hjälp av RA-GRS
 
@@ -43,9 +43,7 @@ Tänk på dessa nyckelpunkter när du utformar ditt program för RA-GRS:
 
 * Du kan använda Storage-klientbiblioteket för att interagera med data i den primära eller sekundära regionen. Du kan också omdirigera diskläsningsbegäranden automatiskt till den sekundära regionen om tidsgränsen uppnås för en läsbegäran till den primära regionen.
 
-* Om det finns ett större problem som påverkar tillgängligheten för data i den primära regionen, kan Azure-teamet utlösa en geo-redundans, då DNS-poster som pekar på den primära regionen kommer att ändras för att peka på den sekundära regionen.
-
-* Om det uppstår geo-redundans, kommer Azure Markera en ny sekundär plats och replikerar data till den platsen och peka de sekundära DNS-posterna till den. Den sekundära slutpunkten är inte tillgängliga förrän lagringskontot är klar replikeras. Mer information finns i [vad du gör om ett avbrott i Azure Storage inträffar](https://docs.microsoft.com/azure/storage/storage-disaster-recovery-guidance).
+* Om den primära regionen blir otillgänglig, kan du initiera en konto-redundans. När du växlar över till den sekundära regionen har DNS-poster som pekar på den primära regionen ändrats för att peka på den sekundära regionen. När redundansväxlingen är klar återställs skrivbehörighet för GRS och RA-GRS-konton. Mer information finns i [Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage](storage-disaster-recovery-guidance.md).
 
 ## <a name="application-design-considerations-when-using-ra-grs"></a>Designöverväganden när du använder RA-GRS
 

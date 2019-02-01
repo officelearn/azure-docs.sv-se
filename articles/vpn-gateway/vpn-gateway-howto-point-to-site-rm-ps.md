@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: cherylmc
 ms.openlocfilehash: f688c0e277f807ff27731c103ca407807052c9d3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199756"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508325"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-anslutning till ett virtuellt nätverk med intern Azure-certifikatautentisering: PowerShell
 
@@ -41,9 +41,9 @@ Du kan använda exempelvärdena för att skapa en testmiljö eller hänvisa till
 
 * **Namn: VNet1**
 * **Adressutrymme: 192.168.0.0/16** och **10.254.0.0/16**<br>Det här exemplet använder mer än ett adressutrymme för att illustrera att den här konfigurationen fungerar med flera adressutrymmen. Flera adressutrymmen krävs dock inte för den här konfigurationen.
-* **Namn på undernät: Klientdel**
+* **Namn på undernät: FrontEnd**
   * **Adressintervall för undernätet: 192.168.1.0/24**
-* **Namn på undernät: Serverdel**
+* **Namn på undernät: BackEnd**
   * **Adressintervall för undernätet: 10.254.1.0/24**
 * **Namn på undernät: GatewaySubnet**<br>Undernätsnamnet *GatewaySubnet* är obligatoriskt för att VPN-gatewayen ska fungera.
   * **GatewaySubnet-adressintervallet: 192.168.200.0/24** 

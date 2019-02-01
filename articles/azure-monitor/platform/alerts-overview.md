@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/28/2018
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 156c977e197084d18d8fd32f55e58c512a66ef9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 59b190065c678ef61b3e0dec8df13db4215a8229
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156419"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486308"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Översikt över aviseringar i Microsoft Azure 
 
@@ -106,7 +106,7 @@ Du kan filtrera den här vyn genom att välja värden i listrutorna överst på 
 
 Välj följande värden överst på sidan aviseringar för att öppna en annan sida.
 
-| Value | Beskrivning |
+| Värde | Beskrivning |
 |:---|:---|
 | Totalt antal aviseringar | Det totala antalet aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna vyn alla aviseringar med inget filter. |
 | Smarta grupper | Det totala antalet smart grupper som har skapats från de aviseringar som matchar de valda villkoren. Välj det här värdet för att öppna listan över smart i vyn alla aviseringar.
@@ -174,7 +174,7 @@ Sidan aviseringsinformation innehåller följande avsnitt.
 
 Azure Monitor-mått och aktivitet loggen avisering funktionen innan juni 2018 kallas ”aviseringar (klassisk)”. 
 
-Mer information finns i [aviseringar klassisk](./../../azure-monitor/platform/alerts-classic.overview.md)
+Mer information finns i [klassisk aviseringar](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## <a name="next-steps"></a>Nästa steg

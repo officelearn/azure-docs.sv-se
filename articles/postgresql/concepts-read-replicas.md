@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/23/2019
-ms.openlocfilehash: 9270c3290bd7be0bbb79d30aff8becc04dcfc603
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 017abd72b3aa1547844f977c3efda69e59901a6f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904020"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487956"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql"></a>Läs repliker i Azure Database för PostgreSQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "54904020"
 
 Läs replik-funktionen kan du replikera data från en Azure Database for PostgreSQL-server (master) upp till fem skrivskyddade servrar (läsa repliker) inom samma Azure-region. Läs repliker uppdateras asynkront med inbyggda replikeringsteknik för PostgreSQL-motorn.
 
-Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. Du debiteras för varje Läs replik för etablerad beräkning i vCores och allokerat lagringsutrymme i GB/månad.
+Repliker är nya servrar som kan hanteras på liknande sätt som normala fristående Azure Database for PostgreSQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad.
 
 ## <a name="when-to-use-read-replicas"></a>När du ska använda skrivskyddade repliker
 Läs replica-funktionen är avsett för att förbättra prestanda och skalning för läsintensiva arbetsbelastningar. Skrivskyddade arbetsbelastningar kan exempelvis vara isolerade på replikerna medan skrivning arbetsbelastningar kan dirigeras till huvudservern.
@@ -101,7 +101,7 @@ Du kan [Lär dig hur du stoppar en replik i dokumentationen för how-to](howto-r
 **Azure.replication_support** måste anges till REPLIKEN på huvudservern innan du kan skapa en replik. Ändra den här parametern kräver en omstart av servern ska börja gälla. Den här parametern gäller för generell användning och Minnesoptimerad nivåer.
 
 ### <a name="stopped-replicas"></a>Stoppad repliker
-När du väljer att stoppa replikering mellan huvud- och repliken startas repliken för att tillämpa ändringarna. Därefter kan kan den inte fås till en replik igen.
+Om du vill stoppa replikering mellan huvud- och repliken startas repliken för att tillämpa ändringen. Repliken blir sedan en Läs-och server. Därefter kan kan den inte fås till en replik igen.
 
 ### <a name="replicas-are-new-servers"></a>Repliker är nya servrar
 Repliker skapas som ny Azure Database for PostgreSQL-servrar. Befintliga servrar kan inte göras i repliker.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8745519f1a0fdda7a5feb6ffb3f61e5250bb260a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8850ef68c665efcf9e66315af20b7d1e8492fc5f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164795"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493770"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Logiska funktioner för Azure Resource Manager-mallar
 
@@ -27,9 +27,11 @@ Resource Manager tillhandahåller flera funktioner för att göra jämförelser 
 
 * [och](#and)
 * [Bool](#bool)
-* [Om](#if)
-* [inte](#not)
+* [if](#if)
+* [not](#not)
 * [eller](#or)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="and"></a>och
 `and(arg1, arg2)`
@@ -90,7 +92,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="bool"></a>Bool
@@ -155,10 +157,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
 ```
 
-## <a name="if"></a>Om
+## <a name="if"></a>if
 `if(condition, trueValue, falseValue)`
 
 Returnerar ett värde baserat på om ett villkor är SANT eller FALSKT.
@@ -252,8 +254,8 @@ Utdata från föregående exempel är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| yesOutput | Sträng | ja |
-| noOutput | Sträng | nej |
+| yesOutput | String | ja |
+| noOutput | String | nej |
 | objectOutput | Objekt | {”test”: ”value1”} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
@@ -265,7 +267,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
 ```
 
 ## <a name="not"></a>inte
@@ -326,7 +328,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) använder **inte** med [är lika med](resource-group-template-functions-comparison.md#equals).
@@ -360,7 +362,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
 ```
 
 ## <a name="or"></a>eller
@@ -422,7 +424,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
 ```
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 10/25/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 3ba1f9afda1b4f7f227c996615cc17a8c604d5fb
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 33f96c67e7179104d1895cf62f834d3b592bee04
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138233"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487633"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
 
@@ -65,14 +65,14 @@ Den här tabellen visas listan över kommandon som är tillgängliga för virtue
 |**RunPowerShellScript**|Kör ett PowerShell.skript|
 |**EnableRemotePS**|Konfigurerar datorn om du vill aktivera fjärr-PowerShell.|
 |**EnableAdminAccount**|Kontrollerar om det lokala administratörskontot är inaktiverat och fall i så gör det möjligt.|
-|**IP-konfiguration**| Visar detaljerad information om den IP-adress, undernät och standard-gateway för varje nätverkskort som är bundet till TCP/IP.|
+|**IPConfig**| Visar detaljerad information om den IP-adress, undernät och standard-gateway för varje nätverkskort som är bundet till TCP/IP.|
 |**RDPSettings**|Kontrollerar registerinställningar och inställningar för domänen. Föreslår åtgärder om datorn tillhör en domän eller ändrar inställningar till standardvärdena.|
 |**ResetRDPCert**|Tar bort SSL-certifikatet som är kopplad till RDP-lyssnaren och återställer RDP listerner säkerhet till standard. Använd det här skriptet om du ser några problem med certifikatet.|
 |**SetRDPPort**|Mängder standard eller användare anges portnummer för anslutning till fjärrskrivbord. Gör det möjligt för brandväggsregel för ingående åtkomst till porten.|
 
 ## <a name="powershell"></a>PowerShell
 
-Följande är ett exempel med hjälp av den [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) cmdlet för att köra ett PowerShell-skript på en virtuell Azure-dator.
+Följande är ett exempel med hjälp av den [Invoke-AzureRmVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) vill köra ett PowerShell-skript i en Azure VM. Cmdleten förväntar sig skriptet som refereras till i den `ScriptPath` variabel som ska vara lokalt där cmdleten som kördes.
 
 ```azurepowershell-interactive
 Invoke-AzureRmVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}

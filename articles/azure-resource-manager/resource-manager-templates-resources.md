@@ -12,16 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: tomfitz
-ms.openlocfilehash: 5a2b38e5d627341b3684ee55d13ee06881fbae55
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 2f850c25250c59a5fd62964d53b6b9d37ff4cf49
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728371"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491407"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Resursavsnittet i Azure Resource Manager-mallar
 
 I resursavsnittet kan du definiera de resurser som är distribuerade eller uppdateras. Det här avsnittet kan bli komplicerade eftersom du måste förstå de typer som du distribuerar för att ge rätt värden.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="available-properties"></a>Tillgängliga egenskaper
 
@@ -86,7 +88,7 @@ Du definierar resurser med följande struktur:
 | villkor | Nej | Booleskt värde som anger om resursen ska etableras under den här distributionen. När `true`, där resursen skapas under distributionen. När `false`, resursen är hoppades över för den här distributionen. |
 | apiVersion |Ja |Version av REST-API för att använda för att skapa resursen. |
 | typ |Ja |Typ av resursen. Det här värdet är en kombination av namnområde med resursprovidern och resurstypen (till exempel **Microsoft.Storage/storageAccounts**). |
-| namn |Ja |Namnet på resursen. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
+| namn |Ja |Resursens namn. Namnet måste följa URI-komponent begränsningar som definierats i RFC3986. Dessutom är Azure-tjänster som exponerar resursnamnet externa parter Kontrollera namnet och kontrollera att det inte ett försök att imitera en annan identitet. |
 | location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligtvis det vara bra att välja ett som är nära användarna. Vanligtvis är det också vara bra att placera resurser som interagerar med varandra i samma region. De flesta typer av resurser kräver en plats, men vissa typer (till exempel en rolltilldelning) kräver inte en plats. |
 | tags |Nej |Taggar som är kopplade till resursen. Lägga till taggar för att organisera resurser logiskt i din prenumeration. |
 | kommentarer |Nej |Dina anteckningar för att dokumentera resurserna i mallen |
@@ -189,7 +191,7 @@ När du distribuerar en mall måste du ange en plats för varje resurs. Olika re
 I följande exempel använder PowerShell för att hämta platserna för den `Microsoft.Web\sites` resurstyp:
 
 ```powershell
-((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
 I följande exempel används Azure CLI för att få platser för den `Microsoft.Web\sites` resurstyp:

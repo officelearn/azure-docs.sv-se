@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 3a4b62fb16745a3b226bda6c0574812278a34456
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.openlocfilehash: 94aaa72497a8a5f171d6b42f59a3c5b507c71492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52428734"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495011"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metodtips för isolering av kluster i Azure Kubernetes Service (AKS)
 
@@ -43,6 +43,8 @@ Ett AKS-kluster kan användas för flera arbetsbelastningar, team eller miljöer
 ![Logisk isolering för ett Kubernetes-kluster i AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 Logisk uppdelning av kluster ger vanligtvis en högre densitet pod än fysiskt isolerat kluster. Det finns mindre beräkning överkapacitet vilken inaktiv i klustret. När de kombineras med Kubernetes-kluster autoskalningen, kan du skala antalet noder upp eller ned uppfylla kraven. Den här bästa praxis för autoskalning kan du köra endast antalet noder som krävs och minimerar kostnaderna.
+
+Kubernetes-miljöer i AKS eller någon annanstans, är inte helt säker för fientlig användning med flera innehavare. Ytterligare säkerhetsfunktioner som *Pod säkerhetsprincip* och mer detaljerade rollbaserade åtkomstkontroller (RBAC) för noder försvåra kryphål. Men är SANT säkerhet vid körning av fientlig arbetsbelastningar för flera innehavare, ett hypervisor-program endast säkerhetsnivå som du ska lita på. Säkerhetsdomän för Kubernetes blir hela klustret, inte en enskild nod. Du bör använda fysiskt isolerat kluster för dessa typer av fientlig arbetsbelastningar för flera innehavare.
 
 ## <a name="physically-isolate-clusters"></a>Isolera fysiskt kluster
 

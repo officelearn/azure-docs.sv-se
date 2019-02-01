@@ -8,19 +8,17 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2c8f27c9b5b9c13cd6cb722bafb23dd19b944d27
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 77c4377afaff20e77e76c0a7389c79dfdce703ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474691"
+ms.locfileid: "55509141"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar
-
 Microsoft Azure tillhandahåller flera funktioner i Azure Storage för att lagra och komma åt dina data i molnet. Den här artikeln täcker Azure Files, BLOB-objekt och diskar och har utformats för att hjälpa dig att välja mellan de här funktionerna.
 
 ## <a name="scenarios"></a>Scenarier
-
 I följande tabell jämförs filer, Blobbar och diskar och visar exempelscenarier som passar bäst för respektive.
 
 | Funktion | Beskrivning | När du ska använda detta |
@@ -30,7 +28,6 @@ I följande tabell jämförs filer, Blobbar och diskar och visar exempelscenarie
 | **Azure Disks** | Tillhandahåller klientbibliotek och en [REST-gränssnittet](/rest/api/compute/manageddisks/disks/disks-rest-api) som gör att data kan lagras beständigt och nås från en ansluten virtuell hårddisk. | Du vill flytta över program som använder interna filsystemet API: er för att läsa och skriva data till beständiga diskar.<br/><br/>Du vill lagra data som inte behövs för åtkomst från utanför den virtuella datorn som disken är ansluten. |
 
 ## <a name="comparison-files-and-blobs"></a>Jämförelse: Filer och Blobar
-
 I följande tabell jämförs Azure Files med Azure Blobs.  
   
 ||||  
@@ -49,7 +46,6 @@ I följande tabell jämförs Azure Files med Azure Blobs.
 |Klientbibliotek|Flera språk|Flera språk|  
   
 ## <a name="comparison-files-and-disks"></a>Jämförelse: Filer och diskar
-
 Azure Files kompletterar Azure-diskar. En disk kan endast kopplas till en Azure-dator i taget. Diskar är fast format virtuella hårddiskar lagras som sidblobar i Azure Storage och används av den virtuella datorn för att lagra beständiga data. Filresurser i Azure Files kan nås på samma sätt som den lokala disken används (med hjälp av inbyggda filsystem API: er) och kan delas mellan många virtuella datorer.  
  
 I följande tabell jämförs Azure Files med Azure-diskar.  
@@ -61,14 +57,12 @@ I följande tabell jämförs Azure Files med Azure-diskar.
 |Ögonblicksbilder och kopiera|Ja|Ja|  
 |Konfiguration|Ansluten vid start av den virtuella datorn|Ansluta till efter den virtuella datorn har startats|  
 |Autentisering|Inbyggd|Konfigurera med net use|  
-|Rensa|Automatisk|Manuell|  
 |Åtkomst med hjälp av REST|Filer i den virtuella Hårddisken kan inte nås|Filer som lagras på en resurs kan nås|  
 |Maxstorlek|4 TiB-disk|5 TiB-filresurser och 1 TiB-fil i resursen|  
 |Maximalt antal IOps|500 IOps|1 000 IOps|  
 |Dataflöde|Upp till 60 MiB/s per Disk|Målet är 60 MiB/s per filresurs (hämta högre för högre i/o-storlekar)|  
 
 ## <a name="next-steps"></a>Nästa steg
-
 När du fattar beslut om hur dina data lagras och nås, kan du också kostnaderna som ingår. Mer information finns i [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
   
 Vissa SMB-funktioner kan inte användas för molnet. Mer information finns i [funktioner som inte stöds av Azure-filtjänsten](/rest/api/storageservices/features-not-supported-by-the-azure-file-service).

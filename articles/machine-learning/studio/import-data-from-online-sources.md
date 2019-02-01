@@ -1,8 +1,21 @@
 ---
-Rubrik: Importera data till Machine Learning Studio från online-datakällor titleSuffix: Beskrivning av Azure Machine Learning Studio: Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
+title: Importera data till Machine Learning Studio från online-datakällor
+titleSuffix: Azure Machine Learning Studio
+description: Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 11/29/2017
+ms.openlocfilehash: 21b0cceabaf9cd7d284865e87086d695280df2bb
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486579"
 ---
 # <a name="import-data-into-azure-machine-learning-studio-from-online-data-sources"></a>Importera data till Azure Machine Learning Studio från online-datakällor
 Den här artikeln beskrivs stödet för import av online-data från olika källor och den information som krävs för att flytta data från dessa källor till en Azure Machine Learning Studio experimentera.

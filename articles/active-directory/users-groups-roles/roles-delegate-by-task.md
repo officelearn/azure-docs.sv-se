@@ -1,5 +1,5 @@
 ---
-title: Delegera minst Privilegierade roller för aktiviteten i Azure Active Directory | Microsoft Docs
+title: Delegera minst Privilegierade roller genom att administratören uppgift – Azure Active Directory | Microsoft Docs
 description: Roller att delegera för identitet uppgifter i Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 3b6c5b08fa3f915c541837abe5f52c7ec3d9b87e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6307fe4875d9fd5f55db8078ab9440f989fb58f3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185231"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508223"
 ---
-# <a name="administrator-roles-by-identity-task-in-azure-active-directory"></a>Administratörsroller för identiteten aktiviteten i Azure Active Directory
+# <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Administratörsroller av admin-aktivitet i Azure Active Directory
 
 I den här artikeln hittar du information som behövs för att begränsa en användares administratörsbehörighet genom att tilldela minst Privilegierade roller i Azure Active Directory (AD Azure). Du hittar administratörsåtgärder ordnade efter funktionsområde och minst Privilegierade roller som krävs för att utföra varje uppgift, tillsammans med ytterligare icke - globala administratörsroller som kan utföra uppgiften.
 

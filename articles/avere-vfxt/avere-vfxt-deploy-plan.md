@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: e60c92c22382112558307062afdeb87e08075765
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: c0304e290d18e6569e3fcc2efbab8af15727b80c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298933"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508170"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -83,7 +83,7 @@ Se till att din prenumeration har kapacitet att köra Avere vFXT klustret samt e
 
 ## <a name="back-end-data-storage"></a>Backend-datalagring
 
-Var ska Avere vFXT klustret lagra dina data när det inte finns i cacheminnet? Bestäm om din arbetsminnet lagras långsiktig i en ny blobbehållare eller i ett befintligt moln eller maskinvara lagringssystemet. 
+Var ska Avere vFXT klustret lagra dina data när det inte finns i cacheminnet? Besluta om din arbetsminnet ska vara lagrade långsiktig i en ny blobbehållare eller i ett befintligt moln eller maskinvara lagringssystemet. 
 
 Om du vill använda Azure Blob storage för backend-servern bör du skapa en ny behållare som en del av vFXT klustret skapas. Det här alternativet skapar och konfigurerar den nya behållaren så att det är klart att användas när klustret är klart. 
 
@@ -109,7 +109,7 @@ Avere vFXT för Azure-kluster finns i ett privat undernät och klustret har inte
 
 * Virtuellt privat nätverk (VPN) – Konfigurera en punkt-till-plats eller plats-till-plats VPN-anslutning till ditt privata nätverk.
 
-* Azure ExpressRoute – konfigurera en privat anslutning via och ExpressRoute-partner. 
+* Azure ExpressRoute – konfigurera en privat anslutning via en ExpressRoute-partner. 
 
 Mer information om alternativen finns i [Azure Virtual Network-dokumentationen om internet-kommunikation](../virtual-network/virtual-networks-overview.md#communicate-with-the-internet).
 
@@ -117,7 +117,7 @@ Mer information om alternativen finns i [Azure Virtual Network-dokumentationen o
 
 Om du ställer in en offentlig IP-adress på kontrollanten kluster, kan du använda den som en jump-värd för att kontakta Avere vFXT klustret från utanför privat undernät. Men eftersom kontrollanten har behörighet att ändra klusternoder, skapar detta en liten säkerhetsrisk.  
 
-Använd en grupp för förbättrad säkerhet med en offentlig IP-adress för att tillåta inkommande åtkomst endast via port 22.
+Använd en grupp för förbättrad säkerhet med en offentlig IP-adress för att tillåta inkommande åtkomst endast via port 22. Du kan eventuellt ytterligare skydda systemet genom att låsa åtkomst till ditt intervall med IP-källadresser – det vill säga Tillåt endast anslutningar från datorer som du planerar att använda för åtkomst till klustret.
 
 När du skapar klustret kan välja du om du ska skapa en offentlig IP-adress på kontrollanten kluster eller inte. 
 

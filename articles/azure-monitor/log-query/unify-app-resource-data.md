@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: magoedte
-ms.openlocfilehash: e3b118306b5a139ba31029bc6191368690b36666
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: e0f305d8200a6b78eb138d5a3c6d9cd99a095dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54265217"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486529"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Skapa en enhetlig flera Azure Monitor Application Insights-resurser 
 Den här artikeln beskriver hur du fråga efter och visa alla dina Application Insights log programdata på samma plats, även om de finns i olika Azure-prenumerationer, som en ersättning för utfasningen av Application Insights-anslutningsprogram.  
@@ -51,7 +51,20 @@ app('Contoso-app5').requests
 >
 >Operatorn parsa är valfri i det här exemplet, det extraherar programnamnet från SourceApp egenskapen. 
 
-Du är nu redo att använda applicationsScoping funktion i frågan mellan resurser. Funktionens alias returnerar unionen av begäranden från alla definierade program. Frågan och sedan filtrerar för misslyckade förfrågningar och hjälper dig att visualisera trender av program. ![Exempel för Cross-frågeresultat](media/unify-app-resource-data/app-insights-query-results.png)
+Du är nu redo att använda applicationsScoping funktion i frågan mellan resurser:  
+
+```
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| render timechart
+```
+
+Funktionens alias returnerar unionen av begäranden från alla definierade program. Frågan och sedan filtrerar för misslyckade förfrågningar och hjälper dig att visualisera trender av program.
+
+![Exempel för Cross-frågeresultat](media/unify-app-resource-data/app-insights-query-results.png)
 
 ## <a name="query-across-application-insights-resources-and-workspace-data"></a>Fråga efter data i Application Insights-resurser och arbetsytan 
 När du har slutat anslutningstjänsten och behovet av att köra frågor på ett tidsintervall som var tas bort av Application Insights-datakvarhållning (90 dagar), måste du utföra [mellan resurser frågor](../../azure-monitor/log-query/cross-workspace-query.md) på arbetsytan och Application Insights resurser för ett mellanliggande period. Det här är tills en publiceringskonfiguration ackumuleras programdata ditt per ny Application Insights-datalagring som nämns ovan. Frågan kräver vissa ändringar eftersom alla scheman i Application Insights och arbetsytan är olika. Se tabellen i avsnittet om du markerar schemaolikheter. 

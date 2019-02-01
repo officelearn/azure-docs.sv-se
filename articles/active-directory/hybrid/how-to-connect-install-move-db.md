@@ -6,16 +6,16 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/19/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3e7e1fb0941c62eb9f479368bcbb347c863fdb79
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 372470ffb1c296ee30702a2df0d8e9d00480a492
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160567"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485236"
 ---
 # <a name="move-azure-ad-connect-database-from-sql-server-express-to-sql-server"></a>Flytta Azure AD Connect-databasen från SQL Server Express till SQL Server 
 

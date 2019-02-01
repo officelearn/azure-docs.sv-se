@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 59562d0571486a4bcbc96be4cb7dcddb4dfb0a44
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 39f23cd0b0b6081d8e54524a0eedc9cce1fd4571
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095727"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493469"
 ---
 # <a name="api-management-access-restriction-policies"></a>API Management-principer för begränsning av åtkomst
 Det här avsnittet innehåller en referens för följande API Management-principer. Information om att lägga till och konfigurerar principer finns i [principer i API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -56,14 +56,14 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |Kontrollera rubrik|Rotelement.|Ja|  
 |värde|Tillåtna värde för HTTP-huvud. När flera värde anges är, betraktas kontrollen lyckas om något av värdena finns en matchning.|Nej|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |failed-check-error-message|Felmeddelande att returnera i HTTP-svarstext om huvudet finns inte eller har ett ogiltigt värde. Det här meddelandet måste ha några specialtecken som korrekt undantaget.|Ja|Gäller inte|  
 |Det gick inte-kontroll-httpcode|HTTP-statuskod ska returneras om huvudet finns inte eller har ett ogiltigt värde.|Ja|Gäller inte|  
@@ -111,7 +111,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |Ställ in gräns|Rotelement.|Ja|  
 |api|Lägg till en eller flera av dessa element att införa en anropsgränsen på API: er inom produkten. Produkt- och API: et anropsfrekvens begränsningar tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.|Nej|  
@@ -119,7 +119,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |namn|Namnet på API: et som du vill tillämpa gräns för överföringshastigheten i.|Ja|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.|Ja|Gäller inte|  
@@ -171,13 +171,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |Ställ in gräns|Rotelement.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.|Ja|Gäller inte|  
 |avdelningar nyckel|Nyckeln som ska användas för frekvensbegränsningsprincipen.|Ja|Gäller inte|  
@@ -214,7 +214,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |ip-filter|Rotelement.|Ja|  
 |Adress|Anger en IP-adress som ska filtreras.|Minst en `address` eller `address-range` elementet krävs.|  
@@ -222,7 +222,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |address-range from="address" to="address"|Ett intervall med IP-adresser för att tillåta eller neka åtkomst för.|Krävs när den `address-range` elementet används.|Gäller inte|  
 |ip-filter action="allow &#124; forbid"|Anger om anrop ska tillåtas eller inte för den angivna IP-adresser och intervall.|Ja|Gäller inte|  
@@ -267,7 +267,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |kvot|Rotelement.|Ja|  
 |api|Lägg till en eller flera av dessa element att införa anrop kvot på API: er i produkten. Produkt- och API-anrop kvoter tillämpas oberoende av varandra. API: et kan vara refereras via `name` eller `id`. Om båda attributen har angetts, `id` ska användas och `name` kommer att ignoreras.|Nej|  
@@ -275,7 +275,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |namn|Namnet på API: et eller åtgärden som kvoten gäller.|Ja|Gäller inte|  
 |Bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
@@ -329,13 +329,13 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="elements"></a>Element  
   
-|Name|Beskrivning|Krävs|  
+|Namn|Beskrivning|Krävs|  
 |----------|-----------------|--------------|  
 |kvot|Rotelement.|Ja|  
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |Bandbredd|Det högsta totala antalet kilobyte tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
 |anrop|Det maximala totalt antalet anrop tillåts under en tidsperiod som anges i den `renewal-period`.|Antingen `calls`, `bandwidth`, eller båda tillsammans måste anges.|Gäller inte|  
@@ -504,7 +504,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
   
 ### <a name="attributes"></a>Attribut  
   
-|Name|Beskrivning|Krävs|Standard|  
+|Namn|Beskrivning|Krävs|Standard|  
 |----------|-----------------|--------------|-------------|  
 |clock-skew|TimeSpan. Använd för att ange högsta förväntade tidsskillnaden mellan tokenutfärdaren systemklockor och API Management-instans.|Nej|0 sekunder|  
 |failed-validation-error-message|Felmeddelande att returnera i HTTP-svarstext om JWT inte klarar valideringen. Det här meddelandet måste ha några specialtecken som korrekt undantaget.|Nej|Standardfelmeddelande beror på verifieringsproblem, till exempel ”JWT finns inte”.|  
@@ -512,7 +512,7 @@ Det här avsnittet innehåller en referens för följande API Management-princip
 |header-name|Namnet på det HTTP-huvud som denna token.|Antingen `header-name` eller `query-parameter-name` måste vara anges, men inte båda.|Gäller inte|  
 |id|Den `id` attribut på den `key` element kan du ange den sträng som matchas mot `kid` anspråk i token (om sådan finns) att ta reda på lämplig nyckeln som ska användas för att verifiera signaturen.|Nej|Gäller inte|  
 |matchning|Den `match` attribut på den `claim` elementet anger om varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas. Möjliga värden:<br /><br /> -                          `all` -varje anspråksvärde i principen måste finnas i en token för verifiering ska lyckas.<br /><br /> -                          `any` -minst en anspråksvärdet måste finnas i en token för verifiering ska lyckas.|Nej|all|  
-|query-paremeter-name|Namnet på Frågeparametern denna token.|Antingen `header-name` eller `query-paremeter-name` måste vara anges, men inte båda.|Gäller inte|  
+|query-parameter-name|Namnet på Frågeparametern denna token.|Antingen `header-name` eller `query-parameter-name` måste vara anges, men inte båda.|Gäller inte|  
 |require-expiration-time|Booleskt värde. Anger om ett anspråk för förfallodatum krävs i token.|Nej|true|
 |require-scheme|Namnet på token system, t.ex. ”Ägar”. När det här attributet anges garanterar principen som att det angivna schemat finns i värdet för auktoriseringsrubriken.|Nej|Gäller inte|
 |Kräv-signerade-token|Booleskt värde. Anger om det krävs en token signeras.|Nej|true|  

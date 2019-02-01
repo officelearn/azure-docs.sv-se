@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3671f6a3e3832a384e968fbf38128aff6bfb2252
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.openlocfilehash: ae57fc5366e1ed99febcd9a9d08e7f95f3bbf196
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247681"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487361"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Enhetsanslutning i Azure IoT Central
 
@@ -56,7 +56,7 @@ Ansluter en enhet till IoT Central med hjälp av SAS är enkelt och tar bara nå
 
     *   **Språk som C:** Om du använder C följer [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet.   
 
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -118,7 +118,7 @@ Om du använder den **MxChip** enheten ansluter Följ [de stegvisa anvisningarna
 Nedan finns referenser till andra språk som du kanske vill använda.
 
    *   **Språk som C:** Om du använder C Följ [C exempel enhetsklienten](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md) att ansluta en exempel-enhet. Använd följande inställningar i det här exemplet.   
-         ```
+         ```c
          hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
 
          ## Enter the Device Id and Symmetric keys 
@@ -163,7 +163,7 @@ För att ansluta enheter till IoT Central använder X509 certifikat, det finns t
 
     Programmera enheten med provisioning serviceinformation så att systemet kan hämta dess anslutningsinformation och IoT Central apptilldelning när påslaget.    
 
-    **Ytterligare referene** 
+    **Ytterligare referens** 
     *   Exempel på implementering för [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Exemplet enhetsklienten i C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
@@ -211,12 +211,12 @@ Följ stegen baserat på ditt val av enheten autentiseringsschemat (X509/SAS)
 
 1. **Anslut enheten till IoT Central:** När aktiverat på enheter som ansluter till DPS/IoT Central för registrering.
 
-1. **Koppla enheten till en mall:** Den anslutna enheten visas **olänkade enheter** i **Device Explorer**. Enheten Etableringsstatus är **registrerad**. **Associera** enheten till lämplig enhet mallen och godkänna att enheten ansluter till IoT Central-app. Enheten får anslutning information för IoT Central-app, ansluter och startar skickar data. Enheten provioning är nu klar och *Etableringsstatus* övergår i **etablerad**.
+1. **Koppla enheten till en mall:** Den anslutna enheten visas **olänkade enheter** i **Device Explorer**. Enheten Etableringsstatus är **registrerad**. **Associera** enheten till lämplig enhet mallen och godkänna att enheten ansluter till IoT Central-app. Enheten får anslutningsinformationen för IoT Central-app och sedan ansluter den och startar skickar data. Enhetsetablering är nu klar och *Etableringsstatus* övergår i **etablerad**.
 
 ## <a name="device-provisioning-status"></a>Etablering av Enhetsstatus
 Det finns ett antal steg ingår vid en riktig enhet är ansluten till Azure IoT Central 
 1. **Registrerad**: Enheten är den första **registrerad**, vilket innebär att enheten har skapats i IoT Central och har enhets-ID för enheten.
-Enheten är Registeretd när  
+Enheten är registrerad när  
     *   En ny riktig enhet läggs till på **Explorer**
     *   En uppsättning enheter läggs till med **Import** på **Explorer**
     *   En enhet som inte har registrerats men ansluter med giltiga autentiseringsuppgifter och som visas under **icke associerade** enheter. 
@@ -233,7 +233,7 @@ Du kan hämta anslutningssträngen för Iot hub-enhet på Azure IoT Hub med föl
 
     ![Anslutningsinformation](media/concepts-connectivity/device-connect.PNG)
 
-1. Hämta enhetens anslutningssträng med hjälp av kommandoradsverktyget commnd nedan.
+1. Hämta enhetens anslutningssträng med hjälp av kommandoradsverktyget nedan.
     Använd den nedan anvisningarna för att hämta enhetens anslutningssträng  
 
     ```cmd/sh

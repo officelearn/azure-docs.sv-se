@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 11/6/2018
+ms.date: 1/29/2019
 ms.author: victorh
-ms.openlocfilehash: 6ea72c2caebeeb46b0973ba700d40670340204d7
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 24cb5d7ddb1bfbb64796d871aa79109dfdfa94be
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54353200"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492937"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Storleksgränser för Web application firewall begäran och undantagslistor
 
@@ -45,7 +45,7 @@ Följande attribut kan läggas till undantagslistor:
    * XML
    * JSON
 
-Du kan ange en exakt begärandehuvudet body, cookie eller fråga för attributet strängmatchning eller kan du ange delmatchningar.
+Du kan ange en exakt begärandehuvudet, brödtext, cookie eller fråga strängmatchning för attributet.  Eller alternativt kan du ange delmatchningar. Undantaget är alltid på ett fält med rubriken, aldrig på dess värde. Undantagsregler är globala omfång och gäller för alla sidor och alla regler.
 
 Här följer stöds matchning kriterier operatorer:
 

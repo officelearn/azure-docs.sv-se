@@ -1,7 +1,21 @@
 ---
-Rubrik: Application lifecycle management titleSuffix: Beskrivning av Azure Machine Learning Studio: Tillämpa Application Lifecycle Management bästa praxis i Azure Machine Learning Studio services: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=haining, previous-author=hning86 ms.date: 10/27/2016
+title: Application Lifecycle Management
+titleSuffix: Azure Machine Learning Studio
+description: Använd Application Lifecycle Management bästa praxis i Azure Machine Learning Studio
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=haining, previous-author=hning86
+ms.date: 10/27/2016
+ms.openlocfilehash: 26e469076e16f57300cf3e385620a723ddf51a4c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510739"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio"></a>Livscykelhantering för program i Azure Machine Learning Studio
 Azure Machine Learning Studio är ett verktyg för utveckling av machine learning-experiment som operationaliserat i Azure-molnplattformen. Det sammanfogas som Visual Studio IDE och skalbar molntjänst i en enda plattform. Du kan införliva standardmetoder Application Lifecycle Management (ALM) från versionshantering olika tillgångar för automatisk körning och distribution i Azure Machine Learning Studio. Den här artikeln beskrivs några av alternativen och metoder.

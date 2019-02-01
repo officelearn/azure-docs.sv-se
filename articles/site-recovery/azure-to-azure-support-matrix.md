@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 01/21/2019
 ms.author: raynew
-ms.openlocfilehash: 138c5ee54d175c4bd5f727acc3375405850f86a0
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 3b41f975b484083dab79f16984e84018b2e830a1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301602"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497306"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Stöd matrix för replikering från en Azure-region till en annan
 
@@ -186,7 +186,7 @@ Datadisk - standardlagringskonto | Stöds |
 Datadisk - premium storage-konto | Stöds | Om en virtuell dator har diskar som är fördelade på premium- och standardlagringskonton, kan du välja ett annat mållagringskonto för varje disk, så du får samma lagringskonfiguration för i målregionen.
 Hanterad disk - standard | Stöd i Azure-regioner där Azure Site Recovery stöds. |
 Hanterad disk - premium | Stöd i Azure-regioner där Azure Site Recovery stöds. |
-Standard SSD | Stöds inte |
+Standard SSD | Stöds |
 Redundans | LRS och GRS stöds.<br/><br/> ZRS stöds inte.
 Frekventa och lågfrekventa lagring | Stöds inte | VM-diskar stöds inte på frekventa och lågfrekventa lagring
 Lagringsutrymmen | Stöds |
@@ -195,8 +195,8 @@ Azure Disk Encryption (ADE) för Windows OS | Virtuella datorer som har aktivera
 Azure Disk Encryption (ADE) för Linux OS | Stöds inte |
 Frekvent Lägg till/ta bort disk | Stöds inte | Om du lägger till eller ta bort datadisk på den virtuella datorn, måste du inaktivera replikering och aktiverar replikering igen för den virtuella datorn.
 Uteslut disk | Stöds inte|   Temporär disk är undantagen som standard.
-Storage Spaces Direct  | Stöds inte|
-Skalbar filserver  | Stöds inte|
+Storage Spaces Direct  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
+Skalbar filserver  | Stöd för krascher konsekventa återställningspunkter. Konsekvent programåterställningspunkter stöds inte. |
 LRS | Stöds |
 GRS | Stöds |
 RA-GRS | Stöds |

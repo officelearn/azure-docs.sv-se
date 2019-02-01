@@ -11,16 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9120e5f283f8d8da8da2c80959a335965a643409
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: c0875861a90080c649596880804fe6538c04bc51
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497629"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager-distributionslägen
 
 När du distribuerar dina resurser kan ange du att distributionen är en inkrementell uppdatering eller en fullständig uppdatering.  Den viktigaste skillnaden mellan dessa två lägena är hur Resource Manager hanterar befintliga resurser i resursgruppen som inte är i mallen. Standardläget är inkrementell.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="incremental-and-complete-deployments"></a>Inkrementella och fullständiga distributioner
 
@@ -64,7 +66,7 @@ När de distribueras i **fullständig** läge, resurs C har tagits bort. Resursg
 Ange Distributionsläge när du distribuerar med PowerShell och den `Mode` parametern.
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment `
+New-AzResourceGroupDeployment `
   -Mode Complete `
   -Name ExampleDeployment `
   -ResourceGroupName ExampleResourceGroup `

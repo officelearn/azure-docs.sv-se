@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/03/2018
+ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 947886a96ab31150cf81ebea0a3cdd69e0273b01
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
+ms.lastreviewed: 01/30/2019
+ms.openlocfilehash: 11736b978242416bcfb95d3025975028e4148e98
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54305765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486546"
 ---
 # <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-lagring: Skillnader och överväganden
 
@@ -67,16 +67,8 @@ Azure Storage services-API: er:
 
 1811 uppdatering eller nyare versioner:
 
- - [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
- - [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
- - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
- - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
- - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
- - [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
- - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
-
-1802 uppdatering till 1809 update:
-
+- [2017-11-09](https://docs.microsoft.com/rest/api/storageservices/version-2017-11-09)
+- [2017-07-29](https://docs.microsoft.com/rest/api/storageservices/version-2017-07-29)
 - [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
 - [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
@@ -85,35 +77,34 @@ Azure Storage services-API: er:
 
 Tidigare versioner:
 
+- [2017-04-17](https://docs.microsoft.com/rest/api/storageservices/version-2017-04-17)
+- [2016-05-31](https://docs.microsoft.com/rest/api/storageservices/version-2016-05-31)
+- [2015-12-11](https://docs.microsoft.com/rest/api/storageservices/version-2015-12-11)
+- [2015-07-08](https://docs.microsoft.com/rest/api/storageservices/version-2015-07-08)
 - [2015-04-05](https://docs.microsoft.com/rest/api/storageservices/version-2015-04-05)
 
 Azure Storage Service management API: er:
 
-- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
-- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+1811 uppdatering eller nyare versioner:
+
+- [2017-10-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2017-06-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-12-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2016-05-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
 Tidigare versioner:
 
- - [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- - [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
- 
-## <a name="sdk-versions"></a>SDK-versioner
+- [2016-01-01](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-06-15](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
+- [2015-05-01-preview](https://docs.microsoft.com/rest/api/storagerp/?redirectedfrom=MSDN)
 
-Azure Stack-storage stöder följande klientbibliotek:
-
-| Klientbibliotek | Azure Stack-version som stöds | Länk                                                                                                                                                                                                                                                                                                                                     | Slutpunkt-specifikation       |
-|----------------|-------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------|
-| .NET           | Från 6.2.0 till 8.7.0.          | NuGet-paketet:<br>https://www.nuget.org/packages/WindowsAzure.Storage/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-net/releases                                                                                                                                                                                    | filen App.config              |
-| Java           | Från 4.1.0 till 6.1.0           | Maven-paketet:<br>http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-java/releases                                                                                                                                                                    | Anslutningsinställningar för sträng      |
-| Node.js        | Från 1.1.0 till 2.7.0           | NPM-länk:<br>https://www.npmjs.com/package/azure-storage<br>(Till exempel: kör ”npm-installationsprogrammet azure-storage@2.7.0”)<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-node/releases                                                                                                                                         | Instans tjänstedeklaration |
-| C++            | Från 2.4.0 till 3.1.0           | NuGet-paketet:<br>https://www.nuget.org/packages/wastorage.v140/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-cpp/releases                                                                                                                                                                                          | Anslutningsinställningar för sträng      |
-| PHP            | Från 0.15.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-php/releases<br> <br>Installera via Composer (se detaljer nedan)                                                                                                                                                                                                                  | Anslutningsinställningar för sträng      |
-| Python         | Från 0.30.0 till 1.0.0          | GitHub-version:<br>https://github.com/Azure/azure-storage-python/releases                                                                                                                                                                                                                                                                | Instans tjänstedeklaration |
-| Ruby           | Från 0.12.1 till 1.0.1          | RubyGems package:<br>Vanliga:<br>https://rubygems.org/gems/azure-storage-common/<br>BLOB: https://rubygems.org/gems/azure-storage-blob/<br>Kö: https://rubygems.org/gems/azure-storage-queue/<br>Tabell: https://rubygems.org/gems/azure-storage-table/<br> <br>GitHub-version:<br>https://github.com/Azure/azure-storage-ruby/releases | Anslutningsinställningar för sträng      |
+Mer information om Azure Stack stöds lagringsklientbiblioteken finns: [Kom igång med Azure Stack verktyg för lagringsutveckling](azure-stack-storage-dev.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Kom igång med Azure Stack verktyg för lagringsutveckling](azure-stack-storage-dev.md)
+* [Använd verktyg för överföring av data för Azure Stack-lagring](azure-stack-storage-transfer.md)
 * [Introduktion till Azure Stack-lagring](azure-stack-storage-overview.md)

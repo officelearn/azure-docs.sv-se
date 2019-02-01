@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: abnarain
-ms.openlocfilehash: f8827f3013ee83d8f4846e7e15d34ea7c6553f24
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 68878a68b5f0051c1ee9beda96293dd7cd00eaf1
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331817"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493600"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en lokal integration runtime
 Integration runtime (IR) är beräkningsinfrastrukturen som Azure Data Factory använder för att tillhandahålla funktioner för dataintegrering olika nätverksmiljöer integrationsfunktioner. Mer information om IR finns [översikten över Integration runtime](concepts-integration-runtime.md).
@@ -141,6 +141,9 @@ Här följer kraven för TLS/SSL-certifikatet som används för att säkra kommu
 - Vi rekommenderar inte alternativt namn på CERTIFIKATMOTTAGARE certifikat eftersom endast den sista punkten SAN ska användas och alla andra kommer att ignoreras på grund av nuvarande begränsningar. Till exempel om du har ett SAN-certifikat som SAN är **node1.domain.contoso.com** och **node2.domain.contoso.com**, du kan använda det här certifikatet endast på en dator vars FQDN är  **node2.domain.contoso.com**.
 - Certifikatet har stöd för alla nyckelstorlek som stöds av Windows Server 2012 R2 för SSL-certifikat.
 - Certifikat med CNG-nycklar stöds inte.  
+
+> [!NOTE]
+> Det här certifikatet används för att kryptera portar på den lokala installationens IR-nod, används för **kommunikation från nod till nod** (för synkronisering av tillstånd) och medan **med hjälp av PowerShell-cmdlet: en för den länkade tjänsten autentiseringsuppgifter inställningen**från i lokala nätverket. Vi föreslår att du använder det här certifikatet om nätverksmiljön privata inte är säker eller om du vill att skydda kommunikationen mellan noderna i ditt privata nätverk. Dataförflyttning under överföring från lokal IR till datalager sker alltid med krypterad kanal, oavsett den här certifikat har angetts eller inte. 
 
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Dela en lokal integration runtime med flera olika datafabriker för
 

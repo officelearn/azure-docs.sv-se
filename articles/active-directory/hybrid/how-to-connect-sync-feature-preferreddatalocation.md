@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 50210ebeed30bdb58698d0e878667b92dcc73609
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f03fc201c1bce3187fdbd25c1de3567170478d30
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55167095"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488460"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect-synkronisering: Konfigurera önskad Dataplats för Office 365-resurser
 Syftet med det här avsnittet är att vägleder dig genom hur du konfigurerar attributet för önskad Dataplats i Azure Active Directory (Azure AD) Connect-synkronisering. När någon använder Multi-Geo-funktioner i Office 365 använder du det här attributet för att ange geografiska av användarens Office 365-data. (Villkoren *region* och *geo* används synonymt.)
@@ -123,9 +123,9 @@ Regel för inkommande synkronisering tillåter attributvärdet som flödar från
 3. Om du vill skapa en ny inkommande regel, Välj **Lägg till ny regel**.
 4. Under den **beskrivning** fliken tillhandahåller följande konfiguration:
 
-    | Attribut | Value | Information |
+    | Attribut | Värde | Information |
     | --- | --- | --- |
-    | Name | *Ange ett namn* | Till exempel ”i från AD – användaren preferredDataLocation” |
+    | Namn | *Ange ett namn* | Till exempel ”i från AD – användaren preferredDataLocation” |
     | Beskrivning | *Ange en anpassad beskrivning* |  |
     | Anslutna System | *Välj en lokal Active Directory-koppling* |  |
     | Anslutna System objekttyp | **Användaren** |  |
@@ -152,9 +152,9 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 3. Välj **Lägg till ny regel**.
 4. Under den **beskrivning** fliken tillhandahåller följande konfiguration:
 
-    | Attribut | Value | Information |
+    | Attribut | Värde | Information |
     | ----- | ------ | --- |
-    | Name | *Ange ett namn* | Till exempel ”ut till Azure AD – användaren preferredDataLocation” |
+    | Namn | *Ange ett namn* | Till exempel ”ut till Azure AD – användaren preferredDataLocation” |
     | Beskrivning | *Ange en beskrivning* ||
     | Anslutna System | *Välj den Azure AD-koppling* ||
     | Anslutna System objekttyp | **Användaren** ||
@@ -164,7 +164,7 @@ Den utgående synkroniseringsregeln tillåter attributvärdet som flödar från 
 
 5. Gå till den **Scoping filter** fliken och lägga till en enda gemensam Filtergrupp med två satser:
 
-    | Attribut | Operator | Value |
+    | Attribut | Operator | Värde |
     | --- | --- | --- |
     | sourceObjectType | EQUAL | Användare |
     | cloudMastered | NOTEQUAL | True |

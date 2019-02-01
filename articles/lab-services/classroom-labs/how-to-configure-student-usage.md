@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 371751f2eb643c3699e5462fe44380d7792243ef
-ms.sourcegitcommit: 9f07ad84b0ff397746c63a085b757394928f6fc0
+ms.openlocfilehash: 946a2a05cee0cf8f3b91eef58442fbb2e26935c4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54388309"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490455"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Konfigurera inställningar och principer
 Den här artikeln beskriver hur du lägga till användare i labbet, hämta dem registrerad labbet, antalet timmar som de kan använda den virtuella datorn och mycket mer. 
@@ -71,6 +71,9 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 5. Du ser hur många timmar i verktygsfältet nu: **Kvot per användare: &lt;antal timmar&gt;**. 
 
     ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)
+
+> [!IMPORTANT]
+> Den [schemalagda körningstid för virtuella datorer](how-to-create-schedules.md) räknas inte mot kvoten som tilldelats till en användare. Kvoten är tiden utanför Schemalägg timmar som en student tillbringar på virtuella datorer. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>Lägga till användare genom att ladda upp en CSV-fil
 Du kan också lägga till användare genom att ladda upp en CSV-fil med e-postadresserna för användarna.

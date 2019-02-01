@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/07/2018
 ms.author: bwren
-ms.openlocfilehash: 808fe41928a99ffc797c96a02305d81765318780
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: dde618de12bf23e754d2516f3b8ef27b3df5bc4e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54381656"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495691"
 ---
 # <a name="configure-service-map-in-azure"></a>Konfigurera Tjänstkarta i Azure
 Tjänstkarta identifierar automatiskt programkomponenter i Windows- och Linux-system och mappar kommunikationen mellan olika tjänster. Du kan använda den för att visa dina servrar som du tänker på dem, sammankopplat system som levererar viktiga tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan konfiguration som krävs, än installation av en agent.
@@ -387,7 +387,7 @@ Om din beroende agentinstallationen har genomförts, men du inte ser din server 
 
 * Är din server skicka logg- och prestandadata till Log Analytics? Gå till Loggsökning och kör följande fråga för din dator: 
 
-    Användning | där dator == ”admdemo appsvr” | Sammanfatta sum(Quantity) any(QuantityUnit) av DataType
+    Användning | där dator == ”datornamn” | Sammanfatta sum(Quantity) any(QuantityUnit) av DataType
 
 Fick du en rad olika händelser i resultaten? Är data de senaste? I så fall är din Log Analytics-agenten fungerar på rätt sätt och kommunicera med Log Analytics. Om inte, kontrollera agent på servern: [Log Analytics-agenten för felsökning av Windows](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) eller [Log Analytics-agenten för Linux-felsökning](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 

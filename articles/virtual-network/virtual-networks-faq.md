@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: jdial
-ms.openlocfilehash: 769dcd3be33ec5dfecf0607ab3e45a11486c48d4
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: eba703e454e02e5b83efae2de01003a2efc1f764
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412877"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493260"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor (och svar FAQ) om Azure-nätverk
 
@@ -230,7 +230,7 @@ Ja. Lär dig mer om hur du använder:
 VNet-peering (eller virtuell nätverkspeering) kan du ansluta virtuella nätverk. En VNet peering-anslutning mellan virtuella nätverk kan du dirigera trafik mellan dem privat via IPv4-adresser. Virtuella datorer i peerkopplade virtuella nätverk kan kommunicera med varandra som om de är i samma nätverk. Dessa virtuella nätverk kan vara i samma region eller i olika regioner (även kallat Global VNet-Peering). Också kan skapa VNet peering-anslutningar mellan Azure-prenumerationer.
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>Kan jag skapa en peering-anslutning till ett virtuellt nätverk i en annan region?
-Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till nationella moln. Global peering är inte för närvarande tillgängligt i nationella moln.
+Ja. Global VNet-peering kan du peerkoppla virtuella nätverk i olika regioner. Global VNet-peering är tillgängligt i alla offentliga Azure-regioner och regioner för Kina-molnet. Du kan inte globalt peer-kopplas från offentliga Azure-regioner till molnregioner för nationella. Global peering är inte tillgänglig för tillfället i Government-molnet.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Kan jag aktivera VNet-Peering om min virtuella nätverk som hör till prenumerationer i olika Azure Active Directory-klienter?
 Ja. Det går att upprätta VNet-Peering (antingen lokal eller global) om dina prenumerationer tillhör olika Azure Active Directory-klienter. Du kan göra detta via PowerShell eller CLI. Portal stöds inte ännu.

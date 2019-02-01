@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8c6fe9952beb8daeb9b96cf9244cccf85d9c2203
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: ebc32f59539e4e4e94f7f68d5d164cf2b04cc4c2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55165463"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488534"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Azure AD Connect-synkronisering: Gör en ändring i standardkonfigurationen
 Syftet med den här artikeln är att hjälper dig att göra ändringar i standardkonfigurationen i Azure Active Directory (Azure AD) Connect-synkronisering. Den innehåller steg för några vanliga scenarier. Med denna kunskap kan ska du kunna göra enkla ändringar i din egen konfiguration baserat på dina egna affärsregler.

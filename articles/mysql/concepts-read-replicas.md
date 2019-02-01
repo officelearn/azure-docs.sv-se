@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 1/23/2019
-ms.openlocfilehash: eca67cb70756dd1184bd3a66c2582743c8baa8fd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.date: 1/30/2019
+ms.openlocfilehash: 03e0db822e38cc6823fc32aa915dc9283fa46cbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54903765"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493056"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Läs repliker i Azure Database for MySQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "54903765"
 
 Läs replica-funktionen kan du replikera data från en Azure Database for MySQL-server (master) till upp till fem skrivskyddade servrar (repliker) inom samma Azure-region. Skrivskyddade repliker uppdateras asynkront med MySQL-motorn interna binär logg (binlog) fil baserat på positionen replikeringsteknik. Mer information om binlog replikering finns i [översikt över replikering av MySQL binlog](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html).
 
-Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. Du debiteras för varje Läs replik för etablerad beräkning i vCores och allokerat lagringsutrymme i GB/månad. 
+Repliker som skapats i Azure Database for MySQL-tjänsten är nya servrar som kan hanteras på samma sätt som normal/fristående MySQL-servrar. För varje skrivskyddad replik faktureras du för den etablerade beräkningen i virtuella kärnor och den etablerade lagringen i GB/månad. 
 
 
 Läs mer om funktioner för replikering av MySQL och problem i den [dokumentation för replikering av MySQL](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html).
@@ -86,6 +86,7 @@ Användare på huvudservern replikeras till de skrivskyddade replikerna. Du kan 
 - Det går inte att skapa en replik av en replik.
 - InMemory-tabeller kan medföra att replikerna blir osynkroniserad. Detta är en begränsning av MySQL-replikeringsteknik. Läs mer i den [MySQL referensdokumentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) för mer information.
 - Justera den [ `innodb_file_per_table` ](https://dev.mysql.com/doc/refman/5.7/en/innodb-multiple-tablespaces.html) parametern på en huvudserver när du skapar en replikserver kan orsaka repliken för att bli osynkroniserad. Replikservern är inte medvetna om de olika registerutrymmen.
+- Se till att huvudservern tabellerna har primärnycklar. Brist på primärnycklar kan resultera i replikeringsfördröjning mellan huvud- och repliker.
 - Läs den fullständiga listan med begränsningar för replikering av MySQL i den [MySQL-dokumentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features.html)
 
 

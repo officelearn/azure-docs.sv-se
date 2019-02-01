@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 55d35237adc384ca8344e6ff69abc4a93d540ec6
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 6126a9d56059435be32299bcd1f03050f031f81b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099908"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507832"
 ---
 # <a name="time-series-model"></a>Time Series-modell
 
@@ -152,9 +152,11 @@ I föregående exempel ID1 och ID4 visas som en del av hierarkin H1 i Azure Time
 
 Instanser är tidsserier själva. I de flesta fall den *deviceId* eller *assetId* är den unika identifieraren för tillgången i miljön. Instanser har beskrivande information som är kopplade till dem kallas instansegenskaper. Instansegenskaper för omfattar minst hierarkiinformation. De kan också innehålla användbar och beskrivande data som tillverkaren, operatorn och det sista datumet i tjänsten.
 
-Instanser definieras av *timeSeriesId*, *typeId*, *hierarchyId*, och *instanceFields*. Varje instans som mappar till endast en *typ*, och en eller flera hierarkier. Instanser ärver alla egenskaper från hierarkier, och ytterligare *instanceFields* kan läggas till för ytterligare instans egenskapsdefinition.
+Instanser definieras av *typeId*, *timeSeriesId*, *namn*, *beskrivning*, *hierarchyIds* , och *instanceFields*. Varje instans som mappar till endast en *typ*, och en eller flera hierarkier. Instanser ärver alla egenskaper från hierarkier, och ytterligare *instanceFields* kan läggas till för ytterligare instans egenskapsdefinition.
 
 *instanceFields* är egenskaper för en instans och statiska data som definierar en instans. De definierar värdena för egenskaperna för hierarkin eller -hierarki också stöd för indexering för att utföra sökningar.
+
+Den *namn* egenskapen är valfri och versaler och gemener. Om *namn* är inte tillgänglig, det som standard Time Series ID. Om en *namn* anges så är ID: T för Time Series kommer att finnas kvar i brunnen (rutnätet under diagrammen i explorer). 
 
 ## <a name="time-series-model-instance-json-example"></a>Time Series-modell instans JSON-exempel
 
@@ -164,6 +166,7 @@ Exempel:
 {
     "typeId": "1be09af9-f089-4d6b-9f0b-48018b5f7393",
     "timeSeriesId": ["sampleTimeSeriesId"],
+    "name": "sampleName",
     "description": "Sample Instance",
     "hierarchyIds": [
         "1643004c-0a84-48a5-80e5-7688c5ae9295"

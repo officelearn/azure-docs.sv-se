@@ -1,8 +1,21 @@
 ---
-Rubrik: Hantera iterationer av experiment i Machine Learning Studio titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att hantera iterationer av experiment i Azure Machine Learning Studio. Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Hantera iterationer av experiment i Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Så här att hantera iterationer av experiment i Azure Machine Learning Studio. Du kan granska tidigare körningar för dina experiment när som helst för att utmana, gå tillbaka till, och slutligen antingen bekräfta eller förfina föregående antaganden.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: 503a93064b81e0db35c0477a11f2ee525680c854
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488455"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio"></a>Hantera iterationer av experiment i Azure Machine Learning Studio
 Utveckla en förutsägande analysmodell är en iterativ process - allteftersom du ändrar de olika funktioner och parametrar av experimentet resultaten att Konvergera tills du är nöjd att du har en tränad, effektiv modell. Nyckeln till den här processen för att spåra olika iterationer av dina experiment parametrar och konfigurationer.

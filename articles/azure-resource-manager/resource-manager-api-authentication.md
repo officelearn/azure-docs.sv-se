@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: d7beab66bdaed312f32adef74ceb4b2944e6853e
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: a81c1d20e0f7b58c132a5ece04f05d6740c2308f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54103901"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498258"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Använda Resource Manager-autentisering-API för att få åtkomst till prenumerationer
-## <a name="introduction"></a>Introduktion
+
 Om du är programutvecklare som vill skapa en app som hanterar en kunds Azure-resurser, den här artikeln visar hur att autentisera med Azure Resource Manager API: er och få åtkomst till resurser i andra prenumerationer.
 
 Din app har åtkomst till Resource Manager-API: er i par olika sätt:
@@ -32,7 +32,10 @@ Din app har åtkomst till Resource Manager-API: er i par olika sätt:
 
 Den här artikeln innehåller stegvisa instruktioner för att skapa en app som använder båda metoderna auktorisering. Den visar hur du utför varje steg med REST API eller C#. Hela ASP.NET MVC-appen är tillgänglig på [ https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense ](https://github.com/dushyantgill/VipSwapper/tree/master/CloudSense).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="what-the-web-app-does"></a>Vad appen gör
+
 Webbapp:
 
 1. Loggar in en Azure-användare.
@@ -74,7 +77,7 @@ Eftersom din app har åtkomst till andra prenumeration, måste du konfigurera de
 I följande exempel visar hur du registrerar appen med hjälp av Azure PowerShell. Du måste ha den senaste versionen (augusti 2016) av Azure PowerShell för att kommandot ska fungera.
 
 ```azurepowershell-interactive
-$app = New-AzureRmADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
+$app = New-AzADApplication -DisplayName "{app name}" -HomePage "https://{your domain}/{app name}" -IdentifierUris "https://{your domain}/{app name}" -Password "{your password}" -AvailableToOtherTenants $true
 ```
 
 Om du vill logga in som AD-programmet, behöver du program-ID och lösenord. Om du vill se det program-ID som returnerades från föregående kommando använder du:
@@ -303,8 +306,8 @@ Här följer identifierarna som används ofta inbyggda roller:
 
 | Roll | GUID |
 | --- | --- |
-| Läsare |acdd72a7-3385-48EF-bd42-f606fba81ae7 |
-| Deltagare |b24988ac-6180-42A0-ab88-20f7382dd24c |
+| Läsare |acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+| Deltagare |b24988ac-6180-42a0-ab88-20f7382dd24c |
 | Virtuell datordeltagare |d73bb868-a0df-4d4d-bd69-98a00b01fccb |
 | Virtual Network-deltagare |b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
 | Lagringskontodeltagare |86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
@@ -330,12 +333,12 @@ En exempel-begäran för att tilldela RBAC-roll till program:
 
 I begäran används följande värden:
 
-| GUID | Beskrivning |
+| Guid | Beskrivning |
 | --- | --- |
 | 09cbd307-aa71-4aca-b346-5f253e6e3ebb |ID för prenumerationen |
 | c3097b31-7309-4c59-b4e3-770f8406bad2 |objekt-ID för tjänstens huvudnamn för programmet |
-| acdd72a7-3385-48EF-bd42-f606fba81ae7 |ID för läsarrollen |
-| 4f87261d-2816-465D-8311-70a27558df4c |ett nytt guid som skapats för ny rolltilldelning |
+| acdd72a7-3385-48ef-bd42-f606fba81ae7 |ID för läsarrollen |
+| 4f87261d-2816-465d-8311-70a27558df4c |ett nytt guid som skapats för ny rolltilldelning |
 
 Svaret är i följande format:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: tomfitz
-ms.openlocfilehash: aa3cd0305c1ac2db269dcc46243ec3da1232e6f6
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: d7f84e188324bcdb9fb1a26d701805978f1fd625
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55079536"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489401"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>Använd taggar för att organisera Azure-resurser
 
@@ -28,6 +28,8 @@ ms.locfileid: "55079536"
 Om du vill lägga till taggar i resurser, måste användaren ha skrivbehörighet till den resurstypen. Om du vill lägga till taggar i alla typer av resurser, använder den [deltagare](../role-based-access-control/built-in-roles.md#contributor) roll. Om du vill lägga till taggar i endast en resurstyp, använder du deltagarrollen för den resursen. Till exempel om du vill lägga till taggar till virtuella datorer, använda den [virtuell Datordeltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="powershell"></a>PowerShell
 

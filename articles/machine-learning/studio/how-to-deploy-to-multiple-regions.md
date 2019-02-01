@@ -1,8 +1,21 @@
 ---
-Rubrik: Distribuera Studio-webbtjänst till flera regioner titleSuffix: Beskrivning av Azure Machine Learning Studio: Steg för att distribuera (kopiera) en ny webbtjänst till andra regioner. Enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
+title: Distribuera Studio-webbtjänst till flera regioner
+titleSuffix: Azure Machine Learning Studio
+description: Steg för att distribuera (kopiera) en ny webbtjänst till andra regioner. Enkelt distribuera en webbtjänst till flera regioner utan att behöva flera prenumerationer eller arbetsytor.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 536a4ae0b740eae7f6072cbd23d96e199e1598e7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487089"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service-to-multiple-regions"></a>Distribuera en Azure Machine Learning Studio-webbtjänst till flera regioner
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 11/15/2018
+ms.date: 01/29/2019
 ms.author: stbaron
-ms.openlocfilehash: 3abf0268a7a6f84e5c26efc5643d048216fc2215
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: d88eb0ee5e8ec4c14efeb47a144ec7080ac6eee3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53163046"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508801"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurstyper och hälsokontroller i Azure resource health
 Nedan visas en fullständig lista över alla kontroller som utförs genom resource health av resurstyper.
@@ -49,7 +49,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Är värdservern igång?</li><li>Har värd-OS startar slutförts?</li><li>Den virtuella behållaren etablerats och påslagen?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
-## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/Accounts
+## <a name="microsoftcognitiveservicesaccounts"></a>Microsoft.cognitiveservices/accounts
 |Utförda kontroller|
 |---|
 |<ul><li>Kontot når från inom datacentret?</li><li>Är Cognitive Services-Resursprovidern tillgängligt?</li><li>Är Cognitive Service tillgänglig i aktuell region?</li><li>Kan läsa åtgärder utföras på det lagringskonto som innehåller resursmetadata?</li><li>Har API-anrop kvot uppnåtts?</li><li>Har API-anrop Läs-gräns har nåtts?</li></ul>|
@@ -59,18 +59,18 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Är servern som är värd för den här virtuella datorn upp och körs?</li><li>Har värd-OS startar slutförts?</li><li>Den virtuella behållaren etablerats och påslagen?</li><li>Det finns en nätverksanslutning mellan värden och storage-konto?</li><li>Start av gästoperativsystemet slutfördes?</li><li>Finns det pågående planerat underhåll?</li></ul>|
 
-## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/Accounts
+## <a name="microsoftdatalakeanalyticsaccounts"></a>Microsoft.datalakeanalytics/accounts
 |Utförda kontroller|
 |---|
 |<ul><li>Har användarna råkat ut för problem att skicka eller lista över sina Data Lake Analytics-jobb?</li><li>Är Data Lake Analytics-jobb inte slutföra system fel?</li></ul>|
 
 
-## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/Accounts
+## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.datalakestore/accounts
 |Utförda kontroller|
 |---|
 |<ul><li>Användare ha uppstått problem med att överföra data till Data Lake Store?</li><li>Användare ha uppstått problem som hämtar data från Data Lake Store?</li></ul>|
 
-## <a name="microsoftdevicesiothubs"></a>Microsoft.Devices /
+## <a name="microsoftdevicesiothubs"></a>Microsoft.devices/iothubs
 
 |Utförda kontroller|
 |---|
@@ -86,7 +86,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |---|
 |<ul><li>Begäranden till nyckelvalvet misslyckas på grund av problem med Azure KeyVault-plattformen?</li><li>Är begäranden till nyckelvalvet begränsas på grund av för många förfrågningar som kunden har gjort?</li></ul>|
 
-## <a name="microsoftnetworkconnections"></a>Microsoft.Network/Connections
+## <a name="microsoftnetworkconnections"></a>Microsoft.network/connections
 |Utförda kontroller|
 |---|
 |<ul><li>Är den VPN-tunneln ansluten?</li><li>Är anslutningen konfigurationskonflikter?</li><li>I förväg delade nycklar konfigureras korrekt?</li><li>Nås den lokala VPN-enheten?</li><li>Finns det matchningsfel i säkerhetsprincipen IPSec/IKE?</li><li>Är S2S VPN-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerade eller i ett felaktigt tillstånd?</li></ul>|
@@ -115,6 +115,11 @@ Nedan visas en fullständig lista över alla kontroller som utförs genom resour
 |Utförda kontroller|
 |---|
 |<ul><li>Diagnostik åtgärder utföras i klustret?</li></ul>|
+
+## <a name="microsoftservicebusnamespaces"></a>Microsoft.ServiceBus/namespaces
+|Utförda kontroller|
+|---|
+|<ul><li>Kunder som har genererats Service Bus användarfel?</li><li>Användare som har en ökning av övergående fel på grund av en uppgradering för Service Bus-namnrymd?</li></ul>|
 
 ## <a name="microsoftsqlserverdatabase"></a>Microsoft.SQL/Server/database
 |Utförda kontroller|

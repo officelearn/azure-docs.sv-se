@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 6356d930b5bf909f1b209272e7367f5e2dcd5a13
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: da195f414da032b5274a9dc1a184b66094f245f2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52444623"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493488"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integrera API Management i ett internt virtuellt nätverk med Application Gateway
 
@@ -59,13 +59,13 @@ I det första exemplet installationen hanteras alla API: er endast från inom di
 
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>Vad krävs för att skapa en integration mellan API Management och Application Gateway?
 
-* **Backend-serverpool:** det här är den interna virtuella IP-adressen för API Management-tjänsten.
-* **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookiebaserad tillhörighet. De här inställningarna tillämpas på alla servrar i poolen.
-* **Frontend-port:** den offentliga porten som är öppen på programgatewayen. Trafik det omdirigeras till en av backend-servrarna.
+* **Backend-serverpool:** Det här är den interna virtuella IP-adressen för API Management-tjänsten.
+* **Inställningar för backend-serverpool:** Varje pool har inställningar som port, protokoll och cookie-baserad tillhörighet. De här inställningarna tillämpas på alla servrar i poolen.
+* **Klientdelsport:** Det här är den offentliga porten som är öppen på programgatewayen. Trafik det omdirigeras till en av backend-servrarna.
 * **Lyssnare:** Lyssnaren har en frontend-port, ett protokoll (Http eller Https; dessa värden är skiftlägeskänsliga) och SSL-certifikatnamnet (om du konfigurerar SSL-avlastning).
-* **Regel:** regeln Binder en lyssnare till en backend-serverpoolen.
-* **Anpassade Hälsoavsökning:** Application Gateway, som standard använder IP-adressbaserad avsökningar för att ta reda på vilka servrar i BackendAddressPool är aktiva. API-hanteringen tjänsten bara svarar på begäranden med rätt värdhuvudet är därför standard-avsökningar misslyckas. En anpassad hälsoavsökning måste definieras för att bestämma att tjänsten är aktiv och att den ska vidarebefordra begäranden Programgateway.
-* **Anpassad Domäncertifikat:** för att komma åt API Management från internet, måste du skapa en CNAME-mappning av dess värdnamn till frontend-DNS-namn för Application Gateway. Detta säkerställer att värdnamnet huvud och certifikat som skickats till Application Gateway som vidarebefordras till API Management är en APIM kan identifiera som giltigt. I det här exemplet använder vi två certifikat – för serverdelen och developer-portalen.  
+* **Regel:** Regeln Binder en lyssnare till en backend-serverpoolen.
+* **Anpassade Hälsoavsökning:** Application Gateway, använder som standard IP-adressbaserad avsökningar för att ta reda på vilka servrar i BackendAddressPool är aktiva. API-hanteringen tjänsten bara svarar på begäranden med rätt värdhuvudet är därför standard-avsökningar misslyckas. En anpassad hälsoavsökning måste definieras för att bestämma att tjänsten är aktiv och att den ska vidarebefordra begäranden Programgateway.
+* **Anpassad Domäncertifikat:** För att komma åt API Management från internet, måste du skapa en CNAME-mappning av dess värdnamn till frontend-DNS-namn för Application Gateway. Detta säkerställer att värdnamnet huvud och certifikat som skickats till Application Gateway som vidarebefordras till API Management är en APIM kan identifiera som giltigt. I det här exemplet använder vi två certifikat – för serverdelen och developer-portalen.  
 
 ## <a name="overview-steps"> </a> Steg som krävs för att integrera API Management och Application Gateway
 
@@ -82,7 +82,7 @@ I det första exemplet installationen hanteras alla API: er endast från inom di
 I den här handboken vi kommer också att innehålla den **utvecklarportalen** till externa publik via Application Gateway. Det krävs ytterligare steg för att skapa developer-portalen lyssnare, avsökning, inställningar och regler. All information finns i respektive steg.
 
 > [!WARNING]
-> Det kan uppstå problem med AAD och tredjeparts-autentisering i developer-portalen som nås via Application Gateway beskrivs-installationen.
+> Om du använder Azure AD eller tredjeparts-autentisering, aktivera [Cookiebaserad sessionstillhörighet](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) funktion i Application Gateway.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Skapa en resursgrupp för Resource Manager
 

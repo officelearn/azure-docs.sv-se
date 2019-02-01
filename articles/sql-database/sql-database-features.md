@@ -3,7 +3,7 @@ title: Jämför med Azure SQL Database-funktioner | Microsoft Docs
 description: Den här artikeln jämförs funktionerna i SQL Server som är tillgängliga i olika varianter av Azure SQL Database.
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 8cda0b5a06eb4299c439b58ecf721971288fa5fb
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: b39f3351ae838d9c6fd086cafb9a21b8fc07fbd2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455090"
+ms.locfileid: "55509430"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Jämförelse av funktioner: Azure SQL Database jämfört med SQLServer
 

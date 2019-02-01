@@ -10,12 +10,12 @@ ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 11b7928512dd1f1d6b284b088af304c6752711f5
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: e40cc3ac0fe17cd030717253f6093bbf8d63a5a2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55301449"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55487242"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i miljön med lösningen ändringsspårning
 
@@ -111,7 +111,7 @@ Använd följande steg för att konfigurera filer spårning på Windows-datorer:
 Rekursion kan du ange jokertecken för att förenkla spårning i kataloger och miljövariabler att spåra filer i miljöer med flera eller dynamisk enhet namn. I följande lista visas vanliga information som du bör känna till när du konfigurerar rekursion:
 
 * Jokertecken krävs för att spåra flera filer
-* Om du använder jokertecken, kan de bara användas i det sista segmentet i en sökväg. (till exempel C:\folder\\**filen** eller /etc/*.conf)
+* Om du använder jokertecken, kan de bara användas i det sista segmentet i en sökväg. (till exempel `c:\folder\*file*` eller `/etc/*.conf`)
 * Om en miljövariabel har en ogiltig sökväg, verifiering lyckas, men den sökvägen misslyckas när maskinvaruinventering körs.
 * Undvika Allmänt sökvägar som `c:\*.*` när du ställer in sökvägen eftersom detta skulle resultera i för många mappar är slut.
 
@@ -132,9 +132,9 @@ Använd följande steg för att konfigurera viktiga registerspårning på Window
 |Egenskap   |Beskrivning  |
 |---------|---------|
 |Enabled     | Avgör om inställningen tillämpas.        |
-|Objektnamn     | Eget namn på filen som ska spåras.        |
-|Grupp     | Ett gruppnamn för att gruppera filer logiskt.        |
-|Windows-registernyckel   | Sökvägen till att söka efter filen. Exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
+|Objektnamn     | Eget namn för registernyckeln som ska spåras.        |
+|Grupp     | Ett gruppnamn för att gruppera logiskt registernycklar.        |
+|Windows-registernyckel   | Sökvägen för att söka för registernyckel. Exempel: ”HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup”      |
 
 ## <a name="limitations"></a>Begränsningar
 
@@ -278,13 +278,13 @@ I följande exempel skärmbilden visar att filen `C:\windows\system32\drivers\et
 
 ![Ett diagram som visar värdarna filändring](./media/automation-change-tracking/changes.png)
 
-Om du vill analysera den här ändringen ytterligare, gå till loggsökning från att klicka på **Log Analytics**. En gång i loggsökning, Sök efter innehållet ändras Hosts-filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som innehöll en ändring av filinnehåll för filer vars fullständigt kvalificerade sökvägen innehåller ordet ”värdar”. Du kan också fråga efter en viss fil genom att ändra sökvägsdelen till dess fullständigt kvalificerade (till exempel `FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"`).
+Om du vill analysera den här ändringen ytterligare, gå till loggsökning från att klicka på **Log Analytics**. En gång i loggsökning, Sök efter innehållet ändras Hosts-filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som innehöll en ändring av filinnehåll för filer vars fullständigt kvalificerade sökvägen innehåller ordet ”värdar”. Du kan också fråga efter en viss fil genom att ändra sökvägsdelen till dess fullständigt kvalificerade (till exempel `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 När frågan returnerar det önskade resultatet, klickar du på den **ny aviseringsregel** knappen i loggen sökupplevelsen att öppna sidan skapande av varning. Du kan också navigera till den här upplevelsen via **Azure Monitor** i Azure-portalen. Kontrollera frågan igen och ändra avisering logiken i skapande av varning-upplevelse. I detta fall använder vill du att aviseringen ska utlösas om det finns även en ändring som har identifierats för alla datorer i miljön.
 
 ![En bild som visar ändra frågan för att spåra ändringar i värdfilen](./media/automation-change-tracking/change-query.png)
 
-Tilldela åtgärdsgrupper för att utföra åtgärder som svar på aviseringen utlöses när du har angett villkorsstyrd logik. I det här fallet har jag ställa in e-postmeddelanden som ska skickas och ITSM-biljett som ska skapas.  Många andra användbara åtgärder kan också hämtas som att utlösa en Azure-funktion, Automation-runbook, Webhook eller Logikapp.
+Tilldela åtgärdsgrupper för att utföra åtgärder som svar på aviseringen utlöses när du har angett villkorsstyrd logik. I det här fallet har jag ställa in e-postmeddelanden som ska skickas och ITSM-biljett som ska skapas.  Många andra användbara åtgärder kan också hämtas som att utlösa en Azure-funktion, Automation runbook, webhook eller Logikapp.
 
 ![En avbildning som konfigurerar en åtgärdsgrupp att aviseringen på ändringar](./media/automation-change-tracking/action-groups.png)
 

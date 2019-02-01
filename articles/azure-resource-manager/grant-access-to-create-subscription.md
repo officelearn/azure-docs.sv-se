@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 86e457cf553c84386937c35bab1ab0fd20518bed
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 3577edff19788ed9f0925876e3de737eb749b90e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369060"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490931"
 ---
 # <a name="grant-access-to-create-azure-enterprise-subscriptions-preview"></a>Bevilja åtkomst till att skapa Azure Enterprise-prenumerationer (förhandsversion)
 
@@ -42,6 +42,7 @@ PUT  https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
   }
 }
 ```
+
 När rollen ägare har tilldelats på kontoomfånget registrering Azure svarar med information rolltilldelningen:
 
 ```json
@@ -63,10 +64,10 @@ När rollen ägare har tilldelats på kontoomfånget registrering Azure svarar m
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Använd den [New-AzureRmRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
+Använd den [New AzRoleAssignment](../active-directory/role-based-access-control-manage-access-powershell.md) att ge en annan användare ägaråtkomst till ditt konto för registrering.
 
 ```azurepowershell-interactive
-New-AzureRmRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+New-AzRoleAssignment -RoleDefinitionName Owner -ObjectId <userObjectId> -Scope /providers/Microsoft.Billing/enrollmentAccounts/747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
@@ -85,7 +86,7 @@ När en användare blir ägare RBAC för ditt konto för enhetsregistreringshant
 
 För att spåra de prenumerationer som skapats via den här API: et måste använda den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs). Det är för närvarande inte möjligt att använda PowerShell, CLI eller Azure-portalen för att spåra prenumeration har skapats.
 
-1. Som Innehavaradministratör för Azure AD-klient [utöka behörighet](../active-directory/role-based-access-control-tenant-admin-access.md) sedan tilldela en läsarroll för granskning användaren definitionsområdet `/providers/microsoft.insights/eventtypes/management`.
+1. Som innehavaradministratör av Azure AD-klienten kan du [höja åtkomsten](../active-directory/role-based-access-control-tenant-admin-access.md) och sedan tilldela en läsarroll till granskningsanvändaren inom omfånget `/providers/microsoft.insights/eventtypes/management`.
 1. Som granskning användare, anropa den [klient aktivitet Log API](/rest/api/monitor/tenantactivitylogs) att se prenumeration skapa aktiviteter. Exempel:
 
 ```
@@ -93,7 +94,7 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 ```
 
 > [!NOTE]
-> För att enkelt anropa detta API från kommandoraden, försök [ARMClient](https://github.com/projectkudu/ARMClient).
+> Du kan anropa det här API:et från kommandoraden med hjälp av [ARMClient](https://github.com/projectkudu/ARMClient).
 
 ## <a name="next-steps"></a>Nästa steg
 

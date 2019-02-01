@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 18fceca51ed67f5beca344160a73ae3f3d1a4b62
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025998"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491662"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Använda StorSimple Device Manager-tjänsten för att ändra din konfiguration för StorSimple-enheten
 
@@ -65,7 +65,7 @@ Din enhet måste synkronisera tiden för att kunna autentisera med din molntjän
 
  Välj din tidszon från den nedrullningsbara listan. Du kan ange upp till två Network Time Protocol (NTP) servrar:
 
- - **Primär NTP-server** -konfigurationen är obligatoriskt och anges när du använder Windows PowerShell för StorSimple för att konfigurera din enhet. Du kan ange standard Windows Server **time.windows.com** som NTP-servern. Du kan visa den primära NTP-serverkonfigurationen via Azure-portalen, men du måste använda Windows PowerShell-gränssnittet för att ändra den. Använd den `Set-HcsNTPClientServerAddress` cmdlet för att ändra primär NTP-server för din enhet. Mer information går du till synxtax för [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+ - **Primär NTP-server** -konfigurationen är obligatoriskt och anges när du använder Windows PowerShell för StorSimple för att konfigurera din enhet. Du kan ange standard Windows Server **time.windows.com** som NTP-servern. Du kan visa den primära NTP-serverkonfigurationen via Azure-portalen, men du måste använda Windows PowerShell-gränssnittet för att ändra den. Använd den `Set-HcsNTPClientServerAddress` cmdlet för att ändra primär NTP-server för din enhet. Mer information finns i syntaxen för [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 - **Sekundär NTP-server** -konfigurationen är valfritt. Du kan använda portalen för att konfigurera en sekundär NTP-server.
 
@@ -85,7 +85,7 @@ En DNS-server används när enheten försöker kommunicera med din molntjänstle
 
 För hög tillgänglighet behöver du konfigurera både primärt och sekundära DNS-servrarna under distributionen av första enheten.
 
-**Primär DNS-server** -du använda Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den inledande konfigurationen. Du kan konfigurera om den primära DNS-servern endast via Windows PowerShell-gränssnittet. Använd den `Set-HcsDNSClientServerAddress` cmdlet för att ändra den primära DNS-servern för enheten. Mer information går du till synxtax för [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
+**Primär DNS-server** -du använda Windows PowerShell för StorSimple för att först ange den primära DNS-servern under den inledande konfigurationen. Du kan konfigurera om den primära DNS-servern endast via Windows PowerShell-gränssnittet. Använd den `Set-HcsDNSClientServerAddress` cmdlet för att ändra den primära DNS-servern för enheten. Mer information finns i syntaxen för [Set-HcsDNSClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx) cmdlet.
 
 **Sekundär DNS-server** – om du vill ändra den sekundära DNS-servern använder den `Set-HcsDNSClientServerAddress` cmdlet i Windows PowerShell-gränssnittet på enheten eller **nätverksinställningar** bladet för StorSimple-enheten i Azure-portalen.
 
@@ -95,7 +95,7 @@ Utför följande steg om du vill ändra den sekundära DNS-servern i Azure-porta
 
 2. I den **inställningar** gå till bladet **Enhetsinställningar > nätverk**. Gör det öppnas den **nätverksinställningar** bladet. Klicka på **DNS-inställningarna** panelen. Ändra sekundär DNS-serverns IP-adress.
 
-    ![Ändra sekundär DNS server IP adderss](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
+    ![Ändra sekundär DNS-serverns IP-adress](./media/storsimple-8000-modify-device-config/modify-secondary-dns1.png)
 
 4. I kommandofältet klickar du på **spara** och när du uppmanas att bekräfta klickar du på **OK**.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: c6db0b9dda9f383ddc062c41bae0be0b56f7e69d
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 2f52b3d1a5aa5b934954da09d114dce1efb8ef32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53794098"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508376"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
 
@@ -94,7 +94,7 @@ Azure Files kan användas för att fullständigt ersätta eller komplettera trad
 
 Följande steg beskriver kort hur du använder File Sync:
 
-1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring med läsåtkomst får du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i den här artikeln om [haveriberedskapsstrategier för Azure-filresurser](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring med läsåtkomst får du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i [haveriberedskap och forcerad redundans (förhandsversion) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json).
 2. [Skapa en filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Starta File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) på din Azure-filserver.
 4. Skapa en synkroniseringsgrupp. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla minst en molnslutpunkt, som representerar en Azure-filresurs. En synkroniseringsgrupp måste även innehålla en serverslutpunkt, som representerar en sökväg på en Windows-server.
@@ -143,7 +143,7 @@ Integrera File Sync med Site Recovery:
 
 Följ dessa steg om du vill använda File Sync:
 
-1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring (rekommenderas) med läsåtkomst har du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i den här artikeln om [haveriberedskapsstrategier för Azure-filresurser](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+1. [Skapa ett lagringskonto i Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account?toc=%2fazure%2fstorage%2ffiles%2ftoc.json). Om du har valt geo-redundant lagring (rekommenderas) med läsåtkomst har du läsåtkomst för dina data från den sekundära regionen vid ett haveri. Mer information finns i [haveriberedskap och forcerad redundans (förhandsversion) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiless%2ftoc.json)...
 2. [Skapa en filresurs](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share).
 3. [Distribuera File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide) på den lokala filservern.
 4. Skapa en synkroniseringsgrupp. Slutpunkter i en synkroniseringsgrupp synkroniseras med varandra. En synkroniseringsgrupp måste innehålla minst en molnslutpunkt, som representerar en Azure-filresurs. Synkroniseringsgruppen måste även innehålla en serverslutpunkt, som representerar en sökväg på den lokala Windows-servern.

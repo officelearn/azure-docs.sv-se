@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: a638487fb0a622f899095989ca5341013299e181
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 967c03f3c4201bdcf1529fdda93717b6eb74e771
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51234416"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495861"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrera data från StorSimple 5000-7000-serien till enheten i 8000-serien
 
@@ -26,7 +26,7 @@ ms.locfileid: "51234416"
 > - Den 31 juli 2019 når StorSimple 5000/7000-serien slutet av supportstatus (EOS). Vi rekommenderar att StorSimple 5000/7000-kunder som migrerar till en av de alternativ som beskrivs i dokumentet.
 > - Migreringen är för närvarande en assisterad åtgärd. Om du planerar att migrera data från enheten StorSimple 5000-7000-serien till en enhet för 8000-serien, måste du schemalägga migrering med Microsoft Support. Microsoft Support kan sedan din prenumeration för migrering. Läs mer om hur du [öppna ett supportärende](storsimple-8000-contact-microsoft-support.md).
 > - När du registrerat tjänstbegäran kan ta det par veckor att genomföra migreringsplanen och startar migreringen.
-> - Innan du kontaktar Microsoft Support att se till att granska och fullständig den [migrering krav](#migration-prerequisites) anges i artikeln.
+> - Innan du kontaktar Microsoft Support, måste du granska och slutför den [migrering krav](#migration-prerequisites) anges i artikeln.
 
 ## <a name="overview"></a>Översikt
 
@@ -125,7 +125,7 @@ Utför följande steg för att installera Migreringsverktyg för StorSimple på 
 
     Öppna konfigurationsfilen verktyget _StorSimple8000SeriesMigrationTool.exe.config_ i mappen. Här är ett utdrag från filen.
     
-    ```
+    ```xml
         <add key="UserName" value="username@xyz.com" />
         <add key="SubscriptionName" value="YourSubscriptionName" />
         <add key="SubscriptionId" value="YourSubscriptionId" />

@@ -1,8 +1,21 @@
 ---
-Rubrik: Omtrimma en ny Machine Learning Studio-webbtjänst med PowerShell titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du programmässigt tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning med Machine Learning Management PowerShell-cmdletar.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/28/2017
+title: Omtrimma en ny Machine Learning Studio-webbtjänst med PowerShell
+titleSuffix: Azure Machine Learning Studio
+description: Lär dig hur du programmässigt tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning med Machine Learning Management PowerShell-cmdletar.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/28/2017
+ms.openlocfilehash: cad38d47b1fe154da9c3967e1e34ed87b9bc8988
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507798"
 ---
 # <a name="retrain-a-new-resource-manager-based-studio-web-service-using-powershell"></a>Omtrimma en ny Resource Manager-baserade Studio-webbtjänst med hjälp av Powershell
 När du tränar en ny webbtjänst kan du uppdatera förutsägande web service definition för att referera till den nya tränade modellen.

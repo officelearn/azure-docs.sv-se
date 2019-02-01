@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 724b1a2562e4723bd02c97cdecb0ef7dbd8ed177
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: ac07b5af28dc869b6aa05c269c9225d546d651a0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139069"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490438"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
@@ -30,6 +30,8 @@ För små till medelstora lösningar är lättare att förstå och hantera en en
 När du använder länkade mallar kan skapa du en Huvudmall som tar emot parametervärdena under distributionen. Den huvudsakliga mallen innehåller alla länkade mallar och skickar värden till dessa mallar efter behov.
 
 En självstudiekurs finns i [självstudie: Skapa länkade Azure Resource Manager-mallar](./resource-manager-tutorial-create-linked-templates.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="link-or-nest-a-template"></a>Länka eller kapsla en mall
 
@@ -408,7 +410,7 @@ $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
     $name = 'linkedTemplate' + $i;
-    $deployment = Get-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
+    $deployment = Get-AzResourceGroupDeployment -ResourceGroupName examplegroup -Name $name
     Write-Output "deployment $($deployment.DeploymentName) returned $($deployment.Outputs.returnedIPAddress.value)"
 }
 ```
@@ -461,13 +463,13 @@ I följande exempel visas hur du skickar en SAS-token när du länkar till en ma
 }
 ```
 
-I PowerShell kan du hämta en token för behållaren och distribuera mallar med följande kommandon. Observera att den **containerSasToken** parametern har definierats i mallen. Det är inte en parameter i den **New-AzureRmResourceGroupDeployment** kommando.
+I PowerShell kan du hämta en token för behållaren och distribuera mallar med följande kommandon. Observera att den **containerSasToken** parametern har definierats i mallen. Det är inte en parameter i den **New AzResourceGroupDeployment** kommando.
 
 ```azurepowershell-interactive
-Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
+Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
-New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
 För Azure CLI i Bash-gränssnittet, hämta en token för behållaren och distribuera mallar med följande kod:

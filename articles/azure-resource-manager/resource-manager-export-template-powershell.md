@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/23/2018
 ms.author: tomfitz
-ms.openlocfilehash: cca81bf3f5a46b32cc901a0ac6024eb7888685f7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 0313266c9e9bf7814d4581dc04d70cf80e1f8172
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081613"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494722"
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportera Azure Resource Manager-mallar med PowerShell
 
@@ -30,6 +30,8 @@ Det är viktigt att Observera att det finns två sätt att exportera en mall:
 * Du kan exportera en **genererad mall som representerar resursgruppens aktuella tillstånd**. Den exporterade mallen baseras inte på en mall som du har använt för distribution. I stället skapar den en mall som är en ”ögonblicksbild” eller ”säkerhetskopiering” för resursgruppen. Den exporterade mallen har många hårdkodade värden och troligen inte så många parametrar som du vanligtvis definierar. Använd det här alternativet för att distribuera om resurser till samma resursgrupp. Du kan behöva ändra avsevärt den om du vill använda den här mallen för en annan resursgrupp.
 
 Den här artikeln visar båda metoderna.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-a-solution"></a>Distribuera en lösning
 

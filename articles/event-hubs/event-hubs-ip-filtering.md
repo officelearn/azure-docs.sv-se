@@ -11,12 +11,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 707290d7bf453ca71dd3c5cf8b39c917b3a1c479
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
+ms.openlocfilehash: ccb2fa7b0805b332957513c52c0c1051d068d2cc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53268282"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507543"
 ---
 # <a name="use-firewall-rules"></a>Använd brandväggsregler
 
@@ -24,7 +24,7 @@ För scenarier där Azure Event Hubs måste vara endast tillgängliga från viss
 
 ## <a name="when-to-use"></a>När du ska använda detta
 
-Om du vill konfigurera Event Hubs-namnområdet, till exempel som det ska ta emot trafik från bara angivna intervall med IP-adresser och avvisa allt annat så kan du utnyttja en *brandväggsregel* att blockera Event Hub-slutpunkter från andra IP-adresser. Exempel: du använder Event Hubs med [Azure Express Route] [ express-route] skapa privata anslutningar till din lokala infrastruktur.
+Om du vill konfigurera Event Hubs-namnområdet, till exempel som det ska ta emot trafik från bara angivna intervall med IP-adresser och avvisa allt annat så kan du utnyttja en *brandväggsregel* att blockera Event Hub-slutpunkter från andra IP-adresser. Exempel: Om du använder Event Hubs med [Azure Express Route][express-route], kan du skapa en *brandväggsregel* att begränsa trafiken från din lokala infrastruktur IP-adress adresser.
 
 ## <a name="how-filter-rules-are-applied"></a>Hur filterregler tillämpas
 
@@ -49,7 +49,7 @@ IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adr
 > - Azure Monitor
 > - Azure Stream Analytics
 > - Integrering med Azure Event Grid
-> - Azure IoT Hub vägar
+> - Azure IoT Hub Routes
 > - Azure IoT Device Explorer
 > - Azure-datautforskaren
 >
@@ -60,7 +60,7 @@ IP-filterreglerna tillämpas i ordning och den första regeln som matchar IP-adr
 ### <a name="creating-a-firewall-rule-with-azure-resource-manager-templates"></a>Skapa en brandväggsregel med Azure Resource Manager-mallar
 
 > [!IMPORTANT]
-> Brandväggsregler stöds i **standard** och **dedikerade** nivåerna för Event Hubs. Det stöds inte på basic-nivå.
+> Brandväggsregler stöds i **standard** och **dedikerade** nivåerna för Event Hubs. De stöds inte på grundläggande nivå.
 
 Följande Resource Manager-mallen gör det möjligt att lägga till en IP-filterregeln i en befintlig Event Hubs-namnområdet.
 

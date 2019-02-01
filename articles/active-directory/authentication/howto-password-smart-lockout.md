@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 01/31/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
-ms.openlocfilehash: 101070dab80c69ea1d24dd11fe5e067947505d19
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 8364d09aa2d068e347199d104c069047aa24d7a4
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077972"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511912"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory smart kontoutelåsning
 
@@ -23,7 +23,7 @@ Smart kontoutelåsning hjälper utelåsning illvilliga aktörer som försöker g
 
 Som standard låser smart kontoutelåsning konto från inloggningsförsök i en minut efter 10 misslyckade försök. Konto-Lås igen efter varje efterföljande misslyckade inloggningsförsök, för en minut på första och längre på efterföljande försök.
 
-Smart kontoutelåsning spårar senaste tre felaktiga lösenords-hash för att undvika reincrementing räknaren för kontoutelåsning. Om någon anger samma felaktiga lösenord flera gånger, orsakar det här beteendet inte kontot som ska kontoutelåsning.
+Smart kontoutelåsning spårar tre sista felaktiga lösenords-hash för att undvika räknaren för kontoutelåsning för samma lösenord som ökar. Om någon anger samma felaktiga lösenord flera gånger, orsakar det här beteendet inte kontot som ska kontoutelåsning.
 
  > [!NOTE]
  > Hash spåra funktioner är inte tillgänglig för kunder med direktautentisering aktivera eftersom autentiseringen sker lokalt ej i molnet.

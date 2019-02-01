@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 41a5f2eab78d68bdb1f51b423955cfefa5a541b8
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 366a38951363d52df3d52d3a670943dc41211c8a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538611"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494008"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migrera din PostgreSQL-databas med säkerhetskopiering och återställning
 Du kan använda [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) att extrahera en PostgreSQL-databas till en dumpfil och [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) att återställa PostgreSQL-databasen från en arkivfil som skapats av pg_dump.
@@ -69,7 +69,9 @@ Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för
 
 ### <a name="for-the-restore"></a>Vid återställningen
 - Vi rekommenderar att du flyttar den säkerhetskopiera filen till en Azure-dator i samma region som Azure Database for PostgreSQL-server som du migrerar till och gör pg_restore från den virtuella datorn att minska Nätverksfördröjningen. Vi rekommenderar också att den virtuella datorn skapas med [nätverksaccelerering](../virtual-network/create-vm-accelerated-networking-powershell.md) aktiverat.
+
 - Det bör göras redan som standard, men öppna dumpfilen för att verifiera att skapa index-instruktioner är efter infogningen av data. Om det inte är fallet, flytta create index-instruktioner när data infogas.
+
 - Återställa med växlarna -Fc och -j *#* att parallellisera återställningen. *#* är antalet kärnor på målservern. Du kan också försöka med *#* inställd på två gånger antalet kärnor på målservern för att se hur. Exempel:
 
     ```
@@ -77,6 +79,13 @@ Ett sätt att migrera din befintliga PostgreSQL-databas till Azure Database för
     ```
 
 - Du kan också redigera dumpfilen genom att lägga till kommandot *ange synchronous_commit = av;* i början och kommandot *ange synchronous_commit = on;* i slutet. Inte att aktivera det i slutet, innan apparna som ändrar data, kan det resultera i efterföljande förlust av data.
+
+- Bör du göra följande innan återställningen på aktiva Azure Database for PostgreSQL-server:
+    - Inaktivera fråga prestandaspårning, eftersom du inte behöver dessa statistik under migreringen. Du kan göra detta genom att ange pg_stat_statements.track och pg_qs.query_capture_mode pgms_wait_sampling.query_capture_mode till ingen.
+
+    - Använd en hög beräknings- och minnesresurser sku, som 32 vCore Minnesoptimerade, för att snabba upp migreringen. Du kan enkelt skala tillbaka ned till din önskade sku när återställningen är klar. Ju högre SKU: n, mer paralellism du kan uppnå genom att öka motsvarande `-j` parameter i kommandot pg_restore. 
+
+    - Fler IOPS på målservern kan förbättra prestandan för återställning. Du kan etablera fler IOPS genom att öka serverns lagringsstorlek. Det går inte att ångra den här inställningen, men överväga om en högre IOPS skulle ha nytta av din faktiska arbetsbelastning i framtiden.
 
 Kom ihåg att testa och validera dessa kommandon i en testmiljö innan du använder dem i produktion.
 

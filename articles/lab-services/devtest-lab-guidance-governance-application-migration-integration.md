@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 4bab3413b3e3cfcf1972b6cf721120d95851f7cd
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978623"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498207"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Styrning av infrastruktur för Azure DevTest Labs - programmigreringen och integration
 När din miljö för utveckling/test lab har upprättats, måste du tänka på följande frågor:
@@ -58,7 +58,7 @@ Ytterligare en faktor att notera är dock frekventa ändringarna till programpak
 Hur ställer jag in ett enkelt repeterbar process att ta med min organisations anpassade avbildningar i en labb-miljö?
 
 ### <a name="answer"></a>Svar
-Se [den här videon på Immage Factory mönster](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och skript som angetts är bara exempel på skript. Om några förändringar krävs, måste du hantera och underhålla de skript som används i din miljö.
+Se [den här videon på från en avbildning Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Det här scenariot är ett avancerat scenario och skript som angetts är bara exempel på skript. Om några förändringar krävs, måste du hantera och underhålla de skript som används i din miljö.
 
 Med labb för att skapa en anpassad avbildning pipeline i Azure Pipelines:
 
@@ -103,7 +103,7 @@ När ska jag använda en delad IP och offentlig IP-adress jämfört med privata 
 Om du använder en plats-till-plats VPN eller Express Route kan du använda privata IP-adresser så att dina datorer är tillgängliga via det interna nätverket, och kan inte användas via offentliga internet.
 
 > [!NOTE]
-> Labbägare kan ändra den här principen för undernätet för att säkerställa att ingen råkar skapar offentliga IP-adresser för sina virtuella datorer. Prenumerationsägaren ska skapa en prenumerationsprincip som förhindrar att offentliga IP-adresser som skapas.
+> Labbägare kan ändra den här principen för undernätet för att säkerställa att ingen av misstag skapar offentliga IP-adresser för sina virtuella datorer. Prenumerationsägaren ska skapa en prenumerationsprincip som förhindrar att offentliga IP-adresser som skapas.
 
 När du använder delade offentliga IP-adresser kan dela en offentlig IP-adress i de virtuella datorerna i ett labb. Den här metoden kan vara användbart när du behöver att undvika att tränga in begränsningar i den offentliga IP-adresser för en viss prenumeration.
 

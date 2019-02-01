@@ -1,8 +1,21 @@
 ---
-Rubrik: ”Steg 3: Skapa ett nytt Machine Learning Studio-experiment' titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 3 i utveckla en förutsägelselösning genomgång: Skapa en ny träningsexperiment i Azure Machine Learning Studio ”.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 03/23/2017
+title: 'Steg 3: Skapa ett nytt Machine Learning Studio-experiment'
+titleSuffix: Azure Machine Learning Studio
+description: 'Steg 3 av utveckla en förutsägelselösning genomgång: Skapa en ny träningsexperiment i Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: aee0370b4d1ea1bffe8e6723c14e6248ebbd808a
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506404"
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-studio-experiment"></a>Genomgång steg 3: Skapa ett nytt Azure Machine Learning Studio-experiment
 Det här är det tredje steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)

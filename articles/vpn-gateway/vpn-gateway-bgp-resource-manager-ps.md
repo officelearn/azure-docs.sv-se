@@ -1,5 +1,5 @@
 ---
-title: 'Konfigurera BGP på Azure VPN-gatewayer: Resource Manager: PowerShell | Microsoft Docs'
+title: 'Konfigurera BGP på Azure VPN gateway: Resource Manager: PowerShell | Microsoft Docs'
 description: Den här artikeln beskriver hur du konfigurerar BGP med Azure VPN gateway med Azure Resource Manager och PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 04/12/2017
 ms.author: yushwang
 ms.openlocfilehash: 97b33ed76776ae00c109e891b3d91638080ed778
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52632593"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508410"
 ---
 # <a name="how-to-configure-bgp-on-azure-vpn-gateways-using-powershell"></a>Så här konfigurerar du BGP på Azure VPN gateway med PowerShell
 Den här artikeln vägleder dig igenom stegen för att aktivera BGP på en plats-till-plats (S2S) VPN-anslutning för flera platser och en VNet-till-VNet-anslutning med hjälp av Resource Manager-distributionsmodellen och PowerShell.
@@ -47,7 +47,7 @@ Du kan kombinera delar tillsammans för att skapa en mer komplex, flera hopp öv
 ## <a name ="enablebgp"></a>Del 1 – konfigurera BGP på Azure VPN-gatewayen
 Konfigurationsstegen konfigurerar BGP-parametrarna för Azure VPN-gatewayen som du ser i följande diagram:
 
-![BGP-gatewayen](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
+![BGP Gateway](./media/vpn-gateway-bgp-resource-manager-ps/bgp-gateway.png)
 
 ### <a name="before-you-begin"></a>Innan du börjar
 * Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
@@ -174,7 +174,7 @@ Innan du fortsätter kontrollerar du att du fortfarande är ansluten till Prenum
 
 #### <a name="2-create-the-local-network-gateway-for-site5"></a>2. Skapa den lokala nätverksgatewayen för Site5
 
-Glöm inte att skapa resursgruppen om det inte har skapats innan du skapar den lokala nätverksgatewayen. Lägg märke till två ytterligare parametrar för den lokala nätverksgatewayen: Asn och BgpPeerAddress.
+Glöm inte att skapa resursgruppen om det inte har skapats innan du skapar den lokala nätverksgatewayen. Lägg märke till två ytterligare parametrar för den lokala nätverksgatewayen: ASN och BgpPeerAddress.
 
 ```powershell
 New-AzureRmResourceGroup -Name $RG5 -Location $Location5

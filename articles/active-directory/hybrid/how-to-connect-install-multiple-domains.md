@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: fbd00a79ba02a8907d8f8ccfb222787877e2ee9c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 9b7199f337f32d785093d3102ef081fd161b2e58
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183891"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494603"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Stöd för flera domäner för federering med Azure AD
 Följande dokumentation innehåller råd om hur du använder flera översta domäner och underdomäner när federera med Office 365 eller Azure AD-domäner.
@@ -168,7 +168,7 @@ Använd följande steg för att lägga till ett anpassat anspråk för underdom�
 ## <a name="next-steps"></a>Nästa steg
 Nu när Azure AD Connect är installerat kan du [verifiera installationen och tilldela licenser](how-to-connect-post-installation.md).
 
-Läs mer om dessa funktioner, som aktiverades med installationen: [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md), [förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md), och [Azure AD Connect Health](how-to-connect-health-sync.md).
+Läs mer om de här funktionerna, som aktiverades med installationen: [Automatisk uppgradering](how-to-connect-install-automatic-upgrade.md), [Förhindra oavsiktliga borttagningar](how-to-connect-sync-feature-prevent-accidental-deletes.md) och [Azure AD Connect Health](how-to-connect-health-sync.md).
 
 Läs mer om [schemaläggaren och hur du utlöser synkronisering](how-to-connect-sync-feature-scheduler.md).
 

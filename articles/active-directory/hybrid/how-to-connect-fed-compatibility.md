@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/23/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2be942bff0fd79764ee13cf22c896ec211ad9bb8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 6ee772054a823ae0607672d41a17a38cd44b2fb8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183687"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494841"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Kompatibilitetslista för Azure AD-federation
 Azure Active Directory tillhandahåller enkel inloggning och förbättrad säkerhet för åtkomst för Office 365 och andra Microsoft Online-tjänster för hybriddata och molnbaserad implementeringar utan någon lösning från tredje part. Office 365, som de flesta av Microsofts onlinetjänster, är integrerad med Azure Active Directory för katalogtjänster, autentisering och auktorisering. Azure Active Directory tillhandahåller också enkel inloggning till tusentals SaaS-program och lokala webbprogram. Se Azure Active Directory [programgalleriet](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) för SaaS-program som stöds. 

@@ -1,5 +1,5 @@
 ---
-title: Självbetjäning eller utvärderingsversion registreringen i Azure Active Directory | Microsoft Docs
+title: Lägga till användare via självbetjäning eller utvärderingsversion registrering – Azure Active Directory | Microsoft Docs
 description: Använd självbetjäningsregistrering i en Azure Active Directory (Azure AD)-klient
 services: active-directory
 documentationcenter: ''
@@ -10,18 +10,19 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 10/16/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 63ddff08b93ffa072add0e8f093e1d4e0f1aa01e
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f02a628a55969dfbb883f53f005733482499a42b
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195825"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506778"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Vad är självbetjäningsregistrering för Azure Active Directory?
+
 Den här artikeln förklarar självbetjäningsregistrering och ge stöd för den i Azure Active Directory (AD Azure). Om du vill ta över ett domännamn från en ohanterad Azure AD-klient, finns i [ta över en ohanterad katalog som administratör](domains-admin-takeover.md).
 
 ## <a name="why-use-self-service-signup"></a>Varför använda självbetjäningsregistrering?

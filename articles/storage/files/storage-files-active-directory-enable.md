@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: tamram
-ms.openlocfilehash: 8085f3855d58bc1ddb7b4529ac4799b8292cea53
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
+ms.openlocfilehash: 796e104dd0b3b2cfdef2ee3515625cba0a9fdc1e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401783"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497149"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Aktivera Azure Active Directory-autentisering över SMB för Azure Files (förhandsversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -135,7 +135,7 @@ az storage account update -n <storage-account-name> -g <resource-group-name> --f
 En identitet (en användare, grupp eller tjänstens huvudnamn) måste ha behörighet på nivån resurs för att komma åt Azure Files-resurser med hjälp av Azure AD-autentiseringsuppgifter. Riktlinjerna i det här avsnittet visar hur du tilldelar läsa, skriva eller ta bort behörigheter för en filresurs på en identitet.
 
 > [!IMPORTANT]
-> Fullständig administrativ kontroll över en filresurs, inklusive möjligheten att tilldela en roll till en identitet, kräver lagringskontonyckeln. Administrativa kontrollen stöds inte med Azure AD-autentiseringsuppgifter. 
+> Fullständig administrativ kontroll över en filresurs, inklusive möjligheten att tilldela en roll till en identitet, kräver lagringskontonyckeln. Administrativ kontroll stöds inte med Azure AD-autentiseringsuppgifter. 
 
 ### <a name="define-a-custom-role"></a>Definiera en anpassad roll
 

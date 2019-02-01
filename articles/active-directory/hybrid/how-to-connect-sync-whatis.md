@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c3e5c6bd2c41d778450412babb8fc35b36d9d329
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: d85794b2007a822f96779493aa1c276de058d64e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197100"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492206"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Azure AD Connect-synkronisering: Förstå och anpassa synkronisering
 Azure Active Directory Connect-synkroniseringstjänster (Azure AD Connect-synkronisering) är en huvudkomponenten av Azure AD Connect. Det hand tar om alla åtgärder som rör synkronisera identitetsdata mellan din lokala miljö och Azure AD. Azure AD Connect-synkronisering är efterföljaren av DirSync, Azure AD Sync och Forefront Identity Manager med Azure Active Directory Connector konfigurerats.

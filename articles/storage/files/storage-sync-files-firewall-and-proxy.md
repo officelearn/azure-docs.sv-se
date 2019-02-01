@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/26/2018
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 6c8a0a0db419546a49670b1f34e58ead7cebeaa1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c0a1d2bf1d7a103ad473cadb1528bd9b9a4c90de
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459510"
+ms.locfileid: "55488024"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>Inställningar för Azure File Sync-proxy och brandväggar
 Azure File Sync ansluter dina lokala servrar till Azure Files, aktivering av multisite synkronisering och molnlagringsnivåer funktioner. Därför måste måste en lokal server vara ansluten till internet. IT-administratör måste avgöra den bästa vägen för att servern ska få åtkomst till Azure-molntjänster.
@@ -111,7 +111,7 @@ För affärskontinuitet och disaster recovery (BCDR) orsaker har du angett din A
 
 | Region | Primär slutpunkts-URL | Länkad region | Identifierings-URL |
 |--------|---------------------------------------|--------|---------------------------------------|
-| Östra Australien | https://kailani-aue.one.microsoft.com | Australien Souteast | https://kailani-aue.one.microsoft.com |
+| Östra Australien | https://kailani-aue.one.microsoft.com | Sydöstra Australien | https://kailani-aue.one.microsoft.com |
 | Sydöstra Australien | https://kailani-aus.one.microsoft.com | Östra Australien | https://tm-kailani-aus.one.microsoft.com |
 | Centrala Kanada | https://kailani-cac.one.microsoft.com | Östra Kanada | https://tm-kailani-cac.one.microsoft.com |
 | Östra Kanada | https://kailani-cae.one.microsoft.com | Centrala Kanada | https://tm-kailani.cae.one.microsoft.com |

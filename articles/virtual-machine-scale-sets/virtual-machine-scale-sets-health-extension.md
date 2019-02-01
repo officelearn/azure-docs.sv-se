@@ -4,7 +4,7 @@ description: Lär dig hur du använder tillägget programmets hälsotillstånd f
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: rajraj
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2018
+ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 404d983474d6d8705838d288aaa280478043be11
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 1ac7b5f41c0c941db08a63c516febabaf9f07b3e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53746285"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491390"
 ---
 # <a name="using-application-health-extension-with-virtual-machine-scale-sets"></a>Med hjälp av programmets hälsotillstånd anger tillägg med VM-skalningsuppsättning
 Övervakning av programmets hälsotillstånd är ett viktigt signal för att hantera och uppgradera din distribution. Azure VM-skalningsuppsättningar har stöd för [löpande uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) inklusive [automatiska uppgraderingar av OS-avbildning](virtual-machine-scale-sets-automatic-upgrade.md), som förlitar sig på hälsoövervakning av enskilda instanser att uppgradera din distribution .
@@ -35,7 +35,7 @@ Den här artikeln förutsätter att du är bekant med:
 ## <a name="when-to-use-the-application-health-extension"></a>När du ska använda tillägget programmets hälsotillstånd
 Programmets hälsotillstånd-tillägget har distribuerats i en VM scale set-instans och rapporter på VM-hälsa i skalningsuppsättningens datorinstans. Du kan konfigurera tillägget för att avsökning på en programslutpunkt och uppdatera status för programmet på den instansen. Den här instansen kontrolleras av Azure för att avgöra om en instans är berättigade till åtgärder för uppgradering.
 
-Eftersom tillägget rapporterar hälsa från en virtuell dator, tillägget kan användas i situationer där externa avsökningar, till exempel programmet Hälsoavsökningar (som använder anpassade Azure Load Balancer [avsökningar](../load-balancer/load-balancer-custom-probe-overview.md)) kan inte användas.
+Som tillägget rapporter hälsotillståndet från en virtuell dator, tillägget kan användas i situationer där externa avsökningar, till exempel programmet Hälsoavsökningar (som använder anpassade Azure Load Balancer [avsökningar](../load-balancer/load-balancer-custom-probe-overview.md)) kan inte användas.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -83,7 +83,7 @@ Det finns flera olika sätt att distribuera Programhälsa tillägg till din skal
 
 ### <a name="rest-api"></a>REST-API
 
-I följande exempel lägger till tillägget programmets hälsotillstånd (med namnet myHealthExtension) extensionProfile i en skalningsuppsättningsmodell för en Windows-baserad skalningsuppsättning.
+I följande exempel lägger till tillägget programmets hälsotillstånd (med namnet myHealthExtension) extensionProfile i skalningsuppsättningen för en Windows-baserad skalningsuppsättning.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/myHealthExtension?api-version=2018-10-01`
@@ -109,9 +109,9 @@ Använd `PATCH` så här redigerar du ett redan distribuerat tillägg.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Använd den [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension) cmdlet för att lägga till tillägget programmets hälsotillstånd till skalan modellen principuppsättningsdefinition.
+Använd den [Lägg till AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet för att lägga till tillägget programmets hälsotillstånd till skalan modellen principuppsättningsdefinition.
 
-I följande exempel läggs Programhälsa tillägget till den `extensionProfile` i en skalningsuppsättning skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning.
+I följande exempel läggs Programhälsa tillägget till den `extensionProfile` i skalningsuppsättningen skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning. I exemplet används den nya Az PowerShell-modulen.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -125,12 +125,12 @@ $extensionType = "ApplicationHealthWindows"
 $publisher = "Microsoft.ManagedServices"
 
 # Get the scale set object
-$vmScaleSet = Get-AzureRmVmss `
+$vmScaleSet = Get-AzVmss `
   -ResourceGroupName $vmScaleSetResourceGroup `
   -VMScaleSetName $vmScaleSetName
 
 # Add the Application Health extension to the scale set model
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -Name $extensionName `
   -Publisher $publisher `
   -Setting $publicConfig `
@@ -139,10 +139,12 @@ Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmScaleSet `
   -AutoUpgradeMinorVersion $True
 
 # Update the scale set
-Update-AzureRmVmss -ResourceGroupName $vmScaleSetResourceGroup `
+Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
   -Name $vmScaleSetName `
   -VirtualMachineScaleSet $vmScaleSet
 ```
+
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
 
 Använd [az vmss-tilläggsuppsättningen](/cli/azure/vmss/extension#az-vmss-extension-set) att lägga till tillägget programmets hälsotillstånd till skalningsuppsättningen Service-definitionen.

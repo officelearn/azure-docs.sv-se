@@ -1,8 +1,21 @@
 ---
-Rubrik: ”Steg 4: Träna förutsägbara analytiska modeller titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 4 i utveckla en förutsägelselösning genomgång: Träna, poäng och utvärdera flera modeller i Azure Machine Learning Studio ”.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 03/23/2017
+title: 'Steg 4: Öva med förutsägande och analytiska modeller'
+titleSuffix: Azure Machine Learning Studio
+description: 'Steg 4 i utveckla en förutsägelselösning genomgång: Träna, poäng och utvärdera flera modeller i Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: 50b0a6276d34567651da2cb3e76f0686e8b10fea
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511572"
 ---
 # <a name="walkthrough-step-4-train-and-evaluate-the-predictive-analytic-models-in-machine-learning-studio"></a>Genomgång steg 4: Träna och utvärdera förutsägbara analytiska modeller i Machine Learning Studio
 Det här avsnittet innehåller det fjärde steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)

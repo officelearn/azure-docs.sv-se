@@ -1,5 +1,5 @@
 ---
-title: Ändra statisk gruppmedlemskapstypen till dynamiskt i Azure Active Directory | Microsoft Docs
+title: Ändra statisk gruppmedlemskapstypen till dynamisk – Azure Active Directory | Microsoft Docs
 description: Hur du skapar regler för att automatiskt fylla i grupper och en Regelreferens för medlemskap.
 services: active-directory
 documentationcenter: ''
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 11175a091ad610470632b52b46270ed27c76e452
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7f8c9298c1e74e87411386a1d8ae36a34d986065
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55150639"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508495"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Ändra medlemskap i statisk till dynamisk i Azure Active Directory
 

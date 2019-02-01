@@ -3,7 +3,7 @@ title: Så här konfigurerar du Azure SQL Database - fristående | Microsoft Doc
 description: Lär dig hur du konfigurerar och hanterar Azure SQL Database - fristående databas
 services: sql-database
 ms.service: sql-database
-ms.subservice: ''
+ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: howto
@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: bf126caa378eafe569b83f211d9d2bbfd37e18f9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 613b4b700be580c2a0847881e64eedbeedee0c65
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477802"
+ms.locfileid: "55510546"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Hur du använder en enkel databas i Azure SQL Database
 

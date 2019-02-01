@@ -1,25 +1,24 @@
 ---
-title: Skapa en dynamisk grupp och kontrollera statusen i Azure Active Directory | Microsoft Docs
+title: Skapa en dynamisk grupp och kontrollera status - Azure Active Directory | Microsoft Docs
 description: Hur du skapar en gruppmedlemskap regler i Azure-portalen, kontrollera status.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: dabee3f4eb6fb2bf4f58ff8654068e138858dbbd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 7e283127fa9effe04f59f31c836f471020c9dacc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156929"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506950"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Skapa en dynamisk grupp och kontrollera status
 

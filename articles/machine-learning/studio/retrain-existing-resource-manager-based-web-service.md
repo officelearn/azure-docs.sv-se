@@ -1,8 +1,21 @@
 ---
-Rubrik: Omtrimma en befintlig förutsägande Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning Studio.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/07/2017
+title: Omtrimma en befintlig förutsägande Studio-webbtjänst
+titleSuffix: Azure Machine Learning Studio
+description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning Studio.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/07/2017
+ms.openlocfilehash: cb33b32be276c2deb61a1a718a609612c6a4989e
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511963"
 ---
 # <a name="retrain-an-existing-predictive-azure-machine-learning-studio-web-service"></a>Omtrimma en befintlig förutsägande Azure Machine Learning Studio-webbtjänst
 

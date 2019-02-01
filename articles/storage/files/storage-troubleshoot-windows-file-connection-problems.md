@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 384a277f3465ac97285fbb08fa299a5bed8c87c4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: c8d34ecb46721a8dd8dc1b1ad9f73c9f2ca2b3a2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477700"
+ms.locfileid: "55507407"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files-problem i Windows
 
@@ -61,7 +61,7 @@ Systemfel 53 eller fel 67 kan inträffa om port 445 utgående kommunikation till
 
 För att kontrollera om din brandvägg eller Internetleverantören blockerar port 445, använda den [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-a9fa1fe5) verktyget eller `Test-NetConnection` cmdlet. 
 
-Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resoure-group-name>` med gällande namn för ditt lagringskonto.
+Du använder den `Test-NetConnection` cmdlet, AzureRM PowerShell-modulen måste vara installerad, se [installera Azure PowerShell-modulen](/powershell/azure/azurerm/install-azurerm-ps) för mer information. Kom ihåg att ersätta `<your-storage-account-name>` och `<your-resource-group-name>` med gällande namn för ditt lagringskonto.
 
    
     $resourceGroupName = "<your-resource-group-name>"

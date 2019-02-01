@@ -4,15 +4,15 @@ description: Innehåller information om insamlingsprogrammet i Azure Migrate.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 01/14/2019
+ms.date: 01/31/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b9387814b8bdab56117dec27de1e3d5b44ce39b4
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: 9890f68ff61d822f505c4403eb2f1f61e396fd01
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54262616"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488721"
 ---
 # <a name="about-the-collector-appliance"></a>Om insamlingsprogrammet
 
@@ -32,7 +32,7 @@ Insamlingsprogrammet anslutna kontinuerligt till Azure Migrate-projektet och kon
 - Den här modellen inte är beroende statistikinställningarna för vCenter-servern att samla in prestandadata.
 - Du kan stoppa kontinuerlig profilering vid när som helst från insamlaren.
 
-**Omedelbar tillfredsställelse:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du påbörjar identifieringen bör du välja storlekskriteriet i utvärderingen som *som lokalt* om du behöver omedelbar tillfredsställelse. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
+**Snabb utvärderingar:** Med kontinuerlig discovery-installation, när identifieringen har slutförts (det tar några timmar beroende på hur många virtuella datorer), kan du direkt skapa utvärderingar. Eftersom prestandadatainsamlingen startar när du startar identifieringen, om du söker snabb utvärderingar, ska du välja storlekskriteriet i utvärderingen som *som lokalt*. För prestandabaserade utvärderingar rekommenderas det att du väntar minst en dag efter att identifieringen har påbörjats för att få tillförlitliga storleksrekommendationer.
 
 Installationen endast samlar in prestandadata kontinuerligt, upptäcks inte varje konfigurationsändring i den lokala miljön (dvs. VM-tillägg, borttagning, disk tillägg osv.). Om det finns en konfigurationsändring i den lokala miljön kan du göra följande för att återspegla ändringarna i portalen:
 

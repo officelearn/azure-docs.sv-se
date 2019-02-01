@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: dd1ef776-db4d-4ab8-9761-2adaa5a4f004
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/30/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6154262d7b412a0a4049c2d9456d7ae53ef01ca8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 61ca57f2fd5bb6d5e56902dddecfade406267b91
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183330"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486273"
 ---
 # <a name="determine-content-management-requirements-for-your-hybrid-identity-solution"></a>Fastställa krav för innehållshantering för din hybrididentitetslösning
 Förstå kraven för innehållshantering för ditt företag kan direkt påverka ditt beslut om vilken hybrididentitetslösning att använda. Genom spridningen av flera enheter och göra att användare kan ha sina egna enheter ([BYOD](https://aka.ms/byodcg)), företaget måste skydda sina egna data men den måste behålla användarens integritet intakta. Vanligtvis när en användare har sina egna enheter, kan de också ha flera autentiseringsuppgifter som ska alternerande beroende på program som de använder. Det är viktigt att skilja vilket innehåll skapades med personliga autentiseringsuppgifter från sådana som skapats med företagets autentiseringsuppgifter. ID-lösning bör kunna interagera med cloud services för att ge en sömlös upplevelse för slutanvändaren samtidigt se till att deras integritet och öka skyddet mot dataläckage. 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 074184d1465236fadebb5afa229a5b7f8689bbc9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: b1098622ad96ccdcd1941466c6e32255b4415820
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251664"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508019"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Skapa och köra en machine learning-pipeline med hjälp av Azure Machine Learning-SDK
 
@@ -103,6 +103,9 @@ output_data1 = PipelineData(
 ## <a name="set-up-compute-target"></a>Konfigurera beräkningsmål
 
 I Azure Machine Learning termen __compute__ (eller __beräkningsmålet__) refererar till datorer eller kluster som utför beräkningssteg i din pipeline för machine learning.   Se [beräkningsmål för modellträning](how-to-set-up-training-targets.md) för en fullständig lista över beräkningsmål och hur du skapar och bifogar dem i din arbetsyta.  Processen för att skapa och eller bifoga en beräkningsmål är detsamma oavsett om du tränar en modell eller kör en pipeline-steg. När du skapar och koppla din beräkningsmål, använda den `ComputeTarget` objekt i din [pipeline steg](#steps).
+
+> [!IMPORTANT]
+> Utföra hanteringsåtgärder på beräkningsmål stöds inte från inuti fjärrstyrda jobb. Eftersom machine learning pipelines skickas in som en fjärransluten jobb, Använd inte hanteringsåtgärder på beräkningsmål i pipelinen.
 
 Nedan följer exempel för att skapa och koppla beräkningsmål för:
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 1/24/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc085a94e2412ff21b09755102f79636a0b0d3b5
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d9892b158eae1a83ab1f8eed6c14224e1d4bca15
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54884953"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509923"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagg-stöd för Azure-resurser
 Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-using-tags.md).
@@ -666,6 +666,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 | logDefinitions | Nej | 
 | logprofiles | Nej | 
 | loggar | Nej | 
+| metricAlerts | Ja |
 | migrateToNewPricingModel | Nej | 
 | myWorkbooks | Nej | 
 | frågor | Nej | 
@@ -1108,7 +1109,7 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
 | managedInstances | Ja |
-| managedInstances/databaser | Ja |
+| managedInstances/databaser | Ja (Se kommentaren nedan) |
 | managedInstances/databases/backupShortTermRetentionPolicies | Nej |
 | managedInstances/databases/schemas/tables/columns/sensitivityLabels | Nej |
 | managedInstances/databaser/vulnerabilityAssessments | Nej |
@@ -1120,12 +1121,16 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 | servrar | Ja | 
 | servrar/administratörer | Nej | 
 | servers/communicationLinks | Nej | 
-| servrar/databaser | Ja | 
+| servrar/databaser | Ja (Se kommentaren nedan) | 
 | servers/encryptionProtector | Nej | 
 | servrar/nycklar | Nej | 
 | servrar/restorableDroppedDatabases | Nej | 
 | servrar/serviceobjectives | Nej | 
 | servers/tdeCertificates | Nej | 
+
+> [!NOTE]
+> Huvudservern databasen har inte stöd för taggar, men andra databaser har stöd för taggar.
+
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 | Resurstyp | Har stöd för taggar |
@@ -1163,8 +1168,11 @@ Den här artikeln beskriver om en resurstyp stöder [taggar](resource-group-usin
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 | Resurstyp | Har stöd för taggar |
 | ------------- | ----------- |
-| streamingjobs | Ja | 
+| streamingjobs | Ja (Se kommentaren nedan) | 
 | streamingjobs/diagnosticSettings | Nej | 
+
+> [!NOTE]
+> Du kan inte lägga till en tagg när streamingjobs körs. Stoppa resurs för att lägga till en tagg.
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 | Resurstyp | Har stöd för taggar |

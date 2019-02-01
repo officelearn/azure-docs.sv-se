@@ -3,23 +3,24 @@ title: Använda Azure Key Vault med hanterade program | Microsoft Docs
 description: Visar hur du använder åtkomsthemligheter i Azure Key Vault vid distribution av hanterade program
 services: managed-applications
 author: tfitzmac
-manager: timlt
 ms.service: managed-applications
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.date: 07/11/2018
+ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: dcfbb7f3b1d110d4c1fdf22863d795c85152ec35
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
+ms.openlocfilehash: 55410250ccd4dfceac8ac9ae5b81d4736de0d91a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52725020"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55492687"
 ---
 # <a name="access-key-vault-secret-when-deploying-azure-managed-applications"></a>Få åtkomst till Key Vault-hemlighet när du distribuerar Azure Managed Applications
 
-När du vill skicka ett säkert värde (t.ex. ett lösenord) som en parameter under distributionen kan du hämta värdet från en [Azure Key Vault](../key-vault/key-vault-whatis.md). För att få åtkomst till Key Vault vid distribution av hanterade program, måste du ge åtkomst till den **installation Resource Provider** tjänstens huvudnamn. Den här artikeln beskriver hur du konfigurerar Key Vault för att arbeta med hanterade program.
+När du vill skicka ett säkert värde (t.ex. ett lösenord) som en parameter under distributionen kan du hämta värdet från en [Azure Key Vault](../key-vault/key-vault-whatis.md). För att få åtkomst till Key Vault vid distribution av hanterade program, måste du ge åtkomst till den **installation Resource Provider** tjänstens huvudnamn. Managed Applications-tjänsten använder den här identiteten för att köra åtgärder. För att hämta har ett värde från ett Key Vault under distributionen, kunna tjänstens huvudnamn åtkomst till Key Vault.
+
+Den här artikeln beskriver hur du konfigurerar Key Vault för att arbeta med hanterade program.
 
 ## <a name="enable-template-deployment"></a>Aktivera malldistribution
 

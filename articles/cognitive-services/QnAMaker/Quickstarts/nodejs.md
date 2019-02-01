@@ -8,15 +8,15 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 01/30/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1bc70e5c8243c50506cea871220412a4941cbe35
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e7e362a2536f7adf2a7d68b096ab76d73f15a61
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213118"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496235"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-nodejs"></a>Hur du använder REST-API för QnA Maker med Node.js 
 <a name="HOLTop"></a>
@@ -57,7 +57,7 @@ Följande kod skapar en ny kunskapsbas med hjälp av metoden [Create](https://we
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -253,7 +253,7 @@ Följande kod uppdaterar en befintlig kunskapsbas med hjälp av metoden [Update]
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -454,7 +454,7 @@ Följande kod publicerar en befintlig kunskapsbas med hjälp av metoden [Publish
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -566,7 +566,7 @@ Följande kod ersätter innehållet i den angivna kunskapsbasen med hjälp av me
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -699,7 +699,7 @@ Följande kod laddar ned innehållet i den angivna kunskapsbasen med hjälp av m
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -832,7 +832,7 @@ Följande kod hämtar svaret på en fråga med hjälp av dne angivna kunskapsbas
 1. Ersätt `kb`-värdet med ID:t för den kunskapsbas som du vill få svar från. Observera att den här kunskapsbasen redan måste ha publicerats med hjälp av metoden [Publicera](#Publish).
 1. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -961,7 +961,7 @@ Följande kod hämtar information om den angivna kunskapsbasen med hjälp av met
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1076,7 +1076,7 @@ Följande kod hämtar information om alla kunskapsbaser för en viss användare 
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1204,7 +1204,7 @@ Följande kod tar bort den angivna kunskapsbasen med hjälp av metoden [Ta bort 
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1316,7 +1316,7 @@ Följande kod hämtar de aktuella slutpunktsnycklarna med hjälp av metoden [Hä
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1417,7 +1417,7 @@ Följande kod återskapar de aktuella slutpunktsnycklarna med hjälp av metoden 
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1543,7 +1543,7 @@ Följande kod hämtar de aktuella ordvariationerna med hjälp av metoden [Ladda 
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1650,7 +1650,7 @@ Följande kod ersätter de aktuella ordvariationerna med hjälp av metoden [Ers�
 3. Ersätt värdet `key` med en giltig åtkomstnyckel för din prenumeration.
 4. Kör programmet.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');

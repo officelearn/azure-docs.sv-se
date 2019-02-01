@@ -12,16 +12,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: ac0237ebc9c6d9ffc6e66291f648b0176f386205
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: f4e23f05d2b9ee8396826e0321a00d95cc13bd99
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168712"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486120"
 ---
 # <a name="changing-the-ad-ds-account-password"></a>Ändra AD DS-kontolösenordet
 AD DS-kontot refererar till det användarkonto som används av Azure AD Connect för att kommunicera med lokala Active Directory. Om du ändrar lösenordet för AD DS-kontot, måste du uppdatera Azure AD Connect-synkroniseringstjänsten med det nya lösenordet. I annat fall synkronisering kan inte längre synkronisera korrekt med en lokal Active Directory och du kommer märka följande fel:

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e32e972be4e355f01a760b45905404b70a1450bd
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
+ms.openlocfilehash: 04a82d1ed8735954072f9549f3b2676df0935449
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300871"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489475"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Strängfunktioner för Azure Resource Manager-mallar
 
 Resource Manager tillhandahåller följande funktioner för att arbeta med strängar:
 
-* [Base64](#base64)
+* [base64](#base64)
 * [base64ToJson](#base64tojson)
 * [base64ToString](#base64tostring)
 * [concat](#concat)
@@ -37,7 +37,7 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [första](#first)
 * [GUID](#guid)
 * [indexOf](#indexof)
-* [senaste](#last)
+* [last](#last)
 * [lastIndexOf](#lastindexof)
 * [Längd](#length)
 * [padLeft](#padleft)
@@ -52,11 +52,13 @@ Resource Manager tillhandahåller följande funktioner för att arbeta med strä
 * [toUpper](#toupper)
 * [trim](#trim)
 * [uniqueString](#uniquestring)
-* [URI: N](#uri)
+* [uri](#uri)
 * [uriComponent](resource-group-template-functions-string.md#uricomponent)
 * [uriComponentToString](resource-group-template-functions-string.md#uricomponenttostring)
 
 <a id="base64" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="base64"></a>Base64
 `base64(inputString)`
@@ -118,9 +120,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
-| toJsonOutput | Objekt | {”en”: ”a”, ”två”: ”b”} |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
+| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -131,7 +133,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tojson" />
@@ -196,9 +198,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
-| toJsonOutput | Objekt | {”en”: ”a”, ”två”: ”b”} |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
+| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -209,7 +211,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="base64tostring" />
@@ -274,9 +276,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| base64Output | Sträng | b25lLCB0d28sIHRocmVl |
-| toStringOutput | Sträng | Ett två tre |
-| toJsonOutput | Objekt | {”en”: ”a”, ”två”: ”b”} |
+| base64Output | String | b25lLCB0d28sIHRocmVl |
+| toStringOutput | String | Ett två tre |
+| toJsonOutput | Objekt | {"one": "a", "two": "b"} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -287,7 +289,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/base64.json
 ```
 
 <a id="concat" />
@@ -335,7 +337,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| concatOutput | Sträng | prefixet 5yj4yjf5mbg72 |
+| concatOutput | String | prefix-5yj4yjf5mbg72 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -346,7 +348,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 Följande [exempelmall](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json) visar hur du kombinerar två matriser.
@@ -399,7 +401,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 <a id="contains" />
@@ -493,7 +495,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="datauri" />
@@ -549,8 +551,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data: text / oformaterad; charset = utf8; base64 SGVsbG8 = |
-| toStringOutput | Sträng | Hej världen! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hej världen! |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -561,7 +563,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="datauritostring" />
@@ -617,8 +619,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| dataUriOutput | Sträng | data: text / oformaterad; charset = utf8; base64 SGVsbG8 = |
-| toStringOutput | Sträng | Hej världen! |
+| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | String | Hej världen! |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -629,7 +631,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/datauri.json
 ```
 
 <a id="empty" /> 
@@ -707,7 +709,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="endswith" />
@@ -786,7 +788,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="first" />
@@ -839,8 +841,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | en |
-| stringOutput | Sträng | O |
+| arrayOutput | String | en |
+| stringOutput | String | O |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -851,7 +853,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 ## <a name="guid"></a>GUID
@@ -934,7 +936,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/guid.json
 ```
 
 <a id="indexof" />
@@ -997,7 +999,7 @@ Utdata från föregående exempel med standardvärdena är:
 | lastT | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| NotFound | Int | -1 |
+| notFound | Int | -1 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1008,7 +1010,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="last" />
@@ -1061,8 +1063,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Sträng | tre |
-| stringOutput | Sträng | e |
+| arrayOutput | String | tre |
+| stringOutput | String | e |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1073,7 +1075,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="lastindexof" />
@@ -1136,7 +1138,7 @@ Utdata från föregående exempel med standardvärdena är:
 | lastT | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| NotFound | Int | -1 |
+| notFound | Int | -1 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1147,7 +1149,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/indexof.json
 ```
 
 <a id="length" />
@@ -1219,7 +1221,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 <a id="padleft" />
@@ -1271,7 +1273,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | 0000000123 |
+| stringOutput | String | 0000000123 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1282,7 +1284,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/padleft.json
 ```
 
 <a id="replace" />
@@ -1336,8 +1338,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| firstOutput | Sträng | 1231231234 |
-| secodeOutput | Sträng | 123-123-xxxx |
+| firstOutput | String | 1231231234 |
+| secodeOutput | String | 123-123-xxxx |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1348,7 +1350,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/replace.json
 ```
 
 <a id="skip" />
@@ -1362,7 +1364,7 @@ Returnerar en sträng där alla tecken efter angivet antal tecken eller en matri
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Den matris eller sträng som ska användas för att hoppa över. |
+| originalValue |Ja |matris eller sträng |Den matris eller sträng som ska användas för att hoppa över. |
 | numberToSkip |Ja |int |Antalet element eller tecken som ska hoppas över. Om det här värdet är 0 eller mindre, returneras alla element eller tecken i-värdet. Om den är större än längden på den matris eller sträng returneras en tom matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
@@ -1417,8 +1419,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| arrayOutput | Matris | [”tre”] |
-| stringOutput | Sträng | två tre |
+| arrayOutput | Matris | ["three"] |
+| stringOutput | String | två tre |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1429,7 +1431,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="split" />
@@ -1501,7 +1503,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/split.json
 ```
 
 <a id="startswith" />
@@ -1580,7 +1582,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/startsendswith.json
 ```
 
 <a id="string" />
@@ -1651,9 +1653,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| objectOutput | Sträng | {”Värdea”: 10, ”Värdeb”: ”exempeltexten”} |
-| arrayOutput | Sträng | [”a”, ”b”, ”c”] |
-| intOutput | Sträng | 5 |
+| objectOutput | String | {”Värdea”: 10, ”Värdeb”: ”exempeltexten”} |
+| arrayOutput | String | ["a","b","c"] |
+| intOutput | String | 5 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1664,7 +1666,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/string.json
 ```
 
 <a id="substring" />
@@ -1688,7 +1690,7 @@ Delsträngen. Eller en tom sträng om längden är noll.
 
 ### <a name="remarks"></a>Kommentarer
 
-Det går inte att funktionen när delsträngen sträcker sig utanför slutet av strängen, eller när längden är mindre än noll. I följande exempel misslyckas med felmeddelandet ”parametrarna index och längd måste referera till en plats i strängen. Indexparametern: '0', Längdparametern: ‘11’, längden på strängparametern: '10'.".
+Det går inte att funktionen när delsträngen sträcker sig utanför slutet av strängen, eller när längden är mindre än noll. I följande exempel misslyckas med felmeddelandet ”parametrarna index och längd måste referera till en plats i strängen. Indexparametern: ”0”, Längdparametern: '11 ”, längden på strängparametern: '10'.".
 
 ```json
 "parameters": {
@@ -1727,7 +1729,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| substringOutput | Sträng | två |
+| substringOutput | String | två |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1738,7 +1740,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/substring.json
 ```
 
 <a id="take" />
@@ -1752,7 +1754,7 @@ Returnerar en sträng med det angivna antalet tecken från början av strängen 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Ursprungligt värde |Ja |matris eller sträng |Den matris eller sträng som ska ta elementen från. |
+| originalValue |Ja |matris eller sträng |Den matris eller sträng som ska ta elementen från. |
 | numberToTake |Ja |int |Antalet element eller tecken som ska ta. Om det här värdet är 0 eller mindre, returneras en tom matris eller sträng. Om den är större än längden på den angivna matris eller sträng returneras alla element i den matris eller sträng. |
 
 ### <a name="return-value"></a>Returvärde
@@ -1808,7 +1810,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
 | arrayOutput | Matris | [””, ”två”] |
-| stringOutput | Sträng | på |
+| stringOutput | String | på |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1819,7 +1821,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="tolower" />
@@ -1871,8 +1873,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | Sträng | Ett två tre |
-| toUpperOutput | Sträng | ETT TVÅ TRE |
+| toLowerOutput | String | Ett två tre |
+| toUpperOutput | String | ETT TVÅ TRE |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1883,7 +1885,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="toupper" />
@@ -1935,8 +1937,8 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| toLowerOutput | Sträng | Ett två tre |
-| toUpperOutput | Sträng | ETT TVÅ TRE |
+| toLowerOutput | String | Ett två tre |
+| toUpperOutput | String | ETT TVÅ TRE |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -1947,7 +1949,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/tolower.json
 ```
 
 <a id="trim" />
@@ -1995,7 +1997,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| Gå tillbaka | Sträng | Ett två tre |
+| Gå tillbaka | String | Ett två tre |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -2006,7 +2008,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/trim.json
 ```
 
 <a id="uniquestring" />
@@ -2095,7 +2097,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uniquestring.json
 ```
 
 <a id="uri" />
@@ -2159,9 +2161,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -2172,7 +2174,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponent" />
@@ -2227,9 +2229,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -2240,7 +2242,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 <a id="uricomponenttostring" />
@@ -2295,9 +2297,9 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| uriOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | Sträng | HTTP%3a%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.JSON |
-| toStringOutput | Sträng | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
+| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
+| toStringOutput | String | http://contoso.com/resources/nested/azuredeploy.json |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -2308,7 +2310,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/uri.json
 ```
 
 ## <a name="next-steps"></a>Nästa steg

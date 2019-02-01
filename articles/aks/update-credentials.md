@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 8552a22db1518fe41be78d67f91d74f0370abd93
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d880615d0d132403c935fe39e8478d7b3fc48dbe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55479308"
+ms.locfileid: "55490081"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifter för tjänstens huvudnamn i Azure Kubernetes Service (AKS)
 
@@ -44,7 +44,7 @@ SP_ID=$(az aks show -g myResourceGroup -n myAKSCluster --query servicePrincipalP
 Med en variabel som innehåller ID för tjänstens huvudnamn, Återställ nu autentiseringsuppgifterna med [az ad sp credential återställa][az-ad-sp-credential-reset]. I följande exempel kan Azure-plattformen Generera en ny säker hemlighet för tjänstens huvudnamn. Den här nya säker hemligheten lagras också som en variabel.
 
 ```azurecli-interactive
-SP_SECRET=$(az ad sp credential reset --name $AKS_SP --query password -o tsv)
+SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
 Nu fortsätta till [uppdatering AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials).

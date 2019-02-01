@@ -1,29 +1,29 @@
 ---
-title: Replikering av data i Azure Storage | Microsoft Docs
-description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Replikering till exempel lokalt redundant lagring (LRS), zonredundant lagring (ZRS), geo-redundant lagring (GRS) och read-access geo-redundant lagring (RA-GRS).
+title: Dataredundans i Azure Storage | Microsoft Docs
+description: Data i ditt Microsoft Azure Storage-konto replikeras för hållbarhet och hög tillgänglighet. Alternativ för dataredundans är lokalt redundant lagring (LRS), zonredundant lagring (ZRS), geo-redundant lagring (GRS) och read-access geo-redundant lagring (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/08/2018
+ms.date: 01/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3fb3860cbda2e1d46505711d7a175e5d42ec7018
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 0ba36042d02d0b4101f1e80c63af232717bcf4ca
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55455515"
+ms.locfileid: "55506795"
 ---
-# <a name="azure-storage-replication"></a>Azure Storage-replikering
+# <a name="azure-storage-redundancy"></a>Redundans i Azure Storage
 
-Data i ditt Microsoft Azure-lagringskonto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Azure Storage-replikering kopierar dina data så att den är skyddad från planerade och oplanerade händelser som sträcker sig från tillfälliga maskinvarufel, nätverket eller strömavbrott, massiv naturkatastrofer och så vidare. Du kan välja att replikera dina data inom samma Datacenter över zonindelad datacenter inom samma region och i olika regioner.
+Data i ditt Microsoft Azure-lagringskonto replikeras alltid för att säkerställa hållbarhet och hög tillgänglighet. Azure Storage kopierar dina data så att den är skyddad från planerade och oplanerade händelser, inklusive tillfälliga maskinvarufel, nätverket och strömavbrott av massiv naturkatastrofer. Du kan välja att replikera dina data inom samma Datacenter på zonindelad datacenter inom samma region eller flera geografiskt åtskilda regioner.
 
 Replikeringen garanterar att ditt lagringskonto uppfyller [Servicenivåavtal (SLA) för lagring](https://azure.microsoft.com/support/legal/sla/storage/) även vid fel. Visa SLA för information om Azure Storage-garantier för hållbarhet och tillgänglighet.
 
-## <a name="choosing-a-replication-option"></a>Välja ett replikeringsalternativ
+## <a name="choosing-a-redundancy-option"></a>Välja ett alternativ för dataredundans
 
-När du skapar ett lagringskonto kan du välja något av följande replikeringsalternativ:
+När du skapar ett lagringskonto kan välja du något av följande redundansalternativ för:
 
 * [Lokalt redundant lagring (LRS)](storage-redundancy-lrs.md)
 * [Zonredundant lagring (ZRS)](storage-redundancy-zrs.md)

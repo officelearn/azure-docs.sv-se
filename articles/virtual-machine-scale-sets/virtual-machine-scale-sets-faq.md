@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/30/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 6b470bfbb97cb14ccb1f63b34218575b64e686de
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: cd8bb2bf83d71fb874b3912e98bf3790acc9d915
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54812598"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493668"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Vanliga frågor och svar för skalningsuppsättningar för virtuella Azure-datorer
 
@@ -61,7 +61,7 @@ Få svar på vanliga frågor och svar om skalningsuppsättningar för virtuella 
 
 **F.** Kan jag framtvinga en körning av sekvensen när jag använder flera tillägg i en skalningsuppsättning?
 
-**S.** Inte direkt, men för tillägget customScript kan skriptet vänta på att ytterligare ett tillägg slutförs. Ytterligare hjälp med ordningsföljden för tillägg finns i det här blogginlägget: [Ordningsföljd för skalningsuppsättningar för virtuella Microsoft Azure-datorer](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
+**S.** Ja, du kan använda skalningsuppsättning [ordningsföljd för](virtual-machine-scale-sets-extension-sequencing.md).
 
 **F.** Fungerar skalningsuppsättningar med Azures tillgänglighetsuppsättningar?
 
@@ -230,6 +230,7 @@ Du kan ange offentliga SSH-nycklar i oformaterad text när du skapar en Linux-VM
             }
         ]
     }
+}
 ```
 
 linuxConfiguration elementnamn | Krävs | Typ | Beskrivning
@@ -392,13 +393,13 @@ Det finns två huvudsakliga sätt att ändra lösenordet för virtuella datorer 
 - Återställa lösenordet med hjälp av VM access-tillägg.
 
     Använd följande PowerShell-exempel:
-    
+
     ```powershell
     $vmssName = "myvmss"
     $vmssResourceGroup = "myvmssrg"
     $publicConfig = @{"UserName" = "newuser"}
     $privateConfig = @{"Password" = "********"}
-    
+
     $extName = "VMAccessAgent"
     $publisher = "Microsoft.Compute"
     $vmss = Get-AzureRmVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
@@ -630,7 +631,9 @@ Har du viss flexibilitet i hur du hanterar aviseringar för angivna tröskelvär
                     }
                 ]
             }
-        ],
+        ]
+    }
+}
 ```
 
 I det här exemplet går en avisering till Pagerduty.com när ett tröskelvärde har uppnåtts.

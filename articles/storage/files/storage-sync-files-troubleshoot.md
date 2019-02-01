@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 228927630540ed0277ca73a978382439f57b77d2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 315a51f847920d4751d100f147bb5218676015c6
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471410"
+ms.locfileid: "55495674"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera din organisations filresurser i Azure Files, samtidigt som den flexibilitet, prestanda och kompatibilitet för en lokal filserver. Azure File Sync omvandlar Windows Server till ett snabbt cacheminne för din Azure-filresurs. Du kan använda alla protokoll som är tillgänglig på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -370,7 +370,7 @@ Det här felet uppstår när lagringsgränsen för Azure file-resursen har nått
 
 5. Välj **filer** att visa en lista över filresurser.
 6. Klicka på de tre punkterna i slutet av raden för Azure-filresursen som refereras av molnslutpunkten.
-7. Kontrollera att den **användning** är lägre än den **kvot**. Obs Om inte en annan kvot har angetts, kvoten matchar den [största storlek på Azure-filresursen](storage-files-scale-targets.md).
+7. Kontrollera att den **användning** är lägre än den **kvot**. Obs Om inte en annan kvot har angetts, kvoten matchar den [maximal storlek på Azure-filresursen](storage-files-scale-targets.md).
 
     ![En skärmbild av Azure filresursegenskaperna.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 

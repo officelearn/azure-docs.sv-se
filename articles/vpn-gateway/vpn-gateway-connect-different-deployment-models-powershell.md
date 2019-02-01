@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 10/17/2018
 ms.author: cherylmc
 ms.openlocfilehash: d515363e1413634d8222e043fff0b91aa464002c
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337546"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509329"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Anslut virtuella nätverk från olika distributionsmodeller med hjälp av PowerShell
 
@@ -49,7 +49,7 @@ Plats = USA, västra <br>
 Adressutrymmen för virtuellt nätverk = 10.0.0.0/24 <br>
 Subnet-1 = 10.0.0.0/27 <br>
 GatewaySubnet = 10.0.0.32/29 <br>
-Namn på lokalt nätverk = RMVNetLocal <br>
+Local Network Name = RMVNetLocal <br>
 GatewayType = DynamicRouting
 
 **Resource Manager-VNet-inställningarna**

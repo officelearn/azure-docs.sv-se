@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/28/2018
-ms.openlocfilehash: 624689fd6b9d8f364b0caf7e96b79b2773ce6171
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: d9f2e26a2bc89329ca9038c666c0d960289e2670
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538182"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485457"
 ---
 # <a name="connecting-azure-kubernetes-service-and-azure-database-for-mysql"></a>Ansluta Azure Kubernetes Service och Azure Database for MySQL
 
@@ -32,6 +32,14 @@ Du kan bekräfta om AKS-klustret har accelererat nätverk:
 6. Gå till Virtuellt datorns **nätverk** fliken.
 7. Bekräfta om **Accelerated networking** 'Aktiveras ”.
 
+Eller via Azure CLI med hjälp av följande två kommandon:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+Följande utdata returneras genererade resursgruppen att AKS skapar som innehåller nätverksgränssnittet. Ta med namnet ”nodeResourceGroup” och använda den i nästa kommando. **EnableAcceleratedNetworking** ska antingen vara true eller false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## <a name="open-service-broker-for-azure"></a>Open Service Broker for Azure 
 [Öppna Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) kan du etablera Azure-tjänster direkt från Kubernetes eller Cloud Foundry. Det är en [Open Service Broker API](https://www.openservicebrokerapi.org/) implementering för Azure.

@@ -2,18 +2,18 @@
 title: Säkerhetskopiera en SharePoint-servergrupp till Azure med hjälp av Azure Backup server
 description: Säkerhetskopiera och återställa SharePoint-data med hjälp av Azure Backup Server. Den här artikeln innehåller information om du vill konfigurera SharePoint-servergruppen så att önskade data kan lagras i Azure. Du kan återställa skyddade SharePoint-data från disken eller från Azure.
 services: backup
-author: pvrk
-manager: shivamg
+author: kasinh
+manager: vvithal
 ms.service: backup
 ms.topic: conceptual
 ms.date: 6/8/2018
-ms.author: pullabhk
-ms.openlocfilehash: e7407341d7b85c101531c5a005cfd8db0eac2021
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
+ms.author: kasinh
+ms.openlocfilehash: b75c9093a983ba3e4ac4050379efbb091b363ff7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52423032"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491974"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Säkerhetskopiera en SharePoint-servergrupp till Azure
 Du säkerhetskopiera en SharePoint-servergrupp till Microsoft Azure med hjälp av Microsoft Azure Backup Server (MABS) på samma sätt som du säkerhetskopiera andra datakällor. Azure Backup erbjuder flexibilitet i schemat för säkerhetskopiering så att dagligen, varje vecka, månad eller årlig säkerhetskopiering pekar och ger dig alternativ för kvarhållning för olika säkerhetskopieringspunkter. Den omfattar också möjligheten att lagra kopior av lokal disk för snabb återställning-återställningstiden (RTO) och för att lagra kopior till Azure för mer ekonomiskt, långsiktig kvarhållning.
@@ -23,7 +23,7 @@ Azure Backup för DPM har stöd för följande scenarier:
 
 | Arbetsbelastning | Version | SharePoint-distributionen | Skydd och återställning |
 | --- | --- | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint som distribueras som fysisk server eller VMware-Hyper-V-dator <br> -------------- <br> SQL AlwaysOn | Skydda SharePoint-servergruppen återställningsalternativ: återställningsgruppen, databas och fil- eller listobjekt från diskåterställningspunkter.  Servergruppen och återställning av databaser från återställningspunkter i Azure. |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint som distribueras som fysisk server eller VMware-Hyper-V-dator <br> -------------- <br> SQL AlwaysOn | Skydda SharePoint-servergruppen återställningsalternativ: Återställningsgruppen, databas och fil- eller listobjekt från diskåterställningspunkter.  Servergruppen och återställning av databaser från återställningspunkter i Azure. |
 
 ## <a name="before-you-start"></a>Innan du börjar
 Det finns några saker du behöver för att bekräfta innan du säkerhetskopierar en SharePoint-servergrupp till Azure.
@@ -225,11 +225,11 @@ I följande exempel visas den *återställa SharePoint-objektet* har tagits bort
 5. Nu följer den [recovery stegen tidigare i den här artikeln](#restore-a-sharepoint-item-from-disk-using-dpm) att återställa en SharePoint-innehållsdatabas från disken.
 
 ## <a name="faqs"></a>Vanliga frågor och svar
-F: kan jag återställa ett SharePoint-objekt till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn (med skydd på disk)?<br>
+F: Kan jag återställa ett SharePoint-objekt till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn (med skydd på disk)?<br>
 S: Ja, objektet kan återställas till den ursprungliga SharePoint-webbplatsen.
 
-F: kan jag återställa en SharePoint-databas till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn?<br>
-S: eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan inte de ändras om inte tillgänglighetsgruppen tas bort. Därför kan inte MABS återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
+F: Kan jag återställa en SharePoint-databas till den ursprungliga platsen om SharePoint konfigureras med hjälp av SQL AlwaysOn?<br>
+S: Eftersom SharePoint-databaserna har konfigurerats i SQL AlwaysOn, kan inte de ändras om inte tillgänglighetsgruppen tas bort. Därför kan inte MABS återställa en databas till den ursprungliga platsen. Du kan återställa en SQL Server-databas till en annan SQL Server-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

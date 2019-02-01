@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2018
 ms.author: yushwang, cherylmc
-ms.openlocfilehash: 01f25df117eddaaf640a8bd2ef184fe685c5bc75
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 05c4a01f4317f311e1ba78a5bf45baa969dc8351
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39259001"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507867"
 ---
 # <a name="configure-active-active-s2s-vpn-connections-with-azure-vpn-gateways"></a>Konfigurera aktiv-aktiv S2S VPN-anslutningar med Azure VPN gateway
 
@@ -230,7 +230,7 @@ I exemplet nedan visas de parametrar som du ska ange i konfigurationsavsnittet B
 
 Anslutningen bör vara upprättad efter några minuter och BGP-peeringsessionen startar när IPsec-anslutning har upprättats. Det här exemplet konfigureras hittills har endast en lokal VPN-enhet, vilket resulterar i diagrammet nedan:
 
-![aktiv-aktiv-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
+![active-active-crossprem](./media/vpn-gateway-activeactive-rm-powershell/active-active.png)
 
 ### <a name="step-3---connect-two-on-premises-vpn-devices-to-the-active-active-vpn-gateway"></a>Steg 3 – ansluta två lokala VPN-enheter till aktiv-aktiv VPN-gateway
 Om du har två VPN-enheter på samma lokala nätverk kan få du dubbel redundans genom att ansluta Azure VPN-gateway och den andra VPN-enheten.
@@ -277,7 +277,7 @@ På samma sätt nedan listas parametrarna du ska ange i den andra VPN-enheten:
 
 När anslutningen (tunnlar) har upprättats kan har du dubbel redundant VPN-enheter och tunnlar ansluta ditt lokala nätverk och Azure:
 
-![Dual-redundans-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
+![dual-redundancy-crossprem](./media/vpn-gateway-activeactive-rm-powershell/dual-redundancy.png)
 
 ## <a name ="aav2v"></a>Del 3 – upprätta en aktiv-aktiv VNet-till-VNet-anslutning
 Det här avsnittet skapar du en aktiv-aktiv VNet-till-VNet-anslutning med BGP. 
@@ -373,7 +373,7 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $Connection21 -ResourceGroupNam
 
 När du har slutfört dessa steg ska upprätta en anslutning i ett par minuter och BGP-är peering session upp när VNet-till-VNet-anslutningen är klar med dubbel redundans:
 
-![aktiv-aktiv-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
+![active-active-v2v](./media/vpn-gateway-activeactive-rm-powershell/vnet-to-vnet.png)
 
 ## <a name ="aaupdate"></a>Uppdatera en befintlig VPN-gateway
 

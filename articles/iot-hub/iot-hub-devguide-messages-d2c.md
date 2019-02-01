@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: cabfe4381f7f941f2a5e049eed73be546902f6ae
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024281"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55485355"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slutpunkter
 
@@ -21,13 +21,13 @@ ms.locfileid: "50024281"
 
 Meddelanderoutning kan du skicka meddelanden från dina enheter till molntjänster i ett automatiserade, skalbart och tillförlitligt sätt. Meddelanderoutning kan användas för: 
 
-* **Skickar enheter telemetri meddelanden samt händelser** nämligen Livscykelhändelser för enhet och enhetstvillingen ändra händelser till inbyggda – slutpunkt och anpassade slutpunkter. Lär dig mer om [routning slutpunkter](#routing-endpoints).
+* **Skicka meddelanden från enheten telemetri samt händelser** nämligen Livscykelhändelser för enhet och enhetstvillingen ändra händelser till inbyggda – slutpunkt och anpassade slutpunkter. Lär dig mer om [routning slutpunkter](#routing-endpoints).
 
 * **Filtrera data innan du skicka det till olika slutpunkter** genom att använda komplexa frågor. Meddelanderoutning kan du fråga på meddelandeegenskaperna och meddelandetexten som enheten twin taggar och tvillingegenskaper. Läs mer om hur du använder [frågor i meddelanderoutning](iot-hub-devguide-routing-query-syntax.md).
 
 IoT Hub måste ha skrivbehörighet för dessa tjänstslutpunkter för meddelanderoutning för att fungera. Om du konfigurerar dina slutpunkter via Azure portal, läggs behörigheterna som krävs för dig. Kontrollera att du konfigurerar dina tjänster för att stödja det förväntade dataflödet. När du först konfigurera din IoT-lösning kan du behöva övervaka din ytterligare slutpunkter och gör eventuella ändringar för den faktiska belastningen.
 
-IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för interoperatbility oavsett protokoll. Om ett meddelande matchar flera routningstabeller som pekar på samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden. Använd den här självstudiekursen för att lära dig hur du [konfigurera meddelanderoutning](tutorial-routing.md).
+IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för samverkan mellan protokoll. Om ett meddelande matchar flera routningstabeller som pekar på samma slutpunkt, IoT-hubb levererar meddelanden till denna slutpunkt bara en gång. Därför behöver du inte konfigurera deduplicering på din Service Bus-kö eller ämne. I partitionerade köer garanterar partition tillhörighet ordningsföljd för meddelanden. Använd den här självstudiekursen för att lära dig hur du [konfigurera meddelanderoutning](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Routning slutpunkter
 

@@ -1,25 +1,25 @@
 ---
-title: Azure Active Directory gruppbaserad licensiering ytterligare scenarier | Microsoft Docs
+title: Gruppbaserad licensiering ytterligare scenarier – Azure Active Directory | Microsoft Docs
 description: Fler scenarier för gruppbaserad licensiering i Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: piotrci
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 10/29/2018
+ms.date: 01/31/2019
 ms.author: curtand
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b2e52b1e9aad05af173bf86e769e0c6ff7d28d9d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.reviewer: sumitp
+ms.custom: ''
+ms.openlocfilehash: a7937e6a532883c2808160fd88096bdfc1b4f4c2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55195168"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508648"
 ---
 # <a name="scenarios-limitations-and-known-issues-using-groups-to-manage-licensing-in-azure-active-directory"></a>Scenarier, begränsningar och kända problem med hjälp av grupper för att hantera licensiering i Azure Active Directory
 

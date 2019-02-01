@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1671a068611d9f5842c2cb09f3b83b18dd483921
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: d61b39eb0a7b6a35330e0cde2142029b8eb7ce03
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820690"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512218"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatisera resurser i ditt datacenter eller i molnet med hjälp av Hybrid Runbook Worker
 
@@ -51,13 +51,13 @@ Granska den [information planerar nätverket](#network-planning) innan du börja
 Du kan ta bort en eller flera Hybrid Runbook Worker från en grupp eller du kan ta bort gruppen, beroende på dina krav. Ta bort en Hybrid Runbook Worker från en lokal dator med följande steg:
 
 1. Gå till ditt Automation-konto i Azure-portalen.
-2. Under **inställningar**väljer **nycklar** och anteckna värdena för **URL** och **primära åtkomstnyckel**. Du behöver den här informationen för nästa steg.
+2. Under **kontoinställningar**väljer **nycklar** och anteckna värdena för **URL** och **primära åtkomstnyckel**. Du behöver den här informationen för nästa steg.
 
 ### <a name="windows"></a>Windows
 
 Öppna en PowerShell-session i administratörsläge och kör följande kommando. Använd den **-utförlig** växla för en detaljerad logg över borttagningen.
 
-```powershell
+```powershell-interactive
 Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey>
 ```
 
@@ -68,6 +68,8 @@ Remove-HybridRunbookWorker -url <URL> -key <PrimaryAccessKey> -machineName <Comp
 ```
 
 ### <a name="linux"></a>Linux
+
+Du kan använda kommandot `ls /var/opt/microsoft/omsagent` på den Hybrid Runbook Worker för att hämta workspaceid. Det finns en mapp i katalogen där namnet på mappen är arbetsytan Id.
 
 ```bash
 sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessKey>" --groupname="Example" --workspaceid="<workspaceId>"
@@ -81,11 +83,11 @@ sudo python onboarding.py --deregister --endpoint="<URL>" --key="<PrimaryAccessK
 Om du vill ta bort en grupp, måste du först ta bort Hybrid Runbook Worker från varje dator som är medlem i gruppen med hjälp av proceduren som visades tidigare. Sedan använder du följande steg för att ta bort gruppen:
 
 1. Öppna Automation-kontot i Azure-portalen.
-1. Under **Processautomatisering**väljer **Hybrid worker-grupper**. Välj den grupp som du vill ta bort. Egenskapssidan för gruppen visas.
+2. Under **Processautomatisering**väljer **Hybrid worker-grupper**. Välj den grupp som du vill ta bort. Egenskapssidan för gruppen visas.
 
    ![Sidan Egenskaper](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. På egenskapssidan för den valda gruppen väljer **ta bort**. Du ombeds att bekräfta åtgärden. Välj **Ja** om du vet att du vill fortsätta.
+3. På egenskapssidan för den valda gruppen väljer **ta bort**. Du ombeds att bekräfta åtgärden. Välj **Ja** om du vet att du vill fortsätta.
 
    ![Bekräftelsemeddelande](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
 

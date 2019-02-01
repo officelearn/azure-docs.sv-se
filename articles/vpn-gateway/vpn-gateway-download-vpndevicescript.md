@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 01/09/2019
 ms.author: yushwang
 ms.openlocfilehash: 0b0a7ce63fa2d0154300dd2e8f9cf88d985a8a0a
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200538"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507698"
 ---
 # <a name="download-vpn-device-configuration-scripts-for-s2s-vpn-connections"></a>Ladda ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar
 
 Den här artikeln beskriver hur du laddar ned konfigurationsskript för VPN-enheten för S2S VPN-anslutningar med Azure VPN gateway med Azure Resource Manager. Följande diagram visar det övergripande arbetsflödet.
 
-![skript för hämtning](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
+![download-script](./media/vpn-gateway-download-vpndevicescript/downloaddevicescript.png)
 
 Följande enheter har tillgängliga skript:
 
@@ -64,16 +64,16 @@ När anslutningsresursen har skapats följer du anvisningarna nedan för att lad
 
 4. Klicka på länken ”Hämta configuration” som markerats i rött i Översikt-anslutningssidan; Då öppnas sidan ”Download-konfiguration”.
 
-    ![ladda ned skriptet 1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
+    ![download-script-1](./media/vpn-gateway-download-vpndevicescript/downloadscript-1.png)
 
 5. Välj modellversion för familj och inbyggd programvara för VPN-enheten och klicka på knappen ”Hämta konfiguration”.
 
-    ![download66-skript-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
+    ![download66-script-2](./media/vpn-gateway-download-vpndevicescript/downloadscript-2.PNG)
 
 6. Du uppmanas att spara det hämta skriptet (en textfil) från din webbläsare.
 7. När du har hämtat konfigurationsskriptet, kan du öppna den med en textredigerare och Sök efter nyckelordet ”Ersätt” för att identifiera och undersöka de parametrar som kan behöva bytas.
 
-    ![Redigera skript](./media/vpn-gateway-download-vpndevicescript/editscript.png)
+    ![edit-script](./media/vpn-gateway-download-vpndevicescript/editscript.png)
 
 ## <a name="download-the-configuration-script-using-azure-powershell"></a>Ladda ned konfigurationsskriptet med Azure PowerShell
 

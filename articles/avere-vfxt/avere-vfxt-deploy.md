@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: da329b5c50fe7c39d9773743b40c2f990e298963
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: f6d847e9042341f47a06fde0f9aa4a70f2549a07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55296383"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512167"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -39,11 +39,11 @@ Mer information om distributionssteg för klustret och planera [planera datorn A
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Skapa Avere vFXT för Azure
 
-Komma åt mallen skapas i Azure portal genom att söka efter Avere och välja ”Avere vFXT för Azure-distribution”. <!-- xxx update if that name changes xxx --> 
+Åt mallen som skapas i Azure portal genom att söka efter Avere och välja ”Avere vFXT ARM distribution”. 
 
-<!-- **[XXX need production image of template deploy in search and/or entry page of template deploy XXX]** -->
+![Webbläsarfönster som visar Azure-portalen med bröd smulor ”Ny > Marketplace > allt”. I allt sidan, sökfältet har termen ”avere” och det andra resultatet ”Avere vFXT ARM distribution” markeras i rött att markera den.](media/avere-vfxt-template-choose.png)
 
-Klicka på **skapa** att börja. 
+När du har läst informationen på sidan Avere vFXT ARM-distributionen, klickar du på **skapa** att börja. 
 
 ![Azure marketplace med den första sidan i distributionen mall som visar](media/avere-vfxt-deploy-first.png)
 
@@ -123,9 +123,11 @@ Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp,
 
 * **Undernät** – Välj ett undernät från det befintliga virtuella nätverket eller skapa en ny. 
 
-* **Använda blob storage** – Välj om du ska skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya Avere vFXT klustret eller inte. Om du väljer att skapa en ny behållare, måste du ange lagringskontot för den behållaren. Om du väljer att inte skapa en ny blobbehållare, måste du koppla lagring när du har skapat klustret (läsa [konfigurerar du lagring](avere-vfxt-add-storage.md) anvisningar). Ange fältet till **FALSKT** om du inte vill skapa en ny behållare.
+* **Använda blob storage** -Välj **SANT** att skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya Avere vFXT klustret. Det här alternativet skapar även ett nytt lagringskonto i samma resursgrupp som klustret. 
 
-* **Storage-konto** – om du skapar en ny Azure Blob-behållare, ange namnet på lagringskontot. Lagringskontot måste vara ett standard Allmänt V2 konto som har konfigurerats med lokalt redundant lagring och frekvent åtkomstnivå. Den [konfigurerar du lagring](avere-vfxt-add-storage.md#azure-storage-cloud-core-filer) artikeln innehåller mer information om krav för storage-konto.
+  Ange fältet till **FALSKT** om du inte vill skapa en ny behållare. I så fall måste du bifoga och konfigurera lagring när du har skapat klustret. Läs [konfigurerar du lagring](avere-vfxt-add-storage.md) anvisningar. 
+
+* **Storage-konto** – om du skapar en ny Azure Blob-behållare, ange ett namn för det nya lagringskontot. 
 
 ## <a name="validation-and-purchase"></a>Validering och köp
 
@@ -161,7 +163,7 @@ Följ den här proceduren för att hitta den här informationen:
 
 ## <a name="create-a-storage-endpoint-if-using-azure-blob"></a>Skapa en slutpunkt för lagring (om du använder Azure Blob)
 
-Om du använder Azure Blob storage för lagring av dina backend-data kan skapa du en slutpunkt för lagring i det virtuella nätverket. Detta [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) behåller Azure Blob-trafik lokalt i stället för att dirigeras via internet.
+Om du använder Azure Blob storage för lagring av dina backend-data kan skapa du en slutpunkt för lagring i det virtuella nätverket. Detta [tjänstslutpunkt](../virtual-network/virtual-network-service-endpoints-overview.md) behåller Azure Blob-trafik lokalt i stället för att skicka det utanför det virtuella nätverket.
 
 1. I portalen klickar du på **virtuella nätverk** till vänster.
 1. Välj det virtuella nätverket för din kontrollant. 

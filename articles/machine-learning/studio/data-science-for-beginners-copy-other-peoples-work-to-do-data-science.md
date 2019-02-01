@@ -1,8 +1,21 @@
 ---
-Rubrik: Kopiera andras data science exempel titleSuffix: Beskrivning av Azure Machine Learning Studio: ' Affärshemlighet för datavetenskap: Hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet ”.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: garyericson ms.author: garye ms.custom: seodec18 ms.date: 01/05/2018
+title: Kopiera andras data science exempel
+titleSuffix: Azure Machine Learning Studio
+description: 'Affärshemlighet för datavetenskap: Hämta andra att göra arbetet åt dig. Hämta machine learning-exempel från Azure AI-galleriet.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: seodec18
+ms.date: 01/05/2018
+ms.openlocfilehash: 69d3e02ca8d3f020a50b81785c58a3f5a42ce4b0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493005"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>Kopiera andras arbete för att göra datavetenskap
 ## <a name="video-5-data-science-for-beginners-series"></a>Video 5: Datavetenskap för nybörjare-serien

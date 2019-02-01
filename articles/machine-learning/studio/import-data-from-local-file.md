@@ -1,8 +1,21 @@
 ---
-Rubrik: Importera data från filen titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du överför en utbildning datafil från hårddisken till Azure Machine Learning Studio. Detta skapar en datauppsättning modul på arbetsytan.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 03/20/2017
+title: Importera data från fil
+titleSuffix: Azure Machine Learning Studio
+description: Lär dig hur du överför en utbildning datafil från hårddisken till Azure Machine Learning Studio. Detta skapar en datauppsättning modul på arbetsytan.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 03/20/2017
+ms.openlocfilehash: fe09eabe399af2d3ddc776843f39742774e6ea3c
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55495895"
 ---
 # <a name="import-training-data-from-a-file-on-your-hard-drive-into-azure-machine-learning-studio"></a>Importera utbildningsdata från en fil på din hårddisk till Azure Machine Learning Studio
 

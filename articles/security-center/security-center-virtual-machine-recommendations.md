@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/12/2018
 ms.author: rkarlin
-ms.openlocfilehash: b77e814f9f339dff4539a04ab8b492e9777abe0d
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 32ca3fc87c91deba26e63a5938536d488e7dc5a8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53537655"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488755"
 ---
 # <a name="understand-azure-security-center-resource-recommendations"></a>Förstå rekommendationer för Azure Security Center-resurs
 
@@ -43,27 +43,27 @@ Använd tabellen nedan som referens för att förstå beräkningarna som är til
 | [Sårbarhetsbedömning inte installerad](security-center-vulnerability-assessment-recommendations.md) |Rekommenderar att du installerar en lösning för sårbarhetsbedömning på den virtuella datorn. |
 | [Åtgärda sårbarheter](security-center-vulnerability-assessment-recommendations.md#review-the-recommendation) |Gör att du kan visa system- och säkerhetssårbarheter som identifieras av sårbarhetsbedömningen som är installerad på den virtuella datorn. |
 
-### <a name="app-services"></a>App Services
+### Apptjänster <a name="app-services"></a>
 | Rekommendation | Beskrivning |
 | --- | --- |
 | App Service bör endast vara tillgängligt via HTTPS | Rekommenderar att du begränsar åtkomst till App Service via HTTPS endast. |
-| Webbsockets bör inaktiveras för webbprogram| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| Web Sockets bör inaktiveras för webbappen| Rekommenderar att du noggrant läser användningen av Web Sockets i webbappar.  Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
 | Använd anpassade domäner för ditt webbprogram | Rekommenderar att du använder anpassade domäner för att skydda ett webbprogram mot vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
-| Konfigurera IP-begränsningar för webbprogram | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program.  Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker. |
+| Konfigurera IP-begränsningar för webbapp | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program.  Användning av IP-restriktioner skyddar du webbappar mot vanliga attacker. |
 | Tillåt inte alla ('* ') resurser för att komma åt ditt program | Rekommenderar att du inte anger parametern website_load_certificates. den ”*”. Ställa in parametern '*”innebär att alla certifikat läses till din web program personliga certifikatarkiv.  Detta kan leda till missbruk av principen om lägsta behörighet eftersom det är osannolikt att webbplatsen behöver åtkomst till alla certifikat vid körning. |
 | CORS bör inte bevilja alla resurser åtkomst till ditt program | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner får åtkomst till ditt webbprogram. |
-| Använd senast stöds .NET Framework för webbprogram | Rekommenderar att du använder den senaste versionen av .NET Framework för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| Använd den senaste Java versionen för webbprogram | Rekommenderar att du använder den senaste Java-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| Använd den senaste PHP versionen för webbprogram | Rekommenderar att du använder den senaste PHP-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste version av .NET Framework som stöds för webbappen | Rekommenderar att du använder den senaste versionen av .NET Framework för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste Java-versionen som stöds för webbappen | Rekommenderar att du använder den senaste Java-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| Använd den senaste PHP-versionen som stöds för webbappen | Rekommenderar att du använder den senaste PHP-versionen för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
 | [Lägga till en brandvägg för webbappar](security-center-add-web-application-firewall.md) |Rekommenderar att du distribuerar en brandvägg för webbaserade program (WAF) för webb-slutpunkter. En WAF-rekommendation visas för valfri offentlig IP-adress (instans nivå IP eller belastningsutjämnade IP-Load) som har en nätverkssäkerhetsgrupp med öppna inkommande webbportar (80,443).</br></br>Security Center rekommenderar att du etablerar en WAF för att skydda mot hot mot dina webbprogram på virtuella datorer och på App Service Environment. App Service Environment (ASE) är en [Premium](https://azure.microsoft.com/pricing/details/app-service/) tjänsten Prenumerationsalternativ i Azure App Service som innehåller en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Mer information om ASE finns i [dokumentation för App Service Environment](../app-service/environment/intro.md).</br></br>Du kan skydda flera webbprogram i Security Center genom att lägga till dessa program till din befintliga WAF-distributioner. |
 | [Slutför programskydd](security-center-add-web-application-firewall.md#finalize-application-protection) |Om du vill slutföra konfigurationen av en WAF måste trafik dirigeras om till den WAF-installationen. Efter den här rekommendationen Slutför de nödvändiga ändringarna. |
-| Använd den senaste Node.js versionen för webbprogram | Rekommenderar att du använder den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
-| CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
-| Använd anpassade domäner för Funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
+| Använd den senaste Node.js-versionen som stöds för webbappen | Rekommenderar att du använder den senaste versionen av Node.js för de senaste säkerhetsklasserna. Använder äldre klasser och typer kan du göra ditt program sårbart. |
+| CORS bör inte tillåta att alla resurser får åtkomst till din funktionsapp | Rekommenderar att du tillåter endast nödvändiga domäner att interagera med ditt webbprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram. |
+| Använd anpassade domäner för funktionsappen | Rekommenderar att du använder anpassade domäner för att skydda en funktionsapp från vanliga attacker som nätfiske och andra DNS-relaterade attacker. |
 | Konfigurera IP-begränsningar för funktionsappen | Du bör definiera en lista över IP-adresser som ska kunna komma åt ditt program. Användning av IP-restriktioner skyddar en funktionsapp från vanliga attacker. |
-| Funktionen App bör enbart vara åtkomliga via HTTPS | Rekommenderar att du begränsar åtkomst till funktionsappar via HTTPS endast. |
-| Fjärrfelsökning bör stängas av för Funktionsappen | Rekommenderar att du stänger av felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
-| Webbsockets bör inaktiveras för Funktionsappen | Rekommenderar att du noggrant läser användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
+| Funktionsappen bör endast vara åtkomlig via HTTPS | Rekommenderar att du begränsar åtkomst till funktionsappar via HTTPS endast. |
+| Du bör stänga av fjärrfelsökning för funktionsappen | Rekommenderar att du stänger av felsökning för Funktionsappen om du inte längre behöver använda den. Fjärrfelsökning kräver att inkommande portar öppnas på en Funktionsapp. |
+| Web Sockets bör inaktiveras för funktionsappen | Rekommenderar att du noggrant läser användningen av Web Sockets i Funktionsappar. Web Sockets-protokollet är utsatt för olika typer av säkerhetshot. |
 
 
 ## <a name="next-steps"></a>Nästa steg

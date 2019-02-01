@@ -1,8 +1,21 @@
 ---
-Rubrik: Omtrimma en Machine Learning Studio modellen titleSuffix: Beskrivning av Azure Machine Learning Studio: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 04/19/2017
+title: Omtrimma en Machine Learning Studio-modell
+titleSuffix: Azure Machine Learning Studio
+description: Lär dig hur du tränar en modell och uppdatera webbtjänsten för att använda den nyligen tränade modellen i Azure Machine Learning.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 04/19/2017
+ms.openlocfilehash: 4fec32ac2d613486ee65416ccdfac70575ea9543
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509583"
 ---
 # <a name="retrain-an-azure-machine-learning-studio-model"></a>Omtrimning av en Azure Machine Learning Studio-modell
 Som en del av processen för driftsättning av machine learning-modeller i Azure Machine Learning, är din modell tränas och sparas. Du sedan använda den för att skapa en förutsägbar webbtjänst. Webbtjänsten kan sedan användas i webbplatser, instrumentpaneler och mobila appar. 

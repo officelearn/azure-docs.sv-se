@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: mihauss
 ms.subservice: blobs
-ms.openlocfilehash: e78b1f94338f177601b1e93fcc7974a228be062b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 08d51b1b6a09bb4df3986bd8c4c44d3834882def
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55240003"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506133"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage-blobbar
 Azure Storage erbjuder nu mjuk borttagning för blob-objekt så att du kan enkelt återställa dina data när den är felaktigt ändras eller tas bort av ett program eller en annan användare för storage-konto.
@@ -322,4 +322,4 @@ Det är möjligt att utnyttja fördelarna med mjuk borttagning oavsett vilken AP
 * [REST API för BLOB Service](/rest/api/storageservices/blob-service-rest-api)
 * [Azure Storage Replication](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [Utforma högtillgängliga program med hjälp av RA-GRS](../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Vad du gör om ett avbrott i Azure Storage inträffar?](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Disaster recovery och storage-konto redundans (förhandsversion) i Azure Storage](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

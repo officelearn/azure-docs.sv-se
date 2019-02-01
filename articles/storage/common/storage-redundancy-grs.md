@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/20/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8ffd3c34628f96888145a3639ddfe4a190dffc7f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 2dc409743ce94ecb73e351b839a5a2fb09eadab2
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467075"
+ms.locfileid: "55512116"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>GEO-redundant lagring (GRS): Tvärregional replikering för Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -28,20 +28,18 @@ Några saker att tänka på när du använder RA-GRS:
 * Programmet måste hantera vilken slutpunkt som den interagerar med när du använder RA-GRS.
 * Eftersom asynkron replikering innebär en fördröjning, ändringar som ännu inte har replikerats till den sekundära regionen kan gå förlorade om data inte kan återställas från den primära regionen.
 * Du kan kontrollera den senaste synkronisering för storage-kontot. Senaste synkroniseringstid är ett GMT datum/tid-värde. Alla primära skrivningar innan den senaste synkronisering har skrivits till den sekundära platsen, vilket innebär att de blir tillgängliga för att läsa från den sekundära platsen. Primär skriver efter den senaste synkronisering kanske eller kanske inte tillgänglig för läsningar ännu. Du kan fråga efter detta värde med hjälp av den [Azure-portalen](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), eller från en Azure Storage-klientbibliotek.
-* Om Microsoft initierar redundans till den sekundära regionen, du kommer har läs- och skrivåtkomst till dessa data efter växlingen har slutförts. Mer information finns i [vägledning om Haveriberedskap](storage-disaster-recovery-guidance.md).
-* Information om hur du växlar till den sekundära regionen finns [vad du gör om ett avbrott i Azure Storage inträffar](storage-disaster-recovery-guidance.md).
+* Om du har initierat en konto-redundans (förhandsversion) för ett GRS eller RA-GRS-konto till den sekundära regionen kan återställs skrivåtkomst till det kontot efter att redundansen har slutförts. Mer information finns i [Disaster recovery och storage-konto redundans (förhandsversion)](storage-disaster-recovery-guidance.md).
 * RA-GRS är avsedd för hög tillgänglighet. Skalbarhetsguide, granska de [checklista för prestanda](storage-performance-checklist.md).
 * Förslag på hur du utformar för hög tillgänglighet med RA-GRS finns i [utforma högtillgängliga program med hjälp av RA-GRS-lagring](storage-designing-ha-apps-with-ragrs.md).
 
 ## <a name="what-is-the-rpo-and-rto-with-grs"></a>Vad är RPO och RTO med GRS?
-**Mål för återställningspunkt (RPO):** I GRS och RA-GRS-lagringen tjänsten asynkront geo-replikeras data från primärt till den sekundära platsen. I händelse av en regional större katastrof på den primära regionen utför Microsoft en växling till den sekundära regionen. Om en redundans sker gå ändringar som ännu inte har geo-replikerade förlorade. Hur många minuter av eventuella data som har förlorat kallas rpo-MÅLET. Återställningspunktmålet anger punkten i tiden som data kan återställas. Azure Storage vanligtvis har ett Återställningspunktmål på mindre än 15 minuter, även om det finns för närvarande inga serviceavtal för hur länge geo-replikering tar.
+
+**Mål för återställningspunkt (RPO):** I GRS och RA-GRS-lagringen tjänsten asynkront geo-replikeras data från primärt till den sekundära platsen. I händelse av att den primära regionen blir otillgänglig, kan du utföra en konto-redundans (förhandsversion) till den sekundära regionen. När du har initierat en redundansväxling kan kan de senaste ändringarna som ännu inte har geo-replikerade gå förlorade. Hur många minuter av eventuella data som har förlorat kallas rpo-MÅLET. Återställningspunktmålet anger punkten i tiden som data kan återställas. Azure Storage vanligtvis har ett Återställningspunktmål på mindre än 15 minuter, även om det finns för närvarande inga serviceavtal för hur länge geo-replikering tar.
 
 **Återställningstid (RTO):** RTO är ett mått på hur lång tid det tar att utföra redundansväxlingen och hämta lagringskontot online igen. Tid för att utföra redundansväxlingen innehåller följande åtgärder:
 
-   * Tiden Microsoft kräver för att avgöra om data kan återställas när den primära platsen eller om det krävs en redundansväxling
-   * Tid för att utföra redundans för storage-konto genom att ändra de primära DNS-posterna så att den pekar till den sekundära platsen
-
-Microsoft ansvarar för att bevara dina data på allvar. Om det finns några risken för att återställa data i den primära regionen, Microsoft fördröjer växling vid fel och fokuserar på att återställa dina data. 
+   * Tid till kunden initierar redundans för storage-konto från primärt till den sekundära regionen.
+   * Den tid som krävs av Azure för att utföra redundansväxlingen genom att ändra de primära DNS-posterna så att den pekar till den sekundära platsen.
 
 ## <a name="paired-regions"></a>Länkade regioner 
 När du skapar ett lagringskonto, väljer du den primära regionen för kontot. Den kopplade sekundära regionen fastställs baserat på den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [företag affärskontinuitet och haveriberedskap recovery (BCDR): Parade Azure-regioner](../../best-practices-availability-paired-regions.md).

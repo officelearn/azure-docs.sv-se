@@ -10,12 +10,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 01/18/2017
 ms.author: alch
-ms.openlocfilehash: 7484b570784f5f058ebd23b1e3c225c5d858a274
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 0e42d5e05268d4a572376f2bdf25d0ce6f8f4be7
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55183347"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490132"
 ---
 # <a name="similarity-method"></a>Likhet metod
 
@@ -30,12 +30,12 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/similarity?
 ## <a name="request-parameters"></a>Parametrar för begäran
 Parameter        |Datatyp      |Krävs | Beskrivning
 ----------|----------|----------|------------
-**s1**        |Sträng   |Ja  |Sträng * som ska jämföras
-**s2**        |Sträng   |Ja  |Sträng * som ska jämföras
-<sub> * Strängar att jämföra har en högsta längd på 1MB. </sub>
+**s1**        |String   |Ja  |Sträng * som ska jämföras
+**s2**        |String   |Ja  |Sträng * som ska jämföras
+<sub> * Strängar att jämföra har en maximal längd på 1MB. </sub>
 <br>
 ## <a name="response"></a>Svar
-Name | Beskrivning
+Namn | Beskrivning
 --------|---------
 **SimilarityScore**        |En flytande peka värde som representerar cosinus-likheten för s1 och s2 med värden närmare 1.0 betydelsen mer liknande och värden för närmare att-1.0 vilket innebär att mindre
 <br>

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 3c1896dc756675b838b97d978cec40b4650760fe
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: 9164c335eb85676a419c1cb805b2217ea73c40fe
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298977"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497833"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>Enhetlig aviseringar och övervakning i Azure Monitor ersätter klassiska aviseringar och övervakning
 
@@ -63,7 +63,7 @@ I slutet av juni 2019 i Azure Monitor:
 - Avisera regler migreras till den nya aviseringar plattformen ger övervakning täckning som tidigare men utlöses meddelande med nya nyttolaster. Någon e-postadress, webhook-slutpunkt eller logic applänk associerad med klassisk aviseringsregel överförs när migreras, men kanske inte fungerar korrekt när aviseringen nyttolast kommer att bli annorlunda i den nya plattformen
 
 > [!IMPORTANT]
-> Microsoft Azure Monitor kommer att tillhandahålla verktyget för kunder att automatiskt migrera klassiska notifieringsregler in på den nya plattformen snart. Och kör den automatiskt för alla klassiska Varningsregler som fortfarande finns, startar juli 2019. Kunderna måste se till att automation konsumerande klassisk aviseringsregel nyttolasten är anpassad för att hantera nya nyttolast från [Unified mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [Unified mått och aviseringar för andra Azure resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varningsreglerna. 
+> Microsoft Azure Monitor får du Verktyg för kunder att automatiskt migrera klassiska notifieringsregler in på den nya plattformen snart. Och kör den automatiskt för alla klassiska Varningsregler som fortfarande finns, startar juli 2019. Kunderna måste se till att automation konsumerande klassisk aviseringsregel nyttolasten är anpassad för att hantera nya nyttolast från [Unified mått och aviseringar i Application Insights](#unified-metrics-and-alerts-in-application-insights) eller [Unified mått och aviseringar för andra Azure resurser](#unified-metrics-and-alerts-for-other-azure-resources), efter migreringen av de klassiska varningsreglerna. 
 
 Vi kommer snart med verktyg så att du kan migrera dina aviseringar från frivilligt [aviseringar (klassisk) avsnittet](../../azure-monitor/platform/alerts-classic.overview.md) Azure-portalen till de nya Azure-aviseringarna. Alla regler som konfigurerats i aviseringar (klassisk) som har migrerats till den nya Azure Monitor fortsätter att vara kostnadsfria och inte att debiteras. Migrerade klassiska Varningsregler bär också inte någon avgift för push-meddelanden via e-post, webhook eller LogicApp. Användning av typen nyare meddelande eller åtgärd (till exempel SMS, röstsamtal, ITSM-integration, osv.) är dock debiterbar om lagts till i en migrerade eller ny avisering. Mer information finns i [priser för Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 

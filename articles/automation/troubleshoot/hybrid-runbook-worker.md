@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9f83a0cf97acfd0bed990cc832ac08eb23c29ef1
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5a88e1fc5395a1b935371ae9d1eb24528a87b853
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54434466"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512372"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Felsöka Hybrid Runbook Worker
 
@@ -87,8 +87,17 @@ Linux Hybrid Runbook Worker beror på OMS-agenten för Linux för att kommunicer
 
 ### <a name="oms-agent-not-running"></a>Scenario: OMS-agenten för Linux körs inte
 
+#### <a name="issue"></a>Problem
 
-Om OMS-agenten för Linux inte körs förhindras Linux Hybrid Runbook Worker från att kommunicera med Azure Automation. Verifiera agenten körs genom att ange följande kommando: `ps -ef | grep python`. Du bör se utdata som liknar följande, python-processer med **nxautomation** användarkonto. Om hantering av uppdateringar eller Azure Automation-lösningar inte är aktiverad, körs ingen av följande processer.
+OMS-agenten för Linux körs inte
+
+#### <a name="cause"></a>Orsak
+
+Om OMS-agenten för Linux inte körs förhindras Linux Hybrid Runbook Worker från att kommunicera med Azure Automation. Agenten kan inte köras av olika anledningar.
+
+#### <a name="resolution"></a>Lösning
+
+ Verifiera agenten körs genom att ange följande kommando: `ps -ef | grep python`. Du bör se utdata som liknar följande, python-processer med **nxautomation** användarkonto. Om hantering av uppdateringar eller Azure Automation-lösningar inte är aktiverad, körs ingen av följande processer.
 
 ```bash
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>

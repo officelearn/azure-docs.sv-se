@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2a2e835f074ac2f5d1eede9f68e77774938da6af
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 28c0ddbb735de041497b6705759d03c881b7e87e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55181749"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494365"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect och federation
 Azure Active Directory (Azure AD) Connect kan du konfigurera federation med en lokal Active Directory Federation Services (AD FS) och Azure AD. Med federation inloggning, kan du ge användare att logga in på Azure AD-baserade tjänster med sina lokala lösenord – och på företagets nätverk, utan att behöva ange sina lösenord igen. Du kan distribuera en ny installation av AD FS med hjälp av alternativet federation med AD FS, eller du kan ange en befintlig installation i en Windows Server 2012 R2-servergrupp.
@@ -30,7 +30,7 @@ Det här avsnittet är hittar du information om federation-relaterade funktioner
 ## <a name="azure-ad-connect-federation-topics"></a>Azure AD Connect: federation ämnen
 | Avsnitt | Den beskriver hur och när du ska läsa den |
 |:--- |:--- |
-| **Azure AD Connect-inloggning användaralternativ** | |
+| **Azure AD Connect user sign-in options** (Alternativ för användarinloggning i Azure AD Connect) | |
 | [Förstå inloggningsalternativ för användare](plan-connect-user-signin.md) |Läs mer om olika användare logga in alternativ och hur de påverkar Azure-inloggning användarupplevelsen. |
 | **Installera AD FS med hjälp av Azure AD Connect** | |
 | [Förutsättningar](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Se kraven för en lyckad AD FS-installation via Azure AD Connect. |

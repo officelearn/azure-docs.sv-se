@@ -1,27 +1,27 @@
 ---
-title: Hantera åtkomst till SaaS-program med hjälp av en grupp | Microsoft Docs
-description: Hur du använder grupper i Azure Active Directory Premium eller Basic för att tilldela åtkomst till SaaS-program som är integrerade med Azure Active Directory.
+title: Hantera åtkomst till SaaS - program i Azure Active Directory med hjälp av en grupp | Microsoft Docs
+description: Hur du använder grupper i Azure Active Directory för att tilldela åtkomst till SaaS-program som är integrerade med Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/14/2017
+ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: a7e4a20905b390945c22557af044cf739bc17ce8
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 26a726f200ea64895a7ebf289c030089c7de5555
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197219"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506268"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Använd en grupp för att hantera åtkomst till SaaS-program
+
 Med Azure Active Directory (Azure AD) med Azure AD Premium eller Azure AD Basic-licens kan använda du grupper för att tilldela åtkomst till ett SaaS-program som är integrerad med Azure AD. Till exempel om du vill tilldela åtkomst för marknadsföringsavdelningen att använda fem olika SaaS-program du kan skapa en grupp som innehåller användare i marknadsföringsavdelningen och sedan tilldela den gruppen för dessa fem SaaS-program som krävs av den marknadsföringsavdelningen. På så sätt kan du spara tid genom att hantera medlemskapet för marknadsföringsavdelningen på samma ställe. Användare sedan tilldelas till programmet när de läggs till som medlemmar i gruppen marknadsföring och har tilldelningarna tas bort från programmet när de tas bort från gruppen marknadsföring. Den här funktionen kan användas med hundratals program som du kan lägga till från inom Azure AD-Programgalleriet.
 
 > [!IMPORTANT]

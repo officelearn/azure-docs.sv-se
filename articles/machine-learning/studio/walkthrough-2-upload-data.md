@@ -1,8 +1,21 @@
 ---
-Rubrik: ”Steg 2: Ladda upp data till en Machine Learning Studio-experiment' titleSuffix: Beskrivning av Azure Machine Learning Studio: ”Steg 2 av utveckla en förutsägelselösning genomgång: Ladda upp lagras offentliga data till Azure Machine Learning Studio ”.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-Författare: garyericson ms.author: garye ms.custom: föregående författare = heatherbshapiro, tidigare ms.author=hshapiro ms.date: 03/23/2017
+title: 'Steg 2: Ladda upp data till en Machine Learning Studio-experiment'
+titleSuffix: Azure Machine Learning Studio
+description: 'Steg 2 av utveckla en förutsägelselösning genomgång: Ladda upp offentliga lagrade data till Azure Machine Learning Studio.'
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: garyericson
+ms.author: garye
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 03/23/2017
+ms.openlocfilehash: 4b23286a5a86b8d2731a34f39755b4fd18bbd78d
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507578"
 ---
 # <a name="walkthrough-step-2-upload-existing-data-into-an-azure-machine-learning-studio-experiment"></a>Genomgång steg 2: Överför befintliga data i ett Azure Machine Learning Studio-experiment
 Det här är det andra steget i den här genomgången [utveckla en lösning för förutsägelseanalys i Azure Machine Learning](walkthrough-develop-predictive-solution.md)

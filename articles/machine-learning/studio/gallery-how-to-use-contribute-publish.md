@@ -1,8 +1,21 @@
 ---
-Rubrik: Azure AI-galleriet titleSuffix: Beskrivning av Azure Machine Learning Studio: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro ms.date: 01/11/2019
+title: Azure AI-galleriet
+titleSuffix: Azure Machine Learning Studio
+description: Dela och Upptäck analytics-resurser och mycket mer i Azure AI-galleriet. Lär dig från andra och göra dina egna bidrag till communityn.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
+ms.date: 01/11/2019
+ms.openlocfilehash: b5a460f3449785721ac360ba398bc47d1945b954
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55497713"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Dela och Upptäck resurser i Azure AI-galleriet
 

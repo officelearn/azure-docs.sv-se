@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: douglasl
-ms.openlocfilehash: d9a649e3b49c71a24d06656e0667765ef9cc5508
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: e77b8c89954064fb143f04f0f901d1512d4fc50d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321344"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491016"
 ---
 # <a name="transform-data-using-hadoop-hive-activity-in-azure-data-factory"></a>Transformera data med Hadoop Hive-aktivitet i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,7 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
         "defines": {
             "param1": "param1Value"
         }
-    }   
+    }
 }
 ```
 ## <a name="syntax-details"></a>Information om syntax
@@ -67,7 +67,7 @@ Om du är nybörjare på Azure Data Factory, Läs igenom [introduktion till Azur
 | getDebugInfo        | Anger om filerna kopieras till Azure Storage används av HDInsight-kluster (eller) anges med scriptLinkedService. Tillåtna värden: Ingen alltid kan eller inte. Standardvärde: Ingen. | Nej       |
 | argument           | Anger en matris med argumenten för ett Hadoop-jobb. Argumenten skickas till varje aktivitet som kommandoradsargument. | Nej       |
 | definierar             | Ange parametrar som nyckel/värde-par för refererar till Hive-skript. | Nej       |
-| queryTimeout        | Fråga efter värdet för tidsgränsen (i minuter).  Gäller när HDInsight-klustret är med Enterprise Security Package aktiverat. | Nej       |
+| queryTimeout        | Fråga efter värdet för tidsgränsen (i minuter). Gäller när HDInsight-klustret är med Enterprise Security Package aktiverat. | Nej       |
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar som beskriver hur du omvandlar data på andra sätt: 
@@ -80,4 +80,3 @@ Se följande artiklar som beskriver hur du omvandlar data på andra sätt:
 * [.NET-anpassad aktivitet](transform-data-using-dotnet-custom-activity.md)
 * [Machine Learning-batchkörningsaktivitet](transform-data-using-machine-learning.md)
 * [Lagrad proceduraktivitet](transform-data-using-stored-procedure.md)
-

@@ -1,8 +1,21 @@
 ---
-Rubrik: Felsöka omtrimning av en Machine Learning Studio klassiska web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Identifiera och åtgärda vanliga problem som kan uppstå när du träna modellen för en Azure Machine Learning Studio-webbtjänst.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 11/01/2017
+title: Felsöka omtrimning av en klassisk webbtjänst för Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio
+description: Identifiera och åtgärda vanliga problem som kan uppstå när du träna modellen för en Azure Machine Learning Studio-webbtjänst.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 11/01/2017
+ms.openlocfilehash: 6cde9d929c52984c95669554aa1153c2bdf21131
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512160"
 ---
 # <a name="troubleshooting-the-retraining-of-an-azure-machine-learning-studio-classic-web-service"></a>Felsöka omtrimning av en klassisk Azure Machine Learning Studio-webbtjänst
 ## <a name="retraining-overview"></a>Omtränings översikt

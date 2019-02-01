@@ -1,7 +1,21 @@
 ---
-Rubrik: Definiera anpassade R-moduler titleSuffix: Beskrivning av Azure Machine Learning Studio: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa. tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: seodec18 ms.date: 11/29/2017
+title: Definiera anpassade R-moduler
+titleSuffix: Azure Machine Learning Studio
+description: Det här avsnittet beskriver hur du skapar och distribuerar en anpassad R-modul i Azure Machine Learning. Den förklarar vad anpassade R-moduler är och vilka filer som används för att definiera dessa.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: seodec18
+ms.date: 11/29/2017
+ms.openlocfilehash: 0da5456845b940ef88ac40ffed1f53e84fe54080
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488313"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio"></a>Definiera anpassade R-moduler för Azure Machine Learning Studio
 

@@ -1,5 +1,5 @@
 ---
-title: 'Ansluta ett virtuellt Azure-nätverk till ett annat VNet med en VNet-till-VNet-anslutning: PowerShell | Microsoft Docs'
+title: 'Anslut Azure-nätverk till ett annat VNet med en VNet-till-VNet-anslutning: PowerShell | Microsoft Docs'
 description: Anslut virtuella nätverk tillsammans med en VNet-till-VNet-anslutning och PowerShell.
 services: vpn-gateway
 documentationcenter: na
@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 10/14/2018
 ms.author: cherylmc
 ms.openlocfilehash: d890aabd6b0acad324ef4b632daaed1db6452ac5
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51686967"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510563"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Konfigurera en VPN-gatewayanslutning mellan virtuella nätverk med hjälp av PowerShell
 
@@ -68,11 +68,11 @@ Den största skillnaden mellan uppsättningarna är att du måste använda separ
 
 För den här övningen kan du kombinera konfigurationer eller bara välja den du vill arbeta med. Alla konfigurationer använder anslutningstypen VNet-till-VNet. Nätverkstrafik flödar mellan virtuella nätverk som är direkt anslutna till varandra. I den här övningen dirigeras inte trafik från TestVNet4 till TestVNet5.
 
-* [Virtuella nätverk som finns i samma prenumeration:](#samesub) I stegen för den här konfigurationen används TestVNet1 och TestVNet4.
+* [VNets som finns i samma prenumeration](#samesub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet4.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
 
-* [VNets som finns i olika prenumerationer:](#difsub) I stegen för den här konfigurationen används TestVNet1 och TestVNet5.
+* [VNets som finns i olika prenumerationer](#difsub): Stegen för den här konfigurationen använder TestVNet1 och TestVNet5.
 
   ![v2v-diagram](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
@@ -92,14 +92,14 @@ Vi använder följande värden i exemplen:
 
 * VNet-namn: TestVNet1
 * Resursgrupp: TestRG1
-* Plats: USA, östra
+* Plats: Östra USA
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
 * GatewaySubnet: 10.12.255.0/27
 * GatewayName: VNet1GW
-* Offentlig IP: VNet1GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet1GWIP
+* VPNType: Routningsbaserad
 * Connection(1to4): VNet1toVNet4
 * Connection(1to5): VNet1toVNet5 (för VNet i olika prenumerationer)
 * ConnectionType: VNet2VNet
@@ -114,8 +114,8 @@ Vi använder följande värden i exemplen:
 * Resursgrupp: TestRG4
 * Plats: Västra USA
 * GatewayName: VNet4GW
-* Offentlig IP: VNet4GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet4GWIP
+* VPNType: Routningsbaserad
 * Anslutning: VNet4toVNet1
 * ConnectionType: VNet2VNet
 
@@ -305,14 +305,14 @@ Det är viktigt att se till att IP-adressutrymmet för det nya virtuella nätver
 
 * VNet-namn: TestVNet5
 * Resursgrupp: TestRG5
-* Plats: Japan, östra
+* Plats: Östra Japan
 * TestVNet5: 10.51.0.0/16 & 10.52.0.0/16
 * FrontEnd: 10.51.0.0/24
 * BackEnd: 10.52.0.0/24
 * GatewaySubnet: 10.52.255.0.0/27
 * GatewayName: VNet5GW
-* Offentlig IP: VNet5GWIP
-* VPNType: RouteBased
+* Offentligt IP: VNet5GWIP
+* VPNType: Routningsbaserad
 * Anslutning: VNet5toVNet1
 * ConnectionType: VNet2VNet
 

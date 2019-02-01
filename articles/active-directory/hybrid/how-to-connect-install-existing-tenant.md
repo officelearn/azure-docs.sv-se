@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c672264952622fca47bf602f93ad49595293e206
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e0e4331b245edcfcbe1529354e605e7505b81268
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169470"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55494977"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existent-tenant"></a>Azure AD Connect: När du har en befintlig klient
 De flesta av avsnitten om hur du använder Azure AD Connect förutsätter att du börjar med en ny Azure AD-klient och att det finns inga användare eller det andra objekt. Men om du har börjat med Azure AD-klient fyllt det med användare och andra objekt, och nu vill använda Connect, och det här avsnittet är för dig.

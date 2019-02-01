@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 3a7c91f4a83cd69bdb87ffaccce555b04eca67cc
-ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
+ms.openlocfilehash: 0394d1cc44dae270682691e2091543e5aab321f6
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51597660"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55513983"
 ---
 <a name="virtual-networking-limits-classic"></a>Följande begränsningar gäller endast för nätverksresurser som hanteras via den klassiska distributionsmodellen per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md).
 
@@ -48,6 +48,7 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | DNS-servrar per virtuellt nätverk |20 |
 | Privata IP-adresser per virtuellt nätverk |65536 |
 | Privata IP-adresser per nätverksgränssnitt |256 |
+| Privata IP-adresser per virtuell dator |256 |
 | Samtidiga TCP eller UDP flöden per nätverkskort för en virtuell dator eller rollinstans |500 000 |
 | Nätverksgränssnitt (NIC) |65536 |
 | Nätverkssäkerhetsgrupper (NSG) |5000 |
@@ -67,8 +68,9 @@ Följande begränsningar gäller endast för nätverksresurser som hanteras via 
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
 | Offentliga IP-adresser – dynamisk |(Basic) 1000 |kontakta supporten |
-| Offentliga IP-adresser – statiska |200 (grundläggande) |kontakta supporten |
-| Offentliga IP-adresser – statiska |200 (standard) |kontakta supporten |
+| Offentliga IP-adresser – statiska |(Basic) 200 |kontakta supporten |
+| Offentliga IP-adresser – statiska |(Standard) 200 |kontakta supporten |
+| Offentliga IP-Prefix storlek (förhandsversion) | /28 | /28 |
 
 #### <a name="load-balancer"></a>Belastningsutjämnaren begränsar
 Följande begränsningar gäller endast för nätverksresurser som hanteras via Azure Resource Manager per region per prenumeration. Lär dig hur du [visa din aktuella användning mot din prenumerationsbegränsningar](../articles/networking/check-usage-against-limits.md)

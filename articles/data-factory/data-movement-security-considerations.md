@@ -12,15 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 0113fc3112fa0fa911d6609684357d01cd9adf30
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: d684ec56c7dfcc28d1057d0b20905db49bce9723
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498081"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhetsöverväganden för dataförflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
+>
 > * [Version 1](v1/data-factory-data-movement-security-considerations.md)
 > * [Aktuell version](data-movement-security-considerations.md)
 
@@ -32,13 +33,19 @@ I en Data Factory-lösning skapar du en eller flera data[pipelines](concepts-pip
 
 Azure Data Factory lagrar inte alla data utom länkade autentiseringsuppgifter för molndatalager som krypteras med hjälp av certifikat. Med Data Factory kan du skapa datadrivna arbetsflöden som samordnar flödet av data mellan [datalager som stöds](copy-activity-overview.md#supported-data-stores-and-formats), och bearbetning av data med hjälp av [Beräkningstjänster](compute-linked-services.md) i andra regioner eller i en lokala miljö. Du kan också övervaka och hantera arbetsflöden med hjälp av SDK: er och Azure Monitor.
 
-Dataförflyttning med Data Factory har certifierats för:
--   [HIPAA/HITECH](https://www.microsoft.com/en-us/trustcenter/Compliance/HIPAA) 
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018)
--   [CSA STAR](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+Data Factory har certifierats för:
+| **[CSA STAR-certifiering](https://www.microsoft.com/trustcenter/compliance/csa-star-certification)** |
+| :----------------------------------------------------------- |
+| **[ISO 20000-1:2011](https://www.microsoft.com/trustcenter/Compliance/ISO-20000-1)** |
+| **[ISO 22301:2012](https://www.microsoft.com/trustcenter/compliance/iso-22301)** |
+| **[ISO 27001:2013](https://www.microsoft.com/trustcenter/compliance/iso-iec-27001)** |
+| **[ISO 27017:2015](https://www.microsoft.com/trustcenter/compliance/iso-iec-27017)** |
+| **[ISO 27018:2014](https://www.microsoft.com/trustcenter/compliance/iso-iec-27018)** |
+| **[ISO 9001:2015](https://www.microsoft.com/trustcenter/compliance/iso-9001)** |
+| **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
+| **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Om du är intresserad av efterlevnad i Azure och hur Azure skyddar sin egen infrastruktur kan du gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx).
+Om du är intresserad av efterlevnad i Azure och hur Azure skyddar sin egen infrastruktur kan du gå till den [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure-erbjudanden kompatibilitetskontrollen - http://aka.ms/AzureCompliance.
 
 I den här artikeln ska granska vi säkerhetsaspekter i följande två data movement scenarier: 
 

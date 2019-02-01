@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 110b909106f5b9eae639639adf418647e3e8bea9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: c5bd40741ec0fe047f98b4b4431819d90e188385
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022350"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491475"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>Distributionsfunktioner för Azure Resource Manager-mallar 
 
@@ -30,6 +30,8 @@ Resource Manager tillhandahåller följande funktioner för att hämta värden f
 Om du vill hämta värden från resurser, resursgrupper eller prenumerationer, se [resursfunktioner](resource-group-template-functions-resource.md).
 
 <a id="deployment" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment"></a>distribution
 `deployment()`
@@ -149,10 +151,10 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/deployment.json
 ```
 
-En prenumerationsnivå-mall som använder funktionen distribution, se [prenumeration distribution funktionen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den har distribuerats med antingen `az deployment create` eller `New-AzureRmDeployment` kommandon.
+En prenumerationsnivå-mall som använder funktionen distribution, se [prenumeration distribution funktionen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json). Den har distribuerats med antingen `az deployment create` eller `New-AzDeployment` kommandon.
 
 <a id="parameters" />
 
@@ -252,11 +254,11 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| stringOutput | Sträng | Alternativ 1 |
+| stringOutput | String | Alternativ 1 |
 | intOutput | Int | 1 |
-| objectOutput | Objekt | {”en”: ”a”, ”två”: ”b”} |
+| objectOutput | Objekt | {"one": "a", "two": "b"} |
 | arrayOutput | Matris | [1, 2, 3] |
-| crossOutput | Sträng | Alternativ 1 |
+| crossOutput | String | Alternativ 1 |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -267,7 +269,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/parameters.json
 ```
 
 <a id="variables" />
@@ -281,7 +283,7 @@ Returnerar värdet för variabeln. Det angivna variabelnamnet måste definieras 
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| Variabelnamn |Ja |Sträng |Namnet på variabeln ska returneras. |
+| variableName |Ja |String |Namnet på variabeln ska returneras. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -355,10 +357,10 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Värde |
 | ---- | ---- | ----- |
-| exampleOutput1 | Sträng | myVariable |
+| exampleOutput1 | String | myVariable |
 | exampleOutput2 | Matris | [1, 2, 3, 4] |
-| exampleOutput3 | Sträng | myVariable |
-| exampleOutput4 |  Objekt | {”egenskap1”: ”value1”, ”egenskap2”: ”value2”} |
+| exampleOutput3 | String | myVariable |
+| exampleOutput4 |  Objekt | {"property1": "value1", "property2": "value2"} |
 
 Om du vill distribuera den här exempel-mallen med Azure CLI, använder du:
 
@@ -369,7 +371,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 Om du vill distribuera den här exempelmall med PowerShell använder du:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/variables.json
 ```
 
 ## <a name="next-steps"></a>Nästa steg

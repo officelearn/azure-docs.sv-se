@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 12eb678262d11ca3bcb727d03e31a50b0aee4a68
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 1b2f82b4feea94c5c0ed732ff84856c96f46afc0
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203852"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498088"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-architecture"></a>Azure AD Connect-synkronisering: Förstå arkitekturen
 Det här avsnittet innehåller grundläggande arkitektur för Azure AD Connect-synkronisering. Det är till stor del liknar föregående MIIS 2003 ILM 2007 och FIM 2010. Azure AD Connect-synkronisering är en utveckling av våra tekniker. Om du är bekant med någon av dessa tidigare tekniker kommer innehållet i det här avsnittet att du är van att också. Om du är nybörjare på synkronisering, är det här avsnittet för dig. Det är dock inte ett krav att känna till det här avsnittet för att utföra gör anpassningar i Azure AD Connect-synkronisering (kallas Synkroniseringsmotorn i det här avsnittet).

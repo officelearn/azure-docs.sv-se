@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: afaa4c090508ee5a2306c2be1515076e6bd4f100
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53aa442b86f5c82ded2f212a64f43852e6b3d2c5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225733"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55486834"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Använda StorSimple Device Manager-tjänsten för att hantera dina autentiseringsuppgifter för lagringskonto
 
@@ -54,7 +54,7 @@ De vanligaste uppgifterna som rör lagringskonton som kan utföras är:
 
 Det finns tre typer av lagringskonton som kan användas med din StorSimple-enhet.
 
-* **Automatiskt genererade lagringskonton** – som namnet antyder, den här typen av lagringskonto skapas automatiskt när tjänsten skapas. Läs mer om hur det här lagringskontot har skapats i [steg 1: skapa en ny tjänst](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md). 
+* **Automatiskt genererade lagringskonton** – som namnet antyder, den här typen av lagringskonto skapas automatiskt när tjänsten skapas. Läs mer om hur det här lagringskontot har skapats i [steg 1: Skapa en ny tjänst](storsimple-8000-deployment-walkthrough-u2.md#step-1-create-a-new-service) i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md). 
 * **Storage-konton i tjänstprenumeration** – dessa är Azure storage-konton som är associerade med samma prenumeration som för tjänsten. Läs mer om hur dessa storage-konton har skapats i [om Azure Storage-konton](../storage/common/storage-create-storage-account.md). 
 * **Storage-konton utanför tjänstprenumeration** – dessa är Azure storage-konton som inte är kopplad till din tjänst och sannolikt fanns innan tjänsten har skapats.
 
@@ -165,7 +165,7 @@ För att informera StorSimple Device Manager-tjänsten av en ändring, behöver 
       
       ![Synkronisera nycklar](./media/storsimple-8000-manage-storage-accounts/syncaccesskey3.png)
 
-Du kommer att meddelas när nyckeln är har sycnhronized.
+Du kommer att meddelas när nyckeln har synkroniserats.
 
 #### <a name="to-synchronize-keys-for-storage-accounts-outside-of-the-service-subscription"></a>Synkronisera nycklar för storage-konton utanför tjänstprenumeration
 1. På den **Services** klickar du på den **konfigurera** fliken.

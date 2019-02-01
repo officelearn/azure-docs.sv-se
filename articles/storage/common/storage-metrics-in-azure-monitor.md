@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 248624cc31fab0138eb8a45b5479cc8d2da6ef53
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: f7a645669d273e0ca0017e28ef539c2143151d25
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467653"
+ms.locfileid: "55509714"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Storage-mått i Azure Monitor
 
@@ -401,6 +401,10 @@ Du måste ange dimensionsvärde för att se de motsvarande mått för stödjande
 Äldre mått är tillgängliga parallellt med Azure Monitor hanteras mått. Stödet behåller samma tills Azure Storage avslutar tjänsten på äldre mått.
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+
+**Nya mått som har stöd för klassiskt lagringskonto?**
+
+Nej, nya mått i Azure Monitor endast stöd för resurshanteraren i Azure storage-konton. Om du vill använda mått på Storage-konton måste du migrera till Azure Resource Manager-lagringskonto. Se [migrera till Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
 **Stöder Azure Storage mått för hanterade eller ohanterade diskar?**
 

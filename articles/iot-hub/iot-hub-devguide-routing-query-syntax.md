@@ -1,6 +1,6 @@
 ---
 title: Fråga på Azure IoT Hub meddelanderoutning | Microsoft Docs
-description: Utvecklarguide – fråga synxtax för meddelanderoutning i Azure IoT Hub.
+description: Utvecklarguide – frågesyntax för meddelanderoutning i Azure IoT Hub.
 author: ash2017
 manager: briz
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: da95bd3832ee647c371c7beabb55b974dcb97740
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018544"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496575"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub meddelanderoutning frågesyntax
 
@@ -25,7 +25,7 @@ Meddelanderoutning kan du fråga på meddelandeegenskaperna och meddelandetexten
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Routning fråga för statusmeddelandet baserat på meddelandeegenskaper 
 
-IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för interoperatbility oavsett protokoll. IoT Hub-meddelande förutsätter följande JSON-representation av meddelandet. Systemegenskaper har lagts till för alla användare och identifiera innehållet i meddelandet. Användare kan selektivt lägga till egenskaper för program i meddelandet. Vi rekommenderar att du använder unika egenskapsnamn som IoT Hub-enhet till moln-meddelanden inte är skiftlägeskänsligt. Till exempel om du har flera egenskaper med samma namn, skickar IoT Hub bara en av egenskaperna.  
+IoT-hubben som definierar en [vanligt format](iot-hub-devguide-messages-construct.md) för alla enhet till moln-meddelanden för samverkan mellan protokoll. IoT Hub-meddelande förutsätter följande JSON-representation av meddelandet. Systemegenskaper har lagts till för alla användare och identifiera innehållet i meddelandet. Användare kan selektivt lägga till egenskaper för program i meddelandet. Vi rekommenderar att du använder unika egenskapsnamn som IoT Hub-enhet till moln-meddelanden inte är skiftlägeskänsligt. Till exempel om du har flera egenskaper med samma namn, skickar IoT Hub bara en av egenskaperna.  
 
 ```json
 { 
@@ -55,7 +55,7 @@ Systemegenskaper att identifiera innehåll och källan för meddelanden.
 | -------- | ---- | ----------- |
 | contentType | sträng | Användaren anger innehållstypen för meddelandet. För att fråga på meddelandets brödtext ska sättas det här värdet application/JSON. |
 | contentEncoding | sträng | Användaren anger kodningstyp för meddelandet. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType har angetts till application/JSON. |
-| ConnectionDeviceId | sträng | Det här värdet anges av IoT Hub och identifierar källan för meddelanden. Det kan enheten telemetrimeddelanden, device twin ändringsmeddelanden eller Livscykelhändelser för enhet. Detta kan inte frågas. |
+| connectionDeviceId | sträng | Det här värdet anges av IoT Hub och identifierar källan för meddelanden. Det kan enheten telemetrimeddelanden, device twin ändringsmeddelanden eller Livscykelhändelser för enhet. Detta kan inte frågas. |
 | iothub-enqueuedtime | sträng | Det här värdet anges av IoT Hub och visar faktiska enqueuing meddelandet i UTC-tid. Om du vill fråga, Använd `enqueuedTime`. |
 
 Mer information finns i den [meddelanden från IoT Hub](iot-hub-devguide-messages-construct.md), det finns ytterligare Systemegenskaper i ett meddelande. Förutom **contentType**, **contentEncoding**, och **enqueuedTime**, **connectionDeviceId** och  **connectionModuleId** kan också efterfrågas.

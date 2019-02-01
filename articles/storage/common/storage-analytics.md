@@ -1,5 +1,5 @@
 ---
-title: Använd Azure Storage Analytics för att samla in loggar och mått data | Microsoft Docs
+title: Använd Azure Storage analytics för att samla in loggar och mått data | Microsoft Docs
 description: Storage Analytics kan du spåra mätvärden för alla lagringstjänster och samla in loggar för Blob, Queue och Table storage.
 services: storage
 author: roygara
@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 233a0685bffba1192193f97b8d98dabd7c65d3c9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9cd4845bcf107941f969255eb223567d4341ea41
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55239782"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508512"
 ---
 # <a name="storage-analytics"></a>Lagringsanalys
 
@@ -28,7 +28,7 @@ Lagringsanalys har en 20 TB gräns för mängden lagrade data som är oberoende 
 
 Utförliga instruktioner om hur du använder Storage Analytics och andra verktyg för att identifiera, diagnostisera och felsöka Azure Storage-relaterade problem, se [övervaka, diagnostisera och Felsök Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md).
 
-## <a name="about-storage-analytics-logging"></a>Om Lagringsanalys loggning
+## <a name="about-storage-analytics-logging"></a>Om loggningen i Storage analytics
 Lagringsanalys loggar detaljerad information om lyckade och misslyckade begäranden till en lagringstjänst. Den här informationen kan användas för att övervaka enskilda begäranden och diagnostisera problem med en lagringstjänst. Förfrågningar loggas på basis av bästa prestanda.
 
 Loggposter skapas endast om det finns storage service-aktivitet. Till exempel skapas ett storage-konto har aktivitet i dess Blob service, men inte i dess tabell- eller -tjänster, endast loggar som hör till Blob-tjänsten.
@@ -43,7 +43,7 @@ Följande typer av autentiserade begäranden loggas:
 * Begäranden med hjälp av en signatur för delad åtkomst (SAS), inklusive misslyckade och lyckade förfrågningar.
 * Begäranden till analytics-data.
 
-Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/hh343260.aspx) och [Storage Analytics loggformat](https://msdn.microsoft.com/library/hh343259.aspx) ämnen.
+Begäranden som görs av Storage Analytics, till exempel log skapas eller tas bort, loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
 
 ### <a name="logging-anonymous-requests"></a>Logga anonyma förfrågningar
 Följande typer av anonyma förfrågningar loggas:
@@ -53,7 +53,7 @@ Följande typer av anonyma förfrågningar loggas:
 * Timeout-fel för både klienten och servern.
 * Misslyckade GET-begäranden med felkoden 304 (har inte ändrats).
 
-Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/hh343260.aspx) och [Storage Analytics loggformat](https://msdn.microsoft.com/library/hh343259.aspx) ämnen.
+Alla övriga misslyckade anonyma förfrågningar loggas inte. En fullständig lista över data som loggats dokumenteras i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) och [Storage Analytics loggformat](/rest/api/storageservices/storage-analytics-log-format.md) ämnen.
 
 ### <a name="how-logs-are-stored"></a>Hur loggar lagras
 Alla loggar lagras i blockblob-objekt i en behållare med namnet $logs som skapas automatiskt när Lagringsanalys har aktiverats för ett lagringskonto. Behållaren $logs finns i blob-namnområdet för storage-konto, till exempel: `http://<accountname>.blob.core.windows.net/$logs`. Den här behållaren kan inte tas bort när Storage Analytics har aktiverats, även om dess innehåll kan tas bort.
@@ -61,8 +61,8 @@ Alla loggar lagras i blockblob-objekt i en behållare med namnet $logs som skapa
 > [!NOTE]
 > Behållaren $logs visas inte när en behållare med åtgärden utförs, till exempel den [ListContainers](https://msdn.microsoft.com/library/azure/dd179352.aspx) metod. Den måste kunna nås direkt. Du kan till exempel använda den [ListBlobs](https://msdn.microsoft.com/library/azure/dd135734.aspx) metod för att komma åt blobarna i den `$logs` behållare.
 > Eftersom förfrågningar loggas, ska Storage Analytics överföra mellanresultat som block. Lagringsanalys kommer med jämna mellanrum, genomför de här block och göra dem tillgängliga som en blob.
-> 
-> 
+>
+>
 
 Dubbla poster kan finnas för loggar som skapas i en och samma timme. Du kan avgöra om en post är en dubblett genom att markera den **RequestId** och **åtgärden** tal.
 
@@ -129,9 +129,9 @@ Transaktionsmått registreras för både användarförfrågningar och begärande
 
 ### <a name="capacity-metrics"></a>Kapacitet mått
 > [!NOTE]
-> Kapacitet är för närvarande endast tillgängliga för Blob-tjänsten. Kapacitet mått för Table service och kötjänsten blir tillgänglig i framtida versioner av Storage Analytics.
-> 
-> 
+> Kapacitet är för närvarande endast tillgängliga för Blob-tjänsten.
+>
+>
 
 Registreras kapacitetsdata varje dag för ett lagringskontos Blob service och två tabellenheter skrivs. En entitet innehåller statistik för användardata och den andra innehåller statistik om den `$logs` blob-behållare som används av Storage Analytics. Den `$MetricsCapacityBlob` tabell innehåller följande statistik:
 
@@ -139,7 +139,7 @@ Registreras kapacitetsdata varje dag för ett lagringskontos Blob service och tv
 * **ContainerCount**: Antal blob-behållare i lagringskontots Blob service.
 * **ObjectCount**: Antal allokerade och ogenomförda block- eller sidtyp blobar i lagringskontots Blob service.
 
-Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx).
+Läs mer om kapacitetsmåtten [Schema över Måttabeller i Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).
 
 ### <a name="how-metrics-are-stored"></a>Hur mått lagras
 Alla mätvärden för var och en av lagringstjänsterna lagras i tre tabeller som är reserverade för tjänsten: en tabell för transaktionsinformation, en tabell för minut transaktionsinformation och en annan tabell för kapacitetsinformation. Transaktionen och minut transaktionsinformation består av data för begäran och svar och kapacitetsinformation består av användningsdata för lagring. Timmått, minutmått och kapacitet för ett lagringskontos Blob service kan nås i tabeller som namnges enligt beskrivningen i följande tabell.
@@ -163,7 +163,7 @@ Alla mätvärden skrivs av tjänster i ett lagringskonto. Därmed kan är varje 
 
 Följande åtgärder utförs av Storage Analytics är fakturerbara:
 
-* Begäranden om att skapa blobar för loggning. 
+* Begäranden om att skapa blobar för loggning.
 * Begäranden om att skapa tabellentiteter för mått.
 
 Om du har konfigurerat en databevarandeprincip, debiteras du inte för ta borttagningstransaktioner när Lagringsanalys tar bort gamla data för loggning och mått. Ta borttagningstransaktioner från en klient är dock faktureringsbara. Läs mer om principer för kvarhållning [ställa in en bevarandeprincip för Storage Analytics Data](https://msdn.microsoft.com/library/azure/hh343263.aspx).
@@ -171,20 +171,9 @@ Om du har konfigurerat en databevarandeprincip, debiteras du inte för ta bortta
 ### <a name="understanding-billable-requests"></a>Förstå debiterbara begäranden
 Varje begäran som görs till ett konto lagringstjänst är fakturerbara eller icke-fakturerbara. Lagringsanalys loggar varje enskild begäran till en tjänst, inklusive ett statusmeddelande som anger hur begäran behandlades. På samma sätt lagrar Storage Analytics mätvärden för både en tjänst och API-åtgärder för tjänsten, inklusive procenttal och antalet vissa statusmeddelanden. Tillsammans de här funktionerna kan hjälpa dig att analysera din debiterbara begäranden, gör förbättringar för ditt program och diagnostisera problem med förfrågningar till dina tjänster. Läs mer om fakturering, [förstå Azure Storage-fakturering – bandbredd, transaktioner och kapacitet](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
-När du granskar data i Storage Analytics kan du använda tabellerna i den [Storage Analytics loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/azure/hh343260.aspx) avsnittet för att avgöra vilka begäranden som fakturerbara. Du kan sedan jämföra dina loggar och mätdata till statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i det föregående avsnittet för att undersöka tillgänglighet för en lagringstjänst eller för enskilda API-åtgärden.
+När du granskar data i Storage Analytics kan du använda tabellerna i den [Storage Analytics loggade åtgärder och statusmeddelanden](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) avsnittet för att avgöra vilka begäranden som fakturerbara. Du kan sedan jämföra dina loggar och mätdata till statusmeddelanden för att se om du debiterades för en viss begäran. Du kan också använda tabellerna i det föregående avsnittet för att undersöka tillgänglighet för en lagringstjänst eller för enskilda API-åtgärden.
 
 ## <a name="next-steps"></a>Nästa steg
-### <a name="setting-up-storage-analytics"></a>Hur du konfigurerar Lagringsanalys
 * [Övervaka ett lagringskonto i Azure Portal](storage-monitor-storage-account.md)
-* [Aktivera och konfigurera Storage Analytics](https://msdn.microsoft.com/library/hh360996.aspx)
-
-### <a name="storage-analytics-logging"></a>Loggningen i Storage Analytics
-* [Om loggningen i Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
-* [Loggformatet för Storage Analytics](https://msdn.microsoft.com/library/hh343259.aspx)
-* [Lagringsanalys loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/hh343260.aspx)
-
-### <a name="storage-analytics-metrics"></a>Mätvärden i Storage Analytics
-* [Om mätvärden i Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)
-* [Schema över Måttabeller i Storage Analytics](https://msdn.microsoft.com/library/hh343264.aspx)
-* [Lagringsanalys loggade åtgärder och statusmeddelanden](https://msdn.microsoft.com/library/hh343260.aspx)  
-
+* [Loggningen i Storage Analytics](https://msdn.microsoft.com/library/hh343262.aspx)
+* [Mätvärden i Storage Analytics](https://msdn.microsoft.com/library/hh343258.aspx)

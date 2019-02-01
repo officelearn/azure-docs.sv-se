@@ -1,8 +1,20 @@
 ---
-Rubrik: Förbereda modellen för distribution titleSuffix: Beskrivning av Azure Machine Learning Studio: Hur du förbereder din tränade modellen för distribution som en webbtjänst genom att konvertera din Machine Learning Studio-träningsexperiment till ett förutsägbart experiment.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.date: 03/28/2017
+title: Förbereda modellen för distribution
+titleSuffix: Azure Machine Learning Studio
+description: Hur du förbereder din tränade modellen för distribution som en webbtjänst genom att konvertera din Machine Learning Studio-träningsexperiment till ett förutsägbart experiment.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.date: 03/28/2017
+ms.openlocfilehash: fe7d3956c1a5ead55acd8605086668e20e85e1d2
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496082"
 ---
 # <a name="how-to-prepare-your-model-for-deployment-in-azure-machine-learning-studio"></a>Hur du förbereder din modell för distribution i Azure Machine Learning Studio
 

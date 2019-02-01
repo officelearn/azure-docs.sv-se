@@ -13,14 +13,15 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0ba4a1a4119db515e10c0b704b0a10501fe79682
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 0a4be349bfd8ce546ee2a27c206a7bd86306c27a
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53136897"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493576"
 ---
 # <a name="throttling-resource-manager-requests"></a>Begränsningsbegäranden Resource Manager
+
 För varje Azure-prenumeration och en klient, Resource Manager kan upp till 12 000 läsa förfrågningar per timme och 1 200 skriva förfrågningar per timme. Dessa gränser är begränsade till huvudkontots ID gör begäranden och prenumerations-ID eller klient-ID. Om din begäran kommer från mer än en ägar-ID, är din gräns i en prenumeration eller -klient större än 12 000 och 1 200 per timme.
 
 Begäranden som tillämpas på din prenumeration eller din klient. Prenumerationsbegäranden är sådana involve skicka din prenumeration ID, till exempel hämtar resursgrupper i prenumerationen. Klient-begäranden inkluderar inte ditt prenumerations-ID, till exempel hämta giltiga Azure-platser.
@@ -30,6 +31,8 @@ Dessa begränsningar gäller för varje Azure Resource Manager-instans. Det finn
 Om ditt program eller skript når gränserna kan behöva du begränsa dina önskemål. Den här artikeln visar hur du fastställer de återstående begäranden som du har innan du når gränsen och hur du svarar när du har nått gränsen.
 
 När du når gränsen kan du få HTTP-statuskoden **429 för många begäranden**.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="remaining-requests"></a>Återstående begäranden
 Du kan bestämma antalet återstående begäranden genom att undersöka svarshuvuden. Varje begäran innehåller värden för antalet återstående Läs- och skrivförfrågningar. I följande tabell beskrivs de svarshuvuden som du kan undersöka för dessa värden:
@@ -66,7 +69,7 @@ En fullständig PowerShell-exempel finns i [Kontrollera Resource Manager-gränse
 Om du vill se begäranden för felsökning kan du ange den **-felsöka** parametern på din **PowerShell** cmdlet.
 
 ```powershell
-Get-AzureRmResourceGroup -Debug
+Get-AzResourceGroup -Debug
 ```
 
 Som returnerar flera värden, inklusive följande Svarsvärde:
@@ -85,7 +88,7 @@ x-ms-ratelimit-remaining-subscription-reads: 14999
 Använd en skrivåtgärd för att få skrivning gränser kan: 
 
 ```powershell
-New-AzureRmResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Som returnerar flera värden, inklusive följande värden:

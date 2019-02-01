@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 54378876ed3f8326a19aafa4d71347d17f1c4bab
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: e01e28e304c02c05e233f1c83bdc906779f39a1f
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162556"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493549"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect-synkronisering: Referens för funktioner
 I Azure AD Connect används funktioner för att ändra ett attributvärde under synkroniseringen.  
@@ -611,7 +611,7 @@ Resultat i ”2007-12-25”.
 Kan leda till ”20140905081453.0Z”
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Beskrivning:**  
 Funktionen Guid genererar en ny, slumpmässig GUID
 
@@ -988,7 +988,7 @@ De PadLeft funktionen vänster-Pad en sträng till en angiven längd med en angi
 **Anmärkning:**
 
 * Om längden på strängen är mindre än längden, läggs upprepade gånger padCharacter i början (vänster) av sträng tills den har en längd lika med längden.
-* padCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
+* PadCharacter kan vara ett blanksteg, men den kan inte vara ett null-värde.
 * Om längden på strängen är lika med eller större än längden, returneras sträng oförändrade.
 * Om strängen har en längd som är större än eller lika med längden, returneras en sträng som är identisk med sträng.
 * Om längden på strängen är mindre än längden, returneras en ny sträng med längden som innehåller strängen fylls ut med en padCharacter.
@@ -1335,5 +1335,5 @@ Returnerar ”har”
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Förstå uttryck för deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning-expressions.md)
-* [Azure AD Connect Sync: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
+* [Azure AD Connect-synkronisering: Anpassa synkroniseringsalternativ](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

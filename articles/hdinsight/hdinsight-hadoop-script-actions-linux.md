@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 9dafe7df3c488dbc6d0c2f27a6265e86eebad41c
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: b0eae86a4927f716c974086411e1098f2e9a190d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718936"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498037"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Skriptåtgärdsutveckling med HDInsight
 
@@ -72,10 +72,10 @@ Du kan kontrollera versionen av Operativsystemet med hjälp av `lsb_release`. F�
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ...
@@ -299,10 +299,10 @@ För att kontrollera versionen av Operativsystemet, använda `lsb_release`. Till
 ```bash
 OS_VERSION=$(lsb_release -sr)
 if [[ $OS_VERSION == 14* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-14-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-14-04."
     HUE_TARFILE=hue-binaries-14-04.tgz
 elif [[ $OS_VERSION == 16* ]]; then
-    echo "OS verion is $OS_VERSION. Using hue-binaries-16-04."
+    echo "OS version is $OS_VERSION. Using hue-binaries-16-04."
     HUE_TARFILE=hue-binaries-16-04.tgz
 fi
 ```
@@ -346,7 +346,7 @@ Här följer några fel som kan uppstå när du använder skript som du har utve
 
 Det här problemet uppstår oftast när skriptet har skapats på en Windows-miljö, eftersom CRLF är en gemensam hållning slutar för många textredigerare på Windows.
 
-*Lösning*: Om det är ett alternativ i textredigerare, Välj Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
+*Upplösning*: Om det är ett alternativ i textredigerare, Välj Unix-format eller LF för raden slutar. Du kan också använda följande kommandon på ett Unix-system för att ändra CRLF till en LF:
 
 > [!NOTE]  
 > Följande kommandon kan grovt jämföras i att de ska ändra radbrytningar CRLF till LF. Välj en baserat på Verktyg som är tillgängliga på datorn.
@@ -362,7 +362,7 @@ Det här problemet uppstår oftast när skriptet har skapats på en Windows-milj
 
 *Orsak*: Det här felet uppstår när skriptet har sparats som UTF-8 med en Byte (BOM Order Mark).
 
-*Lösning*: Spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
+*Upplösning*: Spara filen som ASCII eller som UTF-8 utan en struktur. Du kan också använda följande kommando i ett Linux- eller Unix-system för att skapa en fil utan Strukturen:
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

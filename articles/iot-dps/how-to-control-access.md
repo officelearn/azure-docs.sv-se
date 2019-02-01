@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: wesmc
-ms.openlocfilehash: e476ca498e4dc1b36d18927beddc812d6d803120
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 0258a37b0614ca7505a90f88afaaaee1a6d5c04e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818518"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55496979"
 ---
 # <a name="control-access-to-azure-iot-hub-device-provisioning-service"></a>Kontrollera åtkomst till Azure IoT Hub Device Provisioning-tjänsten
 
@@ -34,7 +34,7 @@ Du kan bevilja [behörigheter](#device-provisioning-service-permissions) på fö
 
 * **Delad åtkomst auktoriseringsprinciper**. Principer för delad åtkomst kan ge olika kombinationer av [behörigheter](#device-provisioning-service-permissions). Du kan definiera principer i den [Azure-portalen][lnk-management-portal], eller via programmering med hjälp av den [Device Provisioning Service REST API: er][lnk-resource-provider-apis]. En nyligen skapade etableringstjänst har standardprincipen för följande:
 
-* **provisioningserviceowner**: princip med alla behörigheter.
+* **provisioningserviceowner**: Princip med alla behörigheter.
 
 > [!NOTE]
 > Se [behörigheter](#device-provisioning-service-permissions) detaljerad information.
@@ -77,16 +77,16 @@ Här är de förväntade värdena:
 
 | Värde | Beskrivning |
 | --- | --- |
-| {signatur} |En HMAC-SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: nyckeln avkodas från base64 och används som nyckel för att utföra HMAC-SHA256-beräkningen.|
+| {signature} |En HMAC-SHA256 signatur sträng med formatet: `{URL-encoded-resourceURI} + "\n" + expiry`. **Viktiga**: Nyckeln är avkodas från base64 och används som nyckel för att utföra HMAC-SHA256-beräkningen.|
 | {expiry} |UTF8-strängar för antal sekunder sedan epoch 00:00:00 UTC på 1 januari 1970. |
-| {URL-kodade resurs} | Lägre mål-URL-kodning av gemen resurs-URI. URI-prefix (efter segment) för slutpunkter som kan användas med denna token från och med värdnamnet för IoT Device Provisioning-tjänsten (inga protocol). Till exempel `mydps.azure-devices-provisioning.net`. |
+| {URL-encoded-resourceURI} | Lägre mål-URL-kodning av gemen resurs-URI. URI-prefix (efter segment) för slutpunkter som kan användas med denna token från och med värdnamnet för IoT Device Provisioning-tjänsten (inga protocol). Till exempel `mydps.azure-devices-provisioning.net`. |
 | {policyName} |Namnet på den princip för delad åtkomst som denna token refererar. |
 
-**Observera angående prefix**: den URI-prefix beräknas efter segment och inte tecken. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
+**Observera angående prefix**: URI-prefix beräknas efter segment och inte tecken. Till exempel `/a/b` är ett prefix för `/a/b/c` men inte för `/a/bc`.
 
 Följande kodfragment i Node.js visar en funktion som kallas **generateSasToken** som beräknar token från indata `resourceUri, signingKey, policyName, expiresInMins`. I nästa avsnitt förklarar vi hur du initierar olika indata för olika token användningsfall.
 
-```nodejs
+```javascript
 var generateSasToken = function(resourceUri, signingKey, policyName, expiresInMins) {
     resourceUri = encodeURIComponent(resourceUri);
 
@@ -157,7 +157,7 @@ Exempelvis en tjänst som genereras med hjälp av en skapats i förväg delad å
 
 ![Skapa en princip för delad åtkomst för Device Provisioning-tjänstinstans i portalen][img-add-shared-access-policy]
 
-```nodejs
+```javascript
 var endpoint ="mydps.azure-devices-provisioning.net";
 var policyName = 'enrollmentread'; 
 var policyKey = '...';
@@ -177,7 +177,7 @@ Följande referens ger dig mer information om hur du styr åtkomst till din IoT 
 
 I följande tabell visas de behörigheter som du kan använda för att styra åtkomsten till IoT Device Provisioning-tjänsten.
 
-| Behörighet | OBS! |
+| Behörighet | Anteckningar |
 | --- | --- |
 | **ServiceConfig** |Beviljar åtkomst till att ändra tjänstkonfigurationer. <br/>Den här behörigheten används av backend-molntjänster. |
 | **EnrollmentRead** |Ger läsbehörighet till enhetsregistreringar och registreringsgrupper. <br/>Den här behörigheten används av backend-molntjänster. |

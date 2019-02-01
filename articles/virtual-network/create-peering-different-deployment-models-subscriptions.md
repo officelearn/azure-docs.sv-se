@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: jdial;anavin
-ms.openlocfilehash: 45dd31ecca4f09a595fbf1dae5fe61623fb2be3c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 6a652b3fa834c2f29f5063f9ba72a3e3d4e75f58
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025869"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512456"
 ---
 # <a name="create-a-virtual-network-peering---different-deployment-models-and-subscriptions"></a>Skapa en virtuell nätverkspeering - olika distributionsmodeller och -prenumerationer
 
@@ -27,8 +27,8 @@ Stegen för att skapa en virtuell nätverkspeering är olika, beroende på om de
 
 |Azure-distributionsmodell  | Azure-prenumeration  |
 |--------- |---------|
-|[Båda Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
-|[Båda Resource Manager](create-peering-different-subscriptions.md) |Annorlunda|
+|[Both Resource Manager](tutorial-connect-virtual-networks-portal.md) |Samma|
+|[Both Resource Manager](create-peering-different-subscriptions.md) |Annorlunda|
 |[En Resource Manager, en klassisk](create-peering-different-deployment-models.md) |Samma|
 
 Att går inte skapa en virtuell nätverkspeering mellan två virtuella nätverk som distribueras via den klassiska distributionsmodellen. Den här självstudien använder virtuella nätverk som finns i samma region. Den här självstudien peerar virtuella nätverk i samma region. Du kan också peerkoppla virtuella nätverk i olika [regioner som stöds](virtual-network-manage-peering.md#cross-region). Vi rekommenderar att du bekanta dig med den [peering krav och begränsningar](virtual-network-manage-peering.md#requirements-and-constraints) innan peerkoppla virtuella nätverk.
@@ -44,7 +44,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 1. Logga in på den [Azure-portalen](https://portal.azure.com) som UserA. Det konto som du loggar in med måste ha tillräcklig behörighet för att skapa vnet-peering. En lista över behörigheter finns i [peeringbehörigheter i virtuella nätverk](virtual-network-manage-peering.md#permissions).
 2. Klicka på **+ ny**, klickar du på **nätverk**, klicka sedan på **virtuellt nätverk**.
 3. I den **skapa virtuellt nätverk** bladet anger, eller värden för följande inställningar och sedan klicka på **skapa**:
-    - **Namnet**: *myVnetA*
+    - **Name**: *myVnetA*
     - **Adressutrymme**: *10.0.0.0/16*
     - **Undernätsnamn**: *standard*
     - **Adressintervall för undernätet**: *10.0.0.0/24*
@@ -62,7 +62,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 12. I den **virtuellt nätverk** bladet som visas, Välj **klassiska** i den **Välj en distributionsmodell** rutan och klicka sedan på **skapa**.
 13.   I skapa virtuellt nätverk (klassisk) rutan som visas anger du följande värden:
 
-    - **Namnet**: *myVnetB*
+    - **Name**: *myVnetB*
     - **Adressutrymme**: *10.1.0.0/16*
     - **Undernätsnamn**: *standard*
     - **Adressintervall för undernätet**: *10.1.0.0/24*
@@ -71,7 +71,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
     - **Plats**: *USA, östra*
 
 14. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetB*. Klicka på **myVnetB** när den visas i sökresultaten. Ett blad som visas för den **myVnetB** virtuellt nätverk.
-15. I den **myVnetB** bladet som visas, klickar du på **egenskaper** i lodräta listan med alternativ på vänster sida av bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Susbscription ID>/resourceGroups/myResoureGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
+15. I den **myVnetB** bladet som visas, klickar du på **egenskaper** i lodräta listan med alternativ på vänster sida av bladet. Kopiera den **resurs-ID**, som används i ett senare steg. Resurs-ID som genereras liknar följande exempel: /subscriptions/<Subscription ID>/resourceGroups/myResourceGroupB/providers/Microsoft.ClassicNetwork/virtualNetworks/myVnetB
 16. Slutför steg 5 – 9 för myVnetB, att ange **UserA** i steg 8.
 17. Logga ut från portalen som UserB och logga in som UserA.
 18. I den **Sök efter resurser** högst upp i portalen, Skriv *myVnetA*. Klicka på **myVnetA** när den visas i sökresultaten. Ett blad som visas för den **myVnet** virtuellt nätverk.
@@ -79,7 +79,7 @@ Den här självstudien använder olika konton för varje prenumeration. Om du an
 20. I den **myVnetA** bladet som visas, klickar du på **Peerings** i lodräta listan med alternativ på vänster sida av bladet.
 21. I den **myVnetA - Peerings** bladet som visas, klickar du på **+ Lägg till**
 22. I den **Lägg till peering** bladet som visas, ange, eller Välj följande alternativ, och klicka sedan **OK**:
-     - **Namnet**: *myVnetAToMyVnetB*
+     - **Name**: *myVnetAToMyVnetB*
      - **Distributionsmodell för virtuellt nätverk**:  Välj **klassiska**.
      - **Jag vet mitt resurs-ID**: Markera den här kryssrutan.
      - **Resurs-ID**: Ange resurs-ID för myVnetB från steg 15.

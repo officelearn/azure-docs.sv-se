@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: 63a6d1314b89181b5cccf8583883b7bead7099a4
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 8539c108409a5aea521f919eb9e015764eb0dd29
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55221240"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490149"
 ---
 # <a name="luis-bot-in-nodejs-with-the-bot-framework-3x-and-the-azure-web-app-bot"></a>LUIS-bot i Node.js med Bot Framework 3.x och Azure Web app-robot
 
@@ -116,7 +116,7 @@ Gå till andra webbläsarfönstret om det är fortfarande öppna eller i det fö
 
 Öppna i kodredigeraren `app.js`. Det innehåller följande kod:
 
-```nodejs
+```javascript
 /*-----------------------------------------------------------------------------
 A simple Language Understanding (LUIS) bot for the Microsoft Bot Framework. 
 -----------------------------------------------------------------------------*/
@@ -207,7 +207,7 @@ Befintliga avsikter i app.js ignoreras. Du kan lämna dem.
 
 Kopiera följande kod och lägga till den i `app.js`.
 
-```nodejs
+```javascript
 bot.dialog('TurnOn',
     (session) => {
         session.send('You reached the TurnOn intent. You said \'%s\'.', session.message.text);
@@ -224,7 +224,7 @@ Den [matchar] [ matches] alternativet på den [triggerAction] [ triggerAction] k
 
 Kopiera följande kod och lägga till den i `app.js`.
 
-```nodejs
+```javascript
 bot.dialog('TurnOff',
     (session) => {
         session.send('You reached the TurnOff intent. You said \'%s\'.', session.message.text);

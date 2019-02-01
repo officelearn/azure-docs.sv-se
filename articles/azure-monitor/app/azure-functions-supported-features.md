@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 10/05/2018
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: 06feece050835b2b9188eb702210770b44a6b49c
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: dd28bc3925b0f07a441c46a26498ef1a14c3e650
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55185826"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510331"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Funktioner som stöds av Application Insights för Azure Functions
 
@@ -32,6 +32,7 @@ Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/
 | **Automatisk insamling av**        |                 |                   |               
 | &bull; Begäranden                     | Ja             | Ja               | 
 | &bull; Undantag                   | Ja             | Ja               | 
+| &bull; Prestandaräknare         | Ja             |                   |
 | &bull; Beroenden                   |                   |                   |               
 | &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Ja               | 
 | &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Ja               | 
@@ -50,6 +51,11 @@ Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/
 | | | | 
 | **Konfigurerbara**                      |                   |                   |           
 | &bull;Konfigureras fullt ut.<br/>Se [Azure Functions](https://github.com/Microsoft/ApplicationInsights-aspnetcore/issues/759#issuecomment-426687852) anvisningar.<br/>Se [Asp.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) för alla alternativ.               |                   | Ja                   | 
+
+
+## <a name="performance-counters"></a>Prestandaräknare
+
+Automatisk insamling av prestandaräknare fungerar endast Windows-datorer.
 
 
 ## <a name="live-metrics--secure-control-channel"></a>Live mått och säker kontrollkanal

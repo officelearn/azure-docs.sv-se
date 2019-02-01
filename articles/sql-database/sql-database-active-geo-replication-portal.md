@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 18b024efdc4300daca2c5cee933b136dbc99d433
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 01/30/2019
+ms.openlocfilehash: 8db944de93313915926a6fe48a554d00327b1c94
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468911"
+ms.locfileid: "55486210"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Konfigurera aktiv geo-replikering för Azure SQL Database i Azure-portalen och initiera redundans
 
@@ -32,7 +32,7 @@ För att konfigurera aktiv geo-replikering med hjälp av Azure portal, behöver 
 * En Azure SQL database: Den primära databasen som du vill replikera till en annan geografisk region.
 
 > [!Note]
-Aktiv geo-replikering måste vara mellan databaser i samma prenumeration.
+När du använder Azure-portalen kan skapa du bara en sekundär databas i samma prenumeration som primärt. Om sekundär databas måste vara i en annan prenumeration, använder [Create Database REST API](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) eller [ALTER DATABASE Transact-SQL API: et](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql).
 
 ## <a name="add-a-secondary-database"></a>Lägg till en sekundär databas
 

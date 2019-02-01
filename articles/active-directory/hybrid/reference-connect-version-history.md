@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
 ms.devlang: na
-ms.topic: article
+ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/18/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: c42abf043c528f86db7af164c21c45b21e7bf1ac
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: bf21b03463733f6613cfa515a6faf7c5ab1f33e8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55196284"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498139"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Azure Active Directory (Azure AD)-teamet uppdaterar regelbundet Azure AD Connect med nya funktioner. Inte alla tillägg gäller för alla målgrupper.
@@ -333,7 +333,7 @@ Låsa åtkomsten till AD DS-kontot genom att implementera följande behörighets
 *   Ta bort alla åtkomstkontrollposter på specifika objekt, utom åtkomstkontrollposter som är specifika för SJÄLVBETJÄNINGSPORTALEN. Vi vill hålla standardbehörigheterna intakt när det gäller att själv.
 *   Tilldela specifika behörigheter:
 
-Type     | Name                          | Access               | Gäller
+Type     | Namn                          | Access               | Gäller
 ---------|-------------------------------|----------------------|--------------|
 Tillåt    | SYSTEM                        | Fullständig behörighet         | Det här objektet  |
 Tillåt    | Företagsadministratörer             | Fullständig behörighet         | Det här objektet  |
@@ -752,7 +752,7 @@ Azure AD Connect-synkronisering
   * Lagt till **preferredDataLocation** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta. 
   * Lagt till **userType** metaversumschema och AAD-koppling schemat. Kunder som vill uppdatera antingen attribut i Azure AD kan implementera av anpassade Synkroniseringsregler för att göra detta.
 
-* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Designbegrepp – med ms-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor).
+* Azure AD Connect nu automatiskt kan du använda ConsistencyGuid attribut som källfästpunktsattribut för lokal AD-objekt. Ytterligare, Azure AD Connect fyller ConsistencyGuid attributet med värdet för attributet objectGuid om den är tom. Den här funktionen gäller för ny distribution. Om du vill veta mer om den här funktionen, läser du avsnittet [Azure AD Connect: Design concepts - Using msDS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor) (Azure AD Connect: Designbegrepp – Använda msDS-ConsistencyGuid som sourceAnchor).
 * Nya felsökningsvyer cmdlet har Invoke-ADSyncDiagnostics lagts till för att diagnosticera synkronisering av Lösenordshash-relaterade problem. Information om cmdleten finns i artikeln [felsöka lösenordshashsynkronisering med Azure AD Connect-synkronisering](tshoot-connect-password-hash-synchronization.md).
 * Azure AD Connect nu stöder synkronisering brevlåda offentlig mapp objekt från en lokal AD till Azure AD. Du kan aktivera funktionen med hjälp av Azure AD Connect-guiden under valfria funktioner. Om du vill veta mer om den här funktionen finns i artikeln [Office 365 Directory baserad Edge Blocking stöd för lokala mappar e-post aktiverad offentliga](https://blogs.technet.microsoft.com/exchange/2017/05/19/office-365-directory-based-edge-blocking-support-for-on-premises-mail-enabled-public-folders).
 * Azure AD Connect kräver en AD DS-konto synkroniseras från lokala AD. Tidigare, om du har installerat Azure AD Connect med Express-läge kan du ange autentiseringsuppgifterna för ett Enterprise-administratör-konto och Azure AD Connect skapar AD DS-konto krävs. Men för en anpassad installation och att lägga till skogar i en befintlig distribution kan tvungen du att i stället ange AD DS-kontot. Nu kan möjlighet du också att ange autentiseringsuppgifterna för ett Enterprise-administratör-konto under en anpassad installation och låta Azure AD Connect skapa AD DS-kontot som krävs.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9884138127d62e2dc524dc1b6d9e827d1ee0fac8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 0454bc211d2ae8497babc808f9794fae4d22c47e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439195"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55498173"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Inloggningstillgångar i Azure Automation
 
@@ -73,10 +73,9 @@ Funktionen i följande tabell används för att komma åt autentiseringsuppgifte
 
 ### <a name="to-create-a-new-credential-asset-with-the-azure-portal"></a>Skapa en ny autentiseringstillgång med Azure portal
 
-1. Från ditt automation-konto klickar du på den **tillgångar** en del för att öppna den **tillgångar** bladet.
-2. Klicka på den **autentiseringsuppgifter** en del för att öppna den **autentiseringsuppgifter** bladet.
-3. Klicka på **Lägg till autentiseringsuppgift för** överst på bladet.
-4. Fyll i formuläret och klicka på **skapa** att spara de nya autentiseringsuppgifter.
+1. Från ditt automation-konto väljer **autentiseringsuppgifter** under **delade resurser**.
+1. Klicka på **+ Lägg till autentiseringsuppgift för**.
+1. Fyll i formuläret och klicka på **skapa** att spara de nya autentiseringsuppgifter.
 
 > [!NOTE]
 > Användarkonton som använder multifaktorautentisering stöds inte för användning i Azure Automation.

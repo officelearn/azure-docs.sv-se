@@ -11,18 +11,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: d86a1591c81c6343ec376c080945b4bf1f97638a
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 064cef04ac609b0e6db5f55d9973e3974af8e0cc
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471784"
+ms.locfileid: "55494892"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Skapa resursgrupper och resurser på prenumerationsnivån
 
 Normalt distribuerar du Azure-resurser till en resursgrupp i Azure-prenumerationen. Men kan du också skapa Azure-resursgrupper och skapa Azure-resurser på prenumerationsnivån. För att distribuera mallar på prenumerationsnivå måste använda du Azure CLI och Azure PowerShell. Azure-portalen stöder inte distribution på prenumerationsnivå.
 
 Om du vill skapa en resursgrupp i en Azure Resource Manager-mall definierar en [ **Microsoft.Resources/resourceGroups** ](/azure/templates/microsoft.resources/allversions.md) resurs med ett namn och plats för resursgruppen. Du kan skapa en resursgrupp och distribuera resurser till resursgruppen i samma mall. De resurser som du kan distribuera på prenumerationsnivå är: [Principer](../azure-policy/azure-policy-introduction.md), och [rollbaserad åtkomstkontroll](../role-based-access-control/overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deployment-considerations"></a>Distributionsöverväganden
 

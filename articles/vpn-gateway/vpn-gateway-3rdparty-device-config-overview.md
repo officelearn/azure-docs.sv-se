@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: yushwang
 ms.openlocfilehash: 901de2ac3d80b3ee529d89a22afae7e823437b9b
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51685216"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506880"
 ---
 # <a name="overview-of-partner-vpn-device-configurations"></a>Översikt över VPN-enhetskonfigurationer för partner
 Den här artikeln innehåller en översikt över hur du konfigurerar den lokala VPN-enheter för att ansluta till Azure VPN-gatewayer. Ett exempel på Azure-nätverk och VPN gateway-konfigurationen används för att visa dig hur du ansluter till olika lokala VPN-enhetens konfigurationer med hjälp av samma parametrar.
@@ -44,10 +44,10 @@ Det här avsnittet visas parametrarna i exemplen som beskrivs i föregående avs
 | Azure VPN gateway-IP         | Azure VPN Gateway IP         |
 | Lokala adressprefix | 10.51.0.0/16<br>10.52.0.0/16 |
 | Den lokala VPN-enhetens IP    | Den lokala VPN-enhetens IP    |
-| * Virtuella nätverket BGP ASN                | 65010                        |
-| * Azure BGP-peer-IP           | 10.12.255.30                 |
-| * Lokal BGP ASN         | 65050                        |
-| * Lokala BGP-peer-IP     | 10.52.255.254                |
+| * Virtual network BGP ASN                | 65010                        |
+| * Azure BGP peer IP           | 10.12.255.30                 |
+| * On-premises BGP ASN         | 65050                        |
+| * On-premises BGP peer IP     | 10.52.255.254                |
 
 \* Valfri parameter för BGP endast.
 

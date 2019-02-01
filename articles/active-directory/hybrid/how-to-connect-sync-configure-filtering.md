@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 28f35fd1098e055b22dada703cd7e68de591eea7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: c9e3a26f1ca8a577b883baacaf672cf73c8c5656
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55192629"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488698"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Azure AD Connect-synkronisering: Konfigurera filtrering
 Med hjälp av filtrering, kan du kontrollera vilka objekt som visas i Azure Active Directory (Azure AD) från din lokala katalog. Standardkonfigurationen tar alla objekt i alla domäner i de Konfigurera skogarna. I allmänhet är är det här den rekommenderade konfigurationen. Användare som använder Office 365-arbetsbelastningar, t.ex Exchange Online och Skype för företag, dra nytta av en fullständig globala adresslistan så att de kan skicka e-post och anropa alla. Med standardkonfigurationen, skulle de ha samma upplevelse som skulle uppstå med en lokal implementering av Exchange- eller Lync.

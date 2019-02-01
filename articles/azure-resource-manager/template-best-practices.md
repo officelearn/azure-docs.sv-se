@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0736ed32fa6f17cc840d6b144503409365c33d84
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 9b136c73afc08e05694aed99d57139f77466788d
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55077954"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55490389"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager mall Metodtips
 
@@ -25,6 +25,8 @@ Den här artikeln ger rekommendationer om hur du skapar Resource Manager-mall. D
 Rekommendationer om hur du styr dina Azure-prenumerationer finns i [Azure enterprise kodskelett: Förebyggande Prenumerationsåtgärder](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Rekommendationer om hur du skapar mallar som fungerar i alla Azure-molnmiljöer finns i [utveckla Azure Resource Manager-mallar för molnet konsekvens](templates-cloud-consistency.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="parameters"></a>Parametrar
 Informationen i det här avsnittet kan vara användbart när du arbetar med [parametrar](resource-manager-templates-parameters.md).

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 0f834c88a22aca52a861309681ea0da204b2a552
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412073"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55508012"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera VPN-klientkonfigurationsfiler för native Azure certificate authentication P2S-konfigurationer
 
@@ -93,7 +93,7 @@ Klicka på **Lägg till** att importera.
 
   Den **gränssnittet** värdet är ”VPN” och **VPN-typ** värdet är ”IKEv2”. Ange ett namn för profilen i det **tjänstnamn** fältet och klickar sedan på **skapa** att skapa VPN-klienten anslutningsprofilen.
 
-  ![Nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+  ![nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. I den **allmän** mappen från den **VpnSettings.xml** fil, kopiera den **VpnServer** taggvärde. Klistra in det här värdet i den **serveradress** och **fjärr-ID för** fälten i profilen.
 
   ![serverinformation](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)

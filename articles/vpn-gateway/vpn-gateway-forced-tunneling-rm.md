@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00330f49d4acc9bd2d720a60b743b78c86b08f86
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 21004c29f1baf0346cd83d8483ff1862a98fc845
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308160"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55506472"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Konfigurera framtvingad tunneling med distributionsmodellen Azure Resource Manager
 
 Tvingad tunneltrafik kan du omdirigera eller ”tvinga” all internetriktad trafik tillbaka till din lokala plats via en plats-till-plats-VPN-tunnel för kontroll och granskning. Det här är en kritisk säkerhetskrav för de flesta företag IT principer. Utan Tvingad tunneltrafik, Internet-bunden trafik från dina virtuella datorer i Azure alltid går från Azure nätverksinfrastrukturen direkt ut till Internet, utan alternativet så att du kan granska eller granska trafiken. Obehörig Internetåtkomst kan leda till avslöjande av information eller andra typer av säkerhetsproblem.
 
-[!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
+[!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 
 Den här artikeln beskriver hur du konfigurerar Tvingad tunneltrafik för virtuella nätverk som skapats med hjälp av Resource Manager-distributionsmodellen. Tvingad tunneltrafik kan konfigureras med hjälp av PowerShell, inte via portalen. Om du vill konfigurera Tvingad tunneltrafik för den klassiska distributionsmodellen, väljer du klassiska artikeln från listan följande:
 
@@ -52,16 +52,16 @@ Tvingad tunneltrafik i Azure konfigureras via användardefinierade vägar i virt
 
 * Varje virtuellt nätverksundernät har en inbyggd, system-routningstabell. Routningstabellen system har följande tre grupper av vägar:
   
-  * **Lokala virtuella nätverket vägar:** direkt till målets virtuella datorer i samma virtuella nätverk.
-  * **Lokala vägar:** till Azure VPN-gateway.
-  * **Standardvägen:** direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
+  * **Lokala virtuella nätverket vägar:** Direkt till målets virtuella datorer i samma virtuella nätverk.
+  * **Lokala vägar:** Azure VPN-gatewayen.
+  * **Standardvägen:** Direkt till Internet. Ignoreras paket som är avsedd för de privata IP-adresser som inte omfattas av de föregående två vägarna.
 * Den här proceduren använder användardefinierade vägar (UDR) för att skapa en routningstabell för att lägga till en standardväg och sedan associera routningstabellen till din VNet-undernät för att aktivera Tvingad tunneltrafik på dessa undernät.
 * Tvingad tunneltrafik måste vara associerad med ett virtuellt nätverk som har en routningsbaserad VPN-gateway. Du måste ange en ”standardwebbplats” mellan de över flera lokala platserna anslutna till det virtuella nätverket. Den lokala VPN-enheten måste också konfigureras med 0.0.0.0/0 som trafikväljare. 
 * ExpressRoute Tvingad tunneltrafik är inte konfigurerad via den här mekanismen, men i stället aktiveras genom att annonsera en standardväg via ExpressRoute BGP-peeringsessioner. Mer information finns i den [dokumentation om ExpressRoute](https://azure.microsoft.com/documentation/services/expressroute/).
 
 ## <a name="configuration-overview"></a>Konfigurationsöversikt
 
-Följande procedur kan du skapa en resursgrupp och ett virtuellt nätverk. Du sedan skapa en VPN-gateway och konfigurera Tvingad tunneltrafik. I den här proceduren, det virtuella nätverket MultiTier-VNet har tre undernät: ”Frontend”, ”Midtier” och ”serverdel”, med fyra anslutningar mellan olika platser: 'DefaultSiteHQ' och tre grenar.
+Följande procedur kan du skapa en resursgrupp och ett virtuellt nätverk. Du sedan skapa en VPN-gateway och konfigurera Tvingad tunneltrafik. I den här proceduren har tre undernät i det virtuella nätverket MultiTier-VNet: ”Frontend”, ”Midtier” och ”serverdel”, med fyra anslutningar mellan olika platser: 'DefaultSiteHQ' och tre grenar.
 
 Stegen i proceduren ”DefaultSiteHQ” som standard plats-anslutning för Tvingad tunneltrafik, och konfigurera Midtier och ”Backend”-undernät att använda Tvingad tunneltrafik.
 

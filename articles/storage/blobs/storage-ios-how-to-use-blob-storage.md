@@ -8,13 +8,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: be9254686eeb285fb4f0a5e29ba60023abee84ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: 9e4c717b3b205d6c8fdd309dada918eb6df35181
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961934"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244771"
 ---
 # <a name="how-to-use-blob-storage-from-ios"></a>Använda Blob storage från iOS
 
@@ -28,7 +28,7 @@ Mer information om Blob storage finns [introduktion till Azure Blob storage](sto
 Du kan importera iOS Azure Storage-biblioteket i ditt program antingen med hjälp av den [Azure Storage CocoaPod](https://cocoapods.org/pods/AZSClient) eller genom att importera den **Framework** fil. CocoaPod är det rekommenderade sättet eftersom det gör att integrera biblioteket enklare, men importera från filen framework är mindre störande för ditt befintliga projekt.
 
 Om du vill använda det här biblioteket, behöver du följande:
-- iOS 8 +
+- iOS 8+
 - Xcode 7 +
 
 ## <a name="cocoapod"></a>CocoaPod
@@ -129,9 +129,9 @@ Du kan bekräfta att det fungerar genom att titta på den [Microsoft Azure Lagri
 ## <a name="set-container-permissions"></a>Ange behörigheter för behållare
 Behörigheter för en behållare som är konfigurerade för **privata** åtkomst som standard. Behållare ger dock några olika alternativ för åtkomst till behållare:
 
-* **Privata**: behållare och blob-data kan läsas av ägare endast.
-* **BLOB**: Blob-data i den här behållaren kan läsas via anonym begäran, men behållardata är inte tillgänglig. Klienter kan inte räkna upp blobbar i behållaren via anonyma begäran.
-* **Behållaren**: behållare och blob-data kan läsas via anonyma begäran. Klienter kan räkna upp blobbar i behållaren via anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
+* **Privata**: Behållare och blob-data kan läsas av ägare endast.
+* **Blob**: BLOB-data i den här behållaren kan läsas via anonym begäran, men behållardata är inte tillgänglig. Klienter kan inte räkna upp blobbar i behållaren via anonyma begäran.
+* **behållaren**: Behållare och blob-data kan läsas via anonyma begäran. Klienter kan räkna upp blobbar i behållaren via anonym begäran, men det går inte att räkna upp behållare i lagringskontot.
 
 I följande exempel visas hur du skapar en behållare med **behållare** åtkomstbehörigheter, som gör att offentlig, skrivskyddad åtkomst för alla användare på Internet:
 
@@ -216,12 +216,12 @@ I följande exempel visar hur du lista alla blobar i en behållare. När du utf�
 * **prefixet** – du kan ange prefixet som ska användas för blob-lista. Endast de blobbar som börjar med prefixet visas.
 * **useFlatBlobListing** – som anges i den [namngivning och referens av behållare och blobbar](/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) avsnittet, även om Blob-tjänsten är ett Lagringsschema för platt du kan skapa en virtuell hierarki genom att namnge blobar med sökväg information. Dock stöds inte är fast lista för närvarande inte. Den här funktionen kommer snart. För tillfället detta värde bör vara **Ja**.
 * **blobListingDetails** – du kan ange vilka objekt som ska innehålla när lista blobbar
-  * _AZSBlobListingDetailsNone_: lista bara allokerade blobar och inte returnerar blob-metadata.
-  * _AZSBlobListingDetailsSnapshots_: lista allokerade blobar och blob-ögonblicksbilder.
-  * _AZSBlobListingDetailsMetadata_: hämta blob-metadata för varje blob som returneras i listan.
-  * _AZSBlobListingDetailsUncommittedBlobs_: lista allokerade och ogenomförda blobar.
-  * _AZSBlobListingDetailsCopy_: ta kopia egenskaper i listan.
-  * _AZSBlobListingDetailsAll_: lista över alla tillgängliga allokerade blobs, ogenomförda blobar och ögonblicksbilder och returnera alla metadata och kopiera status för dessa blobar.
+  * _AZSBlobListingDetailsNone_: Lista bara allokerade blobar och inte returnerar blob-metadata.
+  * _AZSBlobListingDetailsSnapshots_: Lista allokerade blobar och blob-ögonblicksbilder.
+  * _AZSBlobListingDetailsMetadata_: Hämta blob-metadata för varje blob returneras i listan.
+  * _AZSBlobListingDetailsUncommittedBlobs_: Lista allokerade och ogenomförda blobar.
+  * _AZSBlobListingDetailsCopy_: Inkludera kopiera egenskaper i listan.
+  * _AZSBlobListingDetailsAll_: Lista alla tillgängliga allokerade blobs, ogenomförda blobar och ögonblicksbilder och returnerar alla metadata och kopiera status för dessa blobar.
 * **maxResults** – det maximala antalet resultat som ska returneras för den här åtgärden. Använda -1 om du inte ange en gräns.
 * **completionHandler** – blockeringen av kod att köra med resultaten från samma åtgärd.
 

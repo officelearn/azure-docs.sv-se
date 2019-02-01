@@ -1,0 +1,59 @@
+items:
+- name: Dokumentation om Azure Advisor
+  href: index.yml
+- name: Översikt
+  items:
+  - name: Vad är Azure Advisor?
+    href: advisor-overview.md
+- name: Självstudier
+  items:
+  - name: Kom igång med Advisor
+    href: advisor-get-started.md
+- name: Instruktionsguider
+  items:
+  - name: Förbättra tillgängligheten för Azure-program
+    href: advisor-high-availability-recommendations.md
+  - name: Gör resurser säkrare
+    href: advisor-security-recommendations.md
+  - name: Förbättra prestanda för Azure-program
+    href: advisor-performance-recommendations.md
+  - name: Minska tjänstkostnader
+    href: advisor-cost-recommendations.md
+- name: Referens
+  items:
+  - name: Security Center
+    href: https://azure.microsoft.com/services/security-center/
+  - name: SQL DB Advisor
+    href: https://azure.microsoft.com/documentation/articles/sql-database-advisor/
+  - name: App Service
+    href: https://docs.microsoft.com/azure/app-service/app-service-best-practices
+  - name: REST-API
+    href: https://docs.microsoft.com/rest/api/advisor/
+  - name: CLI
+    href: https://docs.microsoft.com/cli/azure/advisor?view=azure-cli-latest
+  - name: PowerShell
+    href: https://docs.microsoft.com/powershell/module/az.advisor/?view=azps-1.2.0
+- name: Resurser
+  items:
+  - name: Azure-översikt
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prissättning
+    href: https://azure.microsoft.com/pricing/details/advisor
+  - name: Priskalkylator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Tjänstuppdateringar
+    href: https://azure.microsoft.com/updates/?product=advisor
+  - name: Regional tillgänglighet
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=advisor
+  - name: Videoklipp
+    href: https://azure.microsoft.com/resources/videos/index/?services=advisor
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=azure+advisor
+  - name: Kodexempel
+    href: https://azure.microsoft.com/resources/samples/?service=advisor
+ms.openlocfilehash: 1f6f848d9e69d0e478c2027b4e3f09089b4714bb
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.translationtype: HT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55509914"

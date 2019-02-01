@@ -29,7 +29,7 @@ items:
     items:
     - name: Aktivera mina katalogroller
       href: pim-how-to-activate-role.md
-    - name: Aktivera mina resursroller
+    - name: Aktivera mina Azure-resursroller
       href: pim-resource-roles-activate-your-roles.md
   - name: Konfigurera PIM
     items:
@@ -53,7 +53,7 @@ items:
       href: pim-how-to-configure-security-alerts.md
     - name: Visa granskningshistorik
       href: pim-how-to-use-audit-log.md
-  - name: Hantera resursroller
+  - name: Hantera Azure-resursroller
     items:
     - name: Tilldela roller
       href: pim-resource-roles-assign-roles.md
@@ -81,18 +81,18 @@ items:
         href: pim-how-to-start-security-review.md
       - name: Slutför en åtkomstgranskning
         href: pim-how-to-complete-review.md
-    - name: Resursroller
+    - name: Azure-resursroller
       items:
-      - name: Granska mina resursroller
+      - name: Granska mina Azure-resursroller
         href: pim-resource-roles-perform-access-review.md
       - name: Starta en åtkomstgranskning
         href: pim-resource-roles-start-access-review.md
       - name: Slutför en åtkomstgranskning
         href: pim-resource-roles-complete-access-review.md
   expanded: true
-ms.openlocfilehash: 84c50c4d3fe6472f53d64ba42f462a6fdf2783fe
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: a7c314bd6fd7fdc96900411db78a37b45b8c3e07
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913129"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512373"

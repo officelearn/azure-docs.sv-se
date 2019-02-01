@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dc301f218855139cfb3a5faa30109dd5a301eb07
-ms.sourcegitcommit: b0f39746412c93a48317f985a8365743e5fe1596
+ms.lastreviewed: 08/10/2018
+ms.openlocfilehash: 195f865a6977eaf78b09c611b7cd9e5119b2f62a
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52871208"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241261"
 ---
 # <a name="download-and-extract-the-azure-stack-development-kit-asdk"></a>Ladda ned och extrahera Azure Stack Development Kit (ASDK)
 När du har säkerställt att värddatorn development kit uppfyller de grundläggande kraven för att installera ASDK, är nästa steg att ladda ned och extrahera ASDK distributionspaketet för att få Cloudbuilder.vhdx.

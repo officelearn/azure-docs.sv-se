@@ -10,12 +10,13 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: c8e78ead58c34a62851fddc5a12504bc5747a27b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.lastreviewed: 01/25/2019
+ms.openlocfilehash: 840c230ae3b2fc167c0d59a4a9a0155fe5deb661
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092330"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238266"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Förbereda för tillägget för värd för Azure Stack
 
@@ -127,7 +128,7 @@ Använda en dator som kan ansluta till Azure Stack privilegierad slutpunkt för 
 > Det här steget krävs inte om du använde DNS-zondelegering för DNS-integrering.
 Om enskilda värd A-poster har konfigurerats för att publicera Azure Stack-slutpunkter, måste du skapa två ytterligare värd A-poster:
 
-| IP-adress | Värdnamn | Typ |
+| IP-adress | Värdnamn | Type |
 |----|------------------------------|------|
 | \<IP> | *.Adminhosting.\<Region>.\<FQDN> | A |
 | \<IP> | *.Hosting.\<Region>.\<FQDN> | A |

@@ -1,23 +1,23 @@
 ---
-title: 'Självstudie: Elastisk fråga med Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Självstudier: Elastisk fråga med Azure SQL Data Warehouse | Microsoft Docs'
 description: Den här självstudien använder funktionen elastisk fråga för att fråga Azure SQL Data Warehouse från Azure SQL Database.
 services: sql-data-warehouse
 author: hirokib
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: implement
 ms.date: 04/14/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: 355ae1c27d0af8f77c2c9bda61c3581562050fc4
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b1ac2edd39ac2e5a765eaf6223ba01c9f9e5df91
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307100"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238352"
 ---
-# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Självstudier: Använd elastisk fråga att komma åt data i Azure SQL Data Warehouse från Azure SQL Database
+# <a name="tutorial-use-elastic-query-to-access-data-in-azure-sql-data-warehouse-from-azure-sql-database"></a>Självstudier: Använda Elastic Query få åtkomst till data i Azure SQL Data Warehouse från Azure SQL Database
 
 Den här självstudien använder funktionen elastisk fråga för att fråga Azure SQL Data Warehouse från Azure SQL Database. 
 

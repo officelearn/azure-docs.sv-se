@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: Vad är SQL DB?
+  - name: Vad är SQL Database
     href: sql-database-technical-overview.md
   - name: Välj en version av Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
@@ -17,11 +17,11 @@ items:
     items:
     - name: Enskild databas
       href: sql-database-get-started-portal.md
-    - name: Managed Instance
+    - name: Hanterad instans
       href: sql-database-managed-instance-get-started.md
   - name: Konfigurera
     items:
-    - name: Brandväggsregel för logisk server
+    - name: Brandväggsregler för SQL Database-server
       href: sql-database-get-started-portal-firewall.md
     - name: VM-klientanslutning till en hanterad instans
       href: sql-database-managed-instance-configure-vm.md
@@ -75,7 +75,7 @@ items:
       href: sql-database-design-first-database-csharp.md
   - name: Migrera till Azure SQL Database
     items:
-    - name: Migrera till en enkel databas med DMS
+    - name: Migrera till en enkel databas/pooldatabas med DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
     - name: Migrera till en hanterad instans med DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
@@ -115,11 +115,11 @@ items:
     items:
     - name: Översikt
       href: sql-database-service-tiers-general-purpose-business-critical.md
-    - name: Generell användning/Standard
+    - name: Tjänstnivåerna Generell användning/Standard
       href: sql-database-service-tier-general-purpose.md
-    - name: Affärskritisk/Premium
+    - name: Tjänstnivåerna Affärskritisk/Premium
       href: sql-database-service-tier-business-critical.md
-    - name: Hyperskala
+    - name: Hyperskalatjänstnivå
       href: sql-database-service-tier-hyperscale.md
     - name: Vanliga frågor och svar om hyperskala
       href: sql-database-service-tier-hyperscale-faq.md
@@ -127,36 +127,40 @@ items:
     items:
     - name: Översikt över enkel databas
       href: sql-database-single-index.yml
-    - name: Referens för API för hantering
+    - name: SQL Database-servrar
+      items:
+      - name: Översikt över databasserver
+        href: sql-database-servers.md
+      - name: Resursbegränsningar för databasserver
+        href: sql-database-resource-limits-database-server.md
+    - name: Resurser för enkla databaser
+      items:
+      - name: vCore-baserade resursbegränsningar
+        href: sql-database-vcore-resource-limits-single-databases.md
+      - name: DTU-baserade resursbegränsningar
+        href: sql-database-dtu-resource-limits-single-databases.md
+      - name: Skala resurser
+        href: sql-database-single-database-scale.md
+    - name: Skapa och hantera servrar och databaser
       href: sql-database-single-databases-manage.md
-    - name: Logiska servrar
-      items:
-      - name: Skapa och hantera
-        href: sql-database-logical-servers.md
-      - name: Resursbegränsningar
-        href: sql-database-resource-limits-logical-server.md
-      - name: Anslutningsarkitektur
-        href: sql-database-connectivity-architecture.md
+    - name: Anslutningsarkitektur
+      href: sql-database-connectivity-architecture.md
+    - name: T-SQL-skillnader
+      href: sql-database-transact-sql-information.md
+  - name: Elastiska pooler
+    items:
     - name: Elastiska pooler
+      href: sql-database-elastic-pool.md
+    - name: Resurser för elastiska pooler
       items:
-      - name: Elastiska pooler
-        href: sql-database-elastic-pool.md
-      - name: Skapa och hantera
-        href: sql-database-elastic-pool-manage.md
       - name: vCore-baserade resursbegränsningar
         href: sql-database-vcore-resource-limits-elastic-pools.md
       - name: DTU-baserade resursbegränsningar
         href: sql-database-dtu-resource-limits-elastic-pools.md
       - name: Skala resurser
         href: sql-database-elastic-pool-scale.md
-    - name: vCore-baserade resursbegränsningar
-      href: sql-database-vcore-resource-limits-single-databases.md
-    - name: DTU-baserade resursbegränsningar
-      href: sql-database-dtu-resource-limits-single-databases.md
-    - name: Skala resurser
-      href: sql-database-single-database-scale.md
-    - name: T-SQL-skillnader
-      href: sql-database-transact-sql-information.md
+    - name: Skapa och hantera
+      href: sql-database-elastic-pool-manage.md
   - name: Hanterade instanser
     items:
     - name: Översikt över hanterade instanser
@@ -209,9 +213,9 @@ items:
       href: sql-database-security-index.yml
     - name: Säkerhetsfunktioner
       href: sql-database-security-overview.md
-    - name: Advanced Threat Protection
+    - name: Advanced Data Security
       items:
-      - name: Advanced Threat Protection
+      - name: Advanced Data Security
         href: sql-advanced-threat-protection.md
       - name: Dataidentifiering och -klassificering
         href: sql-database-data-discovery-and-classification.md
@@ -561,7 +565,7 @@ items:
           href: saas-tenancy-welcome-wingtip-tickets-app.md
         - name: Allmän vägledning
           href: saas-tenancy-wingtip-app-guidance-tips.md
-        - name: Fristående program
+        - name: Enkelt program
           items:
           - name: Distribuera exempelapp
             href: saas-standaloneapp-get-started-deploy.md
@@ -696,9 +700,9 @@ items:
       href: sql-database-elastic-jobs-getting-started.md
     - name: Avinstallera elastiskt jobb (inaktuellt)
       href: sql-database-elastic-jobs-uninstall.md
-ms.openlocfilehash: b69adc5f54e2566f62049225ccb0fc438a33ca6e
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 0c34894ea3a09a4cd630938a045e0ab78681c10f
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226816"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471036"

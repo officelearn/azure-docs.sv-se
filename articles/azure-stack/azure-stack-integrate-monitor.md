@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 66cd20eaa401261bcb18bedbbc16f5bcf40ee192
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 419b7c436e79b00d8f49d9e3801886f4e37e2c32
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342991"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55241652"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrera externa övervakningslösning med Azure Stack
 
@@ -82,8 +83,8 @@ Konfigurera plugin-fil ”Azurestack_plugin.py” med följande parametrar:
 | *Tenant_id* | Administratören prenumerations-ID | Hämta via administratörsportalen eller PowerShell |
 | *Användarnamn* | Operatorn prenumeration användarnamn | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Operatorn prenumeration lösenord | mittlösenord |
-| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417 * |
-| *Region* |  Azure Stack-Regionsnamn | lokal |
+| *Client_id* | Client | 0a7bdc5c-7b57-40be-9939-d4c5fc7cd417* |
+| *region* |  Azure Stack-Regionsnamn | lokal |
 |  |  |
 
 * PowerShell GUID som tillhandahålls är universal. Du kan använda den för varje distribution.

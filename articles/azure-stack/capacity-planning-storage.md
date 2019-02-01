@@ -15,18 +15,19 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 9ea46860817d60c2ffbde68c0fc5ae6f6ca14877
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.lastreviewed: 09/18/2018
+ms.openlocfilehash: 5d9d01a482483d030569a4dcad03c9ecef7cffc0
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368883"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245158"
 ---
 # <a name="azure-stack-storage-capacity-planning"></a>Azure Stack storage kapacitetsplanering
 Följande avsnitt innehåller Azure Stack lagringskapacitet planeringsinformation för att hjälpa att planera för de lösningar lagringsbehov.
 
 ## <a name="uses-and-organization-of-storage-capacity"></a>Användning och organisation lagringskapacitet
-Hyperkonvergerade konfigurationen av Azure Stack möjliggör delning av fysiska lagringsenheter. Tre flera avsnitt i tillgängligt lagringsutrymme är mellan infrastrukturen, tillfällig lagring av de virtuella klientdatorerna och lagringen säkerhetskopiering blobbar, tabeller och köer Azure konsekvent Storage (ACS)-tjänster.
+Den hyperkonvergerade konfigurationen av Azure Stack gör det möjligt att dela fysiska lagringsenheter. Tre flera avsnitt i tillgängligt lagringsutrymme är mellan infrastrukturen, tillfällig lagring av de virtuella klientdatorerna och lagringen säkerhetskopiering blobbar, tabeller och köer Azure konsekvent Storage (ACS)-tjänster.
 
 ## <a name="spaces-direct-cache-and-capacity-tiers"></a>Funktionen Lagringsdirigering Cache och Kapacitetsnivåer
 Det finns lagringskapacitet som används för operativsystemet, lokal loggning, skärmbilder och andra infrastruktur för tillfällig lagring behov. Den här lokala lagringskapacitet är separata (enheter och kapacitet) från lagringsenheter börja hanteras av Storage Spaces Direct-konfigurationen. Resten av lagringsenheter placeras i en enda pool med lagringskapacitet, oavsett antalet servrar i Skalningsenheten. Dessa enheter finns två typer av: Cache och kapacitet.  Cache-enheter är bara – Cache. Lagringsutrymmen direkt förbrukar dessa enheter för återskrivning och läsa cachelagring. Kapaciteter för dessa Cache-enheter, gäller medan används, inte för formaterade, ”synliga” kapacitet formaterade virtuella-diskar. Kapacitetsenheter används för detta ändamål och ange ”home platsen” för de data som hanteras av lagringsutrymmen.
@@ -51,7 +52,7 @@ De virtuella--diskarna som skapas automatiskt och deras kapacitet är följande:
 
 
 
-|Namn|Beräkning av kapacitet|Beskrivning|
+|Name|Beräkning av kapacitet|Beskrivning|
 |-----|-----|-----|
 |Lokal/startenheten|Minst 340 GB<sup>1</sup>|Enskild serverlagring för avbildningar av operativsystem och ”local” infrastrukturens virtuella datorer|
 |Infrastruktur|3,5 TB|All användning för Azure Stack-infrastruktur|

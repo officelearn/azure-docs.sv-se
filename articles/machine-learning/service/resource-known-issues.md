@@ -7,16 +7,16 @@ author: j-martens
 ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: article
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: cb79465bd5af0b3172b12b692a90c6b5d133f89a
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 706d8986eb25d2d67e3099ae5b0bfc6e55f94ad3
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55078720"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55507376"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Kända problem och felsökning Azure Machine Learning-tjänsten
 
@@ -26,7 +26,8 @@ Den här artikeln hjälper dig att hitta och korrigera fel eller fel som uppstod
 
 **Felmeddelande: Det går inte att avinstallera 'PyYAML'**
 
-Azure Machine Learning-SDK för Python: PyYAML är ett distutils installerade projekt. Vi kan inte därför korrekt fastställa vilka filer som hör till den i händelse av en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+Azure Machine Learning-SDK för Python: PyYAML är ett distutils installerade projekt. Vi kan inte därför korrekt fastställa vilka filer som hör till det om det finns en partiell avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
 ```
@@ -41,7 +42,7 @@ Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att l
 
 ## <a name="deployment-failure"></a>Distributionsfel
 
-Om du observerar ' DaskOnBatch:context_managers. DaskOnBatch', 'setup.py']' dött med < Signals.SIGKILL: 9 > – ändra SKU: N för virtuella datorer som används i din distribution, till de som har större minne.
+Om du observerar `'DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`, ändra SKU: N för virtuella datorer som används i distributionen till ett som har mer minne.
 
 ## <a name="fpgas"></a>FPGA:er
 Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
@@ -50,7 +51,7 @@ Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt o
 
 Databricks och Azure Machine Learning-problem.
 
-1. Misslyckad installation på Databricks av AML SDK när flera paket installeras.
+1. Azure Machine Learning SDK-installationsfel på Databricks när flera paket installeras.
 
    Vissa paket, till exempel `psutil`, kan orsaka konflikter. Installera paket genom att du låser lib-version för att undvika installationsfel. Det här problemet är relaterat till Databricks och inte Azure Machine Learning-tjänsten SDK – du kan stöta på det med andra libs för. Exempel:
    ```python
@@ -58,9 +59,9 @@ Databricks och Azure Machine Learning-problem.
    ```
    Du kan också använda init skript om du hålla får installera problem med med Python-bibliotek. Den här metoden är inte en metod som stöds. Du kan referera till [det här dokumentet](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
 
-2. När du använder automatisk Machine Learning på Databricks, om du vill avbryta en körning och starta ett nytt experiment, köra, starta om ditt Azure Databricks-kluster.
+2. När du använder automatisk Machine Learning på Databricks, om du vill avbryta en körning och starta ett nytt experiment som körs, startar du om din Azure Databricks-kluster.
 
-3. I inställningarna för automatisk ml, när du har > 10 iterationer Ställ in show_output som False när du skickar in din körning.
+3. I inställningarna för automatisk ml om du har fler än 10 iterationer ange `show_output` till `False` när du skickar körningen.
 
 
 ## <a name="azure-portal"></a>Azure Portal
@@ -73,6 +74,20 @@ Här är där loggfilerna live:
 ## <a name="resource-quotas"></a>Resurskvoter
 
 Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
+
+## <a name="authentication-errors"></a>Autentiseringsfel
+
+Om du gör en management-åtgärd i ett beräkningsmål från en fjärransluten jobb, visas något av följande fel:
+
+```json
+{"code":"Unauthorized","statusCode":401,"message":"Unauthorized","details":[{"code":"InvalidOrExpiredToken","message":"The request token was either invalid or expired. Please try again with a valid token."}]}
+```
+
+```json
+{"error":{"code":"AuthenticationFailed","message":"Authentication failed."}}
+```
+
+Exempel: du får ett fel om du försöker skapa eller koppla en beräkningsmål från en ML-Pipeline som skickas för fjärrkörning.
 
 ## <a name="get-more-support"></a>Få mer support
 

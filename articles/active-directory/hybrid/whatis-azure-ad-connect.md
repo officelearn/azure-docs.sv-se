@@ -6,16 +6,16 @@ author: billmath
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: get-started-article
-ms.date: 11/28/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 01/30/2019
+ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1c18200bb36b75a07d7b26e3ea0016ec35efdd87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0e71fea6046a9a7f7101566bda3eb927943ef103
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460515"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489129"
 ---
 # <a name="what-is-azure-ad-connect"></a>Vad är Azure AD Connect?
 
@@ -49,6 +49,20 @@ Om du integrerar dina lokala kataloger med Azure AD kan du hjälpa dina använda
 
 ## <a name="why-use-azure-ad-connect-health"></a>Varför ska jag använda Azure AD Connect Health?
 Med Azure AD hjälper du dina användare att bli mer produktiva genom att tillhandahålla en gemensam identitet för åtkomst både till molnet och lokala resurser. Det är en utmaning att göra miljön tillförlitlig så att användarna kan komma åt dessa resurser.  Azure AD Connect Health hjälper till att övervaka och ge insyn i din lokala identitetsinfrastruktur och säkerställer därmed miljöns tillförlitlighet. Det enda du behöver göra är att installera en agent på alla lokala identitetsservrar.
+
+Azure AD Connect Health för AD FS stöder AD FS 2.0 på Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 och Windows Server 2016. Det stöder även övervakning av AD FS-proxyservrar eller webbprogramproxyservrar som tillhandahåller autentiseringsstöd för åtkomst till extranät. Med en enkel och snabb installation av hälsoagenten tillhandahåller Azure AD Connect Health för AD FS dig en uppsättning viktiga funktioner.
+
+Viktiga fördelar och bästa praxis:
+
+|Viktiga fördelar|Metodtips|
+|-----|-----|
+|Förbättrad säkerhet|[Trender för extranätsutelåsning](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)</br>[Rapport över misslyckade inloggningar](how-to-connect-health-adfs.md#risky-ip-report-public-preview)</br>[I kompatibla sekretess](reference-connect-health-user-privacy.md)|
+|Få ett meddelande om [alla kritiska problem för AD FS-system](how-to-connect-health-alert-catalog.md#alerts-for-active-directory-federation-services)|Serverkonfiguration och tillgänglighet</br>[Prestanda och anslutning](how-to-connect-health-adfs.md#performance-monitoring-for-ad-fs)</br>Regelbundet underhåll|
+|Enkelt att distribuera och hantera|[Snabb agentinstallation](how-to-connect-health-agent-install.md#installing-the-azure-ad-connect-health-agent-for-ad-fs)</br>Automatisk agentuppgradering till senaste version</br>Data tillgängliga i portalen inom några minuter|
+Omfattande [användningsstatistik](how-to-connect-health-adfs.md#usage-analytics-for-ad-fs)|Främsta programanvändning</br>Nätverksplatser och TCP-anslutning</br>Tokenbegäranden per server|
+|Bra användarupplevelse|Instrumentpanel som Azure-portalen</br>[Aviseringar via e-postmeddelanden](how-to-connect-health-adfs.md#alerts-for-ad-fs)|
+
+
 
 
 ## <a name="next-steps"></a>Nästa steg

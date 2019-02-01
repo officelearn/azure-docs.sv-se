@@ -80,7 +80,7 @@ items:
       href: consistency-levels.md
     - name: Välja rätt konsekvensnivå
       href: consistency-levels-choosing.md
-    - name: Konsekvensnivåer och API:er för Cosmos DB
+    - name: Konsekvensnivåer och API:er för Azure Cosmos DB
       href: consistency-levels-across-apis.md
     - name: Kompromisser avseende konsekvens, tillgänglighet och prestanda
       href: consistency-levels-tradeoffs.md
@@ -98,7 +98,7 @@ items:
     items:
     - name: Översikt
       href: partitioning-overview.md
-    - name: Logiska partitioner
+    - name: Partitionering och horisontell skalning
       href: partition-data.md
     - name: Skapa en syntetisk partitionsnyckel
       href: synthetic-partition-keys.md
@@ -122,7 +122,7 @@ items:
       items:
       - name: Översikt
         href: index-overview.md
-      - name: Indexeringspolicy
+      - name: Indexprincip
         href: index-policy.md
       - name: Indextyper
         href: index-types.md
@@ -136,13 +136,13 @@ items:
         href: read-change-feed.md
       - name: Ändringsflödesprocessor
         href: change-feed-processor.md
-      - name: Ändringsflöde med Azure Functions
+      - name: Utlösa Azure Functions
         href: change-feed-functions.md
     - name: Time to live
       href: time-to-live.md
     - name: Unika nyckelvillkor
       href: unique-keys.md
-    - name: Transaktioner och optimistisk samtidighet
+    - name: Kontroll över transaktioner och optimistisk samtidighet
       href: database-transactions-optimistic-concurrency.md
   - name: Programmering på serversidan
     items:
@@ -168,9 +168,9 @@ items:
       href: optimize-cost-reads-writes.md
     - name: Optimera kostnader för flera regioner
       href: optimize-cost-regions.md
-    - name: Optimera dina utvecklar-/testarbetsbelastningar
+    - name: Optimera kostnader för utveckling och testning
       href: optimize-dev-test.md
-    - name: Optimera med reserverad kapacitet
+    - name: Optimera kostnader för reserverad kapacitet
       href: cosmos-db-reserved-capacity.md
   - name: Säkerhet
     items:
@@ -186,7 +186,7 @@ items:
       href: vnet-service-endpoint.md
   - name: Företagsberedskap
     items:
-    - name: Säkerhetskopiering och återställning online
+    - name: Säkerhetskopiering och återställning på begäran online
       href: online-backup-and-restore.md
     - name: Efterlevnad
       href: compliance.md
@@ -254,14 +254,6 @@ items:
       items:
       - name: Justera prestanda för frågor
         href: sql-api-query-metrics.md
-      - name: Programmering på serversidan
-        items:
-        - name: Skriva lagrade procedurer, utlösare och UDF:er
-          href: how-to-write-stored-procedures-triggers-udfs.md
-        - name: Skriva lagrade procedurer och utlösare med API för JavaScript-fråga
-          href: how-to-write-javascript-query-api.md
-        - name: Använda lagrade procedurer, utlösare och UDF:er
-          href: how-to-use-stored-procedures-triggers-udfs.md
       - name: Datatyper
         items:
         - name: DateTime
@@ -337,7 +329,7 @@ items:
         - name: Node.js och React-app
           href: tutorial-develop-mongodb-react.md
       - name: 2 – Migrera data
-        href: mongodb-migrate.md
+        href: https://docs.microsoft.com/azure/dms/tutorial-mongodb-cosmos-db?toc=/azure/cosmos-db/toc.json
       - name: 3 – Frågedata
         href: tutorial-query-mongodb.md
       - name: 4 – Distribuera data lokalt
@@ -467,19 +459,19 @@ items:
   expanded: true
 - name: Instruktionsguider
   items:
-  - name: Hantera databaskonton
+  - name: Hantera ett Azure Cosmos-konto
     href: how-to-manage-database-account.md
   - name: Global distribution
     items:
-    - name: Hantera konsekvens
+    - name: Hantera konsekvensnivåer
       href: how-to-manage-consistency.md
-    - name: Hantera konflikter
+    - name: Konfigurera konfliktlösningsprinciper
       href: how-to-manage-conflicts.md
   - name: Etablerat dataflöde
     items:
-    - name: Etablera containerns dataflöde
+    - name: Etablera ett dataflöde på en container
       href: how-to-provision-container-throughput.md
-    - name: Etablera databasens dataflöde
+    - name: Etablera ett dataflöde på en databas
       href: how-to-provision-database-throughput.md
   - name: Arbeta med containrar och objekt
     items:
@@ -489,10 +481,22 @@ items:
       href: how-to-query-container.md
     - name: Ställ in TTL (Time To Live)
       href: how-to-time-to-live.md
+    - name: Arbeta med data med hjälp av Azure Storage Explorer
+      href: storage-explorer.md
+    - name: Arbeta med data med hjälp av Azure Cosmos Explorer
+      href: data-explorer.md
     - name: Indexering
       items:
-      - name: Konfigurera indexering
+      - name: Hantera indexering
         href: how-to-manage-indexing-policy.md
+  - name: Programmering på serversidan
+    items:
+    - name: Skriva lagrade procedurer, utlösare och UDF:er
+      href: how-to-write-stored-procedures-triggers-udfs.md
+    - name: Skriva lagrade procedurer och utlösare med API för JavaScript-fråga
+      href: how-to-write-javascript-query-api.md
+    - name: Använda lagrade procedurer, utlösare och UDF:er
+      href: how-to-use-stored-procedures-triggers-udfs.md
   - name: Säkerhet
     items:
     - name: Konfigurera IP-brandvägg
@@ -501,22 +505,18 @@ items:
       href: how-to-configure-vnet-service-endpoint.md
     - name: Konfigurera resursdelning för korsande ursprung (CORS)
       href: how-to-configure-cross-origin-resource-sharing.md
-    - name: Skydda med Key Vault
+    - name: Skydda Azure Cosmos-nycklar med Key Vault
       href: access-secrets-from-keyvault.md
   - name: Företagsberedskap
     items:
     - name: Återställa data från en säkerhetskopia
       href: how-to-backup-and-restore.md
-  - name: Hantera
+  - name: Hantera Azure Cosmos DB-resurser
     items:
     - name: Hantera med hjälp av PowerShell
       href: manage-account-with-powershell.md
     - name: Hantera med hjälp av Azure CLI
       href: manage-with-cli.md
-    - name: Hantera Storage Explorer
-      href: storage-explorer.md
-    - name: Hantering med hjälp av datautforskaren
-      href: data-explorer.md
   - name: Loggning
     items:
     - name: Diagnostikloggning
@@ -627,9 +627,9 @@ items:
       href: use-cases.md
     - name: Appar för sociala medier
       href: social-media-apps.md
-ms.openlocfilehash: 72d6169090749f81025dabed2b919e6c0a1dc70f
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 2fdf08837bc239ba10da85fad7b81c819b9f26fc
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55094486"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55511929"

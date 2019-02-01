@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8b591cacd1c468f46dcdb5809cdc6ff0adf09ccb
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 9c337f147eaebc376c7953e7f585b5b9f6a10f94
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247688"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55471692"
 documentType: LandingData
 title: Dokumentation om Azure Machine Learning-tjänsten
 metadata:
-  title: Dokumentation – Azure Machine Learning Service – självstudier, API-referens| Microsoft Docs
-  description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser. Använd Scikit-learn, Tensorflow, Pytorch eller något annat Python-baserat ramverk för att skapa en maskininlärningsmodell och träna den lokalt eller i molnet. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+  title: Dokumentation om Azure Machine Learning-tjänsten – självstudier, API-referens| Microsoft Docs
+  description: Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Azure Machine Learning Service har fullständigt stöd för tekniker med öppen källkod som till exempel Scikit-learn, Tensorflow, Pytorch och andra Python-baserade ramverk. Lär dig hur du använder Azure Machine Learning Service för dina arbetsflöden för maskininlärning med hjälp av våra snabbstarter och självstudier.
   services: machine-learning
   ms.service: machine-learning
   ms.subservice: core
@@ -17,22 +17,17 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 12/04/2018
+  ms.date: 1/30/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
 abstract:
-  description: Lär dig hur du integrerar intelligenta algoritmer i appar och webbplatser. Använd Scikit-learn, Tensorflow, Pytorch eller något annat Python-baserat ramverk för att skapa en maskininlärningsmodell och träna den lokalt eller i molnet. Självstudier, snabbstarter, API-referenser och exempel med anvisningar.
+  description: Tjänsten Azure Machine Learning tillhandahåller en molnbaserad miljö som du kan använda för att utveckla, träna, testa, distribuera, hantera och spåra maskininlärningsmodeller. Den här tjänsten har fullständigt stöd för tekniker med öppen källkod som till exempel Scikit-learn, Tensorflow, Pytorch och andra Python-baserade ramverk. Lär dig hur du använder den här tjänsten för dina arbetsflöden för maskininlärning med hjälp av våra snabbstarter och självstudier.
 sections:
 - title: Snabbstarter på 5 minuter
   items:
   - type: paragraph
-    text: 'Lär dig hur du konfigurerar arbetsytan och resurser för Azure Machine Learning Service med hjälp av en snabbstart:'
-  - type: list
-    style: unordered
-    items:
-    - html: Kom igång med hjälp av <a href="quickstart-get-started">Azure-portalen</a>.
-    - html: Kom igång med hjälp av <a href="quickstart-create-workspace-with-python">Python</a>.
+    text: Börja med att skapa en arbetsyta för tjänsten och resurser <a href="quickstart-get-started">i Azure-portalen</a> eller <a href="quickstart-create-workspace-with-python">i Python</a>.
 - title: Steg för steg-självstudier
   items:
   - type: paragraph
@@ -40,18 +35,20 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="tutorial-train-models-with-aml">Träna och distribuera avbildningsklassificeringsmodeller</a> (<b>serie i två delar</b>).
-    - html: <a href="tutorial-data-prep">Förbereda och använda automatiserad maskininlärning</a> för att träna och justera regressionsmodeller  (<b>serie i två delar</b>).<br>&nbsp;
+    - html: <a href="tutorial-train-models-with-aml">Träna</a> och <a href="tutorial-deploy-models-with-aml">distribuera</a> avbildningsklassificeringsmodeller (<b>serie i två delar</b>).<br>&nbsp;
+    - html: <a href="tutorial-data-prep">Förbereda data</a> och <a href="tutorial-auto-train-models">använda automatiserad maskininlärning</a> för att träna och justera regressionsmodeller (<b>serie i två delar</b>).
+- title: Exempel
+  items:
   - type: paragraph
-    text: '<b>Exempel</b>: Utforska tjänsten med dessa <a href="https://aka.ms/aml-notebooks">Jupyter Notebooks</a> på GitHub.'
+    text: Utforska tjänsten på Github med hjälp av <a href="samples-notebooks">Jupyter Notebooks</a>.
 - title: Referens
   items:
   - type: list
     style: unordered
     items:
-    - html: <a href="https://aka.ms/data-prep-sdk">Azure Machine Learning-SDK för dataförberedelse</a>
-    - html: <a href="https://aka.ms/aml-sdk">Azure Machine Learning-SDK för Python (huvud-SDK)</a>
-    - html: <a href="https://aka.ms/aml-monitoring-sdk">Azure Machine Learning Monitoring SDK</a>
+    - html: <a href="https://aka.ms/aml-sdk">Huvud-SDK (Python)</a>
+    - html: <a href="https://aka.ms/data-prep-sdk">SDK för dataförberedelser (Python)</a>
+    - html: <a href="https://aka.ms/aml-monitoring-sdk">SDK för övervakning (Python)</a>
 - title: Andra Azure Machine Learning-tekniker
   items:
   - type: list

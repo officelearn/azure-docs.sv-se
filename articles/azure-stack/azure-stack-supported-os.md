@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 12/27/2018
 ms.author: sethm
 ms.reviewer: unknown
-ms.openlocfilehash: cd44aa1dcc0ac5f97d39dee91fb547a333cb6ccf
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
+ms.lastreviewed: 12/27/2018
+ms.openlocfilehash: 8f53bbd65053fe9ac2bf49478944dc99dac3acfd
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54247715"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55247858"
 ---
 # <a name="guest-operating-systems-supported-on-azure-stack"></a>Gästoperativsystem som stöds på Azure Stack
 
@@ -62,7 +63,7 @@ Linux-distributioner som är listat som är tillgänglig i Marketplace innehåll
 | CentOS-baserade 7.4 | 64-bitars | Rogue Wave | Ja |
 | ClearLinux | 64-bitars | ClearLinux.org | Ja |
 | Behållaren Linux |  64-bitars | CoreOS | Stable |
-| Debian 8 ”Jessie” | 64-bitars | credativ |  Ja |
+| Debian 8 "Jessie" | 64-bitars | credativ |  Ja |
 | Debian 9 ”Stretch” | 64-bitars | credativ | Ja |
 | Red Hat Enterprise Linux 7.x | 64-bitars | Red Hat |Ta med din egen avbildning |
 | SLES 11SP4 | 64-bitars | SUSE | Ja |

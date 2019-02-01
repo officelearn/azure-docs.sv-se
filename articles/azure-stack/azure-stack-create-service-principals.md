@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
-ms.openlocfilehash: 50ece9edbc4bee1dea2cc61f2cdd851b278aa7b0
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.lastreviewed: 12/18/2018
+ms.openlocfilehash: 5ff2ee3ed271d8c32e2d41f40a56f71aa4c6c67c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53720449"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55245277"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Ge programåtkomst till Azure Stack
 
@@ -64,7 +65,7 @@ När du loggar in, använder ID: T för ditt program och för en webbapp / API, 
 
 2. Kopiera **Program-ID:t** och lagra det i din programkod. Program i den [programexempel](#sample-applications) avsnittet avser det här värdet som klient-ID.
 
-     ![klient-ID](./media/azure-stack-create-service-principal/image12.png)
+     ![Klient-ID](./media/azure-stack-create-service-principal/image12.png)
 3. Generera en autentiseringsnyckel för en webbapp / API, Välj **inställningar** > **nycklar**. 
 
 4. Tillhandahåll beskrivning av och varaktighet för nyckeln. Välj **Spara** när du är klar.
@@ -85,7 +86,7 @@ Du kan använda någon av två metoder för att skapa din tjänstens huvudnamn m
 
 Åtgärder för att hantera AD FS-tjänsthuvudnamn.
 
-| Typ | Åtgärd |
+| Type | Åtgärd |
 | --- | --- |
 | AD FS-certifikat | [Skapa](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
 | AD FS-certifikat | [Uppdatering](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
@@ -115,7 +116,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
-|Namn|Namnet på kontot SPN|MyAPP|
+|Name|Namnet på kontot SPN|MyAPP|
 |ClientCertificates|Matris med objekt för certifikat|X509 certifikat|
 |ClientRedirectUris<br>(Valfritt)|Programmet omdirigerings-URI|-|
 
@@ -125,19 +126,19 @@ Följande information måste anges som indata för automation-parametrar:
 
    ```PowerShell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-    $creds = Get-Credential
+    $Creds = Get-Credential
 
     # Creating a PSSession to the ERCS PrivilegedEndpoint
-    $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+    $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
     # If you have a managed certificate use the Get-Item command to retrieve your certificate from your certificate location.
     # If you don't want to use a managed certificate, you can produce a self signed cert for testing purposes: 
-    # $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
-    $cert = Get-Item "<yourcertificatelocation>"
+    # $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
+    $Cert = Get-Item "<YourCertificateLocation>"
     
-    $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -ClientCertificates $using:cert}
-    $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-    $session|remove-pssession
+    $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -ClientCertificates $using:cert}
+    $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+    $Session | Remove-PSSession
 
     # For Azure Stack development kit, this value is set to https://management.local.azurestack.external. This is read from the AzureStackStampInformation output of the ERCS VM.
     $ArmEndpoint = $AzureStackInfo.TenantExternalEndpoints.TenantResourceManager
@@ -159,7 +160,7 @@ Följande information måste anges som indata för automation-parametrar:
     -GraphAudience $GraphAudience `
     -EnableAdfsAuthentication:$true
 
-    Add-AzureRmAccount -EnvironmentName "azurestackuser" `
+    Add-AzureRmAccount -EnvironmentName "AzureStackUser" `
     -ServicePrincipal `
     -CertificateThumbprint $ServicePrincipal.Thumbprint `
     -ApplicationId $ServicePrincipal.ClientId `
@@ -173,7 +174,7 @@ Följande information måste anges som indata för automation-parametrar:
    > För ett självsignerat certifikat kan skapas med verifiering i exemplet nedan:
 
    ```PowerShell  
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+   $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
 
@@ -202,7 +203,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 |Parameter|Beskrivning|Exempel|
 |---------|---------|---------|
-|Namn|Namnet på kontot SPN|MyAPP|
+|Name|Namnet på kontot SPN|MyAPP|
 |ApplicationIdentifier|Unik identifierare|S-1-5-21-1634563105-1224503876-2692824315-2119|
 |ClientCertificate|Matris med objekt för certifikat|X509 certifikat|
 
@@ -214,14 +215,14 @@ I exemplet skapas ett självsignerat certifikat. Använd när du kör cmdletarna
 
      ```powershell
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $RemoveServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $Newcert}
+          $RemoveServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ClientCertificates $NewCert}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. När automation är klar visas den uppdaterade tumavtrycksvärde krävs för SPN-autentisering.
@@ -246,7 +247,7 @@ Följande information måste anges som indata för automation-parametrar:
 
 | Parameter | Beskrivning | Exempel |
 |----------------------|--------------------------|---------|
-| Namn | Namnet på kontot SPN | MyAPP |
+| Name | Namnet på kontot SPN | MyAPP |
 | GenerateClientSecret | Skapa hemliga |  |
 
 #### <a name="use-the-ercs-privilegedendpoint-to-create-the-service-principal"></a>Använd ERCS PrivilegedEndpoint för att skapa tjänstens huvudnamn
@@ -255,15 +256,15 @@ Följande information måste anges som indata för automation-parametrar:
 
      ```PowerShell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
      # Creating a SPN with a secre
-     $ServicePrincipal = Invoke-Command -Session $session -ScriptBlock { New-GraphApplication -Name '<yourappname>' -GenerateClientSecret}
-     $AzureStackInfo = Invoke-Command -Session $session -ScriptBlock { get-azurestackstampinformation }
-     $session|remove-pssession
+     $ServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {New-GraphApplication -Name '<YourAppName>' -GenerateClientSecret}
+     $AzureStackInfo = Invoke-Command -Session $Session -ScriptBlock {Get-AzureStackStampInformation}
+     $Session | Remove-PSSession
 
      # Output the SPN details
      $ServicePrincipal
@@ -299,20 +300,20 @@ Följande information måste anges som indata för automation-parametrar:
 
 ##### <a name="example-of-updating-a-client-secret-for-ad-fs"></a>Exempel för att uppdatera en klienthemlighet för AD FS
 
-I exemplet används den **resetclientsecret** parametern, som klienthemlighet ändra direkt.
+I exemplet används den **ResetClientSecret** parameter, vilket genast ändrar klienthemligheten.
 
 1. Öppna en upphöjd Windows PowerShell-session och kör följande cmdlets:
 
      ```PowerShell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
-          $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+          $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
           # This produces a self signed cert for testing purposes. It is preferred to use a managed certificate for this.
-          $Newcert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
+          $NewCert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<YourAppName>" -KeySpec KeyExchange
 
-          $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
+          $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Set-GraphApplication -ApplicationIdentifier  S-1-5-21-1634563105-1224503876-2692824315-2120 -ResetClientSecret}
 
-          $session|remove-pssession
+          $Session | Remove-PSSession
      ```
 
 2. När automation är klar visas den nyligen skapade hemligheten som krävs för SPN-autentisering. Se till att spara den nya klienthemligheten.
@@ -348,19 +349,19 @@ Följande information måste anges som indata för automation-parametrar:
 
 ```powershell  
      Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
-     $creds = Get-Credential
+     $Creds = Get-Credential
 
      # Creating a PSSession to the ERCS PrivilegedEndpoint
-     $session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $creds
+     $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
-     $UpdateServicePrincipal = Invoke-Command -Session $session -ScriptBlock { Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
+     $UpdateServicePrincipal = Invoke-Command -Session $Session -ScriptBlock {Remove-GraphApplication -ApplicationIdentifier S-1-5-21-1634563105-1224503876-2692824315-2119}
 
-     $session|remove-pssession
+     $Session | Remove-PSSession
 ```
 
 ## <a name="assign-a-role"></a>Tilldela en roll
 
-För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: Inbyggda roller](../role-based-access-control/built-in-roles.md).
+För att komma åt resurser i din prenumeration, måste du tilldela programmet till en roll. Bestäm vilken roll representerar rätt behörigheter för programmet. Läs om tillgängliga roller i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 
 Du kan ange omfånget för den prenumerationen, resursgruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Till exempel lägga till ett program till rollen Läsare för en resursgrupp innebär att den kan läsa resursgruppen och alla resurser som den innehåller.
 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 3cbe7c1d458e95aa27c51f0d1c9f61326888a5ab
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.lastreviewed: 09/12/2018
+ms.openlocfilehash: afb4e634b7e255ef8f2cfc84319029af7412372e
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962689"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55251885"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Överväganden för datacenter-integrering för integrerade Azure Stack-system
 Om du är intresserad av i ett integrerat Azure Stack-system, bör du förstå några av stora planeringsöverväganden kring distribution och hur systemet passar in i ditt datacenter. Den här artikeln innehåller en översikt över dessa överväganden för att fatta viktiga infrastruktur för din Azure Stack-system med flera noder. Förstå dessa överväganden hjälper när du arbetar med maskinvaruleverantören OEM som de distribuerar Azure Stack till ditt datacenter.  
@@ -67,7 +68,7 @@ Du kan också integrera Graph-tjänsten i Azure Stack med befintliga Active Dire
 Följande diagram visar integrerad trafikflödet i AD FS och Graph.
 ![Diagram över AD FS och Graph trafikflöde](media/azure-stack-datacenter-integration/ADFSIntegration.PNG)
 
-## <a name="licensing-model"></a>Licensmodell
+## <a name="licensing-model"></a>Licensieringsmodell
 Du måste bestämma vilka licensieringsmodell som du vill använda. De tillgängliga alternativen beror på om du distribuerar Azure Stack som är ansluten till internet:
 - För en [anslutna distribution](azure-stack-connected-deployment.md), du kan välja antingen betalning som du-användning eller kapacitetsbaserad licensiering. Betalning som du-användning kräver en anslutning till Azure rapportera användning, som sedan faktureras via Azure commerce. 
 - Endast kapacitetsbaserad licensiering stöds om du [distribuera frånkopplad](azure-stack-disconnected-deployment.md) från internet. 
@@ -87,9 +88,9 @@ Du måste tänka på hur du vill planera namnområdet Azure Stack, särskilt reg
 
 I följande tabell sammanfattas dessa domän namngivning beslut.
 
-| Namn | Beskrivning | 
+| Name | Beskrivning | 
 | -------- | ------------- | 
-|Regionnamn | Namnet på din första Azure Stack-region. Det här namnet används som en del av det fullständiga Domännamnet för de offentliga virtuella IP-adresser (VIP) som hanteras av Azure Stack. Normalt är områdesnamnet en identifierare för fysisk plats, till exempel en datacenterplats.<br><br>Region-namnet måste bestå av endast bokstäver och siffror mellan 0 – 9. Inga specialtecken som ”-” eller ”#” och så vidare tillåts.| 
+|Regionsnamn | Namnet på din första Azure Stack-region. Det här namnet används som en del av det fullständiga Domännamnet för de offentliga virtuella IP-adresser (VIP) som hanteras av Azure Stack. Normalt är områdesnamnet en identifierare för fysisk plats, till exempel en datacenterplats.<br><br>Region-namnet måste bestå av endast bokstäver och siffror mellan 0 – 9. Inga specialtecken som ”-” eller ”#” och så vidare tillåts.| 
 | Externt domännamn | Namnet på zonen System DNS (Domain Name) för slutpunkter med utåtriktade virtuella IP-adresser. Används i det fullständiga Domännamnet för de här offentliga virtuella IP-adresser. | 
 | Domännamn för privat (internt) | Namnet på domänen (och interna DNS-zon) skapade på Azure Stack för infrastrukturhantering. 
 | | |
@@ -196,7 +197,7 @@ För att replikera data till en sekundär plats och dirigera program redundans o
 ## <a name="learn-more"></a>Läs mer
 
 - Information om användningsfall, inköp, partner och OEM maskinvaruleverantörer finns i den [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) produktsidan.
-- Mer information om plan och geo-tillgänglighet för Azure Stack-integrerade system finns i faktabladet: [Azure Stack: en utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
+- Information om plan och geo-tillgänglighet för Azure Stack integrerade system finns i dokumentet: [Azure Stack: En utökning av Azure](https://azure.microsoft.com/resources/azure-stack-an-extension-of-azure/). 
 
 ## <a name="next-steps"></a>Nästa steg
 [Azure Stack-anslutning distributionsmodeller](azure-stack-connection-models.md)

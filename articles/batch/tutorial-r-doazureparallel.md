@@ -2,21 +2,21 @@
 title: Parallell R-simulering med Azure Batch
 description: Självstudie – Stegvisa instruktioner för hur du kör en finansiell Monte Carlo-simulering i Azure Batch med R-paketet doAzureParallel
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 305ea27e787196f648fcb4c536f33b12c924c015
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
+ms.openlocfilehash: bccf12c4e0614ec02414001ab7cf3c4b7f189e65
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164707"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55456008"
 ---
 # <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Köra en parallell R-simulering med Azure Batch 
 

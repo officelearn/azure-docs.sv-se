@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 21c54e2e996bb987f7a27ac3e6333df6f74d6f4b
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.lastreviewed: 10/15/2018
+ms.openlocfilehash: 2cee4d75a111f56012782228d8070bb728720aca
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49338632"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238356"
 ---
 # <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit-arkitektur
 Azure Stack Development Kit (ASDK) är en nod-distribution av Azure Stack. Alla komponenter är installerade på virtuella datorer som körs på en enda värddator. 
@@ -33,10 +34,10 @@ Följande diagram illustrerar logisk arkitektur för ASDK och dess komponenter.
 ## <a name="virtual-machine-roles"></a>Roller för virtuella datorer
 ASDK erbjuder tjänster med hjälp av följande virtuella datorer finns på värddatorn för development kit:
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 | ----- | ----- |
 | **AzS-ACS01** | Azure Stack-lagringstjänster.|
-| **AzS-ADFS01** | Active Directory Federation Services (AD FS).  |
+| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
 | **AzS-BGPNAT01** | Edge-router och ger funktioner för Azure Stack NAT och VPN. |
 | **AzS-CA01** | Utfärdare av Certifikattjänster för Azure Stack-rolltjänster.|
 | **AzS-DC01** | Active Directory, DNS och DHCP-tjänster för Microsoft Azure Stack.|

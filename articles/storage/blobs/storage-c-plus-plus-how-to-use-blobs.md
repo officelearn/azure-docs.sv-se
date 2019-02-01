@@ -7,13 +7,13 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
-ms.component: blobs
-ms.openlocfilehash: f928f27c8c1dbfe6c65cb25cb5c34680fc58bff3
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.subservice: blobs
+ms.openlocfilehash: a9b7d15bebdef40c983eaf4d5eee6953b5a10994
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52955878"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55236946"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Använda Blob storage från C++
 
@@ -67,7 +67,7 @@ Om du vill starta Azure storage-emulatorn, Välj den **starta** knapp eller geno
 
 Följande exempel förutsätter att du har använt någon av dessa två metoder för att hämta Azure Storage-anslutningssträngen.  
 
-## <a name="retrieve-your-connection-string"></a>Hämtar anslutningssträngen
+## <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
 Du kan använda den **cloud_storage_account** klass för att representera kontoinformationen för lagring. Du hämtar informationen om lagringskontot från Azure Storage-anslutningssträngen med hjälp av metoden **parse**.  
 
 ```cpp
@@ -82,7 +82,7 @@ Sedan hämta en referens till en **cloud_blob_client** klassen eftersom den låt
 azure::storage::cloud_blob_client blob_client = storage_account.create_cloud_blob_client();  
 ```
 
-## <a name="how-to-create-a-container"></a>Så här: skapa en behållare
+## <a name="how-to-create-a-container"></a>Anvisningar: Skapa en container
 [!INCLUDE [storage-container-naming-rules-include](../../../includes/storage-container-naming-rules-include.md)]
 
 Det här exemplet visas hur du skapar en container om den inte redan finns:  
@@ -119,7 +119,7 @@ container.upload_permissions(permissions);
 
 Alla på Internet kan se blobbar i en offentlig behållare, men du kan ändra eller ta bort dem bara om du har rätt åtkomstnyckel.  
 
-## <a name="how-to-upload-a-blob-into-a-container"></a>Så här: ladda upp en blob till en behållare
+## <a name="how-to-upload-a-blob-into-a-container"></a>Anvisningar: Ladda upp en blob till en container
 Azure Blob storage stöder blockera blobar och sidblobar. I de flesta fall är blockblobbar den rekommenderade typen.  
 
 Om du vill ladda upp en fil till en blockblob hämtar du en referens för containern och använder den för att hämta en referens för blockbloben. När du har en blobbreferens kan du kan ladda upp en dataström till den genom att anropa den **upload_from_stream** metod. Med den här åtgärden skapas blobben om den inte fanns tidigare, eller skrivs över om den redan fanns. Följande exempel visar hur du laddar upp en blob till en container och förutsätter att containern redan hade skapats.  
@@ -154,7 +154,7 @@ blob3.upload_text(U("other text"));
 
 Du kan också använda den **upload_from_file** metod för att överföra en fil till en blockblob.
 
-## <a name="how-to-list-the-blobs-in-a-container"></a>Så här: listar blobarna i en behållare
+## <a name="how-to-list-the-blobs-in-a-container"></a>Anvisningar: Visa en lista över blobarna i en container
 Om du vill visa blobar i en container börjar du med att hämta en referens för containern. Du kan sedan använda behållarens **list_blobs** metod för att hämta blobbarna och/eller katalogerna i den. Komma åt den omfattande uppsättningen med egenskaper och metoder för en returnerad **list_blob_item**, måste du anropa den **list_blob_item.as_blob** metod för att hämta en **cloud_blob** objekt, eller **list_blob.as_directory** metod för att hämta ett cloud_blob_directory-objekt. Följande kod visar hur du hämtar och returnerar URI: N för varje objekt i den **Mina exempelbehållaren** behållare:
 
 ```cpp
@@ -184,7 +184,7 @@ for (auto it = container.list_blobs(); it != end_of_results; ++it)
 
 Mer information om hur du visar åtgärder finns i [lista Azure Storage-resurser i C++](../storage-c-plus-plus-enumeration.md).
 
-## <a name="how-to-download-blobs"></a>Så här: ladda ned blobar
+## <a name="how-to-download-blobs"></a>Anvisningar: Ladda ned blobbar
 Om du vill ladda ned blobbarna först hämta en blobbreferens och anropar sedan den **download_to_stream** metod. I följande exempel används den **download_to_stream** metod för att överföra blobbinnehållet till ett dataströmsobjekt som du sedan kan spara till en lokal fil.  
 
 ```cpp
@@ -232,7 +232,7 @@ azure::storage::cloud_block_blob text_blob = container.get_block_blob_reference(
 utility::string_t text = text_blob.download_text();
 ```
 
-## <a name="how-to-delete-blobs"></a>Så här: ta bort blobar
+## <a name="how-to-delete-blobs"></a>Anvisningar: Ta bort blobbar
 Ta bort en blob genom att först hämta en blobbreferens och anropar sedan den **delete_blob** metod på den.  
 
 ```cpp

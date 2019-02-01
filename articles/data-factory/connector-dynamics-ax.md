@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: jingwang
-ms.openlocfilehash: adc006e4c247713aa7d5cbca6a25023fd5a1b50c
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
+ms.openlocfilehash: 1d20308bb7fcfa2636f10e3990d98dcd6ab05a9c
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54352673"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55238221"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory-preview"></a>Kopiera data från Dynamics AX genom att använda Azure Data Factory (förhandsversion)
 
@@ -110,7 +110,7 @@ För att kopiera data från Dynamics AX, ange den **typ** egenskapen på dataupp
     "name": "DynamicsAXResourceDataset",
     "properties": {
         "type": "DynamicsAXResource",
-        "typeProperties": {     
+        "typeProperties": {
             "path": "<entity path e.g. dd04tentitySet>"
         },
         "linkedServiceName": {

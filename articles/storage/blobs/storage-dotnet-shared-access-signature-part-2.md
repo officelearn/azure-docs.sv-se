@@ -8,13 +8,13 @@ ms.topic: article
 ms.devlang: dotnet
 ms.date: 05/15/2017
 ms.author: tamram
-ms.component: blobs
-ms.openlocfilehash: 6e33f700e9f453f419bf431d772d3db27e806ac0
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.subservice: blobs
+ms.openlocfilehash: 9c5f32bb1b4f335fab11f0fd865421f2eec5eee9
+ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240706"
+ms.lasthandoff: 01/30/2019
+ms.locfileid: "55244920"
 ---
 # <a name="shared-access-signatures-part-2-create-and-use-a-sas-with-blob-storage"></a>Signaturer för delad åtkomst, del 2: Skapa och använda en SAS med Blob storage
 
@@ -28,9 +28,9 @@ ms.locfileid: "51240706"
 ## <a name="about-this-tutorial"></a>Om den här självstudiekursen
 I den här självstudiekursen skapar vi två konsolprogram som visar hur du skapar och använder signaturer för delad åtkomst för behållare och blobbar:
 
-**Programmet 1**: av hanteringsprogrammet. Genererar en signatur för delad åtkomst för en behållare och en blob. Innehåller åtkomstnyckeln för lagringskontot i källkoden.
+**Programmet 1**: Hanteringsprogram. Genererar en signatur för delad åtkomst för en behållare och en blob. Innehåller åtkomstnyckeln för lagringskontot i källkoden.
 
-**Programmet 2**: klientprogrammet. Åtkomst till behållare och blobnamn resurser med hjälp av signaturer för delad åtkomst som skapats med det första programmet. Använder endast de delade åtkomstsignaturer åtkomst-behållaren och blob-resurser – sker *inte* inkluderar åtkomstnyckel för lagringskontot.
+**Programmet 2**: Klientprogrammet. Åtkomst till behållare och blobnamn resurser med hjälp av signaturer för delad åtkomst som skapats med det första programmet. Använder endast de delade åtkomstsignaturer åtkomst-behållaren och blob-resurser – sker *inte* inkluderar åtkomstnyckel för lagringskontot.
 
 ## <a name="part-1-create-a-console-application-to-generate-shared-access-signatures"></a>Del 1: Skapa ett konsolprogram för att generera delade åtkomstsignaturer
 Kontrollera först att du har Azure Storage-klientbiblioteket för .NET som installeras. Du kan installera den [NuGet-paketet](http://nuget.org/packages/WindowsAzure.Storage/ "NuGet-paketet") som innehåller den senaste sammansättningarna för klientbiblioteket. Det här är den rekommenderade metoden för att säkerställa att du har de senaste korrigeringarna. Du kan också hämta klientbiblioteket som en del av den senaste versionen av den [Azure SDK för .NET](https://azure.microsoft.com/downloads/).

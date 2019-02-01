@@ -10,12 +10,12 @@ ms.date: 09/11/2018
 ms.topic: article
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
-ms.openlocfilehash: 37ee9fec8940231a01b0014b020ca3f0dffb53bf
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 5be6f99067f1209fcd131dfc33c46995b2a537f8
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467109"
+ms.locfileid: "55498309"
 ---
 # <a name="troubleshooting-guide"></a>Felsökningsguide
 
@@ -25,17 +25,17 @@ Den här guiden innehåller information om vanliga problem som du kan ha när du
 
 Det kan hjälpa för att skapa mer detaljerade loggar för granskning för att felsöka problem med mer effektivt.
 
-Visual Studio-tillägg, ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggar skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+Visual Studio-tillägg, ange den `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` miljövariabeln till 1. Glöm inte att starta om Visual Studio för miljövariabeln ska börja gälla. När du har aktiverat, detaljerade loggarna skrivs till din `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
 I CLI, kan du mata ut mer information under Kommandokörning med hjälp av den `--verbose` växla. Du kan också gå mer detaljerade loggar i `%TEMP%\Azure Dev Spaces`. På en Mac till TEMP-katalogen kan hittas genom att köra `echo $TMPDIR` från ett terminalfönster. På en Linux-dator till TEMP-katalogen är vanligtvis `/tmp`.
 
 ## <a name="debugging-services-with-multiple-instances"></a>Felsökning av tjänster med flera instanser
 
-Just nu fungerar Azure Dev blanksteg bäst när du felsöker en enda instans (pod). Azds.yaml-filen innehåller en inställning, replicaCount, som anger antalet poddar som ska köras för din tjänst. Om du ändrar replicaCount för att konfigurera din app för att köra flera poddar för en viss tjänst, ska felsökningsprogrammet kopplas till den första pod (när det visas i alfabetisk ordning). Om den pod återvinns av någon anledning, till oväntade resultat eftersom felsökningsprogrammet ska kopplas till en annan pod.
+För närvarande Azure Dev blanksteg fungerar bäst när du felsöker en enda instans, eller pod. Azds.yaml-filen innehåller en inställning *replicaCount*, innebär det att antalet poddar som Kubernetes som körs i din tjänst. Om du ändrar replicaCount för att konfigurera din app för att köra flera poddar för en viss tjänst, bifogar felsökningsprogrammet till den första pod när visas i alfabetisk ordning. Felsökningsprogrammet kopplar till en annan pod när den ursprungliga pod återanvänds till oväntade resultat.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Felet ”Det gick inte att skapa Azure Dev blanksteg controller'
 
-Det här felet kan uppstå när något går fel med skapandet av kontrollanten. Om det är ett tillfälligt fel, korrigerar ta bort och återskapa kontrollanten den.
+Det här felet kan uppstå när något går fel med skapandet av kontrollanten. Om det är ett tillfälligt fel, ta bort och återskapa styrenheten för att åtgärda det.
 
 ### <a name="try"></a>Prova:
 
@@ -76,10 +76,10 @@ I Visual Studio:
     ![Skärmbild av alternativ för dialogrutan](media/common/VerbositySetting.PNG)
     
 ### <a name="multi-stage-dockerfiles"></a>Flera steg Dockerfiles:
-Du kan se det här felet när du försöker använda en flerstegs Dockerfile. Utdata ser ut så här:
+Du får en *går inte att starta tjänsten* fel när du använder en flerstegs Dockerfile. I det här fallet innehåller den utförliga utdata följande text:
 
 ```cmd
-$ azds up
+$ azds up -v
 Using dev space 'default' with target 'AksClusterName'
 Synchronizing files...6s
 Installing Helm chart...2s
@@ -91,10 +91,10 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Det beror på att skapar AKS-noder som kör en äldre version av Docker som inte stöder flera steg. Du behöver skriva om din Dockerfile för att undvika flera steg versioner.
+Det här felet uppstår eftersom bygger AKS-noder som kör en äldre version av Docker som inte stöder flera steg. Skriv om din Dockerfile för att undvika flera steg versioner.
 
-### <a name="re-running-a-service-after-controller-re-creation"></a>Köra en tjänst efter skapandet av domänkontrollanten igen
-Du kan se det här felet när du försöker köra en tjänst när du har tagit bort och återskapas kontrollanten Azure Dev blanksteg som är associerade med det här klustret. Utdata ser ut så här:
+### <a name="rerunning-a-service-after-controller-re-creation"></a>Köra en tjänst efter skapandet av domänkontrollanten igen
+Du får en *går inte att starta tjänsten* fel vid försök att köra en tjänst när du har tagit bort och återskapas kontrollanten Azure Dev blanksteg som är associerade med det här klustret. I det här fallet innehåller den utförliga utdata följande text:
 
 ```cmd
 Installing Helm chart...
@@ -104,13 +104,13 @@ Helm install failed with exit code '1': Release "azds-33d46b-default-webapp1" do
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
 ```
 
-Det beror på att ta bort kontrollanten Dev blanksteg tas inte bort tidigare installerade av den controller. Återskapande av kontrollanten och sedan försöka att köra tjänster som använder den nya domänkontrollanten misslyckas eftersom de gamla tjänsterna fortfarande är kvar.
+Det här felet beror på att ta bort kontrollanten Dev blanksteg tas inte bort tidigare installerade av den controller. Återskapande av kontrollanten och sedan försöka att köra tjänster som använder den nya domänkontrollanten misslyckas eftersom de gamla tjänsterna fortfarande är kvar.
 
-För att lösa det, Använd den `kubectl delete` kommando för att manuellt ta bort de gamla tjänsterna från ditt kluster och kör Dev blanksteg för att installera de nya tjänsterna.
+Du löser problemet genom att använda den `kubectl delete` kommando för att manuellt ta bort de gamla tjänsterna från ditt kluster och kör sedan Dev blanksteg för att installera de nya tjänsterna.
 
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-namnmatchningen misslyckas för en offentlig URL som är associerade med en tjänst för utveckling blanksteg
 
-När DNS-namnmatchningen misslyckas visas ett ”sidan kan inte visas” eller ”den här platsen kan inte nås” fel i webbläsaren när du försöker ansluta till en offentlig URL som är associerade med en tjänst för utveckling blanksteg.
+Du kan konfigurera en offentlig URL-slutpunkt för din tjänst genom att ange den `--public` växla till den `azds prep` kommandot, eller genom att välja den `Publicly Accessible` kryssrutan i Visual Studio. Det offentliga DNS-namnet registreras automatiskt när du kör din tjänst i Dev blanksteg. Om den här DNS-namn inte har registrerats, visas en *sidan kan inte visas* eller *plats går inte att nå* fel i webbläsaren när du ansluter till en offentlig URL.
 
 ### <a name="try"></a>Prova:
 
@@ -122,7 +122,7 @@ azds list-uris
 
 Om en Webbadress finns i den *väntande* tillstånd, som innebär att Dev blanksteg väntar fortfarande för DNS-registrering att slutföra. Ibland kan tar det några minuter för registrering för att slutföra. Dev blanksteg öppnas även en localhost-tunnel för varje tjänst, som du kan använda under väntan på DNS-registrering.
 
-Om en URL som finns kvar i den *väntande* tillstånd under mer än 5 minuter, det kan bero på problem med den externa DNS-pod som skapar den offentliga slutpunkten och/eller nginx ingående controller pod som hämtar den offentliga slutpunkten. Du kan använda följande kommandon för att ta bort dessa poddar. De kommer att återskapas automatiskt.
+Om en URL som ligger i den *väntande* tillstånd under mer än 5 minuter, det kan bero på problem med den externa DNS-pod som skapar den offentliga slutpunkten eller nginx ingående controller pod som hämtar den offentliga slutpunkten. Du kan använda följande kommandon för att ta bort dessa poddar. AKS återskapas automatiskt borttagna poddarna.
 
 ```cmd
 kubectl delete pod -n kube-system -l app=addon-http-application-routing-external-dns
@@ -140,7 +140,7 @@ Starta VS Code från en kommandotolk där PATH-miljövariabeln är korrekt.
 
 ## <a name="error-required-tools-to-build-and-debug-projectname-are-out-of-date"></a>Fel ”nödvändiga verktyg för att skapa och Felsök 'projectname' är inaktuell”.
 
-Det här felet i Visual Studio Code visas om du har en nyare version av VS Code-tillägg för Azure Dev blanksteg, men en äldre version av Azure Dev blanksteg CLI.
+Du ser detta fel i Visual Studio Code om du har en nyare version av VS Code-tillägg för Azure Dev blanksteg, men en äldre version av Azure Dev blanksteg CLI.
 
 ### <a name="try"></a>Testa
 
@@ -166,10 +166,10 @@ Du kan se det här felet om azds.exe inte är installerat eller korrekt konfigur
 ## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Varning ”Dockerfile kunde inte genereras på grund av språket stöds inte.
 Azure Dev blanksteg har inbyggt stöd för C# och Node.js. När du kör *azds prep* i en katalog som innehåller kod som skrivs i ett av dessa språk, Azure Dev blanksteg automatiskt skapar en lämplig Dockerfile åt dig.
 
-Du kan fortfarande använda Azure Dev blanksteg med kod som skrivits på andra språk, men du kommer att behöva skapa Dockerfile själv innan du kör *azds upp* för första gången.
+Du kan fortfarande använda Azure Dev blanksteg med kod som skrivits på andra språk, men du måste manuellt skapa Dockerfile innan du kör *azds upp* för första gången.
 
 ### <a name="try"></a>Prova:
-Om ditt program är skrivet på ett språk att Azure Dev blanksteg inte har inbyggt stöd, måste du ange en lämplig Dockerfile för att skapa en behållaravbildning som kör koden. Docker innehåller en [lista över bästa praxis för att skriva Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) samt en [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) som hjälper dig att skriva en Dockerfile som passar dina behov.
+Om ditt program är skrivna på ett språk att Azure Dev blanksteg inte har inbyggt stöd, måste du ange en lämplig Dockerfile för att skapa en behållaravbildning som kör koden. Docker innehåller en [lista över bästa praxis för att skriva Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) och en [Dockerfile-referensen](https://docs.docker.com/engine/reference/builder/) som hjälper dig att skriva en Dockerfile som passar dina behov.
 
 När du har en lämplig Dockerfile på plats kan du fortsätta med körs *azds upp* att köra ditt program i Azure Dev blanksteg.
 
@@ -183,7 +183,7 @@ Behållare-port är inte tillgängligt. Det här problemet kan inträffa därfö
 
 ### <a name="try"></a>Prova:
 1. Om behållaren håller på att bygger/distribueras, kan du vänta 2-3 sekunder och testa åtkomst till tjänsten igen. 
-1. Kontrollera i portkonfigurationen. De angivna portnummer måste vara **identiska** i alla tillgångar som nedan:
+1. Kontrollera i portkonfigurationen. De angivna portnummer måste vara **identiska** i alla följande resurser:
     * **Dockerfile:** Anges av den `EXPOSE` instruktion.
     * **[Helm-diagrammet](https://docs.helm.sh):** Anges av den `externalPort` och `internalPort` värden för en tjänst (ofta finns i en `values.yml` fil),
     * Alla portar som öppnas i programkoden, till exempel i Node.js: `var server = app.listen(80, function () {...}`
@@ -236,7 +236,7 @@ Uppdatera den `launch.json` filen under den `.vscode` underkatalog i projektmapp
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>Det gick inte att hitta typen eller namnrymd namnet ”MyLibrary”
 
 ### <a name="reason"></a>Orsak 
-Build-kontexten är på projekt/tjänstnivå som standard, därför hittas ett biblioteksprojekt som du använder inte.
+Build-kontexten är på projekt/tjänstnivå som standard, kan därför ett biblioteksprojekt som du använder inte hittas.
 
 ### <a name="try"></a>Prova:
 Vad som behöver göras:
@@ -247,7 +247,7 @@ Vad som behöver göras:
 Du kan se ett exempel på https://github.com/sgreenmsft/buildcontextsample
 
 ## <a name="microsoftdevspacesregisteraction-authorization-error"></a>'Microsoft.DevSpaces/register/action' auktoriseringsfel
-Följande fel kan uppstå när du hanterar ett adressutrymme för utveckling av Azure och du arbetar i en Azure-prenumeration som du inte har ägare eller deltagare som har åtkomst till.
+Du behöver *ägare* eller *deltagare* åtkomst i Azure-prenumerationen du hanterar Azure Dev blanksteg. Du kan se det här felet om du försöker hantera Dev blanksteg och du inte har *ägare* eller *deltagare* åtkomst till den associera Azure-prenumerationen.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
 ### <a name="reason"></a>Orsak
@@ -260,6 +260,28 @@ Någon ägare eller deltagare åtkomst till Azure-prenumeration kan köra följa
 az provider register --namespace Microsoft.DevSpaces
 ```
 
+## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Dev blanksteg tidsgränsen uppnås vid *väntar på behållaren bild build...*  steg med AKS virtuella noder
+
+### <a name="reason"></a>Orsak
+Detta inträffar när du försöker använda Dev blanksteg för att köra en tjänst som är konfigurerad för att köras en [AKS virtuell nod](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev blanksteg stöder för närvarande inte att skapa eller felsöker tjänster i virtuella noder.
+
+Om du kör `azds up` med den `--verbose` växel eller aktivera utförlig loggning i Visual Studio visas ytterligare information:
+
+```cmd
+Installed chart in 2s
+Waiting for container image build...
+pods/mywebapi-76cf5f69bb-lgprv: Scheduled: Successfully assigned default/mywebapi-76cf5f69bb-lgprv to virtual-node-aci-linux
+Streaming build container logs for service 'mywebapi' failed with: Timed out after 601.3037572 seconds trying to start build logs streaming operation. 10m 1s
+Container image build failed
+```
+
+Detta visar att tjänstens pod har tilldelats till *virtuella-nod-aci-linux*, vilket är en virtuell nod.
+
+### <a name="try"></a>Prova:
+Uppdatera Helm-diagram för tjänsten att ta bort *nodeSelector* och/eller *tolerations* värden som gör att tjänsten körs på en virtuell nod. Dessa värden definieras vanligen i diagrammets `values.yaml` fil.
+
+Du kan fortfarande använda ett AKS-kluster som har virtuella noder funktionen är aktiverad, om du vill skapa/debug via Dev blanksteg tjänsten körs på en VM-nod. Det här är standardkonfigurationen.
+
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>”Fel: kunde inte hitta en klar tiller pod” när du startar Dev blanksteg
 
 ### <a name="reason"></a>Orsak
@@ -271,20 +293,18 @@ Starta om agentnoder i klustret vanligtvis löser problemet.
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>Azure Dev blanksteg proxy kan störa andra poddar som körs i en dev-utrymme
 
 ### <a name="reason"></a>Orsak
-När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänsterna i pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter.
-
-Tyvärr kan det påverka vissa tjänster som körs i de poddarna. Mer specifikt kan störa det poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i överordnad/underordnad kommunikation.
+När du aktiverar Dev blanksteg för ett namnområde i AKS-kluster kan ytterligare en behållare kallas _mindaro proxy_ är installerat i var och en av poddarna som körs i det här namnområdet. Den här behållaren spärras anrop till tjänster i en pod, som är väsentlig Dev blanksteg team utvecklingsmöjligheter; Det kan dock påverka vissa tjänster som körs i de poddarna. Det är känt att störa poddar som kör Azure Cache för Redis, orsaka anslutningsfel och misslyckade begäranden i master/slave kommunikation.
 
 ### <a name="try"></a>Prova:
-Du kan flytta den berörda pod(s) till ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat när du fortsätter att köra resten av ditt program i ett namnområde för Dev blanksteg-aktiverade. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.
+Du kan flytta berörda poddarna i ett namnområde i det kluster som har _inte_ har Dev blanksteg aktiverat. Resten av ditt program kan fortsätta att köras i en Dev blanksteg-aktiverat namnområde. Dev blanksteg kan inte installeras på _mindaro proxy_ behållare i Dev blanksteg aktiverade namnområden.
 
-## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev blanksteg verkar inte använda min befintliga Dockerfile för att skapa en behållare 
+## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev blanksteg verkar inte använda min befintliga Dockerfile för att skapa en behållare
 
 ### <a name="reason"></a>Orsak
-Azure Dev blanksteg kan konfigureras för att peka på en specifik _Dockerfile_ i projektet. Om den visas Azure Dev blanksteg inte använder den _Dockerfile_ du förväntar dig att bygga dina behållare kan du behöva meddelar Azure Dev blanksteg där det är uttryckligen. 
+Azure Dev blanksteg kan konfigureras för att peka på en specifik _Dockerfile_ i projektet. Om den visas Azure Dev blanksteg inte använder den _Dockerfile_ du förväntar dig att bygga dina behållare kan du behöva uttryckligen begära Azure Dev blanksteg vilka Dockerfile du använder. 
 
 ### <a name="try"></a>Prova:
-Öppna den _azds.yaml_ -fil som har genererats av Azure Dev blanksteg i projektet. Använd den `configurations->develop->build->dockerfile` direktiv så att den pekar till Dockerfile som du vill använda:
+Öppna den _azds.yaml_ filen som Azure Dev blanksteg som genererats i projektet. Använd den *konfigurationer -> utveckla -> build -> dockerfile* direktiv så att den pekar till Dockerfile som du vill använda:
 
 ```
 ...

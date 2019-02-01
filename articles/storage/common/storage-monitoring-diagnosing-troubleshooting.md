@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 6b40741545ff286bc1b8e696d28c61b197605247
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 25ec52b44f8d5a36868cc609c42b6db5ab939fa4
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474011"
+ms.locfileid: "55490277"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Övervaka, diagnostisera och felsök Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -637,7 +637,7 @@ Koden i klientprogrammet bort och återskapar sedan omedelbart en blobbehållare
 Klientprogrammet bör använda unikt behållarnamn när du skapar den nya behållare om ta bort/återskapa mönstret är vanligt.
 
 ### <a name="metrics-show-low-percent-success"></a>Mätningar visar låga PercentSuccess eller analytics loggposter har åtgärder med transaktionsstatus av ClientOtherErrors
-Den **PercentSuccess** mått samlar in procentuella av åtgärder som har genomförts baserat på deras HTTP-statuskod. Åtgärder med statuskoder för 2XX räknas som slutförd, medan åtgärder med statuskoder i 3XX, 4XX och 5XX intervall räknas som misslyckad och lägre den **PercentSucess** måttvärde. I loggfilerna från serversidan storage de här åtgärderna registreras med transaktionsstatus **ClientOtherErrors**.
+Den **PercentSuccess** mått samlar in procentuella av åtgärder som har genomförts baserat på deras HTTP-statuskod. Åtgärder med statuskoder för 2XX räknas som slutförd, medan åtgärder med statuskoder i 3XX, 4XX och 5XX intervall räknas som misslyckad och lägre den **PercentSuccess** måttvärde. I loggfilerna från serversidan storage de här åtgärderna registreras med transaktionsstatus **ClientOtherErrors**.
 
 Det är viktigt att Observera att dessa åtgärder har slutförts och därför inte påverkar andra mått, till exempel tillgänglighet. Några exempel på åtgärder som köras men som kan leda till misslyckade HTTP-statuskoder är:
 

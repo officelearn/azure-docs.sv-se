@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: e29b94f270b295725400103f288f3d3bd0c2a2eb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 7f031bf6fed57857f38d989fb72f99dd93f04de5
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49381200"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489231"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhetsbegrepp för program och -kluster i Azure Kubernetes Service (AKS)
 
@@ -28,7 +28,7 @@ Den här artikeln innehåller grundläggande begrepp som skyddar dina program i 
 
 ## <a name="master-security"></a>Master säkerhet
 
-I AKS är Kubernetes huvudkomponenter en del av den hantera tillhandahållna min Microsoft. Varje AKS-kluster har sina egna enda Backups, dedikerad Kubernetes master ange API-servern, Scheduler, osv. Den här bakgrunden hanteras och underhålls av Microsoft
+I AKS är Kubernetes huvudkomponenter en del av hanterad tjänst som tillhandahålls av Microsoft. Varje AKS-kluster har sina egna enda Backups, dedikerad Kubernetes master ange API-servern, Scheduler, osv. Den här bakgrunden hanteras och underhålls av Microsoft
 
 Som standard Kubernetes API-servern använder en offentlig IP-adress och namnge med fullständigt kvalificerade domännamnet (FQDN). Du kan styra åtkomst till API-servern med hjälp av Kubernetes rollbaserade åtkomstkontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
 
@@ -41,6 +41,8 @@ Azure-plattformen används automatiskt OS säkerhetsuppdateringar till noder på
 Noder distribueras i ett privat virtuellt nätverksundernät, med inga offentliga IP-adresserna som tilldelats. För felsökning och hantering, är SSH aktiverat som standard. Den här SSH-åtkomst är bara tillgänglig i den interna IP-adressen. Azure reglerna för nätverkssäkerhetsgrupper kan användas för att ytterligare begränsa åtkomst för IP-adressintervall till AKS-noder. Tar bort den standard SSH nätverkssäkerhetsgruppregel och inaktivering av SSH-tjänsten på noderna förhindrar utföra underhållsåtgärder Azure-plattformen.
 
 Noderna använder Azure Managed Disks för att tillhandahålla lagring. För de flesta storlekar på VM-nod är dessa premiumdiskar backas upp av SSD för höga prestanda. De data som lagras på hanterade diskar krypteras automatiskt i vila i Azure-plattformen. För att förbättra redundans, replikeras också på ett säkert sätt dessa diskar i Azure-datacentret.
+
+Kubernetes-miljöer i AKS eller någon annanstans, är för närvarande inte helt säkra för fientlig användning med flera innehavare. Ytterligare säkerhetsfunktioner som *Pod säkerhetsprinciper* eller mer detaljerade rollbaserade åtkomstkontroller (RBAC) för noder försvåra kryphål. Men är SANT säkerhet vid körning av fientlig arbetsbelastningar för flera innehavare, ett hypervisor-program endast säkerhetsnivå som du ska lita på. Säkerhetsdomän för Kubernetes blir hela klustret, inte en enskild nod. Du bör använda fysiskt isolerat kluster för dessa typer av fientlig arbetsbelastningar för flera innehavare. Läs mer om sätt att isolera arbetsbelastningar [bästa praxis för isolering av kluster i AKS][cluster-isolation],
 
 ## <a name="cluster-upgrades"></a>Klusteruppgradering
 
@@ -96,3 +98,4 @@ Mer information om core Kubernetes och AKS-begrepp finns i följande artiklar:
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[cluster-isolation]: operator-best-practices-cluster-isolation.md

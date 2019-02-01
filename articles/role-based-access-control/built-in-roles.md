@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 8626dcb5b5c8eb7e83123eaeadb601e65d52f2c8
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
+ms.openlocfilehash: 23fab567fc2fdd5c5c8f3c5d173a5201d3322f81
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55081236"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55512558"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 [Rollbaserad åtkomstkontroll (RBAC)](overview.md) har flera inbyggda rolldefinitioner som du kan tilldela till användare, grupper och tjänstens huvudnamn. Rolltilldelningar är det sätt som du styr åtkomst till resurser i Azure. Om de inbyggda rollerna inte uppfyller organisationens specifika krav kan du skapa egna, [anpassade roller](custom-roles.md).
@@ -149,8 +149,8 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **Åtgärder** |  |
 > | * | Skapa och hantera resurser för alla typer av |
 > | **NotActions** |  |
-> | Microsoft.Authorization/*/Delete | Det går inte att ta bort roller och rolltilldelningar |
-> | Microsoft.Authorization/*/Write | Det går inte att skapa roller och rolltilldelningar |
+> | Microsoft.Authorization/*/Delete | Ta bort roller och rolltilldelningar |
+> | Microsoft.Authorization/*/Write | Skapa roller och rolltilldelningar |
 > | Microsoft.Authorization/elevateAccess/Action | Ger anroparen åtkomst till administratör för användaråtkomst i klientomfattningen |
 > | Microsoft.Blueprint/blueprintAssignments/write | Skapa eller uppdatera eventuella skissartefakter |
 > | Microsoft.Blueprint/blueprintAssignments/delete | Ta bort eventuella skissartefakter |
@@ -1600,15 +1600,15 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Det går inte att redigera granskningsinställningar |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Redigera granskningsprinciper |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Redigera granskningsinställningar |
 > | Microsoft.Sql/servers/databases/auditRecords/read | Hämta granskningsposter för databas-blob |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Det går inte att redigera principer |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Det går inte att redigera principer för datamaskning |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Redigera principer |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Redigera principer för datamaskning |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Det går inte att redigera säkerhetsprinciper för avisering |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Det går inte att redigera säkerhetsmått |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Redigera avisering säkerhetsprinciper |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Redigera säkerhetsmått |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
@@ -1676,23 +1676,23 @@ I följande tabell innehåller korta beskrivningar av de inbyggda rollerna. Klic
 > | **NotActions** |  |
 > | Microsoft.Sql/managedInstances/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/managedInstances/vulnerabilityAssessments/* |  |
-> | Microsoft.Sql/servers/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server |
-> | Microsoft.Sql/servers/auditingSettings/* | Det går inte att redigera granskningsinställningarna för SQL server |
-> | Microsoft.Sql/servers/databases/auditingPolicies/* | Det går inte att redigera granskningsprinciper för SQL server-databas |
-> | Microsoft.Sql/servers/databases/auditingSettings/* | Det går inte att redigera granskningsinställningarna för SQL server-databas |
-> | Microsoft.Sql/servers/databases/auditRecords/read | Det går inte att läsa granskningsposter |
-> | Microsoft.Sql/servers/databases/connectionPolicies/* | Det går inte att redigera principer för SQL server-databas |
-> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Det går inte att redigera SQL server-databas datamaskning principer |
+> | Microsoft.Sql/servers/auditingPolicies/* | Redigera granskningsprinciper för SQL server |
+> | Microsoft.Sql/servers/auditingSettings/* | Redigera granskningsinställningarna för SQL server |
+> | Microsoft.Sql/servers/databases/auditingPolicies/* | Redigera granskningsprinciper för SQL server-databas |
+> | Microsoft.Sql/servers/databases/auditingSettings/* | Redigera granskningsinställningarna för SQL server-databas |
+> | Microsoft.Sql/servers/databases/auditRecords/read | Läs granskningsposter |
+> | Microsoft.Sql/servers/databases/connectionPolicies/* | Redigera principer för SQL server-databas |
+> | Microsoft.Sql/servers/databases/dataMaskingPolicies/* | Redigera SQL server-databas datamaskning principer |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/* |  |
 > | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/* |  |
-> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Det går inte att redigera SQL server-databas avisering säkerhetsprinciper |
-> | Microsoft.Sql/servers/databases/securityMetrics/* | Det går inte att redigera säkerhetsmått för SQL server-databas |
+> | Microsoft.Sql/servers/databases/securityAlertPolicies/* | Redigera SQL server-databas avisering säkerhetsprinciper |
+> | Microsoft.Sql/servers/databases/securityMetrics/* | Redigera säkerhetsmått för SQL server-databas |
 > | Microsoft.Sql/servers/databases/sensitivityLabels/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessments/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/extendedAuditingSettings/* |  |
-> | Microsoft.Sql/servers/securityAlertPolicies/* | Det går inte att redigera avisering principer för SQL server-säkerhet |
+> | Microsoft.Sql/servers/securityAlertPolicies/* | Redigera avisering principer för SQL server-säkerhet |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
 
 ## <a name="storage-account-contributor"></a>Lagringskontodeltagare

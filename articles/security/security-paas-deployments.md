@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 199ea6855e661ef39104fdeb54941ccfd9f36933
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 6bc1df7acf7ce711e106983f8084f168152fc51e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53728490"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55488415"
 ---
 # <a name="securing-paas-deployments"></a>Skydda PaaS-distributioner
 
@@ -109,10 +109,10 @@ Microsofts [livscykler för säkerhetsutveckling](https://www.microsoft.com/en-u
 
 I följande tabell visar en lista över STRIDE hot och ger vissa exempel åtgärder som använder Azure-funktioner. Dessa åtgärder fungerar inte i alla situationer.
 
-| Hot | Egenskapen för säkerhet | Potentiella plattformsmigrering i Azure |
+| Hot | Egenskapen för säkerhet | Möjliga lösningar i Azure-plattformen |
 | --- | --- | --- |
 | Förfalskning | Autentisering | Kräv HTTPS-anslutningar. |
-| Manipulering | Integritet | Verifiera SSL-certifikat. |
+| Tampering | Integritet | Verifiera SSL-certifikat. |
 | Repudiation | Oavvislighet | Aktivera Azure [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring). |
 | Avslöjande av information | Sekretess | Kryptera känsliga data i vila med hjälp av [tjänsten certifikat](https://docs.microsoft.com/rest/api/appservice/certificates). |
 | Denial of Service | Tillgänglighet | Övervaka prestandamått för potentiell denial of service-villkor. Implementera anslutningsfilter. |

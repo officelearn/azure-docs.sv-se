@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: b2b5d62c54fbfdef8a5e448a089800eedcb66d07
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
+ms.openlocfilehash: f9f4d544a407a75231302b0eb53c27904585250f
+ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827507"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55510688"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Metodtips för att skydda och hantera arbetsbelastningar migreras till Azure
 
@@ -400,8 +400,7 @@ Virtuella Azure-datorer lagras som sidblobar i Azure Storage.
 - [Lär dig hur du](https://docs.microsoft.com/azure/storage/blobs/storage-blob-snapshots) skapa en blobögonblicksbild.
 - [Granska ett exempelscenario](https://azure.microsoft.com/blog/microsoft-azure-block-blob-storage-backup) för blob storage-säkerhetskopiering.
 - [Läs mer om](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) mjuk borttagning.
-- [Granska](https://docs.microsoft.com/azure/storage/common/storage-disaster-recovery-guidance?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) vad du gör om ett avbrott i Azure Storage inträffar?
-
+- [Haveriberedskap och forcerad redundans (förhandsversion) i Azure Storage](../storage/common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 #### <a name="third-party-backup"></a>Säkerhetskopiering från tredje part
 

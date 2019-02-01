@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/30/2019
 ms.author: diberry
-ms.openlocfilehash: ecf79f5c294b7ef7d14eea49c9bd568f6921fb65
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 802a5cc629a467527c916c5a41a9c00d06e85600
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218033"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55491730"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Använd Microsoft Azure Traffic Manager för att hantera endpoint kvot över nycklar
 Språkförståelse (LUIS) ger dig möjlighet att öka kvoten för slutpunkt-begäran utöver en enda nyckel kvot. Detta görs genom att skapa flera nycklar för LUIS och lägga till dem i LUIS-programmet på den **publicera** sidan i den **resurser och nycklar** avsnittet. 
@@ -340,7 +340,7 @@ Begära Traffic Managers överordnade profilen DNS med hjälp av ett DNS-klientb
 
 Följande Node.js-kod gör en begäran för den överordnade profilen och returnerar en LUIS-slutpunkt:
 
-```nodejs
+```javascript
 const dns = require('dns');
 
 dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {

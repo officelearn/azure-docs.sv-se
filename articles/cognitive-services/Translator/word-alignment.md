@@ -1,21 +1,22 @@
 ---
-title: Word justering information – Translator Text API
+title: Justering av Word - Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Ta emot word justering information från Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 12/06/2018
 ms.author: v-jansko
-ms.openlocfilehash: 15b2d96cdf1794ae0f72c087ef95055da7c0964e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.custom: seodec18
+ms.openlocfilehash: 0a373a61a26411c204cedccec8fbf0beac73e02e
+ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646379"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55461839"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Ta emot word justering information
 
@@ -27,7 +28,7 @@ Justering returneras som ett strängvärde i följande format för varje ord i k
 
 [[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]] *
 
-Exempel justering sträng ”: 0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21”.
+Exempel justering sträng: "0:0-7:10 1:2-11:20 3:4-0:3 3:4-4:6 5:5-21:21".
 
 Med andra ord avgränsas start och slut-index, ett streck separerar språk och blanksteg mellan ord. Ett ord som kan anpassas till noll, ett eller flera ord på andra språk och justerade orden kanske inte är sammanhängande. Om det finns ingen information om justering ska textjustering elementet vara tomt. Metoden returnerar inget fel i så fall.
 

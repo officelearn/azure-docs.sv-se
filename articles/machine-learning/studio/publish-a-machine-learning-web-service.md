@@ -1,8 +1,21 @@
 ---
-Rubrik: Distribuera en Machine Learning Studio web service titleSuffix: Beskrivning av Azure Machine Learning Studio: Så här att konvertera ett träningsexperiment till ett förutsägbart experiment, förbereda för distribution och sedan distribuera den som en Azure Machine Learning Studio-webbtjänst.
-tjänster: machine learning ms.service: machine learning ms.subservice: studio ms.topic: artikel
-
-author: ericlicoding ms.author: amlstudiodocs ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT ms.date: 01/06/2017
+title: Distribuera en Machine Learning Studio-webbtjänst
+titleSuffix: Azure Machine Learning Studio
+description: Så här att konvertera ett träningsexperiment till ett förutsägbart experiment, förbereda för distribution och sedan distribuera den som en Azure Machine Learning Studio-webbtjänst.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: studio
+ms.topic: article
+author: ericlicoding
+ms.author: amlstudiodocs
+ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
+ms.date: 01/06/2017
+ms.openlocfilehash: 89a54d99aa47af273e5955c2103ec696a985737e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55493753"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuera en Azure Machine Learning Studio-webbtjänst
 Azure Machine Learning kan du skapa, testa och distribuera förutsägande Analyslösningar.

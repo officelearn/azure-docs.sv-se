@@ -11,16 +11,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 10/04/2018
 ms.subservice: hybrid
 ms.author: billmath
-ms.openlocfilehash: 49f1b953784aca0776357cc4071efbbff6064660
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: be72c7fa81bffdcd8864a501264dd36fa697d18e
+ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55155348"
+ms.lasthandoff: 01/31/2019
+ms.locfileid: "55489095"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Anpassad installation av Azure AD Connect
 Du använder **anpassade inställningar** för Azure AD Connect om du behöver fler installationsalternativ. Du använder dem till exempel om du har flera skogar eller om du vill konfigurera valfria funktioner som inte omfattas av snabbinstallationen. De används i samtliga fall där en [**snabbinstallation**](how-to-connect-install-express.md) inte uppfyller dina distributions- eller topologikrav.
